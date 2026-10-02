@@ -1,0 +1,1197 @@
+{
+  "experiment": "METH-267-committed-anonymous-excerpt-verdict",
+  "panel_sha256": "11cdc89ecef16e11bf3408f952053cacf8b19036fedc9501c309a2df6222631c",
+  "reviewer": "single agent,arm identities withheld,map and labeled texts unopened",
+  "rubric": "Frozen267/123 excerpt-only atomic unsupported claims; severe central entity/event/result inversion; any concrete supported detail qualifies; ambiguity separate.",
+  "builder_sha256": "8e14b9d15d49e4705f5ca04b2e8d8cb02d458c8034c33ae402ee3913a79a4ab3",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e12_scale.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Performance is measured in rows per second (RPS).",
+            "evidence": "The excerpt gives GB/s bandwidth rows and tok/s; it never gives rows per second.",
+            "severe": false
+          },
+          {
+            "claim": "The precision is TERMINARY.",
+            "evidence": "The visible precision is TERNARY.",
+            "severe": false
+          },
+          {
+            "claim": "7.4x to50 is a specific token count.",
+            "evidence": "7.4x is the remaining performance factor to50tok/s, not a token count.",
+            "severe": false
+          },
+          {
+            "claim": "37/42GB/s is a token size.",
+            "evidence": "GB/s denotes bandwidth; the cited ledger rows are withdrawn.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names Qwen2.5-1.5B or TERNARY as the visible measurement context."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Performance is measured in rows per second (RPS).",
+            "evidence": "The excerpt gives GB/s bandwidth rows and tok/s; it never gives rows per second.",
+            "severe": false
+          },
+          {
+            "claim": "The performance has the lowest RPS and TPS values.",
+            "evidence": "No lowest-values comparison or RPS measurement is visible.",
+            "severe": false
+          },
+          {
+            "claim": "Qwen2.5-1.5B is a file read from T2_TERNARIZATION_RULE.md.",
+            "evidence": "Qwen2.5-1.5B names the donor in a line of that document, not a file being read.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names Qwen2.5-1.5B or TERNARY as the visible measurement context."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Performance is measured in rows per second (RPS).",
+            "evidence": "The excerpt gives GB/s bandwidth rows and tok/s; it never gives rows per second.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "The performance has37/42GB/s rows.",
+            "evidence": "Those numbers are mentioned, but the response does not clarify their withdrawn status."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Names Qwen2.5-1.5B or TERNARY as the visible measurement context."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e30_the_wall.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The check tests whether a specific byte is present in g_b.",
+            "evidence": "The branch tests the truth value of g_b[\"fires\"], not byte presence.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names g_b and the conditional/error operation; B correctly names VOID and OUT."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names g_b and the conditional/error operation; B correctly names VOID and OUT."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The check tests whether a specific byte is present in g_b.",
+            "evidence": "The branch tests the truth value of g_b[\"fires\"], not byte presence.",
+            "severe": true
+          },
+          {
+            "claim": "When the byte is present, the script writes OUT and exits with an error.",
+            "evidence": "Writing OUT and SystemExit occur inside if not g_b[\"fires\"].",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names g_b and the conditional/error operation; B correctly names VOID and OUT."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e48_none_control.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "It calculates the percentage of tokens within tolerance.",
+            "evidence": "near compares normalized scalar error; it neither counts tokens nor calculates a percentage of them.",
+            "severe": true
+          },
+          {
+            "claim": "The tolerance is used to determine the E48 sweep6 value.",
+            "evidence": "E48_B_MS_PER_POS is a fixed literal; no such determination appears.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names tolerance0.25 or the visible E48 sweep6/B.5 setting."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "E48_B_MS_PER_POS measures tokens per second.",
+            "evidence": "Its name/comment identify milliseconds per position/whole token, not tokens per second.",
+            "severe": true
+          },
+          {
+            "claim": "E48 sweep6 is in the B.5 phase of E46.",
+            "evidence": "The E46 comment belongs to an earlier line; the E48 constant has its own sweep6 comment.",
+            "severe": false
+          },
+          {
+            "claim": "TARGET_TOK_S is a target token count.",
+            "evidence": "The constant is a token-per-second rate.",
+            "severe": false
+          },
+          {
+            "claim": "near compares the difference directly with the tolerance.",
+            "evidence": "The function divides abs(got-want) by abs(want) before comparing.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names tolerance0.25 or the visible E48 sweep6/B.5 setting."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The E48/B.5 numbers are token-frequency and token-count metrics.",
+            "evidence": "They are a milliseconds-per-position constant and a fixed relative tolerance.",
+            "severe": true
+          },
+          {
+            "claim": "The target is a token count.",
+            "evidence": "TARGET_TOK_S is a rate,50.0tokens/s.",
+            "severe": false
+          },
+          {
+            "claim": "A function calculates token frequency.",
+            "evidence": "near computes a relative comparison; the other visible function only begins a four-way-table docstring.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names tolerance0.25 or the visible E48 sweep6/B.5 setting."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2a_projection_diagnostic.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "818389... is the Source Run.",
+            "evidence": "That clipped hash ends the preceding tuple; SOURCE_RUN is the separate path prefix.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Provides the ref_q key and its visible path or8*6144 size."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "This is a JSON object.",
+            "evidence": "The visible tuples, path division and SOURCE_RUN identifier are Python expressions, not JSON.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Provides the ref_q key and its visible path or8*6144 size."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Source Run is SOURCE_RUN/pinned_reference/prefill8/q-0.full.f32le.",
+            "evidence": "That complete path is the ref_q file value, not the SOURCE_RUN prefix itself.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Provides the ref_q key and its visible path or8*6144 size."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h2i_applied.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "One JSON object includes the configuration and expected/actual-or-wrong lists.",
+            "evidence": "The excerpt shows a file-record dictionary, a loaded JSON result, and separately built expected/wrong Python objects.",
+            "severe": false
+          },
+          {
+            "claim": "Model parameters are stored in h1_result.",
+            "evidence": "Only a JSON result is loaded; model parameter storage is not established.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the visible path/size/hash record or expected configuration keys."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "One JSON object includes the configuration and expected/actual-or-wrong lists.",
+            "evidence": "The excerpt shows a file-record dictionary, a loaded JSON result, and separately built expected/wrong Python objects.",
+            "severe": false
+          },
+          {
+            "claim": "The model parameters are expected to be hard-coded into its configuration.",
+            "evidence": "expected contains audit expectations, not a statement about model parameter storage.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the visible path/size/hash record or expected configuration keys."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The record path is a model file.",
+            "evidence": "The visible generic path/size/digest record does not identify a model file.",
+            "severe": false
+          },
+          {
+            "claim": "A sample JSON object supplies expected and wrong values.",
+            "evidence": "expected/wrong are separate Python variables/comprehension, not a sample JSON object.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "A SHA256 hash and a digest are listed.",
+            "evidence": "sha256 has the value digest; the wording may imply two objects but may also name one hash twice."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the visible path/size/hash record or expected configuration keys."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_moe_component_cross_input.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "A function is imported from a library named fc.",
+            "evidence": "run_strat01_layer1_ffn_output_component_cross_input is imported as the module alias fc.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names the imported run_strat01_layer1_ffn_output_component_cross_input module or the visible HEADER path."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The imported components come from engines named by the run modules.",
+            "evidence": "Those names are Python modules; ENGINE is obtained separately from fc.ENGINE.",
+            "severe": false
+          },
+          {
+            "claim": "The first imported component is used to run the rung2c component.",
+            "evidence": "Only imports and constant assignments are visible; no such call is shown.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names the imported run_strat01_layer1_ffn_output_component_cross_input module or the visible HEADER path."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "A function is imported from a module.",
+            "evidence": "The run_strat01_layer1_ffn_output_component_cross_input module itself is imported as fc.",
+            "severe": false
+          },
+          {
+            "claim": "That function runs a component in a neural-network model.",
+            "evidence": "The excerpt shows no function call or model execution.",
+            "severe": false
+          },
+          {
+            "claim": "The script is located in the phase60 .h file.",
+            "evidence": "That .h path is assigned to HEADER, not the location of the Python script.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names the imported run_strat01_layer1_ffn_output_component_cross_input module or the visible HEADER path."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e18_agreement_floor.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The most frequent token is selected among agreed-upon tokens.",
+            "evidence": "FLOOR_ARM uses each arm's own most-frequent emitted token, without that restriction.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Identifies the most-frequent emitted token as the constant predictor."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Identifies the most-frequent emitted token as the constant predictor."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The score averages the most frequent emitted tokens across all agreements.",
+            "evidence": "It is a constant predictor for each arm, scored against the common reference, not an average across agreements.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Identifies the most-frequent emitted token as the constant predictor."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/stage_minus1/check_prereg.py",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Describes is_unpinned string/marker check or reason_of whitespace removal."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Describes is_unpinned string/marker check or reason_of whitespace removal."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Describes is_unpinned string/marker check or reason_of whitespace removal."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1052",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "He files something called a return of the patent application.",
+            "evidence": "The name after files what is called is clipped; return describes what he received earlier.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions return of the application and the previously issued/published patent."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "He files something called a return of the patent application.",
+            "evidence": "The name after files what is called is clipped; return describes what he received earlier.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions return of the application and the previously issued/published patent."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The author is an exact duplicate of another man's patent.",
+            "evidence": "The duplicate is a patent/document, not a human author.",
+            "severe": true
+          },
+          {
+            "claim": "The citation is against the other man's patent.",
+            "evidence": "The citation is against his returned application and cites the existing patent.",
+            "severe": true
+          },
+          {
+            "claim": "He then files a patent application of his own.",
+            "evidence": "The new filing's name/type is not visible; his initial application already existed.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions return of the application and the previously issued/published patent."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1159",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The woman giving the kiss is identified as Pattie.",
+            "evidence": "Pattie is named in the following comparison, but the speaker giving the kiss is not identified in the clipped excerpt.",
+            "severe": false
+          },
+          {
+            "claim": "She threatens to cheat a man named Ikey.",
+            "evidence": "Ikey occurs in a clipped phrase; the addressee of cheat you too is not identified as Ikey.",
+            "severe": false
+          },
+          {
+            "claim": "The coincidence is between Pattie and the author's cousin Ikey.",
+            "evidence": "It is between cousin Pattie and the narrator.",
+            "severe": true
+          },
+          {
+            "claim": "The author gives Pattie the kiss.",
+            "evidence": "She gives the narrator a kiss, reversing the action.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions preparation for elopement; A/B also mention her kiss."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The woman giving the kiss is identified as Pattie.",
+            "evidence": "Pattie is named in the following comparison, but the speaker giving the kiss is not identified in the clipped excerpt.",
+            "severe": false
+          },
+          {
+            "claim": "She threatens to cheat a man named Ikey.",
+            "evidence": "Ikey occurs in a clipped phrase; the addressee of cheat you too is not identified as Ikey.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions preparation for elopement; A/B also mention her kiss."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The woman giving the kiss is identified as Pattie.",
+            "evidence": "Pattie is named in the following comparison, but the speaker giving the kiss is not identified in the clipped excerpt.",
+            "severe": false
+          },
+          {
+            "claim": "The man she threatens to cheat is her fiance.",
+            "evidence": "No fiance relation is stated.",
+            "severe": false
+          },
+          {
+            "claim": "She is kissed by the man.",
+            "evidence": "She gives the kiss to the narrator.",
+            "severe": true
+          },
+          {
+            "claim": "That man is the person she is running away with.",
+            "evidence": "The visible text does not identify an elopement partner for the kiss giver.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions preparation for elopement; A/B also mention her kiss."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=295",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "A female hunter loves Orion.",
+            "evidence": "The strong hunter is Orion, the male object of the goddess's feelings.",
+            "severe": true
+          },
+          {
+            "claim": "She loves him deeply.",
+            "evidence": "The passage qualifies this as as near to loving as she ever came, rather than asserting deep love.",
+            "severe": false
+          },
+          {
+            "claim": "She never considered becoming Orion's wife.",
+            "evidence": "The stated refusal is Orion never considering becoming a goddess's husband.",
+            "severe": true
+          },
+          {
+            "claim": "She falls in love with the mortal princess.",
+            "evidence": "Orion falls in love with that princess.",
+            "severe": true
+          },
+          {
+            "claim": "Oenopion is a daughter of Chios.",
+            "evidence": "Oenopion is King of Chios, an island, not its daughter.",
+            "severe": true
+          },
+          {
+            "claim": "The king is asked for a marriage.",
+            "evidence": "The object after asked the king fo is clipped and not specified.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the mortal princess/Oenopion or the goddess not wanting Orion to leave."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "A female hunter loves Orion.",
+            "evidence": "The strong hunter is Orion, the male object of the goddess's feelings.",
+            "severe": true
+          },
+          {
+            "claim": "She loves him deeply.",
+            "evidence": "The passage qualifies this as as near to loving as she ever came, rather than asserting deep love.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the mortal princess/Oenopion or the goddess not wanting Orion to leave."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "A female hunter loves Orion.",
+            "evidence": "The strong hunter is Orion, the male object of the goddess's feelings.",
+            "severe": true
+          },
+          {
+            "claim": "She loves him deeply.",
+            "evidence": "The passage qualifies this as as near to loving as she ever came, rather than asserting deep love.",
+            "severe": false
+          },
+          {
+            "claim": "She never considers him a goddess.",
+            "evidence": "The passage says Orion never considered being husband of a goddess.",
+            "severe": true
+          },
+          {
+            "claim": "Orion asks the king for the princess and then falls in love.",
+            "evidence": "The request is clipped; falling in love is stated before that request.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the mortal princess/Oenopion or the goddess not wanting Orion to leave."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=393",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "A man is currently conversing with a young girl.",
+            "evidence": "The narrator's sex is not shown, and Miss Raby was a girl seven years earlier, not identified as one now.",
+            "severe": false
+          },
+          {
+            "claim": "The boy's name is Dren.",
+            "evidence": "dren is a clipped word ending, not a visible proper name.",
+            "severe": true
+          },
+          {
+            "claim": "The narrator discusses his own writing about that boy.",
+            "evidence": "The excerpt refers to a separate he always writing, without assigning the writing to the narrator.",
+            "severe": false
+          },
+          {
+            "claim": "The man is unsure what he is talking about in this confusing conversation.",
+            "evidence": "He reports having heard the old affairs confusedly; that is not confusion about his own speech.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names Miss Raby or the little boy's death, both visible."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "A man is currently conversing with a young girl.",
+            "evidence": "The narrator's sex is not shown, and Miss Raby was a girl seven years earlier, not identified as one now.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names Miss Raby or the little boy's death, both visible."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "A man is currently conversing with a young girl.",
+            "evidence": "The narrator's sex is not shown, and Miss Raby was a girl seven years earlier, not identified as one now.",
+            "severe": false
+          },
+          {
+            "claim": "The man discusses his own writing about the death.",
+            "evidence": "The writer and topic of writing are not established as narrator/death.",
+            "severe": false
+          },
+          {
+            "claim": "He is surprised to hear the death from Miss Raby.",
+            "evidence": "No surprise is expressed.",
+            "severe": false
+          },
+          {
+            "claim": "The death is very recent and occurred seven years ago.",
+            "evidence": "Seven years dates the affairs; the death's date is not established and recent is unsupported.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Names Miss Raby or the little boy's death, both visible."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=164",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The worn-out event takes place on April16(28).",
+            "evidence": "Worn out precedes the new dated entry; the visible April16 entry begins with sleeping well.",
+            "severe": false
+          },
+          {
+            "claim": "The messenger informs the narrator whether the narrator wanted anything.",
+            "evidence": "The messenger comes to ask whether anything is wanted.",
+            "severe": false
+          },
+          {
+            "claim": "The unspecified source shows American visitors are from a different country or region.",
+            "evidence": "Neither visitors nor their origin is established by the redacted source.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions slept very well or the messenger enquiry."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The worn-out event takes place on April16(28).",
+            "evidence": "Worn out precedes the new dated entry; the visible April16 entry begins with sleeping well.",
+            "severe": false
+          },
+          {
+            "claim": "The April16 experience is in Paris.",
+            "evidence": "Paris is the earlier contrasting impression, not the current location.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions slept very well or the messenger enquiry."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The messenger is described as remarkable.",
+            "evidence": "The remark describes Americans generally, not the messenger specifically.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions slept very well or the messenger enquiry."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=381",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The woman is busy with daily tasks.",
+            "evidence": "She busied herself with none of the preceding things.",
+            "severe": true
+          },
+          {
+            "claim": "She is eating literal food.",
+            "evidence": "Digesting solid food is a metaphor for absorbing the truth being taught.",
+            "severe": false
+          },
+          {
+            "claim": "She is preparing church services.",
+            "evidence": "The church/choir list does not show service preparation.",
+            "severe": false
+          },
+          {
+            "claim": "She is aware of or concerned about consequences of her actions.",
+            "evidence": "No such consequence statement is visible.",
+            "severe": false
+          },
+          {
+            "claim": "She declares church,choir,Sunday-school,prayer-meeting and stove all wrong.",
+            "evidence": "The declaration is clipped before its predicate; wrong is not stated.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "A preserves the no-right-to-build-a-shell detail; B/C have no concrete supported proposition beyond an unspecified woman."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Being busier makes her realize identity and dignity must be maintained.",
+            "evidence": "Neither that causal relation nor identity/dignity appears; the visible lesson concerns no right to retreat into a shell.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": true,
+        "detail_evidence": "A preserves the no-right-to-build-a-shell detail; B/C have no concrete supported proposition beyond an unspecified woman."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The woman is busy with daily tasks.",
+            "evidence": "She busied herself with none of the preceding things.",
+            "severe": true
+          },
+          {
+            "claim": "She is eating literal food.",
+            "evidence": "Digesting solid food is a metaphor for absorbing the truth being taught.",
+            "severe": false
+          },
+          {
+            "claim": "She is preparing church services.",
+            "evidence": "The church/choir list does not show service preparation.",
+            "severe": false
+          },
+          {
+            "claim": "She is aware of or concerned about consequences of her actions.",
+            "evidence": "No such consequence statement is visible.",
+            "severe": false
+          },
+          {
+            "claim": "She is aware of her right to build a shell and enter it.",
+            "evidence": "She learns she has no more right to do so.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": true,
+        "detail_evidence": "A preserves the no-right-to-build-a-shell detail; B/C have no concrete supported proposition beyond an unspecified woman."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=267",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The waiter asks the guest whether he wants wine.",
+            "evidence": "Abe volunteers to take wine; the waiter asks what kind and number.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the bottle just called for by the Indian trader, despite actor errors."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The waiter asks the guest whether he wants wine.",
+            "evidence": "Abe volunteers to take wine; the waiter asks what kind and number.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the bottle just called for by the Indian trader, despite actor errors."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The Indian trader is British.",
+            "evidence": "British is not specified.",
+            "severe": false
+          },
+          {
+            "claim": "The waiter addresses the trader about copying Abe's wine.",
+            "evidence": "Abe is the guest asking for the trader's wine, not the reverse.",
+            "severe": true
+          },
+          {
+            "claim": "Abe is already drinking that wine.",
+            "evidence": "He has just decided to order some; drinking is not shown.",
+            "severe": false
+          },
+          {
+            "claim": "The trader points at the bottle.",
+            "evidence": "Abe points at the trader's bottle.",
+            "severe": true
+          },
+          {
+            "claim": "He wants the same amount of wine as Abe.",
+            "evidence": "The question concerns wine kind/number, not matching an amount.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the bottle just called for by the Indian trader, despite actor errors."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1009",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The Duke is ten years old.",
+            "evidence": "The narrator says I was then ten, not that the Duke was ten.",
+            "severe": true
+          },
+          {
+            "claim": "The young Duke is identified as Duke of Holstein.",
+            "evidence": "Holstein identifies the Prince Guardian/Administrator; this Duke's title is not stated.",
+            "severe": false
+          },
+          {
+            "claim": "The Duke is present with Augustus and Anne at this scene.",
+            "evidence": "Their presence is stated; the narrator hears a report about the Duke, without his presence being stated.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the Duke's drinking or the attendants preventing table intoxication."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The Duke is restless at the table.",
+            "evidence": "Restive is visible, but its clipped continuation does not attach it to table; table attaches to intoxication.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the Duke's drinking or the attendants preventing table intoxication."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The Duke is ten years old.",
+            "evidence": "The narrator says I was then ten, not that the Duke was ten.",
+            "severe": true
+          },
+          {
+            "claim": "The young Duke is identified as Duke of Holstein.",
+            "evidence": "Holstein identifies the Prince Guardian/Administrator; this Duke's title is not stated.",
+            "severe": false
+          },
+          {
+            "claim": "The Duke is present with Augustus and Anne at this scene.",
+            "evidence": "Their presence is stated; the narrator hears a report about the Duke, without his presence being stated.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions the Duke's drinking or the attendants preventing table intoxication."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [
+          {
+            "claim": "The hash is of a binary32 addition operation.",
+            "evidence": "The hash belongs to the resulting l_out tensor; operation may be shorthand for its result."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Correctly states internal repeat/fail-closed and pre-freeze check limitation."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Correctly states internal repeat/fail-closed and pre-freeze check limitation."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [
+          {
+            "claim": "The hash is of a binary32 addition operation.",
+            "evidence": "The hash belongs to the resulting l_out tensor; operation may be shorthand for its result."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Correctly states internal repeat/fail-closed and pre-freeze check limitation."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E62_DOES_THE_ONE_BYTE_RUNG_SURVIVE_SCALE.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "A shipper pays for an arm.",
+            "evidence": "Shipped describes an existing packed rule; E62 pays an owed experiment, not a commercial shipper.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions third arm/shipped packed rule or the3B/R3 owed cell."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "A shipper pays for an arm.",
+            "evidence": "Shipped describes an existing packed rule; E62 pays an owed experiment, not a commercial shipper.",
+            "severe": true
+          },
+          {
+            "claim": "The missing3B cell is not included in the calculation.",
+            "evidence": "E62 explicitly carries a third arm to pay that owed item; exclusion from a calculation is not stated.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions third arm/shipped packed rule or the3B/R3 owed cell."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "E62 pays for the pipeline.",
+            "evidence": "The owed item is the3B experimental cell, not pipeline funding.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Mentions third arm/shipped packed rule or the3B/R3 owed cell."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E52_WHAT_DOES_A_BUSY_BOX_COST.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "A/C give L<=6,L8 excluded,L5 kept; B correctly names6threads and L5 kept despite inverted inequality."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Levels with L<=6 are excluded.",
+            "evidence": "Only those levels enter the fit; L8 is excluded and L5 kept.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "A/C give L<=6,L8 excluded,L5 kept; B correctly names6threads and L5 kept despite inverted inequality."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "A/C give L<=6,L8 excluded,L5 kept; B correctly names6threads and L5 kept despite inverted inequality."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [
+          {
+            "claim": "The study measures a task estimator.",
+            "evidence": "The excerpt says estimand; the response is vague and may be using estimator as loose task terminology."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Preserves the specific separation from the MTP pilot."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [
+          {
+            "claim": "The study measures a task estimator.",
+            "evidence": "The excerpt says estimand; the response is vague and may be using estimator as loose task terminology."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Preserves the specific separation from the MTP pilot."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [
+          {
+            "claim": "The study measures a task estimator.",
+            "evidence": "The excerpt says estimand; the response is vague and may be using estimator as loose task terminology."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Preserves the specific separation from the MTP pilot."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E32_THE_OWED_PROTOCOL.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Structural reasons explain the BPB/ranking discrepancy.",
+            "evidence": "Structural reasons explain why the old agreement number is not rerun, not the cause of the discrepancy.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Preserves the SCORE/RANK pairing rule or E14 source verification."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The rank partner is not verified at source.",
+            "evidence": "The excerpt explicitly says verified at source, not assumed.",
+            "severe": true
+          },
+          {
+            "claim": "The number of calls to e14_gn3_greedy.py is not rerun.",
+            "evidence": "The number is agreement45.6%(73/160), not a call count.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Preserves the SCORE/RANK pairing rule or E14 source verification."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The number of times the rank metric was used is not rerun.",
+            "evidence": "The unrepeated number is the measured agreement, not a usage count.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Preserves the SCORE/RANK pairing rule or E14 source verification."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/H2I_ONE_BYTE_CARVE_BASELINE.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Gives the supported -0.000016893BPB byte-conversion delta."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Gives the supported -0.000016893BPB byte-conversion delta."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Gives the supported -0.000016893BPB byte-conversion delta."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_S1_WHICH_BAR_PREDICTS_BPB.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "A names the critical top-k by|h| mask; B/C convert prescribed controls into a supposed method failure and provide no correctly attributed specific detail."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The test found that the method cannot detect damage.",
+            "evidence": "The excerpt prescribes a diagnostic control, not an observed failure.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": true,
+        "detail_evidence": "A names the critical top-k by|h| mask; B/C convert prescribed controls into a supposed method failure and provide no correctly attributed specific detail."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The test found that the method cannot detect damage.",
+            "evidence": "The excerpt prescribes a diagnostic control, not an observed failure.",
+            "severe": true
+          },
+          {
+            "claim": "The method itself must be clearly worse than other methods.",
+            "evidence": "The high-sparsity random/null armC must be worse than armsA/B, not the method itself.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": true,
+        "detail_evidence": "A names the critical top-k by|h| mask; B/C convert prescribed controls into a supposed method failure and provide no correctly attributed specific detail."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/ADAPTER_MEMO_01_SPEED_BUDGET.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "An oscillating job is invisible to the gate.",
+            "evidence": "Mid-measurement job starts are explicitly invisible; the sentence about oscillating jobs is clipped before its finding.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Preserves startup-only checking,before mode dispatch or mid-run blindness."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Clean guarantees that the process did not exceed1GB.",
+            "evidence": "Clean means no process exceeded1GB at startup, not a check only on the engine process.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Preserves startup-only checking,before mode dispatch or mid-run blindness."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [
+          {
+            "claim": "The binary starts with a clean state.",
+            "evidence": "The state certified is specifically other processes' memory at the starting instant, not every possible meaning of clean."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Preserves startup-only checking,before mode dispatch or mid-run blindness."
+      }
+    }
+  ]
+}
