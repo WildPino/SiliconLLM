@@ -1,0 +1,106 @@
+{
+  "experiment": "METH-273-actual-private128-instrumented-phase-diagnosis",
+  "prior_sha256": "638594a650189ab45efa62c08be04a3e42b21f7eff00c52d372d5991077120c3",
+  "fused_stop_sha256": "7109476722266d7dcc37abbfbde30bb11ff2c8772cbf7abcc73a4570149b343f",
+  "fixture_sha256": "ece28ea3344d9ecef674d30b4c43b067ee4290379cf9130c97c2eafee1e344d8",
+  "vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "source_sha256": "e7148bb836a3a4cd07d6a0c46818563c438fa9425ffbebc5828585d841518fa5",
+  "script_sha256": "21304e49d01b9a5c5d46e538ef9de1a322a5c68a24895db43c6f8aa9a93bbce8",
+  "runner_helper_sha256": "487b5e352e18d52313dbf3dd634096cd7751b1afa6e31c570adadd1a71d168bf",
+  "included_meth182_sha256": "b12b71bc2f2923b133f8ebc03395520ae41bf47e930cc3f742804c670925cd91",
+  "executable_sha256": "3cb7e97f4938748bc0f8bff7a9054a2d3069c470ce5deb8a2ea4f515def08708",
+  "output_sha256": "669cb3d98f175ce575fd8eeb6af8225001d5d647f819f9fe6390c5b0a195ef22",
+  "compile_command": [
+    "clang",
+    "-O3",
+    "-mavx2",
+    "-mssse3",
+    "-mfma",
+    "-fopenmp",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth273_private128_phase_cpu.c",
+    "-o",
+    "benchmarks\\native_expert_scaling\\meth273_private128_phase_cpu.exe",
+    "-lm",
+    "-lpsapi"
+  ],
+  "compile_stderr": "",
+  "timing": {
+    "threads": 6,
+    "tokens": 256,
+    "layers": 24,
+    "hidden": 4864,
+    "residual_rank": 32,
+    "private_units": 128,
+    "weight_bytes": 337596452,
+    "pass_ms_per_token": [
+      12.018791,
+      10.902765,
+      11.312503
+    ],
+    "checksum": 79.303890132,
+    "peak_working_set_bytes": 354271232
+  },
+  "phase_names": [
+    "input_decode_team_entry",
+    "shared_gate_up_LUT",
+    "private_BF16_LUT",
+    "concurrent_down_right",
+    "left_bias_finite",
+    "team_exit"
+  ],
+  "phase_ms_per_token": [
+    [
+      0.03643711,
+      7.029799219,
+      0.588642969,
+      3.926703516,
+      0.297988281,
+      0.134994922
+    ],
+    [
+      0.033983203,
+      6.625701172,
+      0.435657422,
+      3.614317187,
+      0.138521485,
+      0.050541796
+    ],
+    [
+      0.033170703,
+      6.729085937,
+      0.511121094,
+      3.672121094,
+      0.206849219,
+      0.156069531
+    ]
+  ],
+  "phase_medians_ms": {
+    "input_decode_team_entry": 0.033983203,
+    "shared_gate_up_LUT": 6.729085937,
+    "private_BF16_LUT": 0.511121094,
+    "concurrent_down_right": 3.672121094,
+    "left_bias_finite": 0.206849219,
+    "team_exit": 0.134994922
+  },
+  "summary": {
+    "private_plus_entry_exit_share": 0.06024892382707846,
+    "shared_plus_concurrent_down_right_share": 0.9214266280761482
+  },
+  "gates": {
+    "all_fixed_source_fixture_prior_vector_bindings": true,
+    "all361_segments_exact": true,
+    "all384_outputs_bitwise_exact_original271_including_header": true,
+    "all256_timing_checksum_exact271": true,
+    "all_phase_intervals_finite_nonnegative": true
+  },
+  "runtime": {
+    "seconds": 10.656999999999243,
+    "rss_bytes": 42008576,
+    "GPU_not_used": true
+  },
+  "decision": "inspect_matrix_operator_layout_or_memory_execution_next",
+  "scope": "Instrumented consumed CPU component; clock/single/barrier overhead retained. No uninstrumented cost gate,DRAM isolation,full archive/new quality/useful n/route-LUT/accepted>=50/family proof.271/272 and267 stops unchanged."
+}

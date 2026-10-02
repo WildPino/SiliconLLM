@@ -80,11 +80,14 @@ selection passes mean/reserve/source and native numeric gates:22.4154% mean,
 conserves344,064 native values/checksum but fails cost/speedup:10.991488ms
 versus contemporaneous control10.864646ms,ratio1.011675. Session30895 exits0;
 no active job. This fixed optimization closes;271 cost and267 stops remain.
-**Next exact action:** execute frozen [METH-273](METH_273_PRIVATE128_PHASE_PROTOCOL_20261002.md),
-instrument actual unchanged271 shared/private/concurrent-readout-residual/
-team boundaries and verify bitwise outputs before interpreting diagnostic
-times. Apparatus implemented; no273 result yet; old233 phases predate this operator. No full
-archive before a qualified kernel. Source precision does not prove useful n.
+[METH-273](METH_273_PRIVATE128_PHASE_RESULT_20261002.md) phase diagnosis passes
+all bitwise/checksum guards:shared+concurrent down/right92.1427%,private plus
+team boundaries6.0249%. Diagnostic overhead retained,not a rate qualification.
+Session74210 exits0; no active job. **Next exact action:** implement then freeze
+[METH-274](METH_274_I16_SHARED_INPUT_PROTOCOL_20261002.md),dynamic I16 input/Q8
+shared gate/up integer dots,same271 private128/LUT/readout/bank. Source/
+reserve/quantizer-integer/GPU-native guards before absolute10ms timing.
+No274 code/result yet; no full archive before component qualification.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
