@@ -1,4 +1,6 @@
-#ifdef SILICON_COMPLETE_I16_NATIVE_PRIMARY
+#ifdef SILICON_COMPLETE_I16_NATIVE_GENERATE
+#include "../native_expert_scaling/meth296_native_generation_cpu.c"
+#elif defined(SILICON_COMPLETE_I16_NATIVE_PRIMARY)
 #include "../native_expert_scaling/meth295_native_primary_cpu.c"
 #elif defined(SILICON_COMPLETE_I16_NATIVE_SCORE)
 #include "../native_expert_scaling/meth294_native_prediction_cpu.c"
