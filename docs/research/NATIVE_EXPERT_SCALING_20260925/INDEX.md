@@ -67,9 +67,9 @@ repair only. Session14458 exits0,375.921s; no active job.
 same-state arithmetic controls. BF16-node-only mean error worsens2.22%;
 oracle source features improve it80.40%. No node-only promotion or new
 artifact. Session73517 exits0,8.438s; no active job;259 stays closed.
-**Next exact action:** implement then freeze [METH-270](METH_270_PRIVATE_SOURCE_ROWS_PROTOCOL_20261002.md),
+**Next exact action:** execute frozen [METH-270](METH_270_PRIVATE_SOURCE_ROWS_PROTOCOL_20261002.md),
 private source-input rows32->128,same source-only selection/readout/bank.
-No270 code/result/fixture yet. Fixed component-error gates and <=10ms
+Apparatus implemented; no270 result/fixture yet. Fixed component-error gates and <=10ms
 native prerequisite before new full archive/fresh quality. This increases
 source precision,not learned n; all final expert-count requirements remain.
 

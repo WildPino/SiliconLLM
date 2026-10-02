@@ -59,3 +59,25 @@ Local RTX3060/six threads,10min for source-only row selection/scoring/export;
 implement source-row fixture export and BF16-referenced component checks;
 then freeze code before any270 observation. Do not immediately build a
 new full model without the fidelity/native-cost prerequisite pass.
+
+## Apparatus freeze
+
+`benchmarks/native_expert_scaling/meth270_private_source_rows.py` binds all
+three prior records, source/archive/vector hashes, frozen259 dependencies,
+all361 old fixture segments and source tensor hashes. It verifies every
+old32 source row, repeats all6144 old269 values exactly, exports the new
+fixture and retains the first16 FP32 candidate outputs/layer as CPU oracles.
+It stops before compilation/timing if either prospective fidelity gate fails.
+
+`meth270_private_source_rows_cpu.c` is the253 source with only private count128,
+experiment labels and output header changed; the runner checks this exact
+source transformation before observing results. Compile flags and the
+three256-token/six-thread timing sweeps remain unchanged. Use the repository
+`.venv/Scripts/python.exe` (Torch2.6.0+cu124); system Python has a different
+CPU-only Torch and is not the experiment runtime. No apparatus observations
+have occurred at this freeze.
+
+```powershell
+$env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
+.\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth270_private_source_rows.py --binary results/native_expert_scaling/meth270_private_source_rows_fixture.bin --exe benchmarks/native_expert_scaling/meth270_private_source_rows_cpu.exe --check results/native_expert_scaling/meth270_private_source_rows.check.bin --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth270_private_source_rows_result.json
+```
