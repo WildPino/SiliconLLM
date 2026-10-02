@@ -61,10 +61,11 @@ cannot override267. [METH-268](METH_268_GENERATION_ROUTE_REPLAY_PROTOCOL_2026100
 is frozen at6924032; session33649 stops before any completed case because
 an exception variable shadows the error-measurement function. Preserve
 failure; [mechanical repair](METH_268_ROUTE_REPLAY_APPARATUS_REPAIR_20261002.md)
-renames only that variable. **Next exact action:** run repair1 once, all24 consumed sources/both
+renames only that variable. **Current:** repair1 frozen at92c445d is running
+in session14458,471 fixed cases from all24 consumed sources/both
 trajectories,fixed prefix grid plus first-divergence neighborhoods,ordinary
 trace and nondeployable source-route replay.20min/RSS20GiB/GPU10.5GiB.
-No active job. No fit/new artifact/semantic reclassification.
+Continue the existing process; no fit/new artifact/semantic reclassification.
 Use its core/route diagnosis before defining a changed candidate.
 
 After quality pass, load the same725 archived tensors into the native whole

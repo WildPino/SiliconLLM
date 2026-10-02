@@ -9,6 +9,8 @@ identity guards ran, but no whole-case/replay result or summary was produced.
 
 Preserve [failure](meth268_generation_route_replay_result.failure.json)
 and empty-row partial. Change only exception variable name to `failure`,
+Failure SHA256 `bb908fef39588e77ea1dc6ee61bcb234414116879a72c786f6c794dd9505581f`,
+54.781s,zero completed cases.
 leaving the numerical error function untouched. No input, sample, weight,
 arithmetic, route-replay intervention, budget or guard changes. Freeze
 this repair before rerunning once to a new output path:
