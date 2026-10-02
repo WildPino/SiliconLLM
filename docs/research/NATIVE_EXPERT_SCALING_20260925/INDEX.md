@@ -94,6 +94,8 @@ in9.547s, original imatrix restored exactly by reversing four insertions.
 Uses actual BF16 GigaChat/source IDs,27 fixed projections/rank192;
 106 fit/125 distinct-domain test chunks. Each child55min/50GiB/2GiB capture,
 score20min/12GiB, no GPU/T4/downloads. Source hash precedes child launch.
+Read-only progress: `meth298_capture_progress.py` on the fit/test input
+binary reads completed record headers only; no vectors/spectra/quality.
 Resume/poll session73976; do not restart. After success inspect capture
 closure result, then run `meth298_gigachat_covariance.py test`, then `score`
 ONLY after both capture guards pass. No factor-spectrum observation yet.
