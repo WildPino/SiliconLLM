@@ -58,10 +58,13 @@ fails strict semantic gates after all72 findings were committed before
 unblinding: unsupported38 versus39/41,severe16 versus15/14,missing-detail2
 versus2/0 (donor/E1280). Fixed259 native promotion is closed;266 task pass
 cannot override267. [METH-268](METH_268_GENERATION_ROUTE_REPLAY_PROTOCOL_20261002.md)
-is frozen at6924032 and running in session33649: all24 consumed sources/both
+is frozen at6924032; session33649 stops before any completed case because
+an exception variable shadows the error-measurement function. Preserve
+failure; [mechanical repair](METH_268_ROUTE_REPLAY_APPARATUS_REPAIR_20261002.md)
+renames only that variable. **Next exact action:** run repair1 once, all24 consumed sources/both
 trajectories,fixed prefix grid plus first-divergence neighborhoods,ordinary
 trace and nondeployable source-route replay.20min/RSS20GiB/GPU10.5GiB.
-Continue this existing process. No fit/new artifact/semantic reclassification.
+No active job. No fit/new artifact/semantic reclassification.
 Use its core/route diagnosis before defining a changed candidate.
 
 After quality pass, load the same725 archived tensors into the native whole

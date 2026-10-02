@@ -169,8 +169,8 @@ def main():
             'scope':'No fit/new artifact/free generation/reclassified semantic gate. Nondeployable replay injects all-position reference parentIDs,scores,childIDs; conditional inputs/core remain candidate. Finite consumed diagnosis,no independent quality/native rate/large-n/family proof.'}
         args.out.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
         print(json.dumps({key:result[key] for key in ('decision','summary','gates','runtime')}),flush=True)
-    except BaseException as error:
-        save();args.out.with_suffix('.failure.json').write_text(json.dumps({'stage':stage,'error':type(error).__name__+': '+str(error),
+    except BaseException as failure:
+        save();args.out.with_suffix('.failure.json').write_text(json.dumps({'stage':stage,'error':type(failure).__name__+': '+str(failure),
             'completed_cases':len(rows),'seconds':time.monotonic()-start},indent=2)+'\n',encoding='utf-8');raise
 
 
