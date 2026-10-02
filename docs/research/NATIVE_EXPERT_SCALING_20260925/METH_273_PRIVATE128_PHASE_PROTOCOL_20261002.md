@@ -44,3 +44,17 @@ before observation. At this protocol freeze no273 code,executable or result
 exists. Diagnostic interpretation cannot override the original10ms gate or
 267 semantic stop. Full archive,complete quality/native>=50,useful RAM-scale
 n/routing-LUT-DRAM and family/10B/100B transfer remain separate requirements.
+
+## Apparatus freeze
+
+`meth273_private128_phase_cpu.c` copies271,adding clocks/single boundaries,
+per-pass accumulators and stderr phase JSON. Check header remainsM271OUT1
+so entire native check hash must match271. No arithmetic or stage reordering.
+`meth273_private128_phase.py` binds the272 runner helper and all immutable
+inputs,compiles once,runs once,records all18 intervals and the frozen branch
+decision. Apparatus is committed before execution; no273 observations exist
+at this apparatus freeze.
+
+```powershell
+.\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth273_private128_phase.py --exe benchmarks/native_expert_scaling/meth273_private128_phase_cpu.exe --check results/native_expert_scaling/meth273_private128_phase.check.bin --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth273_private128_phase_result.json
+```

@@ -80,10 +80,10 @@ selection passes mean/reserve/source and native numeric gates:22.4154% mean,
 conserves344,064 native values/checksum but fails cost/speedup:10.991488ms
 versus contemporaneous control10.864646ms,ratio1.011675. Session30895 exits0;
 no active job. This fixed optimization closes;271 cost and267 stops remain.
-**Next exact action:** implement then freeze [METH-273](METH_273_PRIVATE128_PHASE_PROTOCOL_20261002.md),
+**Next exact action:** execute frozen [METH-273](METH_273_PRIVATE128_PHASE_PROTOCOL_20261002.md),
 instrument actual unchanged271 shared/private/concurrent-readout-residual/
 team boundaries and verify bitwise outputs before interpreting diagnostic
-times. No273 code/result yet; old233 phases predate this operator. No full
+times. Apparatus implemented; no273 result yet; old233 phases predate this operator. No full
 archive before a qualified kernel. Source precision does not prove useful n.
 
 After quality pass, load the same725 archived tensors into the native whole
