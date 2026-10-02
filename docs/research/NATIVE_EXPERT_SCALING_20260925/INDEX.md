@@ -87,28 +87,22 @@ Raw SHA `557927330064c436d40dba01d130af2fbdf063b1c5f82f3de5c8b60e187926b8`.
 No regrading/tolerance/favorable subset. Skip unchanged-profile native
 PIQA/K64/rate promotion work;295/296 scoped passes remain valid.
 
-**Live METH-298 spectral score, session30065 (authoritative).**
-[Full-covariance protocol](METH_298_GIGACHAT_FULL_COVARIANCE_PROTOCOL_20261002.md)
-frozen `c20d60e` before new observations; isolated capture executable built
-in9.547s, original imatrix restored exactly by reversing four insertions.
-Uses actual BF16 GigaChat/source IDs,27 fixed projections/rank192;
-106 fit/125 distinct-domain test chunks. Each child55min/50GiB/2GiB capture,
-score20min/12GiB, no GPU/T4/downloads. Source hash precedes child launch.
-Read-only progress: `meth298_capture_progress.py` on the fit/test input
-binary reads completed record headers only; no vectors/spectra/quality.
-Fit session73976 terminal exit0:67,647 records/394,697,744 bytes;all five
-guards pass, minimum711 observations. Old/new diagonal moments EXACT;
-new imatrix/captured row-order sums EXACT. Total1481.203s,child1228.297s,
-peak21,289,103,360B. Fit raw committed `ceb7cb6`,SHA
-`57cc46da176b6be16953ecfadb21c173d85bb0b8bb6dcc026ddba709fb9c0331`.
-Test session28420 terminal exit0:47,931 records/279,661,456 bytes;all five
-guards pass,min467 observations;old/new/captured moments EXACT. Total
-1464.297s,child1445.578s,peak21,293,760,512B. Test raw committed `7b55d85`,
-SHA `124610e4ddf83f2f8f5d58bc7465deaebc91183c2452614522cdb1ef4db8f4fa`.
-Both capture guards pass. Resume/poll score session30065; do not restart.
-Preserve all27 fixed rank192 output-energy comparisons and frozen gates.
-The four-insertion closure is exact LF-normalized source TEXT; the original
-external CRLF source's physical bytes are independently SHA-bound.
+[298 GigaChat full covariance](METH_298_GIGACHAT_FULL_COVARIANCE_RESULT_20261002.md)
+**FAIL all four rank192 gates**, freeze `c20d60e`, all three sessions exit0.
+Actual test energy median66.430%/min37.820%;fit optimum median84.795%,
+test-domain oracle median87.454%/min71.353%. Rank insufficiency and domain
+shift both matter. No direct factor export/rank retune from these scores.
+Raw SHA `b0b9a4773b02dc6c309504f2eddc9a8dcc623d115d70c751df9d392219d00223`.
+Real 106/125-domain captures are verified:67,647/47,931 routed input rows,
+394.70/279.66MB,min711/467 observations;old/new/captured moments EXACT.
+51.91min total research cost,peak child21.29GB; no GPU/T4/downloads.
+
+No scientific job active. **Next action: freeze a GigaChat nonlinear
+channel-block selection screen**, using these already captured down inputs.
+Use actual original32-channel blocks and source-bound output contributions;
+compare state-dependent selection and static control before spending on a
+cheap input-only router. Qwen185's individual-channel stop remains; this
+different-family/block mechanism is unmeasured. No new donor inference.
 Generic donor port stays paused. New small-core quality needs changed
 scientific variable and untouched sources;292 is now consumed.
 

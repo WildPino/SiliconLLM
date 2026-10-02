@@ -163,11 +163,15 @@ MLA, and a dense first FFN. Source shards, BF16 GGUF and Q4_K_M GGUF are
 locally bound in the [source-binding record](../donor_adaptation/probes/STRAT_01_GIGACHAT31_SOURCE_BINDING_PROTOCOL_20260919.md).
 Ordinary180 and diagonal-weighted181 rank192 representation screens fail.
 [298 full routed-input covariance](METH_298_GIGACHAT_FULL_COVARIANCE_PROTOCOL_20261002.md)
-is prospectively frozen: collect actual source-BF16 routed inputs on the
+was prospectively frozen: collect actual source-BF16 routed inputs on the
 same distinct calibration domains; fit uncentered FP64 rank192 output
 directions and compare real test-output reconstruction to ordinary and
-diagonal factors. This is an open representation screen, not a quality,
-export, useful-n or native-rate result. Reused source graph/library capture
+diagonal factors. [Its result](METH_298_GIGACHAT_FULL_COVARIANCE_RESULT_20261002.md)
+FAILS all four gates:test median66.430%/min37.820%;even the diagnostic
+test-domain optimum has median87.454%,so calibration shift alone cannot
+rescue rank192. Verified real routed input captures are now reusable;
+no direct factor export or rank retune is licensed. This is not model
+quality,useful-n or native-rate evidence. Reused source graph/library capture
 does not resume the generic donor-port line. Even hypothetical int8 routed
 factors leave822.29MB/token if other Q4 organs remain; MLA/head/shared
 treatment and complete cost gates are required before full export.
