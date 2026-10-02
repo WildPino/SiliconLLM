@@ -1,0 +1,92 @@
+{
+  "experiment": "METH-272-fused-shared-input-dots-paired-native",
+  "prior_result_sha256": "638594a650189ab45efa62c08be04a3e42b21f7eff00c52d372d5991077120c3",
+  "fixture_sha256": "ece28ea3344d9ecef674d30b4c43b067ee4290379cf9130c97c2eafee1e344d8",
+  "vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "script_sha256": "487b5e352e18d52313dbf3dd634096cd7751b1afa6e31c570adadd1a71d168bf",
+  "source_sha256": "35210ccc1a67fb7baec8a41dde3b1168b91a01f1bff324145e43eb1783c1e7f4",
+  "included_meth182_sha256": "b12b71bc2f2923b133f8ebc03395520ae41bf47e930cc3f742804c670925cd91",
+  "control_executable_sha256": "235a42b6164a658c9d97efffee8c7c0f64d538bbb00262ef71eb71a02673d45c",
+  "executable_sha256": "651ba64f011eeacba379a4795ee4a031d2ccc53e4f9588eecba76eee3c64dc0d",
+  "compile_command": [
+    "clang",
+    "-O3",
+    "-mavx2",
+    "-mssse3",
+    "-mfma",
+    "-fopenmp",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth272_fused_source_input_cpu.c",
+    "-o",
+    "benchmarks\\native_expert_scaling\\meth272_fused_source_input_cpu.exe",
+    "-lm",
+    "-lpsapi"
+  ],
+  "compile_stderr": "",
+  "runs": {
+    "unchanged271": {
+      "timing": {
+        "threads": 6,
+        "tokens": 256,
+        "layers": 24,
+        "hidden": 4864,
+        "residual_rank": 32,
+        "private_units": 128,
+        "weight_bytes": 337596452,
+        "pass_ms_per_token": [
+          10.864646,
+          11.228494,
+          10.636138
+        ],
+        "checksum": 79.303890132,
+        "peak_working_set_bytes": 353652736
+      },
+      "output_sha256": "669cb3d98f175ce575fd8eeb6af8225001d5d647f819f9fe6390c5b0a195ef22",
+      "payload_sha256": "318306a34c6456a4a414b39a1ba2ee82ddca62a141f444ea5ca31d99e40b57e4",
+      "median_ms_per_token": 10.864646
+    },
+    "fused272": {
+      "timing": {
+        "threads": 6,
+        "tokens": 256,
+        "layers": 24,
+        "hidden": 4864,
+        "residual_rank": 32,
+        "private_units": 128,
+        "weight_bytes": 337596452,
+        "pass_ms_per_token": [
+          10.71103,
+          11.324342,
+          10.991488
+        ],
+        "checksum": 79.303890132,
+        "peak_working_set_bytes": 354246656
+      },
+      "output_sha256": "61e8b141388fb0e121e5dad35a4728ea479541abdb0d8396c06358b21f3a189f",
+      "payload_sha256": "318306a34c6456a4a414b39a1ba2ee82ddca62a141f444ea5ca31d99e40b57e4",
+      "median_ms_per_token": 10.991488
+    }
+  },
+  "gates": {
+    "all_fixed_fixture_source_prior_vector_bindings": true,
+    "all361_segments_exact": true,
+    "all384_outputs_bitwise_equal271_and_control": true,
+    "all256_timing_checksums_equal271": true,
+    "inherited_source_BF16_fit_reserve_and_GPU_native_limits": true,
+    "changed_kernel_absolute_median_at_most10ms": false,
+    "changed_kernel_at_least5percent_faster_than_control": false
+  },
+  "runtime": {
+    "seconds": 19.235000000000582,
+    "rss_bytes": 43433984,
+    "GPU_not_used": true
+  },
+  "summary": {
+    "fused_to_control_ratio": 1.0116747476171797,
+    "bitwise_checked_elements": 344064
+  },
+  "decision": "stop_fixed_fused_input_kernel",
+  "scope": "Same271 weights,selector and function. Paired consumed CPU component only; no new full artifact/generation/task/large-n/real dynamic routing/accepted>=50 or family proof.271 cost stop preserved;259 closed by267."
+}

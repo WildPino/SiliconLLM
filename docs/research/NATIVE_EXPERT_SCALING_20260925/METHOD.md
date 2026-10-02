@@ -64,6 +64,11 @@ activation/output-aware selection at fixed128 improves mean/reserve22.42%/
 21.87% and passes384 native numerical vectors, but11.398ms fails the10ms
 component budget. No full archive is licensed. Any changed execution kernel
 requires its own prospective numeric/cost qualification at unchanged fields.
+[METH-272](METH_272_FUSED_INPUT_RESULT_20261002.md) shared input-dot fusion
+retains bitwise outputs but fails both cost and paired speedup gates;
+10.991ms versus10.865ms unchanged control. Phase instrumentation on the
+actual private128 operator is the next diagnostic,not another accepted
+execution recipe. Historical233 scalar-SiLU times do not price these stages.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
