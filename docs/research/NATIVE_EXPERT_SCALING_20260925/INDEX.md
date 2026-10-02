@@ -210,13 +210,19 @@ distinctness, before saving any core or reading quality targets.
 Session16232 exits1; no job active.1280 routing labels are not guaranteed
 to be1280 genuinely different existing functions; cause/count unmeasured.
 
-**Next exact action:** execute frozen [METH-258 read-only diversity audit](METH_258_EFFECTIVE_BANK_DIVERSITY_PROTOCOL_20261002.md),
-all24 raw/FP32-centered/BF16 stages plus fixed real-state probes. Report
-effective unique counts and stage of collapse. Then freeze changed actual
-unique-function storage/alias maps for the complete qualified253 source
-core/existing bank, without pretending aliases are added capacity.
-Protocol/code present; no258 execution/result yet. No saved257 artifact.
-Whole-model independent quality/native integration remain required.
+[METH-258](METH_258_EFFECTIVE_BANK_DIVERSITY_RESULT_20261002.md) passes all24
+read-only audits:1243..1280 effective codes/layer,30,556 total,164 route
+aliases.94 groups already duplicate raw B; zero merges at centering or
+BF16 casting. Minimum different-code real-state distance3.807804e-7.
+Session28006 exits0; no job active. No quality targets or new fit.
+
+**Next exact action:** execute frozen [METH-259 unique-bank full core](METH_259_UNIQUE_BANK_CORE_PROTOCOL_20261002.md),
+725 physical fields plus original-leaf alias maps, complete saved loader
+and original-source/conditional bitwise conservation. Distinguish1280
+route labels from actual1243..1280 unique codes; no duplicate capacity.
+Protocol/code present; no259 execution/result yet. No saved257 artifact.
+Then frozen consumed-development and new independent full-model quality
+before native alias lookup/LUT/DRAM/accepted-rate promotion.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.

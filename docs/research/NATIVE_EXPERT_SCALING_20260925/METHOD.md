@@ -1665,6 +1665,13 @@ are not proof of1280 genuinely distinct functions. The [METH-258 audit](METH_258
 now freezes all24 raw/FP32-centered/BF16 counts and common real-state probes
 to separate preexisting duplicates from cast/centering merges before
 changing storage. No duplicate padding or weakened same-variant gate.
+The [METH-258 result](METH_258_EFFECTIVE_BANK_DIVERSITY_RESULT_20261002.md)
+finds1243..1280 effective parameter codes/layer,164 aliases total. All
+duplicates preexist in raw child B; centering/BF16 casts merge none. Fixed
+real-state distinct-code probe distances remain nonzero. [METH-259](METH_259_UNIQUE_BANK_CORE_PROTOCOL_20261002.md)
+freezes changed unique-function storage with explicit route maps and
+725 complete-core fields. Original learned/routed functions must remain
+bitwise conserved; count actual codes rather than copied route labels.
 No new private useful capacity/full quality validated. Full24-layer core construction and
 same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
