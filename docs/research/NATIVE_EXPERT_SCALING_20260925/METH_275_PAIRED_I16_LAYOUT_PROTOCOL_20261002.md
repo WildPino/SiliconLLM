@@ -25,10 +25,15 @@ New header `<8s6I>` M275PK01,24,896,4864,32,32,128. All shared gate/up code
 bytes remain exact and reversible: tensor[4864,56,2,16],tile-major within
 each feature row. Follow each paired-code layer field with original gate
 and up FP32 row-scale arrays,then byte-identical original down/private/
-residual/bias fields. Preserve original table. Total337,596,452bytes; remove
-two old code fields and add one pair field per layer:337 segments. Every
-old code matrix must unpack byte exact; all313 nonpaired segments retain
-original byte hashes,header/EOF/all337 new segments read back exactly.
+residual/bias fields. Preserve original table. Add28 zero padding bytes after
+the table: first paired-code offset2112,all layer sizes divisible64. Load
+weights into an explicitly64-byte-aligned buffer,so two paired16 tiles occupy
+one cache line; do not assume malloc alignment. Total337,596,480bytes (+28
+versus271); remove two old code fields and add one pair field per layer plus
+padding:338 segments. Every old code matrix must unpack byte exact; all313
+nonpaired segments retain original byte hashes,header/EOF/all338 new segments
+read back exactly. This format/alignment refinement is fixed before any275
+observation or packing execution.
 Do not retain duplicate code arrays in the timed native process.
 
 Paired reader uses two I32 vector accumulators,signed I16 madd products and
@@ -59,3 +64,19 @@ layout,consumed whole-model regression and newly excluded-source prediction/
 generation/task/anonymous checks before native promotion.267 remains closed;
 new learned RAM-scale n,dynamic route/LUT/real DRAM/accepted>=50 and family/
 10B/100B transfer remain mandatory.
+
+## Apparatus freeze
+
+`meth275_paired_i16.py` binds274 code/executable/quantizer/full outputs and
+271 segments,exports the reversible pack with28 zero alignment bytes and
+reads all338 segments/header/EOF. `meth275_paired_i16_cpu.c` reads one64-byte-
+aligned weight buffer,paired codes/scales,original down/private/residual
+fields,then uses the paired integer reader and scalar-I64 paired oracle.
+No duplicate gate/up arrays in native memory. All6144 qualifier output
+retains M274ALL1 so its entire hash must match274; timing M274OUT1 likewise.
+Both sources and this protocol are committed before any275 observation.
+No packed artifact/executable/result at this apparatus freeze.
+
+```powershell
+.\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth275_paired_i16.py --binary results/native_expert_scaling/meth275_paired_i16_fixture.bin --exe benchmarks/native_expert_scaling/meth275_paired_i16_cpu.exe --check results/native_expert_scaling/meth275_paired_i16_all.check.bin --control-check results/native_expert_scaling/meth275_unchanged274.check.bin --timing-check results/native_expert_scaling/meth275_paired_i16_timing.check.bin --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth275_paired_i16_result.json
+```
