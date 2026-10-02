@@ -76,10 +76,11 @@ Do not loosen the gate or increase counts to rescue this fixed recipe.
 selection passes mean/reserve/source and native numeric gates:22.4154% mean,
 21.8746% reserve improvement,384 native median/max5.36e-7/1.24e-6. Cost fails:
 11.397642ms versus10ms. Session5390 exits0; no active job/full archive.
-**Next exact action:** freeze a changed execution kernel for the same actual
-271 functions,with contemporaneous unchanged control and original numeric/
-absolute10ms gates. Routing/bank remain fixed; no retiming271 or full archive
-before a separately qualified kernel. Source precision does not prove new n.
+**Next exact action:** execute frozen [METH-272](METH_272_FUSED_INPUT_PROTOCOL_20261002.md),
+fused shared gate/up input dots for the same271 functions,paired unchanged
+control,bitwise384-vector/checksum guards,absolute10ms and5% speedup gates.
+Code implemented; no272 observations yet. Routing/bank remain fixed; no full
+archive before qualified kernel. Source precision does not prove useful n.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
