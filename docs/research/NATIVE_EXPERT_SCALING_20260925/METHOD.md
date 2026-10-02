@@ -1658,6 +1658,13 @@ with effective-bank/complete-loader parity before new full-model quality.
 The [METH-257 protocol](METH_257_FULL_SOURCE_CORE_PROTOCOL_20261002.md)
 freezes701 actual saved fields, deduplicated effective sibling A and exact
 BF16 conditional/component/complete-loader controls before execution.
+The [METH-257 stop](METH_257_FULL_SOURCE_CORE_STOP_20261002.md) reaches the
+first bank layer but rejects effective-BF16 all10-sibling distinctness,
+before any saved artifact or quality output. Nominal1280 routing labels
+are not proof of1280 genuinely distinct functions. The [METH-258 audit](METH_258_EFFECTIVE_BANK_DIVERSITY_PROTOCOL_20261002.md)
+now freezes all24 raw/FP32-centered/BF16 counts and common real-state probes
+to separate preexisting duplicates from cast/centering merges before
+changing storage. No duplicate padding or weakened same-variant gate.
 No new private useful capacity/full quality validated. Full24-layer core construction and
 same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
