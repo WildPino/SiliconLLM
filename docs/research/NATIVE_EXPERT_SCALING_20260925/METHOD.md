@@ -69,9 +69,11 @@ retains bitwise outputs but fails both cost and paired speedup gates;
 10.991ms versus10.865ms unchanged control. [METH-273](METH_273_PRIVATE128_PHASE_RESULT_20261002.md)
 actual private128 phase diagnosis retains bitwise values and identifies
 shared/concurrent down-right92.14% versus private/team6.02%,including added
-instrumentation overhead.274 I16 input/shared Q8 integer dots are a frozen
-unimplemented hypothesis requiring source and integer/numerical controls;
-no complete candidate with this changed arithmetic exists.
+instrumentation overhead.[METH-274](METH_274_I16_SHARED_INPUT_RESULT_20261002.md)
+I16 input/shared Q8 integer dots pass all6144 actual CPU source/reserve and
+GPU/native controls (median4.67e-7/max1.04e-6) and59,768,832 scalar-I64/AVX
+dot checks,but10.551ms fails10ms. Paired physical input layout is a frozen
+unimplemented cost hypothesis; no complete candidate with either exists.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
