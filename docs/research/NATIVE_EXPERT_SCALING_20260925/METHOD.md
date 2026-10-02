@@ -33,8 +33,10 @@ control. Full saved loader needs the archive and implementation dependencies;
 export and quality commands/resource limits are in the linked protocols.
 The [METH-261 manifest](METH_261_COMPLETE_CORE_FRESH_MANIFEST_RESULT_20261002.md)
 now freezes24 independent sources with3176 old-source exclusions and the
-original fragment guards, without any new model scoring. Next answerability
-before independent prediction on the same saved artifact. Full independent prediction/generation/tasks, native
+original fragment guards, without any new model scoring. [METH-262](METH_262_SOURCE_ANSWERABILITY_RESULT_20261002.md)
+passes all24 source-only answerability decisions before inference.
+[METH-263](METH_263_COMPLETE_CORE_FRESH_PREDICTION_PROTOCOL_20261002.md)
+now freezes independent full-head prediction on the same artifact. Full independent prediction/generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
 tok/s remain mandatory. This is specific to the small dense donor; the
 active source feature count still grows with dense donor width/depth.

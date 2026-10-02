@@ -236,11 +236,13 @@ original fragment controls, fixed seed261261/tree/cached PG19 train14.
 Manifest SHA5af457561ad24fb837770735d0dbd0f23baa2f04a0525f38656285c0db7ec050.
 Session42952 exits0,220.360s; no active job or new model score.
 
-**Next exact action:** freeze METH-262 source-only answerability criteria
-before reading/annotating261 excerpts; save all24 decisions/anchors before
-model inference. Then freeze METH-263 independent three-arm full prediction
-on this exact261 manifest and259 actual archive, unchanged quality gates.
-No262/263 code/protocol/result yet. Keep candidate/data fixed through full
+[METH-262](METH_262_SOURCE_ANSWERABILITY_RESULT_20261002.md) freezes criteria
+before source inspection, annotates all24 answerable with literal details,
+and passes source-only validation. No model output/score consulted.
+
+**Next exact action:** execute frozen [METH-263 independent prediction](METH_263_COMPLETE_CORE_FRESH_PREDICTION_PROTOCOL_20261002.md)
+on exact261 manifest and259 archive, unchanged full-head quality gates.
+Code/protocol present; no263 inference/result yet. Keep candidate/data fixed through full
 generation/tasks/blind/native complete alias lookup/LUT/DRAM/rate checks.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted

@@ -1,0 +1,233 @@
+{
+  "experiment": "METH-262-source-only-pre-inference-answerability",
+  "manifest_sha256": "5af457561ad24fb837770735d0dbd0f23baa2f04a0525f38656285c0db7ec050",
+  "annotations_sha256": "e6e031f674f2b795e30da314e80596fc1e1589149a8d4bae6879dd4199c516bd",
+  "model_outputs_consulted": false,
+  "answerable_count": 24,
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e12_scale.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "37/42 GB/s",
+      "supported_summary": "The excerpt argues that reaching 50 tokens/s requires reducing active weights per token at ternary precision.",
+      "supported_detail": "It says the 37/42 GB/s ledger rows are withdrawn and cites a Qwen2.5-1.5B quality measurement.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e30_the_wall.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "G-E30B",
+      "supported_summary": "The code records a VOID result and exits when byte accounting fails to reproduce an artifact.",
+      "supported_detail": "The failure is labeled G-E30B and written as JSON before SystemExit.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e48_none_control.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "G48E_TOL = 0.25",
+      "supported_summary": "The code defines timing constants and a relative-tolerance comparison for an engine experiment.",
+      "supported_detail": "G48E_TOL is 0.25 and TARGET_TOK_S is 50.0.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2a_projection_diagnostic.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "8 * 6144",
+      "supported_summary": "The code lists pinned reference files, element counts and hashes for a projection diagnostic.",
+      "supported_detail": "The ref_q entry has 8 * 6144 elements; ref_kv has 8 * 576.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h2i_applied.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "\"gate_mode\": \"hard\"",
+      "supported_summary": "The code reads a prior JSON result and compares it with an expected model configuration.",
+      "supported_detail": "The expected configuration sets gate_mode to hard.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_moe_component_cross_input.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "strat01_gguf_layer1_routed_moe_component_cross_input.h",
+      "supported_summary": "The code sets imports and paths for a layer1 routed-MoE cross-input engine diagnostic.",
+      "supported_detail": "Its header is strat01_gguf_layer1_routed_moe_component_cross_input.h.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e18_agreement_floor.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "most-frequent emitted token",
+      "supported_summary": "The text defines a constant-token baseline for interpreting greedy agreement.",
+      "supported_detail": "FLOOR_ARM uses each measured arm's most-frequent emitted token and references results/e6/ref.json.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/stage_minus1/check_prereg.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "UNPINNED_MARKER",
+      "supported_summary": "The code traverses nested key names and identifies values marked as unpinned.",
+      "supported_detail": "is_unpinned checks for UNPINNED_MARKER after stripping leading whitespace.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1052",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "other man's patent",
+      "supported_summary": "The narrative describes someone submitting a copied patent application and receiving a citation against it.",
+      "supported_detail": "He notes the application date of the other man's patent after its citation by the patent office.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1159",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "two different",
+      "supported_summary": "The narrator describes an elopement arrangement and a coincidence with cousin Pattie.",
+      "supported_detail": "Both Pattie and the narrator had agreed to run away with two different people at the same moment.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=295",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Oenopion, King of Chios",
+      "supported_summary": "The narrative contrasts a goddess's attachment to Orion with his love for a mortal princess.",
+      "supported_detail": "The princess is the daughter of Oenopion, King of Chios.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=393",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Miss Raby",
+      "supported_summary": "The narrator recounts older affairs involving boys and Miss Raby's emotional reaction to them.",
+      "supported_detail": "The affairs are said to be seven years old, and Miss Raby had recently come to Rodwell Regis.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=164",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "16_th_ (28_th_)",
+      "supported_summary": "A dated diary passage reports rest, a visiting messenger and impressions of Americans versus Parisians.",
+      "supported_detail": "The April entry is dated 16th (28th) and says the writer slept very well.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=381",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Sunday-school",
+      "supported_summary": "The passage describes a woman's inner response to a realization about her relationship with church activities.",
+      "supported_detail": "The list includes the church, choir, Sunday-school and prayer-meeting.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=267",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Claret, No 11",
+      "supported_summary": "Abe follows other guests in ordering wine and answers the waiter's questions.",
+      "supported_detail": "Claret, No 11 is called for, and Abe asks for the same wine as the Indian trader.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1009",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Princess Anne",
+      "supported_summary": "The narrator recalls hearing about a young duke's drinking at a family gathering.",
+      "supported_detail": "The narrator was ten; Prince Augustus and Princess Anne were present.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "IEEE-754 binary32",
+      "supported_summary": "The protocol excerpt specifies internal identity controls and the arithmetic of frozen terminal-composition arms.",
+      "supported_detail": "Every sum uses one correctly rounded IEEE-754 binary32 addition per element.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E62_DOES_THE_ONE_BYTE_RUNG_SURVIVE_SCALE.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "**3 B cell**",
+      "supported_summary": "A research table says E62 adds a third arm to address a missing model-size cell.",
+      "supported_detail": "It identifies a missing 3 B cell and refers to two int8 anchor points in E60.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E52_WHAT_DOES_A_BUSY_BOX_COST.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "--threads 6",
+      "supported_summary": "The brief limits fitted busy-box levels to the number of logical CPUs used by the engine.",
+      "supported_detail": "The engine uses six threads on a 6c/12t part; level 8 is excluded while level 5 is retained.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "without MTP",
+      "supported_summary": "The text distinguishes a preregistered PIQA task measurement from BPB tests and an MTP pilot.",
+      "supported_detail": "Both PIQA arms are base-model GGUFs without MTP.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E32_THE_OWED_PROTOCOL.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "45.6% (73/160)",
+      "supported_summary": "The protocol requires ranking measurements alongside score metrics and cites an earlier disagreement.",
+      "supported_detail": "E14 reported 45.6% greedy top1 agreement, 73 of 160, at 1.5 B despite a favorable BPB reading.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/H2I_ONE_BYTE_CARVE_BASELINE.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "+0.209070870 BPB",
+      "supported_summary": "The excerpt compares quality effects of one-byte R8 FFN conversion and hard carving.",
+      "supported_detail": "It reports a conversion change of -0.000016893 BPB and a hard-carve cost of +0.209070870 BPB.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_S1_WHICH_BAR_PREDICTS_BPB.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "C3 NULL FIRES",
+      "supported_summary": "The calibration table requires planted-damage and random-null controls to reveal quality degradation.",
+      "supported_detail": "C3 NULL FIRES requires high-sparsity arm C to be clearly worse than arms A and B.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/ADAPTER_MEMO_01_SPEED_BUDGET.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "quiescence_gate",
+      "supported_summary": "The memo explains a limitation of a process-quiescence check used in a benchmark.",
+      "supported_detail": "quiescence_gate runs once before mode dispatch and cannot detect a job that starts mid-measurement.",
+      "basis": "Visible excerpt supports the summary and a specific detail without outside context."
+    }
+  ],
+  "gates": {
+    "all24_sources_preserved_and_annotated": true,
+    "all_positive_literal_anchors_in_visible_excerpt": true,
+    "all24_prompts_answerable_from_source_only": true
+  },
+  "script_sha256": "5a59f08af6e4506961f145ac6c40687dc8c7bb85055c749a19ffd64cb370d58e",
+  "decision": "answerability_pass_freeze_independent_full_prediction",
+  "scope": "Source-only annotations,not model correctness,generation or document quality. No source replacement,model-driven anchor selection,n/RAM/native rate or donor scale claim."
+}

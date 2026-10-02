@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+"""One frozen independent-source prediction screen of the complete archive."""
+import argparse
+import gc
+import json
+from pathlib import Path
+import time
+import numpy as np
+import torch
+from huggingface_hub import hf_hub_download
+from transformers import AutoModelForCausalLM
+import meth260_complete_core_development as D
+import meth262_source_answerability as A
+
+P,L,R,F=D.P,D.L,D.R,D.F
+MANIFEST=A.MANIFEST;MANIFEST_SHA=A.MANIFEST_SHA
+ANSWERABILITY=P.DOC/'meth262_source_answerability_result.json'
+ARMS=D.ARMS
+
+
+def bootstrap(arms):
+    rng=np.random.default_rng(263263);draws=rng.integers(0,24,size=(10000,24));out={}
+    candidate=arms[ARMS[2]]['document_rows'];bytes_=np.asarray([r['bytes'] for r in candidate])
+    for control in ARMS[:2]:
+        previous=arms[control]['document_rows'];assert [r['source_id'] for r in candidate]==[r['source_id'] for r in previous]
+        delta=np.asarray([r['nats']-p['nats'] for r,p in zip(candidate,previous)])
+        values=delta[draws].sum(1)/(np.log(2)*bytes_[draws].sum(1))
+        out[control]={'candidate_minus_control_bpb_p05':float(np.quantile(values,.05)),
+            'candidate_minus_control_bpb_p95':float(np.quantile(values,.95)),'seed':263263,'draws':10000,'unit':'source','decision_gate':False}
+    return out
+
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--answerability-sha',required=True);ap.add_argument('--out',required=True,type=Path)
+    args=ap.parse_args();assert not args.out.exists();start=time.monotonic();stage='bindings';arms={}
+    def partial():
+        args.out.with_suffix('.partial.json').write_text(json.dumps({'stage':stage,'arms':arms,
+            'seconds':time.monotonic()-start},indent=2)+'\n',encoding='utf-8')
+    try:
+        for path,sha in ((MANIFEST,MANIFEST_SHA),(ANSWERABILITY,args.answerability_sha),(D.EXPORT,D.EXPORT_SHA),
+                         (D.CORE,D.CORE_SHA),(P.M122.SPECIALIZED,P.M122.SPECIALIZED_SHA),(P.M122.TRAINING,P.M57.TRAINING_SHA)):
+            assert P.digest(path)==sha
+        manifest=json.loads(MANIFEST.read_text(encoding='utf-8'));answer=json.loads(ANSWERABILITY.read_text(encoding='utf-8'))
+        assert answer['manifest_sha256']==MANIFEST_SHA and answer['answerable_count']==24 and all(answer['gates'].values())
+        assert answer['model_outputs_consulted'] is False
+        items=manifest['items'];assert len(items)==24 and manifest['artifact_sha256']==D.CORE_SHA
+        assert manifest['selected_counts']==dict.fromkeys(P.CATEGORIES,8)
+        for item,row in zip(items,answer['rows']):
+            assert row['source_id']==item['source_id'] and row['anchor'] in item['excerpt']
+            assert P.M17.sha(item['text'].encode())==item['text_sha256']
+            for key in ('document_ids','prompt_ids'):assert P.M17.sha(np.asarray(item[key],dtype=np.int32).tobytes())==item[key+'_sha256']
+        export=json.loads(D.EXPORT.read_text(encoding='utf-8'));assert all(export['gates'].values())
+        assert P.digest(Path(R.__file__))==export['script_sha256']
+        for path,sha in export['helper_sha256'].items():assert P.digest(Path(path))==sha
+        parent=json.loads(P.M122.TRAINING.read_text(encoding='utf-8'))['checkpoints']['512'];assert P.digest(parent['path'])==P.M57.CHECKPOINT_SHA
+        source=Path(hf_hub_download(P.M42.MODEL,'model.safetensors',revision=P.M42.REV,local_files_only=True));assert P.digest(source)==P.M57.MODEL_SHA
+        device=R.G.Q.M.D.Q.setup();P.MAX_SECONDS=P.M17.MAX_SECONDS=20*60
+        torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
+        torch.set_float32_matmul_precision('highest');torch.use_deterministic_algorithms(True)
+        stage='original_BF16_control_load'
+        model=AutoModelForCausalLM.from_pretrained(P.M42.MODEL,revision=P.M42.REV,dtype=torch.bfloat16,
+            attn_implementation='sdpa',local_files_only=True).to(device).eval();model.config.use_cache=False
+        L.D.H.load_centered(model,device,parent['path']);wrappers=[layer.mlp for layer in model.model.layers];donor_top={}
+        with torch.inference_mode():
+            for arm,enabled in ((ARMS[0],False),(ARMS[1],True)):
+                stage=arm;documents=[];prompts=[]
+                for item in items:
+                    nats=P.M17.score_doc(model,item['document_ids'],wrappers,enabled,device,start)
+                    documents.append({'source_id':item['source_id'],'category':item['category'],'bytes':item['bytes'],'nats':nats})
+                P.M44.set_experts(wrappers,enabled)
+                for item in items:
+                    ids=torch.as_tensor(item['prompt_ids'],device=device)[None];top=model(ids,use_cache=False).logits.argmax(-1)[0].cpu()
+                    if not enabled:donor_top[item['source_id']]=top
+                    prompts.append({'source_id':item['source_id'],'category':item['category'],'positions':len(item['prompt_ids']),
+                        'matching':int((top==donor_top[item['source_id']]).sum())});P.budget(start,device)
+                arms[arm]={'document_rows':documents,'prompt_rows':prompts};partial()
+                print(json.dumps({'arm':arm,'runtime':P.budget(start,device)}),flush=True)
+        del model,wrappers;gc.collect();torch.cuda.empty_cache();stage='complete_stored_candidate_load'
+        model,wrappers,proposal,load_record=R.load_stored(D.CORE,device,D.CORE_SHA)
+        L.D.E.P=P;stage=ARMS[2];arms[ARMS[2]]=L.D.E.evaluate(model,wrappers,items,donor_top,ARMS[2],device,start);partial()
+        stage='finite_prompt_shortlist_controls';approx=(proposal['codes'].float()*proposal['scales'].float()[:,None]).bfloat16()
+        L.D.H.KS=(64,);shortlist=[]
+        with torch.inference_mode():
+            for item in items:
+                ids=torch.as_tensor(item['prompt_ids'],device=device)[None];hidden=model.model(ids,use_cache=False).last_hidden_state[0]
+                shortlist.append({'source_id':item['source_id'],'category':item['category'],
+                    **L.D.H.score_item(hidden,model.lm_head.weight,approx)});P.budget(start,device)
+        F.ARMS=ARMS;summary=F.summarize(arms)
+        gates={'fixed_independent_manifest_answerability_and_actual_artifact':True,'complete_same_archive_loader':True,
+            'pooled_bpb_vs_both':all(summary['pooled'][k]<=.01 for k in ('candidate_minus_donor_bpb','candidate_minus_bf16_e1280_bpb')),
+            'category_bpb_vs_both':all(summary[c][k]<=.02 for c in P.CATEGORIES for k in ('candidate_minus_donor_bpb','candidate_minus_bf16_e1280_bpb')),
+            'pooled_top1':summary['pooled']['candidate_minus_bf16_e1280_top1']>=-.01,
+            'category_top1':all(summary[c]['candidate_minus_bf16_e1280_top1']>=-.02 for c in P.CATEGORIES),
+            'prompt_k64_inclusion':all(r['misses']['64']==0 for r in shortlist),
+            'prompt_exact_rerank':all(r['rerank_mismatches']['64']==0 for r in shortlist)}
+        result={'experiment':'METH-263-independent-complete-unique-core-prediction','manifest_sha256':MANIFEST_SHA,
+            'answerability_sha256':args.answerability_sha,'export_sha256':D.EXPORT_SHA,'artifact_sha256':D.CORE_SHA,
+            'source_sha256':P.M57.MODEL_SHA,'parent_checkpoint_sha256':P.M57.CHECKPOINT_SHA,
+            'child_checkpoint_sha256':P.M122.SPECIALIZED_SHA,'arms':arms,'summary':summary,'bootstrap':bootstrap(arms),
+            'shortlist':shortlist,'gates':gates,'load_record':load_record,'runtime':P.budget(start,device),
+            'script_sha256':P.digest(Path(__file__)),
+            'decision':'independent_complete_core_prediction_pass_freeze_generation_tasks' if all(gates.values()) else 'independent_complete_core_prediction_fail_close_fixed_candidate',
+            'scope':'One independent24-source prediction screen on unchanged actual259 archive. Finite prompt K64 check,no generation/task/blind/native model-rate/RAM n/other-family/10B/100B promotion.'}
+        args.out.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');print(json.dumps({k:result[k] for k in ('decision','summary','gates','runtime')}),flush=True)
+    except BaseException as error:
+        partial();args.out.with_suffix('.failure.json').write_text(json.dumps({'stage':stage,'error':type(error).__name__+': '+str(error),
+            'seconds':time.monotonic()-start},indent=2)+'\n',encoding='utf-8');raise
+
+
+if __name__=='__main__':main()
