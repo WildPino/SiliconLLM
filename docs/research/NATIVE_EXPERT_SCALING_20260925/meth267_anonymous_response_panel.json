@@ -1,0 +1,202 @@
+{
+  "experiment": "METH-267-three-arm-anonymous-excerpt-panel",
+  "generation_sha256": "f3581cefc4a7d758b141fc4b4fa62ca45f43d00fe6cc00a10af57895b4a5ec93",
+  "manifest_sha256": "5af457561ad24fb837770735d0dbd0f23baa2f04a0525f38656285c0db7ec050",
+  "anchors_sha256": "e6e031f674f2b795e30da314e80596fc1e1589149a8d4bae6879dd4199c516bd",
+  "mapping_sha256": "dd542663d29ee27aa33af3d12ed09f3783058234de3d6f1876aa973c1bed6d21",
+  "rubric": "Excerpt-only unsupported claims,severe central inversions,and absence of any concrete supported detail. Arm identities withheld until findings commit.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e12_scale.py",
+      "category": "code",
+      "excerpt": "kernel is on its ceiling at every\nfootprint and ledger 19.4's 37/42 GB/s rows are withdrawn. The remaining 7.4x to 50 tok/s is a\nproperty of the MODEL, and the only route this programme has ever had is fewer active weights per\ntoken at TERNARY precision. That route rests on a quality number measured at ONE shape --\nprobes/T2_TERNARIZATION_RULE.md:4 reads \"Donor: Qwen2.5-1.5B\". This",
+      "A": "The excerpt describes a program's performance metrics, specifically focusing on the following:\n\n1. The program's performance is measured in terms of rows per second (RPS).\n2. The program's performance is measured at a specific precision level (TERMINARY).\n3. The program's performance is measured at a specific shape (Qwen2.5-1.5B).\n4. The program's performance is measured at a specific token count (7.4x to 50).\n5. The program's performance is measured at a specific token size (37/42 GB/s).\n6. The program's performance is measured",
+      "B": "The excerpt describes a program's performance metrics, specifically focusing on the following:\n\n1. The program's performance is measured in terms of rows per second (RPS) and tokens per second (TPS).\n2. The program's performance is significantly lower than expected, with the lowest RPS and TPS values.\n3. The program's performance is attributed to a specific quality number, which is measured at TERNARY precision.\n4. The quality number is read from a file named \"Qwen2.5-1.5B\" in the \"Probe/T2_TERNARIZATION_RULE.md\" file.\n5. The quality",
+      "C": "The excerpt describes a program's performance metrics, specifically focusing on the following:\n\n1. The program's performance is measured in terms of rows per second (RPS).\n2. The program's performance is measured in a specific precision level (TERNARY).\n3. The program's performance is measured in terms of the number of active weights per token (AWPT).\n4. The program's performance is measured at a specific shape (Qwen2.5-1.5B).\n\nSpecifically, the program's performance is described as having 37/42 GB/s rows, 7.4x to 50 tok"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e30_the_wall.py",
+      "category": "code",
+      "excerpt": "IRES\" if g_b[\"fires\"] else \"MISMATCH -- the accounting is wrong\"))\n    if not g_b[\"fires\"]:\n        out[\"VOID\"] = \"G-E30B: the byte accounting does not reproduce the artifact\"\n        json.dump(out, open(OUT, \"w\", encoding=\"utf-8\"), indent=1)\n        raise SystemExit(\"G-E30B MISMATCH -- see \" + OUT)\n\n    # ---------------------------------------------------------------- the engine ",
+      "A": "The excerpt describes a Python script that checks if a specific byte is present in a dictionary `g_b` and if not, it raises an exception. The script then performs an operation based on the result of this check.<|im_end|>",
+      "B": "The excerpt describes a Python script that checks if the \"fires\" attribute of a dictionary `g_b` is set. If it is not, it sets a specific field `VOID` and writes the result to a file named `OUT`. If the \"fires\" attribute is set, it proceeds to process the data.<|im_end|>",
+      "C": "The excerpt describes a Python script that checks if a specific byte is present in a dictionary `g_b` and if not, it raises an exception. If the byte is present, it writes the result to a file named `OUT` and exits with an error message.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e48_none_control.py",
+      "category": "code",
+      "excerpt": "          # E46 phase B, s/tok/pos * 1000\nE48_B_MS_PER_POS = 0.0081821                # E48 sweep6, whole token\nG48E_TOL = 0.25                             # B.5, fixed before the numbers exist\nTARGET_TOK_S = 50.0\n\n\ndef near(got, want, tol=G48E_TOL):\n    return abs(got - want) / abs(want) <= tol\n\n\ndef g_e48e(b_short, b_long):\n    \"\"\"B.5's four-way table, verbatim.  The runner does ",
+      "A": "The excerpt describes a calculation related to the E48 sweep6, whole token, and B.5, fixed before the numbers exist. It calculates the percentage of tokens that are within a tolerance of 0.25, which is used to determine the E48 sweep6 value.<|im_end|>",
+      "B": "The excerpt describes the calculation of a specific value, E48_B_MS_PER_POS, which is a measure of the number of tokens per second (E48 sweep6) in the B.5 phase of the E46 phase. It also mentions the fixed B.5 token tolerance, G48E_TOL, and the target token count, TARGET_TOK_S. The function near is used to check if the difference between the actual and target tokens is less than the tolerance, and the function g_e48e calculates the B.5's four-way table.<|im_end|>",
+      "C": "The excerpt describes a calculation for a specific token frequency metric in a language model, specifically focusing on the E48 sweep6 token count and the B.5 fixed token count. It also mentions the target token count for the E48 phase B sweep. The excerpt provides a function to calculate the token frequency and another function to determine if a given token count is within a specified tolerance.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2a_projection_diagnostic.py",
+      "category": "code",
+      "excerpt": "8183892795b9bc91be978f5473bb322f869b2c10c1efd\"),\n    \"ref_q\": (SOURCE_RUN / \"pinned_reference/prefill8/q-0.full.f32le\", 8 * 6144, \"4dc1424d3f93651acaa152bd57222754c132ab3e43330d286c61e9739caff64b\"),\n    \"ref_kv\": (SOURCE_RUN / \"pinned_reference/prefill8/kv_cmpr_pe-0.full.f32le\", 8 * 576, \"6a364dd45c12142fb45ab90287caa14874ed40160089e716e23bd58d3785653c\"),\n    \"c_input\": (SOURCE_RUN",
+      "A": "The excerpt describes a reference data set with the following details:\n\n- **Source Run**: 8183892795b9bc91be978f5473bb322f869b2c10c1efd\n- **Reference Q**: (SOURCE_RUN / \"pinned_reference/prefill8/q-0.full.f32le\", 8 * 6144, \"4dc1424d3f93651acaa152bd57222754c132ab",
+      "B": "The excerpt describes a JSON object containing three key-value pairs. The first key-value pair is `ref_q` with a value of `(SOURCE_RUN / \"pinned_reference/prefill8/q-0.full.f32le\", 8 * 6144, \"4dc1424d3f93651acaa152bd57222754c132ab3e43330d286c61e9739caff64b\")`. The second key-value pair is `ref_kv` with a value",
+      "C": "The excerpt describes a reference data set with the following details:\n\n- **Source Run**: `SOURCE_RUN / \"pinned_reference/prefill8/q-0.full.f32le\"`\n- **Reference Key**: `ref_q`\n- **Reference Value**: `(SOURCE_RUN / \"pinned_reference/prefill8/q-0.full.f32le\", 8 * 6144, \"4dc1424d3f93651acaa152bd57222754c132ab3e43330d286c"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h2i_applied.py",
+      "category": "code",
+      "excerpt": " {\"path\": os.path.abspath(path), \"bytes\": size, \"sha256\": digest}\n\n    with open(paths[\"h1_result\"], encoding=\"utf-8\") as fh:\n        old = json.load(fh)\n    expected = {\n        \"model\": EXPECT_MODEL, \"revision\": EXPECT_REVISION, \"layers\": LAYERS,\n        \"k\": K, \"E\": E_GROUPS, \"gate_mode\": \"hard\",\n    }\n    wrong = [(key, old.get(key), value) for key, value in expected.items()\n  ",
+      "A": "The excerpt describes a JSON object that contains information about a model's configuration, including its path, size, SHA-256 hash, and a list of expected and wrong values. It also mentions that the model's parameters are stored in a file named `h1_result` and that the expected values are a dictionary with keys \"model\", \"revision\", \"layers\", \"k\", \"E\", and \"gate_mode\". The wrong values are a list of tuples, each containing a key and its corresponding value from the expected dictionary.<|im_end|>",
+      "B": "The excerpt describes a JSON object that contains information about a model's configuration, including its path, size, SHA-256 hash, and a list of expected and actual values. It also mentions that the model's parameters are expected to be hard-coded into the model's configuration, while the actual values are loaded from a file.<|im_end|>",
+      "C": "The excerpt describes a JSON object containing information about a model's configuration, including the path to the model file, its size, a SHA-256 hash, and a digest. It also provides a sample JSON object with expected and wrong values for a model configuration.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_moe_component_cross_input.py",
+      "category": "code",
+      "excerpt": " import run_strat01_layer1_ffn_output_component_cross_input as fc\nfrom benchmarks.donor_adaptation.engine import run_strat01_rung2c_cross_input as base\n\nHERE = Path(__file__).resolve().parent\nENGINE = fc.ENGINE\nDEFAULT_MODEL = fc.DEFAULT_MODEL\nHEADER = ROOT / \"benchmarks/phase60/strat01_gguf_layer1_routed_moe_component_cross_input.h\"\nPROTOCOL = ROOT / \"docs/research/donor_adaptatio",
+      "A": "The excerpt describes a Python script that imports a function `run_strat01_layer1_ffn_output_component_cross_input` from a library named `fc`. It also mentions that this function is used in a specific context, likely for a benchmarking or adaptation process. The excerpt provides a brief overview of the script's purpose and context, without including the specific details of the function or the context.<|im_end|>",
+      "B": "The excerpt describes a Python script that imports a component from the `run_strat01_layer1_ffn_output_component_cross_input` engine and then uses it to run a component from the `run_strat01_rung2c_cross_input` engine. It also mentions the import path, engine name, default model, header file, and protocol file.<|im_end|>",
+      "C": "The excerpt describes a Python script that imports a function `run_strat01_layer1_ffn_output_component_cross_input` from a specific module, which is then used to run a component in a neural network model. The script is located in the `benchmarks/phase60/strat01_gguf_layer1_routed_moe_component_cross_input.h` file, which is part of a larger project.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e18_agreement_floor.py",
+      "category": "code",
+      "excerpt": "    something.\n  FLOOR_ARM     what each measured arm's OWN most-frequent emitted token would have scored as a\n                constant predictor -- i.e. how much of that arm's agreement is explained by it\n                having landed on a common token.\n\nReference: results/e6/ref.json (PyTorch fp32 greedy), the same file every agreement in the\nprogramme is scored against.\n\"\"\"\nimpo",
+      "A": "The excerpt describes a method for identifying the most frequent emitted token among the agreed-upon tokens in a program, which is then used as a constant predictor. It also mentions that the reference data is from a PyTorch implementation of the greedy algorithm, which is used to score the program's agreement against the agreed-upon tokens.<|im_end|>",
+      "B": "The excerpt describes a method for identifying the most frequent emitted token (MEAT) for each measured arm in a program, which is then used as a constant predictor. It also mentions that the reference data is the same across all agreements in the program, ensuring consistency.<|im_end|>",
+      "C": "The excerpt describes a method for identifying the most frequent emitted token (MET) for each measured arm in a program, which is then used as a constant predictor. Specifically, it states that the MEET score is calculated as the average of the most-frequent emitted tokens across all agreements in the program.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/stage_minus1/check_prereg.py",
+      "category": "code",
+      "excerpt": "yield \"/\".join(prefix + [name])\n            for item in dotted_key_names(value, prefix + [name]):\n                yield item\n\n\ndef is_unpinned(value):\n    return isinstance(value, str) and value.lstrip().startswith(UNPINNED_MARKER)\n\n\ndef reason_of(value):\n    text = value.lstrip()[len(UNPINNED_MARKER):].strip()\n    return \" \".join(text.split())\n\n\ndef main():\n    parser = argparse.A",
+      "A": "The excerpt describes a function `is_unpinned` that checks if a value is a string and if it starts with `UNPINNED_MARKER`. It also defines a function `reason_of` that extracts the reason from a string value, stripping any leading or trailing whitespace. The `main` function is a parser for an argument parser, which is a common way to handle command-line arguments in Python.<|im_end|>",
+      "B": "The excerpt describes a function `is_unpinned` that checks if a value is unpinned, a function `reason_of` that extracts the reason for a value, and a function `main` that parses arguments using the `argparse` module.<|im_end|>",
+      "C": "The excerpt describes a function `is_unpinned` that checks if a value is a string and if it starts with `UNPINNED_MARKER`. It also defines a function `reason_of` that extracts the reason from a value, stripping any leading or trailing whitespace. The `main` function is a parser for an argument parser, which is a common way to handle command-line arguments in Python.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1052",
+      "category": "prose",
+      "excerpt": "ich is an exact duplicate and\ncopy of the other man's patent that has been issued and published.\n\nIn due course he gets the return of his patent application from the\npatent office with the citation against it of the other man's patent\nthat he is copying. He then promptly notes the date of the patent\napplication of the other man's patent and files what is called in the\npatent office",
+      "A": "The excerpt describes a situation where one man's patent is an exact duplicate and copy of another man's patent that has been issued and published. The man receives the return of his patent application from the patent office with the citation against it of the other man's patent, and then promptly notes the date of the patent application of the other man's patent and files what is called a \"return of the patent application.\"<|im_end|>",
+      "B": "The excerpt describes a situation where one man's patent is an exact duplicate and copy of another man's patent that has been issued and published. The man receives the return of his patent application from the patent office with the citation against it of the other man's patent, and then promptly notes the date of the patent application of the other man's patent and files what is called a \"return of the patent application.\"<|im_end|>",
+      "C": "The excerpt describes a situation where the author is an exact duplicate of another man's patent, which has been issued and published. The author receives a return of the patent application from the patent office, along with a citation against the other man's patent. The author then promptly notes the date of the patent application of the other man's patent and files a patent application of their own.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1159",
+      "category": "prose",
+      "excerpt": "sin Ikey; and, ods fishes, I'm almost\nhalf minded to cheat you too!\"\n\nAnd with that she flung her arms round my neck, gave me a kiss, and ran\nlaughing away to prepare for the hour of elopement.\n\nThere was an extraordinary coincidence between the situation of my\ncousin Pattie and myself. She had agreed to run away with two different\npeople at the same moment; and so had I. The day b",
+      "A": "The excerpt describes a scene where a woman, named Pattie, is described as \"almost half-minded\" to cheat on a man named Ikey. She is also described as giving a kiss and running away to prepare for the elopement. The coincidence between Pattie and the author's cousin Ikey is mentioned, and the author is described as giving a kiss to Pattie.<|im_end|>",
+      "B": "The excerpt describes a scene where a woman, named Pattie, is described as \"almost half-minded\" to cheat on a man named Ikey. She is also described as giving a kiss and running away to prepare for the elopement. The excerpt also mentions that there is an extraordinary coincidence between the situation of Pattie and the author's own situation.<|im_end|>",
+      "C": "The excerpt describes a romantic scene where a woman, named Pattie, is described as \"almost half-minded\" to cheat on her fiancé, and she is kissed by the man she is running away with. The scene ends with the woman laughing and preparing for the elopement.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=295",
+      "category": "prose",
+      "excerpt": " so strong and so\ngreat a hunter that she went as near to loving him as she ever did to\nloving any one. She had him always with her, and could never bear him\nto leave her. But Orion never thought of becoming the husband of a\ngoddess, and he fell in love with a mortal princess, the daughter of\nOenopion, King of Chios, an island in the Aegean Sea.\n\nWhen, however, he asked the king fo",
+      "A": "The excerpt describes a strong and great hunter who, despite her strong feelings for Orion, never considered becoming his wife. She loves him deeply and cannot bear his departure. However, when Orion asks the king for a marriage, she falls in love with a mortal princess, the daughter of Oenopion, who is the daughter of Chios, an island in the Aegean Sea.<|im_end|>",
+      "B": "The excerpt describes a powerful and devoted hunter who loves Orion deeply. She has him with her and never wishes for him to leave her. However, Orion never thought of becoming the husband of a goddess, and he falls in love with a mortal princess, the daughter of Oenopion, King of Chios.<|im_end|>",
+      "C": "The excerpt describes a strong and great hunter who, despite her strong feelings for him, could never bear him to leave her. She loves him deeply and never considers him a goddess. However, when Orion asks the king for a mortal princess, the daughter of Oenopion, he falls in love with her.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=393",
+      "category": "prose",
+      "excerpt": "dren, which he was always writing\nabout), _that_ notion was very soon given up. But these affairs are\nof early date, seven years back, and I only heard of them in a very\nconfused manner from Miss Raby, who was a girl, and had just come to\nRodwell Regis. She is always very much moved when she speaks about those\nboys, which is but seldom. I take it the death of the little one still\ng",
+      "A": "The excerpt describes a conversation between a man and a girl named Miss Raby, who is a young woman. The man is discussing his writing about a boy named Dren, who he was always writing about. However, the conversation is very confusing and the man is not sure what he is talking about. The excerpt also mentions that the death of the little boy is mentioned, but it is not clear if this is the main point of the conversation.<|im_end|>",
+      "B": "The excerpt describes a conversation between a man and a girl who were discussing the death of a young boy. The girl, who is a young girl, is very moved by the mention of the boy's death and is often very much moved when she speaks about the boy.<|im_end|>",
+      "C": "The excerpt describes a conversation between a man and a girl named Miss Raby, who is a young woman. The man is discussing his writing about the death of a young boy, and he is surprised to hear about it from Miss Raby. The excerpt also mentions that the boy's death is very recent, occurring seven years ago.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=164",
+      "category": "prose",
+      "excerpt": "en o’clock. Needless to\n     say, I was worn out.\n\n     “_April_ 16_th_ (28_th_).\n\n     “Slept very well. A messenger came from * * * * to know if I wanted\n     anything. These Americans strike me as very remarkable, especially\n     after the impression the Parisians left upon me: there politeness\n     or amiability to a stranger always savoured of self-interest;\n     whereas in th",
+      "A": "The excerpt describes a person's experience on April 16th (28th), stating that they were tired and worn out. It mentions that they slept well and received a messenger informing them if they wanted anything. The specific detail is that the messenger came from an unspecified source, suggesting that the American visitors were from a different country or region.<|im_end|>",
+      "B": "The excerpt describes a person's experience on April 16th (28th) in Paris, where they were tired but still able to sleep well. The person was surprised by the Americans' behavior, especially their politeness or amiability to strangers, which contrasted with the impression of the Parisians.<|im_end|>",
+      "C": "The excerpt describes a person's sleep, noting that they were \"worn out\" and that they \"slept very well.\" It also mentions a messenger who came to inquire about the person's preferences, describing them as \"remarkable\" and noting that the Americans seem to be \"very remarkable\" after the impression the Parisians left upon the person.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=381",
+      "category": "prose",
+      "excerpt": "t busied herself with none of them.\nHer roused and startled heart had enough to do to digest the solid food\nthat was given as her portion.\n\nThe truth was made very plain to her that she had no more right to\nbuild a shell and creep into it, and declare that this church, and this\nchoir, and this Sunday-school, and this prayer-meeting, yes, and even\nthis smoking stove and wheezing org",
+      "A": "The excerpt describes a woman who is busy with her daily tasks, including eating and preparing for church services. She is aware of the consequences of her actions and is aware of the truth that she has no right to build a shell and creep into it, declaring that the church, choir, Sunday-school, prayer-meeting, and smoking stove are all wrong.<|im_end|>",
+      "B": "The busier she was, the more she realized the importance of maintaining her own identity and dignity.<|im_end|>",
+      "C": "The excerpt describes a woman who is busy with her daily tasks, including eating and preparing for church services. She is aware of her right to build a shell and enter it, and is concerned about the consequences of her actions.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=267",
+      "category": "prose",
+      "excerpt": "olly Indian trader, sat just\nopposite Abe, who betimes called \"Claret, No 11.\" Abe saw that most of\nthe guests were similarly providing for themselves, and concluded not to\nappear penurious, so he said he'd take some wine too.\n\n\"What kind, sah?\" asked the waiter.\n\n\"Oh, I'll take the same,\"--pointing to the bottle just called for by the\nIndian trader.\n\n\"What number, sah?\"\n\nAbe was p",
+      "A": "The excerpt describes a scene where a waiter asks a guest if they would like a bottle of wine, and the guest points to a bottle just called for by a Indian trader. The waiter then asks what kind of wine the guest wants, and the guest points to the same bottle.<|im_end|>",
+      "B": "The excerpt describes a scene where a waiter asks a guest if they want wine, and the guest points to a bottle just called for by a Indian trader. The waiter then asks what kind of wine the guest wants, and the guest points to the same bottle.<|im_end|>",
+      "C": "The excerpt describes a scene where a waiter asks a British Indian trader if he would like the same bottle of wine that Abe is drinking. The trader points to the bottle just called for by the Indian trader, indicating that he is willing to take the same amount of wine as Abe.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1009",
+      "category": "prose",
+      "excerpt": "e. I was then ten years\nold. Prince Augustus and the Princess Anne, brother and sister of the\nPrince Guardian and Administrator of Holstein, were also there; and it\nwas then I heard it stated, in the presence of the assembled family,\nthat the young Duke was inclined to drink, his attendants finding it\ndifficult to prevent him from getting intoxicated at table; that he was\nrestive a",
+      "A": "The excerpt describes a scene where the Duke of Holstein, who was ten years old, was present with Prince Augustus and Princess Anne. The Duke was described as being inclined to drink and his attendants found it difficult to prevent him from getting intoxicated at table.<|im_end|>",
+      "B": "The excerpt describes a young Duke who was inclined to drink and was found to be restless at a table.<|im_end|>",
+      "C": "The excerpt describes a scene where the Duke of Holstein, who was ten years old, was present with Prince Augustus and Princess Anne. The Duke was described as being inclined to drink and his attendants found it difficult to prevent him from getting intoxicated at table.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "excerpt": "-256 `25823250...bf0f44`;\n- reference `ffn_inp-0 + ffn_out-0` -> reference `l_out-0` SHA-256\n  `385073c9...d814aa`.\n\nThe apparatus must repeat these identities internally and fail closed; the\npre-freeze check is not a substitute for that control.\n\n## Frozen arms\n\nAll sums use one correctly rounded IEEE-754 binary32 addition per element.\n\n| arm | terminal composition | interpretatio",
+      "A": "The excerpt describes a reference SHA-256 hash value for a specific operation, which is a reference to a SHA-256 hash of a binary32 addition operation. It also mentions that the apparatus must repeat these identities internally and fail closed, and that the pre-freeze check is not a substitute for that control.<|im_end|>",
+      "B": "The excerpt describes a reference SHA-256 hash value for a specific reference point, which is then used to verify the integrity of a reference value. It also mentions that the apparatus must repeat these identities internally and fail closed, and that the pre-freeze check is not a substitute for that control.<|im_end|>",
+      "C": "The excerpt describes a reference SHA-256 hash value for a specific operation, which is a reference to a SHA-256 hash of a binary32 addition operation. It also mentions that the apparatus must repeat these identities internally and fail closed, and that the pre-freeze check is not a substitute for that control.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E62_DOES_THE_ONE_BYTE_RUNG_SURVIVE_SCALE.md",
+      "category": "technical_general",
+      "excerpt": "ships… E12 measured a rule the pipeline does not use\"*, and *\"what is still missing is the **3 B cell**\"* for R3 | **E62 pays that owed item for free** by carrying a third arm at the shipped packed rule. |\n| `probes/E60_...md` §2, §7 item 3 | the two int8 points above; *\"two points, one direction, stated as a segment and not a law\"* | The estimand and the two anchor points. E60 ref",
+      "A": "The excerpt describes a scenario where a shipper is paying for a third arm on a shipped packed rule, which is missing a specific cell (3 B cell) for R3.<|im_end|>",
+      "B": "The excerpt describes a scenario where a shipper is paying for a third arm at a shipped packed rule, which is missing a specific cell (3 B cell) for R3. The excerpt also mentions that the estimand and the two anchor points are stated as a segment and not a law, indicating that the missing cell is not included in the calculation.<|im_end|>",
+      "C": "The excerpt describes a scenario where a pipeline is being paid for by E62, which is carrying a third arm at the shipped packed rule. Specifically, it mentions that the estimand and the two anchor points are two points, one direction, and stated as a segment, not a law.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E52_WHAT_DOES_A_BUSY_BOX_COST.md",
+      "category": "technical_general",
+      "excerpt": " outnumber the logical CPUs the engine is not using. The engine runs\n`--threads 6` on a 6c/12t part, so **only levels with `L ≤ 6` enter the fit.** On this machine\nthat excludes `L = 8` and keeps `L = 5`, and it would have done so before any cell was measured.\n\n## A.6 What run 2 is, and what it may produce\n\nSame arm, same levels, same reps, same rotation, same drift witness, same `",
+      "A": "The excerpt describes a scenario where the engine is running on a 6c/12t part, with only levels with `L ≤ 6` entering the fit. It also mentions that on this machine, excluding `L = 8` and keeping `L = 5`, the engine would have done so before any cell was measured.<|im_end|>",
+      "B": "The excerpt describes a scenario where the engine is configured to run at a high number of threads (`--threads 6`) on a specific part, limiting the number of levels that can be used. The engine excludes levels with `L ≤ 6` and keeps `L = 5`, indicating that the engine may produce a different set of results compared to a configuration that uses fewer levels.<|im_end|>",
+      "C": "The excerpt describes a scenario where the engine is running on a 6c/12t part, with only levels with `L ≤ 6` entering the fit. It also mentions that on this machine, excluding `L = 8` and keeping `L = 5`, the engine would have done so before any cell was measured.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md",
+      "category": "technical_general",
+      "excerpt": "BF16)`.\n- Raw destination:\n  `benchmarks/donor_adaptation/density/results/strat01_gigachat_piqa_v1/`.\n\nThis is not a repeat of the internal or fresh BPB cells: it measures a new,\npreregistered task estimand. It is also separate from the MTP pilot because\nboth PIQA arms are base-model GGUFs without MTP.\n\n## Frozen bindings\n\n| Object | Binding |\n|---|---|\n| BF16 teacher | `GigaChat3.",
+      "A": "The excerpt describes a new, preregistered task estimation task that is separate from the MTP pilot, measuring a new, registered task estimator.<|im_end|>",
+      "B": "The excerpt describes a new, preregistered task estimation task that is separate from the MTP pilot, measuring a new, registered task estimator.<|im_end|>",
+      "C": "The excerpt describes a new, preregistered task estimation task that is separate from the MTP pilot, measuring a new, registered task estimator.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E32_THE_OWED_PROTOCOL.md",
+      "category": "technical_general",
+      "excerpt": "r — mandatory under E14 §3, and it is verified at source, not assumed\n\nE14 §3's law: **every SCORE metric needs a RANK partner.** E14 read greedy top-1 agreement\n`A3` vs `A0` at 1.5 B of **45.6% (73/160)** while BPB was calling the same arm *cheap*.\n\nThat number is **not re-run here, and the reason is structural rather than convenient**:\n`e14_gn3_greedy.py` invokes the engine with ",
+      "A": "The excerpt describes a specific issue with the E14 metric, which is mandatory under E14 §3 and verified at source, not assumed. It mentions that the RANK partner for the SCORE metric is mandatory, and the E14 read greedy top-1 agreement `A3` vs `A0` at 1.5 B of 45.6% (73/160) while BPB was calling the same arm *cheap*. The reason for this discrepancy is structural rather than convenient.<|im_end|>",
+      "B": "The excerpt describes a specific issue with the E14 metric, which is mandatory under E14 §3 and verified at source, not assumed. It mentions that the RANK partner for the SCORE metric is not verified at source, but rather is determined by E14's greedy top-1 agreement. The excerpt also highlights that the number of calls to `e14_gn3_greedy.py` is not re-run, suggesting that the metric is not being re-calculated based on new data.<|im_end|>",
+      "C": "**The excerpt describes a requirement for a **RANK partner** in the SCORE metric, which is verified at source, not assumed.** Specifically, it mentions that the RANK metric is verified at source, not assumed, and that the number of times it was used is **not re-run here**.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/H2I_ONE_BYTE_CARVE_BASELINE.md",
+      "category": "technical_general",
+      "excerpt": "acing only the FFN forward\n> quantizer by one-byte R8 changes H0 by `−0.000016893 BPB`. Applying the hard carve then costs\n> `+0.209070870 BPB`. The byte conversion is inert; selection is the live trainable object.\n\n| arm | BPB |\n|---|---:|\n| intact control | 0.767594964 |\n| H0 run 3 | 0.810022488 |\n| R8 8L, k=E | **0.810005595** |\n| R8 8L, E37 hard k=16 | **1.019076465** |\n\nBoth r",
+      "A": "The FFN forward quantizer is applied to the byte conversion, resulting in a change of -0.000016893 BPB.<|im_end|>",
+      "B": "The FFN forward quantizer is applied to the byte conversion, resulting in a change of `−0.000016893 BPB`.<|im_end|>",
+      "C": "The FFN forward quantizer is applied to the byte conversion, resulting in a change of -0.000016893 BPB.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_S1_WHICH_BAR_PREDICTS_BPB.md",
+      "category": "technical_general",
+      "excerpt": "s wrong and nothing else in the run counts |\n| **C2 PLANTED** | mask a known-critical set (e.g. the top-`k` by `\\|h\\|`) | **BPB must degrade sharply.** An instrument that cannot detect damage cannot certify its absence |\n| **C3 NULL FIRES** | arm C at high sparsity | **must be clearly worse than arms A/B.** If random matches the method, the method is not a method |\n| **C4 ACHIEVED*",
+      "A": "The excerpt describes a scenario where a method is being tested for accuracy, with specific details including:\n\n- The method is being tested against a known-critical set.\n- The method is being tested against a known-critical set (e.g., the top-`k` by `\\|h\\|`).\n- The method is being tested against a known-critical set (e.g., the top-`k` by `\\|h\\|`).\n- The method is being tested against a known-critical set (e.g., the top-`k` by `\\|h\\|`).\n- The method is being tested",
+      "B": "The excerpt describes a scenario where a method is being tested, and it is found that the method cannot detect damage, which is a critical issue.<|im_end|>",
+      "C": "The excerpt describes a scenario where a method is being tested, and it is found that the method cannot detect damage, which is a critical issue. Specifically, the method must degrade sharply, and it must be clearly worse than the other methods.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/ADAPTER_MEMO_01_SPEED_BUDGET.md",
+      "category": "technical_general",
+      "excerpt": "bytes.\n\n### Two apparatus findings worth more than the result\n\n**A12 — the quiescence gate certifies the start, not the run.** `quiescence_gate` is called **once**, from\n`main` at `:1462`, **before mode dispatch**. Its `-- clean.` therefore means *\"no process exceeded 1 GB at\nthe instant the binary started.\"* A job beginning mid-measurement is invisible to it; a job oscillating\nacr",
+      "A": "The excerpt describes two apparatus findings: A12, which is a quiescence gate, and its `-- clean.` flag. The `-- clean.` flag indicates that a process did not exceed 1 GB at the instant the binary started, and a job that is oscillating is invisible to it.<|im_end|>",
+      "B": "The excerpt describes two apparatus findings: A12, which is a quiescence gate, and its `-- clean.` flag. The `-- clean.` flag indicates that the process did not exceed 1 GB at the instant the binary started, and a job beginning mid-measurement is invisible to it.<|im_end|>",
+      "C": "The excerpt describes two apparatus findings: a quiescence gate that certifies the start of a process, not the run, and a `quiescence_gate` that is called once before mode dispatch, indicating that the binary starts with a clean state.<|im_end|>"
+    }
+  ]
+}
