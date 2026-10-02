@@ -11,6 +11,15 @@ are not evidence of transferred capability.
 
 ## Current reproducible complete candidate
 
+The current open candidate is [276 diagnostic I16/private128](METH_276_DIAGNOSTIC_COMPLETE_CORE_RESULT_20261002.md),
+1,329,447,260bytes/same725 fields. Its own versioned loader and all6144
+composition controls pass;277/280 prediction,281 generation health and282
+anonymous semantics pass.283 full PIQA now passes. Native execution/rate
+are still missing. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
+records actual tensor types,required BF16 boundaries and the route-alias
+lookup that must be implemented before qualification. The prior259 path
+below is preserved as the reproducible precursor,with its semantic stop.
+
 The case-specific [METH-259 saved candidate](METH_259_UNIQUE_BANK_CORE_RESULT_20261002.md)
 is available:1,321,032,556bytes,725 tensors, full24-layer Qwen0.5B source
 core plus30,556 actually unique effective conditional parameter functions,
@@ -104,10 +113,13 @@ same as donor (E1280EOS23/repeat1). [282 anonymous semantics](METH_282_COMPLETE_
 now passes unchanged strict gates:unsupported37/severe17/missing0 versus
 42/21/0 donor and42/20/1 E1280. All72 findings committed before unblinding;
 finite same-agent review,not independent human/broad quality proof.
-[283 full PIQA](METH_283_COMPLETE_I16_PIQA_PROTOCOL_20261002.md) is the next
-mandatory regression on this same archive. Full native integration/rate
+[283 full PIQA](METH_283_COMPLETE_I16_PIQA_RESULT_20261002.md) now passes,
+1289/1838 versus1291 for both controls,-.108814points;paired lower
+-.598477/-.544070points,all four frozen gates pass. All newly recomputed
+control choices/option NLLs are exactly266.1101.906s/endRSS3.43GB/GPU3.14GB.
+Repeated regression,not independent task proof. Full native integration/rate
 remains open;diagnostic status and all previous fixed stops remain unchanged.
-This reference is not production decoding. Full task,native
+This reference is not production decoding. Actual native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
 tok/s remain mandatory. This is specific to the small dense donor; the
 active source feature count still grows with dense donor width/depth.

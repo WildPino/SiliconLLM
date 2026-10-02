@@ -23,7 +23,7 @@ reason/budget/stop communication. No CPU performance job overlaps model work.
 | Question | Established | Still missing |
 | --- | --- | --- |
 | Useful large-n target | Small centered BF16 E1280 retains scoped quality;30,556 unique functions/164 aliases stored with1280 route labels/layer | Useful tenfold new capacity;parent-selection growth,large-RAM actual routing/LUT/DRAM cost and independent quality |
-| Pretrained-to-compact transfer | Complete276 diagnostic1.329GB archive/own725-field loader;all6144 composition controls and277/280 consumed/new-source prediction pass | Full task qualification,actual full native arithmetic and accepted>=50 on this artifact;sparse/larger-donor variants |
+| Pretrained-to-compact transfer | Complete276 diagnostic1.329GB archive/own725-field loader;all6144 composition controls and277/280 consumed/new-source prediction pass | Actual full native arithmetic/cache/quality and accepted>=50 on this artifact;sparse/larger-donor variants |
 
 This dense0.5B case still executes all4864 FFN features/layer;it does not
 establish constant-active-cost conversion for10B/100B. GigaChat assets and
@@ -78,14 +78,29 @@ inspection. Candidate unsupported37/severe17/missing0 versus donor42/21/0
 andE1280 42/20/1. Same-agent anonymous finite screen,not broad quality proof.
 Raw SHA `071e797942e9b225151a60b282f96c8d4ade0b561913e6098c5adc3b525906db`.
 
-**Next exact action:** freeze and launch [283 full PIQA regression](METH_283_COMPLETE_I16_PIQA_PROTOCOL_20261002.md).
-All1838 items/three freshly scored arms;unchanged266 accuracy/bootstrap gates.
-Expected20-30min,hard45min/20GiB RSS/10.5GiB CUDA;localRTX3060/six threads.
-Record actual session handle and wait;no overlapping CPU timing/no restart
-on observation timeout. Pass requires next prospective SAME-artifact full
-native cache/arithmetic/alias routing/LUT/real DRAM quality and accepted
-rate. Failure closes fixed276. Diagnostic/unpromoted;no native50/useful-n/
-family claim. Old259 semantic and274/275 cost stops remain closed.
+[283 full PIQA regression](METH_283_COMPLETE_I16_PIQA_RESULT_20261002.md)
+passes all four unchanged gates. Candidate1289/1838 versus1291 for EACH
+control,-.108814points;paired lower-.598477/-.544070points. All recomputed
+control NLL/choice rows exactly266. Raw SHA
+`2ed1e54df9722c32287445eeb2b8d40590742b1893656c374cff6490912a7725`.
+Session97267 exits0,1101.906s,endRSS3.43GB/peakCUDA3.14GB. No active job.
+
+**Next exact action:** implement phase60 complete276 archive entry/loader,
+then freeze native qualification BEFORE observations. Use the same actual
+725-field archive,no donor/checkpoint fallback,explicit unique-B alias maps
+and Python BF16 cast/rounding boundaries. Reuse274 source operator without
+reopening its failed10ms allocation. Qualify6144 source/conditional controls,
+then actual whole prefixes/cache/quality before rate. Full native accepted
+batch1 lowerCI95>=50tok/s and real routing/LUT/DRAM cost remain required.
+No new fitting or dataset selection is needed for this immediate question.
+All frozen Python-reference quality gates now pass;diagnostic/unpromoted,
+no native50/useful-n/family claim. Old259 semantic/264 cached/274-275 cost
+stops remain closed. Native qualification code/protocol are not yet built.
+
+Prepared [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
+binds actual725-field types,Python BF16 cast/rounding boundaries,unique-B
+alias resolution and finite K64 head requirements. It is a source-based
+plan,not executed C qualification or a prospective acceptance protocol.
 
 ## Method,history and workspace
 
