@@ -1,4 +1,6 @@
-#ifdef SILICON_COMPLETE_I16_RESIDUAL32
+#ifdef SILICON_COMPLETE_I16_NATIVE_SCORE
+#include "../native_expert_scaling/meth294_native_prediction_cpu.c"
+#elif defined(SILICON_COMPLETE_I16_RESIDUAL32)
 #include "../native_expert_scaling/meth289_residual32_cpu.c"
 #elif defined(SILICON_COMPLETE_I16_NORM64)
 #include "../native_expert_scaling/meth288_norm_reduction_cpu.c"

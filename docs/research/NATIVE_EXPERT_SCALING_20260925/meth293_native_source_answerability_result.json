@@ -1,0 +1,236 @@
+{
+  "experiment": "METH-293-native-primary-source-only-answerability",
+  "manifest_sha256": "99fdb09fe13e8abf8c401718911d08137851aa90c043415dd92eeb7d619f3847",
+  "artifact_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+  "annotations_sha256": "9ceb199045da48152eae40784139fd78007550578f2e1e3d070298f317dad21e",
+  "model_outputs_consulted": false,
+  "answerable_count": 24,
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_ffn_output_component_cross_input.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "prefill8/ffn_out-1.full.f32le",
+      "supported_summary": "The code records reference and C FFN dump-file paths with hashes and associated metadata.",
+      "supported_detail": "The reference FFN output entry includes the value49152.",
+      "basis": "Visible dictionary entries name dump files and hash strings."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d1_pruning.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "smallest-|w| entries",
+      "supported_summary": "The pruning function zeros a fraction of the smallest-magnitude weights separately in each layer/organ matrix.",
+      "supported_detail": "The preceding restoration code copies saved weights back and clears its saved dictionary.",
+      "basis": "The docstring explicitly states the pruning rule and surrounding code shows restoration."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat01_gigachat_mtp_extract.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "invalid fresh source index",
+      "supported_summary": "The extractor requires the range response to contain the complete capped index and decodes that index as UTF8 JSON.",
+      "supported_detail": "Decode or JSON parsing failures raise ExtractionError.",
+      "basis": "Visible length check and exception clauses support the summary."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/fp16_gpu_nan_hunt.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "AutoModelForCausalLM.from_pretrained",
+      "supported_summary": "The helper resolves a backend enum and loads a model using the supplied repository, revision, dtype and attention implementation.",
+      "supported_detail": "The model is moved to the requested device and put in evaluation mode.",
+      "basis": "The displayed function call and to(device).eval() are explicit."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e50_default_kernel.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "DRIFT_WINDOWS = [40, 1280]",
+      "supported_summary": "The code defines drift windows and benchmark/NLL/config parsing patterns.",
+      "supported_detail": "It lists E49 AVX4 reference medians121.65 and74.11 for windows40 and1280.",
+      "basis": "Constants and regex names are visible without inferring a new benchmark result."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_acquire_weights.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "MIN_FREE_RAM_BYTES",
+      "supported_summary": "The acquisition code validates a shard manifest and tokenizer identity, then checks available RAM against a minimum.",
+      "supported_detail": "The RAM check treats an unavailable reading as insufficient.",
+      "basis": "The visible function calls and None-or-below-minimum condition support this."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e25_rank_cost.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "0 = per-shape default",
+      "supported_summary": "The command-line parser accepts repetition, thread, token-count, smoke and output options.",
+      "supported_detail": "Defaults include three repetitions, six threads and token count zero for per-shape defaults.",
+      "basis": "Argument declarations explicitly give the defaults and zero-token meaning."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e54_droop.py",
+      "category": "code",
+      "answerable": true,
+      "anchor": "MALFORMED under the E4 precedent",
+      "supported_summary": "The comment reports that a planted control caught a contradictory timing criterion before any cell ran.",
+      "supported_detail": "It classifies the registration as malformed rather than a failed measurement.",
+      "basis": "The visible comment explains the monotone-decline versus W2-minus-W1 contradiction."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=52",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Lucy\nArmytage",
+      "supported_summary": "Sir Percy cannot escape the fascination Lucy Armytage has held over him since first sight.",
+      "supported_detail": "He smokes fiercely while returning to his chambers.",
+      "basis": "The narrative explicitly gives his reaction and return; no identities outside the excerpt are assumed."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=761",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Hathersage, Derbyshire, 1617",
+      "supported_summary": "The passage lists labelled symbols and bibliography references.",
+      "supported_detail": "One entry identifies a1617 church-bell legend at Hathersage in Derbyshire.",
+      "basis": "This is a list of references, not an unsupported narrative about their origins."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=432",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "going through the winter",
+      "supported_summary": "The speaker connects current restraint and pleasure in working again with the difficult winter.",
+      "supported_detail": "The speaker predicts the present situation will not last as work becomes heavy.",
+      "basis": "Visible dialogue supplies both the winter explanation and prediction without naming a setting."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=248",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "their\nnames are lost",
+      "supported_summary": "The argument warns against concluding that totem kins vanished when the names of phratries are unknown.",
+      "supported_detail": "Arunta subdivision names listed include Panunga, Bukhara, Purula and Kumara.",
+      "basis": "The passage distinguishes missing names from disappearance of the groups."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=337",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Curly Locks dreamed",
+      "supported_summary": "Curly Locks dreams of visiting the country, then her parents take her to her uncle after a few weeks.",
+      "supported_detail": "Her cousin Harry is near her own age.",
+      "basis": "The family visit and cousin are directly stated; later activities are cut off."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=767",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "When they kilt him in the open",
+      "supported_summary": "The dialect verse recounts the death of a hunted fox and the hunters celebrating around it.",
+      "supported_detail": "The huntsman holds the fox up while the dogs bay.",
+      "basis": "The visible hunting scene supports a narrow summary without identifying a poem or author."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=396",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "point-blank destructive fire",
+      "supported_summary": "Sigels small band mistakes approaching troops for victorious comrades, then receives destructive close-range fire.",
+      "supported_detail": "They had waved their flags and expected friendly troops.",
+      "basis": "The contrast between mistaken comrades and the sudden fire is explicit."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=585",
+      "category": "prose",
+      "answerable": true,
+      "anchor": "Mrs. Westenra",
+      "supported_summary": "The narrator recalls a womans illness after a sleepwalking episode on the cliff and is asked to explain the event.",
+      "supported_detail": "The narrator hopes it was right to keep the matter from MrsWestenra.",
+      "basis": "Visible narration supplies the illness, cliff event and withheld disclosure; other identities are not inferred."
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260918.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "nessun gate",
+      "supported_summary": "The status excerpt says batch shape and position/KV state need controlled checks and the paired run does not establish quality or a50-token/s engine gate.",
+      "supported_detail": "The first25 output IDs match before the baseline chooses4734 at index25.",
+      "basis": "These are claims of the excerpt; the truncated MTP token value is not reconstructed."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "kqv_out-1",
+      "supported_summary": "The audit locates a propagation failure at kqv_out-1 despite current SwiGLU/down gates passing.",
+      "supported_detail": "It calls for checking ffn_norm-0 identity and says that audit closes the apparent opening without a run.",
+      "basis": "The excerpt states the failure boundary and cautions against rewriting already qualified parts."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E18_THE_RANKING_LADDER.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "0.98\u20131.06 G",
+      "supported_summary": "The text argues that a50-token/s active-weight budget is far smaller than the7B donors active weight count.",
+      "supported_detail": "Even the all-ternary rung is described as6.9times short.",
+      "basis": "The numbers support the stated cost argument without treating it as a new present-day result."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "two\ncausal coordinates changed",
+      "supported_summary": "The protocol distinguishes a new layer1 cross-input check from an earlier check stopped at kqv_out-1.",
+      "supported_detail": "Reference-generic Q4 lowering had made block0 terminal output nearly exact.",
+      "basis": "The excerpt states changed coordinates and the earlier failure; it does not report a new pass."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_ENGINE_RUNG1.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "reusable scalar C row-matvec",
+      "supported_summary": "The brief proposes moving engine fidelity from descriptors to numerical use of actual payload bytes by a reusable scalar C row-matvec.",
+      "supported_detail": "Donor, artifact, quantization, graph and quality evidence are held fixed.",
+      "basis": "Changed-coordinate and hypothesis paragraphs are proposals, not executed result claims."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "all 32 complete layer-1",
+      "supported_summary": "The protocol asks whether the ordinary GGUF path passes block0 and all32 complete layer1 checkpoints in both schedules.",
+      "supported_detail": "It cites a closed SSE2 repair byte-exact on immutable reference gate/up operands.",
+      "basis": "The opening is a question; the cited narrow repair is distinguished from production integration."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E24_THE_DEPTH_THE_BUDGET_PERMITS.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "K148-STATIC",
+      "supported_summary": "The brief charges K148-STATIC zero per-token scoring cost and says it is cheaper if it ties the ridge.",
+      "supported_detail": "A base control must meet160/160 on both metrics or the run is void.",
+      "basis": "The cost argument is conditional and the displayed gate explicitly defines the void condition."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_W4_BF16_FULL_EXPORT_RESULT.md",
+      "category": "technical_general",
+      "answerable": true,
+      "anchor": "solo l'export del formato W4-v2",
+      "supported_summary": "The report describes only a W4-v2 export at the fixed donors BF16 scale.",
+      "supported_detail": "It explicitly excludes forward, calibration, held-out and T4 and does not establish loading or model quality.",
+      "basis": "The excerpt sharply limits the reported outcome to export/format."
+    }
+  ],
+  "gates": {
+    "all24_sources_preserved_and_annotated": true,
+    "all_positive_literal_anchors_in_visible_excerpt": true,
+    "all24_prompts_answerable_from_source_only": true
+  },
+  "script_sha256": "8db9457a373d806886d89d30a446892a5a4652c3f8f621e37a71570027fc53ef",
+  "diagnostic_only": true,
+  "native_promotion_qualified": false,
+  "decision": "source_answerability_pass_freeze_native_primary_prediction",
+  "scope": "Source-only annotations,not model output correctness. No source replacement/model-driven anchor,native-rate/useful-n/family proof."
+}
