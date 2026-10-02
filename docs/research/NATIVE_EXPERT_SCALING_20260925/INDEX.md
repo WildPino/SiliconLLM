@@ -70,14 +70,18 @@ repair `b2f3cd6`; session91076 exits0,1771.578s/CPU childpeakRSS1.36GB.
 Raw SHA `82a86f078409783859b8199e89d6186b53883917351baefd6787b46e4fc7d476`.
 No accepted-rate claim; original numeric5% failures remain.
 
-No scientific job active.296 native generation/source/real-state capture
-is prepared and compiles, not yet frozen or executed. Next: add actual
-phase60 generation entry, freeze296 protocol/source, invoke with exact295
-result SHA. All72 continuations/same24 prompts; verify all prompt choices/
-first heads against actual295, native cached/fresh generated-state bytes,
-erased-history controls and original health margins. GPU controls must
-terminate before actual C inference. Native strict anonymous semantics,
-full1838 PIQA/CPU K64/accepted>=50 remain due.
+[296 actual native generation](METH_296_NATIVE_GENERATION_PROTOCOL_20261002.md)
+is frozen `cf84f90` and **live session97155**, started approximately
+17:18UTC2October. Observe that authoritative session; do not duplicate.
+GPU controls complete first in a separate child; then native C reports
+completed-source counts in `results/native_expert_scaling/meth296_native_generation_stdout.log`.
+Expected terminal result `meth296_native_generation_result.json`.
+All72 continuations/same24 prompts; all prompt choices/first heads versus
+actual295, native cached/fresh generated-state byte controls, erased-history
+controls and original health margins. HardGPU35minutes/outer40, CPU20minutes,
+RSS20GiB/GPU10.5GiB. Preserve failures; no labeled-text inspection before
+anonymous findings. Native strict semantics/full1838 PIQA/CPU K64/accepted>=50
+remain due, even if this health screen passes.
 
 The new execution entry is real phase60 C, not a Python oracle. Do not
 rebuild the197s model-free source pool or rerun failed precision variants.
