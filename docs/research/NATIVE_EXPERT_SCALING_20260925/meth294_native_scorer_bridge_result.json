@@ -1,0 +1,197 @@
+{
+  "experiment": "METH-294-native-full-head-scoring-entry-bridge",
+  "artifact_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+  "prior285_sha256": "c9b87bdaa42fed8e9313d6634671ded9f3fa31993eb9f46e23a43c95885f6eda",
+  "checks": [
+    {
+      "arm": 0,
+      "first_full_head_bytes_exact_original285": true,
+      "rows": [
+        {
+          "position": 139,
+          "top1_exact": true,
+          "target": 43488,
+          "native_nll": 12.629493424477243,
+          "numpy_float64_nll": 12.629493424476731,
+          "absolute_nll_error": 5.115907697472721e-13
+        },
+        {
+          "position": 140,
+          "top1_exact": true,
+          "target": 73594,
+          "native_nll": 0.2683499237837417,
+          "numpy_float64_nll": 0.26834992378356404,
+          "absolute_nll_error": 1.7763568394002505e-13
+        },
+        {
+          "position": 141,
+          "top1_exact": true,
+          "target": 151645,
+          "native_nll": 3.8634557303944526,
+          "numpy_float64_nll": 3.8634557303947688,
+          "absolute_nll_error": 3.161915174132446e-13
+        },
+        {
+          "position": 142,
+          "top1_exact": true,
+          "target": 198,
+          "native_nll": 1.3320236437408539e-05,
+          "numpy_float64_nll": 1.3320236607938796e-05,
+          "absolute_nll_error": 1.7053025658242404e-13
+        },
+        {
+          "position": 143,
+          "top1_exact": true,
+          "target": 151644,
+          "native_nll": 0.0006145930279899403,
+          "numpy_float64_nll": 0.0006145930279757295,
+          "absolute_nll_error": 1.4210854715202004e-14
+        },
+        {
+          "position": 144,
+          "top1_exact": true,
+          "target": 77091,
+          "native_nll": 14.695719072816882,
+          "numpy_float64_nll": 14.695719072817557,
+          "absolute_nll_error": 6.750155989720952e-13
+        },
+        {
+          "position": 145,
+          "top1_exact": true,
+          "target": 198,
+          "native_nll": 0.07128599256503776,
+          "numpy_float64_nll": 0.07128599256494539,
+          "absolute_nll_error": 9.237055564881302e-14
+        },
+        {
+          "position": 146,
+          "top1_exact": true,
+          "target": -1,
+          "native_nll": 0.0,
+          "numpy_float64_nll": 0.0,
+          "absolute_nll_error": 0.0
+        }
+      ]
+    },
+    {
+      "arm": 1,
+      "first_full_head_bytes_exact_original285": true,
+      "rows": [
+        {
+          "position": 139,
+          "top1_exact": true,
+          "target": 43488,
+          "native_nll": 12.568361514513118,
+          "numpy_float64_nll": 12.568361514512809,
+          "absolute_nll_error": 3.090860900556436e-13
+        },
+        {
+          "position": 140,
+          "top1_exact": true,
+          "target": 73594,
+          "native_nll": 0.3041172603015134,
+          "numpy_float64_nll": 0.30411726030142106,
+          "absolute_nll_error": 9.237055564881302e-14
+        },
+        {
+          "position": 141,
+          "top1_exact": true,
+          "target": 151645,
+          "native_nll": 3.6833704734688624,
+          "numpy_float64_nll": 3.683370473469285,
+          "absolute_nll_error": 4.227729277772596e-13
+        },
+        {
+          "position": 142,
+          "top1_exact": true,
+          "target": 198,
+          "native_nll": 3.4134166071453365e-05,
+          "numpy_float64_nll": 3.413416642317202e-05,
+          "absolute_nll_error": 3.517186542012496e-13
+        },
+        {
+          "position": 143,
+          "top1_exact": true,
+          "target": 151644,
+          "native_nll": 0.0007115691276311509,
+          "numpy_float64_nll": 0.0007115691276595726,
+          "absolute_nll_error": 2.842170943040401e-14
+        },
+        {
+          "position": 144,
+          "top1_exact": true,
+          "target": 77091,
+          "native_nll": 13.197232091723155,
+          "numpy_float64_nll": 13.19723209172325,
+          "absolute_nll_error": 9.592326932761353e-14
+        },
+        {
+          "position": 145,
+          "top1_exact": true,
+          "target": 198,
+          "native_nll": 0.08051488204696966,
+          "numpy_float64_nll": 0.0805148820474173,
+          "absolute_nll_error": 4.476419235288631e-13
+        },
+        {
+          "position": 146,
+          "top1_exact": true,
+          "target": -1,
+          "native_nll": 0.0,
+          "numpy_float64_nll": 0.0,
+          "absolute_nll_error": 0.0
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "same_archive_all725_no_fallback": true,
+    "window_source_exact285_except_absolute_offset": true,
+    "both_first_full_head_rows_exact_original285": true,
+    "all16_top1_exact_original285": true,
+    "all16_native_nll_within1e_minus9_of_float64_oracle": true
+  },
+  "loader": {
+    "archive_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+    "fields_bound": 725,
+    "bytes": 1329447260,
+    "fallback": false
+  },
+  "native_report": {
+    "arms": 2,
+    "cases": 1,
+    "scored_rows": 16,
+    "prefill_rows": 278,
+    "timing_qualification": false
+  },
+  "compile_command": [
+    "clang",
+    "-O3",
+    "-mavx2",
+    "-mssse3",
+    "-mfma",
+    "-fopenmp",
+    "-std=c11",
+    "-DSILICON_COMPLETE_I16_NATIVE_SCORE",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth294_native_prediction_cpu.exe",
+    "-lm",
+    "-lpsapi",
+    "-lbcrypt"
+  ],
+  "sha256": {
+    "benchmarks\\native_expert_scaling\\meth294_native_scorer_bridge.py": "482ffce7f3d3201b694529acbba47abe97428a9acd1b4780b83d2441d0f762b8",
+    "benchmarks\\native_expert_scaling\\meth294_native_prediction_cpu.c": "8958eee985531cfc00683e51ade4b4fa2606c349c59e8a5585b6ce31ca0e1513",
+    "benchmarks\\native_expert_scaling\\meth294_window_forward.h": "3cc53a7e291ef20f4e623f74f4f7cd993298d46f317fb6e704ab81828d0c3455",
+    "benchmarks\\phase60\\engine.c": "974bcba0b261414df85542c75abe2bf4d7473fe978a68a84e72fd463024d0b67",
+    "results\\native_expert_scaling\\meth294_scorer_bridge_ids.bin": "942c80fa3e5a3a12cc86675fe9f25d00dead60dcb3577ac70f3f3ef330373bce",
+    "results\\native_expert_scaling\\meth294_scorer_bridge.bin": "53a704e69fd91f137a00ecc1b96a5b8aea392d136e9a4ee49d98a3d95fa620f4",
+    "results\\native_expert_scaling\\meth294_native_prediction_cpu.exe": "d03aff8beeb79a69ca730a2145a451263e4df66f6e204afde95fde672f2abac7"
+  },
+  "seconds": 13.389999999999418,
+  "diagnostic_only": true,
+  "native_promotion_qualified": false,
+  "decision": "native_scorer_bridge_pass_freeze_new_source_quality",
+  "scope": "Old consumed285 source0/tail16 bankoff/on rows;source/scorer/plumbing qualification. No new292 source/model quality,nonzero-offset numerical control,generation/task/K64/accepted rate/useful capacity/family evidence."
+}

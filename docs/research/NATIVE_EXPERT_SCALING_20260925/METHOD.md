@@ -17,24 +17,23 @@ composition controls pass;277/280 prediction,281 generation health and282
 anonymous semantics pass.283 full PIQA now passes. [284 actual phase60 archive/operators](METH_284_NATIVE_ARCHIVE_RESULT_20261002.md)
 now pass all6144 controls. [285 whole native prefix smoke](METH_285_WHOLE_PREFIX_RESULT_20261002.md)
 executes complete prefixes/cache but FAILS the unchanged5% ablation logit
-guard (5.4224%). All96 top1 choices and12 cache controls pass; fixed native
-recipe stops before quality/rate. [286 same-input localization](METH_286_SAME_INPUT_RESULT_20261002.md)
-observes actual MATH SDPA, exact RoPE, local norm/qkv/attention maxima under
-.001674; BF16 probability rounding worsens error. Remaining layer-residual/
-o projection/post norm/source FFN controls in [287](METH_287_LAYER_TRACE_RESULT_20261002.md)
-find exact same-operand residual additions, source FFN FP32 maximum8.51e-7,
-but propagated residual error up to6.735%. [288 norm64](METH_288_NORM_REDUCTION_RESULT_20261002.md)
-fails the unchanged ablation guard (5.5687%); do not adopt. FP32 residual
-stream in [289](METH_289_RESIDUAL32_RESULT_20261002.md) also fails four
-unchanged5% hidden/logit guards. Neither precision variant is adopted.
-[290 same-archive GPU no-cache causal controls](METH_290_REFERENCE_PREFIX_RESULT_20261002.md)
-are stable: all96 hidden rows exact, maximum head-only logit difference
-.000106425. They do not explain285 failure. Causal operator-group
-localization on actual intervened inputs remains due. Further
-native changes require a new prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
-records actual tensor types,required BF16 boundaries and the route-alias
-lookup that must be implemented before qualification. The prior259 path
-below is preserved as the reproducible precursor,with its semantic stop.
+guard (5.4224%). All96 top1 choices and12 cache controls pass; the original numeric5% guard remains failed.286/287 identify tiny local
+rounding errors with nonlinear propagated amplification.288 norm64 and289
+FP32-residual variants fail and are not adopted.290 reference is stable;
+291 actual-input hybrid is byte exact to original CPU but no one-group GPU
+restoration meets its fixed rescue indicator.
+
+[292](METH_292_NATIVE_PRIMARY_EVALUATION_POLICY_20261002.md) explicitly
+revises evaluation order/estimand BEFORE selecting new sources: measure
+actual ORIGINAL-profile native donor-relative quality directly, preserving
+all numerical failures and unchanged final quality/rate criteria. This is
+not a numerical repair.292 selects24 untouched sources with3224 exclusions;
+293 source-only answerability passes before inference.294 real phase60
+scoring entry preserves original forward arithmetic with relative cache/
+absolute RoPE window positions; consumed-data bridge passes actual byte
+closure/top1/NLL oracle. Actual new-source native quality remains unmeasured.
+Archive stays diagnostic/unpromoted; generation/semantics/PIQA/CPU K64 and
+accepted whole rate must pass on this same execution identity.
 
 The case-specific [METH-259 saved candidate](METH_259_UNIQUE_BANK_CORE_RESULT_20261002.md)
 is available:1,321,032,556bytes,725 tensors, full24-layer Qwen0.5B source
