@@ -1,0 +1,209 @@
+{
+  "experiment": "METH-298-capture-apparatus-build",
+  "source_revision": "5b335f413e4f73b0809c4fe39af894efbcc6a0d2",
+  "base": {
+    "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\tools\\imatrix\\imatrix.cpp",
+    "bytes": 46253,
+    "sha256": "49c71316c66717d8daccc90bf16c17bf4589239903eabe386d273d657777b9f3"
+  },
+  "hook": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth298_capture_hook.h",
+    "bytes": 2805,
+    "sha256": "b80bac463be64be9d0513a60c318addc77df98a6c2882f34c357d32a8f3c30b9"
+  },
+  "controller": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth298_gigachat_covariance.py",
+    "bytes": 19277,
+    "sha256": "607046636763048482e58dc24673c5060a000b478051e6e9b8cd72fa584fc49d"
+  },
+  "generated_source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_imatrix_capture.cpp",
+    "bytes": 45335,
+    "sha256": "8a377c50906d166837fe9f41cd2d584eab5f757d523e11aecfddeb1bef40ebdf"
+  },
+  "executable": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_imatrix_capture.exe",
+    "bytes": 10838016,
+    "sha256": "f87c675bdd904dcd305fa1cdf07e5ca8ca3e516b6dcaf2f98021aa2f0de53c8d"
+  },
+  "compiler": {
+    "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\c++.exe",
+    "bytes": 16384,
+    "sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7"
+  },
+  "libraries": {
+    "common/libllama-common.a": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\common\\libllama-common.a",
+      "bytes": 10663900,
+      "sha256": "eefb541d35fd36561cc3c4356db5a4575b4e3f00ba34be690a077b788158aef3"
+    },
+    "src/libllama.a": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\src\\libllama.a",
+      "bytes": 7293902,
+      "sha256": "5a97efd3ae0a407dec997fc8bff0c5a695b658f38b5e143f63c0d88024abcef8"
+    },
+    "ggml/src/ggml.a": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\ggml\\src\\ggml.a",
+      "bytes": 67752,
+      "sha256": "04ba219433a46577a86221bf85fce02b0e85580195705b325ff1f55c4588ec0a"
+    },
+    "ggml/src/ggml-cpu.a": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\ggml\\src\\ggml-cpu.a",
+      "bytes": 1567450,
+      "sha256": "663dccf9288779672a85bb03bcbfbb45af6a9aa5ed3e43406abfea1d41b1274d"
+    },
+    "ggml/src/ggml-base.a": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\ggml\\src\\ggml-base.a",
+      "bytes": 1166838,
+      "sha256": "55642fd92e281a51292013757bddf267c9b1f285789ffd9cd0b0f1170e784441"
+    },
+    "common/libllama-common-base.a": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\common\\libllama-common-base.a",
+      "bytes": 4150,
+      "sha256": "3ec678874c1edeeda6f332d5ea8903545dfe2b68c6529f839a96af524eb85396"
+    },
+    "vendor/cpp-httplib/libcpp-httplib.a": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\vendor\\cpp-httplib\\libcpp-httplib.a",
+      "bytes": 1897384,
+      "sha256": "7925d6164a1b3332cca7acc5863b4d5bf6265fa84ce17e8e61ef62a68a5968a4"
+    }
+  },
+  "openmp_library": {
+    "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\x86_64-w64-mingw32\\lib\\libomp.dll.a",
+    "bytes": 188826,
+    "sha256": "dd569cb9be121b8d0f33aaf56970f3d67349ba793f53c5b6afea2cdd90fa6edc"
+  },
+  "headers": {
+    "common\\arg.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\arg.h",
+      "bytes": 6470,
+      "sha256": "b6ce1b0b9ccb98c5e1f4148ec910805742ad88c180c636984e8c64b5119e8145"
+    },
+    "common\\build-info.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\build-info.h",
+      "bytes": 283,
+      "sha256": "f62eeda65d8fa9dd9870bbe9cb1c03b4b6ef2240e8f1196415eb1325149e31f0"
+    },
+    "common\\common.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\common.h",
+      "bytes": 52301,
+      "sha256": "6e678df90075831853a3b509a7a3fe01e5aa4cbeb1b3ae4364c0ac51442b36c3"
+    },
+    "common\\download.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\download.h",
+      "bytes": 4568,
+      "sha256": "583b4a2d19e353ee94d9fb9f855d59764e504b4d0bc1333e966d03dc31124d0b"
+    },
+    "common\\fit.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\fit.h",
+      "bytes": 3406,
+      "sha256": "8e19a1a0658e20fc7c0bcaed4894f083b9d40b4a1ed6505292dac729596d8400"
+    },
+    "common\\hf-cache.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\hf-cache.h",
+      "bytes": 810,
+      "sha256": "f4a16450ffb07aac886c9d21b840679e82622e4ca355ed0bc095f14ab459613e"
+    },
+    "common\\imatrix-loader.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\imatrix-loader.h",
+      "bytes": 791,
+      "sha256": "e17e6d309283bdb05a0c14016e001a172f2c28739c0c807f0c88b1ebe340e2de"
+    },
+    "common\\log.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\log.h",
+      "bytes": 6326,
+      "sha256": "d9a1b99a7767508548759a90b89dceb415f3af09af59931502663fe74f4d300e"
+    },
+    "common\\reasoning-budget.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\reasoning-budget.h",
+      "bytes": 2431,
+      "sha256": "caa964f91855368b140a69bc90eab5aa0dcebc94c0128096b5a2b044636cdd75"
+    },
+    "common\\sampling.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common\\sampling.h",
+      "bytes": 5698,
+      "sha256": "7a2e2ce0cfc4601f8939a97a434cb47665f679c23b68e7b08d881af266b98e90"
+    },
+    "include\\llama-cpp.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\include\\llama-cpp.h",
+      "bytes": 930,
+      "sha256": "c79f3182c8604ac1c17f85a4a8ef0e5fd2499e27a224cf48ef4a2c90ba41562d"
+    },
+    "include\\llama.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\include\\llama.h",
+      "bytes": 86910,
+      "sha256": "0b5aa74d9adc42f3527fe9ed7e7799508e7404942f55adb32e0fad7d415475d2"
+    },
+    "ggml\\include\\ggml-alloc.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\ggml\\include\\ggml-alloc.h",
+      "bytes": 3839,
+      "sha256": "cebaa6e6322e0ce47155c3969b485cac06892fbfcee84e9c5d54b043b5e90d3a"
+    },
+    "ggml\\include\\ggml-backend.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\ggml\\include\\ggml-backend.h",
+      "bytes": 25811,
+      "sha256": "0305a9742164ae118ef0490a720971934938c9e62cb174ccd68babf1992fa9c0"
+    },
+    "ggml\\include\\ggml-cpu.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\ggml\\include\\ggml-cpu.h",
+      "bytes": 7905,
+      "sha256": "696a54474002227a7f73b967b643055d6829853464244a8d3f4fe2e7d0b85abe"
+    },
+    "ggml\\include\\ggml-opt.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\ggml\\include\\ggml-opt.h",
+      "bytes": 14296,
+      "sha256": "9bd9796b656d4edd4f794a00578f7c6846b964e9655cb7873d65f6c10ba49500"
+    },
+    "ggml\\include\\ggml.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\ggml\\include\\ggml.h",
+      "bytes": 119166,
+      "sha256": "62e4d28730f96924bfc3ec46771b38c30a8d4397584769fd636d6327354d5430"
+    },
+    "ggml\\include\\gguf.h": {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\ggml\\include\\gguf.h",
+      "bytes": 11566,
+      "sha256": "4ae33e92cfe908a6068f2c5c9efe714d3290391aab0472d5d43edd6a8b00db2d"
+    }
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\c++.exe",
+    "-O3",
+    "-DNDEBUG",
+    "-std=c++17",
+    "-D_WIN32_WINNT=0x0A00",
+    "-DGGML_USE_CPU",
+    "-DLLAMA_SUBPROCESS",
+    "-D_CRT_SECURE_NO_WARNINGS",
+    "-pthread",
+    "-IC:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\common",
+    "-IC:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\vendor",
+    "-IC:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\include",
+    "-IC:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\ggml\\include",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_imatrix_capture.cpp",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_imatrix_capture.exe",
+    "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\common\\libllama-common.a",
+    "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\src\\libllama.a",
+    "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\ggml\\src\\ggml.a",
+    "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\ggml\\src\\ggml-cpu.a",
+    "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\ggml\\src\\ggml-base.a",
+    "-pthread",
+    "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\x86_64-w64-mingw32\\lib\\libomp.dll.a",
+    "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\common\\libllama-common-base.a",
+    "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-mtp-5b335f4\\build-cpu\\vendor\\cpp-httplib\\libcpp-httplib.a",
+    "-lws2_32",
+    "-lpthread",
+    "-lkernel32",
+    "-luser32",
+    "-lgdi32",
+    "-lwinspool",
+    "-lshell32",
+    "-lole32",
+    "-loleaut32",
+    "-luuid",
+    "-lcomdlg32",
+    "-ladvapi32"
+  ],
+  "seconds": 9.546999999998661,
+  "exact_original_after_reversing_four_capture_insertions": true
+}
