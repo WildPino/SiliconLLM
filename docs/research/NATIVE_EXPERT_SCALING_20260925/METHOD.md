@@ -1655,6 +1655,9 @@ no native scalar blend/codec promotion. Next construct an actual full24-layer
 saved candidate using the separately qualified fixed253 source operator,
 exact tied head/BF16 non-FFN organs and already learned centered E1280 bank,
 with effective-bank/complete-loader parity before new full-model quality.
+The [METH-257 protocol](METH_257_FULL_SOURCE_CORE_PROTOCOL_20261002.md)
+freezes701 actual saved fields, deduplicated effective sibling A and exact
+BF16 conditional/component/complete-loader controls before execution.
 No new private useful capacity/full quality validated. Full24-layer core construction and
 same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate

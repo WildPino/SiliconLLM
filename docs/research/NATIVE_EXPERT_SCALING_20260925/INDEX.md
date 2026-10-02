@@ -204,12 +204,14 @@ score controls and positive paired gain. Count gain0.08439%, rotated
 gain0.03415% fail frozen10% gates. Session64120 exits0; no job active.
 Close this fixed bounded nonlinear-amplitude recipe before native blending.
 
-**Next exact action:** implement/freeze METH-257 full24-layer saved core
+**Next exact action:** execute [METH-257](METH_257_FULL_SOURCE_CORE_PROTOCOL_20261002.md),
+the frozen full24-layer saved core
 with the qualified fixed253 FFN, exact tied head/BF16 attention/control and
 existing centered E1280 effective bank/routing. First export/readback and
 conditional/component parity, then frozen consumed-development/new-source
 whole-model quality before native integration. Do not treat METH-214's
 consumed cohort as fresh or reuse its passing subset to promote this core.
+Protocol/code present; no257 execution/result yet.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
