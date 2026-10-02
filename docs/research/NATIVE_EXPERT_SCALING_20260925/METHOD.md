@@ -54,6 +54,10 @@ an oracle diagnosis. This is nondeployable and cannot reopen259 promotion.
 15/40 choice differences but leaves25 and increases mean logit error4.3858%.
 Actual source-BF16 intermediate/LUT/core error and induced routing both
 need qualification; same-input route/maps remain exact.
+[METH-269](METH_269_FFN_BF16_NODE_RESULT_20261002.md) separates these on
+6144 consumed states: BF16 nodes alone worsen mean error2.22%,oracle exact
+source features improve it80.40%. Fixed128 private input-row coverage is
+a prospectively priced270 hypothesis,not an available or accepted recipe.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted

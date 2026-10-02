@@ -63,9 +63,15 @@ score replay recovers15/40 choice differences,loses0;25 remain. Mean logit
 error rises4.3858%,so top1 recovery is not overall fidelity. Same-input
 routes/dictionaries exact. Initial shadowing stop preserved; mechanical
 repair only. Session14458 exits0,375.921s; no active job.
-**Next exact action:** freeze a source-BF16-intermediate/LUT/stored-FFN
-component assay on fixed consumed states before changing representation or
-route robustness. No new artifact/semantic reclassification;259 stays closed.
+[METH-269](METH_269_FFN_BF16_NODE_RESULT_20261002.md) completes all6144
+same-state arithmetic controls. BF16-node-only mean error worsens2.22%;
+oracle source features improve it80.40%. No node-only promotion or new
+artifact. Session73517 exits0,8.438s; no active job;259 stays closed.
+**Next exact action:** implement then freeze [METH-270](METH_270_PRIVATE_SOURCE_ROWS_PROTOCOL_20261002.md),
+private source-input rows32->128,same source-only selection/readout/bank.
+No270 code/result/fixture yet. Fixed component-error gates and <=10ms
+native prerequisite before new full archive/fresh quality. This increases
+source precision,not learned n; all final expert-count requirements remain.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
