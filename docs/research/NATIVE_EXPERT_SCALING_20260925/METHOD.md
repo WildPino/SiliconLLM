@@ -94,8 +94,13 @@ Versus259,BPB improves.000119123 but top1 agreement drops.244771points;
 do not infer semantic repair from source-error reduction or consumed BPB.
 278 now freezes24 new sources with3200 exclusions,204.359s CPU;source pool
 unchanged,no donor-pretraining exclusion claim.279 source-only answerability
-now passes all24 and annotations are committed before outputs;frozen280
-new complete prediction follows. Actual native integration/rate remains open.
+now passes all24 and annotations are committed before outputs.280 new
+complete prediction passes all pooled/category/BPB/top1/K64 gates,112.156s;
+BPB1.17331320 versus donor1.17828037/E1280 1.17323483,donor-top1 96.5006%.
+The E1280 BPB bootstrap interval includes0,no significant gain claim.
+New source IDs are now consumed;281 new-source generation precedes actual
+task/anonymous semantic qualification. Full native integration/rate remains
+open;diagnostic status and all previous fixed stops remain unchanged.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted

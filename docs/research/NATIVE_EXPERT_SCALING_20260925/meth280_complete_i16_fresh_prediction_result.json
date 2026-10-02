@@ -1,0 +1,1443 @@
+{
+  "experiment": "METH-280-independent-diagnostic-complete-I16-private128-prediction",
+  "manifest_sha256": "7fc74c2ff172bcca5d71de685f1e230240d05789e11b0bb3b9290b64a4c8e053",
+  "answerability_sha256": "98f380821f0b2dc145dac4c75cfa27a056ac1ca233035ce4c02d07f769fdaa4a",
+  "annotations_sha256": "3123f83260d833b505fed5f60b7f68537012a2f7fb4c577adcaca5f54fa5fcd0",
+  "development_sha256": "3d997545fc690a5ebb3681e60fb0d3dc190a2a292e94056e5cf0abcb9ed88b35",
+  "export_sha256": "ff4694b426725f3de2e500739ba11fb06ad280dc7a5ef04515ff5b4a592fe553",
+  "artifact_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "parent_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "arms": {
+    "bf16_donor": {
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2015.82763671875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2340.3228759765625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3114.4237670898438
+        },
+        {
+          "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1626.6464233398438
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2180.2001342773438
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2358.2359619140625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1582.4493103027344
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3035.262939453125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2834.9229736328125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3198.4814453125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3292.3716201782227
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2921.75732421875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 5089.355224609375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3896.819580078125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2639.2904052734375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3244.18017578125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4470.075134277344
+        },
+        {
+          "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4789.03466796875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 3976.936798095703
+        },
+        {
+          "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4249.3153076171875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4412.40283203125
+        },
+        {
+          "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4777.1785888671875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4110.486572265625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4111.4326171875
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+          "category": "code",
+          "positions": 147,
+          "matching": 147
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+          "category": "code",
+          "positions": 152,
+          "matching": 152
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+          "category": "code",
+          "positions": 173,
+          "matching": 173
+        },
+        {
+          "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+          "category": "code",
+          "positions": 188,
+          "matching": 188
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+          "category": "code",
+          "positions": 184,
+          "matching": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+          "category": "code",
+          "positions": 190,
+          "matching": 190
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+          "category": "code",
+          "positions": 202,
+          "matching": 202
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+          "category": "code",
+          "positions": 156,
+          "matching": 156
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+          "category": "prose",
+          "positions": 166,
+          "matching": 166
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+          "category": "prose",
+          "positions": 161,
+          "matching": 161
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+          "category": "prose",
+          "positions": 205,
+          "matching": 205
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+          "category": "prose",
+          "positions": 146,
+          "matching": 146
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+          "category": "prose",
+          "positions": 176,
+          "matching": 176
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+          "category": "prose",
+          "positions": 179,
+          "matching": 179
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+          "category": "prose",
+          "positions": 149,
+          "matching": 149
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+          "category": "prose",
+          "positions": 155,
+          "matching": 155
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+          "category": "technical_general",
+          "positions": 209,
+          "matching": 209
+        },
+        {
+          "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+          "category": "technical_general",
+          "positions": 184,
+          "matching": 184
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+          "category": "technical_general",
+          "positions": 178,
+          "matching": 178
+        },
+        {
+          "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+          "category": "technical_general",
+          "positions": 176,
+          "matching": 176
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+          "category": "technical_general",
+          "positions": 201,
+          "matching": 201
+        },
+        {
+          "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+          "category": "technical_general",
+          "positions": 150,
+          "matching": 150
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "positions": 137,
+          "matching": 137
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+          "category": "technical_general",
+          "positions": 151,
+          "matching": 151
+        }
+      ]
+    },
+    "bf16_e1280": {
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2006.975830078125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2331.8155517578125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3110.299072265625
+        },
+        {
+          "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1621.6864013671875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2171.6381225585938
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2356.255126953125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1574.472427368164
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3022.169189453125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2815.1875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3184.29248046875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3270.8209381103516
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2913.8818359375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 5060.61669921875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3877.2648162841797
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2621.1597900390625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3232.3321533203125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4452.897033691406
+        },
+        {
+          "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4767.0042724609375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 3949.8173217773438
+        },
+        {
+          "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4237.760070800781
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4397.26611328125
+        },
+        {
+          "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4759.249572753906
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4090.64208984375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4098.190979003906
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+          "category": "code",
+          "positions": 147,
+          "matching": 143
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+          "category": "code",
+          "positions": 152,
+          "matching": 148
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+          "category": "code",
+          "positions": 173,
+          "matching": 167
+        },
+        {
+          "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+          "category": "code",
+          "positions": 188,
+          "matching": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+          "category": "code",
+          "positions": 184,
+          "matching": 179
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+          "category": "code",
+          "positions": 190,
+          "matching": 183
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+          "category": "code",
+          "positions": 202,
+          "matching": 198
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+          "category": "code",
+          "positions": 156,
+          "matching": 149
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+          "category": "prose",
+          "positions": 166,
+          "matching": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+          "category": "prose",
+          "positions": 161,
+          "matching": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+          "category": "prose",
+          "positions": 205,
+          "matching": 198
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+          "category": "prose",
+          "positions": 146,
+          "matching": 142
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+          "category": "prose",
+          "positions": 176,
+          "matching": 168
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+          "category": "prose",
+          "positions": 179,
+          "matching": 173
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+          "category": "prose",
+          "positions": 149,
+          "matching": 146
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+          "category": "prose",
+          "positions": 155,
+          "matching": 150
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+          "category": "technical_general",
+          "positions": 209,
+          "matching": 200
+        },
+        {
+          "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+          "category": "technical_general",
+          "positions": 184,
+          "matching": 175
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+          "category": "technical_general",
+          "positions": 178,
+          "matching": 171
+        },
+        {
+          "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+          "category": "technical_general",
+          "positions": 176,
+          "matching": 166
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+          "category": "technical_general",
+          "positions": 201,
+          "matching": 188
+        },
+        {
+          "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+          "category": "technical_general",
+          "positions": 150,
+          "matching": 142
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "positions": 137,
+          "matching": 133
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+          "category": "technical_general",
+          "positions": 151,
+          "matching": 144
+        }
+      ]
+    },
+    "stored_i16_private128_e1280": {
+      "arm": "stored_i16_private128_e1280",
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2008.2814331054688
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2330.662109375
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3106.3466796875
+        },
+        {
+          "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1624.5234985351562
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2175.0714111328125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2353.851348876953
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1575.7469940185547
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3023.4315795898438
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2817.7901000976562
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3182.38916015625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3272.5122566223145
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2913.1007080078125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 5061.8250732421875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3877.6316833496094
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2621.239013671875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3229.417724609375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4450.4989013671875
+        },
+        {
+          "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4772.0758056640625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 3948.7001037597656
+        },
+        {
+          "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4236.586730957031
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4396.7122802734375
+        },
+        {
+          "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4759.76708984375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4094.586181640625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4096.286163330078
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+          "category": "code",
+          "positions": 147,
+          "matching": 140
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+          "category": "code",
+          "positions": 152,
+          "matching": 147
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+          "category": "code",
+          "positions": 173,
+          "matching": 166
+        },
+        {
+          "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+          "category": "code",
+          "positions": 188,
+          "matching": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+          "category": "code",
+          "positions": 184,
+          "matching": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+          "category": "code",
+          "positions": 190,
+          "matching": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+          "category": "code",
+          "positions": 202,
+          "matching": 198
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+          "category": "code",
+          "positions": 156,
+          "matching": 150
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+          "category": "prose",
+          "positions": 166,
+          "matching": 162
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+          "category": "prose",
+          "positions": 161,
+          "matching": 157
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+          "category": "prose",
+          "positions": 205,
+          "matching": 196
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+          "category": "prose",
+          "positions": 146,
+          "matching": 144
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+          "category": "prose",
+          "positions": 176,
+          "matching": 163
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+          "category": "prose",
+          "positions": 179,
+          "matching": 174
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+          "category": "prose",
+          "positions": 149,
+          "matching": 146
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+          "category": "prose",
+          "positions": 155,
+          "matching": 152
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+          "category": "technical_general",
+          "positions": 209,
+          "matching": 200
+        },
+        {
+          "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+          "category": "technical_general",
+          "positions": 184,
+          "matching": 176
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+          "category": "technical_general",
+          "positions": 178,
+          "matching": 172
+        },
+        {
+          "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+          "category": "technical_general",
+          "positions": 176,
+          "matching": 171
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+          "category": "technical_general",
+          "positions": 201,
+          "matching": 190
+        },
+        {
+          "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+          "category": "technical_general",
+          "positions": 150,
+          "matching": 143
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "positions": 137,
+          "matching": 131
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+          "category": "technical_general",
+          "positions": 151,
+          "matching": 147
+        }
+      ]
+    }
+  },
+  "summary": {
+    "pooled": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.1782803704575393,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.1732348289268735,
+          "top1": 0.962089914945322
+        },
+        "stored_i16_private128_e1280": {
+          "bpb": 1.1733131971860526,
+          "top1": 0.9650060753341434
+        }
+      },
+      "candidate_minus_donor_bpb": -0.004967173271486658,
+      "candidate_minus_bf16_e1280_bpb": 7.836825917917345e-05,
+      "candidate_minus_bf16_e1280_top1": 0.002916160388821365
+    },
+    "code": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 0.803847527674379,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 0.8012907810888957,
+          "top1": 0.9683908045977011
+        },
+        "stored_i16_private128_e1280": {
+          "bpb": 0.8014054274538442,
+          "top1": 0.9676724137931034
+        }
+      },
+      "candidate_minus_donor_bpb": -0.002442100220534704,
+      "candidate_minus_bf16_e1280_bpb": 0.00011464636494851188,
+      "candidate_minus_bf16_e1280_top1": -0.0007183908045976795
+    },
+    "prose": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.194194728455548,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.187957911302296,
+          "top1": 0.9663425579655947
+        },
+        "stored_i16_private128_e1280": {
+          "bpb": 1.1879733029725814,
+          "top1": 0.9678384442782348
+        }
+      },
+      "candidate_minus_donor_bpb": -0.006221425482966669,
+      "candidate_minus_bf16_e1280_bpb": 1.5391670285413994e-05,
+      "candidate_minus_bf16_e1280_top1": 0.0014958863126401933
+    },
+    "technical_general": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.5367988552426914,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.5304557943894295,
+          "top1": 0.9516594516594516
+        },
+        "stored_i16_private128_e1280": {
+          "bpb": 1.530560861131733,
+          "top1": 0.9595959595959596
+        }
+      },
+      "candidate_minus_donor_bpb": -0.006237994110958489,
+      "candidate_minus_bf16_e1280_bpb": 0.00010506674230348345,
+      "candidate_minus_bf16_e1280_top1": 0.007936507936507908
+    }
+  },
+  "bootstrap": {
+    "bf16_donor": {
+      "candidate_minus_control_bpb_p05": -0.005780817982141274,
+      "candidate_minus_control_bpb_p95": -0.004209371228171466,
+      "seed": 280280,
+      "draws": 10000,
+      "unit": "source",
+      "decision_gate": false
+    },
+    "bf16_e1280": {
+      "candidate_minus_control_bpb_p05": -0.00019065750565167678,
+      "candidate_minus_control_bpb_p95": 0.000351262251913421,
+      "seed": 280280,
+      "draws": 10000,
+      "unit": "source",
+      "decision_gate": false
+    }
+  },
+  "shortlist": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "category": "code",
+      "positions": 147,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 142
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "category": "code",
+      "positions": 152,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 148
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+      "category": "code",
+      "positions": 173,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 166
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+      "category": "code",
+      "positions": 188,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 182
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+      "category": "code",
+      "positions": 184,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 180
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+      "category": "code",
+      "positions": 190,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 184
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+      "category": "code",
+      "positions": 202,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 199
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+      "category": "code",
+      "positions": 156,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 150
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "category": "prose",
+      "positions": 166,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 162
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "category": "prose",
+      "positions": 161,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 158
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+      "category": "prose",
+      "positions": 205,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 197
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+      "category": "prose",
+      "positions": 146,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 140
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+      "category": "prose",
+      "positions": 176,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 171
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+      "category": "prose",
+      "positions": 179,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 174
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+      "category": "prose",
+      "positions": 149,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 144
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+      "category": "prose",
+      "positions": 155,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 149
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "category": "technical_general",
+      "positions": 209,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 201
+    },
+    {
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "category": "technical_general",
+      "positions": 184,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 180
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+      "category": "technical_general",
+      "positions": 178,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 174
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+      "category": "technical_general",
+      "positions": 176,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.03125,
+      "approx_top1_matches": 171
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+      "category": "technical_general",
+      "positions": 201,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 194
+    },
+    {
+      "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+      "category": "technical_general",
+      "positions": 150,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.125,
+      "approx_top1_matches": 145
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "positions": 137,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 132
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+      "category": "technical_general",
+      "positions": 151,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 146
+    }
+  ],
+  "gates": {
+    "fixed_independent_manifest_answerability_and_actual_artifact": true,
+    "complete_same_archive_loader": true,
+    "pooled_bpb_vs_both": true,
+    "category_bpb_vs_both": true,
+    "pooled_top1": true,
+    "category_top1": true,
+    "prompt_k64_inclusion": true,
+    "prompt_exact_rerank": true
+  },
+  "load_record": {
+    "parameters_from_archive": 218,
+    "random_FFN_parameters_removed": 72,
+    "tensors_consumed": 725,
+    "organs": {
+      "tied_head": 1,
+      "attention": 96,
+      "control": 121
+    },
+    "all725_inventory_hashes_finite_exact": true,
+    "all_non_FFN_copies_exact": true,
+    "all_maps_surjective_and_in_range": true,
+    "actual_function_counts": [
+      1254,
+      1275,
+      1280,
+      1270,
+      1278,
+      1262,
+      1279,
+      1280,
+      1274,
+      1280,
+      1280,
+      1277,
+      1276,
+      1270,
+      1274,
+      1267,
+      1276,
+      1243,
+      1273,
+      1277,
+      1274,
+      1279,
+      1280,
+      1278
+    ],
+    "tied_head_pointer_equal": true,
+    "source_weights_or_conditional_checkpoints_loaded": false,
+    "cache_enabled": false,
+    "diagnostic_only": true,
+    "native_promotion_qualified": false
+  },
+  "runtime": {
+    "seconds": 112.15599999999904,
+    "rss_bytes": 3298586624,
+    "gpu_peak_allocated_bytes": 4100675584
+  },
+  "script_sha256": "f49cda3c8695419a70f76e2d6512c0ee9bd6ef0627649517ff97321732dff61d",
+  "diagnostic_only": true,
+  "native_promotion_qualified": false,
+  "decision": "fresh_complete_I16_prediction_pass_freeze_generation_tasks",
+  "scope": "One new24-source prediction screen on unchanged actual276 diagnostic archive. New project-heldout IDs,not a new corpus. No generation/task/semantic/native rate/useful n/DRAM/family promotion;prior259 semantic/component-cost failures retained."
+}
