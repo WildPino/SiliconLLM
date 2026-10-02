@@ -290,6 +290,11 @@ route controls. Report per-expert exposure,storage,route distribution,
 selected-set unions,real DRAM traffic and full routing/LUT cost as n grows.
 Hierarchical selection still has parent/key costs. Synthetic/copied pools
 can measure component cost but establish no transferred capability.
+The current C geometry fixes128 parents/10 children. The
+[capacity accounting and prior stops](NATIVE_CAPACITY_SCALING_STATUS_20261002.md)
+give actual source-derived operand counts and distinguish RAM capacity,
+linear child-search work, stored distinct functions and useful learned
+content. Its hypothetical larger rows are not implemented model results.
 
 ## 4. Resources, applicability and evidence retention
 

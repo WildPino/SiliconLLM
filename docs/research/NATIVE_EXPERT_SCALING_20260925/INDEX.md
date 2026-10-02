@@ -61,16 +61,26 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 
 ## Exact resumption
 
-No scientific job active. Next: implement and prospectively freeze METH-295
-actual native full-head document BPB/prompt top1 on ALL292 sources against
-new BF16 donor/E1280 controls. Relative-cache/global-RoPE window positions
-must match original M17 metric. Native generation, anonymous semantics,
-full1838 PIQA, actual CPU K64 and accepted>=50 remain due.
+METH-295 frozen at `00613ac`; complete fresh GPU controls retained after
+[pre-native cleanup apparatus failure](METH_295_NATIVE_PRIMARY_APPARATUS_FAILURE_20261002.md).
+Repair freeze `b2f3cd6` runs unchanged C in a process that never initializes
+CUDA, with exact saved GPU rows and identical input bundle. **Live session
+91076**, CPU started2October approximately16:44UTC;93 cases/33,659 scored
+rows/23,040 prefill rows, hard75minutes/childRSS20GiB. No rate measurement.
+Observe that session; do not duplicate/relaunch. Completed-case progress:
+`results/native_expert_scaling/meth295_native_primary_repair1_stdout.log`.
+Expected result `meth295_native_primary_prediction_repair1_result.json`.
+On terminal completion record actual result/gates/cost; pass licenses
+prospective native generation, quality fail closes fixed native profile.
+Native semantics/full1838 PIQA/CPU K64/accepted>=50 remain due.
 
 The new execution entry is real phase60 C, not a Python oracle. Do not
 rebuild the197s model-free source pool or rerun failed precision variants.
 Complete model still executes4864 features/layer. No useful large-n,
 RAM-scale routing/DRAM cost or cross-family10B/100B claim.
+See [capacity and CPU routing boundary](NATIVE_CAPACITY_SCALING_STATUS_20261002.md):
+current shapes are fixed, child search scales linearly with children; prior
+large-bank usefulness and synthetic timing stops remain distinct.
 
 ## Method, history and workspace
 
