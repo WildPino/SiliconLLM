@@ -92,8 +92,10 @@ or rate. [277 consumed development](METH_277_COMPLETE_I16_DEVELOPMENT_RESULT_202
 passes all existing BPB/top1/K64 gates with exact194/260 controls,118.125s.
 Versus259,BPB improves.000119123 but top1 agreement drops.244771points;
 do not infer semantic repair from source-error reduction or consumed BPB.
-Frozen278 selects new sources with3200 exclusions before answerability and
-fresh complete quality. Actual native integration/rate remains open.
+278 now freezes24 new sources with3200 exclusions,204.359s CPU;source pool
+unchanged,no donor-pretraining exclusion claim. Frozen279 source-only
+answerability precedes fresh complete quality. Actual native integration/rate
+remains open.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted

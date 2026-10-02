@@ -102,9 +102,12 @@ session24677 exits0,134.422s. Fixed component-cost/267 stops unchanged.
 consumed complete prediction gates with exact194/260 controls. Versus259,
 BPB-.000119123/top1-.244771points;both metrics do not improve. Session63134
 exits0,118.125s;no active model job or native promotion.
-**Next exact action:** run frozen [METH-278](METH_278_COMPLETE_I16_FRESH_MANIFEST_PROTOCOL_20261002.md),
-24 model-free new sources with all3200 prior source IDs excluded;then
-source-only answerability before fresh complete quality. No278 selection yet.
+[METH-278](METH_278_COMPLETE_I16_FRESH_MANIFEST_RESULT_20261002.md) freezes24
+new sources after3200 exclusions,same source/fragment rules/actual276;
+session43312 exits0,204.359s. No model inference on these sources yet.
+**Next exact action:** frozen [METH-279](METH_279_I16_SOURCE_ANSWERABILITY_PROTOCOL_20261002.md),
+read24 visible excerpts,write source-only annotations,validate and commit
+before fresh complete prediction/generation/task/anonymous semantic checks.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
