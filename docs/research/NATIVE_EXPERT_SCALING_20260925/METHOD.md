@@ -1648,7 +1648,14 @@ parent/child functions. First continuous fit/count pilot, not automatic
 native blending acceptance. The [METH-256 protocol](METH_256_BOUNDED_SOURCE_RESPONSE_PROTOCOL_20261002.md)
 and implementation now freeze the bounded selector, exact energy-scaled
 normal equations, matched active32 parent/child hierarchy and prerequisites.
-No result or new private useful capacity/full quality validated. Full24-layer core construction and
+The [METH-256 result](METH_256_BOUNDED_SOURCE_RESPONSE_RESULT_20261002.md)
+passes all176 actual distinctness/control gates but count gain0.08439% and
+rotated gain0.03415% fail the fixed10% screen. Close this amplitude recipe;
+no native scalar blend/codec promotion. Next construct an actual full24-layer
+saved candidate using the separately qualified fixed253 source operator,
+exact tied head/BF16 non-FFN organs and already learned centered E1280 bank,
+with effective-bank/complete-loader parity before new full-model quality.
+No new private useful capacity/full quality validated. Full24-layer core construction and
 same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically

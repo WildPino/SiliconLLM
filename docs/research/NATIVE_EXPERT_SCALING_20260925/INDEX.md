@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**Date:** 1 October 2026. **Branch:** `research/native-expert-scaling`.
+**Date:** 2 October 2026. **Branch:** `research/native-expert-scaling`.
 **Status:** active research; no artifact meets all final requirements.
 
 ## Goal and constraints
@@ -191,21 +191,25 @@ validation. Session86792 exits0; no job active. Source/native bindings and
 first learned-parent controls pass. Close this fixed learned-readout pair;
 incomplete raw fit-summary0.0 is not a quality score.
 
-**Latest decisive evidence:** [METH-255](METH_255_FEATURE_READOUT_COMPOSITION_RESULT_20261001.md) passes
+[METH-255](METH_255_FEATURE_READOUT_COMPOSITION_RESULT_20261001.md) passes
 all16 old coefficient/score controls but diagnoses learned-private fit
 loss28.02%; coherent-source private gains7.91% and remains4.56x less
 accurate than learned shared. Both prospective coherence gates fail.
 Session68832 exits0; no job active. Close fixed promotion/source-reset
 composition, not all nonlinear source responses. No validation was read.
 
-**Next exact action:** execute the frozen
-[METH-256 pilot](METH_256_BOUNDED_SOURCE_RESPONSE_PROTOCOL_20261002.md), following the
-[source-response proposal](BOUNDED_SOURCE_RESPONSE_DICTIONARY_PROPOSAL_20261001.md).
-Preserve actual adapted parent; select32 source-minus-shared nonlinear
-atoms and fit bounded signed amplitudes, then anchored child amplitude
-adjustments with the same active atom set. Fix selection/solver/normal/
-distinctness/fit/count guards and resources are fixed before execution.
-Protocol/implementation present; no256 run yet. New native blending is unqualified.
+**Latest decisive evidence:** [METH-256](METH_256_BOUNDED_SOURCE_RESPONSE_RESULT_20261002.md)
+completes all176 distinct actual functions, exact parent/solver/snapshot/
+score controls and positive paired gain. Count gain0.08439%, rotated
+gain0.03415% fail frozen10% gates. Session64120 exits0; no job active.
+Close this fixed bounded nonlinear-amplitude recipe before native blending.
+
+**Next exact action:** implement/freeze METH-257 full24-layer saved core
+with the qualified fixed253 FFN, exact tied head/BF16 attention/control and
+existing centered E1280 effective bank/routing. First export/readback and
+conditional/component parity, then frozen consumed-development/new-source
+whole-model quality before native integration. Do not treat METH-214's
+consumed cohort as fresh or reuse its passing subset to promote this core.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
