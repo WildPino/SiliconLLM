@@ -59,8 +59,11 @@ need qualification; same-input route/maps remain exact.
 source features improve it80.40%. [METH-270](METH_270_PRIVATE_SOURCE_ROWS_RESULT_20261002.md)
 fixed128 coefficient-ranked input rows improve mean error14.67%,missing the
 prospective15% gate. The recipe stops before native timing/full assembly.
-All old32 rows and nonprivate fields remain exact. An activation/output-
-aware selector at fixed cost is an untested alternative,not an accepted recipe.
+All old32 rows and nonprivate fields remain exact. [METH-271](METH_271_OUTPUT_AWARE_ROWS_RESULT_20261002.md)
+activation/output-aware selection at fixed128 improves mean/reserve22.42%/
+21.87% and passes384 native numerical vectors, but11.398ms fails the10ms
+component budget. No full archive is licensed. Any changed execution kernel
+requires its own prospective numeric/cost qualification at unchanged fields.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted

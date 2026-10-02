@@ -72,11 +72,14 @@ timing: fixed128 coefficient-ranked rows improve mean error14.6685%, short
 of15%; ratio .8533147 versus .85 gate. All unchanged/source/baseline guards
 pass. Fixture337.596MB adds8.262MB;14.125s,session23631 exits0; no active job.
 Do not loosen the gate or increase counts to rescue this fixed recipe.
-**Next exact action:** execute frozen [METH-271](METH_271_OUTPUT_AWARE_ROWS_PROTOCOL_20261002.md),
-function/output-aware selection at the same128-row cost,with even-fit/odd-
-reserve component controls. Code/protocol frozen; no271 observations yet.
-Run before any new full archive. Routing/bank remain fixed;
-source precision changes do not establish useful learned-n growth.
+[METH-271](METH_271_OUTPUT_AWARE_ROWS_RESULT_20261002.md) output-aware fixed128
+selection passes mean/reserve/source and native numeric gates:22.4154% mean,
+21.8746% reserve improvement,384 native median/max5.36e-7/1.24e-6. Cost fails:
+11.397642ms versus10ms. Session5390 exits0; no active job/full archive.
+**Next exact action:** freeze a changed execution kernel for the same actual
+271 functions,with contemporaneous unchanged control and original numeric/
+absolute10ms gates. Routing/bank remain fixed; no retiming271 or full archive
+before a separately qualified kernel. Source precision does not prove new n.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
