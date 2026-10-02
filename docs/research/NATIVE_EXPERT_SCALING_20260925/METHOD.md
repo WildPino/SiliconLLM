@@ -93,9 +93,9 @@ passes all existing BPB/top1/K64 gates with exact194/260 controls,118.125s.
 Versus259,BPB improves.000119123 but top1 agreement drops.244771points;
 do not infer semantic repair from source-error reduction or consumed BPB.
 278 now freezes24 new sources with3200 exclusions,204.359s CPU;source pool
-unchanged,no donor-pretraining exclusion claim. Frozen279 source-only
-answerability precedes fresh complete quality. Actual native integration/rate
-remains open.
+unchanged,no donor-pretraining exclusion claim.279 source-only answerability
+now passes all24 and annotations are committed before outputs;frozen280
+new complete prediction follows. Actual native integration/rate remains open.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted

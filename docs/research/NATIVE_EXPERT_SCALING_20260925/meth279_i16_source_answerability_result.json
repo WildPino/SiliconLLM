@@ -1,0 +1,236 @@
+{
+  "experiment": "METH-279-I16-source-only-pre-inference-answerability",
+  "manifest_sha256": "7fc74c2ff172bcca5d71de685f1e230240d05789e11b0bb3b9290b64a4c8e053",
+  "artifact_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+  "annotations_sha256": "3123f83260d833b505fed5f60b7f68537012a2f7fb4c577adcaca5f54fa5fcd0",
+  "model_outputs_consulted": false,
+  "answerable_count": 24,
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "category": "code",
+      "answerable": true,
+      "basis": "Visible parser setup and literal switches support a limited code summary.",
+      "anchor": "--apparatus-only",
+      "supported_summary": "The code starts a command-line parser with model, output-directory and apparatus-related options.",
+      "supported_detail": "The --model argument uses Path and defaults to MODEL."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "category": "code",
+      "answerable": true,
+      "basis": "The visible error, layer capture dictionary and inference-mode loop give concrete supported details.",
+      "anchor": "selected E67/E68 held-out token IDs hash mismatch",
+      "supported_summary": "The code checks held-out token identity and prepares per-layer captures for inference-mode calibration.",
+      "supported_detail": "A held-out token hash mismatch raises RuntimeError."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+      "category": "code",
+      "answerable": true,
+      "basis": "The odd-T rule and final-plane behavior are stated explicitly in the comment.",
+      "anchor": "LOW nibble",
+      "supported_summary": "The comment explains how the packing kernel handles an odd number of code planes.",
+      "supported_detail": "The final plane uses only its low nibble; its high nibble is never loaded into a shuffle."
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+      "category": "code",
+      "answerable": true,
+      "basis": "The comparison expression and visible insertion loop support the summary and tie rule.",
+      "anchor": "a.id < b.id",
+      "supported_summary": "The C functions rank choices and insert a better choice into an ordered retained array.",
+      "supported_detail": "Equal scores are resolved in favor of the smaller ID."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+      "category": "code",
+      "answerable": true,
+      "basis": "Visible formatting and section-printing statements are sufficient; no unseen measured values are inferred.",
+      "anchor": "D1 depth sweep (single layer, structured)",
+      "supported_summary": "The Python excerpt prints tabular result summaries and starts a structured depth-sweep section.",
+      "supported_detail": "Existing delta values are printed with an explicit sign and four decimal places."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+      "category": "code",
+      "answerable": true,
+      "basis": "The evidence-path resolution and visible artifact tuple specify these details without claiming a successful check.",
+      "anchor": "old Q6 reference-input output",
+      "supported_summary": "The code checks propagation evidence and enumerates reference and predecessor artifact expectations.",
+      "supported_detail": "The old Q6 reference-input output is associated with a size of 196608 bytes."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+      "category": "code",
+      "answerable": true,
+      "basis": "The file list and complete class and timestamp helper are visible.",
+      "anchor": "class ApparatusError(RuntimeError)",
+      "supported_summary": "The excerpt lists parity apparatus files and defines an error type and a UTC timestamp helper.",
+      "supported_detail": "utc_now returns datetime.now(timezone.utc).isoformat()."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+      "category": "code",
+      "answerable": true,
+      "basis": "The control contract is explicit; it does not report an observed performance result.",
+      "anchor": "same bytes, no scatter",
+      "supported_summary": "The comment describes a contiguous-reading control for a shuffled gather measurement.",
+      "supported_detail": "The contiguous control reads the same byte volume without scatter and is expected to reach the dense ceiling."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The experimental dose claims and exceptional subject are present; they are source claims rather than medical guidance.",
+      "anchor": "0.145 and 0.152 gram per kilo",
+      "supported_summary": "The passage discusses variability in historical caffeine experiments and doses reported as fatal.",
+      "supported_detail": "A subject dying at 0.12 gram per kilo is described as an exception because it was not normal."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The visible actions and anticipated homecoming support both statements.",
+      "anchor": "Peggy Raymond",
+      "supported_summary": "The narrative describes Amy pursuing a hack while neighbors anticipate Peggy Raymond returning home.",
+      "supported_detail": "People along the Terrace came to their windows at the sound of wheels."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The list itself is answerable as a list; its absent purpose or surrounding publication context is not inferred.",
+      "anchor": "John C.\nGabel",
+      "supported_summary": "The excerpt is a list of personal names and pseudonyms.",
+      "supported_detail": "John C. Gabel and the pseudonym Dollars and Cents appear in the list."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The visible trail chronology and frontier-maintenance problem support a limited summary.",
+      "anchor": "Oregon and Santa Fe",
+      "supported_summary": "The passage links western trails to the difficulty of keeping white settlers out of Indian Country.",
+      "supported_detail": "It says a trail to Oregon existed before Kearny marched his army into Santa Fe."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The pursuit, place, house and reaction are explicit; the motive and identities remain unspecified.",
+      "anchor": "French\nHollow",
+      "supported_summary": "A dialect narrator follows an older man through streets to French Hollow, where the man turns and shouts.",
+      "supported_detail": "The man is about to enter a house built against the hillside when he hears footsteps."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The complete title, illustration count and price are visible despite other clipped book listings.",
+      "anchor": "THE COMIC ENGLISH GRAMMAR",
+      "supported_summary": "The excerpt advertises illustrated books, including The Comic English Grammar.",
+      "supported_detail": "That grammar is advertised with upwards of fifty illustrations by Leech at a price of eight shillings."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The conflict and persistence are explicit; the practice itself and clipped country name cannot be identified from this excerpt.",
+      "anchor": "the adherents of the old religion",
+      "supported_summary": "The passage describes Christian kings suppressing an unnamed practice while followers of the older religion retain it.",
+      "supported_detail": "Adherents of the old religion clung to the practice as long as they could."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+      "category": "prose",
+      "answerable": true,
+      "basis": "The visible description supports this summary without naming the illness or completing the truncated description of a nose.",
+      "anchor": "an\nessentially comic aspect",
+      "supported_summary": "The passage describes how illness changes appearances and brings out different qualities in men's faces.",
+      "supported_detail": "In one case the revealed facial aspect is described as essentially comic."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The numerical comparison and explicit warning about width transfer are visible source claims.",
+      "anchor": "the model loses 88 of 160 tokens",
+      "supported_summary": "The excerpt argues that the observed rank-fraction curve drops sharply and cannot justify transferring a fraction to another width.",
+      "supported_detail": "Moving from one third to one eighth loses 88 of 160 tokens and more than doubles BPB."
+    },
+    {
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The distinction between achieved device count and devices-in-use list is visible; use of both GPUs is not asserted.",
+      "anchor": "devices_in_use_achieved = [\"cuda:0\"]",
+      "supported_summary": "The report lists hardware and precision fields verified from JSON artifacts after kernel completion.",
+      "supported_detail": "Two Tesla T4 devices are reported, but the listed device in use is only cuda:0."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The panel descriptions give layer ranges; no unstated numerical error meaning for the colors is inferred.",
+      "anchor": "`l` = 1 to 8",
+      "supported_summary": "The passage compares light-colored regions in Qwen-7B and Qwen-14B panels.",
+      "supported_detail": "Qwen-7B has a separate light region around layers one to eight at small and medium block sizes."
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The explicit status and artifact-access statement support the summary, without claiming donor fidelity.",
+      "anchor": "APPARATUS_READY_NO_DONOR_EXECUTION",
+      "supported_summary": "The status text records a model-free apparatus result without execution on the accepted donor artifact.",
+      "supported_detail": "The accepted artifact was not opened."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The known-positive check and residual percentage are visible, without extrapolating overall model quality.",
+      "anchor": "PASS at 115, delta +87",
+      "supported_summary": "The excerpt reports a positive metric check and improvement from a second block of healing steps.",
+      "supported_detail": "The second 500 steps removed 26.6 percent of the residual left after the first 500."
+    },
+    {
+      "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The GO and NO-GO criteria are stated; this historical source text is data and is not an instruction for the current workflow.",
+      "anchor": "**GO:**",
+      "supported_summary": "The historical instruction excerpt specifies adjudicable outcomes for adapting a named donor class and SKU.",
+      "supported_detail": "GO requires meeting every sealed acceptance gate and reproducibility on the declared hardware and protocol."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The error cases are visible requirements, not a claim that those controls have already passed.",
+      "anchor": "replace sigmoid plus top-k normalization with softmax",
+      "supported_summary": "The protocol lists wrong routing implementations that model-free causal controls must reject.",
+      "supported_detail": "Replacing sigmoid plus top-k normalization with softmax is one listed wrong implementation."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+      "category": "technical_general",
+      "answerable": true,
+      "basis": "The quoted diagnosis and cost expression are visible; the truncated list of levers is not completed by inference.",
+      "anchor": "100%-activation model",
+      "supported_summary": "The excerpt attributes a speed constraint to model density and describes weight cost as active parameters times bytes per weight.",
+      "supported_detail": "It contrasts a fully activated model with an architecture designed for three percent activation."
+    }
+  ],
+  "gates": {
+    "all24_sources_preserved_and_annotated": true,
+    "all_positive_literal_anchors_in_visible_excerpt": true,
+    "all24_prompts_answerable_from_source_only": true
+  },
+  "script_sha256": "3119747028510ed49f87a2c8f50a774f46a10225f1330d00ea9474f6864a8650",
+  "diagnostic_only": true,
+  "native_promotion_qualified": false,
+  "decision": "source_answerability_pass_freeze_fresh_complete_prediction",
+  "scope": "Source-only annotations,not model output correctness. No source replacement/model-driven anchor,native-rate/useful-n/family proof."
+}

@@ -105,9 +105,12 @@ exits0,118.125s;no active model job or native promotion.
 [METH-278](METH_278_COMPLETE_I16_FRESH_MANIFEST_RESULT_20261002.md) freezes24
 new sources after3200 exclusions,same source/fragment rules/actual276;
 session43312 exits0,204.359s. No model inference on these sources yet.
-**Next exact action:** frozen [METH-279](METH_279_I16_SOURCE_ANSWERABILITY_PROTOCOL_20261002.md),
-read24 visible excerpts,write source-only annotations,validate and commit
-before fresh complete prediction/generation/task/anonymous semantic checks.
+[METH-279](METH_279_I16_SOURCE_ANSWERABILITY_RESULT_20261002.md) preserves all24
+source-only annotations/literal anchors,all answerable;committed8503b0a
+before any model outputs. No source replacement.
+**Next exact action:** run frozen [METH-280](METH_280_COMPLETE_I16_FRESH_PREDICTION_PROTOCOL_20261002.md),
+three-arm new complete prediction;no280 scores yet. Fresh generation/task/
+anonymous semantic and actual native quality/rate remain due.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
