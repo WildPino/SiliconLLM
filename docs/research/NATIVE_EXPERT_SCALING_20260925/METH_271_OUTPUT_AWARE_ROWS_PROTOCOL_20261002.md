@@ -63,3 +63,20 @@ preserve failures. Pass only licenses separately frozen full archive and
 consumed regression followed by newly excluded-source generation/task/
 anonymous-semantic controls.259 remains closed by267; no component result
 demonstrates useful new n,RAM route/LUT/DRAM quality,>=50 or family transfer.
+
+## Apparatus freeze and command
+
+`meth271_output_aware_rows.py` verifies the decoded readout against the fixed
+FP32 operator (maximum per-state relativeL2<=1e-5 apparatus guard) before
+using its scores. It binds270 code/raw record and all inherited source
+checks, stores all4864 scores/layer and even-fit/odd-reserve metrics, and
+stops before native work on any fidelity/reserve failure. The C runner
+verifies that its source is exactly253 with count/labels/header changed.
+Code and this protocol are committed before execution; no271 observations
+exist at this freeze. The decoded matrix is selector-only and is not used
+as a replacement candidate operator.
+
+```powershell
+$env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
+.\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth271_output_aware_rows.py --binary results/native_expert_scaling/meth271_output_aware_rows_fixture.bin --exe benchmarks/native_expert_scaling/meth271_output_aware_rows_cpu.exe --check results/native_expert_scaling/meth271_output_aware_rows.check.bin --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth271_output_aware_rows_result.json
+```
