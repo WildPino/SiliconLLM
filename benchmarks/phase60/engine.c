@@ -1,3 +1,6 @@
+#ifdef SILICON_COMPLETE_I16
+#include "../native_expert_scaling/meth284_complete_core_cpu.c"
+#else
 // Silicon Entropy Engine — CONSOLIDATED single-core inference engine (P4.3).
 //
 // One core, feature-flags, replacing the five stage engines (e1/e2/e3/e35/e4_engine.c, now archival).
@@ -1702,3 +1705,4 @@ int main(int argc,char**argv){
     printf("STOP. engine run above. No commit.\n");
     return rc;
 }
+#endif /* SILICON_COMPLETE_I16 */
