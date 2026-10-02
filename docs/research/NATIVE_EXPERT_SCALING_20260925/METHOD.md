@@ -36,7 +36,12 @@ now passes all pooled/category quality and apparatus gates on24 untouched
 sources: BPB1.23886670 versus donor1.24367193/E1280 1.23842220 and
 donor-top1 agreement96.0600%. The process-only repair reuses exact saved
 GPU controls after cleanup guard failure; native CPU29.422minutes is assay
-cost, not accepted rate. Actual native generation/semantics/PIQA/K64 remain due.
+cost, not accepted rate. [296 actual native generation](METH_296_NATIVE_GENERATION_RESULT_20261002.md)
+passes all health/cache/state-capture gates: all prompt first heads/choices
+exactly295, nine real generated-state cache/prefix byte checks, three fault
+controls, native EOS23/early0/repeat0. All normalized native prompt/generated
+states are retained for later CPU K64. Native strict anonymous semantics,
+PIQA/K64 and accepted whole rate remain due.
 Archive stays diagnostic/unpromoted; generation/semantics/PIQA/CPU K64 and
 accepted whole rate must pass on this same execution identity.
 

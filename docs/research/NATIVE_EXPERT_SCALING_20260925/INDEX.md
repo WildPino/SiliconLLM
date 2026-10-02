@@ -70,18 +70,23 @@ repair `b2f3cd6`; session91076 exits0,1771.578s/CPU childpeakRSS1.36GB.
 Raw SHA `82a86f078409783859b8199e89d6186b53883917351baefd6787b46e4fc7d476`.
 No accepted-rate claim; original numeric5% failures remain.
 
-[296 actual native generation](METH_296_NATIVE_GENERATION_PROTOCOL_20261002.md)
-is frozen `cf84f90` and **live session97155**, started approximately
-17:18UTC2October. Observe that authoritative session; do not duplicate.
-GPU controls complete first in a separate child; then native C reports
-completed-source counts in `results/native_expert_scaling/meth296_native_generation_stdout.log`.
-Expected terminal result `meth296_native_generation_result.json`.
-All72 continuations/same24 prompts; all prompt choices/first heads versus
-actual295, native cached/fresh generated-state byte controls, erased-history
-controls and original health margins. HardGPU35minutes/outer40, CPU20minutes,
-RSS20GiB/GPU10.5GiB. Preserve failures; no labeled-text inspection before
-anonymous findings. Native strict semantics/full1838 PIQA/CPU K64/accepted>=50
-remain due, even if this health screen passes.
+[296 actual native generation](METH_296_NATIVE_GENERATION_RESULT_20261002.md)
+PASS all12 gates; freeze `cf84f90`, session97155 exits0,500.719s
+(GPU272.984/CPU205.109). Native EOS23/24,early0/repeat0 versus donor21/0/0
+andE1280 22/0/1; all category limits pass. All4,264 prompt top1/24 first
+heads exactly295;9 actual generated-state cache/prefix byte checks and3
+erased-history controls pass.4,264 prompt/1,672 generated BF16 normalized
+states retained in25.28MB native binary for later CPU K64 checks.
+Raw SHA `87a2b7988eef513271186095a96167217ef9826ccab5444993c8be75ed9c0bb7`.
+
+No scientific job active. **Next exact action: METH-297 anonymous semantics.**
+Freeze new panel/scorer before reading296 texts; adapt282's unchanged
+excerpt-only atomic unsupported/severe/missing-detail rubric and strict
+six counts<=BOTH controls. Build OS-random per-source A/B/C permutations,
+read only anonymous panel, commit ALL72 findings/panel SHA before map
+unblind/counts. Labeled continuation texts have not been inspected.
+Health/prediction cannot override semantic failure. Full1838 native PIQA,
+actual CPU K64 and accepted>=50 on SAME artifact remain due afterward.
 
 The new execution entry is real phase60 C, not a Python oracle. Do not
 rebuild the197s model-free source pool or rerun failed precision variants.
