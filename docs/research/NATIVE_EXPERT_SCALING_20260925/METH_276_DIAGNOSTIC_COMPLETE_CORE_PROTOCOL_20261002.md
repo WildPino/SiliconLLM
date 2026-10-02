@@ -76,3 +76,24 @@ artifact or score exists. Pass licenses ONLY separately frozen consumed
 whole-model regression; freeze new excluded-source prediction/generation/
 tasks/anonymous-semantic checks before independent scoring. Do not invoke
 complete native rate/promotion from this archive-consistency experiment.
+
+## Apparatus freeze
+
+The new loader declares format
+`M276_DIAGNOSTIC_I16_INPUT_PRIVATE128_UNIQUE_BF16_V1`, checks its own source
+and imported project helper hashes, and validates the complete tensor
+inventory before model construction. M274's FP32 equation is exposed
+separately from the BF16 return: native numeric gates compare FP32 against
+FP32, then require the returned BF16 value to equal its exact BF16 rounding.
+Conditional parity isolates the original BF16 branch before adding the
+changed dense output, avoiding a subtraction contaminated by BF16 rounding.
+All 725 fields and per-layer 256-state errors are retained in the result.
+The old259 model is loaded solely as the fixed same-input conditional
+control, not as a fallback for the diagnostic loader. No model inference or
+276 archive construction has occurred before this apparatus freeze.
+
+Command (repository root; existing outputs are refused):
+
+```powershell
+.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth276_diagnostic_complete_core.py --artifact results/native_expert_scaling/meth276_qwen05b_i16_private128_diagnostic.safetensors --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth276_diagnostic_complete_core_result.json
+```
