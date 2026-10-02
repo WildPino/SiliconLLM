@@ -230,11 +230,18 @@ donor/E1280 controls exact; BPB+.000218937 versus BF16 E1280, top1 improves
 UTF8 failure preserved, repair changes no data/math/gate. Session89049
 exits0; no job active. All9 archived code hashes reproduce through Git.
 
-**Next exact action:** execute frozen [METH-261 new independent source manifest](METH_261_COMPLETE_CORE_FRESH_MANIFEST_PROTOCOL_20261002.md),
-seed261261, old fixed source tree/cached PG19 train14, prior source/fragment
-exclusions plus consumed213. Code/protocol present; no261 run yet. Then
-answerability before independent full-model prediction/generation/tasks/
-blind/native complete alias lookup/LUT/DRAM/rate. Keep same259 artifact.
+[METH-261](METH_261_COMPLETE_CORE_FRESH_MANIFEST_RESULT_20261002.md) freezes
+24 new sources (8/category),3176 prior-source exclusions including213 and
+original fragment controls, fixed seed261261/tree/cached PG19 train14.
+Manifest SHA5af457561ad24fb837770735d0dbd0f23baa2f04a0525f38656285c0db7ec050.
+Session42952 exits0,220.360s; no active job or new model score.
+
+**Next exact action:** freeze METH-262 source-only answerability criteria
+before reading/annotating261 excerpts; save all24 decisions/anchors before
+model inference. Then freeze METH-263 independent three-arm full prediction
+on this exact261 manifest and259 actual archive, unchanged quality gates.
+No262/263 code/protocol/result yet. Keep candidate/data fixed through full
+generation/tasks/blind/native complete alias lookup/LUT/DRAM/rate checks.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
