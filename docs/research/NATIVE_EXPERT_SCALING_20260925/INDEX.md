@@ -129,12 +129,17 @@ four unchanged5% hidden/logit guards: ablation .05226/.06019, complete
 Session86581 exits0,70.688s,no active job. Raw SHA
 `091f9894325fe4f24e4808585964a322c615112238fb12ffbc56463d76d3e1b1`.
 
-**Next exact action:** freeze GPU-reference causal-equivalence stability
-assay before further precision variants: same six sources/tail8/two arms,
-original full-prompt rows versus independent truncated full-prefix last
-rows,no cache on BOTH sides. Same artifact/IDs/weights; only batch geometry
-changes. Pin original285 references/limits; diagnostic does not promote
-failed native recipes or loosen donor-quality/rate goal. No new run yet.
+[290 causal reference controls](METH_290_REFERENCE_PREFIX_RESULT_20261002.md)
+PASS: repeated original reference byte exact; truncated no-cache hidden
+rows all96 byte exact; head geometry accounts for all tiny logit discrepancy,
+max .000106425. Does not explain285 failure. Session78446 exits0,74.812s,
+no active job. Raw SHA
+`797b8ef913cea4b8eab2754ab37e66c0c75026854eec05a3c0ca9f8bfa2abbcb`.
+
+**Next exact action:** freeze hybrid causal operator-group localization
+on consumed source0/compact-core-only. Require all-CPU-group hybrid BYTE
+exact to original285 CPU tail8 first; restore one operator group to GPU on
+actual intervened inputs. Nondeployable diagnostic,not native promotion.
 No weights/routes/data fitting; changed
 execution needs new record and same285 gates. Native BPB/generation/task/
 semantic/K64 and accepted>=50 still due. Retain large-n/RAM/real DRAM/family

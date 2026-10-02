@@ -27,8 +27,10 @@ but propagated residual error up to6.735%. [288 norm64](METH_288_NORM_REDUCTION_
 fails the unchanged ablation guard (5.5687%); do not adopt. FP32 residual
 stream in [289](METH_289_RESIDUAL32_RESULT_20261002.md) also fails four
 unchanged5% hidden/logit guards. Neither precision variant is adopted.
-Before another execution variant, same-archive GPU no-cache causal prefix
-equivalence needs measurement to characterize reference stability. Further
+[290 same-archive GPU no-cache causal controls](METH_290_REFERENCE_PREFIX_RESULT_20261002.md)
+are stable: all96 hidden rows exact, maximum head-only logit difference
+.000106425. They do not explain285 failure. Causal operator-group
+localization on actual intervened inputs remains due. Further
 native changes require a new prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 records actual tensor types,required BF16 boundaries and the route-alias
 lookup that must be implemented before qualification. The prior259 path
