@@ -67,3 +67,35 @@ arithmetic plus consumed regression then fresh excluded-source generation/
 task/anonymous review.259 remains closed by267; all earlier cost stops
 stand. Native cache/full quality/accepted>=50,useful learned RAM-scale n,
 route/LUT/real DRAM cost and family/10B/100B transfer remain mandatory.
+
+## Apparatus freeze and execution order
+
+`meth274_i16_shared_input.py` reads the unchanged271 fixture,verifies all
+segments/source rows and repeats old269/271 controls exactly. GPU reference
+parameters use CPU IEEE FP32 divisions followed by GPU multiplication/round
+so the reference does not silently substitute CUDA reciprocal arithmetic.
+Export all5,505,024 GPU I16 codes and12,288 FP32 inverse/scale parameters in
+an11,059,220-byte check fixture; these are validation data,not deployable
+cached inputs. Actual C recomputes them from x inside each forward/timing.
+
+The C qualifier checks all59,768,832 gate/up integer dots against a scalar
+I64 expression (compiler may vectorize it),plus CPU/GPU codes/scales and
+zero/ties/max-positive-negative I64 reduction edge guards. It then emits
+ALL6144 final FP32 output vectors. Before timing,verify actual CPU BF16-
+cast source/reserve fidelity against the same gates,all6144 GPU/native
+errors under the original numeric limits (including original384 separately).
+This additional full CPU component check strengthens the apparatus without
+changing source/selector/gates. Timing mode only runs after all qualification
+gates and repeats the original384 check before three sweeps; outputs must
+be bitwise equal the qualifier's first384. Native modes run after GPU sync,
+combined compiler/qualifier/timing<=5min,individual timeout<=180s. Qualification
+cost is conversion/check overhead and is reported separately from rate.
+
+No274 observation at this code/protocol freeze. Source and dependencies,
+quantizer/native outputs,all per-layer/source/numeric/command/resource hashes
+and failures are preserved. Frozen command:
+
+```powershell
+$env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
+.\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth274_i16_shared_input.py --exe benchmarks/native_expert_scaling/meth274_i16_shared_input_cpu.exe --quantizer results/native_expert_scaling/meth274_i16_quantizer.bin --check results/native_expert_scaling/meth274_i16_shared_input.check.bin --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth274_i16_shared_input_result.json
+```

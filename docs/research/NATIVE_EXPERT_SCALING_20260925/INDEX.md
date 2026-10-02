@@ -83,11 +83,11 @@ no active job. This fixed optimization closes;271 cost and267 stops remain.
 [METH-273](METH_273_PRIVATE128_PHASE_RESULT_20261002.md) phase diagnosis passes
 all bitwise/checksum guards:shared+concurrent down/right92.1427%,private plus
 team boundaries6.0249%. Diagnostic overhead retained,not a rate qualification.
-Session74210 exits0; no active job. **Next exact action:** implement then freeze
+Session74210 exits0; no active job. **Next exact action:** execute frozen
 [METH-274](METH_274_I16_SHARED_INPUT_PROTOCOL_20261002.md),dynamic I16 input/Q8
 shared gate/up integer dots,same271 private128/LUT/readout/bank. Source/
 reserve/quantizer-integer/GPU-native guards before absolute10ms timing.
-No274 code/result yet; no full archive before component qualification.
+274 apparatus implemented; no result yet; no full archive before qualification.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
