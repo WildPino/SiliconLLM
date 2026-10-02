@@ -88,7 +88,12 @@ conditional controls pass. Extra payload8,262,144bytes,no new capacity.
 preserved,environment-only repair. `meth276_diagnostic_complete_core.load_stored`
 needs the saved artifact and pinned project implementations,not donor or
 checkpoint weights. This establishes archive composition,not whole quality
-or rate. Frozen277 consumed development regression precedes new quality data.
+or rate. [277 consumed development](METH_277_COMPLETE_I16_DEVELOPMENT_RESULT_20261002.md)
+passes all existing BPB/top1/K64 gates with exact194/260 controls,118.125s.
+Versus259,BPB improves.000119123 but top1 agreement drops.244771points;
+do not infer semantic repair from source-error reduction or consumed BPB.
+Frozen278 selects new sources with3200 exclusions before answerability and
+fresh complete quality. Actual native integration/rate remains open.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
