@@ -14,7 +14,9 @@ sample or broad capability claim. Old task counts are historical; these
 controls were measured anew under the current frozen apparatus.
 
 Raw [result](meth266_complete_core_piqa_result.json) preserves all token
-hashes/labels/option scores. Session64975 exited0,1035.656s after imports,
+hashes/labels/option scores, SHA256
+`da571182fd1190c5d3cf634c634d63810a1f33c3f302a6848f13085202c0385e`.
+Session64975 exited0,1035.656s after imports,
 RSS3,413,561,344 bytes,peakGPU3,139,373,568 bytes. No job remains active.
 
 The267 semantic failure still closes native promotion of this fixed

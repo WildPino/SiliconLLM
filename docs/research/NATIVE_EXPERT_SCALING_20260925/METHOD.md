@@ -48,6 +48,8 @@ now fails severe-error/missing-detail gates; fixed259 native promotion is
 closed. [METH-266](METH_266_COMPLETE_CORE_PIQA_RESULT_20261002.md) passes
 PIQA regression,1290/1838 versus1291 for both controls, but cannot override
 the semantic failure. A changed core/route mechanism needs new checks.
+Frozen268 traces consumed prefixes and injects reference routes only as
+an oracle diagnosis. This is nondeployable and cannot reopen259 promotion.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
