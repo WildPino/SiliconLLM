@@ -72,8 +72,14 @@ shared/concurrent down-right92.14% versus private/team6.02%,including added
 instrumentation overhead.[METH-274](METH_274_I16_SHARED_INPUT_RESULT_20261002.md)
 I16 input/shared Q8 integer dots pass all6144 actual CPU source/reserve and
 GPU/native controls (median4.67e-7/max1.04e-6) and59,768,832 scalar-I64/AVX
-dot checks,but10.551ms fails10ms. Paired physical input layout is a frozen
-unimplemented cost hypothesis; no complete candidate with either exists.
+dot checks,but10.551ms fails10ms.[METH-275](METH_275_PAIRED_I16_LAYOUT_RESULT_20261002.md)
+paired/aligned layout preserves all6144 CPU outputs yet10.645ms/3.54% paired
+gain miss both10ms/5% gates. Both fixed kernels stay stopped.276 now explicitly
+revises assembly order for an unpromoted diagnostic complete I16/private128
+archive: composition and actual whole budget are unknown,and the component
+allocation is not the user's50tok/s requirement. No old gate/result changes;
+full fresh quality/actual same-artifact rate remain mandatory for promotion.
+No such complete archive exists yet;276 consistency cannot establish them.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted

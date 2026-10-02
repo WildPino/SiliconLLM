@@ -86,11 +86,18 @@ team boundaries6.0249%. Diagnostic overhead retained,not a rate qualification.
 Session74210 exits0; no active job. [METH-274](METH_274_I16_SHARED_INPUT_RESULT_20261002.md)
 I16 shared input passes all6144 CPU source/reserve/GPU-native controls and
 59,768,832 exact integer dots,but10.550804ms fails10ms. Session26089 exits0;
-no active job/full archive. **Next exact action:** execute frozen
+no active job/full archive.
 [METH-275](METH_275_PAIRED_I16_LAYOUT_PROTOCOL_20261002.md),paired16 gate/up
 Q8 layout/integer reader,same function/337.596MB,bitwise all6144 outputs,
-contemporaneous control and absolute10ms/5% speedup gates.275 apparatus
-implemented; no packed fixture/result yet. Physical padding adds28bytes.
+contemporaneous control and absolute10ms/5% speedup gates.
+[METH-275](METH_275_PAIRED_I16_LAYOUT_RESULT_20261002.md) conserves ALL6144
+CPU outputs/quantizer/integer guards,but10.645058ms and3.5426% observed paired
+gain fail10ms/5% gates. Session20495 exits0; no active job/full archive.
+**Next exact action:** implement then freeze [METH-276](METH_276_DIAGNOSTIC_COMPLETE_CORE_PROTOCOL_20261002.md),
+diagnostic-only complete I16/private128 archive/standalone loader/all725
+fields and6144 composition controls. Explicit assembly-order revision;
+prior component-cost/267 stops unchanged,no promotion. Actual whole quality/
+same-artifact>=50 remain due; no276 code/artifact/score yet.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
