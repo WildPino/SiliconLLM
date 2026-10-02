@@ -79,14 +79,20 @@ erased-history controls pass.4,264 prompt/1,672 generated BF16 normalized
 states retained in25.28MB native binary for later CPU K64 checks.
 Raw SHA `87a2b7988eef513271186095a96167217ef9826ccab5444993c8be75ed9c0bb7`.
 
-No scientific job active. **Next exact action: METH-297 anonymous semantics.**
-Freeze new panel/scorer before reading296 texts; adapt282's unchanged
-excerpt-only atomic unsupported/severe/missing-detail rubric and strict
-six counts<=BOTH controls. Build OS-random per-source A/B/C permutations,
-read only anonymous panel, commit ALL72 findings/panel SHA before map
-unblind/counts. Labeled continuation texts have not been inspected.
-Health/prediction cannot override semantic failure. Full1838 native PIQA,
-actual CPU K64 and accepted>=50 on SAME artifact remain due afterward.
+[297 anonymous semantics](METH_297_NATIVE_SEMANTIC_RESULT_20261002.md)
+**FAIL closes the fixed original native profile.** All72 findings committed
+at `bcf10d5` before map access. Native unsupported41/severe27/missing0 versus
+donor52/34/1 and E1280 40/30/0: five gates pass, unsupported<=E1280 fails.
+Raw SHA `557927330064c436d40dba01d130af2fbdf063b1c5f82f3de5c8b60e187926b8`.
+No regrading/tolerance/favorable subset. Skip unchanged-profile native
+PIQA/K64/rate promotion work;295/296 scoped passes remain valid.
+
+No scientific job active. **Next action: source-bound GigaChat compact
+transfer preflight.** Inspect reusable source-ID calibration and capture
+apparatus for full cross-channel activation moments, absent from180/181.
+Freeze new collection/split/resource/decision criteria before observation.
+Generic donor port stays paused. New small-core quality needs changed
+scientific variable and untouched sources;292 is now consumed.
 
 The new execution entry is real phase60 C, not a Python oracle. Do not
 rebuild the197s model-free source pool or rerun failed precision variants.

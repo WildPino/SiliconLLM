@@ -11,7 +11,7 @@ are not evidence of transferred capability.
 
 ## Current reproducible complete candidate
 
-The current open candidate is [276 diagnostic I16/private128](METH_276_DIAGNOSTIC_COMPLETE_CORE_RESULT_20261002.md),
+The saved candidate is [276 diagnostic I16/private128](METH_276_DIAGNOSTIC_COMPLETE_CORE_RESULT_20261002.md),
 1,329,447,260bytes/same725 fields. Its own versioned loader and all6144
 composition controls pass;277/280 prediction,281 generation health and282
 anonymous semantics pass.283 full PIQA now passes. [284 actual phase60 archive/operators](METH_284_NATIVE_ARCHIVE_RESULT_20261002.md)
@@ -40,10 +40,14 @@ cost, not accepted rate. [296 actual native generation](METH_296_NATIVE_GENERATI
 passes all health/cache/state-capture gates: all prompt first heads/choices
 exactly295, nine real generated-state cache/prefix byte checks, three fault
 controls, native EOS23/early0/repeat0. All normalized native prompt/generated
-states are retained for later CPU K64. Native strict anonymous semantics,
-PIQA/K64 and accepted whole rate remain due.
-Archive stays diagnostic/unpromoted; generation/semantics/PIQA/CPU K64 and
-accepted whole rate must pass on this same execution identity.
+states are retained for diagnostic CPU work. [297 strict anonymous semantics](METH_297_NATIVE_SEMANTIC_RESULT_20261002.md)
+FAILS unsupported claims versus E1280 (41>40), while other five gates pass.
+All72 findings committed before map access; no post-count adjustment.
+The fixed ORIGINAL native execution profile is closed for promotion:
+skip its PIQA/K64/rate promotion work. Archive stays diagnostic/unpromoted.
+GPU quality passes and native295/296 scoped passes remain valid but cannot
+override this semantic stop. A changed candidate needs a prospective new
+quality cohort. Useful large-n and cross-family compact transfer remain open.
 
 The case-specific [METH-259 saved candidate](METH_259_UNIQUE_BANK_CORE_RESULT_20261002.md)
 is available:1,321,032,556bytes,725 tensors, full24-layer Qwen0.5B source
