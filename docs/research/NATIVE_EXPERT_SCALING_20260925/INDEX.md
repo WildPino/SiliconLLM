@@ -85,17 +85,21 @@ control NLL/choice rows exactly266. Raw SHA
 `2ed1e54df9722c32287445eeb2b8d40590742b1893656c374cff6490912a7725`.
 Session97267 exits0,1101.906s,endRSS3.43GB/peakCUDA3.14GB. No active job.
 
-**Next exact action:** commit/freeze [284 actual native archive qualification](METH_284_NATIVE_ARCHIVE_PROTOCOL_20261002.md),
-then launch its own Python assay. The phase60 `SILICON_COMPLETE_I16` path
-now compiles and binds all725 fields directly from unchanged safetensors,
-with SHA256 and explicit unique-B aliases. Source operator is verbatim274.
-Full attention/BF16 residual/head/greedy code exists but has no observations.
-First qualify6144 source/conditional states plus wrong-B lookup control;
-GPU<=12min/20GiB/10.5GiB,then CPU<=180s. No speed or CPU/model overlap.
-Gate failure stops before whole prefixes/rate;pass requires separate whole
-native cache/arithmetic/quality/K64 and accepted batch1 lowerCI95>=50.
-No284 reference/native numerical output exists yet. Old259 semantic/264
-cached/274-275 cost stops remain;diagnostic-only/no large-n or family claim.
+[284 actual phase60 archive/operators](METH_284_NATIVE_ARCHIVE_RESULT_20261002.md)
+passes all nine guards at freeze91923a5:all725 fields/direct original archive,
+all6144 source bytes exactly274,parent/child/alias mismatches0/0/0,gate
+error0,conditional relativeL2 median0/max.00385553 (not all BF16 bitwise).
+Wrong actual B lookup preserves metadata/IDs but fails contribution checks.
+Raw SHA `615e4854b8e9300f660c66f513152e4ed63b78e41f6d521400f784bede0ca18a`.
+Session85190 exits0,68.422s (GPU52.328/CPU16.078),no active job.
+
+**Next exact action:** separately freeze native whole-prefix/cache assay
+against same276 GPU loader on fixed consumed278 prompts in all categories.
+The complete attention/RoPE/BF16-residual/full-head/greedy code compiles
+but was not invoked in284;proposal bound but not executed/qualified.
+Then actual native BPB/generation/task/K64/accepted>=50 on the SAME archive.
+No inheritance from isolated operators. Original259 semantic/264 cached/
+274-275 cost stops stay closed;large-n/RAM/real DRAM/family goal remains.
 
 Prepared [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 binds actual725-field types,Python BF16 cast/rounding boundaries,unique-B
