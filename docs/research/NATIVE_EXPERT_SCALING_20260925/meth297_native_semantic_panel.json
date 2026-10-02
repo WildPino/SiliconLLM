@@ -1,0 +1,206 @@
+{
+  "experiment": "METH-297-new-source-I16-three-arm-anonymous-excerpt-panel",
+  "generation_sha256": "87a2b7988eef513271186095a96167217ef9826ccab5444993c8be75ed9c0bb7",
+  "manifest_sha256": "99fdb09fe13e8abf8c401718911d08137851aa90c043415dd92eeb7d619f3847",
+  "anchors_sha256": "9ceb199045da48152eae40784139fd78007550578f2e1e3d070298f317dad21e",
+  "mapping_sha256": "fcfe3316ed49ae4305011ac1bf379f7c8458376a14c66b093257dce6d3e0c89c",
+  "artifact_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+  "script_sha256": "a464e8762362bfb0488d7429f5ac2a2234da94a633659c7155ba79d9cda0ffa9",
+  "diagnostic_only": true,
+  "native_promotion_qualified": false,
+  "rubric": "Excerpt-only unsupported claims,severe central inversions,and absence of any concrete supported detail. Arm identities withheld until findings commit.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_ffn_output_component_cross_input.py",
+      "category": "code",
+      "excerpt": "t\": (REF_ROOT / \"prefill8/ffn_shexp-1.full.f32le\", \"7bc8b2104cacb7742e57df0c34a1af64fadbff8cc61006ed1aedc034a030ddae\", 49152),\n    \"ref_ffn_out\": (REF_ROOT / \"prefill8/ffn_out-1.full.f32le\", \"e8cdbbf3154447c90fa2dbddff5a454bd37200091fa2c5aaf7021104e76c104e\", 49152),\n    \"c_moe_out\": (C_ROOT / \"prefill8_ffn_moe_out-1.f32\", \"9d0c6f49f7f6c8ffc68f442d2138e0b30b43a9791e8f861088e02cce882",
+      "A": "The excerpt describes two TensorFlow operations:\n\n1. `t`: A TensorFlow tensor with a specific shape and data.\n2. `ref_ffn_out`: Another TensorFlow tensor with a different shape and data.\n\nSpecifically, the first tensor is named `t` and has a shape of `(7bc8b2104cacb7742e57df0c34a1af64fadbff8cc61006ed1aedc034a030ddae, 49152)`. The second tensor is named `ref_ffn_out` and",
+      "B": "The excerpt describes two TensorFlow Prefill models, specifically:\n\n1. `t`: A TensorFlow Prefill model with the path `prefill8/ffn_shexp-1.full.f32le`.\n2. `ref_ffn_out`: Another TensorFlow Prefill model with the path `prefill8/ffn_out-1.full.f32le`.\n3. `c_moe_out`: A TensorFlow Prefill model with the path `C_ROOT/ffn_moe_out-1.f32`.\n\nThe excerpt also mentions that these models are part of a larger set of Prefill models, with the path `C_ROOT",
+      "C": "The excerpt describes two files in the `prefill8` directory, including their paths and metadata. Specifically, it mentions:\n\n1. The first file is a JSON object with two properties:\n   - `ref_ffn_shexp-1.full.f32le`: This is the path to a file with a specific file name.\n   - `ref_ffn_out-1.full.f32le`: This is another file with a different file name.\n   - `c_moe_out-1.f32`: This is a file with a different file name.\n\n2. The second file is a JSON object with the same properties"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d1_pruning.py",
+      "category": "code",
+      "excerpt": " for (layer, organ), w in self.saved.items():\n            C.get_linear(model, layer, organ).weight.copy_(w)\n        self.saved = {}\n\n\ndef prune_unstructured(model, layers, organ, frac, snap):\n    \"\"\"Zero the `frac` smallest-|w| entries of each (layer, organ) matrix independently.\"\"\"\n    n_zeroed = n_total = 0\n    for L in layers:\n        W = C.get_linear(model, L, organ).weight\n   ",
+      "A": "The excerpt describes a function `prune_unstructured` in a neural network model. This function iterates over a list of layers and organ combinations, retrieves the corresponding matrix from the model, and then copies the weight matrix to a new matrix. The function then prunes the matrix by zeroing out the `frac` smallest-|w| entries.<|im_end|>",
+      "B": "The excerpt describes a function `prune_unstructured` that takes a model, a list of layers, an organ, a fraction, and a snap as input. It iterates over the layers and organ pairs, and for each pair, it copies the weight matrix from the saved state to the current state. The function then prunes the `frac` smallest-|w| entries of each (layer, organ) matrix independently.<|im_end|>",
+      "C": "The excerpt describes a function `prune_unstructured` that takes a model, a list of layers, an organ, a fraction, and a snap as input. It iterates over the layers and organ pairs, and for each pair, it copies the weight matrix from the saved state to the current state. The function then prunes the `frac` smallest-|w| entries of each (layer, organ) matrix independently.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat01_gigachat_mtp_extract.py",
+      "category": "code",
+      "excerpt": "te_cap=METADATA_MAX_BYTES,\n        opener=opener,\n    )\n    if index_total != len(index_bytes):\n        raise ExtractionError(\"index Range response is not the complete capped index file\")\n    try:\n        index = json.loads(index_bytes.decode(\"utf-8\"))\n    except (UnicodeDecodeError, json.JSONDecodeError) as exc:\n        raise ExtractionError(f\"invalid fresh source index: {exc}\") f",
+      "A": "The excerpt describes a function that takes a JSON string as input, decodes it to a Python dictionary, and raises an `ExtractionError` if the decoded data does not match the expected format. It also includes a specific detail: the function raises an `ExtractionError` with a message indicating that the decoded data is invalid.<|im_end|>",
+      "B": "The excerpt describes a function that takes a JSON string as input and attempts to decode it into a Python dictionary. If the input is not a valid JSON string, an `ExtractionError` is raised with a specific error message.<|im_end|>",
+      "C": "The excerpt describes a function that processes a JSON-encoded string representing a fresh source index. It raises an `ExtractionError` if the index range response is not the complete capped index file, and it raises a `ExtractionError` if the index is not valid JSON.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/fp16_gpu_nan_hunt.py",
+      "category": "code",
+      "excerpt": "BACKEND_ENUM = A.SDPBackend\n    return getattr(_BACKEND_ENUM, name)\n\n\ndef run_one(label, dtype, attn_impl, sdpa_backend, repo, rev, ids, device):\n    from transformers import AutoModelForCausalLM\n    m = AutoModelForCausalLM.from_pretrained(\n        repo, revision=rev, dtype=dtype, attn_implementation=attn_impl\n    ).to(device).eval()\n    dtypes_seen = sorted({str(p.dtype) for p in",
+      "A": "The excerpt describes a function `run_one` that takes parameters such as `label`, `dtype`, `attn_impl`, `sdpa_backend`, `repo`, `rev`, `ids`, and `device`. It returns an instance of a `AutoModelForCausalLM` model from a specified repository, revision, and dtype. The function also ensures that the model is evaluated on the specified device.<|im_end|>",
+      "B": "The excerpt describes a function `run_one` that takes parameters such as `label`, `dtype`, `attn_impl`, `sdpa_backend`, `repo`, `rev`, `ids`, and `device`. It returns the value of the `name` attribute of the `AutoModelForCausalLM` class from the specified backend.<|im_end|>",
+      "C": "The excerpt describes a function `run_one` that takes parameters such as `label`, `dtype`, `attn_impl`, `sdpa_backend`, `repo`, `rev`, `ids`, and `device`. It returns the value of the `name` attribute of the `AutoModelForCausalLM` class from the specified backend.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e50_default_kernel.py",
+      "category": "code",
+      "excerpt": "n\"\nR128_FLAGS = [\"--carve-k\", \"3\"]\nDRIFT_WINDOWS = [40, 1280]\nE49_AVX4_CELLS = {40: 121.65, 1280: 74.11}   # E49 G-E49b medians, avx4\n\nRE_BENCH = re.compile(r\"BENCH\\s+(\\d+) tokens\\s+([\\d.]+) s\\s+([\\d.]+) tok/s\")\nRE_NATS = re.compile(r\"NATS_TOTAL ([0-9.eE+-]+)\\s*\\nN_PREDICTED (\\d+)\")\nRE_CONFIG = re.compile(r\"^CONFIG\\s+attn=(\\S+)\\s+attnr=(\\S+)\", re.M)\n\n# G-E50d: every BENCH-parsing r",
+      "A": "The excerpt describes a configuration file for a machine learning model, including flags, window sizes, and benchmarking metrics. It also mentions the re.compile() function for regular expressions, which is used to match and extract specific patterns from the text.<|im_end|>",
+      "B": "The excerpt describes a configuration file for a machine learning model, including flags, window sizes, and benchmarking metrics. It provides details such as the number of tokens, execution time, and token/s ratio for each benchmark.<|im_end|>",
+      "C": "The excerpt describes a configuration file for a machine learning model, including flags, window sizes, and benchmarking metrics. It also mentions the re.compile() function for regular expressions, which is used to match and extract specific patterns from the text.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_acquire_weights.py",
+      "category": "code",
+      "excerpt": "est = report.manifest\n    cap = _validate_shard_manifest(manifest, expected_payload_cap=expected_payload_cap)\n    tokenizer = _tokenizer_identity(\n        chosen_snapshot,\n        expected_asset_sha256=expected_tokenizer_asset_sha256,\n        tokenizer_loader=tokenizer_loader,\n    )\n    available_ram = ram_getter()\n    if available_ram is None or available_ram < MIN_FREE_RAM_BYTES:",
+      "A": "The excerpt describes a process for validating a shard manifest, including the use of a tokenizer and a RAM getter. It also mentions that the available RAM must be greater than or equal to the minimum free RAM in bytes.<|im_end|>",
+      "B": "The excerpt describes a process for validating a shard manifest, including the use of a tokenizer and a RAM getter. It specifies that the expected payload capacity is 100 MB, the chosen snapshot is a specific snapshot, the expected asset SHA256 is 0x1234567890ABCDEF, the tokenizer loader is a custom loader, and the available RAM is checked to ensure it meets the minimum free RAM requirement.<|im_end|>",
+      "C": "The excerpt describes a process for validating a shard manifest, including the use of a tokenizer and a RAM getter. It also mentions that the available RAM is checked to ensure it meets the minimum free RAM requirement.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e25_rank_cost.py",
+      "category": "code",
+      "excerpt": "r_engine_e25.exe\"))\n    ap.add_argument(\"--reps\", type=int, default=3)\n    ap.add_argument(\"--threads\", type=int, default=6)\n    ap.add_argument(\"--tokens\", type=int, default=0, help=\"0 = per-shape default\")\n    ap.add_argument(\"--smoke\", action=\"store_true\")\n    ap.add_argument(\"--out\", default=os.path.join(HERE, \"results\", \"e25_rank_cost.json\"))\n    a = ap.parse_args()\n    os.mak",
+      "A": "The excerpt describes a command-line argument parser for a Python script named `r_engine_e25.exe`. It includes the following details:\n\n1. The script is named `r_engine_e25.exe`.\n2. It takes a single argument: `--reps` with a default value of 3.\n3. It also takes a single argument: `--threads` with a default value of 6.\n4. It has an optional argument: `--tokens` with a default value of 0.\n5. It has an optional argument: `--smoke` with a default value of `True`.\n6. It has",
+      "B": "The excerpt describes a command-line argument parser for a Python script named `r_engine_e25.exe`. It includes the following details:\n\n1. **Argument Parsing**: The script uses a command-line argument parser to handle various options and their values.\n2. **Options**: The parser includes options for `reps`, `threads`, `tokens`, and `smoke` to control the behavior of the script.\n3. **Argument Default Values**: The script sets default values for `reps`, `threads`, and `tokens` to 0.\n4. **Output File**: The script specifies an output file path for storing the results.\n",
+      "C": "The excerpt describes a command-line argument parser for a Python script named `r_engine_e25.exe` that takes up to 3 arguments: `reps`, `threads`, `tokens`, and `smoke`. It also includes a `--out` argument with a default value of `os.path.join(HERE, \"results\", \"e25_rank_cost.json\")`.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e54_droop.py",
+      "category": "code",
+      "excerpt": "EFORE ANY CELL RAN.  The brief registered TIME as \"monotone AND W2 - W1 inside\n    the spreads\", which is self-contradictory: under a monotone decline W2 - W1 is negative and\n    as large as the decline, so no genuinely monotone series could ever satisfy it -- the\n    planted control B-1 caught it on the first run.  MALFORMED under the E4 precedent, not\n    failed.  Monotonicity AL",
+      "A": "The excerpt describes a scenario where a cell ran with a time series that is self-contradictory, meaning it is monotone but has a negative and large value for W2 - W1, which violates the monotonicity condition.<|im_end|>",
+      "B": "The excerpt describes a situation where a cell ran with a monotone decline in W2 but was registered as \"monotone AND W2 - W1 inside the spreads\" by the system, which is contradictory. Specifically, under a monotone decline, W2 - W1 is negative and as large as the decline, so no genuinely monotone series could satisfy this condition. The cell was registered on the first run, indicating a problem with the system's monotonicity detection.<|im_end|>",
+      "C": "The excerpt describes a scenario where a cell ran with a time series that is self-contradictory, meaning it is monotone but has a negative and large decline, which cannot satisfy the monotone condition.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=52",
+      "category": "prose",
+      "excerpt": "te girl who, to her mind, could stand no comparison\nwith that fine flower of civilisation--Eleanor Chantrey.\n\nAt the same moment Sir Percy was smoking fiercely as he made his way\nback to his chambers.  From the first moment his eyes rested upon Lucy\nArmytage she had commanded his attention.  He had tried to escape from\nthe enchanting spell she had thrown over him, but all in vain. ",
+      "A": "The excerpt describes a scene where a young woman, referred to as \"te girl,\" is described as having a \"fine flower of civilisation\" (likely referring to Eleanor Chantrey) and is being pursued by Sir Percy, who is smoking fiercely.<|im_end|>",
+      "B": "The excerpt describes a scene where a young woman, likely Eleanor Chantrey, is described as \"to her mind, could stand no comparison\" with a fine flower of civilisation, specifically referring to Sir Percy. The excerpt also mentions that Sir Percy is smoking fiercely as he makes his way back to his chambers, and that Lucy Armytage, who is described as commanding his attention, is the same person.<|im_end|>",
+      "C": "The excerpt describes a scene where a young woman, referred to as \"te girl,\" is described as having a \"fine flower of civilisation\" (likely referring to Eleanor Chantrey) and is being compared to her in terms of her intelligence and ability to stand up to the influence of a powerful woman.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=761",
+      "category": "prose",
+      "excerpt": "ish, County\n        Kerry; X. Ancient Scandinavian symbols; Y. Legend on church\n        bell, Hathersage, Derbyshire, 1617. A-E, P. H. Schliemann,\n        _Ilios_; F, G. Goodyear, _Grammar of the Lotus_; H, L, O,\n        X. R. P. Greg; _Archaeologia_, xlviii., 1885; I, K, M, N,\n        R. Count Goblet d'Alviella, _The Migrations and Symbols_;\n        S, T, U, W, Y. H. Colley March,",
+      "A": "The excerpt describes a series of ancient Scandinavian symbols found on a church bell in Hathersage, Derbyshire, dating back to 1617. It mentions specific details such as the name of the church bell, the author of the book \"Ilios,\" the author of \"Grammar of the Lotus,\" the author of \"Archaeologia,\" the author of \"The Migrations and Symbols,\" the author of \"Count Goblet d'Alviella,\" and the author of \"The Migrations and Symbols.\"<|im_end|>",
+      "B": "The excerpt describes a series of ancient Scandinavian symbols found in the church bell of Hathersage, Derbyshire, dating back to 1617. It mentions specific details such as the name of the church bell, the author of the book \"Ilios,\" the author of \"Grammar of the Lotus,\" the author of \"Archaeologia,\" the author of \"The Migrations and Symbols,\" the author of \"S,\" \"T,\" \"U,\" \"W,\" and \"Y,\" and the author of \"H. Colley March.\"<|im_end|>",
+      "C": "The excerpt describes a significant archaeological find from the 16th century, specifically from the Hathersage area of Derbyshire, England. It mentions the presence of ancient Scandinavian symbols, a legend on a church bell, and a detailed description of a manuscript found in the 18th century.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=432",
+      "category": "prose",
+      "excerpt": "o keep their temper when they know\nthat if they don't someone gets killed; but it won't be always like\nthis. You see we have all been going through the winter, and some of us\nhave been having pretty hard times, and anyhow we are all pleased to be\nat work again and out on the plains. But you will see that this kind of\nthing won't last long. When the work gets heavy and men don't get",
+      "A": "The excerpt describes a group of people who have been through a winter of hard work and have been pleased to be back on the plains. However, the author suggests that this situation will not last long, as the work becomes heavy and men do not get enough rest.<|im_end|>",
+      "B": "The excerpt describes a situation where people are working hard but occasionally experience setbacks or difficulties. It mentions that the author has been through a winter of hard work and that some people have been having tough times. The author also notes that they are pleased to be back at work and out on the plains, but acknowledges that this kind of situation won't last long.<|im_end|>",
+      "C": "The excerpt describes a group of people who have been through a winter of hard work and are now working on the plains. They are pleased to be back on the job and out on the plains, but they are aware that this kind of situation won't last long.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=248",
+      "category": "prose",
+      "excerpt": "classes\" (a relatively late\ndevelopment)[5] into which they are parcelled, as, among the Arunta,\nPanunga, Bukhara, Purula, Kumara.[6]\n\nWe cannot therefore say in such cases, that the totem kins of phratriac\nnames have vanished, because we do not know how the phratries were\nnamed; they may have had the names of two extant totem kins, but their\nnames are lost.\n\n(3) Again, there are A",
+      "A": "The excerpt describes the division of totem kins into classes, which are later developed into separate groups, and provides a specific example of this process. It also mentions that the totem kins of phratriac names may have had two extant totem kins, but their names are lost.<|im_end|>",
+      "B": "The excerpt describes the development of totem kins in various groups, noting that these kins are often grouped into classes, and that these groups are not necessarily related to each other. It also mentions that the totem kins of phratriac names have not necessarily vanished, as the phratries may have had names of two extant totem kins, but their names are lost.<|im_end|>",
+      "C": "The excerpt describes the division of totem kins into classes, which are later developed into separate groups, and provides examples of these groups. It also mentions that the totem kins of phratriac names have not vanished, as we do not know how the phratries were named.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=337",
+      "category": "prose",
+      "excerpt": "he could go and make her kind uncle a visit\nin the country.\n\nWell, Curly Locks dreamed of the country all that night, and in a few\nweeks her Mamma and Papa took her to her uncle's. I could not begin to\ntell you of all the pleasures she had daring the time she was there, but\nI will try and tell what she liked best. She had a cousin near her own\nage named Harry, and they often went f",
+      "A": "Curly Locks dreamed of the country all that night, and in a few weeks her Mamma and Papa took her to her uncle's. She had a cousin named Harry, and they often went fishing and playing in the country.<|im_end|>",
+      "B": "The excerpt describes a dream the narrator's character Curly Locks had about visiting her uncle in the country. She dreamed of the country all that night and in a few weeks, her Mamma and Papa took her to her uncle's. The narrator will try to tell what she liked best about her uncle's visit.<|im_end|>",
+      "C": "The excerpt describes a dream the author had of Curly Locks visiting her uncle in the country. It mentions that Curly Locks dreamed of the country all that night and that her Mamma and Papa took her to her uncle's. The author then describes Curly Locks' cousin Harry, who often went with her to the country.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=767",
+      "category": "prose",
+      "excerpt": "hin.\n\n    I never oss'd another lep, but kept the lane, and then\n    In twenty minutes' toime about they turn'd toart me again;\n    The fox was foinly daggled, and the tits aw out o' breath,\n    When they kilt him in the open, an owd Dobbin seed the death.\n\n    Loik dangling of a babby, then the huntsman hove him up,\n    The dugs a-baying round him, whoil the gemman croid, \"Whoo-up",
+      "A": "The excerpt describes a hunting scene where a fox is pursued by a huntsman. The fox is caught in a daisy chain, and the huntsman is able to catch him with a dugg and a dugg.<|im_end|>",
+      "B": "The excerpt describes a hunting scene where a fox is pursued by a huntsman. The fox is caught in a daisy chain, and the huntsman is able to catch him with a dugg and a goblet.<|im_end|>",
+      "C": "The excerpt describes a fox chasing a rabbit, with the fox dodging and dodging, and the rabbit being chased by the fox.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=396",
+      "category": "prose",
+      "excerpt": "ld not to fire upon them,\nand with exultant hearts, they waved their flags, to those whom they\nsupposed to be their victorious comrades.\n\nSuddenly from the advancing troops, there burst upon Sigel's little\nband, a point-blank destructive fire, which covered the ground with the\ndying and the dead. At the same moment, from the adjoining hills, where\nthey had supposed that Lyon's vict",
+      "A": "The excerpt describes a scene where a group of soldiers, led by Sigel, are firing upon Lyon's troops. The soldiers wave their flags to those they believe are their victorious comrades, and suddenly, from the advancing troops, there is a point-blank destructive fire that covers the ground with the dying and the dead.<|im_end|>",
+      "B": "The excerpt describes a scene where a group of soldiers, led by Sigel, attack Lyon's forces. They use a point-blank destructive fire to cover the ground with the dead and dying, signaling their victory.<|im_end|>",
+      "C": "The excerpt describes a scene where a group of soldiers, led by Sigel, are firing upon Lyon's troops. The soldiers wave their flags to their victorious comrades, and suddenly, from the advancing troops, there is a point-blank destructive fire that covers the ground with the dying and the dead.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=585",
+      "category": "prose",
+      "excerpt": " night on the cliff must have made her ill. I had almost forgotten\nin my own affairs how ill she was afterwards. She must have told him of\nher sleep-walking adventure on the cliff, and that I knew all about it;\nand now he wants me to tell him about it, so that he may understand. I\nhope I did right in not saying anything of it to Mrs. Westenra; I should\nnever forgive myself if any a",
+      "A": "The excerpt describes a night on a cliff where the narrator's condition worsened, and she had forgotten about her sleep-walking adventure. She told her husband about it, and now he wants her to tell him about it, so that he can understand. The narrator hopes she did right in not telling Mrs. Westenra about it.<|im_end|>",
+      "B": "The excerpt describes a night on a cliff where the narrator's condition worsened, and she had forgotten about her sleep-walking adventure. She was told by her husband about the incident and is now eager to tell him about it, hoping to understand his perspective.<|im_end|>",
+      "C": "The excerpt describes a night on a cliff where the main character, who had forgotten about her illness, was visited by her husband. She revealed that she had told him about her sleepwalking adventure on the cliff, and that she knew all about it. The husband wants her to tell him about it, so that he can understand. The character hopes she did not say anything to Mrs. Westenra, as she should never forgive herself if any a\n```<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260918.md",
+      "category": "technical_general",
+      "excerpt": "one servono\nun controllo forzato della forma batch e dello stato posizione/KV. Il\npaired non è clean-box/interleaved né prova qualità; **nessun gate ≥50 tok/s\no `engine.c` è passato**. Dettagli e log nell'audit linkato qui sotto.\n\nDiagnostica successiva sul checkout temporaneo: i primi 25 ID di output\nsono identici; all'indice 25 (26° token) il baseline sceglie 4734 e il\nramo MTP 4",
+      "A": "The excerpt describes a batch processing system with a specific configuration. It mentions that the paired batch is not clean-box/interleaved, and that the checkpointing process does not include any gate ≥50 tok/s or `engine.c` being passed. The excerpt also provides details and logs related to the audit link provided.<|im_end|>",
+      "B": "The excerpt describes a batch processing system with a specific configuration. It mentions that the paired batch is not clean-box/interleaved, and that the checkpointing process does not include any gate ≥50 tok/s or `engine.c` being passed. The diagnostic information is provided in a link, and the details and log are included.<|im_end|>",
+      "C": "The excerpt describes a batch processing system with a specific configuration. The system lacks a clean-box/interleaved approach, and the checkpointing process does not meet the required quality standards. The audit log includes details about the checkpointing process and the baseline and MTP 4 settings.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md",
+      "category": "technical_general",
+      "excerpt": "ct SwiGLU/down gates but first fails after\npropagation at `kqv_out-1`; reference/reference current SwiGLU passes. Do not\nrewrite SwiGLU/Q6/layer 1. Compare the production `ffn_norm-0` identity with\nthe earlier Rung-2B cross-input lineage before opening a projection successor.\nThe identity audit closes that apparent opening without a run: reference\n`ffn_norm-0` and the gate/up Q4 he",
+      "A": "The excerpt describes a specific issue with the SwiGLU (Synthetic Gradient Language Unit) architecture, particularly in the context of the `ffn_norm-0` identity. It mentions that the SwiGLU/Q6/layer 1 does not pass the propagation of the `kqv_out-1` gate, which is a reference/reference current SwiGLU. The excerpt also highlights a comparison between the SwiGLU/Q6/layer 1 and the earlier Rung-2B cross-input lineage, noting that the identity audit closes the apparent opening without a run: reference `ffn_norm-0`",
+      "B": "The excerpt describes a specific issue with the SwiGLU down gates failing after propagation, which is a problem with the SwiGLU/Q6/layer 1 architecture. It also mentions that the reference/reference current SwiGLU passes, and that the identity audit closes the apparent opening without a run.<|im_end|>",
+      "C": "The excerpt describes a specific issue with the SwiGLU down gates failing after propagation, which is a problem with the SwiGLU/Q6/layer 1 architecture. It also mentions that the reference/reference current SwiGLU passes, and that the identity audit closes the apparent opening without a run.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E18_THE_RANKING_LADDER.md",
+      "category": "technical_general",
+      "excerpt": " shows the failure begins at the first tensor converted.**\n\n**Speed**: 50 tok/s permits **0.98–1.06 G active ternary weights per token — 9.8–10.6% of a 10 B\nmodel.** The 7 B donor activates 7.07 G. Even the all-ternary rung, the fastest possible point on\nthe conversion ladder, is **6.9× short**, and every rung that would improve quality is slower still.\n\nSo the target is not reacha",
+      "A": "The excerpt describes a model's performance on a specific task, where the conversion speed is 50 tokens per second, and the model can activate up to 7.07 G ternary weights per token. The 7 B donor runs at 6.9× the speed, and every rung that improves quality is slower. The target is not to reach 100% accuracy, but rather to achieve a 98-106% accuracy rate.<|im_end|>",
+      "B": "The excerpt describes a model's performance on a specific task, where the conversion speed is 50 tokens per second, and the model can achieve up to 0.98–1.06 G active ternary weights per token. The 7 B donor activates 7.07 G, and even the all-ternary rung is 6.9× short, with every rung that improves quality being slower. The target is not to reach a specific level, but rather to improve the quality of the model's output.<|im_end|>",
+      "C": "The excerpt describes a model's performance on a specific task, where the conversion speed is 50 tokens per second, allowing for up to 0.98–1.06 G active ternary weights per token. The 7 B donor, which is the fastest possible point on the conversion ladder, is 6.9× short, and every rung that would improve quality is slower. The target is not to reach a specific level, but rather to improve the quality of the model's output.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "excerpt": "ains when the exact reference start state\nis supplied.\n\n## Why this is new and not a repetition\n\nThe earlier layer-1-start cross-input used the pre-reference-generic,\npre-F16-reduction C start state and stopped at `kqv_out-1`. Since then two\ncausal coordinates changed:\n\n1. reference-generic Q4 lowering made block-0 terminal output nearly exact;\n2. exact pinned `GGML_CPU_GENERIC` F1",
+      "A": "The excerpt describes a change in the reference start state for a layer-1 cross-input operation, specifically focusing on the use of a pre-reference-generic, pre-F16-reduction C start state and stopping at `kqv_out-1`. It then mentions that two causal coordinates changed, with the reference-generic Q4 lowering making block-0 terminal output nearly exact, and the exact pinned `GGML_CPU_GENERIC` F1 stopping at `kqv_out-1`.<|im_end|>",
+      "B": "The excerpt describes a change in the reference start state for a layer-1 cross-input operation, specifically focusing on the use of a pre-reference-generic, pre-F16-reduction C start state and stopping at `kqv_out-1`. It then mentions that two causal coordinates changed, with the reference-generic Q4 lowering making block-0 terminal output nearly exact, and the exact pinned `GGML_CPU_GENERIC` F1 stopping at `kqv_out-1`.<|im_end|>",
+      "C": "The excerpt describes a new layer-1-start cross-input design that uses a pre-reference-generic, pre-F16-reduction C start state and stops at `kqv_out-1`. It also mentions that two causal coordinates changed: the reference-generic Q4 lowering made block-0 terminal output nearly exact, and the exact pinned `GGML_CPU_GENERIC` F1 stop at `kqv_out-1`.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_ENGINE_RUNG1.md",
+      "category": "technical_general",
+      "excerpt": "the accepted weights.\n\n## 2. Changed coordinate and falsifiable hypothesis\n\n**Changed coordinate:** engine fidelity, from descriptor-only inspection to numerical consumption of real payload bytes by a reusable scalar C row-matvec. Donor, artifact, quantization, model graph, and quality evidence remain fixed.\n\n**Hypothesis:** for one preregistered real tensor of each material quanti",
+      "A": "The excerpt describes a change in the coordinate and falsifiable hypothesis in a machine learning model. Specifically, it mentions that the model's acceptance weights have been changed from descriptor-only inspection to numerical consumption of real payload bytes by a reusable scalar C row-matvec. The hypothesis remains unchanged, focusing on the fidelity of the model's predictions.<|im_end|>",
+      "B": "The excerpt describes a change in the coordinate and falsifiable hypothesis in a machine learning model. Specifically, the hypothesis has been modified from a descriptor-only inspection to numerical consumption of real payload bytes by a reusable scalar C row-matvec. The change involves the engine fidelity being changed from descriptor-only inspection to numerical consumption, and the model's quality evidence remains fixed.<|im_end|>",
+      "C": "The excerpt describes a change in the coordinate and falsifiable hypothesis in a machine learning model. Specifically, it states that the model's coordinate has been changed from descriptor-only inspection to numerical consumption of real payload bytes by a reusable scalar C row-matvec, while the hypothesis remains unchanged.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "excerpt": "the ordinary accepted-artifact\n`--strat01-gguf-rung2c` path pass block 0 and all 32 complete layer-1\ncheckpoints in both frozen schedules?\n\nThe closed\n[SSE2-semantics result](STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_RESULT_20260924.md)\nestablishes `POST_F16_BLOCK0_SWIGLU_SSE2_EXACT_REPAIR` on immutable reference\ngate/up operands: the candidate is byte-exact ",
+      "A": "The excerpt describes a specific checkpoint in a model training process, where the `POST_F16_BLOCK0_SWIGLU_SSE2_EXACT_REPAIR` operation is enabled on immutable reference gate/up operands. This checkpoint is part of a larger set of frozen schedules that are used to manage the model's training process.<|im_end|>",
+      "B": "The excerpt describes a specific checkpoint path in a deep learning model, which is a frozen schedule. It mentions that the checkpoint path passes through block 0 and all 32 complete layer-1 checkpoints. The closed SSE2 semantics result establishes a specific repair operation on immutable reference gate/up operands, with the candidate being byte-exact.<|im_end|>",
+      "C": "The excerpt describes a specific checkpoint path in a deep learning model, which is a frozen schedule. It mentions that the checkpoint path passes through block 0 and all 32 complete layer-1 checkpoints. The closed SSE2 semantics result establishes a specific repair operation on immutable reference gate/up operands, with the candidate being byte-exact.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E24_THE_DEPTH_THE_BUDGET_PERMITS.md",
+      "category": "technical_general",
+      "excerpt": "g1p(mass)` | the variant I declined in E23 and disclosed |\n\n`K148-STATIC` is charged at **0 M**, not 11.0 M — it needs no per-token score — so if it ties\nthe ridge it is strictly cheaper and the budget table above shifts in its favour. That is\nregistered here rather than discovered afterwards.\n\n## 4. Gates\n\n- **`G-U0`** — `base` 160/160 on both metrics. Otherwise **VOID**.\n- **`G-U",
+      "A": "The excerpt describes a variant (g1p(mass)) that was declined in E23 and disclosed, with the variant being charged at 0 M, not 11.0 M, and it needs no per-token score. The variant is registered here rather than discovered afterwards.<|im_end|>",
+      "B": "The excerpt describes a variant (g1p(mass)) that was declined in E23 and disclosed, with a specific detail that the variant is charged at 0 M, not 11.0 M, and needs no per-token score.<|im_end|>",
+      "C": "The excerpt describes a variant (g1p(mass)) that was declined in E23 and disclosed, with a specific detail that the variant is charged at 0 M, not 11.0 M, and needs no per-token score.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_W4_BF16_FULL_EXPORT_RESULT.md",
+      "category": "technical_general",
+      "excerpt": "[brief preregistrato](../briefs/BRIEF_STRAT_02_W4_BF16_FULL_EXPORT.md) autorizzava\nsolo l'export del formato W4-v2 a scala BF16 del donor fissato, senza forward,\ncalibrazione, heldout o T4. Il risultato qui riportato è quindi un esito di\nformato/export, non un esito di caricamento o di qualità del modello.\n\n## Esito dell'export completo\n\n[Raw write-once](../../../../benchmarks/dono",
+      "A": "The excerpt describes a specific scenario where a software application, likely a data export tool, was designed to export a format (W4-v2) from a donor (Fissato) to a specific format (BF16) without forward, calibration, heldout, or T4 processing. The result of this export is a complete format/export, not a complete export or a quality model.<|im_end|>",
+      "B": "The excerpt describes a specific scenario where a brief preregistration allowed only the export of the W4-v2 format from a donor with BF16 scalability, without forward, calibration, heldout, or T4 processing. The result of this export is a format/export, not a loading or quality assessment of the model.<|im_end|>",
+      "C": "The excerpt describes a specific scenario where a brief preregistration allowed only the export of the W4-v2 format from a donor with BF16 scalability, without forward, calibration, heldout, or T4 processing. The result of this export is a format/export, not a loading or quality assessment of the model.<|im_end|>"
+    }
+  ]
+}

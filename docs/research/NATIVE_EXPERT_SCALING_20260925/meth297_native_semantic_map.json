@@ -1,0 +1,149 @@
+{
+  "generation_sha256": "87a2b7988eef513271186095a96167217ef9826ccab5444993c8be75ed9c0bb7",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_ffn_output_component_cross_input.py",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d1_pruning.py",
+      "A": "bf16_donor",
+      "B": "native_i16_private128_e1280",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat01_gigachat_mtp_extract.py",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/fp16_gpu_nan_hunt.py",
+      "A": "bf16_donor",
+      "B": "native_i16_private128_e1280",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e50_default_kernel.py",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_donor",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_acquire_weights.py",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e25_rank_cost.py",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e54_droop.py",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_donor",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=52",
+      "A": "bf16_donor",
+      "B": "bf16_e1280",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=761",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=432",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_donor",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=248",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=337",
+      "A": "bf16_donor",
+      "B": "bf16_e1280",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=767",
+      "A": "bf16_e1280",
+      "B": "native_i16_private128_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=396",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=585",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260918.md",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md",
+      "A": "bf16_donor",
+      "B": "native_i16_private128_e1280",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E18_THE_RANKING_LADDER.md",
+      "A": "native_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md",
+      "A": "bf16_e1280",
+      "B": "native_i16_private128_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_ENGINE_RUNG1.md",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md",
+      "A": "bf16_donor",
+      "B": "bf16_e1280",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E24_THE_DEPTH_THE_BUDGET_PERMITS.md",
+      "A": "bf16_donor",
+      "B": "bf16_e1280",
+      "C": "native_i16_private128_e1280"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_W4_BF16_FULL_EXPORT_RESULT.md",
+      "A": "bf16_donor",
+      "B": "native_i16_private128_e1280",
+      "C": "bf16_e1280"
+    }
+  ]
+}
