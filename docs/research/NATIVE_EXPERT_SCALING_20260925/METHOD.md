@@ -23,8 +23,10 @@ observes actual MATH SDPA, exact RoPE, local norm/qkv/attention maxima under
 .001674; BF16 probability rounding worsens error. Remaining layer-residual/
 o projection/post norm/source FFN controls in [287](METH_287_LAYER_TRACE_RESULT_20261002.md)
 find exact same-operand residual additions, source FFN FP32 maximum8.51e-7,
-but propagated residual error up to6.735%. A changed norm reduction remains
-a hypothesis requiring a new
+but propagated residual error up to6.735%. [288 norm64](METH_288_NORM_REDUCTION_RESULT_20261002.md)
+fails the unchanged ablation guard (5.5687%); do not adopt. FP32 residual
+stream with original285 norms/other boundaries remains a hypothesis needing
+a new
 prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 records actual tensor types,required BF16 boundaries and the route-alias
 lookup that must be implemented before qualification. The prior259 path

@@ -116,8 +116,15 @@ exits0,59.781s,no active job. Small local differences accumulate; no single
 cause/repair proven. Raw SHA
 `32adcf57d582270510bd689726b1e34c217310a213f19635a5f15056e99f1650`.
 
-**Next exact action:** prospective changed norm-square accumulation only,
-F64 sum then original F32 mean/inverse/BF16 boundaries; test entire285
+[288 norm64](METH_288_NORM_REDUCTION_RESULT_20261002.md) FAILS unchanged
+ablation logit guard .0556873 (worse than285); complete-bank .0425241 passes.
+Both48/48 top1/all12 cache/all12 negative pass. Original path-binding
+failure retained; narrow repair freeze11a0627. Session3400 exits0,71.250s,
+no active job. Do not adopt norm64. Raw SHA
+`5c5b5e22eab0ce4e3b2efbfd4acee6c8f245176c06e386b2c80101d949903130`.
+
+**Next exact action:** prospective FP32 residual-stream execution only,
+original285 norm reduction/projection/FFN return boundaries. Test whole285
 prefix/cache assay against pinned original reference with unchanged gates.
 No weights/routes/data fitting; changed
 execution needs new record and same285 gates. Native BPB/generation/task/
