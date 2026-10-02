@@ -67,11 +67,15 @@ repair only. Session14458 exits0,375.921s; no active job.
 same-state arithmetic controls. BF16-node-only mean error worsens2.22%;
 oracle source features improve it80.40%. No node-only promotion or new
 artifact. Session73517 exits0,8.438s; no active job;259 stays closed.
-**Next exact action:** execute frozen [METH-270](METH_270_PRIVATE_SOURCE_ROWS_PROTOCOL_20261002.md),
-private source-input rows32->128,same source-only selection/readout/bank.
-Apparatus implemented; no270 result/fixture yet. Fixed component-error gates and <=10ms
-native prerequisite before new full archive/fresh quality. This increases
-source precision,not learned n; all final expert-count requirements remain.
+[METH-270](METH_270_PRIVATE_SOURCE_ROWS_RESULT_20261002.md) stops before native
+timing: fixed128 coefficient-ranked rows improve mean error14.6685%, short
+of15%; ratio .8533147 versus .85 gate. All unchanged/source/baseline guards
+pass. Fixture337.596MB adds8.262MB;14.125s,session23631 exits0; no active job.
+Do not loosen the gate or increase counts to rescue this fixed recipe.
+**Next exact action:** prospectively define a function/output-aware selection
+at the same128-row cost,with separate fit/reserve component controls,then
+freeze/execute before any new full archive. Routing/bank remain fixed;
+source precision changes do not establish useful learned-n growth.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
