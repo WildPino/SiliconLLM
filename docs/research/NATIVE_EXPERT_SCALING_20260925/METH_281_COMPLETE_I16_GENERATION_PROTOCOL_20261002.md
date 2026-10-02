@@ -81,3 +81,19 @@ same-artifact accepted>=50 remain due;all large-RAM useful-n and multiple
 donor family/10B/100B requirements unchanged. Exact resumption: implement
 281 with these bindings/gates,compile/check source,commit apparatus freeze,
 then execute once and resume that process through completion.
+
+## Apparatus freeze and command
+
+`meth281_complete_i16_generation.py` now adapts265's full-prefix generator
+to280's actual source/candidate bindings and arm names. Each step asserts
+cache disabled and finite full-head logits. Actual generated K64 states
+are retained;the candidate loader record proves725 consumed fields and
+no source/checkpoint fallback. The result preserves280/script/76 archived
+project helper hashes and diagnostic/native-promotion=false. Output stdout
+contains progress/aggregate counts only,never labeled continuation text.
+No281 execution or continuation has occurred before this source freeze.
+
+```powershell
+$env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
+.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth281_complete_i16_generation.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth281_complete_i16_generation_result.json
+```

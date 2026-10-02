@@ -112,10 +112,11 @@ before any model outputs. No source replacement.
 new prediction gates:BPB1.17331320 versus donor1.17828037/E1280 1.17323483,
 donor-top1 96.5006%,+.291616points versus E1280;allcategory/K64 pass.
 Session86930 exits0,112.156s;no active model/benchmark/selector job.
-**Next exact action:** implement then freeze [METH-281](METH_281_COMPLETE_I16_GENERATION_PROTOCOL_20261002.md),
+**Next exact action:** run frozen [METH-281](METH_281_COMPLETE_I16_GENERATION_PROTOCOL_20261002.md),
 new-source full-prefix generation/health/generated K64;prospective task/
-anonymous semantic rules sealed before any continuation. No281 code/score
-yet. Actual native quality/rate,useful RAM-scale n/family transfer remain due.
+anonymous semantic rules sealed before any continuation. Apparatus exists,
+no281 execution/score yet. Actual native quality/rate,useful RAM-scale n/
+family transfer remain due.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
