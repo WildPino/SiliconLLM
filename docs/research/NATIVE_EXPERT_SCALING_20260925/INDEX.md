@@ -93,13 +93,15 @@ Wrong actual B lookup preserves metadata/IDs but fails contribution checks.
 Raw SHA `615e4854b8e9300f660c66f513152e4ed63b78e41f6d521400f784bede0ca18a`.
 Session85190 exits0,68.422s (GPU52.328/CPU16.078),no active job.
 
-**Next exact action:** separately freeze native whole-prefix/cache assay
-against same276 GPU loader on fixed consumed278 prompts in all categories.
-The complete attention/RoPE/BF16-residual/full-head/greedy code compiles
-but was not invoked in284;proposal bound but not executed/qualified.
-Then actual native BPB/generation/task/K64/accepted>=50 on the SAME archive.
-No inheritance from isolated operators. Original259 semantic/264 cached/
-274-275 cost stops stay closed;large-n/RAM/real DRAM/family goal remains.
+**Next exact action:** freeze/run [285 whole prefix/cache smoke](METH_285_WHOLE_PREFIX_PROTOCOL_20261002.md).
+Forward header is verbatim284;phase60 full personality compiles. Fixed
+entire278 prompts0,1,8,9,16,17/tail8,48 positions per compact-core-only
+ablation/complete-bank arm. Own GPU loader no cache versus CPU full forward;
+relativeL2<=.05/top1>=.95 preliminary smoke,CPU cache rebuild byte exact
+and erased-history fault detected. GPU<=12min,then CPU<=10min;no rate.
+No285 native/reference outputs yet. Pass still needs actual native BPB/
+generation/task/semantic/K64 and accepted>=50 on SAME artifact. Retain
+large-n/RAM/real DRAM/family goal and original259/264/274-275 stops.
 
 Prepared [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 binds actual725-field types,Python BF16 cast/rounding boundaries,unique-B
