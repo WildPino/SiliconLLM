@@ -1672,6 +1672,13 @@ real-state distinct-code probe distances remain nonzero. [METH-259](METH_259_UNI
 freezes changed unique-function storage with explicit route maps and
 725 complete-core fields. Original learned/routed functions must remain
 bitwise conserved; count actual codes rather than copied route labels.
+The [METH-259 result](METH_259_UNIQUE_BANK_CORE_RESULT_20261002.md) saves an
+actual1.321GB complete725-tensor core/bank; all source/loader/map/readback
+controls pass and6144 source/conditional vectors preserve original outputs
+bitwise. This makes the changed representation physically executable and
+reviewable, without any full-model quality/rate promotion. [METH-260](METH_260_COMPLETE_CORE_DEVELOPMENT_PROTOCOL_20261002.md)
+now freezes full-head original-cohort development scores and unchanged
+quality thresholds before genuinely new independent source selection.
 No new private useful capacity/full quality validated. Full24-layer core construction and
 same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate

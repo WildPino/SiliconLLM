@@ -216,13 +216,18 @@ aliases.94 groups already duplicate raw B; zero merges at centering or
 BF16 casting. Minimum different-code real-state distance3.807804e-7.
 Session28006 exits0; no job active. No quality targets or new fit.
 
-**Next exact action:** execute frozen [METH-259 unique-bank full core](METH_259_UNIQUE_BANK_CORE_PROTOCOL_20261002.md),
-725 physical fields plus original-leaf alias maps, complete saved loader
-and original-source/conditional bitwise conservation. Distinguish1280
-route labels from actual1243..1280 unique codes; no duplicate capacity.
-Protocol/code present; no259 execution/result yet. No saved257 artifact.
-Then frozen consumed-development and new independent full-model quality
-before native alias lookup/LUT/DRAM/accepted-rate promotion.
+[METH-259](METH_259_UNIQUE_BANK_CORE_RESULT_20261002.md) saves the actual
+complete1,321,032,556byte725-field artifact. All source segments/old fields,
+audited unique codes/map/readback/complete loader controls pass; all6144
+original source/conditional vectors bitwise equal. Session72563 exits0;
+no job active.1243..1280 distinct effective codes/layer,1280 route labels.
+No quality targets or full-rate promotion; no saved257 artifact.
+
+**Next exact action:** execute frozen [METH-260 full-model development](METH_260_COMPLETE_CORE_DEVELOPMENT_PROTOCOL_20261002.md)
+on original consumed24-source121/122 cohort. Replay donor/E1280 controls
+exactly, full-head BPB/top1 plus finiteK64 gates; same259 actual archive.
+Code/protocol present; no260 run yet. Pass licenses new independent source
+manifest before full generation/tasks/native alias lookup/LUT/DRAM/rate.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
