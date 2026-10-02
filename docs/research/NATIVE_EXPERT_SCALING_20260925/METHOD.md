@@ -25,8 +25,10 @@ o projection/post norm/source FFN controls in [287](METH_287_LAYER_TRACE_RESULT_
 find exact same-operand residual additions, source FFN FP32 maximum8.51e-7,
 but propagated residual error up to6.735%. [288 norm64](METH_288_NORM_REDUCTION_RESULT_20261002.md)
 fails the unchanged ablation guard (5.5687%); do not adopt. FP32 residual
-stream with original285 norms/other boundaries remains a hypothesis needing
-a new
+stream in [289](METH_289_RESIDUAL32_RESULT_20261002.md) also fails four
+unchanged5% hidden/logit guards. Neither precision variant is adopted.
+Before another execution variant, same-archive GPU no-cache causal prefix
+equivalence needs measurement to characterize reference stability. A new
 prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 records actual tensor types,required BF16 boundaries and the route-alias
 lookup that must be implemented before qualification. The prior259 path

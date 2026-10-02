@@ -1,0 +1,760 @@
+{
+  "experiment": "METH-289-residual32-whole-complete-archive-prefix-cache-smoke",
+  "artifact_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+  "operator_result_sha256": "615e4854b8e9300f660c66f513152e4ed63b78e41f6d521400f784bede0ca18a",
+  "manifest_sha256": "7fc74c2ff172bcca5d71de685f1e230240d05789e11b0bb3b9290b64a4c8e053",
+  "original285_result_sha256": "c9b87bdaa42fed8e9313d6634671ded9f3fa31993eb9f46e23a43c95885f6eda",
+  "trace287_result_sha256": "32adcf57d582270510bd689726b1e34c217310a213f19635a5f15056e99f1650",
+  "norm288_result_sha256": "5c5b5e22eab0ce4e3b2efbfd4acee6c8f245176c06e386b2c80101d949903130",
+  "sources": [
+    {
+      "index": 0,
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "category": "code",
+      "prefix_tokens": 147,
+      "prompt_ids_sha256": "da8ff635958dcb72d2ea28b7f72161710070815d1dfadf919df62f2e90e8378e"
+    },
+    {
+      "index": 1,
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "category": "code",
+      "prefix_tokens": 152,
+      "prompt_ids_sha256": "d412d59c6325b6b3896dbbb4eac0a0444a7be7e07bc6117f6deb965b9eb6fd3b"
+    },
+    {
+      "index": 8,
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "category": "prose",
+      "prefix_tokens": 166,
+      "prompt_ids_sha256": "f2489ae1a4f8a97f2eb22529ab9e1606b42883076876ee0cd6a934f74cabd183"
+    },
+    {
+      "index": 9,
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "category": "prose",
+      "prefix_tokens": 161,
+      "prompt_ids_sha256": "a2a485fe6a83e69558b2c02e1e33d65a9b57412550f38a531eaf6b9969960844"
+    },
+    {
+      "index": 16,
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "category": "technical_general",
+      "prefix_tokens": 209,
+      "prompt_ids_sha256": "b2f0ea2a7d670d9d79d4512766b23b81dd1e5ec8f05f9657769c8b42119da183"
+    },
+    {
+      "index": 17,
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "category": "technical_general",
+      "prefix_tokens": 184,
+      "prompt_ids_sha256": "0df79af6e485cf752f6532bfe5bdb3b08ce3b3d81a98b55db1ca4427a5ec73bb"
+    }
+  ],
+  "summary": {
+    "stored_compact_core_only": {
+      "positions": 48,
+      "matching_top1": 48,
+      "top1_fraction": 1.0,
+      "hidden_relative_l2": [
+        [
+          0.018861079588532448,
+          0.024339476600289345,
+          0.052261609584093094,
+          0.045416150242090225,
+          0.023550979793071747,
+          0.04776623472571373,
+          0.04508398845791817,
+          0.014181881211698055
+        ],
+        [
+          0.011768115684390068,
+          0.020393501967191696,
+          0.0310274139046669,
+          0.050564128905534744,
+          0.02335350587964058,
+          0.04030832275748253,
+          0.03097805753350258,
+          0.01914295181632042
+        ],
+        [
+          0.010599089786410332,
+          0.009908255189657211,
+          0.03751309588551521,
+          0.044114481657743454,
+          0.025221936404705048,
+          0.03681693226099014,
+          0.04123475030064583,
+          0.02018611691892147
+        ],
+        [
+          0.011673016473650932,
+          0.017486492171883583,
+          0.0410105399787426,
+          0.04517807811498642,
+          0.023990251123905182,
+          0.03485604003071785,
+          0.033703770488500595,
+          0.012048477306962013
+        ],
+        [
+          0.009639034979045391,
+          0.009287039749324322,
+          0.023518869653344154,
+          0.04373035579919815,
+          0.023223375901579857,
+          0.04163374379277229,
+          0.03787514567375183,
+          0.015090054832398891
+        ],
+        [
+          0.010422957129776478,
+          0.04909709468483925,
+          0.03368661552667618,
+          0.04381769523024559,
+          0.024996979162096977,
+          0.04383963346481323,
+          0.03330811858177185,
+          0.019942831248044968
+        ]
+      ],
+      "logit_relative_l2": [
+        [
+          0.018785860389471054,
+          0.0327005460858345,
+          0.06019202992320061,
+          0.058213070034980774,
+          0.015667732805013657,
+          0.05914631485939026,
+          0.027890877798199654,
+          0.019127972424030304
+        ],
+        [
+          0.013470245525240898,
+          0.027934787794947624,
+          0.03248532861471176,
+          0.047620031982660294,
+          0.013129966333508492,
+          0.04339988902211189,
+          0.021907832473516464,
+          0.023985877633094788
+        ],
+        [
+          0.015454933047294617,
+          0.016862567514181137,
+          0.04024570435285568,
+          0.04028874263167381,
+          0.01302530337125063,
+          0.03681986778974533,
+          0.028410928323864937,
+          0.030196866020560265
+        ],
+        [
+          0.013470713049173355,
+          0.022560840472579002,
+          0.042465101927518845,
+          0.04229603335261345,
+          0.015481469221413136,
+          0.03604802116751671,
+          0.02776588872075081,
+          0.02090834267437458
+        ],
+        [
+          0.015887130051851273,
+          0.015370973385870457,
+          0.024363547563552856,
+          0.039208557456731796,
+          0.016463810577988625,
+          0.04127573221921921,
+          0.027724523097276688,
+          0.020153842866420746
+        ],
+        [
+          0.011942824348807335,
+          0.05447939410805702,
+          0.03870674967765808,
+          0.04245486110448837,
+          0.014530233107507229,
+          0.047940805554389954,
+          0.026122014969587326,
+          0.022819990292191505
+        ]
+      ],
+      "max_hidden_relative_l2": 0.052261609584093094,
+      "max_logit_relative_l2": 0.06019202992320061,
+      "native_top1": [
+        [
+          428,
+          73594,
+          1318,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42040,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          198,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42061,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          75009
+        ],
+        [
+          476,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          13886,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ]
+      ],
+      "GPU_top1": [
+        [
+          428,
+          73594,
+          1318,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42040,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          198,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42061,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          75009
+        ],
+        [
+          476,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          13886,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ]
+      ]
+    },
+    "stored_complete_e1280": {
+      "positions": 48,
+      "matching_top1": 48,
+      "top1_fraction": 1.0,
+      "hidden_relative_l2": [
+        [
+          0.01713421940803528,
+          0.034364521503448486,
+          0.052880071103572845,
+          0.03897811844944954,
+          0.028422558680176735,
+          0.05623718723654747,
+          0.03781396895647049,
+          0.013851246796548367
+        ],
+        [
+          0.01104919333010912,
+          0.022096434608101845,
+          0.023830318823456764,
+          0.044357623904943466,
+          0.02785440720617771,
+          0.04268942028284073,
+          0.03817478194832802,
+          0.01753394678235054
+        ],
+        [
+          0.011566655710339546,
+          0.014575009234249592,
+          0.03864379972219467,
+          0.03854848071932793,
+          0.029074547812342644,
+          0.05347849428653717,
+          0.03443624824285507,
+          0.018426982685923576
+        ],
+        [
+          0.01010802574455738,
+          0.016481205821037292,
+          0.027387050911784172,
+          0.03797972574830055,
+          0.027175771072506905,
+          0.051817793399095535,
+          0.03839080408215523,
+          0.01445081178098917
+        ],
+        [
+          0.009693614207208157,
+          0.017501574009656906,
+          0.023215463384985924,
+          0.039501797407865524,
+          0.031443335115909576,
+          0.038141101598739624,
+          0.03914352133870125,
+          0.016369858756661415
+        ],
+        [
+          0.008863422088325024,
+          0.03537033125758171,
+          0.02917194738984108,
+          0.03474818170070648,
+          0.02449275739490986,
+          0.052972882986068726,
+          0.03986145928502083,
+          0.01923230104148388
+        ]
+      ],
+      "logit_relative_l2": [
+        [
+          0.018708806484937668,
+          0.052975840866565704,
+          0.05686704069375992,
+          0.035549428313970566,
+          0.016929417848587036,
+          0.052775077521800995,
+          0.025467002764344215,
+          0.02630157209932804
+        ],
+        [
+          0.0170716755092144,
+          0.03145783394575119,
+          0.02599695324897766,
+          0.043348271399736404,
+          0.01763063669204712,
+          0.04032333940267563,
+          0.029252441599965096,
+          0.024932514876127243
+        ],
+        [
+          0.017500868067145348,
+          0.0219501294195652,
+          0.04402300342917442,
+          0.03658905252814293,
+          0.016311360523104668,
+          0.04996664077043533,
+          0.0230135228484869,
+          0.02445441111922264
+        ],
+        [
+          0.011084605939686298,
+          0.024699579924345016,
+          0.03222956508398056,
+          0.03680550307035446,
+          0.01559160090982914,
+          0.04958667606115341,
+          0.0273772981017828,
+          0.01944812573492527
+        ],
+        [
+          0.013649805448949337,
+          0.024132050573825836,
+          0.02604106441140175,
+          0.03594489023089409,
+          0.021597912535071373,
+          0.04053159058094025,
+          0.034524161368608475,
+          0.0228557325899601
+        ],
+        [
+          0.008822089992463589,
+          0.048571523278951645,
+          0.03180071711540222,
+          0.03421102836728096,
+          0.014071894809603691,
+          0.05057667940855026,
+          0.03290979564189911,
+          0.021138722077012062
+        ]
+      ],
+      "max_hidden_relative_l2": 0.05623718723654747,
+      "max_logit_relative_l2": 0.05686704069375992,
+      "native_top1": [
+        [
+          428,
+          73594,
+          1318,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42040,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          198,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42061,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          476,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          13886,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ]
+      ],
+      "GPU_top1": [
+        [
+          428,
+          73594,
+          1318,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42040,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          198,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          42061,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          476,
+          13874,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ],
+        [
+          13886,
+          73594,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          785
+        ]
+      ]
+    }
+  },
+  "cache_checks": [
+    {
+      "arm": "stored_compact_core_only",
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.1347984075546265
+    },
+    {
+      "arm": "stored_compact_core_only",
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.142158031463623
+    },
+    {
+      "arm": "stored_compact_core_only",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.1472692489624023
+    },
+    {
+      "arm": "stored_compact_core_only",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.1350232362747192
+    },
+    {
+      "arm": "stored_compact_core_only",
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.081774353981018
+    },
+    {
+      "arm": "stored_compact_core_only",
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.170432448387146
+    },
+    {
+      "arm": "stored_complete_e1280",
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.1379843950271606
+    },
+    {
+      "arm": "stored_complete_e1280",
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.1033624410629272
+    },
+    {
+      "arm": "stored_complete_e1280",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.1381932497024536
+    },
+    {
+      "arm": "stored_complete_e1280",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.0905123949050903
+    },
+    {
+      "arm": "stored_complete_e1280",
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.055679202079773
+    },
+    {
+      "arm": "stored_complete_e1280",
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "cached_and_fresh_bytes_exact": true,
+      "erased_history_detected": true,
+      "erased_history_logit_relative_l2": 1.153256893157959
+    }
+  ],
+  "gates": {
+    "all725_same_archive_no_fallback": true,
+    "all12_CPU_cache_rebuilds_byte_exact": true,
+    "all12_erased_history_controls_detected": true,
+    "stored_compact_core_only_finite": true,
+    "stored_compact_core_only_hidden_max": false,
+    "stored_compact_core_only_logit_max": false,
+    "stored_compact_core_only_top1_smoke": true,
+    "stored_complete_e1280_finite": true,
+    "stored_complete_e1280_hidden_max": false,
+    "stored_complete_e1280_logit_max": false,
+    "stored_complete_e1280_top1_smoke": true
+  },
+  "GPU_reference_runtime": {
+    "reused_original285_reference_sha256": "ec34bcd98a5ffd518641957fd2a18f210c37bff642fa6f306dee2ca96aecb605",
+    "new_GPU_execution": false
+  },
+  "CPU_qualification_seconds": 69.25,
+  "seconds": 70.68799999999828,
+  "native_report": {
+    "arms": 2,
+    "sources": 6,
+    "positions_per_arm": 48,
+    "cache_failures": 0,
+    "erased_history_not_detected": 0,
+    "timing_qualification": false
+  },
+  "loader": {
+    "archive_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+    "fields_bound": 725,
+    "bytes": 1329447260,
+    "fallback": false
+  },
+  "load_record": {
+    "parameters_from_archive": 218,
+    "random_FFN_parameters_removed": 72,
+    "tensors_consumed": 725,
+    "organs": {
+      "tied_head": 1,
+      "attention": 96,
+      "control": 121
+    },
+    "all725_inventory_hashes_finite_exact": true,
+    "all_non_FFN_copies_exact": true,
+    "all_maps_surjective_and_in_range": true,
+    "actual_function_counts": [
+      1254,
+      1275,
+      1280,
+      1270,
+      1278,
+      1262,
+      1279,
+      1280,
+      1274,
+      1280,
+      1280,
+      1277,
+      1276,
+      1270,
+      1274,
+      1267,
+      1276,
+      1243,
+      1273,
+      1277,
+      1274,
+      1279,
+      1280,
+      1278
+    ],
+    "tied_head_pointer_equal": true,
+    "source_weights_or_conditional_checkpoints_loaded": false,
+    "cache_enabled": false,
+    "diagnostic_only": true,
+    "native_promotion_qualified": false
+  },
+  "source_sha256": {
+    "benchmarks\\native_expert_scaling\\meth289_residual32_cpu.c": "1eb0222cf9953c8a3682d0ea7a56bafb7516e6d4a5695b4e75d993bafb229e72",
+    "benchmarks\\native_expert_scaling\\meth289_model_operator.h": "db0e028d57272035c18a1203ec367d0243a9cad31b58ebf5a560718ab45d4948",
+    "benchmarks\\phase60\\engine.c": "f2d291e8ceeb31739a1759c0cb85715144f3c3df87fa639e8d9d8a0c9bbaec10"
+  },
+  "script_sha256": "03ed573e0b3588145bfc7d8013d849d8547461e2ca61e6ff9d036069364f708e",
+  "compile_command": [
+    "clang",
+    "-O3",
+    "-mavx2",
+    "-mssse3",
+    "-mfma",
+    "-fopenmp",
+    "-std=c11",
+    "-DSILICON_COMPLETE_I16_RESIDUAL32",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth289_residual32_cpu.exe",
+    "-lm",
+    "-lpsapi",
+    "-lbcrypt"
+  ],
+  "compile_stderr": "",
+  "executable_sha256": "71034e5cf7752041c9c79ccfafa8de82fc2877c050fd04df5ef2957979c7c0eb",
+  "bundle_sha256": "70c073204558f0da70406bc0a3fe7ada236a83ae1f54d8e878971bd0a2475b55",
+  "native_sha256": "b043a6f2851a557b56cd9409f5fa7d1fab3b7fb3b399a5c1f06033107262b3bb",
+  "reference_sha256": "ec34bcd98a5ffd518641957fd2a18f210c37bff642fa6f306dee2ca96aecb605",
+  "diagnostic_only": true,
+  "native_promotion_qualified": false,
+  "decision": "whole_native_prefix_smoke_fail_stop_before_quality_and_rate",
+  "changed_coordinate": "Only residual state stays FP32 after attention/FFN additions; original norm/projection/FFN BF16 return boundaries retained.",
+  "scope": "Reuses frozen285 GPU reference. Six fixed consumed full prompts/tail48 positions per arm;stored compact-core-only is an ablation,not donor. GPU reference has no cache. CPU fresh/incremental exact cache control does not reopen264. No native BPB/generation/PIQA/K64/accepted rate/useful n/family qualification."
+}

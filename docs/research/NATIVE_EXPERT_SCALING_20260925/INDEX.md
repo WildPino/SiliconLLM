@@ -123,9 +123,18 @@ failure retained; narrow repair freeze11a0627. Session3400 exits0,71.250s,
 no active job. Do not adopt norm64. Raw SHA
 `5c5b5e22eab0ce4e3b2efbfd4acee6c8f245176c06e386b2c80101d949903130`.
 
-**Next exact action:** prospective FP32 residual-stream execution only,
-original285 norm reduction/projection/FFN return boundaries. Test whole285
-prefix/cache assay against pinned original reference with unchanged gates.
+[289 FP32 residual stream](METH_289_RESIDUAL32_RESULT_20261002.md) FAILS
+four unchanged5% hidden/logit guards: ablation .05226/.06019, complete
+.05624/.05687. Both48/48 top1/all12 cache/all12 negative pass. Do not adopt.
+Session86581 exits0,70.688s,no active job. Raw SHA
+`091f9894325fe4f24e4808585964a322c615112238fb12ffbc56463d76d3e1b1`.
+
+**Next exact action:** freeze GPU-reference causal-equivalence stability
+assay before further precision variants: same six sources/tail8/two arms,
+original full-prompt rows versus independent truncated full-prefix last
+rows,no cache on BOTH sides. Same artifact/IDs/weights; only batch geometry
+changes. Pin original285 references/limits; diagnostic does not promote
+failed native recipes or loosen donor-quality/rate goal. No new run yet.
 No weights/routes/data fitting; changed
 execution needs new record and same285 gates. Native BPB/generation/task/
 semantic/K64 and accepted>=50 still due. Retain large-n/RAM/real DRAM/family
