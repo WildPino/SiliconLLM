@@ -23,7 +23,7 @@ reason/budget/stop communication. No CPU performance job overlaps model work.
 | Question | Established | Still missing |
 | --- | --- | --- |
 | Useful large-n target | Small centered BF16 E1280 retains scoped quality;30,556 unique functions/164 aliases stored with1280 route labels/layer | Useful tenfold new capacity;parent-selection growth,large-RAM actual routing/LUT/DRAM cost and independent quality |
-| Pretrained-to-compact transfer | Complete276 diagnostic1.329GB archive/own725-field loader;all6144 composition controls and277/280 consumed/new-source prediction pass | Generation/task/semantic qualification,actual full native arithmetic and accepted>=50 on this artifact;sparse/larger-donor variants |
+| Pretrained-to-compact transfer | Complete276 diagnostic1.329GB archive/own725-field loader;all6144 composition controls and277/280 consumed/new-source prediction pass | Full task qualification,actual full native arithmetic and accepted>=50 on this artifact;sparse/larger-donor variants |
 
 This dense0.5B case still executes all4864 FFN features/layer;it does not
 establish constant-active-cost conversion for10B/100B. GigaChat assets and
@@ -72,15 +72,20 @@ passes all72 continuations/health/generatedK64 gates. Candidate EOS22/24,
 early0/repeat1 versus donor22/0/1 andE1280 23/0/1. Session76893 exits0,
 602.594s,no active model/benchmark job. Labeled texts have not been inspected.
 
-**Next exact action:** frozen [282 anonymous semantics](METH_282_COMPLETE_I16_BLIND_PROTOCOL_20261002.md),
-freeze `d87f688`,BEFORE full PIQA expense. Random A/B/C panel/map built;
-panel SHA `fa9c56f1e47db1d6644c4b3f9a485872160f9027595ce83b45f371ecd840612b`.
-Read ONLY panel,commit all72 findings BEFORE opening map/unblinding;unchanged
-strict267 counts. Semantic failure closes this fixed candidate and skips
-PIQA. Semantic pass requires separately frozen283 PIQA regression,then
-actual complete native cache/arithmetic/alias routing/LUT/real DRAM quality
-and accepted rate on the SAME artifact. Both quality gates remain mandatory.
-No282 findings/score exists yet. No native50/useful-n/family claim.
+[282 anonymous semantics](METH_282_COMPLETE_I16_SEMANTIC_RESULT_20261002.md)
+passes all six fixed gates. All72 findings committed `70e4061` before map
+inspection. Candidate unsupported37/severe17/missing0 versus donor42/21/0
+andE1280 42/20/1. Same-agent anonymous finite screen,not broad quality proof.
+Raw SHA `071e797942e9b225151a60b282f96c8d4ade0b561913e6098c5adc3b525906db`.
+
+**Next exact action:** freeze and launch [283 full PIQA regression](METH_283_COMPLETE_I16_PIQA_PROTOCOL_20261002.md).
+All1838 items/three freshly scored arms;unchanged266 accuracy/bootstrap gates.
+Expected20-30min,hard45min/20GiB RSS/10.5GiB CUDA;localRTX3060/six threads.
+Record actual session handle and wait;no overlapping CPU timing/no restart
+on observation timeout. Pass requires next prospective SAME-artifact full
+native cache/arithmetic/alias routing/LUT/real DRAM quality and accepted
+rate. Failure closes fixed276. Diagnostic/unpromoted;no native50/useful-n/
+family claim. Old259 semantic and274/275 cost stops remain closed.
 
 ## Method,history and workspace
 

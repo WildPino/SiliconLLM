@@ -100,11 +100,14 @@ BPB1.17331320 versus donor1.17828037/E1280 1.17323483,donor-top1 96.5006%.
 The E1280 BPB bootstrap interval includes0,no significant gain claim.
 New source IDs are now consumed;281 new-source full-prefix generation now
 passes all72 health/generatedK64 controls,602.594s,candidateEOS22/repeat1,
-same as donor (E1280EOS23/repeat1).282 anonymous semantics precedes full
-PIQA expense;both unchanged gates remain mandatory. Full native integration/rate remains
-open;diagnostic status and all previous fixed stops remain unchanged.
-This reference is not production decoding.
-Full generation/tasks, native
+same as donor (E1280EOS23/repeat1). [282 anonymous semantics](METH_282_COMPLETE_I16_SEMANTIC_RESULT_20261002.md)
+now passes unchanged strict gates:unsupported37/severe17/missing0 versus
+42/21/0 donor and42/20/1 E1280. All72 findings committed before unblinding;
+finite same-agent review,not independent human/broad quality proof.
+[283 full PIQA](METH_283_COMPLETE_I16_PIQA_PROTOCOL_20261002.md) is the next
+mandatory regression on this same archive. Full native integration/rate
+remains open;diagnostic status and all previous fixed stops remain unchanged.
+This reference is not production decoding. Full task,native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
 tok/s remain mandatory. This is specific to the small dense donor; the
 active source feature count still grows with dense donor width/depth.
