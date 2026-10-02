@@ -9,6 +9,35 @@ CPU and context. The same artifact must pass quality and rate. A second donor
 family or scale must test which steps transfer. More stored parameters alone
 are not evidence of transferred capability.
 
+## Current reproducible complete candidate
+
+The case-specific [METH-259 saved candidate](METH_259_UNIQUE_BANK_CORE_RESULT_20261002.md)
+is available:1,321,032,556bytes,725 tensors, full24-layer Qwen0.5B source
+core plus30,556 actually unique effective conditional parameter functions,
+1243..1280/layer, original1280 route labels with explicit alias maps.
+Input source FFNs use rowQ8/LUT,32 BF16 outliers,rank32 source residual and
+32 private source BF16 input rows; exact tied BF16 embedding/head and
+original non-FFN organs are retained. Existing learned centered E1280
+functions/routing are conserved, not newly invented donor capacity.
+
+| Available step | Tool | Evidence and limit |
+| --- | --- | --- |
+| Build actual core/dictionaries/maps | `meth259_unique_bank_core_export.py` | All725 fields exact,6144 original component/conditional vectors bitwise equal |
+| Load complete archived configuration/weights | `meth259_unique_bank_core_export.load_stored(path,device,expected_sha)` | All executed weights from archive, no donor/checkpoint fallback;9 archived code hashes Git-checkout stable |
+| Full-model development | [METH-260](METH_260_COMPLETE_CORE_DEVELOPMENT_RESULT_20261002.md) | All frozen BPB/top1/K64 gates pass on consumed24 sources; no new independent source proof |
+| Native fixed-source FFN | METH-253 | 9.318ms/24-layer component; full native model/conditional alias lookup unqualified |
+
+Exporter requires original pinned211 core/non-FFN/head proposal,252 source
+fixture, parent/child training artifacts and125 source-state vectors for
+control. Full saved loader needs the archive and implementation dependencies;
+export and quality commands/resource limits are in the linked protocols.
+METH-261 now freezes model-free new source/fragment-disjoint selection after
+development pass. Full independent prediction/generation/tasks, native
+whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
+tok/s remain mandatory. This is specific to the small dense donor; the
+active source feature count still grows with dense donor width/depth.
+Sparse GigaChat/10B/100B/second-family variants are not automatically qualified.
+
 ## 1. Starting models and route selection
 
 The initial case is **GigaChat 3.1 Lightning 10B-A1.8B**, source revision
@@ -1679,6 +1708,10 @@ bitwise. This makes the changed representation physically executable and
 reviewable, without any full-model quality/rate promotion. [METH-260](METH_260_COMPLETE_CORE_DEVELOPMENT_PROTOCOL_20261002.md)
 now freezes full-head original-cohort development scores and unchanged
 quality thresholds before genuinely new independent source selection.
+The [METH-260 result](METH_260_COMPLETE_CORE_DEVELOPMENT_RESULT_20261002.md)
+passes full-model consumed development: BPB+.000218937 versus BF16 E1280,
+top1 improves.178015 points, all original controls exact. This licenses
+model-free new source selection, not fresh/native/rate promotion.
 No new private useful capacity/full quality validated. Full24-layer core construction and
 same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate

@@ -1,0 +1,1435 @@
+{
+  "experiment": "METH-260-complete-unique-core-full-model-consumed-development",
+  "export_result_sha256": "39f796651522a2af907f4123756b9c7ab1e838057debbb142db5c1e02765b663",
+  "artifact_sha256": "3c0949fb2b7f99dc887c6aec1041aa162b35801939349966d18e52b8807a6f71",
+  "manifest_sha256": "7f35f2253850f3a19e0bf517d2e088d2d08c88c0bc68cc09413781ddac6f9366",
+  "original_control_result_sha256": "9063af7040e063070a3f590e5be19001ffb48f8b007a2375db8dd17aa656ec1b",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "parent_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "load_record": {
+    "parameters_from_archive": 218,
+    "random_FFN_parameters_removed": 72,
+    "tensors_consumed": 725,
+    "organs": {
+      "tied_head": 1,
+      "attention": 96,
+      "control": 121
+    },
+    "all_non_FFN_copies_exact": true,
+    "all_stored_route_maps_surjective_and_in_range": true,
+    "actual_function_counts": [
+      1254,
+      1275,
+      1280,
+      1270,
+      1278,
+      1262,
+      1279,
+      1280,
+      1274,
+      1280,
+      1280,
+      1277,
+      1276,
+      1270,
+      1274,
+      1267,
+      1276,
+      1243,
+      1273,
+      1277,
+      1274,
+      1279,
+      1280,
+      1278
+    ],
+    "tied_head_pointer_equal": true,
+    "source_weights_or_conditional_checkpoints_loaded": false
+  },
+  "arms": {
+    "bf16_donor": {
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1829.591064453125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1535.2494506835938
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2362.6666259765625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2775.4987182617188
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2168.4134521484375
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3235.2779541015625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2859.1658477783203
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1980.02099609375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3231.4783935546875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3540.955322265625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2884.0972900390625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3278.4307861328125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3171.0513916015625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3001.674385070801
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3707.1915283203125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2242.03271484375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4776.248779296875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4375.6800537109375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5298.8968505859375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4686.873779296875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4145.762939453125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4492.3382568359375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4582.59765625
+        },
+        {
+          "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4891.8741455078125
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+          "category": "code",
+          "positions": 165,
+          "matching": 165
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+          "category": "code",
+          "positions": 150,
+          "matching": 150
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+          "category": "code",
+          "positions": 256,
+          "matching": 256
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+          "category": "code",
+          "positions": 187,
+          "matching": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+          "category": "code",
+          "positions": 187,
+          "matching": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+          "category": "code",
+          "positions": 287,
+          "matching": 287
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+          "category": "code",
+          "positions": 219,
+          "matching": 219
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+          "category": "code",
+          "positions": 164,
+          "matching": 164
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+          "category": "prose",
+          "positions": 157,
+          "matching": 157
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+          "category": "prose",
+          "positions": 159,
+          "matching": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+          "category": "prose",
+          "positions": 163,
+          "matching": 163
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+          "category": "prose",
+          "positions": 161,
+          "matching": 161
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+          "category": "prose",
+          "positions": 152,
+          "matching": 152
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+          "category": "prose",
+          "positions": 165,
+          "matching": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+          "category": "prose",
+          "positions": 156,
+          "matching": 156
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+          "category": "prose",
+          "positions": 147,
+          "matching": 147
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "category": "technical_general",
+          "positions": 160,
+          "matching": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+          "category": "technical_general",
+          "positions": 159,
+          "matching": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "positions": 207,
+          "matching": 207
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+          "category": "technical_general",
+          "positions": 187,
+          "matching": 187
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+          "category": "technical_general",
+          "positions": 230,
+          "matching": 230
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+          "category": "technical_general",
+          "positions": 179,
+          "matching": 179
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+          "category": "technical_general",
+          "positions": 265,
+          "matching": 265
+        },
+        {
+          "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+          "category": "technical_general",
+          "positions": 232,
+          "matching": 232
+        }
+      ]
+    },
+    "bf16_e1280": {
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1826.6985473632812
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1529.5521850585938
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2355.5023193359375
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2764.3150634765625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2156.844268798828
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3227.7990112304688
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2849.0650634765625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1970.2341918945312
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3214.95849609375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3522.3043670654297
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2872.09326171875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3252.58203125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3154.0550537109375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2987.963348388672
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3695.361572265625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2225.9583740234375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4768.900634765625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4353.20263671875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5285.643737792969
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4670.554443359375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4126.50048828125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4475.78857421875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4559.6536865234375
+        },
+        {
+          "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4871.97265625
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+          "category": "code",
+          "positions": 165,
+          "matching": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+          "category": "code",
+          "positions": 150,
+          "matching": 142
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+          "category": "code",
+          "positions": 256,
+          "matching": 223
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+          "category": "code",
+          "positions": 187,
+          "matching": 179
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+          "category": "code",
+          "positions": 187,
+          "matching": 180
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+          "category": "code",
+          "positions": 287,
+          "matching": 249
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+          "category": "code",
+          "positions": 219,
+          "matching": 210
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+          "category": "code",
+          "positions": 164,
+          "matching": 157
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+          "category": "prose",
+          "positions": 157,
+          "matching": 148
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+          "category": "prose",
+          "positions": 159,
+          "matching": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+          "category": "prose",
+          "positions": 163,
+          "matching": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+          "category": "prose",
+          "positions": 161,
+          "matching": 156
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+          "category": "prose",
+          "positions": 152,
+          "matching": 144
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+          "category": "prose",
+          "positions": 165,
+          "matching": 156
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+          "category": "prose",
+          "positions": 156,
+          "matching": 148
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+          "category": "prose",
+          "positions": 147,
+          "matching": 141
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "category": "technical_general",
+          "positions": 160,
+          "matching": 152
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+          "category": "technical_general",
+          "positions": 159,
+          "matching": 155
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "positions": 207,
+          "matching": 185
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+          "category": "technical_general",
+          "positions": 187,
+          "matching": 180
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+          "category": "technical_general",
+          "positions": 230,
+          "matching": 220
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+          "category": "technical_general",
+          "positions": 179,
+          "matching": 173
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+          "category": "technical_general",
+          "positions": 265,
+          "matching": 252
+        },
+        {
+          "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+          "category": "technical_general",
+          "positions": 232,
+          "matching": 224
+        }
+      ]
+    },
+    "stored_unique_e1280": {
+      "arm": "stored_unique_e1280",
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1826.4169921875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1525.1676635742188
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2360.7388305664062
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2767.9981689453125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2155.9774780273438
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 3225.7779541015625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2849.7549743652344
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1975.6607666015625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3216.3848876953125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3521.1857376098633
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2872.0853271484375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3252.9437255859375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3154.05322265625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2990.3829078674316
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3693.116943359375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2224.21826171875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4771.8985595703125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4353.942138671875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5281.4056396484375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4672.359375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4128.8382568359375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4476.4185791015625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4557.632568359375
+        },
+        {
+          "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4878.0595703125
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+          "category": "code",
+          "positions": 165,
+          "matching": 161
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+          "category": "code",
+          "positions": 150,
+          "matching": 142
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+          "category": "code",
+          "positions": 256,
+          "matching": 225
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+          "category": "code",
+          "positions": 187,
+          "matching": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+          "category": "code",
+          "positions": 187,
+          "matching": 178
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+          "category": "code",
+          "positions": 287,
+          "matching": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+          "category": "code",
+          "positions": 219,
+          "matching": 214
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+          "category": "code",
+          "positions": 164,
+          "matching": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+          "category": "prose",
+          "positions": 157,
+          "matching": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+          "category": "prose",
+          "positions": 159,
+          "matching": 152
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+          "category": "prose",
+          "positions": 163,
+          "matching": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+          "category": "prose",
+          "positions": 161,
+          "matching": 154
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+          "category": "prose",
+          "positions": 152,
+          "matching": 144
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+          "category": "prose",
+          "positions": 165,
+          "matching": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+          "category": "prose",
+          "positions": 156,
+          "matching": 149
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+          "category": "prose",
+          "positions": 147,
+          "matching": 141
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "category": "technical_general",
+          "positions": 160,
+          "matching": 153
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+          "category": "technical_general",
+          "positions": 159,
+          "matching": 152
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "positions": 207,
+          "matching": 186
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+          "category": "technical_general",
+          "positions": 187,
+          "matching": 183
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+          "category": "technical_general",
+          "positions": 230,
+          "matching": 221
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+          "category": "technical_general",
+          "positions": 179,
+          "matching": 174
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+          "category": "technical_general",
+          "positions": 265,
+          "matching": 249
+        },
+        {
+          "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+          "category": "technical_general",
+          "positions": 232,
+          "matching": 226
+        }
+      ]
+    }
+  },
+  "summary": {
+    "pooled": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.1898133883183264,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.1848874923949821,
+          "top1": 0.9450378282153983
+        },
+        "stored_unique_e1280": {
+          "bpb": 1.1851064290954116,
+          "top1": 0.9468179795282599
+        }
+      },
+      "candidate_minus_donor_bpb": -0.004706959222914753,
+      "candidate_minus_bf16_e1280_bpb": 0.0002189367004294951,
+      "candidate_minus_bf16_e1280_top1": 0.0017801513128615776
+    },
+    "code": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 0.8255370586645497,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 0.8226361028517643,
+          "top1": 0.9281733746130031
+        },
+        "stored_unique_e1280": {
+          "bpb": 0.8229656053155138,
+          "top1": 0.9281733746130031
+        }
+      },
+      "candidate_minus_donor_bpb": -0.002571453349035968,
+      "candidate_minus_bf16_e1280_bpb": 0.0003295024637495203,
+      "candidate_minus_bf16_e1280_top1": 0.0
+    },
+    "prose": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.1034640540573026,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.097667057565699,
+          "top1": 0.957936507936508
+        },
+        "stored_unique_e1280": {
+          "bpb": 1.0976271812776868,
+          "top1": 0.9619047619047619
+        }
+      },
+      "candidate_minus_donor_bpb": -0.005836872779615865,
+      "candidate_minus_bf16_e1280_bpb": -3.987628801227494e-05,
+      "candidate_minus_bf16_e1280_top1": 0.003968253968253954
+    },
+    "technical_general": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.6404390522331276,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.634359316767484,
+          "top1": 0.9518221124150711
+        },
+        "stored_unique_e1280": {
+          "bpb": 1.6347265006930347,
+          "top1": 0.9536751080914144
+        }
+      },
+      "candidate_minus_donor_bpb": -0.0057125515400928695,
+      "candidate_minus_bf16_e1280_bpb": 0.0003671839255507958,
+      "candidate_minus_bf16_e1280_top1": 0.0018529956763433386
+    }
+  },
+  "bootstrap": {
+    "bf16_donor": {
+      "candidate_minus_control_bpb_p05": -0.005447634857273271,
+      "candidate_minus_control_bpb_p95": -0.003984867430434534,
+      "seed": 214214,
+      "draws": 10000,
+      "unit": "source",
+      "decision_gate": false
+    },
+    "bf16_e1280": {
+      "candidate_minus_control_bpb_p05": -9.994518155728884e-05,
+      "candidate_minus_control_bpb_p95": 0.0005406795029634742,
+      "seed": 214214,
+      "draws": 10000,
+      "unit": "source",
+      "decision_gate": false
+    }
+  },
+  "shortlist": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+      "category": "code",
+      "positions": 165,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 163
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+      "category": "code",
+      "positions": 150,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 146
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+      "category": "code",
+      "positions": 256,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 214
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+      "category": "code",
+      "positions": 187,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 180
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+      "category": "code",
+      "positions": 187,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 180
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+      "category": "code",
+      "positions": 287,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 244
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+      "category": "code",
+      "positions": 219,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 214
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+      "category": "code",
+      "positions": 164,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 160
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+      "category": "prose",
+      "positions": 157,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 152
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+      "category": "prose",
+      "positions": 159,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 155
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+      "category": "prose",
+      "positions": 163,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 162
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+      "category": "prose",
+      "positions": 161,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 155
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+      "category": "prose",
+      "positions": 152,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 146
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+      "category": "prose",
+      "positions": 165,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 163
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+      "category": "prose",
+      "positions": 156,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 150
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+      "category": "prose",
+      "positions": 147,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.125,
+      "approx_top1_matches": 141
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "positions": 160,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 154
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+      "category": "technical_general",
+      "positions": 159,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 152
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "positions": 207,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 192
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+      "category": "technical_general",
+      "positions": 187,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 183
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+      "category": "technical_general",
+      "positions": 230,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 223
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+      "category": "technical_general",
+      "positions": 179,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 178
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+      "category": "technical_general",
+      "positions": 265,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 259
+    },
+    {
+      "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+      "category": "technical_general",
+      "positions": 232,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 226
+    }
+  ],
+  "gates": {
+    "all_old_original_control_document_and_prompt_scores_exact": true,
+    "complete_candidate_load_from_same_fixed_archive": true,
+    "pooled_bpb_vs_both": true,
+    "category_bpb_vs_both": true,
+    "pooled_top1": true,
+    "category_top1": true,
+    "prompt_k64_inclusion": true,
+    "prompt_exact_rerank": true
+  },
+  "runtime": {
+    "seconds": 105.17200000000048,
+    "rss_bytes": 3267399680,
+    "gpu_peak_allocated_bytes": 4100676096
+  },
+  "script_sha256": "eec25097c9a4e6c7954da195037aed4cc6e73f9cb51f800a1ab45acef711602e",
+  "decision": "complete_core_development_pass_freeze_new_independent_source_manifest",
+  "scope": "Original consumed24-source METH121/122 cohort. Same complete saved artifact,full exact head probabilities,finite prompt K64 check. No fresh source/generation/task/RAM n/native LUT/DRAM or accepted rate/second donor/10B/100B promotion."
+}

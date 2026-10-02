@@ -198,7 +198,7 @@ accurate than learned shared. Both prospective coherence gates fail.
 Session68832 exits0; no job active. Close fixed promotion/source-reset
 composition, not all nonlinear source responses. No validation was read.
 
-**Latest decisive evidence:** [METH-256](METH_256_BOUNDED_SOURCE_RESPONSE_RESULT_20261002.md)
+[METH-256](METH_256_BOUNDED_SOURCE_RESPONSE_RESULT_20261002.md)
 completes all176 distinct actual functions, exact parent/solver/snapshot/
 score controls and positive paired gain. Count gain0.08439%, rotated
 gain0.03415% fail frozen10% gates. Session64120 exits0; no job active.
@@ -223,14 +223,18 @@ original source/conditional vectors bitwise equal. Session72563 exits0;
 no job active.1243..1280 distinct effective codes/layer,1280 route labels.
 No quality targets or full-rate promotion; no saved257 artifact.
 
-**Next exact action:** execute frozen [METH-260 full-model development](METH_260_COMPLETE_CORE_DEVELOPMENT_PROTOCOL_20261002.md)
-on original consumed24-source121/122 cohort. Replay donor/E1280 controls
-exactly, full-head BPB/top1 plus finiteK64 gates; same259 actual archive.
-Initial260 session12024 stops at bindings (UTF8 manifest decoded as
-Windows cp1252),2.829s/no model or score observation. UTF8-only apparatus
-repair frozen; execute with `meth260_complete_core_development_repair1_result.json`
-output, preserving initial failure. Pass licenses new independent source
-manifest before full generation/tasks/native alias lookup/LUT/DRAM/rate.
+**Latest decisive evidence:** [METH-260](METH_260_COMPLETE_CORE_DEVELOPMENT_RESULT_20261002.md)
+passes complete-model consumed development on same259 archive. All old
+donor/E1280 controls exact; BPB+.000218937 versus BF16 E1280, top1 improves
+.178015 points; all pooled/category/finiteK64 gates pass. Initial bindings
+UTF8 failure preserved, repair changes no data/math/gate. Session89049
+exits0; no job active. All9 archived code hashes reproduce through Git.
+
+**Next exact action:** execute frozen [METH-261 new independent source manifest](METH_261_COMPLETE_CORE_FRESH_MANIFEST_PROTOCOL_20261002.md),
+seed261261, old fixed source tree/cached PG19 train14, prior source/fragment
+exclusions plus consumed213. Code/protocol present; no261 run yet. Then
+answerability before independent full-model prediction/generation/tasks/
+blind/native complete alias lookup/LUT/DRAM/rate. Keep same259 artifact.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
