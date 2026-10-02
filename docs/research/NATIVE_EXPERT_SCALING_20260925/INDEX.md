@@ -93,15 +93,20 @@ Wrong actual B lookup preserves metadata/IDs but fails contribution checks.
 Raw SHA `615e4854b8e9300f660c66f513152e4ed63b78e41f6d521400f784bede0ca18a`.
 Session85190 exits0,68.422s (GPU52.328/CPU16.078),no active job.
 
-**Next exact action:** freeze/run [285 whole prefix/cache smoke](METH_285_WHOLE_PREFIX_PROTOCOL_20261002.md).
-Forward header is verbatim284;phase60 full personality compiles. Fixed
-entire278 prompts0,1,8,9,16,17/tail8,48 positions per compact-core-only
-ablation/complete-bank arm. Own GPU loader no cache versus CPU full forward;
-relativeL2<=.05/top1>=.95 preliminary smoke,CPU cache rebuild byte exact
-and erased-history fault detected. GPU<=12min,then CPU<=10min;no rate.
-No285 native/reference outputs yet. Pass still needs actual native BPB/
-generation/task/semantic/K64 and accepted>=50 on SAME artifact. Retain
-large-n/RAM/real DRAM/family goal and original259/264/274-275 stops.
+[285 whole prefix/cache smoke](METH_285_WHOLE_PREFIX_RESULT_20261002.md)
+FAILS compact-core-only logit maximum .054223787 above .05. Both arms
+48/48 top1; complete-bank hidden/logit maxima .04757/.04791 pass. All12
+CPU cache rebuilds byte exact and all12 erased-history faults detected.
+Session72992 exits0,121.266s,no active job. Raw SHA
+`c9b87bdaa42fed8e9313d6634671ded9f3fa31993eb9f46e23a43c95885f6eda`.
+Fixed native recipe stops before quality/K64/rate; retain unchanged limits.
+
+**Next exact action:** prospective same-input numerical localization of
+norm/projection/RoPE/attention on consumed source0, observe actual GPU SDPA
+backend before attributing cause. No weights/routes/data fitting; changed
+execution needs new record and same285 gates. Native BPB/generation/task/
+semantic/K64 and accepted>=50 still due. Retain large-n/RAM/real DRAM/family
+goal and original259/264/274-275 stops.
 
 Prepared [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 binds actual725-field types,Python BF16 cast/rounding boundaries,unique-B

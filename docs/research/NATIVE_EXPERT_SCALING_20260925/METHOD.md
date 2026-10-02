@@ -15,7 +15,11 @@ The current open candidate is [276 diagnostic I16/private128](METH_276_DIAGNOSTI
 1,329,447,260bytes/same725 fields. Its own versioned loader and all6144
 composition controls pass;277/280 prediction,281 generation health and282
 anonymous semantics pass.283 full PIQA now passes. [284 actual phase60 archive/operators](METH_284_NATIVE_ARCHIVE_RESULT_20261002.md)
-now pass all6144 controls;whole native execution/quality/rate remain missing. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
+now pass all6144 controls. [285 whole native prefix smoke](METH_285_WHOLE_PREFIX_RESULT_20261002.md)
+executes complete prefixes/cache but FAILS the unchanged5% ablation logit
+guard (5.4224%). All96 top1 choices and12 cache controls pass; fixed native
+recipe stops before quality/rate pending numerical localization and a new
+prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 records actual tensor types,required BF16 boundaries and the route-alias
 lookup that must be implemented before qualification. The prior259 path
 below is preserved as the reproducible precursor,with its semantic stop.
