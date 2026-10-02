@@ -1,4 +1,6 @@
-#ifdef SILICON_COMPLETE_I16_FULL
+#ifdef SILICON_COMPLETE_I16_NORM64
+#include "../native_expert_scaling/meth288_norm_reduction_cpu.c"
+#elif defined(SILICON_COMPLETE_I16_FULL)
 #include "../native_expert_scaling/meth285_complete_core_cpu.c"
 #elif defined(SILICON_COMPLETE_I16)
 #include "../native_expert_scaling/meth284_complete_core_cpu.c"
