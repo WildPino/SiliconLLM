@@ -79,7 +79,16 @@ revises assembly order for an unpromoted diagnostic complete I16/private128
 archive: composition and actual whole budget are unknown,and the component
 allocation is not the user's50tok/s requirement. No old gate/result changes;
 full fresh quality/actual same-artifact rate remain mandatory for promotion.
-No such complete archive exists yet;276 consistency cannot establish them.
+[METH-276](METH_276_DIAGNOSTIC_COMPLETE_CORE_RESULT_20261002.md) now saves
+a1,329,447,260byte complete diagnostic archive and owns a distinct versioned
+loader. Only72 private fields change,all653 other fields byte exact259;
+all725 readback/loader and6144 FP32 equation/BF16 return/route/alias/isolated
+conditional controls pass. Extra payload8,262,144bytes,no new capacity.
+134.422s/endRSS5.87GB/peakGPU2.86GB;original zero-score CUDA launch failure
+preserved,environment-only repair. `meth276_diagnostic_complete_core.load_stored`
+needs the saved artifact and pinned project implementations,not donor or
+checkpoint weights. This establishes archive composition,not whole quality
+or rate. Frozen277 consumed development regression precedes new quality data.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
