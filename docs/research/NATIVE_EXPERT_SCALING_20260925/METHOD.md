@@ -161,6 +161,16 @@ A sparse-source variant is **GigaChat 3.1 Lightning 10B-A1.8B**, source revision
 distinct BF16 elements, 26 layers, 64 routed experts/top-4, one shared expert,
 MLA, and a dense first FFN. Source shards, BF16 GGUF and Q4_K_M GGUF are
 locally bound in the [source-binding record](../donor_adaptation/probes/STRAT_01_GIGACHAT31_SOURCE_BINDING_PROTOCOL_20260919.md).
+Ordinary180 and diagonal-weighted181 rank192 representation screens fail.
+[298 full routed-input covariance](METH_298_GIGACHAT_FULL_COVARIANCE_PROTOCOL_20261002.md)
+is prospectively frozen: collect actual source-BF16 routed inputs on the
+same distinct calibration domains; fit uncentered FP64 rank192 output
+directions and compare real test-output reconstruction to ordinary and
+diagonal factors. This is an open representation screen, not a quality,
+export, useful-n or native-rate result. Reused source graph/library capture
+does not resume the generic donor-port line. Even hypothetical int8 routed
+factors leave822.29MB/token if other Q4 organs remain; MLA/head/shared
+treatment and complete cost gates are required before full export.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),
 and [document rollout](../donor_adaptation/probes/STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md).

@@ -87,10 +87,16 @@ Raw SHA `557927330064c436d40dba01d130af2fbdf063b1c5f82f3de5c8b60e187926b8`.
 No regrading/tolerance/favorable subset. Skip unchanged-profile native
 PIQA/K64/rate promotion work;295/296 scoped passes remain valid.
 
-No scientific job active. **Next action: source-bound GigaChat compact
-transfer preflight.** Inspect reusable source-ID calibration and capture
-apparatus for full cross-channel activation moments, absent from180/181.
-Freeze new collection/split/resource/decision criteria before observation.
+**Live METH-298 fit capture, session73976 (authoritative).**
+[Full-covariance protocol](METH_298_GIGACHAT_FULL_COVARIANCE_PROTOCOL_20261002.md)
+frozen `c20d60e` before new observations; isolated capture executable built
+in9.547s, original imatrix restored exactly by reversing four insertions.
+Uses actual BF16 GigaChat/source IDs,27 fixed projections/rank192;
+106 fit/125 distinct-domain test chunks. Each child55min/50GiB/2GiB capture,
+score20min/12GiB, no GPU/T4/downloads. Source hash precedes child launch.
+Resume/poll session73976; do not restart. After success inspect capture
+closure result, then run `meth298_gigachat_covariance.py test`, then `score`
+ONLY after both capture guards pass. No factor-spectrum observation yet.
 Generic donor port stays paused. New small-core quality needs changed
 scientific variable and untouched sources;292 is now consumed.
 
