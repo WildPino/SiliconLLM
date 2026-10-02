@@ -18,7 +18,10 @@ anonymous semantics pass.283 full PIQA now passes. [284 actual phase60 archive/o
 now pass all6144 controls. [285 whole native prefix smoke](METH_285_WHOLE_PREFIX_RESULT_20261002.md)
 executes complete prefixes/cache but FAILS the unchanged5% ablation logit
 guard (5.4224%). All96 top1 choices and12 cache controls pass; fixed native
-recipe stops before quality/rate pending numerical localization and a new
+recipe stops before quality/rate. [286 same-input localization](METH_286_SAME_INPUT_RESULT_20261002.md)
+observes actual MATH SDPA, exact RoPE, local norm/qkv/attention maxima under
+.001674; BF16 probability rounding worsens error. Remaining layer-residual/
+o projection/post norm/source FFN drift needs diagnosis and a new
 prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 records actual tensor types,required BF16 boundaries and the route-alias
 lookup that must be implemented before qualification. The prior259 path

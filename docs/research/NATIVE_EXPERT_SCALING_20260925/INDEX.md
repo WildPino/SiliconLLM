@@ -101,9 +101,16 @@ Session72992 exits0,121.266s,no active job. Raw SHA
 `c9b87bdaa42fed8e9313d6634671ded9f3fa31993eb9f46e23a43c95885f6eda`.
 Fixed native recipe stops before quality/K64/rate; retain unchanged limits.
 
-**Next exact action:** prospective same-input numerical localization of
-norm/projection/RoPE/attention on consumed source0, observe actual GPU SDPA
-backend before attributing cause. No weights/routes/data fitting; changed
+[286 same-input localization](METH_286_SAME_INPUT_RESULT_20261002.md)
+observes actual MATH SDPA/all24 calls, exact forced-MATH control and RoPE.
+Norm/qkv/current attention maxima<=.001674 with median0. BF16 probability
+variant worsens error; frozen halving indicator FALSE,do not adopt it.
+Session82145 exits0,56.750s,no active job. Raw SHA
+`1c73b9fa032318f820de796b3e7743708846fcd4888bb414d4e75fd1750202bc`.
+
+**Next exact action:** prospective propagated layer-residual trace plus
+same-input o projection/post norm/source FFN controls on consumed source0.
+No weights/routes/data fitting; changed
 execution needs new record and same285 gates. Native BPB/generation/task/
 semantic/K64 and accepted>=50 still due. Retain large-n/RAM/real DRAM/family
 goal and original259/264/274-275 stops.
