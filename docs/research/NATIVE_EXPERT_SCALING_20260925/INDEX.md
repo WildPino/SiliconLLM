@@ -87,7 +87,7 @@ Raw SHA `557927330064c436d40dba01d130af2fbdf063b1c5f82f3de5c8b60e187926b8`.
 No regrading/tolerance/favorable subset. Skip unchanged-profile native
 PIQA/K64/rate promotion work;295/296 scoped passes remain valid.
 
-**Live METH-298 test capture, session28420 (authoritative).**
+**Live METH-298 spectral score, session30065 (authoritative).**
 [Full-covariance protocol](METH_298_GIGACHAT_FULL_COVARIANCE_PROTOCOL_20261002.md)
 frozen `c20d60e` before new observations; isolated capture executable built
 in9.547s, original imatrix restored exactly by reversing four insertions.
@@ -101,9 +101,14 @@ guards pass, minimum711 observations. Old/new diagonal moments EXACT;
 new imatrix/captured row-order sums EXACT. Total1481.203s,child1228.297s,
 peak21,289,103,360B. Fit raw committed `ceb7cb6`,SHA
 `57cc46da176b6be16953ecfadb21c173d85bb0b8bb6dcc026ddba709fb9c0331`.
-Resume/poll session28420; do not restart. After success inspect test
-closure result, then run `meth298_gigachat_covariance.py score`
-ONLY after both capture guards pass. No factor-spectrum observation yet.
+Test session28420 terminal exit0:47,931 records/279,661,456 bytes;all five
+guards pass,min467 observations;old/new/captured moments EXACT. Total
+1464.297s,child1445.578s,peak21,293,760,512B. Test raw committed `7b55d85`,
+SHA `124610e4ddf83f2f8f5d58bc7465deaebc91183c2452614522cdb1ef4db8f4fa`.
+Both capture guards pass. Resume/poll score session30065; do not restart.
+Preserve all27 fixed rank192 output-energy comparisons and frozen gates.
+The four-insertion closure is exact LF-normalized source TEXT; the original
+external CRLF source's physical bytes are independently SHA-bound.
 Generic donor port stays paused. New small-core quality needs changed
 scientific variable and untouched sources;292 is now consumed.
 
