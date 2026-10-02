@@ -21,7 +21,10 @@ guard (5.4224%). All96 top1 choices and12 cache controls pass; fixed native
 recipe stops before quality/rate. [286 same-input localization](METH_286_SAME_INPUT_RESULT_20261002.md)
 observes actual MATH SDPA, exact RoPE, local norm/qkv/attention maxima under
 .001674; BF16 probability rounding worsens error. Remaining layer-residual/
-o projection/post norm/source FFN drift needs diagnosis and a new
+o projection/post norm/source FFN controls in [287](METH_287_LAYER_TRACE_RESULT_20261002.md)
+find exact same-operand residual additions, source FFN FP32 maximum8.51e-7,
+but propagated residual error up to6.735%. A changed norm reduction remains
+a hypothesis requiring a new
 prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 records actual tensor types,required BF16 boundaries and the route-alias
 lookup that must be implemented before qualification. The prior259 path

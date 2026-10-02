@@ -108,8 +108,17 @@ variant worsens error; frozen halving indicator FALSE,do not adopt it.
 Session82145 exits0,56.750s,no active job. Raw SHA
 `1c73b9fa032318f820de796b3e7743708846fcd4888bb414d4e75fd1750202bc`.
 
-**Next exact action:** prospective propagated layer-residual trace plus
-same-input o projection/post norm/source FFN controls on consumed source0.
+[287 residual trace](METH_287_LAYER_TRACE_RESULT_20261002.md) reproduces285
+CPU final/GPU tail bytes exactly. Same-input o/postnorm maxima .001038/
+.002008; sourceFFN FP32 maximum8.51e-7/BF16 .000578; both residual additions
+exact. Propagated layer-residual maximum reaches .06735. Session92947
+exits0,59.781s,no active job. Small local differences accumulate; no single
+cause/repair proven. Raw SHA
+`32adcf57d582270510bd689726b1e34c217310a213f19635a5f15056e99f1650`.
+
+**Next exact action:** prospective changed norm-square accumulation only,
+F64 sum then original F32 mean/inverse/BF16 boundaries; test entire285
+prefix/cache assay against pinned original reference with unchanged gates.
 No weights/routes/data fitting; changed
 execution needs new record and same285 gates. Native BPB/generation/task/
 semantic/K64 and accepted>=50 still due. Retain large-n/RAM/real DRAM/family
