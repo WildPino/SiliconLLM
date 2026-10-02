@@ -97,3 +97,25 @@ Command (repository root; existing outputs are refused):
 ```powershell
 .venv\Scripts\python.exe benchmarks/native_expert_scaling/meth276_diagnostic_complete_core.py --artifact results/native_expert_scaling/meth276_qwen05b_i16_private128_diagnostic.safetensors --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth276_diagnostic_complete_core_result.json
 ```
+
+## Preserved launch failure and narrow repair freeze
+
+The first launch (session40882,exit1) stops at136.938s before any component
+score/layer: deterministic CUDA GEMM refuses execution because the fresh
+PowerShell process lacks `CUBLAS_WORKSPACE_CONFIG`. The complete725-field
+save/readback precedes this apparatus stop. Preserve the original archive,
+1,329,447,260bytes/SHA
+`94b3d04dc43f2f45297b4d0a52209409006701b093bc8b017efb69420cf7aea4`,
+and `meth276_diagnostic_complete_core_result.failure.json` SHA
+`dfb34f44181226ac435d7b2e6c27847d2f62c277de33aa75642b9a72721467d8`.
+This is not a scientific composition result. The sole repair is setting the
+documented deterministic CuBLAS environment before starting the same frozen
+Python source. No source,weight,equation,data,gate or selector changes.
+Use new output names; no original artifact/partial/failure is overwritten.
+The two retained archives together remain within the3GiB output allocation.
+Freeze this launch repair before observing the repeat:
+
+```powershell
+$env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
+.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth276_diagnostic_complete_core.py --artifact results/native_expert_scaling/meth276_qwen05b_i16_private128_diagnostic_repair1.safetensors --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth276_diagnostic_complete_core_repair1_result.json
+```
