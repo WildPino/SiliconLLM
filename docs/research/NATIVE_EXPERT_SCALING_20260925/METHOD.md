@@ -175,6 +175,17 @@ quality,useful-n or native-rate evidence. Reused source graph/library capture
 does not resume the generic donor-port line. Even hypothetical int8 routed
 factors leave822.29MB/token if other Q4 organs remain; MLA/head/shared
 treatment and complete cost gates are required before full export.
+[299 nonlinear block omission](METH_299_GIGACHAT_NONLINEAR_BLOCK_RESULT_20261002.md)
+also fails all24 gates:half-width original32-channel blocks leave51.787%
+median relative output L2 on Cyrillic,despite all full-output controls.
+The 298 captures remain usable for separately frozen mechanism/calibration
+work;they are consumed domains,not fresh full-model quality. A
+[full-feature shared-vector-LUT hypothesis](FULL_FEATURE_VECTOR_LUT_PROPOSAL_20261002.md)
+would preserve original channels and encode pairs of source coefficients
+with a shared small palette. Its table construction can be independent of
+macro-expert count,but row gathers remain large and down inputs differ.
+This is unmeasured and needs a complete-organ cost preflight before learning.
+No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),
 and [document rollout](../donor_adaptation/probes/STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md).

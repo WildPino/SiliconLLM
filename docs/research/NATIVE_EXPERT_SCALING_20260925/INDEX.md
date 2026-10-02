@@ -97,12 +97,25 @@ Real 106/125-domain captures are verified:67,647/47,931 routed input rows,
 394.70/279.66MB,min711/467 observations;old/new/captured moments EXACT.
 51.91min total research cost,peak child21.29GB; no GPU/T4/downloads.
 
-No scientific job active. **Next action: freeze a GigaChat nonlinear
-channel-block selection screen**, using these already captured down inputs.
-Use actual original32-channel blocks and source-bound output contributions;
-compare state-dependent selection and static control before spending on a
-cheap input-only router. Qwen185's individual-channel stop remains; this
-different-family/block mechanism is unmeasured. No new donor inference.
+[299 nonlinear original-channel blocks](METH_299_GIGACHAT_NONLINEAR_BLOCK_RESULT_20261002.md)
+**FAIL all24 gates** at5/10/20 of40 tiles,freeze `c8195f7`,session33375 exit0.
+Half-width greedy relative output L2 median50.872%/p95 61.402% initial,
+51.787%/58.681% Cyrillic versus1%/5% limits. All38,526 full-output controls
+pass(max9.394e-17);48.718s/no new donor inference. Raw SHA
+`ec4d1ea0c20a60b32b3563d0d31a160f14e9add5133030fcf29c3a9e3cf42327`.
+No cheap-router continuation of this unchanged omission rule.
+
+No scientific job active. **Next exact action: full-feature shared-vector
+LUT COST preflight**, before palette training. Read
+[proposal](FULL_FEATURE_VECTOR_LUT_PROPOSAL_20261002.md), actual01/04 ledgers,
+06/08/09 low-bit failures and old34/130/132/198 factor-LUT scope. New variable
+is a shared NON-Cartesian source-coefficient palette/full feature inventory,
+not rank reduction or channel omission. Price all full-source organs and
+per-query table construction/gathers;down input tables differ per expert.
+Routed-only optimistic codes/scales already leave956.64MB/token: require
+a coherent complete path before learning/export. Then freeze calibration,
+matched Cartesian control,numeric/error/resource gates before observations.
+Use already verified298 captures; no need to repeat49min donor inference.
 Generic donor port stays paused. New small-core quality needs changed
 scientific variable and untouched sources;292 is now consumed.
 
