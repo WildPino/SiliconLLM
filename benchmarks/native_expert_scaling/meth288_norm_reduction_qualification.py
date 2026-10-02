@@ -63,7 +63,7 @@ def main():
         assert P.digest(original_path)=='c9b87bdaa42fed8e9313d6634671ded9f3fa31993eb9f46e23a43c95885f6eda'
         original=json.loads(original_path.read_text(encoding='utf-8'))
         for path,sha in original['source_sha256'].items():
-            if path!='benchmarks/phase60/engine.c':assert P.digest(ROOT/path)==sha,path
+            if Path(path)!=Path('benchmarks/phase60/engine.c'):assert P.digest(ROOT/path)==sha,path
         trace_result=DOC/'meth287_layer_trace_result.json'
         assert P.digest(trace_result)=='32adcf57d582270510bd689726b1e34c217310a213f19635a5f15056e99f1650'
         assert P.digest(args.reference)==original['reference_sha256']
