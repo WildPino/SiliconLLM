@@ -45,7 +45,9 @@ BF16 donor cached/full choice differences before candidate generation.
 all full-prefix generation-health/K64 gates. Frozen266 PIQA regression
 and267 anonymous semantic review follow. [METH-267](METH_267_ANONYMOUS_SEMANTIC_RESULT_20261002.md)
 now fails severe-error/missing-detail gates; fixed259 native promotion is
-closed even if266 passes. A changed core/route mechanism needs new checks.
+closed. [METH-266](METH_266_COMPLETE_CORE_PIQA_RESULT_20261002.md) passes
+PIQA regression,1290/1838 versus1291 for both controls, but cannot override
+the semantic failure. A changed core/route mechanism needs new checks.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted

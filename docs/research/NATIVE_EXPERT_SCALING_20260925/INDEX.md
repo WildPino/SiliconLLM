@@ -49,16 +49,15 @@ GigaChat assets/fidelity are reusable; its scoped-quality Q4 baseline costs
   EOS22/24,repetition1/24. Session43037 exited0,531.656s. This reference
   recomputes prefixes; production cache/CPU quality/rate remain unproven.
 
-**Current:** frozen [METH-266 full PIQA](METH_266_COMPLETE_CORE_PIQA_PROTOCOL_20261002.md)
-with265 SHA `f3581cefc4a7d758b141fc4b4fa62ca45f43d00fe6cc00a10af57895b4a5ec93`
-is running in session64975. Continue this process; observation timeout is
-not a reason to restart. All1838 items/three controls are fixed regression.
+[METH-266 full PIQA](METH_266_COMPLETE_CORE_PIQA_RESULT_20261002.md) passes
+all regression gates: candidate1290/1838 versus1291 for both controls,
+-.054407percentage points. Session64975 exited0,1035.656s; no active job.
 
 [METH-267 anonymous review](METH_267_ANONYMOUS_SEMANTIC_RESULT_20261002.md)
 fails strict semantic gates after all72 findings were committed before
 unblinding: unsupported38 versus39/41,severe16 versus15/14,missing-detail2
-versus2/0 (donor/E1280). Fixed259 native promotion is closed. Finish already
-running266 independently; a task pass cannot override267. Next diagnose
+versus2/0 (donor/E1280). Fixed259 native promotion is closed;266 task pass
+cannot override267. **Next exact action:** freeze and run a diagnostic of
 core-error versus induced-route differences on fixed consumed generation
 trajectories before defining a changed candidate. No threshold/finding edits.
 
