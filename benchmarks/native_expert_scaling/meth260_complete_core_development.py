@@ -33,16 +33,16 @@ def main():
                          (P.M122.MANIFEST,P.M122.MANIFEST_SHA),(P.M122.SPECIALIZED,P.M122.SPECIALIZED_SHA),
                          (P.M122.TRAINING,P.M57.TRAINING_SHA)):
             assert P.digest(path)==sha
-        export=json.loads(EXPORT.read_text());assert all(export['gates'].values()) and export['artifact']['sha256']==CORE_SHA
+        export=json.loads(EXPORT.read_text(encoding='utf-8'));assert all(export['gates'].values()) and export['artifact']['sha256']==CORE_SHA
         for path,sha in export['helper_sha256'].items():assert P.digest(Path(path))==sha
         assert P.digest(Path(R.__file__))==export['script_sha256']
-        prior=json.loads(PRIOR.read_text());items=json.loads(P.M122.MANIFEST.read_text())['items']
+        prior=json.loads(PRIOR.read_text(encoding='utf-8'));items=json.loads(P.M122.MANIFEST.read_text(encoding='utf-8'))['items']
         assert len(items)==24 and prior['manifest_sha256']==P.M122.MANIFEST_SHA
         for item in items:
             assert P.M17.sha(item['text'].encode())==item['text_sha256']
             for key in ('document_ids','prompt_ids'):
                 assert P.M17.sha(np.asarray(item[key],dtype=np.int32).tobytes())==item[key+'_sha256']
-        parent=json.loads(P.M122.TRAINING.read_text())['checkpoints']['512'];assert P.digest(parent['path'])==P.M57.CHECKPOINT_SHA
+        parent=json.loads(P.M122.TRAINING.read_text(encoding='utf-8'))['checkpoints']['512'];assert P.digest(parent['path'])==P.M57.CHECKPOINT_SHA
         source=Path(hf_hub_download(P.M42.MODEL,'model.safetensors',revision=P.M42.REV,local_files_only=True));assert P.digest(source)==P.M57.MODEL_SHA
         device=R.G.Q.M.D.Q.setup();P.MAX_SECONDS=P.M17.MAX_SECONDS=20*60
         torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
@@ -101,7 +101,7 @@ def main():
             'scope':'Original consumed24-source METH121/122 cohort. Same complete saved artifact,full exact head probabilities,finite prompt K64 check. No fresh source/generation/task/RAM n/native LUT/DRAM or accepted rate/second donor/10B/100B promotion.'}
         args.out.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');print(json.dumps({k:result[k] for k in ('decision','summary','gates','runtime')}),flush=True)
     except BaseException as error:
-        partial();args.out.with_suffix('.failure.json').write_text(json.dumps({'stage':stage,'error':repr(error),
+        partial();args.out.with_suffix('.failure.json').write_text(json.dumps({'stage':stage,'error':type(error).__name__+': '+str(error),
             'seconds':time.monotonic()-start},indent=2)+'\n',encoding='utf-8');raise
 
 

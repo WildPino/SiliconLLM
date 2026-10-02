@@ -226,7 +226,10 @@ No quality targets or full-rate promotion; no saved257 artifact.
 **Next exact action:** execute frozen [METH-260 full-model development](METH_260_COMPLETE_CORE_DEVELOPMENT_PROTOCOL_20261002.md)
 on original consumed24-source121/122 cohort. Replay donor/E1280 controls
 exactly, full-head BPB/top1 plus finiteK64 gates; same259 actual archive.
-Code/protocol present; no260 run yet. Pass licenses new independent source
+Initial260 session12024 stops at bindings (UTF8 manifest decoded as
+Windows cp1252),2.829s/no model or score observation. UTF8-only apparatus
+repair frozen; execute with `meth260_complete_core_development_repair1_result.json`
+output, preserving initial failure. Pass licenses new independent source
 manifest before full generation/tasks/native alias lookup/LUT/DRAM/rate.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted

@@ -59,3 +59,23 @@ running once:
 $env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
 .\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth260_complete_core_development.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth260_complete_core_development_result.json
 ```
+
+## Pre-score apparatus repair1
+
+Initial session12024 exits1 at bindings,2.829s after imports: Windows
+cp1252 default cannot decode original Unicode UTF8 manifest. Before model
+setup/scoring; no candidate or new control output was observed. Preserve
+the [initial failure](meth260_complete_core_development_result.failure.json)
+SHA `ff2a8c2922dfaffe9d3a8adb980cfad37c3f250ed7cfe66cbe8e37f4dbce0db0`.
+Specify UTF8 for JSON reads and concise exception serialization (not raw
+Unicode-error bytes). Candidate/data/math/gates unchanged. Freeze repair
+before execution with a different output path to retain original evidence:
+
+```powershell
+$env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
+.\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth260_complete_core_development.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth260_complete_core_development_repair1_result.json
+```
+
+Pin the exact LF/CRLF bytes of259 archived helper/code sources in
+`.gitattributes` so Git checkout can reproduce the recorded hashes without
+changing their current bytes or rebuilding the candidate.
