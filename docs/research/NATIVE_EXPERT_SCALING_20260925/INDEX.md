@@ -87,7 +87,7 @@ Raw SHA `557927330064c436d40dba01d130af2fbdf063b1c5f82f3de5c8b60e187926b8`.
 No regrading/tolerance/favorable subset. Skip unchanged-profile native
 PIQA/K64/rate promotion work;295/296 scoped passes remain valid.
 
-**Live METH-298 fit capture, session73976 (authoritative).**
+**Live METH-298 test capture, session28420 (authoritative).**
 [Full-covariance protocol](METH_298_GIGACHAT_FULL_COVARIANCE_PROTOCOL_20261002.md)
 frozen `c20d60e` before new observations; isolated capture executable built
 in9.547s, original imatrix restored exactly by reversing four insertions.
@@ -96,8 +96,13 @@ Uses actual BF16 GigaChat/source IDs,27 fixed projections/rank192;
 score20min/12GiB, no GPU/T4/downloads. Source hash precedes child launch.
 Read-only progress: `meth298_capture_progress.py` on the fit/test input
 binary reads completed record headers only; no vectors/spectra/quality.
-Resume/poll session73976; do not restart. After success inspect capture
-closure result, then run `meth298_gigachat_covariance.py test`, then `score`
+Fit session73976 terminal exit0:67,647 records/394,697,744 bytes;all five
+guards pass, minimum711 observations. Old/new diagonal moments EXACT;
+new imatrix/captured row-order sums EXACT. Total1481.203s,child1228.297s,
+peak21,289,103,360B. Fit raw committed `ceb7cb6`,SHA
+`57cc46da176b6be16953ecfadb21c173d85bb0b8bb6dcc026ddba709fb9c0331`.
+Resume/poll session28420; do not restart. After success inspect test
+closure result, then run `meth298_gigachat_covariance.py score`
 ONLY after both capture guards pass. No factor-spectrum observation yet.
 Generic donor port stays paused. New small-core quality needs changed
 scientific variable and untouched sources;292 is now consumed.
