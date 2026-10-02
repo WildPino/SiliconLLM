@@ -1,0 +1,1288 @@
+{
+  "panel_sha256": "9ae7f30e2348bbeb48080b2e3006a38068e216598ecd2900144f672285cc28d1",
+  "rubric": "Unchanged excerpt-only atomic unsupported/severe/missing-detail; ambiguity descriptive; arm map unseen.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_ffn_output_component_cross_input.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "t is a TensorFlow tensor/operation.",
+            "evidence": "Visible values are file-path/hash/count tuples; no TensorFlow object or operation is shown.",
+            "severe": true
+          },
+          {
+            "claim": "ref_ffn_out is a TensorFlow tensor/operation.",
+            "evidence": "The visible ref_ffn_out tuple names a .f32le path,hash and49152; no TensorFlow tensor is shown.",
+            "severe": true
+          },
+          {
+            "claim": "The first tensor has shape(hash,49152).",
+            "evidence": "A hexadecimal hash and count accompany a path; no tensor shape is declared.",
+            "severe": true
+          },
+          {
+            "claim": "The second tensor has a different shape.",
+            "evidence": "Both visible complete entries carry49152; no differing shapes are provided.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The response explicitly names the visible ref_ffn_out key;49152 and the first hash are also present, though misinterpreted as shape.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "t is a TensorFlow Prefill model.",
+            "evidence": "The excerpt contains a file metadata tuple, not a TensorFlow model.",
+            "severe": true
+          },
+          {
+            "claim": "ref_ffn_out is a TensorFlow Prefill model.",
+            "evidence": "The excerpt contains a file metadata tuple, not a TensorFlow model.",
+            "severe": true
+          },
+          {
+            "claim": "c_moe_out is a TensorFlow Prefill model.",
+            "evidence": "The c_moe_out value begins with a C_ROOT file path; no model type is established.",
+            "severe": true
+          },
+          {
+            "claim": "The C file path is C_ROOT/ffn_moe_out-1.f32.",
+            "evidence": "The visible basename is prefill8_ffn_moe_out-1.f32.",
+            "severe": false
+          },
+          {
+            "claim": "The models belong to a larger set of Prefill models.",
+            "evidence": "No model collection or further models are described in the excerpt.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The two prefill8 paths ffn_shexp-1.full.f32le and ffn_out-1.full.f32le are quoted correctly.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The first file is a JSON object with the stated properties.",
+            "evidence": "The excerpt records paths/hash/count tuples, not file contents or a JSON property schema.",
+            "severe": true
+          },
+          {
+            "claim": "A file path is ref_ffn_shexp-1.full.f32le.",
+            "evidence": "The visible path is prefill8/ffn_shexp-1.full.f32le,without ref_ in the basename.",
+            "severe": false
+          },
+          {
+            "claim": "A file path is ref_ffn_out-1.full.f32le.",
+            "evidence": "The visible path is prefill8/ffn_out-1.full.f32le,without ref_ in the basename.",
+            "severe": false
+          },
+          {
+            "claim": "A file path is c_moe_out-1.f32.",
+            "evidence": "c_moe_out is a key; the visible basename is prefill8_ffn_moe_out-1.f32.",
+            "severe": false
+          },
+          {
+            "claim": "The second file is a JSON object with the same properties.",
+            "evidence": "No second file contents or matching JSON schema are shown.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The response correctly identifies the visible prefill8 directory and file paths with metadata, despite its subsequent format/name inventions.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d1_pruning.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "prune_unstructured copies the weight matrix to a new matrix.",
+            "evidence": "The preceding separate restoration loop copies saved weights into existing model weights; the prune function only retrieves W in the visible body.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly states pruning zeros the frac smallest-|w| entries.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "prune_unstructured copies weights from saved state to current state.",
+            "evidence": "The saved-state restoration precedes the def line and is outside prune_unstructured.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It accurately lists model,layers,organ,frac,snap and states independent smallest-|w| pruning.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "prune_unstructured copies weights from saved state to current state.",
+            "evidence": "The saved-state restoration precedes the def line and is outside prune_unstructured.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It accurately lists model,layers,organ,frac,snap and states independent smallest-|w| pruning.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat01_gigachat_mtp_extract.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The JSON is decoded to a Python dictionary.",
+            "evidence": "json.loads is shown but the input JSON contents/type are not; it need not yield a dictionary.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "ExtractionError and its invalid-data message are explicitly present.",
+        "ambiguous": [
+          {
+            "claim": "Decoded data does not match expected format.",
+            "evidence": "This can mean invalid JSON/UTF8,which the excerpt does check; no separate postparse schema test is shown."
+          }
+        ]
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The JSON is decoded into a Python dictionary.",
+            "evidence": "No JSON payload/type is shown; json.loads alone does not establish a dictionary.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly says invalid JSON raises ExtractionError with an error message.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "It correctly states the complete capped-index range check and invalid-JSON ExtractionError.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/fp16_gpu_nan_hunt.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "run_one returns an AutoModelForCausalLM instance.",
+            "evidence": "The excerpt assigns the instance to m; no return from run_one is visible.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Repository,revision,dtype and device/evaluation-mode settings are explicit from_pretrained/to/eval arguments.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "run_one returns the name attribute of AutoModelForCausalLM from a backend.",
+            "evidence": "The earlier return getattr(_BACKEND_ENUM,name) is in a preceding helper; run_one instead loads a model into m.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Its listed run_one parameter names match the visible signature.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "run_one returns the name attribute of AutoModelForCausalLM from a backend.",
+            "evidence": "The earlier return getattr(_BACKEND_ENUM,name) is in a preceding helper; run_one instead loads a model into m.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Its listed run_one parameter names match the visible signature.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e50_default_kernel.py",
+      "A": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "It correctly identifies re.compile regular-expression matching/extraction alongside flags and window sizes.",
+        "ambiguous": [
+          {
+            "claim": "Configuration file for a model.",
+            "evidence": "The visible material is benchmark/configuration parsing code; configuration file is loose framing rather than a demonstrated external file format."
+          }
+        ]
+      },
+      "B": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "The BENCH regex visibly captures token count,seconds and tok/s,as the response states.",
+        "ambiguous": [
+          {
+            "claim": "Configuration file for a model.",
+            "evidence": "The visible material is benchmark/configuration parsing code; configuration file is loose framing."
+          }
+        ]
+      },
+      "C": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "It correctly identifies re.compile regular-expression matching/extraction alongside flags and window sizes.",
+        "ambiguous": [
+          {
+            "claim": "Configuration file for a model.",
+            "evidence": "The visible material is benchmark/configuration parsing code; configuration file is loose framing rather than a demonstrated external file format."
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_acquire_weights.py",
+      "A": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "The available_ram None/below-MIN_FREE_RAM_BYTES check supports the stated minimum-RAM requirement.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Expected payload capacity is100MB.",
+            "evidence": "Only expected_payload_cap is shown; no numeric capacity appears.",
+            "severe": false
+          },
+          {
+            "claim": "Expected asset SHA256 is0x1234567890ABCDEF.",
+            "evidence": "Only expected_tokenizer_asset_sha256 is shown; no hash value appears.",
+            "severe": false
+          },
+          {
+            "claim": "The tokenizer loader is a custom loader.",
+            "evidence": "tokenizer_loader is passed but its implementation or origin is not shown.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly states shard-manifest/tokenizer processing and the minimum-RAM check.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "The response accurately notes manifest/tokenizer processing and the minimum-RAM check.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e25_rank_cost.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The Python script is named r_engine_e25.exe.",
+            "evidence": "A .exe path fragment is visible; it does not identify the enclosing Python script.",
+            "severe": true
+          },
+          {
+            "claim": "--smoke defaults toTrue.",
+            "evidence": "action=store_true is shown,not a defaultTrue; the flag enables the mode when provided.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The --reps3,--threads6 and --tokens0 defaults are correctly stated.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The Python script is named r_engine_e25.exe.",
+            "evidence": "The excerpt shows an executable-path fragment,not the Python script identity.",
+            "severe": true
+          },
+          {
+            "claim": "reps defaults to0.",
+            "evidence": "--reps explicitly defaults to3.",
+            "severe": false
+          },
+          {
+            "claim": "threads defaults to0.",
+            "evidence": "--threads explicitly defaults to6.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The listed reps/threads/tokens/smoke options and result-output path are visible.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The Python script is named r_engine_e25.exe.",
+            "evidence": "The .exe path fragment does not identify a Python script.",
+            "severe": true
+          },
+          {
+            "claim": "The parser takes up to3 arguments.",
+            "evidence": "The response itself lists four options and --out; the excerpt also shows more than3.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The --out os.path.join(HERE,results,e25_rank_cost.json) default is correctly quoted.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e54_droop.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "A cell ran with the described self-contradictory series.",
+            "evidence": "The excerpt identifies a criterion registered BEFORE ANY CELL RAN; no such measured series is supplied.",
+            "severe": true
+          },
+          {
+            "claim": "The series is self-contradictory because negative W2-W1 violates monotonicity.",
+            "evidence": "A monotone decline has a negative difference; the conjunction in the registered rule is malformed,not the monotone series.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The W2-W1 negative/large-difference detail is present,although its interpretation is wrong.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "A cell ran with the described monotone decline in W2.",
+            "evidence": "The excerpt concerns a rule registered before any cell,not a reported observed W2 series.",
+            "severe": true
+          },
+          {
+            "claim": "The cell was registered on the first run.",
+            "evidence": "The brief registered TIME before cells ran; planted controlB-1 caught the malformed rule on the first run.",
+            "severe": true
+          },
+          {
+            "claim": "The problem is the system monotonicity detection.",
+            "evidence": "The excerpt calls the registered conjunction MALFORMED,not a detection failure.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It accurately quotes the registered conjunction and explains the negative W2-W1 under decline.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "A cell ran with the described series.",
+            "evidence": "The excerpt explicitly places criterion registration before any cell ran and provides no observed such series.",
+            "severe": true
+          },
+          {
+            "claim": "The time series itself is self-contradictory.",
+            "evidence": "The registered conjunction is self-contradictory; a genuine monotone decline is not.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains the concrete negative/large decline detail from the excerpt.",
+        "ambiguous": [
+          {
+            "claim": "Cannot satisfy the monotone condition.",
+            "evidence": "This can refer to the malformed combined rule,which indeed cannot be satisfied; it is not necessarily a separate claim that negative decline is nonmonotone."
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=52",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The girl is being pursued by Sir Percy.",
+            "evidence": "The excerpt shows fascination and his return to chambers,not a pursuit action.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Sir Percy smoking fiercely is a directly supported concrete detail.",
+        "ambiguous": [
+          {
+            "claim": "The girl has the fine flower of civilisation.",
+            "evidence": "The parenthetical identifies Eleanor as the likely referent; attachment of the metaphor is imprecise rather than an unambiguous separate inversion."
+          }
+        ]
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The compared girl is Eleanor Chantrey.",
+            "evidence": "The girl is compared WITH Eleanor; Eleanor is the counterpart,not that girl.",
+            "severe": true
+          },
+          {
+            "claim": "The fine flower of civilisation refers to Sir Percy.",
+            "evidence": "The excerpt explicitly names Eleanor Chantrey as that fine flower.",
+            "severe": true
+          },
+          {
+            "claim": "Lucy Armytage is the same person as the previously identified Eleanor.",
+            "evidence": "Eleanor is the comparison counterpart; no equivalence of these named women is shown.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Sir Percy smoking and returning to his chambers,and Lucy commanding his attention,are explicitly present.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The comparison concerns the girls intelligence.",
+            "evidence": "No intelligence criterion is stated.",
+            "severe": false
+          },
+          {
+            "claim": "The comparison concerns standing up to the influence of a powerful woman.",
+            "evidence": "No such power/influence/resistance is stated.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains Eleanor Chantrey as the comparison counterpart.",
+        "ambiguous": [
+          {
+            "claim": "The girl has the fine flower of civilisation.",
+            "evidence": "The parenthetical names Eleanor; metaphor attachment is ambiguous."
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=761",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The Scandinavian symbols are found on that church bell.",
+            "evidence": "X identifies Scandinavian symbols and Y separately identifies the church-bell legend.",
+            "severe": true
+          },
+          {
+            "claim": "The name of the church bell is supplied.",
+            "evidence": "Only location and year are supplied,not a bell name.",
+            "severe": false
+          },
+          {
+            "claim": "Count Goblet dAlviella is a work with an author.",
+            "evidence": "Count Goblet dAlviella is the named contributor preceding The Migrations and Symbols,not a work title.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Hathersage,Derbyshire and1617 are visible;Ilios/Grammar of the Lotus/Migrations and Symbols are named sources.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The Scandinavian symbols are found in the Hathersage church bell.",
+            "evidence": "X and Y are distinct caption entries,not one linked artifact.",
+            "severe": true
+          },
+          {
+            "claim": "The church bells name is given.",
+            "evidence": "The excerpt gives location/year,not a bell name.",
+            "severe": false
+          },
+          {
+            "claim": "H.Colley March is a work with an author.",
+            "evidence": "H.Colley March is a credited contributor,not a work title.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The church-bell location/year and named Ilios/Grammar of the Lotus/Migrations and Symbols citations are present.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The excerpt reports a significant archaeological find.",
+            "evidence": "It lists symbol-caption sources; no discovery event is reported.",
+            "severe": true
+          },
+          {
+            "claim": "The archaeological find dates to the16th century.",
+            "evidence": "No such find/date is shown;1617 is the church-bell legend date and is not16th century.",
+            "severe": true
+          },
+          {
+            "claim": "The excerpt gives a detailed manuscript description.",
+            "evidence": "No manuscript appears.",
+            "severe": true
+          },
+          {
+            "claim": "A manuscript was found in the18th century.",
+            "evidence": "No manuscript discovery or18th-century date appears.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Ancient Scandinavian symbols and a church-bell legend in Hathersage/Derbyshire are correctly mentioned.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=432",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "They have been through a winter of hard work.",
+            "evidence": "The source says winter and hard times,not winter labor.",
+            "severe": false
+          },
+          {
+            "claim": "Men do not get enough rest.",
+            "evidence": "The excerpt ends at men dont get;the missing object/rest is not provided.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The group is pleased to be at work again and out on the plains;heavy work is anticipated.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "People are currently working hard and occasionally experiencing setbacks.",
+            "evidence": "Current work hardship/setbacks are not described;winter hardship is past and heavy work is forecast.",
+            "severe": false
+          },
+          {
+            "claim": "The speaker has been through a winter of hard work.",
+            "evidence": "Winter/hard times do not establish winter labor.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Some have had tough times and they are pleased to work again on the plains.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "They have been through a winter of hard work.",
+            "evidence": "The source says winter/hard times,not winter labor.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Being pleased to be back at work on the plains and the forecast that this will not last are present.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=248",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The classes later develop into separate groups.",
+            "evidence": "Classes are called a relatively late development;no subsequent transformation into other groups is shown.",
+            "severe": false
+          },
+          {
+            "claim": "The totem kins of phratriac names may have had two extant totem kins.",
+            "evidence": "It is the PHRATRIES that may have been named after two extant totem kins;the response changes the relationship.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains the specific lost-names/two-extant-totem-kins motif,though its relationship is confused.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "These groups are not necessarily related to each other.",
+            "evidence": "The excerpt does not discuss their relatedness.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly retains uncertainty about vanished kins,possible names from two extant kins and lost phratry names.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Classes later develop into separate groups.",
+            "evidence": "The source calls classes a relatively late development,not a further group transformation.",
+            "severe": false
+          },
+          {
+            "claim": "The totem kins have not vanished.",
+            "evidence": "The source says we CANNOT SAY they vanished,not that nonvanishing is established.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains class grouping and the fact that phratry names are unknown.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=337",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "They often went fishing.",
+            "evidence": "The excerpt is clipped at went f;fishing is not supplied.",
+            "severe": false
+          },
+          {
+            "claim": "They played in the country.",
+            "evidence": "No playing activity is supplied.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Curly Locks visits her uncle after her parents take her,and cousin Harry is explicitly named.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "Curly Locks dreams of the country and her parents take her to her uncle weeks later.",
+        "ambiguous": [
+          {
+            "claim": "What she liked best about her uncles visit.",
+            "evidence": "Earlier wording correctly identifies HER visit to the uncle;the possessive is loose rather than an unequivocal opposite travel event."
+          }
+        ]
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The author had the dream.",
+            "evidence": "Curly Locks,not the narrator/author,is explicitly the dreamer.",
+            "severe": true
+          },
+          {
+            "claim": "Harry often accompanied her to the country.",
+            "evidence": "Harry is met during her stay;the subsequent often went f activity is clipped and is not a country-arrival statement.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Curly Locks dreaming of the country,parental transport and cousin Harry are directly supported.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=767",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The fox is caught in a daisy chain.",
+            "evidence": "The fox is killed in the open and then lifted;no daisy chain exists.",
+            "severe": true
+          },
+          {
+            "claim": "The huntsman catches him using a dugg and a dugg.",
+            "evidence": "Dogs bay around the lifted fox,but no such capture method is given.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "A hunting scene involving the fox and huntsman is supported.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The fox is caught in a daisy chain.",
+            "evidence": "The source has the fox killed in the open;no chain exists.",
+            "severe": true
+          },
+          {
+            "claim": "The huntsman catches him with a dugg and a goblet.",
+            "evidence": "No goblet or such capture method is given.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The fox/huntsman hunting scene is supported.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The fox is chasing a rabbit.",
+            "evidence": "The fox is the killed quarry of the hunt;no rabbit appears.",
+            "severe": true
+          },
+          {
+            "claim": "The fox dodges repeatedly.",
+            "evidence": "No fox-dodging action is given.",
+            "severe": false
+          }
+        ],
+        "missing_detail": true,
+        "detail_evidence": "No concrete supported hunting detail:the output only substitutes a fox/rabbit chase and dodging for the depicted kill/huntsman/dogs.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=396",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Sigels soldiers fire upon Lyons troops.",
+            "evidence": "The advancing troops fire UPON Sigels band;Lyon is only in the clipped adjoining-hills expectation.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Flags waved to supposed victorious comrades and advancing-troop fire leaving dead/dying are explicit.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Sigels men attack Lyon and use the destructive fire.",
+            "evidence": "Sigels band is the recipient of the advancing-troop fire,not its stated attacker.",
+            "severe": true
+          },
+          {
+            "claim": "The fire signals their victory.",
+            "evidence": "No Sigel victory is reported;his band is hit by the destructive fire.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The concrete point-blank fire and dead/dying-ground details are present despite inverted agency.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Sigels men fire upon Lyons troops.",
+            "evidence": "The advancing troops fire UPON Sigels band;no Sigel-on-Lyon fire is stated.",
+            "severe": true
+          },
+          {
+            "claim": "The flag recipients are their victorious comrades.",
+            "evidence": "The source qualifies this as what they SUPPOSED,followed by destructive fire upon them.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Flags and sudden advancing-troop point-blank fire are visible.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=585",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The narrator is the person made ill after the cliff night.",
+            "evidence": "The narrator describes how ill SHE was,another woman.",
+            "severe": true
+          },
+          {
+            "claim": "The narrator forgot her own sleep-walking adventure.",
+            "evidence": "The narrator almost forgot the other womans subsequent illness,not her own adventure.",
+            "severe": true
+          },
+          {
+            "claim": "The man is her husband.",
+            "evidence": "No husband relationship is stated.",
+            "severe": true
+          },
+          {
+            "claim": "She told him about it as an established fact.",
+            "evidence": "She MUST HAVE told him is the narrators inference,not reported direct knowledge.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Not telling Mrs.Westenra and the cliff/sleep-walking incident are explicit source details.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The narrator is the woman made ill.",
+            "evidence": "The source distinguishes I from the woman referred to as she.",
+            "severe": true
+          },
+          {
+            "claim": "She forgot her own adventure.",
+            "evidence": "The narrator nearly forgot the other womans illness.",
+            "severe": true
+          },
+          {
+            "claim": "The man is her husband.",
+            "evidence": "No spouse relationship is provided.",
+            "severe": true
+          },
+          {
+            "claim": "The husband told her the incident.",
+            "evidence": "The narrator infers SHE told HIM,then HE asks the narrator to explain.",
+            "severe": true
+          },
+          {
+            "claim": "She is eager to tell him to understand his perspective.",
+            "evidence": "HE wants her account so HE may understand;her stated hope concerns nondisclosure to Mrs.Westenra.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The distinctive sleep-walking/cliff incident remains recognizable despite its wrong participants/direction.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The main narrator forgot her own illness.",
+            "evidence": "I almost forgot how ill SHE was;the illness belongs to the other woman.",
+            "severe": true
+          },
+          {
+            "claim": "Her husband visited her.",
+            "evidence": "No visit event is described.",
+            "severe": true
+          },
+          {
+            "claim": "The man is her husband.",
+            "evidence": "No spouse relationship is stated.",
+            "severe": true
+          },
+          {
+            "claim": "She revealed that she had told him her adventure.",
+            "evidence": "The narrator only infers that the OTHER woman told him;no such revelation is shown.",
+            "severe": true
+          },
+          {
+            "claim": "She hopes she did not say anything to Mrs.Westenra.",
+            "evidence": "The hope is whether nondisclosure was RIGHT,not whether nondisclosure occurred.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains the sleep-walking cliff episode and Mrs.Westenra nondisclosure concern.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260918.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The described process is checkpointing.",
+            "evidence": "The source discusses a paired run and temporary checkout diagnostics,not saving/restoring model checkpoints.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly retains not clean-box/interleaved and no passed>=50tok/s/engine.c gate.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The described process is checkpointing.",
+            "evidence": "The excerpt discusses paired/state/checkout diagnostics,not checkpointing.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Not clean-box/interleaved,no passed>=50tok/s/engine.c gate and audit details/log reference are visible.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The process is checkpointing.",
+            "evidence": "The source concerns a paired run and temporary code checkout,not model checkpointing.",
+            "severe": true
+          },
+          {
+            "claim": "The checkpointing process fails required quality standards.",
+            "evidence": "Not a quality proof and no passed speed/engine gate do not report an observed quality failure.",
+            "severe": true
+          },
+          {
+            "claim": "MTP4 is a setting.",
+            "evidence": "The clipped text ramo MTP4 starts the alternative output-ID value;no MTP4 setting is stated.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains the concrete lack of clean-box/interleaved evidence and the audit-log context.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "SwiGLU means Synthetic Gradient Language Unit.",
+            "evidence": "The excerpt does not supply that expansion.",
+            "severe": true
+          },
+          {
+            "claim": "The issue lies in SwiGLU/Q6/layer1 propagation.",
+            "evidence": "Current reference/reference SwiGLU passes;the text says not to rewrite these and locates first failure at kqv_out-1.",
+            "severe": true
+          },
+          {
+            "claim": "kqv_out-1 is reference/reference current SwiGLU.",
+            "evidence": "The text separates that propagated failure from the passing current SwiGLU.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "ffn_norm-0,Rung-2B cross-input comparison and identity-audit closure without a run are explicitly present.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The failing stage is SwiGLU/down and a SwiGLU/Q6/layer1 architecture problem.",
+            "evidence": "These local gates pass;first propagated failure is kqv_out-1 and the instruction is do not rewrite SwiGLU/Q6/layer1.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly states reference/reference current SwiGLU passes and identity-audit closure without a run.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The failing stage is SwiGLU/down and a SwiGLU/Q6/layer1 architecture problem.",
+            "evidence": "These local gates pass;first propagated failure is kqv_out-1 and the instruction is do not rewrite SwiGLU/Q6/layer1.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly states reference/reference current SwiGLU passes and identity-audit closure without a run.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E18_THE_RANKING_LADDER.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Conversion speed is actually50tok/s.",
+            "evidence": "50tok/s is the target budget;the fastest all-ternary rung is explicitly short of it.",
+            "severe": true
+          },
+          {
+            "claim": "That50tok/s model can activate7.07G ternary weights per token.",
+            "evidence": "The budget permits only.98-1.06G;7.07G is the donors incompatible active weight count.",
+            "severe": true
+          },
+          {
+            "claim": "The7B donor runs at6.9times the speed.",
+            "evidence": "The fastest rung is6.9times SHORT of the target,not faster.",
+            "severe": true
+          },
+          {
+            "claim": "The target is98-106% accuracy rather than100%.",
+            "evidence": "The source gives.98-1.06G active weights and9.8-10.6% model fraction,not any accuracy target.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains the concrete statement that quality-improving rungs are slower.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Conversion speed is actually50tok/s.",
+            "evidence": "50tok/s is the speed target/budget,not achieved conversion performance.",
+            "severe": true
+          },
+          {
+            "claim": "The target is merely improving output quality rather than reaching a specific level.",
+            "evidence": "The excerpt analyzes the unreachable50tok/s target;it does not replace it by generic quality improvement.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly retains.98-1.06G permissible active weights,donor7.07G,and all-ternary6.9x short with slower quality rungs.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Conversion speed is actually50tok/s.",
+            "evidence": "50tok/s is a target budget,not observed performance.",
+            "severe": true
+          },
+          {
+            "claim": "The7B donor itself is the fastest ladder point.",
+            "evidence": "The ALL-TERNARY conversion rung is described as the fastest point,not the original donor.",
+            "severe": true
+          },
+          {
+            "claim": "The target is generic quality improvement rather than a specific level.",
+            "evidence": "The text analyzes inability to reach the stated50tok/s target,not an alternative generic-quality goal.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It retains.98-1.06G permissible active weights and the6.9x shortfall.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The newly pinned GGML_CPU_GENERIC F1 coordinate stops at kqv_out-1.",
+            "evidence": "The second coordinate is clipped at F1;the kqv stop belongs to the EARLIER start-state experiment.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The earlier pre-reference/pre-F16 state and Q4 lowering making block0 nearly exact are explicit.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The newly pinned GGML_CPU_GENERIC F1 coordinate stops at kqv_out-1.",
+            "evidence": "The second coordinate is clipped at F1;the kqv stop belongs to the EARLIER start-state experiment.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The earlier pre-reference/pre-F16 state and Q4 lowering making block0 nearly exact are explicit.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The NEW design uses the pre-reference-generic/pre-F16-reduction state and stops at kqv_out-1.",
+            "evidence": "The excerpt assigns those properties to the EARLIER run,before the changed causal coordinates.",
+            "severe": true
+          },
+          {
+            "claim": "The pinned GGML_CPU_GENERIC F1 coordinate stops at kqv_out-1.",
+            "evidence": "No such stopping outcome is stated for that clipped second coordinate.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly retains reference-generic Q4 lowering making block0 terminal output nearly exact.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_ENGINE_RUNG1.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The accepted weights changed.",
+            "evidence": "Donor,artifact,quantization and model graph remain fixed;ENGINE FIDELITY is the changed coordinate.",
+            "severe": true
+          },
+          {
+            "claim": "The hypothesis remains unchanged.",
+            "evidence": "No earlier hypothesis or unchanged-hypothesis assertion is supplied.",
+            "severe": false
+          },
+          {
+            "claim": "The hypothesis concerns fidelity of model predictions.",
+            "evidence": "The stated hypothesis starts with a preregistered real tensor;this stage tests numerical payload/operator consumption,not model predictions.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The descriptor-only to real-payload scalar C row-matvec change is concretely retained.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The hypothesis itself was modified from descriptor inspection to numerical consumption.",
+            "evidence": "That is explicitly the changed COORDINATE;no old/new hypothesis comparison is shown.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly retains engine-fidelity change to real payloads via scalar C row-matvec and fixed quality evidence.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The hypothesis remains unchanged.",
+            "evidence": "The excerpt states a hypothesis but supplies no unchanged-hypothesis comparison.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The scalar C row-matvec/real-payload versus descriptor-only coordinate change is correct.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "These checkpoints/frozen schedules manage model training.",
+            "evidence": "They concern engine production-integration/numerical checkpoints,not a model-training process.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The named POST_F16_BLOCK0_SWIGLU_SSE2_EXACT_REPAIR on immutable gate/up operands is explicitly established.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The path is a frozen schedule.",
+            "evidence": "The path is tested under TWO frozen schedules;it is not itself a schedule.",
+            "severe": false
+          },
+          {
+            "claim": "The path passes block0 and all32 complete layer1 checkpoints.",
+            "evidence": "The source asks whether it DOES pass;it does not report that outcome.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The closed SSE2 result and byte-exact repair on immutable reference gate/up operands are concrete supported details.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The path is a frozen schedule.",
+            "evidence": "The path is tested under TWO frozen schedules;it is not itself a schedule.",
+            "severe": false
+          },
+          {
+            "claim": "The path passes block0 and all32 complete layer1 checkpoints.",
+            "evidence": "This is the open question,not a reported pass.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The closed SSE2 result and byte-exact repair on immutable reference gate/up operands are concrete supported details.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E24_THE_DEPTH_THE_BUDGET_PERMITS.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The declined g1p(mass) variant is the zero-charge,no-per-token-score object registered here.",
+            "evidence": "The0M/no-score/preregistration statement concerns K148-STATIC,not the separate declined g1p(mass) entry.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "g1p(mass) being declined in E23 and disclosed is explicitly present.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "g1p(mass) is charged0M rather than11M and needs no per-token score.",
+            "evidence": "Those properties are explicitly assigned to K148-STATIC.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The g1p(mass) declined-in-E23/disclosed detail is present.",
+        "ambiguous": []
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "g1p(mass) is charged0M rather than11M and needs no per-token score.",
+            "evidence": "Those properties are explicitly assigned to K148-STATIC.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The g1p(mass) declined-in-E23/disclosed detail is present.",
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_W4_BF16_FULL_EXPORT_RESULT.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The donor is named Fissato.",
+            "evidence": "fissato is the Italian adjective fixed,not a donor identity.",
+            "severe": true
+          },
+          {
+            "claim": "The format is exported to BF16 rather than W4-v2 with BF16 scales.",
+            "evidence": "W4-v2 a scala BF16 specifies the quantized W4-v2 representation with BF16 scale,not conversion to a full BF16 output format.",
+            "severe": true
+          },
+          {
+            "claim": "The result is not a complete export.",
+            "evidence": "The source explicitly heads the result export completo;its distinction is export versus loading/quality,not incomplete versus complete export.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "It correctly retains export-only authorization without forward/calibration/heldout/T4.",
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "It accurately states only W4-v2 export/no forward/calibration/heldout/T4 and format/export rather than loading/model-quality evidence.",
+        "ambiguous": [
+          {
+            "claim": "BF16 scalability.",
+            "evidence": "The source says BF16 scale precision;scalability is loose wording without an explicit model-size scaling claim."
+          }
+        ]
+      },
+      "C": {
+        "unsupported": [],
+        "missing_detail": false,
+        "detail_evidence": "It accurately states only W4-v2 export/no forward/calibration/heldout/T4 and format/export rather than loading/model-quality evidence.",
+        "ambiguous": [
+          {
+            "claim": "BF16 scalability.",
+            "evidence": "The source says BF16 scale precision;scalability is loose wording without an explicit model-size scaling claim."
+          }
+        ]
+      }
+    }
+  ]
+}
