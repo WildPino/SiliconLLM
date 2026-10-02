@@ -1,0 +1,261 @@
+{
+  "experiment": "METH-298-test-real-routed-input-capture",
+  "source_model": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_binding_v1\\GigaChat3.1-10B-A1.8B-source-bf16.gguf",
+    "bytes": 21356264448,
+    "sha256": "fabc8056f57e230ae9e6aadceb45f4abf9e5d7031fbfe8eca2671d871ef35d47"
+  },
+  "ids": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth06_cyrillic_source_ids.txt",
+    "bytes": 310095,
+    "sha256": "7f5333d1d52a5c94ad0026ff0f38cc022a3aeeecf1b884085b56abe8c795c524"
+  },
+  "chunks": 125,
+  "source_ids_used": 64000,
+  "trailing_source_ids_unused": 322,
+  "build_manifest_sha256": "e6bf938e66e38b1c661c92960ac70e689cbe316844419682c36bb6c78131d1a3",
+  "capture": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_test_inputs.bin",
+    "bytes": 279661456,
+    "sha256": "0733afee8d42adf479822a2b91eb3c3a90f0972b53e1c4cdbd0fef563b09a5d6"
+  },
+  "new_imatrix": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_test_imatrix.gguf",
+    "bytes": 31645856,
+    "sha256": "f5dfb170b3f739f29bec39f1a99b948d4a93712f9c949481048ba589055be1c3"
+  },
+  "old_imatrix": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth06_cyrillic_bf16_125chunks.gguf",
+    "bytes": 31645824,
+    "sha256": "5c529f9009f0f241dfc50d0a1f598b0e183c137693a951f04963dc729a344d08"
+  },
+  "records": 47931,
+  "audits": [
+    {
+      "layer": 1,
+      "expert": 0,
+      "organ": 0,
+      "count": 1753,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 0,
+      "organ": 1,
+      "count": 1753,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 0,
+      "organ": 2,
+      "count": 1753,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 32,
+      "organ": 0,
+      "count": 1393,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 32,
+      "organ": 1,
+      "count": 1393,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 32,
+      "organ": 2,
+      "count": 1393,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 63,
+      "organ": 0,
+      "count": 5423,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 63,
+      "organ": 1,
+      "count": 5423,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 1,
+      "expert": 63,
+      "organ": 2,
+      "count": 5423,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 0,
+      "organ": 0,
+      "count": 855,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 0,
+      "organ": 1,
+      "count": 855,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 0,
+      "organ": 2,
+      "count": 855,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 32,
+      "organ": 0,
+      "count": 2420,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 32,
+      "organ": 1,
+      "count": 2420,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 32,
+      "organ": 2,
+      "count": 2420,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 63,
+      "organ": 0,
+      "count": 2264,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 63,
+      "organ": 1,
+      "count": 2264,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 13,
+      "expert": 63,
+      "organ": 2,
+      "count": 2264,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 0,
+      "organ": 0,
+      "count": 771,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 0,
+      "organ": 1,
+      "count": 771,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 0,
+      "organ": 2,
+      "count": 771,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 32,
+      "organ": 0,
+      "count": 631,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 32,
+      "organ": 1,
+      "count": 631,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 32,
+      "organ": 2,
+      "count": 631,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 63,
+      "organ": 0,
+      "count": 467,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 63,
+      "organ": 1,
+      "count": 467,
+      "max_relative_old_moment_error": 0.0
+    },
+    {
+      "layer": 25,
+      "expert": 63,
+      "organ": 2,
+      "count": 467,
+      "max_relative_old_moment_error": 0.0
+    }
+  ],
+  "gates": {
+    "all27_present_counts384": true,
+    "source_diagonal_count_and_moment_closure": true,
+    "captured_diagonal_exact": true,
+    "gate_up_inputs_exact": true,
+    "coordinates_unique_finite_footer_eof": true
+  },
+  "command": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_imatrix_capture.exe",
+    "-m",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_binding_v1\\GigaChat3.1-10B-A1.8B-source-bf16.gguf",
+    "-f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth06_cyrillic_source_ids.txt",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_test_imatrix.gguf",
+    "--chunks",
+    "125",
+    "--ctx-size",
+    "512",
+    "--batch-size",
+    "128",
+    "--threads",
+    "6",
+    "--threads-batch",
+    "6",
+    "--gpu-layers",
+    "0",
+    "--no-ppl",
+    "--output-frequency",
+    "1000"
+  ],
+  "child_exit_code": 0,
+  "child_seconds": 1445.5780000000013,
+  "peak_child_rss_bytes": 21293760512,
+  "total_seconds": 1464.2969999999987,
+  "decision": "capture_qualified_for_frozen_full_covariance_screen",
+  "scope": "BF16 GGUF source graph,not source-HF bit-equivalence or full-model quality. No candidate factors or spectra inspected in collection."
+}
