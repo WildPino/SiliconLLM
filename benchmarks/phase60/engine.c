@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_SPECIFIED_ARITHMETIC
+#ifdef SILICON_SWITCH_W8A8_REFERENCE
+#include "../native_expert_scaling/meth336_switch_w8a8_entry.c"
+#elif defined(SILICON_SWITCH_SPECIFIED_ARITHMETIC)
 #include "../native_expert_scaling/meth333_switch_source_binding.c"
 #elif defined(SILICON_SWITCH_F64_MV_SOURCE)
 #include "../native_expert_scaling/meth332_switch_source_binding.c"
