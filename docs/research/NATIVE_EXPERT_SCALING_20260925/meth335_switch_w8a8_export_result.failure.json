@@ -1,0 +1,70 @@
+{
+  "experiment": "METH-335-full-source-all-bank-row-I8-export",
+  "shards": [
+    {
+      "name": "pytorch_model-00001-of-00006.bin",
+      "target_bytes_so_far": 2558040576,
+      "source_tensors_so_far": 1073,
+      "seconds": 74.96899999999732
+    },
+    {
+      "name": "pytorch_model-00002-of-00006.bin",
+      "target_bytes_so_far": 5066288640,
+      "source_tensors_so_far": 2154,
+      "seconds": 75.0460000000021
+    },
+    {
+      "name": "pytorch_model-00003-of-00006.bin",
+      "target_bytes_so_far": 7550877696,
+      "source_tensors_so_far": 3236,
+      "seconds": 120.81299999999464
+    },
+    {
+      "name": "pytorch_model-00004-of-00006.bin",
+      "target_bytes_so_far": 10059156480,
+      "source_tensors_so_far": 4333,
+      "seconds": 282.57800000000134
+    },
+    {
+      "name": "pytorch_model-00005-of-00006.bin",
+      "target_bytes_so_far": 12567426048,
+      "source_tensors_so_far": 5430,
+      "seconds": 247.43800000000192
+    },
+    {
+      "name": "pytorch_model-00006-of-00006.bin",
+      "target_bytes_so_far": 14818015744,
+      "source_tensors_so_far": 6392,
+      "seconds": 261.59300000000076
+    }
+  ],
+  "controller_sha256": "13781dcee72befb3f47b904e21cf1212a83382cdfd126902dada930798e33c53",
+  "protocol_sha256": "e7b4c0314e65626f68a8dfe81997a3039e94e5f6158db14f4b58aa948fa47c21",
+  "source_binding_sha256": "e72fc17b5527dc34df5c00ed7c44498b2ee4fc5d338ed8b130fff101a30c20a7",
+  "qualified334_sha256": "155fd1bc3f5894e9450a6ba2e22f4d08e1e974582e3d27bff62e52ee3f8eafaa",
+  "model": "google/switch-base-256",
+  "revision": "cdac1724c078ea4974b4087c59634799561e7835",
+  "primitive_controls": {
+    "exact_scalar_nearest_even": true,
+    "zero_row_scale": 1.0,
+    "tie_row": [
+      127,
+      -127,
+      0,
+      2,
+      0,
+      -2,
+      2,
+      -2
+    ],
+    "integer_extreme_and_cancellation": [
+      66064384,
+      0
+    ],
+    "passed": true
+  },
+  "stage": "all_serialized_target_readback",
+  "error": "AssertionError('export_resource_guard')",
+  "main_seconds_excluding_imports": 1200.0149999999994,
+  "maximum_checked_rss_bytes": 10422513664
+}
