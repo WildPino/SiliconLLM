@@ -145,3 +145,7 @@ requirement, not an assumption about this proposed sparse-source geometry.
 [310](METH_310_GIGACHAT_REGIONAL_SUBSPACE_RESULT_20261003.md) tests actual parent outputs in ten input-selected128D spaces and fails all gates, unlike synthetic cost303–309. This does not include the shared core's compensating output space. [Next shared256/regional128 bound](GIGACHAT_SHARED_REGIONAL_BOUND_PROPOSAL_20261003.md) is unrun; no joint student training/capture or quality claim is licensed. Preserve exposure and generalization failures.
 
 311 common256-plus-regional128 independent-parent output bound also fails all gates. The next uncertainty is complete routed-plus-shared MoE mixture preservation, with actual source targets and unchanged cost/quality requirements. This is not a claim that mixture compensation succeeds.
+
+## Complete source target availability after314
+
+[314](METH_314_GIGACHAT_MIXTURE_TARGETS_RESULT_20261003.md) now reconstructs full four-parent-plus-shared FFN targets on actual source inputs with original GGML router and BF16 activation packing. This enables a separately frozen COMPLETE mixture pilot; it does not license training the failed cost profile or waive sparse child/source exposure. Historical collection suggestions must first use these existing targets where applicable. Full attention/context targets remain missing.

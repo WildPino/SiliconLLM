@@ -53,30 +53,16 @@ baseline charges1016MB active/token. The generic donor port stays paused.
   Packed-I4/tile4 candidate306 retains coefficient capacity, own format controls
   PASS,310.572MB addressed weights/5.127GB peakRSS;PASSIVE20–22ms FAIL14ms.
   No compact teacher training/source-quality or accepted-token evidence yet.
-- **[307 worker wait comparison](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)**
-  exact306 binary,all90 hashes/selftests/source bindings PASS;runtime effective
-  PASSIVE0ms/ACTIVE200ms verified. ACTIVE14.780/11.764/11.320ms still FAIL
-  EACH14ms and repeatability1.3057;PASSIVE A/C drift1.1563FAIL. INCONCLUSIVE,
-  no collection/training. Freeze21b9ce3,exit0,12.812s/5.126GB RSS.
-  Raw SHA `42d6959cf7be160137e5d94dceb8ebeac76ae886b7f0315cb5945fc0f59e059a`.
-
-- **[308/309 physical binding](METH_309_WINDOWS_AFFINITY_RESULT_20261003.md)**:
-  308 explicit library affinity crashes at startup0xc0000005, no observations;
-  [apparatus failure preserved](METH_308_PHYSICAL_CORE_PROFILE_FAILURE_20261003.md).
-  309 direct Windows API verifies all six core masks at seven checks/process;
-  all90 hashes/selftests exact306, but15.542–41.148ms and variation FAIL.
-  INCONCLUSIVE; no training/promotion. Stop affinity tuning for now.
-
-- **[310 real regional functions bound](METH_310_GIGACHAT_REGIONAL_SUBSPACE_RESULT_20261003.md)**
-  reuses all22,549/15,977 actual fit/test nonlinear parent states. PCA16 input
-  regions/ten rank128 output subspaces FAIL all4 gates: test median errors
-  55.485–93.265%, pooled81.607%; poor exposure and generalization. Seven/nine
-  test-region oracles also<99% energy. Exit0,52s/1.058GB finalRSS; no student.
-
-- **[311 common256/regional128](METH_311_GIGACHAT_SHARED_REGIONAL_BOUND_RESULT_20261003.md)**
-  improves every parent energy9.477–29.095pp, but all4 gates FAIL: pooled
-  test error63.968%, every parent42.344–80.517%, unchanged exposure failures.
-  Exact310 routing,44.484s/1.483GB maximum checkedRSS. No student/export.
+- [307–311 recent cost/representation](HISTORY_METH307_THROUGH314_20261003.md):
+  waiting and verified physical affinity do not yield stable14ms; stop tuning.
+  PCA16/ten128D parent subspaces and shared256/residual128 both FAIL all gates,
+  pooled test errors81.607%/63.968%. No unchanged student/export promotion.
+- **[314 full source MoE target builder](METH_314_GIGACHAT_MIXTURE_TARGETS_RESULT_20261003.md)**
+  all six cases PASS source/hash/router-slot/post-SwiGLU/archive controls.
+  37,381 actual inputs,149,524 selected parent outputs,1.609GB archives;
+  original GGML F32 routing/BF16 activation packing, max nonlinear error3.153e-7.
+  69.5s/3.298GB maximum checkedRSS.312/313 failures/partial assets preserved.
+  This is source-target reconstruction, not a trained compact artifact or rate.
 
 ## Exact resumption
 
@@ -86,17 +72,16 @@ licensed. Old rank192 and direct-channel omission remain failures. Native
 fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
-Next exact action: reconstruct complete GigaChat MoE FFN targets from
-existing captured normalized inputs: all four source-selected parents,
-their gates, and original shared FFN. This changes the training target
-from independent-parent preservation to the actual composed source function.
-Freeze source/raw-input bindings, dedup coordinates, source-router/slot and
-captured post-SwiGLU controls before output construction. No approximate
-student or new collection. Anchor-conditioned coverage is biased; final
-quality still needs untouched input distribution and whole causal contexts.
-Stop affinity tuning;303–311 unchanged profiles/recipes remain failed or
-inconclusive. Stable complete cost and whole-model precision/quality required.
-No live job;311 exited0 and complete result is preserved.
+Next exact action: freeze the [COMPLETE mixture pilot](GIGACHAT_COMPLETE_MIXTURE_PILOT_PROPOSAL_20261003.md)
+using qualified314 archives: shared output space plus the GATED SUM of four
+regional source-parent residual projections, evaluated against full source
+MoE output, with fit-only input routing/control/empty-region rules. No parent
+error proxy or student training.20min/12GiB, all states and coverage retained.
+Fit parent counts down to10 and one test parent absent already preclude
+claiming all640 useful children; no silent exposure waiver. Define new data
+needs only after this bounded complete-function diagnostic. No source recapture.
+303–311 unchanged profiles/recipes failed or inconclusive; stable complete
+native cost and independent whole-model quality still mandatory. No live job.
 
 Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
 for analytical64->640;only64 real pretrained experts exist. No duplicate/
@@ -115,7 +100,8 @@ History: [through216](HISTORY_THROUGH_METH216_20261001.md),
 [265-280](HISTORY_METH265_THROUGH280_20261002.md),
 [281-294](HISTORY_METH281_THROUGH294_20261002.md),
 [295-299](HISTORY_METH295_THROUGH299_20261003.md),
-[300-306](HISTORY_METH300_THROUGH306_20261003.md). Historical next steps
+[300-306](HISTORY_METH300_THROUGH306_20261003.md),
+[307-314](HISTORY_METH307_THROUGH314_20261003.md). Historical next steps
 are superseded. Fixed259 strict semantic failure,264 cached-reference
 failure,274/275 component-cost failures and earlier hard-carve/weight-rank/
 static-bias/affine/intercept/amplitude/weak-child stops remain recorded.

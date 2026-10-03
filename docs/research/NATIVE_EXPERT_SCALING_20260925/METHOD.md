@@ -255,6 +255,17 @@ recipe closed. Next reconstruct the COMPLETE routed-plus-shared FFN target
 on existing actual captured inputs, with source routing and nonlinear
 arithmetic controls. Individual-parent loss is not automatically mixture
 loss; this change requires its own local and composed quality checks.
+[314 complete source FFN targets](METH_314_GIGACHAT_MIXTURE_TARGETS_RESULT_20261003.md)
+now provides a reproducible missing input/output step: deduplicate actual
+captured normalized source inputs, replay original GGML routing, emulate
+original BF16 activation packing, construct four parent+shared full targets
+and export six bit-exact/hash-bound NPZs (1.609GB/37,381 states,69.5sCPU).
+312/313 apparatus failures/partial datasets are preserved. Source post-SwiGLU
+closure<=3.153e-7 and every original router SLOT pass. Complete mathematical
+FFN targets do not assert captured native full-MoE bit parity or compact quality.
+Rare/anchor-conditioned coverage remains insufficient for ten useful children
+per all64 parents. Next evaluate COMPLETE mixture preservation before any
+new capture/student investment; no parent-error proxy or exposure waiver.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),
