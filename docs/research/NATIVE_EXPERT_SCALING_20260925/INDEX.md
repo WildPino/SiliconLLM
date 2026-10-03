@@ -69,6 +69,14 @@ baseline charges1016MB active/token. The generic donor port stays paused.
   peakRSS9.953GB. Freezec7439d8,exit0,11.172s. No capture/training/quality.
   Raw SHA `396edaee9c201324ffcb35eb57cadfb915a4ea6899694ca9e1055d8c29dd968b`.
 
+- **[304 unchanged I8/Q6 attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)**
+  all30 output/route hashes and complete selftests exact303;timer closure9.7us.
+  Instrumented build21.846/22.477/22.410ms still FAIL14ms;difference from303
+  not an isolated improvement. Projection20.308ms/90.478%,MLA8.531ms,head
+  4.658ms,routed3.838ms/shared2.879ms. No collection/training/quality.
+  Repaired model-free freeze37845c8,exit0,5.734s/9.953GB peakRSS.
+  Raw SHA `2d2f3603d1aa02c6495aee27e0da7af9eeb1a1507d8441c56ab77c58e5a545cc`.
+
 ## Exact resumption
 
 No scientific job active. Pair/vector4 full-source LUT implementations are
@@ -77,18 +85,21 @@ licensed. Old rank192 and direct-channel omission remain failures. Native
 fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
-Next exact action: freeze unchanged303 math cost attribution, require all30
-output/route hashes exact303 and timer closure before interpreting organ
-costs. Compact I8/source-Q6 implementation is CLOSED for unchanged geometry
-teacher collection/training by stable303 cost failure. The
-[joint proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md) is still an
-untrained architecture hypothesis, not a licensed artifact or quality pass.
-Only after a credible changed implementation/geometry cost path, freeze
-whole teacher attention/FFN targets, fit/validation split, initialization/
+Next exact action: implement and freeze a NEW exact signed-I8 cost candidate
+using [biased bytes/two-part activation](COMPACT_I8_KERNEL_PROPOSAL_20261003.md).
+It is UNIMPLEMENTED/UNMEASURED:source precision/geometry/fixtures/head retained,
+changed integer instructions. Verify intrinsic signedness/saturation, every
+intermediate bound and independent scalar controls; require all30 original303
+hashes, complete640-function bank, input conversion/correction inside timing,
+unchanged14ms gate before any teacher data/training. Preserve303/304 helpers.
+Their unchanged implementations remain CLOSED for collection/training.
+[joint architecture](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md) remains
+untrained, not a model quality/rate result. Only after credible changed cost,
+freeze whole teacher attention/FFN targets, fit/validation split, initialization/
 optimizer/precision/error/resource gates and independently composed quality.
 298 captures are selected-expert FFN calibration, not full MoE/attention
 contexts; identify extra targets FIRST. Do not repeat49min capture without
-a defined target/budget/stop.
+a defined target/budget/stop. No scientific process active.
 
 Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
 for analytical64->640;only64 real pretrained experts exist. No duplicate/

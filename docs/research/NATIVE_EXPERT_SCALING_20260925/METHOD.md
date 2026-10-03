@@ -217,6 +217,14 @@ repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
 still require their own audit. No student/artifact/rate or useful new n yet.
+[304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
+retains all30 exact303 outputs/routes and complete selftests. Profile-build
+projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
+21.846–22.477ms medians still fail14ms and do not replace303's31ms. Different
+compiled-run timing causes remain unisolated. A new exact-I8 biased-byte/
+two-part activation kernel is proposed, not implemented/measured; preserve
+all source precision/fixtures/geometry/head and exact outputs, independently
+prove pair saturation/I32 limits, freeze its full native gate before data fit.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),

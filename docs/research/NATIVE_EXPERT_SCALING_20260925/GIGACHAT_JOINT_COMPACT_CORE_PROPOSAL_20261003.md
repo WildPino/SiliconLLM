@@ -101,9 +101,12 @@ capacity. Do not duplicate64 experts or count synthetic banks as useful n.
 
 [303 actual native I8/Q6 screen](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 now passes controls but FAILS14ms with31.268–31.936ms medians/9.953GB peakRSS.
-This unchanged implementation is closed before collection/training. First
-attribute unchanged math costs with exact-output controls, then choose a
-changed implementation or geometry and freeze its cost gates. The following
+This unchanged implementation is closed before collection/training.
+[304 unchanged attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
+retains exact outputs:projection work90.478%,MLA dominates. Its separately
+compiled21.846–22.477ms remains a cost failure and does not regrade303.
+Next freeze a new [exact-I8 kernel candidate](COMPACT_I8_KERNEL_PROPOSAL_20261003.md)
+before observations;cost/head/geometry and source-quality boundaries remain. The following
 requirements remain necessary for any cost-qualified replacement.
 
 First independently verify every arithmetic row above and freeze a source-bound
