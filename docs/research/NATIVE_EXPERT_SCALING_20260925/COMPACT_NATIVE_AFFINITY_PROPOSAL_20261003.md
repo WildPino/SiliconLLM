@@ -1,6 +1,6 @@
 # Physical-core bound native profile after307 variation: proposal
 
-**UNRUN/UNFROZEN hypothesis, not a cost pass.** 307's exact306 binary ACTIVE
+**Implemented308/309, no cost pass.** [Result and decision](METH_309_WINDOWS_AFFINITY_RESULT_20261003.md):308 startup failure,309 verified binding but inconclusive timing. Historical prospective proposal follows; its next action is superseded. 307's exact306 binary ACTIVE
 profile has14.780/11.764/11.320ms medians but fails repeatability/EACH14ms;
 PASSIVE A/C also drifts15.63%. No quality training is licensed. Affinity is
 a new execution-profile variable, not an explanation already established.

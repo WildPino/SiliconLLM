@@ -212,7 +212,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268–31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268â€“31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -220,22 +220,25 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846–22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846â€“22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20–22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20â€“22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
 fails firstmedian14ms/repeatability;PASSIVE A/C drift also fails. No post-count
-subsets/gate changes or quality training. Next freeze physically bound core
-profile with actual runtime binding proof, preserving data/kernel/precision/
-head and original timing gates. Active waiting spends CPU between regions;
-resource profile must be explicit. A stable cost-qualified replacement only
-licenses separately frozen whole teacher-function fit and independent quality.
+subsets/gate changes or quality training. [308/309 binding investigation](METH_309_WINDOWS_AFFINITY_RESULT_20261003.md)
+preserves308 startup failure;309 proves singleton physical-core masks but
+fails variation/all14ms gates. Stop affinity tuning; no trained candidate
+is licensed. A separate regional-output subspace diagnostic can reuse298
+captures to test the nonlinear ten-child representation before any student
+investment. It is a mathematical output-projection bound, not a native
+model or learned child realization. Cost and source quality both remain
+open; a passing local bound cannot qualify the failed CPU profile.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),

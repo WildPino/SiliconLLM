@@ -47,11 +47,11 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 - [299 original nonlinear32-channel omission](METH_299_GIGACHAT_NONLINEAR_BLOCK_RESULT_20261002.md)
   FAILS all24 gates;half-width greedy test output error median51.787%.
   No cheap-router continuation of the unchanged omission rule.
-- [300–306 full/compact CPU cost history](HISTORY_METH300_THROUGH306_20261003.md)
+- [300â€“306 full/compact CPU cost history](HISTORY_METH300_THROUGH306_20261003.md)
   preserves full-source LUT failures and compact640-function/all9.437B routed
   coefficient fixtures. Exact-I8 kernel305 reproduces303 but FAILS14ms at22ms.
   Packed-I4/tile4 candidate306 retains coefficient capacity, own format controls
-  PASS,310.572MB addressed weights/5.127GB peakRSS;PASSIVE20–22ms FAIL14ms.
+  PASS,310.572MB addressed weights/5.127GB peakRSS;PASSIVE20â€“22ms FAIL14ms.
   No compact teacher training/source-quality or accepted-token evidence yet.
 - **[307 worker wait comparison](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)**
   exact306 binary,all90 hashes/selftests/source bindings PASS;runtime effective
@@ -59,6 +59,13 @@ baseline charges1016MB active/token. The generic donor port stays paused.
   EACH14ms and repeatability1.3057;PASSIVE A/C drift1.1563FAIL. INCONCLUSIVE,
   no collection/training. Freeze21b9ce3,exit0,12.812s/5.126GB RSS.
   Raw SHA `42d6959cf7be160137e5d94dceb8ebeac76ae886b7f0315cb5945fc0f59e059a`.
+
+- **[308/309 physical binding](METH_309_WINDOWS_AFFINITY_RESULT_20261003.md)**:
+  308 explicit library affinity crashes at startup0xc0000005, no observations;
+  [apparatus failure preserved](METH_308_PHYSICAL_CORE_PROFILE_FAILURE_20261003.md).
+  309 direct Windows API verifies all six core masks at seven checks/process;
+  all90 hashes/selftests exact306, but15.542â€“41.148ms and variation FAIL.
+  INCONCLUSIVE; no training/promotion. Stop affinity tuning for now.
 
 ## Exact resumption
 
@@ -68,18 +75,16 @@ licensed. Old rank192 and direct-channel omission remain failures. Native
 fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
-Next exact action: freeze a NEW exact306-binary ACTIVE200ms execution
-profile with [verified physical-core affinity](COMPACT_NATIVE_AFFINITY_PROPOSAL_20261003.md).
-Metadata: six Windows physical pairs0/1,2/3,4/5,6/7,8/9,10/11, allowed0–11;
-select0,2,4,6,8,10 after re-probing. Require actual verbose runtime thread
-bindings, unchanged640-function bank/head/math/controls/prior hashes,
-repeatability<=1.10/EACHmedian<=14ms. No extra warmups or favorable subset
-regrading of307. This profile is UNRUN/UNFROZEN, no cause of variation proven.
-303–306 unchanged profiles and307 remain CLOSED before teacher fit.
-Only stable credible complete cost licenses separately frozen REAL complete
-teacher-function fit/I4 quality. 298 inputs can calibrate selected FFNs but
-are not full-MoE/attention targets; identify additional target/data needs FIRST.
-Do not repeat49min capture without defined targets/budget/stop. No live job.
+Next exact action: freeze a real regional-output subspace diagnostic using
+existing298 captures (nine actual source parents, all fit/test rows).
+Question: can ten input-selected regions, each rank128 in full source-output
+space, preserve the nonlinear parent output? Fit-only shared16D query and
+keys; held-out Cyrillic output projection/error/exposure, plus global-rank
+and held-out oracle diagnostics. This is a representation bound, not teacher
+student training or promotion of303â€“309. Freeze data/routing/rank/gates and
+20min/12GiB stop before observations. No new49min capture or GPU job.
+Unchanged cost profiles remain closed/inconclusive; stable complete cost
+and separate whole-model precision/quality checks are still required.
 
 Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
 for analytical64->640;only64 real pretrained experts exist. No duplicate/
