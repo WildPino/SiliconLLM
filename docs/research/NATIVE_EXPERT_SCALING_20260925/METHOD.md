@@ -184,7 +184,21 @@ work;they are consumed domains,not fresh full-model quality. A
 would preserve original channels and encode pairs of source coefficients
 with a shared small palette. Its table construction can be independent of
 macro-expert count,but row gathers remain large and down inputs differ.
-This is unmeasured and needs a complete-organ cost preflight before learning.
+[300 complete-organ cost preflight](METH_300_GIGACHAT_VECTOR_LUT_COST_RESULT_20261003.md)
+rejects this fixed two-coefficient U8 format BEFORE palette training:
+all414 actual source/Q4 descriptors reconcile;complete addressed weight
+829.378MB/token,optimistic common-palette829.150MB,versus560MB allotment.
+Full construction writes494.669MB/token and812,810,240 lookups address
+3.251GB of logical FP32 table values. These are logical counts,not physical
+DRAM or native latency. Even zero-head/zero-palette leaves729.854MB.
+The source-derived tool explicitly prices32 different MLA K-B/V-B head
+inputs and four different routed down inputs;no implicit table reuse.
+Useful large-n still needs selective routing:flat F32 router reads rise
+9.8304->98.304MB/token for the analytical64->640 topology,though selected
+codes/scales and query construction stay fixed. Only64 source experts are
+real;no extra capacity was trained/instantiated. A four-coefficient U8
+palette(2bits/coefficient) is a separate UNMEASURED hypothesis requiring
+complete cost/native controls and new frozen calibration/error rules.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),

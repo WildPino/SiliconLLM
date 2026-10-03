@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**2 October 2026. Branch:** `research/native-expert-scaling`.
+**3 October 2026. Branch:** `research/native-expert-scaling`.
 **Active research:** no artifact meets all final requirements.
 
 ## Goal and constraints
@@ -32,100 +32,58 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 
 ## Current decisive evidence
 
-- [276 archive](METH_276_DIAGNOSTIC_COMPLETE_CORE_RESULT_20261002.md):
-  actual725 fields,1,329,447,260bytes; all6144 composition controls pass.
-  SHA `4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9`.
-  GPU277/280 prediction,281 health,282 anonymous semantics and283 PIQA pass
-  in their limited scope. They do not establish native quality or rate.
-- [284](METH_284_NATIVE_ARCHIVE_RESULT_20261002.md) verifies actual phase60
-  direct archive/operator/route/alias controls.
-  [285](METH_285_WHOLE_PREFIX_RESULT_20261002.md) numerical smoke FAILS
-  bank-off logit5.4224%; all96 top1/12 cache/12 negative controls pass.
-  [288](METH_288_NORM_REDUCTION_RESULT_20261002.md)/
-  [289](METH_289_RESIDUAL32_RESULT_20261002.md) precision variants also fail;
-  neither adopted.
-- [290](METH_290_REFERENCE_PREFIX_RESULT_20261002.md) GPU causal reference
-  is stable. [291](METH_291_OPERATOR_SURGERY_RESULT_20261002.md) all-CPU
-  hybrid exactly reproduces actual285; no one-group GPU restoration
-  meets the prospectively fixed rescue indicator.
-- [292 explicit policy revision](METH_292_NATIVE_PRIMARY_EVALUATION_POLICY_20261002.md)
-  licenses direct ORIGINAL-profile native quality against donor/E1280 on
-  new sources. Numeric failures remain failures; quality/rate margins
-  unchanged. [New manifest](METH_292_NATIVE_PRIMARY_MANIFEST_RESULT_20261002.md)
-  has24 sources,8/category,3224 old-source exclusions;
-  [293 answerability](METH_293_NATIVE_ANSWERABILITY_RESULT_20261002.md) passes
-  all24 findings committed before inference. No model source selection.
-- [294 scorer bridge](METH_294_NATIVE_SCORER_BRIDGE_RESULT_20261002.md) passes
-  original forward-body proof, two actual CPU full-head rows byte exact,
-  all16 top1 exact and NLL error<=6.76e-13.13.390s CPU assay, not rate.
+- [276 complete archive](METH_276_DIAGNOSTIC_COMPLETE_CORE_RESULT_20261002.md)
+  has725 fields/1.329GB and scoped GPU quality passes. Actual original
+  C arithmetic fails285's numeric gate;288/289 repairs not adopted.
+- [295/296 actual native prediction/generation](HISTORY_METH295_THROUGH299_20261003.md)
+  pass their fixed scopes. [297 anonymous semantics](METH_297_NATIVE_SEMANTIC_RESULT_20261002.md)
+  closes the unchanged native profile:unsupported41 versus E1280 40,
+  despite five of six gates passing. Skip unchanged-profile PIQA/K64/rate
+  promotion;no regrading or favorable source subset.
+- [298 GigaChat full covariance](METH_298_GIGACHAT_FULL_COVARIANCE_RESULT_20261002.md)
+  rank192 FAILS all four gates,including evaluation-domain oracle median
+ 87.454%<95%. Verified106/125-domain actual source input captures remain
+  reusable:67,647/47,931 routed rows,394.70/279.66MB,exact moment controls.
+- [299 original nonlinear32-channel omission](METH_299_GIGACHAT_NONLINEAR_BLOCK_RESULT_20261002.md)
+  FAILS all24 gates;half-width greedy test output error median51.787%.
+  No cheap-router continuation of the unchanged omission rule.
+- **[300 full-feature pair LUT complete cost](METH_300_GIGACHAT_VECTOR_LUT_COST_RESULT_20261003.md)**
+  rejects training/export of this fixed U8/two-coefficient format. Freeze
+  `f2a8e38`,exit0,1.797s/endRSS23.59MB;all414 source/Q4 descriptors and
+  every01/04 organ reconcile. Complete addressed weights829.378MB/token,
+  optimistic palette sharing829.150MB,versus560MB.812.81M lookups,
+  424.17-494.67MB table writes/token are LOGICAL counts,not DRAM/rate.
+  Even zero-head/zero-palette leaves729.85MB. Raw SHA
+  `9458aec3f6baafbe00eaa266a3ac7da84c43040153cbfee3fc24ea9fd64dcd75`.
+  Allthree gates fail;independent shape recount exact. No palette training,
+  new donor inference/GPU/T4/downloads or native performance claim.
 
 ## Exact resumption
 
-[295 actual native prediction](METH_295_NATIVE_PRIMARY_PREDICTION_RESULT_20261002.md)
-PASS all11 gates:24 new sources/29,395 document tokens/4,264 prompt positions.
-BPB1.23886670 versus donor1.24367193/E1280 1.23842220;agreement96.0600%,
-+.867730points over E1280. All pooled/category margins and93 full-head
-oracles pass. Freeze `00613ac`, apparatus failure preserved, process-only
-repair `b2f3cd6`; session91076 exits0,1771.578s/CPU childpeakRSS1.36GB.
-Raw SHA `82a86f078409783859b8199e89d6186b53883917351baefd6787b46e4fc7d476`.
-No accepted-rate claim; original numeric5% failures remain.
+No scientific job active. Two-coefficient U8 proposal is now CLOSED as a
+complete candidate under the unchanged cost allotment;keep its original
+[proposal](FULL_FEATURE_VECTOR_LUT_PROPOSAL_20261002.md) and300 failures.
+Full-feature codes need<=2.676851bits/coefficient BEFORE palette overhead,
+with the priced full rows/scales/controls. The next distinct LUT hypothesis
+is FOUR original coefficients/U8 non-Cartesian index(2bits/coefficient).
+This is unmeasured,not a retained quality recipe. First freeze a new
+complete-organ descriptor cost/layout/control/native construction+lookup
+preflight,BEFORE any palette optimization. Charge all MLA/shared/dense/head
+queries and real selected reads;down and MLA head inputs differ. Then only
+if that cost path is credible,freeze source-bound calibration,matched
+Cartesian control,error/resource gates before observations using verified
+298 captures. Do not repeat49min source capture or old34/130/132 factor-LUT
+assays;06/08/09 low-bit whole-model quality failures remain relevant.
 
-[296 actual native generation](METH_296_NATIVE_GENERATION_RESULT_20261002.md)
-PASS all12 gates; freeze `cf84f90`, session97155 exits0,500.719s
-(GPU272.984/CPU205.109). Native EOS23/24,early0/repeat0 versus donor21/0/0
-andE1280 22/0/1; all category limits pass. All4,264 prompt top1/24 first
-heads exactly295;9 actual generated-state cache/prefix byte checks and3
-erased-history controls pass.4,264 prompt/1,672 generated BF16 normalized
-states retained in25.28MB native binary for later CPU K64 checks.
-Raw SHA `87a2b7988eef513271186095a96167217ef9826ccab5444993c8be75ed9c0bb7`.
-
-[297 anonymous semantics](METH_297_NATIVE_SEMANTIC_RESULT_20261002.md)
-**FAIL closes the fixed original native profile.** All72 findings committed
-at `bcf10d5` before map access. Native unsupported41/severe27/missing0 versus
-donor52/34/1 and E1280 40/30/0: five gates pass, unsupported<=E1280 fails.
-Raw SHA `557927330064c436d40dba01d130af2fbdf063b1c5f82f3de5c8b60e187926b8`.
-No regrading/tolerance/favorable subset. Skip unchanged-profile native
-PIQA/K64/rate promotion work;295/296 scoped passes remain valid.
-
-[298 GigaChat full covariance](METH_298_GIGACHAT_FULL_COVARIANCE_RESULT_20261002.md)
-**FAIL all four rank192 gates**, freeze `c20d60e`, all three sessions exit0.
-Actual test energy median66.430%/min37.820%;fit optimum median84.795%,
-test-domain oracle median87.454%/min71.353%. Rank insufficiency and domain
-shift both matter. No direct factor export/rank retune from these scores.
-Raw SHA `b0b9a4773b02dc6c309504f2eddc9a8dcc623d115d70c751df9d392219d00223`.
-Real 106/125-domain captures are verified:67,647/47,931 routed input rows,
-394.70/279.66MB,min711/467 observations;old/new/captured moments EXACT.
-51.91min total research cost,peak child21.29GB; no GPU/T4/downloads.
-
-[299 nonlinear original-channel blocks](METH_299_GIGACHAT_NONLINEAR_BLOCK_RESULT_20261002.md)
-**FAIL all24 gates** at5/10/20 of40 tiles,freeze `c8195f7`,session33375 exit0.
-Half-width greedy relative output L2 median50.872%/p95 61.402% initial,
-51.787%/58.681% Cyrillic versus1%/5% limits. All38,526 full-output controls
-pass(max9.394e-17);48.718s/no new donor inference. Raw SHA
-`ec4d1ea0c20a60b32b3563d0d31a160f14e9add5133030fcf29c3a9e3cf42327`.
-No cheap-router continuation of this unchanged omission rule.
-
-No scientific job active. **Next exact action: full-feature shared-vector
-LUT COST preflight**, before palette training. Read
-[proposal](FULL_FEATURE_VECTOR_LUT_PROPOSAL_20261002.md), actual01/04 ledgers,
-06/08/09 low-bit failures and old34/130/132/198 factor-LUT scope. New variable
-is a shared NON-Cartesian source-coefficient palette/full feature inventory,
-not rank reduction or channel omission. Price all full-source organs and
-per-query table construction/gathers;down input tables differ per expert.
-Routed-only optimistic codes/scales already leave956.64MB/token: require
-a coherent complete path before learning/export. Then freeze calibration,
-matched Cartesian control,numeric/error/resource gates before observations.
-Use already verified298 captures; no need to repeat49min donor inference.
-Generic donor port stays paused. New small-core quality needs changed
-scientific variable and untouched sources;292 is now consumed.
-
-The new execution entry is real phase60 C, not a Python oracle. Do not
-rebuild the197s model-free source pool or rerun failed precision variants.
-Complete model still executes4864 features/layer. No useful large-n,
-RAM-scale routing/DRAM cost or cross-family10B/100B claim.
-See [capacity and CPU routing boundary](NATIVE_CAPACITY_SCALING_STATUS_20261002.md):
-current shapes are fixed, child search scales linearly with children; prior
-large-bank usefulness and synthetic timing stops remain distinct.
+Useful RAM-scale n also needs quality-validated selective search:300's
+analytical64->640 formula keeps tables/selected routed reads fixed but
+raises flat router9.8304->98.304MB/token,encoded payload5.388->48.180GB.
+Only64 pretrained experts are real;no synthetic/copy bank quality claim.
+See [capacity and CPU routing boundary](NATIVE_CAPACITY_SCALING_STATUS_20261002.md).
+Generic donor port stays paused. New small-core quality needs a changed
+scientific variable and untouched sources;292 sources now consumed.
+Actual phase60 same-artifact independent quality/K64/accepted>=50 plus
+useful additional capacity and cross-family10B/100B remain missing.
 
 ## Method, history and workspace
 
@@ -134,7 +92,8 @@ large-bank usefulness and synthetic timing stops remain distinct.
 History: [through216](HISTORY_THROUGH_METH216_20261001.md),
 [217-264](HISTORY_METH217_THROUGH264_20261002.md),
 [265-280](HISTORY_METH265_THROUGH280_20261002.md),
-[281-294](HISTORY_METH281_THROUGH294_20261002.md). Historical next steps
+[281-294](HISTORY_METH281_THROUGH294_20261002.md),
+[295-299](HISTORY_METH295_THROUGH299_20261003.md). Historical next steps
 are superseded. Fixed259 strict semantic failure,264 cached-reference
 failure,274/275 component-cost failures and earlier hard-carve/weight-rank/
 static-bias/affine/intercept/amplitude/weak-child stops remain recorded.

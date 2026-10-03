@@ -1,6 +1,12 @@
 # Full-feature source coefficient dictionaries and shared input tables
 
 **Status: unmeasured hypothesis,not a frozen experiment or conversion recipe.**
+**3 October update:** [300 complete cost screen](METH_300_GIGACHAT_VECTOR_LUT_COST_RESULT_20261003.md)
+rejects the fixed two-coefficient U8 candidate BEFORE palette training.
+Complete cost is829.378MB/token,optimistic common palettes829.150MB,versus
+560MB allotment. The hypothesis below is retained as the original proposal;
+its next-step instructions are superseded by300. No quality was measured.
+
 297 closes the fixed native private128 profile;298 rejects global linear
 rank192 factors on real GigaChat activations;299 rejects direct nonlinear
 32-channel omission at half width. Preserve all source feature channels
