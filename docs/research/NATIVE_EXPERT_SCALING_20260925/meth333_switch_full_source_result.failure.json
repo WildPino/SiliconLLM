@@ -1,0 +1,27 @@
+{
+  "experiment": "METH-333-specified-arithmetic-original-Switch256",
+  "cases": [],
+  "commands": [],
+  "preserved332_sha256": "9e4b9c53c619b0124feb66aa02d3f1ee938ad2470bf05f540b9f0ccb779b6409",
+  "matched_arithmetic_reference_sha256": "6906a732c1f99ec6f9c7c32c010366c6e342dafca54085ac36b8e0205ee32e5c",
+  "primitive_controls": {
+    "seed": 333,
+    "errors": {
+      "matrix_maxabs": 0.0,
+      "attention_matrix_maxabs": 0.0,
+      "softmax_maxabs": 1.862645149230957e-09,
+      "norm_maxabs": 7.152557373046875e-07
+    },
+    "calls": {
+      "mm": 1,
+      "bmm": 1,
+      "softmax": 1
+    },
+    "passed": false,
+    "oracle": "independent NumPy vectorized F64 products/reductions with declared F32 roundings"
+  },
+  "error": "AssertionError()",
+  "stage": "bindings",
+  "main_seconds_excluding_imports": 8.264999999999418,
+  "maximum_checked_rss_bytes": 0
+}
