@@ -105,7 +105,7 @@ PASS all unchanged gates, all outputs byte-exact340/336. Actual6-thread median
 full including prefill per32 forced positions7.643ms(source9)/17.510ms(source64),
 decode6.652/8.442ms, repeats1.039/1.048. Logical matrix reads129.017MB/position,
 not physical DRAM; one warmup/hash filesystem priming stated. Not accepted rate.
-All335-344 observations committed; no live model/timing job.
+All335-345 observations committed; numeric347 running, no timing overlap.
 
 [342 source-only cohort](METH_342_SWITCH_FRESH_SPAN_MANIFEST_RESULT_20261003.md)
 PASS, rawd2762b9/SHA bed91d901b26caf9b23992f1b4198d692e0ca770eeea60571caae9e2c884f89f:
@@ -119,9 +119,12 @@ consumed. Frozen W8A8 closed before generation/task/accepted-rate promotion.
 PASS all independent oracles on consumed states: HEAD-only activation16 yields
 35 versus55 choice differences, same I8 weights/scales and unchanged upstream
 states. Descriptive inference, not NEW quality or retroactive343 promotion.
-Next freeze actual HEAD A16/core A8 AVX2 execution, I32 lane/I64 global sums,
-independent numeric/Tiny/fault/old-state composition and unchanged CPU gates;
-only then NEW source original-primary prediction. Unexecuted generation draft
+Actual345 C/reference frozen69ffe51/3035ebf; initial apparatus filename
+binding FAIL preserved70908cf before compile/model. Corrected347 controller
+frozen419eff7 RUNNING authoritative exec69347 (20min/16GiB), unchanged kernel/
+criteria. Do not duplicate. Read exit/raw, preserve outcome, then freeze346
+SAME executable actual CPU cost with unchanged341 thresholds; only then NEW
+source original-primary prediction. Unexecuted generation draft
 `meth344_switch_span_generate_entry.c` is unfrozen and ineligible pending quality.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
 generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)
