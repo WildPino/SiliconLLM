@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_F32_SOURCE_BINDING
+#ifdef SILICON_SWITCH_STABLE_RMS_SOURCE
+#include "../native_expert_scaling/meth330_switch_source_binding.c"
+#elif defined(SILICON_SWITCH_F32_SOURCE_BINDING)
 #include "../native_expert_scaling/meth329_switch_source_binding.c"
 #elif defined(SILICON_SWITCH_F32_REFERENCE)
 #include "../native_expert_scaling/meth328_switch_f32_reference.c"
