@@ -3,8 +3,8 @@
 #include "meth303_compact_i8_cpu.c"
 #undef main
 
-enum {MLA,ROUTED,SHARED,DENSE,MACRO,CHILD,INPUT,MIXTURE,HEAD,ORGANS};
-static double organ_seconds[ORGANS],projection_seconds[ORGANS];
+enum {PROF_MLA,PROF_ROUTED,PROF_SHARED,PROF_DENSE,PROF_MACRO,PROF_CHILD,PROF_INPUT,PROF_MIXTURE,PROF_HEAD,PROF_ORGANS};
+static double organ_seconds[PROF_ORGANS],projection_seconds[PROF_ORGANS];
 #define P_BEGIN(label) double profile_begin_##label=clock_s()
 #define P_END(label,slot) organ_seconds[slot]+=clock_s()-profile_begin_##label
 static void profile_apply(Matrix *m,const Input *q,unsigned slot){
@@ -12,26 +12,26 @@ static void profile_apply(Matrix *m,const Input *q,unsigned slot){
 }
 #define P_APPLY(m,q,slot) profile_apply(m,q,slot)
 static void print_array(const double *values){
-    printf("[");for(unsigned i=0;i<ORGANS;i++)printf("%s%.12f",i?",":"",values[i]);printf("]");
+    printf("[");for(unsigned i=0;i<PROF_ORGANS;i++)printf("%s%.12f",i?",":"",values[i]);printf("]");
 }
 static void profile_execute(void){
     for(unsigned l=0;l<LAYERS;l++){
         /*P*/ P_BEGIN(mla);
         Layer *s=&layers[l];norm(s->ra,s->an,D,s->xa);checked_quant(s->xa,D,&s->qa);
-        P_APPLY(&s->q,&s->qa,MLA);P_APPLY(&s->kv,&s->qa,MLA);norm(s->kv.y,s->kn,512,s->kvnorm);
+        P_APPLY(&s->q,&s->qa,PROF_MLA);P_APPLY(&s->kv,&s->qa,PROF_MLA);norm(s->kv.y,s->kn,512,s->kvnorm);
         for(unsigned h=0;h<HEADS;h++){checked_quant(s->q.y+h*192,128,&s->qk[h]);checked_quant(s->latent+h*512,512,&s->qv[h]);}
-        P_APPLY(&s->kb,s->qk,MLA);P_APPLY(&s->vb,s->qv,MLA);checked_quant(s->vb.y,D,&s->qo);P_APPLY(&s->wo,&s->qo,MLA);
-        /*P*/ P_END(mla,MLA); P_BEGIN(input);
+        P_APPLY(&s->kb,s->qk,PROF_MLA);P_APPLY(&s->vb,s->qv,PROF_MLA);checked_quant(s->vb.y,D,&s->qo);P_APPLY(&s->wo,&s->qo,PROF_MLA);
+        /*P*/ P_END(mla,PROF_MLA); P_BEGIN(input);
         norm(s->rf,s->fn,D,s->xf);checked_quant(s->xf,D,&s->qf);
-        /*P*/ P_END(input,INPUT);
+        /*P*/ P_END(input,PROF_INPUT);
         if(l){
             /*P*/ P_BEGIN(macro);
             macro_router(s);
-            /*P*/ P_END(macro,MACRO); P_BEGIN(child);
-            P_APPLY(&s->cq,&s->qf,CHILD);child_router(s);
-            /*P*/ P_END(child,CHILD);
+            /*P*/ P_END(macro,PROF_MACRO); P_BEGIN(child);
+            P_APPLY(&s->cq,&s->qf,PROF_CHILD);child_router(s);
+            /*P*/ P_END(child,PROF_CHILD);
         }
-        /*P*/ unsigned ffn_slot=l?ROUTED:DENSE; P_BEGIN(ffn);
+        /*P*/ unsigned ffn_slot=l?PROF_ROUTED:PROF_DENSE; P_BEGIN(ffn);
         P_APPLY(&s->g,&s->qf,ffn_slot);P_APPLY(&s->u,&s->qf,ffn_slot);
         for(unsigned k=0;k<s->g.nactive;k++){
             for(unsigned j=0;j<s->g.o;j++)s->zg[k*s->g.o+j]=silu(s->g.y[k*s->g.o+j])*s->u.y[k*s->g.o+j];
@@ -41,17 +41,17 @@ static void profile_execute(void){
         /*P*/ P_END(ffn,ffn_slot);
         if(l){
             /*P*/ P_BEGIN(shared);
-            P_APPLY(&s->sg,&s->qf,SHARED);P_APPLY(&s->su,&s->qf,SHARED);
+            P_APPLY(&s->sg,&s->qf,PROF_SHARED);P_APPLY(&s->su,&s->qf,PROF_SHARED);
             for(unsigned j=0;j<SH;j++)s->sz[j]=silu(s->sg.y[j])*s->su.y[j];
-            checked_quant(s->sz,SH,&s->qs);P_APPLY(&s->sd,&s->qs,SHARED);
-            /*P*/ P_END(shared,SHARED);
+            checked_quant(s->sz,SH,&s->qs);P_APPLY(&s->sd,&s->qs,PROF_SHARED);
+            /*P*/ P_END(shared,PROF_SHARED);
         }
         /*P*/ P_BEGIN(mixture);
         for(unsigned j=0;j<D;j++){
             float v=l?s->sd.y[j]:s->down.y[j];if(l)for(unsigned k=0;k<4;k++)v+=s->gates[k]*s->down.y[k*D+j];
             s->mixture[j]=v;
         }
-        /*P*/ P_END(mixture,MIXTURE);
+        /*P*/ P_END(mixture,PROF_MIXTURE);
     }
     /*P*/ P_BEGIN(head);
     Layer *s=&layers[LAYERS-1];for(unsigned j=0;j<D;j++)head_input[j]=(s->xf[j]+s->wo.y[j])+s->mixture[j];
@@ -59,7 +59,7 @@ static void profile_execute(void){
     /*P*/ double head_projection_begin=clock_s();
     #pragma omp parallel for schedule(static)
     for(int r=0;r<V;r++)head_logits[r]=strat01_q6k_q8k_dot_avx2(head+(size_t)r*(D/256)*210,hq,D);
-    /*P*/ projection_seconds[HEAD]+=clock_s()-head_projection_begin; P_END(head,HEAD);
+    /*P*/ projection_seconds[PROF_HEAD]+=clock_s()-head_projection_begin; P_END(head,PROF_HEAD);
 }
 int main(int argc,char **argv){
     if(argc!=3)die("usage: SPEC MODEL");fesetround(FE_TONEAREST);omp_set_dynamic(0);omp_set_num_threads(6);started=clock_s();initialize(argv[1],argv[2]);

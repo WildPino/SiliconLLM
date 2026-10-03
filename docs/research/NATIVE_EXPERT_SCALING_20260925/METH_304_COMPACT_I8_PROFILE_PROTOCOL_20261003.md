@@ -55,3 +55,11 @@ own frozen source/precision/layout/controls/cost gate before observations.
 
 Final goal remains donor-relative independent quality/tasks/generation/useful
 RAM-scale n and SAMEartifact>=50 accepted batch1token/s across verified donors.
+
+## Model-free compile correction before first observation
+
+Initial freezee5bf9c3 retains the syntax-only compile failure in history:
+Windows winuser.h already defines INPUT, conflicting with the counter enum.
+No source payload/native timing or304 result had run. Prefix all counter
+enum names with PROF_; math tokens and protocol gates remain unchanged.
+The repaired source is committed separately before the first native run.
