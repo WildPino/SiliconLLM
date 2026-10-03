@@ -1,0 +1,22 @@
+# METH-312: reconstruct complete source MoE targets on existing captured inputs
+
+Prospective apparatus protocol, frozen before observations, 2026-10-03. Previous310/311 parent-space recipes remain failed. This changes the target from independent-parent preservation to actual four-parent-plus-shared FFN composition. No approximate candidate, new source collection, GPU/download or training of failed CPU profiles.
+
+## Inputs and source binding
+
+Reuse ALL qualified298 streams/coordinates for fit106 English/code/technical chunks and test125 Cyrillic chunks at layers1/13/25 and anchors0/32/63. Hash original capture records/raw files and check finite/footer/all27 streams, gate/up equality and gate/up/down coordinate identity. Deduplicate normalized1536D FFN inputs across anchors by (chunk,batch,token), require bit-exact input equality for duplicates, sort coordinates lexicographically. No state is omitted. These are source inputs conditioned on at least one of three anchor selections; coverage is biased, domains consumed, not an independent quality set.
+
+Freshly hash the complete21,356,264,448B BF16 base GGUF against fabc8056f57e230ae9e6aadceb45f4abf9e5d7031fbfe8eca2671d871ef35d47. Parse pinned bounded300 header (SHA2e18041f5c90d897f4ab3f882887c63b797f736fec63b1147c8cd9e0d1bcbe08), verify each tensor shape/type/offset and record fresh payload hashes. Confirm27 anchor BF16 gate/up/down sub-tensors against180 SHA; original source config must specify noaux_tc/sigmoid/top4/64 parents/one shared expert/no grouping/normalized probabilities/scale1.0.
+
+## Reconstruction and fidelity controls
+
+- Recompute source router logits from actual normalized inputs and original F32 router, FP64 product/sum then castF32; sigmoid and correction-bias rankings inF32, stable descending top4/lowest ID ties. Normalize selected UNBIASED sigmoid probabilities inF32, denominator clamped at source6.103515625e-5. Every captured anchor must occur at its original captured top4 SLOT for every row. No route subset rescue on mismatch. This is a mathematical route replay, not a bit-equivalence claim for full native routing. The pinned source graph applies probabilities AFTER down and adds original shared FFN from the same normalized input; graph source was read from5b335f4 Git because checkout source files are pruned.
+- Load original BF16 gate/up/down weights for all64 source parents and original shared expert, convert exactly toF32. Evaluate SwiGLU and down products with PyTorch CPUF32, batch256/six threads. All captured original post-SwiGLU rows (22,549fit/15,977test) must match reconstructed anchor states with maximum per-row relativeL2<=1e-4; zero reference norm stops. This is an independent original-source graph activation guard.
+- Store four unweighted parent outputs, source gates/IDs, original shared output and full weighted routed-plus-shared result. Weighted accumulation inFP64, finalF32. Three fixed positions per case independently summed in scalar parent order must match fullF32 output relativeL2<=1e-6. Omitting first selected parent must produce max relativeL2>1e-6; finite positive full norms required.
+- Export six exclusive uncompressed NPZ archives (three layers times fit/test) containing input, coordinates, selected_parents, gates, parent_outputs, shared_output and full_mixture_output. Every array must round-trip bit exactly, hash/size/schema/count bound in result. Refuse existing destination; preserve failures/partial archives.
+
+## Decision, cost and scope
+
+CPU only, six math threads, no concurrent model/rate job. Maximum20min wall/12GiB RSS checked between expert computations, archive total<=4GiB; maximum checked RSS is not sampled peak. Expected2–5min including fresh21GB source hashing and three-layer batched algebra. Individual BLAS operation not interruptible by budget check. No original49min context recapture.
+
+All gates must pass to qualify these mathematical targets for a separately frozen complete-mixture representation diagnostic. A failure is apparatus/fidelity failure, preserve exact state before any narrow repair/new protocol. Do not draw approximate quality conclusions from failed construction. This export does not capture full native MoE output bit parity, realize a student or pass quality/cost/scaling. Full causal/attention/held-out generation/task evaluation and>=50acceptedbatch1token/s on SAME artifact remain required. All64 real source parents can contribute to these target rows; this is not additional useful experts or100B transfer.
