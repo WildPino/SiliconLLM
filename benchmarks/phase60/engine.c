@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_MULTI_SPAN_GENERATE
+#ifdef SILICON_SWITCH_W8A16_ALL
+#include "../native_expert_scaling/meth356_switch_all_a16_entry.c"
+#elif defined(SILICON_SWITCH_MULTI_SPAN_GENERATE)
 #include "../native_expert_scaling/meth351_switch_multi_span_generate_entry.c"
 #elif defined(SILICON_SWITCH_HEAD_A16)
 #include "../native_expert_scaling/meth345_switch_head_a16_entry.c"
