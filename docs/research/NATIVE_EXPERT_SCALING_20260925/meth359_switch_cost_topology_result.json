@@ -1,0 +1,350 @@
+{
+  "experiment": "METH-359-consumed-cost-and-physical-topology",
+  "measurements": [
+    {
+      "source_length": 9,
+      "threads": 1,
+      "rows": [
+        {
+          "repetition": 0,
+          "encoder_seconds": 0.0303667,
+          "cross_kv_seconds": 0.0061064,
+          "decode_seconds": 0.2256514,
+          "full_seconds": 0.2621245,
+          "median_step_seconds": 0.0070650999999999995,
+          "maximum_step_seconds": 0.007857,
+          "maximum_step_position": 24,
+          "maximum_to_median_step_ratio": 1.1120861700471332,
+          "excess_sum_over_median_seconds": 0.002710700000000007,
+          "maximum_excess_over_median_seconds": 0.0007918999999999999
+        },
+        {
+          "repetition": 1,
+          "encoder_seconds": 0.0299781,
+          "cross_kv_seconds": 0.0063207,
+          "decode_seconds": 0.2239269,
+          "full_seconds": 0.2602257,
+          "median_step_seconds": 0.0069349,
+          "maximum_step_seconds": 0.0073892,
+          "maximum_step_position": 31,
+          "maximum_to_median_step_ratio": 1.0655092358938125,
+          "excess_sum_over_median_seconds": 0.0037049000000000023,
+          "maximum_excess_over_median_seconds": 0.00045430000000000036
+        },
+        {
+          "repetition": 2,
+          "encoder_seconds": 0.030107,
+          "cross_kv_seconds": 0.0062163,
+          "decode_seconds": 0.2236481,
+          "full_seconds": 0.2599714,
+          "median_step_seconds": 0.00699485,
+          "maximum_step_seconds": 0.0073744,
+          "maximum_step_position": 30,
+          "maximum_to_median_step_ratio": 1.05426134942136,
+          "excess_sum_over_median_seconds": 0.0026086999999999924,
+          "maximum_excess_over_median_seconds": 0.00037954999999999933
+        }
+      ],
+      "phases": {
+        "encoder_seconds": {
+          "max_min_ratio": 1.0129627961745407,
+          "range_seconds": 0.00038859999999999936
+        },
+        "cross_kv_seconds": {
+          "max_min_ratio": 1.0350943272631994,
+          "range_seconds": 0.0002143000000000006
+        },
+        "decode_seconds": {
+          "max_min_ratio": 1.0089573754483048,
+          "range_seconds": 0.0020033000000000134
+        },
+        "full_seconds": {
+          "max_min_ratio": 1.0082820648732898,
+          "range_seconds": 0.0021530999999999634
+        }
+      }
+    },
+    {
+      "source_length": 64,
+      "threads": 6,
+      "rows": [
+        {
+          "repetition": 0,
+          "encoder_seconds": 0.26347,
+          "cross_kv_seconds": 0.0179915,
+          "decode_seconds": 0.2717196,
+          "full_seconds": 0.5531811,
+          "median_step_seconds": 0.00814485,
+          "maximum_step_seconds": 0.0110846,
+          "maximum_step_position": 2,
+          "maximum_to_median_step_ratio": 1.360933596076048,
+          "excess_sum_over_median_seconds": 0.017014099999999997,
+          "maximum_excess_over_median_seconds": 0.0029397499999999997
+        },
+        {
+          "repetition": 1,
+          "encoder_seconds": 0.2399717,
+          "cross_kv_seconds": 0.0115028,
+          "decode_seconds": 0.2515323,
+          "full_seconds": 0.5030068,
+          "median_step_seconds": 0.0077382,
+          "maximum_step_seconds": 0.0087381,
+          "maximum_step_position": 27,
+          "maximum_to_median_step_ratio": 1.12921609676669,
+          "excess_sum_over_median_seconds": 0.009062200000000003,
+          "maximum_excess_over_median_seconds": 0.0009999000000000006
+        },
+        {
+          "repetition": 2,
+          "encoder_seconds": 0.2599491,
+          "cross_kv_seconds": 0.0125041,
+          "decode_seconds": 0.2469911,
+          "full_seconds": 0.5194443,
+          "median_step_seconds": 0.00766685,
+          "maximum_step_seconds": 0.0085883,
+          "maximum_step_position": 27,
+          "maximum_to_median_step_ratio": 1.1201862564156075,
+          "excess_sum_over_median_seconds": 0.004659399999999997,
+          "maximum_excess_over_median_seconds": 0.0009214499999999999
+        }
+      ],
+      "phases": {
+        "encoder_seconds": {
+          "max_min_ratio": 1.0979211298665632,
+          "range_seconds": 0.023498299999999972
+        },
+        "cross_kv_seconds": {
+          "max_min_ratio": 1.5640974371457383,
+          "range_seconds": 0.0064887
+        },
+        "decode_seconds": {
+          "max_min_ratio": 1.1001189921418222,
+          "range_seconds": 0.024728500000000014
+        },
+        "full_seconds": {
+          "max_min_ratio": 1.0997487509115185,
+          "range_seconds": 0.050174300000000005
+        }
+      }
+    },
+    {
+      "source_length": 9,
+      "threads": 6,
+      "rows": [
+        {
+          "repetition": 0,
+          "encoder_seconds": 0.0269397,
+          "cross_kv_seconds": 0.0051167,
+          "decode_seconds": 0.2241221,
+          "full_seconds": 0.2561785,
+          "median_step_seconds": 0.0067566,
+          "maximum_step_seconds": 0.0103134,
+          "maximum_step_position": 10,
+          "maximum_to_median_step_ratio": 1.5264186129118196,
+          "excess_sum_over_median_seconds": 0.010974300000000006,
+          "maximum_excess_over_median_seconds": 0.0035568000000000006
+        },
+        {
+          "repetition": 1,
+          "encoder_seconds": 0.0245942,
+          "cross_kv_seconds": 0.0042373,
+          "decode_seconds": 0.2059213,
+          "full_seconds": 0.2347528,
+          "median_step_seconds": 0.0064004000000000005,
+          "maximum_step_seconds": 0.0074888,
+          "maximum_step_position": 30,
+          "maximum_to_median_step_ratio": 1.170051871758015,
+          "excess_sum_over_median_seconds": 0.004943899999999991,
+          "maximum_excess_over_median_seconds": 0.0010883999999999998
+        },
+        {
+          "repetition": 2,
+          "encoder_seconds": 0.0280339,
+          "cross_kv_seconds": 0.0046237,
+          "decode_seconds": 0.2196944,
+          "full_seconds": 0.252352,
+          "median_step_seconds": 0.0068457,
+          "maximum_step_seconds": 0.0080004,
+          "maximum_step_position": 14,
+          "maximum_to_median_step_ratio": 1.168675226784697,
+          "excess_sum_over_median_seconds": 0.0037057000000000045,
+          "maximum_excess_over_median_seconds": 0.0011546999999999998
+        }
+      ],
+      "phases": {
+        "encoder_seconds": {
+          "max_min_ratio": 1.1398581779443935,
+          "range_seconds": 0.0034397000000000004
+        },
+        "cross_kv_seconds": {
+          "max_min_ratio": 1.207537818894107,
+          "range_seconds": 0.0008793999999999998
+        },
+        "decode_seconds": {
+          "max_min_ratio": 1.0883871653879418,
+          "range_seconds": 0.01820079999999999
+        },
+        "full_seconds": {
+          "max_min_ratio": 1.091269198919033,
+          "range_seconds": 0.021425699999999964
+        }
+      }
+    },
+    {
+      "source_length": 64,
+      "threads": 1,
+      "rows": [
+        {
+          "repetition": 0,
+          "encoder_seconds": 0.2958473,
+          "cross_kv_seconds": 0.0312911,
+          "decode_seconds": 0.2649505,
+          "full_seconds": 0.5920889,
+          "median_step_seconds": 0.008182600000000002,
+          "maximum_step_seconds": 0.0092672,
+          "maximum_step_position": 26,
+          "maximum_to_median_step_ratio": 1.1325495563757237,
+          "excess_sum_over_median_seconds": 0.007201199999999975,
+          "maximum_excess_over_median_seconds": 0.001084599999999998
+        },
+        {
+          "repetition": 1,
+          "encoder_seconds": 0.3025723,
+          "cross_kv_seconds": 0.0281923,
+          "decode_seconds": 0.2711569,
+          "full_seconds": 0.6019215,
+          "median_step_seconds": 0.0084041,
+          "maximum_step_seconds": 0.0096111,
+          "maximum_step_position": 26,
+          "maximum_to_median_step_ratio": 1.1436203757689698,
+          "excess_sum_over_median_seconds": 0.005935000000000008,
+          "maximum_excess_over_median_seconds": 0.0012069999999999997
+        },
+        {
+          "repetition": 2,
+          "encoder_seconds": 0.3001933,
+          "cross_kv_seconds": 0.0287617,
+          "decode_seconds": 0.2732778,
+          "full_seconds": 0.6022328,
+          "median_step_seconds": 0.008325200000000001,
+          "maximum_step_seconds": 0.0100154,
+          "maximum_step_position": 29,
+          "maximum_to_median_step_ratio": 1.2030221496180271,
+          "excess_sum_over_median_seconds": 0.011116899999999982,
+          "maximum_excess_over_median_seconds": 0.0016901999999999993
+        }
+      ],
+      "phases": {
+        "encoder_seconds": {
+          "max_min_ratio": 1.0227313211917095,
+          "range_seconds": 0.0067250000000000365
+        },
+        "cross_kv_seconds": {
+          "max_min_ratio": 1.1099165374942805,
+          "range_seconds": 0.0030988000000000022
+        },
+        "decode_seconds": {
+          "max_min_ratio": 1.0314296444052757,
+          "range_seconds": 0.008327300000000037
+        },
+        "full_seconds": {
+          "max_min_ratio": 1.0171323934632113,
+          "range_seconds": 0.010143899999999983
+        }
+      }
+    }
+  ],
+  "topology": {
+    "api": "GetLogicalProcessorInformation/RelationProcessorCore",
+    "group_scope": "single group/local<=64 logical processors",
+    "physical_cores": [
+      {
+        "processor_mask": 3,
+        "SMT_flag": 1,
+        "logical_processors": [
+          0,
+          1
+        ]
+      },
+      {
+        "processor_mask": 12,
+        "SMT_flag": 1,
+        "logical_processors": [
+          2,
+          3
+        ]
+      },
+      {
+        "processor_mask": 48,
+        "SMT_flag": 1,
+        "logical_processors": [
+          4,
+          5
+        ]
+      },
+      {
+        "processor_mask": 192,
+        "SMT_flag": 1,
+        "logical_processors": [
+          6,
+          7
+        ]
+      },
+      {
+        "processor_mask": 768,
+        "SMT_flag": 1,
+        "logical_processors": [
+          8,
+          9
+        ]
+      },
+      {
+        "processor_mask": 3072,
+        "SMT_flag": 1,
+        "logical_processors": [
+          10,
+          11
+        ]
+      }
+    ],
+    "process_allowed_logical_processors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_one_logical_per_physical_core": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "selected_processor_mask": 1365,
+    "physical_cpu_count": 6,
+    "logical_cpu_count": 12
+  },
+  "controller_sha256": "b3e52df3691231d6e6515a027be927b02082dd575419610ba6b57d43c837a806",
+  "protocol_sha256": "2e2aff84f8e473cd315104064e450aa5140d6dd9d6cead730005d9f2b9c76a23",
+  "baseline358_sha256": "1387f8b461d15f6ba12ffbec67a115f893dc4cff9f65e39518b6fd5000ea9836",
+  "gates": {
+    "consumed358_exact": true,
+    "single_group_six_physical_twelve_logical_cores_closed": true,
+    "one_allowed_logical_per_physical_core_identified": true
+  },
+  "resource": {
+    "main_seconds_excluding_imports": 0.375,
+    "end_rss_bytes": 36331520
+  },
+  "decision": "test_new_process_affinity_profile_with_same356_binary_fixed_gates_no_unchanged_rerun",
+  "scope": "No inference/native timings/new data, no causal attribution of variance to SMT/migration. Actual topology only motivates a separately frozen profile.358 cost failure and351 quality failures remain; no physical DRAM/useful n proof."
+}
