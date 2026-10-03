@@ -4,7 +4,7 @@
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
-running in the project C engine at ≥50 accepted batch-1 tokens/s on a declared
+running in the project C engine at â‰¥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
 family or scale must test which steps transfer. More stored parameters alone
 are not evidence of transferred capability.
@@ -212,7 +212,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268–31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268â€“31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -220,13 +220,13 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846–22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846â€“22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20–22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20â€“22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
@@ -287,7 +287,7 @@ validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
 [318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
 now passes all source/numeric/format/route/capacity controls on fully allocated
 3.187GB with actual source head/router/norm/embedding. All nine repetition
-medians38.124–55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+medians38.124â€“55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
 full-width decoder is CLOSED before training/640-bank allocation.318 startup
 failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
 No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.
@@ -370,11 +370,33 @@ original-backend qualification remains FAIL; no original-donor quality promotion
 Original unmodified donor remains PRIMARY for a NEW untouched quality cohort.
 Full precision apparatus is not a final compact fast artifact.
 
-[Compact integer proposal](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) specifies the
-next implement/freeze step: all-bank W8A8 with exact integer/scaling reference,
-real full CPU cost before costly quality/adaptation. None implemented yet.
-Actual untouched whole quality, SAMEartifact accepted>=50, dynamic RAM-scale
-useful n and hierarchy/LUT cost remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
+The [compact integer path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) is now
+partly reproducible.335 writes ALL6392 tensors but fails final20min readback;
+337 verifies1722 readonly segments and fails its time guard. Preserve both.
+[338](METH_338_SWITCH_TENSOR_RECOVERY_RESULT_20261003.md) changes verification
+policy explicitly: freshly bind ALL original coefficient bytes to327 plus
+config/tokenizer, compare entire immutable target from RAM with reconstructed
+original335 codes/controls/scales/padding. All gates PASS; no fresh ZIP-envelope
+claim. Output14,818,015,744B,6313 row-I8 and79 F32 names, one F32 embedding
+physical copy plus separate head I8 view from SAME tied original. All12x256
+target tuples remain distinct. Conversion verification1032.625s/25.246GB RSS;
+previous interrupted1200.015+1200.093s are additional cost.
+
+[336 native contract](METH_336_SWITCH_W8A8_CONTRACT_PROTOCOL_20261003.md) is
+frozen00a5ee9 and running, not yet qualified. AVX2 I8->I16/VPMADDWD/I32 dots,
+per-vector F32 absmax/nearest-even I8 activation and explicit F64 scaling/F32
+return. Independent NumPy I64 reference uses SAME serialized codes/scales;
+o dequantized full FloatBLAS model. Official META architecture loads actual
+F32 control/lookup values; quantized Linear descriptors never enter forward.
+Dynamic actual n allocation replaces fixed256 bound within RAM/shape limits;
+this does not prove higher-n cost/utility. Tiny and full source numeric/fault
+gates precede actual full CPU cost. Frozen334 norm recipe retained;336 declares
+F64-exp rounded F32 for softmax before observation. Original331 cached outputs
+are consumed diagnostics, not a new teacher-quality assay.
+
+Next actual complete CPU cost before costly original-donor NEW untouched
+quality/adaptation. SAMEartifact accepted>=50, dynamic RAM-scale useful n,
+hierarchy/LUT/real DRAM cost remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
 lists available/missing steps. Genuine7.415B to14.664B availability is2x bank
 count, not10x scaling or~100B/cross-family/useful large-n evidence.
 

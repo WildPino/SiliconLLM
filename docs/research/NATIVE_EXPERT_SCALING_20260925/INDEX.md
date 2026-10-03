@@ -21,7 +21,7 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
 | Question | Established | Missing |
 | --- | --- | --- |
 | Useful large-n target | Dense0.5B scoped E1280 functions preserve GPU quality; real conditional-bank cost apparatus available | Genuine larger donor knowledge/useful extra n; actual hierarchical route quality/RAM-scale consultation and full accepted rate |
-| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Compact precision, untouched whole quality and same-artifact rate; cross-family/100B proof |
+| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Complete integer execution correctness, untouched whole quality and same-artifact rate; cross-family/100B proof |
 
 ## Decisive evidence and closed paths
 
@@ -70,26 +70,42 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
   arithmetic PASS. Source probability max1.6391e-7. NEW numerical estimand;
   original329/330/332 FAIL unchanged. No original-donor quality/rate promotion.
 
+- [335 export](METH_335_SWITCH_W8A8_EXPORT_RESULT_20261003.md) writes all6392
+  compact arrays/14.818GB but final readback trips20min; failure retained.
+- [337 readonly recovery](METH_337_SWITCH_EXPORT_RECOVERY_RESULT_20261003.md)
+  checks1722 arrays before20min; full archive rehash consumes budget. Retained.
+- [338 complete recovery](METH_338_SWITCH_TENSOR_RECOVERY_RESULT_20261003.md):
+  ALL original6392 canonical tensor identities and actual target codes/F32/
+  scales/padding exact;12x256 distinct target tuples;14,818,015,744B immutable
+  compact payload verified.1032.625s/max25.246GB. Explicit fresh coefficient
+  identity policy, no new ZIP-envelope hash. No useful diversity/quality/rate.
+
 ## Exact resumption
 
-No model job live.326-334 raw observations committed, source acquisition
-complete under `results/native_expert_scaling/meth326_switch_base256_source`;
-source128 payload still absent. Qualified isolated324 environment reusable.
-Default engine body unchanged; Switch entries are opt-in apparatus with
-CTX256/batch1/E<=256/D<=1024/L<=24/FF<=4096 bounds, not RAM-scale support.
-GigaChat donor-adaptation assets reused; high-active generic port remains paused.
+Complete original source at `results/native_expert_scaling/meth326_switch_base256_source`.
+Compact payload at `results/native_expert_scaling/meth335_switch_w8a8_export/weights.bin`,
+SHA `e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056`;
+manifest at `results/native_expert_scaling/meth338_switch_tensor_recovery/manifest.bin`.
+338 raw committed08be22e;335/337 interrupted costs preserved. Qualified isolated
+324 environment reusable; source128 full payload absent.
 
-Specified arithmetic [policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md)
-is implemented333/334 and qualified ONLY against matched target reference.
-Resume from [compact integer proposal](SWITCH_COMPACT_INTEGER_NEXT_20261003.md):
-implement streaming all-bank W8A8 export, exact I32/scaling reference and native
-AVX2, retain all256 real experts, freeze full protocol/gates/resource bounds
-BEFORE observations. No compact candidate implemented/validated yet. Measure
-actual CPU path cost before extensive quality/adaptation. Original donor stays
-PRIMARY for NEW prospectively specified untouched whole quality cohort; old
-numerical failures retained. F64 apparatus is not a fast compact LUT result.
+[336 protocol](METH_336_SWITCH_W8A8_CONTRACT_PROTOCOL_20261003.md), freeze00a5ee9,
+RUNNING under authoritative exec44381: original Tiny capacity1/64 and integer
+primitive pass; full target audit/reference pending. Do not duplicate/restart.
+Independent NumPy I64 projection on actual serialized target with official
+META architecture and only actual F32 controls. Cached331 originals are ONLY
+consumed diagnostics. CPU1/20min after imports/32GiB; no GPU or timing overlap.
+Default engine body exact. New336 loader dynamically allocates actual n within
+RAM/shape bounds, but only real256/Tiny2 correctness is attempted; no larger-n
+routing/quality proof. GigaChat old assets reused; generic donor port paused.
 
-[Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md) separates available
-source/native operators from missing precision/quality/rate. Genuine base128 to
-256 availability is2x, not10x; useful larger n, actual DRAM/routing cost, accepted
->=50 on same artifact and multiple-family/~100B proof remain missing.
+If336 PASS, freeze actual complete CPU cost preflight on SAME artifact before
+extensive untouched quality/adaptation. If FAIL, preserve exact raw/stage and
+change only the identified variable with a new protocol. Original donor stays
+PRIMARY for NEW prospectively selected/excluded untouched whole quality;
+original329/330/332 numerical failures remain. W8A8 is a source-derived compact
+baseline, not a demonstrated fast LUT. See
+[compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) and
+[transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).
+Genuine base128 to256 availability is2x, not10x; useful larger n, actual DRAM/
+routing cost, accepted>=50 SAMEartifact and multiple-family/~100B remain open.

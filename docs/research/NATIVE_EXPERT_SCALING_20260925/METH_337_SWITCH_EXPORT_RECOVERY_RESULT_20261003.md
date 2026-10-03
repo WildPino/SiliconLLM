@@ -11,7 +11,7 @@ artifact/tuple/native/quality/rate promotion from this partial check.
 
 Complete original archive rehash precedes tensor verification; previous335
 LFS whole-hash pass and327 canonical ALL tensor hashes already available.
-During run17:04UTC worker showed57.414GB reads and58.625CPU seconds, with
+A snapshot during the run showed57.414GB reads and58.625CPU seconds, with
 65.764GB available RAM in separate host snapshot; read elapsed far exceeds
 CPU time. This is a diagnostic snapshot, not a disk benchmark or causal proof
 for335 slowdown. The full-container checksum and later ALLtensor identity
@@ -29,6 +29,8 @@ values, tuple/finite/alias gates; full-container freshness is explicitly a
 separate claim, not implied. This resolves I/O budget without changing the
 pretrained/target functional identity estimand or goal.
 
-Prepared336 native still UNFROZEN/UNEXECUTED until complete artifact validated.
+Historical stop:336 was unexecuted pending complete artifact validation.
+[338](METH_338_SWITCH_TENSOR_RECOVERY_RESULT_20261003.md) subsequently verifies
+the entire unchanged payload under the explicit canonical-identity policy.
 Original-donor NEW whole quality,50 accepted/s, useful RAM-n/LUT/generalization
 remain missing. Budget stages are converter costs, not inference rate.

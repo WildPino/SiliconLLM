@@ -34,27 +34,24 @@ probability gate. GigaChat fixed fields316 and additive decoder319 remain closed
    a new numerical estimand; original329/330/332 sourceCPU1 failures remain.
    No original-donor quality or speed promotion.
 
-## Next steps: compact representation not implemented or validated
+## Compact path in progress
 
-[Specified arithmetic policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md)
-implemented and qualified333/334. F64 correctness apparatus is not fast LUT.
-[Compact integer proposal](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) is the next
-concrete implement/freeze point: all-bank W8A8 streaming export, exact integer/
-scaling reference and AVX2 with no saturating intermediary. Keep all source256
-experts. Resource/numeric/cost criteria must be frozen before new observations.
+335 wrote all compact target tensors and337 checked a partial readonly subset;
+both time-bound failures retained. [338 complete recovery](METH_338_SWITCH_TENSOR_RECOVERY_RESULT_20261003.md)
+freshly binds ALL6392 original canonical tensor identities and unchanged actual
+I8/F32/scales/padding target.14.818GB with12 real256-expert banks, all parameter
+tuples distinct. Explicit coefficient identity policy; no new archive-envelope
+hash. This is serialization fidelity, not effective diversity or model quality.
 
-Then build/qualify all-bank compact parameter representation with exact integer
-and scaling reference; measure real full CPU cost before expensive fitting or
-quality investment. W8 descriptor129.1MB/base256 is only a calculation, with
-prefill/attention/cache/init still charged. Preserve precision/cost failures.
-Define NEW untouched paired reconstruction/prediction/generation/task cohort,
-exclusions and limits before observations; ORIGINAL unmodified official donor
-remains primary quality reference. Matched target arithmetic cannot prove
-original pretrained behavior. No instruction/chat claim for this infilling donor.
+[336 contract](METH_336_SWITCH_W8A8_CONTRACT_PROTOCOL_20261003.md) frozen00a5ee9
+and running. Independent serialized I64/scaling reference, original F32 controls
+on official META architecture, Tiny/extreme/fault/full mapping qualification.
+Original329/330/332 failures and source-donor PRIMARY quality retained.
+After PASS freeze actual full CPU cost on SAMEartifact before expensive NEW
+untouched paired reconstruction/prediction/generation/task work. Forced decoder
+costs are not accepted generation rates. Preserve failed gates before repairs.
 
-Keep original learned experts; do not replace capacity with copies or a small
-student. Base128 full original payload remains absent; source128/256 availability
-provides2x banks only. Prototype CTX256/batch1/E<=256 bounds are not RAM-scale
-support. Useful larger n, actual hierarchical routing/LUT/DRAM costs, same
-artifact>=50 accepted tokens/s and cross-family/~100B all remain unverified.
-No current model job live. Resume from compact integer proposal implementation.
+Keep original learned experts. Base128 full payload absent; available128/256
+provides2x only. Dynamic actual-n loader336 within RAM/shape bounds is no larger
+useful-n/routing proof. Complete LUT/DRAM/route cost, whole accepted>=50 and
+cross-family/~100B remain open. Current authoritative336 exec44381; no duplicate.

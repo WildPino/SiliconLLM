@@ -1,6 +1,9 @@
 # Next compact Switch representation: all-bank W8A8 cost preflight
 
-**PROPOSAL, NOT IMPLEMENTED/VALIDATED.**334 validates complete target arithmetic
+**PARTIALLY IMPLEMENTED; COMPLETE NATIVE CONTRACT RUNNING.**335 export and
+337 recovery interruptions retained;338 ALL coefficient and target bytes PASS,
+14.818GB with all real banks.336 code/protocol frozen00a5ee9, execution pending.
+No original-donor quality or cost qualification.334 validates complete target arithmetic
 against an independent reference on original14.664B weights, not pretrained
 quality or speed. Original329/330/332 original-backend failures remain.
 Use334 loader/encoder/relative attention/self-cross cache/capacity/head
@@ -17,7 +20,7 @@ full vocabulary head, prefill and growing attention/cache. A pass only licenses
 quality work, never establishes accepted generation rate. Final same artifact
 must retain original-donor quality and >=50 accepted batch1 tokens/s.
 
-## First concrete candidate to implement and freeze
+## Implemented target recipe, qualification pending
 
 - Keep ALL original256 experts in each of12 banks; all original core layers,
   encoder/decoder/capacity/top1 gating and vocabulary retained. No fitting.
@@ -39,8 +42,8 @@ must retain original-donor quality and >=50 accepted batch1 tokens/s.
 - Full target export streams bounded source shards/rows into actual disk
   payloads, all source/tensor/target hashes and alias metadata. Count distinct
   target WI/WO code-and-scale tuples in every bank; quantization cannot silently
-  substitute identical tuples for genuinely distinct source functions. Estimate~15GB
-  stored plus F32 embedding/controls (unmeasured); preserve partials. Final
+  substitute identical tuples for genuinely distinct source functions. Actual complete payload14,818,015,744B
+  including F32 embedding/controls; preserve partials. Final
   converter/native format/gates/download-free resource budget must be concrete
   and frozen before target observations. Existing source never overwritten.
 
@@ -63,7 +66,7 @@ reconstruction/prediction/generation/tasks and limits BEFORE observation against
 ORIGINAL unmodified official donor. Quantization may fail quality; no guarantee.
 
 This is a compact source baseline enabling investigation of cheaper LUT book/
-conditional representations. It is not a LUT scaling result by itself. Generic
-RAM-scale dynamic n, real base128 comparison and useful larger capacity require
+conditional representations. It is not a LUT scaling result by itself. Dynamic n loader is implemented336 but only real256/Tiny2 attempted.
+RAM-scale useful n, real base128 comparison and useful larger capacity require
 separate actual source functions, routing and whole-quality measurements; source
 base256 availability alone does not prove10x expert scaling or~100B transfer.
