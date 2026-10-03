@@ -1,6 +1,6 @@
 # GigaChat learned compact active core: proposal after native LUT failure
 
-**UNMEASURED architecture hypothesis. No frozen training protocol, student
+**UNTRAINED architecture hypothesis; specified303 native cost fails. No frozen training protocol, student
 weights, source fidelity, useful additional n or native rate is established.**
 301/302 establish that this direct full-source vector4 LUT implementation
 cannot fit the native operator budget. MLA, routed and shared work dominate;
@@ -97,7 +97,14 @@ distinct parameter/function responses, source region coverage, quality and
 utility. Scaling to a larger donor must supply actual different teacher
 capacity. Do not duplicate64 experts or count synthetic banks as useful n.
 
-## Exact next action before teacher collection/training
+## Cost screen result and next action before teacher collection/training
+
+[303 actual native I8/Q6 screen](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
+now passes controls but FAILS14ms with31.268–31.936ms medians/9.953GB peakRSS.
+This unchanged implementation is closed before collection/training. First
+attribute unchanged math costs with exact-output controls, then choose a
+changed implementation or geometry and freeze its cost gates. The following
+requirements remain necessary for any cost-qualified replacement.
 
 First independently verify every arithmetic row above and freeze a source-bound
 complete cost/controller/layout protocol for this proposed geometry, including

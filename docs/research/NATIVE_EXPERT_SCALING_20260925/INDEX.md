@@ -62,6 +62,13 @@ baseline charges1016MB active/token. The generic donor port stays paused.
   Freeze5953709,exit0,4.594s/no new inference;301 remains a failure.
   Raw SHA `c6496836fdb2f01e89f74aaf4667f6df6a9ff6917f34b645118e9e98be69704b`.
 
+- **[303 compact I8/Q6 cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)**
+  all308 projections and original full Q6 head/source routers/norms run;
+  all9.437B routed fixture coefficients resident. Numeric/address/route
+  controls pass;31.268/31.822/31.936ms median FAIL14ms,repeatability1.0214,
+  peakRSS9.953GB. Freezec7439d8,exit0,11.172s. No capture/training/quality.
+  Raw SHA `396edaee9c201324ffcb35eb57cadfb915a4ea6899694ca9e1055d8c29dd968b`.
+
 ## Exact resumption
 
 No scientific job active. Pair/vector4 full-source LUT implementations are
@@ -70,21 +77,18 @@ licensed. Old rank192 and direct-channel omission remain failures. Native
 fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
-Next exact action: [joint compact active-core cost proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md).
-UNMEASURED geometry MLA8heads/routed TEN128-wide children per source parent,
-one selected child per active parent,shared256/dense1024,source hidden1536/
-KV512,teacher function targets,source macro router64 and full Q6 head.
-640 functions retain original9.437B routed coefficient capacity;no trained
-children exist. Shared16D query/child keys are priced. I8 weights/scales and
-original Q6 head address447.358MB/token;
-this is arithmetic only,no weights mapped. FIRST freeze and verify complete
-native cost/activation conversion/actual Q6 head/integer controls before any
-teacher collection or training. Then only if credible,freeze whole teacher
-attention/FFN function targets,fit/validation data,initialization/optimizer/
-precision/error/resource gates before observations and independent composed
-quality. 298 captures are reusable selected-expert FFN calibration,not full
-MoE/attention context targets;identify additional capture needs FIRST.
-Do not repeat49min capture without a defined target/budget/stop.
+Next exact action: freeze unchanged303 math cost attribution, require all30
+output/route hashes exact303 and timer closure before interpreting organ
+costs. Compact I8/source-Q6 implementation is CLOSED for unchanged geometry
+teacher collection/training by stable303 cost failure. The
+[joint proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md) is still an
+untrained architecture hypothesis, not a licensed artifact or quality pass.
+Only after a credible changed implementation/geometry cost path, freeze
+whole teacher attention/FFN targets, fit/validation split, initialization/
+optimizer/precision/error/resource gates and independently composed quality.
+298 captures are selected-expert FFN calibration, not full MoE/attention
+contexts; identify extra targets FIRST. Do not repeat49min capture without
+a defined target/budget/stop.
 
 Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
 for analytical64->640;only64 real pretrained experts exist. No duplicate/

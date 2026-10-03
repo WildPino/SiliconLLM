@@ -208,11 +208,15 @@ has all30 output/route hashes exact301;matvec71.137ms(80.139%),tables16.650ms,
 MLA combined41.439ms>routed26.541ms. Table-only or expert-only tuning does
 not license a complete rescue at unchanged other measured costs.
 The [joint compact-core proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md)
-is UNMEASURED:smaller attention,ten trained nonlinear128-wide children per
-source parent(select one),640 labels/layer retaining original9.437B routed
-coefficient capacity. No children trained;child query/exposure/utility require
-their own audit. Complete row-I8 core/full-Q6 head cost FIRST,then teacher fit and
-independent composed quality. No student/artifact/rate or useful new n yet.
+is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
+parent(select one),640 labels/layer retaining original9.437B routed coefficient
+capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
+passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
+and25-layer macro/child controls but FAILS14ms:31.268–31.936ms medians,
+repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
+unchanged implementation. Attribute unchanged math first, then select/freeze
+a changed cost path. Child exposure/utility and independent composed quality
+still require their own audit. No student/artifact/rate or useful new n yet.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),
