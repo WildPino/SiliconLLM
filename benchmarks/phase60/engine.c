@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_BATCHED_PREFILL
+#ifdef SILICON_SWITCH_HEAD_A16
+#include "../native_expert_scaling/meth345_switch_head_a16_entry.c"
+#elif defined(SILICON_SWITCH_BATCHED_PREFILL)
 #include "../native_expert_scaling/meth341_switch_batched_prefill_entry.c"
 #elif defined(SILICON_SWITCH_W8A8_COST)
 #include "../native_expert_scaling/meth339_switch_w8a8_cost_entry.c"
