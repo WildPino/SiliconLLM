@@ -221,10 +221,21 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
 21.846–22.477ms medians still fail14ms and do not replace303's31ms. Different
-compiled-run timing causes remain unisolated. A new exact-I8 biased-byte/
-two-part activation kernel is proposed, not implemented/measured; preserve
-all source precision/fixtures/geometry/head and exact outputs, independently
-prove pair saturation/I32 limits, freeze its full native gate before data fit.
+compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
+now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
+tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
+all coefficient capacity, changes precision/compute scheduling, and passes
+packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
+PASSIVE20–22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+a learned donor/student conversion atI4. No teacher weights exist yet.
+[307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
+retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
+fails firstmedian14ms/repeatability;PASSIVE A/C drift also fails. No post-count
+subsets/gate changes or quality training. Next freeze physically bound core
+profile with actual runtime binding proof, preserving data/kernel/precision/
+head and original timing gates. Active waiting spends CPU between regions;
+resource profile must be explicit. A stable cost-qualified replacement only
+licenses separately frozen whole teacher-function fit and independent quality.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),

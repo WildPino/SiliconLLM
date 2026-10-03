@@ -47,35 +47,18 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 - [299 original nonlinear32-channel omission](METH_299_GIGACHAT_NONLINEAR_BLOCK_RESULT_20261002.md)
   FAILS all24 gates;half-width greedy test output error median51.787%.
   No cheap-router continuation of the unchanged omission rule.
-- [300 pair LUT](METH_300_GIGACHAT_VECTOR_LUT_COST_RESULT_20261003.md)
-  rejects its complete829.378MB/token versus560MB;all414 descriptors reconcile.
-- **[301 actual phase60 vector4 cost](METH_301_VECTOR4_LUT_PREFLIGHT_RESULT_20261003.md)**
-  descriptor423.625MB/token fits,but actual309-matrix synthetic n64 fixture
-  FAILS14ms:83.608/82.278/81.626ms medians,repeatability1.0243. All16,968
-  scalar rows exact/18,568 decoded FP64 rows error2.38e-8/negative controls
-  pass,2.958GB peakRSS. Freeze606b914,exit0,7.484s;no n640/training/inference.
-  Raw SHA `dc71c85a1d42058fa3eeac5cf83947c27a17e78f5f498b55caec069751aeef2f`.
-- **[302 unchanged-math profiling](METH_302_VECTOR4_COST_PROFILE_RESULT_20261003.md)**
-  all30 output/route hashes EXACT301,stable timing and68.5us timer closure.
-  Matvec71.137ms(80.139%);tables16.650ms;MLA combined41.439ms exceeds
-  routed26.541ms. Even zero-table same-other-cost72.037ms exceeds14ms.
-  Freeze5953709,exit0,4.594s/no new inference;301 remains a failure.
-  Raw SHA `c6496836fdb2f01e89f74aaf4667f6df6a9ff6917f34b645118e9e98be69704b`.
-
-- **[303 compact I8/Q6 cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)**
-  all308 projections and original full Q6 head/source routers/norms run;
-  all9.437B routed fixture coefficients resident. Numeric/address/route
-  controls pass;31.268/31.822/31.936ms median FAIL14ms,repeatability1.0214,
-  peakRSS9.953GB. Freezec7439d8,exit0,11.172s. No capture/training/quality.
-  Raw SHA `396edaee9c201324ffcb35eb57cadfb915a4ea6899694ca9e1055d8c29dd968b`.
-
-- **[304 unchanged I8/Q6 attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)**
-  all30 output/route hashes and complete selftests exact303;timer closure9.7us.
-  Instrumented build21.846/22.477/22.410ms still FAIL14ms;difference from303
-  not an isolated improvement. Projection20.308ms/90.478%,MLA8.531ms,head
-  4.658ms,routed3.838ms/shared2.879ms. No collection/training/quality.
-  Repaired model-free freeze37845c8,exit0,5.734s/9.953GB peakRSS.
-  Raw SHA `2d2f3603d1aa02c6495aee27e0da7af9eeb1a1507d8441c56ab77c58e5a545cc`.
+- [300–306 full/compact CPU cost history](HISTORY_METH300_THROUGH306_20261003.md)
+  preserves full-source LUT failures and compact640-function/all9.437B routed
+  coefficient fixtures. Exact-I8 kernel305 reproduces303 but FAILS14ms at22ms.
+  Packed-I4/tile4 candidate306 retains coefficient capacity, own format controls
+  PASS,310.572MB addressed weights/5.127GB peakRSS;PASSIVE20–22ms FAIL14ms.
+  No compact teacher training/source-quality or accepted-token evidence yet.
+- **[307 worker wait comparison](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)**
+  exact306 binary,all90 hashes/selftests/source bindings PASS;runtime effective
+  PASSIVE0ms/ACTIVE200ms verified. ACTIVE14.780/11.764/11.320ms still FAIL
+  EACH14ms and repeatability1.3057;PASSIVE A/C drift1.1563FAIL. INCONCLUSIVE,
+  no collection/training. Freeze21b9ce3,exit0,12.812s/5.126GB RSS.
+  Raw SHA `42d6959cf7be160137e5d94dceb8ebeac76ae886b7f0315cb5945fc0f59e059a`.
 
 ## Exact resumption
 
@@ -85,21 +68,18 @@ licensed. Old rank192 and direct-channel omission remain failures. Native
 fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
-Next exact action: implement and freeze a NEW exact signed-I8 cost candidate
-using [biased bytes/two-part activation](COMPACT_I8_KERNEL_PROPOSAL_20261003.md).
-It is UNIMPLEMENTED/UNMEASURED:source precision/geometry/fixtures/head retained,
-changed integer instructions. Verify intrinsic signedness/saturation, every
-intermediate bound and independent scalar controls; require all30 original303
-hashes, complete640-function bank, input conversion/correction inside timing,
-unchanged14ms gate before any teacher data/training. Preserve303/304 helpers.
-Their unchanged implementations remain CLOSED for collection/training.
-[joint architecture](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md) remains
-untrained, not a model quality/rate result. Only after credible changed cost,
-freeze whole teacher attention/FFN targets, fit/validation split, initialization/
-optimizer/precision/error/resource gates and independently composed quality.
-298 captures are selected-expert FFN calibration, not full MoE/attention
-contexts; identify extra targets FIRST. Do not repeat49min capture without
-a defined target/budget/stop. No scientific process active.
+Next exact action: freeze a NEW exact306-binary ACTIVE200ms execution
+profile with [verified physical-core affinity](COMPACT_NATIVE_AFFINITY_PROPOSAL_20261003.md).
+Metadata: six Windows physical pairs0/1,2/3,4/5,6/7,8/9,10/11, allowed0–11;
+select0,2,4,6,8,10 after re-probing. Require actual verbose runtime thread
+bindings, unchanged640-function bank/head/math/controls/prior hashes,
+repeatability<=1.10/EACHmedian<=14ms. No extra warmups or favorable subset
+regrading of307. This profile is UNRUN/UNFROZEN, no cause of variation proven.
+303–306 unchanged profiles and307 remain CLOSED before teacher fit.
+Only stable credible complete cost licenses separately frozen REAL complete
+teacher-function fit/I4 quality. 298 inputs can calibrate selected FFNs but
+are not full-MoE/attention targets; identify additional target/data needs FIRST.
+Do not repeat49min capture without defined targets/budget/stop. No live job.
 
 Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
 for analytical64->640;only64 real pretrained experts exist. No duplicate/
@@ -117,7 +97,8 @@ History: [through216](HISTORY_THROUGH_METH216_20261001.md),
 [217-264](HISTORY_METH217_THROUGH264_20261002.md),
 [265-280](HISTORY_METH265_THROUGH280_20261002.md),
 [281-294](HISTORY_METH281_THROUGH294_20261002.md),
-[295-299](HISTORY_METH295_THROUGH299_20261003.md). Historical next steps
+[295-299](HISTORY_METH295_THROUGH299_20261003.md),
+[300-306](HISTORY_METH300_THROUGH306_20261003.md). Historical next steps
 are superseded. Fixed259 strict semantic failure,264 cached-reference
 failure,274/275 component-cost failures and earlier hard-carve/weight-rank/
 static-bias/affine/intercept/amplitude/weak-child stops remain recorded.

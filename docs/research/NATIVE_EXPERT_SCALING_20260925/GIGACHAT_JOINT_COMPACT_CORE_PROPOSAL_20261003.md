@@ -105,8 +105,13 @@ This unchanged implementation is closed before collection/training.
 [304 unchanged attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains exact outputs:projection work90.478%,MLA dominates. Its separately
 compiled21.846–22.477ms remains a cost failure and does not regrade303.
-Next freeze a new [exact-I8 kernel candidate](COMPACT_I8_KERNEL_PROPOSAL_20261003.md)
-before observations;cost/head/geometry and source-quality boundaries remain. The following
+[305 exact-I8 kernel](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md) now
+passes original hashes but fails22ms. [306 packed-I4 candidate](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md)
+retains coefficient capacity but changes precision;own controls pass,cost fails
+20–22ms. [307 waiting profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
+has11.3–14.8ms ACTIVE medians but fails variation/EACH14ms. Next freeze
+physical-core affinity with exact binary/control/bank/head preservation;
+no teacher collection/training or learnedI4 quality is licensed yet. The following
 requirements remain necessary for any cost-qualified replacement.
 
 First independently verify every arithmetic row above and freeze a source-bound

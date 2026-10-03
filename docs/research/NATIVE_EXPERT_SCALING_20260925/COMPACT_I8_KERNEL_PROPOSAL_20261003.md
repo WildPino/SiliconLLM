@@ -1,6 +1,6 @@
 # Exact signed-I8 dot with biased bytes and two-part activation: proposal
 
-**UNIMPLEMENTED/UNMEASURED cost hypothesis after303/304.** No teacher
+**IMPLEMENTED/MEASURED as305: exact outputs/controls PASS,22ms cost FAIL.** No teacher
 collection/training or quality promotion is licensed. This prospective
 implementation changes integer instructions/storage representation, keeping
 the SAME signed-I8 weights/input quantization/scales, model geometry and math.
@@ -33,7 +33,12 @@ new instructions, input conversion and memory pattern are cheaper on this
 CPU is UNKNOWN. No throughput prediction or compiler speedup is claimed.
 Do not borrow304's22ms as the original303 cost or assume a14ms pass.
 
-## Required next implementation and frozen controls
+## Historical prospective implementation and frozen controls
+
+[305 measured result](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md) now
+closes this unchanged exact-I8 kernel before teacher fit. The requirements
+below describe its pre-observation proposal, not an unrun next step.306/307
+packed-I4/worker-wait evidence and current next action are in INDEX.
 
 Add a NEW helper/controller/protocol/phase60 selector; preserve303/304.
 Physically populate the complete640-function bank with biased representations
