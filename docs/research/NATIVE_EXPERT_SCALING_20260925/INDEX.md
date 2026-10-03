@@ -21,7 +21,7 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
 | Question | Established | Missing |
 | --- | --- | --- |
 | Useful large-n target | Dense0.5B scoped E1280 functions preserve GPU quality; real conditional-bank cost apparatus available | Genuine larger donor knowledge/useful extra n; actual hierarchical route quality/RAM-scale consultation and full accepted rate |
-| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Complete integer execution correctness, untouched whole quality and same-artifact rate; cross-family/100B proof |
+| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Untouched whole quality and accepted rate and same-artifact rate; cross-family/100B proof |
 
 ## Decisive evidence and closed paths
 
@@ -89,23 +89,32 @@ manifest at `results/native_expert_scaling/meth338_switch_tensor_recovery/manife
 338 raw committed08be22e;335/337 interrupted costs preserved. Qualified isolated
 324 environment reusable; source128 full payload absent.
 
-[336 protocol](METH_336_SWITCH_W8A8_CONTRACT_PROTOCOL_20261003.md), freeze00a5ee9,
-RUNNING under authoritative exec44381: original Tiny capacity1/64 and integer
-primitive pass; full target audit/reference pending. Do not duplicate/restart.
-Independent NumPy I64 projection on actual serialized target with official
-META architecture and only actual F32 controls. Cached331 originals are ONLY
-consumed diagnostics. CPU1/20min after imports/32GiB; no GPU or timing overlap.
-Default engine body exact. New336 loader dynamically allocates actual n within
-RAM/shape bounds, but only real256/Tiny2 correctness is attempted; no larger-n
-routing/quality proof. GigaChat old assets reused; generic donor port paused.
+[336 native contract](METH_336_SWITCH_W8A8_CONTRACT_RESULT_20261003.md) PASS:
+ALL6392 mapped target codes/F32/scales exact; extreme/Tiny/nine faults and full
+C versus independent actual serialized I64/scaling reference EXACT on both
+engineering cases.422.859s/max2.018GB. Original331 consumed diagnostic case1
+has8 changed routes and1/5 greedy differences, so original quality unproven.
+Dynamic n loader within RAM/shape bounds, only real256/Tiny2 qualified.
 
-If336 PASS, freeze actual complete CPU cost preflight on SAME artifact before
-extensive untouched quality/adaptation. If FAIL, preserve exact raw/stage and
-change only the identified variable with a new protocol. Original donor stays
-PRIMARY for NEW prospectively selected/excluded untouched whole quality;
-original329/330/332 numerical failures remain. W8A8 is a source-derived compact
-baseline, not a demonstrated fast LUT. See
-[compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) and
+[339/340 cost](METH_340_SWITCH_W8A8_COST_RESUME_RESULT_20261003.md):339 physical
+serialization binding stops before measurements; default body restored exact.
+340 complete threads/outputs/counters pass but64-token prefill20.173ms and
+repeat ratio1.1547 FAIL. Frozen unchanged recipe not promoted.
+[341 exact batched prefill](METH_341_SWITCH_BATCHED_PREFILL_RESULT_20261003.md)
+PASS all unchanged gates, all outputs byte-exact340/336. Actual6-thread median
+full including prefill per32 forced positions7.643ms(source9)/17.510ms(source64),
+decode6.652/8.442ms, repeats1.039/1.048. Logical matrix reads129.017MB/position,
+not physical DRAM; one warmup/hash filesystem priming stated. Not accepted rate.
+All335-341 observations committed. No model job live.
+
+Resume from NEW excluded source selection and original unmodified donor
+untouched paired prediction/reconstruction/generation/task quality BEFORE
+accepted native generation timing on SAME341 artifact. Original numerical
+failures and all old quality stops remain; W8A8 is a source-derived compact
+baseline, not demonstrated fast LUT/large-n utility. Source128 full payload
+absent. Default engine exact; old GigaChat assets reused, generic port paused.
+See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) and
 [transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).
+
 Genuine base128 to256 availability is2x, not10x; useful larger n, actual DRAM/
 routing cost, accepted>=50 SAMEartifact and multiple-family/~100B remain open.

@@ -1,14 +1,12 @@
 # Next compact Switch representation: all-bank W8A8 cost preflight
 
-**PARTIALLY IMPLEMENTED; COMPLETE NATIVE CONTRACT RUNNING.**335 export and
-337 recovery interruptions retained;338 ALL coefficient and target bytes PASS,
-14.818GB with all real banks.336 code/protocol frozen00a5ee9, execution pending.
-No original-donor quality or cost qualification.334 validates complete target arithmetic
-against an independent reference on original14.664B weights, not pretrained
-quality or speed. Original329/330/332 original-backend failures remain.
-Use334 loader/encoder/relative attention/self-cross cache/capacity/head
-architecture; compact candidate changes parameter representation and matrix
-arithmetic explicitly. No extra bank copies or small student.
+**IMPLEMENTED; NUMERIC AND SIX-THREAD COST-MARGIN QUALIFIED.**335/337 export/
+recovery interruptions retained;338 ALL canonical source and target bytes PASS.
+336 complete actual serialized integer C vs independent reference PASS EXACT.
+339 physical engine serialization stop retained/default restored.340 full
+cost FAIL prefill/repeatability;341 exact batched prefill PASS at unchanged
+criteria, actual6-thread full7.643/17.510ms per position for9/64 source tokens
+and32 forced decoder positions. Original donor quality/accepted rate open.
 
 ## Decision and reuse
 
@@ -66,7 +64,7 @@ reconstruction/prediction/generation/tasks and limits BEFORE observation against
 ORIGINAL unmodified official donor. Quantization may fail quality; no guarantee.
 
 This is a compact source baseline enabling investigation of cheaper LUT book/
-conditional representations. It is not a LUT scaling result by itself. Dynamic n loader is implemented336 but only real256/Tiny2 attempted.
+conditional representations. It is not a LUT scaling result by itself. Dynamic n loader is implemented336; only real256/Tiny2 qualified.
 RAM-scale useful n, real base128 comparison and useful larger capacity require
 separate actual source functions, routing and whole-quality measurements; source
 base256 availability alone does not prove10x expert scaling or~100B transfer.

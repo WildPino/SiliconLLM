@@ -43,15 +43,18 @@ I8/F32/scales/padding target.14.818GB with12 real256-expert banks, all parameter
 tuples distinct. Explicit coefficient identity policy; no new archive-envelope
 hash. This is serialization fidelity, not effective diversity or model quality.
 
-[336 contract](METH_336_SWITCH_W8A8_CONTRACT_PROTOCOL_20261003.md) frozen00a5ee9
-and running. Independent serialized I64/scaling reference, original F32 controls
-on official META architecture, Tiny/extreme/fault/full mapping qualification.
-Original329/330/332 failures and source-donor PRIMARY quality retained.
-After PASS freeze actual full CPU cost on SAMEartifact before expensive NEW
-untouched paired reconstruction/prediction/generation/task work. Forced decoder
-costs are not accepted generation rates. Preserve failed gates before repairs.
+[336 contract](METH_336_SWITCH_W8A8_CONTRACT_RESULT_20261003.md) PASS, complete
+C/I64/scaling outputs exact, ALL6392 target/control/scales exact. Original331
+consumed quality diagnostic differs; donor remains PRIMARY.339 binding stop
+before observations/default restored;340 cost FAIL prefill/repeatability.
+[341 exact batching](METH_341_SWITCH_BATCHED_PREFILL_RESULT_20261003.md) PASS
+at unchanged gates, SAME target/full outputs;6-thread full7.643/17.510ms per
+position on forced32 decoder positions for source9/64. Not accepted generation.
 
-Keep original learned experts. Base128 full payload absent; available128/256
-provides2x only. Dynamic actual-n loader336 within RAM/shape bounds is no larger
-useful-n/routing proof. Complete LUT/DRAM/route cost, whole accepted>=50 and
-cross-family/~100B remain open. Current authoritative336 exec44381; no duplicate.
+Next NEW source exclusions/manifest and prospectively frozen whole paired
+original-donor prediction/reconstruction/span-generation/task quality, followed
+by accepted native generation on SAMEartifact. No job live. Keep original
+learned experts; base128 full payload absent.128/256 availability provides2x
+only. Dynamic actual-n loader within RAM/shape bounds is no larger useful-n
+proof. Complete LUT/physical DRAM/route cost, whole accepted>=50 and
+cross-family/~100B remain open.

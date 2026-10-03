@@ -382,21 +382,31 @@ physical copy plus separate head I8 view from SAME tied original. All12x256
 target tuples remain distinct. Conversion verification1032.625s/25.246GB RSS;
 previous interrupted1200.015+1200.093s are additional cost.
 
-[336 native contract](METH_336_SWITCH_W8A8_CONTRACT_PROTOCOL_20261003.md) is
-frozen00a5ee9 and running, not yet qualified. AVX2 I8->I16/VPMADDWD/I32 dots,
-per-vector F32 absmax/nearest-even I8 activation and explicit F64 scaling/F32
-return. Independent NumPy I64 reference uses SAME serialized codes/scales;
-o dequantized full FloatBLAS model. Official META architecture loads actual
-F32 control/lookup values; quantized Linear descriptors never enter forward.
-Dynamic actual n allocation replaces fixed256 bound within RAM/shape limits;
-this does not prove higher-n cost/utility. Tiny and full source numeric/fault
-gates precede actual full CPU cost. Frozen334 norm recipe retained;336 declares
-F64-exp rounded F32 for softmax before observation. Original331 cached outputs
-are consumed diagnostics, not a new teacher-quality assay.
+[336 native contract](METH_336_SWITCH_W8A8_CONTRACT_RESULT_20261003.md) now
+PASS: AVX2 I8->I16/VPMADDWD/I32, F32 absmax/nearest-even I8 activation,
+F64 scaling/F32 return; full serialized codes/controls/scales identity and
+complete matched independent NumPy I64 reference outputs EXACT. Tiny/extreme/
+nine faults pass.422.859s/max2.018GB combined RSS. Official META architecture
+loads actual F32 controls/lookup; all I8 Linear shape descriptors replaced by
+actual serialized integer forward. Dynamic n loader within RAM/shape bounds,
+only real256/Tiny2 tested. Original331 cached consumed diagnostic case1 has
+8 changed routes/1 of5 greedy choices, no untouched quality claim.
 
-Next actual complete CPU cost before costly original-donor NEW untouched
-quality/adaptation. SAMEartifact accepted>=50, dynamic RAM-scale useful n,
-hierarchy/LUT/real DRAM cost remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
+[339/340 actual CPU](METH_340_SWITCH_W8A8_COST_RESUME_RESULT_20261003.md) retains
+premeasurement engine-serialization stop and full cost FAIL on64-token prefill/
+repeatability. [341 batched prefill](METH_341_SWITCH_BATCHED_PREFILL_RESULT_20261003.md)
+changes only encoder Q/K/V and cross-K/V execution schedule; all complete
+outputs exact340/336. All unchanged6-thread cost gates PASS: actual full
+encoder/crossKV/32 forced decoder positions median7.643/17.510ms per position
+for source9/64; decoder6.652/8.442ms, repeat ratios1.039/1.048. Source64thread1
+comparison still fails20ms/stability. Actual logical decode matrix addressed
+bytes129.017MB/position; physical DRAM not inferred.39.891s340/51.329s341
+apparatus cost, maxcombined~0.928GB. Forced positions not accepted generation.
+
+Next original-donor NEW untouched paired reconstruction/prediction/generation/
+pertinent task quality on SAME native341 target, followed by accepted generation
+rate with declared contexts/prefill. Useful RAM-scale n, hierarchy/LUT/real
+DRAM and original donor quality remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
 lists available/missing steps. Genuine7.415B to14.664B availability is2x bank
 count, not10x scaling or~100B/cross-family/useful large-n evidence.
 
