@@ -65,16 +65,23 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
 
 ## Exact resumption
 
-METH-326 complete original base256 acquisition RUNNING, exec session60173.
+METH-326 complete original base256 acquisition RUNNING, exec session60173,
+launcherPID23212/workerPID8688. First two shards fully LFS-verified, last
+observed total29,336,338,969B at769.735s, third shard in progress. Windows
+directory size for an open .partial can lag; controller byte counter is used.
 Frozen e9ba50b,90min/64GiB cap, six59GB original shards+seven tokenizer/config
 side files, exact expected size/LFS SHA; source output under results/native_expert_scaling/
 meth326_switch_base256_source. No model loaded/scored. Partial files must be
 preserved on failure; do not restart or launch a duplicate live job.
 Existing project .venv unchanged; qualified isolated reference324 reusable.
 
-Await authoritative session completion; preserve acquisition success/failure
-and complete hashes. Then freeze actual all-tensor/function/tied-alias binding
-and full source apparatus before selecting untouched quality sources.
+Await authoritative session completion; preserve/commit acquisition success/
+failure and complete hashes. Then execute already frozen327 (2e05f67):
+all six source files freshly rehashed, ALL6392 tensors/finite values/tied
+aliases/12x256 real expert parameter tuples,20min/16GiB checkedRSS.
+Command: `.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth327_switch_tensor_binding.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth327_switch_tensor_binding_result.json`.
+Do not run327 before complete326 success is committed. Then qualify full
+actual source apparatus/native exact repack before selecting untouched sources.
 GigaChat donor-adaptation assets reused; high-active generic port still paused.
 [Concrete route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md) remains provisional
 for native T5 encoder/cache/conversion and final source quality/rate.
