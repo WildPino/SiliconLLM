@@ -38,6 +38,11 @@ Local logs retain all30 times/hash observations and empty stderr; stdout SHA
 `975928426a2bd93cb8b44718eb535140655091b86a0b17b0e90e131863e88232`.
 Complete runtime7.484s, native child3.099s, initialization0.252s; all stops
 pass. No GPU/T4/downloads/model inference/palette fit, no live job remains.
+Post-run PE inspection records imports `libomp.dll`, `msvcrt.dll` and
+`KERNEL32.dll`. The toolchain `bin/libomp.dll` used by the declared PATH is
+1,262,080B, SHA `6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698`;
+no copy exists in the executable directory or workspace root. This is
+reproduction provenance, not an in-process module-path trace.
 
 ## Descriptor arithmetic: necessary budget, insufficient implementation
 

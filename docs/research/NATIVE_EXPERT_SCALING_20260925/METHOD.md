@@ -157,8 +157,9 @@ Sparse GigaChat/10B/100B/second-family variants are not automatically qualified.
 ## 1. Source-family variants and route selection
 
 A sparse-source variant is **GigaChat 3.1 Lightning 10B-A1.8B**, source revision
-`189fff27a1dee68473960c3d5bca53e0e07a3191`. Its base has 11.480B
-distinct BF16 elements, 26 layers, 64 routed experts/top-4, one shared expert,
+`189fff27a1dee68473960c3d5bca53e0e07a3191`. Its full HF archive is about11.480B
+including MTP;the actual414-tensor base GGUF has10,672,535,616 elements
+(BF16 matrices/F32 controls),26 layers,64 routed experts/top-4,one shared expert,
 MLA, and a dense first FFN. Source shards, BF16 GGUF and Q4_K_M GGUF are
 locally bound in the [source-binding record](../donor_adaptation/probes/STRAT_01_GIGACHAT31_SOURCE_BINDING_PROTOCOL_20260919.md).
 Ordinary180 and diagonal-weighted181 rank192 representation screens fail.
@@ -196,9 +197,20 @@ inputs and four different routed down inputs;no implicit table reuse.
 Useful large-n still needs selective routing:flat F32 router reads rise
 9.8304->98.304MB/token for the analytical64->640 topology,though selected
 codes/scales and query construction stay fixed. Only64 source experts are
-real;no extra capacity was trained/instantiated. A four-coefficient U8
-palette(2bits/coefficient) is a separate UNMEASURED hypothesis requiring
-complete cost/native controls and new frozen calibration/error rules.
+real;no extra capacity was trained/instantiated.
+[301 four-coefficient U8](METH_301_VECTOR4_LUT_PREFLIGHT_RESULT_20261003.md)
+fits descriptor423.625MB/token,but real source-shaped synthetic phase60
+operators FAIL14ms:stable83.608/82.278/81.626ms medians;all309 matrices,
+16,968 exact scalar rows/18,568 decoded FP64 rows/negative controls pass.
+No donor coefficients or quality are encoded;n640/training skipped.
+[302 same-math attribution](METH_302_VECTOR4_COST_PROFILE_RESULT_20261003.md)
+has all30 output/route hashes exact301;matvec71.137ms(80.139%),tables16.650ms,
+MLA combined41.439ms>routed26.541ms. Table-only or expert-only tuning does
+not license a complete rescue at unchanged other measured costs.
+The [joint compact-core proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md)
+is UNMEASURED:smaller attention and trained nonlinear FFNs,complete row-I8
+core/full-Q6 head cost FIRST,then separately frozen teacher function-fit and
+independent composed quality. No student/artifact/rate or useful new n yet.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),

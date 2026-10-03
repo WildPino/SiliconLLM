@@ -47,43 +47,49 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 - [299 original nonlinear32-channel omission](METH_299_GIGACHAT_NONLINEAR_BLOCK_RESULT_20261002.md)
   FAILS all24 gates;half-width greedy test output error median51.787%.
   No cheap-router continuation of the unchanged omission rule.
-- **[300 full-feature pair LUT complete cost](METH_300_GIGACHAT_VECTOR_LUT_COST_RESULT_20261003.md)**
-  rejects training/export of this fixed U8/two-coefficient format. Freeze
-  `f2a8e38`,exit0,1.797s/endRSS23.59MB;all414 source/Q4 descriptors and
-  every01/04 organ reconcile. Complete addressed weights829.378MB/token,
-  optimistic palette sharing829.150MB,versus560MB.812.81M lookups,
-  424.17-494.67MB table writes/token are LOGICAL counts,not DRAM/rate.
-  Even zero-head/zero-palette leaves729.85MB. Raw SHA
-  `9458aec3f6baafbe00eaa266a3ac7da84c43040153cbfee3fc24ea9fd64dcd75`.
-  Allthree gates fail;independent shape recount exact. No palette training,
-  new donor inference/GPU/T4/downloads or native performance claim.
+- [300 pair LUT](METH_300_GIGACHAT_VECTOR_LUT_COST_RESULT_20261003.md)
+  rejects its complete829.378MB/token versus560MB;all414 descriptors reconcile.
+- **[301 actual phase60 vector4 cost](METH_301_VECTOR4_LUT_PREFLIGHT_RESULT_20261003.md)**
+  descriptor423.625MB/token fits,but actual309-matrix synthetic n64 fixture
+  FAILS14ms:83.608/82.278/81.626ms medians,repeatability1.0243. All16,968
+  scalar rows exact/18,568 decoded FP64 rows error2.38e-8/negative controls
+  pass,2.958GB peakRSS. Freeze606b914,exit0,7.484s;no n640/training/inference.
+  Raw SHA `dc71c85a1d42058fa3eeac5cf83947c27a17e78f5f498b55caec069751aeef2f`.
+- **[302 unchanged-math profiling](METH_302_VECTOR4_COST_PROFILE_RESULT_20261003.md)**
+  all30 output/route hashes EXACT301,stable timing and68.5us timer closure.
+  Matvec71.137ms(80.139%);tables16.650ms;MLA combined41.439ms exceeds
+  routed26.541ms. Even zero-table same-other-cost72.037ms exceeds14ms.
+  Freeze5953709,exit0,4.594s/no new inference;301 remains a failure.
+  Raw SHA `c6496836fdb2f01e89f74aaf4667f6df6a9ff6917f34b645118e9e98be69704b`.
 
 ## Exact resumption
 
-No scientific job active. Two-coefficient U8 proposal is now CLOSED as a
-complete candidate under the unchanged cost allotment;keep its original
-[proposal](FULL_FEATURE_VECTOR_LUT_PROPOSAL_20261002.md) and300 failures.
-Full-feature codes need<=2.676851bits/coefficient BEFORE palette overhead,
-with the priced full rows/scales/controls. The next distinct LUT hypothesis
-is FOUR original coefficients/U8 non-Cartesian index(2bits/coefficient).
-This is unmeasured,not a retained quality recipe. First freeze a new
-complete-organ descriptor cost/layout/control/native construction+lookup
-preflight,BEFORE any palette optimization. Charge all MLA/shared/dense/head
-queries and real selected reads;down and MLA head inputs differ. Then only
-if that cost path is credible,freeze source-bound calibration,matched
-Cartesian control,error/resource gates before observations using verified
-298 captures. Do not repeat49min source capture or old34/130/132 factor-LUT
-assays;06/08/09 low-bit whole-model quality failures remain relevant.
+No scientific job active. Pair/vector4 full-source LUT implementations are
+CLOSED for unchanged candidate training;no table-only/expert-only rescue
+licensed. Old rank192 and direct-channel omission remain failures. Native
+fixture timing is enabling cost evidence,not donor quality,useful capacity,
+physical DRAM measurement or accepted decode rate.
 
-Useful RAM-scale n also needs quality-validated selective search:300's
-analytical64->640 formula keeps tables/selected routed reads fixed but
-raises flat router9.8304->98.304MB/token,encoded payload5.388->48.180GB.
-Only64 pretrained experts are real;no synthetic/copy bank quality claim.
-See [capacity and CPU routing boundary](NATIVE_CAPACITY_SCALING_STATUS_20261002.md).
-Generic donor port stays paused. New small-core quality needs a changed
-scientific variable and untouched sources;292 sources now consumed.
-Actual phase60 same-artifact independent quality/K64/accepted>=50 plus
-useful additional capacity and cross-family10B/100B remain missing.
+Next exact action: [joint compact active-core cost proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md).
+UNMEASURED geometry MLA8heads/routed128/shared256/dense1024,source hidden1536/
+KV512,complete teacher functions as learned targets,source router64 and
+full source Q6 head. Proposed I8 row weights/scales address446.678MB/token;
+this is arithmetic only,no weights mapped. FIRST freeze and verify complete
+native cost/activation conversion/actual Q6 head/integer controls before any
+teacher collection or training. Then only if credible,freeze whole teacher
+attention/FFN function targets,fit/validation data,initialization/optimizer/
+precision/error/resource gates before observations and independent composed
+quality. 298 captures are reusable selected-expert FFN calibration,not full
+MoE/attention context targets;identify additional capture needs FIRST.
+Do not repeat49min capture without a defined target/budget/stop.
+
+Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
+for analytical64->640;only64 real pretrained experts exist. No duplicate/
+synthetic bank quality claim. See [capacity and CPU routing boundary](NATIVE_CAPACITY_SCALING_STATUS_20261002.md).
+Generic donor port stays paused. New small-core quality needs changed
+scientific variable and untouched sources;292 sources consumed. Independent
+whole native quality/K64/accepted>=50 on SAMEartifact,useful added capacity
+and verified cross-family10B/100B applicability remain missing.
 
 ## Method, history and workspace
 
