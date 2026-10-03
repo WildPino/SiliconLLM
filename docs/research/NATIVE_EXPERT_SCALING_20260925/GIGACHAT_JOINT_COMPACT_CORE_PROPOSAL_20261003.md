@@ -109,8 +109,8 @@ compiled21.846–22.477ms remains a cost failure and does not regrade303.
 passes original hashes but fails22ms. [306 packed-I4 candidate](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md)
 retains coefficient capacity but changes precision;own controls pass,cost fails
 20–22ms. [307 waiting profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
-has11.3–14.8ms ACTIVE medians but fails variation/EACH14ms. Next freeze
-physical-core affinity with exact binary/control/bank/head preservation;
+has11.3–14.8ms ACTIVE medians but fails variation/EACH14ms.
+308/309 affinity investigation fails or remains inconclusive; stop its tuning;
 no teacher collection/training or learnedI4 quality is licensed yet. The following
 requirements remain necessary for any cost-qualified replacement.
 
@@ -143,3 +143,5 @@ requirement, not an assumption about this proposed sparse-source geometry.
 ## Updated real-function boundary after310
 
 [310](METH_310_GIGACHAT_REGIONAL_SUBSPACE_RESULT_20261003.md) tests actual parent outputs in ten input-selected128D spaces and fails all gates, unlike synthetic cost303–309. This does not include the shared core's compensating output space. [Next shared256/regional128 bound](GIGACHAT_SHARED_REGIONAL_BOUND_PROPOSAL_20261003.md) is unrun; no joint student training/capture or quality claim is licensed. Preserve exposure and generalization failures.
+
+311 common256-plus-regional128 independent-parent output bound also fails all gates. The next uncertainty is complete routed-plus-shared MoE mixture preservation, with actual source targets and unchanged cost/quality requirements. This is not a claim that mixture compensation succeeds.

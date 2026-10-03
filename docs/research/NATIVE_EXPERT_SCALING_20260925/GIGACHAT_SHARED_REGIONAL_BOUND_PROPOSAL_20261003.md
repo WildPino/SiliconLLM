@@ -1,6 +1,6 @@
 # Shared compact output space plus regional residual: next diagnostic
 
-**UNRUN/UNFROZEN**, no cost or quality pass. 310's input-selected128D stand-alone parent subspaces fail; however the complete target also includes a shared256-wide core. Quantify that omitted degree of freedom before rejecting the entire shared-plus-regional architecture or spending training/capture resources.
+**Implemented311, all gates FAIL.** [Result](METH_311_GIGACHAT_SHARED_REGIONAL_BOUND_RESULT_20261003.md); historical prospective next action below is superseded. No cost or quality pass. 310's input-selected128D stand-alone parent subspaces fail; however the complete target also includes a shared256-wide core. Quantify that omitted degree of freedom before rejecting the entire shared-plus-regional architecture or spending training/capture resources.
 
 ## Changed variable and next exact protocol
 

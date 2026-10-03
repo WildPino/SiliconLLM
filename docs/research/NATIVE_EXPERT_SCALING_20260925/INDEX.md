@@ -73,6 +73,11 @@ baseline charges1016MB active/token. The generic donor port stays paused.
   55.485–93.265%, pooled81.607%; poor exposure and generalization. Seven/nine
   test-region oracles also<99% energy. Exit0,52s/1.058GB finalRSS; no student.
 
+- **[311 common256/regional128](METH_311_GIGACHAT_SHARED_REGIONAL_BOUND_RESULT_20261003.md)**
+  improves every parent energy9.477–29.095pp, but all4 gates FAIL: pooled
+  test error63.968%, every parent42.344–80.517%, unchanged exposure failures.
+  Exact310 routing,44.484s/1.483GB maximum checkedRSS. No student/export.
+
 ## Exact resumption
 
 No scientific job active. Pair/vector4 full-source LUT implementations are
@@ -81,15 +86,17 @@ licensed. Old rank192 and direct-channel omission remain failures. Native
 fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
-Next exact action: freeze the [shared-core plus regional residual bound](GIGACHAT_SHARED_REGIONAL_BOUND_PROPOSAL_20261003.md).
-Changed variable: fit one shared256D output space per layer, then rank128
-regional residuals using unchanged310 input queries/regions and all298 rows.
-This tests an omitted degree of freedom of the actual compact-core proposal;
-it does not fit a student or regrade310. Keep1%median/5%p95/99%energy and
-all-child exposure gates;20min/12GiB, no GPU/new capture. Proposal UNRUN.
-Stop affinity tuning;303–309 native profiles remain closed/inconclusive.
-Stable complete cost and separate whole-model precision/quality are required.
-No live scientific job;310 exited0 and its complete result is preserved.
+Next exact action: reconstruct complete GigaChat MoE FFN targets from
+existing captured normalized inputs: all four source-selected parents,
+their gates, and original shared FFN. This changes the training target
+from independent-parent preservation to the actual composed source function.
+Freeze source/raw-input bindings, dedup coordinates, source-router/slot and
+captured post-SwiGLU controls before output construction. No approximate
+student or new collection. Anchor-conditioned coverage is biased; final
+quality still needs untouched input distribution and whole causal contexts.
+Stop affinity tuning;303–311 unchanged profiles/recipes remain failed or
+inconclusive. Stable complete cost and whole-model precision/quality required.
+No live job;311 exited0 and complete result is preserved.
 
 Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
 for analytical64->640;only64 real pretrained experts exist. No duplicate/
