@@ -105,16 +105,22 @@ PASS all unchanged gates, all outputs byte-exact340/336. Actual6-thread median
 full including prefill per32 forced positions7.643ms(source9)/17.510ms(source64),
 decode6.652/8.442ms, repeats1.039/1.048. Logical matrix reads129.017MB/position,
 not physical DRAM; one warmup/hash filesystem priming stated. Not accepted rate.
-All335-341 observations committed. No model job live.
+All335-342 observations committed.343 quality job live; no timing overlap.
 
-Resume from NEW excluded source selection and original unmodified donor
-untouched paired prediction/reconstruction/generation/task quality BEFORE
-accepted native generation timing on SAME341 artifact. Original numerical
-failures and all old quality stops remain; W8A8 is a source-derived compact
-baseline, not demonstrated fast LUT/large-n utility. Source128 full payload
-absent. Default engine exact; old GigaChat assets reused, generic port paused.
-See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) and
-[transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).
+[342 source-only cohort](METH_342_SWITCH_FRESH_SPAN_MANIFEST_RESULT_20261003.md)
+PASS, rawd2762b9/SHA bed91d901b26caf9b23992f1b4198d692e0ca770eeea60571caae9e2c884f89f:
+24 disjoint new PG19book rows,36 old-row exclusions, four63-token windows/book,
+96 known8-token span labels, encoder57/target11. No model scores at selection.
+[343 prediction protocol](METH_343_SWITCH_FRESH_PREDICTION_PROTOCOL_20261003.md)
+freezeddd0107; RUNNING under authoritative exec59475. Fresh ALL original
+source canonical coefficients+original331/native336 bridges BEFORE NEW
+scores; original unmodified CPU1 PRIMARY versus native341CPU6 SAMEartifact.
+40min after imports/48GiB. Do not duplicate/restart. If PASS freeze free span
+generation/health/reconstruction task and accepted batch1 rate. If FAIL preserve
+raw/partial NEW sources before specific diagnostics or changed candidate.
+Source128 full payload absent. Default engine exact; old GigaChat assets reused,
+generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)
+and [transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).
 
 Genuine base128 to256 availability is2x, not10x; useful larger n, actual DRAM/
 routing cost, accepted>=50 SAMEartifact and multiple-family/~100B remain open.

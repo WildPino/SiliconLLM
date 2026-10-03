@@ -403,10 +403,21 @@ comparison still fails20ms/stability. Actual logical decode matrix addressed
 bytes129.017MB/position; physical DRAM not inferred.39.891s340/51.329s341
 apparatus cost, maxcombined~0.928GB. Forced positions not accepted generation.
 
-Next original-donor NEW untouched paired reconstruction/prediction/generation/
-pertinent task quality on SAME native341 target, followed by accepted generation
-rate with declared contexts/prefill. Useful RAM-scale n, hierarchy/LUT/real
-DRAM and original donor quality remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
+[342 new source manifest](METH_342_SWITCH_FRESH_SPAN_MANIFEST_RESULT_20261003.md)
+now makes24 new PG19book rows/96 known8-token masks reproducible;36 previous
+book-ID exclusions, four distinct63-token windows/book, source57/target11.
+Model-free selection46.329s/1.504GB endRSS, original tokenizer/config bound;
+no model-score selection or unknown pretraining-exclusion guarantee.
+[343 prediction](METH_343_SWITCH_FRESH_PREDICTION_PROTOCOL_20261003.md) frozen
+and RUNNING: fresh original canonical ALL coefficient identities and cached331
+original/native336 bridges, ORIGINAL unmodified official CPU1 PRIMARY versus
+native341CPU6 SAMEartifact. Full11-target/8-span NLL with book-bootstrap95%
+upper<=.05 nats, token/span accuracy noninferiority and>=95% original top1
+agreement; all96 scored without postscore source changes. No outcome yet.
+Free generation/known-answer task and accepted native generation rate remain
+separate mandatory stages; teacher-forced reconstruction is not autoregressive
+quality. Useful RAM-scale n, hierarchy/LUT/physical DRAM and broader original
+quality remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
 lists available/missing steps. Genuine7.415B to14.664B availability is2x bank
 count, not10x scaling or~100B/cross-family/useful large-n evidence.
 

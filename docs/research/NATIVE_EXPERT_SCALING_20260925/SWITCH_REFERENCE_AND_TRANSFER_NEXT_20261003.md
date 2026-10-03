@@ -51,9 +51,10 @@ before observations/default restored;340 cost FAIL prefill/repeatability.
 at unchanged gates, SAME target/full outputs;6-thread full7.643/17.510ms per
 position on forced32 decoder positions for source9/64. Not accepted generation.
 
-Next NEW source exclusions/manifest and prospectively frozen whole paired
-original-donor prediction/reconstruction/span-generation/task quality, followed
-by accepted native generation on SAMEartifact. No job live. Keep original
+342 NEW source-only manifest PASS,24 books/96 known masks, raw committed.
+343 ORIGINAL-primary paired prediction protocol frozen and RUNNING exec59475;
+40min/48GiB, no duplicate. Free span generation/task and accepted native rate
+remain after prediction PASS, all on SAMEartifact. Keep original
 learned experts; base128 full payload absent.128/256 availability provides2x
 only. Dynamic actual-n loader within RAM/shape bounds is no larger useful-n
 proof. Complete LUT/physical DRAM/route cost, whole accepted>=50 and
