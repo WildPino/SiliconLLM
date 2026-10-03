@@ -184,3 +184,7 @@ and [transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).
 
 Genuine base128 to256 availability is2x, not10x; useful larger n, actual DRAM/
 routing cost, accepted>=50 SAMEartifact and multiple-family/~100B remain open.
+
+Future discriminating bank-usefulness controls and real scale/resource limits:
+[useful-bank/n plan](SWITCH_USEFUL_BANK_AND_N_NEXT_20261004.md). Planning only;
+no additional model/native timing job while363 is live.
