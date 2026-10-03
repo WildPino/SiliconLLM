@@ -279,13 +279,18 @@ provides a NEW representation prerequisite only: preserve original widths,
 two U8 indices/eight coefficients into two256x8 I8 books, F32 row scale,
 S7 activation proposal, originalQ6 head/F32 router/norm/BF16 embedding.
 Fresh source/header geometry controls and542.987MB addressed/token accounting
-pass560MB yardstick. No books are trained/exported and no native kernel exists.
+pass560MB yardstick. No books are trained/exported.318 now implements a source-sized native kernel;319 closes its unchanged cost profile.
 Original active encoded1.429B coefficient products still require measurement.
 640/6400-bank scenarios are analytical, not additional useful knowledge:
 flat routing increases active cost; hierarchical costs require a learned and
 validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
-Next [native full-geometry decoder preflight](GIGACHAT_ADDITIVE_NATIVE_PREFLIGHT_PROPOSAL_20261003.md)
-must pass scalar/numeric/complete14ms/stability gates before expensive training.
+[318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
+now passes all source/numeric/format/route/capacity controls on fully allocated
+3.187GB with actual source head/router/norm/embedding. All nine repetition
+medians38.124–55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+full-width decoder is CLOSED before training/640-bank allocation.318 startup
+failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
+No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.
 The bounded-I8/S7 format is inspired by AQLM but does not inherit its results.
 No low-rank output cap, no activation-LUT table builder, no return to unchanged
 IQ2/Q2 maps. Full source-aware fitting, useful learned hierarchy, causal whole
@@ -303,6 +308,45 @@ weight payload alone. These are calculations, not a measured C rate or DRAM
 trace. The old C donor-port line is paused; its 54/64 passing
 layer checkpoints and first normalization residual are reusable fidelity
 evidence, not an automatic instruction to continue that port.
+
+
+### Smaller-active pretrained sparse donor branch: provisional Switch
+
+[321 official Switch applicability screen](METH_321_SWITCH_METADATA_SCREEN_RESULT_20261003.md)
+now identifies a structurally different route after GigaChat representation/
+cost failures. Pinned Google base128/256 preserve original learned-bank
+availability at7.415B/14.664B inferred unique parameters, with SAME123.765M
+large-matrix coefficients per decode step. Full F32 decoder descriptors
+497.537/499.896MB include head, router, dense/core FFNs and selected top1;
+BF16 andW8 are explicitly unqualified precision scenarios. All index/META
+namespace/alias-count controls pass. Actual weight/tensor header/function
+uniqueness hashes and source baseline are NOT yet available. Large128 fails
+unchangedBF16 descriptor; metadata alone cannot validate native performance.
+
+This family is encoder-decoder/span reconstruction: full encoder and cross-KV
+projection occur per prompt, cache/attention/context and initialization costs
+must be measured. Relative position buckets, top1 probability multiplier,
+capacity/drop semantics, source precision and source autoregressive cache
+behavior are mandatory. A compatible low-active source branch can serve the
+architectural thesis, but a generic high-active port still cannot conclude it.
+No instruction/chat usefulness claim follows this pretrained infilling source.
+
+[323 actual model-free runtime diagnostic](METH_323_SWITCH_RUNTIME_DIAGNOSTIC_RESULT_20261003.md)
+blocks reliance on installed5.13.1 Switch: sparse shapes finite, but expected
+capacity1 drops absent (relativeL2.83275 in multi-token controls), and tiny
+full encoder/cache call fails. This is reference apparatus evidence, not donor
+quality rejection.322 hard assertion and320 missing legacy config failures
+preserved. No source checkpoints downloaded.
+
+[Next concrete transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
+requires an isolated official4.57.6 reference/dependency environment, same
+logical router/expert controls and full cached/prefill validation, original321
+META namespace checks, THEN bounded complete source acquisition/tensor hashes.
+Existing project libraries stay unchanged. Native converter/loader/encoder/
+cache/whole model are missing; exact repack and prospectively qualified
+precision cannot be written as validated. Base256 is the approximately10B
+case, base128 real bank-count comparison; actual100B/multiple-family proof
+and all same-artifact quality/accepted>=50 requirements remain open.
 
 An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The
 [metadata screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md) binds an

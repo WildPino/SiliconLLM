@@ -1,0 +1,257 @@
+{
+  "experiment": "METH-323-complete-Switch-router-capacity-diagnostic",
+  "cases": [
+    {
+      "input_shape": [
+        1,
+        1,
+        8
+      ],
+      "passed": true,
+      "returned_shape": [
+        1,
+        1,
+        8
+      ],
+      "finite": true,
+      "logical_top1_capacity_relative_l2": 0.0,
+      "capacity_semantics_passed": true,
+      "logical_accepted_mask": [
+        [
+          [
+            false,
+            true
+          ]
+        ]
+      ],
+      "dropped_output_norm": 0.0,
+      "zero_reference_fault_detected": true
+    },
+    {
+      "input_shape": [
+        1,
+        4,
+        8
+      ],
+      "passed": true,
+      "returned_shape": [
+        1,
+        4,
+        8
+      ],
+      "finite": true,
+      "logical_top1_capacity_relative_l2": 0.8327527046203613,
+      "capacity_semantics_passed": false,
+      "logical_accepted_mask": [
+        [
+          [
+            false,
+            true
+          ],
+          [
+            false,
+            false
+          ],
+          [
+            true,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ]
+      ],
+      "dropped_output_norm": 0.21917083859443665,
+      "zero_reference_fault_detected": true
+    },
+    {
+      "input_shape": [
+        2,
+        2,
+        8
+      ],
+      "passed": true,
+      "returned_shape": [
+        2,
+        2,
+        8
+      ],
+      "finite": true,
+      "logical_top1_capacity_relative_l2": 0.8327527046203613,
+      "capacity_semantics_passed": false,
+      "logical_accepted_mask": [
+        [
+          [
+            false,
+            true
+          ],
+          [
+            false,
+            false
+          ]
+        ],
+        [
+          [
+            true,
+            false
+          ],
+          [
+            false,
+            false
+          ]
+        ]
+      ],
+      "dropped_output_norm": 0.21917083859443665,
+      "zero_reference_fault_detected": true
+    }
+  ],
+  "controller_sha256": "da6fe81493c1f2179fecc3b9f71fc2f82aa5b83910ff7cf705e26d64793490c1",
+  "protocol_sha256": "ddfcd907c909143dca201e81e0a1e9bbbac72a117dd7b750d477770d4f9c575e",
+  "source_sha256": "f1eab2d3e02e70d93d20d6fb07dd3acd20519fe6f88a57d7a1b214bc5b305ecd",
+  "prior_sha256": "31351eae3934228468366501492c291f8a7f8b0a228bf3db80a146d797b9ebb1",
+  "tiny_config": {
+    "transformers_version": "5.13.1",
+    "architectures": null,
+    "output_hidden_states": false,
+    "return_dict": true,
+    "dtype": null,
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": true,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "problem_type": null,
+    "vocab_size": 32,
+    "d_model": 8,
+    "d_kv": 4,
+    "d_ff": 16,
+    "expert_capacity": 1,
+    "num_layers": 2,
+    "num_sparse_encoder_layers": 1,
+    "num_decoder_layers": 2,
+    "num_sparse_decoder_layers": 1,
+    "num_heads": 2,
+    "num_experts": 2,
+    "router_bias": false,
+    "router_jitter_noise": 0.0,
+    "router_dtype": "float32",
+    "router_ignore_padding_tokens": false,
+    "relative_attention_num_buckets": 32,
+    "relative_attention_max_distance": 128,
+    "dropout_rate": 0.0,
+    "layer_norm_epsilon": 1e-06,
+    "router_z_loss_coef": 0.001,
+    "router_aux_loss_coef": 0.001,
+    "initializer_factor": 1.0,
+    "dense_act_fn": "relu",
+    "add_router_probs": false,
+    "use_cache": true,
+    "pad_token_id": 0,
+    "eos_token_id": 1,
+    "bos_token_id": null,
+    "tie_word_embeddings": true,
+    "is_decoder": false,
+    "add_cross_attention": false,
+    "encoder_sparse_step": 2,
+    "decoder_sparse_step": 2,
+    "_name_or_path": "",
+    "decoder_start_token_id": 0,
+    "model_type": "switch_transformers",
+    "output_attentions": false
+  },
+  "direct_3D_router_control": {
+    "exact_top1_capacity_mask": false,
+    "probability_and_third_output_shapes": true,
+    "F32_selected_probability_exact": true,
+    "repeatable_eval_no_jitter": true
+  },
+  "observed_router_shapes": [
+    [
+      1,
+      4,
+      1
+    ],
+    [
+      1,
+      4,
+      1,
+      2
+    ],
+    [
+      1,
+      4,
+      1
+    ]
+  ],
+  "observed_mask": [
+    [
+      [
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ]
+      ]
+    ]
+  ],
+  "expected_mask": [
+    [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  ],
+  "learned_source_weights_read": false,
+  "tiny_full_head_and_cache": {
+    "passed": false,
+    "error": "ValueError('`use_cache` can only be set to `True` if SwitchTransformersStack(\\n  (embed_tokens): Embedding(32, 8)\\n  (block): ModuleList(\\n    (0): SwitchTransformersBlock(\\n      (layer): ModuleList(\\n        (0): SwitchTransformersLayerSelfAttention(\\n          (SelfAttention): SwitchTransformersAttention(\\n            (q): Linear(in_features=8, out_features=8, bias=False)\\n            (k): Linear(in_features=8, out_features=8, bias=False)\\n            (v): Linear(in_features=8, out_features=8, bias=False)\\n            (o): Linear(in_features=8, out_features=8, bias=False)\\n            (relative_attention_bias): Embedding(32, 2)\\n          )\\n          (layer_norm): SwitchTransformersLayerNorm()\\n          (dropout): Dropout(p=0.0, inplace=False)\\n        )\\n        (1): SwitchTransformersLayerFF(\\n          (mlp): SwitchTransformersDenseActDense(\\n            (wi): Linear(in_features=8, out_features=16, bias=False)\\n            (wo): Linear(in_features=16, out_features=8, bias=False)\\n            (dropout): Dropout(p=0.0, inplace=False)\\n            (act): ReLU()\\n          )\\n          (layer_norm): SwitchTransformersLayerNorm()\\n          (dropout): Dropout(p=0.0, inplace=False)\\n        )\\n      )\\n    )\\n    (1): SwitchTransformersBlock(\\n      (layer): ModuleList(\\n        (0): SwitchTransformersLayerSelfAttention(\\n          (SelfAttention): SwitchTransformersAttention(\\n            (q): Linear(in_features=8, out_features=8, bias=False)\\n            (k): Linear(in_features=8, out_features=8, bias=False)\\n            (v): Linear(in_features=8, out_features=8, bias=False)\\n            (o): Linear(in_features=8, out_features=8, bias=False)\\n          )\\n          (layer_norm): SwitchTransformersLayerNorm()\\n          (dropout): Dropout(p=0.0, inplace=False)\\n        )\\n        (1): SwitchTransformersLayerFF(\\n          (mlp): SwitchTransformersSparseMLP(\\n            (router): SwitchTransformersTop1Router(\\n              (classifier): Linear(in_features=8, out_features=2, bias=False)\\n            )\\n            (experts): SwitchTransformersExperts(\\n              (expert_0): SwitchTransformersDenseActDense(\\n                (wi): Linear(in_features=8, out_features=16, bias=False)\\n                (wo): Linear(in_features=16, out_features=8, bias=False)\\n                (dropout): Dropout(p=0.0, inplace=False)\\n                (act): ReLU()\\n              )\\n              (expert_1): SwitchTransformersDenseActDense(\\n                (wi): Linear(in_features=8, out_features=16, bias=False)\\n                (wo): Linear(in_features=16, out_features=8, bias=False)\\n                (dropout): Dropout(p=0.0, inplace=False)\\n                (act): ReLU()\\n              )\\n            )\\n          )\\n          (layer_norm): SwitchTransformersLayerNorm()\\n          (dropout): Dropout(p=0.0, inplace=False)\\n        )\\n      )\\n    )\\n  )\\n  (final_layer_norm): SwitchTransformersLayerNorm()\\n  (dropout): Dropout(p=0.0, inplace=False)\\n) is used as a decoder')"
+  },
+  "gates": {
+    "direct_router_top1_capacity_probability": false,
+    "every_sparse_forward_contract": true,
+    "tiny_model_head_cache_contract": false,
+    "every_logical_capacity_semantics": false
+  },
+  "decision": "installed_reference_unsupported_before_large_checkpoint_acquisition",
+  "resource": {
+    "seconds": 12.75,
+    "end_rss_bytes": 1257435136
+  },
+  "scope": "Tiny synthetic operator contract, not source model quality/cost/knowledge or accepted rate. Direct router control does not qualify full expert dispatcher or checkpoint reference."
+}

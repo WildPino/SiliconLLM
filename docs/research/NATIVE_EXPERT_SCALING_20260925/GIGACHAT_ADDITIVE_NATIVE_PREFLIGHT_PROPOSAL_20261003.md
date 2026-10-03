@@ -1,6 +1,6 @@
 # Next decision: native full-width additive decoder
 
-**UNIMPLEMENTED/UNFROZEN.**317 passes addressed-weight accounting at actual
+**Implemented318/319; unchanged decoder CLOSED on cost/stability.** See [319](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md). Historical proposal follows.317 passes addressed-weight accounting at actual
 source64 geometry (542.987MB),316 closes the fixed compact output subspaces.
 New uncertainty: can direct decoding of two small additive I8 palettes into
 exact integer dot products run complete full-width source organs within14ms?
