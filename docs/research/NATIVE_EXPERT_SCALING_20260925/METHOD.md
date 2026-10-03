@@ -208,8 +208,10 @@ has all30 output/route hashes exact301;matvec71.137ms(80.139%),tables16.650ms,
 MLA combined41.439ms>routed26.541ms. Table-only or expert-only tuning does
 not license a complete rescue at unchanged other measured costs.
 The [joint compact-core proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md)
-is UNMEASURED:smaller attention and trained nonlinear FFNs,complete row-I8
-core/full-Q6 head cost FIRST,then separately frozen teacher function-fit and
+is UNMEASURED:smaller attention,ten trained nonlinear128-wide children per
+source parent(select one),640 labels/layer retaining original9.437B routed
+coefficient capacity. No children trained;child query/exposure/utility require
+their own audit. Complete row-I8 core/full-Q6 head cost FIRST,then teacher fit and
 independent composed quality. No student/artifact/rate or useful new n yet.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),

@@ -71,9 +71,12 @@ fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
 Next exact action: [joint compact active-core cost proposal](GIGACHAT_JOINT_COMPACT_CORE_PROPOSAL_20261003.md).
-UNMEASURED geometry MLA8heads/routed128/shared256/dense1024,source hidden1536/
-KV512,complete teacher functions as learned targets,source router64 and
-full source Q6 head. Proposed I8 row weights/scales address446.678MB/token;
+UNMEASURED geometry MLA8heads/routed TEN128-wide children per source parent,
+one selected child per active parent,shared256/dense1024,source hidden1536/
+KV512,teacher function targets,source macro router64 and full Q6 head.
+640 functions retain original9.437B routed coefficient capacity;no trained
+children exist. Shared16D query/child keys are priced. I8 weights/scales and
+original Q6 head address447.358MB/token;
 this is arithmetic only,no weights mapped. FIRST freeze and verify complete
 native cost/activation conversion/actual Q6 head/integer controls before any
 teacher collection or training. Then only if credible,freeze whole teacher

@@ -23,15 +23,24 @@ Prospective geometry for the NEXT COST screen, not an adopted model:
   KV-rank512 stay as source anchors. A learned eight-head attention function
   would need full teacher contexts/output targets; projection SVD alone
   cannot qualify the changed softmax/head composition.
-- Routed macro experts64/top4, nonlinear width128 instead of1280; shared
-  nonlinear width256 instead of1280; dense first FFN width1024 instead of8960.
-  Learn gate/up/down together against full teacher SwiGLU functions and the
-  composed routed/shared mixture. Literal source channel dropping failed299;
-  a trained nonlinear student is a different variable, not a rescue of299.
+- Keep source macro experts64/top4, but learn TEN different nonlinear width128
+  specializations per macro expert, selecting ONE per active parent. Thus640
+  conditional functions/layer retain the routed coefficient capacity of64x1280
+  while active FFN work shrinks. Query regions require different learned
+  functions, balanced source exposure and usefulness checks, not copied weights.
+  Shared nonlinear width256 replaces1280; dense first FFN width1024 replaces8960.
+  Learn each specialization's gate/up/down together against the COMPLETE parent
+  SwiGLU function in its query region, then validate the composed routed/shared
+  mixture. Literal source channel dropping failed299; trained nonlinear query
+  specialization is a different variable, not a rescue of299. Earlier weak
+  low-rank child banks175/176 also remain failures: here the proposed children
+  replace full parent FFNs with nonlinear functions, not small additive factors.
 - Preserve original source router selection initially for the real n64 case.
-  New or hierarchical selective routing needs a separately frozen retrieval/
-  composed-quality audit. Do not combine a changed router with the first
-  function-fit comparison or assume increasing RAM removes router cost.
+  Within each selected parent, price an input1536->16 shared query projection
+  and ten16-dimensional FP32 child keys, stable top1. Child routing/training
+  requires a separately frozen source-exposure/function-fit/quality audit;
+  retaining the teacher macro selection does not validate child selection.
+  Larger source parent counts require additional selective macro search.
 - Cost row-I8 weights and dynamically scaled signed-I8 input vectors,
   integer dot products, explicit FP32 row/input scales and source nonlinear/
   control arithmetic. This avoids large per-query float coefficient tables.
@@ -58,22 +67,35 @@ this proposal has179,765,248. Source weights are not yet mapped to it.
 | Flat F32 source router64 |2,457,600 |9,830,400 |
 | Full original Q6 head |197,001,216 |161,602,560 |
 | Norms/biases and one Q4 embedding row |97,856 |386,144 |
-| **Complete addressed weight scenario** | |**446,677,600** |
+| Shared I8 child query projection,16/layer |614,400 |616,000 |
+| Ten FP32 child keys for each of four selected parents |16,000 |64,000 |
+| **Complete addressed weight scenario** | |**447,357,600** |
 
 These are proposal calculations, NOT an exported or scored artifact, physical
 DRAM or timing. Additional input scales, format metadata/alignment, activation
 conversion, output accumulation, nonlinear/attention/KV/routing work remain.
 The new geometry's native cost gate must not borrow301's lookup times or old
-276 integer component times. At n640 flat router/bias alone add88,531,200B;
-addressed weight would approach535MB before the omitted costs. More n eventually
-requires selective search even if the smaller functions preserve quality.
+276 integer component times. Here parent64xchild10 means640 total functions.
+For parent640xchild10=6400 functions, flat parent router/bias alone add
+88,531,200B;addressed weight would approach536MB before omitted costs. More n
+eventually requires selective macro search even if source quality is preserved.
 
-The encoded routed bank grows with n, with only four functions consulted
-per layer. For this geometry25*3*1536*128=14,745,600 distinct I8 coefficients
-per additional expert across layers, plus row scales/router/bias. Any n640
-or larger is only a shape formula until new different functions are pretrained/
-trained and independently quality-gated. Do not duplicate64 source experts or
-claim a synthetic bank proves the user's useful RAM-scale capacity.
+The bank grows with total conditional n, with only four children consulted
+per layer. At640 functions/layer,25*640*3*1536*128=9,437,184,000 routed
+coefficients, EXACTLY the original64x1280 routed coefficient count. Row scales
+increase because there are more down output rows. This retains an intended
+large parameter capacity; it is not yet knowledge transfer or useful capacity.
+Per extra function across layers there are14,745,600 I8 coefficients plus row
+scales; macro router and child-key growth are priced separately. Parent640/
+child10 bank alone would need94.37GB of I8 codes, more than this host's RAM:
+a real100B case needs sufficient resources or independently quality-validated
+storage precision. No such donor or parameters are instantiated here.
+
+Only64 pretrained parent functions are currently real. Proposed640 trained
+regional functions are not640 additional pretrained experts; measure their
+distinct parameter/function responses, source region coverage, quality and
+utility. Scaling to a larger donor must supply actual different teacher
+capacity. Do not duplicate64 experts or count synthetic banks as useful n.
 
 ## Exact next action before teacher collection/training
 
