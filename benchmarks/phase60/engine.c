@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_F64_MV_SOURCE
+#ifdef SILICON_SWITCH_SPECIFIED_ARITHMETIC
+#include "../native_expert_scaling/meth333_switch_source_binding.c"
+#elif defined(SILICON_SWITCH_F64_MV_SOURCE)
 #include "../native_expert_scaling/meth332_switch_source_binding.c"
 #elif defined(SILICON_SWITCH_ROUTER_TRACE)
 #include "../native_expert_scaling/meth331_switch_router_trace_entry.c"
