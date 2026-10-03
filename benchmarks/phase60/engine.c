@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_STABLE_RMS_SOURCE
+#ifdef SILICON_SWITCH_ROUTER_TRACE
+#include "../native_expert_scaling/meth331_switch_router_trace_entry.c"
+#elif defined(SILICON_SWITCH_STABLE_RMS_SOURCE)
 #include "../native_expert_scaling/meth330_switch_source_binding.c"
 #elif defined(SILICON_SWITCH_F32_SOURCE_BINDING)
 #include "../native_expert_scaling/meth329_switch_source_binding.c"
