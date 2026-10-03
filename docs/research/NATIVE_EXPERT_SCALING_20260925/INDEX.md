@@ -105,7 +105,7 @@ PASS all unchanged gates, all outputs byte-exact340/336. Actual6-thread median
 full including prefill per32 forced positions7.643ms(source9)/17.510ms(source64),
 decode6.652/8.442ms, repeats1.039/1.048. Logical matrix reads129.017MB/position,
 not physical DRAM; one warmup/hash filesystem priming stated. Not accepted rate.
-All335-348 observations committed; NEW prediction349 live, no timing overlap.
+All335-353 observations committed; NEW full task351 live, no timing overlap.
 
 [342 source-only cohort](METH_342_SWITCH_FRESH_SPAN_MANIFEST_RESULT_20261003.md)
 PASS, rawd2762b9/SHA bed91d901b26caf9b23992f1b4198d692e0ca770eeea60571caae9e2c884f89f:
@@ -128,15 +128,28 @@ decode6.426/7.207ms, repeat1.0174/1.0037;37.297s/max0.928GB. Not accepted rate;
 64-source prefill~261ms remains significant for short natural responses.
 [348 NEW manifest](METH_348_SWITCH_HEAD_A16_FRESH_MANIFEST_RESULT_20261003.md)
 PASS24 source-only books/96 eight-token masks,62 old exclusions,47.171s.
-[349 NEW original-primary prediction](METH_349_SWITCH_HEAD_A16_FRESH_PREDICTION_PROTOCOL_20261003.md)
-frozen7d850e1 RUNNING authoritative exec35459,60min after imports/48GiB;
-unchanged343 quality thresholds (>=95% top1), same347 binary measured346.
-Do not duplicate/restart. Read exit/raw; commit all outcome. PASS licenses NEW
-free generation/task and actual accepted end-to-end rate; FAIL preserve sources
-as consumed before diagnosis. Fresh ALL original6392 coefficient hashes and
-original331/native347 bridges before NEW scores. No CPU timing/model overlap.
-Unexecuted generation draft
-`meth344_switch_span_generate_entry.c` is unfrozen and ineligible pending quality.
+[349 NEW original prediction](METH_349_SWITCH_HEAD_A16_FRESH_PREDICTION_RESULT_20261003.md)
+ALL gates PASS:96.7803% original top1; all-token NLL upper-.007338/mask NLL
+upper+.008128; known-token loss-.78125pp/lower-1.43229pp within-2pp. Strict
+8-token exact0/96 BOTH arms still insensitive.1835.985s/max9.337GB. Source348
+books now consumed; old343 FAIL unchanged, no cross-cohort causal improvement.
+[352 consumed real-bank visits](METH_352_SWITCH_CONSUMED_ROUTE_COVERAGE_RESULT_20261003.md):
+original encoder238-256/decoder208-231 experts/bank consulted; no larger-n/
+causal usefulness/DRAM claim. [350 NEW multispan labels](METH_350_SWITCH_MULTI_SPAN_MANIFEST_RESULT_20261003.md)
+PASS24 new books/96 four-two-token-mask cases, source29/target14,87 exclusions.
+[353 greedy wrapper](METH_353_SWITCH_GENERATION_CONTRACT_RESULT_20261003.md)
+PASS complete independent Tiny/original-official cache and actual engineering
+trajectories; unchanged345 forward, explicitly new353 binary;73.235s/max1.896GB.
+[351 NEW full task](METH_351_SWITCH_MULTI_SPAN_QUALITY_PROTOCOL_20261003.md)
+frozen1822b83 RUNNING authoritative exec94685,90min after imports/48GiB.
+Same353 binary, original unmodifiedCPU1/native6; all original canonical hashes/
+official cache/forced+greedy native bridges before NEW prediction AND natural
+generation/known-answer/health scores. No duplicate/restart or CPU timing overlap.
+Consume exit/raw and commit ALL outcome. PASS licenses separately frozen354
+accepted FULL end-to-end batch1 rate on SAME binary/cases, including prefill and
+rejected-case time; report structural/prose-token counts. FAIL preserves cohort
+as consumed before diagnosis. All350 sources previously model-unscored.
+Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
 generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)
 and [transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).

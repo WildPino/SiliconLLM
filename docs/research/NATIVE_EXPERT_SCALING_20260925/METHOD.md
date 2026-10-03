@@ -433,15 +433,34 @@ The64-source prefill~261ms is not hidden:32-position amortization does not
 establish >=50 accepted end-to-end on shorter responses. Need actual generation.
 [348 NEW sources](METH_348_SWITCH_HEAD_A16_FRESH_MANIFEST_RESULT_20261003.md)
 select24 new books/96 known8-token masks without scores,62 old exclusions.
-[349 original-primary quality](METH_349_SWITCH_HEAD_A16_FRESH_PREDICTION_PROTOCOL_20261003.md)
-frozen and RUNNING: same timed347 executable, unmodified originalCPU1 PRIMARY,
-all original canonical bytes/bridges fresh, unchanged34395%/.05/accuracy criteria.
-60min/48GiB prospective budget; no result yet. Core/experts A8 and target payload
-stay fixed; old343 failure remains closed and all342 sources consumed.
-Free generation/known-answer task and accepted end-to-end batch1 rate remain
-separate mandatory stages. Useful RAM-scale n, hierarchy/LUT/physical DRAM,
-real base128 comparison and cross-family/~100B remain open. See
-[transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).
+[349 original-primary quality](METH_349_SWITCH_HEAD_A16_FRESH_PREDICTION_RESULT_20261003.md)
+ALL eight unchanged thresholds PASS on96 NEW masks: original top1 96.7803%,
+mask NLL upper+.008128, all-token upper-.007338. Known accuracy-.78125pp with
+lower-1.43229pp within-2pp; do not call identical quality. All350 predecessor
+348 books now consumed, old343 FAIL remains. Strict8-token exact still0/96
+BOTH arms, so a NEW more informative task is required.1835.985s/max9.337GB.
+[352 selected real banks](METH_352_SWITCH_CONSUMED_ROUTE_COVERAGE_RESULT_20261003.md)
+visits original238-256/encoderbank and208-231/decoderbank in consumed343 paths;
+parameters distinct and broadly consulted, no causal useful-capacity scaling.
+[350 NEW source-only task](METH_350_SWITCH_MULTI_SPAN_MANIFEST_RESULT_20261003.md)
+24 books/96 four-short-span cases,87 old exclusions, source29/labels14.
+[353 wrapper numeric](METH_353_SWITCH_GENERATION_CONTRACT_RESULT_20261003.md)
+PASS full exact Tiny/official-cache and actual engineering greedy trajectories
+through unchanged345 mathematical forward, new explicitly identified binary;
+73.235s/max1.896GB. No original free-generation quality from engineering data.
+[351 full task](METH_351_SWITCH_MULTI_SPAN_QUALITY_PROTOCOL_20261003.md) frozen
+and RUNNING, original unmodifiedCPU1 PRIMARY/native6 SAME353 executable.
+New full prediction, natural cached greedy four-span generation, known-answer
+field/token/F1 scores, original prose edits, marker/terminal/repetition health;
+all prospective gates mandatory, original task signal required.90min/48GiB,
+no timing overlap. No outcome yet. Only PASS licenses separately frozen354
+actual accepted batch1 FULL generation rate, including prefill/greedy/stop
+and rejected-case time, ordinary/structural/prose count boundaries explicit.
+Core A8/head A16/actual338 weights unchanged; source29 task doesn't prove long-
+context rate. Useful RAM-scale n/LUT/physical DRAM, real base128 comparison,
+additional families/~100B and final method remain missing. Dynamic loader isn't
+that proof. Proposed [task route](SWITCH_MULTI_SPAN_GENERATION_NEXT_20261003.md)
+was written before349 outcome. GigaChat generic port remains paused.
 
 An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The
 [metadata screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md) binds an

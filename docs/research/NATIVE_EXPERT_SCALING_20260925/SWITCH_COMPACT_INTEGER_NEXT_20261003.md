@@ -84,15 +84,19 @@ live; generation draft unexecuted/unfrozen pending quality.343 failure retained.
 
 ## Current actual qualification / live resumption
 
-345 apparatus binding stop preserved;347 actual HEAD A16/core A8 numeric
-PASS independent primitives/Tiny/nine faults and complete consumed composition.
-346 SAME executable actual CPU cost PASS unchanged thresholds: full7.452/
-15.372ms per32 forced positions source9/64, decode6.426/7.207ms. Logical bytes
-unchanged, physical DRAM/accepted natural rate unproven;64-source prefill~261ms.
-348 NEW24books/96masks/62exclusions selected source-only and committed54a69d7.
-349 NEW original-primary prediction frozen7d850e1 RUNNING exec35459;60min/48GiB,
-no duplicate. SAME347 binary, original unmodifiedCPU1 versus native6, unchanged
-343 criteria. Fresh all original coefficients/bridges before new scores.
-Consume exit/raw, preserve all outcome. PASS next NEW free generation/task/
-actual accepted end-to-end rate; FAIL keep sources consumed before diagnosis.
-343 old95% FAIL unchanged; useful larger-n/LUT/DRAM/family goal remains open.
+349 NEW original prediction ALL gates PASS, original top196.7803%, known
+accuracy loss-.78125pp within-2pp. Strict8-token exact0/96 BOTH remains weak;
+old343 FAIL unchanged.352 consumed traces consult original238-256 encoder/
+208-231 decoder experts/bank, no n-scaling/DRAM/causal usefulness proof.
+350 NEW24books/96four-two-token-mask labels source29/target14,87 exclusions;
+source-only unscored.353 actual greedy/cache/stop wrapper full numeric PASS,
+unchanged345 forward/new353 binary, not engineering quality/rate promotion.
+351 original-primary full task frozen1822b83 RUNNING exec94685;90min/48GiB,
+no duplicate/model/timing overlap. SAME353 binary, original fresh coefficient/
+official-cache bridges, complete NEW prediction AND natural generation/known-
+answer/health gates. Read exit/raw, commit all. PASS freeze354 SAME binary
+actual accepted FULL batch1 rate with prefill and rejection time charged,
+ordinary/prose/structural-token boundaries and source29 context explicit.
+FAIL preserve source consumption before specific diagnosis. Useful larger-n/
+LUT/physical DRAM/cross-family/~100B and final goal remain open. Source128 full
+payload absent; old GigaChat evidence reused, generic port paused.
