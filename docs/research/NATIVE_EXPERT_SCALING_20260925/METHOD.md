@@ -319,7 +319,7 @@ availability at7.415B/14.664B inferred unique parameters, with SAME123.765M
 large-matrix coefficients per decode step. Full F32 decoder descriptors
 497.537/499.896MB include head, router, dense/core FFNs and selected top1;
 BF16 andW8 are explicitly unqualified precision scenarios. All index/META
-namespace/alias-count controls pass. Actual weight/tensor header/function
+namespace/alias-count controls pass. Actual tensor header names/shapes/F32 dtypes now pass325; full payload/function
 uniqueness hashes and source baseline are NOT yet available. Large128 fails
 unchangedBF16 descriptor; metadata alone cannot validate native performance.
 
@@ -338,11 +338,19 @@ full encoder/cache call fails. This is reference apparatus evidence, not donor
 quality rejection.322 hard assertion and320 missing legacy config failures
 preserved. No source checkpoints downloaded.
 
-[Next concrete transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
-requires an isolated official4.57.6 reference/dependency environment, same
-logical router/expert controls and full cached/prefill validation, original321
-META namespace checks, THEN bounded complete source acquisition/tensor hashes.
-Existing project libraries stay unchanged. Native converter/loader/encoder/
+[324 isolated official reference](METH_324_SWITCH_REFERENCE_RESULT_20261003.md)
+passes all same323 logical router/capacity controls, tiny fullhead and four
+unsaturated cached/full-prefix steps, ALL original321 META maps. Own4.57.6/
+Hub0.36.0 imports verified, originalTorch reused, original project environment
+unchanged; source files byte-equal to official release. Capacity resets per
+call, so saturated full-prefix/tokenwise equivalence is not assumed.
+[325 actual source metadata](METH_325_SWITCH_SOURCE_HEADERS_RESULT_20261003.md)
+passes all6+3 remote shard namespaces/shapes/F32/storage-record lengths via
+3.45MB bounded ranges. Physical source storages include serialized tied copies;
+actual function/tensor equality must be verified before deduplication.
+Full original base256 acquisition is frozen326 (90min/64GiB); whole LFS hashes
+required before source reference/model loading. The native transfer route is
+outlined in [next steps](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md). Native converter/loader/encoder/
 cache/whole model are missing; exact repack and prospectively qualified
 precision cannot be written as validated. Base256 is the approximately10B
 case, base128 real bank-count comparison; actual100B/multiple-family proof

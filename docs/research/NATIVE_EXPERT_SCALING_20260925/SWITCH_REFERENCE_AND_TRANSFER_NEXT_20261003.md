@@ -1,12 +1,14 @@
 # Next concrete route: qualify reference, then bind real sparse donor
 
-**PROPOSAL, NOT IMPLEMENTED/VALIDATED.**321 identifies official base128/256
+**PARTLY IMPLEMENTED: reference324 and actual headers325 PASS.**321 identifies official base128/256
 with compact decoder-active geometry;323 shows installed5.13.1 reference
 cannot be trusted for configured capacity and cached generation. No checkpoint
-download/training justified until this missing prerequisite is repaired.
+training/quality scoring justified before qualified source weights.324 now repairs
+the model-free reference prerequisite in a separate official environment;325
+checks actual headers and LFS manifest;326 full primary acquisition is frozen.
 GigaChat fixed fields316 and native additive decoder319 remain closed.
 
-## 1. Isolated official reference
+## 1. Isolated official reference: implemented324
 
 Create an isolated local reference environment without changing `.venv` or
 its5.13.1 dependencies. Candidate pinned official Transformers4.57.6, compatible
@@ -25,9 +27,12 @@ numeric closure. Then instantiate all three321 official configs on META,
 require original index namespaces/alias-counts unchanged. No source config
 waiver, current-package patch or changed quality gate. Failures preserved.
 
-## 2. Bounded actual source acquisition/binding
+## 2. Bounded actual source acquisition/binding: headers325 implemented
 
-Only after reference gates PASS: select base256 as the actual approximately10B
+324 gates now PASS;325 all6+3 actual header/F32/storage records match.
+326 acquires full original primary58.856GB archives under90min/64GiB guard,
+whole LFS SHA required. Actual all-tensor/function/tied-alias binding remains
+unimplemented. Select base256 as the actual approximately10B
 case (14.664B inferred unique weights) with base128 as a real smaller-n family
 comparison. Immutable Google revisions/config/index hashes from321. Actual
 source index sizes approximately59GB/30GB, local disk currently~498GB free;
@@ -63,7 +68,7 @@ paired untouched reconstruction/generative/task quality and useful behavior
 must be designed without relabeling arbitrary completion as chat capability.
 Preserve final donor-relative quality and SAMEartifact>=50 accepted rate.
 
-All transfer/scaling still unproven. Source7.4B→14.7B is genuine bank-count
+All transfer/scaling still unproven. Source7.4Bâ†’14.7B is genuine bank-count
 availability, not tenfold native scaling. Cross-family applicability and actual
 approximately100B when resources allow remain explicit missing deliverables;
 no fabricated larger banks or smaller student substitute can close them.

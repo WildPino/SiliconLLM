@@ -54,20 +54,30 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
   encoder-cache call fails. Current reference unsupported before checkpoints.
   320/322 apparatus failures preserved; [318–323 history](HISTORY_METH318_THROUGH323_20261003.md).
 
+- [324 isolated official reference](METH_324_SWITCH_REFERENCE_RESULT_20261003.md):
+  own4.57.6/Hub0.36.0 + originalTorch2.6; all routing/capacity, tiny fullhead,
+  four unsaturated cached-prefix and complete META gates PASS.12.72MB/138.406s.
+  Saturated per-call capacity equivalence is not assumed; original5.13 unsupported.
+- [325 actual source headers](METH_325_SWITCH_SOURCE_HEADERS_RESULT_20261003.md):
+  ALL6+3 source shard actual F32/names/shapes/storage lengths PASS,3.45MB/28.328s.
+  Original full archives58.856GB/29.859GB, expected LFS hashes now fixed.
+  Actual full weight/function hashes and source quality remain missing.
+
 ## Exact resumption
 
-No scientific process live. Last scientific record323 completes all contracts;
-not a pretrained source quality result. Existing `.venv` remains unchanged.
-No Switch weights downloaded. Source GigaChat donor-adaptation assets reused;
-its generic high-active port remains paused, its old next action not resumed.
+METH-326 complete original base256 acquisition RUNNING, exec session60173.
+Frozen e9ba50b,90min/64GiB cap, six59GB original shards+seven tokenizer/config
+side files, exact expected size/LFS SHA; source output under results/native_expert_scaling/
+meth326_switch_base256_source. No model loaded/scored. Partial files must be
+preserved on failure; do not restart or launch a duplicate live job.
+Existing project .venv unchanged; qualified isolated reference324 reusable.
 
-Next implement/freeze [isolated official Switch reference qualification](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md):
-Transformers4.57.6 plus compatible dependencies in separate environment;
-reuse existing Torch2.6 without installing another CUDA stack or downgrading
-project libraries. Proposed20min/1GiB setup cap, then same323 tiny capacity/
-forward oracle and full cached/prefill controls, all321 official META namespaces.
-Declare legacy tuple API mapping before observations. No large checkpoint
-acquisition until semantic/reference gates PASS. No source config/gate waiver.
+Await authoritative session completion; preserve acquisition success/failure
+and complete hashes. Then freeze actual all-tensor/function/tied-alias binding
+and full source apparatus before selecting untouched quality sources.
+GigaChat donor-adaptation assets reused; high-active generic port still paused.
+[Concrete route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md) remains provisional
+for native T5 encoder/cache/conversion and final source quality/rate.
 
 Then bind actual base256 approximately10B donor (14.664B), base128 genuine
 smaller-n comparison: original revisions/config/indexes in321, actual complete
