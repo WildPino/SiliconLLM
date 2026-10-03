@@ -1,6 +1,12 @@
 # Next numerical qualification policy: specified arithmetic versus source quality
 
-**PROPOSAL, NOT IMPLEMENTED/VALIDATED.** Original329/330/332 probability1e-6
+**IMPLEMENTED333/334; MATCHED ARITHMETIC CORRECTNESS PASS334 ONLY.**
+333 norm primitive failure retained;334 explicit root/reciprocal roundings
+pass complete native/source apparatus. Original donor quality/rate UNVERIFIED.
+See [334 result](METH_334_SWITCH_ROUNDED_REFERENCE_RESULT_20261003.md) and
+[next compact proposal](SWITCH_COMPACT_INTEGER_NEXT_20261003.md). The body below
+records the prospective policy rationale before implementation.
+ Original329/330/332 probability1e-6
 sourceCPU1 comparison FAILS; no promotion under those fixed protocols. Actual
 native weights ALL6392 exact, choices/greedy/capacity exact, logit pooled errors
 2e-7..7e-7 on two consumed controls. No heldout/generative/task quality/rate.

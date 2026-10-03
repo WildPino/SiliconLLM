@@ -357,16 +357,26 @@ controls, not untouched whole donor-relative quality or accepted rate.
 and classifier contributions; local router F64 alone remains insufficient.
 This does not prove a universal rounding floor.
 
-The [new numerical policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md)
-is a PROPOSAL: qualify C against an independent reference for fully specified
-target arithmetic, then independently assess original-donor quality on NEW
-prospectively selected/excluded sources. Original-backend failures remain in
-history, with original donor PRIMARY for actual knowledge preservation. Full
-precision apparatus is not a final compact fast artifact. Compact all-bank
-representation/exact integer reference, actual CPU cost, untouched whole
-quality and SAMEartifact accepted>=50 remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
-lists concrete available/missing steps. Genuine7.415B to14.664B availability is
-2x bank count, not10x scaling or~100B/cross-family/useful large-n evidence.
+The [specified numerical policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md)
+is now implemented333/334, explicitly separating target correctness from
+original pretrained quality. [333](METH_333_SWITCH_SPECIFIED_ARITHMETIC_RESULT_20261003.md)
+reference norm primitive FAIL retained before native/full source execution.
+[334](METH_334_SWITCH_ROUNDED_REFERENCE_RESULT_20261003.md) explicitly rounds
+sqrt/reciprocal boundaries and passes SAME NumPy oracle, both Tiny/nine faults,
+all6392 source native bytes and complete source matched arithmetic. Probability
+max1.6391e-7, all discrete routes/capacity/greedy exact, unchanged1e-4 every-state
+and1e-6 probability gates against independent recipe. Original329/330/332
+original-backend qualification remains FAIL; no original-donor quality promotion.
+Original unmodified donor remains PRIMARY for a NEW untouched quality cohort.
+Full precision apparatus is not a final compact fast artifact.
+
+[Compact integer proposal](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) specifies the
+next implement/freeze step: all-bank W8A8 with exact integer/scaling reference,
+real full CPU cost before costly quality/adaptation. None implemented yet.
+Actual untouched whole quality, SAMEartifact accepted>=50, dynamic RAM-scale
+useful n and hierarchy/LUT cost remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
+lists available/missing steps. Genuine7.415B to14.664B availability is2x bank
+count, not10x scaling or~100B/cross-family/useful large-n evidence.
 
 An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The
 [metadata screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md) binds an

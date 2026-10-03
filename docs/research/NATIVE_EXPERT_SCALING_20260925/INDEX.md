@@ -21,7 +21,7 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
 | Question | Established | Missing |
 | --- | --- | --- |
 | Useful large-n target | Dense0.5B scoped E1280 functions preserve GPU quality; real conditional-bank cost apparatus available | Genuine larger donor knowledge/useful extra n; actual hierarchical route quality/RAM-scale consultation and full accepted rate |
-| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Qualified target arithmetic, compact precision, untouched whole quality and same-artifact rate; cross-family/100B proof |
+| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Compact precision, untouched whole quality and same-artifact rate; cross-family/100B proof |
 
 ## Decisive evidence and closed paths
 
@@ -62,24 +62,32 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
   outputs byte-equal330; both upstream states and same-input classification
   contribute. F64 router alone insufficient; no global unavoidable-floor claim.
 
+- [333 reference primitive](METH_333_SWITCH_SPECIFIED_ARITHMETIC_RESULT_20261003.md)
+  norm oracle FAIL before native/source observations, preserved.
+- [334 prescribed arithmetic](METH_334_SWITCH_ROUNDED_REFERENCE_RESULT_20261003.md):
+  explicit norm primitive rounding; NumPy oracles, both Tiny/all nine faults,
+  ALL6392 source bytes and complete source C versus matched independent
+  arithmetic PASS. Source probability max1.6391e-7. NEW numerical estimand;
+  original329/330/332 FAIL unchanged. No original-donor quality/rate promotion.
+
 ## Exact resumption
 
-No model job live.326-332 raw observations committed, source acquisition
+No model job live.326-334 raw observations committed, source acquisition
 complete under `results/native_expert_scaling/meth326_switch_base256_source`;
 source128 payload still absent. Qualified isolated324 environment reusable.
 Default engine body unchanged; Switch entries are opt-in apparatus with
 CTX256/batch1/E<=256/D<=1024/L<=24/FF<=4096 bounds, not RAM-scale support.
 GigaChat donor-adaptation assets reused; high-active generic port remains paused.
 
-Next implement and freeze the [new numerical policy proposal](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md):
-explicit F64 dot/value reductions with F32 outputs plus declared norm/softmax,
-independent matched Torch reference, same stringent correctness gates and
-semantic faults. Proposal NOT IMPLEMENTED/VALIDATED. Preserve original329/330/332
-FAIL; matched arithmetic cannot substitute for original donor quality.
-Then qualify compact all-bank representation/integer arithmetic and actual CPU
-cost before extensive adaptation; original donor remains PRIMARY baseline for
-NEW prospectively specified untouched reconstruction/generation/task cohort.
-F64 apparatus itself is not a fast compact LUT result.
+Specified arithmetic [policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md)
+is implemented333/334 and qualified ONLY against matched target reference.
+Resume from [compact integer proposal](SWITCH_COMPACT_INTEGER_NEXT_20261003.md):
+implement streaming all-bank W8A8 export, exact I32/scaling reference and native
+AVX2, retain all256 real experts, freeze full protocol/gates/resource bounds
+BEFORE observations. No compact candidate implemented/validated yet. Measure
+actual CPU path cost before extensive quality/adaptation. Original donor stays
+PRIMARY for NEW prospectively specified untouched whole quality cohort; old
+numerical failures retained. F64 apparatus is not a fast compact LUT result.
 
 [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md) separates available
 source/native operators from missing precision/quality/rate. Genuine base128 to

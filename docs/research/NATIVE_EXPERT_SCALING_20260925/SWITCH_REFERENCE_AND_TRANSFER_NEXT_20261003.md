@@ -2,7 +2,7 @@
 
 **PARTLY IMPLEMENTED. No full goal claim.**324-328 qualify the isolated official
 reference, acquire/bind all original14.664B weights and implement complete native
-T5/Switch source operators.329/330/332 original-backend qualification FAILS one
+T5/Switch source operators.334 prescribed target arithmetic correctness PASS;329/330/332 original-backend qualification FAILS one
 probability gate. GigaChat fixed fields316 and additive decoder319 remain closed.
 
 ## Available reproducible steps
@@ -27,15 +27,21 @@ probability gate. GigaChat fixed fields316 and additive decoder319 remain closed
    retained; [331](METH_331_SWITCH_ROUTER_DIAGNOSTIC_RESULT_20261003.md) diagnoses
    upstream and classifier rounding on byte-exact330 outputs.
 
-## Next steps: not implemented or validated
+6. [333](METH_333_SWITCH_SPECIFIED_ARITHMETIC_RESULT_20261003.md) norm primitive
+   failure retained; [334](METH_334_SWITCH_ROUNDED_REFERENCE_RESULT_20261003.md)
+   explicitly rounded independent reference passes NumPy primitives, Tiny/nine
+   faults, all original bytes and complete matched target arithmetic. This is
+   a new numerical estimand; original329/330/332 sourceCPU1 failures remain.
+   No original-donor quality or speed promotion.
 
-Freeze concrete [specified arithmetic policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md),
-C implementation, independent Torch arithmetic reference, resource bounds and
-fault/gate suite BEFORE observations. Distinguish implementation correctness
-from preserved pretrained quality. Match stringent existing state/logit1e-4,
-probability1e-6 and exact discrete cache/routing to prescribed arithmetic;
-retain original329/330/332 failures. This is a new numerical estimand, not an
-execution repair or retroactive threshold waiver. F64 apparatus is not fast LUT.
+## Next steps: compact representation not implemented or validated
+
+[Specified arithmetic policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md)
+implemented and qualified333/334. F64 correctness apparatus is not fast LUT.
+[Compact integer proposal](SWITCH_COMPACT_INTEGER_NEXT_20261003.md) is the next
+concrete implement/freeze point: all-bank W8A8 streaming export, exact integer/
+scaling reference and AVX2 with no saturating intermediary. Keep all source256
+experts. Resource/numeric/cost criteria must be frozen before new observations.
 
 Then build/qualify all-bank compact parameter representation with exact integer
 and scaling reference; measure real full CPU cost before expensive fitting or
@@ -51,4 +57,4 @@ student. Base128 full original payload remains absent; source128/256 availabilit
 provides2x banks only. Prototype CTX256/batch1/E<=256 bounds are not RAM-scale
 support. Useful larger n, actual hierarchical routing/LUT/DRAM costs, same
 artifact>=50 accepted tokens/s and cross-family/~100B all remain unverified.
-No current model job live. Resume from new numerical policy implementation.
+No current model job live. Resume from compact integer proposal implementation.
