@@ -1,4 +1,6 @@
-#ifdef SILICON_WINDOWS_AFFINITY_PROFILE
+#ifdef SILICON_ADDITIVE_I8_FULL_PREFLIGHT
+#include "../native_expert_scaling/meth318_additive_i8_cpu.c"
+#elif defined(SILICON_WINDOWS_AFFINITY_PROFILE)
 #include "../native_expert_scaling/meth309_windows_affinity_cpu.c"
 #elif defined(SILICON_PACKED_I4_PREFLIGHT)
 #include "../native_expert_scaling/meth306_packed_i4_cpu.c"
