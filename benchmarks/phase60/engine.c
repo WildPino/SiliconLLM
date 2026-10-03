@@ -45,7 +45,7 @@
 #elif defined(SILICON_COMPLETE_I16)
 #include "../native_expert_scaling/meth284_complete_core_cpu.c"
 #else
-// Silicon Entropy Engine â€” CONSOLIDATED single-core inference engine (P4.3).
+// Silicon Entropy Engine — CONSOLIDATED single-core inference engine (P4.3).
 //
 // One core, feature-flags, replacing the five stage engines (e1/e2/e3/e35/e4_engine.c, now archival).
 // The model file's magic selects the MLP family: E1M1 (dense gated-dReLU) or E4M1 (MoE top-8 experts).
@@ -120,8 +120,8 @@
 #endif
 // 63.T threads: parallelism ONLY across independent outputs (distinct y[o]); each reduction (dotf, scan-j) stays
 // serial on one thread -> bit-identity is by construction, invariant to thread count. schedule(static). --threads N
-// (default 1 = the P43 path). Pinning is external (OMP_PROC_BIND/OMP_PLACES) â€” no topology code in the engine.
-// 63.C: the OpenMP `if(g_omp_on)` clause skips the fork/join entirely at N=1 (g_omp_on set to threads>1 in main) â€” the
+// (default 1 = the P43 path). Pinning is external (OMP_PROC_BIND/OMP_PLACES) — no topology code in the engine.
+// 63.C: the OpenMP `if(g_omp_on)` clause skips the fork/join entirely at N=1 (g_omp_on set to threads>1 in main) — the
 // portable one-line fix for the ~6% parallel-region tax measured at N=1, no dual code path. bit-identity is unaffected.
 static int g_omp_on=0;
 static int g_router_parallel=0;  // NES-02 experimental; default serial router retains the baseline path
@@ -201,7 +201,7 @@ static inline void acc_add_i8x32(__m256i* acc,__m256i p){
     acc[0]=_mm256_add_epi32(acc[0],_mm256_cvtepi8_epi32(lo)); acc[1]=_mm256_add_epi32(acc[1],_mm256_cvtepi8_epi32(_mm_srli_si128(lo,8)));
     acc[2]=_mm256_add_epi32(acc[2],_mm256_cvtepi8_epi32(hi)); acc[3]=_mm256_add_epi32(acc[3],_mm256_cvtepi8_epi32(_mm_srli_si128(hi,8)));
 }
-// P1 (BRIEF_P1_NIBBLE_PACKING Â§1): the 2-trit code is an index the hardware reads as a NIBBLE, so two codes
+// P1 (BRIEF_P1_NIBBLE_PACKING §1): the 2-trit code is an index the hardware reads as a NIBBLE, so two codes
 // fit one byte. `--pack nibble` selects the packed encoders/kernels; `--pack byte` (default) is the shipped
 // path, untouched. Both arms coexist so they can be compared; C3 is the end-to-end parity gate between them.
 static int g_pack_nib=0;
@@ -213,7 +213,7 @@ static int g_pack_nib=0;
 #define RMCODE(cr,t)              (g_pack_nib? np_rm_code(cr,t) : (int)(cr)[t])
 #define BC_TM(W,M,K,Mp,c)         do{ if(g_pack_nib) bc_tm_n(W,M,K,Mp,c); else bc_tm(W,M,K,Mp,c); }while(0)
 #define BC_RM(W,M,K,c)            do{ if(g_pack_nib) bc_rm_n(W,M,K,c);    else bc_rm(W,M,K,c);    }while(0)
-// C4: ACHIEVED ternary-code bytes, summed from _msize() of the blocks malloc actually returned â€” never
+// C4: ACHIEVED ternary-code bytes, summed from _msize() of the blocks malloc actually returned — never
 // recomputed from T*Mpad. Convention (identical for both arms): the ternary WEIGHT-CODE arrays only;
 // fp32 tensors, per-row scales, activations and LUTs are excluded from both arms alike.
 static size_t g_code_bytes=0;
@@ -487,7 +487,7 @@ static void router_int8_topk(int l,const float* xn,int* idx,float* wv){
 }
 static int8_t g_xq[D],g_lut[TUP*16],g_hq[HID_E],g_lutd[TDE*16]; static int32_t g_S[HID_E],g_Sd[D];
 // V-G3b expert-selection capture: when g_esel_cap!=NULL the router writes this position's KTOP experts per layer
-// into g_esel_cap[l*KTOP..] â€” used to count the per-block expert UNION touched (block layer-major) vs token-by-token.
+// into g_esel_cap[l*KTOP..] — used to count the per-block expert UNION touched (block layer-major) vs token-by-token.
 static int* g_esel_cap=NULL;
 static void mlp_moe(int l,const float* xn,float* out,int mlp_lut,double* router_time){
     double router_start=router_time?now_s():0;
@@ -529,7 +529,7 @@ static void mlp_moe(int l,const float* xn,float* out,int mlp_lut,double* router_
 // 63.V Activation Replay (the chassis-conforming commit): during the speculative forward of the K drafts, stash the
 // post-GEMV recurrence INPUTS per position (raw in_proj xx pre-conv, dt, Bm for SSM layers; k/v for the SWA layer).
 // At commit we advance the persistent state (hstate scan + convbuf + kv-ring) by re-running ONLY the elementwise
-// recurrence from these stashed inputs â€” zero GEMV, no streamed weight re-touched. This upholds the sealed R-F
+// recurrence from these stashed inputs — zero GEMV, no streamed weight re-touched. This upholds the sealed R-F
 // invariant "each weight streamed 1x/block" that snapshot+re-forward violated. ~28KB/position (~226KB at K=8), L2-fit.
 typedef struct { float xraw[L][DN]; float dt[L][DN]; float Bm[L][N]; float kk[D]; float vv[D]; } ActPos;
 static ActPos* g_cap=NULL;   // non-NULL -> forward_token stashes this position's recurrence inputs for replay-commit
@@ -713,7 +713,7 @@ static void load_ngram(const char* path){ FILE* f=fopen(path,"rb"); if(!f){fprin
     for(int o=2;o<=(int)nn;o++){ uint32_t c; if(fread(&c,4,1,f)!=1)exit(1); ng_cnt[o]=c; tot+=4+(size_t)c*12;
         ng_key[o]=xmalloc((size_t)c*8); ng_nxt[o]=xmalloc((size_t)c*2);
         for(uint32_t i=0;i<c;i++){ uint64_t k; uint16_t nx,pad; if(fread(&k,8,1,f)!=1||fread(&nx,2,1,f)!=1||fread(&pad,2,1,f)!=1)exit(1); ng_key[o][i]=k; ng_nxt[o][i]=nx; } }
-    fclose(f); fprintf(stderr,"ngram N=%d loaded (%zu bytes = %.2f MB) [V-G4: RAM-resident lookup, ~K random probes/step (latency-bound) â€” NOT a streamed working set, does not compete for L3 residency]\n",ng_N,tot,tot/1048576.0); }
+    fclose(f); fprintf(stderr,"ngram N=%d loaded (%zu bytes = %.2f MB) [V-G4: RAM-resident lookup, ~K random probes/step (latency-bound) — NOT a streamed working set, does not compete for L3 residency]\n",ng_N,tot,tot/1048576.0); }
 static int ng_find(int o,uint64_t key){ long lo=0,hi=(long)ng_cnt[o]-1; while(lo<=hi){ long m=(lo+hi)>>1; uint64_t k=ng_key[o][m];
     if(k<key)lo=m+1; else if(k>key)hi=m-1; else return (int)m; } return -1; }
 static int ng_draft(const uint16_t* ctx,int nctx){ for(int o=ng_N;o>=2;o--){ if(nctx<o-1) continue; uint64_t key=0,mul=1;
@@ -730,7 +730,7 @@ static void snap_save(void){ if(!snap_alloc){ snap_h=xmalloc((size_t)L*DN*N*4); 
     memcpy(snap_h,hstate,(size_t)L*DN*N*4); memcpy(snap_conv,convbuf,(size_t)L*DN*CONV*4); memcpy(snap_k,kring,(size_t)WIN*D*4); memcpy(snap_v,vring,(size_t)WIN*D*4); snap_kvpos=kvpos; snap_kvcnt=kvcnt; }
 static void snap_restore(void){ memcpy(hstate,snap_h,(size_t)L*DN*N*4); memcpy(convbuf,snap_conv,(size_t)L*DN*CONV*4); memcpy(kring,snap_k,(size_t)WIN*D*4); memcpy(vring,snap_v,(size_t)WIN*D*4); kvpos=snap_kvpos; kvcnt=snap_kvcnt; }
 // Activation replay: advance the persistent state (hstate scan + convbuf + kv-ring) through nacts committed positions
-// using ONLY the stashed recurrence inputs. Elementwise-only (reads resident A and tiny conv_w) â€” no GEMV, no streamed
+// using ONLY the stashed recurrence inputs. Elementwise-only (reads resident A and tiny conv_w) — no GEMV, no streamed
 // weight touched. Bit-identical to forward_token's conv+scan (same float inputs, same arithmetic); y/out_proj/logits
 // are not persistent state, so they are skipped. exp path (ef) mirrors forward_token so the state matches exactly.
 static void replay_commit(const ActPos* acts,int nacts,int ef){
@@ -818,18 +818,18 @@ static int run_verify(int block,const char* ngpath,long genlen,int nseed,int ml,
     static uint16_t tb[1<<17]; double dse=0; long dnb=0; long TG=2000;
     double t0=now_s(); gen_stream(seeds[0],TG,0,tb,&dse,&dnb,ml,sk,ef); double t_ar=now_s()-t0;
     dse=0; dnb=0; t0=now_s(); gen_stream(seeds[0],TG,block,tb,&dse,&dnb,ml,sk,ef); double t_bv=now_s()-t0;
-    double tpp_s=tpp_sampled(block,300,128,ml,sk,ef);       // apparatus protocol (300 pos, ctx128) â€” V-G2 apples-to-apples
+    double tpp_s=tpp_sampled(block,300,128,ml,sk,ef);       // apparatus protocol (300 pos, ctx128) — V-G2 apples-to-apples
     // V-G4 lookup cost (owed): drafter latency = backoff binary-search (<= N-1 probes into the RAM-resident table)
     long NL=500000; volatile int sink=0; double t0l=now_s();
     for(long i=0;i<NL;i++){ int nc=16+(int)(i%(genlen>32?genlen-16:16)); sink^=ng_draft(a_bv,nc); }
     double ns_draft=(now_s()-t0l)*1e9/NL; (void)sink;
     printf("  V-G1 (hard) token-identical to AR: %s\n", allident?"PASS":"FAIL");
     printf("  V-G2 in-engine tpp (apparatus protocol 300pos/ctx128) = %.3f  [apparatus ref same N/K]\n",tpp_s);
-    printf("  (production tpp on self-generated stream = %.3f over %ld blocks â€” higher: self-text is more n-gram-predictable)\n",tpp,nb);
+    printf("  (production tpp on self-generated stream = %.3f over %ld blocks — higher: self-text is more n-gram-predictable)\n",tpp,nb);
     printf("  V-G4 drafter lookup cost = %.1f ns/draft (RAM-resident, latency-bound; negligible vs a streamed forward ~us)\n",ns_draft);
     printf("  V-G3a in-cache speculative overhead (REPORT-ONLY, pre-registered mute): AR %.1f tok/s vs block-verify %.1f tok/s (%.2fx)\n",
            TG/t_ar, TG/t_bv, t_ar/t_bv);
-    printf("    [commit now = activation replay (zero GEMV); the gap is pure speculative waste â€” weights free in L2, batching mute.\n");
+    printf("    [commit now = activation replay (zero GEMV); the gap is pure speculative waste — weights free in L2, batching mute.\n");
     printf("     The streamed-regime speedup (weights once/block) is measured in V-G3b/c, not here.]\n");
     printf("  V-G3b/c (KB-touched expert-union accounting + DRAM-cold emulation) = next rung (needs layer-major cold kernel)\n");
     return allident?0:2;
@@ -839,7 +839,7 @@ static void run_g3c(const char* ngpath,long emu_mb,int ml,int sk,int ef);   // f
 // ---------------- V-G3b: expert-union accounting (MoE, counted; no wall-clock) ----------------
 #define EBYTES 49152    // per-expert streamed ternary codes: egate TUP*HID_E + eup TUP*HID_E + eWd TDE*D = 3*16384
 static void run_g3b(const char* ngpath,long genlen,int ml,int sk,int ef){
-    if(!g_moe){ printf("  V-G3b: skipped (dense model â€” expert accounting is MoE-only)\n"); return; }
+    if(!g_moe){ printf("  V-G3b: skipped (dense model — expert accounting is MoE-only)\n"); return; }
     load_ngram(ngpath); long nval=nids-(long)(nids*0.9); long sp=1000; if(sp+16+genlen>=nval)sp=0;
     static uint16_t obuf[1<<17];
     printf("==== 63.V V-G3b expert-union accounting (MoE, counted) ====\n");
@@ -865,7 +865,7 @@ static void run_g3b(const char* ngpath,long genlen,int ml,int sk,int ef){
 
 // ---------------- V-G3c: all-weights-cold emulation (dense; layer-major weight-once vs token-major AR) ----------------
 // Scale-up proxy: every weight class read from a rotating replica buffer >> L3 so each pass is DRAM-cold; the
-// per-position elementwise compute (scan, activations) stays hot â€” it does not amortize at scale-up either. AR rotates
+// per-position elementwise compute (scan, activations) stays hot — it does not amortize at scale-up either. AR rotates
 // per token (weights streamed once/token); block rotates per pass (weights streamed once/block via the layer-major
 // weight-once forward, applied to K positions). Runs on the DENSE model (clean weight-once, no routing); the MoE
 // expert pool's amortization is the counted union in V-G3b. Deployed config = --mlp lut; skip-off here (E2==E3 output,
@@ -1035,16 +1035,16 @@ static void run_g3c(const char* ngpath,long emu_mb,int ml,int sk,int ef){
     }
     printf("  MECHANISM gate: block weight-bytes/token = AR/tpp (weight-once by construction) = PASS.\n");
     printf("  CLAIM gate (>=1.4x at best K): best wall-speedup = %.3fx -> %s\n",best,best>=1.4?"ADOPTED (weight-traffic-dominated)":"NOT adopted at 8.3M");
-    if(best<1.4) printf("    verdict (pre-registered outcome 3): mechanism verified, claim SCOPED OUT at 8.3M â€” compute-floor/traffic = %.2f >> ~0.25-0.30, so the forward is compute-bound and traffic amortization yields no wall-clock win; (traffic %.2f ms, compute %.2f ms) feed the Phase-64 two-pool sizing (block-verify wins once the streamed pool makes traffic dominate compute).\n",t_compute/t_traf,t_traf*1e3,t_compute*1e3);
+    if(best<1.4) printf("    verdict (pre-registered outcome 3): mechanism verified, claim SCOPED OUT at 8.3M — compute-floor/traffic = %.2f >> ~0.25-0.30, so the forward is compute-bound and traffic amortization yields no wall-clock win; (traffic %.2f ms, compute %.2f ms) feed the Phase-64 two-pool sizing (block-verify wins once the streamed pool makes traffic dominate compute).\n",t_compute/t_traf,t_traf*1e3,t_compute*1e3);
     free(pend); free(Lb); free(Lr);
 }
 
-// ---------------- 64.1b microbenches (synthetic, no weights, no gate) â€” tighten the 64.1 budget model ----------------
+// ---------------- 64.1b microbenches (synthetic, no weights, no gate) — tighten the 64.1 budget model ----------------
 // (1) proj-GEMV size sweep: real row-partitioned fp32 matvec over synthetic weight sets {4..96} MB, threads {1,6}.
 //     Validates the 64.1 spill model: does the ~40 GB/s@t6 plateau hold past L3, and where does the t1 curve break
 //     (L3 = 16 MB per CCX on the reference)? Input x (2 KB) stays L1-resident; the swept W is the streamed working set.
 static void run_gemv_sweep(void){
-    const int nin=512;                                    // DN â€” the largest projection input dim in Arch-A
+    const int nin=512;                                    // DN — the largest projection input dim in Arch-A
     long mb[8]={4,8,16,24,32,48,64,96};
     printf("==== 64.1b(1) proj-GEMV size sweep (real fp32 row-partitioned matvec, in=%d, x L1-resident) ====\n",nin);
     printf("   size(MB)  out_rows |  t1 GB/s  t1 us/pass |  t6 GB/s  t6 us/pass |  t6/t1\n");
@@ -1072,7 +1072,7 @@ static void run_gemv_sweep(void){
     free(x);
 }
 // (2) expert-pool DRAM rate: real ternary LUT kernel over a pool >> L3 (512 MB) of 48 KB experts, 8 random x 6 layers
-//     per "token" (i.i.d. selection => cold random gather). Tightens the model's widest bracket [4.2-11.4 GB/s] â€” the
+//     per "token" (i.i.d. selection => cold random gather). Tightens the model's widest bracket [4.2-11.4 GB/s] — the
 //     effective streamed rate that sets the S1/S2/M1 rows of the curve. threads {1,6} (mirrors the engine: OMP over rows).
 static void run_expert_rate(void){
     const int M=384,Mpad=384,T=128; const size_t EB=(size_t)T*Mpad;   // 49152 B = 48 KB = one expert (gate+up+down eq.)
@@ -1207,7 +1207,7 @@ static int run_rank8_lut_pool(int ne,int threads,int prefetch){
 //   R  i.i.d. random over the 512 MB pool  -- replicates 64.1b's registered 2.88 us/expert
 //   S  sequential stride 1                 -- prefetch-friendly edge of the memory term
 //   C  always expert 0 (48 KB, L1-resident) -- the pure ARITHMETIC floor, memory term ~0
-// memory_term = us/expert(R) - us/expert(C). Decides SPEED_LEDGER.md Â§4's 2.1x bracket.
+// memory_term = us/expert(R) - us/expert(C). Decides SPEED_LEDGER.md §4's 2.1x bracket.
 // This function is reached only via --expert-decomp; no existing code path is touched.
 static void run_expert_decomp(void){
     const int M=384,Mpad=384,T=128; const size_t EB=(size_t)T*Mpad;   // 49152 B, identical to run_expert_rate
