@@ -64,49 +64,32 @@ baseline charges1016MB active/token. The generic donor port stays paused.
   69.5s/3.298GB maximum checkedRSS.312/313 failures/partial assets preserved.
   This is source-target reconstruction, not a trained compact artifact or rate.
 
+- [315/316 complete-mixture diagnostic](METH_316_GIGACHAT_COMPLETE_MIXTURE_BOUND_RESULT_20261003.md)
+  closes shared256/four regional128 fixed fields: ALL four gates FAIL;
+  test median errors53.790%/66.767%/21.560%, joint-span oracles also fail.
+  37,381 states completed284.828s/3.252GB checkedRSS;315 wall failure retained.
+  No coefficient-only training/export of unchanged fields.
+- [317 full-width additive descriptor](METH_317_GIGACHAT_ADDITIVE_DESCRIPTOR_RESULT_20261003.md)
+  preserves source32-head/1280 widths;2bits/code coefficient+I8 books,
+  originalQ6 head.542.987MB addressed/token PASSES560MB accounting only.
+  Flat router at640 grows to631.461MB; hypothetical hierarchy543.019MB,
+  approximately24.84GB stored. Larger capacity/route quality unimplemented.
+
 ## Exact resumption
 
-No scientific job active. Pair/vector4 full-source LUT implementations are
-CLOSED for unchanged candidate training;no table-only/expert-only rescue
-licensed. Old rank192 and direct-channel omission remain failures. Native
-fixture timing is enabling cost evidence,not donor quality,useful capacity,
-physical DRAM measurement or accepted decode rate.
+No scientific job active.315 partial failure committed before316 repair;
+316 all-state equivalence controls pass, scientific recipe CLOSED. No more
+unchanged shared/regional projections, coefficient training or affinity tuning.
+Qualified314 complete source targets remain reusable, anchor-conditioned and
+consumed; sparse exposure cannot establish640 useful learned children.
 
-Next exact action: freeze the [COMPLETE mixture pilot](GIGACHAT_COMPLETE_MIXTURE_PILOT_PROPOSAL_20261003.md)
-using qualified314 archives: shared output space plus the GATED SUM of four
-regional source-parent residual projections, evaluated against full source
-MoE output, with fit-only input routing/control/empty-region rules. No parent
-error proxy or student training.20min/12GiB, all states and coverage retained.
-Fit parent counts down to10 and one test parent absent already preclude
-claiming all640 useful children; no silent exposure waiver. Define new data
-needs only after this bounded complete-function diagnostic. No source recapture.
-303–311 unchanged profiles/recipes failed or inconclusive; stable complete
-native cost and independent whole-model quality still mandatory. No live job.
-
-Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
-for analytical64->640;only64 real pretrained experts exist. No duplicate/
-synthetic bank quality claim. See [capacity and CPU routing boundary](NATIVE_CAPACITY_SCALING_STATUS_20261002.md).
-Generic donor port stays paused. New small-core quality needs changed
-scientific variable and untouched sources;292 sources consumed. Independent
-whole native quality/K64/accepted>=50 on SAMEartifact,useful added capacity
-and verified cross-family10B/100B applicability remain missing.
-
-## Method, history and workspace
-
-[METHOD](METHOD.md) describes reproducible steps and applicability;
-[PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) is the initial native inventory.
-History: [through216](HISTORY_THROUGH_METH216_20261001.md),
-[217-264](HISTORY_METH217_THROUGH264_20261002.md),
-[265-280](HISTORY_METH265_THROUGH280_20261002.md),
-[281-294](HISTORY_METH281_THROUGH294_20261002.md),
-[295-299](HISTORY_METH295_THROUGH299_20261003.md),
-[300-306](HISTORY_METH300_THROUGH306_20261003.md),
-[307-314](HISTORY_METH307_THROUGH314_20261003.md). Historical next steps
-are superseded. Fixed259 strict semantic failure,264 cached-reference
-failure,274/275 component-cost failures and earlier hard-carve/weight-rank/
-static-bias/affine/intercept/amplitude/weak-child stops remain recorded.
-
-Preserve unrelated edits in `docs/research/RESEARCH_INDEX.md` and
-`benchmarks/donor_adaptation/density/build_document_holdout.py`;stage exact
-paths. Docs English/user updates Italian. Graphify explicit graph work only;
-routine hooks removed with backups,GitLFS retained. No subagent delegation.
+Next implement and freeze the [full-width additive native preflight](GIGACHAT_ADDITIVE_NATIVE_PREFLIGHT_PROPOSAL_20261003.md):
+NEW opt-in C/controller, all64 source-sized banks/32-head MLA/shared1280/
+routed1280/dense8960/full actualQ6 head/router/norm, exact scalar decoder
+controls, complete14ms/stability gates. Proposed20min/12GiB baseline; no GPU.
+Synthetic fixtures establish cost only. No book training before numeric/cost
+pass; then separately test actual640-bank allocated/routing cost and learn
+source-aware full-output books. Flat routing grows with n, hierarchy requires
+its own source coverage/training/quality.6400 bank scenario exceeds local RAM.
+Causal complete quality/accepted>=50 SAME artifact and genuine useful larger
+capacity/cross-family100B remain mandatory and unverified. No live jobs.

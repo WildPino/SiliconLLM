@@ -1,6 +1,6 @@
 # Complete MoE mixture representation: next decision after314
 
-**UNRUN/UNFROZEN.**314 supplies real source inputs/complete outputs and all original source controls;310/311 independent-parent recipes remain failures. New uncertainty: does the sum of four input-selected compact functions plus a shared core approximate the COMPLETE donor FFN adequately, even when individual-parent projections fail? Any pass must be scoped to this target/data; no automatic model/cost/scaling promotion.
+**Implemented as315/316; fixed rule CLOSED.** See [316 complete result](METH_316_GIGACHAT_COMPLETE_MIXTURE_BOUND_RESULT_20261003.md) and preserved315 wall stop. All four gates fail, including fixed joint-span diagnostics. Historical proposal follows.314 supplies real source inputs/complete outputs and all original source controls;310/311 independent-parent recipes remain failures. New uncertainty: does the sum of four input-selected compact functions plus a shared core approximate the COMPLETE donor FFN adequately, even when individual-parent projections fail? Any pass must be scoped to this target/data; no automatic model/cost/scaling promotion.
 
 ## Next exact protocol to freeze
 

@@ -264,8 +264,32 @@ and export six bit-exact/hash-bound NPZs (1.609GB/37,381 states,69.5sCPU).
 closure<=3.153e-7 and every original router SLOT pass. Complete mathematical
 FFN targets do not assert captured native full-MoE bit parity or compact quality.
 Rare/anchor-conditioned coverage remains insufficient for ten useful children
-per all64 parents. Next evaluate COMPLETE mixture preservation before any
-new capture/student investment; no parent-error proxy or exposure waiver.
+per all64 parents. [315 partial wall stop](METH_315_GIGACHAT_COMPLETE_MIXTURE_BOUND_FAILURE_20261003.md)
+is preserved; [316 equivalent conditioned projection](METH_316_GIGACHAT_COMPLETE_MIXTURE_BOUND_RESULT_20261003.md)
+completes all37,381 states with exact315 fitted-field hashes and192 fixed-index
+SVD comparisons(max2.063e-15 relative difference). All four scientific gates
+FAIL: complete-mixture TEST medians53.790%/66.767%/21.560%; even joint-span
+oracle medians46.364%/59.084%/18.114%. Fixed shared256/regional128 fields are
+closed before coefficient training/export. Poor exposure remains failed.
+This local true-coefficient bound does not reject jointly learned fields or
+all nonlinear conditional architectures.
+
+[317 full-width additive-weight accounting](METH_317_GIGACHAT_ADDITIVE_DESCRIPTOR_RESULT_20261003.md)
+provides a NEW representation prerequisite only: preserve original widths,
+two U8 indices/eight coefficients into two256x8 I8 books, F32 row scale,
+S7 activation proposal, originalQ6 head/F32 router/norm/BF16 embedding.
+Fresh source/header geometry controls and542.987MB addressed/token accounting
+pass560MB yardstick. No books are trained/exported and no native kernel exists.
+Original active encoded1.429B coefficient products still require measurement.
+640/6400-bank scenarios are analytical, not additional useful knowledge:
+flat routing increases active cost; hierarchical costs require a learned and
+validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
+Next [native full-geometry decoder preflight](GIGACHAT_ADDITIVE_NATIVE_PREFLIGHT_PROPOSAL_20261003.md)
+must pass scalar/numeric/complete14ms/stability gates before expensive training.
+The bounded-I8/S7 format is inspired by AQLM but does not inherit its results.
+No low-rank output cap, no activation-LUT table builder, no return to unchanged
+IQ2/Q2 maps. Full source-aware fitting, useful learned hierarchy, causal whole
+quality and same-artifact accepted rate remain missing steps.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),
