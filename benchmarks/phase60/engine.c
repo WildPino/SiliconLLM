@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_W8A8_COST
+#ifdef SILICON_SWITCH_BATCHED_PREFILL
+#include "../native_expert_scaling/meth341_switch_batched_prefill_entry.c"
+#elif defined(SILICON_SWITCH_W8A8_COST)
 #include "../native_expert_scaling/meth339_switch_w8a8_cost_entry.c"
 #elif defined(SILICON_SWITCH_W8A8_REFERENCE)
 #include "../native_expert_scaling/meth336_switch_w8a8_entry.c"
