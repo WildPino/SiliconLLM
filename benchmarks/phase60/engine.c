@@ -1,4 +1,6 @@
-#ifdef SILICON_COMPACT_I8_PROFILE
+#ifdef SILICON_BIASED_I8_PREFLIGHT
+#include "../native_expert_scaling/meth305_biased_i8_cpu.c"
+#elif defined(SILICON_COMPACT_I8_PROFILE)
 #include "../native_expert_scaling/meth304_compact_i8_profile_cpu.c"
 #elif defined(SILICON_COMPACT_I8_PREFLIGHT)
 #include "../native_expert_scaling/meth303_compact_i8_cpu.c"
