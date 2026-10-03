@@ -21,7 +21,7 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
 | Question | Established | Missing |
 | --- | --- | --- |
 | Useful large-n target | Dense0.5B scoped E1280 functions preserve GPU quality; real conditional-bank cost apparatus available | Genuine larger donor knowledge/useful extra n; actual hierarchical route quality/RAM-scale consultation and full accepted rate |
-| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Untouched whole quality and accepted rate and same-artifact rate; cross-family/100B proof |
+| Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Scoped363 whole quality PASS; accepted FULL rate FAIL364; cross-family/100B proof |
 
 ## Decisive evidence and closed paths
 
@@ -167,16 +167,27 @@ repeats1.0123/1.0285;24.969s/max.942GB. Cost margin, NOT accepted rate.
 [362 NEW source-only cohort](METH_362_SWITCH_MULTI_SPAN_MANIFEST_RESULT_20261004.md)
 ALL gates PASS24 NEW books/96 four-two-token-mask cases,111 prior exclusions,
 source29/target14,34.797s; raw/reportc0302f3, previously unscored.
-[363 NEW whole quality](METH_363_SWITCH_ALL_A16_MULTI_SPAN_QUALITY_PROTOCOL_20261004.md)
-frozena1ff2d6 RUNNING authoritative exec94746,90min/48GiB after imports.
-SAME356 binary/nativeCPU1/affinity[0], original unmodifiedF32 CPU1 PRIMARY,
-fresh ALL6392 original coefficients/official/native356 bridges before scores.
-ALL351 parse/metrics/bootstrap/18 thresholds retained EXACT. Only live model
-job, no native timing overlap/restart/duplicate. Consume exit/raw and retain
-ALL outcome/source consumption. PASS licenses separately frozen364 SAME full
-accepted natural rate, source29/ordinary-prose/structural counts explicit;
-FAIL retains before precise diagnosis/new variable/data.354 original draft
-ineligible/unfrozen, no accepted>=50 claim yet. Old default engine BYTE EXACT.
+[363 whole quality](METH_363_SWITCH_ALL_A16_MULTI_SPAN_QUALITY_RESULT_20261004.md)
+ALL18 PASS, original-primary unmodifiedF32CPU1/nativeALL A16CPU1/affinity[0],
+ALL96 NEW source362 cases, retained3396ee2. Overall top197.2470%/masked96.4844%,
+prose-edit upper.091532738<=.10; original/native health82/81 of96. Bounded
+short English four-span task, not identical outputs/instruction chat. All362
+sources consumed. [364 SAME full accepted rate](METH_364_SWITCH_SINGLE_CORE_ACCEPTED_RATE_RESULT_20261004.md)
+FAIL retained93e7cac:45.1114 ordinary generated IDs/s INCLUDING markers,
+book-bootstrap lower42.5362<50; prose-only24.6979/lower23.3052. ALL96 exact363,
+81 accepted/895 ordinary IDs/490 prose, ALL96 full time19.8398s including
+rejected cases; aggregate repeat1.005005 PASS. Encoder52.67%+crossKV7.44% of
+whole time. SAME unchanged356 execution not promoted; no optional rerun.
+[365 exact execution](METH_365_SWITCH_ENCODER_BATCHES_PROTOCOL_20261004.md)
+NEW prospective encoder O/denseFF/F32router batches and four-token integer
+weight-conversion reuse. Same338 payload/math/route order/capacity, new engine
+opt-in binary. Freeze independent91 batch primitive/Tiny/nine-fault/full/
+engineering/long controls AND ALL96 forced/natural full bytes EXACT363.
+Execution-only exactness can inherit only scoped363 quality. Numeric PASS
+licenses separately frozen366 SAMEbinaryCPU1 cost, then367 unchanged accepted
+FULL >=50 lower/1.10 repeats/ALL96 acceptance, ordinary/prose explicit.
+No job live before365 freeze. Useful n/LUT/physical DRAM/causal learned bank
+usefulness/real128 comparison/cross-family/~100B goal remains open.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
 generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)
@@ -187,4 +198,4 @@ routing cost, accepted>=50 SAMEartifact and multiple-family/~100B remain open.
 
 Future discriminating bank-usefulness controls and real scale/resource limits:
 [useful-bank/n plan](SWITCH_USEFUL_BANK_AND_N_NEXT_20261004.md). Planning only;
-no additional model/native timing job while363 is live.
+365 must be frozen before execution; no overlapping model/native timing job.

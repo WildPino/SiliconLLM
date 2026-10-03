@@ -467,15 +467,18 @@ numerical/cache/natural/long controls ALL7 PASS.357 apparatus path stop and
 physical-core logical processor[0] profile ALL6 cost gates PASS, SAME356 binary,
 full8.1876/17.9727ms per32 forced position, repeat1.0123/1.0285. Not accepted
 natural rate.362 NEW source-only24books/96 four2-token-mask cases,111 prior
-exclusions/source29/target14, ALL guards PASS.363 prospectively frozen NEW
-original-primary full prediction/natural generation/known-task/health/prose
-fidelity, SAME356 binary/native1/affinity[0], ALL351 metric/parser/bootstrap/
-18 thresholds unchanged. Full quality PASS required before SAME364 actual
-accepted FULL rate. Old default engine body BYTE EXACT.
-Useful RAM-scale n/LUT/physical DRAM, real base128 comparison, additional
-families/~100B and final method remain missing. Dynamic loader isn't that
-proof. Proposed [task route](SWITCH_MULTI_SPAN_GENERATION_NEXT_20261003.md)
-was written before349 outcome. GigaChat generic port remains paused.
+exclusions/source29/target14, ALL guards PASS.363 NEW full original-primary
+quality ALL18 PASS retained3396ee2, masked original-top196.4844%/prose-edit
+upper.091533, original/native healthy82/81 of96. ALL sources now consumed.
+364 SAME356 executable/CPU1 affinity[0] full accepted rate FAIL retained93e7cac:
+45.1114 ordinary IDs/s (includes markers)/lower42.5362<50; prose-only24.6979,
+ALL rejected-case full times included. Repeat1.005005 PASS.365 new exact encoder
+O/denseFF/F32router batching/four-token weight-conversion reuse requires fresh
+independent numerical gates and ALL96 complete forced/own natural bytes EXACT
+363 before inheriting its scoped quality and measuring366cost/367full rate.
+No relaxed acceptance/50/1.10 or optional repeats. Whole quality remains bounded
+English short four-span infilling; useful RAM-scale n/LUT/physical DRAM/causal
+bank identity/real128/cross-family/~100B goal remains active.
 
 An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The
 [metadata screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md) binds an

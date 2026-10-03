@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_W8A16_ALL
+#ifdef SILICON_SWITCH_ENCODER_BATCHES
+#include "../native_expert_scaling/meth365_switch_encoder_batches_entry.c"
+#elif defined(SILICON_SWITCH_W8A16_ALL)
 #include "../native_expert_scaling/meth356_switch_all_a16_entry.c"
 #elif defined(SILICON_SWITCH_MULTI_SPAN_GENERATE)
 #include "../native_expert_scaling/meth351_switch_multi_span_generate_entry.c"

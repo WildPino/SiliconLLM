@@ -1,10 +1,9 @@
 # Switch: useful bank consultation and real n scaling after whole qualification
 
-Planning memo4 October2026; no new model/timing observations. Current363
-original-primary ALL A16/nativeCPU1/affinity[0] whole quality running.356
-numerical and361 forced-fixture cost PASS, no accepted rate yet.364 draft
-requires ALL363 quality PASS before same-artifact full accepted natural rate.
-No alternative stage substitutes for this whole qualification.
+Planning memo4 October2026; no bank-control/model scale observations.363
+original-primary whole quality ALL18 PASS,364 SAME full accepted rate FAIL
+45.1114/lower42.5362<50.365 NEW exact execution qualification planned below
+quality remains required before366cost/367rate. Final useful-n goal active.
 
 ## What current capacity evidence does and does not establish
 

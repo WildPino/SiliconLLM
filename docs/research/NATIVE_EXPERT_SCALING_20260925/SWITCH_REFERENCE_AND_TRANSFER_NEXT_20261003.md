@@ -87,14 +87,27 @@ core logical CPU0/processaffinity[0], SAME356 binary/338 payload, ALL6 cost
 gates PASS retained7719f03; full8.1876/17.9727ms per32 forced position source
 9/64, repeats1.0123/1.0285. Not accepted natural rate.362 NEW source-only
 24books/96 four2-token-mask source29/target14,111 exclusions, ALL gates PASS
-retainedc0302f3.363 full original-primary prediction/natural generation/known-
-task/health/prose fidelity frozena1ff2d6 RUNNING authoritative exec94746,
-90min/48GiB after imports, originalCPU1/nativeCPU1/affinity[0], SAME356 binary.
-ALL351 parser/metrics/book-bootstrap/18 thresholds EXACT. Only live model
-job; no timing overlap/restart/duplicate. Consume exit/raw, preserveALL.
-PASS licenses separately frozen364 SAME accepted FULL natural generation
-rate/prefill/rejected-case time, explicit structural/prose counts/source29;
-FAIL specific diagnosis/new variable/NEWdata.354 original draft ineligible.
-Useful larger-n/LUT/physical DRAM/cross-family/~100B goal open. Source128
-payload absent; old GigaChat evidence reused, generic port paused. Default
-engine body BYTE EXACT. All prior quality/cost/apparatus failures remain.
+retainedc0302f3.
+[363 whole quality](METH_363_SWITCH_ALL_A16_MULTI_SPAN_QUALITY_RESULT_20261004.md)
+ALL18 PASS, original-primary unmodifiedF32CPU1/nativeALL A16CPU1/affinity[0],
+ALL96 NEW source362 cases, retained3396ee2. Overall top197.2470%/masked96.4844%,
+prose-edit upper.091532738<=.10; original/native health82/81 of96. Bounded
+short English four-span task, not identical outputs/instruction chat. All362
+sources consumed. [364 SAME full accepted rate](METH_364_SWITCH_SINGLE_CORE_ACCEPTED_RATE_RESULT_20261004.md)
+FAIL retained93e7cac:45.1114 ordinary generated IDs/s INCLUDING markers,
+book-bootstrap lower42.5362<50; prose-only24.6979/lower23.3052. ALL96 exact363,
+81 accepted/895 ordinary IDs/490 prose, ALL96 full time19.8398s including
+rejected cases; aggregate repeat1.005005 PASS. Encoder52.67%+crossKV7.44% of
+whole time. SAME unchanged356 execution not promoted; no optional rerun.
+[365 exact execution](METH_365_SWITCH_ENCODER_BATCHES_PROTOCOL_20261004.md)
+NEW prospective encoder O/denseFF/F32router batches and four-token integer
+weight-conversion reuse. Same338 payload/math/route order/capacity, new engine
+opt-in binary. Freeze independent91 batch primitive/Tiny/nine-fault/full/
+engineering/long controls AND ALL96 forced/natural full bytes EXACT363.
+Execution-only exactness can inherit only scoped363 quality. Numeric PASS
+licenses separately frozen366 SAMEbinaryCPU1 cost, then367 unchanged accepted
+FULL >=50 lower/1.10 repeats/ALL96 acceptance, ordinary/prose explicit.
+No job live before365 freeze. Useful n/LUT/physical DRAM/causal learned bank
+usefulness/real128 comparison/cross-family/~100B goal remains open.
+Source128 payload absent; old GigaChat evidence reused, generic port paused.
+Default engine body BYTE EXACT. All prior quality/cost/apparatus failures remain.
