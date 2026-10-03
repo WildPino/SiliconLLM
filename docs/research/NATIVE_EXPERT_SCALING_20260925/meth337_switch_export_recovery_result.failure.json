@@ -1,0 +1,72 @@
+{
+  "experiment": "METH-337-readonly-complete-export-recovery",
+  "shards": [
+    {
+      "name": "pytorch_model-00001-of-00006.bin",
+      "target_bytes_so_far": 2558040576,
+      "source_tensors_so_far": 1073,
+      "seconds": 152.65699999999924
+    }
+  ],
+  "preserved335_failure_sha256": "871be9e23b05755b1a44a3272419ffa8e09a3f701b7d0564585a7c30c30e4e67",
+  "equivalence_controls": {
+    "seed": 337,
+    "cases": [
+      {
+        "cols": 8,
+        "exact_old335_codes_and_scales": true
+      },
+      {
+        "cols": 15,
+        "exact_old335_codes_and_scales": true
+      },
+      {
+        "cols": 17,
+        "exact_old335_codes_and_scales": true
+      },
+      {
+        "cols": 768,
+        "exact_old335_codes_and_scales": true
+      },
+      {
+        "cols": 3072,
+        "exact_old335_codes_and_scales": true
+      },
+      {
+        "cols": 4096,
+        "exact_old335_codes_and_scales": true
+      }
+    ],
+    "passed": true
+  },
+  "controller_sha256": "8e2f8267733b0302870dabdb6f89653e9b95d4b20a8f84967382e7e98ac208f0",
+  "protocol_sha256": "81a07bd3f72e3d3f64d13cf91557f624f546e08222dc9ac63ae2957853648f6b",
+  "source_binding_sha256": "e72fc17b5527dc34df5c00ed7c44498b2ee4fc5d338ed8b130fff101a30c20a7",
+  "qualified334_sha256": "155fd1bc3f5894e9450a6ba2e22f4d08e1e974582e3d27bff62e52ee3f8eafaa",
+  "model": "google/switch-base-256",
+  "revision": "cdac1724c078ea4974b4087c59634799561e7835",
+  "primitive_controls": {
+    "exact_scalar_nearest_even": true,
+    "zero_row_scale": 1.0,
+    "tie_row": [
+      127,
+      -127,
+      0,
+      2,
+      0,
+      -2,
+      2,
+      -2
+    ],
+    "integer_extreme_and_cancellation": [
+      66064384,
+      0
+    ],
+    "passed": true
+  },
+  "verified_source_target_tensors_so_far": 1722,
+  "stage": "source_tensor_reconstruction_and_readonly_payload_verification",
+  "error": "AssertionError('export_resource_guard')",
+  "main_seconds_excluding_imports": 1200.0930000000008,
+  "maximum_checked_rss_bytes": 10322083840
+}
