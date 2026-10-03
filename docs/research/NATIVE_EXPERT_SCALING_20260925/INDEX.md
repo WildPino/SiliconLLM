@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**3 October 2026. Branch:** `research/native-expert-scaling`.
+**4 October 2026. Branch:** `research/native-expert-scaling`.
 **Active research:** no artifact meets the full final goal.
 
 ## Goal and constraints
@@ -105,7 +105,7 @@ PASS all unchanged gates, all outputs byte-exact340/336. Actual6-thread median
 full including prefill per32 forced positions7.643ms(source9)/17.510ms(source64),
 decode6.652/8.442ms, repeats1.039/1.048. Logical matrix reads129.017MB/position,
 not physical DRAM; one warmup/hash filesystem priming stated. Not accepted rate.
-All335-353 observations committed; NEW full task351 live, no timing overlap.
+All335-353 observations committed;351 full quality FAIL retained30ca546. No timing overlap.
 
 [342 source-only cohort](METH_342_SWITCH_FRESH_SPAN_MANIFEST_RESULT_20261003.md)
 PASS, rawd2762b9/SHA bed91d901b26caf9b23992f1b4198d692e0ca770eeea60571caae9e2c884f89f:
@@ -140,15 +140,18 @@ PASS24 new books/96 four-two-token-mask cases, source29/target14,87 exclusions.
 [353 greedy wrapper](METH_353_SWITCH_GENERATION_CONTRACT_RESULT_20261003.md)
 PASS complete independent Tiny/original-official cache and actual engineering
 trajectories; unchanged345 forward, explicitly new353 binary;73.235s/max1.896GB.
-[351 NEW full task](METH_351_SWITCH_MULTI_SPAN_QUALITY_PROTOCOL_20261003.md)
-frozen1822b83 RUNNING authoritative exec94685,90min after imports/48GiB.
-Same353 binary, original unmodifiedCPU1/native6; all original canonical hashes/
-official cache/forced+greedy native bridges before NEW prediction AND natural
-generation/known-answer/health scores. No duplicate/restart or CPU timing overlap.
-Consume exit/raw and commit ALL outcome. PASS licenses separately frozen354
-accepted FULL end-to-end batch1 rate on SAME binary/cases, including prefill and
-rejected-case time; report structural/prose-token counts. FAIL preserves cohort
-as consumed before diagnosis. All350 sources previously model-unscored.
+[351 NEW full task](METH_351_SWITCH_MULTI_SPAN_QUALITY_RESULT_20261004.md)
+FAIL16/18 gates PASS, ALL96 teacher/natural cases: masked-only original top1
+728/768=94.791667% versus95%; prose-edit upper.122823041 versus.10. Overall
+96.205357%, original exact-field19.53125% and healthy88.541667%, native healthy
+89.583333%; task signal/known-answer noninferiority PASS.1633.579s/max7.121GB.
+Frozen1822b83, exec94685 exit0 fully consumed, raw/report30ca546. All350 sources
+consumed;349 scoped prediction PASS remains, no unchanged generation/rate
+promotion.354 draft ineligible/unexecuted.355 consumed fixed-state/common-
+prefix attribution frozen d1631b1 RUNNING authoritative exec4703,20min/8GiB:
+source head versus upstream, ALL96 exact
+inputs; no comparisons after generated histories diverge. Read exit/raw and
+preserve all before a new precision variable/full numerical/cost/NEW quality.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
 generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)

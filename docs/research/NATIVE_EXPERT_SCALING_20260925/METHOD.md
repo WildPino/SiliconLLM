@@ -448,18 +448,20 @@ parameters distinct and broadly consulted, no causal useful-capacity scaling.
 PASS full exact Tiny/official-cache and actual engineering greedy trajectories
 through unchanged345 mathematical forward, new explicitly identified binary;
 73.235s/max1.896GB. No original free-generation quality from engineering data.
-[351 full task](METH_351_SWITCH_MULTI_SPAN_QUALITY_PROTOCOL_20261003.md) frozen
-and RUNNING, original unmodifiedCPU1 PRIMARY/native6 SAME353 executable.
-New full prediction, natural cached greedy four-span generation, known-answer
-field/token/F1 scores, original prose edits, marker/terminal/repetition health;
-all prospective gates mandatory, original task signal required.90min/48GiB,
-no timing overlap. No outcome yet. Only PASS licenses separately frozen354
-actual accepted batch1 FULL generation rate, including prefill/greedy/stop
-and rejected-case time, ordinary/structural/prose count boundaries explicit.
-Core A8/head A16/actual338 weights unchanged; source29 task doesn't prove long-
-context rate. Useful RAM-scale n/LUT/physical DRAM, real base128 comparison,
-additional families/~100B and final method remain missing. Dynamic loader isn't
-that proof. Proposed [task route](SWITCH_MULTI_SPAN_GENERATION_NEXT_20261003.md)
+[351 full task](METH_351_SWITCH_MULTI_SPAN_QUALITY_RESULT_20261004.md) FAIL:
+16/18 prospective gates PASS; masked-only original top1 agreement94.791667%
+versus95% and prose-edit upper.122823041 versus.10 fail. Original informative
+known-field exact19.53125%/healthy88.541667%, native89.583333%; known-answer
+noninferiority gates PASS. ALL96 teacher and natural own-cache trajectories,
+fresh coefficients/official/native bridges retained30ca546. All350 sources
+consumed.349 prediction and353 numerical PASS stay scoped;354 rate draft
+ineligible/unexecuted.355 separately frozen consumed-state diagnosis restricts
+natural comparisons to identical decoder-input prefixes through first changed
+choice. Source/head-weight/upstream precision attribution precedes a new
+variable, whole numerical/cost and NEW full prediction/generation/task gates.
+Useful RAM-scale n/LUT/physical DRAM, real base128 comparison, additional
+families/~100B and final method remain missing. Dynamic loader isn't that
+proof. Proposed [task route](SWITCH_MULTI_SPAN_GENERATION_NEXT_20261003.md)
 was written before349 outcome. GigaChat generic port remains paused.
 
 An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The

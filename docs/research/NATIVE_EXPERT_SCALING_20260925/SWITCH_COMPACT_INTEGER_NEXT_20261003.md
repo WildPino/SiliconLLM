@@ -91,12 +91,15 @@ old343 FAIL unchanged.352 consumed traces consult original238-256 encoder/
 350 NEW24books/96four-two-token-mask labels source29/target14,87 exclusions;
 source-only unscored.353 actual greedy/cache/stop wrapper full numeric PASS,
 unchanged345 forward/new353 binary, not engineering quality/rate promotion.
-351 original-primary full task frozen1822b83 RUNNING exec94685;90min/48GiB,
-no duplicate/model/timing overlap. SAME353 binary, original fresh coefficient/
-official-cache bridges, complete NEW prediction AND natural generation/known-
-answer/health gates. Read exit/raw, commit all. PASS freeze354 SAME binary
-actual accepted FULL batch1 rate with prefill and rejection time charged,
-ordinary/prose/structural-token boundaries and source29 context explicit.
-FAIL preserve source consumption before specific diagnosis. Useful larger-n/
-LUT/physical DRAM/cross-family/~100B and final goal remain open. Source128 full
-payload absent; old GigaChat evidence reused, generic port paused.
+351 original-primary full task FAIL16/18 gates, retained30ca546; exec94685
+exit0 fully consumed, ALL96 actual teacher/natural outputs. Masked-only top1
+94.791667% versus95%, prose-edit upper.122823041 versus.10 FAIL. Original task
+signal informative19.53125% exact-field/88.541667% healthy, native89.583333%;
+known-answer noninferiority PASS. All350 sources consumed.354 draft ineligible,
+unexecuted;349 scoped prediction/353 numerical controls remain valid.355
+consumed-state/common-prefix head/upstream attribution frozen d1631b1 RUNNING
+authoritative exec4703,20min/8GiB, no
+comparison after histories diverge. Preserve complete diagnostic outcome
+before new precision/full numeric/cost/NEW quality. Useful larger-n/LUT/physical
+DRAM/cross-family/~100B final goal open. Source128 full payload absent; old
+GigaChat evidence reused, generic port paused.
