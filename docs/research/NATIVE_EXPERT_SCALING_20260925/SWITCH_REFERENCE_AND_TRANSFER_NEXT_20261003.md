@@ -78,16 +78,23 @@ exit0 fully consumed, ALL96 actual teacher/natural outputs. Masked-only top1
 signal informative19.53125% exact-field/88.541667% healthy, native89.583333%;
 known-answer noninferiority PASS. All350 sources consumed.354 draft ineligible,
 unexecuted;349 scoped prediction/353 numerical controls remain valid.355
-consumed-state/common-prefix head/upstream attribution PASS retained3dc671b,
-ALL192 source/native head oracles exact. Original-state target head leaves8
-versus40 masked changes; native F32 head leaves40. At32 first divergences
-original-state target head matches23, native F32 head4. New356 ALL I8 inputs
-A16, SAME338 weights/scales/F32 router/controls/lookup/attention/cache, frozen
-5b8ba3c RUNNING authoritative exec17752,30min/16GiB. Full independent Tiny/
-scalar/nine faults/engineering/long/natural/consumed multispan controls required;
-only live model job. Preserve exit/raw before separately frozen357 actual SAME
-binary cost, then NEW full original-primary quality/unchanged351 criteria,
-then SAME-artifact accepted FULL rate.357 unexecuted draft,354 ineligible.
-Useful larger-n/LUT/physical DRAM/cross-family/~100B goal open. Source128 full
+consumed-state/common-prefix head/upstream attribution PASS retained3dc671b.
+356 ALL quantized inputs A16, SAME338 weights/scales/F32 controls/routers/
+lookup, independent whole numeric/cache/natural/long ALL7 PASS retainedb9c2dab.
+357 apparatus path stop retained23141ef;358/360CPU6 repeat FAIL retained,
+359 actual core topology PASS[0,1]..[10,11].361 PRIMARYsingle-thread/one actual
+core logical CPU0/processaffinity[0], SAME356 binary/338 payload, ALL6 cost
+gates PASS retained7719f03; full8.1876/17.9727ms per32 forced position source
+9/64, repeats1.0123/1.0285. Not accepted natural rate.362 NEW source-only
+24books/96 four2-token-mask source29/target14,111 exclusions, ALL gates PASS
+retainedc0302f3.363 full original-primary prediction/natural generation/known-
+task/health/prose fidelity frozena1ff2d6 RUNNING authoritative exec94746,
+90min/48GiB after imports, originalCPU1/nativeCPU1/affinity[0], SAME356 binary.
+ALL351 parser/metrics/book-bootstrap/18 thresholds EXACT. Only live model
+job; no timing overlap/restart/duplicate. Consume exit/raw, preserveALL.
+PASS licenses separately frozen364 SAME accepted FULL natural generation
+rate/prefill/rejected-case time, explicit structural/prose counts/source29;
+FAIL specific diagnosis/new variable/NEWdata.354 original draft ineligible.
+Useful larger-n/LUT/physical DRAM/cross-family/~100B goal open. Source128
 payload absent; old GigaChat evidence reused, generic port paused. Default
-engine body BYTE EXACT; do not restart or duplicate17752.
+engine body BYTE EXACT. All prior quality/cost/apparatus failures remain.

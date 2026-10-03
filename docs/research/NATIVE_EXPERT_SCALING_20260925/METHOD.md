@@ -460,11 +460,18 @@ natural comparisons to identical decoder-input prefixes through first changed
 choice. Source/head-weight/upstream precision attribution precedes a new
 variable, whole numerical/cost and NEW full prediction/generation/task gates.
 355 full independent head oracles PASS; original-state target head leaves8
-versus40 masked changes, native original F32 head leaves40. Therefore356
-ALL quantized inputs A16 (core/experts/head), SAME I8 weights/F32 controls,
-is frozen5b8ba3c for full numerical/cache/natural/long controls. PASS requires
-SAME compiled binary actual357 cost before NEW full quality; no promotion
-from consumed precision diagnostics. Old default engine body BYTE EXACT.
+versus40 masked changes, native original F32 head leaves40.356 ALL quantized
+inputs A16, SAME I8 weights/F32 controls/router/lookup, full independent
+numerical/cache/natural/long controls ALL7 PASS.357 apparatus path stop and
+358/360 CPU6 cost-repeat failures retained.361 new PRIMARYCPU1/one actual
+physical-core logical processor[0] profile ALL6 cost gates PASS, SAME356 binary,
+full8.1876/17.9727ms per32 forced position, repeat1.0123/1.0285. Not accepted
+natural rate.362 NEW source-only24books/96 four2-token-mask cases,111 prior
+exclusions/source29/target14, ALL guards PASS.363 prospectively frozen NEW
+original-primary full prediction/natural generation/known-task/health/prose
+fidelity, SAME356 binary/native1/affinity[0], ALL351 metric/parser/bootstrap/
+18 thresholds unchanged. Full quality PASS required before SAME364 actual
+accepted FULL rate. Old default engine body BYTE EXACT.
 Useful RAM-scale n/LUT/physical DRAM, real base128 comparison, additional
 families/~100B and final method remain missing. Dynamic loader isn't that
 proof. Proposed [task route](SWITCH_MULTI_SPAN_GENERATION_NEXT_20261003.md)

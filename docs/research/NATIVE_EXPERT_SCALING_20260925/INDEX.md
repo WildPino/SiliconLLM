@@ -153,14 +153,30 @@ ALL oracles PASS, retained3dc671b: original-state/SAME A16 head leaves8/768
 changes versus40 actual; native F32 head leaves40.32 first natural divergences,
 original-state target head recovers23; native F32 head4.163.812s/max1.895GB.
 Upstream precision motivated, no changed whole-model quality claim.
-[356 ALL A16 numerical contract](METH_356_SWITCH_ALL_A16_CONTRACT_PROTOCOL_20261004.md)
-frozen5b8ba3c RUNNING authoritative exec17752,30min/16GiB, only model job.
-All I8 core/expert/head inputs A16, SAME338 payload/router/lookup/attention;
-new opt-in engine entry, old default body BYTE EXACT. Full independent scalar/
-Tiny/nine faults/forced/cache/natural/long/consumed multispan controls required.
-Consume exit/raw and preserve all. PASS licenses separately frozen357 SAME
-binary actual forced-fixture cost, then NEW original-primary whole quality
-with unchanged351 criteria, then SAME accepted FULL rate.357 draft unexecuted.
+[356 ALL A16 numerical contract](METH_356_SWITCH_ALL_A16_CONTRACT_RESULT_20261004.md)
+ALL7 gates PASS,170.750s/max2.679GB, retainedb9c2dab; SAME338 target, full scalar/
+Tiny/nine faults/forced/natural/cache/long/consumed independent arrays exact.
+357 protocol-path failure before measurement retained23141ef.358 CPU6 repeat
+FAIL1.100118992 retainedc5738ff;359 actual topology/consumed diagnosis PASS,
+SMT pairs/minimum one-per-core[0,2,4,6,8,10].360 CPU6 physical-core-affinity
+repeat FAIL1.136548 retainedf8db510. No unchanged optional repeats/relaxations.
+[361 PRIMARYCPU1/one core cost](METH_361_SWITCH_SINGLE_CORE_COST_RESULT_20261004.md)
+ALL6 gates PASS, SAME356 binary/338 target; every child affinity[0], actual
+full8.1876/17.9727ms per32 forced position source9/64, decode7.0461/8.0331ms,
+repeats1.0123/1.0285;24.969s/max.942GB. Cost margin, NOT accepted rate.
+[362 NEW source-only cohort](METH_362_SWITCH_MULTI_SPAN_MANIFEST_RESULT_20261004.md)
+ALL gates PASS24 NEW books/96 four-two-token-mask cases,111 prior exclusions,
+source29/target14,34.797s; raw/reportc0302f3, previously unscored.
+[363 NEW whole quality](METH_363_SWITCH_ALL_A16_MULTI_SPAN_QUALITY_PROTOCOL_20261004.md)
+frozena1ff2d6 RUNNING authoritative exec94746,90min/48GiB after imports.
+SAME356 binary/nativeCPU1/affinity[0], original unmodifiedF32 CPU1 PRIMARY,
+fresh ALL6392 original coefficients/official/native356 bridges before scores.
+ALL351 parse/metrics/bootstrap/18 thresholds retained EXACT. Only live model
+job, no native timing overlap/restart/duplicate. Consume exit/raw and retain
+ALL outcome/source consumption. PASS licenses separately frozen364 SAME full
+accepted natural rate, source29/ordinary-prose/structural counts explicit;
+FAIL retains before precise diagnosis/new variable/data.354 original draft
+ineligible/unfrozen, no accepted>=50 claim yet. Old default engine BYTE EXACT.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
 generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)
