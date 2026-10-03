@@ -1,0 +1,1418 @@
+{
+  "experiment": "METH-324-isolated-official-Switch-reference",
+  "source_payload_bytes": 0,
+  "controller_sha256": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+  "protocol_sha256": "b84554911b7847ef2b1cdbbdef34cb8b930d6e44053e6cc554ea5fb535f7cf99",
+  "prior_sha256": "31351eae3934228468366501492c291f8a7f8b0a228bf3db80a146d797b9ebb1",
+  "diagnostic_sha256": "295c2c7855a4f7f8655600545b253a6c6b5e428ed9a7d6f7e0c6ef729ae0e9dc",
+  "wheels": [
+    {
+      "package": "transformers",
+      "version": "4.57.6",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\wheels\\transformers-4.57.6-py3-none-any.whl",
+      "bytes": 11993498,
+      "sha256": "4c9e9de11333ddfe5114bc872c9f370509198acf0b87a832a0ab9458e2bd0550",
+      "url": "https://files.pythonhosted.org/packages/03/b8/e484ef633af3887baeeb4b6ad12743363af7cce68ae51e938e00aaa0529d/transformers-4.57.6-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/transformers/4.57.6/json",
+      "metadata_sha256": "90e641a0e32af617088c1da67f9abee5f818cd420d6e0c65a672be500af9eff1"
+    },
+    {
+      "package": "huggingface-hub",
+      "version": "0.36.0",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\wheels\\huggingface_hub-0.36.0-py3-none-any.whl",
+      "bytes": 566094,
+      "sha256": "7bcc9ad17d5b3f07b57c78e79d527102d08313caa278a641993acddcb894548d",
+      "url": "https://files.pythonhosted.org/packages/cb/bd/1a875e0d592d447cbc02805fd3fe0f497714d6a2583f59d14fa9ebad96eb/huggingface_hub-0.36.0-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/huggingface-hub/0.36.0/json",
+      "metadata_sha256": "2c49f9a886e4508f19c2ba14e78524e81ddfa7396e50ea86c2a4b82dc5e0081e"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\wheels\\transformers-4.57.6-py3-none-any.whl",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\wheels\\huggingface_hub-0.36.0-py3-none-any.whl"
+      ],
+      "returncode": 0,
+      "peak_sampled_rss_bytes": 80490496,
+      "stdout_sha256": "08264cee4dd48670da88cea1608a373fe03e2ec9138438757fb876248260da72",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Scripts\\python.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py",
+        "--worker",
+        "--out",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\qualification.json"
+      ],
+      "returncode": 0,
+      "peak_sampled_rss_bytes": 1345921024,
+      "stdout_sha256": "9e6a622550e271ef298bf24b665fd077dab4e4cbdf6df9bb8ca4de3ee67cadd2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "controlled_runtime_path": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages\\donor_runtime.pth",
+    "sha256": "803823554fd0153667c463c88f3763ae9d40e95792096505debf3ab215fdc427",
+    "appended_site": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages"
+  },
+  "official_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/v4.57.6/src/transformers/models/switch_transformers/modeling_switch_transformers.py",
+      "sha256": "5acb527d50a07e4bce3a5dec4db4f0c476cb4a01e8eb05219f26607034a12a83",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages\\transformers\\models\\switch_transformers\\modeling_switch_transformers.py"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/v4.57.6/src/transformers/models/switch_transformers/configuration_switch_transformers.py",
+      "sha256": "86a5e37411e3fa8a8d3c13f3c07f9ee7e74a6033f0da57d681cde80de8071d51",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages\\transformers\\models\\switch_transformers\\configuration_switch_transformers.py"
+    }
+  ],
+  "downloaded_bytes": 12722008,
+  "qualification": {
+    "experiment": "METH-324-isolated-official-Switch-reference",
+    "source_payload_bytes": 0,
+    "controller_sha256": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "protocol_sha256": "b84554911b7847ef2b1cdbbdef34cb8b930d6e44053e6cc554ea5fb535f7cf99",
+    "prior_sha256": "31351eae3934228468366501492c291f8a7f8b0a228bf3db80a146d797b9ebb1",
+    "diagnostic_sha256": "295c2c7855a4f7f8655600545b253a6c6b5e428ed9a7d6f7e0c6ef729ae0e9dc",
+    "dependencies": [
+      {
+        "owner": "transformers",
+        "requirement": "filelock",
+        "resolved": "3.29.0"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "huggingface-hub<1.0,>=0.34.0",
+        "resolved": "0.36.0"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "numpy>=1.17",
+        "resolved": "2.4.6"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "packaging>=20.0",
+        "resolved": "26.2"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "pyyaml>=5.1",
+        "resolved": "6.0.3"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "regex!=2019.12.17",
+        "resolved": "2026.7.10"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "requests",
+        "resolved": "2.34.2"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "tokenizers<=0.23.0,>=0.22.0",
+        "resolved": "0.22.2"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "safetensors>=0.4.3",
+        "resolved": "0.8.0"
+      },
+      {
+        "owner": "transformers",
+        "requirement": "tqdm>=4.27",
+        "resolved": "4.67.3"
+      },
+      {
+        "owner": "huggingface-hub",
+        "requirement": "filelock",
+        "resolved": "3.29.0"
+      },
+      {
+        "owner": "huggingface-hub",
+        "requirement": "fsspec>=2023.5.0",
+        "resolved": "2026.2.0"
+      },
+      {
+        "owner": "huggingface-hub",
+        "requirement": "packaging>=20.9",
+        "resolved": "26.2"
+      },
+      {
+        "owner": "huggingface-hub",
+        "requirement": "pyyaml>=5.1",
+        "resolved": "6.0.3"
+      },
+      {
+        "owner": "huggingface-hub",
+        "requirement": "requests",
+        "resolved": "2.34.2"
+      },
+      {
+        "owner": "huggingface-hub",
+        "requirement": "tqdm>=4.42.1",
+        "resolved": "4.67.3"
+      },
+      {
+        "owner": "huggingface-hub",
+        "requirement": "typing-extensions>=3.7.4.3",
+        "resolved": "4.15.0"
+      },
+      {
+        "owner": "torch",
+        "requirement": "filelock",
+        "resolved": "3.29.0"
+      },
+      {
+        "owner": "torch",
+        "requirement": "typing-extensions>=4.10.0",
+        "resolved": "4.15.0"
+      },
+      {
+        "owner": "torch",
+        "requirement": "networkx",
+        "resolved": "3.6.1"
+      },
+      {
+        "owner": "torch",
+        "requirement": "jinja2",
+        "resolved": "3.1.6"
+      },
+      {
+        "owner": "torch",
+        "requirement": "fsspec",
+        "resolved": "2026.2.0"
+      },
+      {
+        "owner": "torch",
+        "requirement": "setuptools; python_version >= \"3.12\"",
+        "resolved": "70.2.0"
+      },
+      {
+        "owner": "torch",
+        "requirement": "sympy==1.13.1; python_version >= \"3.9\"",
+        "resolved": "1.13.1"
+      },
+      {
+        "owner": "tokenizers",
+        "requirement": "huggingface-hub>=0.16.4,<2.0",
+        "resolved": "0.36.0"
+      }
+    ],
+    "distributions": [
+      {
+        "name": "accelerate",
+        "version": "1.14.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "ed1c0dd9cca2d1449bbae7d641208431f5fccc7d5e06e20bec802c1d81340f6c",
+          "RECORD": "4758f2506cc134dbd16e9fc2108bfecad02949e4169bcdaeb3a6ae9029057c9c"
+        }
+      },
+      {
+        "name": "aiohappyeyeballs",
+        "version": "2.6.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "72ab36558f13c04d9eff8aaa9d6e34f528b7b2ebe3f9a33ef1d0a2586d809e09",
+          "RECORD": "d02db3da66ac4a4870aeb0646e1d481b46d272c467023ea0e5204092f2c07e8c"
+        }
+      },
+      {
+        "name": "aiohttp",
+        "version": "3.13.5",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "adec0b86b2a5bf2e5245ab68054babcfaad18508943a2c26bd29af33a17b6fec",
+          "RECORD": "e89f538a5b8712f864933118d35cf925590dc40d9a729bf55c4dcb62ba3b7204"
+        }
+      },
+      {
+        "name": "aiosignal",
+        "version": "1.4.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "09247ef1da8bc696728d47130e702e4307f6f7d101d6c485bff9f3a71ce7008d",
+          "RECORD": "0f47f05db68c527ed1fe2f23c79ef1e846e1009ec04e7ef47f300db855ed9c74"
+        }
+      },
+      {
+        "name": "annotated-doc",
+        "version": "0.0.4",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "22b9b9289b9adf7758daa28a02327e3a129a5415487f01467a3fdd49edd9d535",
+          "RECORD": "bccb942d1fb0484987d70034db47ca468ce9b3369fdd9fc7d99eef8dfa0cc81f"
+        }
+      },
+      {
+        "name": "anyio",
+        "version": "4.13.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "1741187e23e5993470989376264b4dc4983518d9e5d301e1cce5a6cfba45be33",
+          "RECORD": "15412084a00ee07ed82c9b38ca9cfebcfbb6769001df14190a928043734240ff"
+        }
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+          "RECORD": "a5151f0461f45abf44fdc57c2ccdb73151bb54a0abfd22133f7ea7ad48f8dc23"
+        }
+      },
+      {
+        "name": "bitsandbytes",
+        "version": "0.49.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "2f248c9367c155c54ec0a138100dff19e3c4687a39dc284a6f992eb3b7ad5bdd",
+          "RECORD": "c22d475c304d97e478bf759d594cb619b07fff07ffcb994a1ad81f3b65f846d2"
+        }
+      },
+      {
+        "name": "bleach",
+        "version": "6.4.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "637c3e9ddff6d87427411cb7cb2a55b15fe47b6145f78b940f8faf1a97360e72",
+          "RECORD": "bbecbf5b996176c1c2d4e48c9c0e1b0a2dfed7522043f140216eaf88cbbcfcb0"
+        }
+      },
+      {
+        "name": "boto3",
+        "version": "1.43.51",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "aa0ed98e15c9c82d33d449ed47b497939049439219aff6bc7c2ec717136ee7a7",
+          "RECORD": "be9f1ba6ed71419a8474498b160ff9c8ea8967c2dd3d20c76904d154f4c8bf2e"
+        }
+      },
+      {
+        "name": "botocore",
+        "version": "1.43.51",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "b7fa0ab98fe202af23dd3293eee3fdb2f2b2216262e5e233cc6d7e49b497e68f",
+          "RECORD": "ae2b2d2d13be664bab3488c1a818701b6ee6d04bcf78763bff471cc021e62f44"
+        }
+      },
+      {
+        "name": "brotli",
+        "version": "1.2.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "74bcce6f21c042efe5b1ddfb1cf73670307f21d785680d5f7838c792226f91d1",
+          "RECORD": "2e59bba16bc7d745b77e623b5323a109345f39dc89383261295d315c8700f793"
+        }
+      },
+      {
+        "name": "certifi",
+        "version": "2026.5.20",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "1c38826bc95f7744c69501689e00e3a1a2c93a158988937ce32ef4ed5c1df0f6",
+          "RECORD": "23d332d3f23a6f63ad1d0284166193bd838748dcc9f76d1de6c9028360f245bc"
+        }
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.4.7",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "d2596460949144948a802232d3d952c5ed2c24657548159f46f3528ca5f9fabb",
+          "RECORD": "edc1f02644076bb3d3535863a570758fb624ffb2f6da11595400f9a1db5d336b"
+        }
+      },
+      {
+        "name": "click",
+        "version": "8.4.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "b9600b73b63e2318e3df96a5dc1daa36cc9793ed2d7f9efc62022c2f555b9fdf",
+          "RECORD": "86df6166d38432d27ff19c79b31b5ff50043a56a085b746e4005ba65ca51c788"
+        }
+      },
+      {
+        "name": "cloudpickle",
+        "version": "3.1.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "3d0263bfe9ee4f23b244bdcaff73acbe7a1957ebf82743b6ae42693adc48d721",
+          "RECORD": "97862f8046fccbf72f48a774dca47e17e45361306c7696a66e9977d10e57f5ed"
+        }
+      },
+      {
+        "name": "colorama",
+        "version": "0.4.6",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "7baed29eb50c3b29bdb33ff84e3177bf1bc05784f7685ecdcaa4471c7dd810cc",
+          "RECORD": "24ecf55e9e177d90edaf7e688cc0d1944d32d35027e53f2c51d076cb9f4e103d"
+        }
+      },
+      {
+        "name": "contourpy",
+        "version": "1.3.3",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c43cef86baef09cff9c77975e578fa8cca0c9454df40dc176938b499a63de54a",
+          "RECORD": "f6fc0af94aeab1a14a2058bedd0e713821ab99d682b084149698ce414c924574"
+        }
+      },
+      {
+        "name": "cycler",
+        "version": "0.12.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36",
+          "RECORD": "0dd0246dcaff5aaa3e9bbb1d8fb35134b6d04659180f94e77491162f0e1f2ab3"
+        }
+      },
+      {
+        "name": "datasets",
+        "version": "4.8.5",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c021983536ab740d2d63d60c535371d23ad4f2a2e0864bd9a809c13d88ac9a72",
+          "RECORD": "755280e5592473c9354cd4244122fc465e039ed972d10d232e8101ca646ae5dd"
+        }
+      },
+      {
+        "name": "dill",
+        "version": "0.4.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "040d6c84eddf29c8c14dc2aef214962a919803f557243824dd4f8aa3b49e3868",
+          "RECORD": "d17db769eef578e230e6968ecbe65cb81bc7925c67adbf329b64593a14b6e59c"
+        }
+      },
+      {
+        "name": "fastjsonschema",
+        "version": "2.21.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "1be8143a33df0ecf82b993d95e91180e28bdf2d128f9a8d03f68bf099d7b69f3",
+          "RECORD": "3257d4f555d8015272c6580eb85129aa2d0d190376612fec14684c8f3048ff62"
+        }
+      },
+      {
+        "name": "filelock",
+        "version": "3.29.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "21335d1940ca00830e17594e81e9ed7b393211b1e03eda3c411a3507bf59f4b7",
+          "RECORD": "085d8ddf25dfcf76c90dae5641ca06ceeaf4878788d6d9bacd90bba78810b8f5"
+        }
+      },
+      {
+        "name": "fonttools",
+        "version": "4.63.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "4f5b717b2fac47775a2f22e2fc3930714979b038d20851daaf10d9032bea152d",
+          "RECORD": "919d28af025a266b1d0d5e2c8dd615ec49e7f8c6855938a6f78e9037217bec2e"
+        }
+      },
+      {
+        "name": "frozenlist",
+        "version": "1.8.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "4278aeb3d18f1f8b7e6af5b6771ba9a8f327012a42d64509f9d4087b55f71a94",
+          "RECORD": "15c3d8e70b1eb1253440a3ad7113065129563459d36e31ff72e75bdfd98d1c20"
+        }
+      },
+      {
+        "name": "fsspec",
+        "version": "2026.2.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "3f0e9085bc977a0f9e95bd21a563e2411a4078c0ff02927dbdd345a180a7acfb",
+          "RECORD": "d4432fbbddc9c6b5dd80c3e6e6bd8378c431a0a647285ea96c55b62e7ee3d48c"
+        }
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "28f326098ac09fcba79b8f180f96087c841fe2456215cb7b872a9c7d5cd19d64",
+          "RECORD": "ac020206998e31ee6a749a207c7746245805e64814bb88642302a572f557fb24"
+        }
+      },
+      {
+        "name": "hf-xet",
+        "version": "1.5.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "8473a1ea57e1bc523f5426934ee536adb8115769fa71e0097513868e56a9bebd",
+          "RECORD": "f65144ce103a91542d90f2530d30155b68517de732664069e3d6e2de565bc21c"
+        }
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "fe2d4fda6199128978779e0cf27f3c045c531863fcdd987eacc74f3a18d41c21",
+          "RECORD": "b2dabdfa67b814f4441d3ff8ccb37ffb2f6262970d605b49115641e382c9745f"
+        }
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "febb9b0f8f3e80d57c8199c304f35c4336e8581d1d18d7983c92766b82793b25",
+          "RECORD": "636ccf36f71c771dcc57b3e6c15dfbf4720aecb864dcb903e53a86a8e2081a57"
+        }
+      },
+      {
+        "name": "huggingface-hub",
+        "version": "0.36.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "26ce80563d3402f2935b7d881835b9b1a64d897dc2f986f52bf4114642de71ad",
+          "RECORD": "10cf149cdb5f5c0ed66323ad116697d5ff578d555cab0af1f32d7c59e17bd55a"
+        }
+      },
+      {
+        "name": "huggingface_hub",
+        "version": "1.16.4",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "eac54d38c692209d52f1d04a9760cc2b783276f3ec8cf55f3ca77f2a00fb07db",
+          "RECORD": "0f08b6d1d58375d4f5be552ffe767f1d9ff99aeee6b101ec0a4809fc9f4f2a9c"
+        }
+      },
+      {
+        "name": "idna",
+        "version": "3.16",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "b2300f4635c05551876447ca508080098ef973444c4efbafdafceb0d1c50828e",
+          "RECORD": "5b02cefd693b4f6dc1a31e4b0eeb1cb505b5a09cb7e39c3eee259948fe750ba8"
+        }
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "68c5548fb67c4132a13898d9b31ec50c6bea2abdd915d921f214355c3a6499c8",
+          "RECORD": "1bb3b46d00f55f63d24c3a34a7f955ef6692d4691217a53b15261769607f9f7c"
+        }
+      },
+      {
+        "name": "jmespath",
+        "version": "1.1.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "81181e9a312f1b87e5be7c8376c57b0e8c962ba524a25a313d43dc2e2d3984f3",
+          "RECORD": "9b654e546f63cf0fd9f80907fe4c56ce8c8e1d242c073e9b00f6d5caf5f6eff8"
+        }
+      },
+      {
+        "name": "joblib",
+        "version": "1.6.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c5fd6509906c5795fd6724d97bc1709d1f266b78aff92c0156d6cf5ad7c045e3",
+          "RECORD": "ba3756b9fdb044d52450225f0163e687097225284273dca914a215b4c784d873"
+        }
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2",
+          "RECORD": "7f90a605e4b7445708cede5467078430a8d1651b79a1c64f97259e08c10991b3"
+        }
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "35abd41757f32b4ea24756920ded47b70173d77cbc052a5a6d3ab583b2e8d89d",
+          "RECORD": "9cc3b56b6becdd45482310d7d2ff9d98dbf8a5775e36f7ccde49a09146e389da"
+        }
+      },
+      {
+        "name": "jupyter_core",
+        "version": "5.9.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "68a656d7e2ebe45d40becf6032998192790d8a7536942f72167d79b8559e5ded",
+          "RECORD": "0451333362bf19b5269d9a0f3b541cabf720cf4ccd4d583af2b0ca76540deb2e"
+        }
+      },
+      {
+        "name": "jupytext",
+        "version": "1.19.4",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "08c1e34e44b5c8d1cd4fef46f361e34a612fa7a68c231b9c13cc821ba57cd28d",
+          "RECORD": "7bef3ed48a036e0d7d3325b5e26d3564bea5b3f2d2ddcda0b6bc68e43e2864c4"
+        }
+      },
+      {
+        "name": "kaggle",
+        "version": "2.2.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c6619e0af89a08fbf7187f9403858050fb61673c530ff66e298445af22eca0c1",
+          "RECORD": "545ddbab4721cfd2f5badbe937f318af47f4eda63358f6437bb3ed726f491447"
+        }
+      },
+      {
+        "name": "kagglesdk",
+        "version": "0.1.30",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "9b3bf546c1a4e7db35d752a40268d5431a5b6d510d27d71f56453e28cc7245c4",
+          "RECORD": "0dc1b9c631704b557c7a49d089116f98e20f2029307ff8374f4af6cb4e4dcbe9"
+        }
+      },
+      {
+        "name": "kiwisolver",
+        "version": "1.5.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "07a45d631281216f6e2acd5c3454f7c4a11e1ad09f011544269cee8977edf4b3",
+          "RECORD": "00ba57f94e582574ea013ff979cf63b394f8d92815a31d3ee22ee26e01f9bf8f"
+        }
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "72c36ff516755443b1ecb61e17b2567a990230b49a504b0eb0c42d5f82448a9c",
+          "RECORD": "a27ada746289ed88985eade3e9cc5fd032b0b73bca01af48c055abf8e802d5b5"
+        }
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.3",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "f0ae5dbb09d50fb5f7632c3d53f0220995ef76019e5892e0a545740136a4e3cb",
+          "RECORD": "d2b82cc3750bb0cd40c0f6e13f388c346bff58aaaf2791f289411ec92e04bd81"
+        }
+      },
+      {
+        "name": "matplotlib",
+        "version": "3.10.9",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "bea8a4672bbe4f26b7a4fe5bc5e5023a08c4fb7069cc951f39eef26a403c7ea6",
+          "RECORD": "90412befed6b09f9deea81ace308e1611074c70cd0b43a32fb89992c2438cddd"
+        }
+      },
+      {
+        "name": "mdit-py-plugins",
+        "version": "0.6.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "cd9486029c276a4bf819a85ca25f32f3bcff07a7e1c577dd45be523c7f0c472e",
+          "RECORD": "bc1ce96a7957663b27f1073885f2a1c6f2daca66155db1d45055100a36367d8d"
+        }
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "b53b29d48f499367053fda3c81e7ce27d2558380ebbf83e66023b02eb7ddd25d",
+          "RECORD": "a3797f66c73175d124fc5a6bee5088b8da9437dc3a71d54d407cf8812bac0de1"
+        }
+      },
+      {
+        "name": "mpmath",
+        "version": "1.3.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "44b66ea444b9c0d19ae94815d356bf047ae6b680c19268b5c265687cd6a81406",
+          "RECORD": "89869bb99d259b6078aa20ebadb44d921aa20595ffa58ab929e3082d7f3f5529"
+        }
+      },
+      {
+        "name": "multidict",
+        "version": "6.7.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "3f52a21e43b0e57d05741fe479250f17864aafcb723c940e5aba5ebbdb25295e",
+          "RECORD": "ac949f18fb9dbe3aa3044fad2a3cc649ca8a00aaef36d1742aa9940563d28715"
+        }
+      },
+      {
+        "name": "multiprocess",
+        "version": "0.70.19",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "24146d46d724ce041d187426babb43dc5a6a4cd5d1acad0d7fc0d12693376fa5",
+          "RECORD": "181b088e79db1ea4ed27b14ff5b6228672861e3ca254d531a4a6f9324050fd7c"
+        }
+      },
+      {
+        "name": "narwhals",
+        "version": "2.26.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "7e09d821259f98ca6ce639ddf38d5314fca112911dc3ba58d8546381ac1b2861",
+          "RECORD": "d26b5afb29d2974d64fb016e96eb20cd32e925b875ce05647417f5d6e5d55ee9"
+        }
+      },
+      {
+        "name": "nbformat",
+        "version": "5.10.4",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "7424d680e3abe693cfca3e71256efad9173987f9f6e8d1ca1adeb03efb54f124",
+          "RECORD": "8f79aeda37003127c67e58789979588ac541d905f140875f4a89639b1b08c5fe"
+        }
+      },
+      {
+        "name": "networkx",
+        "version": "3.6.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "aca5d94a97d1f70f301d033addb635f6e66be8973a00aba4127637eed2ef316a",
+          "RECORD": "b9eec012d3da7de578ab44e1effc11626e933a07ecbd50e7d474b4b92648574c"
+        }
+      },
+      {
+        "name": "numpy",
+        "version": "2.4.6",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "b082c52ccbe3b880bae177c35171b52ed6c947f3ad71e3762f2723f60a411de0",
+          "RECORD": "d0855c8f15f019d424d4cc42032d4ec5bf1cb7ce1382ff489c94a4b21382ae96"
+        }
+      },
+      {
+        "name": "packaging",
+        "version": "26.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "4f9cbcd7933415a4793f7767c98a2b6a512c823fc81c87337815705f230ecabf",
+          "RECORD": "2db86fa1abcd7cddc9205020b3c7ecf114d279d367fe2782978b23e141837ecc"
+        }
+      },
+      {
+        "name": "pandas",
+        "version": "3.0.3",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "be337b6c2e9b006aaaea77696d7023378664f610f45062c74ffa467d4a69095d",
+          "RECORD": "14b5ac554984d41f035361dbdf6c67deb3954c455aa355c8747309b07bdbbc65"
+        }
+      },
+      {
+        "name": "pillow",
+        "version": "12.2.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "500a4dcf2154f5291661ea4a9025898081d536c3026d506c648c31b68a7a66cc",
+          "RECORD": "4a90a3ed8ebed177e7c4b7a24fb4d576e3a0968e94d94bbbf794512453d59701"
+        }
+      },
+      {
+        "name": "pip",
+        "version": "25.0.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "4fa7318cf30f979db7cec45c12cbbc2b4f88a15f12eefbf59a6291d0a03af926",
+          "RECORD": "7dc04d43518fcbcf8f7226692a712c20362c3ab4b5e3735abe3b9731ba6f5252"
+        }
+      },
+      {
+        "name": "pip",
+        "version": "25.0.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "4fa7318cf30f979db7cec45c12cbbc2b4f88a15f12eefbf59a6291d0a03af926",
+          "RECORD": "1dc64104e25f5330c0e55b828a811d9f46ee609ac989ce46bae3fc69a232472f"
+        }
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.10.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c4ee18f5b6d2b38512a30c289200b1463f298a8261c8fa63f2584ea97e93cf78",
+          "RECORD": "301060541e4640534bcfdf081a0472d524a5f680b3a29a9277d0f2a37a4e9b99"
+        }
+      },
+      {
+        "name": "propcache",
+        "version": "0.5.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "7c761f2a24b03f88e3d8c6823fcab75a35ed9887ce232a080694efa603f37f08",
+          "RECORD": "ababec08f29182be0612f8414958898695eacb273ca76bcb5e9afbe107a233bd"
+        }
+      },
+      {
+        "name": "protobuf",
+        "version": "7.35.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "1c58cfd7acd805c087ceb1f14c27cdba3c52d074e1d7b05dacf31fdf413c0a8c",
+          "RECORD": "83065a1f940bd1c9e30a207c57ea58b5280cf042b901d7d5764dddd4f1babc09"
+        }
+      },
+      {
+        "name": "psutil",
+        "version": "7.2.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+          "RECORD": "ba431e5c7c55206ac3e21d5c8f9aceefe1a40a7c1f0d33220f4ac59a649eb0cf"
+        }
+      },
+      {
+        "name": "pyarrow",
+        "version": "24.0.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c006cc50875d58fc9454198ea054ee79a834b6d3b7067161bc5306b337d4647f",
+          "RECORD": "fd590138c3271e6a0acc0474c9fb3cfe675c42f766024226f659cc152338823a"
+        }
+      },
+      {
+        "name": "Pygments",
+        "version": "2.20.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "e0528f51b30427fae94723662ba622f8d8db2a4d8d3f1365698d67a52450a845",
+          "RECORD": "06f82f5e4faba44b2212b2b3c9cc1de752d3a65c479e490fc5167c9463802f6a"
+        }
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.3.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "3311a8b949d70f71a2b9788a9327f11d9d5a6a8012d6c046ca254ad2de877f45",
+          "RECORD": "c94381d6b03c2a93ba2f635256bcaf29efbd2dfda4d1c4bc78c23c521dec4676"
+        }
+      },
+      {
+        "name": "python-dateutil",
+        "version": "2.9.0.post0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "a9d436da322be808332f98d88325998e87cb693a678a9969feb4cfad729a6e93",
+          "RECORD": "0c26b4b1542dbd1ebd8d2babdd501aed583d6ada9595517f936f00fe4ff9d254"
+        }
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "59430a9dee8f8118dbf693e41c4a3e5150626d19901f4727503da9499f5a64a1",
+          "RECORD": "8b4613b9c243365013aea32572a160708de1b9882962cd43642894804be658b9"
+        }
+      },
+      {
+        "name": "python-slugify",
+        "version": "8.0.4",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "148d0eff8739c1e7caeda1a10ed13f826564df94c53d65ac41102ff6a2c2ef82",
+          "RECORD": "4534598e378eac2c8f143f514308063b645e5694123d469259d346e810fb10c9"
+        }
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "847a701020334386852b6e07bad1053cb0ce3da9ee1846e7e9d02b24e8bb3f8d",
+          "RECORD": "ff25f9939487eaabf6e6da28b74a1e419aff9587664e2d17997cf3c207531b41"
+        }
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c93b00e6ab1524fd60848376604c189a114374776475c25a31d57be47b29de6a",
+          "RECORD": "6bb85471519901d877804e8dc05f032e6fa362b72c8a73b21b7486517e36c90e"
+        }
+      },
+      {
+        "name": "regex",
+        "version": "2026.7.10",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "bb5883fb267afa01398344c1b1f5f63b7181a5b9098326c46386139d07a8edb1",
+          "RECORD": "918e63c0b27340b7cb80f00e2372892ef8f7ea9b2a5681be3e1a20785cd5399e"
+        }
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+          "RECORD": "9fe8a6fba6bb2091ccd8e5c3d279392ba36c03fc42e7854c792c74c98d5b3e91"
+        }
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "fad34fc603fac4481bf81f8dd629492fc302c0ec31909c86644751512afb2e3b",
+          "RECORD": "ee3acd23cbe4ef74867591cee90c13a5f90a59535d839b1cd66d1dd3e6ee50e2"
+        }
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.5.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "e24cc6613e170c39a581a7b7e9732426062d994065e39e6dbac08152d36b8fd0",
+          "RECORD": "5fb50ef1b7b5f7fe2a3f5cdd4c53271a5b56836d2a3520c19fd30c889e9c2465"
+        }
+      },
+      {
+        "name": "s3transfer",
+        "version": "0.19.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "cc91afaf4a1671cf81646f326f2f1410472c8e7e4e0470648da5c2d8f024bf48",
+          "RECORD": "11c2b91a2d7bd398d8f26396f1702462ad5c670edd2aed1d1297a6e146dbccaf"
+        }
+      },
+      {
+        "name": "safetensors",
+        "version": "0.8.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "597731d1baf7a94219753fa0a74abd1a8a18562d50d98b2e25d91e11e3224d36",
+          "RECORD": "8086ad128977617a43215a30c0d096b60f689a34e29221bd07c2a011488c8596"
+        }
+      },
+      {
+        "name": "scikit-learn",
+        "version": "1.9.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "32e503c710a61e4e04be4edb450f9f8141233ac6af3f3db59a877667538fa4ec",
+          "RECORD": "abae9db186fd84898493ad0913af8cd916b6d96b43c53165a00a29b7688d9201"
+        }
+      },
+      {
+        "name": "scipy",
+        "version": "1.18.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c8313d18ca0168ff291fe0a3b50532f3a18b14547695e9aa7ca1c1ce6eca92dc",
+          "RECORD": "5e6878cfd8fb6de58b1860644bfae7a51f30a33c2d9aaf2d5400a244c54d7423"
+        }
+      },
+      {
+        "name": "sentencepiece",
+        "version": "0.2.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "eb1173d40630c7d15aba70e145e6d378ba9137ec1634e74b2f4e4ccd0dc5ffc7",
+          "RECORD": "8e20dcc300c8271b1c517a12be082372914f8fcabba54489820e4bc0fae2753e"
+        }
+      },
+      {
+        "name": "setuptools",
+        "version": "70.2.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "41eaf58a72526d8da654204684c7a078885598cce74018feaeb91818e01d2f58",
+          "RECORD": "46571bdd03a8091cf9dfc5bc2ce5043b51c3e1801db6c82ff4b409d4e7a88f66"
+        }
+      },
+      {
+        "name": "shellingham",
+        "version": "1.5.4",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "183d80220a37493262795739dd357cc5bb3f49bd390cc9198d5180e5451a07fa",
+          "RECORD": "4f601f28fc1b92239c2113210f513e3b9c74836511db4021d49c4ccf39aecdfe"
+        }
+      },
+      {
+        "name": "six",
+        "version": "1.17.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+          "RECORD": "d834e846ba51c0e7371968d0b5a0cdebdaa2f9ea2f0447a40b594fa96ca5d89f"
+        }
+      },
+      {
+        "name": "sympy",
+        "version": "1.13.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "d1dbbf156ee3ac2102086ee84196d252330153dc5ba5b290d49918c6ae5b8b1c",
+          "RECORD": "30ca1a026f6b3a021e451c19c965361ed946e0ee843d7e9d44f295889a7498c1"
+        }
+      },
+      {
+        "name": "text-unidecode",
+        "version": "1.3",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "07d8fed65e3ec8df4fe5ef26a41ad70aa010b11527038233cb2d211bb272ae7e",
+          "RECORD": "fd2cf3c4623067dc7e070e76330101bd6abcfc8d39c81dd3e3b6fdc0883de271"
+        }
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.7.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "09b19e721560cd12246402d44e53c1ede5194b8398ef60822f02cab86ccf8d1f",
+          "RECORD": "4e5745fe5761283112882898b4ab0c1364fb5a63e62cad465a8f26ff19b8e386"
+        }
+      },
+      {
+        "name": "tokenizers",
+        "version": "0.22.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "5ad9bccf21ae53d45f812703c80c7c03ecea300823655a2968f9e6778779bdb3",
+          "RECORD": "5c9db640f792790f2fd88ea03f3fd388f9262fbd37c2e95d0c00d2e39b196deb"
+        }
+      },
+      {
+        "name": "torch",
+        "version": "2.6.0+cu124",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "d28ac83095d1df286693d57b81219b8a23c2487a8f945964a8fe175b0e28a78d",
+          "RECORD": "2d22f53c6db3feff3bb638e52e7e85ed07525a906b92f6de5196811281971406"
+        }
+      },
+      {
+        "name": "tqdm",
+        "version": "4.67.3",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "7c0e9a662c19095f339a4b761201eb06cff9c61fb9581535b2f96f44e718ed29",
+          "RECORD": "2870636470dd1b5be735afd594bedcc5027f57f00edd2031bf61faf84f6fe16a"
+        }
+      },
+      {
+        "name": "traitlets",
+        "version": "5.15.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "156c6a358f7141b7404240aa206c23487eff9308fdf286e2fe3ac971fae0cb00",
+          "RECORD": "c6db4f4347282e1f505ded767fa1345e95d11cec5ae3748532d37bdf08f1b145"
+        }
+      },
+      {
+        "name": "transformers",
+        "version": "4.57.6",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "91601044a74fe02571a825356754dbbaa9e1d3e3dd3c2237254c15e903e421e3",
+          "RECORD": "4cd283f2fdc0b56eb48291baf25c382f9c47e6264cd2d57ebc7ab6dd30e20780"
+        }
+      },
+      {
+        "name": "transformers",
+        "version": "5.13.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c3c8d11e913b70d1c2b591fa2962978680ee93e9cd21e3ee4f529dabfae43c0b",
+          "RECORD": "3a3980d2ca0822b197906cb12bff8c4a383fcd1ffed77cfa212f804b14170192"
+        }
+      },
+      {
+        "name": "typer",
+        "version": "0.25.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "304553e1baf26f16bcefa5b52dd7dad869e750b5967dfd774b8966748f5d36ff",
+          "RECORD": "323dce0f5759f0bca69a9c7e2d5122bc4a624059165ababaa5a3f51cb68404ac"
+        }
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.15.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "c138378fe8f18934ac99de060535c53ec6c13aeed65e94c32641da7ee3192a72",
+          "RECORD": "02f70a4ed6f81c3298a0024ca9dcc6807360938d388360ce3b768243f719cdce"
+        }
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "1f197d996db42bf40a79d3578084963f6204506dfee9809af81586dbb9607061",
+          "RECORD": "c5468c2f4fdfedf3ebc67db5a773f5e306848ed7387cc1bfd66a02945eb1fbc4"
+        }
+      },
+      {
+        "name": "urllib3",
+        "version": "2.7.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "66147856d30bbb6bed01c6ce3326d0f48d84ed5f286ac177633a1486b82eace5",
+          "RECORD": "f1d2914c0a48b1523ced71ce642e16967862b6e6a754e0f1c2652b4ffd44cf72"
+        }
+      },
+      {
+        "name": "webencodings",
+        "version": "0.5.1",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "290ec583c2efe3f9db5006f3012dbd426897cc6ec79d62c85e9176a0de0fdaee",
+          "RECORD": "a4280595bf214c936e17909113050c7fb259bf23e63f3e525f4554d45389f2fc"
+        }
+      },
+      {
+        "name": "xxhash",
+        "version": "3.7.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "5c020cd37021499e6b6edc76e13f28dfc8d5cd389f2e0d1529d94882ff3cf758",
+          "RECORD": "92a6fe241d503728cdaa5c0dd2b526c362342dd26025773c70cac23e6ccf55fa"
+        }
+      },
+      {
+        "name": "yarl",
+        "version": "1.24.2",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "1b5a14d27064a164b475918fd163cfec1a77ce700aae2214b0caf51011def53a",
+          "RECORD": "20374d5f765abf2c35c248012a1c58019f23ff8445c9fbdcaa93f5ff481b6c93"
+        }
+      },
+      {
+        "name": "zstandard",
+        "version": "0.25.0",
+        "location": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages",
+        "metadata_hashes": {
+          "METADATA": "bbf8cb63171274854c72777372376d31d7b52447359a538c1c2b47aae49c2b3c",
+          "RECORD": "908ad436c81c9b031b151f047b4e3d66fc2473633d28022672e6a9273252b3b1"
+        }
+      }
+    ],
+    "model_source_sha256": "5acb527d50a07e4bce3a5dec4db4f0c476cb4a01e8eb05219f26607034a12a83",
+    "config_source_sha256": "86a5e37411e3fa8a8d3c13f3c07f9ee7e74a6033f0da57d681cde80de8071d51",
+    "tiny_config": {
+      "vocab_size": 32,
+      "d_model": 8,
+      "d_kv": 4,
+      "d_ff": 16,
+      "num_sparse_encoder_layers": 1,
+      "num_layers": 2,
+      "num_decoder_layers": 2,
+      "num_sparse_decoder_layers": 1,
+      "encoder_sparse_step": 2,
+      "decoder_sparse_step": 2,
+      "num_heads": 2,
+      "num_experts": 2,
+      "expert_capacity": 1,
+      "router_bias": false,
+      "router_jitter_noise": 0.0,
+      "router_dtype": "float32",
+      "router_ignore_padding_tokens": false,
+      "relative_attention_num_buckets": 32,
+      "relative_attention_max_distance": 128,
+      "dropout_rate": 0.0,
+      "layer_norm_epsilon": 1e-06,
+      "initializer_factor": 1.0,
+      "use_cache": true,
+      "add_router_probs": false,
+      "router_z_loss_coef": 0.001,
+      "router_aux_loss_coef": 0.001,
+      "dense_act_fn": "relu",
+      "return_dict": true,
+      "output_hidden_states": false,
+      "torchscript": false,
+      "dtype": null,
+      "pruned_heads": {},
+      "tie_word_embeddings": true,
+      "chunk_size_feed_forward": 0,
+      "is_encoder_decoder": true,
+      "is_decoder": false,
+      "cross_attention_hidden_size": null,
+      "add_cross_attention": false,
+      "tie_encoder_decoder": false,
+      "architectures": null,
+      "finetuning_task": null,
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "task_specific_params": null,
+      "problem_type": null,
+      "tokenizer_class": null,
+      "prefix": null,
+      "bos_token_id": null,
+      "pad_token_id": 0,
+      "eos_token_id": 1,
+      "sep_token_id": null,
+      "decoder_start_token_id": 0,
+      "max_length": 20,
+      "min_length": 0,
+      "do_sample": false,
+      "early_stopping": false,
+      "num_beams": 1,
+      "temperature": 1.0,
+      "top_k": 50,
+      "top_p": 1.0,
+      "typical_p": 1.0,
+      "repetition_penalty": 1.0,
+      "length_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "encoder_no_repeat_ngram_size": 0,
+      "bad_words_ids": null,
+      "num_return_sequences": 1,
+      "output_scores": false,
+      "return_dict_in_generate": false,
+      "forced_bos_token_id": null,
+      "forced_eos_token_id": null,
+      "remove_invalid_values": false,
+      "exponential_decay_length_penalty": null,
+      "suppress_tokens": null,
+      "begin_suppress_tokens": null,
+      "num_beam_groups": 1,
+      "diversity_penalty": 0.0,
+      "_name_or_path": "",
+      "transformers_version": "4.57.6",
+      "tf_legacy_loss": false,
+      "use_bfloat16": false,
+      "model_type": "switch_transformers",
+      "output_attentions": false
+    },
+    "router": {
+      "shapes": [
+        [
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          4,
+          1
+        ],
+        [
+          1,
+          4,
+          2
+        ]
+      ],
+      "mask": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "exact_capacity_mask": true,
+      "exact_selected_probability": true,
+      "exact_raw_logits": true,
+      "repeatable_eval": true
+    },
+    "sparse_cases": [
+      {
+        "shape": [
+          1,
+          1,
+          8
+        ],
+        "relative_l2": 0.0,
+        "dropped_output_norm": 0.0,
+        "capacity_omission_fault_relative": 0.0,
+        "zero_output_fault_detected": true,
+        "raw_logits_exact": true,
+        "masked_expert_index_exact": true,
+        "passed": true
+      },
+      {
+        "shape": [
+          1,
+          4,
+          8
+        ],
+        "relative_l2": 0.0,
+        "dropped_output_norm": 0.0,
+        "capacity_omission_fault_relative": 0.8327527046203613,
+        "zero_output_fault_detected": true,
+        "raw_logits_exact": true,
+        "masked_expert_index_exact": true,
+        "passed": true
+      },
+      {
+        "shape": [
+          2,
+          2,
+          8
+        ],
+        "relative_l2": 0.0,
+        "dropped_output_norm": 0.0,
+        "capacity_omission_fault_relative": 0.8327527046203613,
+        "zero_output_fault_detected": true,
+        "raw_logits_exact": true,
+        "masked_expert_index_exact": true,
+        "passed": true
+      }
+    ],
+    "capacity1_full_head": {
+      "shape": [
+        1,
+        1,
+        32
+      ],
+      "finite": true,
+      "cache_present": true
+    },
+    "cache_steps": [
+      {
+        "step": 0,
+        "relative_logit_l2": 0.0,
+        "exact_top1": true,
+        "self_lengths": [
+          1,
+          1
+        ],
+        "cross_lengths": [
+          3,
+          3
+        ],
+        "passed": true
+      },
+      {
+        "step": 1,
+        "relative_logit_l2": 1.1763525975538869e-07,
+        "exact_top1": true,
+        "self_lengths": [
+          2,
+          2
+        ],
+        "cross_lengths": [
+          3,
+          3
+        ],
+        "passed": true
+      },
+      {
+        "step": 2,
+        "relative_logit_l2": 2.2039273517293623e-07,
+        "exact_top1": true,
+        "self_lengths": [
+          3,
+          3
+        ],
+        "cross_lengths": [
+          3,
+          3
+        ],
+        "passed": true
+      },
+      {
+        "step": 3,
+        "relative_logit_l2": 1.450498672284084e-07,
+        "exact_top1": true,
+        "self_lengths": [
+          4,
+          4
+        ],
+        "cross_lengths": [
+          3,
+          3
+        ],
+        "passed": true
+      }
+    ],
+    "meta_models": [
+      {
+        "model": "google/switch-base-128",
+        "unique_parameters": 7415217408,
+        "serialized_names": 3320,
+        "exact321_shapes": true,
+        "exact321_unique_count": true,
+        "router_count": 12,
+        "top1_bank_count_correct": true
+      },
+      {
+        "model": "google/switch-base-256",
+        "unique_parameters": 14664154368,
+        "serialized_names": 6392,
+        "exact321_shapes": true,
+        "exact321_unique_count": true,
+        "router_count": 12,
+        "top1_bank_count_correct": true
+      },
+      {
+        "model": "google/switch-large-128",
+        "unique_parameters": 26309291008,
+        "serialized_names": 6632,
+        "exact321_shapes": true,
+        "exact321_unique_count": true,
+        "router_count": 24,
+        "top1_bank_count_correct": true
+      }
+    ],
+    "gates": {
+      "direct_router": true,
+      "all_sparse_capacity_controls": true,
+      "tiny_capacity1_full_head_cache": true,
+      "unsaturated_cached_full_prefix": true,
+      "all_original_meta_namespaces": true
+    },
+    "resource": {
+      "seconds": 52.81299999999828,
+      "end_rss_bytes": 1312391168
+    },
+    "scope": "Unmodified official reference qualified only on tiny synthetic controls and META shapes. Capacity resets per call; unsaturated cache equivalence is not saturated full-prefix equivalence. No learned source weights, quality, native LUT or accepted token rate.",
+    "seconds": 52.81299999999828
+  },
+  "qualification_sha256": "04a1d5475b236bf07c82ff8bd0d17f999d302b7ff971cac77d3eef4d9d83aff2",
+  "passed": true,
+  "decision": "eligible_for_separate_real_source_binding",
+  "seconds": 138.40600000000268
+}
