@@ -1,4 +1,6 @@
-#ifdef SILICON_VECTOR4_LUT_PREFLIGHT
+#ifdef SILICON_VECTOR4_LUT_PROFILE
+#include "../native_expert_scaling/meth302_vector4_profile_cpu.c"
+#elif defined(SILICON_VECTOR4_LUT_PREFLIGHT)
 #include "../native_expert_scaling/meth301_vector4_lut_cpu.c"
 #elif defined(SILICON_COMPLETE_I16_NATIVE_GENERATE)
 #include "../native_expert_scaling/meth296_native_generation_cpu.c"
