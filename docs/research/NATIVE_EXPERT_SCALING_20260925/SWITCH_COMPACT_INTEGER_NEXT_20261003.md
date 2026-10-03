@@ -68,3 +68,16 @@ conditional representations. It is not a LUT scaling result by itself. Dynamic n
 RAM-scale useful n, real base128 comparison and useful larger capacity require
 separate actual source functions, routing and whole-quality measurements; source
 base256 availability alone does not prove10x expert scaling or~100B transfer.
+
+## Actual quality result and next precision variable
+
+343 original-primary NEW prediction FAIL top1 94.791667% versus95%; all342
+books consumed, unchanged W8A8 closed before generation/accepted rate.344
+fixed-state head-only A16 counterfactual reduces55 to35 original-choice
+differences using same weights/scales. Its independent oracles pass; this is
+diagnostic evidence only. Implement HEAD A16/core A8 as a new execution
+profile: exact AVX2 I8/I16 dot, I32 lanes bounded2,130,641,408 at4096 columns,
+I64 global sum bounded17,045,131,264. Target14.818GB unchanged. Freeze numeric,
+Tiny/nine faults, all96 consumed-state exact composition and unchanged actual
+CPU cost gates BEFORE observations; then NEW source quality required. No job
+live; generation draft unexecuted/unfrozen pending quality.343 failure retained.

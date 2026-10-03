@@ -105,19 +105,24 @@ PASS all unchanged gates, all outputs byte-exact340/336. Actual6-thread median
 full including prefill per32 forced positions7.643ms(source9)/17.510ms(source64),
 decode6.652/8.442ms, repeats1.039/1.048. Logical matrix reads129.017MB/position,
 not physical DRAM; one warmup/hash filesystem priming stated. Not accepted rate.
-All335-342 observations committed.343 quality job live; no timing overlap.
+All335-344 observations committed; no live model/timing job.
 
 [342 source-only cohort](METH_342_SWITCH_FRESH_SPAN_MANIFEST_RESULT_20261003.md)
 PASS, rawd2762b9/SHA bed91d901b26caf9b23992f1b4198d692e0ca770eeea60571caae9e2c884f89f:
 24 disjoint new PG19book rows,36 old-row exclusions, four63-token windows/book,
 96 known8-token span labels, encoder57/target11. No model scores at selection.
-[343 prediction protocol](METH_343_SWITCH_FRESH_PREDICTION_PROTOCOL_20261003.md)
-freezeddd0107; RUNNING under authoritative exec59475. Fresh ALL original
-source canonical coefficients+original331/native336 bridges BEFORE NEW
-scores; original unmodified CPU1 PRIMARY versus native341CPU6 SAMEartifact.
-40min after imports/48GiB. Do not duplicate/restart. If PASS freeze free span
-generation/health/reconstruction task and accepted batch1 rate. If FAIL preserve
-raw/partial NEW sources before specific diagnostics or changed candidate.
+[343 actual prediction](METH_343_SWITCH_FRESH_PREDICTION_RESULT_20261003.md)
+FAIL: original top1 agreement1001/1056=94.791667% versus95%; other seven gates
+PASS, all-target NLL upper+.013893/mask NLL upper+.034667. All24books now
+consumed. Frozen W8A8 closed before generation/task/accepted-rate promotion.
+[344 head attribution](METH_344_SWITCH_HEAD_ATTRIBUTION_RESULT_20261003.md)
+PASS all independent oracles on consumed states: HEAD-only activation16 yields
+35 versus55 choice differences, same I8 weights/scales and unchanged upstream
+states. Descriptive inference, not NEW quality or retroactive343 promotion.
+Next freeze actual HEAD A16/core A8 AVX2 execution, I32 lane/I64 global sums,
+independent numeric/Tiny/fault/old-state composition and unchanged CPU gates;
+only then NEW source original-primary prediction. Unexecuted generation draft
+`meth344_switch_span_generate_entry.c` is unfrozen and ineligible pending quality.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
 generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)
 and [transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).

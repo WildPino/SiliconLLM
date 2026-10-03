@@ -51,11 +51,14 @@ before observations/default restored;340 cost FAIL prefill/repeatability.
 at unchanged gates, SAME target/full outputs;6-thread full7.643/17.510ms per
 position on forced32 decoder positions for source9/64. Not accepted generation.
 
-342 NEW source-only manifest PASS,24 books/96 known masks, raw committed.
-343 ORIGINAL-primary paired prediction protocol frozen and RUNNING exec59475;
-40min/48GiB, no duplicate. Free span generation/task and accepted native rate
-remain after prediction PASS, all on SAMEartifact. Keep original
-learned experts; base128 full payload absent.128/256 availability provides2x
-only. Dynamic actual-n loader within RAM/shape bounds is no larger useful-n
-proof. Complete LUT/physical DRAM/route cost, whole accepted>=50 and
-cross-family/~100B remain open.
+342 source-only cohort PASS; all24books/96masks consumed by343.343 original
+PRIMARY prediction FAIL original top1 agreement94.791667% versus95%, other
+seven gates PASS. No unchanged free-generation/rate promotion.344 fixed-state
+head attribution PASS oracles; smallest next variable HEAD-only activation16,
+same serialized I8 head and unchanged core/experts A8. Freeze independent exact
+native/Tiny/fault/consumed-state composition then complete CPU cost with341
+unchanged criteria, followed by NEW original-primary quality. No live worker.
+Do not reinterpret old343 or consumed344 counterfactuals as NEW quality.
+Keep all original learned experts; base128 full payload absent.128/256 provides
+2x only; actual RAM-scale useful n, LUT/physical DRAM/routing cost, whole
+accepted>=50 and cross-family/~100B remain open.

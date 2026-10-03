@@ -408,18 +408,25 @@ now makes24 new PG19book rows/96 known8-token masks reproducible;36 previous
 book-ID exclusions, four distinct63-token windows/book, source57/target11.
 Model-free selection46.329s/1.504GB endRSS, original tokenizer/config bound;
 no model-score selection or unknown pretraining-exclusion guarantee.
-[343 prediction](METH_343_SWITCH_FRESH_PREDICTION_PROTOCOL_20261003.md) frozen
-and RUNNING: fresh original canonical ALL coefficient identities and cached331
-original/native336 bridges, ORIGINAL unmodified official CPU1 PRIMARY versus
-native341CPU6 SAMEartifact. Full11-target/8-span NLL with book-bootstrap95%
-upper<=.05 nats, token/span accuracy noninferiority and>=95% original top1
-agreement; all96 scored without postscore source changes. No outcome yet.
-Free generation/known-answer task and accepted native generation rate remain
-separate mandatory stages; teacher-forced reconstruction is not autoregressive
-quality. Useful RAM-scale n, hierarchy/LUT/physical DRAM and broader original
-quality remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
-lists available/missing steps. Genuine7.415B to14.664B availability is2x bank
-count, not10x scaling or~100B/cross-family/useful large-n evidence.
+[343 prediction](METH_343_SWITCH_FRESH_PREDICTION_RESULT_20261003.md) completes
+ORIGINAL unmodified official CPU1 PRIMARY versus native341CPU6 SAME artifact.
+Original canonical ALL coefficients and cached331/native336 bridges exact.
+Seven gates PASS: book-bootstrap NLL upper+.013893 all tokens/+.034667 mask,
+accuracy limits pass; top1 agreement94.791667% FAIL95%. Unchanged W8A8 is
+closed before free generation/task/accepted-rate promotion. All342 books now
+consumed; strict teacher-forced8-token exact0/96 in both arms is insensitive.
+[344 attribution](METH_344_SWITCH_HEAD_ATTRIBUTION_RESULT_20261003.md) has
+independent source-head/native-head/primitive oracles PASS. At fixed consumed
+native states, HEAD A16 with identical I8 weights yields35 choice differences
+versus55, equal to more costly source-F32-head count. This supports a NEW
+head-only activation16 execution variable, not new quality or changed343 gates.
+Next qualify exact I8/I16 AVX2 sums with I64 global reduction, Tiny/faults and
+complete old-state composition, then actual CPU cost at unchanged gates and
+NEW original-primary quality. Core/expert A8 and target payload stay fixed.
+Free generation/known-answer task and accepted end-to-end batch1 rate remain
+separate mandatory stages. Useful RAM-scale n, hierarchy/LUT/physical DRAM,
+real base128 comparison and cross-family/~100B remain open. See
+[transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md).
 
 An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The
 [metadata screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md) binds an
