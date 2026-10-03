@@ -81,3 +81,18 @@ I64 global sum bounded17,045,131,264. Target14.818GB unchanged. Freeze numeric,
 Tiny/nine faults, all96 consumed-state exact composition and unchanged actual
 CPU cost gates BEFORE observations; then NEW source quality required. No job
 live; generation draft unexecuted/unfrozen pending quality.343 failure retained.
+
+## Current actual qualification / live resumption
+
+345 apparatus binding stop preserved;347 actual HEAD A16/core A8 numeric
+PASS independent primitives/Tiny/nine faults and complete consumed composition.
+346 SAME executable actual CPU cost PASS unchanged thresholds: full7.452/
+15.372ms per32 forced positions source9/64, decode6.426/7.207ms. Logical bytes
+unchanged, physical DRAM/accepted natural rate unproven;64-source prefill~261ms.
+348 NEW24books/96masks/62exclusions selected source-only and committed54a69d7.
+349 NEW original-primary prediction frozen7d850e1 RUNNING exec35459;60min/48GiB,
+no duplicate. SAME347 binary, original unmodifiedCPU1 versus native6, unchanged
+343 criteria. Fresh all original coefficients/bridges before new scores.
+Consume exit/raw, preserve all outcome. PASS next NEW free generation/task/
+actual accepted end-to-end rate; FAIL keep sources consumed before diagnosis.
+343 old95% FAIL unchanged; useful larger-n/LUT/DRAM/family goal remains open.

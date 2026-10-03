@@ -105,7 +105,7 @@ PASS all unchanged gates, all outputs byte-exact340/336. Actual6-thread median
 full including prefill per32 forced positions7.643ms(source9)/17.510ms(source64),
 decode6.652/8.442ms, repeats1.039/1.048. Logical matrix reads129.017MB/position,
 not physical DRAM; one warmup/hash filesystem priming stated. Not accepted rate.
-All335-345 observations committed; numeric347 running, no timing overlap.
+All335-348 observations committed; NEW prediction349 live, no timing overlap.
 
 [342 source-only cohort](METH_342_SWITCH_FRESH_SPAN_MANIFEST_RESULT_20261003.md)
 PASS, rawd2762b9/SHA bed91d901b26caf9b23992f1b4198d692e0ca770eeea60571caae9e2c884f89f:
@@ -119,12 +119,23 @@ consumed. Frozen W8A8 closed before generation/task/accepted-rate promotion.
 PASS all independent oracles on consumed states: HEAD-only activation16 yields
 35 versus55 choice differences, same I8 weights/scales and unchanged upstream
 states. Descriptive inference, not NEW quality or retroactive343 promotion.
-Actual345 C/reference frozen69ffe51/3035ebf; initial apparatus filename
-binding FAIL preserved70908cf before compile/model. Corrected347 controller
-frozen419eff7 RUNNING authoritative exec69347 (20min/16GiB), unchanged kernel/
-criteria. Do not duplicate. Read exit/raw, preserve outcome, then freeze346
-SAME executable actual CPU cost with unchanged341 thresholds; only then NEW
-source original-primary prediction. Unexecuted generation draft
+[345 apparatus stop](METH_345_SWITCH_HEAD_A16_CONTRACT_RESULT_20261003.md)
+preserved70908cf before compile/model. [347 actual numeric](METH_347_SWITCH_HEAD_A16_CONTRACT_RESUME_RESULT_20261003.md)
+PASS all primitive/Tiny/nine faults/complete independent controls/ALL96 consumed
+states and344 logits EXACT;152.266s/max3.170GB. [346 SAME binary cost](METH_346_SWITCH_HEAD_A16_COST_RESULT_20261003.md)
+PASS unchanged6-thread gates: full7.452/15.372ms per32 forced positions,
+decode6.426/7.207ms, repeat1.0174/1.0037;37.297s/max0.928GB. Not accepted rate;
+64-source prefill~261ms remains significant for short natural responses.
+[348 NEW manifest](METH_348_SWITCH_HEAD_A16_FRESH_MANIFEST_RESULT_20261003.md)
+PASS24 source-only books/96 eight-token masks,62 old exclusions,47.171s.
+[349 NEW original-primary prediction](METH_349_SWITCH_HEAD_A16_FRESH_PREDICTION_PROTOCOL_20261003.md)
+frozen7d850e1 RUNNING authoritative exec35459,60min after imports/48GiB;
+unchanged343 quality thresholds (>=95% top1), same347 binary measured346.
+Do not duplicate/restart. Read exit/raw; commit all outcome. PASS licenses NEW
+free generation/task and actual accepted end-to-end rate; FAIL preserve sources
+as consumed before diagnosis. Fresh ALL original6392 coefficient hashes and
+original331/native347 bridges before NEW scores. No CPU timing/model overlap.
+Unexecuted generation draft
 `meth344_switch_span_generate_entry.c` is unfrozen and ineligible pending quality.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
 generic port paused. See [compact path](SWITCH_COMPACT_INTEGER_NEXT_20261003.md)

@@ -420,9 +420,24 @@ independent source-head/native-head/primitive oracles PASS. At fixed consumed
 native states, HEAD A16 with identical I8 weights yields35 choice differences
 versus55, equal to more costly source-F32-head count. This supports a NEW
 head-only activation16 execution variable, not new quality or changed343 gates.
-Next qualify exact I8/I16 AVX2 sums with I64 global reduction, Tiny/faults and
-complete old-state composition, then actual CPU cost at unchanged gates and
-NEW original-primary quality. Core/expert A8 and target payload stay fixed.
+[345 initial apparatus](METH_345_SWITCH_HEAD_A16_CONTRACT_RESULT_20261003.md)
+input-filename binding stop preserved before observations. [347 numeric](METH_347_SWITCH_HEAD_A16_CONTRACT_RESUME_RESULT_20261003.md)
+qualifies actual HEAD A16 execution: I32 lanes/I64 global reduction, thirteen
+extreme/tie/scalar cases, Tiny/nine faults, full independent engineering states
+and ALL96 consumed343 forward states/routes EXACT with344 head counterfactual.
+152.266s/max3.170GB. [346 actual SAME binary CPU cost](METH_346_SWITCH_HEAD_A16_COST_RESULT_20261003.md)
+PASS unchanged6-thread gates: full7.452/15.372ms per32 forced positions for9/64
+source, decode6.426/7.207ms, repeats1.0174/1.0037.37.297s/max0.928GB; unchanged
+129.017MB logical matrix weight reads/position, no physical DRAM inference.
+The64-source prefill~261ms is not hidden:32-position amortization does not
+establish >=50 accepted end-to-end on shorter responses. Need actual generation.
+[348 NEW sources](METH_348_SWITCH_HEAD_A16_FRESH_MANIFEST_RESULT_20261003.md)
+select24 new books/96 known8-token masks without scores,62 old exclusions.
+[349 original-primary quality](METH_349_SWITCH_HEAD_A16_FRESH_PREDICTION_PROTOCOL_20261003.md)
+frozen and RUNNING: same timed347 executable, unmodified originalCPU1 PRIMARY,
+all original canonical bytes/bridges fresh, unchanged34395%/.05/accuracy criteria.
+60min/48GiB prospective budget; no result yet. Core/experts A8 and target payload
+stay fixed; old343 failure remains closed and all342 sources consumed.
 Free generation/known-answer task and accepted end-to-end batch1 rate remain
 separate mandatory stages. Useful RAM-scale n, hierarchy/LUT/physical DRAM,
 real base128 comparison and cross-family/~100B remain open. See
