@@ -1,0 +1,11 @@
+# METH-312: source activation fidelity stop, no target archives
+
+Freeze `43643f7`, controller exit1 after 252.297s. Stage `layer1_fit_targets`; error `AssertionError(('captured nonlinear reference mismatch', 1, 'fit', 0, 0.0030032517420815474))`. First anchor0/layer1/fit reconstruction has maximum post-SwiGLU relativeL2 0.0030032517420815474 (0.300325%), exceeding unchanged1e-4 (0.01%). No quality/representation observation or dataset qualification follows.
+
+Fresh full21.356GB source SHA passed, header and all first-layer BF16 anchor tensor hashes passed, exact coordinate dedup/source routing slots passed for first case. Eight first-layer tensor payload hashes retained. No completed cases/archives; empty target destination preserved at `results/native_expert_scaling/meth312_mixture_targets`. Source input streams remain untouched. Failure raw SHA `6815007bd616a454490903a6549b58628163ecaae67ec3450f32981085108b11`, controller `3b0b8eef9217131f63245c97a2dd3655badbeb542fbfb007aa1b8b4d029c6e4a`, protocol `4274cbd84a86f28d8ca6d91aa24d61dbcdd655d749dec020384ad33d8ea39c23`; [frozen protocol](METH_312_GIGACHAT_MIXTURE_TARGETS_PROTOCOL_20261003.md).
+
+## Evidence-based narrow repair, separately frozen next
+
+Read pinned5b335f413e4f73b0809c4fe39af894efbcc6a0d2 Git source, whose checkout source files are pruned. `ggml/src/ggml-cpu/ggml-cpu.c` SHA839197aab9a2fb3c509221699e2810a4c4f3f3043416f55e653c380a46ed74cf declares BF16 vec_dot_type=BF16 and converts F32 activation rows to that type before mul_mat_id. `ggml/src/ggml-impl.h` SHA43564db0238aebb7ed68501e346c194866b5dac218d1d37b26baff9f458c00d3 defines round-nearest-even conversion.312 instead multiplies original F32 activations by decoded BF16 weights; that changes the source operator's activation representation. This is a source-supported explanation to verify, not an already measured repair pass.
+
+New313 should round input to source BF16 before gate/up and round post-SwiGLU to BF16 before down, including shared branch, while preserving original unrounded input records and the SAME1e-4/route/archive/resource gates. Add exhaustive finite BF16 rounding/negative truncation controls, then require original captured activations to match. Preserve312 source/protocol/failure; no threshold relaxation. No student, full-mixture native bit parity or approximate quality is established.

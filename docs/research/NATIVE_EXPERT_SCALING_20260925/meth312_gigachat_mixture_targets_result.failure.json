@@ -1,0 +1,88 @@
+{
+  "experiment": "METH-312-source-complete-MoE-FFN-target-reconstruction",
+  "cases": [],
+  "payloads": [
+    {
+      "name": "blk.1.ffn_gate_inp.weight",
+      "offset": 1681665024,
+      "bytes": 393216,
+      "sha256": "79ffdea45eb88263758e372285fc69437f1a8fa1c483635425453ef25a9abdd2"
+    },
+    {
+      "name": "blk.1.exp_probs_b.bias",
+      "offset": 1681664768,
+      "bytes": 256,
+      "sha256": "b9b9c88857da8789d02f03206bd5784976010ba0c9aef0f4f6d78a84f70d0427"
+    },
+    {
+      "name": "blk.1.ffn_gate_exps.weight",
+      "offset": 1178348288,
+      "bytes": 251658240,
+      "sha256": "7c6c5b11f8a01105a1db8e3bd2f5b292fc8f1685525dae028a674b03dc2d10e0"
+    },
+    {
+      "name": "blk.1.ffn_up_exps.weight",
+      "offset": 1430006528,
+      "bytes": 251658240,
+      "sha256": "9c40df1b432d60a7d7e6bb582370c67de9c0a76074ae898b1b9282101704a636"
+    },
+    {
+      "name": "blk.1.ffn_down_exps.weight",
+      "offset": 926690048,
+      "bytes": 251658240,
+      "sha256": "0feecbfec6aa1de56c495269b87ab28e94997c0d93006079c5af27d4f9b7d54e"
+    },
+    {
+      "name": "blk.1.ffn_gate_shexp.weight",
+      "offset": 1685990400,
+      "bytes": 3932160,
+      "sha256": "3c1ee6db96cbd118729b698f0979e437280abbc86b462176bff6d785f4db95dc"
+    },
+    {
+      "name": "blk.1.ffn_up_shexp.weight",
+      "offset": 1689922560,
+      "bytes": 3932160,
+      "sha256": "837351f6a2de12663864ff033c065c8cc315dd6a9ef440388526e9ca9a5eaae2"
+    },
+    {
+      "name": "blk.1.ffn_down_shexp.weight",
+      "offset": 1682058240,
+      "bytes": 3932160,
+      "sha256": "cddcece9a5666ab4db44216885327494cb06bae4d2164d82ea9d1e2bcafeb5ba"
+    }
+  ],
+  "source_model": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_binding_v1\\GigaChat3.1-10B-A1.8B-source-bf16.gguf",
+    "bytes": 21356264448,
+    "full_sha256_freshly_checked": "fabc8056f57e230ae9e6aadceb45f4abf9e5d7031fbfe8eca2671d871ef35d47"
+  },
+  "header": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_binding_v1\\GigaChat3.1-10B-A1.8B-source-bf16.gguf",
+    "file_bytes": 21356264448,
+    "header_bytes_read": 6085376,
+    "header_sha256": "2e18041f5c90d897f4ab3f882887c63b797f736fec63b1147c8cd9e0d1bcbe08",
+    "full_payload_hash_rechecked": false
+  },
+  "controller_sha256": "3b0b8eef9217131f63245c97a2dd3655badbeb542fbfb007aa1b8b4d029c6e4a",
+  "protocol_sha256": "4274cbd84a86f28d8ca6d91aa24d61dbcdd655d749dec020384ad33d8ea39c23",
+  "source_config_sha256": "6a6b8260f08791c4968f70934903e9aa892a53ee3f2e2e05b61a68ea1ff33503",
+  "libraries": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6"
+  },
+  "capture_bindings": {
+    "fit": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_fit_inputs.bin",
+      "bytes": 394697744,
+      "sha256": "541f7c05aa24bbc903d2c2b0816d7399bbfb2a173e8b08a32e774f5dc0c8c41f"
+    },
+    "test": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth298_test_inputs.bin",
+      "bytes": 279661456,
+      "sha256": "0733afee8d42adf479822a2b91eb3c3a90f0972b53e1c4cdbd0fef563b09a5d6"
+    }
+  },
+  "failure_stage": "layer1_fit_targets",
+  "error": "AssertionError(('captured nonlinear reference mismatch', 1, 'fit', 0, 0.0030032517420815474))",
+  "seconds": 252.29700000000048
+}
