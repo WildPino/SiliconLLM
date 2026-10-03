@@ -66,8 +66,8 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
 ## Exact resumption
 
 METH-326 complete original base256 acquisition RUNNING, exec session60173,
-launcherPID23212/workerPID8688. First two shards fully LFS-verified, last
-observed total29,336,338,969B at769.735s, third shard in progress. Windows
+launcherPID23212/workerPID8688. First three shards fully LFS-verified, last
+observed total30,863,079,776B at933.485s, fourth shard in progress. Windows
 directory size for an open .partial can lag; controller byte counter is used.
 Frozen e9ba50b,90min/64GiB cap, six59GB original shards+seven tokenizer/config
 side files, exact expected size/LFS SHA; source output under results/native_expert_scaling/
