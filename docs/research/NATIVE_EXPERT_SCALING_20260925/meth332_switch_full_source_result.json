@@ -1,0 +1,1369 @@
+{
+  "experiment": "METH-332-F64-MV-real-Switch256-native-source",
+  "cases": [
+    {
+      "prompt": "The capital of France is <extra_id_0>.",
+      "forced_decoder_text": "<extra_id_0> Paris <extra_id_1>",
+      "source_ids": [
+        37,
+        1784,
+        13,
+        1410,
+        19,
+        32099,
+        3,
+        5,
+        1
+      ],
+      "decoder_ids": [
+        0,
+        32099,
+        1919,
+        32098
+      ],
+      "encoder_decoder_logit_relative_l2": [
+        1.1651720248274822e-06,
+        2.3529698915225688e-07,
+        2.1749917850640224e-07
+      ],
+      "encoder_state_errors": [
+        0.0,
+        2.0983308971251398e-07,
+        3.5299906873959547e-06,
+        3.380344218716045e-06,
+        1.2501590102258945e-06,
+        1.2319208000165797e-06,
+        1.2287194141905887e-06,
+        1.227399794481841e-06,
+        1.2194760662208752e-06,
+        1.2168399834554634e-06,
+        9.87460820842473e-07,
+        9.87921827845248e-07,
+        9.674739149079612e-07,
+        6.358615985724867e-07
+      ],
+      "decoder_state_errors": [
+        0.0,
+        1.0749622470544619e-07,
+        2.2385882014391556e-07,
+        2.3300421280040102e-07,
+        2.329996435670045e-07,
+        2.3283494898750868e-07,
+        2.328121257859595e-07,
+        2.3284087120131265e-07,
+        2.328117993931399e-07,
+        2.3291472547564656e-07,
+        2.328508354753676e-07,
+        2.393312120367612e-07,
+        2.589209926140623e-07,
+        1.652197254257077e-07,
+        0.0,
+        1.1356540144739762e-07,
+        1.7016578782759662e-07,
+        2.2581619446036098e-07,
+        2.40008094746816e-07,
+        2.3638100755658088e-07,
+        2.506889198564674e-07,
+        2.043412641228984e-07,
+        2.3219448800493923e-07,
+        2.0671646815180343e-07,
+        3.458038713914514e-07,
+        2.9999256255224336e-07,
+        3.683857338078132e-07,
+        4.1467655341400614e-07,
+        0.0,
+        1.3110657397603003e-07,
+        2.4705855524470707e-07,
+        2.2215947814159054e-07,
+        2.643721862302118e-07,
+        2.2918330973861787e-07,
+        3.0111416092472623e-07,
+        2.6873517169265856e-07,
+        2.90538166998541e-07,
+        1.9116846889970708e-07,
+        2.416572250590122e-07,
+        1.7690948695118761e-07,
+        2.868492022201819e-07,
+        3.520798882836164e-07,
+        0.0,
+        1.274653210908675e-07,
+        1.8798963229735303e-07,
+        2.5444461460906524e-07,
+        2.733418198892922e-07,
+        3.311175966895918e-07,
+        3.521199297955029e-07,
+        3.3542924501926253e-07,
+        3.337016193856554e-07,
+        2.1866918573227475e-07,
+        2.61032805536307e-07,
+        2.2914568527689356e-07,
+        2.51373733633105e-07,
+        3.8809542937487103e-07
+      ],
+      "exact_route_choice_and_capacity": true,
+      "maximum_selected_probability_abs_error": 1.4901161193847656e-06,
+      "greedy_top1_equal": true,
+      "reference_greedy_top1_ids": [
+        32099,
+        1919,
+        32098,
+        1919
+      ],
+      "reference_dropped_routes": 0,
+      "native_route_rows": [
+        [
+          199.0,
+          1.0,
+          0.07101569324731827
+        ],
+        [
+          20.0,
+          1.0,
+          0.32115045189857483
+        ],
+        [
+          117.0,
+          1.0,
+          0.34464576840400696
+        ],
+        [
+          234.0,
+          1.0,
+          0.2623690366744995
+        ],
+        [
+          153.0,
+          1.0,
+          0.11476076394319534
+        ],
+        [
+          11.0,
+          1.0,
+          0.030537452548742294
+        ],
+        [
+          82.0,
+          1.0,
+          0.32454437017440796
+        ],
+        [
+          30.0,
+          1.0,
+          0.4378300905227661
+        ],
+        [
+          214.0,
+          1.0,
+          0.9523314833641052
+        ],
+        [
+          26.0,
+          1.0,
+          0.1461450308561325
+        ],
+        [
+          59.0,
+          1.0,
+          0.0644274577498436
+        ],
+        [
+          42.0,
+          1.0,
+          0.3342292606830597
+        ],
+        [
+          178.0,
+          1.0,
+          0.20626622438430786
+        ],
+        [
+          68.0,
+          1.0,
+          0.08535759150981903
+        ],
+        [
+          104.0,
+          1.0,
+          0.04170765355229378
+        ],
+        [
+          131.0,
+          1.0,
+          0.4881976246833801
+        ],
+        [
+          173.0,
+          1.0,
+          0.09980367124080658
+        ],
+        [
+          122.0,
+          1.0,
+          0.0604858472943306
+        ],
+        [
+          213.0,
+          1.0,
+          0.030981160700321198
+        ],
+        [
+          57.0,
+          1.0,
+          0.13255473971366882
+        ],
+        [
+          197.0,
+          1.0,
+          0.023552345111966133
+        ],
+        [
+          1.0,
+          1.0,
+          0.09853722900152206
+        ],
+        [
+          251.0,
+          1.0,
+          0.12106534093618393
+        ],
+        [
+          232.0,
+          1.0,
+          0.060340944677591324
+        ],
+        [
+          115.0,
+          1.0,
+          0.21447765827178955
+        ],
+        [
+          234.0,
+          1.0,
+          0.04059646651148796
+        ],
+        [
+          234.0,
+          1.0,
+          0.2731105387210846
+        ],
+        [
+          65.0,
+          1.0,
+          0.025492694228887558
+        ],
+        [
+          100.0,
+          1.0,
+          0.07159626483917236
+        ],
+        [
+          192.0,
+          1.0,
+          0.23987595736980438
+        ],
+        [
+          100.0,
+          1.0,
+          0.19455604255199432
+        ],
+        [
+          176.0,
+          1.0,
+          0.41324618458747864
+        ],
+        [
+          174.0,
+          1.0,
+          0.039035897701978683
+        ],
+        [
+          104.0,
+          1.0,
+          0.5488510131835938
+        ],
+        [
+          95.0,
+          1.0,
+          0.035362113267183304
+        ],
+        [
+          195.0,
+          1.0,
+          0.1721719354391098
+        ],
+        [
+          56.0,
+          1.0,
+          0.031123770400881767
+        ],
+        [
+          238.0,
+          1.0,
+          0.08057530224323273
+        ],
+        [
+          93.0,
+          1.0,
+          0.22821912169456482
+        ],
+        [
+          148.0,
+          1.0,
+          0.10402264446020126
+        ],
+        [
+          95.0,
+          1.0,
+          0.10483615100383759
+        ],
+        [
+          108.0,
+          1.0,
+          0.2342437207698822
+        ],
+        [
+          151.0,
+          1.0,
+          0.08906636387109756
+        ],
+        [
+          44.0,
+          1.0,
+          0.056665897369384766
+        ],
+        [
+          65.0,
+          1.0,
+          0.36703935265541077
+        ],
+        [
+          124.0,
+          1.0,
+          0.05304272100329399
+        ],
+        [
+          11.0,
+          1.0,
+          0.05823669955134392
+        ],
+        [
+          11.0,
+          1.0,
+          0.13313958048820496
+        ],
+        [
+          194.0,
+          1.0,
+          0.27178171277046204
+        ],
+        [
+          144.0,
+          1.0,
+          0.12938560545444489
+        ],
+        [
+          78.0,
+          1.0,
+          0.19708003103733063
+        ],
+        [
+          205.0,
+          1.0,
+          0.0835617184638977
+        ],
+        [
+          140.0,
+          1.0,
+          0.023596158251166344
+        ],
+        [
+          203.0,
+          1.0,
+          0.031124982982873917
+        ],
+        [
+          55.0,
+          1.0,
+          0.01835160329937935
+        ],
+        [
+          13.0,
+          1.0,
+          0.034603264182806015
+        ],
+        [
+          200.0,
+          1.0,
+          0.27484095096588135
+        ],
+        [
+          72.0,
+          1.0,
+          0.0891878753900528
+        ],
+        [
+          50.0,
+          1.0,
+          0.12636911869049072
+        ],
+        [
+          115.0,
+          1.0,
+          0.029109083116054535
+        ],
+        [
+          42.0,
+          1.0,
+          0.009794851765036583
+        ],
+        [
+          46.0,
+          1.0,
+          0.0309855118393898
+        ],
+        [
+          71.0,
+          1.0,
+          0.20130741596221924
+        ],
+        [
+          208.0,
+          1.0,
+          0.061888448894023895
+        ],
+        [
+          91.0,
+          1.0,
+          0.304934024810791
+        ],
+        [
+          42.0,
+          1.0,
+          0.03309568390250206
+        ],
+        [
+          164.0,
+          1.0,
+          0.06824278831481934
+        ],
+        [
+          83.0,
+          1.0,
+          0.019599465653300285
+        ],
+        [
+          35.0,
+          1.0,
+          0.10253268480300903
+        ],
+        [
+          174.0,
+          1.0,
+          0.12029411643743515
+        ],
+        [
+          33.0,
+          1.0,
+          0.024253852665424347
+        ],
+        [
+          51.0,
+          1.0,
+          0.06547882407903671
+        ],
+        [
+          213.0,
+          1.0,
+          0.009870240464806557
+        ],
+        [
+          18.0,
+          1.0,
+          0.016965346410870552
+        ],
+        [
+          71.0,
+          1.0,
+          0.09648015350103378
+        ],
+        [
+          208.0,
+          1.0,
+          0.03552396595478058
+        ],
+        [
+          91.0,
+          1.0,
+          0.2142910361289978
+        ],
+        [
+          149.0,
+          1.0,
+          0.039961833506822586
+        ]
+      ],
+      "zero_head_fault_relative_l2": 1.0,
+      "native_output_sha256": "c0a0c1d4aab1b53a630a1e6e5084de8e6cd5d550496c2a1776df199e0e768549",
+      "passed": false
+    },
+    {
+      "prompt": "The scientist measured <extra_id_0> after the experiment.",
+      "forced_decoder_text": "<extra_id_0> the temperature <extra_id_1>",
+      "source_ids": [
+        37,
+        17901,
+        8413,
+        32099,
+        227,
+        8,
+        5016,
+        5,
+        1
+      ],
+      "decoder_ids": [
+        0,
+        32099,
+        8,
+        2912,
+        32098
+      ],
+      "encoder_decoder_logit_relative_l2": [
+        3.2655908678165335e-06,
+        4.843120147914303e-07,
+        1.8880277508480412e-07
+      ],
+      "encoder_state_errors": [
+        0.0,
+        1.8456060478132786e-07,
+        1.9243949452530684e-06,
+        1.8458054246983833e-06,
+        3.36617541739637e-06,
+        3.3461541248025314e-06,
+        3.3450382228521216e-06,
+        3.344062721091767e-06,
+        3.274584866450613e-06,
+        3.2725252014091955e-06,
+        3.1922707928251027e-06,
+        3.1914532161514495e-06,
+        3.106205467352532e-06,
+        6.561532848041402e-07
+      ],
+      "decoder_state_errors": [
+        0.0,
+        1.6773067045074064e-07,
+        5.302759840052087e-07,
+        4.802798625076113e-07,
+        4.802496998745948e-07,
+        4.799155802085277e-07,
+        4.798669874968483e-07,
+        4.799420370560542e-07,
+        4.798782137328586e-07,
+        4.805722983252934e-07,
+        4.80445134799719e-07,
+        4.804356787066737e-07,
+        4.819623452970631e-07,
+        1.470013708029139e-07,
+        0.0,
+        1.1714147179145541e-07,
+        1.7502745941681816e-07,
+        1.611068317049139e-07,
+        1.952780464633571e-07,
+        1.741661173773858e-07,
+        1.8269962748343414e-07,
+        1.7548161047989025e-07,
+        1.981559112146071e-07,
+        1.646822968190788e-07,
+        2.0324885982257613e-07,
+        1.862730671691341e-07,
+        2.154327230424472e-07,
+        3.468885187164348e-07,
+        0.0,
+        1.0022242703246316e-07,
+        1.3885348909868477e-07,
+        1.5932935749112774e-07,
+        1.9528400527036477e-07,
+        1.8996400989870926e-07,
+        2.4420205304186234e-07,
+        2.2423990871659581e-07,
+        2.460798969786732e-07,
+        2.2347762119320132e-07,
+        2.390954189257348e-07,
+        2.368206694612119e-07,
+        2.7824697455898873e-07,
+        5.337359851437679e-07,
+        0.0,
+        1.4154460526197028e-07,
+        2.011514995372946e-07,
+        1.9525394634769e-07,
+        2.701799016668819e-07,
+        2.874426156345817e-07,
+        2.943388003299751e-07,
+        2.393368969944638e-07,
+        2.7078926553314984e-07,
+        2.209359097937881e-07,
+        2.133397781775185e-07,
+        2.24797687060654e-07,
+        2.6826390226462105e-07,
+        2.7914206747121997e-07,
+        0.0,
+        1.2204003531764278e-07,
+        1.5498639139565115e-07,
+        1.5224836192448618e-07,
+        1.86622061791491e-07,
+        2.0304381262063532e-07,
+        1.9519583828377532e-07,
+        1.734378240958967e-07,
+        2.230784400978416e-07,
+        1.9358097057105425e-07,
+        2.318445859237231e-07,
+        2.028646038278057e-07,
+        3.104756871035362e-07,
+        3.861702332136221e-07
+      ],
+      "exact_route_choice_and_capacity": true,
+      "maximum_selected_probability_abs_error": 7.748603820800781e-07,
+      "greedy_top1_equal": true,
+      "reference_greedy_top1_ids": [
+        32099,
+        34,
+        32098,
+        32098,
+        5
+      ],
+      "reference_dropped_routes": 0,
+      "native_route_rows": [
+        [
+          199.0,
+          1.0,
+          0.06074900180101395
+        ],
+        [
+          247.0,
+          1.0,
+          0.85306715965271
+        ],
+        [
+          239.0,
+          1.0,
+          0.22153495252132416
+        ],
+        [
+          5.0,
+          1.0,
+          0.04913126304745674
+        ],
+        [
+          235.0,
+          1.0,
+          0.20404818654060364
+        ],
+        [
+          223.0,
+          1.0,
+          0.11139523983001709
+        ],
+        [
+          247.0,
+          1.0,
+          0.1581825315952301
+        ],
+        [
+          30.0,
+          1.0,
+          0.3437378704547882
+        ],
+        [
+          214.0,
+          1.0,
+          0.9492437243461609
+        ],
+        [
+          221.0,
+          1.0,
+          0.06763272732496262
+        ],
+        [
+          250.0,
+          1.0,
+          0.0787108987569809
+        ],
+        [
+          14.0,
+          1.0,
+          0.10795357823371887
+        ],
+        [
+          76.0,
+          1.0,
+          0.038238275796175
+        ],
+        [
+          155.0,
+          1.0,
+          0.1940685212612152
+        ],
+        [
+          47.0,
+          1.0,
+          0.4220060408115387
+        ],
+        [
+          17.0,
+          1.0,
+          0.3486495018005371
+        ],
+        [
+          173.0,
+          1.0,
+          0.17319370806217194
+        ],
+        [
+          122.0,
+          1.0,
+          0.036975834518671036
+        ],
+        [
+          74.0,
+          1.0,
+          0.22731415927410126
+        ],
+        [
+          97.0,
+          1.0,
+          0.1881241798400879
+        ],
+        [
+          208.0,
+          1.0,
+          0.0833343118429184
+        ],
+        [
+          27.0,
+          1.0,
+          0.057071760296821594
+        ],
+        [
+          145.0,
+          1.0,
+          0.1701889932155609
+        ],
+        [
+          35.0,
+          1.0,
+          0.1475616842508316
+        ],
+        [
+          194.0,
+          1.0,
+          0.28182774782180786
+        ],
+        [
+          234.0,
+          1.0,
+          0.05974506586790085
+        ],
+        [
+          234.0,
+          1.0,
+          0.2493828535079956
+        ],
+        [
+          218.0,
+          1.0,
+          0.09529849141836166
+        ],
+        [
+          245.0,
+          1.0,
+          0.10685175657272339
+        ],
+        [
+          189.0,
+          1.0,
+          0.12218908220529556
+        ],
+        [
+          158.0,
+          1.0,
+          0.14494487643241882
+        ],
+        [
+          22.0,
+          1.0,
+          0.36652708053588867
+        ],
+        [
+          53.0,
+          1.0,
+          0.05111565440893173
+        ],
+        [
+          49.0,
+          1.0,
+          0.17416322231292725
+        ],
+        [
+          207.0,
+          1.0,
+          0.04040497913956642
+        ],
+        [
+          195.0,
+          1.0,
+          0.12734656035900116
+        ],
+        [
+          207.0,
+          1.0,
+          0.05869977921247482
+        ],
+        [
+          54.0,
+          1.0,
+          0.0932006761431694
+        ],
+        [
+          104.0,
+          1.0,
+          0.0973149761557579
+        ],
+        [
+          30.0,
+          1.0,
+          0.26107239723205566
+        ],
+        [
+          94.0,
+          1.0,
+          0.256159245967865
+        ],
+        [
+          9.0,
+          1.0,
+          0.1056518405675888
+        ],
+        [
+          78.0,
+          1.0,
+          0.13237394392490387
+        ],
+        [
+          44.0,
+          1.0,
+          0.06383699178695679
+        ],
+        [
+          65.0,
+          1.0,
+          0.3258263170719147
+        ],
+        [
+          107.0,
+          1.0,
+          0.06947345286607742
+        ],
+        [
+          135.0,
+          1.0,
+          0.05931618809700012
+        ],
+        [
+          187.0,
+          1.0,
+          0.08612736314535141
+        ],
+        [
+          196.0,
+          1.0,
+          0.16243930160999298
+        ],
+        [
+          248.0,
+          1.0,
+          0.1676679253578186
+        ],
+        [
+          87.0,
+          1.0,
+          0.02440524660050869
+        ],
+        [
+          8.0,
+          1.0,
+          0.05635082349181175
+        ],
+        [
+          235.0,
+          1.0,
+          0.03871215879917145
+        ],
+        [
+          203.0,
+          1.0,
+          0.029198452830314636
+        ],
+        [
+          55.0,
+          1.0,
+          0.017554130405187607
+        ],
+        [
+          13.0,
+          1.0,
+          0.03452335670590401
+        ],
+        [
+          200.0,
+          1.0,
+          0.2751097083091736
+        ],
+        [
+          72.0,
+          1.0,
+          0.08899637311697006
+        ],
+        [
+          93.0,
+          1.0,
+          0.12607137858867645
+        ],
+        [
+          115.0,
+          1.0,
+          0.029308194294571877
+        ],
+        [
+          42.0,
+          1.0,
+          0.009966758079826832
+        ],
+        [
+          75.0,
+          1.0,
+          0.057500630617141724
+        ],
+        [
+          193.0,
+          1.0,
+          0.11733324825763702
+        ],
+        [
+          33.0,
+          1.0,
+          0.09279797971248627
+        ],
+        [
+          174.0,
+          1.0,
+          0.20355387032032013
+        ],
+        [
+          186.0,
+          1.0,
+          0.06807047873735428
+        ],
+        [
+          4.0,
+          1.0,
+          0.01039115060120821
+        ],
+        [
+          250.0,
+          1.0,
+          0.017110314220190048
+        ],
+        [
+          28.0,
+          1.0,
+          0.05344684049487114
+        ],
+        [
+          45.0,
+          1.0,
+          0.02832590602338314
+        ],
+        [
+          237.0,
+          1.0,
+          0.06134907901287079
+        ],
+        [
+          155.0,
+          1.0,
+          0.07588807493448257
+        ],
+        [
+          10.0,
+          1.0,
+          0.06198190525174141
+        ],
+        [
+          130.0,
+          1.0,
+          0.03064429573714733
+        ],
+        [
+          202.0,
+          1.0,
+          0.029815098270773888
+        ],
+        [
+          204.0,
+          1.0,
+          0.0279633067548275
+        ],
+        [
+          93.0,
+          1.0,
+          0.028658466413617134
+        ],
+        [
+          92.0,
+          1.0,
+          0.01699795201420784
+        ],
+        [
+          230.0,
+          1.0,
+          0.00993789080530405
+        ],
+        [
+          79.0,
+          1.0,
+          0.019240587949752808
+        ],
+        [
+          104.0,
+          1.0,
+          0.02416863664984703
+        ],
+        [
+          31.0,
+          1.0,
+          0.04390725493431091
+        ],
+        [
+          174.0,
+          1.0,
+          0.04975324496626854
+        ],
+        [
+          246.0,
+          1.0,
+          0.014238574542105198
+        ]
+      ],
+      "zero_head_fault_relative_l2": 1.0,
+      "native_output_sha256": "bcad23be5a1bc8b6ab8980967687648df41bffc1f9c752dde7e69f1dc5005d44",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity1\\manifest.bin",
+        "2,3,4,5,6,7",
+        "0,8,9,10",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity1.bin",
+        "0"
+      ],
+      "returncode": 0,
+      "seconds": 0.35899999999674037,
+      "stdout_sha256": "66e4096548cd31bf604ab4146fe57ceb6df436998040ad76342b06bea7cb1796",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity64\\manifest.bin",
+        "2,3,4,5,6,7",
+        "0,8,9,10",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity64.bin",
+        "0"
+      ],
+      "returncode": 0,
+      "seconds": 0.2959999999984575,
+      "stdout_sha256": "66e4096548cd31bf604ab4146fe57ceb6df436998040ad76342b06bea7cb1796",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "--audit",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\source_manifest.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\all_native_tensor_hashes.tsv"
+      ],
+      "returncode": 0,
+      "seconds": 62.5,
+      "stdout_sha256": "6771c5f786045ef650e05c69ef10eddfdba6b0c283e840186dc9adecef98337d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\source_manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\case0.output.bin",
+        "0"
+      ],
+      "returncode": 0,
+      "seconds": 1.25,
+      "stdout_sha256": "1dc1f4fff21ea8b1aff9e908ab7c62d74533b75c58bda4eab944530051cfb60a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\source_manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\case0.zero_head.bin",
+        "5"
+      ],
+      "returncode": 0,
+      "seconds": 1.1880000000019209,
+      "stdout_sha256": "1dc1f4fff21ea8b1aff9e908ab7c62d74533b75c58bda4eab944530051cfb60a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\source_manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,1",
+        "0,32099,8,2912,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\case1.output.bin",
+        "0"
+      ],
+      "returncode": 0,
+      "seconds": 1.3440000000009604,
+      "stdout_sha256": "5b627a56e3c9483cb8bafb1fd7c17b117901ae7d7f17da745a35fe656b1d6021",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\source_manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,1",
+        "0,32099,8,2912,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\case1.zero_head.bin",
+        "5"
+      ],
+      "returncode": 0,
+      "seconds": 1.735000000000582,
+      "stdout_sha256": "5b627a56e3c9483cb8bafb1fd7c17b117901ae7d7f17da745a35fe656b1d6021",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "controller_sha256": "86d71f89638460e7ed301c1437a9374a127b7941edfd4bb90d95c3f3e7221aac",
+  "native_source_sha256": "24648fda12d2c742c9c35bccef4b3dcde879cea7fe139955a99d33da0a9a77f9",
+  "arithmetic_source_sha256": "0cc95874a7fdbc3ae7c7b907017d63457c575cda8e474983f7408567f5f9ce64",
+  "engine_sha256": "0a037fd101e7d30b0017bbc7d93b18fba4d49a45e4fe41ddab8454b6672c9a7a",
+  "protocol_sha256": "6f1c5aebfd530568a7a7bb2d4d80f677ad39d670e0ff0d8942544bffda647030",
+  "source_binding_sha256": "e72fc17b5527dc34df5c00ed7c44498b2ee4fc5d338ed8b130fff101a30c20a7",
+  "native_tiny_bridge_sha256": "08f04429c9081266c8bad29aaa3c7ffe0f2534c4484e39e3498e5f1f1ea9f330",
+  "model": "google/switch-base-256",
+  "revision": "cdac1724c078ea4974b4087c59634799561e7835",
+  "original_config": {
+    "vocab_size": 32128,
+    "d_model": 768,
+    "d_kv": 64,
+    "d_ff": 3072,
+    "num_sparse_encoder_layers": 6,
+    "num_layers": 12,
+    "num_decoder_layers": 12,
+    "num_sparse_decoder_layers": 6,
+    "encoder_sparse_step": 2,
+    "decoder_sparse_step": 2,
+    "num_heads": 12,
+    "num_experts": 256,
+    "expert_capacity": 64,
+    "router_bias": false,
+    "router_jitter_noise": 0.01,
+    "router_dtype": "float32",
+    "router_ignore_padding_tokens": false,
+    "relative_attention_num_buckets": 32,
+    "relative_attention_max_distance": 128,
+    "dropout_rate": 0.1,
+    "layer_norm_epsilon": 1e-06,
+    "initializer_factor": 1.0,
+    "use_cache": true,
+    "add_router_probs": false,
+    "router_z_loss_coef": 0.001,
+    "router_aux_loss_coef": 0.001,
+    "dense_act_fn": "relu",
+    "return_dict": true,
+    "output_hidden_states": false,
+    "torchscript": false,
+    "dtype": "float32",
+    "pruned_heads": {},
+    "tie_word_embeddings": true,
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": true,
+    "is_decoder": false,
+    "cross_attention_hidden_size": null,
+    "add_cross_attention": false,
+    "tie_encoder_decoder": false,
+    "architectures": [
+      "SwitchTransformersForConditionalGeneration"
+    ],
+    "finetuning_task": null,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "task_specific_params": null,
+    "problem_type": null,
+    "tokenizer_class": null,
+    "prefix": null,
+    "bos_token_id": null,
+    "pad_token_id": 0,
+    "eos_token_id": 1,
+    "sep_token_id": null,
+    "decoder_start_token_id": null,
+    "max_length": 20,
+    "min_length": 0,
+    "do_sample": false,
+    "early_stopping": false,
+    "num_beams": 1,
+    "temperature": 1.0,
+    "top_k": 50,
+    "top_p": 1.0,
+    "typical_p": 1.0,
+    "repetition_penalty": 1.0,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "encoder_no_repeat_ngram_size": 0,
+    "bad_words_ids": null,
+    "num_return_sequences": 1,
+    "output_scores": false,
+    "return_dict_in_generate": false,
+    "forced_bos_token_id": null,
+    "forced_eos_token_id": null,
+    "remove_invalid_values": false,
+    "exponential_decay_length_penalty": null,
+    "suppress_tokens": null,
+    "begin_suppress_tokens": null,
+    "num_beam_groups": 1,
+    "diversity_penalty": 0.0,
+    "_name_or_path": "",
+    "transformers_version": "4.57.6",
+    "feed_forward_proj": "relu",
+    "is_gated_act": false,
+    "model_type": "switch_transformers",
+    "num_selected_experts": 1,
+    "router_type": "tokens_masked",
+    "tf_legacy_loss": false,
+    "use_bfloat16": false,
+    "output_attentions": false
+  },
+  "preserved329_sha256": "e76373359a81c00ffcbe4aa6d8684c83e17972c4eccbf0440d9c354c55cb419d",
+  "preserved330_sha256": "b28dc0f5a8a289be7aa0c23270d3abba2f7b67d07904dc576153618e0bc46745",
+  "diagnostic331_sha256": "668a01a42276ee51955a9cde930f224cbb57180016bc7e88f1696226738948a1",
+  "sole_arithmetic_change": "F64 product/sum for every matrix-vector row then F32 output, prior330 stable RMS preserved; attention dot unchanged F32",
+  "native_manifest": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\source_manifest.bin",
+    "sha256": "695737d0a55717f921d8dc3565d4c3316942a1ad49113e956a0438604175b625",
+    "bytes": 584405,
+    "tensor_names": 6392,
+    "weight_encoding": "original_all_F32_unchanged_readonly_ZIP_storage_offsets",
+    "source_weight_copy_bytes": 0
+  },
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-DSILICON_SWITCH_F64_MV_SOURCE",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "-lbcrypt",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\meth332_switch_source_binding.exe"
+    ],
+    "binary_sha256": "4b59cecec4b8a0ae812d59fd63e1844932861b24274eb8061d92e434055951af",
+    "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+    "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+  },
+  "tiny_cases": [
+    {
+      "capacity": 1,
+      "artifact": {
+        "spec": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity1\\manifest.bin",
+        "manifest_sha256": "a4ecead6bb6c3389de8772e0d98dc4189b06a1d27ef606fa8c36ae172814a308",
+        "weights": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity1\\weights.bin",
+        "weight_bytes": 17792,
+        "weights_sha256": "10f4ea411f5d071b4193952dc876d2517aff446a4d31735eb9edfdd64314664f",
+        "tensor_names": 56
+      },
+      "same328_weight_bytes": true,
+      "errors": [
+        1.4697917043116115e-07,
+        1.6150506667730082e-07,
+        1.528314940970743e-07
+      ],
+      "maximum_state_error": 2.766594089130164e-07,
+      "exact_choices_capacity": true,
+      "probability_maxabs": 1.7881393432617188e-07,
+      "passed": true
+    },
+    {
+      "capacity": 64,
+      "artifact": {
+        "spec": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity64\\manifest.bin",
+        "manifest_sha256": "2cc0dde5ab853f89f630143ad1c26c5d2bafb7d260fe7d69b1b989d79fca660b",
+        "weights": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth332_switch_full_source\\tiny_capacity64\\weights.bin",
+        "weight_bytes": 17792,
+        "weights_sha256": "10f4ea411f5d071b4193952dc876d2517aff446a4d31735eb9edfdd64314664f",
+        "tensor_names": 56
+      },
+      "same328_weight_bytes": true,
+      "errors": [
+        1.451290934514364e-07,
+        1.3695017847174362e-07,
+        1.6229730978295554e-07
+      ],
+      "maximum_state_error": 2.6028447220357566e-07,
+      "exact_choices_capacity": true,
+      "probability_maxabs": 1.1920928955078125e-07,
+      "passed": true
+    }
+  ],
+  "all_native_tensor_audit": {
+    "passed": true,
+    "names": 6392,
+    "tsv_sha256": "0de26aa2d1fd09d7c83fcfbdbe39e4d7440733f387504473582bfb385a90fe56",
+    "all_actual_native_mapped_bytes_exact327": true,
+    "working_set_trim_interval_tensors": 64
+  },
+  "official_reference_loaded": {
+    "all_source_names": 6392,
+    "unique_parameters": 14664154368,
+    "no_meta_remaining": true,
+    "weights_only": true,
+    "mmap": true,
+    "model_code_sha256": "5acb527d50a07e4bce3a5dec4db4f0c476cb4a01e8eb05219f26607034a12a83"
+  },
+  "tokenizer_control": {
+    "class": "T5TokenizerFast",
+    "tokens": 32100,
+    "pad": 0,
+    "eos": 1,
+    "extra_id_0": 32099,
+    "extra_id_1": 32098,
+    "local_only": true
+  },
+  "gates": {
+    "all_native_actual_source_tensors": true,
+    "same328_tiny_stable_rms_controls": true,
+    "complete_actual_source_native_controls": false
+  },
+  "resource": {
+    "main_seconds_excluding_imports": 133.0,
+    "maximum_checked_combined_rss_bytes": 6566907904,
+    "end_controller_rss_bytes": 4599721984
+  },
+  "decision": "unchanged_full_source_bridge_not_qualified",
+  "scope": "Complete original14.664B pretrained bank availability and actual C mapped weights/selected native cached forward. Two consumed engineering controls, no heldout/generation usefulness/task quality claim; F32 alone is not final efficient representation. Native subprocess times are assay/resource records, not accepted rate benchmarks."
+}
