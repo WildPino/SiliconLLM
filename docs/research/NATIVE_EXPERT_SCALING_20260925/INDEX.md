@@ -67,6 +67,12 @@ baseline charges1016MB active/token. The generic donor port stays paused.
   all90 hashes/selftests exact306, but15.542–41.148ms and variation FAIL.
   INCONCLUSIVE; no training/promotion. Stop affinity tuning for now.
 
+- **[310 real regional functions bound](METH_310_GIGACHAT_REGIONAL_SUBSPACE_RESULT_20261003.md)**
+  reuses all22,549/15,977 actual fit/test nonlinear parent states. PCA16 input
+  regions/ten rank128 output subspaces FAIL all4 gates: test median errors
+  55.485–93.265%, pooled81.607%; poor exposure and generalization. Seven/nine
+  test-region oracles also<99% energy. Exit0,52s/1.058GB finalRSS; no student.
+
 ## Exact resumption
 
 No scientific job active. Pair/vector4 full-source LUT implementations are
@@ -75,16 +81,15 @@ licensed. Old rank192 and direct-channel omission remain failures. Native
 fixture timing is enabling cost evidence,not donor quality,useful capacity,
 physical DRAM measurement or accepted decode rate.
 
-Next exact action: freeze a real regional-output subspace diagnostic using
-existing298 captures (nine actual source parents, all fit/test rows).
-Question: can ten input-selected regions, each rank128 in full source-output
-space, preserve the nonlinear parent output? Fit-only shared16D query and
-keys; held-out Cyrillic output projection/error/exposure, plus global-rank
-and held-out oracle diagnostics. This is a representation bound, not teacher
-student training or promotion of303–309. Freeze data/routing/rank/gates and
-20min/12GiB stop before observations. No new49min capture or GPU job.
-Unchanged cost profiles remain closed/inconclusive; stable complete cost
-and separate whole-model precision/quality checks are still required.
+Next exact action: freeze the [shared-core plus regional residual bound](GIGACHAT_SHARED_REGIONAL_BOUND_PROPOSAL_20261003.md).
+Changed variable: fit one shared256D output space per layer, then rank128
+regional residuals using unchanged310 input queries/regions and all298 rows.
+This tests an omitted degree of freedom of the actual compact-core proposal;
+it does not fit a student or regrade310. Keep1%median/5%p95/99%energy and
+all-child exposure gates;20min/12GiB, no GPU/new capture. Proposal UNRUN.
+Stop affinity tuning;303–309 native profiles remain closed/inconclusive.
+Stable complete cost and separate whole-model precision/quality are required.
+No live scientific job;310 exited0 and its complete result is preserved.
 
 Useful RAM-scale n still needs selective search:flat router9.8304->98.304MB
 for analytical64->640;only64 real pretrained experts exist. No duplicate/

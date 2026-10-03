@@ -239,6 +239,16 @@ captures to test the nonlinear ten-child representation before any student
 investment. It is a mathematical output-projection bound, not a native
 model or learned child realization. Cost and source quality both remain
 open; a passing local bound cannot qualify the failed CPU profile.
+[310 real nonlinear regional subspace](METH_310_GIGACHAT_REGIONAL_SUBSPACE_RESULT_20261003.md)
+now closes the fixed PCA16/spherical10/stand-alone rank128 parent recipe:
+all four gates FAIL, pooled test error median81.607%, poor child exposure.
+Its command reconstructs full source outputs from existing actual captured
+post-SwiGLU states, checks coordinate/source closure and fits only input
+regions/output spaces on the fit split. These optimistic coefficients are
+not learned executable children. A [shared256 plus regional128 residual
+bound](GIGACHAT_SHARED_REGIONAL_BOUND_PROPOSAL_20261003.md) is still proposed:
+test the shared core's additional output space before rejecting that full
+geometry. Do not waive known exposure/cost failures or infer composed quality.
 No old low-rank factor-LUT result or source-bank size establishes its quality.
 The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/STRAT_01_GIGACHAT31_FRESH_BPB_PROTOCOL_20260919.md),
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),
