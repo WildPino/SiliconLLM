@@ -72,7 +72,7 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 - [317 full-width additive descriptor](METH_317_GIGACHAT_ADDITIVE_DESCRIPTOR_RESULT_20261003.md)
   preserves source32-head/1280 widths;2bits/code coefficient+I8 books,
   originalQ6 head.542.987MB addressed/token PASSES560MB accounting only.
-  Flat router at640 grows to631.461MB; hypothetical hierarchy543.019MB,
+  Flat router at640 grows to631.518MB including expanded correction bias; hypothetical hierarchy543.019MB,
   approximately24.84GB stored. Larger capacity/route quality unimplemented.
 
 ## Exact resumption

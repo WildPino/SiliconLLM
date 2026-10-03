@@ -22,8 +22,15 @@ not assumed cached or equated to physical DRAM. Passing bytes is insufficient.
 | Parents/layer | Flat addressed bytes/token | Flat stored bytes | Hypothetical hierarchy addressed / stored bytes |
 | --- | ---: | ---: | ---: |
 |64 actual source geometry |542,987,008|3,191,834,368|542,987,008 /3,191,834,368|
-|640 ANALYTICAL ONLY |631,460,608|24,926,848,768|543,019,008 /24,838,887,168|
-|6400 ANALYTICAL ONLY |1,516,196,608|242,276,992,768|543,307,008 /241,308,903,168|
+|640 ANALYTICAL ONLY |631,518,208|24,926,906,368|543,019,008 /24,838,887,168|
+|6400 ANALYTICAL ONLY |1,516,830,208|242,277,626,368|543,307,008 /241,308,903,168|
+
+Post-result arithmetic audit: the immutable raw317 larger FLAT scenarios
+kept the original64-element correction bias. A true flat n-way router also
+requires25*n F32 bias values. The table above adds6400*(n/64-1) bytes to
+raw flat active/stored totals:57,600bytes at640,633,600bytes at6400. These
+are explicit derived corrections, not a rerun or changed gate. Actual64
+source accounting and hierarchical coarse64 bias remain unchanged.
 
 Flat routing alone fails560MB at640 and6400. Hierarchical64 coarse groups,
 four selected local16D BF16 key scans can bound additional addressed key bytes
