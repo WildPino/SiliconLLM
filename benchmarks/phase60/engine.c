@@ -1,4 +1,6 @@
-#ifdef SILICON_COMPLETE_I16_NATIVE_GENERATE
+#ifdef SILICON_VECTOR4_LUT_PREFLIGHT
+#include "../native_expert_scaling/meth301_vector4_lut_cpu.c"
+#elif defined(SILICON_COMPLETE_I16_NATIVE_GENERATE)
 #include "../native_expert_scaling/meth296_native_generation_cpu.c"
 #elif defined(SILICON_COMPLETE_I16_NATIVE_PRIMARY)
 #include "../native_expert_scaling/meth295_native_primary_cpu.c"
