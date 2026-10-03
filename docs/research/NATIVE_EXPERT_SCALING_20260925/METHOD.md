@@ -459,6 +459,12 @@ ineligible/unexecuted.355 separately frozen consumed-state diagnosis restricts
 natural comparisons to identical decoder-input prefixes through first changed
 choice. Source/head-weight/upstream precision attribution precedes a new
 variable, whole numerical/cost and NEW full prediction/generation/task gates.
+355 full independent head oracles PASS; original-state target head leaves8
+versus40 masked changes, native original F32 head leaves40. Therefore356
+ALL quantized inputs A16 (core/experts/head), SAME I8 weights/F32 controls,
+is frozen5b8ba3c for full numerical/cache/natural/long controls. PASS requires
+SAME compiled binary actual357 cost before NEW full quality; no promotion
+from consumed precision diagnostics. Old default engine body BYTE EXACT.
 Useful RAM-scale n/LUT/physical DRAM, real base128 comparison, additional
 families/~100B and final method remain missing. Dynamic loader isn't that
 proof. Proposed [task route](SWITCH_MULTI_SPAN_GENERATION_NEXT_20261003.md)
