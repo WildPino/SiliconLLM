@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_F32_REFERENCE
+#ifdef SILICON_SWITCH_F32_SOURCE_BINDING
+#include "../native_expert_scaling/meth329_switch_source_binding.c"
+#elif defined(SILICON_SWITCH_F32_REFERENCE)
 #include "../native_expert_scaling/meth328_switch_f32_reference.c"
 #elif defined(SILICON_ADDITIVE_I8_FULL_PREFLIGHT)
 #include "../native_expert_scaling/meth318_additive_i8_cpu.c"
