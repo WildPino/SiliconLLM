@@ -313,48 +313,60 @@ evidence, not an automatic instruction to continue that port.
 ### Smaller-active pretrained sparse donor branch: provisional Switch
 
 [321 official Switch applicability screen](METH_321_SWITCH_METADATA_SCREEN_RESULT_20261003.md)
-now identifies a structurally different route after GigaChat representation/
-cost failures. Pinned Google base128/256 preserve original learned-bank
-availability at7.415B/14.664B inferred unique parameters, with SAME123.765M
-large-matrix coefficients per decode step. Full F32 decoder descriptors
-497.537/499.896MB include head, router, dense/core FFNs and selected top1;
-BF16 andW8 are explicitly unqualified precision scenarios. All index/META
-namespace/alias-count controls pass. Actual tensor header names/shapes/F32 dtypes now pass325; full payload/function
-uniqueness hashes and source baseline are NOT yet available. Large128 fails
-unchangedBF16 descriptor; metadata alone cannot validate native performance.
-
-This family is encoder-decoder/span reconstruction: full encoder and cross-KV
-projection occur per prompt, cache/attention/context and initialization costs
-must be measured. Relative position buckets, top1 probability multiplier,
-capacity/drop semantics, source precision and source autoregressive cache
-behavior are mandatory. A compatible low-active source branch can serve the
-architectural thesis, but a generic high-active port still cannot conclude it.
-No instruction/chat usefulness claim follows this pretrained infilling source.
-
-[323 actual model-free runtime diagnostic](METH_323_SWITCH_RUNTIME_DIAGNOSTIC_RESULT_20261003.md)
-blocks reliance on installed5.13.1 Switch: sparse shapes finite, but expected
-capacity1 drops absent (relativeL2.83275 in multi-token controls), and tiny
-full encoder/cache call fails. This is reference apparatus evidence, not donor
-quality rejection.322 hard assertion and320 missing legacy config failures
-preserved. No source checkpoints downloaded.
+selects a lower-active source route after GigaChat representation/cost failures.
+Base128/256 have the same123.765M decode matrix coefficients, original top1
+routing and source ReLU banks. F32 descriptors497.537/499.896MB include complete
+decoder matrix/head/router; BF16 and W8 remain unqualified precision scenarios.
+Encoder/cross-KV work occurs per prompt; growing cache/attention must be charged.
+Source is pretrained span reconstruction, not instruction/chat evidence.
 
 [324 isolated official reference](METH_324_SWITCH_REFERENCE_RESULT_20261003.md)
-passes all same323 logical router/capacity controls, tiny fullhead and four
-unsaturated cached/full-prefix steps, ALL original321 META maps. Own4.57.6/
-Hub0.36.0 imports verified, originalTorch reused, original project environment
-unchanged; source files byte-equal to official release. Capacity resets per
-call, so saturated full-prefix/tokenwise equivalence is not assumed.
-[325 actual source metadata](METH_325_SWITCH_SOURCE_HEADERS_RESULT_20261003.md)
-passes all6+3 remote shard namespaces/shapes/F32/storage-record lengths via
-3.45MB bounded ranges. Physical source storages include serialized tied copies;
-actual function/tensor equality must be verified before deduplication.
-Full original base256 acquisition is frozen326 (90min/64GiB); whole LFS hashes
-required before source reference/model loading. The native transfer route is
-outlined in [next steps](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md). Native converter/loader/encoder/
-cache/whole model are missing; exact repack and prospectively qualified
-precision cannot be written as validated. Base256 is the approximately10B
-case, base128 real bank-count comparison; actual100B/multiple-family proof
-and all same-artifact quality/accepted>=50 requirements remain open.
+qualifies official4.57.6 with unchanged project Torch2.6; installed5.13.1 fails
+323 capacity/cache semantics. Source code byte-equal to pinned official release.
+Capacity resets per call; saturated full-prefix versus tokenwise equivalence
+is not assumed. No installed package is patched.
+
+[325 actual source headers](METH_325_SWITCH_SOURCE_HEADERS_RESULT_20261003.md)
+and [326 full acquisition](METH_326_SWITCH_ACQUISITION_RESULT_20261003.md)
+bind original base256 six archives and seven side files,58,860,061,113B, all
+expected whole LFS/config/tokenizer hashes,1687.563s within frozen budget.
+[327 actual tensor binding](METH_327_SWITCH_TENSOR_BINDING_RESULT_20261003.md)
+verifies all6392 finite F32 tensors and four byte-equal embedding/head aliases,
+confirming14,664,154,368 unique architectural parameters. All12 banks contain
+256 distinct WI/WO parameter-tuple hashes each. Tuple uniqueness does not prove
+effective function diversity, exposure or useful additional capacity. Source128
+headers exist; its full original weight payload is not acquired.
+
+[328 native Tiny contract](METH_328_SWITCH_NATIVE_CONTRACT_RESULT_20261003.md)
+implements exact original source mapping/loader, bidirectional encoder, relative
+position buckets, self/cross attention and cache, per-call capacity, original
+selected probability multiplier and scaled tied full vocabulary head. Both
+capacity controls and nine semantic faults PASS. Prototype bounds are batch1,
+CTX256/E<=256/D<=1024/L<=24/FF<=4096, not generic RAM-scale n.
+
+[329 actual full source](METH_329_SWITCH_FULL_SOURCE_RESULT_20261003.md),
+[330 stable RMS](METH_330_SWITCH_STABLE_RMS_RESULT_20261003.md) and
+[332 F64 matrix dots](METH_332_SWITCH_F64_MV_RESULT_20261003.md) each verify
+all6392 actual C mapped tensor bytes against327. Pooled/per-state1e-4 logits,
+exact source route choices/capacity/greedy controls pass; selected probability
+1e-6 fails case0 at1.2815/1.6391/1.4901e-6. Original frozen qualification FAILS.
+Do not promote any unchanged candidate. Inputs are two consumed engineering
+controls, not untouched whole donor-relative quality or accepted rate.
+[331 actual trace](METH_331_SWITCH_ROUTER_DIAGNOSTIC_RESULT_20261003.md) preserves
+330 outputs byte-exact and decomposes the worst error into both upstream input
+and classifier contributions; local router F64 alone remains insufficient.
+This does not prove a universal rounding floor.
+
+The [new numerical policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md)
+is a PROPOSAL: qualify C against an independent reference for fully specified
+target arithmetic, then independently assess original-donor quality on NEW
+prospectively selected/excluded sources. Original-backend failures remain in
+history, with original donor PRIMARY for actual knowledge preservation. Full
+precision apparatus is not a final compact fast artifact. Compact all-bank
+representation/exact integer reference, actual CPU cost, untouched whole
+quality and SAMEartifact accepted>=50 remain missing. [Transfer route](SWITCH_REFERENCE_AND_TRANSFER_NEXT_20261003.md)
+lists concrete available/missing steps. Genuine7.415B to14.664B availability is
+2x bank count, not10x scaling or~100B/cross-family/useful large-n evidence.
 
 An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The
 [metadata screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md) binds an

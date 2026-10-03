@@ -1,74 +1,54 @@
-# Next concrete route: qualify reference, then bind real sparse donor
+# Switch transfer route: available steps and remaining qualification
 
-**PARTLY IMPLEMENTED: reference324 and actual headers325 PASS.**321 identifies official base128/256
-with compact decoder-active geometry;323 shows installed5.13.1 reference
-cannot be trusted for configured capacity and cached generation. No checkpoint
-training/quality scoring justified before qualified source weights.324 now repairs
-the model-free reference prerequisite in a separate official environment;325
-checks actual headers and LFS manifest;326 full primary acquisition is frozen.
-GigaChat fixed fields316 and native additive decoder319 remain closed.
+**PARTLY IMPLEMENTED. No full goal claim.**324-328 qualify the isolated official
+reference, acquire/bind all original14.664B weights and implement complete native
+T5/Switch source operators.329/330/332 original-backend qualification FAILS one
+probability gate. GigaChat fixed fields316 and additive decoder319 remain closed.
 
-## 1. Isolated official reference: implemented324
+## Available reproducible steps
 
-Create an isolated local reference environment without changing `.venv` or
-its5.13.1 dependencies. Candidate pinned official Transformers4.57.6, compatible
-older HuggingFace Hub (<1) and existing Torch2.6 runtime. Pin wheel/package/
-model code hashes and full dependency provenance; bounded metadata/package
-setup, proposed20min/1GiB download cap, no GPU/source weights. Prefer reuse of
-Torch through a controlled path to avoid another CUDA installation. Final
-concrete installer/driver/protocol/limits must be frozen before observations.
+1. [324](METH_324_SWITCH_REFERENCE_RESULT_20261003.md): isolated official4.57.6/
+   Hub0.36.0 and existingTorch2.6. Tiny/cache/router/META controls PASS; original
+   project environment unchanged. Saturated capacity equivalence not assumed.
+2. [325](METH_325_SWITCH_SOURCE_HEADERS_RESULT_20261003.md) actual6+3 headers;
+   [326](METH_326_SWITCH_ACQUISITION_RESULT_20261003.md) all six primary archives
+   plus seven tokenizer/config files acquired/hash verified,58.860GB/1687.563s.
+3. [327](METH_327_SWITCH_TENSOR_BINDING_RESULT_20261003.md): all6392 finite F32
+   tensor hashes, byte-equal tied aliases and12x256 distinct WI/WO tuples.
+  14.664B architectural unique parameters; hashes are not functional diversity.
+4. [328](METH_328_SWITCH_NATIVE_CONTRACT_RESULT_20261003.md): complete native
+   source mapping, encoder/relative attention, self/cross cache, capacity,
+   selected probability, scaled tied head. Tiny/nine semantic faults PASS.
+5. [329](METH_329_SWITCH_FULL_SOURCE_RESULT_20261003.md),
+   [330](METH_330_SWITCH_STABLE_RMS_RESULT_20261003.md),
+   [332](METH_332_SWITCH_F64_MV_RESULT_20261003.md): original full source C bytes
+   ALL exact; state/logit/choice/capacity/greedy PASS, originalCPU1 probability
+  1e-6 FAIL case0. None is qualified under those protocols. All raw failures
+   retained; [331](METH_331_SWITCH_ROUTER_DIAGNOSTIC_RESULT_20261003.md) diagnoses
+   upstream and classifier rounding on byte-exact330 outputs.
 
-Reuse all323 source inputs/Tiny config/seed/capacity1 and logical per-sequence
-masked expert oracle. Adapt explicit official API BEFORE tests: older router
-returns(mask,probabilities,raw logits), sparse returns(output,route metadata).
-Require exact masks/selected probabilities, full sparse1e-6 agreement/drop
-controls, finite tiny full logits/cache and cached next-step versus full-prefix
-numeric closure. Then instantiate all three321 official configs on META,
-require original index namespaces/alias-counts unchanged. No source config
-waiver, current-package patch or changed quality gate. Failures preserved.
+## Next steps: not implemented or validated
 
-## 2. Bounded actual source acquisition/binding: headers325 implemented
+Freeze concrete [specified arithmetic policy](SWITCH_NATIVE_ARITHMETIC_POLICY_NEXT_20261003.md),
+C implementation, independent Torch arithmetic reference, resource bounds and
+fault/gate suite BEFORE observations. Distinguish implementation correctness
+from preserved pretrained quality. Match stringent existing state/logit1e-4,
+probability1e-6 and exact discrete cache/routing to prescribed arithmetic;
+retain original329/330/332 failures. This is a new numerical estimand, not an
+execution repair or retroactive threshold waiver. F64 apparatus is not fast LUT.
 
-324 gates now PASS;325 all6+3 actual header/F32/storage records match.
-326 acquires full original primary58.856GB archives under90min/64GiB guard,
-whole LFS SHA required. Actual all-tensor/function/tied-alias binding remains
-unimplemented. Select base256 as the actual approximately10B
-case (14.664B inferred unique weights) with base128 as a real smaller-n family
-comparison. Immutable Google revisions/config/index hashes from321. Actual
-source index sizes approximately59GB/30GB, local disk currently~498GB free;
-whole acquisition budget/resume/stop/checksums must be specified before transfer.
-First validate remote shard size/LFS SHA metadata and appropriate source dtype/
-tensor headers before large download. Never synthesize missing source experts.
+Then build/qualify all-bank compact parameter representation with exact integer
+and scaling reference; measure real full CPU cost before expensive fitting or
+quality investment. W8 descriptor129.1MB/base256 is only a calculation, with
+prefill/attention/cache/init still charged. Preserve precision/cost failures.
+Define NEW untouched paired reconstruction/prediction/generation/task cohort,
+exclusions and limits before observations; ORIGINAL unmodified official donor
+remains primary quality reference. Matched target arithmetic cannot prove
+original pretrained behavior. No instruction/chat claim for this infilling donor.
 
-Inspect/store all tensor hashes/shapes, tied aliases and per-layer actual
-distinct expert function hashes. Model labels alone are insufficient. Original
-router weights/capacity/gating must be reproduced. Qualify authoritative full
-reference source behavior on tiny consumed apparatus cases BEFORE selecting
-untouched scored sources. Reference may require CPU streaming/sequential
-jobs to avoid holding originalF32 source~58.7GB plus another copy in80GiB RAM.
-No target or source overwrite, checkpoint code executed only via trusted
-built-in loader/weights_only support, no trust_remote_code.
-
-## 3. Conditional native conversion and quality/rate
-
-Implement exact source organ repack/loader first, then separately frozen
-precision variants if cost demands. Keep all real128/256 source banks, one
-active source expert, dense/shared core and tied vocabulary head. Original
-relative bucket attention, encoder/cross attention, prefill, capacity drops,
-top1 probability multiplier, normalization and cache require full engine
-bridge. Native source-compatible small active core is an applicability branch,
-not a blanket claim that generic high-active donors now fit.
-
-FP32 decoder weights~499.9MB, BF16 scenario~252.4MB, W8 scenario~129.1MB
-exclude NO decoder matrix/head/router but are not measured rate/quality.
-Encoder and cross-KV projection occur per prompt; attention/KV reads grow
-with input/output length. Include initialization/prefill/accepted generation
-costs in stated contexts. Donor is pretrained span reconstruction, so relevant
-paired untouched reconstruction/generative/task quality and useful behavior
-must be designed without relabeling arbitrary completion as chat capability.
-Preserve final donor-relative quality and SAMEartifact>=50 accepted rate.
-
-All transfer/scaling still unproven. Source7.4Bâ†’14.7B is genuine bank-count
-availability, not tenfold native scaling. Cross-family applicability and actual
-approximately100B when resources allow remain explicit missing deliverables;
-no fabricated larger banks or smaller student substitute can close them.
+Keep original learned experts; do not replace capacity with copies or a small
+student. Base128 full original payload remains absent; source128/256 availability
+provides2x banks only. Prototype CTX256/batch1/E<=256 bounds are not RAM-scale
+support. Useful larger n, actual hierarchical routing/LUT/DRAM costs, same
+artifact>=50 accepted tokens/s and cross-family/~100B all remain unverified.
+No current model job live. Resume from new numerical policy implementation.
