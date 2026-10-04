@@ -1,0 +1,41 @@
+{
+  "experiment": "METH-449-first-serialization-failure-external-terminal-retention",
+  "record_origin": "External metadata retention from observed terminal because both controller summary and failure writer failed JSON serialization. Not a controller-produced scientific result.",
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth449_switch_margin_diagnostic.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth449_switch_margin_result.json",
+  "terminal_chunk_id": "7f22dc",
+  "terminal_exit_code": 1,
+  "tool_wall_time_seconds": 9.3187747,
+  "admission_report": {
+    "seconds": 8.25,
+    "bytes_hashed": 8893394459
+  },
+  "failure_stage": "rowI4_summary_JSON_serialization_at_controller_line158",
+  "error": "TypeError: Object of type int64 is not JSON serializable",
+  "failure_writer_error": "Same TypeError at write(args.out.with_suffix(.failure.json),result), controller line176; json.dumps line31.",
+  "terminal_stack_locations": [
+    "meth449_switch_margin_diagnostic.py:158 print(json.dumps({arm:arm,**summary}))",
+    "Python312/Lib/json/encoder.py:180 TypeError int64",
+    "meth449_switch_margin_diagnostic.py:176 failure write",
+    "meth449_switch_margin_diagnostic.py:31 json.dumps(data,indent=2,allow_nan=False)"
+  ],
+  "rowI4_geometry_not_retained_and_not_a_valid_result": true,
+  "no_completed_diagnostic_or_quality_gate_change": true,
+  "output_directory_exists_empty": true,
+  "partial_output_inventory": [],
+  "scientific_bindings": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth449_switch_margin_diagnostic.py": {
+      "sha256": "bd133ad555dae906d750265af782bbfb48e0770ab63c657f859061f3a7d0590d",
+      "bytes": 15613
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth449_switch_margin_math.py": {
+      "sha256": "c19cc705279fd49f0f3bf4a9eee31b1df067c56ba23cdcdaa21e559fb422b45e",
+      "bytes": 3424
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md": {
+      "sha256": "b0631d507e4df970ae132befbb0f1b4fac7c67afe9c178be1d8718ada2fab266",
+      "bytes": 7906
+    }
+  },
+  "controller_and_math_immutable": true,
+  "next": "NEW450 same449 formulas/data/resources; only native scalar JSON serialization correction and numbered bindings/output paths. Freeze before import. Never rerun449."
+}
