@@ -1,0 +1,684 @@
+{
+  "purpose": "Metadata-only retention audit; hashes/NPY archive headers/source-text reversal only. No experiment import, transformation, quantization, forward, fit, timing or rerun.",
+  "head_before_audit_commit": "ffd099e05895629fb0e564809479680710afdc52",
+  "metadata_audit_first_header_API_stop": {
+    "terminal_chunk_id": "aa1b06",
+    "exit_code": 1,
+    "error": "AttributeError: numpy.lib.format has no attribute _read_array_header",
+    "scientific_controller_or_math_not_imported": true,
+    "repair": "Use public read_array_header_1_0/2_0 APIs; no numerical/scientific change."
+  },
+  "scientific_records_and_fresh_bindings": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth447_switch_i4_result.json": {
+      "bytes": 418891,
+      "sha256": "3025bb7b383a631162c2eca803784e0c2cdc811c47a6abe1f73619a791e6dd29"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth448_switch_block_i4_result.json": {
+      "bytes": 420418,
+      "sha256": "c5d26a3e8192ae6c648567134290783192250ed7a92730cafb25db44440e516c"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth449_switch_margin_result.failure.json": {
+      "bytes": 2449,
+      "sha256": "c0549100c0b7b1ed1404f130bdec4dcb65f5b0891e1859f317bac32ed5dcb1e8"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth450_switch_margin_result.json": {
+      "bytes": 1198601,
+      "sha256": "492e7328a8efd53aa6c3a79796781ec7a2a2a885eac444b80f463492068e5747"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth448_switch_block_i4_pilot.py": {
+      "bytes": 20797,
+      "sha256": "70cede154b3916a0a357ba642ed98e5a8e0284f999b2392cfa17de297a53c4ac"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth448_switch_block_i4_math.py": {
+      "bytes": 7725,
+      "sha256": "84e1e92cb8214e8a2739e8aa13015be2fff46cdb3d871e1c0de3966b22fd1cbf"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth447_switch_i4_math.py": {
+      "bytes": 5712,
+      "sha256": "21cc713b7849839f57da763326ac86cc59a69f088242d74f35efa093237c4c04"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_448_SWITCH_BLOCK_I4_PROTOCOL_20261005.md": {
+      "bytes": 8539,
+      "sha256": "d2c7786e8e896e7f8422a409da25f8e4c38fcd83d73a8a0e156164add3d503b2"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth443_switch_native_function_causality.py": {
+      "bytes": 16205,
+      "sha256": "ed4eb92a480e656edf19076f630776a58e4b2b85430d65b6ede38ad6ca5663d4"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth431_switch_additive_pilot.py": {
+      "bytes": 37062,
+      "sha256": "423148e2454c593825cc21778a2d7a124c470f6605468638ad2353f5f1d98432"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": {
+      "bytes": 17931,
+      "sha256": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py": {
+      "bytes": 24572,
+      "sha256": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth418_switch_function_capture.py": {
+      "bytes": 25349,
+      "sha256": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_autograd.py": {
+      "bytes": 6390,
+      "sha256": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth368_switch_bank_manifest.py": {
+      "bytes": 4148,
+      "sha256": "83829e76afec338db24616d784cb125d330c2c8fc8e69f34f64669648ed5776b"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth401_pretrained_bank_union_applicability.py": {
+      "bytes": 10069,
+      "sha256": "8f52308d4efbc6a868790919f5d3a12bb619b7b0f499f70310d8f974e45f2f83"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth450_switch_margin_diagnostic.py": {
+      "bytes": 17440,
+      "sha256": "7195ae7c148410a9847ff9fd827e5290f02264734a097d027fc91cbc297e7849"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth449_switch_margin_math.py": {
+      "bytes": 3424,
+      "sha256": "c19cc705279fd49f0f3bf4a9eee31b1df067c56ba23cdcdaa21e559fb422b45e"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_450_SWITCH_MARGIN_PROTOCOL_20261005.md": {
+      "bytes": 3543,
+      "sha256": "e6a86aa08ca9a3fa02b1e70f55f14c9e8571dbb24afed605d9e945cd23df0e0d"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth449_switch_margin_diagnostic.py": {
+      "bytes": 15613,
+      "sha256": "bd133ad555dae906d750265af782bbfb48e0770ab63c657f859061f3a7d0590d"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md": {
+      "bytes": 7906,
+      "sha256": "b0631d507e4df970ae132befbb0f1b4fac7c67afe9c178be1d8718ada2fab266"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth443_switch_native_causality_result.json": {
+      "bytes": 344541,
+      "sha256": "b8e8614fb28ad50b91865dba7486c6e4cc6bb8c00cee3bbfe899ab495af5bf80"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth446_switch_private_delta_result.json": {
+      "bytes": 4056723,
+      "sha256": "b6c525905cb2df1b3adb88c0131a09d34ac384328ff4208e4cd95609ed9773ee"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth418_switch_function_capture_result.json": {
+      "bytes": 3291344,
+      "sha256": "4ebb37ed40d788eb85168d028b3e0b538cd7d65e009293cd32d5fb0eb117d829"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth420_switch_function_gradient_result.failure.json": {
+      "bytes": 228049,
+      "sha256": "17f60d043cff598cec0d3e85dfa4d23bdad67b83635422891e92729528056427"
+    }
+  },
+  "frozen_scientific_sources_protocols": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth448_switch_block_i4_math.py": {
+      "revision": "012a5bb",
+      "bytes": 7725,
+      "sha256": "84e1e92cb8214e8a2739e8aa13015be2fff46cdb3d871e1c0de3966b22fd1cbf"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth448_switch_block_i4_pilot.py": {
+      "revision": "012a5bb",
+      "bytes": 20797,
+      "sha256": "70cede154b3916a0a357ba642ed98e5a8e0284f999b2392cfa17de297a53c4ac"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth449_switch_margin_diagnostic.py": {
+      "revision": "b5c5586",
+      "bytes": 15613,
+      "sha256": "bd133ad555dae906d750265af782bbfb48e0770ab63c657f859061f3a7d0590d"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth449_switch_margin_math.py": {
+      "revision": "b5c5586",
+      "bytes": 3424,
+      "sha256": "c19cc705279fd49f0f3bf4a9eee31b1df067c56ba23cdcdaa21e559fb422b45e"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth450_switch_margin_diagnostic.py": {
+      "revision": "6d5beb2",
+      "bytes": 17440,
+      "sha256": "7195ae7c148410a9847ff9fd827e5290f02264734a097d027fc91cbc297e7849"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_448_SWITCH_BLOCK_I4_PROTOCOL_20261005.md": {
+      "revision": "012a5bb",
+      "bytes": 8539,
+      "sha256": "d2c7786e8e896e7f8422a409da25f8e4c38fcd83d73a8a0e156164add3d503b2"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md": {
+      "revision": "b5c5586",
+      "bytes": 7906,
+      "sha256": "b0631d507e4df970ae132befbb0f1b4fac7c67afe9c178be1d8718ada2fab266"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_450_SWITCH_MARGIN_PROTOCOL_20261005.md": {
+      "revision": "6d5beb2",
+      "bytes": 3543,
+      "sha256": "e6a86aa08ca9a3fa02b1e70f55f14c9e8571dbb24afed605d9e945cd23df0e0d"
+    }
+  },
+  "450_serializer_only_reversal_exact449_source": true,
+  "448_apparatus_gates": {
+    "all_sources_parent_archives_fresh_exact": true,
+    "all336_original_native_states_A16_full_heads_byte_exact": true,
+    "all128_real_functions256_matrices_packing_full_inverse_saved_bank_byte_exact": true,
+    "all_tiny_pairs_extrema_zero_minus8_and_I32_bounds_qualified": true,
+    "all1344_I4B64_projection_block_I32_I64_and_F64_outputs_exact": true,
+    "same_source_input_probability_finalnorm_head": true,
+    "all_full_vocab_KL_independent_identity_le1e_minus10": true,
+    "removed_full_heads_match_original443_byte_exact": true,
+    "one_fixed_encoding_no_calibration_fit_or_data_selection": true
+  },
+  "448_feasibility_gates": {
+    "mean_source_KL_le0_01": true,
+    "every_book_mean_source_KL_le0_05": true,
+    "argmax_changed_fraction_le0_01": false,
+    "I4_ID_permutation_mean_KL_increase_ge0_01": true,
+    "nominal_bank_storage_ratio_le0_60": true
+  },
+  "448_fixed_recipe_closed": true,
+  "449_external_terminal_failure_retained": true,
+  "449_empty_output_directory_retained": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth449_switch_margin",
+  "449_no_valid_geometry_record": true,
+  "450_apparatus_gates": {
+    "all_source_parents_complete_archives_helpers_runtime_fresh": true,
+    "same336_original_logits_inputs_pair_keys": true,
+    "all_original_A16_codes_scale_byte_exact": true,
+    "all2688_selected_head_logits_I64_native_byte_exact": true,
+    "all672_margin_and_KL_cumulant_identities_qualified": true,
+    "all672_state_A16_F32_cast_order_decompositions_le1e_minus10": true,
+    "all_reference_required_certificates_exclude_actual_flips": true,
+    "tiny_independent_algebra_manual_primal_and_saved_archive_exact": true
+  },
+  "450_native_scalar_JSON_qualified": true,
+  "450_changed_pair_classification_scope": "Selected original winner/candidate winner pairs;4/4 row and9/9 block state crossings in smooth source readout;13 arm events across11 positions, no global smooth-head argmax or whole-quality assertion.",
+  "fresh_output_inventory": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\bank.npz": {
+      "bytes": 339739646,
+      "sha256": "8be6b0fc2dc866832cbc4ae78b38e49f7bc33d7da211cac84a5324dc0b869eee"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_ID_plus1_logits.npy": {
+      "bytes": 43180160,
+      "sha256": "2c72cfe85bc88d35be8717344a17aa556df8ff3f25e9117e234a11b5f9115ad4"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_ID_plus1_states.npz": {
+      "bytes": 8261734,
+      "sha256": "0962aabf2f03f7839ec2073822708c4807704233fb7d83936bb8eded623f893a"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_original_ID_logits.npy": {
+      "bytes": 43180160,
+      "sha256": "d925866af76d4ba7516727e655673fab78003523c697cf40a068c938a2ec1151"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_original_ID_states.npz": {
+      "bytes": 8261734,
+      "sha256": "f60d58640f42d87df6a3bfcd0a9bb6e3e71b5281149ca45d700ae53af7c91b1e"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\original_logits.npy": {
+      "bytes": 43180160,
+      "sha256": "80ca5f6d411e7056216b45c4c91d71fbbdb9da0e056d0ccfbd121bf6dc97074f"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\original_prefixes.npz": {
+      "bytes": 17855196,
+      "sha256": "3602d953fd50e844873e02294f612b4f0218ec4a452ef574da371eb94319f1df"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\removed_logits.npy": {
+      "bytes": 43180160,
+      "sha256": "c7fdc4d18202e2ec49d5503869d58dd5b1b85e2ab41b2ba967d8a4c6f6582ca0"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\removed_states.npz": {
+      "bytes": 8261734,
+      "sha256": "69c204940506ec8f76ab4b684ce6b152408bcee7b37a995d923a92bd749b5c1f"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth450_switch_margin\\margin_inputs.npz": {
+      "bytes": 5690044,
+      "sha256": "6ddf528f4cdecf8522ab1c3bc694de0eafb4ff70c5d47a7fdafd8fe3a77ef036"
+    }
+  },
+  "archive_headers_only": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\bank.npz": {
+      "arrays": {
+        "wi_packed": {
+          "shape": [
+            128,
+            3072,
+            384
+          ],
+          "dtype": "uint8",
+          "fortran_order": false
+        },
+        "wi_scales": {
+          "shape": [
+            128,
+            3072,
+            12
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "wo_packed": {
+          "shape": [
+            128,
+            768,
+            1536
+          ],
+          "dtype": "uint8",
+          "fortran_order": false
+        },
+        "wo_scales": {
+          "shape": [
+            128,
+            768,
+            48
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        }
+      }
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_ID_plus1_logits.npy": {
+      "shape": [
+        336,
+        32128
+      ],
+      "dtype": "float32",
+      "fortran_order": false
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_ID_plus1_states.npz": {
+      "arrays": {
+        "up_raw": {
+          "shape": [
+            336,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "down": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "post": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "final": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "actual_function_ids": {
+          "shape": [
+            336
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        }
+      }
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_original_ID_logits.npy": {
+      "shape": [
+        336,
+        32128
+      ],
+      "dtype": "float32",
+      "fortran_order": false
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\I4B64_original_ID_states.npz": {
+      "arrays": {
+        "up_raw": {
+          "shape": [
+            336,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "down": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "post": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "final": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "actual_function_ids": {
+          "shape": [
+            336
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        }
+      }
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\original_logits.npy": {
+      "shape": [
+        336,
+        32128
+      ],
+      "dtype": "float32",
+      "fortran_order": false
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\original_prefixes.npz": {
+      "arrays": {
+        "rows": {
+          "shape": [
+            336
+          ],
+          "dtype": "[('position', '<u4'), ('id', '<u4'), ('source_tokens', '<u4'), ('route_index', '<u4'), ('pre', '<f4', (768,)), ('input', '<f4', (768,)), ('wi_scale', '<f4'), ('wi_codes', '<i2', (768,)), ('up_raw', '<f4', (3072,)), ('up', '<f4', (3072,)), ('wo_scale', '<f4'), ('wo_codes', '<i2', (3072,)), ('down', '<f4', (768,)), ('expert', '<i4'), ('accepted', '<i4'), ('probability', '<f4'), ('post', '<f4', (768,)), ('final', '<f4', (768,)), ('head_input', '<f4', (768,)), ('head_scale', '<f4'), ('head_codes', '<i2', (768,))]",
+          "fortran_order": false
+        },
+        "scores": {
+          "shape": [
+            336,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "books": {
+          "shape": [
+            336
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "keys": {
+          "shape": [
+            336
+          ],
+          "dtype": "<U88",
+          "fortran_order": false
+        }
+      }
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\removed_logits.npy": {
+      "shape": [
+        336,
+        32128
+      ],
+      "dtype": "float32",
+      "fortran_order": false
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth448_switch_block_i4\\removed_states.npz": {
+      "arrays": {
+        "up_raw": {
+          "shape": [
+            336,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "down": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "post": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "final": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "actual_function_ids": {
+          "shape": [
+            336
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        }
+      }
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth450_switch_margin\\margin_inputs.npz": {
+      "arrays": {
+        "original_head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "original_head_codes": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "int16",
+          "fortran_order": false
+        },
+        "original_head_scale": {
+          "shape": [
+            336
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "rowI4_head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "rowI4_A16_codes": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "int16",
+          "fortran_order": false
+        },
+        "rowI4_A16_scale": {
+          "shape": [
+            336
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "rowI4_selected_head_codes": {
+          "shape": [
+            336,
+            2,
+            768
+          ],
+          "dtype": "int8",
+          "fortran_order": false
+        },
+        "rowI4_selected_head_scales": {
+          "shape": [
+            336,
+            2
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "block64I4_head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "block64I4_A16_codes": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "int16",
+          "fortran_order": false
+        },
+        "block64I4_A16_scale": {
+          "shape": [
+            336
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "block64I4_selected_head_codes": {
+          "shape": [
+            336,
+            2,
+            768
+          ],
+          "dtype": "int8",
+          "fortran_order": false
+        },
+        "block64I4_selected_head_scales": {
+          "shape": [
+            336,
+            2
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        }
+      }
+    }
+  },
+  "unique_output_bytes": 560790728,
+  "fresh_original_payload": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin": {
+      "bytes": 7541946880,
+      "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin": {
+      "bytes": 340450,
+      "sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a"
+    }
+  },
+  "fresh_original_runtime_binaries": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth374_switch_physical_workers_contract\\meth374_switch_physical_workers.exe": {
+      "bytes": 290816,
+      "sha256": "97965a35900cc0483e60f3e2e51f95da90af600e1fa326af8ec34f7c2a3dacd0"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe": {
+      "bytes": 290816,
+      "sha256": "7783d25e7dd51c6f8ad43750d5d7139e622ba74b852a71aee484ffd445860a7b"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll": {
+      "bytes": 20415488,
+      "sha256": "63c857e738469261263c764a36be9436ebdeaa272e340a828f42047a97131080"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\_C.cp312-win_amd64.pyd": {
+      "bytes": 10240,
+      "sha256": "8cc12784367470aa0f3ebe54a0c4593ac52d5bc273ed7ba719cbb10b4a3dbdb8"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll": {
+      "bytes": 1310600,
+      "sha256": "f608eedb25e44de3db1d3db984ac113f3a8406a92ea87061a77f390852fe1174"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll": {
+      "bytes": 43912,
+      "sha256": "27613127ee63e4399b615bf5d105895b2dc18e3505bb92615827f7e11d88343a"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll": {
+      "bytes": 251258368,
+      "sha256": "9419933b9cc163baf7859092f243de4695b45632f81b96a8d0060ea20d63d6b5"
+    }
+  },
+  "engine_byte_exact_qualified5c82f10": {
+    "bytes": 136806,
+    "sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414"
+  },
+  "current_documents_and_attributes": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\INDEX.md": {
+      "bytes": 11007,
+      "sha256": "eec9efd3eedc4f961d4483c9c38168b253414be27c544aefabf8daf576272702"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METHOD.md": {
+      "bytes": 85205,
+      "sha256": "1f8fe2722f94af3ef3ba35dcacd448065c5e1834ef6e5db70c2af2b40e4d53d9"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md": {
+      "bytes": 15009,
+      "sha256": "311788c503bf94c32c34702fadfd2bdc53320750e64ba12904fd02720402613e"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_448_SWITCH_BLOCK_I4_RESULT_20261005.md": {
+      "bytes": 5628,
+      "sha256": "5556f10e8487fe7a2b4ce6474de9b82df5c9639e97bb230a8c241064d405e840"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_449_SWITCH_MARGIN_RESULT_20261005.md": {
+      "bytes": 1618,
+      "sha256": "a2a1dc16d203b1528e784062785b64b9663ed2a653a94faf146043e30194866f"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_450_SWITCH_MARGIN_RESULT_20261005.md": {
+      "bytes": 6797,
+      "sha256": "ce01d0c6f87846f511ec440c172d99e33b00f4bfcd99f178512ba1e54087fd00"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\SWITCH_ORTHOGONAL_I4_NEXT_20261005.md": {
+      "bytes": 7062,
+      "sha256": "83f7bea0bd089ea866282cda068d362dcc36405b149ca76dd6db937ecc933c8f"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.gitattributes": {
+      "comparison": "raw_HEAD_blob_exact_LF",
+      "bytes": 62708,
+      "sha256": "0d155505e6ad9dbe4cbff786a73d6c8647fe4bfa3d0bdf682e901bf729c7475d"
+    }
+  },
+  "no_model_jobs": true,
+  "preserved_daemons": [],
+  "goal_status": "ACTIVE / INCOMPLETE",
+  "next451_scope": "Proposal only;no source/protocol/transform/output. Freeze one deterministic orthogonal input basis and strict uncompressed activation control before original block64-I4 gates. Whole-quality/SAMEartifact50/usefulRAM-n/routing/LUT/actualDRAM/families100B still required.",
+  "seconds": 8.390999999999622
+}
