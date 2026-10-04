@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;387 independent original128 whole quality ALL18 PASS;388 three-worker contract next.**
+**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;387 independent original128 whole quality ALL18 PASS;389 three-worker contract live;390 cost next.**
 
 ## Goal and constraints
 
@@ -125,6 +125,9 @@ upper95 .089451<=.10, original/native healthy96/96, generated fields92/89 of384.
 Quality transfer now scoped to two actual independent same-family scales;
 383 cost remains FAIL, no original128 accepted-rate qualification. NEW388
 three actual physical workers[0,2,4], all math source reversal exact374,
-BOTH192 teacher/own-natural quality bytes required. Then frozen389 cost/390
-rate only for qualifying artifacts. Budget38830min/16GiB; expected<=10min.
+BOTH192 teacher/own-natural quality bytes required. 388 launch before pending freeze completed failed first HEAD binding,
+retained031916d/no native observations; freeze completedcdd2871. Corrected389
+frozene604af1/preflight PASS, unchanged388 math/profile/gates; live numerical
+contract, then390 cost/391 rate only for qualifying artifacts. Budget38930min/
+16GiB, expected<=10min. No other model/timing/acquisition job.
 Whole useful n/LUT/realDRAM/multiple family/scale/~100B goal remains open.

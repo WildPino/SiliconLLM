@@ -101,22 +101,26 @@ source/numerical evidence reused314+, full-width expensive port remains closed.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-374 complete explicit physical-worker contract ALL7 PASS (0de8cf0), including
-ALL96 teacher/own-natural full SHA exact363.375 same-artifact CPU cost ALL7 PASS
-(aa3cf47).376 accepted FULL rate ALL5 PASS (56922f6):63.5254 ordinary accepted
-IDs/s, lower95 59.5118;895 IDs from81/96 cases, all rejected-case times charged.
-Includes405 structural sentinels; prose34.7793/s, lower32.6497. Warm pretokenized
-short infilling, SAME338 weights/374 binary and six verified physical workers.
-Original14.664B donor-relative quality inherited only through complete374 bytes
-exact363. See SWITCH_BASE256_REPRODUCTION_20261004.md for the real procedure.
+387 independently pretrained original128 NEW whole quality ALL18 PASS4a22f08:
+all3320 original coefficient/tie/config/tokenizer identities and ALL96 matched
+cached teacher-generate logits exact0; source128 top1 masked97.14%, prose-edit
+upper95 .089451, original/native healthy96/96, generated fields92/89 of384.
+Together with363 this establishes bounded same-family7.4B/14.7B quality transfer,
+not matched-training causal n improvement or second-family/general-task proof.
+Complete128 target3807.542GB; full25633814.818GB.383 six-worker source128 cost
+first stability FAIL1.259571>1.10 retained4ee2ddb; latency medians and all outputs/
+placement pass.386 original cached/uncached bridge apparatus FAIL before NEW
+scores retainedd6f9366;387 corrected matched cached semantics, same1e-6 criterion.
+Draft384/385 ineligible/unfrozen/unexecuted; no optional unchanged timing retry.
 
-372 first mixed subset quality remains retained: no monotonic n improvement.
-373 actual64/128/256 cost remains qualified; physical DRAM is unmeasured.
-377 acquisition apparatus failed before any network bytes (82ca1dc). Corrected
-378 frozen029e5b7 passed model-free committed-input preflight and is acquiring
-the independent original base128, 29.863GB/90min/40GiB/2GiB RSS; no overlapping
-model/native timing. This is a second same-family7.4B/14.7B source-scale test,
-not a pruned subset or second family. Then379 all-original tensor/tie/parameter
-binding, source-specific export/numerics and NEW original-primary quality/rate.
-Useful >256, hierarchical CPU LUT/routing, physical DRAM, broader contexts,
-other families/~100B and scalable useful capacity remain open. Goal active.
+388 early launch before pending freeze completed failed first HEAD binding,
+retained031916d, no native/model observations. Freeze cdd2871 subsequently
+completed exit0. NEW389 frozene604af1/preflight PASS uses unchanged388 math,
+only team-size3 accepted with actual masks[0,2,4], ACTIVE/infinite wait.
+BOTH192 complete teacher AND own-natural bytes exact363/387 required before
+inheriting quality; no speed claim from numeric timing. Then separately freeze
+390 BOTH actual source9/64 cost, same per-fixture<=20ms and repeat<=1.10;
+391 SAME accepted FULL rate only for independently qualifying artifacts.
+Original256374/375/376 quality/rate positive preserved; physical DRAM, useful
+>256/10x n, hierarchical CPU LUT/routing, other families/contexts/~100B remain
+open. See SWITCH_THREE_WORKER_PROFILE_NEXT_20261004.md. Goal incomplete.
