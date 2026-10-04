@@ -1,0 +1,88 @@
+{
+  "experiment": "METH-419-native-final-bank-forward-and-explicit-smooth-gradient-contract",
+  "baselines": [],
+  "real_gradient_controls": [],
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth419_switch_function_gradient_contract.py": "ae9e965a97050f507d4a438f93e9da046bab3884fa9874c977ea5f11e554161e",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth419_switch_function_autograd.py": "f3cfdc3c4875210e0ce87bf4b6e25c0592bec66ef7343b24cf6b916c8d69c2ac",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_419_SWITCH_FUNCTION_GRADIENT_PROTOCOL_20261004.md": "c4b4bc32805aab3afa731d226a28cd1100a26e8f1f2614bc995b5fc38b841441",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth418_switch_function_capture_result.json": "4ebb37ed40d788eb85168d028b3e0b538cd7d65e009293cd32d5fb0eb117d829",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth418_switch_function_capture.py": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth368_switch_bank_manifest.py": "83829e76afec338db24616d784cb125d330c2c8fc8e69f34f64669648ed5776b"
+  },
+  "fresh_prior_inventory_files": 1936,
+  "prior_sha256": "4ebb37ed40d788eb85168d028b3e0b538cd7d65e009293cd32d5fb0eb117d829",
+  "preserved_background_daemons": [
+    {
+      "pid": 12540,
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    },
+    {
+      "pid": 17984,
+      "argv": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    }
+  ],
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "torch_git": "2236df1770800ffea5697b11b0bb0d910b2e59e1",
+    "numpy": "2.4.6",
+    "CPU_affinity": [
+      0
+    ],
+    "torch_threads": 1,
+    "torch_CPU_DLL_sha256": "9419933b9cc163baf7859092f243de4695b45632f81b96a8d0060ea20d63d6b5",
+    "torch_C_extension_sha256": "8cc12784367470aa0f3ebe54a0c4593ac52d5bc273ed7ba719cbb10b4a3dbdb8",
+    "GPU_used": false
+  },
+  "artifacts": {
+    "256": {
+      "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth335_switch_w8a8_export\\weights.bin",
+      "bytes": 14818015744,
+      "sha256": "e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056",
+      "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+      "manifest_sha256": "9c5be95504291cf9a71b087f714fc0b474ac6948389647be93919f611117fd81",
+      "source_unique_parameters": 14664154368,
+      "original_experts_per_bank": 256,
+      "f32_embedding_alias_names": [
+        "decoder.embed_tokens.weight",
+        "encoder.embed_tokens.weight",
+        "shared.weight"
+      ],
+      "f32_embedding_physical_copies": 1,
+      "separate_I8_head_view_from_same_tied_source": true,
+      "new_payload_write_bytes": 0,
+      "row_I8_tensor_names": 6313,
+      "f32_tensor_names": 79
+    },
+    "128": {
+      "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+      "bytes": 7541946880,
+      "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe",
+      "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+      "manifest_sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a",
+      "source_unique_parameters": 7415217408,
+      "original_experts_per_bank": 128,
+      "f32_embedding_alias_names": [
+        "decoder.embed_tokens.weight",
+        "encoder.embed_tokens.weight",
+        "shared.weight"
+      ],
+      "f32_embedding_physical_copies": 1,
+      "separate_I8_head_view_from_same_tied_source": true,
+      "row_I8_tensor_names": 3241,
+      "f32_tensor_names": 79
+    }
+  },
+  "failure_stage": "fresh_payload128",
+  "error": "TypeError('argument 1 must be str, not WindowsPath')",
+  "seconds": 26.9529999999977,
+  "maximum_checked_memory_bytes": 651575296,
+  "bytes_hashed": 24580149714
+}
