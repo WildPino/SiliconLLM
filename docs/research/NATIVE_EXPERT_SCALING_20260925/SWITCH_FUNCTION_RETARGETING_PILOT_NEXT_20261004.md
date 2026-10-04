@@ -1,11 +1,15 @@
-# Current resumption after448: decision margins and readout decomposition
+# Current resumption after450: state error and orthogonal input bases
 
 **5 October 2026. Goal ACTIVE/INCOMPLETE.** Previous goal turn was PROGRESS:
 443..445 yielded native identity and function-geometry evidence;446 qualified
 an exact native symmetry and rejected private Frobenius factors.447 made ONE
 real packed bank and qualified its arithmetic, but failed the declared argmax
 gate.448 lowers matrix/KL distortion but increases argmax changes to9; recipe
-FAIL. Next diagnose the margin mechanism before more encoding trials. The [strategic review](STRATEGIC_REVIEW_20261004.md)
+FAIL.450 completed the margin diagnosis after449's retained serialization stop:
+all4row/9block changed pairs also cross in smooth F64 readout. State displacement
+is sufficient for these pairs. Next proposed NEW451 changes input basis before
+SAME block64-I4, with rotated uncompressed activation control first. No451 source/
+protocol/numeric outcome yet. The [strategic review](STRATEGIC_REVIEW_20261004.md)
 remains a historical analysis snapshot. Current operational instructions are here.
 
 ## Preserve the full objective
@@ -85,8 +89,8 @@ accepted rate or DRAM measure. Do not relax447's gates or run C timing for it.
 
 | Subproblem | Current evidence | Missing condition |
 | --- | --- | --- |
-| Representation | Low-rank reference0 factors fail; row-I4 halves stored bytes with low LOCAL KL | Passing precision, actual full export, all-layer composition |
-| Information | Native identity matters; I4 bank ID intervention remains strong | Individual useful functions and real useful-n increments |
+| Representation | Factors/row-I4/block64-I4 fixed recipes fail;450 local state error crosses decision pairs | Fixed orthogonal-basis proposal, uncompressed control, full export/composition |
+| Information | Native identity matters; mean KL and directional margins differ | Individual useful functions, real useful-n increments and whole quality |
 | Selection | Original full argmax AND softmax mass are known;393 tail mass not small | Certified winner/mass refinement with charged fallback |
 | Physical execution | Two original same-family I8 artifacts qualified in fixed contexts | New SAME quality/rate artifact, CPU LUT, actual hardware DRAM |
 | Generality | Giga/Ling/Granite/Qwen source-specific constraints retained | Actual second-family/100B values, reference and useful converted model |
@@ -108,10 +112,10 @@ recipeFAIL. ID+1 meanKL.1795005898/increase.1788774539/41changes. Nominal bank
 zero updates. No native export or C timing. All source/results immutable.
 
 447->448 reduces mean KL and coefficient Frobenius errors but increases greedy
-changes. These matched consumed diagnostics do not yet localize why. No more
-blocksize/precision grid; do not lower the argmax gate to make this pass.
+changes.448 alone did not localize why; completed450 below identifies paired
+state crossings. No blocksize/precision grid or lowered argmax gate.
 
-## Immediate frozen NEW450: SAME449 margin diagnosis, JSON repair only
+## Completed450: SAME449 margin diagnosis, JSON repair only
 
 449 first serialization/failure-writer stop retained dd6650b as an EXTERNAL
 [terminal record](METH_449_SWITCH_MARGIN_RESULT_20261005.md), not geometry.
@@ -119,14 +123,16 @@ Old449 source/math/protocol/empty output directory immutable; no rerun.
 450 controller/[protocol](METH_450_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen
 6d5beb2 BEFORE first import. ONLY native scalar JSON adapter/qualifier and
 numbered bindings/labels changed; SAME449 math/formulas/gates/resources.
-No450 outcome yet. Run ONCE linked command: CPU0/BLAS1, admission300/numeric60/
-total360s,512MiB/16MiB. Retain FIRST failure; do not edit/rerun scientific files.
-Reuse retained original/447/448 full logits, source prefixes,
-correct-ID states and original source128 I8 head row values. No new candidate,
-weights, data, optimizer, GPU, whole FFN/model or complete head forward.
-A declared selected-two-row integer replay qualifies arithmetic for every case.
+[450 result](METH_450_SWITCH_MARGIN_RESULT_20261005.md) completed ONE session29978,
+exit0: ALL8apparatusPASS/2688 selected head values byte-exact.9.625s/186.389MB/
+5.690MB, zero FFN/complete-head forwards/updates. All4row and9block changed pairs
+also cross in F64 source readout, all13 events among24 original native margins<.1.
+13 arm events are11 unique positions; candidate winner is source runner-up in all.
+True head-input state displacement suffices for these selected-pair crossings;
+A16/cast still contribute and may matter elsewhere. No full smooth-head global
+winner or harmlessness claim. Raw/input archive retained; no449/450 rerun.
 
-Algebra to identify before choosing another representation:
+Qualified algebra explaining the decision:
 
     a=argmax(z0), b=argmax(zc)
     m=z0[a]-z0[b]
@@ -153,12 +159,24 @@ quantizer-input norm alone cannot rule out alignment with a head decision plane.
 Reference-required margin/TV/Pinsker bounds are diagnostic, not deployed
 fallback certificates. Native original logits/capacity/RAM usage stay charged.
 
-Freeze all formulas, tolerances, stratification, resource limits and independent
-algebra checks before observation. Retain raw per-position results, identities,
-paired native/shadow margins and full input/source hashes. Decision-changing
-question: are flips governed by genuine state displacement toward small margins,
-head activation quantization, native head rounding or an apparatus discrepancy?
-Only that result selects a new variable. No ex-post quality-gate change.
+450 froze and qualified all formulas/tolerances/stratification before observation.
+Close head A16/F32 rounding as the SOLE explanation/repair for these observed
+paired crossings. Mean-KL improvement alone does not preserve directional margins.
+
+## Immediate proposed NEW451: fixed orthogonal bases before SAME block64-I4
+
+[Prospective algebra and primary evidence](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md)
+define the NEW variable: one deterministic signed block-Hadamard input basis,
+ALL coefficients/IDs and original-coordinate private ReLU preserved. This is a
+proposal, not an implemented method or inherited QuaRot/QuIP#/SpinQuant result.
+Prepare and freeze NEW451 source/math/controller/protocol BEFORE any import or
+transformation. Qualify exact coefficient integer roundtrips and independent
+activation transform/primal; rotated UNCOMPRESSED control before compressed
+correct-ID/ID+1/removed gates. Freeze stricter control thresholds and extra CPU/
+RAM/output limits prospectively; unchanged predictive/identity/storage gates.
+No451 source/protocol/transform/output exists at this resumption. No basis/seed/
+blocksize/precision grid or validation fitting. Only local PASS would license
+separate actual C packed-versus-pair-LUT cost, then fresh whole quality/rate/DRAM.
 
 ## Actual arithmetic and memory, not nominal byte promises
 

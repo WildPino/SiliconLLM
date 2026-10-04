@@ -17,10 +17,12 @@ matrix energy requires symmetricrank>=631, losing F32 storage advantage.
 447 row-I4 ALL9apparatusPASS;128 real functions stored in303.956MB.
 MeanKL.0013779/ID+1 identity harm.17792, but4argmax changes>3: fixed recipeFAIL.
 448 block64-I4 ALL9apparatusPASS/4of5feasibilityPASS, but9argmax changes>3.
-KL improves to.00062314 while winners worsen; fixed recipeFAIL. Next NEW449
-margin/head-quantization diagnosis:449 JSON/failure writer stopped, external
-first failure retained.450 serialization-only repair frozen6d5beb2, no outcome
-yet. Run ONCE bounded protocol; no precision/blocksize sweeps.
+KL improves to.00062314 while winners worsen; fixed recipeFAIL.449 first JSON/
+failure-writer stop retained externally;450 serialization-only repair completed.
+ALL8apparatusPASS/2688 selected head rows exact. ALL4row/9block changed pairs
+also cross in smooth F64 readout: state displacement is sufficient in these pairs.
+Next proposed NEW451 fixed orthogonal input bases before SAME block64-I4, with
+rotated uncompressed control first; no451 source/protocol/numeric outcome yet.
 Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
@@ -115,6 +117,14 @@ ALL9apparatusPASS/4of5feasibilityPASS. Bank339.739MB, meanKL.00062314,
 9/336argmax changes>3 FAIL.124s/2.462GB/555.101MB/zero updates. Smaller matrix/
 KL distortion does not ensure fewer winner changes. Close before native timing.
 
+- 449 [first serialization stop](METH_449_SWITCH_MARGIN_RESULT_20261005.md),
+external metadata retained dd6650b; failure writer also stopped. No449 geometry.
+450 [same-math diagnosis](METH_450_SWITCH_MARGIN_RESULT_20261005.md),6d5beb2:
+ALL8apparatusPASS.4/4row and9/9block selected-pair flips occur with smooth F64
+head too;13 arm events/11 unique positions, all among24 source margins<.1.
+Sole head-rounding repair insufficient for these pairs.9.625s/186.389MB/5.690MB,
+zero FFNs/complete-head forwards/updates. No deployed reference-free certificate.
+
 ## Closed routes and retained context
 
 Identity403, affine activation404/406, lexical414/416 bridges closed;405
@@ -133,15 +143,16 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 442's first admission stop is retained;443 proves native local identity effect.
 444/445 close the tested global-output bases and weighting-only correction.
 
-[Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): NEW449
-margin/readout decomposition on saved original/447/448 logits and source head
-rows.449 first serialization/failure-writer stop externally retained dd6650b,
-no geometry record.450 serialization-only repair frozen6d5beb2 BEFORE first
-import; no outcome yet. Run ONCE linked command. Qualify exact selected
-head-row replay, then separate true state displacement/A16 input quantization/
-native output rounding and compare source margins/information. No fit/new
-candidate/blocksize or precision sweep;447/448 failures remain immutable.
-Further format choice must follow that mechanism evidence. Full-native quality,
+[Current resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md) records
+450's completed pair-margin mechanism; all448/449/450 sessions terminal and
+first failures retained. Next [orthogonal basis proposal](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md):
+prepare NEW451 source/math/controller/protocol, freeze BEFORE first import.
+ONE deterministic signed block-Hadamard input basis, SAME block64-I4 precision;
+private ReLU stays in original neuron coordinates. Qualify exact integer
+coefficient witnesses and rotated UNCOMPRESSED activation control before low-bit
+conclusions. Preserve predictive/identity/storage gates and prospectively freeze
+extra-control resources. No451 source/protocol/transform/output exists yet.
+No precision/blocksize/seed sweep;447/448 remain FAIL. Full-native quality,
 C/LUT/routing cost/SAME accepted rate and physicalDRAM still required.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain

@@ -16,8 +16,11 @@ storage-saving geometry.447 calibration-free row-I4 bank/arithmetic qualified,
 mean sourceKL.0013779 and ID+1 harm.17792, but4argmax changes>3 gateFAIL.
 Full128 packed bank nominal303.956MB versus605.946MB, no C model/rate/DRAM.
 448 block64-I4 also ALL9apparatusPASS but9argmax changes>3: recipeFAIL,
-meanKL lower.00062314. Next frozen margin/head-quantization diagnosis, no
-precision/blocksize sweep or gate relaxation.
+meanKL lower.00062314.450 completed SAME449 margin diagnosis after retained
+first serialization stop: all4row/9block changed pairs cross in F64 readout too.
+State displacement is sufficient for these paired crossings; sole head-rounding
+repair insufficient. Next orthogonal coefficient/input basis proposal, preserving
+private ReLU and SAME block64-I4; no451 source/protocol/numeric outcome yet.
 Keep predictive gates; full multi-layer source-relative quality remains required.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
@@ -55,14 +58,24 @@ frozen012a5bb, [result](METH_448_SWITCH_BLOCK_I4_RESULT_20261005.md) ALL9apparat
 PASS/4of5feasibilityPASS. MeanKL.00062314,9argmax changes>3 FAIL;339.739MB bank,
 124s/2.462GB/555.101MB. This fixed recipe CLOSED before C timing/export.
 Smaller matrix/KL error does not certify decision-margin preservation.
-Next NEW449 explicit margin/readout displacement diagnosis on retained states
-and selected head rows, no model fit/new precision grid.449 source/math/
-[protocol](METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen b5c5586; first
-JSON/failure-writer stop retained externally dd6650b, no valid geometry record.
-450 [same-math repair](METH_450_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen6d5beb2,
-no outcome yet; ONLY JSON scalar encoding/bindings/labels change.
-Explicit block-dot scaling/accumulation and
-native predictive gates must qualify before C/LUT cost, followed by fresh whole
+449 source/math/[protocol](METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen
+b5c5586; first JSON/failure-writer stop retained externally dd6650b, no449 geometry.
+450 [same-math result](METH_450_SWITCH_MARGIN_RESULT_20261005.md),6d5beb2:
+ALL8apparatusPASS/2688 selected head values byte-exact. All4row/9block flips cross
+selected decision pairs in F64 readout; state displacement suffices in these
+pairs. All13 arm events/11 unique positions among24 native source margins<.1.
+KL/cumulant and state/A16/cast/order decompositions qualified. Reference-required
+margin/TV/Pinsker certificates are diagnostics, not cheap runtime fallback.
+9.625s/186.389MB/5.690MB, zero FFN/complete-head forwards/updates.
+
+Next [NEW451 proposal](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md): one fixed signed
+block-Hadamard input basis before SAME block64-I4, ALL original coefficients/
+IDs/private ReLU retained. Exact-real equivalence and integer coefficient
+witnesses are proposed; native activation rounding remains a separate question.
+Freeze source/math/controller/protocol and extra-control limits prospectively.
+Rotated UNCOMPRESSED control must qualify BEFORE compressed predictive gates.
+No451 implementation/transform/output yet. If local gates pass, actual C primal/
+LUT cost must qualify, followed by fresh whole
 held-out/generation/tasks and SAMEartifact>=50 accepted rate/physical DRAM.
 Byte savings, local KL or an exact integer reference alone do not compose those
 missing stages. Larger n/families/actual~100B remain the final method requirements.
