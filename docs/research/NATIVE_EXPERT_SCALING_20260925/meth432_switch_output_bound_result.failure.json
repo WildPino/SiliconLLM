@@ -1,0 +1,137 @@
+{
+  "experiment": "METH-432-paired-output-benefit-bound-and-exposure",
+  "book_metrics": [],
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth432_switch_output_bound.py": "bb6577785249447c1ebac2543a8c1ae97cc913d6e4e18700542dd202ba296e75",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth432_switch_output_bound_math.py": "747bc787699ae5cab954d104c09fc62cc29fff7767325b8157a12f66609d7dab",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_432_SWITCH_OUTPUT_BOUND_PROTOCOL_20261004.md": "172030e00809ec7964e2f8765726403d2c26b2bd4acd5013669d18890bd3eb1c",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth418_switch_function_capture.py": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9"
+  },
+  "retained_record_sha256": {
+    "meth418_switch_function_capture_result.json": "4ebb37ed40d788eb85168d028b3e0b538cd7d65e009293cd32d5fb0eb117d829",
+    "meth420_switch_function_gradient_result.failure.json": "17f60d043cff598cec0d3e85dfa4d23bdad67b83635422891e92729528056427",
+    "meth431_switch_additive_pilot_result.json": "648f37d9b0708488d1491b6af91776efb0bf062084f6cffb317e4af580ccb9e4"
+  },
+  "full418_inventory_and384_420_archives_fresh_exact": true,
+  "source_payload_hashes_inherited431_not_reread_for_output_diagnostic": {
+    "256": "e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056",
+    "128": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe"
+  },
+  "preserved_daemons": [
+    12540,
+    17984
+  ],
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "CPU_affinity": [
+      0
+    ],
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      }
+    ],
+    "GPU": false
+  },
+  "fixture": {
+    "solver": {
+      "global_t": 2.000000000001819,
+      "book_t": [
+        4.0,
+        2.000000000001819
+      ],
+      "book_minimum_t": [
+        4.0,
+        1.0
+      ],
+      "lambda_global": 0.5000000000009095,
+      "mu_books": [
+        0.9999999999990905,
+        0.0
+      ],
+      "mean_kl256": 0.026136268680041423,
+      "book_kl256": [
+        0.05146133449492482,
+        0.0008112028651580224
+      ],
+      "primal_CE": 1.094687325409062,
+      "dual_lower_CE": 1.0946873254090619,
+      "primal_dual_gap": 2.220446049250313e-16,
+      "maximum_stationarity_relative": 1.7763568394002506e-16,
+      "mean_cap": 0.026136268680041992,
+      "book_cap": 0.05146133449492489,
+      "global_root": {
+        "active": true,
+        "evaluations": 44,
+        "feasible_value": 0.026136268680041423,
+        "bracket": [
+          2.0,
+          2.000000000001819
+        ]
+      },
+      "book_roots": [
+        {
+          "active": true,
+          "evaluations": 43,
+          "feasible_value": 0.05146133449492482,
+          "bracket": [
+            3.999999999996362,
+            4.0
+          ]
+        },
+        {
+          "active": false,
+          "evaluations": 1,
+          "feasible_value": 0.001828080261641241,
+          "bracket": [
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "Decimal80_expected_CE": 1.094687325409062,
+    "max_probability_error": 1.0103029524088925e-14,
+    "entropy_identity_max_error": 2.220446049250313e-16,
+    "geometric_control_harm": 0.005940217521926361,
+    "wrong_multiplier_stationarity_defect": 1.1285266457680256
+  },
+  "failure_stage": "paired_book0",
+  "error": "AssertionError()",
+  "seconds": 8.671999999998661,
+  "peak_bytes": 419123200,
+  "bytes_hashed": 3035611173,
+  "partial_output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth432_switch_output_bound\\fixture.npz",
+      "bytes": 2624,
+      "sha256": "52cb066d56ed1b853b05fa8786f54e9dd80bb0b29bee9a9919da76e09db732e2"
+    }
+  ]
+}
