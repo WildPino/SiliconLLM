@@ -69,10 +69,23 @@ adapter2.292198,21added positions/18IDs/ZERO useful, function removal improves.
 Proposed original+extra when ON is TWO final-bank functions, other11 unchanged;
 no combined C model or inherited quality/rate/actualDRAM.463.281s/max3.185GB.
 Close THIS additive-feature/rank8/fixed-selector recipe before further fitting.
-Next [current diagnostic](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW432 output-benefit bound under preservation limits and exposure diagnosis,
-no new learner/sweep or capacity conclusion from stored384. Original qualified
-Switch routes intact; usefulRAM-n/LUT/DRAM/another-family/~100B remain open.
+[433 output-level feasibility](METH_433_SWITCH_OUTPUT_BOUND_RESULT_20261004.md):
+432 first F32 comparator failure retained; sole F64 caller repair as431,
+ALL6 apparatusPASS. Arbitrary posterior under mean256KL.02/book<=.05 achieves
+17.63%mixture/26.64%128gain, numerical duality gap5.60e-14. Oracle, not a model.
+55IDs have>=2val observations before frozen gate, only2after.434
+[frozen function/selection](METH_434_SWITCH_FROZEN_SELECTION_RESULT_20261004.md),
+47f3f43:zero updates, original431 hard full matrices/losses and masks exact.
+Fixed oracle selection yields12/10locally useful IDs but about.5%mixture gain
+and insufficient permutation harm. Both routes fail ALL9 potential requirements.
+Close THIS checkpoint before fitting another selector; actual431 staysFAIL.
+125.313s/max2.492GB/259.081MB, six full matrices/actual source hashes retained.
+Next [shared nonlinear geometry hypothesis](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW435 one shared768->128->768 input transport supervised on all1008dev
+captures; independent new numeric prerequisites before any fit. No435 source/
+protocol/outcome, no model export from local regression. Existing404/406 input
+eligibility and ALL9 capacity/whole-quality/SAMEartifact50 demands unchanged.
+Original routes intact; usefulRAM-n/LUT/DRAM/another-family/~100B remain open.
 
 ## Independently pretrained source128: complete bounded transfer qualified
 

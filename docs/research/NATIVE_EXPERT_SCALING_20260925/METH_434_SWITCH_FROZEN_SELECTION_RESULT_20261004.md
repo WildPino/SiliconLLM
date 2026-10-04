@@ -78,3 +78,13 @@ loss/budget/updates/held-book criteria before fitting; no width/epoch sweep.
 Keep original preservation and final9 capacity gates intact. An input-map pass
 only licenses NEW coupled-function/output-loss controls, never whole quality.
 Goal useful RAM-scale n/CPU LUT/realDRAM/another-family/~100B active/incomplete.
+
+Final retention:2432 unique raw/helper/protocol/archive/binary/runtime files,
+3804537662B freshly hashed,65 scientific files physically match filtered HEAD.
+ALL1936 capture418/384 forward420 archives, all425-434 output inventories and
+424 qualification archives exact.434 six full matrix shapes/dtypes verified,
+432/433 analytic fixture identical, original374/389 binaries and actual Torch
+CPU DLL/C extension match431 hashes. Engine unchanged from43790ee; no live
+modeljob, exact publisher daemons12540/17984 preserved. Updated operational
+documents through434; previous long index snapshot retained and current index
+condensed. No435 scientific source/protocol/outcome yet.

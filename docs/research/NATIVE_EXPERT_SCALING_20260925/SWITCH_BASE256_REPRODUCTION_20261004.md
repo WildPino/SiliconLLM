@@ -242,3 +242,12 @@ removal improves. Close additive recipe before sweep. NO native engine/C change
 in419-431 and no combined384 artifact/whole-quality/rate. Original374/389
 source-specific binaries and accepted contracts remain authoritative unchanged.
 Next NEW432 output-benefit/exposure diagnostic, see current resumption document.
+
+## Diagnostic boundary, through434
+
+432 first comparator failure retained;433 output oracle reaches17.63%mixture
+benefit under preservation.434 exact replay of frozen431 checkpoint/hard outputs
+with diagnostic oracle selection still fails1%gain/permutation requirements.
+No selector refit licensed, no new learned/native artifact or accepted rate.
+419-434 no engine/C changes; original374/389 binaries authoritative unchanged.
+Next435 shared nonlinear input-transport feasibility, no source/protocol yet.

@@ -1,16 +1,16 @@
 # Ling cost resumption: completed408/409, joint format required next
 
-CURRENT STATUS431 (supersedes historical next steps below): original Switch
+CURRENT STATUS434 (supersedes historical next steps below): original Switch
 source128/256 quality and SAMEartifact source-specific rates remain qualified.
-Specified Granite/Ling/Giga cost formats and lexical/state-map bridges closed.
-418 capture/420 complete native forward exact;424 local derivative qualified.
-426 replacement pilot FAIL7/9.427/429 first additive numeric failures retained,
-428/430 diagnoses qualify same bounds.431 complete additive6240-update pilot
-FAIL7/9: preservation passes, no useful IDs; removal improves. Close THIS recipe.
-Next [current diagnostic resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW432 output-benefit/preservation bound and exposure diagnostic before more fit.
-No combined384 C model/quality/rate; usefulRAM-n/LUT/DRAM/another-family/~100B
-remain open. Routine Graphify disabled. History retained.
+Closed cost/linear input routes and426/431 learned recipes unchanged.433 output
+oracle proves17.63% benefit feasible under preservation; current gate leaves
+only2IDs with2val observations.434 frozen-checkpoint oracle selection exposes
+12/10locally useful IDs but onlyabout.5% benefit and insufficient permutation
+harm; no full potential-gate pass. Close checkpoint before new selector fit.
+Next [shared nonlinear input hypothesis](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW435 shared768->128->768 transport supervised by all paired dev inputs, freeze
+new qualification/fit first. No435 source/protocol/outcome or combined384 C
+quality/rate. UsefulRAM-n/LUT/DRAM/another-family/~100B remain open. History retained.
 
 **Current status:**410 complete joint-format test now retained84e7610; all8
 numeric/archive controls PASS,14ms cost FAIL in both profiles. This planning
