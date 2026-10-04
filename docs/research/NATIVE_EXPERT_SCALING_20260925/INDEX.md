@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal. No live model/timing job.**
+**Goal ACTIVE. No artifact meets the full final goal.No live model/timing job.**
 
 ## Goal and constraints
 
@@ -20,10 +20,22 @@ T4 requires prior reason/budget/stop communication. Routine Graphify disabled.
 
 ## Two questions and latest decisive evidence
 
+[376 same-artifact quality/rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md)
+ALL5 PASS retained56922f6,exec42085 exit0 fully consumed;200.453s/max1.337GB.
+Original14.664B ->compact14.818GB full256, SAME374 binary/new6physical workers
+and375qualifiedcost. ALL96 complete own-natural outputs exact363; original-
+primary quality ALL18 inherited via374 ALL96 teacher/natural bytes exact.
+Accepted ordinary IDs63.5254/s/lower95 59.5118,895 IDs/81 cases, all96 median
+full time14.08885s including rejected cases. Includes405 structural sentinels;
+prose34.7793/lower32.6497. Aggregate repeat1.045386. Warm pretokenized short
+English infilling FULL model timer; no cold text-to-text/general-context claim.
+Full final goal remains ACTIVE beyond this bounded positive source.
+
+
 | Question | Established | Still missing |
 | --- | --- | --- |
 | Useful conditional target |369 real256 matching has predictive/generative usefulness;370/371 physically smaller64/128 complete artifacts/contracts;373 fourfold actual-bank CPU cost bounded |372 quality is mixed: no monotonic n gain; useful >256, hierarchical routing/LUT quality, physical DRAM, larger RAM/donors |
-| Pretrained-to-compact transfer | Complete14.664B original Switch ->14.818GB I8/A16 target in engine C;363 whole donor-relative quality18/18 PASS |364 same-artifact accepted FULL rate FAIL; broader tasks/contexts and multiple-family/~100B proof |
+| Pretrained-to-compact transfer | Complete14.664B original Switch ->14.818GB I8/A16 target in engine C;363 whole donor-relative quality18/18 PASS |376 same-artifact accepted FULL rate PASS; broader tasks/contexts and multiple-family/~100B proof |
 
 [372 actual64/128/256 quality](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md):
 first mixed result retained039dc99,5/7 gates PASS. Relative256,64 masked NLL
@@ -68,8 +80,8 @@ Original source: `results/native_expert_scaling/meth326_switch_base256_source`.
 Full target: `results/native_expert_scaling/meth335_switch_w8a8_export/weights.bin`,
 SHA `e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056`;
 spec `results/native_expert_scaling/meth338_switch_tensor_recovery/manifest.bin`.
-Qualified binary `results/native_expert_scaling/meth356_switch_all_a16_contract/meth356_switch_all_a16.exe`,
-SHA `596410690230be9ec05f5baf93c60d4cab677e3e67225ca94b5f3ed9ea8e628d`.
+Qualified current binary `results/native_expert_scaling/meth374_switch_physical_workers_contract/meth374_switch_physical_workers.exe`,
+SHA `97965a35900cc0483e60f3e2e51f95da90af600e1fa326af8ec34f7c2a3dacd0`.
 Actual subsets: `results/native_expert_scaling/meth370_switch_nested_bank_export/n64`
 and `n128` (weights/spec/metadata).353/356/363/371/372/373 outputs/raw retained.
 All362 sources consumed. Isolated324 environment reusable; source128 full
@@ -84,9 +96,14 @@ EXACT363. Negative actual-affinity fault detected. Scoped363 quality only.
 retainedaa3cf47,exec39504 exit0 fully consumed;27.078s/max947MB. SAME374/338,
 source9/64 forced32 full5.3951/12.8198ms, decode4.7072/6.3560ms, repeats
 1.009138/1.082004, all full bridges and actual worker masks exact.
-[376 accepted full rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_PROTOCOL_20261004.md)
-prepared for freeze: SAME374 binary/profile/338/ALL96 complete own-natural SHA
-exact363; unchanged364 acceptance/all rejected time charged/lower95>=50/
-aggregate repeat<=1.10. Freeze before measuring, retain first outcome.
-No live model/timing job. Whole useful greater n/LUT/realDRAM/multiple
-families/scales/~100B goal remains active even if this scoped family qualifies.
+[376 accepted full rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md)
+ALL5 PASS56922f6, scope and counting above. Preserve qualified374/375/376;
+no unchanged rate polishing. [Reproduction guide](SWITCH_BASE256_REPRODUCTION_20261004.md).
+[377 original128 acquisition](METH_377_SWITCH_BASE128_ACQUISITION_PROTOCOL_20261004.md)
+prepared for freeze: original OWN core/router/functions, not370 subset.
+Same-family7.4B/14.7B/twofold actual n transfer test; no second-family/10x proof.
+29,862,948,392B/3 shards+7 side files,90min/40GiB/2GiB RSS/exact325 LFS hashes,
+expected+32GiB disk reserve. Freeze before download; no live model/timing job.
+Then378 all-original tensor/tie/function binding; source-specific export/
+independent numerical and NEW original-primary whole quality/SAME full rate.
+Whole useful greater n/LUT/realDRAM/multiple families/scales/~100B goal active.

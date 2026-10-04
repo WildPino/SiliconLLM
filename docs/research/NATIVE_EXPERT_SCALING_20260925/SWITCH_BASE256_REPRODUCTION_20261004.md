@@ -1,0 +1,131 @@
+# Qualified base256 route: reproduction and applicability boundaries
+
+## What can currently be reproduced
+
+Original immutable Google `switch-base-256` revision
+`cdac1724c078ea4974b4087c59634799561e7835`,14.664B unique pretrained parameters,
+to14.818GB row-I8 weights/F32 controls plus A16 projection inputs, complete
+native phase60 encoder/decoder/greedy/cache.363 original-primary quality ALL18
+PASS; exact374 six physical-worker execution;375 cost PASS;376 accepted full
+model rate63.5254 ordinary IDs/s/lower95 59.5118 on SAME artifact. Includes
+structural markers; prose-only34.7793/lower32.6497. No universal recipe claim.
+
+## Immutable local artifacts
+
+| Artifact | Path / SHA256 |
+| --- | --- |
+| Original archives and original tokenizer/config | `results/native_expert_scaling/meth326_switch_base256_source`; source file identities in326/327 raw |
+| Compact payload | `results/native_expert_scaling/meth335_switch_w8a8_export/weights.bin`; `e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056` |
+| Compact spec | `results/native_expert_scaling/meth338_switch_tensor_recovery/manifest.bin`; `9c5be95504291cf9a71b087f714fc0b474ac6948389647be93919f611117fd81` |
+| Qualified C binary | `results/native_expert_scaling/meth374_switch_physical_workers_contract/meth374_switch_physical_workers.exe`; `97965a35900cc0483e60f3e2e51f95da90af600e1fa326af8ec34f7c2a3dacd0` |
+| Native runtime | Same binary directory `libomp.dll`; `6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698` |
+| Original reference environment | `results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe`; Transformers4.57.6/Hub0.36.0, originalTorch2.6.0+cu124 |
+| Complete original-primary quality record |363 raw `ba4f18454cb8788dceacfa7c8d629e6083420c75a9b69318f4277d7a9edfedeb` |
+| Exact execution quality inheritance |374 raw `4601be80b787341f6d60e01f7219c1cd4cd71c0451f835d25e31ded3c468f4b1` |
+| Same binary cost |375 raw `28b535b6a01ba67fcf45aaa008d8cf033d4f4cbc1aefcdc17c261a8749244375` |
+| Same artifact accepted full rate |376 raw `5986695ed0966f110c72129b058109d028b9f4bb90c23b763d57d7a62507bea5` |
+
+Paths above are relative to `D:\_THINGS\Progetti\SiliconLLM`. Versioned specs
+contain absolute payload paths; moving them requires an explicitly rebuilt
+spec and fresh parser/full numerical verification, not a presumed identical
+spec hash. Native compiler is pinned clang21.1.8, SHA
+`8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7`.
+Model weights and outputs are local external artifacts; Git tracks tools,
+protocols and evidence, not the59GB original or14.8GB compact payload.
+
+## Procedure from source
+
+1. **Screen source.**321/325 check source config, indexes, actual remote tensor
+   headers, namespace/ties/dtypes/core+active versus stored counts. Eligibility
+   based on semantic support and measured cost, not RAM size alone.
+2. **Acquire and bind.**326 retrieves all six original archives/seven side files
+   and whole immutable file SHA identities.327 checks all6392 original finite
+   F32 tensors, tied aliases and12x256 distinct expert pairs. Exact source
+   identity precedes conversion; parameter distinctness alone is not usefulness.
+3. **Convert and independently read back.**335 absmax-per-row /127 nearest-even
+   I8 with F32 row scales; router/lookup/norm/relative-bias F32. Tied embedding
+   and quantized head derive from SAME source; no new capacity counted from
+   alternate views. Original335 final readback interrupted at20min;337 likewise;
+  338 completes all canonical coefficient/code/scale/F32/padding/parser checks.
+   Preserve interruptions. They are not a successfully completed335 run.
+4. **Define and verify target arithmetic.**334 specifies exact rounded norm/
+   softmax/scaling;356 A16 absmax/32767 nearest-even inputs for every I8 matrix,
+   I32-lane bounds/I64 total/scaling, primitive/Tiny/nine-fault/full cache and
+   natural controls. Original329/330/332 probability tolerance failures retained.
+5. **Evaluate complete model against ORIGINAL.**362 creates24 initially unseen
+   PG19 books/96 short four-span cases with prior-source exclusions.363 frozen
+   all18 original-primary teacher/generation/known-answer/health/fidelity
+   criteria PASS jointly. Selected source rows are now consumed; this evidence
+   is not automatically new held-out evidence for another model or transformed
+  bank. Read363 report for precise confidence bounds and original signals.
+6. **Qualify exact worker execution.**374 reverses source edits to require
+   exact356 math, validates placement detection, numerical controls and ALL96
+   complete teacher/natural bytes exact363 at new six-worker recipe.375 same
+   binary cost gates; only after PASS376 accepted full generation timing.
+
+Each linked experiment protocol gives its full command, limits, parent hashes
+and expected outputs. Controllers deliberately refuse existing output/working
+directories. Reproduction requires a clean corresponding run environment or a
+NEW named experiment retaining any existing data; do not delete or overwrite
+frozen records to run commands. Original observations at configured host/root
+are authoritative; cross-host/path portability is unqualified.
+
+Compile the current qualified branch with the exact374 controller flags:
+
+```text
+clang -O3 -std=c11 -march=x86-64-v3 -fno-fast-math -ffp-contract=off -fopenmp
+      -DSILICON_SWITCH_PHYSICAL_WORKERS benchmarks/phase60/engine.c -o <binary>
+```
+
+Use the pinned compiler path and libomp from374 raw. A newly compiled binary
+needs its own identity/contract rather than inheriting an old executable hash.
+Direct native natural-generation command schema:
+
+```text
+<binary> --generate <spec> <source_IDs_CSV> <new_output_prefix>
+         6 64 32095 0 1 3 0
+```
+
+Here6=workers,64=cap,32095=closing sentinel for the four-span task,0=profile,
+1=warmup,3=measured repetitions, final0=reserved. Source IDs/tokenizer are the
+original source values. This is a span-denoising pretrained model, not an
+instruction chat endpoint. For source29 inputs reproducing qualified363 cases,
+use source_IDs in362 raw; complete output SHA and IDs are bound in363/374/376.
+SWR32O01 outputs retain encoder/decoder/logits/routes, not only decoded prose.
+
+Sanitize inherited OMP_/KMP_/GOMP_/SILICON_WORKER_BINDING_ variables; exact
+runtime OMP_NUM_THREADS=6, OMP_WAIT_POLICY=ACTIVE, OMP_DYNAMIC=FALSE,
+OMP_MAX_ACTIVE_LEVELS=1, KMP_AFFINITY=none,KMP_BLOCKTIME=infinite;
+OMP_PROC_BIND absent.374 C discovers and pins actual workers; all normal rows
+audit physical cores, thread IDs/group/masks. Current qualification is the
+six-core single-group Windows host0,2,4,6,8,10, not any arbitrary six CPUs.
+
+## Costs and scientific boundaries
+
+Source acquisition58.860GB/1,687.563s.335 observed conversion shard times sum
+1,062.437s; entire335 guard1,200.015s retained.337 separate interrupted recovery
+and338 successful1,032.625s add verification cost, not zero-cost conversion.
+Reference3631,721.672s/max7.336GB;374307.844s/max1.404GB;
+37527.078s/max947MB;376200.453s/max1.337GB. Whole conversion/qualification is
+more expensive than loading the already-qualified inference artifact.
+
+Rate includes full encoder/crossKV/decoder/head/greedy/stop, excludes startup/
+initial worker setup/model load/tokenization/serialization/cleanup. Warm/
+hash-primed fixed IDs; all rejected-case times charged. This is complete model
+computation, not cold text-to-text service or prose-only50. No further
+experiment is implied by this guide: numbers374/375/376 are frozen evidence.
+
+Loader d<=1024/ff<=4096/L<=24/vocab<=65536/heads*dk=d/buckets32/distance128,
+column<=4096 integer bounds and Switch/ReLU/top1/cache semantics are necessary
+checks, not quality guarantees. Actual64/128 exported subsets of base256 have
+complete numerical contracts but mixed372 quality; they cannot inherit363.
+Flat-router logical bytes scale with n;373 actual fourfold-bank full cost
+upper3.62% is bounded to64-256. No universal greater-n/hierarchical LUT/physical
+DRAM traffic/cold cache/100B or other-family quality/rate proof follows.
+
+Next independent original base128 tests scale transfer using its OWN learned
+core/router/banks, not370's removal of functions from base256. This is a twofold
+candidate bank contrast and one family; neither10x scaling nor another family.
+Other donor screens/failed transformations remain in METHOD/INDEX. Final goal
+active until the stated broader applicability and useful-capacity requirements
+are evidenced.

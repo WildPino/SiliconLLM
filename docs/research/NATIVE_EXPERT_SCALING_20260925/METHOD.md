@@ -1,6 +1,7 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-**Status: research procedure, not a validated conversion recipe.** This file
+**Status: one bounded pretrained-to-native quality/rate route is qualified;
+generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
@@ -9,7 +10,70 @@ CPU and context. The same artifact must pass quality and rate. A second donor
 family or scale must test which steps transfer. More stored parameters alone
 are not evidence of transferred capability.
 
-## Current reproducible complete candidate
+## Current qualified route: original Switch base256 to native C
+
+[376 complete rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md)
+qualifies the SAME model whose [363 original-primary quality](METH_363_SWITCH_ALL_A16_MULTI_SPAN_QUALITY_RESULT_20261004.md)
+passes all18 frozen gates. Original14,664,154,368 unique pretrained parameters,
+12 banks each256 distinct real WI/WO functions, compact14,818,015,744B target.
+[374 execution contract](METH_374_SWITCH_PHYSICAL_WORKERS_CONTRACT_RESULT_20261004.md)
+passes complete source reversal/independent primitive/Tiny/fault/cache controls
+and ALL96 teacher/own-natural full output SHA EXACT363. Same374 binary with
+[375 CPU cost](METH_375_SWITCH_PHYSICAL_WORKERS_COST_RESULT_20261004.md) PASS is
+measured in376:63.5254 accepted ordinary IDs/s, one-sided lower95 59.5118>=50;
+81/96 accepted cases/895 IDs, ALL rejected-case full time charged. These IDs
+include405 structural sentinels; prose-only34.7793/lower32.6497. Preserve that
+counting boundary: this does not establish prose-only50 or instruction chat.
+
+Declared hardware/runtime: Ryzen53600X/80GiB/Windows, primary6 workers on
+physical cores0,2,4,6,8,10, each live mask/group/thread ID read back, ACTIVE /
+infinite blocktime. Original-primary reference uses qualified isolated324
+Transformers4.57.6 with official original weights and forward/cache semantics.
+Scope:24 initially NEW PG19 books/96 short four-span cases, source29/cap64,
+observed natural length10-13. All sources now consumed. Model FULL encoder/
+crossKV/cached decoder/head/argmax/stop included; warm/hash-primed fixed IDs,
+startup/initial worker setup/load/tokenization/serialization/cleanup excluded.
+No cold text-to-text service wall-time or broader-context inference.
+
+| Available step | Classification | Evidence / cost |
+| --- | --- | --- |
+|321/325 source metadata,326 acquisition,327 all original tensors/ties | Exact source identity and applicability screen |58.860GB source,1,687.563s acquisition, all6392 finite canonical tensors, tied aliases exact |
+|335 row I8 representation,338 recovery/readback | Lossy representation, exactly verified implementation |14.818GB actual codes/scales/F32 controls; interrupted335/337 retained,338 final readback1,032.625s |
+|334 specified arithmetic,356 all quantized inputs A16 | Changed rounding plus activation approximation, independently verified |Explicit norm/softmax/scaling, exact I64 projections/Tiny/fault/cache; original-backend329/330/332 failures remain |
+|363 complete comparison to ORIGINAL donor | Joint statistical acceptance of the complete transformed model |ALL18 held-out prediction/generation/known-task gates;1,721.672s/max7.336GB |
+|374 physical worker execution | Exact execution transform on qualified target |ALL96 complete teacher/natural bytes exact363;307.844s/max1.404GB |
+|375/376 cost and SAMEartifact accepted FULL rate | Measured CPU resource/performance acceptance |37527.078s;376200.453s/max1.337GB, lower59.5118 ordinary IDs/s |
+|368/369 real function identity interventions | Diagnostic causal usefulness under fixed intervention |Both fixed mismatches harm prediction and known answers; not individual-expert or additional-n proof |
+|370/371/372/373 actual smaller banks | Exact subset export, changed model, diagnostic quality and cost |64/128 physically compact;372 mixed quality;373 fourfold CPU full growth2.91%/upper3.62%, not monotonic n gain |
+
+The compact reusable source core and original real conditional functions are
+kept distinct. All12 bank expert pairs total14,495,514,624 original coefficients;
+original source uniqueness/ties are counted without treating reencoded head
+views or lookup aliases as new capacity. Each decoded position addresses
+123,764,736 I8 matrix code bytes +534,016 row-scale bytes +4,718,592 F32 router
+bytes, independent of stored expert pool size except the flat router. Actual
+full timing includes selected weight access costs; logical descriptors and
+RSS do not measure physical DRAM traffic or establish cache locality.
+
+Applicability currently validated ONLY at real original base256 and exact
+nested64/128 numerical controls. Loader shape bounds d<=1024, ff<=4096,
+encoder/decoder<=24, vocab<=65536, heads*dk=d, buckets32/distance128; projection
+columns<=4096 and exact I32-lane/I64-sum bounds. These are implementation
+preconditions, not proof that every matching model passes quality. Source
+names/ties/activation/router/capacity/cache semantics must match the qualified
+Switch/ReLU/top1 branch. Generalizing across shapes/checkpoints requires new
+source/export/independent numeric and NEW original-primary quality/rate gates.
+Larger source C2048 has different widths/FF/core depth and does not fit the
+current source/target resource envelope; do not infer~100B compatibility.
+
+[Reproduction and exact artifacts](SWITCH_BASE256_REPRODUCTION_20261004.md)
+provides commands and immutable inputs. Old364/358/360/366 failures stay closed;
+no optional polishing of the unchanged qualified376 rate. Next actual original
+base128 acquisition/transfer can test an independently trained second scale;
+it is not370's subset of base256. Cross-family/greater-than256/useful large-n/
+physical DRAM and broader context/task proof remain open. The full goal ACTIVE.
+
+## Earlier dense-family complete candidate (rate/quality promotion closed)
 
 The saved candidate is [276 diagnostic I16/private128](METH_276_DIAGNOSTIC_COMPLETE_CORE_RESULT_20261002.md),
 1,329,447,260bytes/same725 fields. Its own versioned loader and all6144
