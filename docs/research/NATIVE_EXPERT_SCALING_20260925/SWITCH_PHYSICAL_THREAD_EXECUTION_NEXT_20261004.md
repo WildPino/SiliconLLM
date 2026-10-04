@@ -1,8 +1,7 @@
 # Next execution experiment after the actual bank-size comparison
 
-**Planning only: no374 code, protocol, freeze or observations yet.** Current
-goal ACTIVE. All372 first mixed quality and373 first cost outcomes retained.
-No live model/timing job. Next available experiment numbers374/375/376.
+**Historical prospective plan, now completed.**374/375/376 passed; see the
+current resumption below. Preserve the original rationale and proposed gates.
 
 ## Why this variable can change the decision
 
@@ -90,3 +89,25 @@ quality/rate step. Useful >256, real physical DRAM/LUT/hierarchical routing,
 new contexts/tasks, other families/scales and~100B remain open parts of the
 method. Frozen donor-adaptation/GigaChat assets remain reusable evidence;
 resuming the costly generic GigaChat runtime unchanged is not the next step.
+
+## Current resumption, 4 October: supersedes earlier proposed steps
+
+374 complete explicit physical-worker contract ALL7 PASS (0de8cf0), including
+ALL96 teacher/own-natural full SHA exact363.375 same-artifact CPU cost ALL7 PASS
+(aa3cf47).376 accepted FULL rate ALL5 PASS (56922f6):63.5254 ordinary accepted
+IDs/s, lower95 59.5118;895 IDs from81/96 cases, all rejected-case times charged.
+Includes405 structural sentinels; prose34.7793/s, lower32.6497. Warm pretokenized
+short infilling, SAME338 weights/374 binary and six verified physical workers.
+Original14.664B donor-relative quality inherited only through complete374 bytes
+exact363. See SWITCH_BASE256_REPRODUCTION_20261004.md for the real procedure.
+
+372 first mixed subset quality remains retained: no monotonic n improvement.
+373 actual64/128/256 cost remains qualified; physical DRAM is unmeasured.
+377 acquisition apparatus failed before any network bytes (82ca1dc). Corrected
+378 frozen029e5b7 passed model-free committed-input preflight and is acquiring
+the independent original base128, 29.863GB/90min/40GiB/2GiB RSS; no overlapping
+model/native timing. This is a second same-family7.4B/14.7B source-scale test,
+not a pruned subset or second family. Then379 all-original tensor/tie/parameter
+binding, source-specific export/numerics and NEW original-primary quality/rate.
+Useful >256, hierarchical CPU LUT/routing, physical DRAM, broader contexts,
+other families/~100B and scalable useful capacity remain open. Goal active.
