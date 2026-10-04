@@ -476,6 +476,12 @@ ALL rejected-case full times included. Repeat1.005005 PASS.365 new exact encoder
 O/denseFF/F32router batching/four-token weight-conversion reuse requires fresh
 independent numerical gates and ALL96 complete forced/own natural bytes EXACT
 363 before inheriting its scoped quality and measuring366cost/367full rate.
+365 ALL9 numerical/ALL96 byteequivalence PASS;366 CPU1 repeatFAIL1.101982
+retainedc0611e7, no367 rate promotion. Next368/369 use SAME stable361/356
+binary/quality for learnedbank identity interventions through smallserialized
+manifest remapping, unchanged payload/math/router, fixedtwo nonidentity
+bijections. This is diagnostic usefulness evidence; frozen paired task/NLL
+gates follow independent complete control oracles. No bank result yet.
 No relaxed acceptance/50/1.10 or optional repeats. Whole quality remains bounded
 English short four-span infilling; useful RAM-scale n/LUT/physical DRAM/causal
 bank identity/real128/cross-family/~100B goal remains active.

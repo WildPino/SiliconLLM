@@ -189,9 +189,20 @@ FULL >=50 lower/1.10 repeats/ALL96 acceptance, ordinary/prose explicit.
 365 ALL9 numerical +ALL96 complete forced/natural bytes EXACT363 PASS,
 retainedb906689/exec39812 exit0 fully consumed;369.281s/max2.774GB. Newexe
 SHA4fbf5a411d8391cc7f7eb3355bbbf87d1111db3c17ffb620264f3d30590114ce.
-366 SAME365 PRIMARYCPU1/affinity[0] cost now readytofreeze, unchanged20ms/
-1.10/counters/outputs;367 dependency-ineligible rate draft pending366 PASS.
-No job currentlylive before366 freeze. Useful n/LUT/physical DRAM/causal learned bank
+366 SAME365 actual CPU1 cost FAIL repeat1.101982>1.10 onsource64, retained
+c0611e7/exec84095 exit0 fullyconsumed; source9/64 full8.2531/19.2906ms per32
+forcedposition, all othergates PASS. Closeunchanged365 cost/ratepromotion;
+367 dependency-ineligible/unexecuted/unfrozen.363 scopedwholequality remains
+valid via365 complete byteequivalence,364 actualaccepted rateFAIL unchanged.
+Next368 independent bank-identity control contract: SAME356 binary/math/
+CPU1profile/payload, ONLY smallserialized manifest redirects WI/WO pairs via
+fixedoffset1/127 bijections atactualn256, unchangedrouter/core/head. No new
+engine/codegenneeded; fresh mappings/actualconsulted identities and complete
+independent Tiny/full/natural controls before369 pairedconsumed quality.
+This diagnostic tests matched learnedbank usefulness, notnewuntouchedquality
+or everyexpert/n-gain. Fixedgenuine64/128/256 nested-bank intervention planned
+nextforadditional real alternatives; actual n artifactsnotyetimplemented.
+Useful n/LUT/physical DRAM/causal learned bank
 usefulness/real128 comparison/cross-family/~100B goal remains open.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,

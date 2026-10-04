@@ -111,3 +111,19 @@ No job live before365 freeze. Useful n/LUT/physical DRAM/causal learned bank
 usefulness/real128 comparison/cross-family/~100B goal remains open.
 Source128 payload absent; old GigaChat evidence reused, generic port paused.
 Default engine body BYTE EXACT. All prior quality/cost/apparatus failures remain.
+
+## Current execution stop and next bank question
+
+366 SAME365 actual CPU1 cost FAIL repeat1.101982>1.10 onsource64, retained
+c0611e7/exec84095 exit0 fullyconsumed; source9/64 full8.2531/19.2906ms per32
+forcedposition, all othergates PASS. Closeunchanged365 cost/ratepromotion;
+367 dependency-ineligible/unexecuted/unfrozen.363 scopedwholequality remains
+valid via365 complete byteequivalence,364 actualaccepted rateFAIL unchanged.
+Next368 independent bank-identity control contract: SAME356 binary/math/
+CPU1profile/payload, ONLY smallserialized manifest redirects WI/WO pairs via
+fixedoffset1/127 bijections atactualn256, unchangedrouter/core/head. No new
+engine/codegenneeded; fresh mappings/actualconsulted identities and complete
+independent Tiny/full/natural controls before369 pairedconsumed quality.
+This diagnostic tests matched learnedbank usefulness, notnewuntouchedquality
+or everyexpert/n-gain. Fixedgenuine64/128/256 nested-bank intervention planned
+nextforadditional real alternatives; actual n artifactsnotyetimplemented.

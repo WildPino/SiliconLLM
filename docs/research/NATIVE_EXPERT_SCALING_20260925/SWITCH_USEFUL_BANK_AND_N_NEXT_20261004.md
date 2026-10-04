@@ -1,9 +1,13 @@
 # Switch: useful bank consultation and real n scaling after whole qualification
 
-Planning memo4 October2026; no bank-control/model scale observations.363
-original-primary whole quality ALL18 PASS,364 SAME full accepted rate FAIL
-45.1114/lower42.5362<50.365 NEW exact execution qualification planned below
-quality remains required before366cost/367rate. Final useful-n goal active.
+Planning memo4 October2026.363 original-primary wholequality ALL18 PASS;
+364 SAMEfullaccepted rateFAIL45.1114/lower42.5362<50.365 exactexecution ALL9
+numeric/ALL96 bytes PASS,366 repeatFAIL1.101982>1.10 retainedc0611e7;
+unchanged365 cost/rate closed,367 draftineligible. Use SAME356 numerical/
+361 stableCPU1/scoped363 quality baselinefor368/369 bankidentity controls,
+smallmanifest mappings only/SAMEpayload/binary/math, no originalmodel reload.
+Control usefulness diagnostic can advance independently of a failed50 rate;
+finalquality-and-rate qualification remainsrequired. No bankobservations yet.
 
 ## What current capacity evidence does and does not establish
 
@@ -18,11 +22,11 @@ classification and descriptor lookup must be priced as n grows. Logical
 Weights must stay genuinely learned/distinct; synthetic copied banks can only
 measure operator overhead, never stand in for useful expanded knowledge.
 
-After full quality/rate qualification, freeze a conditional-bank usefulness
+Freeze a conditional-bank usefulness
 control on consumed paired sources: SAME actual target/core/router/head,
 matched bank consultation versus TWO fixed nonidentity bijections of bank
-WI/WO identities (e.g. cyclic offsets1 and127 atn256), retain original chosen
-probability/capacity. Full arrays/actual consulted identity must be recorded,
+WI/WO identities (e.g. cyclic offsets1 and127 atn256), retain router coefficients/algorithm, selected probability/capacity on EACH
+control own states (no forced baseline route replay). Full arrays/actual consulted identity must be recorded,
 complete independent numerical oracle for each control before task scoring.
 Predictive NLL/known-answer and natural-health/task deltas under frozen
 book-unit bounds, ALL fixed cases, no favorable control selection. If harmful
