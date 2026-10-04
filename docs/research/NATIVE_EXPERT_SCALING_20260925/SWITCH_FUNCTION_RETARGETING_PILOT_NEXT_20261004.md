@@ -8,8 +8,8 @@ gate.448 lowers matrix/KL distortion but increases argmax changes to9; recipe
 FAIL.450 completed the margin diagnosis after449's retained serialization stop:
 all4row/9block changed pairs also cross in smooth F64 readout. State displacement
 is sufficient for these pairs. Next proposed NEW451 changes input basis before
-SAME block64-I4, with rotated uncompressed activation control first. No451 source/
-protocol/numeric outcome yet. The [strategic review](STRATEGIC_REVIEW_20261004.md)
+SAME block64-I4, with rotated uncompressed activation control first.451 sources/
+protocol frozen ef63b0e BEFORE first import, no numerical outcome yet. The [strategic review](STRATEGIC_REVIEW_20261004.md)
 remains a historical analysis snapshot. Current operational instructions are here.
 
 ## Preserve the full objective
@@ -163,19 +163,20 @@ fallback certificates. Native original logits/capacity/RAM usage stay charged.
 Close head A16/F32 rounding as the SOLE explanation/repair for these observed
 paired crossings. Mean-KL improvement alone does not preserve directional margins.
 
-## Immediate proposed NEW451: fixed orthogonal bases before SAME block64-I4
+## Immediate frozen NEW451: fixed orthogonal bases before SAME block64-I4
 
 [Prospective algebra and primary evidence](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md)
 define the NEW variable: one deterministic signed block-Hadamard input basis,
 ALL coefficients/IDs and original-coordinate private ReLU preserved. This is a
 proposal, not an implemented method or inherited QuaRot/QuIP#/SpinQuant result.
-Prepare and freeze NEW451 source/math/controller/protocol BEFORE any import or
-transformation. Qualify exact coefficient integer roundtrips and independent
-activation transform/primal; rotated UNCOMPRESSED control before compressed
-correct-ID/ID+1/removed gates. Freeze stricter control thresholds and extra CPU/
-RAM/output limits prospectively; unchanged predictive/identity/storage gates.
-No451 source/protocol/transform/output exists at this resumption. No basis/seed/
-blocksize/precision grid or validation fitting. Only local PASS would license
+451 source/math/[protocol](METH_451_SWITCH_ORTHOGONAL_I4_PROTOCOL_20261005.md)
+frozen ef63b0e BEFORE first import. Run ONCE linked command: exact coefficient
+integer roundtrips and independent activation transform/primal, rotated SOURCE
+control meanKL<=1e-6/book<=1e-5/ZEROargmax BEFORE unchanged448 compact gates.
+CPU0/BLAS1/admission300/numeric600/total900s/4GiB/640MiB/free2GiB; retain FIRST
+failure, no scientific edits/reruns/budget extension. No451 numerical outcome/
+transformed weights yet at this pre-run resumption. No basis/seed/blocksize/
+precision grid or validation fitting. Only local PASS would license
 separate actual C packed-versus-pair-LUT cost, then fresh whole quality/rate/DRAM.
 
 ## Actual arithmetic and memory, not nominal byte promises

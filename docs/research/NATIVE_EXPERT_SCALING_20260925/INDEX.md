@@ -21,8 +21,8 @@ KL improves to.00062314 while winners worsen; fixed recipeFAIL.449 first JSON/
 failure-writer stop retained externally;450 serialization-only repair completed.
 ALL8apparatusPASS/2688 selected head rows exact. ALL4row/9block changed pairs
 also cross in smooth F64 readout: state displacement is sufficient in these pairs.
-Next proposed NEW451 fixed orthogonal input bases before SAME block64-I4, with
-rotated uncompressed control first; no451 source/protocol/numeric outcome yet.
+NEW451 fixed orthogonal input bases before SAME block64-I4 source/math/protocol
+frozen ef63b0e BEFORE first import; uncompressed control first. No outcome yet.
 Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
@@ -145,14 +145,16 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 
 [Current resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md) records
 450's completed pair-margin mechanism; all448/449/450 sessions terminal and
-first failures retained. Next [orthogonal basis proposal](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md):
-prepare NEW451 source/math/controller/protocol, freeze BEFORE first import.
+first failures retained. NEW451 [frozen protocol](METH_451_SWITCH_ORTHOGONAL_I4_PROTOCOL_20261005.md)
+ef63b0e BEFORE first import, based on [dated proposal](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md).
 ONE deterministic signed block-Hadamard input basis, SAME block64-I4 precision;
-private ReLU stays in original neuron coordinates. Qualify exact integer
-coefficient witnesses and rotated UNCOMPRESSED activation control before low-bit
-conclusions. Preserve predictive/identity/storage gates and prospectively freeze
-extra-control resources. No451 source/protocol/transform/output exists yet.
-No precision/blocksize/seed sweep;447/448 remain FAIL. Full-native quality,
+private ReLU stays in original neuron coordinates. Exact coefficient integer
+witnesses and rotated UNCOMPRESSED control first (meanKL<=1e-6/book<=1e-5/
+ZEROargmax), then unchanged448 compact gates. CPU0/BLAS1, admission300/numeric600/
+total900s,4GiB/640MiB/free2GiB frozen prospectively. Run ONCE linked command;
+retain FIRST failure, never edit scientific files or extend bounds. No451 outcome
+or transformed weights yet at this pre-run resumption. No precision/blocksize/
+seed sweep;447/448 remain FAIL. Full-native quality,
 C/LUT/routing cost/SAME accepted rate and physicalDRAM still required.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
