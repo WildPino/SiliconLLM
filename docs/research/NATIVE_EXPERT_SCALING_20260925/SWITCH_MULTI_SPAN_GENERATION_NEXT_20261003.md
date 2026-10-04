@@ -1,5 +1,16 @@
 # Proposed next generation/task stage after349, not yet licensed or executed
 
+CURRENT STATUS416 (supersedes historical next steps below): original Switch
+source128/256 quality and SAMEartifact source-specific rates remain qualified.
+Granite412/413 I8 math/archive PASS but CPUcostFAIL, closed before original values.
+Lexical full414 conditioningFAIL,415 diagnostic spectra retained,416 identified
+partial map ALL12 local inputsFAIL; lexical bridge stopped before384 model.
+Primary next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
+planning only: design new capture/correction/selector/functional benefit controls
+in ONE pretrained core. No417 code/fit/model yet. Useful384/10x/~100B/physicalDRAM/
+another-family quality remain open. Existing frozen evidence below unchanged.
+
+
 This proposal is written while349 original-primary prediction runs. It is
 motivated by prior343 strict8-token exact0/96 for BOTH original and target,
 not by new349 observations. No model/case/score is selected by this proposal.

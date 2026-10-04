@@ -1,5 +1,10 @@
 # Ling cost resumption: completed408/409, joint format required next
 
+CURRENT STATUS416: Ling408/410 and Granite412/413 CPU formats closed before
+values/fitting.414/416 lexical input bridges closed;415 spectral diagnosis retained.
+Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
+planning only, no417 code/fit. Historical source/cost plans below stay as evidence.
+
 **Current status:**410 complete joint-format test now retained84e7610; all8
 numeric/archive controls PASS,14ms cost FAIL in both profiles. This planning
 text remains historical context; do not execute its proposed steps unchanged.

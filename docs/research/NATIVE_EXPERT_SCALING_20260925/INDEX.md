@@ -2,8 +2,9 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Granite412 row-I8 math PASS,
-cost/repeat FAIL; next ONE bounded four-row SIMD variable. Useful384/large n remains open.**
+whole-quality/SAMEartifact FULL-rate qualification. Granite412/413 CPU route
+closed; lexical414/416 interfaces closed. Next: design one function-aware final-bank
+adaptation pilot. Useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -162,8 +163,19 @@ unchanged I8 geometry closed. No actual values/quality/native costs/rate.
 [412 complete I8 cost](METH_412_GRANITE_I8_COST_RESULT_20261004.md), frozen004411c:
 ALL8 controls PASS/180SHA/60 full archives exact;3core13.4985..16.3172ms,
 6core13.9898..31.51365ms, repeat1.20882/2.25262 and14ms both FAIL. No values.
-Next [Granite cost/reference prerequisites](GRANITE_MOE_FULL_I8_NEXT_20261004.md):
-ONE new four-row SIMD variable with exact412 outputs/unchanged gates, not
-unchanged repeats or precision sweep. Small another-family prerequisite does
-not replace real~10B/~100B/useful RAM-scale capacity scope. Useful>256/10x/physical
-DRAM/another-family actual quality remain open. All jobs terminal.
+[413 four-row cost](METH_413_GRANITE_I8_FOUR_ROWS_RESULT_20261004.md),904207a:
+ALL11 controls/180SHA+60 full archives exact412.3core17.2891..18.57195ms repeat
+PASS but14ms FAIL;6core14.24315..25.62475ms jointFAIL. Stop Granite I8 before values.
+[414 lexical basis first failure](METH_414_SWITCH_LEXICAL_ORTHOGONAL_MAP_RESULT_20261004.md),c48e964:
+source-weight covariance prerequisiteFAIL before validation, no map scores.
+[415 spectra](METH_415_SWITCH_LEXICAL_SPECTRA_RESULT_20261004.md),776539b:
+ALL9 controlsPASS; individual source rank768, cross767 at1e-6; original failure exact.
+[416 identified partial map](METH_416_SWITCH_LEXICAL_PARTIAL_MAP_RESULT_20261004.md),b29ea2e:
+ALL8 controlsPASS/ALL12 input gatesFAIL; median1.12165..1.57931, errors1.458..4.293
+times mean-only. Close lexical weight bridge before384 selector/model.
+Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+design source/native capture and bounded corrections/selector/objective controls
+in ONE existing pretrained core, before any new417 protocol/capture/fit. No more
+state-map or unchanged kernel tuning. Planning ONLY, no417 code/results.
+Useful>256/10x/real~100B/physicalDRAM/another-family quality remain open.
+All jobs terminal, original qualified Switch artifacts untouched.

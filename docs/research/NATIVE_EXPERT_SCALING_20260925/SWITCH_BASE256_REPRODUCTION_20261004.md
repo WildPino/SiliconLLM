@@ -171,3 +171,14 @@ controller proves409 reversal45c2386/default0ff9705.411 metadata touches no
 engine or qualified binary. Original374/389 reproduction uses stated frozen
 checkouts. Both Ling formats failed CPU cost; no original Switch quality/rate
 inherited by the new Granite actual-header inventory or its proposed I8 variant.
+
+## Current opt-in boundary, through416
+
+412/413 add Granite synthetic I8 cost/four-row prefixes before410.413 reverses
+engine to b5ceacf/default0ff9705 and full C source/math outputs to412. Both CPU
+profiles fail the prospective14ms joint screen; no actual Granite values.
+414/415/416 statistical source-weight/paired-input work changes no engine or
+qualified binary.414 full lexical prerequisiteFAIL before scores;415 spectrum
+controlsPASS;416 partial lexical ALL12 inputsFAIL, no384 model. Reproduce old
+HEAD-bound controllers at frozen commits. Existing374/389 binaries/qualified
+rates stay authoritative. New417 function-aware pilot is planning only.

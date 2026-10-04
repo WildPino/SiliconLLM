@@ -1,5 +1,16 @@
 # Switch: useful bank consultation and real n scaling after whole qualification
 
+CURRENT STATUS416 (supersedes historical next steps below): original Switch
+source128/256 quality and SAMEartifact source-specific rates remain qualified.
+Granite412/413 I8 math/archive PASS but CPUcostFAIL, closed before original values.
+Lexical full414 conditioningFAIL,415 diagnostic spectra retained,416 identified
+partial map ALL12 local inputsFAIL; lexical bridge stopped before384 model.
+Primary next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
+planning only: design new capture/correction/selector/functional benefit controls
+in ONE pretrained core. No417 code/fit/model yet. Useful384/10x/~100B/physicalDRAM/
+another-family quality remain open. Existing frozen evidence below unchanged.
+
+
 Planning memo4 October2026.363 original-primary wholequality ALL18 PASS;
 364 SAMEfullaccepted rateFAIL45.1114/lower42.5362<50.365 exactexecution ALL9
 numeric/ALL96 bytes PASS,366 repeatFAIL1.101982>1.10 retainedc0611e7;

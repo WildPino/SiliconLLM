@@ -22,9 +22,16 @@ No original Ling values/reference/native quality/rate or physical DRAM yet.
 411 actual Granite1.335B full row-I8 byte inventory433.232MB; Granite3.299B
 unchanged I8 geometry closed.412 exact I8/A16 full fixture math/archive PASS,
 both3/6 cost/repeatability FAIL; no original values/reference/export/quality.
-ONE new four-row SIMD candidate with unchanged math/bytes/profiles/gates may
-reduce redundant input loads; if it fails, stop this kernel route. Next
-[Granite transfer prerequisite](GRANITE_MOE_FULL_I8_NEXT_20261004.md).
+413 four-row I8/A16 exact412 full outputs/ALL11 controls PASS but both14ms CPU
+gatesFAIL; stop Granite I8 kernel route before values/reference/quality.
+414 source-lexical full basis failed conditioning before validation;415 spectral
+diagnosisPASS, both source ranks768/cross767 at1e-6.416 identified rank767 partial
+map mathPASS/ALL12 input gatesFAIL, error1.458..4.293 times mean-only.
+Lexical weight bridge closed before384 selector/model, no further map tuning.
+Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
+is planning only: coupled correction/selector objective on one frozen256 core,
+direct vocabulary/function-benefit controls and bounded capture/gradient/resource
+proof required before fitting. No417 code/fit/model/quality/rate yet.
 Existing Switch quality/rate results and real large-useful-capacity goal intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified

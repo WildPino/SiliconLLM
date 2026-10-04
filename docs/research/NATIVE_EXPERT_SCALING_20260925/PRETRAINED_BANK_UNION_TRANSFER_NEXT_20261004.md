@@ -1,5 +1,14 @@
 # Next: actual cross-source bank capacity and transfer
 
+CURRENT STATUS416 (supersedes historical next steps below): lexical full-map414
+conditioningFAIL before validation;415 sources768/cross767 at1e-6;416 identified
+partial map ALL8 controlsPASS/ALL12 input gatesFAIL. No384 selector/model and no
+further lexical or old activation map tuning. Granite412/413 I8 costFAIL, closed.
+Primary next is [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
+in ONE qualified source256 core: bounded corrections/selector/task endpoint
+controls with genuine added-function benefit. Planning only, no417 code/fit.
+Useful384/10x/~100B/physicalDRAM/another-family transfer remain open.
+
 Planning, not a frozen next experiment or qualified384 model.399 and400 close
 the measured full-width synthetic GigaChat LUT algorithms: joint layout/build
 change retains all numerical/fingerprint tests but120ms still exceeds14ms.

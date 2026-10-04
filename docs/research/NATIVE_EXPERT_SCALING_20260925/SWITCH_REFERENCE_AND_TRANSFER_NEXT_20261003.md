@@ -1,5 +1,16 @@
 # Switch transfer route: available steps and remaining qualification
 
+CURRENT STATUS416 (supersedes historical next steps below): original Switch
+source128/256 quality and SAMEartifact source-specific rates remain qualified.
+Granite412/413 I8 math/archive PASS but CPUcostFAIL, closed before original values.
+Lexical full414 conditioningFAIL,415 diagnostic spectra retained,416 identified
+partial map ALL12 local inputsFAIL; lexical bridge stopped before384 model.
+Primary next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
+planning only: design new capture/correction/selector/functional benefit controls
+in ONE pretrained core. No417 code/fit/model yet. Useful384/10x/~100B/physicalDRAM/
+another-family quality remain open. Existing frozen evidence below unchanged.
+
+
 **PARTLY IMPLEMENTED. No full goal claim.**324-328 qualify the isolated official
 reference, acquire/bind all original14.664B weights and implement complete native
 T5/Switch source operators.334 prescribed target arithmetic correctness PASS;329/330/332 original-backend qualification FAILS one

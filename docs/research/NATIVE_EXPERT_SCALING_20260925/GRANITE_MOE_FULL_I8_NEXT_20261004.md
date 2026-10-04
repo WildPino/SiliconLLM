@@ -1,4 +1,12 @@
-# Current resumption: ONE four-row SIMD Granite I8 variable after412 cost failure
+# Granite I8 kernel route closed after413; historical cost/reference plan
+
+CURRENT STATUS416:413 four-row numeric/archive gatesPASS but CPUcostFAIL, so
+Granite full-row-I8 route is stopped before original values.414 full lexical
+bridge conditioningFAIL/415 spectra retained/416 partial bridge ALL12 inputsFAIL.
+No further Granite I8 or lexical state-map tuning. Primary next point is
+[one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
+planning only, no417 code/protocol/capture/fit. Text below is historical412/413
+planning superseded by this status. Source metadata remains reusable evidence.
 
 412 froze004411c; FIRST complete I8 fixture outcome ALL8 numerical/placement/
 full-output gates PASS, both3/6 cost/repeatability FAIL. Raw
