@@ -20,7 +20,7 @@ T4 needs prior reason/budget/stop communication. No model job overlaps timing.
 
 | Question | Established | Missing |
 | --- | --- | --- |
-| Useful large-n target | Dense0.5B scoped E1280 functions preserve GPU quality; real conditional-bank cost apparatus available | Genuine larger donor knowledge/useful extra n; actual hierarchical route quality/RAM-scale consultation and full accepted rate |
+| Useful large-n target | Real256-bank matched functions show predictive/generative usefulness369; exact physically smaller64/128 artifacts370; dense0.5B scoped E1280 GPU quality | Genuine larger donor knowledge/useful extra n; actual hierarchical route quality/RAM-scale consultation and full accepted rate |
 | Pretrained-to-compact transfer | Complete276 diagnostic archive, qualified314 actual GigaChat MoE targets; complete14.664B Switch original weights and full native encoder/decoder mapping | Scoped363 whole quality PASS; accepted FULL rate FAIL364; cross-family/100B proof |
 
 ## Decisive evidence and closed paths
@@ -207,13 +207,18 @@ ALL96pairedconsumedmatched363 versusBOTHfixedoffsets: maskedNLLharmmean
 -18.75/-19.79pp, upper98.75 -14.32/-15.625pp. AllfourprimaryboundsPASS;
 correctlearnedbankmatching materiallycontributes beyondstoredcounts/visits.
 No each-expert/extra-n causalbenefit, newuntouchedquality/physicalDRAM/rateclaim.
-Next[370 actual nestedexport](METH_370_SWITCH_NESTED_BANK_EXPORT_PROTOCOL_20261004.md)
-readytofreeze NEWphysicallycompactactual n64 AND128 subsets/sourcefirstn
-expertpairs+classifierrows fromSAMEbase256; exact338codes/scales/F32/ties/
-metadata/ranges/padding/fullSHA/RAMfit. Namespace1784/3320 andexpectedretained
-originalsourcecoeff3.7907B/7.4152B; no exportresultyet. Existingn256338unchanged.
-371 completeindependent dynamicn contract then372pairednestedsizeintervention;
-see[concrete subsetpath](SWITCH_NESTED_REAL_BANK_ARTIFACT_NEXT_20261004.md).
+[370 actual nestedexport](METH_370_SWITCH_NESTED_BANK_EXPORT_RESULT_20261004.md)
+ALL7PASS retained0ad6a84/exec32952 exit0 fullyconsumed,311.953s/max61MB,
+actualphysical n64payload3,903,912,448B/1784names/3.7907Bretainedsourcecoeff,
+n128payload7,541,946,880B/3320names/7.4152Bretainedsourcecoeff; originaldonor
+14.664B/source256 full338 unchanged. Exactcode/scales/F32routerprefix/ties/
+readback/manifest/distinctpaircounts/physicalRAMfit; exportfidelity ONLY.
+[371 dynamicn wholecontract](METH_371_SWITCH_NESTED_BANK_CONTRACT_PROTOCOL_20261004.md)
+readytofreeze SAME356binary/newactual64/128payloads, NEWexplicitactualn META
+namespace24n+248/retainedsourcecounts/F32controlclosure, unchangedindependent
+I64/A16arithmetic, allengineering/long/source29/OWNnatural cached oracles
+before372 pairednestedsizeintervention. No changedsubsetqualityinheritance.
+See[concrete subsetpath](SWITCH_NESTED_REAL_BANK_ARTIFACT_NEXT_20261004.md).
 Useful n/LUT/physical DRAM/causal learned bank
 usefulness/real128 comparison/cross-family/~100B goal remains open.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
