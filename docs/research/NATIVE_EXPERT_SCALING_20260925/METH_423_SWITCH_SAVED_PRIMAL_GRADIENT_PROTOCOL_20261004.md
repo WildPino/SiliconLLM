@@ -16,7 +16,8 @@ Recompute ONE source128 native zero-correction forward, all endpoints/full32128
 head byte-exact. Actual422 stable-loss autograd A/C and global F64 smooth twin
 gradients; B/D exactly zero. Separate independent literal NumPy local chain:
 stable centered CE derivative (selected gradient=-sum of all unselected ones),
-head dequant transpose->F32, F32 head scaling, RMS mean-coupled F64 local formula
+CE gradient casts to F32 at the native F32 logit interface, head dequant
+transpose on that cast gradient->F32, F32 head scaling, RMS mean-coupled F64 local formula
 at captured F32 post->F32, selected captured probability/F32, WO transpose->F32,
 captured native ReLU mask, WI transpose->F32, outer product with B@input or
 D@down accumulatedF64->F32. No calls to custom backward in independent reference.

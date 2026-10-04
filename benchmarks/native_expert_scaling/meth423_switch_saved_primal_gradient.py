@@ -29,7 +29,10 @@ def loss_gradient(z, target):
 
 def local_gradient(row, parameters, ff_final, wi, wo, head, logits, target, mask):
     # Independent NumPy reconstruction of prescribed local saved-primal rules.
-    d = 768; hgrad = (head.T.dot(loss_gradient(logits, target))).astype(np.float32)
+    d = 768
+    # Loss operates in F64 on a cast F32 logit tensor; backward casts dy to F32.
+    logit_gradient = loss_gradient(logits, target).astype(np.float32).astype(np.float64)
+    hgrad = (head.T.dot(logit_gradient)).astype(np.float32)
     final_grad = hgrad*np.float32(1/np.sqrt(d))
     x = row['post'].astype(np.float64); g = final_grad.astype(np.float64)*ff_final
     r = 1/np.sqrt(np.sum(x*x)/d+1e-6)
