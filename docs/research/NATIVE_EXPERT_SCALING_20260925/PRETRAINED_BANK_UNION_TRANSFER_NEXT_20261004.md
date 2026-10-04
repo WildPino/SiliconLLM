@@ -82,11 +82,17 @@ stored4.969GB. Git-bound config/custom code/ALL4 shard headers, no values/custom
 code execution/unique functions/original reference/quality/rate/DRAM measured.
 Source256 is not>256/10x useful capacity. Existing Switch loader does not fit it.
 
-Next proposed408 [native-cost resumption](LING_MINI_NATIVE_COST_NEXT_20261004.md)
-before32.5GB acquisition or generic port. Source operator/numerical/reference
-prerequisites and actual native COST still separate. Header cost eligibility is
-not model quality or accepted rate. Goal remains multiple-family proven transfer,
-larger useful choices/~100B and physical DRAM. No408 code/protocol/run yet.
+408 frozenfb897e9/retainedd49c951: ALL7 numeric/complete-archive gates PASS,
+synthetic full503.905MB Ling operator medians37.338-40.777ms (3 workers) and
+23.719-39.412ms (6);14ms cost FAIL.409 frozenb64aea0/retained9bced64: ALL10
+controls PASS/180SHA+60 complete archives exact408; six-worker coded matrices
+12.452-14.396ms/head6.695-7.733ms/router1.516-1.580ms. No universal one-component
+exclusion; original408 format closed before acquisition/fitting. No actual Ling
+values/model quality/rate/useful n/DRAM. Next separately frozen joint smaller
+second-palette/static pair-LUT plus Q4-head cost hypothesis; planning only.
+See LING_MINI_JOINT_FORMAT_NEXT_20261004.md. All408/409 handles terminal.
+
+Goal remains multiple-family proven transfer and useful RAM-scale choices.
 
 Primary source [pinned configuration](https://huggingface.co/inclusionAI/Ling-mini-2.0/raw/a810f6416bc4e1e29c9d7f271dd2fa7e56e71eab/config.json),
 [official model card](https://huggingface.co/inclusionAI/Ling-mini-2.0).

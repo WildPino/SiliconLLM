@@ -130,12 +130,15 @@ nextforadditional real alternatives; actual n artifactsnotyetimplemented.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-Qualified Switch128391/256376 quality/rate intact.399/400 full-width LUT cost
-rejected;401 real bank union fits RAM but403/404/406 specified input interfaces
-FAIL.405 full map not fit due conditioning. No new384 selector/model/quality.
-407 actual immutable Ling-mini header inventory ALL6 PASS,19 banks256/top8,
-503.905MB hypothetical active descriptor. Next proposed408 bounded CPU cost
-and original reference/operator prerequisites before32.5GB acquisition/port.
-No408 code/protocol/run. Useful>256/10x/other-family proven transfer/~100B and
-physical DRAM remain open. All sessions terminal. Use INDEX.md/METHOD.md and
-LING_MINI_NATIVE_COST_NEXT_20261004.md; preserve unrelated working changes.
+Qualified original Switch128391/256376 whole-quality/rate intact.401 union
+fits RAM but403/404/406 specified interfaces FAIL;405 full unregularized fit
+ineligible. No384 selector/model. 408 frozenfb897e9/retainedd49c951: ALL7 numeric/complete-archive gates PASS,
+synthetic full503.905MB Ling operator medians37.338-40.777ms (3 workers) and
+23.719-39.412ms (6);14ms cost FAIL.409 frozenb64aea0/retained9bced64: ALL10
+controls PASS/180SHA+60 complete archives exact408; six-worker coded matrices
+12.452-14.396ms/head6.695-7.733ms/router1.516-1.580ms. No universal one-component
+exclusion; original408 format closed before acquisition/fitting. No actual Ling
+values/model quality/rate/useful n/DRAM. Next separately frozen joint smaller
+second-palette/static pair-LUT plus Q4-head cost hypothesis; planning only.
+See LING_MINI_JOINT_FORMAT_NEXT_20261004.md. All408/409 handles terminal.
+Use INDEX.md/METHOD.md; preserve unrelated work.

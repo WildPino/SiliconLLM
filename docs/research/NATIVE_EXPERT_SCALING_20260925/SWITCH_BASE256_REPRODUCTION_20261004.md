@@ -155,3 +155,11 @@ Existing374/389 binaries are unchanged. For old controllers whose HEAD source
 identity expects393 as first prefix, use their stated frozen checkouts; later
 source additions do not silently satisfy that old HEAD gate. M401 reads/hashes
 both complete qualified targets only, does not export/run a combined model.
+
+## Later opt-in boundaries, through409
+
+408/409 add Ling synthetic cost/profiling prefixes before400.409 controller
+proves old408 engine reversal d49c951, old400 reversal02afce0 and default tail
+0ff9705. No qualified Switch binary changed; old HEAD-bound controllers still
+require their frozen checkouts. Ling costs are entirely synthetic and both fail
+the14ms whole operator allowance; do not inherit qualified Switch rate/quality.

@@ -2,7 +2,7 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: Ling-mini source-sized CPU cost; useful384/large n remains open.**
+whole-quality/SAMEartifact FULL-rate qualification. Next: Ling joint representation cost hypothesis; useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -142,7 +142,16 @@ model construction; no general impossibility claim. Qualified original models in
 ALL6 metadata gates PASS,4 shards/14,813 tensors/16.255643392B source positions,
 19 real256-slot bank shapes/top8. SAME317 complete hypothetical active descriptor
 503,905,280B <=560MB; stored4.969GB, no fitted books/values/quality/rate/DRAM.
-Another-family source applicability only. Next proposed408: bounded source-sized
-CPU cost and original operator prerequisites BEFORE32.5GB acquisition/generic port.
-See [cost resumption](LING_MINI_NATIVE_COST_NEXT_20261004.md). No408 code/protocol/run.
-Useful>256/10x/~100B/physical DRAM still open. All405/406/407 handles terminal.
+Another-family source applicability only.
+[408 cost result](METH_408_LING_ADDITIVE_COST_RESULT_20261004.md),d49c951:
+ALL7 controls PASS/180 fullSHA/60 archived complete outputs byte-exact across
+3/6 workers. All18 medians>20ms; both14ms screens FAIL. Full-width format closed.
+[409 component result](METH_409_LING_ADDITIVE_COST_PROFILE_RESULT_20261004.md),9bced64:
+ALL10 controls PASS/all outputs exact408; six-worker matrices12.452-14.396ms,
+head6.695-7.733ms/router1.516-1.580ms, no universal one-component exclusion.
+Both synthetic scopes omit causal attention/cache/composition; no model rate.
+Next [joint-format hypothesis](LING_MINI_JOINT_FORMAT_NEXT_20261004.md): smaller
+second palette/static pair lookup plus Q4 head, explicit precision tradeoff and
+all-storage/active-table charge. Planning only; no410 code/protocol/run.
+No acquisition/fitting pending a new complete cost gate. Useful>256/10x/~100B/
+physical DRAM and another-family actual quality remain open. All jobs terminal.

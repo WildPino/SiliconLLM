@@ -77,8 +77,15 @@ original Switch artifacts unchanged. More affine tuning needs new uncertainty.
 407 another-family actual Ling-mini headers retainede0f2f8b: ALL6 gates PASS,
 source16.255643392B positions/19 banks256/top8. SAME317 complete hypothetical
 active503,905,280B passes560MB yardstick, stored4.969GB; no acquired values or
-quality/native rate. Next proposed408 [cost screen](LING_MINI_NATIVE_COST_NEXT_20261004.md)
-before full32.5GB acquisition/generic port. Another-family metadata is not a
-proven transfer or useful>256/10x. No408 code/protocol/run yet.
-Qwen80B unchanged full-width acquisition remains closed without new transform;
-useful larger n/~100B/physical DRAM remain open. All jobs terminal.
+quality/native rate. Another-family metadata is not transferred/useful capacity.
+408 frozenfb897e9/retainedd49c951: ALL7 numeric/complete-archive gates PASS,
+synthetic full503.905MB Ling operator medians37.338-40.777ms (3 workers) and
+23.719-39.412ms (6);14ms cost FAIL.409 frozenb64aea0/retained9bced64: ALL10
+controls PASS/180SHA+60 complete archives exact408; six-worker coded matrices
+12.452-14.396ms/head6.695-7.733ms/router1.516-1.580ms. No universal one-component
+exclusion; original408 format closed before acquisition/fitting. No actual Ling
+values/model quality/rate/useful n/DRAM. Next separately frozen joint smaller
+second-palette/static pair-LUT plus Q4-head cost hypothesis; planning only.
+See LING_MINI_JOINT_FORMAT_NEXT_20261004.md. All408/409 handles terminal.
+Qwen80B unchanged full-width acquisition remains closed without a new transform.
+Useful larger n/~100B/physical DRAM remain open. Qualified source artifacts intact.

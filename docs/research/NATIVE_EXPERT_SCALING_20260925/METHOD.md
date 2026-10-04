@@ -18,8 +18,9 @@ validation;405 unregularized full map is ineligible by conditioning. No384 model
 407 actual immutable Ling-mini headers enable another-family COST screen:
 19 banks256/top8, source16.2556B, SAME317 hypothetical503.905MB active descriptor.
 No original Ling values/reference/native quality/rate or physical DRAM yet.
-Next [source-sized cost gate](LING_MINI_NATIVE_COST_NEXT_20261004.md) before weight
-acquisition or generic port. Existing Switch quality/rate results remain intact.
+408 full-width cost FAIL/409 attribution PASS; matrices and head both matter.
+Next [joint representation hypothesis](LING_MINI_JOINT_FORMAT_NEXT_20261004.md)
+before values/fitting. Existing Switch quality/rate results remain intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified
 
@@ -910,9 +911,9 @@ books or source precision quality/rate inheritance. Active parameter positions
 with ONE lookup row1.111B; card-style full embedding counting explains~1.43B.
 MAIN16.531s/max58.008MB/13HTTP/3.261MB response bytes, zero tensor values.
 
-Next proposed408: separately frozen source-sized native COST screen and original
-operator prerequisites before32.5GB acquisition or generic port. See
-[resumption](LING_MINI_NATIVE_COST_NEXT_20261004.md). Source sigmoid/group/bias/
+408 source-sized native COST now failed;409 component attribution retained.
+See [current resumption](LING_MINI_JOINT_FORMAT_NEXT_20261004.md).
+Source sigmoid/group/bias/
 top8 amplitude, GQA/QK norm/halfRoPE, SiLU/shared FFN/tokenizer/head need explicit
 reference and numerical contract. Existing Switch loader D<=1024/vocab<=65536
 cannot load it. A byte gate licenses no codebook quality or accepted model rate.
@@ -921,4 +922,31 @@ Byte-distinct pairs are not canonical function uniqueness/usefulness. A real384
 selector or another-family converted artifact ultimately requires new excluded-
 document original-relative whole quality and SAMEartifact FULL accepted rate.
 No source quality inheritance. Useful>256/10x/~100B/physical DRAM remain open.
-No408 controller/protocol/run yet; all405/406/407 sessions terminal.
+All405-409 sessions terminal; no410 controller/protocol/run yet.
+
+## Another-family complete synthetic operator cost: format not eligible
+
+[408](METH_408_LING_ADDITIVE_COST_RESULT_20261004.md) exact318 AVX2 direct
+two-palette decode,20 actual-header-sized layers/top8/shared/dense/Q6 head:
+ALL7 apparatus and independent math/archive gates PASS. All180 fullSHA and60
+complete archives exact across3/6 profiles. Active503905280B/stored4969196544B;
+all18 rep medians>20ms, neither14ms allowance passed. Not accepted model rate:
+ALL values synthetic, independent context/layer fixtures omit causal attention/
+RoPE/KV/cache/prefill/composition. Stop this format before values or fitting.
+
+[409](METH_409_LING_ADDITIVE_COST_PROFILE_RESULT_20261004.md) inserts only timers/
+counters, reverses exactly408, ALL10 gates PASS and complete bytes exact408.
+Six-worker coded12.452-14.396ms/head6.695-7.733ms/router1.516-1.580ms; controls/
+nonlinearities remainder2.224-2.682ms. No component alone exceeds14ms in every
+six-worker rep. This informs a joint precision/cost hypothesis; it does not
+repair408 or prove cache/DRAM behavior. MAIN22.281/22.203s, max~5.04GB each.
+Default0ff9705 tail and qualified374/389 binaries unchanged.
+
+[Proposed joint format](LING_MINI_JOINT_FORMAT_NEXT_20261004.md) reduces second
+palette256->16, stores static precombined pairs, and changes Q6 head->Q4. New
+representability/precision and cost, no inherited408 byte identity or original
+quality. Its hypothetical conservative389.370MB descriptor charges active pair
+tables,4.364GB total charges every stored table. Neither is an actual export or
+DRAM measure. Freeze new math/whole-output and complete cost gates first; source
+quality/reference/acquisition only after a cost-qualified hypothesis. Useful
+RAM-scale capacity and another-family proven transfer remain open.
