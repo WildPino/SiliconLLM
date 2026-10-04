@@ -784,12 +784,29 @@ coverage spans173-252 of256 and107-126 of128 teacher choices. Different
 sources/cohorts prevent causal n interpretation; visits are not individual
 expert usefulness. Existing top1 traces cannot reconstruct ranking/tail mass.
 
-Next393 must capture actual normalized router inputs/full scores under exact
-complete-output identity, then measure oracle ranked retained mass before
-choosing a retrieval/LUT normalization approximation. Exact best-expert lookup
+393 captured all full scores/actual inputs, complete384 output hashes/IDs exact
+and independent selected probabilities EXACT0. Minimum oracle m for1% scaling
+median/95th140/191 at256,71/98 at128 teacher; top64-only normalization rejected.
+394 fixed source-only low-rank classifier/refinement grid and395 full-dimensional
+I8/A16/refinement grid both rejected. All apparatus controls pass; no changed
+router is eligible for whole quality/rate.395 source128 m16 passes22/24 bank/modes
+but misses212 selected IDs in the remaining bank; no pooled override. Exact best-expert lookup
 alone does not preserve the softmax-scaled original function. Larger actual
 useful n, physical DRAM and another donor family remain separate open gates.
 Frozen GigaChat314-319 assets are reusable;319 already uses full-width additive
 I8 palette decoding and synthetic operator fixtures, not an unquantized dense
 baseline or complete learned model. Its38-56ms failed costs cannot be promoted
 by inheriting Switch execution rates; unchanged generic port remains paused.
+
+
+## Current next source applicability question
+
+See LARGE_N_SOURCE_APPLICABILITY_NEXT_20261004.md. Reuse donor-adaptation's
+pinned Qwen3-Next80B/512 configuration as metadata, not weights; resolve earlier
+79.574B/81.325B formula discrepancy via actual immutable tensor headers and
+main/MTP accounting before deciding original-reference/compact-core resources.
+Its selected-topk renormalization differs from Switch full-softmax scaling;
+finite precision and tie semantics still need exact original bridges. GigaChat
+selected sigmoid normalization also differs; Switch tail results do not transfer.
+No larger-n source, original/reference/runtime quality or transfer is validated
+by a model card/config. Next396 is unimplemented/unfrozen; no acquisition yet.

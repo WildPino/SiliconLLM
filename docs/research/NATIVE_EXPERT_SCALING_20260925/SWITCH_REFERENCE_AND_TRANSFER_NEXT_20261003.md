@@ -130,19 +130,18 @@ nextforadditional real alternatives; actual n artifactsnotyetimplemented.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-389 both original sources/ALL192 teacher+natural whole outputs exact363/387 at
-three actual workers[0,2,4], numerical contract PASS.390 original128 ALL6 cost
-PASS; full256 three-worker repeat1.105770>1.10 FAIL retained29dfdf8. Original
-256 six-worker374/375/376 route remains qualified.383 original128 six-worker
-failure and386/388 apparatus failures preserved; drafts384/385 ineligible.
-391 original128 SAMEartifact accepted FULL rate ALL5 PASS4764544:96.56385
-ordinary IDs/s/lower94.58827,55.97659 prose IDs/s/lower54.59729,96/96 healthy,
-662 prose IDs, repeat1.012403. Two actual same-family pretrained source scales
-have complete bounded quality/rate; worker variants independently qualified.
-No causal n/other-family/general-context/physical DRAM/~100B conclusion.
-392 read-only routing audit PASS62bde68: selected probability medians~.10/.25,
-so exact selected identity alone cannot inherit full softmax scaling. Next393
-capture full router inputs/scores under exact whole-output identity, then
-measure oracle retained tail mass before choosing hierarchy/LUT approximation.
-More useful choices remain the priority; no unchanged rate polishing or old
-GigaChat generic-port restart. See INDEX.md/METHOD.md for exact current state.
+391 independently pretrained original128 SAMEartifact FULL rate ALL5 PASS,
+96.56385 ordinary IDs/s/lower94.58827;55.97659 prose IDs/s/lower54.59729.256
+six-worker376 remains qualified;128 three-worker390/391 independently qualified.
+Original-relative whole quality363/387, exact runtime inheritance374/389. Old
+383/390 threading and386/388 apparatus failures remain preserved/closed.
+392/393 actual router audit/capture PASS: all384 complete quality outputs exact;
+oracle top64-only normalization fails1% scaling.394 low-rank and395 I8/A16
+fixed refinement grids rejected; no approximate router native promotion.
+All393/394/395 processes exited/fully consumed, no live job. Keep full-F32
+qualified routers/rates. Next actual>256 source/header/active-cost applicability
+screen396; implementation/protocol not yet frozen. Reuse pinned Qwen3-Next80B/
+512 config evidence from donor-adaptation, not presumed full weights. See
+LARGE_N_SOURCE_APPLICABILITY_NEXT_20261004.md and INDEX.md/METHOD.md. Source-
+specific normalization matters. No generic GigaChat-port restart. Final goal
+incomplete: useful10x/LUT/physical DRAM/other families/contexts/~100B unproven.

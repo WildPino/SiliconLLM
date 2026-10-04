@@ -134,11 +134,13 @@ are evidenced.
 ## Current source revision and second qualified scale
 
 The immutable374/375/376 observations use their frozen source commits. The
-current engine also has388's THREE_WORKERS opt-in before the six-worker branch;
+qualified three-worker source revision37af5e7 has388's opt-in before the six-worker
+branch; current engine adds393's optional diagnostic capture before both;
 frozen374 source-identity controller requires its original prefix, so execute
 that controller from its frozen59e39d8 checkout for original reproduction.
-Use389's source-identity proof for the current three-worker branch; do not edit
-old controllers to accept changed source. Existing qualified374 executable and
+Use389's source-identity controller from its frozene604af1 checkout;393 proves
+current capture source reverses exactly to388 and strips to37af5e7 engine.
+Do not edit frozen controllers to accept changed source. Existing qualified374 executable and
 its original six-worker rate remain authoritative. Source128 now independently
 qualifies at three workers through389/390/391; see
 [base128 reproduction](SWITCH_BASE128_REPRODUCTION_20261004.md). Different worker

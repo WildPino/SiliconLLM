@@ -2,9 +2,7 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: real router tail mass.**
-Goal tool currently reports paused despite user-authorized continuation;
-no complete/blocked status was set. Research remains unfinished.
+whole-quality/SAMEartifact FULL-rate qualification. Next: actual >256-choice source applicability.**
 
 ## Goal and constraints
 
@@ -79,10 +77,19 @@ original128 OWN artifact is NOT370 n128 subset. Isolated324 original environment
 reusable. Qualified binaries374 and389 remain separately bound to their rates;
 a changed engine/controller needs its own exact-source/full-output verification.
 
-Next393: instrument actual normalized router inputs/full scores while retaining
-ALL384 complete outputs exactly363/387/389; quantify an oracle ranked shortlist's
-retained probability mass and selected scaling before choosing a hierarchy/LUT.
-No rate polishing or automatic old GigaChat-port restart. Exact top1-only traces
-cannot reconstruct ranked tail mass. The necessary candidate bound in392 is
-not a sufficient shortlist size or changed-router quality result. More useful
-choices, physical DRAM, other families/contexts/~100B remain open.
+393 full-score capture ALL8 PASS77a3268,292.891s/max1.408GB; ALL384 complete
+outputs exact363/387/389, independent selected probability EXACT0 difference.
+Oracle top64 normalization rejected: minimum m median/95th140/191 at256 and
+71/98 at128 teacher. Diagnostic algebra, not changed-model harm or retrieval.
+394 source-only low-rank/refinement grid rejected2fa0cf2 (12.344s/312MB);395
+full-dimensional I8/A16+exact shortlist rejected73d14e2 (6.328s/318MB). All
+apparatus gates pass; NO changed router eligible for native quality/rate.
+Original qualified full-F32 routers/binaries/rates remain authoritative.
+
+Next396: actual tensor-header/namespace/main-vs-MTP/core-active-cost screen for
+Qwen3-Next80B/512, reusing donor-adaptation's pinned config stub and reconciling
+its earlier parameter-count discrepancy. Source-specific top-k normalization
+differs from Switch. [Exact next uncertainty, budget and stop](LARGE_N_SOURCE_APPLICABILITY_NEXT_20261004.md).
+No396 implementation/frozen protocol/header observations or large weight
+acquisition yet. No live model/job/exec handles;393/394/395 exits fully consumed.
+More useful choices/10x, physical DRAM, other families/contexts/~100B remain open.
