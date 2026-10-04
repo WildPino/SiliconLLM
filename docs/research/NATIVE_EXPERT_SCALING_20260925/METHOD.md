@@ -481,7 +481,13 @@ retainedc0611e7, no367 rate promotion. Next368/369 use SAME stable361/356
 binary/quality for learnedbank identity interventions through smallserialized
 manifest remapping, unchanged payload/math/router, fixedtwo nonidentity
 bijections. This is diagnostic usefulness evidence; frozen paired task/NLL
-gates follow independent complete control oracles. No bank result yet.
+gates follow independent complete control oracles.368 ALL7 numeric/serialized
+bankcontrols PASS;369 ALL7 pairedconsumedbankharm PASS, BOTHfixedcontrols
+maskedNLL+2.8278/+2.6429nats andgeneratedfieldexact-18.75/-19.79pp. Supports
+matched learnedbank usefulness, noteach-expert/extra-n gain/NEWquality/rate.
+370 actualphysicalnested64/128 bankexports nowprospective, retainingoriginal
+firstnfunctions/classifierrows;371 fullindependentdynamicnreference and372
+pairedsizeintervention requiredbefore anyadditional-n claim.
 No relaxed acceptance/50/1.10 or optional repeats. Whole quality remains bounded
 English short four-span infilling; useful RAM-scale n/LUT/physical DRAM/causal
 bank identity/real128/cross-family/~100B goal remains active.

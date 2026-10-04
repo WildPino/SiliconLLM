@@ -200,12 +200,20 @@ SAME356 binary/math/CPU1profile/payload; actualsmallmanifest0/1/127 fixed
 bijections all3072WI/WO pairs, ALL6392 lookupreadbacks/Tiny/full/OWNnatural
 independentarrays exact. Matchedmanifest SHAexact338/matchedcontrols exact363;
 actualconsultedfunctionidentitysidecarshashed. No bankharm observation yet.
-[369 pairedbank usefulness](METH_369_SWITCH_BANK_USEFULNESS_PROTOCOL_20261004.md)
-readytofreeze ALL96consumedmatched363 versusBOTHfixedoffsets, ALLfour primary
-predictive+generative harm bounds98.75%/Bonferronifamilyalpha.05 before scores.
-No new originalteacher loaded or acceptedtimingclaim. This diagnostic tests matched learnedbank usefulness, notnewuntouchedquality
-or everyexpert/n-gain. Fixedgenuine64/128/256 nested-bank intervention planned
-nextforadditional real alternatives; actual n artifactsnotyetimplemented.
+[369 pairedbank usefulness](METH_369_SWITCH_BANK_USEFULNESS_RESULT_20261004.md)
+ALL7 PASS retainedacfbd0a,exec5142 exit0 fullyconsumed;384.125s/max1.248GB.
+ALL96pairedconsumedmatched363 versusBOTHfixedoffsets: maskedNLLharmmean
++2.8278/+2.6429nats, lower98.75+2.5308/+2.3496; generatedknownfieldexactloss
+-18.75/-19.79pp, upper98.75 -14.32/-15.625pp. AllfourprimaryboundsPASS;
+correctlearnedbankmatching materiallycontributes beyondstoredcounts/visits.
+No each-expert/extra-n causalbenefit, newuntouchedquality/physicalDRAM/rateclaim.
+Next[370 actual nestedexport](METH_370_SWITCH_NESTED_BANK_EXPORT_PROTOCOL_20261004.md)
+readytofreeze NEWphysicallycompactactual n64 AND128 subsets/sourcefirstn
+expertpairs+classifierrows fromSAMEbase256; exact338codes/scales/F32/ties/
+metadata/ranges/padding/fullSHA/RAMfit. Namespace1784/3320 andexpectedretained
+originalsourcecoeff3.7907B/7.4152B; no exportresultyet. Existingn256338unchanged.
+371 completeindependent dynamicn contract then372pairednestedsizeintervention;
+see[concrete subsetpath](SWITCH_NESTED_REAL_BANK_ARTIFACT_NEXT_20261004.md).
 Useful n/LUT/physical DRAM/causal learned bank
 usefulness/real128 comparison/cross-family/~100B goal remains open.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
