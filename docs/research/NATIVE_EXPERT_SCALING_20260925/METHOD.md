@@ -1,10 +1,11 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-**4 October strategic review:** current user scope is investigation/planning
-only. [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
+**4 October resumption:** the user resumed the goal after the strategic review.
+[Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
 qualified Switch transfer from useful-n scaling, cross-core interfaces and
 physical cost. Single-donor common/private decomposition is a NEW hypothesis,
-not an implemented method.441 remains the latest outcome;442 draft is unrun.
+not an implemented method.441 remains the latest outcome;442's native causal
+protocol is prepared for freeze before any new forward.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
@@ -103,9 +104,9 @@ Teacher-ID counts do not establish useful conditional capacity. Close fixed
 shared-readout recipe before tuning/selector fitting.53s/1.680GB/zero updates.
 Next [original function causality](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
 NEW442 native source128 final-bank identity/removal before foreign readout.
-Only an unfrozen draft exists; no protocol/outcome or new fit. Exact heads first,
-then fixed
-controls. All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
+[Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes exact
+heads first, then three fixed controls,150sec/3GiB/160MiB and first-stop retention.
+No outcome or new fit yet. All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 
 ## Independently pretrained source128: complete bounded transfer qualified

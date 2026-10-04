@@ -1,12 +1,13 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.**
-Current user scope: investigation and planning only; experimental work is stopped.
+The user resumed experimental work after the strategic review. Goal ACTIVE.
 [Strategic review](STRATEGIC_REVIEW_20261004.md) audits the evidence and proposes
 single-donor common/private decomposition, identity-sensitive supervision,
-explicit routing/normalization and complete cost gates. No new numerical outcome.
+explicit routing/normalization and complete cost gates. The review is a dated
+document-only snapshot; resumed442 is the first new causal diagnostic.
 Latest science remains441: ONE fixed function retains99.6585%benefit, so440's
-teacher-ID counts do not prove conditional capacity.442 is an unfrozen draft.
+teacher-ID counts do not prove conditional capacity.442 is prepared for freeze.
 
 ## Goal and constraints
 
@@ -87,11 +88,11 @@ Frozen donor-adaptation Giga work remains reusable evidence, not active old plan
 
 ## Exact resumption
 
-Read [strategic review and decision plan](STRATEGIC_REVIEW_20261004.md) before
-resuming experiments. The current request authorizes investigation/plan only.
-The existing442 technical proposal below is retained, not executed or frozen;
-its draft has a static count-versus-index defect documented in the review.
-No442 protocol/output directory exists. Do not auto-start a fit or benchmark.
+Read [strategic review and decision plan](STRATEGIC_REVIEW_20261004.md).
+The latest user instruction explicitly resumes the goal, superseding the earlier
+analysis-only scope.442's static count-versus-index defect was repaired before
+freeze. [Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes
+all controls, information metric and first-stop limits before any forward.
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
 NEW442 original128 final-bank replay/counterfactual at336captured prefixes. ALL
