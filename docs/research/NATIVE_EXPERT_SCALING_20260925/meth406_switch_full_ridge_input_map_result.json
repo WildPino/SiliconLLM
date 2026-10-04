@@ -1,0 +1,878 @@
+{
+  "experiment": "METH-406-one-full768-affine-ridge-input-map",
+  "banks": [
+    {
+      "stack": "encoder",
+      "bank": 0,
+      "dimension": 768,
+      "development_positions": 2088,
+      "validation_positions": 696,
+      "ridge_penalty": 0.00010707138451074446,
+      "effective_ridge_degrees_of_freedom": 767.5794790955576,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.136294463177484,
+          0.23394332451435831,
+          0.520768726854905,
+          0.843924088171768,
+          0.9732647825098648
+        ],
+        "squared_error_over_validation_mean_only_error": 0.7215197649014058,
+        "maximum_absolute_difference": 35.759084701538086
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.13629447389444616,
+          0.23394331278840247,
+          0.5207687169835838,
+          0.8439240839546653,
+          0.9732647861430223
+        ],
+        "squared_error_over_validation_mean_only_error": 0.7215197652036532,
+        "maximum_absolute_difference": 35.759087734881675
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.4544546329815278,
+          0.5728963290132547,
+          0.6716370467329953,
+          0.8192856210694762,
+          0.9409812498604027
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 57.1488633192362
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.133029840947496,
+          1.1869257419711419,
+          1.2757202552416183,
+          1.37423727388866,
+          1.510790067997376
+        ],
+        "squared_error_over_validation_mean_only_error": 3.5054844406637877,
+        "maximum_absolute_difference": 171.29523301124573
+      },
+      "F32_vs_F64_prediction_relative_L2": 2.542206090578394e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank0.full_ridge.npz",
+      "map_sha256": "fc14fb80dea2c268709bbd754466f6de711e08bc253866e78172f95f46a55125",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "encoder",
+      "bank": 1,
+      "dimension": 768,
+      "development_positions": 2088,
+      "validation_positions": 696,
+      "ridge_penalty": 0.001046228694597887,
+      "effective_ridge_degrees_of_freedom": 767.8519157699602,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.17681859699131078,
+          0.5057378529682288,
+          0.7555890951303549,
+          0.9231044234645992,
+          1.030346225273683
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9646619564553465,
+        "maximum_absolute_difference": 126.39644622802734
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.1768185777209317,
+          0.5057378469150076,
+          0.7555890854735872,
+          0.9231044397430868,
+          1.030346251859634
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9646619531662591,
+        "maximum_absolute_difference": 126.39639487896211
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.5889069411785907,
+          0.6641769192337715,
+          0.7531964000510079,
+          0.8462469212626277,
+          1.1553956064238153
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 251.30321632217175
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.3229313649925734,
+          1.4738566080337752,
+          1.636051119681584,
+          1.88132379893622,
+          2.4717292041701553
+        ],
+        "squared_error_over_validation_mean_only_error": 4.568169911922223,
+        "maximum_absolute_difference": 293.192156791687
+      },
+      "F32_vs_F64_prediction_relative_L2": 2.8179986432121e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank1.full_ridge.npz",
+      "map_sha256": "d483a00c6c68de33205e43a5641d9f949277bea220ca07cadd6c655b89e22556",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "encoder",
+      "bank": 2,
+      "dimension": 768,
+      "development_positions": 2088,
+      "validation_positions": 696,
+      "ridge_penalty": 0.0027942387572535824,
+      "effective_ridge_degrees_of_freedom": 767.7964053119604,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.1940059360974938,
+          0.4601329037424736,
+          0.7035215280246896,
+          0.9117400356807778,
+          1.0785991471335807
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0138158985238888,
+        "maximum_absolute_difference": 218.2167510986328
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.1940059241420755,
+          0.46013293218769624,
+          0.7035215513889264,
+          0.9117400463416583,
+          1.0785991096892862
+        ],
+        "squared_error_over_validation_mean_only_error": 1.013815899604644,
+        "maximum_absolute_difference": 218.21676007214688
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.5454188139916467,
+          0.618697690205903,
+          0.6812829675969254,
+          1.0018124543313716,
+          1.2351537294496926
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 297.80605750613745
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.1027389681929654,
+          1.2635652035071137,
+          1.3987925097842238,
+          2.1687803347380927,
+          2.7664116684385913
+        ],
+        "squared_error_over_validation_mean_only_error": 4.092455894289726,
+        "maximum_absolute_difference": 559.8785489797592
+      },
+      "F32_vs_F64_prediction_relative_L2": 2.482381084917397e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank2.full_ridge.npz",
+      "map_sha256": "32f2dc8fdcc9df4d6e236d70907cae4886cbcc79aa9bc92b206985d40da2bc38",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "encoder",
+      "bank": 3,
+      "dimension": 768,
+      "development_positions": 2088,
+      "validation_positions": 696,
+      "ridge_penalty": 0.0018189388172064436,
+      "effective_ridge_degrees_of_freedom": 767.9812226707293,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.15593440260638375,
+          0.5692458847789463,
+          0.7969659179834896,
+          1.0060738311213604,
+          1.5772258703504063
+        ],
+        "squared_error_over_validation_mean_only_error": 1.050110580597605,
+        "maximum_absolute_difference": 367.1903839111328
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.15593443152961617,
+          0.5692458679924726,
+          0.7969659044188959,
+          1.0060738288156839,
+          1.5772258472901637
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0501105855744821,
+        "maximum_absolute_difference": 367.19038155351757
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.6072831835071908,
+          0.6731378183180042,
+          0.7400399362283404,
+          1.021297974859977,
+          1.7726924267897404
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 566.2044883195981
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.145443682812659,
+          1.2853208572537085,
+          1.426188678243114,
+          1.6604933783654372,
+          2.0477383718108757
+        ],
+        "squared_error_over_validation_mean_only_error": 3.39128459860733,
+        "maximum_absolute_difference": 543.8624064922333
+      },
+      "F32_vs_F64_prediction_relative_L2": 2.7348190971000597e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank3.full_ridge.npz",
+      "map_sha256": "8e9a6bc84ac5b9e81a1244a8e9f5109dd05319e9d530f934434f097e2df6c2d8",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "encoder",
+      "bank": 4,
+      "dimension": 768,
+      "development_positions": 2088,
+      "validation_positions": 696,
+      "ridge_penalty": 0.0028686980328350175,
+      "effective_ridge_degrees_of_freedom": 767.8931848151273,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.21975322577334358,
+          0.6602297173670797,
+          0.8501833111981879,
+          1.0033143498780188,
+          1.29742095592312
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0386406566715665,
+        "maximum_absolute_difference": 680.5537223815918
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.2197532072520998,
+          0.6602296737711522,
+          0.8501833034033692,
+          1.003314346176093,
+          1.2974209564124577
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0386406555993661,
+        "maximum_absolute_difference": 680.5537476357842
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.7335278861800401,
+          0.7684051434390086,
+          0.8263305520021801,
+          0.9255187286560023,
+          1.1527325050891581
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 677.3282244052788
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0662739813100852,
+          1.1985020911833284,
+          1.3133806650211521,
+          1.429963389288831,
+          1.6185149814798327
+        ],
+        "squared_error_over_validation_mean_only_error": 2.4735669133699663,
+        "maximum_absolute_difference": 705.6222506463528
+      },
+      "F32_vs_F64_prediction_relative_L2": 2.871815919670895e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank4.full_ridge.npz",
+      "map_sha256": "47a784ab36c2a2ab07026375b96585d836796f8aad9b0561132e5bf73de817bd",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "encoder",
+      "bank": 5,
+      "dimension": 768,
+      "development_positions": 2088,
+      "validation_positions": 696,
+      "ridge_penalty": 0.0037494840825052582,
+      "effective_ridge_degrees_of_freedom": 767.7328233941953,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.12635287152332564,
+          0.6782398106010632,
+          0.8658642282043698,
+          1.0873002529753362,
+          1.5846642536562017
+        ],
+        "squared_error_over_validation_mean_only_error": 0.897453144854741,
+        "maximum_absolute_difference": 1195.4313144683838
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.12635285661609075,
+          0.6782398258689992,
+          0.8658642367246756,
+          1.087300263171378,
+          1.5846642905929884
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8974531479624449,
+        "maximum_absolute_difference": 1195.4313294856179
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.792902315497842,
+          0.8311380607468102,
+          0.8984730729425767,
+          0.9972109014125177,
+          1.175167906676121
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 1208.6928232629687
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0435958240744603,
+          1.2090915942397928,
+          1.3252672347562366,
+          1.4467324757599762,
+          1.8749360179881314
+        ],
+        "squared_error_over_validation_mean_only_error": 2.1075124534943934,
+        "maximum_absolute_difference": 1176.6879336684942
+      },
+      "F32_vs_F64_prediction_relative_L2": 3.146848130773947e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank5.full_ridge.npz",
+      "map_sha256": "94dcd56b0098a47a1fd5d0bd38d395b637d735e16ec4b81a5a5d05aaec23a787",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "decoder",
+      "bank": 0,
+      "dimension": 768,
+      "development_positions": 1008,
+      "validation_positions": 336,
+      "ridge_penalty": 0.0016964039072273653,
+      "effective_ridge_degrees_of_freedom": 720.8135936299097,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.16139898726074253,
+          0.2486513361950563,
+          0.9790564878367205,
+          2.1937689120361226,
+          2.6382530334897076
+        ],
+        "squared_error_over_validation_mean_only_error": 2.2446835517394867,
+        "maximum_absolute_difference": 253.21895790100098
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.16139898602189737,
+          0.24865134377284792,
+          0.979056500584842,
+          2.193768876390836,
+          2.6382530568951097
+        ],
+        "squared_error_over_validation_mean_only_error": 2.2446835511901915,
+        "maximum_absolute_difference": 253.21895796169548
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.6048394615594788,
+          0.6906647068814051,
+          0.81418390934746,
+          0.935017608155583,
+          1.0017495874261808
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 165.96700747524727
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.1331832468153007,
+          1.1868364483610716,
+          1.2842566224804797,
+          1.6859055429427579,
+          1.7409969515959622
+        ],
+        "squared_error_over_validation_mean_only_error": 2.62467841731646,
+        "maximum_absolute_difference": 322.54450001905207
+      },
+      "F32_vs_F64_prediction_relative_L2": 7.523750176647299e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank6.full_ridge.npz",
+      "map_sha256": "19838109a6f4b2da539fcd961860d7490218bce785de002df674ce93076119c5",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "decoder",
+      "bank": 1,
+      "dimension": 768,
+      "development_positions": 1008,
+      "validation_positions": 336,
+      "ridge_penalty": 0.00036334708513659333,
+      "effective_ridge_degrees_of_freedom": 752.4642460442656,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.3215514897251677,
+          0.4118957922608645,
+          1.0819348785481333,
+          1.4827988272123567,
+          1.904290744550751
+        ],
+        "squared_error_over_validation_mean_only_error": 2.4906644167958993,
+        "maximum_absolute_difference": 140.26522827148438
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.3215516859342006,
+          0.4118954491471999,
+          1.0819349195459291,
+          1.4827988241885954,
+          1.904290783411347
+        ],
+        "squared_error_over_validation_mean_only_error": 2.4906644152637476,
+        "maximum_absolute_difference": 140.26513597122687
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.540406505369455,
+          0.6117385151392876,
+          0.7039032939709083,
+          1.5618408508315578,
+          1.6410454541114654
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 207.9027258984833
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0983049660269466,
+          1.2010643083791064,
+          1.2880584878431964,
+          1.4048355732260631,
+          1.8904421577989265
+        ],
+        "squared_error_over_validation_mean_only_error": 3.1403706637979316,
+        "maximum_absolute_difference": 276.8465777337551
+      },
+      "F32_vs_F64_prediction_relative_L2": 6.319843328820824e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank7.full_ridge.npz",
+      "map_sha256": "bb8a1fb9cd7d1559a1a06f4fe17fdbd09631bf5e4adfc360ad5c90412bf82af9",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "decoder",
+      "bank": 2,
+      "dimension": 768,
+      "development_positions": 1008,
+      "validation_positions": 336,
+      "ridge_penalty": 0.000858055509748068,
+      "effective_ridge_degrees_of_freedom": 757.9146434994743,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.08041244419441539,
+          0.41174645102868956,
+          1.3190203220496781,
+          1.7124956481782707,
+          1.893952403625923
+        ],
+        "squared_error_over_validation_mean_only_error": 2.935275600824761,
+        "maximum_absolute_difference": 153.46852493286133
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.08041306284584199,
+          0.4117464181217102,
+          1.319020320976986,
+          1.7124957091502393,
+          1.893952373977632
+        ],
+        "squared_error_over_validation_mean_only_error": 2.93527559107401,
+        "maximum_absolute_difference": 153.46850108589058
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.6382768663671972,
+          0.7066933605150489,
+          0.7682939525348276,
+          2.102631032228094,
+          2.1237259783474687
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 281.64851207581773
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0952844612182115,
+          1.2049467750192022,
+          1.2715423536417165,
+          1.4338612264515325,
+          2.24098182684406
+        ],
+        "squared_error_over_validation_mean_only_error": 2.5856882053236254,
+        "maximum_absolute_difference": 352.93456649780273
+      },
+      "F32_vs_F64_prediction_relative_L2": 6.367454846817378e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank8.full_ridge.npz",
+      "map_sha256": "86b8fed3c7c9aef419f918f56dd979bfb18e17915cefa9c59084e05bfded038d",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "decoder",
+      "bank": 3,
+      "dimension": 768,
+      "development_positions": 1008,
+      "validation_positions": 336,
+      "ridge_penalty": 0.0030033115537230048,
+      "effective_ridge_degrees_of_freedom": 757.9897048005417,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.023428513226151002,
+          0.17636619196224113,
+          1.530407500490822,
+          2.0557377340652785,
+          2.548435016702674
+        ],
+        "squared_error_over_validation_mean_only_error": 2.767289903245696,
+        "maximum_absolute_difference": 159.14505767822266
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.023428359436594482,
+          0.17636621684939807,
+          1.5304074754073778,
+          2.0557377249292577,
+          2.5484351020057194
+        ],
+        "squared_error_over_validation_mean_only_error": 2.7672899053311215,
+        "maximum_absolute_difference": 159.14507068014433
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.7505621912430774,
+          0.8086726428262662,
+          0.8722637044827852,
+          0.9309303889914121,
+          0.981356835176105
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 280.9913411361742
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0904437138293985,
+          1.18255459772575,
+          1.647436563326592,
+          1.9974207593591347,
+          2.217047200479409
+        ],
+        "squared_error_over_validation_mean_only_error": 3.4277331089832836,
+        "maximum_absolute_difference": 317.3831615149975
+      },
+      "F32_vs_F64_prediction_relative_L2": 6.067747125029453e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank9.full_ridge.npz",
+      "map_sha256": "1027f23c9dc7fe3e7e0bc199ba2e68671fb79d08d8d28144eac71e5deb68f0be",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "decoder",
+      "bank": 4,
+      "dimension": 768,
+      "development_positions": 1008,
+      "validation_positions": 336,
+      "ridge_penalty": 0.0029776673574332794,
+      "effective_ridge_degrees_of_freedom": 762.1454828089884,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.027708647639936742,
+          0.1463755115842633,
+          1.7211452638693383,
+          2.4261959990770614,
+          3.311194725966684
+        ],
+        "squared_error_over_validation_mean_only_error": 3.069669653429978,
+        "maximum_absolute_difference": 217.09811401367188
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.027708632601931193,
+          0.14637542990866498,
+          1.721145264981182,
+          2.426195983066928,
+          3.311194576760952
+        ],
+        "squared_error_over_validation_mean_only_error": 3.069669660739921,
+        "maximum_absolute_difference": 217.09814031184447
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.7957832935383815,
+          0.8447090619276838,
+          0.9113903348319028,
+          0.9597919515748234,
+          0.9900608384848862
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 340.9797572450609
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0848189783521134,
+          1.1478485622390633,
+          1.4145336402781648,
+          1.6416401133656684,
+          2.0090373364580243
+        ],
+        "squared_error_over_validation_mean_only_error": 2.300761590336173,
+        "maximum_absolute_difference": 381.5973665714264
+      },
+      "F32_vs_F64_prediction_relative_L2": 5.833933920791355e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank10.full_ridge.npz",
+      "map_sha256": "a2154e80aee1a6d7f0035d39d6db2a5959487c54679cd422ed2e5a66075e6aa4",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    },
+    {
+      "stack": "decoder",
+      "bank": 5,
+      "dimension": 768,
+      "development_positions": 1008,
+      "validation_positions": 336,
+      "ridge_penalty": 0.0012733391352714163,
+      "effective_ridge_degrees_of_freedom": 759.3587111581799,
+      "development_spectrum_bridge_passed": true,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.03639203312402495,
+          0.2582387411639016,
+          1.9225499443760705,
+          2.6487561473142893,
+          3.184621916307351
+        ],
+        "squared_error_over_validation_mean_only_error": 3.065412438903413,
+        "maximum_absolute_difference": 346.20994567871094
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.03639207081182004,
+          0.2582386933384877,
+          1.9225499147497627,
+          2.648756144449015,
+          3.184621929510823
+        ],
+        "squared_error_over_validation_mean_only_error": 3.0654124353080294,
+        "maximum_absolute_difference": 346.2099595005594
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.8580050148358421,
+          0.8816722193729805,
+          0.9405542980050471,
+          0.9961050645913443,
+          1.074033758841336
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 303.2940109414935
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0575090743432205,
+          1.1164578602719466,
+          1.4281708443349141,
+          1.586215297805528,
+          1.8363096167671953
+        ],
+        "squared_error_over_validation_mean_only_error": 2.029016478838087,
+        "maximum_absolute_difference": 338.1822835057974
+      },
+      "F32_vs_F64_prediction_relative_L2": 5.129883358362415e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth406_switch_full_ridge_input_map\\bank11.full_ridge.npz",
+      "map_sha256": "6c8b974940aa672b703e6c1ff70f456ace3ef26d8b5406f349879c6dce9e9cd7",
+      "map_archive_bytes": 2366212,
+      "map_F32_parameter_bytes": 2365440,
+      "active_matrix_coefficients": 589824
+    }
+  ],
+  "relative_ridge_singular_scale": 1e-05,
+  "bindings": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth406_switch_full_ridge_input_map.py": "545b4a09d124875a434239ed1c26df864fd7871c4c4fe9b9a274dd9eba5a1364",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_406_SWITCH_FULL_RIDGE_INPUT_MAP_PROTOCOL_20261004.md": "42fdada894621e4789f0264cf533659307cee8707c60cc9a87c93ad606089732",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth405_switch_full_basis_inputs_result.json": "1fb5c222807da2ad8f8e52e8f3d2d5fc64664431edc2332070305fa46cb64788",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth405_switch_full_basis_inputs.py": "872a7cc072e78867e272ead5090172087df159c7b8e92f2e8d00457f95dc4550",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth404_switch_rank32_input_map.py": "fa554ecb166df964a4fff1da34cf8621c44ae3ce7d738056c55103ffdfa757a9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+  },
+  "paired_input_keys": [
+    "66950ae032f17138c2a55a999fb60cd361f5503e6263dcd697f0d5472ad2db1f",
+    "f672b9f6ad3b493a90b0122b3ba64624f8dc8a96902fb34dfd760f2de6346a2c",
+    "5b10ada13c1252190fa5cf765169bafda73d1158984534f08273748700633123",
+    "627d2a18a5ded0c88b2a0486392b6773a298d3ce7ac49d67b6c62634cd5d8129",
+    "cb35ccc426cba06693467336198490ed72fb84ed3232b404bb6e0cdee9306a3a",
+    "6ea89499445a83709fa14f6d8921bb7a0ea745b187a15cfb37be21fa67d44fff",
+    "74f63e55c80173cc93f68af0195e4336a002b4b00ac87aa80089e49f5f260725",
+    "4c1278a178d1c12f7c7391054afea7e37c415f9ade3645515bd3d1170f6943c4",
+    "f3da503470d3104a8cfde045c67da3334eae23eea03cba696963e1c416099893",
+    "6d895af3e051a2f348f12a86d18690fe1e19a7efc742dc28d46999f3b4711192",
+    "3c59d0c0641f326991185fc403f8b7cec159428b5a07a2ba763c0a952d47bfd9",
+    "0c8b8c1f2b999576abae9ed7ad2e2b04ad56603f50ab541106dbbba8e7456b36",
+    "dcad97153d800b71b7ba119b52c7d0e7b75604d913ea4f1d7ff7c61d52181d91",
+    "d737509d2020d608363009e0f47d3a081bfa2fe4e6372f795511a9feac3b9c36",
+    "d630bd23e216381f519a7c7589ac6afab374bd2b7cdd3857b8c686648045f72a",
+    "7befb1542985037d59a73a53438fc26e7579bcf700b05669e2c48830894f0826",
+    "7d6464d6620e67ef76df2d4ac815bdcaaec5252dbf86a3bfd0ee80e76c3281c0",
+    "261717e0fc89423b331031c5b5e1f61355791a0465b5ec7a1aedfc36907bbf6d",
+    "94e6662d88113d335e49450eaeacced340264d76925648fe04d597e4e84708e6",
+    "ddbbf6a9d1d55b51ab916cef5346a4e29f2136d929a27951586c008185d86302",
+    "19b464f87574249b71a015cc5de35ce5c4e2009e828246e3e102d1920f4d1b3d",
+    "00b62f08f18b27ad83b005f76bda30ceac950aaf8512d2c6fe4009b96e475349",
+    "d89025cde699d1243dcfa1100aebdd172deed05afb64bc69a03b67c69039b609",
+    "abd211936eebc3e73fcffd375e938a4064c80ec60c23747fb9f4db7cf69cb898",
+    "32f2673e17506807752b81ec5ac1edc8d6841fd82caeb5bfd3f74bbe4aa55703",
+    "f16a900733aba2aa52542fd037d52ae4b5c15173899eccc868205ee8411d4616",
+    "cbd92230360f6a58224bfb4348d6766bcf374616db38a5543b658668b68af7c2",
+    "f0267bcb3424b42a4fb6ec8558c1bf4fc75d83a090a5920e257edc20744be2e4",
+    "44be664621a030420ef3e6ae4dd561c1433afcce5f3dcfe36cc196cc07ac7295",
+    "10bb0f6757fa766ddbce0d2e5ce368eec627678bf4eb6b4e6629c0fa809a8983",
+    "83ea11965952b8fce57aba3d629236709f62a842b857af026e8b4c79b1a2aac5",
+    "69863a649d24f0af0b656fb9fee19f716f93df47ef029102e8909ca9fca1aa71",
+    "ce610191d69cc030408985de857e2f2a9c2d22098229797daa208fd0c6156dee",
+    "ec7705dc6663bfc8b00e1567c6a9cbe3f28e2c4bd7d9b45b01a0f9d9d3e8a0f5",
+    "17a93799b75edbca7bf7bae59b5aad6f9d5765d0e17038ccf9d7857dd9bb3e79",
+    "86f32de9fbca492766ba4d2e834e158cef4fd47d8073fc8fee30276dd70ecf1a",
+    "5de525a5273407da2cb8330c096a41d1859fd91bed1f9a52ac7b3543d963a11b",
+    "50c343f8ed0bdac57320c62574b330b0c7a7dd9a1b4a67ebc51ebee3712f8197",
+    "c230b8c8c5b3469d89231239705ed179c02f466cbcc260944a2d234937604b15",
+    "68e5b9c4adcbaea872c2be7741eda1a3ce3ecabc78979a3c802c4d6445331599",
+    "68e2491af5ce7c9722ab099936f2340cee3a3a3772bc654d2ac64633e71ccfeb",
+    "7e7e227d0367ebb227301c1da45ddf451305e23177bcdec77967d39c9f2b5134",
+    "bf2e62805391edbf2a7f9bdc9c251023542035d1bc432edfd08ad01356a18d14",
+    "193eec189fdfa5fed5e052a7f47f3ac93f9065fee8032b42bf601c2c6c60e913",
+    "9ee1f7e85b38e8ca6ae842b3c69edd89961c61fe29382b48cd6616c58fbc2827",
+    "227933e3d4d163371305674e29aff4823ee0317fa618d2c72e4b032f507831ab",
+    "0c74379b109b2042ac1ac8e1922f91bc3dd7a0e23de665561276310de73d5759",
+    "374bc9ddd00b218ba3cce2bed086815c80752ce13a545d5b7f0c98928c8f425d",
+    "1c50325cd22af4fa9cc0cc2597f753ebee0eca6c9805ea250b66765212d990e9",
+    "64d0b3a2ddd47e1589d6ca6100a6ddc6bc43f2a3808f033031a324e88ec33bfd",
+    "ff61a88f436c2655726d1546fe9bb32d5d7a9b56d7e3a4eef158fd06dcc8a1ef",
+    "fec319b31827fc75d611c4c77c1e80ff4c6fe9c3cd00592e6b8f0936622bde3b",
+    "3e034e233281c284e98908b4b6a5c736e6d3fb9472665867670e80c5eb8cbbba",
+    "e7c89f16bae304d517d8b32bdbf9e26ff639c3341afc504b9dfc4e51db6a30e4",
+    "03f6e9899e1e10968f26f4260f6042df57ac095d89060d9222f9d1e54ea29f44",
+    "4f14597d5427e2a469465e06442689d7ba6d29170cdff5e3a19823b4c101d3cc",
+    "807c2528f236b7f4b72661bb8f7e66798d35180915e93e43971e6d1b3b63388c",
+    "8427f4653fe84c2eba0a1c72b9685284d1695b841f1b93244bcb11f3c4be4a4f",
+    "8bae256affe78be16906539704a29210fc185ce1ac3a03a9c0e305f8368764ac",
+    "3103759b95a7e5a9809bbd04e625e186541f5ce60611eb739b15923997a9006d",
+    "047587f4158e6fa2ce8d72a0f2fe3929d9662615b84e9cafe7137a25913a2bed",
+    "14f2dcb0c5f90fa618d93bddbaa476284cc8baa6d47643d23598c26036db298a",
+    "f62cf7b556ec5582afbf17cec0c1e3d82f696da4ff1159616fa1b26db25af2fa",
+    "daf44cf75191348a2fa76c17d57562cde01041e0c5a8d3a6ca222eb9a6512c01",
+    "2e2af9623aeed8c2947af125a34bef33a47f62583760ee8c0637404dfe22e5bf",
+    "7de3d7c2df78f23fdc647c2745d03518f7f5bbfe0e93e3083bd16e976c733a13",
+    "d8660801bf21f24bed1f650c32c56e8f2b8cf622bb98e0a6e732ef955d6891f3",
+    "1828cc1655a5787c4e3b1d00c068d17c88680fd2aa9d3d6b8ebb68557f4b319f",
+    "dd7b6c26872b3636595378a431a1ee51ee3101be24a4713123d511474d3b96b2",
+    "2343f6c392a35e08b0d2b3c2e68f0ab460689ad25ec9731c55260f224e6e6cf9",
+    "8f1847a90c2af94e2160a294184a1cd1fd89fa4696efbaf02592c0605d28bf80",
+    "554f4e5374927155ed6dca7177aa9a371427e59095fde8b1fe33c806c9838e1d",
+    "40dd95ecccb86c856f5cb224b7658ae85832da1765cc93a91537b49cf62c1f65",
+    "03561462f54134c16ab2ae2cadbdc8451326b5efa9e2ad3e63c4a6591b258bae",
+    "168dd8d7d188634492aaf13381a8c2342d5c2a248ee0b69cf06e492ee35de717",
+    "759c2591c7175da673c10855c4b289e6d81b747ba828ffec380338aacf9ec999",
+    "0b6bff55aa3a8bc0a7a4e2e3c92b0e661c6705bd15345eef57bb05f0344752de",
+    "1560e0766bd74ade371a549fab836c67a1a555c153787fe58d6898aa82911848",
+    "c894de17446f91bf08fb263c7d21ccad0e93c6663103206acb58388e237315e5",
+    "46aee888119de2e397341244a1c8964349fffa3513594849b000af481c2f73a2",
+    "4c39efefc02fb42b5e6926c628e62cd694fe59840527b679b05d93d86f2d8c2c",
+    "59ec7513e35017f82b8e38f05c080076a017ba2a817bd42bcb250c1775fcfbce",
+    "143e4cf4145b5b6c3ebf75175edfaa909290907f7d943eadb938daafbc392723",
+    "221cf121c04b0b9a9356400f0b5a8286fba50f43c38727c54a172b2118b052eb",
+    "dc6750fdd3da9817bd46061ce632ab4b49cc9009f0d331f5c3122abe23572ce1",
+    "5276365395754e27916ddcb8dc155f319adb66c5529ddf9cba5e4a4312173d93",
+    "ad607fba347971d35dc1d01dd6b17430b68b80f62f809e3a215ddc190cba0acb",
+    "aa20f4d9db91f533ad57167b9b3b028bdfe8df58d8b942974d2a262e41a855ee",
+    "63a3034c119ce3b357f2e277b568a6a5afc01f3e923b7dbf1252b6c72f6335c5",
+    "8940c14ac5f68585f7173225f89dcdd489df8d8e5d650c157db78c5b5fa3f1db",
+    "0493e06131ab2039d1b04909eb94ac33acffa488c15e5d04092aa818dfd6ce26",
+    "2007f4073cf41618e0be32c9232df7120917662b7ce1ae4f834f6c239c8162e8",
+    "e9a64ac41a96ac29ca8f0e1cfeb5d6e49f6b3c5428ae582d7ba5ac24c16ff848",
+    "784188c3ddc4d7c7ae0f570d589b69398531572098c0137be78f320217d39ca6",
+    "1ef2c181fb282cffaacb5d12eb65569366cb21079934e1913227d06ad5c9130c",
+    "e7023bdae67aa92295484fbbade0a156b8e9fb14a4959608139b43ec6a83782e"
+  ],
+  "runtime": {
+    "numpy": "2.4.6",
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "arithmetic": "F64 SVD/ridge fit, F32 matrix inference"
+  },
+  "gates": {
+    "all96_trace_hashes_and_pairing_keys_fresh_exact": true,
+    "development18_validation6_split_exact": true,
+    "all12_development_spectra_exact405": true,
+    "ONE_fixed_full_ridge_variant": true,
+    "mean_only_control_exact": true,
+    "all_predictions_finite": true,
+    "BLAS_one_thread": true
+  },
+  "input_eligibility_ALL12": false,
+  "decision": "reject_this_fixed_full_affine_ridge_interface_before_selector_or_model_construction",
+  "resource": {
+    "main_seconds": 6.078000000000429,
+    "maximum_checked_rss_bytes": 262623232,
+    "map_F32_parameter_bytes_ALL12": 28385280,
+    "active_matrix_coefficients_ALL12": 7077888
+  },
+  "scope": "ONE predeclared full768 affine ridge per bank, penalty=(1e-5*smax)^2, fit ONLY18 consumed development books/all4 cases. Six consumed validation books, not new whole quality. Prior405 rank/spectra observed; these new map errors first406. Fixed local bounds unchanged404/405. No regularization/hyperparameter search/validation selection. No actual source function/output map/new384 selector/artifact/usefulness/accepted-rate/DRAM/other-family proof. No source-weight read/model inference/network/GPU/T4."
+}
