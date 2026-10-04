@@ -1,0 +1,3605 @@
+{
+  "experiment": "METH-412-Granite-source0-full-row-I8-A16-synthetic-cost",
+  "runs": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\negative_worker"
+      ],
+      "negative": true,
+      "threads": 3,
+      "returncode": 2,
+      "seconds": 0.7810000000008586,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b5f73eda470230918e7df341954e04b867c9eaece1213187f1645e6f1ea6318b"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 1.25,
+      "stdout_sha256": "0e98e68dfc3aaf916749308eba23c94ffcd856a9d5b6bf9fb2818ef9e84c5469",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run0_t3.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.3531217,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 7420,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 26176,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 26176,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23352,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 7420,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454452736,
+        "total_seconds": 1.0938744,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 7420,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 26176,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 26176,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23352,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 7420,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.014876200001,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0157695,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0170958,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0163388,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0162956,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.015537200001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.014440499999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.017968599999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017048200001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.015521200001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0162287,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0172346,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.014946400001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.014470900001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.016936799999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0176347,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.015152599999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0161376,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.014843200001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.014213099999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.015579899999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.015004700001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0143696,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.014316800001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0152003,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0139951,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.014234599999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0138016,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0145873,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0147328,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0163172,
+        0.0150495,
+        0.0143432000005
+      ],
+      "fixed_input_medians_seconds": [
+        0.014946400001,
+        0.014470900001,
+        0.0162956,
+        0.015537200001,
+        0.014440499999,
+        0.0161376,
+        0.014843200001,
+        0.0147328
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 4.093999999999141,
+      "stdout_sha256": "080a176023968d77d7a6d6fa873dcd0e04a65a9bf076c3630ff4aa1fbbcf6ec9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run1_t6.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.3230024,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25224,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18520,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23344,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23764,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 23664,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 22596,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 18520,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 25224,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23344,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23764,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 23664,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 22596,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454555136,
+        "total_seconds": 4.0243049,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25224,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18520,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23344,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23764,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 23664,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 22596,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 18520,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 25224,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23344,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23764,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 23664,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 22596,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0186006,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.064496500001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.016901500001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.036749500001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.032209699999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0308176,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.016724900001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0177704,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.033555,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0370408,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.036930100001,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.015600199999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.015758,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.015930900001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.017317600001,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0545401,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.020509800001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.019129799999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0740546,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0218983,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.036221300001,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.016773700001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.023005700001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.016004700001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0160476,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0519169,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.016453999999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.015856299999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0156508,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.015177699999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0315136499995,
+        0.0198198,
+        0.0160261500005
+      ],
+      "fixed_input_medians_seconds": [
+        0.016901500001,
+        0.016004700001,
+        0.017317600001,
+        0.0519169,
+        0.016724900001,
+        0.0177704,
+        0.033555,
+        0.0218983
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 3.0,
+      "stdout_sha256": "e956c85a6d5d0d37a2b3e9ff4775c9acaa9027287a80aa0130522afe9c5b06c3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run2_t6.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.313422,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20148,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12316,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2332,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 22408,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 4732,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 17876,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 4,
+            "windows_thread_id": 4732,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2332,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12316,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 20148,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 22408,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 17876,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454559232,
+        "total_seconds": 2.8848161,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20148,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12316,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2332,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 22408,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 4732,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 17876,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 4,
+            "windows_thread_id": 4732,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2332,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12316,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 20148,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 22408,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 17876,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.014670799999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.017446600001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.016259,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.037066700001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0165714,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0267036,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.032010499999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.017272399999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017288499999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.016872800001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.056910899999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.015674099999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.016474399999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0164217,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.021413099999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0158856,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.015717600001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.015352300001,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0152,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0163533,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017156600001,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.016973400001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0147908,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.015899100001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.016855599999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.014645599998,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.015005699999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0160118,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0163273,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0152863,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.017280449999,
+        0.01611945,
+        0.0155927000005
+      ],
+      "fixed_input_medians_seconds": [
+        0.016259,
+        0.0164217,
+        0.016855599999,
+        0.0158856,
+        0.015717600001,
+        0.0160118,
+        0.0163273,
+        0.0163533
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 2.2190000000009604,
+      "stdout_sha256": "bb4205603c273a2f0ac80648be3521d05354a38c3d27f2fb353ceeb13d1ef3f9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run3_t3.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.369595,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 2532,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23388,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 3352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 2532,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23388,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 3352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454460928,
+        "total_seconds": 2.1187157,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 2532,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23388,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 3352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 2532,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23388,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 3352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.015293799999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.015866799999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.014588099999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.014601500001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.014980599999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.017100200001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0157378,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.016456199999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.028540199999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.015217299999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.016373400002,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0135546,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0135976,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.013611,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.013533899999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0134389,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0137192,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0136131,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0136974,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.013522400001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0150763,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.013890800001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0137242,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0143114,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.013713799999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.013767299999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.014023899999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.013955500001,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0134827,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0135378,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0154775499995,
+        0.0136043,
+        0.0137457499995
+      ],
+      "fixed_input_medians_seconds": [
+        0.0137242,
+        0.0143114,
+        0.013713799999,
+        0.013767299999,
+        0.014023899999,
+        0.013955500001,
+        0.0136974,
+        0.0135378
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 2.67200000000048,
+      "stdout_sha256": "46153327499fcc904ebbe926e250069f043b71a194d4df01310b7fc7d3bc53cc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run4_t3.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.3738633,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 1788,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 9108,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 22916,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 1788,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 9108,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 22916,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454469120,
+        "total_seconds": 2.5604313,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 1788,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 9108,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 22916,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 1788,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 9108,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 22916,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0146229,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0138842,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.013842499999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.013929800001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.014763399999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.013851799999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0136458,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0138584,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0148211,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.013772599999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0154289,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0139702,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0136926,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.013535,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0135013,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0138935,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.013580499999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0134588,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.013333999999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0135403,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.013523900001,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0134265,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.013450799999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.013467500001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.013493299999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.013529399999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0134113,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.014108200001,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0135037,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0135498,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0138550999995,
+        0.01353765,
+        0.0134984999995
+      ],
+      "fixed_input_medians_seconds": [
+        0.0136926,
+        0.013535,
+        0.0135013,
+        0.013851799999,
+        0.013580499999,
+        0.0138584,
+        0.0135037,
+        0.0135498
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 1.7189999999991414,
+      "stdout_sha256": "27906dbfee356217d8067fa1e15bdd5e1640fe45040b13c7520a2d2543594e57",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\run5_t6.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.2782706,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25088,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 25052,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 12136,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 25236,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 1728,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 6168,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 25052,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 12136,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 25236,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 25088,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 6168,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 1728,
+            "group": 0,
+            "actual_mask": 256
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454534656,
+        "total_seconds": 1.6636259,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25088,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 25052,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 12136,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 25236,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 1728,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 6168,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 25052,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 12136,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 25236,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 25088,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 6168,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 1728,
+            "group": 0,
+            "actual_mask": 256
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.014895099999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.015748799999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.014736300001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0149917,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0151224,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.016771799999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.018639999998,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0145404,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.014794300001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0154957,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.014593399999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0137729,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.018878700001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0156912,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0148059,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.013788999999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0141141,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.013717100001,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.013775900001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.013865500001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0147684,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.013885,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.014188900001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.013874600001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.013802099998,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.013897000001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.013927100001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0143398,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.014829099999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.014255,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.015057049999999999,
+        0.0139898000005,
+        0.014058000001
+      ],
+      "fixed_input_medians_seconds": [
+        0.014736300001,
+        0.0149917,
+        0.0148059,
+        0.013897000001,
+        0.0141141,
+        0.0143398,
+        0.014794300001,
+        0.014255
+      ]
+    }
+  ],
+  "bindings": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth412_granite_i8_cost.py": "167b63f1586c10438acb616e83472c8cce09c07a0353944abb9a58f5fe7a15d1",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth412_granite_i8_cost_cpu.c": "535a805962f9f2dbc551361350de06e1a5560016946d8ed91828e0fb23168e74",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c": "4949ef481935fd1da68576ce5cf5c91003fae7acad05ed45cd99037066e1ad2e",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_412_GRANITE_I8_COST_PROTOCOL_20261004.md": "94846db862c5e42c6df4815f9d0ea27ba2e864ac7ce1d6b849318572d781ae6a",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth411_granite_moe_source_headers_result.json": "a3260f95f5d93b4fd457487dda9a586d1c7dbc0d50596176f84042d4e0cb76bc",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth374_switch_physical_workers_contract_result.json": "4601be80b787341f6d60e01f7219c1cd4cd71c0451f835d25e31ded3c468f4b1",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth359_switch_cost_topology.py": "b3e52df3691231d6e6515a027be927b02082dd575419610ba6b57d43c837a806",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth388_switch_thread_binding.h": "bd4a8cbf88f1f7f8f279bc8eae7dbc3968433232d6f73a5f4c1df9c4ce4fabe9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth388_switch_three_workers.c": "aa01ce176ad54f1410a5d93eb628de8e887172225ae85a99f611168a9097fa48",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_f32_dot_reference_generic.h": "362abe0f3fddb6e49b55ce289cbb4212f3b5fa001b991b4a84db894e573d0ccd"
+  },
+  "frozen_HEAD": "004411c8802376bcc9750c2a2f930e2243c0b201",
+  "source_assets": [
+    {
+      "name": "config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\config.json",
+      "sha256": "25af0a4e4e85b781fa22c7cab240cda31714254a9d3d0f2f67e079693e1dd614",
+      "git_blob_id": "745881f0ef9ec8ff8d969a410ab25671854c8a41",
+      "bytes": 891
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\model.safetensors.index.json",
+      "sha256": "e6fcaa59c4b5c12de1a6c0a2382a6aeea42ce98d0b1de681e649f85b739e07c8",
+      "git_blob_id": "4ec400ca9c6f8f9e65d6d748a28a7414f0328096",
+      "bytes": 19171
+    },
+    {
+      "name": "generation_config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\generation_config.json",
+      "sha256": "9908b9afa37288491e32f2d9e818222d70ad66fee0f5be2bf9317a8dc73b7ae2",
+      "git_blob_id": "a31b06097b4da2a0fca6ff8a766782b35cddf076",
+      "bytes": 132
+    },
+    {
+      "name": "tokenizer.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\tokenizer.json",
+      "sha256": "d3b4df07a0ce3940b15c77e2ea17ab5627ca0c4bf982d2eb37966aea0a81c918",
+      "git_blob_id": "4aa94164a898c41c89c347f753c08a82b52e620f",
+      "bytes": 2057451
+    },
+    {
+      "name": "tokenizer_config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\tokenizer_config.json",
+      "sha256": "0764d3ae3830187f63cfe568c754d99900fed85fc9d071e6cfe2add9f555b6bb",
+      "git_blob_id": "e72c686d55d39777040cda554da071a1df3c3f38",
+      "bytes": 4126
+    },
+    {
+      "name": "special_tokens_map.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\special_tokens_map.json",
+      "sha256": "2f2bba45146f073a7b8a097cb6133a6b4b66d5751e73f2a2aca81083288813e9",
+      "git_blob_id": "7dec8d5885c2e56764c4416d6fa4e1baa024b139",
+      "bytes": 1020
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\model-00001-of-00002.safetensors.header.json",
+      "sha256": "7f4df05057e8b8777eb95e1670f04cb0c8c46103d930e73c8b6969ba8c7f96fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\model-00002-of-00002.safetensors.header.json",
+      "sha256": "f4cf6b626a1583bd50fd4521d2b4a970dc92c6ccadefd163aa54951c7aff4f54"
+    },
+    {
+      "name": "modeling_granitemoe.py",
+      "sha256": "6bd8829f07902a061168d0f600774b95fca9382aa9e102a6c1def37f95b614ed",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages\\transformers\\models\\granitemoe\\modeling_granitemoe.py",
+      "stored_copy": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\modeling_granitemoe.py",
+      "executed": false,
+      "version": "Transformers4.57.6"
+    },
+    {
+      "name": "configuration_granitemoe.py",
+      "sha256": "6d930c9775bc203cfd55f6cdf7c637f4ad762bb0b6326d03d7ee35be7832c5f5",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages\\transformers\\models\\granitemoe\\configuration_granitemoe.py",
+      "stored_copy": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\configuration_granitemoe.py",
+      "executed": false,
+      "version": "Transformers4.57.6"
+    }
+  ],
+  "ledger": {
+    "source411": {
+      "coded_core_and_selected_expert_I8_bytes": 377487360,
+      "coded_row_F32_scale_bytes": 1867776,
+      "full_head_I8_bytes": 50331648,
+      "head_row_F32_scale_bytes": 196608,
+      "all_router_F32_bytes": 3145728,
+      "norm_F32_bytes": 200704,
+      "one_BF16_lookup_row_bytes": 2048,
+      "descriptor_bytes": 433231872,
+      "under560MB": true
+    },
+    "stored411": {
+      "coded_core_and_all_expert_I8_bytes": 1283457024,
+      "coded_row_F32_scale_bytes": 6586368,
+      "head_I8_bytes": 50331648,
+      "head_row_F32_scale_bytes": 196608,
+      "full_lookup_BF16_bytes": 100663296,
+      "router_and_norm_F32_bytes": 3346432,
+      "total_bytes": 1444581376
+    },
+    "expected_allocated_dynamic_bytes": 1443299328,
+    "expected_integer_rows": 3848,
+    "expected_bank_edge_checks": 3266,
+    "expected_archive_bytes": 3515716
+  },
+  "fresh_topology": {
+    "api": "GetLogicalProcessorInformation/RelationProcessorCore",
+    "group_scope": "single group/local<=64 logical processors",
+    "physical_cores": [
+      {
+        "processor_mask": 3,
+        "SMT_flag": 1,
+        "logical_processors": [
+          0,
+          1
+        ]
+      },
+      {
+        "processor_mask": 12,
+        "SMT_flag": 1,
+        "logical_processors": [
+          2,
+          3
+        ]
+      },
+      {
+        "processor_mask": 48,
+        "SMT_flag": 1,
+        "logical_processors": [
+          4,
+          5
+        ]
+      },
+      {
+        "processor_mask": 192,
+        "SMT_flag": 1,
+        "logical_processors": [
+          6,
+          7
+        ]
+      },
+      {
+        "processor_mask": 768,
+        "SMT_flag": 1,
+        "logical_processors": [
+          8,
+          9
+        ]
+      },
+      {
+        "processor_mask": 3072,
+        "SMT_flag": 1,
+        "logical_processors": [
+          10,
+          11
+        ]
+      }
+    ],
+    "process_allowed_logical_processors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_one_logical_per_physical_core": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "selected_processor_mask": 1365,
+    "physical_cpu_count": 6,
+    "logical_cpu_count": 12
+  },
+  "unrelated_background_processes": [
+    {
+      "pid": 12540,
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    },
+    {
+      "pid": 17984,
+      "argv": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    }
+  ],
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-DSILICON_GRANITE_I8_COST_PREFLIGHT",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth412_granite_i8_cost\\meth412_granite_i8_cost.exe",
+      "-lm",
+      "-lpsapi",
+      "-lbcrypt"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+    "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698",
+    "binary_sha256": "1cfda07925069b82535d69448f015e95903a9f537b1b2805684f7e150f4d86ab"
+  },
+  "runtime_environment": {
+    "OMP_WAIT_POLICY": "ACTIVE",
+    "KMP_AFFINITY": "none",
+    "KMP_BLOCKTIME": "infinite",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_MAX_ACTIVE_LEVELS": "1"
+  },
+  "profiles": [
+    {
+      "threads": 3,
+      "all9_rep_medians_seconds": [
+        0.0163172,
+        0.0150495,
+        0.0143432000005,
+        0.0154775499995,
+        0.0136043,
+        0.0137457499995,
+        0.0138550999995,
+        0.01353765,
+        0.0134984999995
+      ],
+      "max_over_min": 1.208815794392296,
+      "repeatability_1_10": false,
+      "every_rep_and_fixed_input_median14ms": false
+    },
+    {
+      "threads": 6,
+      "all9_rep_medians_seconds": [
+        0.0315136499995,
+        0.0198198,
+        0.0160261500005,
+        0.017280449999,
+        0.01611945,
+        0.0155927000005,
+        0.015057049999999999,
+        0.0139898000005,
+        0.014058000001
+      ],
+      "max_over_min": 2.252616191680631,
+      "repeatability_1_10": false,
+      "every_rep_and_fixed_input_median14ms": false
+    }
+  ],
+  "gates": {
+    "exact_reused388_A16_I64_primitives_and_old_engine_paths": true,
+    "full411_stored_active_descriptor_reconciled": true,
+    "all_scalar_head_route_bank_quantizer_norm_nonlinear_and_negative_controls": true,
+    "negative_actual_worker_fault_detected": true,
+    "all_actual_3_and6_worker_process_event_readbacks": true,
+    "ALL180_complete_output_SHA_match60_archives": true,
+    "all60_archived_complete_outputs_byte_exact_across_process_profiles": true,
+    "all_archive_lengths_shapes_ids_and_inputs_independently_parsed": true
+  },
+  "decision": "reject_this_complete_row_I8_cost_profile_before_Granite_source_values",
+  "resource": {
+    "main_seconds": 18.5,
+    "maximum_checked_combined_rss_bytes": 1496752128,
+    "new_output_bytes": 212553277
+  },
+  "scope": "ALL values synthetic, actual411 source0 geometry. ALL24 complete I8 attention projections and selected8 packed gate/up/down matrices, full49152x1024 I8 head, full32-score F32 router, norms, A16 quantization, SiLU/mixtures/residuals, BF16 lookup*12, residual*.22 and head/6. Independent layer/context fixtures, F64 norm reduction and declared lower-ID ties; no original Torch/backend parity. Causal attention/attention scale .015625/RoPE/GQA execution/KV/cache/layer composition/prefill/tokenization/generation/task/source values/source quality/physical DRAM are OMITTED. Conservative full weight descriptor is not physical traffic. Lower-bound cost screen only, not accepted tokens/s or useful32/>256/10x/RAM-scale functions. No network/training/GPU/T4."
+}

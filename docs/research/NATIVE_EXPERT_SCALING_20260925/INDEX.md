@@ -2,7 +2,8 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: Granite1.335B full-I8 cost/operator gate; useful384/large n remains open.**
+whole-quality/SAMEartifact FULL-rate qualification. Granite412 row-I8 math PASS,
+cost/repeat FAIL; next ONE bounded four-row SIMD variable. Useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -158,7 +159,11 @@ ALL8 controls PASS/210SHA/70 full archives exact NEW direct and static pair math
 ALL6 gates PASS/ALL4 shards/218+290 actual tensor names.1.334625280B source has
 433.232MB hypothetical complete row-I8 descriptor;3.298788864B has892.413MB,
 unchanged I8 geometry closed. No actual values/quality/native costs/rate.
-Next [Granite cost/reference prerequisites](GRANITE_MOE_FULL_I8_NEXT_20261004.md);
-planning only, no412 code/protocol/run. Small another-family prerequisite does
+[412 complete I8 cost](METH_412_GRANITE_I8_COST_RESULT_20261004.md), frozen004411c:
+ALL8 controls PASS/180SHA/60 full archives exact;3core13.4985..16.3172ms,
+6core13.9898..31.51365ms, repeat1.20882/2.25262 and14ms both FAIL. No values.
+Next [Granite cost/reference prerequisites](GRANITE_MOE_FULL_I8_NEXT_20261004.md):
+ONE new four-row SIMD variable with exact412 outputs/unchanged gates, not
+unchanged repeats or precision sweep. Small another-family prerequisite does
 not replace real~10B/~100B/useful RAM-scale capacity scope. Useful>256/10x/physical
 DRAM/another-family actual quality remain open. All jobs terminal.

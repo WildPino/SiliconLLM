@@ -19,8 +19,11 @@ validation;405 unregularized full map is ineligible by conditioning. No384 model
 19 banks256/top8, source16.2556B, SAME317 hypothetical503.905MB active descriptor.
 No original Ling values/reference/native quality/rate or physical DRAM yet.
 408/410 full-width/joint formats cost FAIL;409 attribution PASS. Ling fitting stopped.
-411 actual Granite1.335B full row-I8 byte inventory eligible for CPU/operator gate,
-Granite3.299B unchanged I8 geometry closed. Next
+411 actual Granite1.335B full row-I8 byte inventory433.232MB; Granite3.299B
+unchanged I8 geometry closed.412 exact I8/A16 full fixture math/archive PASS,
+both3/6 cost/repeatability FAIL; no original values/reference/export/quality.
+ONE new four-row SIMD candidate with unchanged math/bytes/profiles/gates may
+reduce redundant input loads; if it fails, stop this kernel route. Next
 [Granite transfer prerequisite](GRANITE_MOE_FULL_I8_NEXT_20261004.md).
 Existing Switch quality/rate results and real large-useful-capacity goal intact.
 

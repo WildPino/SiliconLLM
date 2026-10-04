@@ -1,6 +1,19 @@
-# Current resumption: Granite1.335B complete I8 cost and original operator contract
+# Current resumption: ONE four-row SIMD Granite I8 variable after412 cost failure
 
-Planning ONLY; no412 scientific C/controller/protocol/compilation/outcome.
+412 froze004411c; FIRST complete I8 fixture outcome ALL8 numerical/placement/
+full-output gates PASS, both3/6 cost/repeatability FAIL. Raw
+meth412_granite_i8_cost_result.json SHA
+cb02f6413dfde4748872de1fefaf4df7d0462e03f41d2283451cbf3fcc6fe7bb.
+ALL180 full SHA/60 full3515716B archives exact. Medians3core13.4985..16.3172ms,
+6core13.9898..31.51365ms; pooled max/min1.20882/2.25262 >1.10. NO source values.
+Next ONE prospective new kernel variable: four-row SIMD shares A16 loads and
+parallel integer accumulators. Exact412 whole outputs, unchanged arithmetic,
+full source geometry/precision/head/router/worker sequence/warmups/14ms/1.10
+gates. New independent four-row extrema/all-weight/A16/tail controls required.
+Freeze new413 C/controller/protocol before ANY compilation. No unchanged rerun,
+warmup expansion, precision sweep or donor change. If new tile fails, stop this
+Granite row-I8 kernel route before source-value acquisition. 413 planning only.
+Historical412 prospective plan below is retained, superseded by this status.
 411 frozen ca13080/retained363ec2b actual headers/config/index/tokenizer and
 local official modules ALL6 gates PASS.410 small second-book/static-pair/Q4
 Ling format froze75649d7/retained84e7610, ALL8 math/archive gates PASS but CPU
