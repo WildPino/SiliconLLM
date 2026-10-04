@@ -1,0 +1,389 @@
+{
+  "experiment": "METH-430-fixed-real-additive-numerical-probe",
+  "actual_mixture_gradients": {
+    "real": {
+      "norms": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 2.9323572459105662e-09,
+        "D": 0.0,
+        "pre": 0.0,
+        "base": 8.184370715869083e-12,
+        "scores": 0.0
+      },
+      "loss": 1.3925414969931053e-07,
+      "live_A_C_gt1e_10": false
+    },
+    "adapter": {
+      "norms": {
+        "A": 2.736804879943655e-11,
+        "B": 0.0,
+        "C": 3.0740639200832476e-11,
+        "D": 0.0,
+        "pre": 0.0,
+        "base": 8.184370715869083e-12,
+        "scores": 0.0
+      },
+      "loss": 1.3925414969931053e-07,
+      "live_A_C_gt1e_10": false
+    }
+  },
+  "probe_qualifications": [
+    {
+      "label": "real.probe",
+      "arm": "real",
+      "endpoints": {
+        "input": {
+          "relative_max": 1.5392230883147777e-16,
+          "absolute_max": 2.842170943040401e-14
+        },
+        "Bx": {
+          "relative_max": 5.857279211588919e-16,
+          "absolute_max": 1.4210854715202004e-14
+        },
+        "Ax": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "corrected_input": {
+          "relative_max": 1.5392230883147777e-16,
+          "absolute_max": 2.842170943040401e-14
+        },
+        "up_raw": {
+          "relative_max": 7.605458250521636e-16,
+          "absolute_max": 2.8421709430404007e-13
+        },
+        "up": {
+          "relative_max": 7.062324655949438e-16,
+          "absolute_max": 2.8421709430404007e-13
+        },
+        "feature": {
+          "relative_max": 1.0257579741996445e-15,
+          "absolute_max": 4.729372449219227e-11
+        },
+        "Dy": {
+          "relative_max": 1.5822764963301652e-15,
+          "absolute_max": 3.637978807091713e-12
+        },
+        "Cy": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "correction": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "probability": {
+          "relative_max": 1.5948433585417024e-16,
+          "absolute_max": 1.3877787807814457e-17
+        },
+        "weighted": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "post": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "final": {
+          "relative_max": 6.361471091758405e-17,
+          "absolute_max": 3.552713678800501e-15
+        },
+        "head_input": {
+          "relative_max": 6.273929087123628e-17,
+          "absolute_max": 1.1102230246251565e-16
+        },
+        "logits": {
+          "relative_max": 3.7829068645288517e-16,
+          "absolute_max": 1.7053025658242404e-13
+        }
+      },
+      "gradients": {
+        "A": 0.0,
+        "B": 0.0,
+        "C": 5.722288397702488e-08,
+        "D": 0.0,
+        "pre": 0.0,
+        "base": 4.4629275598070324e-08,
+        "scores": 0.0
+      },
+      "FD": [
+        {
+          "field": "A",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "B",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "C",
+          "FD": -0.009761428092502909,
+          "projection": -0.00976142819320945,
+          "native_projection": -0.009761426691000174,
+          "reference_FD_error": 1.0316783398476197e-08,
+          "native_FD_error": 1.435756042032554e-07
+        },
+        {
+          "field": "D",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "pre",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "scores",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "base",
+          "FD": -0.0003098824219449625,
+          "projection": -0.00030988238928469106,
+          "native_projection": -0.00030988238577825086,
+          "reference_FD_error": 1.0539570039899128e-07,
+          "native_FD_error": 1.1671109208182886e-07
+        }
+      ],
+      "zero_init_original_post_logits_exact": true,
+      "ReLU_crossings": 0,
+      "offsets_fixed": true,
+      "dropped_head_offset_detected": true,
+      "archive_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth430_switch_additive_probe\\real.probe.npz"
+    },
+    {
+      "label": "adapter.probe",
+      "arm": "adapter",
+      "endpoints": {
+        "input": {
+          "relative_max": 1.5392230883147777e-16,
+          "absolute_max": 2.842170943040401e-14
+        },
+        "Bx": {
+          "relative_max": 5.857279211588919e-16,
+          "absolute_max": 1.4210854715202004e-14
+        },
+        "Ax": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "Dy": {
+          "relative_max": 9.81875382374128e-16,
+          "absolute_max": 3.907985046680551e-14
+        },
+        "Cy": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "correction": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "probability": {
+          "relative_max": 1.5948433585417024e-16,
+          "absolute_max": 1.3877787807814457e-17
+        },
+        "weighted": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "post": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "final": {
+          "relative_max": 6.361471091758405e-17,
+          "absolute_max": 3.552713678800501e-15
+        },
+        "head_input": {
+          "relative_max": 6.273929087123628e-17,
+          "absolute_max": 1.1102230246251565e-16
+        },
+        "logits": {
+          "relative_max": 3.7829068645288517e-16,
+          "absolute_max": 1.7053025658242404e-13
+        }
+      },
+      "gradients": {
+        "A": 5.6179605349834726e-08,
+        "B": 0.0,
+        "C": 5.6334486480374476e-08,
+        "D": 0.0,
+        "pre": 0.0,
+        "base": 4.4629275598070324e-08,
+        "scores": 0.0
+      },
+      "FD": [
+        {
+          "field": "A",
+          "FD": 0.00011886406525718482,
+          "projection": 0.00011886423267798321,
+          "native_projection": 0.00011886423166261809,
+          "reference_FD_error": 1.4085044307876038e-06,
+          "native_FD_error": 1.3999622169095633e-06
+        },
+        {
+          "field": "B",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "C",
+          "FD": -2.8772877413985043e-05,
+          "projection": -2.877274115343241e-05,
+          "native_projection": -2.8772739993945374e-05,
+          "reference_FD_error": 4.735751519317109e-06,
+          "native_FD_error": 4.776049820004021e-06
+        },
+        {
+          "field": "D",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "pre",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "scores",
+          "FD": 0.0,
+          "projection": 0.0,
+          "native_projection": 0.0,
+          "reference_FD_error": 0.0,
+          "native_FD_error": 0.0
+        },
+        {
+          "field": "base",
+          "FD": -0.0003098824219449625,
+          "projection": -0.00030988238928469106,
+          "native_projection": -0.00030988238577825086,
+          "reference_FD_error": 1.0539570039899128e-07,
+          "native_FD_error": 1.1671109208182886e-07
+        }
+      ],
+      "zero_init_original_post_logits_exact": true,
+      "ReLU_crossings": 0,
+      "offsets_fixed": true,
+      "dropped_head_offset_detected": true,
+      "archive_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth430_switch_additive_probe\\adapter.probe.npz"
+    }
+  ],
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth430_switch_additive_probe.py": "00a73750e033a5e6e5f11d9604dd867d81dc648a58f1d064313cd6b261f31eb3",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_430_SWITCH_ADDITIVE_PROBE_PROTOCOL_20261004.md": "7e30455858c55b5f953533a09e4c9bdfa96e703bdb25b504c49e1e4fb2964d88",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth429_switch_additive_pilot_result.failure.json": "7d82c7cdd7197df42c14a179301deb72743848c6d7db39a30c45b506e57b6a55",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth427_switch_additive_math.py": "0122b78beead0d743affc0130f087f588cf2e28922e96e629e18414a75631bb1",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_autograd.py": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth424_switch_anchored_reference.py": "5807c4373e84703f4acd79418e5782fb28a6092a9a11caa28589de6cc6c9b960",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+  },
+  "probe_target": {
+    "one_hot_index": 16035,
+    "original_argmax": 32099,
+    "rule": "(argmax_original + vocabulary//2)%vocabulary",
+    "training_target_unchanged": true
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "CPU_affinity": [
+      0
+    ],
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      }
+    ],
+    "GPU": false
+  },
+  "gates": {
+    "original429_real_base_gradient_exact": true,
+    "actual_adapter_live_guard_failure_reproduced": true,
+    "both_fixed_probe_FULL_qualification_SAME_bounds": true,
+    "no_training_objective_or_forward_change": true
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth430_switch_additive_probe\\adapter.actual_mixture.npz",
+      "bytes": 501192,
+      "sha256": "f71d2dbbbfc3113973631b0e133792c960b6b521da713e4f0f1d7d4837474690"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth430_switch_additive_probe\\adapter.probe.npz",
+      "bytes": 1672622,
+      "sha256": "a18d8306f3ad51ffe9ef6ff94321da06755085350b6c1f7b104d4aaa61f4d331"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth430_switch_additive_probe\\real.actual_mixture.npz",
+      "bytes": 501192,
+      "sha256": "a97021d06f428b424c7d97c570a111a158fc6ffa21bbf7d040510d53f6e48755"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth430_switch_additive_probe\\real.probe.npz",
+      "bytes": 1829402,
+      "sha256": "949d80c87daaadf5f1635a11e6ea27f13fc075ebe3c0ca0fc6dbf379eee17e2d"
+    }
+  ],
+  "resource": {
+    "seconds": 20.281000000002678,
+    "peak_bytes": 1095327744,
+    "bytes_hashed": 22373808870,
+    "output_bytes": 4504408
+  },
+  "decision": "eligible_for_NEW_numeric_probe_only_pilot_prerequisite",
+  "scope": "SAME first actual core256/source128 function25, seed25772/rank8/zero factors. Artificial one-hot target ONLY numerical derivative probe; actual pilot teacher-mixture objective/data/classifier/capacity unchanged. No fit/selector/export/new whole quality/rate/DRAM/LUT or promotion of429."
+}

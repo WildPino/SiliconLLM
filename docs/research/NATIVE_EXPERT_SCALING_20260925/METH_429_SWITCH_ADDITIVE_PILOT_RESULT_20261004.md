@@ -21,8 +21,8 @@ Source manifests/capture/forward/previous qualification archives and original
 374/389 binaries freshly exact. CPU only, no GPU/T4/network/new corpus.
 
 Next NEW430 diagnostic: measure the first-point two-arm actual-mixture gradients
-and independently qualify SAME operators/factors/inputs with a fixed opposite
-one-hot numerical probe (as used in earlier numeric qualification). Training
+and independently qualify SAME operators/factors/inputs with a NEW fixed opposite
+one-hot numerical probe. Training
 objective remains the equal teacher mixture, not this artificial numeric probe.
 Freeze before outcomes; retain failure429 unchanged. A successful probe can
 license a NEW pilot prerequisite change only, with SAME live-gradient/derivative
