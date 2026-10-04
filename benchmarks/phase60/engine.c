@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_THREE_WORKERS
+#ifdef SILICON_SWITCH_ROUTER_AUDIT
+#include "../native_expert_scaling/meth393_switch_router_audit_entry.c"
+#elif defined(SILICON_SWITCH_THREE_WORKERS)
 #include "../native_expert_scaling/meth388_switch_three_workers_entry.c"
 #elif defined(SILICON_SWITCH_PHYSICAL_WORKERS)
 #include "../native_expert_scaling/meth374_switch_physical_workers_entry.c"
