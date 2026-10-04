@@ -75,14 +75,14 @@ and `n128` (weights/spec/metadata).353/356/363/371/372/373 outputs/raw retained.
 All362 sources consumed. Isolated324 environment reusable; source128 full
 weights absent. Default engine body byte-exact0ff9705; unrelated edits preserved.
 
-Next374: NEW physical per-thread binding plus active wait execution on useful
-full256. First document/freeze implementation and full output/worker-affinity
-contract, then qualify numerical controls/ALL96 complete forced and natural
-bytes EXACT363. Only after PASS separately freeze375 CPU cost, then376 SAME
-accepted full rate. This changes thread placement/wait behavior; old358/360/
-366 failures remain closed, no unchanged retry. See [execution plan](SWITCH_PHYSICAL_THREAD_EXECUTION_NEXT_20261004.md).
-374 implementation/protocol prepared for freeze: exact source reversal, explicit
-Windows worker masks/readbacks, ACTIVE/infinite blocktime, all96 forced/natural
-bridges before cost. No live process. Freeze before compiling/executing.
-[374 protocol](METH_374_SWITCH_PHYSICAL_WORKERS_CONTRACT_PROTOCOL_20261004.md).
-Goal remains open beyond this scoped family/short English infilling result.
+[374 worker contract](METH_374_SWITCH_PHYSICAL_WORKERS_CONTRACT_RESULT_20261004.md)
+ALL7 PASS retained0de8cf0,exec1062 exit0 fully consumed;307.844s/max1.404GB.
+NEW explicit worker masks0,2,4,6,8,10/actual thread IDs/live readbacks plus
+ACTIVE/infinite wait; exact356 math and ALL96 full teacher/own-natural SHA
+EXACT363. Negative actual-affinity fault detected. Scoped363 quality only.
+[375 cost](METH_375_SWITCH_PHYSICAL_WORKERS_COST_PROTOCOL_20261004.md) prepared
+for freeze; SAME374 binary/338 target/new six-worker profile, source9/64
+forced32, unchanged20ms/1.10 per-fixture gates. Freeze before observations.
+Only PASS licenses separately frozen376 full accepted rate;376 draft remains
+unresolved/ineligible until375 qualifies. No live model/timing job.
+Whole useful greater n/LUT/realDRAM/multiple families/scales/~100B goal active.
