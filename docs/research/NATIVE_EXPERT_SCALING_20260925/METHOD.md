@@ -485,9 +485,16 @@ gates follow independent complete control oracles.368 ALL7 numeric/serialized
 bankcontrols PASS;369 ALL7 pairedconsumedbankharm PASS, BOTHfixedcontrols
 maskedNLL+2.8278/+2.6429nats andgeneratedfieldexact-18.75/-19.79pp. Supports
 matched learnedbank usefulness, noteach-expert/extra-n gain/NEWquality/rate.
-370 actualphysicalnested64/128 bankexports nowprospective, retainingoriginal
-firstnfunctions/classifierrows;371 fullindependentdynamicnreference and372
-pairedsizeintervention requiredbefore anyadditional-n claim.
+370 exact physically compact64/128 exports PASS;371 both dynamic-n full
+independent native contracts PASS (same356 binary).372 paired consumed
+quality claim FAIL5/7:64 loss supports additional-function contribution;
+128 improves masked NLL but has mixed generation outcomes. Neither subset
+preserves original teacher choices (masked agreement38.28%/49.22%); neither
+inherits363 quality. More n does not establish monotonic quality benefit.
+[372 result](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md) retains
+all primary and descriptive outcomes. Separately frozen373 will compare equal
+source29/forced14 CPU phase/routing/consultation cost across actual64/128/256.
+Logical bytes, mapped file bytes and sampled RSS do not measure physical DRAM.
 No relaxed acceptance/50/1.10 or optional repeats. Whole quality remains bounded
 English short four-span infilling; useful RAM-scale n/LUT/physical DRAM/causal
 bank identity/real128/cross-family/~100B goal remains active.

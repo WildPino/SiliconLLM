@@ -219,11 +219,20 @@ BOTHreal64/128 payloads/newactualn METAnamespace/retainedsourcecounts/F32
 controls/ties andcompleteengineering/long/source29/OWNnatural independent
 I64/A16cache/routes/heads exact1/6threads/profiles; actualdynamicrouterbytes/
 retainedfunction IDs exact. SAME356binary/no recompile/enginechange.
-[372 pairednested n usefulness](METH_372_SWITCH_NESTED_BANK_USEFULNESS_PROTOCOL_20261004.md)
-readytofreezeALL96consumed64/128versusfull256cached363, BOTHfixedsubsets/
-fourprimarypredictive+generatedfield harmbounds98.75%/Bonferronifamilyalpha.05,
-ALLcompletebaselinebytes/ASTmetrics/371 bridges exact. No subsetquality
-inheritance/acceptedtimingclaim/neworiginalmodel. See[concrete subsetpath](SWITCH_NESTED_REAL_BANK_ARTIFACT_NEXT_20261004.md).
+[372 nested bank quality](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md)
+FAIL 5/7 gates; first full result retained039dc99, 500.437s/max1.342GB.
+All96 cases per actual64/128 subset completed.64 masked NLL+0.837734 and
+field loss-13.28125pp meet harm bounds;128 masked NLL improves-0.318440,
+field loss-4.166667pp upper98.75=0 fails. Original masked top1 agreement
+38.28125%/49.21875%, versus full25696.484375%. No monotonic n quality claim;
+changed subsets cannot inherit363 donor-quality acceptance.
+[373 actual bank CPU cost](METH_373_SWITCH_REAL_BANK_COST_PROTOCOL_20261004.md)
+prepared for freeze: same356 binary, all96 source29/forced14 at actual64/128/256,
+balanced orders, warm1/rep3 then profile, complete output bridges to363/372.
+Prespecified full/decode256/64 upper95<=1.20 and aggregate repeats<=1.10;
+30min/16GiB. No live model/timing job. Freeze before running; consume and
+retain first outcome before a changed experiment. This is forced CPU cost,
+not accepted rate or physical DRAM. See[subset path](SWITCH_NESTED_REAL_BANK_ARTIFACT_NEXT_20261004.md).
 Useful n/LUT/physical DRAM/causal learned bank
 usefulness/real128 comparison/cross-family/~100B goal remains open.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
