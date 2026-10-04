@@ -1,0 +1,2387 @@
+{
+  "purpose": "Metadata-only fresh retention audit; no experimental controller, forward, factor fit, or rerun.",
+  "head_before_audit_commit": "fc9d6c56411f2554cf5726cf320793546bcb9921",
+  "scientific_record": {
+    "bytes": 4056723,
+    "sha256": "b6c525905cb2df1b3adb88c0131a09d34ac384328ff4208e4cd95609ed9773ee"
+  },
+  "apparatus_gates": {
+    "all_fresh_sources_parents_archives": true,
+    "all1344_original_native_FFN_states_byte_exact": true,
+    "all_four_forced_experts_on_all1344_source_inputs": true,
+    "all_three_matched_permutations_native_byte_exact": true,
+    "full_dequant_shadow_all_positions_relative_le1e_minus3": true,
+    "tiny_assignment_and_both_factor_orientations_qualified": true,
+    "all_matrix_spectra_tail_F32_factors_finite_qualified": true,
+    "same_ranks_factor_precision_inputs_no_gradient_fit": true,
+    "base_removal_and_private_ID_cycle_controls_complete": true
+  },
+  "candidate_count": 45,
+  "eligible_recipe_count": 0,
+  "private_ID_control_count": 30,
+  "optimizer_updates": 0,
+  "fresh_bound_files": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth446_switch_private_delta_pilot.py": {
+      "bytes": 22633,
+      "sha256": "bef9e6165b28cffb2e1e21bb7b67bb79596cef18a3530f17b6830fe820f2dbc0"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth446_switch_private_delta_math.py": {
+      "bytes": 4452,
+      "sha256": "a38076656508aa09a6b21ed5432cfd02eafb5e094d80f312edbf0a02829e12f5"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md": {
+      "bytes": 10114,
+      "sha256": "c1cde8b1b55c5899104708aaf3955fa0e9b42360e53ed3a65f0da2dc27d1ec42"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth443_switch_native_function_causality.py": {
+      "bytes": 16205,
+      "sha256": "ed4eb92a480e656edf19076f630776a58e4b2b85430d65b6ede38ad6ca5663d4"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth431_switch_additive_pilot.py": {
+      "bytes": 37062,
+      "sha256": "423148e2454c593825cc21778a2d7a124c470f6605468638ad2353f5f1d98432"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": {
+      "bytes": 17931,
+      "sha256": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py": {
+      "bytes": 24572,
+      "sha256": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth418_switch_function_capture.py": {
+      "bytes": 25349,
+      "sha256": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_autograd.py": {
+      "bytes": 6390,
+      "sha256": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth368_switch_bank_manifest.py": {
+      "bytes": 4148,
+      "sha256": "83829e76afec338db24616d784cb125d330c2c8fc8e69f34f64669648ed5776b"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth401_pretrained_bank_union_applicability.py": {
+      "bytes": 10069,
+      "sha256": "8f52308d4efbc6a868790919f5d3a12bb619b7b0f499f70310d8f974e45f2f83"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth443_switch_native_causality_result.json": {
+      "bytes": 344541,
+      "sha256": "b8e8614fb28ad50b91865dba7486c6e4cc6bb8c00cee3bbfe899ab495af5bf80"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth445_switch_relative_contrast_result.json": {
+      "bytes": 14909,
+      "sha256": "ddd1cd0d8c49e5e6a6b5305eca54e46e12f528ebe8e508dcb175661020b8685f"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth418_switch_function_capture_result.json": {
+      "bytes": 3291344,
+      "sha256": "4ebb37ed40d788eb85168d028b3e0b538cd7d65e009293cd32d5fb0eb117d829"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth420_switch_function_gradient_result.failure.json": {
+      "bytes": 228049,
+      "sha256": "17f60d043cff598cec0d3e85dfa4d23bdad67b83635422891e92729528056427"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth374_switch_physical_workers_contract\\meth374_switch_physical_workers.exe": {
+      "bytes": 290816,
+      "sha256": "97965a35900cc0483e60f3e2e51f95da90af600e1fa326af8ec34f7c2a3dacd0"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe": {
+      "bytes": 290816,
+      "sha256": "7783d25e7dd51c6f8ad43750d5d7139e622ba74b852a71aee484ffd445860a7b"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll": {
+      "bytes": 20415488,
+      "sha256": "63c857e738469261263c764a36be9436ebdeaa272e340a828f42047a97131080"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll": {
+      "bytes": 20262912,
+      "sha256": "197ee2fc9b4d071f7e048078cac741151a6585d871061cf5f88c0c73e31963a5"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\scipy\\optimize\\_lsap.cp312-win_amd64.pyd": {
+      "bytes": 190976,
+      "sha256": "34e851d39d8c07b071e1206752073b86d29e5cfb63001bc611805ac1d0db7772"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll": {
+      "bytes": 1310600,
+      "sha256": "f608eedb25e44de3db1d3db984ac113f3a8406a92ea87061a77f390852fe1174"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll": {
+      "bytes": 43912,
+      "sha256": "27613127ee63e4399b615bf5d105895b2dc18e3505bb92615827f7e11d88343a"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c": {
+      "bytes": 136806,
+      "sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll": {
+      "bytes": 251258368,
+      "sha256": "9419933b9cc163baf7859092f243de4695b45632f81b96a8d0060ea20d63d6b5"
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\_C.cp312-win_amd64.pyd": {
+      "bytes": 10240,
+      "sha256": "8cc12784367470aa0f3ebe54a0c4593ac52d5bc273ed7ba719cbb10b4a3dbdb8"
+    }
+  },
+  "physical_filtered_HEAD_files": {
+    ".gitattributes": {
+      "bytes": 61452,
+      "sha256": "a436624b3432783e7efcd18434d3bc97ac9c6b7d614916c77e33c6f991318e3e"
+    },
+    "benchmarks/native_expert_scaling/meth324_switch_reference.py": {
+      "bytes": 17931,
+      "sha256": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+    },
+    "benchmarks/native_expert_scaling/meth368_switch_bank_manifest.py": {
+      "bytes": 4148,
+      "sha256": "83829e76afec338db24616d784cb125d330c2c8fc8e69f34f64669648ed5776b"
+    },
+    "benchmarks/native_expert_scaling/meth401_pretrained_bank_union_applicability.py": {
+      "bytes": 10069,
+      "sha256": "8f52308d4efbc6a868790919f5d3a12bb619b7b0f499f70310d8f974e45f2f83"
+    },
+    "benchmarks/native_expert_scaling/meth418_switch_function_capture.py": {
+      "bytes": 25349,
+      "sha256": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9"
+    },
+    "benchmarks/native_expert_scaling/meth422_switch_function_autograd.py": {
+      "bytes": 6390,
+      "sha256": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7"
+    },
+    "benchmarks/native_expert_scaling/meth422_switch_function_gradient_contract.py": {
+      "bytes": 24572,
+      "sha256": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4"
+    },
+    "benchmarks/native_expert_scaling/meth431_switch_additive_pilot.py": {
+      "bytes": 37062,
+      "sha256": "423148e2454c593825cc21778a2d7a124c470f6605468638ad2353f5f1d98432"
+    },
+    "benchmarks/native_expert_scaling/meth443_switch_native_function_causality.py": {
+      "bytes": 16205,
+      "sha256": "ed4eb92a480e656edf19076f630776a58e4b2b85430d65b6ede38ad6ca5663d4"
+    },
+    "benchmarks/native_expert_scaling/meth446_switch_private_delta_math.py": {
+      "bytes": 4452,
+      "sha256": "a38076656508aa09a6b21ed5432cfd02eafb5e094d80f312edbf0a02829e12f5"
+    },
+    "benchmarks/native_expert_scaling/meth446_switch_private_delta_pilot.py": {
+      "bytes": 22633,
+      "sha256": "bef9e6165b28cffb2e1e21bb7b67bb79596cef18a3530f17b6830fe820f2dbc0"
+    },
+    "benchmarks/phase60/engine.c": {
+      "bytes": 136806,
+      "sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/INDEX.md": {
+      "bytes": 8980,
+      "sha256": "e433f3c4394cc394489e9318e081519643ae5cb588ae64f7d236b70933aee118"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth418_switch_function_capture_result.json": {
+      "bytes": 3291344,
+      "sha256": "4ebb37ed40d788eb85168d028b3e0b538cd7d65e009293cd32d5fb0eb117d829"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth420_switch_function_gradient_result.failure.json": {
+      "bytes": 228049,
+      "sha256": "17f60d043cff598cec0d3e85dfa4d23bdad67b83635422891e92729528056427"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth443_switch_native_causality_result.json": {
+      "bytes": 344541,
+      "sha256": "b8e8614fb28ad50b91865dba7486c6e4cc6bb8c00cee3bbfe899ab495af5bf80"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth445_switch_relative_contrast_result.json": {
+      "bytes": 14909,
+      "sha256": "ddd1cd0d8c49e5e6a6b5305eca54e46e12f528ebe8e508dcb175661020b8685f"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth446_switch_private_delta_result.json": {
+      "bytes": 4056723,
+      "sha256": "b6c525905cb2df1b3adb88c0131a09d34ac384328ff4208e4cd95609ed9773ee"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md": {
+      "bytes": 10114,
+      "sha256": "c1cde8b1b55c5899104708aaf3955fa0e9b42360e53ed3a65f0da2dc27d1ec42"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/METH_446_SWITCH_PRIVATE_DELTA_RESULT_20261004.md": {
+      "bytes": 6114,
+      "sha256": "845d36e45e69921587edf157dfc6f1a240a4bfc42fa465c1f8a8fe97d1b2264a"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/METHOD.md": {
+      "bytes": 81278,
+      "sha256": "dcf14b99fe78b784d2d6d843f30e9110dd96b14ab6203daa035a199dddbabca7"
+    },
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md": {
+      "bytes": 9851,
+      "sha256": "2631a8d7e53190c3b43a71f4ae010579db86fbcd2e626bf42c94262acd8aaad6"
+    }
+  },
+  "retained_archives": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth446_switch_private_delta\\factors.npz": {
+      "bytes": 93023008,
+      "sha256": "55924e8732e9be2f8a3eeaabad78dad75185a1e7ec1ce06e513c40e060a73b35",
+      "arrays": {
+        "full_matrix_e1_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e1_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e1_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e1_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e1_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e1_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e64_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e64_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e64_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e64_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e64_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e127_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e127_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e127_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e127_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "full_matrix_e127_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e1_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e1_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e1_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e1_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e1_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e64_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e64_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e64_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e64_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e64_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e127_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e127_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e127_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e127_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_identity_e127_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e1_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e1_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e1_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e1_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e1_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e64_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e64_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e64_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e64_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e64_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r16_wi_U": {
+          "shape": [
+            3072,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r16_wi_V": {
+          "shape": [
+            16,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e127_r16_wo_U": {
+          "shape": [
+            768,
+            16
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r16_wo_V": {
+          "shape": [
+            16,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r32_wi_U": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r32_wi_V": {
+          "shape": [
+            32,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e127_r32_wo_U": {
+          "shape": [
+            768,
+            32
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r32_wo_V": {
+          "shape": [
+            32,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r64_wi_U": {
+          "shape": [
+            3072,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r64_wi_V": {
+          "shape": [
+            64,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e127_r64_wo_U": {
+          "shape": [
+            768,
+            64
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r64_wo_V": {
+          "shape": [
+            64,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r96_wi_U": {
+          "shape": [
+            3072,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r96_wi_V": {
+          "shape": [
+            96,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e127_r96_wo_U": {
+          "shape": [
+            768,
+            96
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r96_wo_V": {
+          "shape": [
+            96,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r128_wi_U": {
+          "shape": [
+            3072,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r128_wi_V": {
+          "shape": [
+            128,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": true
+        },
+        "delta_permuted_e127_r128_wo_U": {
+          "shape": [
+            768,
+            128
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r128_wo_V": {
+          "shape": [
+            128,
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "permutation_e1": {
+          "shape": [
+            3072
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "permutation_e64": {
+          "shape": [
+            3072
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        },
+        "permutation_e127": {
+          "shape": [
+            3072
+          ],
+          "dtype": "int64",
+          "fortran_order": false
+        }
+      }
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth446_switch_private_delta\\reference.npz": {
+      "bytes": 29992944,
+      "sha256": "69d2716db53fab62d6549a80ab741b76326c85499dcf2f3f620ecf71fb2e1579",
+      "arrays": {
+        "inputs": {
+          "shape": [
+            1344,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "pre": {
+          "shape": [
+            1344,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "probability": {
+          "shape": [
+            1344
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "selected_ids": {
+          "shape": [
+            1344
+          ],
+          "dtype": "int32",
+          "fortran_order": false
+        },
+        "keys": {
+          "shape": [
+            1344
+          ],
+          "dtype": "<U88",
+          "fortran_order": false
+        },
+        "native_down": {
+          "shape": [
+            4,
+            1344,
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "base_wi_codes": {
+          "shape": [
+            3072,
+            768
+          ],
+          "dtype": "int8",
+          "fortran_order": false
+        },
+        "base_wi_scales": {
+          "shape": [
+            3072
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        },
+        "base_wo_codes": {
+          "shape": [
+            768,
+            3072
+          ],
+          "dtype": "int8",
+          "fortran_order": false
+        },
+        "base_wo_scales": {
+          "shape": [
+            768
+          ],
+          "dtype": "float32",
+          "fortran_order": false
+        }
+      }
+    },
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth446_switch_private_delta\\validation_functions.npz": {
+      "bytes": 156915296,
+      "sha256": "321faf7c47301e5f9f91d05f8e9dfae5ec8f8bc377b10fefa392146ca48f833c",
+      "arrays": {
+        "base_only": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e1_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e64_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "full_matrix_e127_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r16": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r32": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r64": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r96": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r128": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r16_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r16_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r16_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r32_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r32_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r32_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r64_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r64_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r64_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r96_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r96_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r96_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e1_r128_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e64_r128_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_identity_e127_r128_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r16_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r16_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r16_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r32_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r32_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r32_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r64_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r64_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r64_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r96_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r96_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r96_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e1_r128_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e64_r128_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        },
+        "delta_permuted_e127_r128_private_permutation": {
+          "shape": [
+            336,
+            768
+          ],
+          "dtype": "float64",
+          "fortran_order": false
+        }
+      }
+    }
+  },
+  "unique_output_bytes": 279931248,
+  "engine_byte_exact_qualified5c82f10": true,
+  "original_binaries_torch_runtime_exact": true,
+  "no_model_jobs": true,
+  "preserved_daemons": [],
+  "goal_status": "ACTIVE / INCOMPLETE",
+  "seconds": 1.5619999999998981
+}
