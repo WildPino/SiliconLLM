@@ -17,7 +17,7 @@ fresh output directory empty. No final all-gates PASS record.
 ## Completed evidence and resource cost
 
 Both COMPLETE qualified14.818/7.542GB payload SHA and manifests/all records
-verified, original-F32 embedding aliases/full196? precisely2*98697216B
+verified, original-F32 embedding aliases/full197394432B
 segments freshly SHA-exact/finite. Each source32128 nonzero embedding rows,
 24674304 finite F32 positions, used only as source lexical anchors. Source
 tokenizer bytes equal, ALL96 existing paired traces/keys18/6 split verified.
