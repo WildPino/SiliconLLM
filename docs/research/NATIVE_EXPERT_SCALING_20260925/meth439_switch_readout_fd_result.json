@@ -1,0 +1,233 @@
+{
+  "experiment": "METH-439-same-zero-readout-FD-diagnosis-no-fit",
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth439_switch_shared_readout_fd.py": "c9cee7c6609d8f3b49e71df646e3974575768331b81653a6ccfc122d6e435668",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_439_SWITCH_READOUT_FD_PROTOCOL_20261004.md": "65399797ce361666d4500d8bfac1e6fbb852f43d3e089db98c359345f066ae4b",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth437_switch_shared_readout_math.py": "c6ca63d6b720a3038282d468f01a66ffb577d9990c6a3c6c6afb61c1a6b79174",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_autograd.py": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth424_switch_anchored_reference.py": "5807c4373e84703f4acd79418e5782fb28a6092a9a11caa28589de6cc6c9b960"
+  },
+  "preserved_daemons": [
+    12540,
+    17984
+  ],
+  "artifacts": {
+    "256": {
+      "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth335_switch_w8a8_export\\weights.bin",
+      "bytes": 14818015744,
+      "sha256": "e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056",
+      "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+      "manifest_sha256": "9c5be95504291cf9a71b087f714fc0b474ac6948389647be93919f611117fd81",
+      "source_unique_parameters": 14664154368,
+      "original_experts_per_bank": 256,
+      "f32_embedding_alias_names": [
+        "decoder.embed_tokens.weight",
+        "encoder.embed_tokens.weight",
+        "shared.weight"
+      ],
+      "f32_embedding_physical_copies": 1,
+      "separate_I8_head_view_from_same_tied_source": true,
+      "new_payload_write_bytes": 0,
+      "row_I8_tensor_names": 6313,
+      "f32_tensor_names": 79
+    }
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "CPU_affinity": [
+      0
+    ],
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      }
+    ],
+    "GPU": false
+  },
+  "diagnosis": {
+    "label": "same_failed438_adapter",
+    "endpoints": {
+      "normalized": {
+        "relative": 0.0,
+        "absolute": 0.0
+      },
+      "low": {
+        "relative": 9.215082187336477e-16,
+        "absolute": 2.6645352591003757e-15
+      },
+      "correction": {
+        "relative": 0.0,
+        "absolute": 0.0
+      },
+      "probability": {
+        "relative": 1.5948433585417024e-16,
+        "absolute": 1.3877787807814457e-17
+      },
+      "weighted": {
+        "relative": 0.0,
+        "absolute": 0.0
+      },
+      "post": {
+        "relative": 0.0,
+        "absolute": 0.0
+      },
+      "final": {
+        "relative": 6.361471091758405e-17,
+        "absolute": 3.552713678800501e-15
+      },
+      "head_input": {
+        "relative": 6.273929087123628e-17,
+        "absolute": 1.1102230246251565e-16
+      },
+      "logits": {
+        "relative": 3.7829068645288517e-16,
+        "absolute": 1.7053025658242404e-13
+      }
+    },
+    "gradient_errors": {
+      "C": 5.466872293261812e-08,
+      "D": 0.0,
+      "feature": 0.0,
+      "base": 4.4629275598070324e-08,
+      "scores": 0.0
+    },
+    "FD": [
+      {
+        "field": "C",
+        "old_FD": 7.148406311330292e-06,
+        "old_reference_error": 3.690171289699145e-05,
+        "stable_FD_h": 7.148142532626803e-06,
+        "stable_FD_half_h": 7.1481425326268e-06,
+        "richardson": 7.148142532626798e-06,
+        "reference_projection": 7.148142532626806e-06,
+        "native_projection": 7.148143772870791e-06,
+        "analytic": 7.1481425326268e-06,
+        "complex_step": 7.14814253262679e-06,
+        "reference_Richardson_error": 1.0664723724370514e-15,
+        "native_Richardson_error": 1.735057424342278e-07,
+        "analytic_reference_error": 8.294785118954844e-16,
+        "complex_reference_error": 2.2514416751448864e-15
+      },
+      {
+        "field": "D",
+        "old_FD": 0.0,
+        "old_reference_error": 0.0,
+        "stable_FD_h": 0.0,
+        "stable_FD_half_h": 0.0,
+        "richardson": 0.0,
+        "reference_projection": 0.0,
+        "native_projection": 0.0,
+        "analytic": 0.0,
+        "complex_step": 0.0,
+        "reference_Richardson_error": 0.0,
+        "native_Richardson_error": 0.0,
+        "analytic_reference_error": 0.0,
+        "complex_reference_error": 0.0
+      },
+      {
+        "field": "feature",
+        "old_FD": 0.0,
+        "old_reference_error": 0.0,
+        "stable_FD_h": 0.0,
+        "stable_FD_half_h": 0.0,
+        "richardson": 0.0,
+        "reference_projection": 0.0,
+        "native_projection": 0.0,
+        "analytic": 0.0,
+        "complex_step": 0.0,
+        "reference_Richardson_error": 0.0,
+        "native_Richardson_error": 0.0,
+        "analytic_reference_error": 0.0,
+        "complex_reference_error": 0.0
+      },
+      {
+        "field": "base",
+        "old_FD": -3.080229404872625e-05,
+        "old_reference_error": 2.9057845207028287e-07,
+        "stable_FD_h": -3.080228509824604e-05,
+        "stable_FD_half_h": -3.08022850982459e-05,
+        "richardson": -3.080228509824586e-05,
+        "reference_projection": -3.080228509824593e-05,
+        "native_projection": -3.080228820318582e-05,
+        "analytic": -3.080228509824601e-05,
+        "complex_step": -3.08022850982458e-05,
+        "reference_Richardson_error": 2.1999223617407155e-15,
+        "native_Richardson_error": 1.0080225002972044e-07,
+        "analytic_reference_error": 2.6399068340888583e-15,
+        "complex_reference_error": 4.1798524873073596e-15
+      },
+      {
+        "field": "scores",
+        "old_FD": 0.0,
+        "old_reference_error": 0.0,
+        "stable_FD_h": 0.0,
+        "stable_FD_half_h": 0.0,
+        "richardson": 0.0,
+        "reference_projection": 0.0,
+        "native_projection": 0.0,
+        "analytic": 0.0,
+        "complex_step": 0.0,
+        "reference_Richardson_error": 0.0,
+        "native_Richardson_error": 0.0,
+        "analytic_reference_error": 0.0,
+        "complex_reference_error": 0.0
+      }
+    ],
+    "exact438_failure_reproduced": true,
+    "offsets_fixed": true,
+    "zero_post_full_head_exact": true,
+    "stable_rationalized_RMS_delta_and_head_before_loss_difference": true,
+    "fixed_h_and_half_h_Richardson": true,
+    "independent_analytic_complex_derivatives": true,
+    "archive_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth439_switch_readout_fd\\same_failed_adapter.npz",
+    "approximate_derivative_not_rounding": true
+  },
+  "prior438_failure_sha256": "81e4da2bb5d2f48b3f48f3643da0128fc9d5f038456b217d66d08a168f2b2590",
+  "apparatus_gates": {
+    "failed438_C_FD_exact_reproduced": true,
+    "ordinary_F64_all_five_fields_match_native": true,
+    "analytic_and_complex_step_all_directions_same_bounds": true,
+    "stable_RMS_delta_and_fixed_Richardson_same_bounds": true,
+    "no_updates_or_scientific_recipe_changed": true
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth439_switch_readout_fd\\same_failed_adapter.npz",
+      "bytes": 2269822,
+      "sha256": "cc538d748ed083d01b8e5488cd291f0591ac081c6d6df0406fad6e17193c6d19"
+    }
+  ],
+  "resource": {
+    "seconds": 19.984000000004016,
+    "peak_bytes": 1268330496,
+    "bytes_hashed": 14887817848,
+    "optimizer_updates": 0
+  },
+  "decision": "numeric_zero_readout_qualification_repair_licensed_ONLY_new_controller_same_fit_configuration"
+}
