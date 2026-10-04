@@ -250,4 +250,13 @@ benefit under preservation.434 exact replay of frozen431 checkpoint/hard outputs
 with diagnostic oracle selection still fails1%gain/permutation requirements.
 No selector refit licensed, no new learned/native artifact or accepted rate.
 419-434 no engine/C changes; original374/389 binaries authoritative unchanged.
-Next435 shared nonlinear input-transport feasibility, no source/protocol yet.
+That next step was completed by435; current resumption below supersedes it.
+
+## Current prototype boundary, through436
+
+435 shared input map completes512updates but fails3/4 input gates.436 correct
+source128 WI input with frozen C/D still misses benefit/permutation requirements;
+zero updates, unavailable-core oracle only.419-436 no engine/C change, no combined
+384 artifact/quality/rate. Original374/389 authoritative unchanged. Next437 shared
+output readout versus own-input matched control, oracle feasibility only; prepare
+and freeze exact qualification/fit protocol first. See current resumption memo.

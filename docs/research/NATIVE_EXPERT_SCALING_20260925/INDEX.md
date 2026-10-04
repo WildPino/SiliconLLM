@@ -1,10 +1,10 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.**
-Latest:433 proves17.63% output-only benefit feasible under preservation;434
-frozen learned functions with oracle selection reach only about.5% and miss
-required permutation evidence. Close this checkpoint before selector fitting.
-Next NEW435: shared nonlinear input-transport feasibility, no source/protocol yet.
+Latest:435 shared nonlinear input fit fails3/4 geometry gates;436 correct
+original function inputs with frozen output readouts still miss benefit/causality.
+Next NEW437: one shared output readout versus equal-parameter own-input control;
+oracle feasibility only, prepare/freeze exact qualification and fit protocol.
 
 ## Goal and constraints
 
@@ -66,6 +66,15 @@ IDs:61/10useful,.5162%. Both<1%; permutation harm.00493/.00282<.01. Neither
 satisfies ALL9 potential gates. Close this checkpoint before new selector fit.
 125.313s/max2.492GB/259.081MB full retained outputs, source hashes fresh.
 
+- 435 [shared input](METH_435_SWITCH_SHARED_INPUT_RESULT_20261004.md),b970b34:
+512updates/ALL5 apparatusPASS, validation error.60913mean-only/medianL2.87673/
+p95.99102 =>3/4FAIL. Close map;28.843s/557MB/11.847MB retained.
+- 436 [correct input oracle](METH_436_SWITCH_ORACLE_INPUT_RESULT_20261004.md),98a582f:
+zero updates/ALL6 apparatusPASS, native source features exact. Classifier/teacher
+mixture gain.17894%/.08674%; permutation improves. Neither8 diagnostic gates
+passes, no matched-adapter capacity claim.99.921s/2.546GB/172.721MB retained.
+Perfect input ALONE insufficient for frozen C/D; do not tune input map as sole change.
+
 ## Closed routes and retained context
 
 Identity403, affine activation404/406, lexical414/416 bridges closed;405
@@ -81,11 +90,10 @@ Frozen donor-adaptation Giga work remains reusable evidence, not active old plan
 ## Exact resumption
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
-NEW435 shared nonlinear final-bank input-transport math/controller/protocol and
-freeze before qualification/fit. Source256 normalized input -> source128 input,
-shared supervision on1008dev/336val, ONE fixed hidden width128/no sweep. Reuse
-404/406 medianL2<=.25/p95<=.50/MSE<=.5 mean-only criteria. Qualify new composed
-native-valued map/derivative first, no tokenloss/selector/model export until
-input feasibility passes. Shared map is a hypothesis, not a learned method yet.
-Existing nine capacity/whole donor-quality/SAMEartifact50 requirements persist.
-All sessions terminal; goal usefulRAM-n/LUT/realDRAM/another-family/~100B open.
+NEW437 shared rank32 output-readout feasibility, real correct128 native feature
+versus equal-parameter readout of its own128 input. All1008dev supervision shared,
+source functions frozen; consumed336val and teacher input/IDs/masks oracle only.
+Freeze independent composed numeric contract/exact fit/resources before outcomes.
+ALL9 potential requirements before available-input/routing controls; no oracle
+export. Whole quality/SAMEartifact50/usefulRAM-n/LUT/realDRAM/families/~100B open.
+Original374/389 binaries/default engine exact, all sessions terminal.

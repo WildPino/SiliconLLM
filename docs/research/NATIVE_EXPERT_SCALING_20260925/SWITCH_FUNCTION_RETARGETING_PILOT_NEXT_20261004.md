@@ -1,121 +1,89 @@
-# Current resumption after434: shared nonlinear input transport hypothesis
+# Current resumption after436: shared output-interface feasibility
 
-Goal ACTIVE/INCOMPLETE, user focus useful n grows with RAM while CPU LUT/
-routing/realDRAM and quality remain viable. Original source128/256 qualified
-artifacts/rates unchanged; no new combined384 or useful10x/~100B artifact.
-Routine Graphify disabled. Frozen donor-adaptation Giga evidence reusable.
+Goal ACTIVE/INCOMPLETE. User priority useful n grows with RAM while CPU LUT/
+routing/realDRAM and quality remain viable. Qualified original source128/256
+artifacts/rates unchanged; no new combined384/useful10x/~100B artifact.
+Routine Graphify disabled; frozen donor-adaptation Giga evidence reusable.
 
-## Latest completed evidence changes the next action
+## Latest evidence and closed recipes
 
-[431 additive pilot](METH_431_SWITCH_ADDITIVE_PILOT_RESULT_20261004.md):6240fixed
-updates, original-preserving zero-init ALL1344 outputs exact,7/9capacityFAIL.
-[432 first failure](METH_432_SWITCH_OUTPUT_BOUND_RESULT_20261004.md) retained
-before433 F64 CE-comparator repair; analytic fixture/math unchanged.
-[433 bound](METH_433_SWITCH_OUTPUT_BOUND_RESULT_20261004.md),74a649d:
-ALL6 apparatusPASS,336 consumed-val arbitrary output distributions achieve
-mixturegain17.63%/128gain26.64% while original256 meanKL.02/worstbook.024565
-preserve. Numerical primal/dual gap5.60e-14. OUTPUT-level opportunity only,
-not a native model, function/cost/quality or transfer result.55actual IDs with
->=2val observations before frozen gate, only2after. No actual ID unseen in dev.
+433 [output-only feasibility](METH_433_SWITCH_OUTPUT_BOUND_RESULT_20261004.md):
+17.63% mixture benefit feasible under mean256KL.02/book<=.05. Arbitrary output
+oracle, not a model.434 [frozen selection](METH_434_SWITCH_FROZEN_SELECTION_RESULT_20261004.md):
+fixed431 functions with oracle masks reach onlyabout.5%, inadequate permutation.
+Close checkpoint before selector refit; output opportunity is not sole gate issue.
 
-[434 frozen function-versus-selection diagnosis](METH_434_SWITCH_FROZEN_SELECTION_RESULT_20261004.md),
-frozen3f8b7f6/retained47f3f43:ALL7 apparatusPASS, actual classifier/gate scores/
-masks and BOTH431 actual hard full matrices/CEs exact. ZERO updates, checkpoint
-876a1da6da1bd077960907347649a896f7d4d355336468266f3c3e4afc84da4a unchanged.
-Prespecified gain/protection oracle with actual classifier IDs yields53extra
-positions/12locally useful IDs, mixturegain.49573%/128gain.75701%. Teacher IDs
-oracle61positions/10useful,.51620%/.78777%. Both<1%, permutation harm only
-.004925/.002820<required.01. Neither ALL9 potential gate set passes, although
-oracle selection exposes local benefits.125.313s/2.492GB/259.081MB retained.
-Close THIS frozen checkpoint before another selector fit;433 rules out simple
-prediction-objective infeasibility,434 rules out sole final-gate explanation.
-Oracle masks/teacher labels are never deployable selectors or fresh quality.
+435 [shared nonlinear input fit](METH_435_SWITCH_SHARED_INPUT_RESULT_20261004.md),
+frozenc6382f8/retainedb970b34: ALL5 apparatusPASS,512fixed updates, paired1008dev/
+336val, ONE shared768->128->768 ReLU map. Input eligibility3/4FAIL: error.60913
+mean-only versus<=.5, medianL2.87673/p95.99102 versus.25/.50. Native/F64 error
+5.5043e-8PASS.28.843s/557MB/11.847MB retained. Close THIS input regression
+before width/depth/optimizer sweeps. No function/model export licensed.
 
-## Immediate NEW435: shared nonlinear input geometry, ONE bounded feasibility test
+436 [perfect function-input oracle](METH_436_SWITCH_ORACLE_INPUT_RESULT_20261004.md),
+frozenf85cf36/retained98a582f: zero updates, frozen431 C/D, bypass A/B and
+substitute correct captured128 normalized input at added WI. Teacher route
+ALL336 native WI/ReLU/WO features exact418; both routes ALL6720 literal native
+nodes exact. Actual classifier/teacher IDs plus fixed target-aware masks give
+onlyabout.17894%/.08674% mixture gain; permutation improves, neither8-gate set
+passes.99.921s/2.546GB/172.721MB matrices. Perfect input ALONE does not rescue
+THIS frozen readout. Unavailable source128 core/masks diagnostic, not deployable.
+No bound against future refitted readouts; no adapter/full9-gate capacity claim.
 
-No435 source/protocol/outcome yet. New variable: a small nonlinear mapper shared
-across all128 added functions, supervised by actual paired source128 inputs.
-Closed403 identity/404 rank32 activation PCR/406 full affine ridge/414-416
-lexical maps are linear/orthogonal;425-431 input corrections are private rank8
-factors fitted through output loss. None establishes a shared nonlinear transport.
-All236 original common core/control weights differ. Mapper must learn a new
-geometry; cannot silently assume basis equivalence or source-function semantics.
+## Immediate NEW437 proposal: one shared output-readout qualification and fit
 
-Each private function currently sees only its assigned development positions;
-a shared mapper receives ALL1008 points. That improves supervision sharing as
-n grows without adding a mapper per expert. This is a hypothesis, not proof of
-adequate data or nonlinear recoverability. Do not reopen old rank/seed/epoch/
-state-map or additive-checkpoint sweeps under another name.
+No437 source/protocol/numeric outcome yet. New hypothesis: output supervision
+shared over all1008development positions, rather than private C/D seeing sparse
+per-ID positions. Correct native source128 features first isolate usefulness
+of the pretrained function from the failed input map. This is an ORACLE-input
+feasibility screen before a task-aware deployable interface, not a released path.
 
-Prospective scope ONLY final decoder sparse bank11. Reuse paired405/418/420
-1008dev18books/336val6books/all4cases/native source256/source128 normalized FF
-inputs. Other banks, original core/norm/head/functions untouched. Natural cohorts
-qualification-only. No new whole-quality books, target oracle, GPU/T4/network.
+Reuse ONLY paired405/418/420 1008dev18books/336val6books, final bank11/all4cases.
+Real arm feature=captured original128 WI/ReLU/WO output at original128 expertID.
+Matched control feature=captured source128 normalized input BEFORE that function.
+Both have SAME unavailable source128 core/context/identity information; comparison
+asks whether the pretrained function adds useful information beyond its input.
+All source functions, original256 base/probability/finalnorm/head remain frozen.
+No input-map/classifier/431 factors reused as fitted initialization.
 
-Prepare ONE fixed768->128->768 ReLU mapper with biases and development-only
-input/output standardization. Native-valued operations must have their own
-composed independent endpoint/derivative/FD contracts using immutable NativeFloat/
-ReLU and saved-primal reference approach; standard autograd cannot inherit proof.
-Tiny nonzero and first real zero-output initialization checks BEFORE updates.
-Derive normalization constants, trainable/stored/gradient/Adam/cache/active bytes,
-initialization/seed/loss/rate/clip/batch/passes and numerical floors prospectively,
-then freeze controller/math/protocol before first compile/numeric outcome.
+Proposal ONE shared rank32 output readout per arm, C[768,32]/D[32,768], identical
+parameter/update budget. Development-only feature means/std, F32 NativeFloat
+composition; correction C(D(standardized_feature)), original256 post plus same
+original256 selected probability times correction. No private-ID readout/input
+correction.49152learned coeff/196608B plus two768F32 feature buffers6144B,
+202752B total nominal per arm, constant against n. This is accounting, not
+physicalDRAM or native latency. Fresh zero-C/random-D initialization gives exact
+original256 post/full-head; independent new tiny/nonzero and actual zero-output
+composed endpoint/gradient/FD qualification MUST precede updates.
 
-Suggested construction (proposal, final exact arithmetic fixed in435 protocol):
+Prepare exact seed/loss/optimizer/clip/batch/passes/resource/output budgets and
+freeze NEW math/controller/protocol before FIRST import/compile/forward/fit.
+CPU only, no new corpus/source acquisition; aim one bounded <=12min/4GiB/320MiB
+screen including bindings. Original teacher-mixture token objective, final state
+only; no validation checkpoint/width/rank/lr/pass/gate/seed search. Exact values
+remain prospective until protocol; no fit licensed by this planning memo alone.
 
-    standardized_x=(x256-development_mean256)/development_std256
-    standardized_y=W2*ReLU(W1*standardized_x+b1)+b2
-    predicted_x128=development_mean128+development_std128*standardized_y
+Evaluate forced branches and SAME fixed431/434 target-aware benefit/protection
+oracle mask, matched control with own SAME rule, primitive permutation at SAME
+real mask and removal. ALL9 original potential demands:>=1% mixture/128 gains,
+mean256<=.02/book<=.05,>=34consultations,>=8useful IDs, real beats matched control
+by.01 and permutation/removal harm>=.01. Teacher routes/masks only diagnostic.
+If ALL pass, next NEW joint task-aware available-input transport/routing controls
+may be considered. If FAIL, close THIS shared-readout recipe before tuning.
+Neither outcome promotes431/435 or proves universal transfer impossibility.
 
-W1[128,768]/W2[768,128], biases128+768=197504learned coefficients. Four fixed
-768normalization buffers add3072coefficients; total802304B F32 stored/nominal
-read accesses for shared map. Constant map cost versus expert count, not actual
-DRAM or speed proof. Output layer/bias zero initially gives exact mean-only
-baseline; first layer gradient initially0, output layer/bias live. Tiny nonzero
-must test full coupling. Per-ID learned corrections/tokenloss not fitted yet.
+## Remaining path to the actual goal
 
-Bound first CPU fit prospectively<=12min/RSS<=2GiB/output<=16MiB, CPU0/Torch1/
-BLAS1. ONE hidden width128, no seed/lr/epoch/width sweeps or validation model
-selection. Dev-only normalization/supervision, final checkpoint only; budget
-includes source/archive binding. Stop nonfinite/binding/qualification/resource
-failure; retain first failure before NEW numbered repair. Fix exact number of
-updates/loss before execution rather than deriving it from validation.
+A feasible oracle readout still needs available compact input geometry, learnable
+routing/causal useful-function evidence and all active readout/router costs.
+Original+extra uses TWO final-bank functions, other11banks unchanged; no inherited
+original rate. Then excluded original-relative whole prediction/generation/task
+quality AND SAMEartifact accepted>=50batch1IDs/s, native routing/LUT/realDRAM.
+Broader banks/families/~100B and useful large n need actual independent evidence.
 
-Reuse404/406 input eligibility demands unchanged: validation total squared
-error<=.5times development-mean-only baseline, median relativeL2<=.25,
-95th<=.50, numerical F32/F64 prediction relative<=1e-5 and finite. For NEW435
-apply to this ONE final bank, not claim all12 inputs align. Quantify per-book,
-route/geometry and means; correct input state is still not donor task quality.
-If FAIL, close THIS shared mapper before width/depth/optimizer sweeps. If PASS,
-licenses only NEW coupled original-function output/readout/native-precision
-and prediction-utility protocol. Existing ALL9 capacity demands remain, no
-selector rescue or promotion of431 from mapper regression alone.
-
-## From any feasible map to the actual goal
-
-Meaningful source-function benefit against matched small-adapter control,
-actual learnable routing/consultation and permutation/removal causal evidence
-are still required before combined native C export. Shared map cost plus all
-additional functions/routers must be charged. Original+extra final-bank budget
-has two active functions when ON; no inherited original accepted rate.
-
-Then truly excluded original-relative whole prediction/generation/task quality
-AND SAMEartifact accepted>=50batch1 IDs/s, actual routing/LUT/realDRAM. Broader
-banks/families/~100B and useful large n need direct evidence. Future shared
-transports across unequal source dimensions remain proposals only. No source
-values acquisition from a currently closed large-source geometry is licensed.
-
-## Preserved histories and applicable closed evidence
-
-418 capture1936inventory and420 all384/4895 native states/157266560head rows
-exact;424 local approximate derivative qualified.419/420/422 numeric failures,
-421/423 diagnoses,425/427/429 first failures and426/431 complete fit negatives
-retained.417 native observer/C entries unchanged;419-434 no engine changes.
-Qualified original374/389 binaries source-specific rate contracts authoritative.
-
-Granite412/413/Ling408/410/specified Giga full-width/LUT routes closed. Real
-QwenNext397~79.674B main headers512experts, whole unchanged active geometry
-1.279GB>560MB; no values/reference/quality/rate. Public Switch C2048~1.6T different
-geometry, not matching base n1024 or fitting80GiB. Existing source applicability
-files hold the underlying actual evidence; do not repeat availability searches
-or generic-port acquisition without a new feasible transformed proposal.
+403/404/406/414/416 maps,426/431 learned recipes and specified Granite/Ling/Giga
+full-width cost formats stay CLOSED. QwenNext397 original active descriptor1.279GB
+and BF16source162.65GB do not license unchanged acquisition; Switch C2048 is
+~1.6T/different geometry, not a verified matching larger base release.417 native
+observer/default engine and original374/389 binaries unchanged;419-436 no C edits.
+All sessions terminal. Goal active, checkpoint/protocol/results retained in Git.

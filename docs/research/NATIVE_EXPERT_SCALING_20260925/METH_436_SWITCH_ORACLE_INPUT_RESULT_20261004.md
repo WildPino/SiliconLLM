@@ -65,3 +65,10 @@ interface; it is not another fit of the failed private-ID checkpoint.
 
 User priority useful RAM-scale n/CPU LUT/routing/physicalDRAM, another family/
 ~100B and original-relative whole quality/SAMEartifact>=50 remain OPEN.
+
+Final [retention audit](RETENTION_435_436_20261004.json), SHA256
+796d175800c70957ad00fc18005fa7fccaaa702cf50f763a6f1c2c04da4e9029:
+2440unique files/3985922716B freshly hashed,72scientific paths physical
+filtered-HEAD exact. Original374/389 and Torch DLL/extension identities exact,
+engine unchanged from b8cb690; all435/436 output shapes/coefficient bytes exact.
+No modeljobs; publisher daemons12540/17984 preserved. No experiment rerun.

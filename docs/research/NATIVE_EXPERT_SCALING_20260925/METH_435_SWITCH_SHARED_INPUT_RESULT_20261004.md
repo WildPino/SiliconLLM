@@ -65,3 +65,10 @@ protocol before outcomes; no new optimizer.431/426 recipes remain closed.
 
 Useful RAM-scale n/CPU LUT/routing/realDRAM, another family/~100B and original-
 relative whole quality/SAMEartifact>=50 acceptedbatch1tokens/s remain OPEN.
+
+Final [retention audit](RETENTION_435_436_20261004.json):2440unique files/
+3985922716B freshly bound,72scientific paths physical filtered-HEAD exact;
+runtime/original binaries/engine unchanged, archives shapes/coefficient bytes
+verified, no modeljobs, publisher daemons preserved. This is artifact identity
+verification, not a second numeric execution.436 completed the proposed oracle
+and also failed potential requirements; current plan now NEW437 shared readout.

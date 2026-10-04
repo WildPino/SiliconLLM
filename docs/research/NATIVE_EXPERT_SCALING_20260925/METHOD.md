@@ -80,12 +80,19 @@ Fixed oracle selection yields12/10locally useful IDs but about.5%mixture gain
 and insufficient permutation harm. Both routes fail ALL9 potential requirements.
 Close THIS checkpoint before fitting another selector; actual431 staysFAIL.
 125.313s/max2.492GB/259.081MB, six full matrices/actual source hashes retained.
-Next [shared nonlinear geometry hypothesis](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW435 one shared768->128->768 input transport supervised on all1008dev
-captures; independent new numeric prerequisites before any fit. No435 source/
-protocol/outcome, no model export from local regression. Existing404/406 input
-eligibility and ALL9 capacity/whole-quality/SAMEartifact50 demands unchanged.
-Original routes intact; usefulRAM-n/LUT/DRAM/another-family/~100B remain open.
+[435 shared nonlinear input](METH_435_SWITCH_SHARED_INPUT_RESULT_20261004.md):
+512updates/ALL5 apparatusPASS; validation error.60913mean-only, medianL2.87673/
+p95.99102 fail original geometry bounds. Close this shared input regression.
+[436 correct function input](METH_436_SWITCH_ORACLE_INPUT_RESULT_20261004.md):
+zero updates/native features and6720literal nodes exact. Frozen C/D with perfect
+WI input still only.17894%/.08674% mixture gain, permutation improves. Perfect
+input ALONE insufficient for this checkpoint; refitted readouts remain untested.
+Next [shared output feasibility](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW437 shared rank32 readout of correct128 function feature versus same-budget
+readout of its own input, all1008dev supervision shared. Oracle-only scope; exact
+composed qualification/fit protocol NOT prepared yet. No437 source/outcome, no
+available-input route/native model export. Existing9 capacity/whole-quality/
+SAMEartifact50 demands persist. UsefulRAM-n/LUT/DRAM/families/~100B remain open.
 
 ## Independently pretrained source128: complete bounded transfer qualified
 

@@ -1,16 +1,15 @@
 # Next numerical qualification policy: specified arithmetic versus source quality
 
-CURRENT STATUS434 (supersedes historical next steps below): original Switch
+CURRENT STATUS436 (supersedes historical next steps below): original Switch
 source128/256 quality and SAMEartifact source-specific rates remain qualified.
-Closed cost/linear input routes and426/431 learned recipes unchanged.433 output
-oracle proves17.63% benefit feasible under preservation; current gate leaves
-only2IDs with2val observations.434 frozen-checkpoint oracle selection exposes
-12/10locally useful IDs but onlyabout.5% benefit and insufficient permutation
-harm; no full potential-gate pass. Close checkpoint before new selector fit.
-Next [shared nonlinear input hypothesis](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW435 shared768->128->768 transport supervised by all paired dev inputs, freeze
-new qualification/fit first. No435 source/protocol/outcome or combined384 C
-quality/rate. UsefulRAM-n/LUT/DRAM/another-family/~100B remain open. History retained.
+435 shared nonlinear input regression fails3/4 gates after512updates;436 perfect
+function inputs with frozen output factors still miss benefit/permutation.
+Close input-only/selector rescue of these recipes. Next [shared output proposal](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW437 shared readout of correct128 native function features versus same-budget
+readout of its own input, all1008dev supervision shared. Oracle feasibility only;
+prepare/freeze exact composed qualification/fit protocol before outcomes. No437
+source/outcome or combined384 C quality/rate. UsefulRAM-n/LUT/DRAM/families/~100B
+remain open. Historical source/cost decisions retained, original binaries intact.
 
 
 **IMPLEMENTED333/334; MATCHED ARITHMETIC CORRECTNESS PASS334 ONLY.**
