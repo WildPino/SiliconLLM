@@ -80,9 +80,13 @@ ALL7 PASS retained0de8cf0,exec1062 exit0 fully consumed;307.844s/max1.404GB.
 NEW explicit worker masks0,2,4,6,8,10/actual thread IDs/live readbacks plus
 ACTIVE/infinite wait; exact356 math and ALL96 full teacher/own-natural SHA
 EXACT363. Negative actual-affinity fault detected. Scoped363 quality only.
-[375 cost](METH_375_SWITCH_PHYSICAL_WORKERS_COST_PROTOCOL_20261004.md) prepared
-for freeze; SAME374 binary/338 target/new six-worker profile, source9/64
-forced32, unchanged20ms/1.10 per-fixture gates. Freeze before observations.
-Only PASS licenses separately frozen376 full accepted rate;376 draft remains
-unresolved/ineligible until375 qualifies. No live model/timing job.
-Whole useful greater n/LUT/realDRAM/multiple families/scales/~100B goal active.
+[375 cost](METH_375_SWITCH_PHYSICAL_WORKERS_COST_RESULT_20261004.md) ALL7 PASS
+retainedaa3cf47,exec39504 exit0 fully consumed;27.078s/max947MB. SAME374/338,
+source9/64 forced32 full5.3951/12.8198ms, decode4.7072/6.3560ms, repeats
+1.009138/1.082004, all full bridges and actual worker masks exact.
+[376 accepted full rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_PROTOCOL_20261004.md)
+prepared for freeze: SAME374 binary/profile/338/ALL96 complete own-natural SHA
+exact363; unchanged364 acceptance/all rejected time charged/lower95>=50/
+aggregate repeat<=1.10. Freeze before measuring, retain first outcome.
+No live model/timing job. Whole useful greater n/LUT/realDRAM/multiple
+families/scales/~100B goal remains active even if this scoped family qualifies.
