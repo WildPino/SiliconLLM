@@ -10,6 +10,15 @@ CPU and context. The same artifact must pass quality and rate. A second donor
 family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
 
+## Latest capacity-transfer question
+
+401 binds real128+256 source banks into a prospective384-candidate pool fitting
+22.094GB RAM; ALL ordered byte pairs distinct but ALL236 common core/control
+names differ. No combined model/useful extra n/quality/rate yet.402 paired real
+hidden/function alignment must precede a new selector and fresh complete gates.
+399/400 GigaChat full-width LUT cost paths failed despite numeric controls.
+See final sections and [transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md).
+
 ## Independently pretrained source128: complete bounded transfer qualified
 
 The independently pretrained original `google/switch-base-128` (revision
@@ -827,10 +836,38 @@ This exact kernel closed before training/640-bank work. See
 [METH-398 clarification](METH_398_INTEGER_LUT_SCOPE_CLARIFICATION_20261004.md)
 for fingerprint versus exhaustive byte-comparison boundary.
 
-Proposed399 next uncertainty: attribute SAME398 builder/row gathers/remaining
-complete operators under exact output/numeric controls, budget<=20min/12GiB,
-expected<=2min. If either component alone exceeds14ms, tuning only the other
-cannot rescue the unchanged14ms operator budget. A joint change requires a
-new frozen protocol and original-relative quality when learned books exist.
-No399 protocol/code/observation yet; do not infer attribution or physical DRAM
-from the ledger. No live model/native job, complete398 outputs retained first.
+[399 attribution](METH_399_INTEGER_LUT_COST_PROFILE_RESULT_20261004.md),32802d2:
+SAME398 math/90 fingerprints/all scalar/counter/nonoverlap controls PASS. All
+nine component medians builder51.58-69.90ms/rows110.31-149.15ms exceed14ms.
+[400 joint layout/builder](METH_400_BLOCKED_INTEGER_LUT_RESULT_20261004.md),64d0754:
+source-sized geometry/coefficients exact, column planes/new four-palette SIMD
+builder/local eight-group tables/integer partial reduction. Scalar full-code
+sample reconstruction/LUT/extrema/source controls and90 fingerprints exact319.
+Repeat1.04904 PASS;118.697-124.518ms cost FAIL. Before learned codebook fitting
+or640-bank work this exact path is closed. No measured400 component/DRAM or
+learned original-relative quality; do not extrapolate CPU cache causes.
+
+## Real pretrained384-choice transfer applicability
+
+[401 real-bank applicability](METH_401_PRETRAINED_BANK_UNION_APPLICABILITY_RESULT_20261004.md),
+froze a72e4ab/retained f5fce05: ALLsix gates PASS. Fresh qualified whole128/256
+hashes/both independent manifests/ALL12 banks384 ordered byte-distinct WI/WO
+pairs. Candidate256 core/head once +128 routed functions/router rows stores
+22,094,084,608B and fits64.546GB available RAM. ALL236 common nonexpert/nonrouter
+core names differ; compatible operators do not prove common hidden semantics.
+MAIN294.406s/max41.673MB/22.36GB hashed, exceeds2min estimate but inside10min/
+2GiB stop. No model/new weights/training/GPU/T4, payloads unchanged.
+
+[Prospective transfer mechanism](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md):
+402 shared real calibration/paired normalized hidden and function-response screen
+before selector adaptation.24-case first screening cannot identify a768D full
+map with insufficient independent decoder samples; constrain identifiable rank
+or freeze a separately larger cohort. Shared context/token/prefix identities
+must be actual; the old two quality cohorts are not automatically paired. Freeze
+source exclusions/book split/binary/profile/local gates before new observations.
+No402 code/protocol/run yet. Byte-distinct pairs are not canonical function
+uniqueness/usefulness. Naive concatenated normalization/core/function assumptions
+cannot inherit old quality/rate. New384 choices need learned selection/real
+usefulness, NEW original-relative whole quality/SAMEartifact FULL rate. This
+same-family1.5x256 is not another-family/10x/~100B/actual DRAM proof. All sessions
+terminal; qualified old374/389 artifacts and whole method results preserved.

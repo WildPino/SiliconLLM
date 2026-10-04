@@ -145,3 +145,13 @@ its original six-worker rate remain authoritative. Source128 now independently
 qualifies at three workers through389/390/391; see
 [base128 reproduction](SWITCH_BASE128_REPRODUCTION_20261004.md). Different worker
 profiles/cohorts/sources prevent direct causal n or speed comparisons.
+
+## Later opt-in prefixes and reproducibility boundary, through401
+
+399/400 add GigaChat diagnostic LUT opt-in prefixes before393. The engine tail
+from original393 SWITCH_ROUTER_AUDIT through all qualified Switch branches is
+byte-identical after removing these new prefixes; default tail remains0ff9705.
+Existing374/389 binaries are unchanged. For old controllers whose HEAD source
+identity expects393 as first prefix, use their stated frozen checkouts; later
+source additions do not silently satisfy that old HEAD gate. M401 reads/hashes
+both complete qualified targets only, does not export/run a combined model.

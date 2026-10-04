@@ -2,7 +2,7 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: bounded attribution of failed LUT cost before any new representation.**
+whole-quality/SAMEartifact FULL-rate qualification. Next: actual384-bank source transfer applicability; larger useful n remains open.**
 
 ## Goal and constraints
 
@@ -105,12 +105,29 @@ PASS; median137.689-164.653ms>14ms, pooled repeat1.195832 FAIL. Builder timed;
 [Scope clarification](METH_398_INTEGER_LUT_SCOPE_CLARIFICATION_20261004.md):
 fingerprint equality is not exhaustive archived output-byte comparison.
 
-Next proposed399: SAME398 arithmetic/output fixtures, separately attribute
-builder/row-gather/other full operators with exact fingerprints and full numeric
-controls. If either component alone exceeds14ms, close tuning only the other;
-if only their sum fails, require joint algorithm/layout change. Attribution
-cannot qualify model rate or useful n. No399 scientific source/protocol/run yet.
-First retain398 unchanged; freeze new measured boundary before observations.
-Expected<=2min/12GiB/20min stop, no original weights/training/GPU/T4. Preserve
-qualified374/389 binaries; useful choices/10x, physical DRAM, other families/
-contexts/~100B remain open. No live model/native job or pending session.
+[399 attribution](METH_399_INTEGER_LUT_COST_PROFILE_RESULT_20261004.md),32802d2:
+ALL numeric/fingerprint/nonoverlap controls PASS; builder51.58-69.90ms and
+rows110.31-149.15ms EACH exceed14ms/ALLnine medians. Joint change required.
+[400 joint blocked LUT](METH_400_BLOCKED_INTEGER_LUT_RESULT_20261004.md),64d0754:
+column-major codes/SIMD builder/block-local tables/partial I32 sums, ALL90
+fingerprints exact319 and scalar code/layout/LUT controls PASS. Stable nine
+medians118.697-124.518ms/repeat1.04904,14ms cost FAIL. Exact kernel closed before
+learned fitting/640-bank work; no useful extra n/quality/rate/DRAM evidence.
+
+[401 real-bank union applicability](METH_401_PRETRAINED_BANK_UNION_APPLICABILITY_RESULT_20261004.md),
+frozen a72e4ab/retained f5fce05: ALLsix gates PASS; fresh complete22.36GB target
+hashes/both manifests, ALL12 banks384 ordered WI/WO pairs byte-distinct. Candidate
+22,094,084,608B fits64.546GB available RAM; keeps256 core/head once and adds128
+experts/router inputs. BUT ALL236 common nonexpert/nonrouter core names differ;
+no hidden-space/functional alignment, learned selector or useful384 model yet.
+MAIN294.406s/max41.673MB, no model/new network/training/GPU/T4. Byte distinction
+is not canonical function uniqueness or usefulness; no source quality inheritance.
+
+Next proposed402: shared real calibration IDs/prefixes/paired normalized hidden
+and function-response screen before cross-source selector adaptation. See
+[transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md). Small24-case first
+screen measures differences; insufficient samples cannot identify a full768D map.
+Freeze source exclusions/book split/local gates/binary/artifact/profile before
+observations. No402 scientific code/protocol/run yet.384 is1.5x/same family,
+not selectable useful n today. Qualified374/389 intact; useful10x/another family/
+~100B/physical DRAM still open. All399/400/401 sessions fully terminal; no live job.

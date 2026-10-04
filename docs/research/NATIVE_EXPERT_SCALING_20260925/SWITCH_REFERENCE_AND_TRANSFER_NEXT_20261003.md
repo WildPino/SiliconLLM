@@ -130,12 +130,12 @@ nextforadditional real alternatives; actual n artifactsnotyetimplemented.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-391 qualifies independent original128 SAMEartifact whole quality/FULL rate.
-393-395 routing diagnostics/compression grids are retained rejections; qualified
-full-F32 Switch routers/binaries remain authoritative.397 ALL actual Qwen3-Next
-headers reconcile source count but full-width descriptor1.279GB fails560MB
-before acquisition.398 exact integer-LUT/source-sized GigaChat algorithm
-numeric/fingerprint controls PASS,137-165ms cost/repeat FAIL retainedf33015c.
-No learned model, useful larger n or rate inheritance. Proposed399 bounded
-SAME398 cost attribution before any new representation; unimplemented/unfrozen.
-Use INDEX.md, METHOD.md and398 result/scope clarification for current state.
+391 independent original128 joint quality/rate qualified; original256376 intact.
+393-395 router grids and397 Qwen80B full-width cost are retained rejections.
+399 attributes both integer-LUT bottlenecks>14ms;400 blocked joint kernel still
+fails14ms despite stable exact numeric/fingerprint controls.401 actual128+256
+source384 bank applicability ALLsix PASS,22.094GB fitsRAM, but all236 common
+core names differ. Next402 paired real hidden/function alignment before any
+new selector/whole-quality/rate: unimplemented/unfrozen. Ordered-byte distinction
+is not canonical usefulness; useful10x/other families/DRAM remain open.
+Use INDEX.md/METHOD.md/PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md.

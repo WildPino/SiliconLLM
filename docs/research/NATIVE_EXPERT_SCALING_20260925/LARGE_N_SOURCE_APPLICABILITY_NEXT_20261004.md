@@ -59,10 +59,18 @@ codebook fitting/640-bank work. Whole output bytes were not archived/compared;
 [scope clarification](METH_398_INTEGER_LUT_SCOPE_CLARIFICATION_20261004.md).
 No learned useful capacity, causal quality, accepted model rate or DRAM proof.
 
-Next proposed399 bounded SAME398 arithmetic cost attribution must freeze
-before observation: builder/row gathers/remaining complete operators, same
-output fingerprints/numeric controls. If either component alone exceeds14ms,
-reject rescue by tuning only the other. This resolves a new realization's
-remaining mechanism uncertainty, not319's profile or300/301 format. No399
-implementation/protocol/run yet, expected<=2min/20min/12GiB; no GPU/T4 or new
-weights/training. No new80B acquisition/generic donor runtime promotion.
+399 retained32802d2 attributes builder52-70ms/rows110-149ms, both independently
+above14ms, all numerical/fingerprint/nonoverlap controls PASS.400 joint SIMD
+builder/column planes/blocked local LUT/partial reduction retained64d0754:
+all controls PASS/repeat1.04904,118.697-124.518ms still cost FAIL. Close this exact
+full-width GigaChat kernel before training/640-bank work; no rate/quality proof.
+
+401 real source128+256 union retainedf5fce05: ALL12 banks384 ordered byte-distinct
+WI/WO/scales pairs and shape-compatible operators; candidate22.094GB fits RAM.
+ALL236 common core tensor names differ. Fresh whole payload hashes/both manifests
+PASS,294.406s/41.673MB. Capacity applicability, not exported useful384 model.
+Next [paired transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md) tests
+actual shared input/hidden/function alignment before any learned selector and
+new full-quality/rate gates. No402 code/protocol/run. Same-family1.5x256, not10x.
+Qwen80B full-width acquisition still closed absent a new stated transformation;
+other-family/larger useful n/physical DRAM requirements remain open.
