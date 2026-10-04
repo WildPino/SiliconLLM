@@ -10,6 +10,38 @@ CPU and context. The same artifact must pass quality and rate. A second donor
 family or scale must test which steps transfer. More stored parameters alone
 are not evidence of transferred capability.
 
+## Independent source-scale transfer currently in progress
+
+The independently pretrained original `google/switch-base-128` (revision
+86c815ec05361a33a8b49fc717277da9c0a4e711) is locally acquired and actually
+bound, not the370 pruned base256 subset.378 verified all29,862,948,392 archive/
+side-file bytes in895.625s;377 pre-network protocol-path failure remains
+retained.379 verified all3320 F32 source tensors, four tied aliases,7,415,217,408
+architecture-unique parameters and12 banks with128 distinct WI/WO parameter
+pairs each (55.047s/max10.197GB RSS). Different parameter pairs do not establish
+useful or mathematically different effective functions.
+
+380 converted ALL source banks/core using the unchanged335/337 row-I8/F32
+recipe, all segment readback and six export gates PASS (263.172s/max10.422GB
+RSS). Complete new target7,541,946,880B, payload SHA
+6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe;
+spec SHA3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a.
+This is serialization/conversion evidence only.381 source-specific complete
+independent target arithmetic/cache/route/own-greedy ALL8 PASS (132.610s/2.657GB).
+382 NEW source-only24-book/96-case cohort PASS;136 previously used rows excluded.
+383 SAMEartifact CPU cost first FAIL6/7: source64 decode repeat1.259571>1.10,
+all full output/worker/profile/latency-median gates pass. Keep383 authoritative;
+draft384/385 dependent chain ineligible. NEW386 separately tests quality only
+using unchanged363 ALL18 rubric, with performance explicitly unqualified.
+No rate promotion follows386 without a justified new performance variable.
+No quality or speed inheritance from source256 or its smaller subsets.
+
+The question is repeatable preservation across two actual trained sources at
+same-family7.4B/14.7B scales and128/256 candidate counts. Different pretrained
+core/weights/exposure prevent a matched-training causal n comparison. Even a
+positive outcome would leave useful>256/10x n, hierarchical CPU LUT/routing,
+physical DRAM, additional families, broad contexts and~100B open.
+
 ## Current qualified route: original Switch base256 to native C
 
 [376 complete rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md)

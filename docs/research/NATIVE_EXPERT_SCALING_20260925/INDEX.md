@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal.378..381 original128 acquisition/export/numerics PASS;382 cohort/383 cost next.**
+**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;383 CPU stability FAIL;386 quality next.**
 
 ## Goal and constraints
 
@@ -109,5 +109,13 @@ input in a model-free preflight before acquisition. Same-family7.4B/14.7B,
 twofold actual n transfer test; no second-family/10x proof. 379 complete actual3320 tensors/7.415B confirmed ties and12x128 distinct pairs
 PASS (55.047s/10.197GB RSS), no effective-function/quality inference. 380 full new compact export ALL6 PASS7949336,7.542GB/263.172s/10.422GB RSS.
 381 independent full numerical contract ALL8 PASS,132.610s/max2.657GB.
-Next382 NEW source-only cohort and383 SAMEartifact cost, then NEW untouched
-original-primary whole quality/SAME full rate. Goal scope unchanged.
+382 NEW24 books/96 cases PASSdae022a,136 old rows excluded, no model scores.
+383 first SAME original128 cost FAIL retained4ee2ddb: source64 decode repeat
+1.259571>1.10, all output/worker/profile/median gates pass,6/7. Source9/64
+median FULL5.1722/12.2588ms, decode4.5314/5.9780ms; no optional retry.
+Draft384/385 ineligible/unfrozen/unexecuted. NEW386 quality-only protocol
+uses exact363 ALL18 rubric and unmodified ORIGINAL128 PRIMARY on NEW382.
+All numerical output/placement gates passed; performance explicitly unqualified.
+No cost/accepted-rate promotion from386. Budget90min/48GiB, expected<=30min;
+freeze before any NEW score. Later CPU work needs a diagnosed NEW variable.
+Whole useful n/LUT/realDRAM/multiple family/scale/~100B goal remains open.
