@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-**4 October resumption:** the user resumed the goal after the strategic review.
+**5 October current status:** the user resumed the goal after the strategic review.
 [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
 qualified Switch transfer from useful-n scaling, cross-core interfaces and
 physical cost. Single-donor common/private decomposition is a NEW hypothesis,
@@ -9,11 +9,14 @@ same causal test: native ID+1 mean self-KL.17646/41argmax changes. Original iden
 matters locally; foreign transfer's weak effect does not localize the failure.
 444 absolute-energy global PCA fails validation up to256; two position0 inputs
 dominate88.44%development energy.445 relative weighting also fails; local95%
-rank75..87val concerns collective functions, not per-expert delta rank. Next
-matrix-level single-donor base/delta/private-nonlinearity/cost feasibility.
+rank75..87val concerns collective functions, not per-expert delta rank.
 446 ALL9apparatusPASS/exact native neuron permutation but all45Frobenius-factor
 candidates fail; matched matrix95%energy needs symmetricrank>=631, beyond F32
-storage-saving geometry. Next scalar-precision probe with unchanged original core.
+storage-saving geometry.447 calibration-free row-I4 bank/arithmetic qualified,
+mean sourceKL.0013779 and ID+1 harm.17792, but4argmax changes>3 gateFAIL.
+Full128 packed bank nominal303.956MB versus605.946MB, no C model/rate/DRAM.
+Next proposed byte-budget-selected block64-I4, not a rank or training sweep.
+Keep predictive gates; full multi-layer source-relative quality remains required.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
@@ -24,6 +27,32 @@ running in the project C engine at ≥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
 family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
+
+## Scalar precision: real tool, local predictive gate failed
+
+[447 protocol](METH_447_SWITCH_I4_PROTOCOL_20261005.md) froze c122074 before
+first import. [447 result](METH_447_SWITCH_I4_RESULT_20261005.md): reusable
+calibration-free symmetric row-I4 pack/unpack and I32/A16 integer-primal reference
+in meth447_switch_i4_math.py, full128 finalbank11 transformed bank retained.
+All256 matrix inverses/saved bank and1344 actual I4 projection I32/I64 sums/F32
+outputs exact; all336 original complete heads/states byte-exact first.
+This is qualified Python arithmetic/real bank conversion, not a native C export.
+
+Four of five local gates pass, argmax4/336 exceeds predeclared3. Mean original-
+posteriorKL.0013778776, book maximum.0019994476, I4 ID+1 intervention harm.17792.
+Do not relax gate or attribute whole model quality/rate to this partial transform.
+ONE fixed row-I4 recipe CLOSED before timing/export.115.625s/2.427GB peak/
+519.318MB output/zero updates; original payload/engine/binaries untouched.
+Distinct128 stored functions and106 naturally routed IDs do not count usefulness.
+
+Proposed NEW block64 scale granularity keeps all coefficients and costs
+2DM*(.5+4/64)=2,654,208B/expert versus4,733,952B source I8; it is smallest
+power-of-two block meeting a prospective60% storage cap (32 exceeds it).
+No new script/protocol/run yet. Explicit block-dot scaling/accumulation and
+native predictive gates must qualify before C/LUT cost, followed by fresh whole
+held-out/generation/tasks and SAMEartifact>=50 accepted rate/physical DRAM.
+Byte savings, local KL or an exact integer reference alone do not compose those
+missing stages. Larger n/families/actual~100B remain the final method requirements.
 
 ## Latest capacity-transfer question
 
@@ -122,9 +151,10 @@ mean/contrast geometry: ALL8apparatusPASS but all ranks fail; even256 retains
 only79.10%validation private energy/KL.04539. Oracle decomposition is not runtime.
 445 ALL7apparatusPASS/zero forwards:balanced256 dev90.50%/val78.52%, local95%
 rank75..87val. No weighting-only repair; private expert-specific bases not excluded.
-Next [matrix-level common/private feasibility](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-coupled admissible neuron alignment, per-expert delta bases, private ReLU and
-explicit coefficient/precision/active-cost accounting before any new fit.
+Matrix-level common/private feasibility below tested coupled admissible neuron
+alignment/private bases/ReLU and coefficient/precision/active-cost accounting.
+[Current resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md) supersedes
+that earlier proposed next step.
 446 [prospective protocol](METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md)
 was frozen63a5f04 before first import: four forced source functions/all1344inputs,
 three fixed targets, five ranks, per-expert matrix bases/full-matrix factor control,

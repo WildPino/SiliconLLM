@@ -1,9 +1,10 @@
-# Current resumption after446: scalar precision and native predictive quality
+# Current resumption after447: block precision, information and active cost
 
 **5 October 2026. Goal ACTIVE/INCOMPLETE.** Previous goal turn was PROGRESS:
-443..445 yielded native identity and function-geometry evidence. This turn446
-qualified an exact native neuron symmetry and rejected the specified private
-Frobenius-factor recipe. The [strategic review](STRATEGIC_REVIEW_20261004.md)
+443..445 yielded native identity and function-geometry evidence;446 qualified
+an exact native symmetry and rejected private Frobenius factors.447 made ONE
+real packed bank and qualified its arithmetic, but failed the declared argmax
+gate. The [strategic review](STRATEGIC_REVIEW_20261004.md)
 remains a historical analysis snapshot. Current operational instructions are here.
 
 ## Preserve the full objective
@@ -61,65 +62,104 @@ Records: [443](METH_443_SWITCH_NATIVE_CAUSALITY_RESULT_20261004.md),
 [446](METH_446_SWITCH_PRIVATE_DELTA_RESULT_20261004.md).
 All sessions terminal; no model jobs remain. Original engine/binaries intact.
 
-## Immediate NEW447: calibration-free packed-I4 local native-head probe
+## Latest447 result: keep the evidence, close the fixed recipe
 
-447 source/math/[protocol](METH_447_SWITCH_I4_PROTOCOL_20261005.md) frozen
-at c122074 BEFORE first import/quantization/packing/forward. No outcome yet.
-Next run ONCE the protocol command. Mean KL<=.01/every book<=.05, argmax<=3/336,
-ID+1 mean KL increase>=.01 and nominal storage<=.51, all apparatus required.
-CPU-only admission300/numeric300/total600 seconds,3GiB/512MiB. No new corpus,
-source download, training/readout/router fit or GPU. Retain FIRST failure;
-never modify frozen447 source/protocol or rerun its output paths.
+Source/math/protocol frozen c122074; one completed session8604,115.625s,
+2,426,564,608B peak,519,318,028B retained, zero updates. ALL9 apparatusPASS:
+all336 original complete heads exact, all256 matrix pack inverses and saved
+bank exact, all1344 I4 projection I32/reference-I64 sums and F32 outputs exact.
+Native accumulator bound3072*7*32767=704,621,568<2^31; this width only.
 
-Why this variable: lower scalar precision keeps all matrix directions available
-instead of imposing a low-rank truncation. Dense Frobenius deltas are expensive;
-packed original function coefficients may reduce stored/read bytes while retaining
-identity-conditioned computation. Quantization may still change rank, functions,
-posterior/task quality or speed; none is assumed to survive.
+ALL128 real finalbank11 functions quantized, SAME original input/p/norm/head.
+Correct-ID meanKL.0013778776/book maximum.0019994476, but4/336 argmax changes
+versus<=3. Four of five gates pass; recipe FAIL. I4 ID+1 meanKL.1792986986,
+identity intervention increases mean sourceKL by.1779208210; removal.0327040932.
+Packed bank coefficient/scales303,955,968B versus605,945,856B; actual archive
+303,956,990B.128 byte-distinct functions/106 natural IDs are not useful-n proof.
+No C export, whole quantized model, changed upstream routing/generation/tasks,
+accepted rate or DRAM measure. Do not relax447's gates or run C timing for it.
+[Result447](METH_447_SWITCH_I4_RESULT_20261005.md) and raw retain every outcome.
 
-Frozen scope (the linked protocol defines all thresholds and operators):
+## Reassess the whole problem
 
-1. Same original source128 final bank11 first, all128REAL functions. Reuse exact
-   source weights/manifest/native captures, original core/input/probability/final
-   RMS/tied head. No foreign interface, unavailable learned inputs or teacher-mask
-   deployment. Replay original full heads before quantized utility.
-2. ONE symmetric row-I4 encoding, signed levels-7..7, nearest-even rounding,
-   per-row F32 scales from the original dequantizedI8 values, defined zero-row
-   behavior. Pack two signed nibbles/byte and qualify complete inverse mapping,
-   unsupported-8 code detection, first/last rows, extremal activation/weight pairs,
-   zero scales and integer accumulation limits. No precision/blocksize grid.
-3. Keep the qualified nativeA16 activation quantizer and native residual/final
-   normalization/head. An independently decoded integer reference and prospective
-   I32 packed-product operator must agree exactly. Source768/3072 widths satisfy
-   3072*7*32767<2^31; wider families require their own accumulator proof.
-4. On fixed consumed original prefixes, measure full-vocabulary source-relative
-   posterior KL and argmax/state effects, original-ID/ID-permutation/removal
-   controls at SAME original probability. Predeclare mean/book thresholds and
-   all resources/stops; do not select encoding or test data from outcomes.
-5. Retain full packed bank, scales, transformation metadata, all counterfactual
-   logits/states and identities. Packed distinct functions are not useful-n proof.
-   No broad quality claim from one-bank fixed-prefix KL.
+| Subproblem | Current evidence | Missing condition |
+| --- | --- | --- |
+| Representation | Low-rank reference0 factors fail; row-I4 halves stored bytes with low LOCAL KL | Passing precision, actual full export, all-layer composition |
+| Information | Native identity matters; I4 bank ID intervention remains strong | Individual useful functions and real useful-n increments |
+| Selection | Original full argmax AND softmax mass are known;393 tail mass not small | Certified winner/mass refinement with charged fallback |
+| Physical execution | Two original same-family I8 artifacts qualified in fixed contexts | New SAME quality/rate artifact, CPU LUT, actual hardware DRAM |
+| Generality | Giga/Ling/Granite/Qwen source-specific constraints retained | Actual second-family/100B values, reference and useful converted model |
 
-If this fixed encoding fails its qualified local predictive gate, retain and close
-it before any full export or native timing. If promising, next separate stage must
-export/test an actual C artifact; upstream quantization then changes states and
-routing, so captured original routes cannot stand in for its complete behavior.
-Original-relative whole held-out/generation/tasks and SAMEartifact accepted rate
-are mandatory. New format/source applicability must become reproducible tools.
+Do not convert this local bit-precision result into a universal100B method.
+The small per-bank local KL is not additive across layers and does not certify
+new states/routes or generation. Neither total stored bytes nor full-row matrix
+Frobenius error alone is the goal's information or physical-cost criterion.
+
+## Immediate proposed NEW448: one fixed block64-I4 local native-head probe
+
+No448 controller/protocol/output exists. Prepare/freeze a NEW source/math/
+protocol BEFORE import/quantization/forward. No fitting, clipping/blocksize grid,
+new corpus/source download or GPU. This is a NEW precision granularity, not a
+repair/rerun or changed threshold for447.
+
+Why64: at D768/M3072 with B dividing both input widths,
+
+    bytes_blockI4(B) = 2DM*(1/2 + 4/B).
+    bytes_sourceI8 = 2DM + 4(D+M) = 4,733,952.
+    B32 -> 2,949,120B/expert (>60% source).
+    B64 -> 2,654,208B/expert (<60% source).
+
+64 is the SMALLEST power of two satisfying a prospective60% source-storage cap;
+choose it by bytes, not from validation outcomes.128-bank nominal339,738,624B.
+It costs35,782,656B more than447, retaining all coefficients. Under ideal-real
+scales the max rounding bound is each block maximum/14 instead of row maximum/14.
+F32 scale representation/clipping/rounding remains explicit; no monotonic
+coefficient error, KL or argmax improvement is assumed.
+
+Frozen NEW protocol must define before observation:
+
+1. ALL128 original last-bank functions, original column/neuron order, signed
+   levels-7..7/two nibbles. F32 per64-column-block scale from original dequantI8,
+   zero block scale1. Complete packing inverse, -8 rejection, zero and extremes.
+2. SAME original A16 quantizer, ReLU, input/probability/residual/finalnorm/head.
+   One independently decoded I64 block-dot reference and prospective I32 pair
+   block-dot implementation; scaling and ascending F64 block accumulation order
+   specified explicitly, activationScale applied in a fixed order, final F32 cast.
+   All actual sums/outputs exact against that reference before quality.
+3. Original336 complete heads replay exact first; original-ID I4, ID+1 and removed
+   at SAME p. Preserve447 meanKL<=.01/EVERY book<=.05/argmax<=3 of336/
+   identity meanKL increase>=.01, with NEW nominal storage gate<=.60.
+4. Retain complete packed bank/block scales, original prefixes/full heads and
+   all counterfactual states/heads, fresh source/parent/helper/runtime bindings.
+   These consumed diagnostics cannot be relabeled fresh held-out evaluation.
+5. Prospective hard resources including larger block-scale archive, separate
+   admission/numerical/total budgets, peak process/disk, FIRST-failure retention.
+   All447 files/outputs immutable. Any future failure is retained separately.
+
+If ALL apparatus/local gates pass, prepare a separate native C operator/active
+cost gate before a whole new model. If not, retain and reassess the representation
+instead of block/precision sweeps. A full export subsequently needs original-
+relative fresh whole held-out, generation/tasks and SAMEartifact accepted rate.
 
 ## Actual arithmetic and memory, not nominal byte promises
 
 At D768/M3072, source I8 expert including row scales has2DM+4(D+M)=4,733,952B.
 Row-I4 is nominallyDM+4(D+M)=2,374,656B before headers/tables. This approximately
 halves coefficient storage; it neither proves10x useful capacity nor any latency.
-No new speed measure exists. Core/router/head stay charged; real DRAM unknown.
+447 measures storage and Python predictive arithmetic, not speed. Core/router/
+head stay charged; real DRAM unknown. Proposed block64 overhead is charged above.
 
-If quality permits, compare ONE declared direct packed integer execution with
-ONE declared exact pair-activation LUT, charging table build/writes/gathers,
+If a NEW format passes quality, compare ONE declared direct packed execution
+with ONE declared exact pair-activation LUT, charging table build/writes/gathers,
 unpacking, active shapes, metadata, normalization and glue. No hidden per-token
 builder or assumed cache residency. This raw I4 coefficient-pair hypothesis is
 DIFFERENT from398/400 additive I8 vector books and410 static vector-pair/Q4-head
 formats, which remain closed. Do not resume those controllers or retime old recipes.
+For a raw nibble-pair table256 I32 entries/pair, nominal build writes per WI/WO
+pair are512*(D+M)=1,966,080B at this geometry; workspace393,216B for WI and
+1,572,864B for WO. This is algebra, not measured traffic or latency. Unused-8
+entries need a defined fault contract. Block scales/reductions/read bytes and
+all builder/glue costs remain charged; table cache residency is not assumed.
 
 Exact shared-base algebra remains available for a future justified metric:
 
@@ -155,7 +195,7 @@ prospective plan. Preserve unrelated files, original374/389 binaries/current
 engine and exact approved publisher daemons. No routine Graphify.
 
 403/404/406/414/416 input bridges;426/431/435/440fits;444/445 fixed global-output/
-weighting correction;446 reference0/Frobenius matrix factors; specified Granite/
+weighting correction;446 reference0/Frobenius factors;447 fixed full-row I4; Granite/
 Ling/Giga full-width/LUT formats remain CLOSED. A different precision, conditional
 metric or exposure is a NEW hypothesis, not a changed reading of those outcomes.
 Reassess representation/information/active cost/useful-n before expanding work.

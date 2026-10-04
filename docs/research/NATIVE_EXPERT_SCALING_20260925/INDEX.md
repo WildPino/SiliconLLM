@@ -14,9 +14,10 @@ weighting also fails:256 val78.52%. Local oracle ranks95%=75..87 at validation,
 not per-expert rank bounds.446 completed ALL9apparatusPASS but all45Frobenius
 matrix-factor candidates FAIL. Native coupled permutations exact;95%matched
 matrix energy requires symmetricrank>=631, losing F32 storage advantage.
-447 fixed row-I4 source/math/protocol frozen c122074, BEFORE first import.
-No outcome yet; next run its bounded CPU command ONCE (details in current
-resumption). Mean KL<=.01/book<=.05/argmax<=3 of336, no rank truncation/fit.
+447 row-I4 ALL9apparatusPASS;128 real functions stored in303.956MB.
+MeanKL.0013779/ID+1 identity harm.17792, but4argmax changes>3: fixed recipeFAIL.
+Next proposed NEW block64-I4, same predictive gates, byte-selected blocksize;
+no controller/protocol/run yet. Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
 
@@ -101,6 +102,10 @@ Local95%rank75..87val, no posterior/generalization/runtime proof.2.078s/553.853M
 all1344original FFNs exact/4032matched functions exact; best candidate valmedian
 relative error.53316>.05. All45fail3/4gates; forced input domains differ from sparse
 natural exposure.116.235s/2.582GB/279.931MB. Close THIS reference0/Frobenius recipe.
+- 447 [row-I4](METH_447_SWITCH_I4_RESULT_20261005.md), frozen c122074: ALL9apparatus
+PASS/4of5feasibilityPASS. Bank605.946->303.956MB nominal; meanKL.0013779,
+4/336argmax changes>3 FAIL. ID+1 harm.17792/41changes, identity effect remains.
+115.625s/2.427GB/519.318MB/zero updates. Close before C timing or export.
 
 ## Closed routes and retained context
 
@@ -120,15 +125,14 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 442's first admission stop is retained;443 proves native local identity effect.
 444/445 close the tested global-output bases and weighting-only correction.
 
-[Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): prepare ONE
-NEW source-aware scalar-precision probe before full-native export.446 private
-Frobenius factors fail even after exact matching; no rank increase or training.
-Packed row-I4 changes coefficient encoding without assuming a low-rank space.
-First qualify packing/rounding/integer bounds, then original-source full-head
-distortion and identity/removal effects, retaining source core/probability.
-No NEW447 controller/protocol/outcome exists. Freeze before any numerical probe.
-Any passing local precision result still needs full-native quality/cost/SAME rate,
-LUT builder/unpacking/routing and actualDRAM evidence; no nominal-byte performance.
+[Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): proposed
+NEW block64-I4 native-head probe.447 row-I4 fails argmax, no gate relaxation/C
+benchmark.64 is smallest power of two keeping nominal expert bytes<=60%of I8;
+retain all coefficients, change only scale granularity and explicit accumulation.
+Freeze new source/protocol/resources BEFORE any numerical probe; no448 exists.
+Keep447 mean/book/argmax/identity gates, new storage gate<=.60. Any passing local
+format still needs full-native quality/cost/SAME accepted rate, LUT builder/
+unpacking/routing and hardware DRAM. No nominal-byte performance or useful-n claim.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
 open. All first failures/outputs retained; original binaries and engine intact.
