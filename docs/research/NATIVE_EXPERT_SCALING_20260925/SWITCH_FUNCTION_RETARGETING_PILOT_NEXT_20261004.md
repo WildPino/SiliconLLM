@@ -1,10 +1,11 @@
-# Current resumption after447: block precision, information and active cost
+# Current resumption after448: decision margins and readout decomposition
 
 **5 October 2026. Goal ACTIVE/INCOMPLETE.** Previous goal turn was PROGRESS:
 443..445 yielded native identity and function-geometry evidence;446 qualified
 an exact native symmetry and rejected private Frobenius factors.447 made ONE
 real packed bank and qualified its arithmetic, but failed the declared argmax
-gate. The [strategic review](STRATEGIC_REVIEW_20261004.md)
+gate.448 lowers matrix/KL distortion but increases argmax changes to9; recipe
+FAIL. Next diagnose the margin mechanism before more encoding trials. The [strategic review](STRATEGIC_REVIEW_20261004.md)
 remains a historical analysis snapshot. Current operational instructions are here.
 
 ## Preserve the full objective
@@ -95,53 +96,62 @@ The small per-bank local KL is not additive across layers and does not certify
 new states/routes or generation. Neither total stored bytes nor full-row matrix
 Frobenius error alone is the goal's information or physical-cost criterion.
 
-## Immediate frozen NEW448: one fixed block64-I4 local native-head probe
+## Latest448 result: precision granularity alone does not settle decisions
 
-448 source/math/[protocol](METH_448_SWITCH_BLOCK_I4_PROTOCOL_20261005.md)
-frozen012a5bb BEFORE first import/compile/quantization/forward. No outcome yet.
-Next run ONCE the linked protocol command: admission300/numeric300/total600s,
-3GiB/576MiB. All four predictive/identity gates unchanged447, storage<=.60.
-No fitting, clipping/blocksize grid, new corpus/source download or GPU. Retain
-FIRST failure; do not modify or rerun448 scientific files/output paths.
+[448](METH_448_SWITCH_BLOCK_I4_RESULT_20261005.md) frozen012a5bb, one session
+59858 terminal exit0. ALL9apparatusPASS:256 full matrix inverses/saved bank,
+1344 I32/I64 integer-block and ascending-F64/F32 products exact;336 original
+complete heads/states exact first. Block bound64*7*32767=14,679,616<2^31.
+MeanKL.0006231359/book max.0007825416, but9argmax changes>3:4of5gatesPASS,
+recipeFAIL. ID+1 meanKL.1795005898/increase.1788774539/41changes. Nominal bank
+339,738,624B/actual339,739,646B.124s/2,462,076,928B peak/555,100,684B output,
+zero updates. No native export or C timing. All source/results immutable.
 
-Why64: at D768/M3072 with B dividing both input widths,
+447->448 reduces mean KL and coefficient Frobenius errors but increases greedy
+changes. These matched consumed diagnostics do not yet localize why. No more
+blocksize/precision grid; do not lower the argmax gate to make this pass.
 
-    bytes_blockI4(B) = 2DM*(1/2 + 4/B).
-    bytes_sourceI8 = 2DM + 4(D+M) = 4,733,952.
-    B32 -> 2,949,120B/expert (>60% source).
-    B64 -> 2,654,208B/expert (<60% source).
+## Immediate proposed NEW449: margin and source-head error decomposition
 
-64 is the SMALLEST power of two satisfying a prospective60% source-storage cap;
-choose it by bytes, not from validation outcomes.128-bank nominal339,738,624B.
-It costs35,782,656B more than447, retaining all coefficients. Under ideal-real
-scales the max rounding bound is each block maximum/14 instead of row maximum/14.
-F32 scale representation/clipping/rounding remains explicit; no monotonic
-coefficient error, KL or argmax improvement is assumed.
+No449 controller/protocol/output yet. Freeze new source/math/protocol BEFORE
+numerical analysis. Reuse retained original/447/448 full logits, source prefixes,
+correct-ID states and original source128 I8 head row values. No new candidate,
+weights, data, optimizer, GPU, whole FFN/model or complete head forward.
+A declared selected-two-row integer replay qualifies arithmetic for every case.
 
-Frozen NEW protocol defines before observation:
+Algebra to identify before choosing another representation:
 
-1. ALL128 original last-bank functions, original column/neuron order, signed
-   levels-7..7/two nibbles. F32 per64-column-block scale from original dequantI8,
-   zero block scale1. Complete packing inverse, -8 rejection, zero and extremes.
-2. SAME original A16 quantizer, ReLU, input/probability/residual/finalnorm/head.
-   One independently decoded I64 block-dot reference and prospective I32 pair
-   block-dot implementation; scaling and ascending F64 block accumulation order
-   specified explicitly, activationScale applied in a fixed order, final F32 cast.
-   All actual sums/outputs exact against that reference before quality.
-3. Original336 complete heads replay exact first; original-ID I4, ID+1 and removed
-   at SAME p. Preserve447 meanKL<=.01/EVERY book<=.05/argmax<=3 of336/
-   identity meanKL increase>=.01, with NEW nominal storage gate<=.60.
-4. Retain complete packed bank/block scales, original prefixes/full heads and
-   all counterfactual states/heads, fresh source/parent/helper/runtime bindings.
-   These consumed diagnostics cannot be relabeled fresh held-out evaluation.
-5. Prospective hard resources including larger block-scale archive, separate
-   admission/numerical/total budgets, peak process/disk, FIRST-failure retention.
-   All447 files/outputs immutable. Any future failure is retained separately.
+    a=argmax(z0), b=argmax(zc)
+    m=z0[a]-z0[b]
+    d=(zc[b]-z0[b])-(zc[a]-z0[a])
+    zc[a]-zc[b]=m-d.
 
-If ALL apparatus/local gates pass, prepare a separate native C operator/active
-cost gate before a whole new model. If not, retain and reassess the representation
-instead of block/precision sweeps. A full export subsequently needs original-
-relative fresh whole held-out, generation/tasks and SAMEartifact accepted rate.
+A flip needs d>=m, including tie/ID-order cases. KL has a different geometry:
+log E_p exp(delta)-E_p delta; its leading term is .5 Var_p(delta).
+Smaller mean KL therefore does not impose fewer crossings of decision planes.
+Measure source top2/competitor gaps and centered logit perturbations on ALL336,
+never select only the old flips or infer semantic ambiguity from numeric gaps.
+
+For source head rows w_a,w_b, decoded original and candidate head inputs h0,hc,
+A16 reconstructions q0,qc, and saved native head logits, define
+
+    d_state=(w_b-w_a) dot (hc-h0)
+    d_A16=(w_b-w_a) dot ((qc-q0)-(hc-h0))
+    d_native_round=d-d_state-d_A16.
+
+Before attributing that residual, replay selected original/candidate rows via
+independent I64 dot and original F64 scale multiplication/F32 cast byte-exact.
+Reconcile any F64 dot/operation-order remainder explicitly. A small unweighted
+quantizer-input norm alone cannot rule out alignment with a head decision plane.
+Reference-required margin/TV/Pinsker bounds are diagnostic, not deployed
+fallback certificates. Native original logits/capacity/RAM usage stay charged.
+
+Freeze all formulas, tolerances, stratification, resource limits and independent
+algebra checks before observation. Retain raw per-position results, identities,
+paired native/shadow margins and full input/source hashes. Decision-changing
+question: are flips governed by genuine state displacement toward small margins,
+head activation quantization, native head rounding or an apparatus discrepancy?
+Only that result selects a new variable. No ex-post quality-gate change.
 
 ## Actual arithmetic and memory, not nominal byte promises
 
@@ -149,7 +159,7 @@ At D768/M3072, source I8 expert including row scales has2DM+4(D+M)=4,733,952B.
 Row-I4 is nominallyDM+4(D+M)=2,374,656B before headers/tables. This approximately
 halves coefficient storage; it neither proves10x useful capacity nor any latency.
 447 measures storage and Python predictive arithmetic, not speed. Core/router/
-head stay charged; real DRAM unknown. Proposed block64 overhead is charged above.
+head stay charged; real DRAM unknown. 448 block64 overhead is charged in its frozen protocol/result.
 
 If a NEW format passes quality, compare ONE declared direct packed execution
 with ONE declared exact pair-activation LUT, charging table build/writes/gathers,
@@ -197,7 +207,7 @@ prospective plan. Preserve unrelated files, original374/389 binaries/current
 engine and exact approved publisher daemons. No routine Graphify.
 
 403/404/406/414/416 input bridges;426/431/435/440fits;444/445 fixed global-output/
-weighting correction;446 reference0/Frobenius factors;447 fixed full-row I4; Granite/
+weighting correction;446 reference0/Frobenius factors;447 fixed full-row I4;448 fixed block64-I4; Granite/
 Ling/Giga full-width/LUT formats remain CLOSED. A different precision, conditional
 metric or exposure is a NEW hypothesis, not a changed reading of those outcomes.
 Reassess representation/information/active cost/useful-n before expanding work.

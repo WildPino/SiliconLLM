@@ -15,8 +15,9 @@ candidates fail; matched matrix95%energy needs symmetricrank>=631, beyond F32
 storage-saving geometry.447 calibration-free row-I4 bank/arithmetic qualified,
 mean sourceKL.0013779 and ID+1 harm.17792, but4argmax changes>3 gateFAIL.
 Full128 packed bank nominal303.956MB versus605.946MB, no C model/rate/DRAM.
-448 byte-budget-selected block64-I4 frozen012a5bb BEFORE first import;
-no outcome yet. Next run ONE bounded protocol, no rank/training sweep.
+448 block64-I4 also ALL9apparatusPASS but9argmax changes>3: recipeFAIL,
+meanKL lower.00062314. Next frozen margin/head-quantization diagnosis, no
+precision/blocksize sweep or gate relaxation.
 Keep predictive gates; full multi-layer source-relative quality remains required.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
@@ -50,7 +51,13 @@ Proposed NEW block64 scale granularity keeps all coefficients and costs
 2DM*(.5+4/64)=2,654,208B/expert versus4,733,952B source I8; it is smallest
 power-of-two block meeting a prospective60% storage cap (32 exceeds it).
 448 source/math/[protocol](METH_448_SWITCH_BLOCK_I4_PROTOCOL_20261005.md)
-frozen012a5bb; no outcome yet. Explicit block-dot scaling/accumulation and
+frozen012a5bb, [result](METH_448_SWITCH_BLOCK_I4_RESULT_20261005.md) ALL9apparatus
+PASS/4of5feasibilityPASS. MeanKL.00062314,9argmax changes>3 FAIL;339.739MB bank,
+124s/2.462GB/555.101MB. This fixed recipe CLOSED before C timing/export.
+Smaller matrix/KL error does not certify decision-margin preservation.
+Next NEW449 explicit margin/readout displacement diagnosis on retained states
+and selected head rows, no model fit/new precision grid. No449 source/protocol
+yet. Explicit block-dot scaling/accumulation and
 native predictive gates must qualify before C/LUT cost, followed by fresh whole
 held-out/generation/tasks and SAMEartifact>=50 accepted rate/physical DRAM.
 Byte savings, local KL or an exact integer reference alone do not compose those

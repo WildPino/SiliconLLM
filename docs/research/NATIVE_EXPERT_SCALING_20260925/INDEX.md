@@ -16,8 +16,9 @@ matrix-factor candidates FAIL. Native coupled permutations exact;95%matched
 matrix energy requires symmetricrank>=631, losing F32 storage advantage.
 447 row-I4 ALL9apparatusPASS;128 real functions stored in303.956MB.
 MeanKL.0013779/ID+1 identity harm.17792, but4argmax changes>3: fixed recipeFAIL.
-448 block64-I4 source/math/protocol frozen012a5bb BEFORE first import;
-no outcome yet. Run ONCE bounded protocol command, SAME predictive gates.
+448 block64-I4 ALL9apparatusPASS/4of5feasibilityPASS, but9argmax changes>3.
+KL improves to.00062314 while winners worsen; fixed recipeFAIL. Next NEW449
+margin/head-quantization diagnosis, no more precision/blocksize sweeps.
 Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
@@ -107,6 +108,10 @@ natural exposure.116.235s/2.582GB/279.931MB. Close THIS reference0/Frobenius rec
 PASS/4of5feasibilityPASS. Bank605.946->303.956MB nominal; meanKL.0013779,
 4/336argmax changes>3 FAIL. ID+1 harm.17792/41changes, identity effect remains.
 115.625s/2.427GB/519.318MB/zero updates. Close before C timing or export.
+- 448 [block64-I4](METH_448_SWITCH_BLOCK_I4_RESULT_20261005.md), frozen012a5bb:
+ALL9apparatusPASS/4of5feasibilityPASS. Bank339.739MB, meanKL.00062314,
+9/336argmax changes>3 FAIL.124s/2.462GB/555.101MB/zero updates. Smaller matrix/
+KL distortion does not ensure fewer winner changes. Close before native timing.
 
 ## Closed routes and retained context
 
@@ -126,14 +131,14 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 442's first admission stop is retained;443 proves native local identity effect.
 444/445 close the tested global-output bases and weighting-only correction.
 
-[Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): proposed
-NEW block64-I4 native-head probe.447 row-I4 fails argmax, no gate relaxation/C
-benchmark.64 is smallest power of two keeping nominal expert bytes<=60%of I8;
-retain all coefficients, change only scale granularity and explicit accumulation.
-448 frozen012a5bb; no outcome yet. Run ONCE the linked protocol command.
-Keep447 mean/book/argmax/identity gates, new storage gate<=.60. Any passing local
-format still needs full-native quality/cost/SAME accepted rate, LUT builder/
-unpacking/routing and hardware DRAM. No nominal-byte performance or useful-n claim.
+[Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): NEW449
+margin/readout decomposition on saved original/447/448 logits and source head
+rows. Freeze before math; no449 files/protocol/outcome yet. Qualify exact selected
+head-row replay, then separate true state displacement/A16 input quantization/
+native output rounding and compare source margins/information. No fit/new
+candidate/blocksize or precision sweep;447/448 failures remain immutable.
+Further format choice must follow that mechanism evidence. Full-native quality,
+C/LUT/routing cost/SAME accepted rate and physicalDRAM still required.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
 open. All first failures/outputs retained; original binaries and engine intact.
