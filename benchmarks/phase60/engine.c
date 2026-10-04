@@ -1,4 +1,6 @@
-#ifdef SILICON_GRANITE_I8_COST_PREFLIGHT
+#ifdef SILICON_GRANITE_I8_FOUR_ROWS_PREFLIGHT
+#include "../native_expert_scaling/meth413_granite_i8_four_rows_cpu.c"
+#elif defined(SILICON_GRANITE_I8_COST_PREFLIGHT)
 #include "../native_expert_scaling/meth412_granite_i8_cost_cpu.c"
 #elif defined(SILICON_LING_STATIC_PAIR_LUT_PREFLIGHT)
 #include "../native_expert_scaling/meth410_ling_static_pair_lut_cpu.c"
