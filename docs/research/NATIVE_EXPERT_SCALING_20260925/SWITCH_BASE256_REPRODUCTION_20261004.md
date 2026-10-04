@@ -163,3 +163,11 @@ proves old408 engine reversal d49c951, old400 reversal02afce0 and default tail
 0ff9705. No qualified Switch binary changed; old HEAD-bound controllers still
 require their frozen checkouts. Ling costs are entirely synthetic and both fail
 the14ms whole operator allowance; do not inherit qualified Switch rate/quality.
+
+## Current opt-in boundary, through411
+
+410 adds the separately frozen Ling small-pair-LUT/Q4 prefix; its source
+controller proves409 reversal45c2386/default0ff9705.411 metadata touches no
+engine or qualified binary. Original374/389 reproduction uses stated frozen
+checkouts. Both Ling formats failed CPU cost; no original Switch quality/rate
+inherited by the new Granite actual-header inventory or its proposed I8 variant.

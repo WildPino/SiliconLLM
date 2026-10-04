@@ -2,7 +2,7 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: Ling joint representation cost hypothesis; useful384/large n remains open.**
+whole-quality/SAMEartifact FULL-rate qualification. Next: Granite1.335B full-I8 cost/operator gate; useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -150,8 +150,15 @@ ALL7 controls PASS/180 fullSHA/60 archived complete outputs byte-exact across
 ALL10 controls PASS/all outputs exact408; six-worker matrices12.452-14.396ms,
 head6.695-7.733ms/router1.516-1.580ms, no universal one-component exclusion.
 Both synthetic scopes omit causal attention/cache/composition; no model rate.
-Next [joint-format hypothesis](LING_MINI_JOINT_FORMAT_NEXT_20261004.md): smaller
-second palette/static pair lookup plus Q4 head, explicit precision tradeoff and
-all-storage/active-table charge. Planning only; no410 code/protocol/run.
-No acquisition/fitting pending a new complete cost gate. Useful>256/10x/~100B/
-physical DRAM and another-family actual quality remain open. All jobs terminal.
+[410 joint-format result](METH_410_LING_STATIC_PAIR_LUT_RESULT_20261004.md),84e7610:
+ALL8 controls PASS/210SHA/70 full archives exact NEW direct and static pair math.
+256+16 books/3bytes16/Q4 head descriptor389.370MB, all18 rep medians>20ms;
+14ms cost FAIL. This second Ling format closed before acquisition/fitting.
+[411 Granite actual headers](METH_411_GRANITE_MOE_SOURCE_HEADERS_RESULT_20261004.md),363ec2b:
+ALL6 gates PASS/ALL4 shards/218+290 actual tensor names.1.334625280B source has
+433.232MB hypothetical complete row-I8 descriptor;3.298788864B has892.413MB,
+unchanged I8 geometry closed. No actual values/quality/native costs/rate.
+Next [Granite cost/reference prerequisites](GRANITE_MOE_FULL_I8_NEXT_20261004.md);
+planning only, no412 code/protocol/run. Small another-family prerequisite does
+not replace real~10B/~100B/useful RAM-scale capacity scope. Useful>256/10x/physical
+DRAM/another-family actual quality remain open. All jobs terminal.

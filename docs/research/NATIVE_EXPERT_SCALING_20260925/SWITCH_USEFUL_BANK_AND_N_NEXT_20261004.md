@@ -103,13 +103,16 @@ source/numerical evidence reused314+, full-width expensive port remains closed.
 
 Qualified original Switch128391/256376 whole-quality/rate intact.401 union
 fits RAM but403/404/406 specified interfaces FAIL;405 full unregularized fit
-ineligible. No384 selector/model. 408 frozenfb897e9/retainedd49c951: ALL7 numeric/complete-archive gates PASS,
-synthetic full503.905MB Ling operator medians37.338-40.777ms (3 workers) and
-23.719-39.412ms (6);14ms cost FAIL.409 frozenb64aea0/retained9bced64: ALL10
-controls PASS/180SHA+60 complete archives exact408; six-worker coded matrices
-12.452-14.396ms/head6.695-7.733ms/router1.516-1.580ms. No universal one-component
-exclusion; original408 format closed before acquisition/fitting. No actual Ling
-values/model quality/rate/useful n/DRAM. Next separately frozen joint smaller
-second-palette/static pair-LUT plus Q4-head cost hypothesis; planning only.
-See LING_MINI_JOINT_FORMAT_NEXT_20261004.md. All408/409 handles terminal.
+ineligible. No384 selector/model. 410 froze75649d7/retained84e7610: new256+16/static pair-LUT/Q4 format ALL8
+numeric/210SHA+70 direct full-archive gates PASS; three-worker32.238-33.425ms/
+repeat1.0368 PASS, six-worker20.892-31.803ms/repeat1.5222 FAIL; both14ms cost FAIL.
+Close THIS joint format before Ling source values/fitting.411 ca13080/363ec2b:
+ALL6 actual Granite3.1 MoE header/config/index/tokenizer/module gates PASS.
+1B-named source actual1.334625280B/24 banks32/top8; hypothetical full row-I8
+descriptor433231872B/storage1444581376B eligible only for CPU-cost/original
+operator contract.3B actual3.298788864B/32 banks40/top8 descriptor892412928B FAIL,
+unchanged row-I8 closed before values. No tensor values/finite/function
+uniqueness/original inference/native quality/rate/DRAM. A tractable another-family
+case does not replace real~10B/~100B/useful>256/10x final scope. All jobs terminal.
+Next GRANITE_MOE_FULL_I8_NEXT_20261004.md; no412 code/protocol/run.
 Use INDEX.md/METHOD.md; preserve unrelated work.

@@ -1,5 +1,12 @@
 # Ling cost resumption: completed408/409, joint format required next
 
+**Current status:**410 complete joint-format test now retained84e7610; all8
+numeric/archive controls PASS,14ms cost FAIL in both profiles. This planning
+text remains historical context; do not execute its proposed steps unchanged.
+Next actual Granite1.335B cost/operator hypothesis in
+GRANITE_MOE_FULL_I8_NEXT_20261004.md. Ling values/fitting remain stopped.
+
+
 This supersedes the earlier proposed408 plan.408 froze fb897e9/retained d49c951;
 409 froze b64aea0/retained9bced64. Both first outcomes immutable, all sessions
 terminal. Actual407 header geometry retained e0f2f8b; no actual source values.

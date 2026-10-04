@@ -18,9 +18,11 @@ validation;405 unregularized full map is ineligible by conditioning. No384 model
 407 actual immutable Ling-mini headers enable another-family COST screen:
 19 banks256/top8, source16.2556B, SAME317 hypothetical503.905MB active descriptor.
 No original Ling values/reference/native quality/rate or physical DRAM yet.
-408 full-width cost FAIL/409 attribution PASS; matrices and head both matter.
-Next [joint representation hypothesis](LING_MINI_JOINT_FORMAT_NEXT_20261004.md)
-before values/fitting. Existing Switch quality/rate results remain intact.
+408/410 full-width/joint formats cost FAIL;409 attribution PASS. Ling fitting stopped.
+411 actual Granite1.335B full row-I8 byte inventory eligible for CPU/operator gate,
+Granite3.299B unchanged I8 geometry closed. Next
+[Granite transfer prerequisite](GRANITE_MOE_FULL_I8_NEXT_20261004.md).
+Existing Switch quality/rate results and real large-useful-capacity goal intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified
 
@@ -922,7 +924,7 @@ Byte-distinct pairs are not canonical function uniqueness/usefulness. A real384
 selector or another-family converted artifact ultimately requires new excluded-
 document original-relative whole quality and SAMEartifact FULL accepted rate.
 No source quality inheritance. Useful>256/10x/~100B/physical DRAM remain open.
-All405-409 sessions terminal; no410 controller/protocol/run yet.
+All405-411 sessions terminal; no412 controller/protocol/run yet.
 
 ## Another-family complete synthetic operator cost: format not eligible
 
@@ -942,11 +944,36 @@ six-worker rep. This informs a joint precision/cost hypothesis; it does not
 repair408 or prove cache/DRAM behavior. MAIN22.281/22.203s, max~5.04GB each.
 Default0ff9705 tail and qualified374/389 binaries unchanged.
 
-[Proposed joint format](LING_MINI_JOINT_FORMAT_NEXT_20261004.md) reduces second
+[410 tested joint format](METH_410_LING_STATIC_PAIR_LUT_RESULT_20261004.md) reduces second
 palette256->16, stores static precombined pairs, and changes Q6 head->Q4. New
 representability/precision and cost, no inherited408 byte identity or original
 quality. Its hypothetical conservative389.370MB descriptor charges active pair
-tables,4.364GB total charges every stored table. Neither is an actual export or
-DRAM measure. Freeze new math/whole-output and complete cost gates first; source
-quality/reference/acquisition only after a cost-qualified hypothesis. Useful
-RAM-scale capacity and another-family proven transfer remain open.
+tables,4.364GB total charges every stored table. Neither is an actual export or DRAM measure.410 ALL8 math/complete-output gates
+PASS, but both14ms costs FAIL; all18 medians>20ms. Close this joint format before
+source values/fitting. Source quality/rate never inferred. Useful RAM-scale
+capacity and another-family proven transfer remain open.
+
+## Another-family low-active geometry branch: actual Granite3.1 MoE headers
+
+[411](METH_411_GRANITE_MOE_SOURCE_HEADERS_RESULT_20261004.md) ca13080/363ec2b:
+actual pinned1B-named1.334625280B and3B-named3.298788864B original BF16 sources,
+ALL6 config/index/header/offset/name/tokenizer/reference-module gates PASS.
+218/290 names, two shards each, exact24x32/32x40 packed expert shapes/top8.
+Shared tokenizer exact, not hidden-space/causal n equivalence. No finite values/
+ordered function distinctness/actual original/native inference/quality/rate.
+
+The ONE proposed all-row I8/A16/F32-scale target keeps all core/experts and full
+I8 head, F32 router/norm and BF16 lookup. Original tied embed/head counted once;
+target two precision copies charged. Actual descriptor433231872B at1.335B versus
+892412928B at3.299B; latter unchanged format closed before values. Storage
+1444581376/3469809664B is hypothetical, not an export or DRAM/latency result.
+MAIN22.890s/42.353MB/22HTTP/4.239MB bodies, ZERO source-value bytes.
+
+Original Granite math differs: selected-RAW-logit softmax/top8, SiLU packed
+input split, GQA/full causal RoPE, embedding12/residual.22/attention.015625/
+logits divisor6. Installed official4.57.6 modules stored/hash-bound NOT executed.
+New source-specific original backend/cache/generation and native operator
+contracts required; generic Switch compatibility and source quality not assumed.
+Next [full-I8 cost/reference gate](GRANITE_MOE_FULL_I8_NEXT_20261004.md), planning
+only. A tractable second-family case tests method generality and does not satisfy
+or remove actual~10B/~100B/useful larger RAM-scale capacity requirements.

@@ -1,5 +1,12 @@
 # Next hypothesis: smaller second palette/static pair lookup plus Q4 head
 
+**Current status:**410 complete joint-format test now retained84e7610; all8
+numeric/archive controls PASS,14ms cost FAIL in both profiles. This planning
+text remains historical context; do not execute its proposed steps unchanged.
+Next actual Granite1.335B cost/operator hypothesis in
+GRANITE_MOE_FULL_I8_NEXT_20261004.md. Ling values/fitting remain stopped.
+
+
 Planning ONLY; no410 scientific code, protocol, compilation or outcome.
 Current HEAD retained408/409 evidence, source-sized Ling geometry407. This
 addresses target cost, with explicit future source-transfer precision risk.

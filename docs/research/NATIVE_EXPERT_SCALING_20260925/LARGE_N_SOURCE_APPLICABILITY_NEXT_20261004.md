@@ -89,3 +89,18 @@ second-palette/static pair-LUT plus Q4-head cost hypothesis; planning only.
 See LING_MINI_JOINT_FORMAT_NEXT_20261004.md. All408/409 handles terminal.
 Qwen80B unchanged full-width acquisition remains closed without a new transform.
 Useful larger n/~100B/physical DRAM remain open. Qualified source artifacts intact.
+
+## Current resumption after410/411 (supersedes joint-format proposal)
+
+410 froze75649d7/retained84e7610: new256+16/static pair-LUT/Q4 format ALL8
+numeric/210SHA+70 direct full-archive gates PASS; three-worker32.238-33.425ms/
+repeat1.0368 PASS, six-worker20.892-31.803ms/repeat1.5222 FAIL; both14ms cost FAIL.
+Close THIS joint format before Ling source values/fitting.411 ca13080/363ec2b:
+ALL6 actual Granite3.1 MoE header/config/index/tokenizer/module gates PASS.
+1B-named source actual1.334625280B/24 banks32/top8; hypothetical full row-I8
+descriptor433231872B/storage1444581376B eligible only for CPU-cost/original
+operator contract.3B actual3.298788864B/32 banks40/top8 descriptor892412928B FAIL,
+unchanged row-I8 closed before values. No tensor values/finite/function
+uniqueness/original inference/native quality/rate/DRAM. A tractable another-family
+case does not replace real~10B/~100B/useful>256/10x final scope. All jobs terminal.
+Next GRANITE_MOE_FULL_I8_NEXT_20261004.md; no412 code/protocol/run.
