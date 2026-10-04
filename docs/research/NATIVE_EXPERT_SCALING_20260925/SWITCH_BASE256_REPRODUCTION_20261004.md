@@ -207,3 +207,14 @@ controlsPASS/128 mixed-global gradientFAIL;423 local native-primal A/C reference
 conforms but global loss primals differ. No fit/model or new rate/quality.
 [Current matched-primal reference resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
 is NEW424, not an in-place repair or promotion of422.
+
+## Numerical prototype boundary, through424
+
+424 adds only two CPU local-continuation/controller sources, no native C/engine
+change. Frozen188a9ef, ALL8 numeric gatesPASS: both fixed real ALL6 gradient
+fields max9.86120e-8, independent NumPy finite differences, fixed detached node
+offsets at native values. Two actual zero-rank8 forwards exact418; full384 proof
+inherited420 through exact source/fresh archives. Original422 mixed/global
+contract stillFAIL. No fit/selector/export/combined quality or accepted rate.
+Original374/389 binaries remain authoritative and unchanged. Next NEW425 is a
+bounded actual-function/selector fit protocol, not a native rounding derivative.

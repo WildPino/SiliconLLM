@@ -1,14 +1,14 @@
 # Proposed next generation/task stage after349, not yet licensed or executed
 
-CURRENT STATUS423 (supersedes historical next steps below): original Switch
+CURRENT STATUS424 (supersedes historical next steps below): original Switch
 source128/256 quality and SAMEartifact source-specific rates remain qualified.
 Specified Granite/Ling/Giga cost formats and lexical/state-map bridges closed.
 418 capture/420 whole native forward all384/4895 states+full head byte-exact.
-421 loss-conditioning diagnosed;422 mixed/global gradient contractFAIL128.
-423 independent local A/C rules conform; different loss primals explain gap.
+422 mixed/global comparison remainsFAIL;423 local rules conform at native primals.
+424 matched-primal local derivative ALL8 PASS, independent FD, fixed offsets.
 Next [function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW424 same-primal independent gradient/FD reference before bounded fit.
-No424 code/fit/selector/384 model; diagnostic does not promote failed422.
+NEW425 bounded learned corrections/hard selector/causal original-function controls.
+No425 code/fit/selector/384 model; numeric qualification is not useful capacity.
 Useful larger n/RAM/LUT/realDRAM/another-family/~100B remain open. History retained.
 
 

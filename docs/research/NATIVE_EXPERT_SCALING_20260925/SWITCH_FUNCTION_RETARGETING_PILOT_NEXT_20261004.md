@@ -1,9 +1,9 @@
-# Current resumption after423: qualify a SAME-primal gradient reference
+# Current resumption after424: bounded function/selector pilot design
 
 Native observation418 and whole forward420 established.419 disk-guard failure
 retained;420 directional-FD loss conditioning diagnosed421.422 mixed/global
 gradient contract FAIL128;423 local A/C rules conform, loss primals differ.
-No qualified combined gradient/fit/selector/384-choice model yet.
+424 matched-primal local derivative ALL8 PASS. No fit/selector/384-choice model.
 Final goal ACTIVE/INCOMPLETE. Qualified original Switch7.415B/14.664B targets
 retain18/18 quality and SAMEartifact source-specific accepted-rate evidence.
 User priority stays useful n limited by RAM, CPU LUT/routing/realDRAM and
@@ -25,7 +25,7 @@ quality as choices grow;1.5x candidate pool alone cannot establish10x/~100B.
   Close lexical weight bridge before function maps/selector/model, no rank sweep.
   Raw416 ac769b643c7db6fe0782509ae65cc5287a2f93e70a495ed658384cfc7ee5f55b.
 
-All processes terminal, no GPU/T4/network or new quality documents used412-423.
+All processes terminal, no GPU/T4/network or new quality documents used412-424.
 Frozen source-weight/statistical controls are reproducible; input quality and
 whole model quality must remain separate. Do not resume a closed map silently.
 
@@ -57,7 +57,7 @@ results/native_expert_scaling/meth418_switch_function_capture; raw contains full
 1936-file inventory and source keys/splits. Native128 teacher is a quantized
 source approximation, not fresh original-F32 shared-context inference.
 
-## Completed forward/gradient outcomes419-423
+## Completed forward/gradient outcomes419-424
 
 [419](METH_419_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md), frozen d854ef2:
 WindowsPath disk-guard TypeError before numeric work, retained4ba10c4.
@@ -83,32 +83,81 @@ errors to1.00951e-6/2.93390e-6. Implementation of these local rules conforms;
 comparison against another path's loss primals caused global mismatch.
 20.485s/max1.107GB/output770742B; diagnostic ONLY,422 stillFAIL/no fit license.
 
-## Immediate next numbered action424, before any fit
+[424](METH_424_SWITCH_MATCHED_PRIMAL_RESULT_20261004.md), frozen188a9ef:
+ALL8 gatesPASS. ALL16 NumPy continuation/native endpoints error0.0; F64 torch
+maximum relative1.06125e-15/absolute8.73115e-11. Tiny ALL-coordinate FD reference
+max1.85518e-7, real both ALL6 native/reference gradients max9.86120e-8; independent
+real FD max3.57455e-9 at SAME steps/floors/bounds. No ReLU crossings; offsets
+remain detached/fixed. ALL negatives reached.29.547s/max1804988416B/output4390754B.
+Whole384/4895/157266560-row forward inherited420 through exact source and fresh
+archives; two real rank8 forwards newly exact418. Original422 remains FAIL.
+Local approximation qualified, not a globally smooth native model or fit success.
 
-Prepare a NEW matched-primal gradient reference: local smooth continuation with
-DETACHED node offsets chosen from native captured/evaluated states at the fixed
-point. Independent finite differences must evaluate the SAME loss primals as
-native-value STE, instead of a global dequantized path with different logits.
-This is a new declared local approximation/qualification, not a true derivative
-through rounding/top1 or relaxation/reinterpretation of422's failed1e-3 bound.
-No424 source/protocol/outcome exists yet; freeze before first numeric work.
+## Immediate next numbered action425: freeze a bounded learned pilot
 
-Controls: original exact I8/A16/I64/F64-scale/F32 forward remains authoritative;
-source identity and fresh420/418 archives may inherit immutable whole-forward
-proof. New reference must reproduce baseline native endpoints/logits (F64
-continuation tolerance prospectively fixed), check offsets independently and
-coupled gradients against finite differences on SAME two real zero-rank8 points
-and tiny nonzero factors, full score normalization/norm/ReLU/head and negative
-wrong-offset/wrong-gradient controls. Keep original rank8/seed/points/T1 and
-central steps unless a separately justified new numerical variable is frozen.
-Do not just declare two identical autograd paths proof of derivative correctness.
-Global dequantized comparison stays a diagnosed different-primal approximation,
-not a passing422 gradient result. All losses/gradients finite; no training yet.
+No425 source/protocol/outcome exists yet. Prepare the code, full objective/
+selector/baseline/resource/stop protocol and freeze before any new numeric
+cross-composition comparison or optimizer update. Reuse424 qualification; do
+not repeat419-424 or run another diagnostic without a concrete remaining risk.
 
-If coherent reference cannot qualify, stop this specified STE recipe and
-consider a separately qualified full dequantized training surrogate with whole
-native logit/prediction-fidelity bounds; no arbitrary threshold/rank/seed sweep.
-Neither approach licenses learned capacity from derivatives alone.
+Working design to make concrete before freeze (PLANNING, not a fit protocol):
+
+- ONE source256 core and original256 functions remain frozen; actual source128
+  block11 WI/WO pairs are additions, four function-specific rank8 factors each.
+  Added branch consumes SOURCE256 preFF/norm and uses SOURCE256 finalnorm/head.
+  Test this actual cross-composition at fixed zero initialization before updates:
+  independent matched-primal gradient/FD and original no-added baseline identity.
+  Own-source424 alone does not establish cross-composed forward quality.
+- Hierarchical hard selector: retain authoritative original256 router/selected
+  probability, add a trainable128-way affine classifier plus one binary gate.
+  Gate off executes original branch exactly; gate on chooses ONE added function
+  and uses original selected probability amplitude. The new classifier/gate are
+  choices, not extra amplitude factors or an expanded384-way original softmax.
+  Charge128 extra affine scores plus gate; do not consult old AND new WI/WO in
+  final inference. There are384 available functions in ONE bank, not all12 banks.
+- Only paired405/418 teacher data:1008dev/336val positions,18/6 books, all4 cases.
+  Hard new-function classifier trains on source128 route labels with256 inputs;
+  actual inference uses classifier predictions, not donor oracle labels. Fit
+  corrections on the functions actually predicted by that selector. A later
+  gate can learn development-only benefit labels, and must be evaluated as an
+  actual hard decision on validation. No selector always-old capacity claim.
+- One full-vocabulary objective to fix prospectively: equal-weight detached
+  original256/128 native teacher probabilities at T1. Keep256 preservation and
+  additional128 prediction benefit separate. No search over temperatures,
+  mixing weights, ranks, seeds, learning rates, updates or validation checkpoints.
+  Candidate finite CPU budget:3 fixed passes per learner/arm, at most3024
+  correction updates per arm, <=30min total, <=4GiB RSS/peak, <=64MiB new outputs.
+  Specify all initialization/optimizer/lr/order/clipping and final-only model
+  selection in425 before observations; resource estimate remains planning.
+- Evaluate exact no-added256, forced zero-correction added functions and actual
+  trained hard selector. Fix nondegradation and benefit/consultation bounds
+  before fitting. Include inference-time pretrained-function identity
+  permutation and removal with SAME factors/selector, plus a separately fitted
+  matched-parameter adapter-only control if making a pretrained-capacity claim.
+  Adapters alone cannot establish transferred added-function capacity. Record
+  actually selected distinct added IDs, every per-function exposure and benefit;
+  unavailable/unconsulted functions are stored candidates, not useful n.
+- A fitted matched adapter-only control can use two rank8 maps A(Bx)+C(Dx), same
+  four-factor count/selector assignment/data/objective/update budget, no added
+  WI/WO. Qualify its different composition before its first update. Freeze
+  control and causal metrics together with the real-function arm; no post-hoc
+  unfavorable competitor selection. A positive feasibility result only licenses
+  export/whole-model/NEW excluded donor-relative quality and SAMEartifact rate.
+- CPU native-valued training initially; no GPU/T4 required. Immutable422
+  approximate backward is locally qualified424, not a guarantee of optimization.
+  Bound frozen selected-function caches explicitly, charge I64 forward/F64
+  backward full head and function workspaces, teacher arrays, optimizer and
+  selector states. Stop on first nonfinite/budget/prerequisite failure; if the
+  complete fixed pilot fails, close this specified rank8 recipe before a sweep.
+
+Prospective selector128*(768+1)+769=99201 F32 coefficients/396804B; coefficients,
+gradients and two Adam moments1587216B. Four-factor plus selector combined
+3244929 trainable coefficients/12979716B F32/all four states51918864B. One
+added-function correction98304B plus selector396804B active coefficient accesses
+per final-bank token, beyond unchanged original router/core/head and one original
+WI/WO pair. Hypothetical complete256 payload +ONE128 bank+corrections+selector
+15436941316B before headers/padding/metadata; not an actual export. This selector
+is a bounded feasibility design, not yet a CPU LUT or RAM-scale routing result.
 
 Before any GPU/fit choose ONE correction init/selector/objective, account for
 frozen/trainable host/device/gradient/optimizer/full-head costs and fixed stop
@@ -156,7 +205,7 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
    outputs/routes/greedy/actual-worker identity, independent preFF/norm/full
    selected expert/residual/finalnorm/head controls as recorded above. Reuse
    frozen captures with fresh full inventory/raw hashes; do not recapture or
-   modify417/418/419/420/421/422/423. Current additional reference work requires new424.
+   modify417/418/419/420/421/422/423/424. Current additional fitting requires new425.
 2. Fix training objective, selector semantics, trainable size/rank/initialization,
    original256 baseline/no-added-function control, forced source-function controls,
    and a causal ablation that shows pretrained added functions actually contribute.
@@ -187,8 +236,8 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
    stopping metrics, baseline nondegradation and genuine added-function benefit
    before training. Freeze each substantial stage separately; retain first fail.
 
-The immediate next action is424 matched-primal gradient-reference qualification
-and bounded resource/objective design, then a separately frozen fit protocol.
+The immediate next action is425 bounded learned function/selector/control protocol
+and implementation, frozen before new cross-composition qualification or fitting.
 No model construction or unbounded training before these controls.
 No source data acquisition or GPU authorization request is currently required.
 

@@ -43,10 +43,16 @@ STE vs global-smooth gradient error.004939>same1e-3, contract not eligible.
 independent same128 native-primal A/C chain vs autograd errors0.0; no ReLU mask
 changes. Using different loss logits accounts for global gradient discrepancy;
 full native/smooth logiterror5.618e-5. No derivative through native rounding claim.
+[424 matched-primal local qualification](METH_424_SWITCH_MATCHED_PRIMAL_RESULT_20261004.md),
+frozen188a9ef: ALL8 PASS, F64 independent NumPy FD and ordinary autograd at SAME
+native values, both real ALL6 gradient fields max9.86120e-8. No ReLU crossings;
+constant offsets fixed throughout FD.29.547s/max1.805GB, two real rank8 forwards
+exact418; ALL384 proof inherited420 through unchanged419/422 prefix and fresh
+archives. A local approximate derivative, not through rounding/hard selection.
 Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW same-primal local smooth continuation/independent FD reference before bounded
-rank8 corrections/selector fit. Current mixed/global contract remainsFAIL; no
-424 code/fit/384 model/quality/rate or retrospective gradient promotion.
+NEW425 bounded rank8 correction/selector fit protocol with one-function budget,
+actual original-function benefit/consultation and causal controls. Original422
+mixed/global contract remainsFAIL; no425 code/fit/384 model/quality/rate.
 Existing Switch quality/rate results and real large-useful-capacity goal intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified

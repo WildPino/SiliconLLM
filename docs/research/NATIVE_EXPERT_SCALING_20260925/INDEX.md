@@ -5,8 +5,9 @@
 whole-quality/SAMEartifact FULL-rate qualification. Granite412/413 CPU route
 closed; lexical414/416 interfaces closed.418 final-bank capture ALL9 PASS,
 384 complete outputs unchanged;420 whole head forward exact.422 mixed/global
-gradient FAIL128;423 local rules conform, loss primals differ. Next: qualify
-SAME-primal reference before bounded fitting. Useful384/large n remains open.**
+gradient FAIL128;423 local rules conform, loss primals differ.424 matched-primal
+local derivative ALL8 PASS. Next: bounded final-bank correction/selector fit
+with causal original-function controls. Useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -193,9 +194,13 @@ original fail reproduced; same centered-FD/imaginary check agree, no mask crossi
 [423 local backward diagnosis](METH_423_SWITCH_SAVED_PRIMAL_GRADIENT_RESULT_20261004.md):
 SAME128 point local A/C reference errors0.0; no ReLU mask differences; differing
 loss logits cause mismatch. Native/smooth logiterror5.618e-5, not capacity harm.
+[424 matched-primal qualification](METH_424_SWITCH_MATCHED_PRIMAL_RESULT_20261004.md),188a9ef:
+ALL8 PASS, independent FD of fixed native-primal continuation; both real ALL6
+gradient fields max9.86120e-8, no mask crossings, whole native forward inherited.
+29.547s/max1.805GB/4.391MB output. Local approximation, not rounding derivative.
 Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW424 same-primal local continuation/FD reference, then bounded correction/
-selector/resource/causal original-function controls. No424 code/fit/384 model.
-No more state-map or closed kernel tuning.423 diagnostic does not qualify422.
+NEW425 bounded correction/selector fit design, explicit one-function budget and
+causal original-function/adapter-only controls. No425 code/fit/384 model.
+No more state-map or closed kernel tuning. Original422 remains FAIL.
 Useful>256/10x/real~100B/physicalDRAM/another-family quality remain open.
 All jobs terminal, original qualified Switch artifacts untouched.
