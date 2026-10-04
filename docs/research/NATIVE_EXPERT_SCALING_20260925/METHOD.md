@@ -492,8 +492,13 @@ quality claim FAIL5/7:64 loss supports additional-function contribution;
 preserves original teacher choices (masked agreement38.28%/49.22%); neither
 inherits363 quality. More n does not establish monotonic quality benefit.
 [372 result](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md) retains
-all primary and descriptive outcomes. Separately frozen373 will compare equal
-source29/forced14 CPU phase/routing/consultation cost across actual64/128/256.
+all primary and descriptive outcomes. 373 actual equal
+source29/forced14 CPU comparison ALL7 PASS retained537f01b. Fourfold64-to256
+bank increases full cost2.91% (upper95 3.62%), decode0.51% (upper1.27%).
+Router matrix profile grows3.83x and is3.63% of OWN full profile time at256.
+Every warm/repeated/profile full teacher output exact363/372. Sampled child
+RSS1.114/1.269/1.355GB differs from whole mapped3.904/7.542/14.818GB files.
+This does not replace failed364 accepted natural rate or establish >256 scaling.
 Logical bytes, mapped file bytes and sampled RSS do not measure physical DRAM.
 No relaxed acceptance/50/1.10 or optional repeats. Whole quality remains bounded
 English short four-span infilling; useful RAM-scale n/LUT/physical DRAM/causal

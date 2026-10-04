@@ -127,3 +127,20 @@ independent Tiny/full/natural controls before369 pairedconsumed quality.
 This diagnostic tests matched learnedbank usefulness, notnewuntouchedquality
 or everyexpert/n-gain. Fixedgenuine64/128/256 nested-bank intervention planned
 nextforadditional real alternatives; actual n artifactsnotyetimplemented.
+
+## Current resumption, 4 October: supersedes earlier proposed steps
+
+370 physical64/128 exports PASS;371 complete dynamic-n independent contracts
+PASS.372 first paired quality result retained039dc99 FAIL5/7:64 loses both
+primary outcomes;128 masked NLL improves, generated-field harm upper98.75=0
+fails. Original masked teacher agreement38.28%/49.22%; no subset inheritance
+of363 quality, monotonic n claim or unchanged optional repeat.
+373 frozenbbd0599 completed, authoritative exec30089 exit0 fully consumed,
+ALL7 PASS retained537f01b. Equal source29/forced14 actual64/128/256: full cost
+grows2.91% (upper95 3.62%), decode0.51% (upper1.27%). Router grows3.83x,
+3.63% of OWN profile full wall time at256. Every warm/repeated/profile output
+exact363/372; sampled RSS/logical bytes are not physical DRAM. No live job.
+Next374 physical thread binding + active wait is planning only, no code/freeze
+yet: complete math/worker affinity/output equivalence first, then375 cost and
+376 SAMEartifact accepted FULL rate. See SWITCH_PHYSICAL_THREAD_EXECUTION_NEXT_20261004.md.
+Goal remains active;364 accepted rate/366 repeat failures retained.
