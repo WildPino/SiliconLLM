@@ -1,0 +1,157 @@
+{
+  "experiment": "METH-402-paired-consumed-cross-source-normalized-inputs",
+  "commands": [],
+  "pairs": [],
+  "banks": [],
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth402_switch_cross_source_inputs.py": "16eae73439064ca0dcb5879b2be2414f63eb2a50e250ab1945929a611f60f9cc",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_402_SWITCH_CROSS_SOURCE_INPUTS_PROTOCOL_20261004.md": "1428da7d1934ce25c74a2d37eee09b30c915ba4322051889f32f917f03a6d3f0",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth359_switch_cost_topology.py": "b3e52df3691231d6e6515a027be927b02082dd575419610ba6b57d43c837a806",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth393_switch_router_analysis.py": "5296133629f41c8abb6805b2ecb5864409c9160efad7f9a8715bc212632a6216",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth392_switch_route_audit.py": "fcf50aa58bba59ba23c734536dce50d724f4d2346c9182c0ac36bf854e5f96e2"
+  },
+  "input_sha256": {
+    "362": "c387fc7b831b6b7bb50634686ac39b8e8873f20fedc7dec9b8556f62c54de2cf",
+    "374": "4601be80b787341f6d60e01f7219c1cd4cd71c0451f835d25e31ded3c468f4b1",
+    "389": "fd12cfc2809fb42f52faef0b442781154c30ba27576f264c5f693bc30ec91dd2",
+    "393": "bea3d2e1db10f03d5d9de3173d71a455142166ae71229bbb847959baf12ce07d",
+    "401": "d35bf7f82b064593ff8568379fc8106b100d8337c1b860395e1bc6bd83d4e160",
+    "326": "39bac2bda18cc6660da77bba8256d1e21fcad5b6fa70796d343b7e139d480711",
+    "378": "89add8d24541423dfa61827f785bf125c2062cf1aa6976214f03da94b7c582b7"
+  },
+  "fresh_tokenizer_sha256": [
+    {
+      "spiece.model": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+      "tokenizer.json": "5f0ed8ab5b8cfa9812bb73752f1d80c292e52bcf5a87a144dc9ab2d251056cbb",
+      "special_tokens_map.json": "5c87151ef0f72a99d1f766a4c418bd2a1f90aaa30a8e22fe5eca9641daebb64f"
+    },
+    {
+      "spiece.model": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+      "tokenizer.json": "5f0ed8ab5b8cfa9812bb73752f1d80c292e52bcf5a87a144dc9ab2d251056cbb",
+      "special_tokens_map.json": "5c87151ef0f72a99d1f766a4c418bd2a1f90aaa30a8e22fe5eca9641daebb64f"
+    }
+  ],
+  "qualified_binaries": {
+    "389": {
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-fno-fast-math",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "-DSILICON_SWITCH_THREE_WORKERS",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe"
+      ],
+      "binary_sha256": "7783d25e7dd51c6f8ad43750d5d7139e622ba74b852a71aee484ffd445860a7b",
+      "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+      "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+    },
+    "393": {
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-fno-fast-math",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "-DSILICON_SWITCH_ROUTER_AUDIT",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe"
+      ],
+      "binary_sha256": "67cc62872ea51748f2f92818567dbfcc54c94a152606dfde674ad65a5f3b4afd",
+      "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+      "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+    }
+  },
+  "fresh_topology": {
+    "api": "GetLogicalProcessorInformation/RelationProcessorCore",
+    "group_scope": "single group/local<=64 logical processors",
+    "physical_cores": [
+      {
+        "processor_mask": 3,
+        "SMT_flag": 1,
+        "logical_processors": [
+          0,
+          1
+        ]
+      },
+      {
+        "processor_mask": 12,
+        "SMT_flag": 1,
+        "logical_processors": [
+          2,
+          3
+        ]
+      },
+      {
+        "processor_mask": 48,
+        "SMT_flag": 1,
+        "logical_processors": [
+          4,
+          5
+        ]
+      },
+      {
+        "processor_mask": 192,
+        "SMT_flag": 1,
+        "logical_processors": [
+          6,
+          7
+        ]
+      },
+      {
+        "processor_mask": 768,
+        "SMT_flag": 1,
+        "logical_processors": [
+          8,
+          9
+        ]
+      },
+      {
+        "processor_mask": 3072,
+        "SMT_flag": 1,
+        "logical_processors": [
+          10,
+          11
+        ]
+      }
+    ],
+    "process_allowed_logical_processors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_one_logical_per_physical_core": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "selected_processor_mask": 1365,
+    "physical_cpu_count": 6,
+    "logical_cpu_count": 12
+  },
+  "failure_stage": "bindings",
+  "error": "AssertionError(('concurrent_model_job', 12540, 'pythonw.exe', 'C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python311\\\\pythonw.exe d:\\\\_THINGS\\\\Progetti\\\\tiktok_publisher\\\\daemon_workflow.py'))",
+  "seconds": 1.5469999999995707,
+  "maximum_checked_combined_rss_bytes": 58642432,
+  "file_bytes_hashed": 24043900
+}
