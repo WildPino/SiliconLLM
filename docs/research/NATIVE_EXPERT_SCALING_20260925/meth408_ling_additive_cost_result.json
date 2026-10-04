@@ -1,0 +1,3501 @@
+{
+  "experiment": "METH-408-Ling-full-width-synthetic-additive-active-cost",
+  "runs": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\negative_worker"
+      ],
+      "negative": true,
+      "threads": 3,
+      "returncode": 2,
+      "seconds": 0.8130000000001019,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "241d1d7436244fcbbf1a7741250b8c879e85f2f3c70f9a9d713f2e322bf86059"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 2.7189999999991414,
+      "stdout_sha256": "c0e281f1896f15bb23cf465dbb448c87dd85240be008145d2764f21e9a155c6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input0.bin",
+          "sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input1.bin",
+          "sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input2.bin",
+          "sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input3.bin",
+          "sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input4.bin",
+          "sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input5.bin",
+          "sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input6.bin",
+          "sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input7.bin",
+          "sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input8.bin",
+          "sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run0_t3.input9.bin",
+          "sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 20,
+        "dimension": 2048,
+        "stored_banks": 256,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 779091968,
+        "active_scales": 2560000,
+        "active_palettes": 2277376,
+        "stored_coded_coefficients": 15601762304,
+        "allocated_dynamic_bytes": 4931534848,
+        "setup_seconds": 0.9436474,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20824,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 19020,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19376,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 19020,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 20824,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19376,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 4448,
+        "stored_bank_offset_checks": 29384,
+        "palette_bank_offset_checks": 29384,
+        "integer_relative_l2": 3.638331237912454e-08,
+        "synthetic_head64_relative_l2": 1.2120883801471723e-07,
+        "reference_route_layers": 19,
+        "bad_bank_rejected": true,
+        "packed_head_change_detected": true,
+        "sentinel_row": 0,
+        "sentinel_byte": 0,
+        "integer_extrema_and_quantizer_checks": true,
+        "exhaustive_decoded_input_cases": 32131,
+        "tile_lane_cases": 128524,
+        "mixed_adjacent_pairs": 14641,
+        "row_bias_error_detected": true,
+        "palette_fault_detected": true,
+        "code_fault_detected": true,
+        "S8_saturation_fault_detected": true,
+        "embedding2048_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 64,
+        "maximum_selected_union": 73,
+        "peak_rss_bytes": 4981825536,
+        "total_seconds": 2.4793281,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20824,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 19020,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19376,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 19020,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 20824,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19376,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.038860999999,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.056107599999,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.047274799999,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0386908,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.042158600001,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.043664199999,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.039094100001,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.039954299998,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.037533500001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.041598799999,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.039753200001,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.038944800001,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.037820700001,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.040010100001,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.038640000001,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0371098,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0424812,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.037849599999,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.037785500001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.040050400001,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0379634,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.040977999999,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0378318,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.038481599999,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.037236,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.036901899999,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.039402799999,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.054617100001,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.037127899999,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0375494,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0407765499985,
+        0.038244799999999995,
+        0.0376906
+      ],
+      "fixed_input_medians_seconds": [
+        0.0378318,
+        0.0386908,
+        0.038640000001,
+        0.0371098,
+        0.039402799999,
+        0.039954299998,
+        0.037533500001,
+        0.040050400001
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 3.0930000000007567,
+      "stdout_sha256": "5f15cc6e1e54d6eb5c742d6aee478ba4239da523ff3b17b41843ac6f09f59815",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input0.bin",
+          "sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input1.bin",
+          "sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input2.bin",
+          "sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input3.bin",
+          "sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input4.bin",
+          "sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input5.bin",
+          "sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input6.bin",
+          "sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input7.bin",
+          "sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input8.bin",
+          "sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run1_t6.input9.bin",
+          "sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 20,
+        "dimension": 2048,
+        "stored_banks": 256,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 779091968,
+        "active_scales": 2560000,
+        "active_palettes": 2277376,
+        "stored_coded_coefficients": 15601762304,
+        "allocated_dynamic_bytes": 4931534848,
+        "setup_seconds": 0.8430619,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 11888,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18672,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26000,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 4944,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 24464,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9916,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 11888,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18672,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26000,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 4944,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9916,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 24464,
+            "group": 0,
+            "actual_mask": 256
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 4448,
+        "stored_bank_offset_checks": 29384,
+        "palette_bank_offset_checks": 29384,
+        "integer_relative_l2": 3.638331237912454e-08,
+        "synthetic_head64_relative_l2": 1.2120883801471723e-07,
+        "reference_route_layers": 19,
+        "bad_bank_rejected": true,
+        "packed_head_change_detected": true,
+        "sentinel_row": 0,
+        "sentinel_byte": 0,
+        "integer_extrema_and_quantizer_checks": true,
+        "exhaustive_decoded_input_cases": 32131,
+        "tile_lane_cases": 128524,
+        "mixed_adjacent_pairs": 14641,
+        "row_bias_error_detected": true,
+        "palette_fault_detected": true,
+        "code_fault_detected": true,
+        "S8_saturation_fault_detected": true,
+        "embedding2048_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 64,
+        "maximum_selected_union": 73,
+        "peak_rss_bytes": 4981940224,
+        "total_seconds": 2.5667554,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 11888,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18672,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26000,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 4944,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 24464,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9916,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 11888,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18672,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 26000,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 4944,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9916,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 24464,
+            "group": 0,
+            "actual_mask": 256
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.045096399999,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0280465,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0518856,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.030345900001,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0804816,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.048890800001,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.038170599999,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.024797200002,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.040654300001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.030410400001,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0304113,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0345961,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.043333900001,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.035042400001,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0331143,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0361526,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0328601,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.028474700001,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0263872,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.031012400001,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0316757,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.029455600001,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.031350199999,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.030907799999,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0338376,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0316891,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.030647699999,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.030835,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0297151,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0300092,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        }
+      ],
+      "rep_medians_seconds": [
+        0.03941245,
+        0.0329872,
+        0.0308713999995
+      ],
+      "fixed_input_medians_seconds": [
+        0.043333900001,
+        0.030907799999,
+        0.0338376,
+        0.0361526,
+        0.0328601,
+        0.028474700001,
+        0.0297151,
+        0.030410400001
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 3.125,
+      "stdout_sha256": "2c25e3069e04ed697329385316df69fb0f50d03a4a8400a99db659ad10cd2438",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input0.bin",
+          "sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input1.bin",
+          "sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input2.bin",
+          "sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input3.bin",
+          "sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input4.bin",
+          "sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input5.bin",
+          "sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input6.bin",
+          "sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input7.bin",
+          "sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input8.bin",
+          "sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run2_t6.input9.bin",
+          "sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 20,
+        "dimension": 2048,
+        "stored_banks": 256,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 779091968,
+        "active_scales": 2560000,
+        "active_palettes": 2277376,
+        "stored_coded_coefficients": 15601762304,
+        "allocated_dynamic_bytes": 4931534848,
+        "setup_seconds": 0.7949857,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24892,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18320,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 24444,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20996,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25696,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9296,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24892,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18320,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20996,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 24444,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25696,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9296,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 4448,
+        "stored_bank_offset_checks": 29384,
+        "palette_bank_offset_checks": 29384,
+        "integer_relative_l2": 3.638331237912454e-08,
+        "synthetic_head64_relative_l2": 1.2120883801471723e-07,
+        "reference_route_layers": 19,
+        "bad_bank_rejected": true,
+        "packed_head_change_detected": true,
+        "sentinel_row": 0,
+        "sentinel_byte": 0,
+        "integer_extrema_and_quantizer_checks": true,
+        "exhaustive_decoded_input_cases": 32131,
+        "tile_lane_cases": 128524,
+        "mixed_adjacent_pairs": 14641,
+        "row_bias_error_detected": true,
+        "palette_fault_detected": true,
+        "code_fault_detected": true,
+        "S8_saturation_fault_detected": true,
+        "embedding2048_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 64,
+        "maximum_selected_union": 73,
+        "peak_rss_bytes": 4981960704,
+        "total_seconds": 2.8696009,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24892,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18320,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 24444,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20996,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25696,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9296,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24892,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18320,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20996,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 24444,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25696,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 9296,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.023263699999,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0290962,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0272074,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.025273700001,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.024899,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0244203,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.025529299999,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0250789,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0247676,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.024441,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.026376200001,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0241709,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.024428999999,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.023981300001,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.023990200001,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.025135100001,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.023760800001,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0243242,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.025884500001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.024431799999,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.023185100001,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.023680800001,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.024258500001,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.039888699999,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0318369,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.025081799999,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.028296699998,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.024600299999,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.024193200001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0230364,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        }
+      ],
+      "rep_medians_seconds": [
+        0.024988950000000003,
+        0.024376599999500002,
+        0.024841049998999998
+      ],
+      "fixed_input_medians_seconds": [
+        0.024428999999,
+        0.025273700001,
+        0.024899,
+        0.025081799999,
+        0.025529299999,
+        0.024600299999,
+        0.0247676,
+        0.024431799999
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 3.514999999999418,
+      "stdout_sha256": "c16750b8871ac0c9925a7525a55063b980724b27071f035bec2e937dc66564e7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input0.bin",
+          "sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input1.bin",
+          "sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input2.bin",
+          "sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input3.bin",
+          "sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input4.bin",
+          "sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input5.bin",
+          "sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input6.bin",
+          "sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input7.bin",
+          "sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input8.bin",
+          "sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run3_t3.input9.bin",
+          "sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 20,
+        "dimension": 2048,
+        "stored_banks": 256,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 779091968,
+        "active_scales": 2560000,
+        "active_palettes": 2277376,
+        "stored_coded_coefficients": 15601762304,
+        "allocated_dynamic_bytes": 4931534848,
+        "setup_seconds": 0.9028753,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24036,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 6484,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23904,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24036,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 6484,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23904,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 4448,
+        "stored_bank_offset_checks": 29384,
+        "palette_bank_offset_checks": 29384,
+        "integer_relative_l2": 3.638331237912454e-08,
+        "synthetic_head64_relative_l2": 1.2120883801471723e-07,
+        "reference_route_layers": 19,
+        "bad_bank_rejected": true,
+        "packed_head_change_detected": true,
+        "sentinel_row": 0,
+        "sentinel_byte": 0,
+        "integer_extrema_and_quantizer_checks": true,
+        "exhaustive_decoded_input_cases": 32131,
+        "tile_lane_cases": 128524,
+        "mixed_adjacent_pairs": 14641,
+        "row_bias_error_detected": true,
+        "palette_fault_detected": true,
+        "code_fault_detected": true,
+        "S8_saturation_fault_detected": true,
+        "embedding2048_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 64,
+        "maximum_selected_union": 73,
+        "peak_rss_bytes": 4981825536,
+        "total_seconds": 3.2610842,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24036,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 6484,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23904,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 24036,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 6484,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 23904,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.037647699999,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0376483,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.044256899999,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0385274,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.041187000001,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.046549299999,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0392213,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.037949399999,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.039654600001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0385381,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.04501,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.044329,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0395983,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0673904,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0388883,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.04004,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.039185900001,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0372045,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.036794600001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0376041,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.037953700001,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.036940299999,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.037259000001,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.037478599999,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.037964199999,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.037816,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0386203,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0378547,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0385298,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0378378,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0394379500005,
+        0.0390371000005,
+        0.03784625
+      ],
+      "fixed_input_medians_seconds": [
+        0.0395983,
+        0.0385274,
+        0.0388883,
+        0.04004,
+        0.039185900001,
+        0.0378547,
+        0.0385298,
+        0.0378378
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 3.0310000000008586,
+      "stdout_sha256": "76f572aacba072a07d08d62861f6d46fce39d7d61dfa2776a05e553f0be84806",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input0.bin",
+          "sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input1.bin",
+          "sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input2.bin",
+          "sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input3.bin",
+          "sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input4.bin",
+          "sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input5.bin",
+          "sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input6.bin",
+          "sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input7.bin",
+          "sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input8.bin",
+          "sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run4_t3.input9.bin",
+          "sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 20,
+        "dimension": 2048,
+        "stored_banks": 256,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 779091968,
+        "active_scales": 2560000,
+        "active_palettes": 2277376,
+        "stored_coded_coefficients": 15601762304,
+        "allocated_dynamic_bytes": 4931534848,
+        "setup_seconds": 0.8952649,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25972,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22728,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 20484,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25972,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22728,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 20484,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 4448,
+        "stored_bank_offset_checks": 29384,
+        "palette_bank_offset_checks": 29384,
+        "integer_relative_l2": 3.638331237912454e-08,
+        "synthetic_head64_relative_l2": 1.2120883801471723e-07,
+        "reference_route_layers": 19,
+        "bad_bank_rejected": true,
+        "packed_head_change_detected": true,
+        "sentinel_row": 0,
+        "sentinel_byte": 0,
+        "integer_extrema_and_quantizer_checks": true,
+        "exhaustive_decoded_input_cases": 32131,
+        "tile_lane_cases": 128524,
+        "mixed_adjacent_pairs": 14641,
+        "row_bias_error_detected": true,
+        "palette_fault_detected": true,
+        "code_fault_detected": true,
+        "S8_saturation_fault_detected": true,
+        "embedding2048_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 64,
+        "maximum_selected_union": 73,
+        "peak_rss_bytes": 4981821440,
+        "total_seconds": 2.7810039,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25972,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22728,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 20484,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25972,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22728,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 20484,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.037047400001,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0367405,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0370877,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0373917,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.037108300001,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.038311299999,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0368361,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.037558399999,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0380085,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.038410900001,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.037041200001,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.037677800001,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0371751,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.038450400001,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.038739600001,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0375011,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.036933000001,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.036774300001,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0370153,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.037789499998,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0368143,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.037840500001,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.037071000001,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0375423,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0375195,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0370752,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0371314,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.043568499999,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0525423,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.045804500001,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0374750499995,
+        0.0373381,
+        0.0375309
+      ],
+      "fixed_input_medians_seconds": [
+        0.0370877,
+        0.0375423,
+        0.0375195,
+        0.0375011,
+        0.036933000001,
+        0.037558399999,
+        0.0380085,
+        0.038410900001
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 3.32799999999952,
+      "stdout_sha256": "b251752c66486b8b7fbb71ae1a16e4f268cb62203be8a4f078b5f02b316bd962",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input0.bin",
+          "sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input1.bin",
+          "sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input2.bin",
+          "sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input3.bin",
+          "sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input4.bin",
+          "sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input5.bin",
+          "sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input6.bin",
+          "sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input7.bin",
+          "sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input8.bin",
+          "sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\run5_t6.input9.bin",
+          "sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 20,
+        "dimension": 2048,
+        "stored_banks": 256,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 779091968,
+        "active_scales": 2560000,
+        "active_palettes": 2277376,
+        "stored_coded_coefficients": 15601762304,
+        "allocated_dynamic_bytes": 4931534848,
+        "setup_seconds": 0.7773501,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 26004,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12632,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 25124,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23736,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25672,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 24616,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 4,
+            "windows_thread_id": 25672,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23736,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12632,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 25124,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 24616,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 26004,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 4448,
+        "stored_bank_offset_checks": 29384,
+        "palette_bank_offset_checks": 29384,
+        "integer_relative_l2": 3.638331237912454e-08,
+        "synthetic_head64_relative_l2": 1.2120883801471723e-07,
+        "reference_route_layers": 19,
+        "bad_bank_rejected": true,
+        "packed_head_change_detected": true,
+        "sentinel_row": 0,
+        "sentinel_byte": 0,
+        "integer_extrema_and_quantizer_checks": true,
+        "exhaustive_decoded_input_cases": 32131,
+        "tile_lane_cases": 128524,
+        "mixed_adjacent_pairs": 14641,
+        "row_bias_error_detected": true,
+        "palette_fault_detected": true,
+        "code_fault_detected": true,
+        "S8_saturation_fault_detected": true,
+        "embedding2048_exact": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 64,
+        "maximum_selected_union": 73,
+        "peak_rss_bytes": 4981919744,
+        "total_seconds": 3.0676014,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 26004,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12632,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 25124,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23736,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25672,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 24616,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 4,
+            "windows_thread_id": 25672,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 23736,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 12632,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 25124,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 24616,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 26004,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0290417,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.030489000001,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.034112700001,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.025422300001,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.025331699999,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.033666199999,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.026768,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0249408,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.028896000002,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.025305499999,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0246584,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.024318399999,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0259527,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.023552499999,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.024568299999,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0237129,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.023725499999,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.022953700001,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.023328000001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.024373100001,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.028508200001,
+          "complete_output_sha256": "fc26dcb36e36b082468df1231ef36a23ee62c1f8abefef4381cbf4b03940bd5b",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.026279,
+          "complete_output_sha256": "d27aa134619b545da2584a80d1509a16f3bb3904259bf3af255ff425d7813f50",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0248763,
+          "complete_output_sha256": "427b058b1394f336a0a19d9e6f2268310bba15f1aecae0f8c5b6b8b527864bdd",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0242383,
+          "complete_output_sha256": "51be96297699f1ae25d1c3d3944348f2345a06a5d42c554b9961b58882fb213d",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.023014099999,
+          "complete_output_sha256": "1ec8c7b8397c7160b8620ca0f4c2061265d39cf7ea88ddf636c02d70502a39ae",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.024477200001,
+          "complete_output_sha256": "3c012c1b1ba18e1647d1ddf584c5501504bdae0ff91dc56ded37a7f0811ea5af",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0264871,
+          "complete_output_sha256": "7439810f71baa5360d72b7e8551ace142c6a15198d65c2ba8a1d704cefb29e3a",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.026681200001,
+          "complete_output_sha256": "7f38db8ff543c5d757723ad21b8fbbbf58894a777e26e6180c38feac762c3387",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.024017400001,
+          "complete_output_sha256": "f775a6d6a286494f99e9652e7dd39832f2d53f369ed28795f2cd6ac8d03f9f3f",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.023435699999,
+          "complete_output_sha256": "b87faf3986053bd08e036dc2b27e50db5dab6d25e50604fcca066504f9e46a82",
+          "executed_coefficients": 779091968,
+          "addressed_descriptor_bytes": 503905280
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0260951500005,
+        0.0237191999995,
+        0.0243577500005
+      ],
+      "fixed_input_medians_seconds": [
+        0.0259527,
+        0.0242383,
+        0.024568299999,
+        0.024477200001,
+        0.0264871,
+        0.0249408,
+        0.024017400001,
+        0.024373100001
+      ]
+    }
+  ],
+  "bindings": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth408_ling_additive_cost.py": "6a3a5fd1200594a0f32a43434a282edbbd9c0c190e6b2a9562ee7aa86402a525",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth408_ling_additive_cost_cpu.c": "cc1b4e4e01216f799be63a8ff49f1c5cc053aa69e61888b1aa03f16a45c4f223",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c": "2299b56dc955ea5b8cc4094b7907ae0aee9b7dc5bb0077792a4c185f29c39c54",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_408_LING_ADDITIVE_COST_PROTOCOL_20261004.md": "bdcb774e0ac81d2504a14b7adee2c86f45e6ef129c87f9b5cce1af01eff3bb06",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth407_ling_mini_source_headers_result.json": "431d9e2978c46b1d938a1efb0fc67ea345b18d01e671baa47604f4b8ddf94a56",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth374_switch_physical_workers_contract_result.json": "4601be80b787341f6d60e01f7219c1cd4cd71c0451f835d25e31ded3c468f4b1",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth359_switch_cost_topology.py": "b3e52df3691231d6e6515a027be927b02082dd575419610ba6b57d43c837a806",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth388_switch_thread_binding.h": "bd4a8cbf88f1f7f8f279bc8eae7dbc3968433232d6f73a5f4c1df9c4ce4fabe9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth318_additive_i8_cpu.c": "b4b18378115387791b08e0f0b05a350c510c9030b438ac660ee67c4fbc20e9d3",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_q6k_q8k_avx2.h": "4de37b009a9d3173178c60a7db309d73179bb1909fba049e36c6240f23d7544d",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_q4k_q8k.h": "49b5f39fd1a1313e15038208420cf7484765b01bc3f83952382577c6be68bc5f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_f32_dot_reference_generic.h": "362abe0f3fddb6e49b55ce289cbb4212f3b5fa001b991b4a84db894e573d0ccd"
+  },
+  "ledger": {
+    "source407": {
+      "full_width_integer_coefficients": 779091968,
+      "encoded_two_indices_per8_code_bytes": 194772992,
+      "row_scale_bytes": 2560000,
+      "palette_bytes": 2277376,
+      "head_Q6_K_bytes": 264069120,
+      "all_flat_router_F32_bytes": 39865344,
+      "other_control_F32_bytes": 356352,
+      "one_embedding_BF16_row_bytes": 4096,
+      "addressed_weight_descriptor_bytes": 503905280,
+      "under560MB_descriptor": true
+    },
+    "stored407": {
+      "encoded_matrix_code_bytes": 3900440576,
+      "row_scale_bytes": 60461056,
+      "palette_bytes": 60178432,
+      "head_Q6_K_bytes": 264069120,
+      "router_and_control_F32_bytes": 40221696,
+      "embedding_BF16_bytes": 643825664,
+      "total_bytes": 4969196544
+    },
+    "expected_allocated_dynamic_bytes": 4931534848,
+    "expected_integer_rows": 4448,
+    "expected_bank_edge_checks": 29384
+  },
+  "fresh_topology": {
+    "api": "GetLogicalProcessorInformation/RelationProcessorCore",
+    "group_scope": "single group/local<=64 logical processors",
+    "physical_cores": [
+      {
+        "processor_mask": 3,
+        "SMT_flag": 1,
+        "logical_processors": [
+          0,
+          1
+        ]
+      },
+      {
+        "processor_mask": 12,
+        "SMT_flag": 1,
+        "logical_processors": [
+          2,
+          3
+        ]
+      },
+      {
+        "processor_mask": 48,
+        "SMT_flag": 1,
+        "logical_processors": [
+          4,
+          5
+        ]
+      },
+      {
+        "processor_mask": 192,
+        "SMT_flag": 1,
+        "logical_processors": [
+          6,
+          7
+        ]
+      },
+      {
+        "processor_mask": 768,
+        "SMT_flag": 1,
+        "logical_processors": [
+          8,
+          9
+        ]
+      },
+      {
+        "processor_mask": 3072,
+        "SMT_flag": 1,
+        "logical_processors": [
+          10,
+          11
+        ]
+      }
+    ],
+    "process_allowed_logical_processors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_one_logical_per_physical_core": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "selected_processor_mask": 1365,
+    "physical_cpu_count": 6,
+    "logical_cpu_count": 12
+  },
+  "unrelated_background_processes": [
+    {
+      "pid": 12540,
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    },
+    {
+      "pid": 17984,
+      "argv": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    }
+  ],
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-DSILICON_LING_ADDITIVE_COST_PREFLIGHT",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth408_ling_additive_cost\\meth408_ling_additive_cost.exe",
+      "-lm",
+      "-lpsapi",
+      "-lbcrypt"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+    "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698",
+    "binary_sha256": "a6e6ad659aff2cc7e76022d5999d6fd80a0462a6264afca2bbdc0381d335e2ff"
+  },
+  "runtime_environment": {
+    "OMP_WAIT_POLICY": "ACTIVE",
+    "KMP_AFFINITY": "none",
+    "KMP_BLOCKTIME": "infinite",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_MAX_ACTIVE_LEVELS": "1"
+  },
+  "profiles": [
+    {
+      "threads": 3,
+      "all9_rep_medians_seconds": [
+        0.0407765499985,
+        0.038244799999999995,
+        0.0376906,
+        0.0394379500005,
+        0.0390371000005,
+        0.03784625,
+        0.0374750499995,
+        0.0373381,
+        0.0375309
+      ],
+      "max_over_min": 1.0920895813793419,
+      "repeatability_1_10": true,
+      "every_rep_and_fixed_input_median14ms": false
+    },
+    {
+      "threads": 6,
+      "all9_rep_medians_seconds": [
+        0.03941245,
+        0.0329872,
+        0.0308713999995,
+        0.024988950000000003,
+        0.024376599999500002,
+        0.024841049998999998,
+        0.0260951500005,
+        0.0237191999995,
+        0.0243577500005
+      ],
+      "max_over_min": 1.6616264461208985,
+      "repeatability_1_10": false,
+      "every_rep_and_fixed_input_median14ms": false
+    }
+  ],
+  "gates": {
+    "exact_reused318_integer_primitives_and_old_engine_paths": true,
+    "full407_stored_active_descriptor_reconciled": true,
+    "all_scalar_head_route_bank_quantizer_and_negative_controls": true,
+    "negative_actual_worker_fault_detected": true,
+    "all_actual_3_and6_worker_process_event_readbacks": true,
+    "ALL180_complete_output_SHA_match60_archives": true,
+    "all60_archived_complete_outputs_byte_exact_across_process_profiles": true
+  },
+  "decision": "reject_this_full_width_additive_format_before_Ling_acquisition_or_book_fitting",
+  "resource": {
+    "main_seconds": 22.28100000000086,
+    "maximum_checked_combined_rss_bytes": 5035597824,
+    "new_output_bytes": 217142285
+  },
+  "scope": "ALL values synthetic, exact407 source-sized shapes/counts. Complete coded attention projections/shared/dense/routed matrices plus Q6 head/F32 group router/norms/BF16 row. Input-ready independent layer/context fixtures; QK norm executed, no causal attention/RoPE/KV/cache/composition/prefill/tokenization/generation/task/original accuracy. Timed operator stream lower-bound rejection screen, not50 accepted tokens/s. SHA/archive full operator outputs are not pretrained-model predictions. No learned codebooks/useful extra n/physical DRAM/source values/network/GPU/T4."
+}
