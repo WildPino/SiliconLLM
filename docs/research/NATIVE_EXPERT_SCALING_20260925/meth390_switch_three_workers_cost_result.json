@@ -1,0 +1,4425 @@
+{
+  "experiment": "METH-390-both-originals-three-workers-actual-CPU-cost",
+  "targets": [
+    {
+      "n": 256,
+      "artifact": {
+        "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth335_switch_w8a8_export\\weights.bin",
+        "bytes": 14818015744,
+        "sha256": "e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056",
+        "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "manifest_sha256": "9c5be95504291cf9a71b087f714fc0b474ac6948389647be93919f611117fd81",
+        "source_unique_parameters": 14664154368,
+        "original_experts_per_bank": 256,
+        "f32_embedding_alias_names": [
+          "decoder.embed_tokens.weight",
+          "encoder.embed_tokens.weight",
+          "shared.weight"
+        ],
+        "f32_embedding_physical_copies": 1,
+        "separate_I8_head_view_from_same_tied_source": true,
+        "new_payload_write_bytes": 0,
+        "row_I8_tensor_names": 6313,
+        "f32_tensor_names": 79
+      },
+      "quality_sha256": "ba4f18454cb8788dceacfa7c8d629e6083420c75a9b69318f4277d7a9edfedeb",
+      "bridges": [
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "39bbd35e8bfcc173dccfd6d3a6ed1c53fee590f24783fd4cb1540e9ee9b49c30"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "39bbd35e8bfcc173dccfd6d3a6ed1c53fee590f24783fd4cb1540e9ee9b49c30"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "097412cc394e23a8b28909142567e58cb2f5b6c02a42342becffe1de29406b87"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "097412cc394e23a8b28909142567e58cb2f5b6c02a42342becffe1de29406b87"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "ef2eba5c7a98155cf2e054716d6d7ca5c922b6bd2c575a9ad78870cf67835bde"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "97d1c02712a5eefd67936b558d7bf884473c3d22f4b4eb477e5182c6e98023bd"
+        }
+      ],
+      "measurements": [
+        {
+          "source_length": 9,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0048503,
+              "encode_seconds": 0.0577837,
+              "cross_kv_seconds": 0.0064815,
+              "decode_seconds": 0.1683913,
+              "full_seconds": 0.2326565,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 42467328,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0183828,
+                0.0074314,
+                0.0070705,
+                0.0056706,
+                0.0070953,
+                0.004486,
+                0.0055072,
+                0.0044269,
+                0.0039637,
+                0.0047596,
+                0.0051283,
+                0.0040034,
+                0.0040025,
+                0.004258,
+                0.0046553,
+                0.0040651,
+                0.0040459,
+                0.0053203,
+                0.0041851,
+                0.0042723,
+                0.0045741,
+                0.0048031,
+                0.0043656,
+                0.0042319,
+                0.004399,
+                0.0050144,
+                0.0048525,
+                0.0047144,
+                0.0045688,
+                0.0043961,
+                0.0045354,
+                0.0052021
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ef2eba5c7a98155cf2e054716d6d7ca5c922b6bd2c575a9ad78870cf67835bde"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0048503,
+              "encode_seconds": 0.0175829,
+              "cross_kv_seconds": 0.0043233,
+              "decode_seconds": 0.1379333,
+              "full_seconds": 0.1598395,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 42467328,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0041477,
+                0.003955,
+                0.0039755,
+                0.00383,
+                0.0038422,
+                0.0042734,
+                0.0039304,
+                0.003881,
+                0.0038917,
+                0.0043645,
+                0.0051517,
+                0.0061757,
+                0.0043834,
+                0.0039453,
+                0.0039856,
+                0.0041342,
+                0.004191,
+                0.0040729,
+                0.0040831,
+                0.0046364,
+                0.0042812,
+                0.004158,
+                0.0042838,
+                0.0046463,
+                0.0042414,
+                0.00426,
+                0.0044353,
+                0.0048799,
+                0.004454,
+                0.0045041,
+                0.0044867,
+                0.0044483
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ef2eba5c7a98155cf2e054716d6d7ca5c922b6bd2c575a9ad78870cf67835bde"
+            },
+            {
+              "repetition": 1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0048503,
+              "encode_seconds": 0.0177293,
+              "cross_kv_seconds": 0.0043132,
+              "decode_seconds": 0.1365934,
+              "full_seconds": 0.1586359,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 42467328,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0042463,
+                0.0040794,
+                0.0038968,
+                0.0038905,
+                0.0041157,
+                0.00398,
+                0.0039131,
+                0.0041418,
+                0.0041907,
+                0.0039182,
+                0.0039679,
+                0.0042854,
+                0.004237,
+                0.0039455,
+                0.004003,
+                0.0044617,
+                0.0040253,
+                0.0041046,
+                0.0040876,
+                0.004455,
+                0.0041652,
+                0.0042088,
+                0.0043735,
+                0.0041935,
+                0.0042825,
+                0.0042607,
+                0.0047803,
+                0.0066975,
+                0.0043833,
+                0.0044412,
+                0.0043976,
+                0.0044605
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ef2eba5c7a98155cf2e054716d6d7ca5c922b6bd2c575a9ad78870cf67835bde"
+            },
+            {
+              "repetition": 2,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0048503,
+              "encode_seconds": 0.0166691,
+              "cross_kv_seconds": 0.0044262,
+              "decode_seconds": 0.133904,
+              "full_seconds": 0.1549993,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 42467328,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0042369,
+                0.0038321,
+                0.0038353,
+                0.003844,
+                0.0040004,
+                0.0038826,
+                0.0038629,
+                0.0040012,
+                0.0039416,
+                0.0039953,
+                0.0039727,
+                0.0039356,
+                0.0042385,
+                0.0040686,
+                0.0041242,
+                0.0039897,
+                0.0041778,
+                0.0042407,
+                0.004082,
+                0.0041105,
+                0.0044253,
+                0.0042826,
+                0.004205,
+                0.0044237,
+                0.0044322,
+                0.0042489,
+                0.0043235,
+                0.0047815,
+                0.0043382,
+                0.0044021,
+                0.0046984,
+                0.0049664
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 9976,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23288,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 25248,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ef2eba5c7a98155cf2e054716d6d7ca5c922b6bd2c575a9ad78870cf67835bde"
+            }
+          ],
+          "median_decode_ms_per_position": 4.26854375,
+          "median_full_ms_per_position": 4.957371875,
+          "repeat_ratio_max_min_decode": 1.0300909606882542,
+          "logical_matrix_bytes_per_decode_position": 129017344
+        },
+        {
+          "source_length": 64,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0053525,
+              "encode_seconds": 0.2551216,
+              "cross_kv_seconds": 0.0161891,
+              "decode_seconds": 0.2022926,
+              "full_seconds": 0.4736033,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 301989888,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0201949,
+                0.0080697,
+                0.0082976,
+                0.0086432,
+                0.0064533,
+                0.0067479,
+                0.0064313,
+                0.0063048,
+                0.0070134,
+                0.0049251,
+                0.0049348,
+                0.0053605,
+                0.00534,
+                0.00672,
+                0.0049385,
+                0.0051183,
+                0.0054566,
+                0.0048872,
+                0.0050853,
+                0.006069,
+                0.0050213,
+                0.0056655,
+                0.0062962,
+                0.0064154,
+                0.0055703,
+                0.005212,
+                0.005107,
+                0.0051673,
+                0.0051365,
+                0.0053296,
+                0.0051788,
+                0.0051975
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "97d1c02712a5eefd67936b558d7bf884473c3d22f4b4eb477e5182c6e98023bd"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0053525,
+              "encode_seconds": 0.2147171,
+              "cross_kv_seconds": 0.0162719,
+              "decode_seconds": 0.1753812,
+              "full_seconds": 0.4063702,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 301989888,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0048642,
+                0.0047418,
+                0.0050742,
+                0.0047102,
+                0.0046517,
+                0.0054585,
+                0.0048649,
+                0.0046708,
+                0.0205823,
+                0.004742,
+                0.0047177,
+                0.0048933,
+                0.0048399,
+                0.0047658,
+                0.0049402,
+                0.0050764,
+                0.0048046,
+                0.0048367,
+                0.0050729,
+                0.0048625,
+                0.0050746,
+                0.0052039,
+                0.0049388,
+                0.0051216,
+                0.0052829,
+                0.0051226,
+                0.0050425,
+                0.0054809,
+                0.0052165,
+                0.0051228,
+                0.0052958,
+                0.0053031
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "97d1c02712a5eefd67936b558d7bf884473c3d22f4b4eb477e5182c6e98023bd"
+            },
+            {
+              "repetition": 1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0053525,
+              "encode_seconds": 0.1944372,
+              "cross_kv_seconds": 0.0173868,
+              "decode_seconds": 0.1613083,
+              "full_seconds": 0.3731323,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 301989888,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0056151,
+                0.0048052,
+                0.0050126,
+                0.0045942,
+                0.0046223,
+                0.0065403,
+                0.0047018,
+                0.0046618,
+                0.0049962,
+                0.0049923,
+                0.0048212,
+                0.0049903,
+                0.0047102,
+                0.0047384,
+                0.0050755,
+                0.0047657,
+                0.0048014,
+                0.0050287,
+                0.0048558,
+                0.0048672,
+                0.0053212,
+                0.0049134,
+                0.0049247,
+                0.0052723,
+                0.005007,
+                0.0049735,
+                0.0054188,
+                0.0050595,
+                0.0050848,
+                0.005527,
+                0.0053018,
+                0.005304
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "97d1c02712a5eefd67936b558d7bf884473c3d22f4b4eb477e5182c6e98023bd"
+            },
+            {
+              "repetition": 2,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0053525,
+              "encode_seconds": 0.1954503,
+              "cross_kv_seconds": 0.015614,
+              "decode_seconds": 0.1586055,
+              "full_seconds": 0.3696698,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 301989888,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0048643,
+                0.0045771,
+                0.0048071,
+                0.0045949,
+                0.0047064,
+                0.0052435,
+                0.0046311,
+                0.0048296,
+                0.004652,
+                0.0048914,
+                0.0047961,
+                0.0047367,
+                0.0050042,
+                0.0048639,
+                0.0047718,
+                0.0050096,
+                0.0049485,
+                0.0048552,
+                0.00512,
+                0.0048914,
+                0.0049052,
+                0.0050708,
+                0.0050851,
+                0.0049948,
+                0.0052154,
+                0.0051393,
+                0.0050555,
+                0.0053221,
+                0.0052177,
+                0.0051112,
+                0.0054231,
+                0.0052665
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18960,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18072,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 11420,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "97d1c02712a5eefd67936b558d7bf884473c3d22f4b4eb477e5182c6e98023bd"
+            }
+          ],
+          "median_decode_ms_per_position": 5.040884374999999,
+          "median_full_ms_per_position": 11.660384375,
+          "repeat_ratio_max_min_decode": 1.1057699764510056,
+          "logical_matrix_bytes_per_decode_position": 129017344
+        }
+      ],
+      "profiles": [
+        {
+          "source_length": 9,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0050229,
+              "encode_seconds": 0.0534028,
+              "cross_kv_seconds": 0.0057906,
+              "decode_seconds": 0.1703719,
+              "full_seconds": 0.2295653,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0184846
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0352499
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 42467328,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0011979
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0766799
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.048115
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0046694
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0236238
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0182045,
+                0.0072079,
+                0.0070477,
+                0.0055424,
+                0.0070284,
+                0.0044436,
+                0.0053217,
+                0.0044701,
+                0.0040441,
+                0.0045853,
+                0.0054627,
+                0.0040836,
+                0.0039986,
+                0.0044518,
+                0.0048186,
+                0.004032,
+                0.0042715,
+                0.0058947,
+                0.0042745,
+                0.0041182,
+                0.0045391,
+                0.0048546,
+                0.0042341,
+                0.0048193,
+                0.0048732,
+                0.0049478,
+                0.0052163,
+                0.0045495,
+                0.0044013,
+                0.0046058,
+                0.0047906,
+                0.0052328
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 23256,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23424,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 21024,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 23256,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23424,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 21024,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ef2eba5c7a98155cf2e054716d6d7ca5c922b6bd2c575a9ad78870cf67835bde"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0050229,
+              "encode_seconds": 0.0176433,
+              "cross_kv_seconds": 0.0043467,
+              "decode_seconds": 0.1369934,
+              "full_seconds": 0.1589834,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.009508
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0073992
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 42467328,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.000813
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0679769
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0259661
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0040126
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0214429
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.004265,
+                0.0040399,
+                0.0038765,
+                0.0038732,
+                0.0041477,
+                0.004822,
+                0.0044183,
+                0.0039279,
+                0.0041447,
+                0.0039491,
+                0.0040293,
+                0.0039643,
+                0.0043968,
+                0.0040106,
+                0.0041411,
+                0.0048692,
+                0.0040981,
+                0.004071,
+                0.0042228,
+                0.0044043,
+                0.004179,
+                0.0041672,
+                0.0045312,
+                0.0043516,
+                0.0042549,
+                0.0044186,
+                0.0048158,
+                0.0044244,
+                0.00472,
+                0.0045012,
+                0.0044312,
+                0.0045224
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 23256,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23424,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 21024,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 23256,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23424,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 21024,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ef2eba5c7a98155cf2e054716d6d7ca5c922b6bd2c575a9ad78870cf67835bde"
+            }
+          ],
+          "complete_bytes_exact_primary": true
+        },
+        {
+          "source_length": 64,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0051063,
+              "encode_seconds": 0.2566883,
+              "cross_kv_seconds": 0.0164266,
+              "decode_seconds": 0.2420473,
+              "full_seconds": 0.5151622,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0688937
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0991266
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 301989888,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0048164
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.1014488
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0593425
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0051508
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0259837
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0197392,
+                0.0079229,
+                0.0082837,
+                0.0077582,
+                0.007462,
+                0.0062311,
+                0.0065014,
+                0.0058566,
+                0.0071365,
+                0.0048525,
+                0.0047366,
+                0.0054901,
+                0.0054495,
+                0.006321,
+                0.0051311,
+                0.0049162,
+                0.0055464,
+                0.0214318,
+                0.006199,
+                0.0103984,
+                0.0064896,
+                0.0082143,
+                0.0083375,
+                0.0085361,
+                0.0062227,
+                0.0097267,
+                0.0090346,
+                0.006522,
+                0.0053811,
+                0.0056959,
+                0.0051812,
+                0.0053364
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 7596,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 21420,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 2384,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 7596,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 21420,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 2384,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "97d1c02712a5eefd67936b558d7bf884473c3d22f4b4eb477e5182c6e98023bd"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 256,
+              "load_seconds": 0.0051063,
+              "encode_seconds": 0.1973052,
+              "cross_kv_seconds": 0.0170762,
+              "decode_seconds": 0.1636406,
+              "full_seconds": 0.378022,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0615666
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0487543
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 301989888,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0037949
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.066945
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0263475
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0041331
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0206017
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.004943,
+                0.0045994,
+                0.0049075,
+                0.0047519,
+                0.0045896,
+                0.0047886,
+                0.0048349,
+                0.0046455,
+                0.0048416,
+                0.0048027,
+                0.0046834,
+                0.0047262,
+                0.0049593,
+                0.0047323,
+                0.0047829,
+                0.0050188,
+                0.0048442,
+                0.0048276,
+                0.0050309,
+                0.0048974,
+                0.0049079,
+                0.0049667,
+                0.0051293,
+                0.0051059,
+                0.0050402,
+                0.0056102,
+                0.0054278,
+                0.0052936,
+                0.0058879,
+                0.0068047,
+                0.0070572,
+                0.0061969
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 7596,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 21420,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 2384,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 7596,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 21420,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 2384,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "97d1c02712a5eefd67936b558d7bf884473c3d22f4b4eb477e5182c6e98023bd"
+            }
+          ],
+          "complete_bytes_exact_primary": true
+        }
+      ],
+      "gates": {
+        "all_actual_worker_and_process_readbacks": true,
+        "all_complete_control_counter_bytes_exact389": true,
+        "all_profile_bytes_exact_primary": true,
+        "both_median_decode_le20ms": true,
+        "both_median_FULL_le20ms": true,
+        "both_individual_decode_repeat_le1p10": false
+      },
+      "passed": false
+    },
+    {
+      "n": 128,
+      "artifact": {
+        "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+        "bytes": 7541946880,
+        "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe",
+        "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "manifest_sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a",
+        "source_unique_parameters": 7415217408,
+        "original_experts_per_bank": 128,
+        "f32_embedding_alias_names": [
+          "decoder.embed_tokens.weight",
+          "encoder.embed_tokens.weight",
+          "shared.weight"
+        ],
+        "f32_embedding_physical_copies": 1,
+        "separate_I8_head_view_from_same_tied_source": true,
+        "row_I8_tensor_names": 3241,
+        "f32_tensor_names": 79
+      },
+      "quality_sha256": "539275a209c8b8a5680c388ec9130012157a681ed382ba1a4bf49ab8cccb9d4c",
+      "bridges": [
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "9189544ebf3f2bfdd50f6af426a1dce9bae1ae067a95c5856c0505a3b258af9a"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "9189544ebf3f2bfdd50f6af426a1dce9bae1ae067a95c5856c0505a3b258af9a"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "26d9b3f97a0332e18d42831cadbce3310476565231dc3dd77dbab80f6ebbed12"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "26d9b3f97a0332e18d42831cadbce3310476565231dc3dd77dbab80f6ebbed12"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "ae75892556bcb1825444daf2d32a713632f9a596c8e21ed7d70145764a0a35fe"
+        },
+        {
+          "full_reference_bytes_exact389": true,
+          "output_sha256": "f569b5da1d882aaa93788196e20949d12a8e2495626848b6c57c8ec82025243e"
+        }
+      ],
+      "measurements": [
+        {
+          "source_length": 9,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0025473,
+              "encode_seconds": 0.0509101,
+              "cross_kv_seconds": 0.005842,
+              "decode_seconds": 0.1593769,
+              "full_seconds": 0.216129,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 21233664,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0184919,
+                0.0070619,
+                0.0069115,
+                0.0065955,
+                0.0060145,
+                0.0038034,
+                0.0044963,
+                0.004528,
+                0.0038412,
+                0.0038384,
+                0.0040644,
+                0.0045117,
+                0.0039095,
+                0.0039262,
+                0.0041688,
+                0.0044868,
+                0.0039674,
+                0.0040273,
+                0.0040364,
+                0.004735,
+                0.0040903,
+                0.0043101,
+                0.0041493,
+                0.0041581,
+                0.004157,
+                0.0046683,
+                0.0045467,
+                0.0042341,
+                0.0042507,
+                0.0045855,
+                0.0043972,
+                0.0044099
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ae75892556bcb1825444daf2d32a713632f9a596c8e21ed7d70145764a0a35fe"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0025473,
+              "encode_seconds": 0.0162363,
+              "cross_kv_seconds": 0.0042837,
+              "decode_seconds": 0.1302429,
+              "full_seconds": 0.1507629,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 21233664,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0040095,
+                0.0045691,
+                0.0037541,
+                0.0037274,
+                0.0037496,
+                0.0039663,
+                0.0038421,
+                0.0037933,
+                0.0038522,
+                0.0042403,
+                0.003883,
+                0.0038602,
+                0.0038893,
+                0.0040576,
+                0.003942,
+                0.0039195,
+                0.0039466,
+                0.0039756,
+                0.0040055,
+                0.0040303,
+                0.0043445,
+                0.0040749,
+                0.0041308,
+                0.0041269,
+                0.0042769,
+                0.004208,
+                0.0041886,
+                0.004359,
+                0.0043601,
+                0.0043133,
+                0.0043666,
+                0.0044757
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ae75892556bcb1825444daf2d32a713632f9a596c8e21ed7d70145764a0a35fe"
+            },
+            {
+              "repetition": 1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0025473,
+              "encode_seconds": 0.0179398,
+              "cross_kv_seconds": 0.0043543,
+              "decode_seconds": 0.1324788,
+              "full_seconds": 0.1547729,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 21233664,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0046987,
+                0.0038738,
+                0.0037718,
+                0.0038095,
+                0.0037511,
+                0.0039297,
+                0.0038534,
+                0.0037884,
+                0.003805,
+                0.0039995,
+                0.0038853,
+                0.0038451,
+                0.0038885,
+                0.0042018,
+                0.0039416,
+                0.003919,
+                0.004107,
+                0.004813,
+                0.0040692,
+                0.0040259,
+                0.0043307,
+                0.0041015,
+                0.0040996,
+                0.0041268,
+                0.0042898,
+                0.0041675,
+                0.0041963,
+                0.0044945,
+                0.0043342,
+                0.0042869,
+                0.0043278,
+                0.0057422
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ae75892556bcb1825444daf2d32a713632f9a596c8e21ed7d70145764a0a35fe"
+            },
+            {
+              "repetition": 2,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0025473,
+              "encode_seconds": 0.0157283,
+              "cross_kv_seconds": 0.004459,
+              "decode_seconds": 0.1320498,
+              "full_seconds": 0.1522371,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 21233664,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0040311,
+                0.004355,
+                0.0042647,
+                0.0037603,
+                0.0037539,
+                0.0037939,
+                0.0038101,
+                0.004107,
+                0.0038149,
+                0.0038679,
+                0.0039045,
+                0.0044041,
+                0.0039144,
+                0.0039424,
+                0.0040347,
+                0.0040044,
+                0.0039879,
+                0.0040233,
+                0.0043654,
+                0.0041845,
+                0.0040655,
+                0.0041253,
+                0.0044546,
+                0.0041518,
+                0.0041914,
+                0.0042762,
+                0.0043215,
+                0.0042351,
+                0.0042597,
+                0.0049472,
+                0.0043422,
+                0.0043511
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 1,
+                  "windows_thread_id": 18292,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16912,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4328,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ae75892556bcb1825444daf2d32a713632f9a596c8e21ed7d70145764a0a35fe"
+            }
+          ],
+          "median_decode_ms_per_position": 4.12655625,
+          "median_full_ms_per_position": 4.757409375,
+          "repeat_ratio_max_min_decode": 1.0171671546011338,
+          "logical_matrix_bytes_per_decode_position": 126658048
+        },
+        {
+          "source_length": 64,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027889,
+              "encode_seconds": 0.253442,
+              "cross_kv_seconds": 0.0173777,
+              "decode_seconds": 0.1933397,
+              "full_seconds": 0.4641594,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0201707,
+                0.0083893,
+                0.008091,
+                0.0084528,
+                0.0081789,
+                0.0059816,
+                0.0047438,
+                0.0053449,
+                0.0056033,
+                0.0047542,
+                0.0047786,
+                0.0049065,
+                0.0048433,
+                0.0053942,
+                0.0050648,
+                0.0048924,
+                0.0048751,
+                0.0051354,
+                0.0049825,
+                0.0049604,
+                0.0050609,
+                0.0055777,
+                0.0050326,
+                0.005229,
+                0.0063563,
+                0.0050758,
+                0.0054095,
+                0.0051328,
+                0.0051303,
+                0.0053436,
+                0.0052328,
+                0.005209
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "f569b5da1d882aaa93788196e20949d12a8e2495626848b6c57c8ec82025243e"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027889,
+              "encode_seconds": 0.2060473,
+              "cross_kv_seconds": 0.0184982,
+              "decode_seconds": 0.1598141,
+              "full_seconds": 0.3843596,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.005171,
+                0.0049871,
+                0.0046602,
+                0.0046435,
+                0.0053028,
+                0.0047979,
+                0.0047014,
+                0.0048836,
+                0.0046856,
+                0.004706,
+                0.0048192,
+                0.0047279,
+                0.0047769,
+                0.0050704,
+                0.0047701,
+                0.004836,
+                0.0049742,
+                0.004991,
+                0.0048969,
+                0.0053098,
+                0.0050572,
+                0.0049932,
+                0.005129,
+                0.0050592,
+                0.0050638,
+                0.0052633,
+                0.0051073,
+                0.0051709,
+                0.0053039,
+                0.0051711,
+                0.0052717,
+                0.0055078
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "f569b5da1d882aaa93788196e20949d12a8e2495626848b6c57c8ec82025243e"
+            },
+            {
+              "repetition": 1,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027889,
+              "encode_seconds": 0.1897904,
+              "cross_kv_seconds": 0.0148357,
+              "decode_seconds": 0.1612665,
+              "full_seconds": 0.3658926,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0051679,
+                0.0048912,
+                0.0046371,
+                0.0048532,
+                0.0046391,
+                0.004637,
+                0.0047054,
+                0.007778,
+                0.0049091,
+                0.0048553,
+                0.0047128,
+                0.0047868,
+                0.0048895,
+                0.0047863,
+                0.0048319,
+                0.004834,
+                0.0049839,
+                0.0049043,
+                0.0048829,
+                0.0050196,
+                0.0049652,
+                0.004983,
+                0.0050866,
+                0.005051,
+                0.0050457,
+                0.0052587,
+                0.0051644,
+                0.0051219,
+                0.0051787,
+                0.0051582,
+                0.0051974,
+                0.0053455
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "f569b5da1d882aaa93788196e20949d12a8e2495626848b6c57c8ec82025243e"
+            },
+            {
+              "repetition": 2,
+              "threads": 3,
+              "profile": 0,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027889,
+              "encode_seconds": 0.1887972,
+              "cross_kv_seconds": 0.0148239,
+              "decode_seconds": 0.1609596,
+              "full_seconds": 0.3645807,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0049748,
+                0.0047587,
+                0.0046432,
+                0.0046263,
+                0.004997,
+                0.0048223,
+                0.004644,
+                0.0048897,
+                0.0046921,
+                0.0046643,
+                0.0080555,
+                0.0047339,
+                0.0047424,
+                0.0049046,
+                0.0048812,
+                0.0048081,
+                0.004918,
+                0.0048563,
+                0.004884,
+                0.0050669,
+                0.0049542,
+                0.0049325,
+                0.0051296,
+                0.0050343,
+                0.0050057,
+                0.0051542,
+                0.0050606,
+                0.0050858,
+                0.0053414,
+                0.0051603,
+                0.0052048,
+                0.0053286
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 25208,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 23536,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 24084,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "f569b5da1d882aaa93788196e20949d12a8e2495626848b6c57c8ec82025243e"
+            }
+          ],
+          "median_decode_ms_per_position": 5.0299875,
+          "median_full_ms_per_position": 11.43414375,
+          "repeat_ratio_max_min_decode": 1.00908805918877,
+          "logical_matrix_bytes_per_decode_position": 126658048
+        }
+      ],
+      "profiles": [
+        {
+          "source_length": 9,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027308,
+              "encode_seconds": 0.0506579,
+              "cross_kv_seconds": 0.0061178,
+              "decode_seconds": 0.163885,
+              "full_seconds": 0.2206607,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.0166569
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0352562
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 21233664,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0006717
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0778831
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0433655
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0025467
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0234913
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0192941,
+                0.0069873,
+                0.0073554,
+                0.0066606,
+                0.0067236,
+                0.0040738,
+                0.0044318,
+                0.0046008,
+                0.0040109,
+                0.0038674,
+                0.0039412,
+                0.0050339,
+                0.0040162,
+                0.0040111,
+                0.0040758,
+                0.0046968,
+                0.0039805,
+                0.0040675,
+                0.0047822,
+                0.0042258,
+                0.0041254,
+                0.0043703,
+                0.0043628,
+                0.0041677,
+                0.0042316,
+                0.0046541,
+                0.0042527,
+                0.0042919,
+                0.0043278,
+                0.0051454,
+                0.004593,
+                0.0045212
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16188,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 16700,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 20452,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16188,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 16700,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 20452,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ae75892556bcb1825444daf2d32a713632f9a596c8e21ed7d70145764a0a35fe"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 9,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027308,
+              "encode_seconds": 0.0161721,
+              "cross_kv_seconds": 0.0043723,
+              "decode_seconds": 0.1327137,
+              "full_seconds": 0.1532581,
+              "routes": 246,
+              "embedding_lookup_bytes": 125952,
+              "counters": [
+                [
+                  {
+                    "calls": 756,
+                    "code_bytes": 637009920,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2820096,
+                    "matrix_seconds": 0.008904
+                  },
+                  {
+                    "calls": 108,
+                    "code_bytes": 254803968,
+                    "f32_bytes": 0,
+                    "scale_bytes": 829440,
+                    "matrix_seconds": 0.0071386
+                  },
+                  {
+                    "calls": 54,
+                    "code_bytes": 0,
+                    "f32_bytes": 21233664,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0003274
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0685996
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0252169
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0021415
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0203762
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0043261,
+                0.0037446,
+                0.0038221,
+                0.0037944,
+                0.0044968,
+                0.0038524,
+                0.0039471,
+                0.0038435,
+                0.0041109,
+                0.0038909,
+                0.0038909,
+                0.0038927,
+                0.0041119,
+                0.0040015,
+                0.0040637,
+                0.0039171,
+                0.0041638,
+                0.0041722,
+                0.0040646,
+                0.0041921,
+                0.0041384,
+                0.0042429,
+                0.0041654,
+                0.0043743,
+                0.0043317,
+                0.0042149,
+                0.0042323,
+                0.0047349,
+                0.0042323,
+                0.004288,
+                0.0049673,
+                0.0044873
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16188,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 16700,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 20452,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 16188,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 16700,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 20452,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "ae75892556bcb1825444daf2d32a713632f9a596c8e21ed7d70145764a0a35fe"
+            }
+          ],
+          "complete_bytes_exact_primary": true
+        },
+        {
+          "source_length": 64,
+          "rows": [
+            {
+              "repetition": -1,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027161,
+              "encode_seconds": 0.2422755,
+              "cross_kv_seconds": 0.0174231,
+              "decode_seconds": 0.1952543,
+              "full_seconds": 0.4549529,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0667663
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0930203
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0024526
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.076988
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0475162
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0026564
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0237469
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0205256,
+                0.0080503,
+                0.0084052,
+                0.008014,
+                0.0081165,
+                0.0059308,
+                0.00476,
+                0.0054251,
+                0.0053781,
+                0.0047246,
+                0.0049364,
+                0.0047562,
+                0.0047624,
+                0.0066975,
+                0.0054412,
+                0.0048802,
+                0.0051361,
+                0.0048549,
+                0.0049158,
+                0.0053978,
+                0.0049478,
+                0.005523,
+                0.0053048,
+                0.0049777,
+                0.0062791,
+                0.0054466,
+                0.0050967,
+                0.0050834,
+                0.0053912,
+                0.0051834,
+                0.005452,
+                0.0054557
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18840,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 24032,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4552,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18840,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 24032,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4552,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "f569b5da1d882aaa93788196e20949d12a8e2495626848b6c57c8ec82025243e"
+            },
+            {
+              "repetition": 0,
+              "threads": 3,
+              "profile": 1,
+              "source_tokens": 64,
+              "decoder_positions": 32,
+              "experts_per_bank": 128,
+              "load_seconds": 0.0027161,
+              "encode_seconds": 0.1884711,
+              "cross_kv_seconds": 0.0159377,
+              "decode_seconds": 0.159733,
+              "full_seconds": 0.3641418,
+              "routes": 576,
+              "embedding_lookup_bytes": 294912,
+              "counters": [
+                [
+                  {
+                    "calls": 5376,
+                    "code_bytes": 4529848320,
+                    "f32_bytes": 0,
+                    "scale_bytes": 20054016,
+                    "matrix_seconds": 0.0569074
+                  },
+                  {
+                    "calls": 768,
+                    "code_bytes": 1811939328,
+                    "f32_bytes": 0,
+                    "scale_bytes": 5898240,
+                    "matrix_seconds": 0.0498549
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 0,
+                    "f32_bytes": 150994944,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0020714
+                  },
+                  {
+                    "calls": 0,
+                    "code_bytes": 0,
+                    "f32_bytes": 0,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0
+                  }
+                ],
+                [
+                  {
+                    "calls": 2688,
+                    "code_bytes": 2264924160,
+                    "f32_bytes": 0,
+                    "scale_bytes": 10027008,
+                    "matrix_seconds": 0.0676369
+                  },
+                  {
+                    "calls": 384,
+                    "code_bytes": 905969664,
+                    "f32_bytes": 0,
+                    "scale_bytes": 2949120,
+                    "matrix_seconds": 0.0251092
+                  },
+                  {
+                    "calls": 192,
+                    "code_bytes": 0,
+                    "f32_bytes": 75497472,
+                    "scale_bytes": 0,
+                    "matrix_seconds": 0.0021485
+                  },
+                  {
+                    "calls": 32,
+                    "code_bytes": 789577728,
+                    "f32_bytes": 0,
+                    "scale_bytes": 4112384,
+                    "matrix_seconds": 0.0202809
+                  }
+                ]
+              ],
+              "decode_step_seconds": [
+                0.0049821,
+                0.0045852,
+                0.0046813,
+                0.0046342,
+                0.0045965,
+                0.004637,
+                0.0046687,
+                0.0049844,
+                0.0046723,
+                0.0046503,
+                0.0048598,
+                0.0047346,
+                0.00471,
+                0.0049483,
+                0.0047446,
+                0.0047744,
+                0.0048358,
+                0.0057662,
+                0.0051393,
+                0.0049679,
+                0.0051708,
+                0.0049244,
+                0.0050299,
+                0.0066767,
+                0.0049902,
+                0.0052763,
+                0.0050358,
+                0.0050786,
+                0.0052079,
+                0.0051197,
+                0.0051324,
+                0.0055131
+              ],
+              "worker_physical_cores": 6,
+              "worker_affinity": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18840,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 24032,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4552,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "worker_binding_events": [
+                {
+                  "slot": 0,
+                  "windows_thread_id": 18840,
+                  "group": 0,
+                  "actual_mask": 1
+                },
+                {
+                  "slot": 1,
+                  "windows_thread_id": 24032,
+                  "group": 0,
+                  "actual_mask": 4
+                },
+                {
+                  "slot": 2,
+                  "windows_thread_id": 4552,
+                  "group": 0,
+                  "actual_mask": 16
+                }
+              ],
+              "output_sha256": "f569b5da1d882aaa93788196e20949d12a8e2495626848b6c57c8ec82025243e"
+            }
+          ],
+          "complete_bytes_exact_primary": true
+        }
+      ],
+      "gates": {
+        "all_actual_worker_and_process_readbacks": true,
+        "all_complete_control_counter_bytes_exact389": true,
+        "all_profile_bytes_exact_primary": true,
+        "both_median_decode_le20ms": true,
+        "both_median_FULL_le20ms": true,
+        "both_individual_decode_repeat_le1p10": true
+      },
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.bridge0",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "b014418c735c771ef5649fd5674435564797ebd95de5c57492a6373d16f9cb80",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.bridge1",
+        "3",
+        "1",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "0bb62110c530fab8373660ff94b7ac49bd1c620147819129f9669d7b9c83087f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,1",
+        "0,32099,8,2912,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.bridge2",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "be07297315b12a17ec81761a8e1411b83d1e85692a7cdad53d847534348177b2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,1",
+        "0,32099,8,2912,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.bridge3",
+        "3",
+        "1",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "b447ba9c05c69675bf1f4abec0197651e8c73609d10a87b6e5831a7167324ed4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.bridge4",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "2111de33970868a7d695e4c99d48fc93c8227d751e14c68fc1906eb483a9612f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,1",
+        "0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.bridge5",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "86686d17f783badc88f054dfa508bafef5c14447ae25dd04b2f290afaadd5dc1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.source9.timing",
+        "3",
+        "0",
+        "1",
+        "3",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "9ac8a7f83d635de61cc712e54f8cba1133e3f66d370ed4423127b8e157b35534",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,1",
+        "0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.source64.timing",
+        "3",
+        "0",
+        "1",
+        "3",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "4345d8210630558c5d6aa035619ee23cd91a87fdd18b0032bccace037ba46592",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.source9.profile",
+        "3",
+        "1",
+        "1",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "d5200d00c8ee6f8ec5a69b820951ad4794324d447871a2d033c39f67e1fa4b64",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,1",
+        "0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n256.source64.profile",
+        "3",
+        "1",
+        "1",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "21cd84c3f69e23d5fb6825e8d167c7e8c59310e9e5d4fb9808e0c16964558c86",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.bridge0",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "c55e3aa19e1fe7ef94b6a4b9dfa0ccd036cd933a9381f75ac6db21c299c7b615",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.bridge1",
+        "3",
+        "1",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "5a1d10fb63db6249011c4acde80fe572320dad0d44037cc55b263b8233c3aa56",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,1",
+        "0,32099,8,2912,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.bridge2",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "c559b0244ca255ee49a974d858768cf9525bf3fbbe25bac041e15a7f813b3a3b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,1",
+        "0,32099,8,2912,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.bridge3",
+        "3",
+        "1",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "c79c46b280218e0714e2bef852de92c0c279177f180b2c903e4d724fae284a26",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.bridge4",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "688029088313ed61307907186707286593925b722f809a5f160041084a6b3924",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,1",
+        "0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.bridge5",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "7b8ae58c50a252276218620cb9e1f74ee9ced7d4352bb218158d240d0b9e02e2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.source9.timing",
+        "3",
+        "0",
+        "1",
+        "3",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "2738d8b0ff6d203a1e3efc81721ab08cf715dcce8d5aeb628a5499470591ee9b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,1",
+        "0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.source64.timing",
+        "3",
+        "0",
+        "1",
+        "3",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "d4ee1cb31632db8cc680544d6032cc7ec9faf92eda5021d8081761082b5d70e7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,1784,13,1410,19,32099,3,5,1",
+        "0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098,0,32099,1919,32098",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.source9.profile",
+        "3",
+        "1",
+        "1",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "e60bb7a7f2cf84afad6e1afd8f2b98447bafaf349c2a5892804d044eb021cd31",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,5,37,17901,8413,32099,227,8,5016,1",
+        "0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099,8,2912,32098,0,32099",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth390_switch_three_workers_cost\\n128.source64.profile",
+        "3",
+        "1",
+        "1",
+        "1",
+        "0"
+      ],
+      "returncode": 0,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "stdout_sha256": "7059be3ec5f0cf22a5a2e46bf61ab76039285f992f8787560897822eebd2a1f7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "controller_sha256": "b51ace7f87c7efb69c55342e03a1efa4ae73f6715a12fea64ea6fb74a82e7bf5",
+  "protocol_sha256": "6c120ae77ca2b6d0154fd1d7d2da91e558ea4c5a6369269d3a607e4945f54ed1",
+  "numeric389_sha256": "fd12cfc2809fb42f52faef0b442781154c30ba27576f264c5f693bc30ec91dd2",
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-DSILICON_SWITCH_THREE_WORKERS",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe"
+    ],
+    "binary_sha256": "7783d25e7dd51c6f8ad43750d5d7139e622ba74b852a71aee484ffd445860a7b",
+    "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+    "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+  },
+  "runtime_environment": {
+    "OMP_WAIT_POLICY": "ACTIVE",
+    "KMP_AFFINITY": "none",
+    "KMP_BLOCKTIME": "infinite",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_MAX_ACTIVE_LEVELS": "1"
+  },
+  "primary_native_threads": 3,
+  "native_process_affinity": [
+    0,
+    2,
+    4
+  ],
+  "fresh_topology": {
+    "api": "GetLogicalProcessorInformation/RelationProcessorCore",
+    "group_scope": "single group/local<=64 logical processors",
+    "physical_cores": [
+      {
+        "processor_mask": 3,
+        "SMT_flag": 1,
+        "logical_processors": [
+          0,
+          1
+        ]
+      },
+      {
+        "processor_mask": 12,
+        "SMT_flag": 1,
+        "logical_processors": [
+          2,
+          3
+        ]
+      },
+      {
+        "processor_mask": 48,
+        "SMT_flag": 1,
+        "logical_processors": [
+          4,
+          5
+        ]
+      },
+      {
+        "processor_mask": 192,
+        "SMT_flag": 1,
+        "logical_processors": [
+          6,
+          7
+        ]
+      },
+      {
+        "processor_mask": 768,
+        "SMT_flag": 1,
+        "logical_processors": [
+          8,
+          9
+        ]
+      },
+      {
+        "processor_mask": 3072,
+        "SMT_flag": 1,
+        "logical_processors": [
+          10,
+          11
+        ]
+      }
+    ],
+    "process_allowed_logical_processors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_one_logical_per_physical_core": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "selected_processor_mask": 1365,
+    "physical_cpu_count": 6,
+    "logical_cpu_count": 12
+  },
+  "gates": {
+    "both_original_artifact_costs_qualified": false,
+    "all_same_binary_worker_outputs_exact": true
+  },
+  "resource": {
+    "main_seconds_excluding_imports": 35.062000000005355,
+    "maximum_checked_combined_rss_bytes": 936337408
+  },
+  "decision": "only_individually_cost_qualified_artifacts_eligible_for_separately_frozen_SAME_accepted_rate",
+  "scope": "NEW three-worker profile, two complete useful source artifacts, unchanged per-fixture medians/repeat rubric; no optional retry. First failures retained per artifact. Apparatus positions not accepted tokens, logical bytes not physical DRAM."
+}
