@@ -1,14 +1,13 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Granite412/413 CPU route
-closed; lexical414/416 interfaces closed.418 final-bank capture ALL9 PASS,
-384 complete outputs unchanged;420 whole head forward exact.422 mixed/global
-gradient FAIL128;424 local derivative qualified.425 control FD failure retained;
-426 complete learned replacement pilot FAIL7/9 capacity gates,6336 updates.
-Next: original-preserving additive function interface with explicit extra
-active cost. Useful384/large n remains open.**
+**Final goal incomplete. Two independent original Switch source scales have
+bounded whole-quality/SAMEartifact rates.418 capture/420 complete forward exact,
+424 local derivative qualified.426 replacement and431 additive learned pilots
+both FAIL7/9 capacity gates.431 preserves original within bounds but adds no
+qualified useful functions; removal improves. Next NEW432: output-benefit bound
+under preservation limits and exposure diagnostic before more fitting.
+Useful RAM-scale n/CPU LUT/routing/realDRAM/another-family/~100B remain open.**
 
 ## Goal and constraints
 
@@ -206,9 +205,22 @@ same-error reproduced/stable FD qualified; ALL6336 updates complete, capacity2/9
 PASS/7/9FAIL. Real hard mixture CE2.325199 vs no-added2.293060/adapter2.295684.
 47 added positions/30IDs, only3 useful by fixed criteria; function removal helps.
 422.953s/max3.146GB/245.310MB retained. Close specified replacement recipe.
-Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW427 original-preserving additive readout interface; original+one selected
-extra function when gate on, charge all added cost before whole native50 claim.
-No427 code/protocol/outcome. No more state-map/closed kernel/replacement sweeps.
-Useful>256/10x/real~100B/physicalDRAM/another-family quality remain open.
+[427 first additive failure](METH_427_SWITCH_ADDITIVE_PILOT_RESULT_20261004.md),072963a:
+tiny F64 FD precision failure, ZERO updates. [428 diagnosis](METH_428_SWITCH_ADDITIVE_FD_PRECISION_RESULT_20261004.md),24722e1:
+SAME error exact, Decimal80 SAME-step/imaginary derivatives qualify SAME bounds.
+[429 first real control failure](METH_429_SWITCH_ADDITIVE_PILOT_RESULT_20261004.md),beb5782:
+first near-stationary mixture fails live-gradient guard, ZERO updates.
+[430 fixed numeric probe](METH_430_SWITCH_ADDITIVE_PROBE_RESULT_20261004.md),2830200:
+exact actual-gradient reproduction, new opposite one-hot numeric probe qualifies.
+[431 complete additive pilot](METH_431_SWITCH_ADDITIVE_PILOT_RESULT_20261004.md),55e0cb5:
+ALL6240 updates/frozen426 classifier; ALL1344 zero-added predictions exact.
+2/9PASS teacher256 preservation,7/9FAIL benefit/capacity/causal controls.
+Real hard mixture2.298618 vs original2.293060/adapter2.292198;21consultations/
+18IDs/ZERO useful. Permutation/removal improve; removal complete matrix original.
+463.281s/max3.185GB/245.026MB/ten full artifacts. Close specified additive recipe.
+Next [diagnostic resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW432 bound available output benefit under frozen preservation demands and
+inspect development/validation exposure before more fitting. No432 scientific
+source/protocol/outcome yet. No learner/route/rank/gate or narrowed-ID sweep.
+Useful>256/10x/~100B/physicalDRAM/another-family quality remain open.
 All jobs terminal, original qualified Switch artifacts untouched.

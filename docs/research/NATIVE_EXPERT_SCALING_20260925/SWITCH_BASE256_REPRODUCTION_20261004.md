@@ -231,3 +231,14 @@ combined384 native model/quality/rate. Original374/389 artifacts still exact.
 Next NEW427 is an additive original-preserving interface, TWO final-bank
 functions when gate on. Its added active cost and whole rate cannot inherit
 original accepted results or426's proposed single-function inference budget.
+
+## Numerical/learned prototype boundary, through431
+
+427/429 first numeric failures retained before updates;428/430 checker/probe
+diagnoses qualify SAME bounds.431 complete additive pilot frozenb287b91/
+retained55e0cb5: ALL1344 zero-added predictions exact,6240fixed updates,
+capacity7/9FAIL. Mean/book original-preservation pass, no useful added IDs,
+removal improves. Close additive recipe before sweep. NO native engine/C change
+in419-431 and no combined384 artifact/whole-quality/rate. Original374/389
+source-specific binaries and accepted contracts remain authoritative unchanged.
+Next NEW432 output-benefit/exposure diagnostic, see current resumption document.

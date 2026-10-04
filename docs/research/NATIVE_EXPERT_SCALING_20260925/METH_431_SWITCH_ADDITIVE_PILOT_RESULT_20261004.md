@@ -97,3 +97,12 @@ sweep or new whole-quality books; freeze diagnostic/source/protocol before
 numeric outcomes. Original goal remains active/incomplete: useful large n,
 CPU LUT/routing/realDRAM, another family/~100B and SAMEartifact quality/50 for
 any new combined model remain open. Routine Graphify remains disabled.
+
+Final retention:2409 unique raw/helper/protocol/archive/binary files,
+3293286844B freshly hashed,55 scientific files physically match filtered HEAD.
+ALL1936 capture418/384 forward420 archives, ALL425-431 output inventories and
+qualified424 archives exact. Classifier coefficient values byte-identical426,
+five full validation matrix shapes/dtypes verified, removed/zero matrices exact.
+Engine unchanged fromcdf86ef, original374/389 binaries exact. No live model job;
+authorized publisher daemons12540/17984 preserved. ALL6240 updates/2PASS+7FAIL
+unchanged. Operational documents updated through431, nextNEW432 not yet frozen.

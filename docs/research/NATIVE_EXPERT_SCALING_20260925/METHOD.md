@@ -58,13 +58,21 @@ Capacity2/9PASS/7/9FAIL: real hard mixture CE2.325199 vs original2.293060,
 adapter2.295684;47 added positions/30IDs,3 locally useful vsrequired8, removal
 helps. Original prediction preservation also fails.422.953s/max3.146GB.
 Close THIS learned replacement recipe, no rank/seed/epoch/gate/lr sweep.
-Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW427 additive original-preserving feature readout interface, zero-change
-initialization, explicit ORIGINAL+extra selected function when gate on. This
-increases active work by one function in ONE bank; require new ledger and
-whole native rate/quality. Original422 mixed/global contract remainsFAIL; no
-427 code/protocol/outcome or combined384 native model/quality/rate.
-Existing Switch quality/rate results and real large-useful-capacity goal intact.
+[431 completed additive pilot](METH_431_SWITCH_ADDITIVE_PILOT_RESULT_20261004.md),
+frozenb287b91/retained55e0cb5: ALL1344 zero-added predictions exact, ALL6240
+fixed updates/two matched arms/frozen426 classifier.427/429 numeric failures
+retained;428 precise tiny checker and430 fixed real numeric probe diagnose and
+qualify SAME original bounds. Training teacher-mixture objective unchanged.
+Capacity2/9PASS/7/9FAIL. Original256 preserved within mean/book limits; no useful
+added IDs or required benefit. Real mixture2.298618 vs original2.293060 and
+adapter2.292198,21added positions/18IDs/ZERO useful, function removal improves.
+Proposed original+extra when ON is TWO final-bank functions, other11 unchanged;
+no combined C model or inherited quality/rate/actualDRAM.463.281s/max3.185GB.
+Close THIS additive-feature/rank8/fixed-selector recipe before further fitting.
+Next [current diagnostic](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW432 output-benefit bound under preservation limits and exposure diagnosis,
+no new learner/sweep or capacity conclusion from stored384. Original qualified
+Switch routes intact; usefulRAM-n/LUT/DRAM/another-family/~100B remain open.
 
 ## Independently pretrained source128: complete bounded transfer qualified
 

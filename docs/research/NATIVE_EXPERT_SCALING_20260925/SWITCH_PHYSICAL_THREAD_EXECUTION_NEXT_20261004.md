@@ -1,15 +1,16 @@
 # Next execution experiment after the actual bank-size comparison
 
-CURRENT STATUS426 (supersedes historical next steps below): original Switch
+CURRENT STATUS431 (supersedes historical next steps below): original Switch
 source128/256 quality and SAMEartifact source-specific rates remain qualified.
 Specified Granite/Ling/Giga cost formats and lexical/state-map bridges closed.
-418 capture/420 whole native forward384/4895 states/full head exact;424 local
-approximate derivative qualified.425 first numeric failure retained;426 complete
-6336-update replacement pilot FAIL7/9 capacity gates, function removal helps.
-Close THIS fixed recipe before sweep. Next [function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW427 original-preserving additive readout; original+one extra function when ON.
-No427 code/protocol/outcome or combined384 C model. Charge all additional active
-cost; usefulRAM-n/LUT/DRAM/another-family/~100B remain open. History retained.
+418 capture/420 complete native forward exact;424 local derivative qualified.
+426 replacement pilot FAIL7/9.427/429 first additive numeric failures retained,
+428/430 diagnoses qualify same bounds.431 complete additive6240-update pilot
+FAIL7/9: preservation passes, no useful IDs; removal improves. Close THIS recipe.
+Next [current diagnostic resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW432 output-benefit/preservation bound and exposure diagnostic before more fit.
+No combined384 C model/quality/rate; usefulRAM-n/LUT/DRAM/another-family/~100B
+remain open. Routine Graphify disabled. History retained.
 
 
 **Historical prospective plan, now completed.**374/375/376 passed; see the
