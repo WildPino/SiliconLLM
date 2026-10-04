@@ -111,12 +111,16 @@ zero updates. No native export or C timing. All source/results immutable.
 changes. These matched consumed diagnostics do not yet localize why. No more
 blocksize/precision grid; do not lower the argmax gate to make this pass.
 
-## Immediate frozen NEW449: margin and source-head error decomposition
+## Immediate frozen NEW450: SAME449 margin diagnosis, JSON repair only
 
-449 source/math/[protocol](METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen
-b5c5586 BEFORE first import/compile/numerical analysis. No outcome yet. Run ONCE
-the linked command: CPU0/BLAS1, admission300/numeric60/total360s,512MiB/16MiB.
-Retain FIRST failure; do not edit/rerun scientific files or output paths.
+449 first serialization/failure-writer stop retained dd6650b as an EXTERNAL
+[terminal record](METH_449_SWITCH_MARGIN_RESULT_20261005.md), not geometry.
+Old449 source/math/protocol/empty output directory immutable; no rerun.
+450 controller/[protocol](METH_450_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen
+6d5beb2 BEFORE first import. ONLY native scalar JSON adapter/qualifier and
+numbered bindings/labels changed; SAME449 math/formulas/gates/resources.
+No450 outcome yet. Run ONCE linked command: CPU0/BLAS1, admission300/numeric60/
+total360s,512MiB/16MiB. Retain FIRST failure; do not edit/rerun scientific files.
 Reuse retained original/447/448 full logits, source prefixes,
 correct-ID states and original source128 I8 head row values. No new candidate,
 weights, data, optimizer, GPU, whole FFN/model or complete head forward.

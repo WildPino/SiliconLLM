@@ -57,8 +57,11 @@ PASS/4of5feasibilityPASS. MeanKL.00062314,9argmax changes>3 FAIL;339.739MB bank,
 Smaller matrix/KL error does not certify decision-margin preservation.
 Next NEW449 explicit margin/readout displacement diagnosis on retained states
 and selected head rows, no model fit/new precision grid.449 source/math/
-[protocol](METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen b5c5586, no outcome
-yet. Explicit block-dot scaling/accumulation and
+[protocol](METH_449_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen b5c5586; first
+JSON/failure-writer stop retained externally dd6650b, no valid geometry record.
+450 [same-math repair](METH_450_SWITCH_MARGIN_PROTOCOL_20261005.md) frozen6d5beb2,
+no outcome yet; ONLY JSON scalar encoding/bindings/labels change.
+Explicit block-dot scaling/accumulation and
 native predictive gates must qualify before C/LUT cost, followed by fresh whole
 held-out/generation/tasks and SAMEartifact>=50 accepted rate/physical DRAM.
 Byte savings, local KL or an exact integer reference alone do not compose those

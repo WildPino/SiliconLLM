@@ -18,8 +18,9 @@ matrix energy requires symmetricrank>=631, losing F32 storage advantage.
 MeanKL.0013779/ID+1 identity harm.17792, but4argmax changes>3: fixed recipeFAIL.
 448 block64-I4 ALL9apparatusPASS/4of5feasibilityPASS, but9argmax changes>3.
 KL improves to.00062314 while winners worsen; fixed recipeFAIL. Next NEW449
-margin/head-quantization diagnosis frozen b5c5586, no outcome yet.
-Run ONCE bounded protocol; no more precision/blocksize sweeps.
+margin/head-quantization diagnosis:449 JSON/failure writer stopped, external
+first failure retained.450 serialization-only repair frozen6d5beb2, no outcome
+yet. Run ONCE bounded protocol; no precision/blocksize sweeps.
 Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
@@ -134,8 +135,9 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): NEW449
 margin/readout decomposition on saved original/447/448 logits and source head
-rows.449 source/math/protocol frozen b5c5586 BEFORE first import; no outcome
-yet. Run ONCE linked command. Qualify exact selected
+rows.449 first serialization/failure-writer stop externally retained dd6650b,
+no geometry record.450 serialization-only repair frozen6d5beb2 BEFORE first
+import; no outcome yet. Run ONCE linked command. Qualify exact selected
 head-row replay, then separate true state displacement/A16 input quantization/
 native output rounding and compare source margins/information. No fit/new
 candidate/blocksize or precision sweep;447/448 failures remain immutable.
