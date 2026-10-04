@@ -95,12 +95,14 @@ The small per-bank local KL is not additive across layers and does not certify
 new states/routes or generation. Neither total stored bytes nor full-row matrix
 Frobenius error alone is the goal's information or physical-cost criterion.
 
-## Immediate proposed NEW448: one fixed block64-I4 local native-head probe
+## Immediate frozen NEW448: one fixed block64-I4 local native-head probe
 
-No448 controller/protocol/output exists. Prepare/freeze a NEW source/math/
-protocol BEFORE import/quantization/forward. No fitting, clipping/blocksize grid,
-new corpus/source download or GPU. This is a NEW precision granularity, not a
-repair/rerun or changed threshold for447.
+448 source/math/[protocol](METH_448_SWITCH_BLOCK_I4_PROTOCOL_20261005.md)
+frozen012a5bb BEFORE first import/compile/quantization/forward. No outcome yet.
+Next run ONCE the linked protocol command: admission300/numeric300/total600s,
+3GiB/576MiB. All four predictive/identity gates unchanged447, storage<=.60.
+No fitting, clipping/blocksize grid, new corpus/source download or GPU. Retain
+FIRST failure; do not modify or rerun448 scientific files/output paths.
 
 Why64: at D768/M3072 with B dividing both input widths,
 
@@ -116,7 +118,7 @@ scales the max rounding bound is each block maximum/14 instead of row maximum/14
 F32 scale representation/clipping/rounding remains explicit; no monotonic
 coefficient error, KL or argmax improvement is assumed.
 
-Frozen NEW protocol must define before observation:
+Frozen NEW protocol defines before observation:
 
 1. ALL128 original last-bank functions, original column/neuron order, signed
    levels-7..7/two nibbles. F32 per64-column-block scale from original dequantI8,

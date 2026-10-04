@@ -15,7 +15,8 @@ candidates fail; matched matrix95%energy needs symmetricrank>=631, beyond F32
 storage-saving geometry.447 calibration-free row-I4 bank/arithmetic qualified,
 mean sourceKL.0013779 and ID+1 harm.17792, but4argmax changes>3 gateFAIL.
 Full128 packed bank nominal303.956MB versus605.946MB, no C model/rate/DRAM.
-Next proposed byte-budget-selected block64-I4, not a rank or training sweep.
+448 byte-budget-selected block64-I4 frozen012a5bb BEFORE first import;
+no outcome yet. Next run ONE bounded protocol, no rank/training sweep.
 Keep predictive gates; full multi-layer source-relative quality remains required.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
@@ -48,7 +49,8 @@ Distinct128 stored functions and106 naturally routed IDs do not count usefulness
 Proposed NEW block64 scale granularity keeps all coefficients and costs
 2DM*(.5+4/64)=2,654,208B/expert versus4,733,952B source I8; it is smallest
 power-of-two block meeting a prospective60% storage cap (32 exceeds it).
-No new script/protocol/run yet. Explicit block-dot scaling/accumulation and
+448 source/math/[protocol](METH_448_SWITCH_BLOCK_I4_PROTOCOL_20261005.md)
+frozen012a5bb; no outcome yet. Explicit block-dot scaling/accumulation and
 native predictive gates must qualify before C/LUT cost, followed by fresh whole
 held-out/generation/tasks and SAMEartifact>=50 accepted rate/physical DRAM.
 Byte savings, local KL or an exact integer reference alone do not compose those

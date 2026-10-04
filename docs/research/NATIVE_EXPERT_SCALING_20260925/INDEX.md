@@ -16,8 +16,9 @@ matrix-factor candidates FAIL. Native coupled permutations exact;95%matched
 matrix energy requires symmetricrank>=631, losing F32 storage advantage.
 447 row-I4 ALL9apparatusPASS;128 real functions stored in303.956MB.
 MeanKL.0013779/ID+1 identity harm.17792, but4argmax changes>3: fixed recipeFAIL.
-Next proposed NEW block64-I4, same predictive gates, byte-selected blocksize;
-no controller/protocol/run yet. Whole new quality/rate/physicalDRAM still open.
+448 block64-I4 source/math/protocol frozen012a5bb BEFORE first import;
+no outcome yet. Run ONCE bounded protocol command, SAME predictive gates.
+Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
 
@@ -129,7 +130,7 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 NEW block64-I4 native-head probe.447 row-I4 fails argmax, no gate relaxation/C
 benchmark.64 is smallest power of two keeping nominal expert bytes<=60%of I8;
 retain all coefficients, change only scale granularity and explicit accumulation.
-Freeze new source/protocol/resources BEFORE any numerical probe; no448 exists.
+448 frozen012a5bb; no outcome yet. Run ONCE the linked protocol command.
 Keep447 mean/book/argmax/identity gates, new storage gate<=.60. Any passing local
 format still needs full-native quality/cost/SAME accepted rate, LUT builder/
 unpacking/routing and hardware DRAM. No nominal-byte performance or useful-n claim.
