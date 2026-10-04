@@ -1,14 +1,15 @@
 # Next: actual >256 pretrained choices and source-specific active cost
 
-CURRENT STATUS416 (supersedes old next steps below): Granite412/413 synthetic
-mathPASS but CPUcostFAIL, route closed before values.414 source-weight full
-lexical basis fails conditioning;415 spectra rank768/768 sources,cross767;416
-identified partial map ALL12 input gatesFAIL. Lexical input-bridge branch closed.
-Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-design native capture/bounded coupled corrections and real function-benefit
-controls on one qualified pretrained core. Planning only, no417 code/fit/model.
-Useful384/10x/RAM-scale/~100B/physicalDRAM/another-family quality remain open.
-Historical metadata/cost and closed interface evidence below retained.
+CURRENT STATUS418 (supersedes historical next steps below): original Switch
+source128/256 quality and SAMEartifact source-specific rates remain qualified.
+Granite/Ling/Giga specified cost formats and lexical/state-map bridges remain
+closed.417 first controller schema failure retained;418 capture ALL9 controls
+PASS, all192 shared teacher+192 natural complete outputs/routes/greedy unchanged.
+4895 observed final-bank states, no learned correction/selector/384 model yet.
+Next [function-aware final-bank surrogate](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+zero-change native forward, explicit gradient/resource/extra-function benefit
+controls before bounded fit. Useful384/10x/~100B/LUT/physicalDRAM/another-family
+quality remain open. Historical evidence below unchanged.
 
 Planning, NOT a frozen experiment or acquisition authorization beyond the
 existing goal.391 qualified the second independent Switch scale;392-395 resolved

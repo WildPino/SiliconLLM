@@ -3,8 +3,9 @@
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
 whole-quality/SAMEartifact FULL-rate qualification. Granite412/413 CPU route
-closed; lexical414/416 interfaces closed. Next: design one function-aware final-bank
-adaptation pilot. Useful384/large n remains open.**
+closed; lexical414/416 interfaces closed.418 final-bank capture ALL9 PASS,
+384 complete outputs unchanged. Next: qualify function-aware surrogate/gradient
+before bounded fitting. Useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -173,9 +174,15 @@ ALL9 controlsPASS; individual source rank768, cross767 at1e-6; original failure 
 [416 identified partial map](METH_416_SWITCH_LEXICAL_PARTIAL_MAP_RESULT_20261004.md),b29ea2e:
 ALL8 controlsPASS/ALL12 input gatesFAIL; median1.12165..1.57931, errors1.458..4.293
 times mean-only. Close lexical weight bridge before384 selector/model.
+[417 first capture controller failure](METH_417_SWITCH_FUNCTION_CAPTURE_RESULT_20261004.md),f2a57bd:
+acquisition record passed/gates schema failure before compile/native work.
+[418 final-bank capture](METH_418_SWITCH_FUNCTION_CAPTURE_RESULT_20261004.md),frozen5d596a3:
+ALL9 controlsPASS, ALL192 paired teacher+192 natural complete outputs/routes/
+greedy byte-exact;4895 states, ALL selected WI/WO integer rows exact, normerror0.
+372.984s/max3.096GB combined RSS/1.955GB output. Source C/math/default unchanged.
 Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-design source/native capture and bounded corrections/selector/objective controls
-in ONE existing pretrained core, before any new417 protocol/capture/fit. No more
-state-map or unchanged kernel tuning. Planning ONLY, no417 code/results.
+qualify zero-change integer-native forward and explicit surrogate/gradient,
+fix bounded correction/selector/resource/causal function-benefit controls before
+fitting. No419 code/fit/384 model yet. No more state-map or closed kernel tuning.
 Useful>256/10x/real~100B/physicalDRAM/another-family quality remain open.
 All jobs terminal, original qualified Switch artifacts untouched.

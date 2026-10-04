@@ -1,9 +1,15 @@
 # Ling cost resumption: completed408/409, joint format required next
 
-CURRENT STATUS416: Ling408/410 and Granite412/413 CPU formats closed before
-values/fitting.414/416 lexical input bridges closed;415 spectral diagnosis retained.
-Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
-planning only, no417 code/fit. Historical source/cost plans below stay as evidence.
+CURRENT STATUS418 (supersedes historical next steps below): original Switch
+source128/256 quality and SAMEartifact source-specific rates remain qualified.
+Granite/Ling/Giga specified cost formats and lexical/state-map bridges remain
+closed.417 first controller schema failure retained;418 capture ALL9 controls
+PASS, all192 shared teacher+192 natural complete outputs/routes/greedy unchanged.
+4895 observed final-bank states, no learned correction/selector/384 model yet.
+Next [function-aware final-bank surrogate](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+zero-change native forward, explicit gradient/resource/extra-function benefit
+controls before bounded fit. Useful384/10x/~100B/LUT/physicalDRAM/another-family
+quality remain open. Historical evidence below unchanged.
 
 **Current status:**410 complete joint-format test now retained84e7610; all8
 numeric/archive controls PASS,14ms cost FAIL in both profiles. This planning

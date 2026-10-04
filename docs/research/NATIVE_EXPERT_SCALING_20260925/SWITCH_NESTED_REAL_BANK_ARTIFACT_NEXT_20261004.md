@@ -1,14 +1,15 @@
 # Next: actual nested64/128/256 real learned-bank artifacts
 
-CURRENT STATUS416 (supersedes historical next steps below): original Switch
+CURRENT STATUS418 (supersedes historical next steps below): original Switch
 source128/256 quality and SAMEartifact source-specific rates remain qualified.
-Granite412/413 I8 math/archive PASS but CPUcostFAIL, closed before original values.
-Lexical full414 conditioningFAIL,415 diagnostic spectra retained,416 identified
-partial map ALL12 local inputsFAIL; lexical bridge stopped before384 model.
-Primary next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
-planning only: design new capture/correction/selector/functional benefit controls
-in ONE pretrained core. No417 code/fit/model yet. Useful384/10x/~100B/physicalDRAM/
-another-family quality remain open. Existing frozen evidence below unchanged.
+Granite/Ling/Giga specified cost formats and lexical/state-map bridges remain
+closed.417 first controller schema failure retained;418 capture ALL9 controls
+PASS, all192 shared teacher+192 natural complete outputs/routes/greedy unchanged.
+4895 observed final-bank states, no learned correction/selector/384 model yet.
+Next [function-aware final-bank surrogate](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+zero-change native forward, explicit gradient/resource/extra-function benefit
+controls before bounded fit. Useful384/10x/~100B/LUT/physicalDRAM/another-family
+quality remain open. Historical evidence below unchanged.
 
 
 Planning only; no subsetexport/model/quality/cost observation.369 pairedfixed

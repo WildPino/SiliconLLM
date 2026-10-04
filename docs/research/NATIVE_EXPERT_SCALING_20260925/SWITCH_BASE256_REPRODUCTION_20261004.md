@@ -181,4 +181,18 @@ profiles fail the prospective14ms joint screen; no actual Granite values.
 qualified binary.414 full lexical prerequisiteFAIL before scores;415 spectrum
 controlsPASS;416 partial lexical ALL12 inputsFAIL, no384 model. Reproduce old
 HEAD-bound controllers at frozen commits. Existing374/389 binaries/qualified
-rates stay authoritative. New417 function-aware pilot is planning only.
+rates stay authoritative. The later417/418 observation contract is below.
+
+## Current opt-in boundary, through418
+
+417 adds SILICON_SWITCH_FUNCTION_CAPTURE before413. Immutable source/entries
+strip all marked read-only observers and recover393 exactly; removal of new
+engine prefix recovers3513e8b, default0ff9705 unchanged.417 controller schema
+failure retained f2a57bd before compiler/native work.418 repairs only metadata
+status fields, frozen5d596a3; same417 C compiled to new418 binary. ALL9 apparatus
+gatesPASS, all192 shared405 teacher+192 original393 natural complete outputs/
+router traces and greedy exact, independent ALL selected WI/WO rows byte exact.
+4895 states retained; no fit/384 model/new original-quality or accepted rate.
+Original374/389 binaries and source-specific profiles remain authoritative.
+See [418 result](METH_418_SWITCH_FUNCTION_CAPTURE_RESULT_20261004.md) and
+[current surrogate resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md).

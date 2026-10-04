@@ -1,6 +1,7 @@
-# Current resumption after416: design ONE function-aware final-bank pilot
+# Current resumption after418: qualify ONE function-aware final-bank surrogate
 
-Planning ONLY; no417 scientific code/protocol/compile/capture/train/outcome.
+Native observation prerequisite COMPLETED418; no adapter/selector/gradient/fit
+or combined384-choice model yet. M417 first controller failure retained.
 Final goal ACTIVE/INCOMPLETE. Qualified original Switch7.415B/14.664B targets
 retain18/18 quality and SAMEartifact source-specific accepted-rate evidence.
 User priority stays useful n limited by RAM, CPU LUT/routing/realDRAM and
@@ -22,9 +23,55 @@ quality as choices grow;1.5x candidate pool alone cannot establish10x/~100B.
   Close lexical weight bridge before function maps/selector/model, no rank sweep.
   Raw416 ac769b643c7db6fe0782509ae65cc5287a2f93e70a495ed658384cfc7ee5f55b.
 
-All processes terminal, no GPU/T4/network or new quality documents used412-416.
+All processes terminal, no GPU/T4/network or new quality documents used412-418.
 Frozen source-weight/statistical controls are reproducible; input quality and
 whole model quality must remain separate. Do not resume a closed map silently.
+
+## Completed native interface prerequisite417/418
+
+417 frozen db33444 failed acquisition metadata schema before compilation;
+first failure retained f2a57bd.418 only repairs passed/gates field handling,
+frozen5d596a3. [418 result](METH_418_SWITCH_FUNCTION_CAPTURE_RESULT_20261004.md)
+ALL9 gatesPASS, raw4ebb37ed40d788eb85168d028b3e0b538cd7d65e009293cd32d5fb0eb117d829.
+Unchanged417 C observer/entries recover393 byte-for-byte by removal; engine
+opt-in removal recovers3513e8b, default0ff9705 exact. Original374/389 binaries
+remain authoritative for their accepted-rate contracts.
+
+ALL192 shared405 teacher and ALL192 original393 natural complete outputs/router
+traces preserved byte-for-byte, ALL greedy IDs exact, actual workers0,2,4 readback.
+4895 final-bank records include preFF/norm/selected full WI+ReLU/WO/residual/
+finalnorm/head input/A16 codes. ALL15037440 WI and3759360 WO rows independently
+integer-replayed byte-exact. Vocabulary162726 rows exact, four full-head first
+positions, all remaining full logits exact against prior output. Independent
+both-endpoint norm max relative error0.0. ALL10 malformed captures detected.
+Fresh whole22.36GB payloads/manifests/tokenizers.372.984s/max3095678976B combined
+RSS/1955116470B output, within frozen20min/4GiB/2GiB. No timing/rate/DRAM inference.
+
+Use only teacher-labelled418 captures for paired405 calibration (1344positions
+per source:1008 development/336 validation);18/6 books/all4 cases. Natural128
+belongs to a different old quality cohort and is qualification-only, NOT fit data.
+All384 complete outputs/traces/captures plus logs/binary/runtime retained under
+results/native_expert_scaling/meth418_switch_function_capture; raw contains full
+1936-file inventory and source keys/splits. Native128 teacher is a quantized
+source approximation, not fresh original-F32 shared-context inference.
+
+Immediate next numbered stage419: define and qualify an integer-faithful
+zero-change final-bank forward and explicitly approximate differentiable
+surrogate on these fixed captures. Freeze source/controller/protocol before
+any forward/gradient comparison. First independent exact no-correction baseline
+must reproduce captured norm/expert/residual/finalnorm/head and all logits.
+Finite differences apply to the declared smooth surrogate; they do not prove a
+true derivative through native rounding/top1. Any STE/dequantized backward must
+be labelled and independently controlled. Tiny input/output correction, norm,
+ReLU, router/full normalization/head gradient checks BEFORE fitting; hard routing
+and active function budget still need a native export contract.
+
+Before any GPU/fit choose ONE rank/init/selector/objective, compute frozen and
+trainable host/device/gradient/optimizer/full vocabulary costs and stop budgets.
+No full12-bank optimizer. Both an exact no-added256 control and source-function
+causal ablations are required: real pretrained added functions must improve held
+calibration predictions when consulted; adapters alone or gate-always-old cannot
+qualify capacity. No419 code/protocol/gradient/fit yet; no T4 needed now.
 
 ## A new objective rather than another state-regression variant
 
@@ -53,13 +100,11 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
 
 ## Required prerequisites before ANY new outcome
 
-1. Inspect existing final-bank/core/head/native output/capture layout read-only.
-   Specify a bounded NEW opt-in state capture on qualified source256 and pinned
-   source128 teacher context. Extra captures must preserve ALL existing complete
-   paired outputs/routes/greedy bytes and source worker placement, independently
-   check preFF residual/norm/selected expert/final norm/head identity. Freeze
-   new C/controller/protocol BEFORE compilation/capture. SourceC/tokenizer/
-   payload/provenance bound, physical HEAD filters exact, no model overlap.
+1. COMPLETED418: immutable final-bank observation contract and complete old
+   outputs/routes/greedy/actual-worker identity, independent preFF/norm/full
+   selected expert/residual/finalnorm/head controls as recorded above. Reuse
+   frozen captures with fresh full inventory/raw hashes; do not recapture or
+   modify417/418. Current additional primitive/surrogate work requires new419.
 2. Fix training objective, selector semantics, trainable size/rank/initialization,
    original256 baseline/no-added-function control, forced source-function controls,
    and a causal ablation that shows pretrained added functions actually contribute.
@@ -90,8 +135,9 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
    stopping metrics, baseline nondegradation and genuine added-function benefit
    before training. Freeze each substantial stage separately; retain first fail.
 
-The immediate next action is prerequisite1/layout and resource/objective design,
-then a new numbered protocol, NOT model construction or an unbounded training run.
+The immediate next action is419 zero-change/surrogate-gradient and bounded
+resource/objective design, then a separately frozen fit protocol. No model
+construction or unbounded training before these controls.
 No source data acquisition or GPU authorization request is currently required.
 
 ## Subsequent gates if the bounded pilot works

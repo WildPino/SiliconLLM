@@ -1,12 +1,15 @@
 # Granite I8 kernel route closed after413; historical cost/reference plan
 
-CURRENT STATUS416:413 four-row numeric/archive gatesPASS but CPUcostFAIL, so
-Granite full-row-I8 route is stopped before original values.414 full lexical
-bridge conditioningFAIL/415 spectra retained/416 partial bridge ALL12 inputsFAIL.
-No further Granite I8 or lexical state-map tuning. Primary next point is
-[one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md),
-planning only, no417 code/protocol/capture/fit. Text below is historical412/413
-planning superseded by this status. Source metadata remains reusable evidence.
+CURRENT STATUS418 (supersedes historical next steps below): original Switch
+source128/256 quality and SAMEartifact source-specific rates remain qualified.
+Granite/Ling/Giga specified cost formats and lexical/state-map bridges remain
+closed.417 first controller schema failure retained;418 capture ALL9 controls
+PASS, all192 shared teacher+192 natural complete outputs/routes/greedy unchanged.
+4895 observed final-bank states, no learned correction/selector/384 model yet.
+Next [function-aware final-bank surrogate](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+zero-change native forward, explicit gradient/resource/extra-function benefit
+controls before bounded fit. Useful384/10x/~100B/LUT/physicalDRAM/another-family
+quality remain open. Historical evidence below unchanged.
 
 412 froze004411c; FIRST complete I8 fixture outcome ALL8 numerical/placement/
 full-output gates PASS, both3/6 cost/repeatability FAIL. Raw

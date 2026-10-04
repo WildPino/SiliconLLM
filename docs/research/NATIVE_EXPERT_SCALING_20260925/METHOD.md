@@ -28,10 +28,16 @@ gatesFAIL; stop Granite I8 kernel route before values/reference/quality.
 diagnosisPASS, both source ranks768/cross767 at1e-6.416 identified rank767 partial
 map mathPASS/ALL12 input gatesFAIL, error1.458..4.293 times mean-only.
 Lexical weight bridge closed before384 selector/model, no further map tuning.
-Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
-is planning only: coupled correction/selector objective on one frozen256 core,
-direct vocabulary/function-benefit controls and bounded capture/gradient/resource
-proof required before fitting. No417 code/fit/model/quality/rate yet.
+417 capture controller schema failure retained before compile/native.418 repairs
+only acquisition status handling, ALL9 gatesPASS: all192 paired teacher+192
+natural full outputs/routes/greedy unchanged;4895 final-bank states with complete
+selected WI/WO integer replay and normerror0.372.984s/3.096GB RSS/1.955GB output.
+[418 observation contract](METH_418_SWITCH_FUNCTION_CAPTURE_RESULT_20261004.md)
+is reproducible, without changed model arithmetic or new accepted-rate claim.
+Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+coupled correction/selector objective on one frozen256 core; zero-change native
+forward, explicit surrogate/gradient and bounded resource/causal extra-function
+controls still required before fitting. No419 code/fit/384 model/quality/rate.
 Existing Switch quality/rate results and real large-useful-capacity goal intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified
