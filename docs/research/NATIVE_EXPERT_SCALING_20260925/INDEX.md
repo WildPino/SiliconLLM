@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal.378 acquisition PASS;379 tensor binding next; no live model/timing job.**
+**Goal ACTIVE. No artifact meets the full final goal.378/379 original128 acquisition/tensor binding PASS;380 export next.**
 
 ## Goal and constraints
 
@@ -106,6 +106,7 @@ PASS retainedb31786d;895.625s/59MB RSS; independently pretrained original128 OWN
 not370 subset.29,862,948,392B/3 shards+7 side files;90min/40GiB/2GiB RSS,
 exact325 LFS identities, expected+32GiB disk reserve. Bind every committed
 input in a model-free preflight before acquisition. Same-family7.4B/14.7B,
-twofold actual n transfer test; no second-family/10x proof. Next379 all-original
-tensor/tie/function binding, prepared for freeze, source-specific export/reference and NEW untouched
+twofold actual n transfer test; no second-family/10x proof. 379 complete actual3320 tensors/7.415B confirmed ties and12x128 distinct pairs
+PASS (55.047s/10.197GB RSS), no effective-function/quality inference. Next380
+full new compact export, then381 independent full numerical contract and NEW untouched
 original-primary whole quality/SAME full rate. Goal scope unchanged.
