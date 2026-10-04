@@ -71,6 +71,8 @@ ALL236 common core tensor names differ. Fresh whole payload hashes/both manifest
 PASS,294.406s/41.673MB. Capacity applicability, not exported useful384 model.
 Next [paired transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md) tests
 actual shared input/hidden/function alignment before any learned selector and
-new full-quality/rate gates. No402 code/protocol/run. Same-family1.5x256, not10x.
+new full-quality/rate gates.403 rejects raw identity inputs;404 fixed rank32 maps
+fail all12 local input gates. Proposed405 expands paired consumed calibration to
+test actual full768 rank/conditioning. No405 code/protocol/run.1.5x256 is not10x.
 Qwen80B full-width acquisition still closed absent a new stated transformation;
 other-family/larger useful n/physical DRAM requirements remain open.

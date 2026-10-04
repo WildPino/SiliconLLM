@@ -39,47 +39,56 @@ within RAM, paired with a NEW learned selector/compatibility transformation.
 It tests useful larger choices without expensive acquisition or synthetic
 capacity labels. Unsupported larger original sources remain open, not absent.
 
-## Proposed402 uncertainty, decision and budget
+## Completed paired input screen and restricted alignment
 
-After M401 is fully retained, freeze shared real-input calibration and a paired
-source-hidden/function-response alignment screen. Use SAME frozen input IDs in
-both complete source-native targets; current393 normalized inputs are reusable
-only if they actually share the same input/prefix, not merely book/case numbers.
-The two existing whole-quality cohorts differ and cannot be silently paired.
+402 froze1e86492 and failed only process classification before model observations;
+retained6f0bff4.403 froze f79b7ba and retained419fba4: ALL9 apparatus gates PASS,
+24 consumed362 case0 books. Reuse256393 traces freshly SHA bound; new128393
+capture complete output SHA exact389 plain on SAME29 input/14 forced-prefix IDs.
+Fresh complete payload/spec/tokenizer identity and actual placement/negative
+controls PASS. ALL12 identity interfaces FAIL; median cosine approximately zero.
+No new held-out quality documents consumed. MAIN75.5s/max1.410GB/199.458MB output.
 
-Select new calibration source documents with ALL old consumed/excluded source
-IDs bound. Declare book split before responses. This calibration screen consumes
-these documents and is NOT future held-out whole-quality evaluation. Reuse the
-unchanged qualified393 capture binary with complete artifact/source SHA/profile
-and negative controls; no inherited accepted rate for trace I/O. Store paired
-input/prefix/normalized hidden/complete output identities and exact placement.
+404 froze653ad03: ONE rank32 affine PCR per bank fit only18 development books,
+six validation books predeclared by403. ALL6 apparatus gates PASS, ALL12 local
+input eligibility FAIL: median relative errors0.649-0.897,95th0.728-1.091, squared
+error0.633-0.936 times mean-only error, exceeding0.25/0.50/0.50 frozen bounds.
+MAIN1.578s/max102.068MB/2.433MB F32 maps. Correct active coefficient count589,824;
+protocol's doubled arithmetic count clarified separately. No source function
+responses/output alignment/selector/model. These two input interfaces are closed.
 
-First measure raw source hidden-space differences, norms and paired routing.
-The proposed24-case initial screen lacks enough independent decoder samples to
-identify a full768D map: no full-rank fit can be promoted from it. Restrict any
-fit to a predeclared identifiable rank or separately freeze a larger cohort
-with book holdout and sample/rank controls before learning a full map.
-A source-only linear/orthogonal input/output alignment fit is a HYPOTHESIS;
-validation requires excluded calibration books and actual transplanted function
-responses, not projection energy or geometry alone. A nearest-output choice
-is an oracle diagnostic, not an implementable learned selector. Record which
-original128 functions are supported, target bytes/active multiplication cost,
-and any source-independent errors before deciding selector adaptation.
+## Proposed405: full-basis identifiability with additional paired cases
 
-Require explicit source-specific local gates BEFORE responses. Failure closes
-that alignment variable before model construction. Success licenses only a
-new learned384 selector/core interface plus source-aware fitting and new held-out
-original-relative complete prediction/generation/task quality; then SAMEartifact
-FULL accepted rate. Always compare frozen original256 base on the same new
-quality cohort; original128 capacity usefulness needs additional real tasks/
-interventions, not just visits or source hashes. Preserve original softmax
-amplitude explicitly or treat its change as a separate trained approximation.
+Planning only, no405 controller/protocol/run. A rank32 map cannot represent an
+arbitrary768-coordinate change. New variable: FULL-basis affine input alignment
+with enough development positions and ACTUAL independent-rank/conditioning gate.
+Use all four existing consumed362 cases/book, same18 development/6 validation
+books. Reuse403 case0 and qualified393 source256 traces with fresh full hashes;
+capture original128 on SAME other three source/decoder sequences. Bridge each
+new complete capture SHA to plain389, actual placement/negative controls. Never
+pair382's different books merely by index. No new original-relative quality.
 
-Proposed pre-observation budget:<=10min CPU capture/<=4GiB process, then<=10min/
-2GiB CPU fit; no training/GPU/T4 until a separately justified learned stage.
-Expected small24-case calibration first, not all96 whole-quality cases. Actual
-commands/cohort/bridge/gates and stop limits are not yet implemented/frozen.
-Do not run from this planning document. Qualified old artifacts unchanged.
+Encoder development2088/validation696 positions; decoder1008/336. Counts exceed
+768 but repeated positions/shared prefixes may still make full mapping rank
+insufficient. Freeze a singular-value/rank gate BEFORE new full-fit outcomes.
+If insufficient, stop THIS unregularized full-basis interface before fitting.
+If identifiable, fit only development and retain mean-only/identity controls,
+F32/F64 checks and predeclared local validation bounds. A complete768x768 F32
+input factor per12 banks would add28,311,552 matrix bytes plus means and7,077,888
+active coefficients; no measured runtime or inference-cost assumption.
+
+Suggested total budget20min CPU capture/4GiB including fresh target integrity,
+then2min CPU fit/1GiB BLAS1; no network/GPU/T4. Exact commands/protocol/local
+thresholds and stop guard remain to freeze. Failure closes THIS full-basis map,
+not all learned adaptation. A success licenses only actual transplanted function
+responses and output-space alignment, before any NEW384 selector/model.
+
+New useful choices ultimately require source-aware learned selection plus NEW
+excluded-document original-relative complete prediction/generation/task quality,
+and SAMEartifact FULL accepted rate. Compare frozen original256 base on the
+same new quality cohort. Source128 function usefulness needs real interventions,
+not visits/source hashes. Preserve source softmax amplitude explicitly or train
+and measure its change as a separate approximation. No quality/rate inheritance.
 
 ## Another family remains required
 

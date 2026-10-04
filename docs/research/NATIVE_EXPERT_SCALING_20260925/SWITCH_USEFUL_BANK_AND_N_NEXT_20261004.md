@@ -101,12 +101,13 @@ source/numerical evidence reused314+, full-width expensive port remains closed.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-391 independent original128 joint quality/rate qualified; original256376 intact.
-393-395 router grids and397 Qwen80B full-width cost are retained rejections.
-399 attributes both integer-LUT bottlenecks>14ms;400 blocked joint kernel still
-fails14ms despite stable exact numeric/fingerprint controls.401 actual128+256
-source384 bank applicability ALLsix PASS,22.094GB fitsRAM, but all236 common
-core names differ. Next402 paired real hidden/function alignment before any
-new selector/whole-quality/rate: unimplemented/unfrozen. Ordered-byte distinction
-is not canonical usefulness; useful10x/other families/DRAM remain open.
+391 independent original128 quality/rate qualified; original256376 intact.
+399/400 integer-LUT full-width cost paths rejected.401 real128+256 source384
+applicability passed,22.094GB fits RAM.403 SAME paired inputs reject all12 identity
+interfaces;404 ONE fixed rank32 map also fails all12 local input eligibility gates.
+No function-response/output alignment/new selector/whole-quality/rate inheritance.
+Next proposed405 tests actual full768 rank/conditioning with all four consumed362
+cases/book, same18/6 development/validation split. No405 code/protocol/run yet.
+Qualified native artifacts unchanged; all sessions terminal. Useful384/10x,
+other families/~100B and physical DRAM remain open.
 Use INDEX.md/METHOD.md/PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md.

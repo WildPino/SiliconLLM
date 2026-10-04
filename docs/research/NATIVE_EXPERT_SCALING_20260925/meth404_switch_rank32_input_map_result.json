@@ -1,0 +1,780 @@
+{
+  "experiment": "METH-404-one-fixed-rank32-input-PCR-map",
+  "banks": [
+    {
+      "stack": "encoder",
+      "bank": 0,
+      "development_positions": 522,
+      "validation_positions": 174,
+      "rank32_singular_over_largest": 0.42422167861950866,
+      "development_rank32_centered_input_energy_fraction": 0.45451962224461334,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.15700154710680428,
+          0.3796495206693167,
+          0.6575384428944235,
+          0.7757285288285165,
+          0.8470031891120887
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8656279150392522,
+        "maximum_absolute_difference": 48.35911560058594
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.1570015243448809,
+          0.37964952648292716,
+          0.6575384428191338,
+          0.7757285291240288,
+          0.847003179750585
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8656279142162722,
+        "maximum_absolute_difference": 48.35911918107442
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.467223184884178,
+          0.5772787587592224,
+          0.6820409232999303,
+          0.8325248182476684,
+          0.9426857410878002
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 56.526720025073516
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.1506596497859856,
+          1.186059297616012,
+          1.2817365907679616,
+          1.3771506004424832,
+          1.474049123174229
+        ],
+        "squared_error_over_validation_mean_only_error": 3.436660896127122,
+        "maximum_absolute_difference": 171.29523301124573
+      },
+      "F32_vs_F64_prediction_relative_L2": 9.342360192529129e-08,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank0.npz",
+      "map_sha256": "9ac64af295bad8b5ff6f6d9089f454c7636825d129ddf68b4be4846804e83933",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "encoder",
+      "bank": 1,
+      "development_positions": 522,
+      "validation_positions": 174,
+      "rank32_singular_over_largest": 0.3058362109819087,
+      "development_rank32_centered_input_energy_fraction": 0.48289436429535637,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.182561649772187,
+          0.557806153700053,
+          0.7412413577996753,
+          0.8872135149213789,
+          1.1764440795862112
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9358602824086909,
+        "maximum_absolute_difference": 239.5550079345703
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.18256166678408317,
+          0.5578061406752814,
+          0.7412413537681872,
+          0.8872135189213226,
+          1.1764440815130899
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9358602818021874,
+        "maximum_absolute_difference": 239.5550097805969
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.5875637344733304,
+          0.6667905594189715,
+          0.750028696814124,
+          0.9183635403104212,
+          1.1508621364597424
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 250.00237404980422
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.3229313649925734,
+          1.4410612260623197,
+          1.6265673473678857,
+          1.8877069689399077,
+          2.453449761100902
+        ],
+        "squared_error_over_validation_mean_only_error": 4.454054717125023,
+        "maximum_absolute_difference": 275.9519739151001
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.053183569195091e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank1.npz",
+      "map_sha256": "a828f746eec58fe42e400fbab93b9033df6c2a3650b1bb3eaf74beb2bd8e8621",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "encoder",
+      "bank": 2,
+      "development_positions": 522,
+      "validation_positions": 174,
+      "rank32_singular_over_largest": 0.22112825570175923,
+      "development_rank32_centered_input_energy_fraction": 0.5269241304266112,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.2054255907387132,
+          0.5454992584684449,
+          0.6533614508778646,
+          0.8439629391120068,
+          0.9444851869200612
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9042530263042287,
+        "maximum_absolute_difference": 272.73175048828125
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.20542558784609985,
+          0.54549927027034,
+          0.6533614553701022,
+          0.8439629409160904,
+          0.9444851575513656
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9042530251321546,
+        "maximum_absolute_difference": 272.73175853190844
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.5482354720437953,
+          0.6190339460852988,
+          0.6746727615286447,
+          0.9578024755307786,
+          1.1458961619270909
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 269.01667405636374
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.1027389681929654,
+          1.275882857543496,
+          1.4009535090406424,
+          2.1784775973862316,
+          2.595907740875572
+        ],
+        "squared_error_over_validation_mean_only_error": 4.178343470047015,
+        "maximum_absolute_difference": 539.2527675181627
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.0249497503293426e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank2.npz",
+      "map_sha256": "3f3e53bcfde40dbb3e809754ffde3d0136676c36e092f24c7c70562aa4f46b71",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "encoder",
+      "bank": 3,
+      "development_positions": 522,
+      "validation_positions": 174,
+      "rank32_singular_over_largest": 0.35618159581097175,
+      "development_rank32_centered_input_energy_fraction": 0.4747630432433975,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.13447052472556964,
+          0.6199700050224608,
+          0.7260212837218223,
+          1.0912077440669434,
+          1.7855505760026478
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9008420579538859,
+        "maximum_absolute_difference": 582.9342651367188
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.13447053648211788,
+          0.6199700164027668,
+          0.7260212798370146,
+          1.091207724172423,
+          1.7855505591008796
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9008420588446371,
+        "maximum_absolute_difference": 582.9342728317635
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.6232891451683149,
+          0.6608884857875237,
+          0.7373670797380001,
+          1.3316312605826868,
+          1.726712567649751
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 574.9013892060495
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.1838397755133154,
+          1.2716891345957662,
+          1.4209146823318404,
+          1.6518775300086863,
+          2.0477383718108757
+        ],
+        "squared_error_over_validation_mean_only_error": 3.2509436554235385,
+        "maximum_absolute_difference": 491.7673055231571
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.0861224838096227e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank3.npz",
+      "map_sha256": "4b0a7eae0f85d55e0aaf215ed6e93d7966badc46c6a177da17b5172ae0dcb9f4",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "encoder",
+      "bank": 4,
+      "development_positions": 522,
+      "validation_positions": 174,
+      "rank32_singular_over_largest": 0.32195734888379407,
+      "development_rank32_centered_input_energy_fraction": 0.4632945029387841,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.20751555684232614,
+          0.6912550865421894,
+          0.819737299035091,
+          0.9297678243261477,
+          1.266628962872891
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9049682346489741,
+        "maximum_absolute_difference": 649.6786308288574
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.20751553803795203,
+          0.6912550852679876,
+          0.8197372987407916,
+          0.9297678427851228,
+          1.2666289212374888
+        ],
+        "squared_error_over_validation_mean_only_error": 0.9049682324438799,
+        "maximum_absolute_difference": 649.6786315671288
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.7489795691885138,
+          0.7732205414642287,
+          0.8431527074850528,
+          1.0246050908956834,
+          1.1537920771938308
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 676.657005830229
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.108324163476619,
+          1.1916337252035165,
+          1.325160550625747,
+          1.433047466334496,
+          1.6185149814798327
+        ],
+        "squared_error_over_validation_mean_only_error": 2.38968460605213,
+        "maximum_absolute_difference": 705.6222506463528
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.2584686386901462e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank4.npz",
+      "map_sha256": "bb4af1418fb04db9eb204640bff05f34c95baaadcd0d55b721ea3915a8031543",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "encoder",
+      "bank": 5,
+      "development_positions": 522,
+      "validation_positions": 174,
+      "rank32_singular_over_largest": 0.2618242989464664,
+      "development_rank32_centered_input_energy_fraction": 0.48086922074019983,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.10642923199618944,
+          0.7335443193355353,
+          0.872177461668247,
+          0.9625014044026928,
+          1.3587842858570747
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8435372422595514,
+        "maximum_absolute_difference": 1159.2586517333984
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.10642923628083452,
+          0.7335443201589319,
+          0.8721774611471668,
+          0.9625014039886662,
+          1.3587842470662035
+        ],
+        "squared_error_over_validation_mean_only_error": 0.843537242110402,
+        "maximum_absolute_difference": 1159.2586542227994
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.7987356574397202,
+          0.8381287994570217,
+          0.9139890324451161,
+          1.0243870247136408,
+          1.187802737448513
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 1212.1032201588525
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.047327485588288,
+          1.2123567752320996,
+          1.3219123267387434,
+          1.4406873069797292,
+          1.726393294481514
+        ],
+        "squared_error_over_validation_mean_only_error": 2.048292390452042,
+        "maximum_absolute_difference": 1176.6879336684942
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.701254789630593e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank5.npz",
+      "map_sha256": "b2f522255980e2e25657cb2a09b9c476210f94faca7dfd1c4cb58dcfe3c84d66",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "decoder",
+      "bank": 0,
+      "development_positions": 252,
+      "validation_positions": 84,
+      "rank32_singular_over_largest": 0.08465278570281161,
+      "development_rank32_centered_input_energy_fraction": 0.8811012004741284,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.176119002653878,
+          0.2396037484151534,
+          0.7123196917747503,
+          0.8513591389868909,
+          0.8999102642130455
+        ],
+        "squared_error_over_validation_mean_only_error": 0.6484202382326809,
+        "maximum_absolute_difference": 79.87912845611572
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.17611900806075412,
+          0.23960374801765835,
+          0.7123196906357895,
+          0.851359126424574,
+          0.8999102598006625
+        ],
+        "squared_error_over_validation_mean_only_error": 0.6484202387186538,
+        "maximum_absolute_difference": 79.87912625653836
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.635831926552659,
+          0.6949126593329515,
+          0.8208666772789663,
+          0.9294312437185853,
+          0.9669376285131981
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 161.50691916410707
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.1331832468153007,
+          1.204531520944463,
+          1.2972233210904036,
+          1.6705413200066288,
+          1.7206698473488167
+        ],
+        "squared_error_over_validation_mean_only_error": 2.64872826265359,
+        "maximum_absolute_difference": 315.945431974018
+      },
+      "F32_vs_F64_prediction_relative_L2": 2.076924682155938e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank6.npz",
+      "map_sha256": "ee33d36290c6ccdbe0b6b2ffa55a01263edaca788d48d2c76e2ee8a1cab10e2c",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "decoder",
+      "bank": 1,
+      "development_positions": 252,
+      "validation_positions": 84,
+      "rank32_singular_over_largest": 0.322799231941443,
+      "development_rank32_centered_input_energy_fraction": 0.6304162776840523,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.27517385917138887,
+          0.422709142361347,
+          0.6487899728726326,
+          0.7280129667745757,
+          0.7458981673533979
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8118595356062053,
+        "maximum_absolute_difference": 156.76705932617188
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.27517385637421304,
+          0.4227091341463967,
+          0.648789974986474,
+          0.7280129755531181,
+          0.7458981643928442
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8118595346111858,
+        "maximum_absolute_difference": 156.767055388157
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.531152291699675,
+          0.5987052862372575,
+          0.7022146068994262,
+          1.5341500264290122,
+          1.6391596789917149
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 208.01641063321205
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0983474933620316,
+          1.2331852102842813,
+          1.2955215549080714,
+          1.408530770462736,
+          1.8745692084810648
+        ],
+        "squared_error_over_validation_mean_only_error": 3.244338106767101,
+        "maximum_absolute_difference": 276.65864062309265
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.0478881048889016e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank7.npz",
+      "map_sha256": "a96c7a3df638a0a46b66269c6d740b9a67a0884890428bc112159edb3acf7a0b",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "decoder",
+      "bank": 2,
+      "development_positions": 252,
+      "validation_positions": 84,
+      "rank32_singular_over_largest": 0.26066168161166275,
+      "development_rank32_centered_input_energy_fraction": 0.6071231644808194,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.37589421999030165,
+          0.5000194831714071,
+          0.7408288363277451,
+          0.8229307449837138,
+          0.8369455405071449
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8391942996918266,
+        "maximum_absolute_difference": 123.48405456542969
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.3758943359466543,
+          0.5000194654203758,
+          0.740828834459138,
+          0.8229307444031196,
+          0.8369455456927372
+        ],
+        "squared_error_over_validation_mean_only_error": 0.8391942986691473,
+        "maximum_absolute_difference": 123.4840525374851
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.6562738409727865,
+          0.6960600131749006,
+          0.7788062140095886,
+          2.0029831923483714,
+          2.1435533584642155
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 282.7949517265199
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0967420682967117,
+          1.226529618784788,
+          1.2847413798797311,
+          1.4323132522022672,
+          2.1944538573736327
+        ],
+        "squared_error_over_validation_mean_only_error": 2.5933715553690107,
+        "maximum_absolute_difference": 352.93456649780273
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.170482625295752e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank8.npz",
+      "map_sha256": "6bfce30c0040f743da9b4c85c3784fdf02df2b6acb783b01a6c9d7190eca3eef",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "decoder",
+      "bank": 3,
+      "development_positions": 252,
+      "validation_positions": 84,
+      "rank32_singular_over_largest": 0.1806324850948798,
+      "development_rank32_centered_input_energy_fraction": 0.6561305252240592,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.1144283753176717,
+          0.3109506086245206,
+          0.8451440853540486,
+          0.9221644438014227,
+          0.9306119546367039
+        ],
+        "squared_error_over_validation_mean_only_error": 0.7863362556871563,
+        "maximum_absolute_difference": 143.06187438964844
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.11442841960852562,
+          0.31095064655849763,
+          0.845144086641159,
+          0.9221644347195195,
+          0.9306119511217149
+        ],
+        "squared_error_over_validation_mean_only_error": 0.786336258346051,
+        "maximum_absolute_difference": 143.061886908278
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.7794590707987685,
+          0.8113473106273486,
+          0.8878586727769893,
+          0.937683633031897,
+          0.9801013675226063
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 280.3893354419205
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0904437138293985,
+          1.2102542169923176,
+          1.6757276171566335,
+          1.9585389121563463,
+          2.090837513127348
+        ],
+        "squared_error_over_validation_mean_only_error": 3.4499161926940656,
+        "maximum_absolute_difference": 317.3831615149975
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.55947311142033e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank9.npz",
+      "map_sha256": "4810dbfb629852f6110a744fb9f1c88fa20d00ee6c0ea01f452b33a0eacd2760",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "decoder",
+      "bank": 4,
+      "development_positions": 252,
+      "validation_positions": 84,
+      "rank32_singular_over_largest": 0.174499063386037,
+      "development_rank32_centered_input_energy_fraction": 0.7073086977557894,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.0691694788396016,
+          0.16827708918875944,
+          0.8856950176126995,
+          0.9458128957942402,
+          0.9855054958439579
+        ],
+        "squared_error_over_validation_mean_only_error": 0.7039148042461801,
+        "maximum_absolute_difference": 188.2843475341797
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.06916946726647233,
+          0.1682771016158131,
+          0.8856950230914656,
+          0.9458128868785346,
+          0.9855054851281564
+        ],
+        "squared_error_over_validation_mean_only_error": 0.7039148024471603,
+        "maximum_absolute_difference": 188.28432907110803
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.8169669772104059,
+          0.8543878050725738,
+          0.923249326994544,
+          0.9646778668398217,
+          1.0020343994653405
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 340.75795179345306
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0848189783521134,
+          1.158790472312236,
+          1.4589718554254785,
+          1.6941581641358094,
+          1.7674853943708972
+        ],
+        "squared_error_over_validation_mean_only_error": 2.345840540142995,
+        "maximum_absolute_difference": 380.2259864807129
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.7199890882331384e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank10.npz",
+      "map_sha256": "bfc4be78381606eb83f80a71c93badf4f36d62c8ecd5c67242e21f28a0ce7fe4",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    },
+    {
+      "stack": "decoder",
+      "bank": 5,
+      "development_positions": 252,
+      "validation_positions": 84,
+      "rank32_singular_over_largest": 0.20442595360261015,
+      "development_rank32_centered_input_energy_fraction": 0.6999229624240169,
+      "validation_F32_map": {
+        "relative_L2_quantiles": [
+          0.10673604114912395,
+          0.23426126067810354,
+          0.8966246565935998,
+          0.9781432010919261,
+          0.9997874202526564
+        ],
+        "squared_error_over_validation_mean_only_error": 0.6334371231322591,
+        "maximum_absolute_difference": 290.54600524902344
+      },
+      "validation_F64_map": {
+        "relative_L2_quantiles": [
+          0.10673605276933243,
+          0.23426121956191254,
+          0.8966246546633179,
+          0.9781432045833621,
+          0.9997874144476073
+        ],
+        "squared_error_over_validation_mean_only_error": 0.6334371202052785,
+        "maximum_absolute_difference": 290.5460251597823
+      },
+      "validation_mean_only": {
+        "relative_L2_quantiles": [
+          0.8646491243154198,
+          0.8794896549204909,
+          0.952583819389831,
+          1.0006128778453023,
+          1.0080423811527344
+        ],
+        "squared_error_over_validation_mean_only_error": 1.0,
+        "maximum_absolute_difference": 303.8206136671176
+      },
+      "validation_identity": {
+        "relative_L2_quantiles": [
+          1.0583931563778317,
+          1.138879204949537,
+          1.4389635907866811,
+          1.6020497043447528,
+          1.6940449224126066
+        ],
+        "squared_error_over_validation_mean_only_error": 2.060632382695217,
+        "maximum_absolute_difference": 336.71291077136993
+      },
+      "F32_vs_F64_prediction_relative_L2": 1.8644140674313164e-07,
+      "input_eligibility": false,
+      "map_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth404_switch_rank32_input_map\\bank11.npz",
+      "map_sha256": "e77f0c179c06e4c957118b69164d7d58ee6c3125eca03eb63c183ea54193950b",
+      "map_archive_bytes": 203776,
+      "map_F32_parameter_bytes": 202752,
+      "active_coefficients_per_bank": 49152
+    }
+  ],
+  "rank": 32,
+  "bindings": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth404_switch_rank32_input_map.py": "fa554ecb166df964a4fff1da34cf8621c44ae3ce7d738056c55103ffdfa757a9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_404_SWITCH_RANK32_INPUT_MAP_PROTOCOL_20261004.md": "023d8580fa1f7356f7659b46a2cf3372c556cc7f781ca6e1288bc86afcbe0322",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth403_switch_cross_source_inputs_result.json": "364eab88aba2779329f13b91252602c558750b4767de801b58108d6f1d37faf0",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth403_switch_cross_source_inputs.py": "a875a3b31ad6d61935013910d2201af0a9e67698fe27b4f8cd6d5610be908698",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+  },
+  "paired_input_keys": [
+    "66950ae032f17138c2a55a999fb60cd361f5503e6263dcd697f0d5472ad2db1f",
+    "cb35ccc426cba06693467336198490ed72fb84ed3232b404bb6e0cdee9306a3a",
+    "f3da503470d3104a8cfde045c67da3334eae23eea03cba696963e1c416099893",
+    "dcad97153d800b71b7ba119b52c7d0e7b75604d913ea4f1d7ff7c61d52181d91",
+    "7d6464d6620e67ef76df2d4ac815bdcaaec5252dbf86a3bfd0ee80e76c3281c0",
+    "19b464f87574249b71a015cc5de35ce5c4e2009e828246e3e102d1920f4d1b3d",
+    "32f2673e17506807752b81ec5ac1edc8d6841fd82caeb5bfd3f74bbe4aa55703",
+    "44be664621a030420ef3e6ae4dd561c1433afcce5f3dcfe36cc196cc07ac7295",
+    "ce610191d69cc030408985de857e2f2a9c2d22098229797daa208fd0c6156dee",
+    "5de525a5273407da2cb8330c096a41d1859fd91bed1f9a52ac7b3543d963a11b",
+    "68e2491af5ce7c9722ab099936f2340cee3a3a3772bc654d2ac64633e71ccfeb",
+    "9ee1f7e85b38e8ca6ae842b3c69edd89961c61fe29382b48cd6616c58fbc2827",
+    "1c50325cd22af4fa9cc0cc2597f753ebee0eca6c9805ea250b66765212d990e9",
+    "3e034e233281c284e98908b4b6a5c736e6d3fb9472665867670e80c5eb8cbbba",
+    "807c2528f236b7f4b72661bb8f7e66798d35180915e93e43971e6d1b3b63388c",
+    "047587f4158e6fa2ce8d72a0f2fe3929d9662615b84e9cafe7137a25913a2bed",
+    "2e2af9623aeed8c2947af125a34bef33a47f62583760ee8c0637404dfe22e5bf",
+    "dd7b6c26872b3636595378a431a1ee51ee3101be24a4713123d511474d3b96b2",
+    "40dd95ecccb86c856f5cb224b7658ae85832da1765cc93a91537b49cf62c1f65",
+    "0b6bff55aa3a8bc0a7a4e2e3c92b0e661c6705bd15345eef57bb05f0344752de",
+    "4c39efefc02fb42b5e6926c628e62cd694fe59840527b679b05d93d86f2d8c2c",
+    "dc6750fdd3da9817bd46061ce632ab4b49cc9009f0d331f5c3122abe23572ce1",
+    "63a3034c119ce3b357f2e277b568a6a5afc01f3e923b7dbf1252b6c72f6335c5",
+    "e9a64ac41a96ac29ca8f0e1cfeb5d6e49f6b3c5428ae582d7ba5ac24c16ff848"
+  ],
+  "runtime": {
+    "numpy": "2.4.6",
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "arithmetic": "F64 fit; F32 two-factor inference diagnostic"
+  },
+  "gates": {
+    "all24_trace_hashes_and_pairing_keys_fresh_exact": true,
+    "development18_validation6_split_exact": true,
+    "all12_rank32_condition_gates": true,
+    "mean_only_control_exact": true,
+    "all_predictions_finite": true,
+    "BLAS_one_thread": true
+  },
+  "input_eligibility_ALL12": false,
+  "decision": "reject_this_fixed_rank32_input_interface_before_selector_or_model_construction",
+  "resource": {
+    "main_seconds": 1.5780000000004293,
+    "maximum_checked_rss_bytes": 102068224,
+    "map_F32_parameter_bytes_ALL12": 2433024,
+    "active_coefficients_ALL12": 589824
+  },
+  "scope": "ONE predeclared rank32 affine PCR per bank, trained only18 consumed development books. Six consumed validation books are calibration holdout, not new original-relative quality. No rank/hyperparameter search. Input hidden prediction alone cannot prove function-response preservation/output alignment, usefulness/new384 selector/artifact, accepted rate or physical DRAM. Prior403 identity diagnostics were observed; validation map errors first observed404. No source-weight read/model inference/network/GPU/T4 here."
+}

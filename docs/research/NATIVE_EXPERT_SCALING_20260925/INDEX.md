@@ -2,7 +2,7 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: actual384-bank source transfer applicability; larger useful n remains open.**
+whole-quality/SAMEartifact FULL-rate qualification. Next: full-basis input alignment applicability; useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -123,11 +123,17 @@ no hidden-space/functional alignment, learned selector or useful384 model yet.
 MAIN294.406s/max41.673MB, no model/new network/training/GPU/T4. Byte distinction
 is not canonical function uniqueness or usefulness; no source quality inheritance.
 
-Next proposed402: shared real calibration IDs/prefixes/paired normalized hidden
-and function-response screen before cross-source selector adaptation. See
-[transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md). Small24-case first
-screen measures differences; insufficient samples cannot identify a full768D map.
-Freeze source exclusions/book split/local gates/binary/artifact/profile before
-observations. No402 scientific code/protocol/run yet.384 is1.5x/same family,
-not selectable useful n today. Qualified374/389 intact; useful10x/another family/
-~100B/physical DRAM still open. All399/400/401 sessions fully terminal; no live job.
+[402 first failure](METH_402_SWITCH_CROSS_SOURCE_INPUTS_RESULT_20261004.md): process
+classification only, retained6f0bff4. [403 paired input screen](METH_403_SWITCH_CROSS_SOURCE_INPUTS_RESULT_20261004.md),
+frozen f79b7ba/retained419fba4: ALL9 apparatus PASS,24 consumed shared cases,
+complete128 trace outputs SHA exact plain389; ALL12 raw identity interfaces FAIL.
+[404 fixed rank32 map](METH_404_SWITCH_RANK32_INPUT_MAP_RESULT_20261004.md),653ad03:
+ALL6 apparatus PASS/ALL12 input gates FAIL; validation median error0.649-0.897.
+No selector/model/quality/rate inherited. No new held-out quality docs consumed.
+
+Next proposed405: expand SAME paired source/prefix calibration to all four
+consumed362 cases/book, preserving18/6 books; gate actual768 rank/conditioning
+before a full-basis affine fit. See [transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md).
+No405 code/protocol/run.384 is1.5x/same family, not useful selectable n yet.
+Qualified374/389 intact; useful10x/another family/~100B/physical DRAM still open.
+All402/403/404 sessions terminal; no live job. Preserve unrelated working changes.

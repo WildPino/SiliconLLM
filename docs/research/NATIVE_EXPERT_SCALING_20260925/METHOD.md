@@ -14,8 +14,10 @@ are not evidence of transferred capability.
 
 401 binds real128+256 source banks into a prospective384-candidate pool fitting
 22.094GB RAM; ALL ordered byte pairs distinct but ALL236 common core/control
-names differ. No combined model/useful extra n/quality/rate yet.402 paired real
-hidden/function alignment must precede a new selector and fresh complete gates.
+names differ.403 paired inputs reject identity in all12 banks;404 fixed rank32
+input maps fail all12 local validation gates. No combined model/useful extra n/
+quality/rate yet. Proposed405 tests full-basis identifiability on more SAME paired
+consumed cases before source-function/output alignment and a new selector.
 399/400 GigaChat full-width LUT cost paths failed despite numeric controls.
 See final sections and [transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md).
 
@@ -858,16 +860,32 @@ core names differ; compatible operators do not prove common hidden semantics.
 MAIN294.406s/max41.673MB/22.36GB hashed, exceeds2min estimate but inside10min/
 2GiB stop. No model/new weights/training/GPU/T4, payloads unchanged.
 
-[Prospective transfer mechanism](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md):
-402 shared real calibration/paired normalized hidden and function-response screen
-before selector adaptation.24-case first screening cannot identify a768D full
-map with insufficient independent decoder samples; constrain identifiable rank
-or freeze a separately larger cohort. Shared context/token/prefix identities
-must be actual; the old two quality cohorts are not automatically paired. Freeze
-source exclusions/book split/binary/profile/local gates before new observations.
-No402 code/protocol/run yet. Byte-distinct pairs are not canonical function
-uniqueness/usefulness. Naive concatenated normalization/core/function assumptions
-cannot inherit old quality/rate. New384 choices need learned selection/real
-usefulness, NEW original-relative whole quality/SAMEartifact FULL rate. This
-same-family1.5x256 is not another-family/10x/~100B/actual DRAM proof. All sessions
-terminal; qualified old374/389 artifacts and whole method results preserved.
+[Transfer mechanism and current resumption](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md):
+402 process-classification apparatus failure retained before model observations.
+403 (f79b7ba/419fba4) ALL9 apparatus PASS:24 consumed362 case0 books, common
+fresh tokenizer hashes and SAME source/prefix IDs; qualified393 source256 traces
+freshly bound, original128 new capture complete SHA exact plain389. Actual
+workers/negative controls exact. ALL12 identity input interfaces FAIL; norms are
+nonzero, median cosine near zero. MAIN75.5s/max1.410GB; no quality/rate claim.
+
+404 (653ad03) ONE fixed rank32 affine PCR fit only18 development books,6 validation
+books fixed by403: ALL6 apparatus PASS/ALL12 local input gates FAIL. Median
+relative errors0.649-0.897,95th0.728-1.091; squared error0.633-0.936 of mean-only,
+exceeding0.25/0.50/0.50 bounds. MAIN1.578s/max102.068MB. Failed maps2,433,024 F32
+bytes,589,824 active coefficients; protocol doubled-count typo explicitly
+[clarified](METH_404_RANK32_COEFFICIENT_SCOPE_CLARIFICATION_20261004.md). Original
+scientific records immutable. Input prediction alone never licenses quality.
+
+Proposed405: all four consumed362 cases with SAME forced prefixes/paired source
+traces, preserving18/6 books. Development2088 encoder/1008 decoder positions
+permits testing actual independent768 rank/conditioning, not assuming it.
+Full-basis affine mapping is a NEW capacity hypothesis; freeze before responses
+and fit. No405 controller/protocol/run yet. A success licenses only actual source
+function-response/output-space tests. This fixed-rank failure does not reject
+all learned cross-source adaptation. No new quality documents consumed so far.
+
+Byte-distinct pairs are not canonical function uniqueness/usefulness. A real384
+selector/model ultimately requires new excluded-document original-relative whole
+quality and SAMEartifact FULL accepted rate, including useful additional source
+functions. No source quality inheritance. Same-family1.5x256 is not another-family/
+10x/~100B/physical DRAM evidence. Qualified374/389 unchanged; all sessions terminal.
