@@ -9,8 +9,9 @@ document-only snapshot.442's first admission stop remains retained;443 completed
 the SAME causal test. Native source128 ID+1 has mean KL.17646/41argmax changes;
 identity matters locally.441's one-function benefit does not show source functions
 are interchangeable.444 global contrast subspaces fail validation even at256;
-development energy is88.44%dominated by two position0 anchors. Next NEW445:
-equal-relative-anchor covariance/local spectra, no new model forwards/440 tuning.
+development energy is88.44%dominated by two position0 anchors.445 equal-relative
+weighting also fails:256 val78.52%. Local oracle ranks95%=75..87 at validation,
+not per-expert rank bounds. Next matrix-level base/delta/private ReLU/cost pilot.
 
 ## Goal and constraints
 
@@ -87,6 +88,10 @@ chain component not identified.67.25s/1.854GB/138.841MB/zero updates.
 ALL8apparatusPASS/24anchors/all128functions. Rank32 dev96.52%/val62.80%, rank256
 val79.10%/KL.04539; no fixed rank passes. Two position0 dev anchors dominate88.44%
 energy.109.937s/2.063GB/634.450MB. Close specific absolute-energy PCA recipe.
+- 445 [relative/local geometry](METH_445_SWITCH_RELATIVE_CONTRAST_RESULT_20261004.md):
+ALL7apparatusPASS/zero forwards; balanced256 macrodev90.50%/val78.52% fails.
+Local95%rank75..87val, no posterior/generalization/runtime proof.2.078s/553.853MB/
+15.770MB. Close weighting-only correction; private bases remain a different question.
 
 ## Closed routes and retained context
 
@@ -102,20 +107,16 @@ Frozen donor-adaptation Giga work remains reusable evidence, not active old plan
 
 ## Exact resumption
 
-Read [strategic review and decision plan](STRATEGIC_REVIEW_20261004.md).
-The latest user instruction explicitly resumes the goal, superseding the earlier
-analysis-only scope.442's static count-versus-index defect was repaired before
-freeze. [Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes
-all controls, information metric and first-stop limits before any forward.
-Its150s inclusive guard stopped during hashing. NEW443 separated admission
-<=300s/numerical<=150s/total<=450s, completed with native identity effect.
-444 fixed global geometry failed. NEW445 will distinguish relative weighting
-from local contrast dimension using retained444 responses, no forward. Freeze first.
+The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_20261004.md).
+442's first admission stop is retained;443 proves native local identity effect.
+444/445 close the tested global-output bases and weighting-only correction.
 
-[Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
-NEW442 original128 final-bank replay/counterfactual at336captured prefixes. ALL
-original full logits exact420 first; fixed0,ID+1 andremoval keep original128
-input/probability/pre/finalnorm/head, no foreign readout/fit. Diagnose native
-mean self-teacher KL>=.01 before new source-sensitive readout or broader-bank
-capture. Freeze controller/protocol/resources first. Whole quality/SAMEartifact50/
-usefulRAM-n/LUT/realDRAM/families/~100B open; original binaries/engine intact.
+[Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): prepare ONE
+NEW matrix-level single-donor base/delta feasibility pilot. Preserve private
+nonlinearities, allow per-expert bases, account for admissible coupled neuron
+symmetries and actual active cost. In top1 a full shared base plus private factors
+adds arithmetic; possible storage savings alone do not qualify rate. No NEW446
+controller/protocol/outcome exists. Freeze before matching/SVD/fit/native work.
+
+UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
+open. All first failures/outputs retained; original binaries and engine intact.

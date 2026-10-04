@@ -8,7 +8,9 @@ not an implemented method.442's first admission stop retained;443 completed the
 same causal test: native ID+1 mean self-KL.17646/41argmax changes. Original identity
 matters locally; foreign transfer's weak effect does not localize the failure.
 444 absolute-energy global PCA fails validation up to256; two position0 inputs
-dominate88.44%development energy. NEW445 relative-weight/local-spectrum diagnosis.
+dominate88.44%development energy.445 relative weighting also fails; local95%
+rank75..87val concerns collective functions, not per-expert delta rank. Next
+matrix-level single-donor base/delta/private-nonlinearity/cost feasibility.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
@@ -105,7 +107,7 @@ input by.010901;19locally useful IDs but globalgainabout.5%/permutation harm
 readout/mask, expert0 preserves99.6585%benefit; input rotation harms.00003699.
 Teacher-ID counts do not establish useful conditional capacity. Close fixed
 shared-readout recipe before tuning/selector fitting.53s/1.680GB/zero updates.
-Next [original function causality](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+Latest original-function causality and geometry:
 NEW442 native source128 final-bank identity/removal before foreign readout.
 [Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes exact
 heads first, then three fixed controls,150sec/3GiB/160MiB and first-stop retention.
@@ -115,7 +117,11 @@ same math and thresholds;443 completed ALL5apparatusPASS/67.25s/1.854GB.
 Fixed0/ID+1/removal mean KL.07820/.17646/.03270. NEW444 single-donor functional
 mean/contrast geometry: ALL8apparatusPASS but all ranks fail; even256 retains
 only79.10%validation private energy/KL.04539. Oracle decomposition is not runtime.
-NEW445 fixed relative-weight/global-versus-local geometry before further fits.
+445 ALL7apparatusPASS/zero forwards:balanced256 dev90.50%/val78.52%, local95%
+rank75..87val. No weighting-only repair; private expert-specific bases not excluded.
+Next [matrix-level common/private feasibility](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+coupled admissible neuron alignment, per-expert delta bases, private ReLU and
+explicit coefficient/precision/active-cost accounting before any new fit.
 All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 
