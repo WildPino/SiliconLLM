@@ -1,4 +1,6 @@
-#ifdef SILICON_ADDITIVE_INTEGER_LUT_COST_PROFILE
+#ifdef SILICON_BLOCKED_INTEGER_LUT_PREFLIGHT
+#include "../native_expert_scaling/meth400_blocked_integer_lut_cpu.c"
+#elif defined(SILICON_ADDITIVE_INTEGER_LUT_COST_PROFILE)
 #include "../native_expert_scaling/meth399_integer_lut_cost_profile_cpu.c"
 #elif defined(SILICON_ADDITIVE_INTEGER_LUT_PREFLIGHT)
 #include "../native_expert_scaling/meth398_additive_integer_lut_cpu.c"
