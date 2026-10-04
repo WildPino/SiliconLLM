@@ -1,0 +1,3652 @@
+{
+  "experiment": "METH-413-Granite-source0-full-row-I8-A16-synthetic-cost",
+  "runs": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\negative_worker"
+      ],
+      "negative": true,
+      "threads": 3,
+      "returncode": 2,
+      "seconds": 0.18800000000010186,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3d36a88c4bfd07d19bcbb0196e80f2f54a0f3b5a11a799639339d72a4f7d2ff3"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 1.3289999999997235,
+      "stdout_sha256": "cb2258fccb95068890415fa5f71df84fe0ac30294da8ef690e09a946b17976e1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run0_t3.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.3684241,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 6432,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18916,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 9772,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 6432,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18916,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 9772,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "tile_checks": {
+        "event": "tile_selftest",
+        "all_weight_representative_A16_cases": 2805,
+        "independent_lane_cases": 11220,
+        "four_I64_extrema_and_truncation_checks": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454477312,
+        "total_seconds": 1.2208494,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 6432,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18916,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 9772,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 6432,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18916,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 9772,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.021352600001,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.018138899999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.020265499999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0178775,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0186827,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0198827,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.017963200002,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0207402,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0179458,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.018461199999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.019124699998,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0185256,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.017861600001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0177826,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0176312,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.019641700001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.018728300001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.018294099998,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.021396300001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0201507,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.018687199999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0175967,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.019210500001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0184938,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.018971,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.018560699998,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0184087,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0176603,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017619300001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.020789800001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0185719499995,
+        0.0185111999995,
+        0.018527249999
+      ],
+      "fixed_input_medians_seconds": [
+        0.019210500001,
+        0.0178775,
+        0.0186827,
+        0.019641700001,
+        0.0184087,
+        0.018294099998,
+        0.0179458,
+        0.0201507
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 1.875,
+      "stdout_sha256": "7d8086e39ad91d75a70df155b4a7bbf2c6566cc8ff5bd33f533dba5bb691efce",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run1_t6.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.3009415,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 22980,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22824,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 21100,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20280,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25356,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 26344,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 2,
+            "windows_thread_id": 21100,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22824,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20280,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25356,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 26344,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 22980,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "tile_checks": {
+        "event": "tile_selftest",
+        "all_weight_representative_A16_cases": 2805,
+        "independent_lane_cases": 11220,
+        "four_I64_extrema_and_truncation_checks": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454551040,
+        "total_seconds": 1.7626858,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 22980,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22824,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 21100,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20280,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25356,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 26344,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 2,
+            "windows_thread_id": 21100,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22824,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 20280,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 25356,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 26344,
+            "group": 0,
+            "actual_mask": 1024
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 22980,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017929200001,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0185401,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0171297,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0322003,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.017016199999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.045585100001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.017471199999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0208444,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017881899999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.017156200001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0179675,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0172647,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.016220500002,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.015836899998,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0169898,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.017589999999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0169757,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.018208400001,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0565221,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.017211599999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017123,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.017963299999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.031366500001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0178891,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0284484,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0228011,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0187255,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.029534200001,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017769600001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0465374,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.017676549999,
+        0.0171006999995,
+        0.02562475
+      ],
+      "fixed_input_medians_seconds": [
+        0.0171297,
+        0.0178891,
+        0.017016199999,
+        0.0228011,
+        0.017471199999,
+        0.0208444,
+        0.017881899999,
+        0.017211599999
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 1.8119999999998981,
+      "stdout_sha256": "d23e5375e6b37a0aaa7435377066821c3758e9fbd32e15bcac37bafaa23191be",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run2_t6.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.2858095,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 21396,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 5132,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19572,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 18800,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 22600,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 25680,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 3,
+            "windows_thread_id": 18800,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 5132,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 21396,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19572,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 22600,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 25680,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "tile_checks": {
+        "event": "tile_selftest",
+        "all_weight_representative_A16_cases": 2805,
+        "independent_lane_cases": 11220,
+        "four_I64_extrema_and_truncation_checks": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454559232,
+        "total_seconds": 1.6688372,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 21396,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 5132,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19572,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 18800,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 22600,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 25680,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 3,
+            "windows_thread_id": 18800,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 5132,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 21396,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 19572,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 22600,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 25680,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0163794,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.018909,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.018242600001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0304595,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.017824799999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.017616900001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.018876399999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0177759,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0173058,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.017135100001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.016501099999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.018283200001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.018802500001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.018801600001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.016817600001,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.016183900001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0159425,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.016345299999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.015995600001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.016037899999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0160767,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0159081,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0163997,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.015922100001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0160762,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0160999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0166192,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.016014499999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.016149900001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0162007,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0178003499995,
+        0.0162646,
+        0.0161249000005
+      ],
+      "fixed_input_medians_seconds": [
+        0.018242600001,
+        0.018801600001,
+        0.016817600001,
+        0.016183900001,
+        0.0166192,
+        0.016345299999,
+        0.016149900001,
+        0.0162007
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 1.7189999999991414,
+      "stdout_sha256": "d58ccf659d2a91ac063f1ee1bd233189661328f1866d2c963a971e5360522669",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run3_t3.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.3481934,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20080,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23080,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18936,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20080,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23080,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18936,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "tile_checks": {
+        "event": "tile_selftest",
+        "all_weight_representative_A16_cases": 2805,
+        "independent_lane_cases": 11220,
+        "four_I64_extrema_and_truncation_checks": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454473216,
+        "total_seconds": 1.5835146,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20080,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23080,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18936,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 20080,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 23080,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18936,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0172511,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.017710099999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0174147,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.017613399999,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.017555300001,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.017506900002,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.017499900001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.017460399999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017474,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0176976,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017638899999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.0177398,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.017306400001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0175485,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.017424600001,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.017351500001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.017319799999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.017234299999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0173896,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.017214699999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017370099999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.017611699999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.017235399999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.017353200001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.017480299999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0173598,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.017427499999,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0172948,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017195599999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.017346300001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0175034000015,
+        0.01733565,
+        0.017349750001000003
+      ],
+      "fixed_input_medians_seconds": [
+        0.017306400001,
+        0.0175485,
+        0.017480299999,
+        0.0173598,
+        0.017427499999,
+        0.0172948,
+        0.0173896,
+        0.017346300001
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+        "3",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3"
+      ],
+      "negative": false,
+      "threads": 3,
+      "returncode": 0,
+      "seconds": 1.9840000000003783,
+      "stdout_sha256": "d28b923e549b0a80cff8af9a20c9b6870082767774cc62cda7a51cd300774e91",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run4_t3.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 3,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.3567088,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25624,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 17464,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2096,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25624,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 17464,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2096,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "tile_checks": {
+        "event": "tile_selftest",
+        "all_weight_representative_A16_cases": 2805,
+        "independent_lane_cases": 11220,
+        "four_I64_extrema_and_truncation_checks": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454469120,
+        "total_seconds": 1.8544865,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25624,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 17464,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2096,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 25624,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 17464,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 2096,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017355399999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.017511100001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.018848199999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0176722,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.018376600001,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0174713,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0176041,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.017464999999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017496299999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.017384299999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017502299999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.017174300001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.017129799999,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0175234,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.0175875,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.018089499999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0171149,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.017268200001,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.017310000001,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.0172069,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.017284399999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.017244499999,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.017573800002,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0172841,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.017234299999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.017507300001,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0172642,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.017315999999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0189302,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.017109500001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0175501999995,
+        0.017289100001,
+        0.0173000499995
+      ],
+      "fixed_input_medians_seconds": [
+        0.017573800002,
+        0.0175234,
+        0.0175875,
+        0.017507300001,
+        0.0172642,
+        0.017315999999,
+        0.017496299999,
+        0.0172069
+      ]
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+        "6",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6"
+      ],
+      "negative": false,
+      "threads": 6,
+      "returncode": 0,
+      "seconds": 1.4840000000003783,
+      "stdout_sha256": "3e2d3c5f7536d4ca819ba6b677f53c21015c7aec920ba6ed0fdc70f49cb48c5b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs": [
+        {
+          "input": 0,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input0.bin",
+          "bytes": 3515716,
+          "sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70"
+        },
+        {
+          "input": 1,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input1.bin",
+          "bytes": 3515716,
+          "sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5"
+        },
+        {
+          "input": 2,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input2.bin",
+          "bytes": 3515716,
+          "sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76"
+        },
+        {
+          "input": 3,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input3.bin",
+          "bytes": 3515716,
+          "sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5"
+        },
+        {
+          "input": 4,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input4.bin",
+          "bytes": 3515716,
+          "sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b"
+        },
+        {
+          "input": 5,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input5.bin",
+          "bytes": 3515716,
+          "sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd"
+        },
+        {
+          "input": 6,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input6.bin",
+          "bytes": 3515716,
+          "sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4"
+        },
+        {
+          "input": 7,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input7.bin",
+          "bytes": 3515716,
+          "sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e"
+        },
+        {
+          "input": 8,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input8.bin",
+          "bytes": 3515716,
+          "sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0"
+        },
+        {
+          "input": 9,
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\run5_t6.input9.bin",
+          "bytes": 3515716,
+          "sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311"
+        }
+      ],
+      "ready": {
+        "event": "ready",
+        "all_values_synthetic": true,
+        "layers": 24,
+        "dimension": 1024,
+        "stored_banks": 32,
+        "selected": 8,
+        "threads": 6,
+        "active_coefficients": 427819008,
+        "active_scales": 2064384,
+        "stored_coded_coefficients": 1333788672,
+        "allocated_dynamic_bytes": 1443299328,
+        "setup_seconds": 0.1989362,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 1652,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21812,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 7668,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 26224,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 20812,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 21724,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 2,
+            "windows_thread_id": 7668,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21812,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 1652,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 26224,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 20812,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 21724,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "checks": {
+        "event": "selftest",
+        "exact_integer_rows": 3848,
+        "stored_bank_offset_checks": 3266,
+        "integer_relative_l2": 2.4580692885963728e-08,
+        "synthetic_head64_relative_l2": 3.262856583145958e-08,
+        "reference_route_layers": 24,
+        "all_weight_representative_A16_cases": 2805,
+        "bad_bank_rejected": true,
+        "head_bit_change_detected": true,
+        "code_fault_detected": true,
+        "row_scale_fault_detected": true,
+        "I32_global_truncation_detected": true,
+        "zero_ties_nonfinite_quantizer": true,
+        "scalar_all_fixture_activation_codes": true,
+        "router_ties_and_sorted_softmax": true,
+        "independent_norm_SiLU_residual_controls": true,
+        "BF16_lookup1024_times12_exact": true
+      },
+      "tile_checks": {
+        "event": "tile_selftest",
+        "all_weight_representative_A16_cases": 2805,
+        "independent_lane_cases": 11220,
+        "four_I64_extrema_and_truncation_checks": true
+      },
+      "finished": {
+        "event": "finished",
+        "minimum_selected_union": 27,
+        "maximum_selected_union": 32,
+        "peak_rss_bytes": 1454555136,
+        "total_seconds": 1.398313,
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 1652,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21812,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 7668,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 26224,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 20812,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 21724,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 2,
+            "windows_thread_id": 7668,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21812,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 1652,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 3,
+            "windows_thread_id": 26224,
+            "group": 0,
+            "actual_mask": 64
+          },
+          {
+            "slot": 4,
+            "windows_thread_id": 20812,
+            "group": 0,
+            "actual_mask": 256
+          },
+          {
+            "slot": 5,
+            "windows_thread_id": 21724,
+            "group": 0,
+            "actual_mask": 1024
+          }
+        ]
+      },
+      "operators": [
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0140823,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.015669300001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0151534,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0152836,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.015652799999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.015040099999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.0152289,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.015204199999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.015457899999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 0,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.014902200001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.0151683,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.014355200001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.0138735,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.0169771,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.014903900001,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.0138692,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.015197100001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.014019799999,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.0144478,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 1,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.014038500001,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 0,
+          "warmup": true,
+          "seconds": 0.014015299999,
+          "complete_output_sha256": "9854dae9fb25c55a35f6e453f5d6fa580a6d8278dd61c6f7338fabcd73124a70",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 1,
+          "warmup": true,
+          "seconds": 0.013955100001,
+          "complete_output_sha256": "36ba94d422dda5c1e27bad38d62f91a12ad9132d3e7a060ef151bf1a66d975a5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 2,
+          "warmup": false,
+          "seconds": 0.015139000001,
+          "complete_output_sha256": "83dbfa805fc8cb597fa3b6e056184b2f209ff8bbfec10957e9c1fa4438076b76",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 3,
+          "warmup": false,
+          "seconds": 0.014653800001,
+          "complete_output_sha256": "ac864f7d193e22130370f8a655489e4aaf1dc9501719f5e22f99d7c505b1ccb5",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 4,
+          "warmup": false,
+          "seconds": 0.014340899999,
+          "complete_output_sha256": "061a869acc169da3acb80cbc411bc9faf1bbb4cb430d70b94798352b09dacc9b",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 5,
+          "warmup": false,
+          "seconds": 0.014756799999,
+          "complete_output_sha256": "75214675620533d67065a8146bd123da42bc3de2cf1419cc75aad539373341fd",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 6,
+          "warmup": false,
+          "seconds": 0.014858800001,
+          "complete_output_sha256": "6a240f8f6433482a6b804683fd941a05caaf4bafb4404286b10ce89c41ad27b4",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 7,
+          "warmup": false,
+          "seconds": 0.0139686,
+          "complete_output_sha256": "14f406ddd4d300c462bd6ea80900408ba1f33c3a1c6dd6de64855703b94fc92e",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 8,
+          "warmup": false,
+          "seconds": 0.014556799999,
+          "complete_output_sha256": "d13e9c742d06902967a49f951ab5721e9a63430b5d021989bb98e117ee8d8ac0",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        },
+        {
+          "event": "operator",
+          "rep": 2,
+          "input": 9,
+          "warmup": false,
+          "seconds": 0.014472499999,
+          "complete_output_sha256": "f8442ea37481db6fe6681438c60b2ec2d5cca48e093e3fa0e07e369df370d311",
+          "executed_coefficients": 427819008,
+          "weight_descriptor_bytes": 433231872
+        }
+      ],
+      "rep_medians_seconds": [
+        0.0152165499995,
+        0.014243150000499999,
+        0.0146053
+      ],
+      "fixed_input_medians_seconds": [
+        0.015139000001,
+        0.0152836,
+        0.014903900001,
+        0.014756799999,
+        0.015197100001,
+        0.014019799999,
+        0.014556799999,
+        0.014472499999
+      ]
+    }
+  ],
+  "bindings": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth413_granite_i8_four_rows.py": "d8a790ffdbe6ab4a4108b4f5c4ea1f0be575181fc4dcd07908b4f8f045369f77",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth413_granite_i8_four_rows_cpu.c": "c1006b21d251e986198625654c909352050da2ee8291baba8615982687834722",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c": "12d6884298ce8d4fcee0fb68594b9d9eb67d922bfebc44c10e107f1cfc391f25",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_413_GRANITE_I8_FOUR_ROWS_PROTOCOL_20261004.md": "2ec7120c3ec75dbf328e8e4cfa9d955fb9b01ce9000036001e8642604838da45",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth411_granite_moe_source_headers_result.json": "a3260f95f5d93b4fd457487dda9a586d1c7dbc0d50596176f84042d4e0cb76bc",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth374_switch_physical_workers_contract_result.json": "4601be80b787341f6d60e01f7219c1cd4cd71c0451f835d25e31ded3c468f4b1",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth412_granite_i8_cost_result.json": "cb02f6413dfde4748872de1fefaf4df7d0462e03f41d2283451cbf3fcc6fe7bb",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth412_granite_i8_cost_cpu.c": "535a805962f9f2dbc551361350de06e1a5560016946d8ed91828e0fb23168e74",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth412_granite_i8_cost.py": "167b63f1586c10438acb616e83472c8cce09c07a0353944abb9a58f5fe7a15d1",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_412_GRANITE_I8_COST_PROTOCOL_20261004.md": "94846db862c5e42c6df4815f9d0ea27ba2e864ac7ce1d6b849318572d781ae6a",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth359_switch_cost_topology.py": "b3e52df3691231d6e6515a027be927b02082dd575419610ba6b57d43c837a806",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth388_switch_thread_binding.h": "bd4a8cbf88f1f7f8f279bc8eae7dbc3968433232d6f73a5f4c1df9c4ce4fabe9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth388_switch_three_workers.c": "aa01ce176ad54f1410a5d93eb628de8e887172225ae85a99f611168a9097fa48",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_f32_dot_reference_generic.h": "362abe0f3fddb6e49b55ce289cbb4212f3b5fa001b991b4a84db894e573d0ccd"
+  },
+  "frozen_HEAD": "99dc6b141d9dd5df5c4be121f7932cce9a949794",
+  "previous412_complete_output_binding": {
+    "raw_sha256": "cb02f6413dfde4748872de1fefaf4df7d0462e03f41d2283451cbf3fcc6fe7bb",
+    "baseline_cpu_sha256": "535a805962f9f2dbc551361350de06e1a5560016946d8ed91828e0fb23168e74"
+  },
+  "source_assets": [
+    {
+      "name": "config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\config.json",
+      "sha256": "25af0a4e4e85b781fa22c7cab240cda31714254a9d3d0f2f67e079693e1dd614",
+      "git_blob_id": "745881f0ef9ec8ff8d969a410ab25671854c8a41",
+      "bytes": 891
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\model.safetensors.index.json",
+      "sha256": "e6fcaa59c4b5c12de1a6c0a2382a6aeea42ce98d0b1de681e649f85b739e07c8",
+      "git_blob_id": "4ec400ca9c6f8f9e65d6d748a28a7414f0328096",
+      "bytes": 19171
+    },
+    {
+      "name": "generation_config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\generation_config.json",
+      "sha256": "9908b9afa37288491e32f2d9e818222d70ad66fee0f5be2bf9317a8dc73b7ae2",
+      "git_blob_id": "a31b06097b4da2a0fca6ff8a766782b35cddf076",
+      "bytes": 132
+    },
+    {
+      "name": "tokenizer.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\tokenizer.json",
+      "sha256": "d3b4df07a0ce3940b15c77e2ea17ab5627ca0c4bf982d2eb37966aea0a81c918",
+      "git_blob_id": "4aa94164a898c41c89c347f753c08a82b52e620f",
+      "bytes": 2057451
+    },
+    {
+      "name": "tokenizer_config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\tokenizer_config.json",
+      "sha256": "0764d3ae3830187f63cfe568c754d99900fed85fc9d071e6cfe2add9f555b6bb",
+      "git_blob_id": "e72c686d55d39777040cda554da071a1df3c3f38",
+      "bytes": 4126
+    },
+    {
+      "name": "special_tokens_map.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\special_tokens_map.json",
+      "sha256": "2f2bba45146f073a7b8a097cb6133a6b4b66d5751e73f2a2aca81083288813e9",
+      "git_blob_id": "7dec8d5885c2e56764c4416d6fa4e1baa024b139",
+      "bytes": 1020
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\model-00001-of-00002.safetensors.header.json",
+      "sha256": "7f4df05057e8b8777eb95e1670f04cb0c8c46103d930e73c8b6969ba8c7f96fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\source0\\model-00002-of-00002.safetensors.header.json",
+      "sha256": "f4cf6b626a1583bd50fd4521d2b4a970dc92c6ccadefd163aa54951c7aff4f54"
+    },
+    {
+      "name": "modeling_granitemoe.py",
+      "sha256": "6bd8829f07902a061168d0f600774b95fca9382aa9e102a6c1def37f95b614ed",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages\\transformers\\models\\granitemoe\\modeling_granitemoe.py",
+      "stored_copy": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\modeling_granitemoe.py",
+      "executed": false,
+      "version": "Transformers4.57.6"
+    },
+    {
+      "name": "configuration_granitemoe.py",
+      "sha256": "6d930c9775bc203cfd55f6cdf7c637f4ad762bb0b6326d03d7ee35be7832c5f5",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Lib\\site-packages\\transformers\\models\\granitemoe\\configuration_granitemoe.py",
+      "stored_copy": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth411_granite_moe_source_headers\\configuration_granitemoe.py",
+      "executed": false,
+      "version": "Transformers4.57.6"
+    }
+  ],
+  "ledger": {
+    "source411": {
+      "coded_core_and_selected_expert_I8_bytes": 377487360,
+      "coded_row_F32_scale_bytes": 1867776,
+      "full_head_I8_bytes": 50331648,
+      "head_row_F32_scale_bytes": 196608,
+      "all_router_F32_bytes": 3145728,
+      "norm_F32_bytes": 200704,
+      "one_BF16_lookup_row_bytes": 2048,
+      "descriptor_bytes": 433231872,
+      "under560MB": true
+    },
+    "stored411": {
+      "coded_core_and_all_expert_I8_bytes": 1283457024,
+      "coded_row_F32_scale_bytes": 6586368,
+      "head_I8_bytes": 50331648,
+      "head_row_F32_scale_bytes": 196608,
+      "full_lookup_BF16_bytes": 100663296,
+      "router_and_norm_F32_bytes": 3346432,
+      "total_bytes": 1444581376
+    },
+    "expected_allocated_dynamic_bytes": 1443299328,
+    "expected_integer_rows": 3848,
+    "expected_bank_edge_checks": 3266,
+    "expected_archive_bytes": 3515716
+  },
+  "fresh_topology": {
+    "api": "GetLogicalProcessorInformation/RelationProcessorCore",
+    "group_scope": "single group/local<=64 logical processors",
+    "physical_cores": [
+      {
+        "processor_mask": 3,
+        "SMT_flag": 1,
+        "logical_processors": [
+          0,
+          1
+        ]
+      },
+      {
+        "processor_mask": 12,
+        "SMT_flag": 1,
+        "logical_processors": [
+          2,
+          3
+        ]
+      },
+      {
+        "processor_mask": 48,
+        "SMT_flag": 1,
+        "logical_processors": [
+          4,
+          5
+        ]
+      },
+      {
+        "processor_mask": 192,
+        "SMT_flag": 1,
+        "logical_processors": [
+          6,
+          7
+        ]
+      },
+      {
+        "processor_mask": 768,
+        "SMT_flag": 1,
+        "logical_processors": [
+          8,
+          9
+        ]
+      },
+      {
+        "processor_mask": 3072,
+        "SMT_flag": 1,
+        "logical_processors": [
+          10,
+          11
+        ]
+      }
+    ],
+    "process_allowed_logical_processors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_one_logical_per_physical_core": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "selected_processor_mask": 1365,
+    "physical_cpu_count": 6,
+    "logical_cpu_count": 12
+  },
+  "unrelated_background_processes": [
+    {
+      "pid": 12540,
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    },
+    {
+      "pid": 17984,
+      "argv": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\pythonw.exe",
+        "d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+      ]
+    }
+  ],
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "-DSILICON_GRANITE_I8_FOUR_ROWS_PREFLIGHT",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth413_granite_i8_four_rows\\meth413_granite_i8_four_rows.exe",
+      "-lm",
+      "-lpsapi",
+      "-lbcrypt"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+    "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698",
+    "binary_sha256": "8a6801270241786b3b4d29acbd66ed480529b7f92751c008df216885c7f88db9"
+  },
+  "runtime_environment": {
+    "OMP_WAIT_POLICY": "ACTIVE",
+    "KMP_AFFINITY": "none",
+    "KMP_BLOCKTIME": "infinite",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_MAX_ACTIVE_LEVELS": "1"
+  },
+  "profiles": [
+    {
+      "threads": 3,
+      "all9_rep_medians_seconds": [
+        0.0185719499995,
+        0.0185111999995,
+        0.018527249999,
+        0.0175034000015,
+        0.01733565,
+        0.017349750001000003,
+        0.0175501999995,
+        0.017289100001,
+        0.0173000499995
+      ],
+      "max_over_min": 1.0741999293442575,
+      "repeatability_1_10": true,
+      "every_rep_and_fixed_input_median14ms": false
+    },
+    {
+      "threads": 6,
+      "all9_rep_medians_seconds": [
+        0.017676549999,
+        0.0171006999995,
+        0.02562475,
+        0.0178003499995,
+        0.0162646,
+        0.0161249000005,
+        0.0152165499995,
+        0.014243150000499999,
+        0.0146053
+      ],
+      "max_over_min": 1.7990928972243119,
+      "repeatability_1_10": false,
+      "every_rep_and_fixed_input_median14ms": false
+    }
+  ],
+  "gates": {
+    "only_new_four_row_math_variant_from412": true,
+    "independent_four_row_extrema_all_weight_A16_tail_controls": true,
+    "ALL180_SHA_and60_whole_archives_exact412": true,
+    "exact_reused388_A16_I64_primitives_and_old_engine_paths": true,
+    "full411_stored_active_descriptor_reconciled": true,
+    "all_scalar_head_route_bank_quantizer_norm_nonlinear_and_negative_controls": true,
+    "negative_actual_worker_fault_detected": true,
+    "all_actual_3_and6_worker_process_event_readbacks": true,
+    "ALL180_complete_output_SHA_match60_archives": true,
+    "all60_archived_complete_outputs_byte_exact_across_process_profiles": true,
+    "all_archive_lengths_shapes_ids_and_inputs_independently_parsed": true
+  },
+  "decision": "reject_this_four_row_variant_and_stop_Granite_I8_kernel_route_before_source_values",
+  "resource": {
+    "main_seconds": 13.546000000000276,
+    "maximum_checked_combined_rss_bytes": 1497288704,
+    "new_output_bytes": 212557243
+  },
+  "scope": "ALL values synthetic, actual411 source0 geometry. ALL24 complete I8 attention projections and selected8 packed gate/up/down matrices, full49152x1024 I8 head, full32-score F32 router, norms, A16 quantization, SiLU/mixtures/residuals, BF16 lookup*12, residual*.22 and head/6. Independent layer/context fixtures, F64 norm reduction and declared lower-ID ties; no original Torch/backend parity. Causal attention/attention scale .015625/RoPE/GQA execution/KV/cache/layer composition/prefill/tokenization/generation/task/source values/source quality/physical DRAM are OMITTED. Conservative full weight descriptor is not physical traffic. Lower-bound cost screen only, not accepted tokens/s or useful32/>256/10x/RAM-scale functions. No network/training/GPU/T4."
+}
