@@ -31,6 +31,35 @@ to routes, not that every expert is useful or that more n causes better quality.
 A genuinely larger learned bank still needs its own untouched whole tests.
 No control experiment is executed from this planning memo.
 
+## Matched-donor intervention for causal extra-bank usefulness
+
+Before downloading another donor, a separately frozen nested-subset assay can
+compare actual learned64/128/256 functions PER bank from the SAME base256
+checkpoint. Fix subsets by source expert IDs (e.g. first64/first128/all256)
+before scores; preserve same compact core/head/activation recipe/top1 and
+all retained original expert/router coefficients. Remove corresponding router
+rows and experts, renormalize routing over actual retained candidates. It is
+an intervention on the same pretrained model's candidate pool, not the
+independently trained Google base128 checkpoint or a newly trained small-n
+model. Distinguish retraining/exposure imbalance and disrupted source router
+from capacity-only causal effects. Report the effect of keeping those actual
+additional learned functions under this intervention, not universal n gain.
+
+Actual physical64/128 artifacts must export only retained distinct parameters;
+do not call unchanged14.818GB file mapping a smaller-RAM result. Validate exact
+serialized provenance, dynamic config/namespace/full independent target-only
+reference (336 hardcoded6392 is inadequate), Tiny/capacity/cache/route/count
+oracles, complete natural task and fixed original-primary comparisons. Use
+paired consumed sources for diagnostic causal contrasts and NEW sources for
+promotion of a changed model. Freeze book-unit NLL/task/fidelity/health bounds,
+allcases and fixed subset choices before observations. Price F32 router work,
+actual selected expert bytes/cache/physical DRAM and SAME full accepted rate
+per actual n artifact; only n256 currently has qualified scoped363 quality.
+This low-resource assay can test whether additional REAL learned alternatives
+matter, while independent base128/256 endpoints and larger-than256 learned
+capacity still require their own whole-quality/resource validation.
+No subset artifact or experiment has been implemented or measured yet.
+
 ## Real scale endpoints and availability/resource limits
 
 Actual pinned base128 metadata/headers exist321/325, full7.415B source absent;

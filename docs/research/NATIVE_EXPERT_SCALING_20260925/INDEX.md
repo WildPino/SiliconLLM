@@ -186,9 +186,12 @@ engineering/long controls AND ALL96 forced/natural full bytes EXACT363.
 Execution-only exactness can inherit only scoped363 quality. Numeric PASS
 licenses separately frozen366 SAMEbinaryCPU1 cost, then367 unchanged accepted
 FULL >=50 lower/1.10 repeats/ALL96 acceptance, ordinary/prose explicit.
-365 frozen e702983 RUNNING authoritative exec39812,30min/16GiB after imports.
-Consume exit/raw, retain FIRST outcome before366 freeze.366/367 dependency-
-ineligible drafts unexecuted. No overlap/restart/duplicate. Useful n/LUT/physical DRAM/causal learned bank
+365 ALL9 numerical +ALL96 complete forced/natural bytes EXACT363 PASS,
+retainedb906689/exec39812 exit0 fully consumed;369.281s/max2.774GB. Newexe
+SHA4fbf5a411d8391cc7f7eb3355bbbf87d1111db3c17ffb620264f3d30590114ce.
+366 SAME365 PRIMARYCPU1/affinity[0] cost now readytofreeze, unchanged20ms/
+1.10/counters/outputs;367 dependency-ineligible rate draft pending366 PASS.
+No job currentlylive before366 freeze. Useful n/LUT/physical DRAM/causal learned bank
 usefulness/real128 comparison/cross-family/~100B goal remains open.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
 Source128 full payload absent. Default engine exact; old GigaChat assets reused,
