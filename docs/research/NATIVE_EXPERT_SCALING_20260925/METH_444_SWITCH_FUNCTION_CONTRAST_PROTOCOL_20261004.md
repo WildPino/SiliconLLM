@@ -123,7 +123,9 @@ full function/head work and reports no runtime storage/active-compute saving.
 Availability of barF(x), coefficients and their cost must precede any fit/export.
 
 CPU0/Torch1/interop1/BLAS1, Torch2.6.0+cu124/NumPy2.4.6, no concurrent modeljob,
-GPU/T4/network/new corpus/new fit/native benchmark/C edits. Preserve exact approved
+GPU/T4/network/new corpus/supervised or gradient fit/native benchmark/C edits.
+The development covariance/eigensystem is explicitly a fitted linear subspace.
+Preserve exact approved
 publisher daemons; original binaries/engine unchanged. UsefulRAM-n/LUT/realDRAM,
 whole original-relative quality/SAMEartifact50/families/~100B remain OPEN.
 
