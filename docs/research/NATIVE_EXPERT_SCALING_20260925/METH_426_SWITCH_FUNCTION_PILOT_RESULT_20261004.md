@@ -105,3 +105,8 @@ Reuse fixed426 classifier/data/optimizer budget to isolate interface change;
 no gate/route/rank sweep, no new quality corpus before a feasible actual recipe.
 Prepare NEW427 protocol before any numeric comparison/fit. No427 source/outcome.
 Goal active/incomplete; usefulRAM-n/LUT/DRAM/another-family/~100B remain open.
+
+Final retention check: 2373 unique raw/helper/protocol/archive/binary files,
+3039500075B freshly hashed. ALL1936418 and ALL384420 files, ALL425/426 final
+outputs and qualified424 archives exact.6336 updates/2PASS+7FAIL unchanged;
+original374/389 binaries exact. No live model job; two publisher daemons preserved.

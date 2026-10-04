@@ -49,10 +49,21 @@ native values, both real ALL6 gradient fields max9.86120e-8. No ReLU crossings;
 constant offsets fixed throughout FD.29.547s/max1.805GB, two real rank8 forwards
 exact418; ALL384 proof inherited420 through unchanged419/422 prefix and fresh
 archives. A local approximate derivative, not through rounding/hard selection.
+[425 first pilot failure](METH_425_SWITCH_FUNCTION_PILOT_RESULT_20261004.md):
+actual cross composition/affine prerequisitesPASS, tiny adapter score FD fails
+before updates. [426 complete pilot](METH_426_SWITCH_FUNCTION_PILOT_RESULT_20261004.md),
+frozena824d2a/retaineda3a540e: stable equivalent relative-CE FD reproduces old
+error and passes SAME bounds; ALL6336 fixed updates/complete matched control.
+Capacity2/9PASS/7/9FAIL: real hard mixture CE2.325199 vs original2.293060,
+adapter2.295684;47 added positions/30IDs,3 locally useful vsrequired8, removal
+helps. Original prediction preservation also fails.422.953s/max3.146GB.
+Close THIS learned replacement recipe, no rank/seed/epoch/gate/lr sweep.
 Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW425 bounded rank8 correction/selector fit protocol with one-function budget,
-actual original-function benefit/consultation and causal controls. Original422
-mixed/global contract remainsFAIL; no425 code/fit/384 model/quality/rate.
+NEW427 additive original-preserving feature readout interface, zero-change
+initialization, explicit ORIGINAL+extra selected function when gate on. This
+increases active work by one function in ONE bank; require new ledger and
+whole native rate/quality. Original422 mixed/global contract remainsFAIL; no
+427 code/protocol/outcome or combined384 native model/quality/rate.
 Existing Switch quality/rate results and real large-useful-capacity goal intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified

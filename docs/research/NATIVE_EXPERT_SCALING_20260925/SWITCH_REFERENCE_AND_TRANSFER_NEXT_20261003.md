@@ -1,15 +1,15 @@
 # Switch transfer route: available steps and remaining qualification
 
-CURRENT STATUS424 (supersedes historical next steps below): original Switch
+CURRENT STATUS426 (supersedes historical next steps below): original Switch
 source128/256 quality and SAMEartifact source-specific rates remain qualified.
 Specified Granite/Ling/Giga cost formats and lexical/state-map bridges closed.
-418 capture/420 whole native forward all384/4895 states+full head byte-exact.
-422 mixed/global comparison remainsFAIL;423 local rules conform at native primals.
-424 matched-primal local derivative ALL8 PASS, independent FD, fixed offsets.
-Next [function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW425 bounded learned corrections/hard selector/causal original-function controls.
-No425 code/fit/selector/384 model; numeric qualification is not useful capacity.
-Useful larger n/RAM/LUT/realDRAM/another-family/~100B remain open. History retained.
+418 capture/420 whole native forward384/4895 states/full head exact;424 local
+approximate derivative qualified.425 first numeric failure retained;426 complete
+6336-update replacement pilot FAIL7/9 capacity gates, function removal helps.
+Close THIS fixed recipe before sweep. Next [function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW427 original-preserving additive readout; original+one extra function when ON.
+No427 code/protocol/outcome or combined384 C model. Charge all additional active
+cost; usefulRAM-n/LUT/DRAM/another-family/~100B remain open. History retained.
 
 
 **PARTLY IMPLEMENTED. No full goal claim.**324-328 qualify the isolated official

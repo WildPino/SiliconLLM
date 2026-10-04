@@ -1,9 +1,10 @@
-# Current resumption after424: bounded function/selector pilot design
+# Current resumption after426: original-preserving additive interface
 
 Native observation418 and whole forward420 established.419 disk-guard failure
 retained;420 directional-FD loss conditioning diagnosed421.422 mixed/global
 gradient contract FAIL128;423 local A/C rules conform, loss primals differ.
-424 matched-primal local derivative ALL8 PASS. No fit/selector/384-choice model.
+424 local derivative qualified;425 first control-FD failure retained;426 complete
+6336-update replacement pilot FAIL7/9 capacity gates. No combined C model.
 Final goal ACTIVE/INCOMPLETE. Qualified original Switch7.415B/14.664B targets
 retain18/18 quality and SAMEartifact source-specific accepted-rate evidence.
 User priority stays useful n limited by RAM, CPU LUT/routing/realDRAM and
@@ -25,7 +26,7 @@ quality as choices grow;1.5x candidate pool alone cannot establish10x/~100B.
   Close lexical weight bridge before function maps/selector/model, no rank sweep.
   Raw416 ac769b643c7db6fe0782509ae65cc5287a2f93e70a495ed658384cfc7ee5f55b.
 
-All processes terminal, no GPU/T4/network or new quality documents used412-424.
+All processes terminal, no GPU/T4/network or new quality documents used412-426.
 Frozen source-weight/statistical controls are reproducible; input quality and
 whole model quality must remain separate. Do not resume a closed map silently.
 
@@ -57,7 +58,7 @@ results/native_expert_scaling/meth418_switch_function_capture; raw contains full
 1936-file inventory and source keys/splits. Native128 teacher is a quantized
 source approximation, not fresh original-F32 shared-context inference.
 
-## Completed forward/gradient outcomes419-424
+## Completed forward/gradient/fit outcomes419-426
 
 [419](METH_419_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md), frozen d854ef2:
 WindowsPath disk-guard TypeError before numeric work, retained4ba10c4.
@@ -93,86 +94,88 @@ Whole384/4895/157266560-row forward inherited420 through exact source and fresh
 archives; two real rank8 forwards newly exact418. Original422 remains FAIL.
 Local approximation qualified, not a globally smooth native model or fit success.
 
-## Immediate next numbered action425: freeze a bounded learned pilot
+## Completed425/426 actual bounded learned pilot
 
-No425 source/protocol/outcome exists yet. Prepare the code, full objective/
-selector/baseline/resource/stop protocol and freeze before any new numeric
-cross-composition comparison or optimizer update. Reuse424 qualification; do
-not repeat419-424 or run another diagnostic without a concrete remaining risk.
+[425](METH_425_SWITCH_FUNCTION_PILOT_RESULT_20261004.md),c65e0c9/f6e48d9:
+core256/function128 first numeric cross composition and affine checks PASS;
+tiny adapter score FD fails3.9258225e-5>1e-5, ZERO updates, first retained.
+[426](METH_426_SWITCH_FUNCTION_PILOT_RESULT_20261004.md),a824d2a/a3a540e:
+sole numeric change stable relative-CE FD, original tiny error EXACT reproduced,
+new FD2.87259e-6 at SAME bound; all prerequisites qualify. Actual classifier96,
+real factors3024, matched adapter3024, gates96each =6336 fixed optimizer steps.
+Same seeds/rank/lr/order/data/targets/clip/final-only model, no validation tuning.
 
-Working design to make concrete before freeze (PLANNING, not a fit protocol):
+Hard real validation mixture CE2.325199114 vs exact no-added2.293060155 and
+matched adapter2.295684119. Teacher256 +.0452686>.02, three book deltas>.05;
+teacher128 also worse.47 added positions/30IDs but3 useful fixed-criterion IDs
+23/78/126 versus8 required. Permutation harms.0187977; original-function removal
+IMPROVES to2.2959397. Only2/9 capacity gates PASS,7/9FAIL. Shared classifier dev
+accuracy.8373 vsval.1964,116/72 predicted IDs; no all128 useful claim.
+422.953s/max3146326016B/245309666B retained, nine complete artifacts and every
+6336 update/hash. CPU only; no actual combined C export/quality/rate.
+CLOSE this rank8 replacement/hard-selector recipe before any sweep. Original
+qualified models remain authoritative; no narrowed positive export of3 IDs.
 
-- ONE source256 core and original256 functions remain frozen; actual source128
-  block11 WI/WO pairs are additions, four function-specific rank8 factors each.
-  Added branch consumes SOURCE256 preFF/norm and uses SOURCE256 finalnorm/head.
-  Test this actual cross-composition at fixed zero initialization before updates:
-  independent matched-primal gradient/FD and original no-added baseline identity.
-  Own-source424 alone does not establish cross-composed forward quality.
-- Hierarchical hard selector: retain authoritative original256 router/selected
-  probability, add a trainable128-way affine classifier plus one binary gate.
-  Gate off executes original branch exactly; gate on chooses ONE added function
-  and uses original selected probability amplitude. The new classifier/gate are
-  choices, not extra amplitude factors or an expanded384-way original softmax.
-  Charge128 extra affine scores plus gate; do not consult old AND new WI/WO in
-  final inference. There are384 available functions in ONE bank, not all12 banks.
-- Only paired405/418 teacher data:1008dev/336val positions,18/6 books, all4 cases.
-  Hard new-function classifier trains on source128 route labels with256 inputs;
-  actual inference uses classifier predictions, not donor oracle labels. Fit
-  corrections on the functions actually predicted by that selector. A later
-  gate can learn development-only benefit labels, and must be evaluated as an
-  actual hard decision on validation. No selector always-old capacity claim.
-- One full-vocabulary objective to fix prospectively: equal-weight detached
-  original256/128 native teacher probabilities at T1. Keep256 preservation and
-  additional128 prediction benefit separate. No search over temperatures,
-  mixing weights, ranks, seeds, learning rates, updates or validation checkpoints.
-  Candidate finite CPU budget:3 fixed passes per learner/arm, at most3024
-  correction updates per arm, <=30min total, <=4GiB RSS/peak, <=64MiB new outputs.
-  Specify all initialization/optimizer/lr/order/clipping and final-only model
-  selection in425 before observations; resource estimate remains planning.
-- Evaluate exact no-added256, forced zero-correction added functions and actual
-  trained hard selector. Fix nondegradation and benefit/consultation bounds
-  before fitting. Include inference-time pretrained-function identity
-  permutation and removal with SAME factors/selector, plus a separately fitted
-  matched-parameter adapter-only control if making a pretrained-capacity claim.
-  Adapters alone cannot establish transferred added-function capacity. Record
-  actually selected distinct added IDs, every per-function exposure and benefit;
-  unavailable/unconsulted functions are stored candidates, not useful n.
-- A fitted matched adapter-only control can use two rank8 maps A(Bx)+C(Dx), same
-  four-factor count/selector assignment/data/objective/update budget, no added
-  WI/WO. Qualify its different composition before its first update. Freeze
-  control and causal metrics together with the real-function arm; no post-hoc
-  unfavorable competitor selection. A positive feasibility result only licenses
-  export/whole-model/NEW excluded donor-relative quality and SAMEartifact rate.
-- CPU native-valued training initially; no GPU/T4 required. Immutable422
-  approximate backward is locally qualified424, not a guarantee of optimization.
-  Bound frozen selected-function caches explicitly, charge I64 forward/F64
-  backward full head and function workspaces, teacher arrays, optimizer and
-  selector states. Stop on first nonfinite/budget/prerequisite failure; if the
-  complete fixed pilot fails, close this specified rank8 recipe before a sweep.
+## Immediate next numbered action427: preserve original before adding functions
 
-Prospective selector128*(768+1)+769=99201 F32 coefficients/396804B; coefficients,
-gradients and two Adam moments1587216B. Four-factor plus selector combined
-3244929 trainable coefficients/12979716B F32/all four states51918864B. One
-added-function correction98304B plus selector396804B active coefficient accesses
-per final-bank token, beyond unchanged original router/core/head and one original
-WI/WO pair. Hypothetical complete256 payload +ONE128 bank+corrections+selector
-15436941316B before headers/padding/metadata; not an actual export. This selector
-is a bounded feasibility design, not yet a CPU LUT or RAM-scale routing result.
+No427 source/protocol/outcome yet. Prepare ONE NEW output parameterization,
+not a rank/seed/lr/epoch/gate/route sweep of426. Replacement forced-zero initial
+mixture CE4.646 vs baseline2.293 is a large mandatory mismatch; fitted gate did
+not generalize enough to protect it. Original-function removal helping426 also
+argues against treating its full down vector as automatically compatible.
 
-Before any GPU/fit choose ONE correction init/selector/objective, account for
-frozen/trainable host/device/gradient/optimizer/full-head costs and fixed stop
-budgets. Current rank8 per added function A,C[768,8], B,D[8,768], A/C zero/B/D
-seeded nonzero: ALL1283145728 coefficients/12582912B F32; values+grads+two Adam
-moments50331648B BEFORE selector/bookkeeping. Active one correction98304B F32
-coefficient accesses. Added ONE original128 bank605945856B I8+scales,603979776
-original coefficients. These are prospective ledgers, no actual union export.
-No full12-bank optimizer, no free selector/head/extra branch compute.
+Prospective output at final bank:
 
-Both an exact no-added256 baseline and actual pretrained-function causal
-ablations/consultation are required. A selector always choosing old functions or
-adapters alone cannot demonstrate added capacity. Only paired teacher-labelled
-418/405 captures (1008dev/336val per source); natural cohorts qualification-only.
-No new whole-quality corpus before a real artifact/recipe. No T4 needed now.
+    x = SOURCE256 normalized FF input
+    feature = source128_WO(ReLU(source128_WI(x + A(Bx))))
+    correction = C(D(feature))
+    post = original256_post + p_original256 * correction
+
+A/C[768,8],B/D[8,768],same four-factor count/seed init as426. C0 means no new
+contribution at initialization, so ALL existing predictions/states should match
+original256 while original function stays active. A gradient is initially ZERO
+when C0, C gradient should be live; this is intentional for the new interface,
+not failure of425's different live-A/C rule. Tiny nonzero factors must test the
+full coupled derivative. Adapter-only control adds A(Bx)+C(Dx) to SAME original
+post, same coefficient/update budget. New composed gradients/independent native
+and zero-change checks need their OWN frozen protocol; reuse qualified primitives
+and stable relative-CE FD instead of another global-different-primal diagnosis.
+
+Keep the trained426 shared classifier FIXED to isolate output-interface change,
+using complete checkpoint SHA5f0082fbc6ed526d9e97406d11ec57ca91b4441bcf3e8a73f28327db811cbf0c.
+Fit fresh same-seed four-factor arms and separate gates on same1008dev/336val
+books18/6/all4cases/equal T1 teacher mixture, same fixed3passes/update budgets
+and loss/optimizer/clip. No relabelled fresh-validation/generalization claim:
+this is already-consumed feasibility data. Reuse ALL nine capacity gates,
+pretrained identity permutation/removal and matched adapter control; a new
+interface does not loosen useful-function/preservation/benefit thresholds.
+No new whole-quality books until a real feasible artifact/recipe exists.
+
+Active cost MUST change: gate OFF original function only; gate ON original PLUS
+ONE selected added function, TWO final-bank functions. Other11 banks unchanged.
+Count actual stored primitive pairs384 in ONEbank, not32768 combination labels
+or all12 banks384. Added original128 bank605945856B plus12582912B factors,
+classifier+gate396804B. Proposed coefficient traffic beyond original decoder:
+ONE additional WI/WO4718592B +scales15360B +four factors98304B +extra affine
+selector/gate396804B =5229060B on an added-consultation token. Include activation
+quantization/addition/norm/head/route/cache and all extra function time; raw
+coefficient counts are NOT actual DRAM or native rate measurements.
+
+Original shared decode descriptor has123765504 matrix coefficients (source128/
+256); extra4718592 is3.81% before correction/router work, a plausible bounded
+screening rationale, NOT inherited>=50. Actual compiled artifact must still
+pass FULL donor-relative quality AND SAMEartifact accepted50; ordinary source256
+lower bound59.5118 leaves a prospective margin, prose50 still unqualified.
+Constant extra active-function budget does not grow proportionally with pooln,
+but broad-bank composition/large actual n need independent quality/cost evidence.
+
+Before ANY new numeric outcome freeze427 sources/protocol with resource limits,
+all initial exact controls, matched gradients, classifier identity/hard decisions,
+actual param/optimizer/cache/head/teacher costs, unchanged fixed capacity gates
+and explicit TWO-function conditional budget. CPU only initially, no T4/GPU.
+If this interface also fails complete fixed pilot, retain/close it before tuning.
+User main goal remains useful RAM-scale n/CPU LUT/realDRAM, not just correcting
+one checkpoint. Another family/~100B and the original final objective stay open.
 
 ## A new objective rather than another state-regression variant
 
@@ -183,7 +186,9 @@ task-preserving adapted functions need not reproduce the other backbone's
 internal state. This is a different LEARNED transformation, not a qualification
 of raw transplanted experts or a loophole in earlier thresholds.
 
-First bounded candidate: ONLY final decoder sparse bank, block11, source256 core
+Original426 replacement pilot is closed; current427 additive interface above
+has TWO functions when gate on and one original otherwise. The general bounded
+scope stays ONLY final decoder sparse bank, block11, source256 core
 and all existing256 functions frozen. Add the actual128 matching-bank original
 WI/WO pairs plus compact trainable corrections and a selector. No other bank
 changed initially. End-to-end last-bank/residual/final-norm/head effects can be
@@ -205,8 +210,10 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
    outputs/routes/greedy/actual-worker identity, independent preFF/norm/full
    selected expert/residual/finalnorm/head controls as recorded above. Reuse
    frozen captures with fresh full inventory/raw hashes; do not recapture or
-   modify417/418/419/420/421/422/423/424. Current additional fitting requires new425.
-2. Fix training objective, selector semantics, trainable size/rank/initialization,
+   modify417/418/419/420/421/422/423/424/425/426. Current new interface requires427.
+2. Use frozen426 objective/data/classifier semantics/rank/init/budget to isolate
+   original-preserving interface; freeze new composed qualification before updates.
+   Fix training objective, selector semantics, trainable size/rank/initialization,
    original256 baseline/no-added-function control, forced source-function controls,
    and a causal ablation that shows pretrained added functions actually contribute.
    An adapter-only small student or selector always choosing old functions cannot
@@ -236,8 +243,8 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
    stopping metrics, baseline nondegradation and genuine added-function benefit
    before training. Freeze each substantial stage separately; retain first fail.
 
-The immediate next action is425 bounded learned function/selector/control protocol
-and implementation, frozen before new cross-composition qualification or fitting.
+The immediate next action is427 original-preserving additive interface protocol
+and implementation, frozen before any new composed comparison or fitting.
 No model construction or unbounded training before these controls.
 No source data acquisition or GPU authorization request is currently required.
 

@@ -218,3 +218,16 @@ inherited420 through exact source/fresh archives. Original422 mixed/global
 contract stillFAIL. No fit/selector/export/combined quality or accepted rate.
 Original374/389 binaries remain authoritative and unchanged. Next NEW425 is a
 bounded actual-function/selector fit protocol, not a native rounding derivative.
+
+## Numerical/learned prototype boundary, through426
+
+425/426 add only CPU pilot/qualification scripts, no native C or engine changes.
+425 first adapter-FD failure retained before updates;426 sole FD-conditioning
+repair reproduces old error and qualifies same bounds. Complete6336 fixed
+updates/matched adapter/control/causal outputs retained; capacity7/9FAIL.
+Real hard mixture CE2.325199 vs original2.293060; teacher preservation fails,
+function removal helps. Close specified replacement route before sweep, no
+combined384 native model/quality/rate. Original374/389 artifacts still exact.
+Next NEW427 is an additive original-preserving interface, TWO final-bank
+functions when gate on. Its added active cost and whole rate cannot inherit
+original accepted results or426's proposed single-function inference budget.

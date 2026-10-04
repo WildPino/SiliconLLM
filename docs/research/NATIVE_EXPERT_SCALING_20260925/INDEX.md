@@ -5,9 +5,10 @@
 whole-quality/SAMEartifact FULL-rate qualification. Granite412/413 CPU route
 closed; lexical414/416 interfaces closed.418 final-bank capture ALL9 PASS,
 384 complete outputs unchanged;420 whole head forward exact.422 mixed/global
-gradient FAIL128;423 local rules conform, loss primals differ.424 matched-primal
-local derivative ALL8 PASS. Next: bounded final-bank correction/selector fit
-with causal original-function controls. Useful384/large n remains open.**
+gradient FAIL128;424 local derivative qualified.425 control FD failure retained;
+426 complete learned replacement pilot FAIL7/9 capacity gates,6336 updates.
+Next: original-preserving additive function interface with explicit extra
+active cost. Useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -198,9 +199,16 @@ loss logits cause mismatch. Native/smooth logiterror5.618e-5, not capacity harm.
 ALL8 PASS, independent FD of fixed native-primal continuation; both real ALL6
 gradient fields max9.86120e-8, no mask crossings, whole native forward inherited.
 29.547s/max1.805GB/4.391MB output. Local approximation, not rounding derivative.
+[425 first pilot numeric failure](METH_425_SWITCH_FUNCTION_PILOT_RESULT_20261004.md),f6e48d9:
+actual cross composition qualified; adapter tiny-score FD fails before updates.
+[426 complete learned pilot](METH_426_SWITCH_FUNCTION_PILOT_RESULT_20261004.md),a3a540e:
+same-error reproduced/stable FD qualified; ALL6336 updates complete, capacity2/9
+PASS/7/9FAIL. Real hard mixture CE2.325199 vs no-added2.293060/adapter2.295684.
+47 added positions/30IDs, only3 useful by fixed criteria; function removal helps.
+422.953s/max3.146GB/245.310MB retained. Close specified replacement recipe.
 Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW425 bounded correction/selector fit design, explicit one-function budget and
-causal original-function/adapter-only controls. No425 code/fit/384 model.
-No more state-map or closed kernel tuning. Original422 remains FAIL.
+NEW427 original-preserving additive readout interface; original+one selected
+extra function when gate on, charge all added cost before whole native50 claim.
+No427 code/protocol/outcome. No more state-map/closed kernel/replacement sweeps.
 Useful>256/10x/real~100B/physicalDRAM/another-family quality remain open.
 All jobs terminal, original qualified Switch artifacts untouched.
