@@ -11,7 +11,9 @@ identity matters locally.441's one-function benefit does not show source functio
 are interchangeable.444 global contrast subspaces fail validation even at256;
 development energy is88.44%dominated by two position0 anchors.445 equal-relative
 weighting also fails:256 val78.52%. Local oracle ranks95%=75..87 at validation,
-not per-expert rank bounds. Next matrix-level base/delta/private ReLU/cost pilot.
+not per-expert rank bounds.446 private-matrix pilot frozen63a5f04, not run yet:
+reference0/targets1,64,127/all1344inputs, ranks16/32/64/96/128, identity versus
+coupled permutation/full-matrix factor control. No gradient fit or native export.
 
 ## Goal and constraints
 
@@ -115,8 +117,11 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 NEW matrix-level single-donor base/delta feasibility pilot. Preserve private
 nonlinearities, allow per-expert bases, account for admissible coupled neuron
 symmetries and actual active cost. In top1 a full shared base plus private factors
-adds arithmetic; possible storage savings alone do not qualify rate. No NEW446
-controller/protocol/outcome exists. Freeze before matching/SVD/fit/native work.
+adds arithmetic; possible storage savings alone do not qualify rate.446 controller/
+math/[protocol](METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md) are frozen63a5f04
+before first import. Admission300s/numerical600s/total900s,3GiB/384MiB,CPU0/BLAS1.
+First-stop retention; no outcome yet. Run its fixed command ONCE after physical
+filtered-HEAD qualification. Full F64-shadow gates precede compression utility.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
 open. All first failures/outputs retained; original binaries and engine intact.

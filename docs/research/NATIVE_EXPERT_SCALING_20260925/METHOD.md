@@ -122,6 +122,11 @@ rank75..87val. No weighting-only repair; private expert-specific bases not exclu
 Next [matrix-level common/private feasibility](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
 coupled admissible neuron alignment, per-expert delta bases, private ReLU and
 explicit coefficient/precision/active-cost accounting before any new fit.
+446 [prospective protocol](METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md)
+is frozen63a5f04 before first import: four forced source functions/all1344inputs,
+three fixed targets, five ranks, per-expert matrix bases/full-matrix factor control,
+native permutation equality then qualified F64-shadow function geometry. No outcome
+or native factor export; original quality/rate not inherited by approximations.
 All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 

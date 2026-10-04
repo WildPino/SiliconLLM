@@ -70,7 +70,14 @@ Use ONE donor/source128, ONE bank11 first, retaining the actual source core.
 Investigate MATRIX-level common plus PRIVATE factors, not another foreign-core
 map or shared output basis. New rank/exposure/precision/cost choices must have a
 frozen controller/protocol before any matching, SVD, fitting or model forward.
-No NEW446 controller/protocol or numerical outcome exists yet.
+446 controller/math/[protocol](METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md)
+are frozen63a5f04 before first import; no numerical outcome yet. Fixed source128
+reference0/targets1,64,127/all1344source inputs; ranks16/32/64/96/128, no rescaling,
+identity versus coupled unit-WI assignment, private versus full-matrix factors.
+First original native1344FFN replays and all matched permutations byte-exact,
+then F64-shadow qualification/compression geometry. Admission300s/numerical600s/
+total900s,3GiB/384MiB,CPU0/Torch1/BLAS1. First failure retained, no rerun.
+Exact one-time command is in the protocol. No new native export/head/rate claim.
 
 1. Bind original payload/tensor/native-capture provenance. Predeclare a small
    fixed expert subset and full development/validation input populations; do not
