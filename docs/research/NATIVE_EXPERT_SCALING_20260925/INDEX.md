@@ -213,12 +213,17 @@ actualphysical n64payload3,903,912,448B/1784names/3.7907Bretainedsourcecoeff,
 n128payload7,541,946,880B/3320names/7.4152Bretainedsourcecoeff; originaldonor
 14.664B/source256 full338 unchanged. Exactcode/scales/F32routerprefix/ties/
 readback/manifest/distinctpaircounts/physicalRAMfit; exportfidelity ONLY.
-[371 dynamicn wholecontract](METH_371_SWITCH_NESTED_BANK_CONTRACT_PROTOCOL_20261004.md)
-readytofreeze SAME356binary/newactual64/128payloads, NEWexplicitactualn META
-namespace24n+248/retainedsourcecounts/F32controlclosure, unchangedindependent
-I64/A16arithmetic, allengineering/long/source29/OWNnatural cached oracles
-before372 pairednestedsizeintervention. No changedsubsetqualityinheritance.
-See[concrete subsetpath](SWITCH_NESTED_REAL_BANK_ARTIFACT_NEXT_20261004.md).
+[371 dynamicn wholecontract](METH_371_SWITCH_NESTED_BANK_CONTRACT_RESULT_20261004.md)
+ALL8 PASS retainedb7fb55d,exec39005 exit0 fullyconsumed;268.094s/max2.586GB.
+BOTHreal64/128 payloads/newactualn METAnamespace/retainedsourcecounts/F32
+controls/ties andcompleteengineering/long/source29/OWNnatural independent
+I64/A16cache/routes/heads exact1/6threads/profiles; actualdynamicrouterbytes/
+retainedfunction IDs exact. SAME356binary/no recompile/enginechange.
+[372 pairednested n usefulness](METH_372_SWITCH_NESTED_BANK_USEFULNESS_PROTOCOL_20261004.md)
+readytofreezeALL96consumed64/128versusfull256cached363, BOTHfixedsubsets/
+fourprimarypredictive+generatedfield harmbounds98.75%/Bonferronifamilyalpha.05,
+ALLcompletebaselinebytes/ASTmetrics/371 bridges exact. No subsetquality
+inheritance/acceptedtimingclaim/neworiginalmodel. See[concrete subsetpath](SWITCH_NESTED_REAL_BANK_ARTIFACT_NEXT_20261004.md).
 Useful n/LUT/physical DRAM/causal learned bank
 usefulness/real128 comparison/cross-family/~100B goal remains open.
 Unexecuted old344 EOS-only draft is obsolete/unfrozen; do not substitute it.
