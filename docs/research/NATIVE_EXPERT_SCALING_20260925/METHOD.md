@@ -7,6 +7,8 @@ physical cost. Single-donor common/private decomposition is a NEW hypothesis,
 not an implemented method.442's first admission stop retained;443 completed the
 same causal test: native ID+1 mean self-KL.17646/41argmax changes. Original identity
 matters locally; foreign transfer's weak effect does not localize the failure.
+444 absolute-energy global PCA fails validation up to256; two position0 inputs
+dominate88.44%development energy. NEW445 relative-weight/local-spectrum diagnosis.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
@@ -111,7 +113,9 @@ heads first, then three fixed controls,150sec/3GiB/160MiB and first-stop retenti
 no replay/utility. NEW443 admission300s/native150s/total450s, same3GiB/160MiB,
 same math and thresholds;443 completed ALL5apparatusPASS/67.25s/1.854GB.
 Fixed0/ID+1/removal mean KL.07820/.17646/.03270. NEW444 single-donor functional
-mean/contrast geometry precedes another fit; oracle decomposition is not runtime.
+mean/contrast geometry: ALL8apparatusPASS but all ranks fail; even256 retains
+only79.10%validation private energy/KL.04539. Oracle decomposition is not runtime.
+NEW445 fixed relative-weight/global-versus-local geometry before further fits.
 All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 

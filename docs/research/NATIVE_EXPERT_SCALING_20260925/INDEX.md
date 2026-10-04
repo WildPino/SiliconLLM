@@ -8,7 +8,9 @@ explicit routing/normalization and complete cost gates. The review is a dated
 document-only snapshot.442's first admission stop remains retained;443 completed
 the SAME causal test. Native source128 ID+1 has mean KL.17646/41argmax changes;
 identity matters locally.441's one-function benefit does not show source functions
-are interchangeable. Next: single-donor function-contrast geometry, not440 tuning.
+are interchangeable.444 global contrast subspaces fail validation even at256;
+development energy is88.44%dominated by two position0 anchors. Next NEW445:
+equal-relative-anchor covariance/local spectra, no new model forwards/440 tuning.
 
 ## Goal and constraints
 
@@ -81,6 +83,10 @@ outcome/output directory. Retain first failure before NEW443; do not rerun442.
 ALL5apparatusPASS/336complete heads exact; mean KL fixed0 .07820/ID+1 .17646/
 removal .03270, argmax changes29/41/21. Native identity effect present; foreign
 chain component not identified.67.25s/1.854GB/138.841MB/zero updates.
+- 444 [functional geometry](METH_444_SWITCH_FUNCTION_CONTRAST_RESULT_20261004.md):
+ALL8apparatusPASS/24anchors/all128functions. Rank32 dev96.52%/val62.80%, rank256
+val79.10%/KL.04539; no fixed rank passes. Two position0 dev anchors dominate88.44%
+energy.109.937s/2.063GB/634.450MB. Close specific absolute-energy PCA recipe.
 
 ## Closed routes and retained context
 
@@ -103,8 +109,8 @@ freeze. [Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes
 all controls, information metric and first-stop limits before any forward.
 Its150s inclusive guard stopped during hashing. NEW443 separated admission
 <=300s/numerical<=150s/total<=450s, completed with native identity effect.
-Next NEW444 single-donor common/private functional geometry: freeze fixed anchors,
-rank subspaces, native posterior/contrast controls and costs before observations.
+444 fixed global geometry failed. NEW445 will distinguish relative weighting
+from local contrast dimension using retained444 responses, no forward. Freeze first.
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
 NEW442 original128 final-bank replay/counterfactual at336captured prefixes. ALL
