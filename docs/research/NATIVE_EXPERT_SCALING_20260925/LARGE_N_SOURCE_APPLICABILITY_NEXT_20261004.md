@@ -69,10 +69,16 @@ full-width GigaChat kernel before training/640-bank work; no rate/quality proof.
 WI/WO/scales pairs and shape-compatible operators; candidate22.094GB fits RAM.
 ALL236 common core tensor names differ. Fresh whole payload hashes/both manifests
 PASS,294.406s/41.673MB. Capacity applicability, not exported useful384 model.
-Next [paired transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md) tests
-actual shared input/hidden/function alignment before any learned selector and
-new full-quality/rate gates.403 rejects raw identity inputs;404 fixed rank32 maps
-fail all12 local input gates. Proposed405 expands paired consumed calibration to
-test actual full768 rank/conditioning. No405 code/protocol/run.1.5x256 is not10x.
-Qwen80B full-width acquisition still closed absent a new stated transformation;
-other-family/larger useful n/physical DRAM requirements remain open.
+403/404/406 stated identity/rank32/full affine ridge interfaces failed before
+source-function/selector/model construction;405 conditioning blocked an
+unregularized full fit. No broad learned-transfer impossibility claim. Qualified
+original Switch artifacts unchanged. More affine tuning needs new uncertainty.
+
+407 another-family actual Ling-mini headers retainede0f2f8b: ALL6 gates PASS,
+source16.255643392B positions/19 banks256/top8. SAME317 complete hypothetical
+active503,905,280B passes560MB yardstick, stored4.969GB; no acquired values or
+quality/native rate. Next proposed408 [cost screen](LING_MINI_NATIVE_COST_NEXT_20261004.md)
+before full32.5GB acquisition/generic port. Another-family metadata is not a
+proven transfer or useful>256/10x. No408 code/protocol/run yet.
+Qwen80B unchanged full-width acquisition remains closed without new transform;
+useful larger n/~100B/physical DRAM remain open. All jobs terminal.

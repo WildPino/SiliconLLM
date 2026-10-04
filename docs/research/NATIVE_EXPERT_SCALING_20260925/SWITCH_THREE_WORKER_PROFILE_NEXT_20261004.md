@@ -57,13 +57,12 @@ qualification failure, not missing learned capacity.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-391 independent original128 quality/rate qualified; original256376 intact.
-399/400 integer-LUT full-width cost paths rejected.401 real128+256 source384
-applicability passed,22.094GB fits RAM.403 SAME paired inputs reject all12 identity
-interfaces;404 ONE fixed rank32 map also fails all12 local input eligibility gates.
-No function-response/output alignment/new selector/whole-quality/rate inheritance.
-Next proposed405 tests actual full768 rank/conditioning with all four consumed362
-cases/book, same18/6 development/validation split. No405 code/protocol/run yet.
-Qualified native artifacts unchanged; all sessions terminal. Useful384/10x,
-other families/~100B and physical DRAM remain open.
-Use INDEX.md/METHOD.md/PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md.
+Qualified Switch128391/256376 quality/rate intact.399/400 full-width LUT cost
+rejected;401 real bank union fits RAM but403/404/406 specified input interfaces
+FAIL.405 full map not fit due conditioning. No new384 selector/model/quality.
+407 actual immutable Ling-mini header inventory ALL6 PASS,19 banks256/top8,
+503.905MB hypothetical active descriptor. Next proposed408 bounded CPU cost
+and original reference/operator prerequisites before32.5GB acquisition/port.
+No408 code/protocol/run. Useful>256/10x/other-family proven transfer/~100B and
+physical DRAM remain open. All sessions terminal. Use INDEX.md/METHOD.md and
+LING_MINI_NATIVE_COST_NEXT_20261004.md; preserve unrelated working changes.

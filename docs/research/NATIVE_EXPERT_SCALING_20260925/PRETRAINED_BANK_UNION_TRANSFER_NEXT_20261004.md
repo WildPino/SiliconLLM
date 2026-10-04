@@ -57,49 +57,37 @@ MAIN1.578s/max102.068MB/2.433MB F32 maps. Correct active coefficient count589,82
 protocol's doubled arithmetic count clarified separately. No source function
 responses/output alignment/selector/model. These two input interfaces are closed.
 
-## Proposed405: full-basis identifiability with additional paired cases
+## Completed full-basis checks: stated interfaces closed
 
-Planning only, no405 controller/protocol/run. A rank32 map cannot represent an
-arbitrary768-coordinate change. New variable: FULL-basis affine input alignment
-with enough development positions and ACTUAL independent-rank/conditioning gate.
-Use all four existing consumed362 cases/book, same18 development/6 validation
-books. Reuse403 case0 and qualified393 source256 traces with fresh full hashes;
-capture original128 on SAME other three source/decoder sequences. Bridge each
-new complete capture SHA to plain389, actual placement/negative controls. Never
-pair382's different books merely by index. No new original-relative quality.
+4059e7ddac/41fb48e retained all96 pairs and72 new128 captures, complete SHA exact
+plain389/qualified393 controls. ALL13 apparatus PASS. More samples made encoder
+fully identifiable at1e-6 but decoder0/1/4/5 still failed full conditioning. No
+unregularized full maps fit.4069518b9f/d4ae8ed tried ONE fixed full affine ridge,
+penalty=(1e-5*smax)^2, same18/6 books/all4 cases and unchanged0.25/0.50/0.50 local
+bounds. ALL7 apparatus PASS/ALL12 input gates FAIL. Decoder errors2.245-3.070
+times mean-only, finite/F32 numeric checks pass. No function/selector/model work.
 
-Encoder development2088/validation696 positions; decoder1008/336. Counts exceed
-768 but repeated positions/shared prefixes may still make full mapping rank
-insufficient. Freeze a singular-value/rank gate BEFORE new full-fit outcomes.
-If insufficient, stop THIS unregularized full-basis interface before fitting.
-If identifiable, fit only development and retain mean-only/identity controls,
-F32/F64 checks and predeclared local validation bounds. A complete768x768 F32
-input factor per12 banks would add28,311,552 matrix bytes plus means and7,077,888
-active coefficients; no measured runtime or inference-cost assumption.
+Identity, rank32 PCR and THIS full affine ridge interface closed. No global
+nonlinear/weight-based/other-data impossibility claim. Further affine tuning
+needs a stated new uncertainty plus independent validation; do not ease gates
+or inherit qualified source quality. Calibration traces/failed maps are retained
+and reusable for a substantively new transfer hypothesis. No new quality docs.
 
-Suggested total budget20min CPU capture/4GiB including fresh target integrity,
-then2min CPU fit/1GiB BLAS1; no network/GPU/T4. Exact commands/protocol/local
-thresholds and stop guard remain to freeze. Failure closes THIS full-basis map,
-not all learned adaptation. A success licenses only actual transplanted function
-responses and output-space alignment, before any NEW384 selector/model.
+## Current direction: another-family applicability before acquisition
 
-New useful choices ultimately require source-aware learned selection plus NEW
-excluded-document original-relative complete prediction/generation/task quality,
-and SAMEartifact FULL accepted rate. Compare frozen original256 base on the
-same new quality cohort. Source128 function usefulness needs real interventions,
-not visits/source hashes. Preserve source softmax amplitude explicitly or train
-and measure its change as a separate approximation. No quality/rate inheritance.
+407 actual immutable Ling-mini source headers retainede0f2f8b: ALL6 gates PASS,
+19 banks256/top8/D2048/FF512/shared512/20layers, source16.255643392B positions.
+SAME317 complete hypothetical503,905,280B active descriptor passes560MB yardstick;
+stored4.969GB. Git-bound config/custom code/ALL4 shard headers, no values/custom
+code execution/unique functions/original reference/quality/rate/DRAM measured.
+Source256 is not>256/10x useful capacity. Existing Switch loader does not fit it.
 
-## Another family remains required
+Next proposed408 [native-cost resumption](LING_MINI_NATIVE_COST_NEXT_20261004.md)
+before32.5GB acquisition or generic port. Source operator/numerical/reference
+prerequisites and actual native COST still separate. Header cost eligibility is
+not model quality or accepted rate. Goal remains multiple-family proven transfer,
+larger useful choices/~100B and physical DRAM. No408 code/protocol/run yet.
 
-A targeted primary-source search also identified
-[Ling-mini-2.0 official card](https://huggingface.co/inclusionAI/Ling-mini-2.0) and
-[configuration](https://huggingface.co/inclusionAI/Ling-mini-2.0/raw/main/config.json):
-20 layers/D2048/256 experts/top8, one dense initial layer, sigmoid/group routing
-and512-wide shared/routed experts. These are unpinned current metadata, not
-acquired values/quality/cost evidence. It is a possible later sparse causal
-family, not>256 or10x proof. Full original active/core/head cost and custom
-reference must be separately inventoried from immutable source headers before
-acquisition or generic port. Card H20 throughput is not host CPU rate.
-The original goal still needs another family, larger RAM-scale choices and
-physical DRAM; do not replace it with this one candidate or a metadata count.
+Primary source [pinned configuration](https://huggingface.co/inclusionAI/Ling-mini-2.0/raw/a810f6416bc4e1e29c9d7f271dd2fa7e56e71eab/config.json),
+[official model card](https://huggingface.co/inclusionAI/Ling-mini-2.0).
+Card H20 throughput is not host CPU rate.

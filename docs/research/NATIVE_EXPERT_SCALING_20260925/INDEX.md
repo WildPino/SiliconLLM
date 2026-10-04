@@ -2,7 +2,7 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: full-basis input alignment applicability; useful384/large n remains open.**
+whole-quality/SAMEartifact FULL-rate qualification. Next: Ling-mini source-sized CPU cost; useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -131,9 +131,18 @@ complete128 trace outputs SHA exact plain389; ALL12 raw identity interfaces FAIL
 ALL6 apparatus PASS/ALL12 input gates FAIL; validation median error0.649-0.897.
 No selector/model/quality/rate inherited. No new held-out quality docs consumed.
 
-Next proposed405: expand SAME paired source/prefix calibration to all four
-consumed362 cases/book, preserving18/6 books; gate actual768 rank/conditioning
-before a full-basis affine fit. See [transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md).
-No405 code/protocol/run.384 is1.5x/same family, not useful selectable n yet.
-Qualified374/389 intact; useful10x/another family/~100B/physical DRAM still open.
-All402/403/404 sessions terminal; no live job. Preserve unrelated working changes.
+[405 full-basis input applicability](METH_405_SWITCH_FULL_BASIS_INPUTS_RESULT_20261004.md),
+9e7ddac/41fb48e: ALL13 apparatus PASS/96 shared cases; four decoder conditioning
+FAIL, no unregularized fit. [406 full affine ridge](METH_406_SWITCH_FULL_RIDGE_INPUT_MAP_RESULT_20261004.md),
+9518b9f/d4ae8ed: ALL7 apparatus PASS/ALL12 local input gates FAIL; decoder squared
+error2.245-3.070 times mean-only. These stated interfaces closed before384 selector/
+model construction; no general impossibility claim. Qualified original models intact.
+
+[407 Ling-mini headers](METH_407_LING_MINI_SOURCE_HEADERS_RESULT_20261004.md),6268585/e0f2f8b:
+ALL6 metadata gates PASS,4 shards/14,813 tensors/16.255643392B source positions,
+19 real256-slot bank shapes/top8. SAME317 complete hypothetical active descriptor
+503,905,280B <=560MB; stored4.969GB, no fitted books/values/quality/rate/DRAM.
+Another-family source applicability only. Next proposed408: bounded source-sized
+CPU cost and original operator prerequisites BEFORE32.5GB acquisition/generic port.
+See [cost resumption](LING_MINI_NATIVE_COST_NEXT_20261004.md). No408 code/protocol/run.
+Useful>256/10x/~100B/physical DRAM still open. All405/406/407 handles terminal.

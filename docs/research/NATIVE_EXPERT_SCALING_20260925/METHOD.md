@@ -12,14 +12,14 @@ are not evidence of transferred capability.
 
 ## Latest capacity-transfer question
 
-401 binds real128+256 source banks into a prospective384-candidate pool fitting
-22.094GB RAM; ALL ordered byte pairs distinct but ALL236 common core/control
-names differ.403 paired inputs reject identity in all12 banks;404 fixed rank32
-input maps fail all12 local validation gates. No combined model/useful extra n/
-quality/rate yet. Proposed405 tests full-basis identifiability on more SAME paired
-consumed cases before source-function/output alignment and a new selector.
-399/400 GigaChat full-width LUT cost paths failed despite numeric controls.
-See final sections and [transfer plan](PRETRAINED_BANK_UNION_TRANSFER_NEXT_20261004.md).
+401 real128+256 bank384 union fits RAM but all236 core/control names differ.
+403 identity,404 rank32 and406 full affine ridge input interfaces fail local
+validation;405 unregularized full map is ineligible by conditioning. No384 model.
+407 actual immutable Ling-mini headers enable another-family COST screen:
+19 banks256/top8, source16.2556B, SAME317 hypothetical503.905MB active descriptor.
+No original Ling values/reference/native quality/rate or physical DRAM yet.
+Next [source-sized cost gate](LING_MINI_NATIVE_COST_NEXT_20261004.md) before weight
+acquisition or generic port. Existing Switch quality/rate results remain intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified
 
@@ -876,16 +876,49 @@ bytes,589,824 active coefficients; protocol doubled-count typo explicitly
 [clarified](METH_404_RANK32_COEFFICIENT_SCOPE_CLARIFICATION_20261004.md). Original
 scientific records immutable. Input prediction alone never licenses quality.
 
-Proposed405: all four consumed362 cases with SAME forced prefixes/paired source
-traces, preserving18/6 books. Development2088 encoder/1008 decoder positions
-permits testing actual independent768 rank/conditioning, not assuming it.
-Full-basis affine mapping is a NEW capacity hypothesis; freeze before responses
-and fit. No405 controller/protocol/run yet. A success licenses only actual source
-function-response/output-space tests. This fixed-rank failure does not reject
-all learned cross-source adaptation. No new quality documents consumed so far.
+405 froze9e7ddac/retained41fb48e: ALL13 apparatus PASS,96 SAME paired source/prefix
+cases,72 new128 captures complete output SHA exact plain389 plus24 reused403.
+ALL96 source256 traces freshly exact393. Development2088 encoder/1008 decoder
+positions. All encoder and decoder2/3 have768 directions at relative1e-6;
+decoder0/1/4/5 have761/767/767/767. ALL12 condition gate FAIL so no unregularized
+full maps. MAIN137.468s/analysis4.094s/max1.486GB/new594.667MB capture artifacts.
+
+406 froze9518b9f/retainedd4ae8ed: ONE full768 affine ridge per bank, fixed
+lambda=(1e-5*smax)^2, same18/6 books and all4 cases. ALL7 apparatus PASS/ALL12
+local input eligibility FAIL. Median errors0.521-1.923,95th0.844-2.649, squared
+error0.722-3.070 of mean-only. Every decoder map worse than mean-only. Same
+0.25/0.50/0.50 bounds preserved. MAIN6.078s/max262.623MB, failed factors28.385MB.
+These specific input interfaces closed before source function/output map/new
+selector. More affine tuning needs a new uncertainty and independent validation.
+No new original-relative quality docs consumed; nonlinear/other-data/weight-based
+transfer not globally rejected. Complete qualified374/389 artifacts unchanged.
+
+## Another-family metadata applicability: Ling-mini, not yet a transfer
+
+407 froze6268585/retainede0f2f8b: actual immutable inclusionAI/Ling-mini-2.0 revision
+a810f6416bc4e1e29c9d7f271dd2fa7e56e71eab, ALL6 metadata gates PASS.4 shards/14,813
+headers/16,255,643,392 source positions;19 banks256 gate/up/down512x2048, top8,
+shared512, first dense5120, fused GQA QKV3072x2048, untied157184x2048 embed/head.
+Git-bound custom code stored NOT executed, exact dtype/offset/EOF/index extents;
+zero values/finite/function uniqueness/quality/native inference. Metadata source
+32.511GB value extent, nominal BF16/F32 fit total80GiB but reference overhead open.
+
+SAME317 hypothetical full-width additive selected+core779,091,968 coefficients,
+complete addressed descriptor503,905,280B <=560MB gate PASS (including264.069MB
+Q6_K head and40.222MB router/controls), complete storage4,969,196,544B. No learned
+books or source precision quality/rate inheritance. Active parameter positions
+with ONE lookup row1.111B; card-style full embedding counting explains~1.43B.
+MAIN16.531s/max58.008MB/13HTTP/3.261MB response bytes, zero tensor values.
+
+Next proposed408: separately frozen source-sized native COST screen and original
+operator prerequisites before32.5GB acquisition or generic port. See
+[resumption](LING_MINI_NATIVE_COST_NEXT_20261004.md). Source sigmoid/group/bias/
+top8 amplitude, GQA/QK norm/halfRoPE, SiLU/shared FFN/tokenizer/head need explicit
+reference and numerical contract. Existing Switch loader D<=1024/vocab<=65536
+cannot load it. A byte gate licenses no codebook quality or accepted model rate.
 
 Byte-distinct pairs are not canonical function uniqueness/usefulness. A real384
-selector/model ultimately requires new excluded-document original-relative whole
-quality and SAMEartifact FULL accepted rate, including useful additional source
-functions. No source quality inheritance. Same-family1.5x256 is not another-family/
-10x/~100B/physical DRAM evidence. Qualified374/389 unchanged; all sessions terminal.
+selector or another-family converted artifact ultimately requires new excluded-
+document original-relative whole quality and SAMEartifact FULL accepted rate.
+No source quality inheritance. Useful>256/10x/~100B/physical DRAM remain open.
+No408 controller/protocol/run yet; all405/406/407 sessions terminal.
