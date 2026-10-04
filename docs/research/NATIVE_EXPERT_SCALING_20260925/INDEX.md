@@ -1,133 +1,88 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;387 independent original128 whole quality ALL18 PASS;389 three-worker contract live;390 cost next.**
+**Final goal incomplete. Two independent same-family source scales have bounded
+whole-quality/SAMEartifact FULL-rate qualification. Next: real router tail mass.**
+Goal tool currently reports paused despite user-authorized continuation;
+no complete/blocked status was set. Research remains unfinished.
 
 ## Goal and constraints
 
 Transfer pretrained capacity to a compact reusable core plus selectively
 consulted useful functions in `benchmarks/phase60/engine.c`. Preserve donor
-prediction/generation/task quality within frozen measured limits; >=50 accepted
-batch1 tokens/s end-to-end on SAME artifact,100 stretch. Demonstrate multiple
-families/scales, real~10B/~100B when resources permit. User priority: useful n
-grows with RAM; CPU LUT/routing/real DRAM cost and quality remain viable.
-Distinct functions, candidate labels, stored/active/read bytes are separate.
-Synthetic/copied banks and component rates do not close the goal.
+prediction/generation/task quality within frozen bounds; >=50 accepted batch1
+tokens/s on SAMEartifact,100 stretch. Demonstrate multiple families/scales and
+real~10B/~100B when resources permit. User priority: useful n grows with RAM;
+CPU LUT/routing/real DRAM and quality remain viable as choices grow. Distinct
+functions/candidate labels/stored/active/read bytes must stay separate.
 
-Local Ryzen53600X/80GiB RAM/RTX3060. Freeze criteria/code before observations;
-no model job overlaps native timing. Retain first failure before changes.
-T4 requires prior reason/budget/stop communication. Routine Graphify disabled.
+Ryzen53600X/80GiB RAM/RTX3060. Freeze before observations, no model job overlaps
+native timing, retain first failures. T4: prior reason/budget/stop communication.
+Routine Graphify disabled. Preserve unrelated existing tracked/untracked work.
 
 ## Two questions and latest decisive evidence
 
-[376 same-artifact quality/rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md)
-ALL5 PASS retained56922f6,exec42085 exit0 fully consumed;200.453s/max1.337GB.
-Original14.664B ->compact14.818GB full256, SAME374 binary/new6physical workers
-and375qualifiedcost. ALL96 complete own-natural outputs exact363; original-
-primary quality ALL18 inherited via374 ALL96 teacher/natural bytes exact.
-Accepted ordinary IDs63.5254/s/lower95 59.5118,895 IDs/81 cases, all96 median
-full time14.08885s including rejected cases. Includes405 structural sentinels;
-prose34.7793/lower32.6497. Aggregate repeat1.045386. Warm pretokenized short
-English infilling FULL model timer; no cold text-to-text/general-context claim.
-Full final goal remains ACTIVE beyond this bounded positive source.
-
-
 | Question | Established | Still missing |
 | --- | --- | --- |
-| Useful conditional target |369 real256 matching has predictive/generative usefulness;370/371 physically smaller64/128 complete artifacts/contracts;373 fourfold actual-bank CPU cost bounded |372 quality is mixed: no monotonic n gain; useful >256, hierarchical routing/LUT quality, physical DRAM, larger RAM/donors |
-| Pretrained-to-compact transfer | Complete14.664B original Switch ->14.818GB I8/A16 target in engine C;363 whole donor-relative quality18/18 PASS |376 same-artifact accepted FULL rate PASS; broader tasks/contexts and multiple-family/~100B proof |
+| Useful conditional target |369 real bank matching useful;370/371 real64/128 subset exports/contracts;373 fourfold bank CPU cost bounded |372 quality mixed, no monotonic n gain; useful>256/10x, hierarchical LUT, physical DRAM |
+| Pretrained-to-compact transfer |Independent original Switch7.415B/14.664B ->7.542/14.818GB complete I8/A16 C targets;387/363 whole original-relative quality18/18;391/376 SAMEartifact FULL rate PASS | Another family, broader contexts/tasks, useful larger choices and~100B |
 
-[372 actual64/128/256 quality](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md):
-first mixed result retained039dc99,5/7 gates PASS. Relative256,64 masked NLL
-+0.837734 and generated-field accuracy-13.28125pp meet both harm bounds.
-128 masked NLL improves-0.318440; generated-field accuracy-4.166667pp with
-primary upper98.75=0 fails. Original masked teacher agreement38.28%/49.22%
-versus full25696.48%. Changed subsets cannot inherit363 acceptance. All96
-cases per subset consumed; no primary threshold change or optional repeat.
+| Qualified original source | Actual worker profile | Accepted ordinary IDs/s (lower95) | Prose IDs/s (lower95) |
+| --- | --- | ---: | ---: |
+|128 /7.415B |3 physical[0,2,4] |96.56385 (94.58827) |55.97659 (54.59729) |
+|256 /14.664B |6 physical[0,2,4,6,8,10] |63.52543 (59.51178) |34.77928 (32.64971) |
 
-[373 actual bank CPU cost](METH_373_SWITCH_REAL_BANK_COST_RESULT_20261004.md):
-ALL7 PASS retained537f01b,1,060.891s/max1.420GB. Same356/CPU1/affinity[0], ALL96
-source29/forced14 at actual64/128/256, balanced order/warm1/rep3 and profile.
-Every complete output exact363/372. Full256/64 grows2.91% (upper95 3.62%);
-decode0.51% (upper1.27%). Router matrix profile grows3.83x,3.63% of OWN full
-profile wall time at256. Aggregate repeats<=1.01363. No accepted-rate or
-physical DRAM inference. File sizes3.904/7.542/14.818GB are actual compact banks.
+[391 result](METH_391_SWITCH_BASE128_ACCEPTED_RATE_RESULT_20261004.md), retained
+4764544: ALL5 PASS,166.313s/max1.335GB, all384 warm/measured natural hashes AND
+IDs exact387,96/96 healthy/1142 ordinary IDs INCLUDING480 sentinels/662 prose.
+ALLcase median FULL11.826372s, repeat1.012403. [376 result](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md),
+56922f6: ALL5 PASS,81/96 healthy/895 IDs INCLUDING405 sentinels/490 prose,
+repeat1.045386. Warm fixed-ID short English four-span infilling FULL model
+encoder/crossKV/decoder/head/argmax/stop; startup/initial team/load/tokenization/
+serialization/cleanup excluded. No cold service/general-context claim. Different
+sources/cohorts/profiles prevent causal n/quality/speed comparisons.
 
-## Reproducible path and closed alternatives
+[392 real routing audit](METH_392_SWITCH_ROUTE_AUDIT_RESULT_20261004.md),62bde68:
+ALL384 existing complete quality outputs freshly exact363/387/389,2.860s/55MB.
+Real selected-probability medians .098/.106 at256 and .248/.258 at128,
+teacher/natural. All256 routes would change selected scaling>1% if normalized
+only on the best candidate. This is algebraic sensitivity, not whole-model
+harm. Exact best-expert retrieval alone cannot preserve full softmax scaling.
 
-| Step | Evidence / current boundary |
+## Reproducible path, failures and limits
+
+| Step | Current evidence |
 | --- | --- |
-|321 applicability +324 official isolated reference | Base128/256 have same123.765M decode matrix coefficients;324 pinned Transformers4.57.6, ordinary project5.13.1 unsupported |
-|326/327 full original source |58.860GB acquired; all6392 finite original tensors/ties/12x256 distinct pairs;14.664B unique original parameters |
-|328/334 source C contract |Tiny/nine faults and prescribed arithmetic exact; original-backend probability329/330/332 fails retained |
-|335/338 compact export/recovery |14.818GB I8 weights/F32 controls exact; interruptions335/337 retained |
-|356 all projection inputs A16 |All numerical/primitive/Tiny/fault/cache/full contracts PASS; same compact weights |
-|358/359/360/361 threading/cost |CPU6 repeat failures retained; single actual core CPU1/affinity[0] qualified361 |
-|362/363/364 whole quality and accepted rate |NEW24 books/96 cases,363 ALL18 quality PASS;36445.1114 ordinary IDs/s including markers, lower42.5362<50 FAIL; prose24.6979/s |
-|365/366 exact encoder batches |365 ALL96 bytes exact363;366 repeat1.101982>1.10 FAIL;367 draft ineligible/unexecuted |
-|368/369 learned bank identity |Two fixed mismatches independently qualified and both harm prediction/generation; no individual-expert/additional-n proof |
-|370/371/372/373 actual n |Physical64/128 exact exports + dynamic contracts; mixed quality; fourfold CPU cost PASS, bounded to these real banks |
-| GigaChat314/316/319 |Frozen donor-adaptation assets reused; full-mixture compact bound FAIL, full-width decoder38-56ms vs14/repeats FAIL; generic port paused |
-| Dense276-297 |Scoped archive/reference exists; unchanged native297 unsupported41 vsE1280 40 FAIL |
-| Granite4HTiny / StdMoE |Source-active-cost or precision gates fail; no unchanged promotion |
+|321/324/325 applicability/reference |Same core geometry/top1/ReLU; isolated Transformers4.57.6 reference; ordinary project5.13.1 unsupported |
+|326/327 and378/379 original sources |ALL6392/3320 finite original tensors/ties,12x256/128 distinct WI/WO pairs; distinctness is not individual usefulness |
+|335/338 and380 export |Same row-I8/F32 recipe and full segment readback, actual14.818/7.542GB;335/337 interruptions retained |
+|334/356 and381 target numerics |I64/A16 independent full state/logit/route/cache/greedy; original-backend329/330/332 failures retained |
+|362/363 and382/387 whole quality |NEW source-specific24-book/96-case cohorts, ALL18 each; now consumed.386 mismatched original teacher-mode bridge FAIL retained |
+|374/375/376 source256 runtime |Six actual physical workers, complete quality-byte identity/cost/FULL-rate PASS |
+|389/390/391 source128 runtime |Three actual workers, both sources'192 teacher/natural bytes exact; source128 cost/rate PASS.388 early-launch HEAD-binding apparatus failure retained |
+|383/390 and old threading paths |Source128 six-worker and source256 three-worker repeat FAIL; unchanged paths closed. Draft384/385 ineligible |
+|368/369/370/371/372/373 actual bank interventions |Matching bank identity useful; physically smaller64/128 variants have mixed quality.256/64 full cost+2.91%/upper3.62%; no DRAM or causal n gain |
+|GigaChat314/316/319 |Frozen donor-adaptation assets reused; compact latent bound FAIL; full-width additive I8 synthetic decoder38-56ms/repeats FAIL. Generic port paused |
+|Dense276-297 / Granite4HTiny / StdMoE |Quality, active-cost or precision failures; no unchanged promotion |
 
-Detailed records and links: [history through373](INDEX_HISTORY_THROUGH373_20261004.md),
-[prior evidence](PRIOR_EVIDENCE.md), [procedure](METHOD.md).
+[Method](METHOD.md), [history through373](INDEX_HISTORY_THROUGH373_20261004.md),
+[prior evidence](PRIOR_EVIDENCE.md); immutable numbered protocols/results.
+Source128378-391 reports document actual acquisition/export/quality costs and
+first failures. Both scales preserve all original banks/core without training.
 
-## Exact artifacts and resumption
+## Exact artifacts and next resumption
 
-Original source: `results/native_expert_scaling/meth326_switch_base256_source`.
-Full target: `results/native_expert_scaling/meth335_switch_w8a8_export/weights.bin`,
-SHA `e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056`;
-spec `results/native_expert_scaling/meth338_switch_tensor_recovery/manifest.bin`.
-Qualified current binary `results/native_expert_scaling/meth374_switch_physical_workers_contract/meth374_switch_physical_workers.exe`,
-SHA `97965a35900cc0483e60f3e2e51f95da90af600e1fa326af8ec34f7c2a3dacd0`.
-Actual subsets: `results/native_expert_scaling/meth370_switch_nested_bank_export/n64`
-and `n128` (weights/spec/metadata).353/356/363/371/372/373 outputs/raw retained.
-All362 sources consumed. Isolated324 environment reusable; source128 full
-weights absent. Default engine body byte-exact0ff9705; unrelated edits preserved.
+[Base256 reproduction](SWITCH_BASE256_REPRODUCTION_20261004.md) and
+[base128 reproduction](SWITCH_BASE128_REPRODUCTION_20261004.md) give full identities,
+commands, frozen checkouts and qualified source-specific profiles. Actual
+original128 OWN artifact is NOT370 n128 subset. Isolated324 original environment
+reusable. Qualified binaries374 and389 remain separately bound to their rates;
+a changed engine/controller needs its own exact-source/full-output verification.
 
-[374 worker contract](METH_374_SWITCH_PHYSICAL_WORKERS_CONTRACT_RESULT_20261004.md)
-ALL7 PASS retained0de8cf0,exec1062 exit0 fully consumed;307.844s/max1.404GB.
-NEW explicit worker masks0,2,4,6,8,10/actual thread IDs/live readbacks plus
-ACTIVE/infinite wait; exact356 math and ALL96 full teacher/own-natural SHA
-EXACT363. Negative actual-affinity fault detected. Scoped363 quality only.
-[375 cost](METH_375_SWITCH_PHYSICAL_WORKERS_COST_RESULT_20261004.md) ALL7 PASS
-retainedaa3cf47,exec39504 exit0 fully consumed;27.078s/max947MB. SAME374/338,
-source9/64 forced32 full5.3951/12.8198ms, decode4.7072/6.3560ms, repeats
-1.009138/1.082004, all full bridges and actual worker masks exact.
-[376 accepted full rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md)
-ALL5 PASS56922f6, scope and counting above. Preserve qualified374/375/376;
-no unchanged rate polishing. [Reproduction guide](SWITCH_BASE256_REPRODUCTION_20261004.md).
-[377 acquisition failure](METH_377_SWITCH_BASE128_ACQUISITION_RESULT_20261004.md)
-retained82ca1dc: wrong protocol date, binding exit1 before download,0 bytes.
-[378 corrected acquisition](METH_378_SWITCH_BASE128_ACQUISITION_PROTOCOL_20261004.md)
-PASS retainedb31786d;895.625s/59MB RSS; independently pretrained original128 OWN core/router/functions,
-not370 subset.29,862,948,392B/3 shards+7 side files;90min/40GiB/2GiB RSS,
-exact325 LFS identities, expected+32GiB disk reserve. Bind every committed
-input in a model-free preflight before acquisition. Same-family7.4B/14.7B,
-twofold actual n transfer test; no second-family/10x proof. 379 complete actual3320 tensors/7.415B confirmed ties and12x128 distinct pairs
-PASS (55.047s/10.197GB RSS), no effective-function/quality inference. 380 full new compact export ALL6 PASS7949336,7.542GB/263.172s/10.422GB RSS.
-381 independent full numerical contract ALL8 PASS,132.610s/max2.657GB.
-382 NEW24 books/96 cases PASSdae022a,136 old rows excluded, no model scores.
-383 first SAME original128 cost FAIL retained4ee2ddb: source64 decode repeat
-1.259571>1.10, all output/worker/profile/median gates pass,6/7. Source9/64
-median FULL5.1722/12.2588ms, decode4.5314/5.9780ms; no optional retry.
-Draft384/385 ineligible/unfrozen/unexecuted. NEW386 quality-only protocol
-uses exact363 ALL18 rubric and unmodified ORIGINAL128 PRIMARY on NEW382.
-All numerical output/placement gates passed; performance explicitly unqualified.
-No cost/accepted-rate promotion from386.386 first original cached/uncached
-teacher bridge FAIL d6f9366,1.12696e-6>1e-6, before any NEW382 scores (38.844s).
-387 independent original128 whole quality ALL18 PASS retained4a22f08,
-662.265s/max7.010GB; ALL96 cached teacher-generate bridge logit L2 EXACT0,
-wrong-ID Tiny controls detected. Teacher overall97.47%/masked97.14%; prose edit
-upper95 .089451<=.10, original/native healthy96/96, generated fields92/89 of384.
-Quality transfer now scoped to two actual independent same-family scales;
-383 cost remains FAIL, no original128 accepted-rate qualification. NEW388
-three actual physical workers[0,2,4], all math source reversal exact374,
-BOTH192 teacher/own-natural quality bytes required. 388 launch before pending freeze completed failed first HEAD binding,
-retained031916d/no native observations; freeze completedcdd2871. Corrected389
-frozene604af1/preflight PASS, unchanged388 math/profile/gates; live numerical
-contract, then390 cost/391 rate only for qualifying artifacts. Budget38930min/
-16GiB, expected<=10min. No other model/timing/acquisition job.
-Whole useful n/LUT/realDRAM/multiple family/scale/~100B goal remains open.
+Next393: instrument actual normalized router inputs/full scores while retaining
+ALL384 complete outputs exactly363/387/389; quantify an oracle ranked shortlist's
+retained probability mass and selected scaling before choosing a hierarchy/LUT.
+No rate polishing or automatic old GigaChat-port restart. Exact top1-only traces
+cannot reconstruct ranked tail mass. The necessary candidate bound in392 is
+not a sufficient shortlist size or changed-router quality result. More useful
+choices, physical DRAM, other families/contexts/~100B remain open.

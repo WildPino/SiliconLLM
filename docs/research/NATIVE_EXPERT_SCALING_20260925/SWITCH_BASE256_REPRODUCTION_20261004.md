@@ -123,9 +123,23 @@ Flat-router logical bytes scale with n;373 actual fourfold-bank full cost
 upper3.62% is bounded to64-256. No universal greater-n/hierarchical LUT/physical
 DRAM traffic/cold cache/100B or other-family quality/rate proof follows.
 
-Next independent original base128 tests scale transfer using its OWN learned
+Independent original base128 now qualifies scale transfer using its OWN learned
 core/router/banks, not370's removal of functions from base256. This is a twofold
 candidate bank contrast and one family; neither10x scaling nor another family.
 Other donor screens/failed transformations remain in METHOD/INDEX. Final goal
-active until the stated broader applicability and useful-capacity requirements
+incomplete until the stated broader applicability and useful-capacity requirements
 are evidenced.
+
+
+## Current source revision and second qualified scale
+
+The immutable374/375/376 observations use their frozen source commits. The
+current engine also has388's THREE_WORKERS opt-in before the six-worker branch;
+frozen374 source-identity controller requires its original prefix, so execute
+that controller from its frozen59e39d8 checkout for original reproduction.
+Use389's source-identity proof for the current three-worker branch; do not edit
+old controllers to accept changed source. Existing qualified374 executable and
+its original six-worker rate remain authoritative. Source128 now independently
+qualifies at three workers through389/390/391; see
+[base128 reproduction](SWITCH_BASE128_REPRODUCTION_20261004.md). Different worker
+profiles/cohorts/sources prevent direct causal n or speed comparisons.

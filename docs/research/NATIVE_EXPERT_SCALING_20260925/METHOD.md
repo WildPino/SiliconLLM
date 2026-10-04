@@ -1,16 +1,16 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-**Status: one bounded pretrained-to-native quality/rate route is qualified;
+**Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
-running in the project C engine at ≥50 accepted batch-1 tokens/s on a declared
+running in the project C engine at â‰¥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
-family or scale must test which steps transfer. More stored parameters alone
+family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
 
-## Independent source-scale transfer currently in progress
+## Independently pretrained source128: complete bounded transfer qualified
 
 The independently pretrained original `google/switch-base-128` (revision
 86c815ec05361a33a8b49fc717277da9c0a4e711) is locally acquired and actually
@@ -41,15 +41,22 @@ No rate promotion follows quality without a justified new performance variable.
 original PRIMARY and ALL96 official cached teacher logits exact0 difference.
 Overall original teacher agreement97.47%, masked97.14%; generated-field counts
 92 original/89 native of384, both96/96 healthy; prose-edit upper95 .089451.
-This supplies source-specific quality transfer at the second trained scale;
-original128 performance remains unqualified. NEW388 three-worker contract is
-prepared to preserve both complete source artifacts/ALL192 quality outputs.
-No quality or speed inheritance from source256 or its smaller subsets.
+389 ALL192 complete teacher/natural bytes exact363/387 at NEW three actual
+physical workers[0,2,4].390 independently qualifies original128 costs ALL6;
+full256 three-worker repeat1.105770>1.10 FAIL remains closed.391 SAME original128
+artifact/389 binary/390 profile ALL5 accepted FULL-rate gates PASS:
+96.56385 ordinary IDs/s/lower95 94.58827;55.97659 prose IDs/s/lower54.59729.
+96/96 healthy,1142 ordinary IDs INCLUDING480 sentinels,662 prose IDs;
+ALL96 median FULL time11.826372s, aggregate repeat1.012403. Warm short fixed-ID
+full model computation, same exclusions as376; no cold text service claim.
+391 cost166.313s/max1.335GB. The second independently trained source scale now
+qualifies joint whole quality/rate with its source-specific worker profile.
+383 six-worker failure remains authoritative, and draft384/385 ineligible.
 
 The question is repeatable preservation across two actual trained sources at
 same-family7.4B/14.7B scales and128/256 candidate counts. Different pretrained
-core/weights/exposure prevent a matched-training causal n comparison. Even a
-positive outcome would leave useful>256/10x n, hierarchical CPU LUT/routing,
+core/weights/exposure prevent a matched-training causal n comparison. The positive
+source-specific outcome leaves useful>256/10x n, hierarchical CPU LUT/routing,
 physical DRAM, additional families, broad contexts and~100B open.
 
 ## Current qualified route: original Switch base256 to native C
@@ -97,8 +104,8 @@ bytes, independent of stored expert pool size except the flat router. Actual
 full timing includes selected weight access costs; logical descriptors and
 RSS do not measure physical DRAM traffic or establish cache locality.
 
-Applicability currently validated ONLY at real original base256 and exact
-nested64/128 numerical controls. Loader shape bounds d<=1024, ff<=4096,
+Applicability currently validated at real independently pretrained original
+base128/base256 and exact nested64/128 numerical controls. Loader shape bounds d<=1024, ff<=4096,
 encoder/decoder<=24, vocab<=65536, heads*dk=d, buckets32/distance128; projection
 columns<=4096 and exact I32-lane/I64-sum bounds. These are implementation
 preconditions, not proof that every matching model passes quality. Source
@@ -110,10 +117,10 @@ current source/target resource envelope; do not infer~100B compatibility.
 
 [Reproduction and exact artifacts](SWITCH_BASE256_REPRODUCTION_20261004.md)
 provides commands and immutable inputs. Old364/358/360/366 failures stay closed;
-no optional polishing of the unchanged qualified376 rate. Next actual original
-base128 acquisition/transfer can test an independently trained second scale;
-it is not370's subset of base256. Cross-family/greater-than256/useful large-n/
-physical DRAM and broader context/task proof remain open. The full goal ACTIVE.
+no optional polishing of the unchanged qualified376 rate. Original
+base128 complete transfer is now qualified through391; it is not370's subset
+of base256. See SWITCH_BASE128_REPRODUCTION_20261004.md. Cross-family/greater-than256/useful large-n/
+physical DRAM and broader context/task proof remain open. The full goal remains incomplete.
 
 ## Earlier dense-family complete candidate (rate/quality promotion closed)
 
@@ -318,7 +325,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268–31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268â€“31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -326,13 +333,13 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846–22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846â€“22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20–22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20â€“22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
@@ -393,7 +400,7 @@ validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
 [318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
 now passes all source/numeric/format/route/capacity controls on fully allocated
 3.187GB with actual source head/router/norm/embedding. All nine repetition
-medians38.124–55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+medians38.124â€“55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
 full-width decoder is CLOSED before training/640-bank allocation.318 startup
 failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
 No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.
@@ -765,3 +772,24 @@ Detailed former decisions and variant evidence are preserved in
 [METHOD_HISTORY_THROUGH264](METHOD_HISTORY_THROUGH264_20261002.md); historical
 next steps there are superseded. This document records the procedure;
 operational process/result/resumption state lives in [INDEX](INDEX.md).
+
+
+## Current routing uncertainty after the two qualified source scales
+
+392 read-only ALL384 retained complete output traces freshly match363/387/389.
+Actual selected-probability medians are .098/.106 for256 teacher/natural and
+.248/.258 for128. All256 routes would change selected-expert scaling by>1%
+under singleton normalization; no changed-model harm was measured. Per-bank
+coverage spans173-252 of256 and107-126 of128 teacher choices. Different
+sources/cohorts prevent causal n interpretation; visits are not individual
+expert usefulness. Existing top1 traces cannot reconstruct ranking/tail mass.
+
+Next393 must capture actual normalized router inputs/full scores under exact
+complete-output identity, then measure oracle ranked retained mass before
+choosing a retrieval/LUT normalization approximation. Exact best-expert lookup
+alone does not preserve the softmax-scaled original function. Larger actual
+useful n, physical DRAM and another donor family remain separate open gates.
+Frozen GigaChat314-319 assets are reusable;319 already uses full-width additive
+I8 palette decoding and synthetic operator fixtures, not an unquantized dense
+baseline or complete learned model. Its38-56ms failed costs cannot be promoted
+by inheriting Switch execution rates; unchanged generic port remains paused.

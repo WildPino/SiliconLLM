@@ -53,3 +53,23 @@ T4/training/download. Actual budget/gates must be frozen with implementation.
 from this memo. Useful>256/10x n/LUT/physical DRAM/multiple families/~100B remain
 the broader goal; this execution variable addresses the observed local cost
 qualification failure, not missing learned capacity.
+
+
+## Current resumption, 4 October: supersedes earlier proposed steps
+
+389 both original sources/ALL192 teacher+natural whole outputs exact363/387 at
+three actual workers[0,2,4], numerical contract PASS.390 original128 ALL6 cost
+PASS; full256 three-worker repeat1.105770>1.10 FAIL retained29dfdf8. Original
+256 six-worker374/375/376 route remains qualified.383 original128 six-worker
+failure and386/388 apparatus failures preserved; drafts384/385 ineligible.
+391 original128 SAMEartifact accepted FULL rate ALL5 PASS4764544:96.56385
+ordinary IDs/s/lower94.58827,55.97659 prose IDs/s/lower54.59729,96/96 healthy,
+662 prose IDs, repeat1.012403. Two actual same-family pretrained source scales
+have complete bounded quality/rate; worker variants independently qualified.
+No causal n/other-family/general-context/physical DRAM/~100B conclusion.
+392 read-only routing audit PASS62bde68: selected probability medians~.10/.25,
+so exact selected identity alone cannot inherit full softmax scaling. Next393
+capture full router inputs/scores under exact whole-output identity, then
+measure oracle retained tail mass before choosing hierarchy/LUT approximation.
+More useful choices remain the priority; no unchanged rate polishing or old
+GigaChat generic-port restart. See INDEX.md/METHOD.md for exact current state.

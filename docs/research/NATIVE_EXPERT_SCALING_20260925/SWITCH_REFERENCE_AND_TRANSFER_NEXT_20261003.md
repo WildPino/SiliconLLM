@@ -130,26 +130,19 @@ nextforadditional real alternatives; actual n artifactsnotyetimplemented.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-387 independently pretrained original128 NEW whole quality ALL18 PASS4a22f08:
-all3320 original coefficient/tie/config/tokenizer identities and ALL96 matched
-cached teacher-generate logits exact0; source128 top1 masked97.14%, prose-edit
-upper95 .089451, original/native healthy96/96, generated fields92/89 of384.
-Together with363 this establishes bounded same-family7.4B/14.7B quality transfer,
-not matched-training causal n improvement or second-family/general-task proof.
-Complete128 target3807.542GB; full25633814.818GB.383 six-worker source128 cost
-first stability FAIL1.259571>1.10 retained4ee2ddb; latency medians and all outputs/
-placement pass.386 original cached/uncached bridge apparatus FAIL before NEW
-scores retainedd6f9366;387 corrected matched cached semantics, same1e-6 criterion.
-Draft384/385 ineligible/unfrozen/unexecuted; no optional unchanged timing retry.
-
-388 early launch before pending freeze completed failed first HEAD binding,
-retained031916d, no native/model observations. Freeze cdd2871 subsequently
-completed exit0. NEW389 frozene604af1/preflight PASS uses unchanged388 math,
-only team-size3 accepted with actual masks[0,2,4], ACTIVE/infinite wait.
-BOTH192 complete teacher AND own-natural bytes exact363/387 required before
-inheriting quality; no speed claim from numeric timing. Then separately freeze
-390 BOTH actual source9/64 cost, same per-fixture<=20ms and repeat<=1.10;
-391 SAME accepted FULL rate only for independently qualifying artifacts.
-Original256374/375/376 quality/rate positive preserved; physical DRAM, useful
->256/10x n, hierarchical CPU LUT/routing, other families/contexts/~100B remain
-open. See SWITCH_THREE_WORKER_PROFILE_NEXT_20261004.md. Goal incomplete.
+389 both original sources/ALL192 teacher+natural whole outputs exact363/387 at
+three actual workers[0,2,4], numerical contract PASS.390 original128 ALL6 cost
+PASS; full256 three-worker repeat1.105770>1.10 FAIL retained29dfdf8. Original
+256 six-worker374/375/376 route remains qualified.383 original128 six-worker
+failure and386/388 apparatus failures preserved; drafts384/385 ineligible.
+391 original128 SAMEartifact accepted FULL rate ALL5 PASS4764544:96.56385
+ordinary IDs/s/lower94.58827,55.97659 prose IDs/s/lower54.59729,96/96 healthy,
+662 prose IDs, repeat1.012403. Two actual same-family pretrained source scales
+have complete bounded quality/rate; worker variants independently qualified.
+No causal n/other-family/general-context/physical DRAM/~100B conclusion.
+392 read-only routing audit PASS62bde68: selected probability medians~.10/.25,
+so exact selected identity alone cannot inherit full softmax scaling. Next393
+capture full router inputs/scores under exact whole-output identity, then
+measure oracle retained tail mass before choosing hierarchy/LUT approximation.
+More useful choices remain the priority; no unchanged rate polishing or old
+GigaChat generic-port restart. See INDEX.md/METHOD.md for exact current state.
