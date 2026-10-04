@@ -81,5 +81,8 @@ contract, then qualify numerical controls/ALL96 complete forced and natural
 bytes EXACT363. Only after PASS separately freeze375 CPU cost, then376 SAME
 accepted full rate. This changes thread placement/wait behavior; old358/360/
 366 failures remain closed, no unchanged retry. See [execution plan](SWITCH_PHYSICAL_THREAD_EXECUTION_NEXT_20261004.md).
-374 has no implementation/protocol/freeze yet. No live process to resume.
+374 implementation/protocol prepared for freeze: exact source reversal, explicit
+Windows worker masks/readbacks, ACTIVE/infinite blocktime, all96 forced/natural
+bridges before cost. No live process. Freeze before compiling/executing.
+[374 protocol](METH_374_SWITCH_PHYSICAL_WORKERS_CONTRACT_PROTOCOL_20261004.md).
 Goal remains open beyond this scoped family/short English infilling result.
