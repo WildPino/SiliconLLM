@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal.378 source acquisition live; no model/timing job.**
+**Goal ACTIVE. No artifact meets the full final goal.378 acquisition PASS;379 tensor binding next; no live model/timing job.**
 
 ## Goal and constraints
 
@@ -102,10 +102,10 @@ no unchanged rate polishing. [Reproduction guide](SWITCH_BASE256_REPRODUCTION_20
 [377 acquisition failure](METH_377_SWITCH_BASE128_ACQUISITION_RESULT_20261004.md)
 retained82ca1dc: wrong protocol date, binding exit1 before download,0 bytes.
 [378 corrected acquisition](METH_378_SWITCH_BASE128_ACQUISITION_PROTOCOL_20261004.md)
-frozen029e5b7; preflight PASS; acquisition live: independently pretrained original128 OWN core/router/functions,
+PASS retainedb31786d;895.625s/59MB RSS; independently pretrained original128 OWN core/router/functions,
 not370 subset.29,862,948,392B/3 shards+7 side files;90min/40GiB/2GiB RSS,
 exact325 LFS identities, expected+32GiB disk reserve. Bind every committed
 input in a model-free preflight before acquisition. Same-family7.4B/14.7B,
-twofold actual n transfer test; no second-family/10x proof. Then379 all-original
-tensor/tie/function binding, source-specific export/reference and NEW untouched
+twofold actual n transfer test; no second-family/10x proof. Next379 all-original
+tensor/tie/function binding, prepared for freeze, source-specific export/reference and NEW untouched
 original-primary whole quality/SAME full rate. Goal scope unchanged.
