@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;383 CPU stability FAIL;386 bridge FAIL;387 quality next.**
+**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;387 independent original128 whole quality ALL18 PASS;388 three-worker contract next.**
 
 ## Goal and constraints
 
@@ -118,7 +118,13 @@ uses exact363 ALL18 rubric and unmodified ORIGINAL128 PRIMARY on NEW382.
 All numerical output/placement gates passed; performance explicitly unqualified.
 No cost/accepted-rate promotion from386.386 first original cached/uncached
 teacher bridge FAIL d6f9366,1.12696e-6>1e-6, before any NEW382 scores (38.844s).
-NEW387 matched official cached teacher-generate bridge on Tiny/engineering/ALL96,
-same1e-6 criterion and exact363 ALL18 rubric; quality-only,383 cost remains FAIL.
-Budget90min/48GiB, expected<=30min; freeze before any NEW score. Later CPU work needs a diagnosed NEW variable.
+387 independent original128 whole quality ALL18 PASS retained4a22f08,
+662.265s/max7.010GB; ALL96 cached teacher-generate bridge logit L2 EXACT0,
+wrong-ID Tiny controls detected. Teacher overall97.47%/masked97.14%; prose edit
+upper95 .089451<=.10, original/native healthy96/96, generated fields92/89 of384.
+Quality transfer now scoped to two actual independent same-family scales;
+383 cost remains FAIL, no original128 accepted-rate qualification. NEW388
+three actual physical workers[0,2,4], all math source reversal exact374,
+BOTH192 teacher/own-natural quality bytes required. Then frozen389 cost/390
+rate only for qualifying artifacts. Budget38830min/16GiB; expected<=10min.
 Whole useful n/LUT/realDRAM/multiple family/scale/~100B goal remains open.

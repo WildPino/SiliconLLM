@@ -37,6 +37,13 @@ using unchanged363 ALL18 rubric, with performance explicitly unqualified.
 (1.12696e-6>1e-6); raw preserved. NEW387 uses matched official cached teacher
 mode via generate raw-logit capture, same1e-6 bridge and unchanged ALL18 rubric.
 No rate promotion follows quality without a justified new performance variable.
+387 ALL18 NEW original128 quality PASS (662.265s/max7.010GB), independent
+original PRIMARY and ALL96 official cached teacher logits exact0 difference.
+Overall original teacher agreement97.47%, masked97.14%; generated-field counts
+92 original/89 native of384, both96/96 healthy; prose-edit upper95 .089451.
+This supplies source-specific quality transfer at the second trained scale;
+original128 performance remains unqualified. NEW388 three-worker contract is
+prepared to preserve both complete source artifacts/ALL192 quality outputs.
 No quality or speed inheritance from source256 or its smaller subsets.
 
 The question is repeatable preservation across two actual trained sources at

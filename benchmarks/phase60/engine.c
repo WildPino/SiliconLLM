@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_PHYSICAL_WORKERS
+#ifdef SILICON_SWITCH_THREE_WORKERS
+#include "../native_expert_scaling/meth388_switch_three_workers_entry.c"
+#elif defined(SILICON_SWITCH_PHYSICAL_WORKERS)
 #include "../native_expert_scaling/meth374_switch_physical_workers_entry.c"
 #elif defined(SILICON_SWITCH_ENCODER_BATCHES)
 #include "../native_expert_scaling/meth365_switch_encoder_batches_entry.c"
