@@ -5,10 +5,10 @@ The user resumed experimental work after the strategic review. Goal ACTIVE.
 [Strategic review](STRATEGIC_REVIEW_20261004.md) audits the evidence and proposes
 single-donor common/private decomposition, identity-sensitive supervision,
 explicit routing/normalization and complete cost gates. The review is a dated
-document-only snapshot.442 stopped at source-hash admission before any forward.
-Latest science remains441: ONE fixed function retains99.6585%benefit, so440's
-teacher-ID counts do not prove conditional capacity. NEW443 will separate
-admission and numerical resource limits without changing the causal test.
+document-only snapshot.442's first admission stop remains retained;443 completed
+the SAME causal test. Native source128 ID+1 has mean KL.17646/41argmax changes;
+identity matters locally.441's one-function benefit does not show source functions
+are interchangeable. Next: single-donor function-contrast geometry, not440 tuning.
 
 ## Goal and constraints
 
@@ -77,6 +77,10 @@ zero updates/53s/1.680GB/86.360MB. Close this fit before tuning/selector fitting
 - 442 [first admission stop](METH_442_SWITCH_NATIVE_CAUSALITY_RESULT_20261004.md):
 150.125s/421.257MB/8.515GB hashed, before source mapping or forward. No causal
 outcome/output directory. Retain first failure before NEW443; do not rerun442.
+- 443 [native causality](METH_443_SWITCH_NATIVE_CAUSALITY_RESULT_20261004.md):
+ALL5apparatusPASS/336complete heads exact; mean KL fixed0 .07820/ID+1 .17646/
+removal .03270, argmax changes29/41/21. Native identity effect present; foreign
+chain component not identified.67.25s/1.854GB/138.841MB/zero updates.
 
 ## Closed routes and retained context
 
@@ -97,8 +101,10 @@ The latest user instruction explicitly resumes the goal, superseding the earlier
 analysis-only scope.442's static count-versus-index defect was repaired before
 freeze. [Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes
 all controls, information metric and first-stop limits before any forward.
-Its150s inclusive guard stopped during hashing. Prepare NEW443 with admission
-<=300s/numerical<=150s/total<=450s, same causal math/rows/thresholds; freeze first.
+Its150s inclusive guard stopped during hashing. NEW443 separated admission
+<=300s/numerical<=150s/total<=450s, completed with native identity effect.
+Next NEW444 single-donor common/private functional geometry: freeze fixed anchors,
+rank subspaces, native posterior/contrast controls and costs before observations.
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
 NEW442 original128 final-bank replay/counterfactual at336captured prefixes. ALL

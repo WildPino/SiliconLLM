@@ -4,9 +4,9 @@
 [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
 qualified Switch transfer from useful-n scaling, cross-core interfaces and
 physical cost. Single-donor common/private decomposition is a NEW hypothesis,
-not an implemented method.441 remains the latest causal outcome;442 stopped
-at150.125s during source-hash admission before any forward. NEW443 will separate
-admission from numerical limits, preserving the same causal test.
+not an implemented method.442's first admission stop retained;443 completed the
+same causal test: native ID+1 mean self-KL.17646/41argmax changes. Original identity
+matters locally; foreign transfer's weak effect does not localize the failure.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
@@ -109,7 +109,10 @@ NEW442 native source128 final-bank identity/removal before foreign readout.
 heads first, then three fixed controls,150sec/3GiB/160MiB and first-stop retention.
 442 [first stop](METH_442_SWITCH_NATIVE_CAUSALITY_RESULT_20261004.md) is retained:
 no replay/utility. NEW443 admission300s/native150s/total450s, same3GiB/160MiB,
-same math and thresholds. All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
+same math and thresholds;443 completed ALL5apparatusPASS/67.25s/1.854GB.
+Fixed0/ID+1/removal mean KL.07820/.17646/.03270. NEW444 single-donor functional
+mean/contrast geometry precedes another fit; oracle decomposition is not runtime.
+All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 
 ## Independently pretrained source128: complete bounded transfer qualified
