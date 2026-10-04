@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
-**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;383 CPU stability FAIL;386 quality next.**
+**Goal ACTIVE. No artifact meets the full final goal.Original128 numerics/cohort PASS;383 CPU stability FAIL;386 bridge FAIL;387 quality next.**
 
 ## Goal and constraints
 
@@ -116,6 +116,9 @@ median FULL5.1722/12.2588ms, decode4.5314/5.9780ms; no optional retry.
 Draft384/385 ineligible/unfrozen/unexecuted. NEW386 quality-only protocol
 uses exact363 ALL18 rubric and unmodified ORIGINAL128 PRIMARY on NEW382.
 All numerical output/placement gates passed; performance explicitly unqualified.
-No cost/accepted-rate promotion from386. Budget90min/48GiB, expected<=30min;
-freeze before any NEW score. Later CPU work needs a diagnosed NEW variable.
+No cost/accepted-rate promotion from386.386 first original cached/uncached
+teacher bridge FAIL d6f9366,1.12696e-6>1e-6, before any NEW382 scores (38.844s).
+NEW387 matched official cached teacher-generate bridge on Tiny/engineering/ALL96,
+same1e-6 criterion and exact363 ALL18 rubric; quality-only,383 cost remains FAIL.
+Budget90min/48GiB, expected<=30min; freeze before any NEW score. Later CPU work needs a diagnosed NEW variable.
 Whole useful n/LUT/realDRAM/multiple family/scale/~100B goal remains open.

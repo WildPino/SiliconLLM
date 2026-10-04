@@ -33,7 +33,10 @@ independent target arithmetic/cache/route/own-greedy ALL8 PASS (132.610s/2.657GB
 all full output/worker/profile/latency-median gates pass. Keep383 authoritative;
 draft384/385 dependent chain ineligible. NEW386 separately tests quality only
 using unchanged363 ALL18 rubric, with performance explicitly unqualified.
-No rate promotion follows386 without a justified new performance variable.
+386 cached/uncached original teacher bridge failed before any NEW scores
+(1.12696e-6>1e-6); raw preserved. NEW387 uses matched official cached teacher
+mode via generate raw-logit capture, same1e-6 bridge and unchanged ALL18 rubric.
+No rate promotion follows quality without a justified new performance variable.
 No quality or speed inheritance from source256 or its smaller subsets.
 
 The question is repeatable preservation across two actual trained sources at
