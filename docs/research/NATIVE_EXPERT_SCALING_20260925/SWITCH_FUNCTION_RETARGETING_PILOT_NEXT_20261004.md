@@ -1,5 +1,14 @@
 # Current resumption after441: original source function-identity causality
 
+**Current scope: investigation and planning only, 4 October 2026.** See
+[strategic review](STRATEGIC_REVIEW_20261004.md) before any future execution.
+This technical proposal is retained for later scientific resumption;442 is
+an untracked, unfrozen controller draft with no protocol/output/outcome. Its
+count-versus-index defect must be repaired before freeze. No automatic run
+or new fit is authorized by this analysis-only request. The broader plan
+prioritizes causal identity, single-donor common/private functions, gating
+amplitude and complete physical cost; this one-bank probe is diagnostic.
+
 Goal ACTIVE/INCOMPLETE. User priority useful n grows with RAM while CPU LUT/
 routing/physicalDRAM and quality remain viable. Original source128/256 qualified
 artifacts/rates unchanged; no useful combined384/10x/~100B artifact. Routine
@@ -37,7 +46,8 @@ capacity. Rotation does not prove general input independence. No recipe rescue.
 
 ## Immediate NEW442: native original128 last-bank identity diagnostic, no fit
 
-No442 source/protocol/numeric outcome yet. Uncertainty: does original128 final-
+442 controller is now a DRAFT; no frozen source/protocol/numeric outcome yet.
+Uncertainty: does original128 final-
 bank identity affect its OWN native predictions, and the foreign shared readout
 hides that effect, or is this one-bank/context pilot itself a weak capacity probe?
 Resolve BEFORE another output/interface/selector fit. Do not conflate poor

@@ -1,10 +1,12 @@
 # Native expert scaling: research control index
 
-**4 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.**
-Latest:440 shared readout beats own-input control but fails3/9 potential gates.
-441 ONE fixed function retains99.6585%benefit; teacher-ID counts do not prove
-conditional capacity. Next NEW442: original128 native final-bank identity effects
-before foreign readout, no new fit. Prepare/freeze exact replay/control protocol.
+**4 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.**
+Current user scope: investigation and planning only; experimental work is stopped.
+[Strategic review](STRATEGIC_REVIEW_20261004.md) audits the evidence and proposes
+single-donor common/private decomposition, identity-sensitive supervision,
+explicit routing/normalization and complete cost gates. No new numerical outcome.
+Latest science remains441: ONE fixed function retains99.6585%benefit, so440's
+teacher-ID counts do not prove conditional capacity.442 is an unfrozen draft.
 
 ## Goal and constraints
 
@@ -84,6 +86,12 @@ in [historical index through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),
 Frozen donor-adaptation Giga work remains reusable evidence, not active old plan.
 
 ## Exact resumption
+
+Read [strategic review and decision plan](STRATEGIC_REVIEW_20261004.md) before
+resuming experiments. The current request authorizes investigation/plan only.
+The existing442 technical proposal below is retained, not executed or frozen;
+its draft has a static count-versus-index defect documented in the review.
+No442 protocol/output directory exists. Do not auto-start a fit or benchmark.
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
 NEW442 original128 final-bank replay/counterfactual at336captured prefixes. ALL

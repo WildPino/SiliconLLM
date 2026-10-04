@@ -1,5 +1,11 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
+**4 October strategic review:** current user scope is investigation/planning
+only. [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
+qualified Switch transfer from useful-n scaling, cross-core interfaces and
+physical cost. Single-donor common/private decomposition is a NEW hypothesis,
+not an implemented method.441 remains the latest outcome;442 draft is unrun.
+
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
@@ -96,8 +102,9 @@ readout/mask, expert0 preserves99.6585%benefit; input rotation harms.00003699.
 Teacher-ID counts do not establish useful conditional capacity. Close fixed
 shared-readout recipe before tuning/selector fitting.53s/1.680GB/zero updates.
 Next [original function causality](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW442 native source128 final-bank identity/removal before foreign readout. No
-source/protocol/outcome yet, no new fit; exact original heads first, then fixed
+NEW442 native source128 final-bank identity/removal before foreign readout.
+Only an unfrozen draft exists; no protocol/outcome or new fit. Exact heads first,
+then fixed
 controls. All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 
