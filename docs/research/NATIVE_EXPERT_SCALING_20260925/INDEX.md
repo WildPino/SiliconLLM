@@ -14,7 +14,9 @@ weighting also fails:256 val78.52%. Local oracle ranks95%=75..87 at validation,
 not per-expert rank bounds.446 completed ALL9apparatusPASS but all45Frobenius
 matrix-factor candidates FAIL. Native coupled permutations exact;95%matched
 matrix energy requires symmetricrank>=631, losing F32 storage advantage.
-Next NEW packed-I4 original-function/head quality probe, no rank truncation/fit.
+447 fixed row-I4 source/math/protocol frozen c122074, BEFORE first import.
+No outcome yet; next run its bounded CPU command ONCE (details in current
+resumption). Mean KL<=.01/book<=.05/argmax<=3 of336, no rank truncation/fit.
 
 ## Goal and constraints
 

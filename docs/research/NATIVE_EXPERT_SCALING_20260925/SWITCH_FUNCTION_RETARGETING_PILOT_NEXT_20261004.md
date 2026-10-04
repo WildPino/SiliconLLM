@@ -63,9 +63,13 @@ All sessions terminal; no model jobs remain. Original engine/binaries intact.
 
 ## Immediate NEW447: calibration-free packed-I4 local native-head probe
 
-Prepare/freeze ONE new source/controller/protocol before import/quantization/
-packing/forward. No447 controller/protocol/output exists yet. No new corpus,
-source download, training/readout/router fit or GPU is required for this first probe.
+447 source/math/[protocol](METH_447_SWITCH_I4_PROTOCOL_20261005.md) frozen
+at c122074 BEFORE first import/quantization/packing/forward. No outcome yet.
+Next run ONCE the protocol command. Mean KL<=.01/every book<=.05, argmax<=3/336,
+ID+1 mean KL increase>=.01 and nominal storage<=.51, all apparatus required.
+CPU-only admission300/numeric300/total600 seconds,3GiB/512MiB. No new corpus,
+source download, training/readout/router fit or GPU. Retain FIRST failure;
+never modify frozen447 source/protocol or rerun its output paths.
 
 Why this variable: lower scalar precision keeps all matrix directions available
 instead of imposing a low-rank truncation. Dense Frobenius deltas are expensive;
@@ -73,7 +77,7 @@ packed original function coefficients may reduce stored/read bytes while retaini
 identity-conditioned computation. Quantization may still change rank, functions,
 posterior/task quality or speed; none is assumed to survive.
 
-Proposed scope, to be fully specified and frozen before observation:
+Frozen scope (the linked protocol defines all thresholds and operators):
 
 1. Same original source128 final bank11 first, all128REAL functions. Reuse exact
    source weights/manifest/native captures, original core/input/probability/final
