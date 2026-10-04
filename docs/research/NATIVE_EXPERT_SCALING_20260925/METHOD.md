@@ -4,8 +4,9 @@
 [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
 qualified Switch transfer from useful-n scaling, cross-core interfaces and
 physical cost. Single-donor common/private decomposition is a NEW hypothesis,
-not an implemented method.441 remains the latest outcome;442's native causal
-protocol is prepared for freeze before any new forward.
+not an implemented method.441 remains the latest causal outcome;442 stopped
+at150.125s during source-hash admission before any forward. NEW443 will separate
+admission from numerical limits, preserving the same causal test.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
@@ -106,7 +107,9 @@ Next [original function causality](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_202610
 NEW442 native source128 final-bank identity/removal before foreign readout.
 [Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes exact
 heads first, then three fixed controls,150sec/3GiB/160MiB and first-stop retention.
-No outcome or new fit yet. All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
+442 [first stop](METH_442_SWITCH_NATIVE_CAUSALITY_RESULT_20261004.md) is retained:
+no replay/utility. NEW443 admission300s/native150s/total450s, same3GiB/160MiB,
+same math and thresholds. All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 
 ## Independently pretrained source128: complete bounded transfer qualified

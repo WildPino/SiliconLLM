@@ -5,9 +5,10 @@ The user resumed experimental work after the strategic review. Goal ACTIVE.
 [Strategic review](STRATEGIC_REVIEW_20261004.md) audits the evidence and proposes
 single-donor common/private decomposition, identity-sensitive supervision,
 explicit routing/normalization and complete cost gates. The review is a dated
-document-only snapshot; resumed442 is the first new causal diagnostic.
+document-only snapshot.442 stopped at source-hash admission before any forward.
 Latest science remains441: ONE fixed function retains99.6585%benefit, so440's
-teacher-ID counts do not prove conditional capacity.442 is prepared for freeze.
+teacher-ID counts do not prove conditional capacity. NEW443 will separate
+admission and numerical resource limits without changing the causal test.
 
 ## Goal and constraints
 
@@ -73,6 +74,9 @@ Own-input control beaten by.01090,19local useful IDs, not conditional capacity.
 - 441 [fixed function](METH_441_SWITCH_FIXED_FUNCTION_RESULT_20261004.md):ONE fixed0
 retains99.6585%gain, gap.000039264; input rotation harm.000036992. ALL5apparatusPASS,
 zero updates/53s/1.680GB/86.360MB. Close this fit before tuning/selector fitting.
+- 442 [first admission stop](METH_442_SWITCH_NATIVE_CAUSALITY_RESULT_20261004.md):
+150.125s/421.257MB/8.515GB hashed, before source mapping or forward. No causal
+outcome/output directory. Retain first failure before NEW443; do not rerun442.
 
 ## Closed routes and retained context
 
@@ -93,6 +97,8 @@ The latest user instruction explicitly resumes the goal, superseding the earlier
 analysis-only scope.442's static count-versus-index defect was repaired before
 freeze. [Protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes
 all controls, information metric and first-stop limits before any forward.
+Its150s inclusive guard stopped during hashing. Prepare NEW443 with admission
+<=300s/numerical<=150s/total<=450s, same causal math/rows/thresholds; freeze first.
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
 NEW442 original128 final-bank replay/counterfactual at336captured prefixes. ALL

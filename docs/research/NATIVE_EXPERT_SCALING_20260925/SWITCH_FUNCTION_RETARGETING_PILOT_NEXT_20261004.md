@@ -5,7 +5,11 @@
 The latest user instruction resumes goal work.442's static count-versus-index
 defect is repaired before freeze; its new causal
 [protocol](METH_442_SWITCH_NATIVE_CAUSALITY_PROTOCOL_20261004.md) fixes controls,
-math, resources and first-stop retention before numerical observation. The broader plan
+math, resources and first-stop retention before numerical observation.442
+[first admission stop](METH_442_SWITCH_NATIVE_CAUSALITY_RESULT_20261004.md)
+occurred at150.125s during hashing, before mapping/forward. Preserve it before
+NEW443 separates admission300s/native150s/total450s at identical math/thresholds.
+The broader plan
 prioritizes causal identity, single-donor common/private functions, gating
 amplitude and complete physical cost; this one-bank probe is diagnostic.
 
@@ -46,7 +50,8 @@ capacity. Rotation does not prove general input independence. No recipe rescue.
 
 ## Immediate NEW442: native original128 last-bank identity diagnostic, no fit
 
-442 controller/protocol are prepared for freeze; no numerical outcome yet.
+442 frozen4c30e22 first admission resource stop retained; no numerical outcome.
+NEW443 will repair only admission resources/experiment identity and reporting.
 Uncertainty: does original128 final-
 bank identity affect its OWN native predictions, and the foreign shared readout
 hides that effect, or is this one-bank/context pilot itself a weak capacity probe?
