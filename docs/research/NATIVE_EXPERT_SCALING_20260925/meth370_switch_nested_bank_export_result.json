@@ -1,0 +1,247 @@
+{
+  "experiment": "METH-370-real-nested64-128-bank-payload-export",
+  "targets": [
+    {
+      "n": 64,
+      "namespace": 1784,
+      "original_config": {
+        "add_router_probs": false,
+        "architectures": [
+          "SwitchTransformersForConditionalGeneration"
+        ],
+        "d_ff": 3072,
+        "d_kv": 64,
+        "d_model": 768,
+        "decoder_sparse_step": 2,
+        "dense_act_fn": "relu",
+        "dropout_rate": 0.1,
+        "encoder_sparse_step": 2,
+        "eos_token_id": 1,
+        "expert_capacity": 64,
+        "feed_forward_proj": "relu",
+        "initializer_factor": 1.0,
+        "is_encoder_decoder": true,
+        "is_gated_act": false,
+        "layer_norm_epsilon": 1e-06,
+        "model_type": "switch_transformers",
+        "num_decoder_layers": 12,
+        "num_experts": 64,
+        "num_heads": 12,
+        "num_layers": 12,
+        "num_selected_experts": 1,
+        "num_sparse_decoder_layers": 6,
+        "num_sparse_encoder_layers": 6,
+        "pad_token_id": 0,
+        "relative_attention_max_distance": 128,
+        "relative_attention_num_buckets": 32,
+        "router_aux_loss_coef": 0.001,
+        "router_bias": false,
+        "router_dtype": "float32",
+        "router_ignore_padding_tokens": false,
+        "router_jitter_noise": 0.01,
+        "router_type": "tokens_masked",
+        "router_z_loss_coef": 0.001,
+        "torch_dtype": "float32",
+        "transformers_version": "4.25.0.dev0",
+        "use_cache": true,
+        "vocab_size": 32128
+      },
+      "retained_original_unique_coefficients": 3790748928,
+      "original_donor_unique_coefficients": 14664154368,
+      "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth370_switch_nested_bank_export\\n64\\weights.bin",
+      "bytes": 3903912448,
+      "sha256": "4e395805f40b34a050d809ad3a4df74c33afc9e9719618b892c03f98f1f888e7",
+      "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth370_switch_nested_bank_export\\n64\\manifest.bin",
+      "manifest_sha256": "30a523ca55dcf3ce9b5632ab32ca73af28a9a52495a1c65f85427c11ca49ff77",
+      "metadata": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth370_switch_nested_bank_export\\n64\\tensors.json",
+      "metadata_sha256": "a44db6d9045f2feed7d693c50b066f502781c3dee0c4f36377684980dee6e1ea",
+      "distinct_real_WI_WO_code_scale_pairs_per_bank": {
+        "decoder.block.1.layer.2.mlp.experts.expert_": 64,
+        "decoder.block.11.layer.2.mlp.experts.expert_": 64,
+        "decoder.block.3.layer.2.mlp.experts.expert_": 64,
+        "decoder.block.5.layer.2.mlp.experts.expert_": 64,
+        "decoder.block.7.layer.2.mlp.experts.expert_": 64,
+        "decoder.block.9.layer.2.mlp.experts.expert_": 64,
+        "encoder.block.1.layer.1.mlp.experts.expert_": 64,
+        "encoder.block.11.layer.1.mlp.experts.expert_": 64,
+        "encoder.block.3.layer.1.mlp.experts.expert_": 64,
+        "encoder.block.5.layer.1.mlp.experts.expert_": 64,
+        "encoder.block.7.layer.1.mlp.experts.expert_": 64,
+        "encoder.block.9.layer.1.mlp.experts.expert_": 64
+      },
+      "manifest_checks": {
+        "all_names_offsets_scales_shapes_exact": 1784,
+        "bounded_EOF_exact": true
+      },
+      "all_retained_ranges_exact338_readback": true,
+      "all_padding_and_EOF_exact": true,
+      "router_prefix_F32_selected_rows": [
+        0,
+        64
+      ],
+      "logical_decoder_matrix_bytes_per_position": 125478400,
+      "physical_RAM_fit": true,
+      "passed": true
+    },
+    {
+      "n": 128,
+      "namespace": 3320,
+      "original_config": {
+        "add_router_probs": false,
+        "architectures": [
+          "SwitchTransformersForConditionalGeneration"
+        ],
+        "d_ff": 3072,
+        "d_kv": 64,
+        "d_model": 768,
+        "decoder_sparse_step": 2,
+        "dense_act_fn": "relu",
+        "dropout_rate": 0.1,
+        "encoder_sparse_step": 2,
+        "eos_token_id": 1,
+        "expert_capacity": 64,
+        "feed_forward_proj": "relu",
+        "initializer_factor": 1.0,
+        "is_encoder_decoder": true,
+        "is_gated_act": false,
+        "layer_norm_epsilon": 1e-06,
+        "model_type": "switch_transformers",
+        "num_decoder_layers": 12,
+        "num_experts": 128,
+        "num_heads": 12,
+        "num_layers": 12,
+        "num_selected_experts": 1,
+        "num_sparse_decoder_layers": 6,
+        "num_sparse_encoder_layers": 6,
+        "pad_token_id": 0,
+        "relative_attention_max_distance": 128,
+        "relative_attention_num_buckets": 32,
+        "router_aux_loss_coef": 0.001,
+        "router_bias": false,
+        "router_dtype": "float32",
+        "router_ignore_padding_tokens": false,
+        "router_jitter_noise": 0.01,
+        "router_type": "tokens_masked",
+        "router_z_loss_coef": 0.001,
+        "torch_dtype": "float32",
+        "transformers_version": "4.25.0.dev0",
+        "use_cache": true,
+        "vocab_size": 32128
+      },
+      "retained_original_unique_coefficients": 7415217408,
+      "original_donor_unique_coefficients": 14664154368,
+      "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth370_switch_nested_bank_export\\n128\\weights.bin",
+      "bytes": 7541946880,
+      "sha256": "c0a9c45286345e0f161661bc29abef9d2a1b47206388795a9611733b09b42fd5",
+      "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth370_switch_nested_bank_export\\n128\\manifest.bin",
+      "manifest_sha256": "5d047c5e3600e159fdf7d3656e69b066ca81f01ddc5364c752e8734ac076212c",
+      "metadata": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth370_switch_nested_bank_export\\n128\\tensors.json",
+      "metadata_sha256": "1c1ceb1ae3530e56912931726cc3f69165b639d2b1c07efb939efd54411747e1",
+      "distinct_real_WI_WO_code_scale_pairs_per_bank": {
+        "decoder.block.1.layer.2.mlp.experts.expert_": 128,
+        "decoder.block.11.layer.2.mlp.experts.expert_": 128,
+        "decoder.block.3.layer.2.mlp.experts.expert_": 128,
+        "decoder.block.5.layer.2.mlp.experts.expert_": 128,
+        "decoder.block.7.layer.2.mlp.experts.expert_": 128,
+        "decoder.block.9.layer.2.mlp.experts.expert_": 128,
+        "encoder.block.1.layer.1.mlp.experts.expert_": 128,
+        "encoder.block.11.layer.1.mlp.experts.expert_": 128,
+        "encoder.block.3.layer.1.mlp.experts.expert_": 128,
+        "encoder.block.5.layer.1.mlp.experts.expert_": 128,
+        "encoder.block.7.layer.1.mlp.experts.expert_": 128,
+        "encoder.block.9.layer.1.mlp.experts.expert_": 128
+      },
+      "manifest_checks": {
+        "all_names_offsets_scales_shapes_exact": 3320,
+        "bounded_EOF_exact": true
+      },
+      "all_retained_ranges_exact338_readback": true,
+      "all_padding_and_EOF_exact": true,
+      "router_prefix_F32_selected_rows": [
+        0,
+        128
+      ],
+      "logical_decoder_matrix_bytes_per_position": 126658048,
+      "physical_RAM_fit": true,
+      "passed": true
+    }
+  ],
+  "controller_sha256": "7a89a2416fd9d8dfb86451234a2683126ae3a95a8d70fa59fc4f08d00e6e5e09",
+  "protocol_sha256": "7832f8154c4963898500741de449fb0a1fce69b112438564d569c2337079356c",
+  "recovered338_sha256": "19ef2f987444d17396beea8e489d2fee341d64b61cff00714521ed806b407a7c",
+  "usefulness369_sha256": "305e2e8997fc7f0a6fc58626900f44bb5fd70f7890bdbd03c9d089baa184e244",
+  "source_artifact": {
+    "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth335_switch_w8a8_export\\weights.bin",
+    "bytes": 14818015744,
+    "sha256": "e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056",
+    "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+    "manifest_sha256": "9c5be95504291cf9a71b087f714fc0b474ac6948389647be93919f611117fd81",
+    "source_unique_parameters": 14664154368,
+    "original_experts_per_bank": 256,
+    "f32_embedding_alias_names": [
+      "decoder.embed_tokens.weight",
+      "encoder.embed_tokens.weight",
+      "shared.weight"
+    ],
+    "f32_embedding_physical_copies": 1,
+    "separate_I8_head_view_from_same_tied_source": true,
+    "new_payload_write_bytes": 0,
+    "row_I8_tensor_names": 6313,
+    "f32_tensor_names": 79
+  },
+  "fixed_expert_subsets": {
+    "64": [
+      0,
+      64
+    ],
+    "128": [
+      0,
+      128
+    ],
+    "256": [
+      0,
+      256
+    ]
+  },
+  "writer335_AST_exact": true,
+  "RAM_bytes": 85845110784,
+  "available_RAM_before_bytes": 68096331776,
+  "disk_free_before_bytes": 412377632768,
+  "full256_unchanged_reference": {
+    "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth335_switch_w8a8_export\\weights.bin",
+    "bytes": 14818015744,
+    "sha256": "e0e5a940b0150b78d0080815a1fddd2a6b50f011351012ed5b4a48a88ba49056",
+    "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth338_switch_tensor_recovery\\manifest.bin",
+    "manifest_sha256": "9c5be95504291cf9a71b087f714fc0b474ac6948389647be93919f611117fd81",
+    "source_unique_parameters": 14664154368,
+    "original_experts_per_bank": 256,
+    "f32_embedding_alias_names": [
+      "decoder.embed_tokens.weight",
+      "encoder.embed_tokens.weight",
+      "shared.weight"
+    ],
+    "f32_embedding_physical_copies": 1,
+    "separate_I8_head_view_from_same_tied_source": true,
+    "new_payload_write_bytes": 0,
+    "row_I8_tensor_names": 6313,
+    "f32_tensor_names": 79
+  },
+  "gates": {
+    "fresh_source338_complete_identity": true,
+    "both_NEW_real64_128_artifacts_exported": true,
+    "all_retained_codes_scales_F32_exact_and_router_rows_exact": true,
+    "all_namespace_alias_unique_counts_and_pair_distinctness_exact": true,
+    "all_physical_padding_EOF_manifests_complete_hashes_exact": true,
+    "source_payload_unchanged": true,
+    "actual_smaller_payload_RAM_fit": true
+  },
+  "resource": {
+    "main_seconds_excluding_imports": 311.95300000000134,
+    "maximum_checked_rss_bytes": 60952576,
+    "new_payload_and_padding_bytes_written": 11445859328,
+    "available_RAM_end_bytes": 67850137600,
+    "disk_free_end_bytes": 400924618752
+  },
+  "decision": "actual_real_nested_bank_artifacts_eligible_for_371_full_native_independent_dynamic_n_contract",
+  "scope": "Actual64/128 learnedexpert subsets from SAME14.664B base256, physicallysmaller payloads, unchangedcore/head/precision/capacity and retainedexpert coefficients/F32routerprefix. Not Google independentlytrainedbase128 or small-n retraining. Export fidelity only; no originalquality/usefuladditionaln/acceptedrate/physicalDRAM proof."
+}
