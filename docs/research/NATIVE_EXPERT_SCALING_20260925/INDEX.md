@@ -99,11 +99,13 @@ source9/64 forced32 full5.3951/12.8198ms, decode4.7072/6.3560ms, repeats
 [376 accepted full rate](METH_376_SWITCH_PHYSICAL_WORKERS_ACCEPTED_RATE_RESULT_20261004.md)
 ALL5 PASS56922f6, scope and counting above. Preserve qualified374/375/376;
 no unchanged rate polishing. [Reproduction guide](SWITCH_BASE256_REPRODUCTION_20261004.md).
-[377 original128 acquisition](METH_377_SWITCH_BASE128_ACQUISITION_PROTOCOL_20261004.md)
-prepared for freeze: original OWN core/router/functions, not370 subset.
-Same-family7.4B/14.7B/twofold actual n transfer test; no second-family/10x proof.
-29,862,948,392B/3 shards+7 side files,90min/40GiB/2GiB RSS/exact325 LFS hashes,
-expected+32GiB disk reserve. Freeze before download; no live model/timing job.
-Then378 all-original tensor/tie/function binding; source-specific export/
-independent numerical and NEW original-primary whole quality/SAME full rate.
-Whole useful greater n/LUT/realDRAM/multiple families/scales/~100B goal active.
+[377 acquisition failure](METH_377_SWITCH_BASE128_ACQUISITION_RESULT_20261004.md)
+retained82ca1dc: wrong protocol date, binding exit1 before download,0 bytes.
+[378 corrected acquisition](METH_378_SWITCH_BASE128_ACQUISITION_PROTOCOL_20261004.md)
+prepared for freeze: independently pretrained original128 OWN core/router/functions,
+not370 subset.29,862,948,392B/3 shards+7 side files;90min/40GiB/2GiB RSS,
+exact325 LFS identities, expected+32GiB disk reserve. Bind every committed
+input in a model-free preflight before acquisition. Same-family7.4B/14.7B,
+twofold actual n transfer test; no second-family/10x proof. Then379 all-original
+tensor/tie/function binding, source-specific export/reference and NEW untouched
+original-primary whole quality/SAME full rate. Goal scope unchanged.
