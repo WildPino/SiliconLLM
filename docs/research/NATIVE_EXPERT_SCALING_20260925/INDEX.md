@@ -1,10 +1,10 @@
 # Native expert scaling: research control index
 
 **4 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.**
-Latest:435 shared nonlinear input fit fails3/4 geometry gates;436 correct
-original function inputs with frozen output readouts still miss benefit/causality.
-Next NEW437: one shared output readout versus equal-parameter own-input control;
-oracle feasibility only, prepare/freeze exact qualification and fit protocol.
+Latest:440 shared readout beats own-input control but fails3/9 potential gates.
+441 ONE fixed function retains99.6585%benefit; teacher-ID counts do not prove
+conditional capacity. Next NEW442: original128 native final-bank identity effects
+before foreign readout, no new fit. Prepare/freeze exact replay/control protocol.
 
 ## Goal and constraints
 
@@ -49,22 +49,10 @@ inventory,384 old complete outputs/routes/greedy exact,4895 final-bank states.
 420 [whole forward](METH_420_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md):all
 384/4895 native states and157266560 full-head rows exact.424 local approximate
 saved-primal derivative qualified, not native rounding/hard-selection derivative.
-- 426 [replacement pilot](METH_426_SWITCH_FUNCTION_PILOT_RESULT_20261004.md):6336
-updates,7/9 capacity FAIL.431 [additive pilot](METH_431_SWITCH_ADDITIVE_PILOT_RESULT_20261004.md):
-6240updates, ALL1344 zero-added predictions exact;7/9FAIL, no qualified useful
-IDs, removal improves. Both exact recipes CLOSED before tuning or narrowed export.
-- 432 [first failure](METH_432_SWITCH_OUTPUT_BOUND_RESULT_20261004.md):analytic
-fixture passes, F32 CE comparator mismatch retainedc08299c.433
-[output bound](METH_433_SWITCH_OUTPUT_BOUND_RESULT_20261004.md),74a649d:sole F64
-comparator repair, ALL6PASS. Feasible mean256KL.02/worstbook.024565, output-only
-mixture gain17.63%/128gain26.64%, numerical duality gap5.60e-14.55IDs have>=2val
-positions before frozen gate, only2after. This oracle is not a model/transfer.
-- 434 [frozen selection diagnosis](METH_434_SWITCH_FROZEN_SELECTION_RESULT_20261004.md),
-47f3f43:zero updates, actual431 hard matrices/CEs exact. Prespecified oracle
-with actual classifier route:53positions/12usefulIDs, mixturegain.4957%; teacher
-IDs:61/10useful,.5162%. Both<1%; permutation harm.00493/.00282<.01. Neither
-satisfies ALL9 potential gates. Close this checkpoint before new selector fit.
-125.313s/max2.492GB/259.081MB full retained outputs, source hashes fresh.
+- 426/431 complete replacement/additive fits fail7/9capacity; checkpoints CLOSED.
+433 [output oracle](METH_433_SWITCH_OUTPUT_BOUND_RESULT_20261004.md) proves17.63%
+output-only opportunity, not a model.434 frozen-checkpoint oracle masks still
+fail global benefit/permutation. Detailed histories in records and historical index.
 
 - 435 [shared input](METH_435_SWITCH_SHARED_INPUT_RESULT_20261004.md),b970b34:
 512updates/ALL5 apparatusPASS, validation error.60913mean-only/medianL2.87673/
@@ -74,6 +62,14 @@ zero updates/ALL6 apparatusPASS, native source features exact. Classifier/teache
 mixture gain.17894%/.08674%; permutation improves. Neither8 diagnostic gates
 passes, no matched-adapter capacity claim.99.921s/2.546GB/172.721MB retained.
 Perfect input ALONE insufficient for frozen C/D; do not tune input map as sole change.
+
+- 437 concurrency/438 first numeric stops retained BEFORE0updates;439 exact FD
+cancellation diagnosis supports SAME numerical bounds.440 [shared output](METH_440_SWITCH_SHARED_READOUT_RESULT_20261004.md):
+192updates/ALL7 apparatusPASS,6/9potentialPASS, globalgainabout.5%/permutationFAIL.
+Own-input control beaten by.01090,19local useful IDs, not conditional capacity.
+- 441 [fixed function](METH_441_SWITCH_FIXED_FUNCTION_RESULT_20261004.md):ONE fixed0
+retains99.6585%gain, gap.000039264; input rotation harm.000036992. ALL5apparatusPASS,
+zero updates/53s/1.680GB/86.360MB. Close this fit before tuning/selector fitting.
 
 ## Closed routes and retained context
 
@@ -90,10 +86,9 @@ Frozen donor-adaptation Giga work remains reusable evidence, not active old plan
 ## Exact resumption
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):prepare ONE
-NEW437 shared rank32 output-readout feasibility, real correct128 native feature
-versus equal-parameter readout of its own128 input. All1008dev supervision shared,
-source functions frozen; consumed336val and teacher input/IDs/masks oracle only.
-Freeze independent composed numeric contract/exact fit/resources before outcomes.
-ALL9 potential requirements before available-input/routing controls; no oracle
-export. Whole quality/SAMEartifact50/usefulRAM-n/LUT/realDRAM/families/~100B open.
-Original374/389 binaries/default engine exact, all sessions terminal.
+NEW442 original128 final-bank replay/counterfactual at336captured prefixes. ALL
+original full logits exact420 first; fixed0,ID+1 andremoval keep original128
+input/probability/pre/finalnorm/head, no foreign readout/fit. Diagnose native
+mean self-teacher KL>=.01 before new source-sensitive readout or broader-bank
+capture. Freeze controller/protocol/resources first. Whole quality/SAMEartifact50/
+usefulRAM-n/LUT/realDRAM/families/~100B open; original binaries/engine intact.

@@ -73,3 +73,10 @@ source128 input information. No retraining/mask retuning or promotion of440.
 
 Goal useful RAM-scale n/CPU LUT/realDRAM/whole donor-relative quality/SAMEartifact
 >=50/families/~100B remains active and incomplete; original artifacts unchanged.
+
+Final [retention audit](RETENTION_437_441_20261004.json):2467unique files/
+4211188278B fresh bindings,89scientific paths physical filtered-HEAD exact;
+all192updates/6048samples/archives/checkpoint bytes verified, tiny qualification
+byte-exact438/440. Runtime/original binaries/engine unchanged, no modeljobs,
+publisher daemons12540/17984 preserved.441 completed the single-function control;
+current resumption now NEW442 original native identity effect, no new fit.

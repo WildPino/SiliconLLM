@@ -1,15 +1,14 @@
 # Proposed next generation/task stage after349, not yet licensed or executed
 
-CURRENT STATUS436 (supersedes historical next steps below): original Switch
-source128/256 quality and SAMEartifact source-specific rates remain qualified.
-435 shared nonlinear input regression fails3/4 gates after512updates;436 perfect
-function inputs with frozen output factors still miss benefit/permutation.
-Close input-only/selector rescue of these recipes. Next [shared output proposal](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW437 shared readout of correct128 native function features versus same-budget
-readout of its own input, all1008dev supervision shared. Oracle feasibility only;
-prepare/freeze exact composed qualification/fit protocol before outcomes. No437
-source/outcome or combined384 C quality/rate. UsefulRAM-n/LUT/DRAM/families/~100B
-remain open. Historical source/cost decisions retained, original binaries intact.
+CURRENT STATUS441 (supersedes historical next steps below): original Switch
+source128/256 SAMEartifact bounded quality/rate remains qualified.440 shared
+readout passes6/9potential but globalgain/permutation fail;441 ONE fixed function
+retains99.6585%benefit. Teacher-ID counts do not prove useful conditional capacity.
+Next [original native causality](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW442 source128 final-bank identity/removal before foreign readout, exact original
+heads first. No new fit/source/protocol/outcome yet; freeze numerical/control
+contract first. UsefulRAM-n/LUT/realDRAM/quality/families/~100B remain open.
+Historical source/cost decisions and original qualified binaries retained.
 
 
 This proposal is written while349 original-primary prediction runs. It is

@@ -87,12 +87,19 @@ p95.99102 fail original geometry bounds. Close this shared input regression.
 zero updates/native features and6720literal nodes exact. Frozen C/D with perfect
 WI input still only.17894%/.08674% mixture gain, permutation improves. Perfect
 input ALONE insufficient for this checkpoint; refitted readouts remain untested.
-Next [shared output feasibility](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-NEW437 shared rank32 readout of correct128 function feature versus same-budget
-readout of its own input, all1008dev supervision shared. Oracle-only scope; exact
-composed qualification/fit protocol NOT prepared yet. No437 source/outcome, no
-available-input route/native model export. Existing9 capacity/whole-quality/
-SAMEartifact50 demands persist. UsefulRAM-n/LUT/DRAM/families/~100B remain open.
+[440 shared output](METH_440_SWITCH_SHARED_READOUT_RESULT_20261004.md):192fixed
+updates/ALL7apparatusPASS,6/9potentialPASS. Real feature beats SAME-budget own
+input by.010901;19locally useful IDs but globalgainabout.5%/permutation harm
+.000156 fail. Numerical first stops437/438 retained,439 exact independent repair.
+[441 one function](METH_441_SWITCH_FIXED_FUNCTION_RESULT_20261004.md):SAME frozen
+readout/mask, expert0 preserves99.6585%benefit; input rotation harms.00003699.
+Teacher-ID counts do not establish useful conditional capacity. Close fixed
+shared-readout recipe before tuning/selector fitting.53s/1.680GB/zero updates.
+Next [original function causality](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW442 native source128 final-bank identity/removal before foreign readout. No
+source/protocol/outcome yet, no new fit; exact original heads first, then fixed
+controls. All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
+~100B demands remain open, original qualified artifacts unchanged.
 
 ## Independently pretrained source128: complete bounded transfer qualified
 

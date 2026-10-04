@@ -26,7 +26,8 @@ input independence: rotation retains prefix position/case structure and this
 validation is consumed. No comparison against all possible single functions.
 
 Source0 complete first WI/WO integer/scales replay exact independent418 primitive,
-captured source0 selected positions exact where available. Two complete
+no validation teacherID0 positions were available for captured-source0 replay
+(count0); the independent first WI/WO byte proof is the actual source0 check. Two complete
 336x32128F32 matrices86360320B, full losses/original mask/input permutation/
 checkpoint/source/hash inventory retained.53.000s/1680179200B peak/
 25373779394B hashed. CPU0/Torch1/BLAS1, noGPU/T4/network/new corpus/fit/C edits.
@@ -47,3 +48,10 @@ exact controller/protocol/resources before numerical outcomes; no new fit.
 
 User goal usefulRAM-n/LUT/physicalDRAM/whole donor-relative quality/SAMEartifact
 >=50/another-family/~100B remains active; original qualified artifacts intact.
+
+Final [retention audit](RETENTION_437_441_20261004.json) SHA256
+e0172178d4cc8ab27ebf776f81632dc745c8fe652c39868a18084a489b5bb6af:
+2467unique files/4211188278B fresh hashes,89scientific files physical filtered-
+HEAD exact; current archive shapes/fixed192updates/6048samples and checkpoint
+bytes verified. Engine exact06e0cbf, original374/389/Torchruntime identities
+unchanged; no modeljobs, exact publisher daemons preserved. No experiment rerun.

@@ -1,89 +1,100 @@
-# Current resumption after436: shared output-interface feasibility
+# Current resumption after441: original source function-identity causality
 
 Goal ACTIVE/INCOMPLETE. User priority useful n grows with RAM while CPU LUT/
-routing/realDRAM and quality remain viable. Qualified original source128/256
-artifacts/rates unchanged; no new combined384/useful10x/~100B artifact.
-Routine Graphify disabled; frozen donor-adaptation Giga evidence reusable.
+routing/physicalDRAM and quality remain viable. Original source128/256 qualified
+artifacts/rates unchanged; no useful combined384/10x/~100B artifact. Routine
+Graphify disabled, frozen donor-adaptation Giga evidence reusable.
 
-## Latest evidence and closed recipes
+## Evidence that changes the next action
 
-433 [output-only feasibility](METH_433_SWITCH_OUTPUT_BOUND_RESULT_20261004.md):
-17.63% mixture benefit feasible under mean256KL.02/book<=.05. Arbitrary output
-oracle, not a model.434 [frozen selection](METH_434_SWITCH_FROZEN_SELECTION_RESULT_20261004.md):
-fixed431 functions with oracle masks reach onlyabout.5%, inadequate permutation.
-Close checkpoint before selector refit; output opportunity is not sole gate issue.
+433 arbitrary output oracle17.63%benefit feasible, not a model.434 frozen431
+functions with target-aware masks fail full potential.435 shared nonlinear
+input regression completes512updates but fails3/4;436 perfect function input
+with frozen output factors still insufficient. Those exact recipes CLOSED.
 
-435 [shared nonlinear input fit](METH_435_SWITCH_SHARED_INPUT_RESULT_20261004.md),
-frozenc6382f8/retainedb970b34: ALL5 apparatusPASS,512fixed updates, paired1008dev/
-336val, ONE shared768->128->768 ReLU map. Input eligibility3/4FAIL: error.60913
-mean-only versus<=.5, medianL2.87673/p95.99102 versus.25/.50. Native/F64 error
-5.5043e-8PASS.28.843s/557MB/11.847MB retained. Close THIS input regression
-before width/depth/optimizer sweeps. No function/model export licensed.
+437 first concurrency stop before numeric retained911c42f.438 actual own-input
+C FD failure before0updates retained7251649;439 SAME anchor reproduces failure,
+rationalized RMS/head delta agrees with independent analytic/complex derivative
+at SAME bounds, retainedf965835. No rank/seed/objective/tolerance change.
 
-436 [perfect function-input oracle](METH_436_SWITCH_ORACLE_INPUT_RESULT_20261004.md),
-frozenf85cf36/retained98a582f: zero updates, frozen431 C/D, bypass A/B and
-substitute correct captured128 normalized input at added WI. Teacher route
-ALL336 native WI/ReLU/WO features exact418; both routes ALL6720 literal native
-nodes exact. Actual classifier/teacher IDs plus fixed target-aware masks give
-onlyabout.17894%/.08674% mixture gain; permutation improves, neither8-gate set
-passes.99.921s/2.546GB/172.721MB matrices. Perfect input ALONE does not rescue
-THIS frozen readout. Unavailable source128 core/masks diagnostic, not deployable.
-No bound against future refitted readouts; no adapter/full9-gate capacity claim.
+440 [shared output fit](METH_440_SWITCH_SHARED_READOUT_RESULT_20261004.md),
+frozend80ab2b/retainedb6a0197: ALL7 apparatusPASS/192fixed updates/6048samples.
+Both rank32 readouts share ALL1008dev supervision. Native function feature beats
+same-budget own-input control by.01090087nats;89consultations/57IDs/19locally
+useful. Potential6/9PASS/3FAIL: mixturegainabout.5014%/128gain.7623%<1%; same-mask
+permutation harmONLY.00015604<.01.289.937s/2.807GB/134.503MB retained. Native
+source128 input/teacherID/target mask unavailable, no deployed capacity claim.
+Close fixed shared-readout recipe before rank/lr/pass/seed/selector tuning.
 
-## Immediate NEW437 proposal: one shared output-readout qualification and fit
+441 [single-function control](METH_441_SWITCH_FIXED_FUNCTION_RESULT_20261004.md),
+frozene33273b/retained6cab1a8: zero updates/ALL5 apparatusPASS. SAME frozen readout,
+original real89-position mask/base/probability/head, replace ALL selected added
+functions by source128 expert0.99.6585%benefit retained, mixturegap.000039264<.001.
+Rotating validation inputs by168 (three books, samecase/tokenposition) harms only
+.000036992<.01.53s/1.680GB/86.360MB. ONE added distinct function suffices for
+almost all this small oracle gain; teacher-ID counts are not useful conditional
+capacity. Rotation does not prove general input independence. No recipe rescue.
 
-No437 source/protocol/numeric outcome yet. New hypothesis: output supervision
-shared over all1008development positions, rather than private C/D seeing sparse
-per-ID positions. Correct native source128 features first isolate usefulness
-of the pretrained function from the failed input map. This is an ORACLE-input
-feasibility screen before a task-aware deployable interface, not a released path.
+## Immediate NEW442: native original128 last-bank identity diagnostic, no fit
 
-Reuse ONLY paired405/418/420 1008dev18books/336val6books, final bank11/all4cases.
-Real arm feature=captured original128 WI/ReLU/WO output at original128 expertID.
-Matched control feature=captured source128 normalized input BEFORE that function.
-Both have SAME unavailable source128 core/context/identity information; comparison
-asks whether the pretrained function adds useful information beyond its input.
-All source functions, original256 base/probability/finalnorm/head remain frozen.
-No input-map/classifier/431 factors reused as fitted initialization.
+No442 source/protocol/numeric outcome yet. Uncertainty: does original128 final-
+bank identity affect its OWN native predictions, and the foreign shared readout
+hides that effect, or is this one-bank/context pilot itself a weak capacity probe?
+Resolve BEFORE another output/interface/selector fit. Do not conflate poor
+retargeting with lack of original MoE specialization.
 
-Proposal ONE shared rank32 output readout per arm, C[768,32]/D[32,768], identical
-parameter/update budget. Development-only feature means/std, F32 NativeFloat
-composition; correction C(D(standardized_feature)), original256 post plus same
-original256 selected probability times correction. No private-ID readout/input
-correction.49152learned coeff/196608B plus two768F32 feature buffers6144B,
-202752B total nominal per arm, constant against n. This is accounting, not
-physicalDRAM or native latency. Fresh zero-C/random-D initialization gives exact
-original256 post/full-head; independent new tiny/nonzero and actual zero-output
-composed endpoint/gradient/FD qualification MUST precede updates.
+Reuse committed418/420 native source128 paired captures/full-head archives, final
+bank11/S29T14/336consumed validation positions.1008dev only provenance, not fitting.
+Natural cohorts qualification-only. Fresh full source128 payload/manifest/
+descriptor, required parent/archive/helpers/original374/389 binary identities.
+No new corpus/source acquisition, unavailable source information is allowed ONLY
+as original-reference diagnostic. No440/431 factors/readouts/foreign256 core used.
 
-Prepare exact seed/loss/optimizer/clip/batch/passes/resource/output budgets and
-freeze NEW math/controller/protocol before FIRST import/compile/forward/fit.
-CPU only, no new corpus/source acquisition; aim one bounded <=12min/4GiB/320MiB
-screen including bindings. Original teacher-mixture token objective, final state
-only; no validation checkpoint/width/rank/lr/pass/gate/seed search. Exact values
-remain prospective until protocol; no fit licensed by this planning memo alone.
+Reconstruct original128 feature via native WI/ReLU/WO at captured normalized
+input and selectedID; full source128 router trace selected probability byte-exact
+capture. Original128 pre+probability*down, original128 finalRMS/native tied head.
+ALL336 original complete logits MUST byte-match420 before intervention utility.
+This is the original model's final-bank local replay, not a new whole-model run.
 
-Evaluate forced branches and SAME fixed431/434 target-aware benefit/protection
-oracle mask, matched control with own SAME rule, primitive permutation at SAME
-real mask and removal. ALL9 original potential demands:>=1% mixture/128 gains,
-mean256<=.02/book<=.05,>=34consultations,>=8useful IDs, real beats matched control
-by.01 and permutation/removal harm>=.01. Teacher routes/masks only diagnostic.
-If ALL pass, next NEW joint task-aware available-input transport/routing controls
-may be considered. If FAIL, close THIS shared-readout recipe before tuning.
-Neither outcome promotes431/435 or proves universal transfer impossibility.
+Three controls fixed before observations:
 
-## Remaining path to the actual goal
+1. Replace chosen WI/WO with fixed source128 expert0, SAME native128 input and
+   SAME original selected probability (no router re-selection/renormalization).
+2. Primitive permutation (chosenID+1)%128, SAME input/probability.
+3. Remove final selected function: post=original128 pre, other core state fixed.
 
-A feasible oracle readout still needs available compact input geometry, learnable
-routing/causal useful-function evidence and all active readout/router costs.
-Original+extra uses TWO final-bank functions, other11banks unchanged; no inherited
-original rate. Then excluded original-relative whole prediction/generation/task
-quality AND SAMEartifact accepted>=50batch1IDs/s, native routing/LUT/realDRAM.
-Broader banks/families/~100B and useful large n need actual independent evidence.
+Save three full336x32128F32 counterfactual matrices; original logits from420
+parents need no duplicate. Measure self-teacher entropy/CE and source128 KL
+increase, original/counterfactual argmax changes, per-book/per-ID distributions,
+original selected-probability distribution and raw/down/post/head-input effects.
+Prospective primary identity diagnostic: mean self-teacher KL>=.01nats for ID+1
+permutation; report fixed0/removal separately with SAME.01 descriptive threshold.
+No arbitrary expert search/gates/checkpoint choice or causal training objective.
 
-403/404/406/414/416 maps,426/431 learned recipes and specified Granite/Ling/Giga
-full-width cost formats stay CLOSED. QwenNext397 original active descriptor1.279GB
-and BF16source162.65GB do not license unchanged acquisition; Switch C2048 is
-~1.6T/different geometry, not a verified matching larger base release.417 native
-observer/default engine and original374/389 binaries unchanged;419-436 no C edits.
-All sessions terminal. Goal active, checkpoint/protocol/results retained in Git.
+If original identity effect passes but440 hides it, formulate a NEW source-
+sensitive readout/interface hypothesis that preserves counterfactual source
+function distinctions, with matched controls and fixed costs. If weak even in
+original bank/context, one-final-bank pilot cannot stand in for useful multi-
+bank n: next capture/native intervention must test broader source computation.
+Neither branch proves general transfer impossibility or original bank useless.
+
+Prepare exact numerical/byte contract, all records/inputs/output/resources and
+freeze NEW controller/protocol before first import/forward/outcome. Proposed
+<=150sec/3GiB/160MiB/diskreserve2GiB, CPU0/Torch1/BLAS1, no fit/GPU/T4/network/
+C change. Stop first binding/replay/nonfinite/resource failure, retain before
+NEW numbered repair. Qualified native operators reused, no new derivatives.
+
+## Remaining actual goal
+
+Conditional transfer requires original-function-specific usefulness beyond
+one fixed encoder/calibration feature, available compact inputs and learnable
+routing, causal permutation/removal evidence, all active core/function costs.
+Then native C export, excluded original-relative prediction/generation/task
+quality AND SAMEartifact>=50 acceptedbatch1IDs/s, measured routing/LUT/realDRAM.
+Broader banks/families/~100B and useful RAM-scale n need independent evidence.
+
+403/404/406/414/416 input bridges,426/431/435/440 fit recipes and specified
+Granite/Ling/Giga full-width cost paths stay CLOSED. QwenNext397 original
+active1.279GB/BF16source162.65GB does not license unchanged acquisition.417 observer/
+default engine unchanged,419-441 no C edits; original374/389 binaries intact.
+All sessions terminal, goal remains active. Full first failures and outputs retained.

@@ -260,3 +260,12 @@ zero updates, unavailable-core oracle only.419-436 no engine/C change, no combin
 384 artifact/quality/rate. Original374/389 authoritative unchanged. Next437 shared
 output readout versus own-input matched control, oracle feasibility only; prepare
 and freeze exact qualification/fit protocol first. See current resumption memo.
+
+## Current prototype boundary, through441
+
+437 transient concurrency/438 comparator failures retained,439 exact numerical
+diagnosis;440 complete shared-readout fit fails3/9potential.441 ONE fixed function
+retains99.6585%benefit; no useful conditional capacity from teacher-ID counts.
+419-441 no C edits/original binaries unchanged; no combined artifact/quality/
+rate. Next442 original128 native function-identity diagnostic BEFORE foreign
+readout, no new fit; current resumption memo supersedes historical next steps.
