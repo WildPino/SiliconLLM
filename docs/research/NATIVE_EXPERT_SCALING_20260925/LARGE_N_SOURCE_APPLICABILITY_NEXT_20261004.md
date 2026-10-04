@@ -34,33 +34,35 @@ selection bias and normalizes only four selected parents: neither inherits
 Switch's tail-mass conclusion. Existing original source/reference modules must
 be pinned before any numerical experiment; installed support is not parity.
 
-## Concrete next396 uncertainty / decision / budget
+## Completed396/397 decision and next uncertainty
 
-Before inference or any large acquisition, freeze a bounded metadata-only
-controller/protocol to retrieve immutable index/API LFS identities and ALL
-safetensors header shapes/dtypes/offsets via checked HTTP Range. Reconcile
-actual namespace/unique tensors/main decoder versus optional MTP/aliases;
-count real routed banks/parents and exact full-width active matrix coefficients,
-router/head/shared/core separately. Source bytes are actual LFS/index/header
-accounting; source coefficient uniqueness/usefulness remains unmeasured.
+396 physical manifest checkout failure retained460db6c before zero network.
+397 strict repaired checkout/full metadata acquisition now retained1c8d978:
+ALL41 shards/75,944 tensors/48x512 shapes, ALL5 gates PASS. Exact main
+79,674,391,296+MTP1,650,471,424=81,324,862,720. Old main formula also misses
+100,774,656 parameters, fully enumerated from actual header shapes in
+[METH-397 result](METH_397_QWEN_NEXT_SOURCE_HEADERS_RESULT_20261004.md).
 
-Compare source-specific logical active-byte representations with317/319 and
-Switch, including scales/books/F32 control organs/head, not just expert codes.
-No ideal/cache bandwidth acceptance. Identify original/reference feasibility
-within80GiB, actual engine shape/DeltaNet/cache gaps, and which NEW transform
-could reduce active cost. If unchanged full-width geometry violates the
-previously justified source-aware cost envelope, close the unchanged generic
-port; retain source/header assets and a motivated transformation question.
-An actual dense/MoE/SSM port is not a compact-core transfer by itself.
+Actual source BF16 tensor extents162.650GB exceed80GiB resident RAM. SAME317
+hypothetical full-width additive active descriptor1,278,965,760B exceeds the
+frozen560MB yardstick. Close unchanged geometry BEFORE full source acquisition;
+retain actual metadata to evaluate stated future transformations. No tensor
+values, uniqueness/usefulness, original model/native quality/rate or DRAM tested.
+MAIN133.468s/117MB/16.655MB metadata. A512-slot source gives2x versus256,
+not requested10x useful capacity. A general large-source rejection is unwarranted.
 
-Proposed pre-observation limits:10min/1GiB RSS/64MiB response bodies, metadata
-only, streamed reads and refusal if Range ignored or file bounds mismatch.
-Expected<=3min, no model weights/download/model/native timing/GPU/T4 overlap.
-Do not substitute official-card80B marketing count for actual architecture-
-unique parameters, nor imply absence of other compatible sources. An80B/512
-candidate is twofold bank choices relative256, not user-requested10x proof.
+398 exact I32 activation-LUT realization of GigaChat318 representation now
+retainedf33015c: independent integer/source controls and ALL90 full64-bit
+operator fingerprints exact319; cost137.689-164.653ms medians exceeds14ms and
+pooledrepeat1.195832 exceeds1.10. Builder included; exact kernel closed before
+codebook fitting/640-bank work. Whole output bytes were not archived/compared;
+[scope clarification](METH_398_INTEGER_LUT_SCOPE_CLARIFICATION_20261004.md).
+No learned useful capacity, causal quality, accepted model rate or DRAM proof.
 
-Freeze only after implementation and input binding. No396 protocol/controller
-or actual tensor-header result exists yet. Existing qualified376/391 artifacts
-remain reproducible; extra useful choices/another family/~100B/physical DRAM
-remain required research. Generic donor-adaptation branch remains paused.
+Next proposed399 bounded SAME398 arithmetic cost attribution must freeze
+before observation: builder/row gathers/remaining complete operators, same
+output fingerprints/numeric controls. If either component alone exceeds14ms,
+reject rescue by tuning only the other. This resolves a new realization's
+remaining mechanism uncertainty, not319's profile or300/301 format. No399
+implementation/protocol/run yet, expected<=2min/20min/12GiB; no GPU/T4 or new
+weights/training. No new80B acquisition/generic donor runtime promotion.

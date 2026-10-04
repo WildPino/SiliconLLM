@@ -799,14 +799,38 @@ baseline or complete learned model. Its38-56ms failed costs cannot be promoted
 by inheriting Switch execution rates; unchanged generic port remains paused.
 
 
-## Current next source applicability question
+## Current source applicability and exact LUT question
 
-See LARGE_N_SOURCE_APPLICABILITY_NEXT_20261004.md. Reuse donor-adaptation's
-pinned Qwen3-Next80B/512 configuration as metadata, not weights; resolve earlier
-79.574B/81.325B formula discrepancy via actual immutable tensor headers and
-main/MTP accounting before deciding original-reference/compact-core resources.
-Its selected-topk renormalization differs from Switch full-softmax scaling;
-finite precision and tie semantics still need exact original bridges. GigaChat
-selected sigmoid normalization also differs; Switch tail results do not transfer.
-No larger-n source, original/reference/runtime quality or transfer is validated
-by a model card/config. Next396 is unimplemented/unfrozen; no acquisition yet.
+[397 result](METH_397_QWEN_NEXT_SOURCE_HEADERS_RESULT_20261004.md), retained1c8d978,
+now bindsALL41 original Qwen3-Next80B shard headers/75,944 tensors. Main count
+79.674391296B+MTP1.650471424B reconciles81.324862720B. Actual48 banks have512
+original tensor slots, not proven distinct/useful values. All5 metadata gates
+PASS;133.468s/117MB/16.655MB downloaded metadata and zero tensor values.
+Original BF16/F32 full-resident sizes do not fit80GiB; a streamed reference
+remains unqualified. SAME317 hypothetical full-width active descriptor
+1,278,965,760B exceeds560MB: unchanged geometry closed before acquisition.
+Core/head/router costs all included. Formula omissions/gates/full ledger are
+in the report; this is not a general rejection of transformations or80B.
+396 initial physical manifest line-ending failure retained460db6c before397
+procedural repair. Source-specific selected-topk normalization still requires
+an original numerical contract; Switch tail results do not transfer.
+
+[398 result](METH_398_ADDITIVE_INTEGER_LUT_RESULT_20261004.md), frozen6127962 /
+retainedf33015c: SAME318 additive representation with NEW integer activation
+LUT builder/AVX2 gathers. Source-sized GigaChat64-parent/top4 geometry/precision
+fixed; synthetic books/codes plus actual head/router/norm/embedding. All90
+64-bit output/route fingerprints EXACT319 and all independent scalar/numeric
+controls PASS; medians137.689-164.653ms>14ms/poolrepeat1.195832 FAIL. Builder
+included; workspace73.400MB/logical table writes340.001MB/token. MAIN44.281s/
+max3.232GB. No actual DRAM, causal model, donor book fidelity or useful larger n.
+This exact kernel closed before training/640-bank work. See
+[METH-398 clarification](METH_398_INTEGER_LUT_SCOPE_CLARIFICATION_20261004.md)
+for fingerprint versus exhaustive byte-comparison boundary.
+
+Proposed399 next uncertainty: attribute SAME398 builder/row gathers/remaining
+complete operators under exact output/numeric controls, budget<=20min/12GiB,
+expected<=2min. If either component alone exceeds14ms, tuning only the other
+cannot rescue the unchanged14ms operator budget. A joint change requires a
+new frozen protocol and original-relative quality when learned books exist.
+No399 protocol/code/observation yet; do not infer attribution or physical DRAM
+from the ledger. No live model/native job, complete398 outputs retained first.

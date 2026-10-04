@@ -2,7 +2,7 @@
 
 **4 October 2026. Branch:** `research/native-expert-scaling`.
 **Final goal incomplete. Two independent same-family source scales have bounded
-whole-quality/SAMEartifact FULL-rate qualification. Next: actual >256-choice source applicability.**
+whole-quality/SAMEartifact FULL-rate qualification. Next: bounded attribution of failed LUT cost before any new representation.**
 
 ## Goal and constraints
 
@@ -86,10 +86,31 @@ full-dimensional I8/A16+exact shortlist rejected73d14e2 (6.328s/318MB). All
 apparatus gates pass; NO changed router eligible for native quality/rate.
 Original qualified full-F32 routers/binaries/rates remain authoritative.
 
-Next396: actual tensor-header/namespace/main-vs-MTP/core-active-cost screen for
-Qwen3-Next80B/512, reusing donor-adaptation's pinned config stub and reconciling
-its earlier parameter-count discrepancy. Source-specific top-k normalization
-differs from Switch. [Exact next uncertainty, budget and stop](LARGE_N_SOURCE_APPLICABILITY_NEXT_20261004.md).
-No396 implementation/frozen protocol/header observations or large weight
-acquisition yet. No live model/job/exec handles;393/394/395 exits fully consumed.
-More useful choices/10x, physical DRAM, other families/contexts/~100B remain open.
+396 first physical manifest CRLF/LF failure retained460db6c, zero network;
+397 procedural repair frozen2e7eb13 /result retained1c8d978. ALL5 metadata gates
+PASS:41 shards/75,944 actual tensor headers,48 banks512 slots; main79.674391296B
++MTP1.650471424B exactly81.324862720B. Old main formula omissions also reconciled.
+Hypothetical full-width additive descriptor1,278,965,760B>560MB: unchanged
+geometry closed before full80B source acquisition. MAIN133.468s/117MB/16.655MB
+response bodies; zero weight values/inference/quality/rate/DRAM evidence.
+[397 result](METH_397_QWEN_NEXT_SOURCE_HEADERS_RESULT_20261004.md).
+
+[398 result](METH_398_ADDITIVE_INTEGER_LUT_RESULT_20261004.md), frozen6127962 /
+retainedf33015c: NEW I32 activation-LUT/GigaChat318 representation, source-sized
+64-parent/top4 synthetic books/codes plus actual source controls. All90 full
+64-bit output/route fingerprints EXACT319 and independent numeric controls
+PASS; median137.689-164.653ms>14ms, pooled repeat1.195832 FAIL. Builder timed;
+340.001MB logical table writes/token, physical DRAM unmeasured. MAIN44.281s/
+3.232GB peak, no GPU/T4/training/large-bank work. This exact kernel closed.
+[Scope clarification](METH_398_INTEGER_LUT_SCOPE_CLARIFICATION_20261004.md):
+fingerprint equality is not exhaustive archived output-byte comparison.
+
+Next proposed399: SAME398 arithmetic/output fixtures, separately attribute
+builder/row-gather/other full operators with exact fingerprints and full numeric
+controls. If either component alone exceeds14ms, close tuning only the other;
+if only their sum fails, require joint algorithm/layout change. Attribution
+cannot qualify model rate or useful n. No399 scientific source/protocol/run yet.
+First retain398 unchanged; freeze new measured boundary before observations.
+Expected<=2min/12GiB/20min stop, no original weights/training/GPU/T4. Preserve
+qualified374/389 binaries; useful choices/10x, physical DRAM, other families/
+contexts/~100B remain open. No live model/native job or pending session.

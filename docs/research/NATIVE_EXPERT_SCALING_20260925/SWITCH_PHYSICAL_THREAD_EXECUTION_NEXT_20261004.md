@@ -92,18 +92,12 @@ resuming the costly generic GigaChat runtime unchanged is not the next step.
 
 ## Current resumption, 4 October: supersedes earlier proposed steps
 
-391 independently pretrained original128 SAMEartifact FULL rate ALL5 PASS,
-96.56385 ordinary IDs/s/lower94.58827;55.97659 prose IDs/s/lower54.59729.256
-six-worker376 remains qualified;128 three-worker390/391 independently qualified.
-Original-relative whole quality363/387, exact runtime inheritance374/389. Old
-383/390 threading and386/388 apparatus failures remain preserved/closed.
-392/393 actual router audit/capture PASS: all384 complete quality outputs exact;
-oracle top64-only normalization fails1% scaling.394 low-rank and395 I8/A16
-fixed refinement grids rejected; no approximate router native promotion.
-All393/394/395 processes exited/fully consumed, no live job. Keep full-F32
-qualified routers/rates. Next actual>256 source/header/active-cost applicability
-screen396; implementation/protocol not yet frozen. Reuse pinned Qwen3-Next80B/
-512 config evidence from donor-adaptation, not presumed full weights. See
-LARGE_N_SOURCE_APPLICABILITY_NEXT_20261004.md and INDEX.md/METHOD.md. Source-
-specific normalization matters. No generic GigaChat-port restart. Final goal
-incomplete: useful10x/LUT/physical DRAM/other families/contexts/~100B unproven.
+391 qualifies independent original128 SAMEartifact whole quality/FULL rate.
+393-395 routing diagnostics/compression grids are retained rejections; qualified
+full-F32 Switch routers/binaries remain authoritative.397 ALL actual Qwen3-Next
+headers reconcile source count but full-width descriptor1.279GB fails560MB
+before acquisition.398 exact integer-LUT/source-sized GigaChat algorithm
+numeric/fingerprint controls PASS,137-165ms cost/repeat FAIL retainedf33015c.
+No learned model, useful larger n or rate inheritance. Proposed399 bounded
+SAME398 cost attribution before any new representation; unimplemented/unfrozen.
+Use INDEX.md, METHOD.md and398 result/scope clarification for current state.
