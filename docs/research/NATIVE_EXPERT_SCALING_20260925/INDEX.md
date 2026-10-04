@@ -194,12 +194,16 @@ c0611e7/exec84095 exit0 fullyconsumed; source9/64 full8.2531/19.2906ms per32
 forcedposition, all othergates PASS. Closeunchanged365 cost/ratepromotion;
 367 dependency-ineligible/unexecuted/unfrozen.363 scopedwholequality remains
 valid via365 complete byteequivalence,364 actualaccepted rateFAIL unchanged.
-Next368 independent bank-identity control contract: SAME356 binary/math/
-CPU1profile/payload, ONLY smallserialized manifest redirects WI/WO pairs via
-fixedoffset1/127 bijections atactualn256, unchangedrouter/core/head. No new
-engine/codegenneeded; fresh mappings/actualconsulted identities and complete
-independent Tiny/full/natural controls before369 pairedconsumed quality.
-This diagnostic tests matched learnedbank usefulness, notnewuntouchedquality
+[368 identity contract](METH_368_SWITCH_BANK_IDENTITY_CONTRACT_RESULT_20261004.md)
+ALL7 PASS retained47820e8, exec3004 exit0 fullyconsumed;315.266s/max2.718GB.
+SAME356 binary/math/CPU1profile/payload; actualsmallmanifest0/1/127 fixed
+bijections all3072WI/WO pairs, ALL6392 lookupreadbacks/Tiny/full/OWNnatural
+independentarrays exact. Matchedmanifest SHAexact338/matchedcontrols exact363;
+actualconsultedfunctionidentitysidecarshashed. No bankharm observation yet.
+[369 pairedbank usefulness](METH_369_SWITCH_BANK_USEFULNESS_PROTOCOL_20261004.md)
+readytofreeze ALL96consumedmatched363 versusBOTHfixedoffsets, ALLfour primary
+predictive+generative harm bounds98.75%/Bonferronifamilyalpha.05 before scores.
+No new originalteacher loaded or acceptedtimingclaim. This diagnostic tests matched learnedbank usefulness, notnewuntouchedquality
 or everyexpert/n-gain. Fixedgenuine64/128/256 nested-bank intervention planned
 nextforadditional real alternatives; actual n artifactsnotyetimplemented.
 Useful n/LUT/physical DRAM/causal learned bank
