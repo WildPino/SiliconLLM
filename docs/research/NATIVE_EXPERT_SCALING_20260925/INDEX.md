@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**4 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.**
+**5 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.**
 The user resumed experimental work after the strategic review. Goal ACTIVE.
 [Strategic review](STRATEGIC_REVIEW_20261004.md) audits the evidence and proposes
 single-donor common/private decomposition, identity-sensitive supervision,
