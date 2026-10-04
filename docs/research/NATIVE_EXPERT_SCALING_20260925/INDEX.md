@@ -11,9 +11,10 @@ identity matters locally.441's one-function benefit does not show source functio
 are interchangeable.444 global contrast subspaces fail validation even at256;
 development energy is88.44%dominated by two position0 anchors.445 equal-relative
 weighting also fails:256 val78.52%. Local oracle ranks95%=75..87 at validation,
-not per-expert rank bounds.446 private-matrix pilot frozen63a5f04, not run yet:
-reference0/targets1,64,127/all1344inputs, ranks16/32/64/96/128, identity versus
-coupled permutation/full-matrix factor control. No gradient fit or native export.
+not per-expert rank bounds.446 completed ALL9apparatusPASS but all45Frobenius
+matrix-factor candidates FAIL. Native coupled permutations exact;95%matched
+matrix energy requires symmetricrank>=631, losing F32 storage advantage.
+Next NEW packed-I4 original-function/head quality probe, no rank truncation/fit.
 
 ## Goal and constraints
 
@@ -94,6 +95,10 @@ energy.109.937s/2.063GB/634.450MB. Close specific absolute-energy PCA recipe.
 ALL7apparatusPASS/zero forwards; balanced256 macrodev90.50%/val78.52% fails.
 Local95%rank75..87val, no posterior/generalization/runtime proof.2.078s/553.853MB/
 15.770MB. Close weighting-only correction; private bases remain a different question.
+- 446 [private matrix factors](METH_446_SWITCH_PRIVATE_DELTA_RESULT_20261004.md):
+all1344original FFNs exact/4032matched functions exact; best candidate valmedian
+relative error.53316>.05. All45fail3/4gates; forced input domains differ from sparse
+natural exposure.116.235s/2.582GB/279.931MB. Close THIS reference0/Frobenius recipe.
 
 ## Closed routes and retained context
 
@@ -114,14 +119,14 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 444/445 close the tested global-output bases and weighting-only correction.
 
 [Current plan](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md): prepare ONE
-NEW matrix-level single-donor base/delta feasibility pilot. Preserve private
-nonlinearities, allow per-expert bases, account for admissible coupled neuron
-symmetries and actual active cost. In top1 a full shared base plus private factors
-adds arithmetic; possible storage savings alone do not qualify rate.446 controller/
-math/[protocol](METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md) are frozen63a5f04
-before first import. Admission300s/numerical600s/total900s,3GiB/384MiB,CPU0/BLAS1.
-First-stop retention; no outcome yet. Run its fixed command ONCE after physical
-filtered-HEAD qualification. Full F64-shadow gates precede compression utility.
+NEW source-aware scalar-precision probe before full-native export.446 private
+Frobenius factors fail even after exact matching; no rank increase or training.
+Packed row-I4 changes coefficient encoding without assuming a low-rank space.
+First qualify packing/rounding/integer bounds, then original-source full-head
+distortion and identity/removal effects, retaining source core/probability.
+No NEW447 controller/protocol/outcome exists. Freeze before any numerical probe.
+Any passing local precision result still needs full-native quality/cost/SAME rate,
+LUT builder/unpacking/routing and actualDRAM evidence; no nominal-byte performance.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
 open. All first failures/outputs retained; original binaries and engine intact.

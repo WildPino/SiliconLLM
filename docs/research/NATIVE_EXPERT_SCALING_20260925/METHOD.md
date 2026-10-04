@@ -11,6 +11,9 @@ matters locally; foreign transfer's weak effect does not localize the failure.
 dominate88.44%development energy.445 relative weighting also fails; local95%
 rank75..87val concerns collective functions, not per-expert delta rank. Next
 matrix-level single-donor base/delta/private-nonlinearity/cost feasibility.
+446 ALL9apparatusPASS/exact native neuron permutation but all45Frobenius-factor
+candidates fail; matched matrix95%energy needs symmetricrank>=631, beyond F32
+storage-saving geometry. Next scalar-precision probe with unchanged original core.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
 generality and useful larger-n scaling remain research.** This file
@@ -123,10 +126,13 @@ Next [matrix-level common/private feasibility](SWITCH_FUNCTION_RETARGETING_PILOT
 coupled admissible neuron alignment, per-expert delta bases, private ReLU and
 explicit coefficient/precision/active-cost accounting before any new fit.
 446 [prospective protocol](METH_446_SWITCH_PRIVATE_DELTA_PROTOCOL_20261004.md)
-is frozen63a5f04 before first import: four forced source functions/all1344inputs,
+was frozen63a5f04 before first import: four forced source functions/all1344inputs,
 three fixed targets, five ranks, per-expert matrix bases/full-matrix factor control,
-native permutation equality then qualified F64-shadow function geometry. No outcome
-or native factor export; original quality/rate not inherited by approximations.
+native permutation equality then qualified F64-shadow function geometry.
+[446 result](METH_446_SWITCH_PRIVATE_DELTA_RESULT_20261004.md): all45candidatesFAIL,
+best valmedian relative.53316; natural exposure insufficient for these fixed IDs.
+No native factor export or source posterior/rate claim. Per-expert Frobenius
+recipe CLOSED; activation/KL-aware/private precision are separate questions.
 All9capacity/whole-quality/SAMEartifact50/usefulRAM-n/DRAM/families/
 ~100B demands remain open, original qualified artifacts unchanged.
 
