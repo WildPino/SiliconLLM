@@ -196,3 +196,14 @@ router traces and greedy exact, independent ALL selected WI/WO rows byte exact.
 Original374/389 binaries and source-specific profiles remain authoritative.
 See [418 result](METH_418_SWITCH_FUNCTION_CAPTURE_RESULT_20261004.md) and
 [current surrogate resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md).
+
+## Numerical prototype boundary, through423
+
+419-423 add only CPU analysis/autograd/diagnostic scripts, no new native engine
+prefix or changed417 C. Original374/389 binaries/rates remain authoritative.
+420 whole final-bank forward/ALL32128 logits at4895 positions byte-exact; first
+real FD failed, loss conditioning diagnosed421.422 stable-loss actual256
+controlsPASS/128 mixed-global gradientFAIL;423 local native-primal A/C reference
+conforms but global loss primals differ. No fit/model or new rate/quality.
+[Current matched-primal reference resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
+is NEW424, not an in-place repair or promotion of422.

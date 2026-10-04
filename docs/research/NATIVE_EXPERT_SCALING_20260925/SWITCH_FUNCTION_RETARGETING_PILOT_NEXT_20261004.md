@@ -1,7 +1,9 @@
-# Current resumption after418: qualify ONE function-aware final-bank surrogate
+# Current resumption after423: qualify a SAME-primal gradient reference
 
-Native observation prerequisite COMPLETED418; no adapter/selector/gradient/fit
-or combined384-choice model yet. M417 first controller failure retained.
+Native observation418 and whole forward420 established.419 disk-guard failure
+retained;420 directional-FD loss conditioning diagnosed421.422 mixed/global
+gradient contract FAIL128;423 local A/C rules conform, loss primals differ.
+No qualified combined gradient/fit/selector/384-choice model yet.
 Final goal ACTIVE/INCOMPLETE. Qualified original Switch7.415B/14.664B targets
 retain18/18 quality and SAMEartifact source-specific accepted-rate evidence.
 User priority stays useful n limited by RAM, CPU LUT/routing/realDRAM and
@@ -23,7 +25,7 @@ quality as choices grow;1.5x candidate pool alone cannot establish10x/~100B.
   Close lexical weight bridge before function maps/selector/model, no rank sweep.
   Raw416 ac769b643c7db6fe0782509ae65cc5287a2f93e70a495ed658384cfc7ee5f55b.
 
-All processes terminal, no GPU/T4/network or new quality documents used412-418.
+All processes terminal, no GPU/T4/network or new quality documents used412-423.
 Frozen source-weight/statistical controls are reproducible; input quality and
 whole model quality must remain separate. Do not resume a closed map silently.
 
@@ -55,23 +57,73 @@ results/native_expert_scaling/meth418_switch_function_capture; raw contains full
 1936-file inventory and source keys/splits. Native128 teacher is a quantized
 source approximation, not fresh original-F32 shared-context inference.
 
-Immediate next numbered stage419: define and qualify an integer-faithful
-zero-change final-bank forward and explicitly approximate differentiable
-surrogate on these fixed captures. Freeze source/controller/protocol before
-any forward/gradient comparison. First independent exact no-correction baseline
-must reproduce captured norm/expert/residual/finalnorm/head and all logits.
-Finite differences apply to the declared smooth surrogate; they do not prove a
-true derivative through native rounding/top1. Any STE/dequantized backward must
-be labelled and independently controlled. Tiny input/output correction, norm,
-ReLU, router/full normalization/head gradient checks BEFORE fitting; hard routing
-and active function budget still need a native export contract.
+## Completed forward/gradient outcomes419-423
 
-Before any GPU/fit choose ONE rank/init/selector/objective, compute frozen and
-trainable host/device/gradient/optimizer/full vocabulary costs and stop budgets.
-No full12-bank optimizer. Both an exact no-added256 control and source-function
-causal ablations are required: real pretrained added functions must improve held
-calibration predictions when consulted; adapters alone or gate-always-old cannot
-qualify capacity. No419 code/protocol/gradient/fit yet; no T4 needed now.
+[419](METH_419_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md), frozen d854ef2:
+WindowsPath disk-guard TypeError before numeric work, retained4ba10c4.
+[420](METH_420_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md), frozen41291e3:
+ALL384/4895 native forward states and ALL157266560 head rows byte-exact;
+384 full new archives825681912B. Tiny FD/STE controls PASS; first real256 A
+central directional FD FAIL0.000275448>1e-5; no fitting.208.921s/max3.058GB.
+[421](METH_421_SWITCH_GRADIENT_CONDITIONING_RESULT_20261004.md),8c68486/bdf6de3:
+original failure exact reproduced; slopes about1e-10, centered loss FD+independent
+imaginary derivative agree at SAME1e-5; no ReLU crossings.21.890s/max1.415GB.
+[422](METH_422_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md),dae0aef/7b44b76:
+only stable equivalent loss changed. Exact forward/primitive prefix419 and
+fresh420 complete archives inherit whole forward (not rerun).256 actual rank8
+zero forward/full-head/ALL gradient+FD checks PASS;128 A mixed/global gradient
+FAIL0.004939194>same1e-3, no remaining-field/final negatives/fit promotion.
+30.329s/max1.606GB; real256 archive584650B retained.
+[423](METH_423_SWITCH_SAVED_PRIMAL_GRADIENT_RESULT_20261004.md),0618f56:
+SAME128 first point/expert25/rank8/seed547, native zero forward exact. Independent
+literal local A/C backward vs actual autograd relative0.0/0.0. No ReLU masks differ.
+Native/smooth logits relative5.617908e-5; native local/global A mismatch.004939,
+C.004802. Replacing ONLY loss derivative primals with smooth logits reduces
+errors to1.00951e-6/2.93390e-6. Implementation of these local rules conforms;
+comparison against another path's loss primals caused global mismatch.
+20.485s/max1.107GB/output770742B; diagnostic ONLY,422 stillFAIL/no fit license.
+
+## Immediate next numbered action424, before any fit
+
+Prepare a NEW matched-primal gradient reference: local smooth continuation with
+DETACHED node offsets chosen from native captured/evaluated states at the fixed
+point. Independent finite differences must evaluate the SAME loss primals as
+native-value STE, instead of a global dequantized path with different logits.
+This is a new declared local approximation/qualification, not a true derivative
+through rounding/top1 or relaxation/reinterpretation of422's failed1e-3 bound.
+No424 source/protocol/outcome exists yet; freeze before first numeric work.
+
+Controls: original exact I8/A16/I64/F64-scale/F32 forward remains authoritative;
+source identity and fresh420/418 archives may inherit immutable whole-forward
+proof. New reference must reproduce baseline native endpoints/logits (F64
+continuation tolerance prospectively fixed), check offsets independently and
+coupled gradients against finite differences on SAME two real zero-rank8 points
+and tiny nonzero factors, full score normalization/norm/ReLU/head and negative
+wrong-offset/wrong-gradient controls. Keep original rank8/seed/points/T1 and
+central steps unless a separately justified new numerical variable is frozen.
+Do not just declare two identical autograd paths proof of derivative correctness.
+Global dequantized comparison stays a diagnosed different-primal approximation,
+not a passing422 gradient result. All losses/gradients finite; no training yet.
+
+If coherent reference cannot qualify, stop this specified STE recipe and
+consider a separately qualified full dequantized training surrogate with whole
+native logit/prediction-fidelity bounds; no arbitrary threshold/rank/seed sweep.
+Neither approach licenses learned capacity from derivatives alone.
+
+Before any GPU/fit choose ONE correction init/selector/objective, account for
+frozen/trainable host/device/gradient/optimizer/full-head costs and fixed stop
+budgets. Current rank8 per added function A,C[768,8], B,D[8,768], A/C zero/B/D
+seeded nonzero: ALL1283145728 coefficients/12582912B F32; values+grads+two Adam
+moments50331648B BEFORE selector/bookkeeping. Active one correction98304B F32
+coefficient accesses. Added ONE original128 bank605945856B I8+scales,603979776
+original coefficients. These are prospective ledgers, no actual union export.
+No full12-bank optimizer, no free selector/head/extra branch compute.
+
+Both an exact no-added256 baseline and actual pretrained-function causal
+ablations/consultation are required. A selector always choosing old functions or
+adapters alone cannot demonstrate added capacity. Only paired teacher-labelled
+418/405 captures (1008dev/336val per source); natural cohorts qualification-only.
+No new whole-quality corpus before a real artifact/recipe. No T4 needed now.
 
 ## A new objective rather than another state-regression variant
 
@@ -104,7 +156,7 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
    outputs/routes/greedy/actual-worker identity, independent preFF/norm/full
    selected expert/residual/finalnorm/head controls as recorded above. Reuse
    frozen captures with fresh full inventory/raw hashes; do not recapture or
-   modify417/418. Current additional primitive/surrogate work requires new419.
+   modify417/418/419/420/421/422/423. Current additional reference work requires new424.
 2. Fix training objective, selector semantics, trainable size/rank/initialization,
    original256 baseline/no-added-function control, forced source-function controls,
    and a causal ablation that shows pretrained added functions actually contribute.
@@ -135,9 +187,9 @@ specified low-rank final-bank route. Do not simply assume deep banks compose.
    stopping metrics, baseline nondegradation and genuine added-function benefit
    before training. Freeze each substantial stage separately; retain first fail.
 
-The immediate next action is419 zero-change/surrogate-gradient and bounded
-resource/objective design, then a separately frozen fit protocol. No model
-construction or unbounded training before these controls.
+The immediate next action is424 matched-primal gradient-reference qualification
+and bounded resource/objective design, then a separately frozen fit protocol.
+No model construction or unbounded training before these controls.
 No source data acquisition or GPU authorization request is currently required.
 
 ## Subsequent gates if the bounded pilot works

@@ -34,10 +34,19 @@ natural full outputs/routes/greedy unchanged;4895 final-bank states with complet
 selected WI/WO integer replay and normerror0.372.984s/3.096GB RSS/1.955GB output.
 [418 observation contract](METH_418_SWITCH_FUNCTION_CAPTURE_RESULT_20261004.md)
 is reproducible, without changed model arithmetic or new accepted-rate claim.
-Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-coupled correction/selector objective on one frozen256 core; zero-change native
-forward, explicit surrogate/gradient and bounded resource/causal extra-function
-controls still required before fitting. No419 code/fit/384 model/quality/rate.
+419 apparatus disk-guard failure retained;420 ALL384/4895 zero-forward states
+and ALL157266560 vocabulary rows byte-exact, but first real directional FD fails.
+421 diagnoses loss-subtraction conditioning; stable equivalent loss fixes that
+numerical check.422 actual256 all gradient/FD controlsPASS but128 A mixed-primal
+STE vs global-smooth gradient error.004939>same1e-3, contract not eligible.
+[423 local backward diagnostic](METH_423_SWITCH_SAVED_PRIMAL_GRADIENT_RESULT_20261004.md):
+independent same128 native-primal A/C chain vs autograd errors0.0; no ReLU mask
+changes. Using different loss logits accounts for global gradient discrepancy;
+full native/smooth logiterror5.618e-5. No derivative through native rounding claim.
+Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW same-primal local smooth continuation/independent FD reference before bounded
+rank8 corrections/selector fit. Current mixed/global contract remainsFAIL; no
+424 code/fit/384 model/quality/rate or retrospective gradient promotion.
 Existing Switch quality/rate results and real large-useful-capacity goal intact.
 
 ## Independently pretrained source128: complete bounded transfer qualified

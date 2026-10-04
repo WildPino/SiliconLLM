@@ -4,8 +4,9 @@
 **Final goal incomplete. Two independent same-family source scales have bounded
 whole-quality/SAMEartifact FULL-rate qualification. Granite412/413 CPU route
 closed; lexical414/416 interfaces closed.418 final-bank capture ALL9 PASS,
-384 complete outputs unchanged. Next: qualify function-aware surrogate/gradient
-before bounded fitting. Useful384/large n remains open.**
+384 complete outputs unchanged;420 whole head forward exact.422 mixed/global
+gradient FAIL128;423 local rules conform, loss primals differ. Next: qualify
+SAME-primal reference before bounded fitting. Useful384/large n remains open.**
 
 ## Goal and constraints
 
@@ -180,9 +181,21 @@ acquisition record passed/gates schema failure before compile/native work.
 ALL9 controlsPASS, ALL192 paired teacher+192 natural complete outputs/routes/
 greedy byte-exact;4895 states, ALL selected WI/WO integer rows exact, normerror0.
 372.984s/max3.096GB combined RSS/1.955GB output. Source C/math/default unchanged.
-Next [one function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-qualify zero-change integer-native forward and explicit surrogate/gradient,
-fix bounded correction/selector/resource/causal function-benefit controls before
-fitting. No419 code/fit/384 model yet. No more state-map or closed kernel tuning.
+[419 first gradient apparatus failure](METH_419_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md),4ba10c4:
+WindowsPath disk-guard error before numeric work.420 procedural repair41291e3.
+[420 forward/gradient result](METH_420_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md),b512542:
+ALL384/4895 forward states+ALL157266560 head rows byte-exact; tiny FD/STE PASS,
+first real directional FD FAIL.208.921s/max3.058GB/825.682MB full archives retained.
+[421 loss conditioning](METH_421_SWITCH_GRADIENT_CONDITIONING_RESULT_20261004.md),bdf6de3:
+original fail reproduced; same centered-FD/imaginary check agree, no mask crossings.
+[422 stable-loss result](METH_422_SWITCH_FUNCTION_GRADIENT_RESULT_20261004.md),7b44b76:
+256 ALL actual controlsPASS;128 A mixed/global gradient.004939>same1e-3 FAIL.
+[423 local backward diagnosis](METH_423_SWITCH_SAVED_PRIMAL_GRADIENT_RESULT_20261004.md):
+SAME128 point local A/C reference errors0.0; no ReLU mask differences; differing
+loss logits cause mismatch. Native/smooth logiterror5.618e-5, not capacity harm.
+Next [function-aware pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW424 same-primal local continuation/FD reference, then bounded correction/
+selector/resource/causal original-function controls. No424 code/fit/384 model.
+No more state-map or closed kernel tuning.423 diagnostic does not qualify422.
 Useful>256/10x/real~100B/physicalDRAM/another-family quality remain open.
 All jobs terminal, original qualified Switch artifacts untouched.

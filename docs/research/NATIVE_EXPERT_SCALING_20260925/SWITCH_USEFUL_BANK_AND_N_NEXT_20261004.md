@@ -1,15 +1,15 @@
 # Switch: useful bank consultation and real n scaling after whole qualification
 
-CURRENT STATUS418 (supersedes historical next steps below): original Switch
+CURRENT STATUS423 (supersedes historical next steps below): original Switch
 source128/256 quality and SAMEartifact source-specific rates remain qualified.
-Granite/Ling/Giga specified cost formats and lexical/state-map bridges remain
-closed.417 first controller schema failure retained;418 capture ALL9 controls
-PASS, all192 shared teacher+192 natural complete outputs/routes/greedy unchanged.
-4895 observed final-bank states, no learned correction/selector/384 model yet.
-Next [function-aware final-bank surrogate](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
-zero-change native forward, explicit gradient/resource/extra-function benefit
-controls before bounded fit. Useful384/10x/~100B/LUT/physicalDRAM/another-family
-quality remain open. Historical evidence below unchanged.
+Specified Granite/Ling/Giga cost formats and lexical/state-map bridges closed.
+418 capture/420 whole native forward all384/4895 states+full head byte-exact.
+421 loss-conditioning diagnosed;422 mixed/global gradient contractFAIL128.
+423 independent local A/C rules conform; different loss primals explain gap.
+Next [function-aware final-bank pilot](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md):
+NEW424 same-primal independent gradient/FD reference before bounded fit.
+No424 code/fit/selector/384 model; diagnostic does not promote failed422.
+Useful larger n/RAM/LUT/realDRAM/another-family/~100B remain open. History retained.
 
 
 Planning memo4 October2026.363 original-primary wholequality ALL18 PASS;

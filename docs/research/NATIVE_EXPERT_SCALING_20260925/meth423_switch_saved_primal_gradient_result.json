@@ -1,0 +1,142 @@
+{
+  "experiment": "METH-423-source128-local-saved-primal-gradient-diagnostic",
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth423_switch_saved_primal_gradient.py": "eb837a3112acb66e2529180f22ff18c560b752382166c568a6f770613d7f0de5",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_423_SWITCH_SAVED_PRIMAL_GRADIENT_PROTOCOL_20261004.md": "e2569701677398c70931bf53cf5492c8e3ad84b65f7a0f22f4d719f9e088fd8d",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth422_switch_function_gradient_result.failure.json": "a35e8bf253d740fdf6335336ffbdc1619ef72659b8ff0524e9c9959c8ba465a0",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_autograd.py": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth418_switch_function_capture.py": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth368_switch_bank_manifest.py": "83829e76afec338db24616d784cb125d330c2c8fc8e69f34f64669648ed5776b"
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "CPU_affinity": [
+      0
+    ],
+    "GPU": false,
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      }
+    ]
+  },
+  "diagnostic": {
+    "n": 128,
+    "source_expert": 25,
+    "rank": 8,
+    "native_zero_correction_forward_exact": true,
+    "mixed_vs_global_gradient_relative": {
+      "A": 0.004939194124061269,
+      "C": 0.0048021180248012905
+    },
+    "smooth_vs_native_full_logits_relative": 5.61790814698254e-05,
+    "ReLU_mask_changed_rows": [],
+    "changed_raw_values": [],
+    "fixed_counterfactuals": [
+      {
+        "smooth_ReLU_mask": false,
+        "smooth_loss_primals": false,
+        "errors": {
+          "A": {
+            "vs_native_autograd": 0.0,
+            "vs_global_smooth": 0.004939194124061269
+          },
+          "C": {
+            "vs_native_autograd": 0.0,
+            "vs_global_smooth": 0.0048021180248012905
+          }
+        }
+      },
+      {
+        "smooth_ReLU_mask": false,
+        "smooth_loss_primals": true,
+        "errors": {
+          "A": {
+            "vs_native_autograd": 0.004962705347090955,
+            "vs_global_smooth": 1.0095095822404155e-06
+          },
+          "C": {
+            "vs_native_autograd": 0.00482653469107487,
+            "vs_global_smooth": 2.9339000173929254e-06
+          }
+        }
+      },
+      {
+        "smooth_ReLU_mask": true,
+        "smooth_loss_primals": false,
+        "errors": {
+          "A": {
+            "vs_native_autograd": 0.0,
+            "vs_global_smooth": 0.004939194124061269
+          },
+          "C": {
+            "vs_native_autograd": 0.0,
+            "vs_global_smooth": 0.0048021180248012905
+          }
+        }
+      },
+      {
+        "smooth_ReLU_mask": true,
+        "smooth_loss_primals": true,
+        "errors": {
+          "A": {
+            "vs_native_autograd": 0.004962705347090955,
+            "vs_global_smooth": 1.0095095822404155e-06
+          },
+          "C": {
+            "vs_native_autograd": 0.00482653469107487,
+            "vs_global_smooth": 2.9339000173929254e-06
+          }
+        }
+      }
+    ]
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth423_switch_saved_primal_gradient\\local_primal_and_gradient.npz",
+      "bytes": 770742,
+      "sha256": "9938b83170276a63e7cf4315665991976a83deccbfff1c9c28c04b30b1fcbd7c"
+    }
+  ],
+  "gates": {
+    "retained_failure_and_whole_sources_exact": true,
+    "same_fixed_native_forward_exact": true,
+    "independent_local_A_C_backward_reference_within1e_minus5": true,
+    "fixed_all_four_counterfactuals_and_finite_errors": true,
+    "CPU_budget_source_unchanged": true
+  },
+  "resource": {
+    "seconds": 20.485000000000582,
+    "maximum_RSS_or_peak_working_set_bytes": 1106522112,
+    "bytes_hashed": 22382756174,
+    "output_bytes": 770742
+  },
+  "decision": "local_rules_conform_but_mixed_global_gradient_contract_remains_failed_consider_coherent_smooth_training_surrogate",
+  "scope": "Diagnostic only on SAME source128 first point/seed547/rank8/target. Independent local saved-primal backward and fixed mask/loss counterfactuals, no fit license or threshold repair. No native rounding derivative claim. A coherent floating training surrogate must separately preserve bounded native forward fidelity, independent gradients/FD and new artifact whole quality/rate. No GPU/T4/network/new corpus/model."
+}
