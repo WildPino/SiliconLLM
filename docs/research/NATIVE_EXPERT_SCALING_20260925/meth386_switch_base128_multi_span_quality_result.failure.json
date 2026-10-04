@@ -1,0 +1,74 @@
+{
+  "experiment": "METH-386-NEW-original128-multispan-original-primary-whole-quality",
+  "source_shards": [
+    {
+      "name": "pytorch_model-00001-of-00003.bin",
+      "tensor_names_so_far": 1084,
+      "seconds": 9.437000000005355
+    },
+    {
+      "name": "pytorch_model-00002-of-00003.bin",
+      "tensor_names_so_far": 2205,
+      "seconds": 9.265999999988708
+    },
+    {
+      "name": "pytorch_model-00003-of-00003.bin",
+      "tensor_names_so_far": 3320,
+      "seconds": 9.578000000008615
+    }
+  ],
+  "original_bridges": [],
+  "native_bridges": [],
+  "books": [],
+  "commands": [],
+  "preserved383_stability_failure_sha256": "8e9a17fbaceed0b694a0ba77acb5041bb5f2c1ba3455c5959302b675a97c366a",
+  "performance_qualified": false,
+  "controller_sha256": "7038d3452aeea2c8264f8620affdab441460f572ac33b8c21462e1875b110cf7",
+  "protocol_sha256": "51688cc755043d9f6fa84b64b553afbd54553c6cea87f3efee478985ada15207",
+  "manifest382_sha256": "96b3ffd09b0bdd42d7c990006e8744e39b5e1f32b7ae40aaf3b3dca98bf4db78",
+  "cost383_sha256": "8e9a17fbaceed0b694a0ba77acb5041bb5f2c1ba3455c5959302b675a97c366a",
+  "numeric381_sha256": "6ede7a90fbf2716381d31456897eb41b01a0c6ed9010e7ba3b3af91064831a6e",
+  "original379_binding_sha256": "e40710575189b2c635226200a83f56c3242e68915bd0901926bbb9efb728dbe2",
+  "artifact": {
+    "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+    "bytes": 7541946880,
+    "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe",
+    "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+    "manifest_sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a",
+    "source_unique_parameters": 7415217408,
+    "original_experts_per_bank": 128,
+    "f32_embedding_alias_names": [
+      "decoder.embed_tokens.weight",
+      "encoder.embed_tokens.weight",
+      "shared.weight"
+    ],
+    "f32_embedding_physical_copies": 1,
+    "separate_I8_head_view_from_same_tied_source": true,
+    "row_I8_tensor_names": 3241,
+    "f32_tensor_names": 79
+  },
+  "native_binary_sha256": "97965a35900cc0483e60f3e2e51f95da90af600e1fa326af8ec34f7c2a3dacd0",
+  "native_threads": 6,
+  "runtime_environment": {
+    "OMP_WAIT_POLICY": "ACTIVE",
+    "KMP_AFFINITY": "none",
+    "KMP_BLOCKTIME": "infinite",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_MAX_ACTIVE_LEVELS": "1"
+  },
+  "native_process_affinity": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "original_threads": 1,
+  "installed_model_source_sha256": "5acb527d50a07e4bce3a5dec4db4f0c476cb4a01e8eb05219f26607034a12a83",
+  "original_source_identity": "Fresh ALL3320 canonical original128 F32 coefficient bytes379 plus config/tokenizer; no new ZIP envelope claim. Unmodified official CPU1 forward.",
+  "stage": "fresh_original_and_native_consumed_bridges_before_NEW_scores",
+  "error": "AssertionError(('original_official_teacher_cache_bridge', 0, 1.126961747088801e-06))",
+  "seconds": 38.84399999999732,
+  "maximum_checked_combined_rss_bytes": 1630081024
+}
