@@ -1,0 +1,428 @@
+{
+  "experiment": "METH-428-SAME-tiny-additive-FD-precision-diagnostic",
+  "points": [
+    {
+      "arm": "real",
+      "endpoints": {
+        "input": {
+          "relative_max": 1.1789522080779648e-16,
+          "absolute_max": 2.220446049250313e-16
+        },
+        "Bx": {
+          "relative_max": 2.8037223986104605e-16,
+          "absolute_max": 3.469446951953614e-18
+        },
+        "Ax": {
+          "relative_max": 2.9356544790671404e-16,
+          "absolute_max": 2.710505431213761e-20
+        },
+        "corrected_input": {
+          "relative_max": 1.178932310749763e-16,
+          "absolute_max": 2.220446049250313e-16
+        },
+        "up_raw": {
+          "relative_max": 9.65330450381755e-17,
+          "absolute_max": 2.220446049250313e-16
+        },
+        "up": {
+          "relative_max": 9.65330450381755e-17,
+          "absolute_max": 2.220446049250313e-16
+        },
+        "feature": {
+          "relative_max": 5.4667822240104315e-17,
+          "absolute_max": 5.551115123125783e-17
+        },
+        "Dy": {
+          "relative_max": 4.3094051797495216e-16,
+          "absolute_max": 8.673617379884035e-19
+        },
+        "Cy": {
+          "relative_max": 4.504600413163093e-16,
+          "absolute_max": 1.0164395367051604e-20
+        },
+        "correction": {
+          "relative_max": 4.504600413163093e-16,
+          "absolute_max": 1.0164395367051604e-20
+        },
+        "probability": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "weighted": {
+          "relative_max": 4.621146985761043e-16,
+          "absolute_max": 4.235164736271502e-21
+        },
+        "post": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "final": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "head_input": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "logits": {
+          "relative_max": 3.176102730455252e-17,
+          "absolute_max": 2.7755575615628914e-17
+        }
+      },
+      "native_reference_gradients": {
+        "A": 1.3375366861100572e-07,
+        "B": 1.750889385186067e-07,
+        "C": 5.633563802738678e-08,
+        "D": 3.3353270640944145e-07,
+        "pre": 1.2521086653029304e-07,
+        "base": 3.7912194095063386e-08,
+        "scores": 1.5913066164571864e-08
+      },
+      "checks": [
+        {
+          "field": "A",
+          "coordinates": 14,
+          "reference_gradient_norm": 6.00393762723403e-10,
+          "errors": {
+            "F64_FD_reference": 0.0005427976577140341,
+            "F64_FD_native": 0.0005428327431026772,
+            "imaginary_reference": 9.903212259981902e-15,
+            "imaginary_native": 1.337536650436761e-07,
+            "decimal80_FD_reference": 8.954586425209421e-15,
+            "decimal80_FD_native": 1.3375367225349708e-07,
+            "decimal80_FD_imaginary": 1.7713815267053662e-14
+          }
+        },
+        {
+          "field": "B",
+          "coordinates": 14,
+          "reference_gradient_norm": 8.122673407575743e-10,
+          "errors": {
+            "F64_FD_reference": 0.000261401037137864,
+            "F64_FD_native": 0.00026140901710188045,
+            "imaginary_reference": 1.568233101901024e-14,
+            "imaginary_native": 1.750889335212454e-07,
+            "decimal80_FD_reference": 1.1262355154491045e-14,
+            "decimal80_FD_native": 1.7508894908265436e-07,
+            "decimal80_FD_imaginary": 2.217521768678513e-14
+          }
+        },
+        {
+          "field": "C",
+          "coordinates": 14,
+          "reference_gradient_norm": 5.724093659702845e-05,
+          "errors": {
+            "F64_FD_reference": 4.073935620161359e-09,
+            "F64_FD_native": 5.622678234976703e-08,
+            "imaginary_reference": 8.102363453223324e-16,
+            "imaginary_native": 5.6335637788144e-08,
+            "decimal80_FD_reference": 2.034782506812229e-15,
+            "decimal80_FD_native": 5.633563826218309e-08,
+            "decimal80_FD_imaginary": 2.691331497136605e-15
+          }
+        },
+        {
+          "field": "D",
+          "coordinates": 14,
+          "reference_gradient_norm": 3.330628917424688e-05,
+          "errors": {
+            "F64_FD_reference": 8.2749937502524e-09,
+            "F64_FD_native": 3.372063268918711e-07,
+            "imaginary_reference": 1.3643428433903852e-14,
+            "imaginary_native": 3.3353271101905537e-07,
+            "decimal80_FD_reference": 7.917603806418007e-13,
+            "decimal80_FD_native": 3.3353218505840444e-07,
+            "decimal80_FD_imaginary": 7.923463100588325e-13
+          }
+        },
+        {
+          "field": "pre",
+          "coordinates": 7,
+          "reference_gradient_norm": 8.528016340100913e-08,
+          "errors": {
+            "F64_FD_reference": 1.0784483080865545e-06,
+            "F64_FD_native": 1.014553491299645e-06,
+            "imaginary_reference": 9.659229384487837e-15,
+            "imaginary_native": 1.2521087338901059e-07,
+            "decimal80_FD_reference": 1.7761422110832505e-09,
+            "decimal80_FD_native": 1.262620599081147e-07,
+            "decimal80_FD_imaginary": 1.7761342264877336e-09
+          }
+        },
+        {
+          "field": "scores",
+          "coordinates": 5,
+          "reference_gradient_norm": 2.2772621049706643e-08,
+          "errors": {
+            "F64_FD_reference": 7.1669006482036e-06,
+            "F64_FD_native": 7.17710075712228e-06,
+            "imaginary_reference": 2.463921655420853e-14,
+            "imaginary_native": 1.591305742109766e-08,
+            "decimal80_FD_reference": 6.347494098842278e-10,
+            "decimal80_FD_native": 1.6451840119017333e-08,
+            "decimal80_FD_imaginary": 6.347679836308007e-10
+          }
+        },
+        {
+          "field": "base",
+          "coordinates": 7,
+          "reference_gradient_norm": 0.07458972207736016,
+          "errors": {
+            "F64_FD_reference": 2.319946302656452e-09,
+            "F64_FD_native": 3.827156678563449e-08,
+            "imaginary_reference": 1.1192330973343876e-15,
+            "imaginary_native": 3.791219376434484e-08,
+            "decimal80_FD_reference": 2.319022395912863e-09,
+            "decimal80_FD_native": 3.8271368775343954e-08,
+            "decimal80_FD_imaginary": 2.3190228589534664e-09
+          }
+        }
+      ],
+      "ReLU_crossings": 0,
+      "offsets_fixed": true,
+      "archive_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth428_switch_additive_fd_precision\\real.tiny.npz"
+    },
+    {
+      "arm": "adapter",
+      "endpoints": {
+        "input": {
+          "relative_max": 1.1789522080779648e-16,
+          "absolute_max": 2.220446049250313e-16
+        },
+        "Bx": {
+          "relative_max": 2.8037223986104605e-16,
+          "absolute_max": 3.469446951953614e-18
+        },
+        "Ax": {
+          "relative_max": 2.9356544790671404e-16,
+          "absolute_max": 2.710505431213761e-20
+        },
+        "Dy": {
+          "relative_max": 2.049503585815921e-16,
+          "absolute_max": 6.938893903907228e-18
+        },
+        "Cy": {
+          "relative_max": 2.177319363535213e-16,
+          "absolute_max": 5.421010862427522e-20
+        },
+        "correction": {
+          "relative_max": 2.0663820634047719e-16,
+          "absolute_max": 8.131516293641283e-20
+        },
+        "probability": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "weighted": {
+          "relative_max": 2.216269437301592e-16,
+          "absolute_max": 2.710505431213761e-20
+        },
+        "post": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "final": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "head_input": {
+          "relative_max": 0.0,
+          "absolute_max": 0.0
+        },
+        "logits": {
+          "relative_max": 3.176092973722378e-17,
+          "absolute_max": 2.7755575615628914e-17
+        }
+      },
+      "native_reference_gradients": {
+        "A": 6.186689719096706e-08,
+        "B": 3.288385457691554e-08,
+        "C": 5.657215931264596e-08,
+        "D": 1.4467536145013427e-07,
+        "pre": 5.7142824781799414e-08,
+        "base": 5.4017169100259946e-08,
+        "scores": 4.3236681954600645e-08
+      },
+      "checks": [
+        {
+          "field": "A",
+          "coordinates": 14,
+          "reference_gradient_norm": 0.0003627596705318792,
+          "errors": {
+            "F64_FD_reference": 6.354726288611393e-10,
+            "F64_FD_native": 6.183023936338075e-08,
+            "imaginary_reference": 1.697842731549565e-15,
+            "imaginary_native": 6.186689773162891e-08,
+            "decimal80_FD_reference": 5.189822446672027e-14,
+            "decimal80_FD_native": 6.186686695633278e-08,
+            "decimal80_FD_imaginary": 5.254830682817488e-14
+          }
+        },
+        {
+          "field": "B",
+          "coordinates": 14,
+          "reference_gradient_norm": 0.0011905026628032515,
+          "errors": {
+            "F64_FD_reference": 1.9338941233932785e-10,
+            "F64_FD_native": 3.292697511176494e-08,
+            "imaginary_reference": 1.4524948940151302e-15,
+            "imaginary_native": 3.28838545842303e-08,
+            "decimal80_FD_reference": 2.1571794838527227e-13,
+            "decimal80_FD_native": 3.28839627943358e-08,
+            "decimal80_FD_imaginary": 2.1538161651490158e-13
+          }
+        },
+        {
+          "field": "C",
+          "coordinates": 14,
+          "reference_gradient_norm": 0.0009628770905143166,
+          "errors": {
+            "F64_FD_reference": 2.4872203451512437e-10,
+            "F64_FD_native": 5.63995752812573e-08,
+            "imaginary_reference": 1.489644637559587e-15,
+            "imaginary_native": 5.657215995645029e-08,
+            "decimal80_FD_reference": 2.6454277383403823e-13,
+            "decimal80_FD_native": 5.657203236567264e-08,
+            "decimal80_FD_imaginary": 2.654425659354494e-13
+          }
+        },
+        {
+          "field": "D",
+          "coordinates": 14,
+          "reference_gradient_norm": 8.539573050985204e-05,
+          "errors": {
+            "F64_FD_reference": 3.084722050528113e-09,
+            "F64_FD_native": 1.4427830212981338e-07,
+            "imaginary_reference": 2.4162662957564318e-14,
+            "imaginary_native": 1.4467538179980585e-07,
+            "decimal80_FD_reference": 6.559368239309867e-12,
+            "decimal80_FD_native": 1.4468087191894814e-07,
+            "decimal80_FD_imaginary": 6.541077695251354e-12
+          }
+        },
+        {
+          "field": "pre",
+          "coordinates": 7,
+          "reference_gradient_norm": 5.906275984241679e-06,
+          "errors": {
+            "F64_FD_reference": 2.840212608888076e-08,
+            "F64_FD_native": 8.028322676628539e-08,
+            "imaginary_reference": 2.5051022857471325e-15,
+            "imaginary_native": 5.7142824945643584e-08,
+            "decimal80_FD_reference": 2.177571931543018e-09,
+            "decimal80_FD_native": 5.706682426378384e-08,
+            "decimal80_FD_imaginary": 2.1775718571288672e-09
+          }
+        },
+        {
+          "field": "scores",
+          "coordinates": 5,
+          "reference_gradient_norm": 2.0372947805260075e-06,
+          "errors": {
+            "F64_FD_reference": 6.768540304637405e-08,
+            "F64_FD_native": 5.705993229506416e-08,
+            "imaginary_reference": 2.5730619781636246e-15,
+            "imaginary_native": 4.323668440043006e-08,
+            "decimal80_FD_reference": 6.340102871694317e-10,
+            "decimal80_FD_native": 4.375063666753001e-08,
+            "decimal80_FD_imaginary": 6.34008558496177e-10
+          }
+        },
+        {
+          "field": "base",
+          "coordinates": 7,
+          "reference_gradient_norm": 0.0745906647657822,
+          "errors": {
+            "F64_FD_reference": 2.3178503311004706e-09,
+            "F64_FD_native": 5.305565035234215e-08,
+            "imaginary_reference": 2.715273740787656e-15,
+            "imaginary_native": 5.401717053564747e-08,
+            "decimal80_FD_reference": 2.3186309045586848e-09,
+            "decimal80_FD_native": 5.305536981103854e-08,
+            "decimal80_FD_imaginary": 2.318632907681479e-09
+          }
+        }
+      ],
+      "ReLU_crossings": 0,
+      "offsets_fixed": true,
+      "archive_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth428_switch_additive_fd_precision\\adapter.tiny.npz"
+    }
+  ],
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth428_switch_additive_fd_precision.py": "1d67c421a7358ef3eed050e281deb0c4e9c27206fcd6eb7c02e893b9cb1f3869",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_428_SWITCH_ADDITIVE_FD_PRECISION_PROTOCOL_20261004.md": "bb2027fff839c71baaaeb2ca2dc3f2a4dd4bced71b3290cf010bc0484eb06f7b",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth427_switch_additive_pilot_result.failure.json": "8c36e4efb071516475fe6487e0bdde92661f90a38c932ab24083d0bd876e7717",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth427_switch_additive_math.py": "0122b78beead0d743affc0130f087f588cf2e28922e96e629e18414a75631bb1",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth424_switch_matched_primal_contract.py": "65ee712b9fb5d8ac933d3f4bcd3f146985e632ada933f416bdcec624db3faedb",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth424_switch_anchored_reference.py": "5807c4373e84703f4acd79418e5782fb28a6092a9a11caa28589de6cc6c9b960",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_autograd.py": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      }
+    ],
+    "CPU_affinity": [
+      0
+    ],
+    "GPU": false
+  },
+  "gates": {
+    "original_first_FD_error_exact": true,
+    "same_native_and_reference_prefix_exact": true,
+    "fixed_offsets_no_ReLU_crossings": true,
+    "ALL_imaginary_reference_at_most1e_5": true,
+    "ALL_imaginary_native_at_most1e_3": true,
+    "ALL_decimal80_same_h_FD_reference_at_most1e_5": true,
+    "ALL_decimal80_same_h_FD_native_at_most1e_3": true,
+    "ALL_decimal80_FD_imaginary_at_most1e_5": true
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth428_switch_additive_fd_precision\\adapter.tiny.npz",
+      "bytes": 25166,
+      "sha256": "ced28a6f7b9eccd3e091f221cdcacdfe273421ac556342cb9e0e5fcf570ffbed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth428_switch_additive_fd_precision\\real.tiny.npz",
+      "bytes": 29066,
+      "sha256": "a209fd913afbbdf3df137074eace1dad71ab72e896b9cde24474baff1b03ade1"
+    }
+  ],
+  "resource": {
+    "seconds": 1.0779999999977008,
+    "peak_bytes": 425181184,
+    "bytes_hashed": 645446,
+    "output_bytes": 54232
+  },
+  "scope": "SAME tiny nonzero two-arm additive local continuation precision diagnostic only. No real model source scan/forward, fit, C export, fresh quality/rate/LUT/DRAM or promotion of427. Decimal80 SAME1e-4 step; imaginary1e-20 independent fixed-mask control. All thresholds unchanged.",
+  "decision": "eligible_for_NEW_tiny_FD_precision_only_repair"
+}
