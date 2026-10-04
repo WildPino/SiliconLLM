@@ -1,0 +1,221 @@
+{
+  "experiment": "METH-421-real-gradient-check-conditioning-diagnostic",
+  "points": [
+    {
+      "n": 256,
+      "source_expert": 5,
+      "old_loss": 2.785187316334259e-07,
+      "centered_loss": 2.7851873478248024e-07,
+      "minimum_abs_smooth_WI_preReLU": 0.09378479863800493,
+      "zero_smooth_WI_preReLU_rows": 0,
+      "checks": [
+        {
+          "field": "A",
+          "autograd_old_projection": -1.626265957366484e-10,
+          "autograd_centered_projection": -1.6262659112900622e-10,
+          "plain_central_FD": -1.5987211554602254e-10,
+          "centered_central_FD": -1.6262659257511064e-10,
+          "complex_step_centered": -1.6262659034636973e-10,
+          "plain_FD_old_relative": 0.0002754480190625858,
+          "centered_FD_old_relative": 3.161537757724758e-10,
+          "complex_old_relative": 5.390278672828128e-10,
+          "complex_centered_relative": 7.826364971273467e-11,
+          "old_centered_gradient_relative": 3.129796103070896e-08,
+          "ReLU_crossings_plus_minus": 0
+        },
+        {
+          "field": "B",
+          "autograd_old_projection": 0.0,
+          "autograd_centered_projection": 0.0,
+          "plain_central_FD": 0.0,
+          "centered_central_FD": 0.0,
+          "complex_step_centered": 0.0,
+          "plain_FD_old_relative": 0.0,
+          "centered_FD_old_relative": 0.0,
+          "complex_old_relative": 0.0,
+          "complex_centered_relative": 0.0,
+          "old_centered_gradient_relative": 0.0,
+          "ReLU_crossings_plus_minus": 0
+        },
+        {
+          "field": "C",
+          "autograd_old_projection": 8.259657298111917e-10,
+          "autograd_centered_projection": 8.259657488511568e-10,
+          "plain_central_FD": 8.260059303211165e-10,
+          "centered_central_FD": 8.259657521073568e-10,
+          "complex_step_centered": 8.259657520852242e-10,
+          "plain_FD_old_relative": 4.020050992478769e-06,
+          "centered_FD_old_relative": 2.22961651680103e-09,
+          "complex_old_relative": 2.2274032503155373e-09,
+          "complex_centered_relative": 3.2340673319776686e-10,
+          "old_centered_gradient_relative": 6.676782545976555e-08,
+          "ReLU_crossings_plus_minus": 0
+        },
+        {
+          "field": "D",
+          "autograd_old_projection": 0.0,
+          "autograd_centered_projection": 0.0,
+          "plain_central_FD": 0.0,
+          "centered_central_FD": 0.0,
+          "complex_step_centered": 0.0,
+          "plain_FD_old_relative": 0.0,
+          "centered_FD_old_relative": 0.0,
+          "complex_old_relative": 0.0,
+          "complex_centered_relative": 0.0,
+          "old_centered_gradient_relative": 0.0,
+          "ReLU_crossings_plus_minus": 0
+        }
+      ],
+      "archive_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth421_switch_gradient_conditioning\\diagnostic.n256.npz",
+      "archive_sha256": "a0d7ebdb50bcc940c49d5c195bd09658053d7dae8f255c675f238a228b9f8608"
+    },
+    {
+      "n": 128,
+      "source_expert": 25,
+      "old_loss": 5.216127085816424e-09,
+      "centered_loss": 5.216127029327431e-09,
+      "minimum_abs_smooth_WI_preReLU": 1.1223605469288458,
+      "zero_smooth_WI_preReLU_rows": 0,
+      "checks": [
+        {
+          "field": "A",
+          "autograd_old_projection": -1.0312779389498957e-10,
+          "autograd_centered_projection": -1.0312779301019749e-10,
+          "plain_central_FD": -1.0658141036401503e-10,
+          "centered_central_FD": -1.0312779381264472e-10,
+          "complex_step_centered": -1.0312779346616718e-10,
+          "plain_FD_old_relative": 0.00034536164690254615,
+          "centered_FD_old_relative": 8.23448477026765e-12,
+          "complex_old_relative": 4.2882238489228035e-11,
+          "complex_centered_relative": 4.559696900391435e-11,
+          "old_centered_gradient_relative": 3.5448512868886025e-08,
+          "ReLU_crossings_plus_minus": 0
+        },
+        {
+          "field": "B",
+          "autograd_old_projection": 0.0,
+          "autograd_centered_projection": 0.0,
+          "plain_central_FD": 0.0,
+          "centered_central_FD": 0.0,
+          "complex_step_centered": 0.0,
+          "plain_FD_old_relative": 0.0,
+          "centered_FD_old_relative": 0.0,
+          "complex_old_relative": 0.0,
+          "complex_centered_relative": 0.0,
+          "old_centered_gradient_relative": 0.0,
+          "ReLU_crossings_plus_minus": 0
+        },
+        {
+          "field": "C",
+          "autograd_old_projection": 1.8452563285793397e-10,
+          "autograd_centered_projection": 1.8452562496257386e-10,
+          "plain_central_FD": 1.865174681370263e-10,
+          "centered_central_FD": 1.8452562821522895e-10,
+          "complex_step_centered": 1.8452562903137272e-10,
+          "plain_FD_old_relative": 0.0001991835279092332,
+          "centered_FD_old_relative": 4.6427050176984085e-10,
+          "complex_old_relative": 3.8265612434141286e-10,
+          "complex_centered_relative": 4.0687988627523866e-10,
+          "old_centered_gradient_relative": 2.341381889225544e-08,
+          "ReLU_crossings_plus_minus": 0
+        },
+        {
+          "field": "D",
+          "autograd_old_projection": 0.0,
+          "autograd_centered_projection": 0.0,
+          "plain_central_FD": 0.0,
+          "centered_central_FD": 0.0,
+          "complex_step_centered": 0.0,
+          "plain_FD_old_relative": 0.0,
+          "centered_FD_old_relative": 0.0,
+          "complex_old_relative": 0.0,
+          "complex_centered_relative": 0.0,
+          "old_centered_gradient_relative": 0.0,
+          "ReLU_crossings_plus_minus": 0
+        }
+      ],
+      "archive_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth421_switch_gradient_conditioning\\diagnostic.n128.npz",
+      "archive_sha256": "e6db21b11b52e98c94028167c40945863f401e6ec2c56719be7581637c0bbd44"
+    }
+  ],
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth421_switch_gradient_conditioning.py": "9e1d2d5dd365c8b1146ebf9d62074b6826baec85649849ea15668638422df5fc",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_421_SWITCH_GRADIENT_CONDITIONING_PROTOCOL_20261004.md": "b3932f725c1f150274ed754982148fcafd77ef73ad5c88b306ef53f715837b65",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth420_switch_function_gradient_result.failure.json": "17f60d043cff598cec0d3e85dfa4d23bdad67b83635422891e92729528056427",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth420_switch_function_gradient_contract.py": "a9ab62c44fa1fbe4fea6ace0d6b29716521f1f0ca70a94f20d0a3e979080bebe",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth419_switch_function_autograd.py": "f3cfdc3c4875210e0ce87bf4b6e25c0592bec66ef7343b24cf6b916c8d69c2ac",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth418_switch_function_capture.py": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth368_switch_bank_manifest.py": "83829e76afec338db24616d784cb125d330c2c8fc8e69f34f64669648ed5776b"
+  },
+  "fresh384_previous_baseline_archives_exact": true,
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "CPU_affinity": [
+      0
+    ],
+    "GPU": false,
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      }
+    ]
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth421_switch_gradient_conditioning\\diagnostic.n128.npz",
+      "bytes": 1107546,
+      "sha256": "e6db21b11b52e98c94028167c40945863f401e6ec2c56719be7581637c0bbd44"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth421_switch_gradient_conditioning\\diagnostic.n256.npz",
+      "bytes": 1107546,
+      "sha256": "a0d7ebdb50bcc940c49d5c195bd09658053d7dae8f255c675f238a228b9f8608"
+    }
+  ],
+  "diagnostic": {
+    "old_autograd_matches_independent_complex_at_same1e_minus5": true,
+    "centered_FD_matches_at_same1e_minus5": true,
+    "total_ReLU_crossings": 0,
+    "original_plain_A_256_FD_error": 0.0002754480190625858
+  },
+  "gates": {
+    "prior_failure_and384_baseline_archives_fresh_exact": true,
+    "whole_source_and_manifest_identity": true,
+    "two_fixed_no_fit_points_and_finite_records": true,
+    "analytic_complex_arithmetic_control": true,
+    "within_CPU_diagnostic_budget": true
+  },
+  "resource": {
+    "seconds": 21.889999999999418,
+    "maximum_RSS_or_peak_working_set_bytes": 1414979584,
+    "bytes_hashed": 23211512498,
+    "output_bytes": 2215092
+  },
+  "decision": "new_stable_loss_gradient_check_protocol_required_before_fit",
+  "scope": "Diagnostic ONLY, original420 FAIL stays failed. Same two real point/seed/rank/directions, original epsilon1e-4 plus centered algebra and fixed imaginary epsilon1e-20. No source-native/STE-gradient qualification or fit license; actual numerical slopes distinguish FD conditioning/crossings/mismatch. No new docs/GPU/T4/network/native model/quality/rate/capacity."
+}
