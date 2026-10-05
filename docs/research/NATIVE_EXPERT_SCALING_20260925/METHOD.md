@@ -1,21 +1,27 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: retained468 ledger fault; prepare separate469 correction
+## Current resumption: freeze469 corrected ledger; ONE first execution next
 
-468 ONE38983exit1/36.734s,10nativecommands (worker negative+8golden+first new
-teacher). Original/primitive/golden controls PASS; ledger first pack FAIL: actual
-86B13fields omitted third32Bhash from intended118B14fields. Zero ledger records/
-new natural captures, incomplete cohort. Source/protocol/raw immutable; no468retry.
-[First468 fault](METH_468_FIRST_LEDGER_LAYOUT_FAULT_20261005.md),
-[retention](RETENTION_468_20261005.json). No native/model job live. Full goal active.
+468 first ledger layout fault retainedf5cc590, ONE38983exit1/36.734s after10native
+commands, zero ledger records/new natural cases. No468retry. NEW469 corrects ONLY
+third32Bhash field to118B14fields/new namespace, adds pre-native layout controls/
+first468teacher complete-byte equivalence. SAME467128books64dev64diagnostic-val/
+512S29T14cases, original393core/binary/payload/command order/resources/datafloors.
+[469 protocol](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_PROTOCOL_20261005.md).
 
-Exact next: freeze NEW469 SAME467128-book/512-context/64dev64diagnostic-val
-capture with corrected third32s field and pre-native118B14field controls; SAME
-393original binary/payload/command order/resources/SAME462 floors/FIXED128bank11.
-Bind468first failure/retention; require new first teacher bytes exact retained468,
-count that already observed DEVELOPMENT context once. No new book selection.
-Then ONE full1033command capture, terminal/ledger audit before DATA decision;
-no factors until sufficient.469 not created/frozen/executed yet.
+Source/protocol/EOL freeze BEFORE first parse/import/observations. Then ONE command:
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth469_switch_native_domain_capture.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth469_switch_native_domain_capture_result.json
+
+118B14field roundtrip+13field negative before native;10retained468commands/first
+failure/RET exact.1033 new native commands1negative+8golden+512teacher+512natural.
+Immutable roles/bank11/SAME462>=32devcodes4books,>=16novelvalcodes4books,
+>=32readyIDs/>=90%ALL natural-val executed coverage. No healthy-case exclusion.
+Hard35min/admission180s/child120s/16GiB/alloutputs12GiB, ledgermax49299476B;
+complete normalized inputs/scores/states/logits/routes/worker/log/PID records.
+If live poll SAME actual session to terminal; no469rerun. Full capture requires
+independent metadata/ledger/actual Windows terminal audit before DATA admission.
+PASS -> separately frozen private INPUT probe; DATAFAIL -> stop before factors/
+reassess information or geometry. GoalACTIVE/INCOMPLETE; rank/rate/n unmeasured.
 
 ## Available method step: qualify original codec and source-only query roles
 
