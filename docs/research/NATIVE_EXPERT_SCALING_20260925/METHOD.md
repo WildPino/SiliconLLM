@@ -1,25 +1,49 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: frozen464, ONE isolated reader execution next
+## Current resumption after464: cached corpus ready, NEW465 manifest next
 
-463 first Arrow access violation retainedb31687c, no463 rerun or admitted manifest.
-NEW464 parent/Arrow-only child/protocol frozen45bc62b BEFORE imports/reader calls.
-[464 protocol](METH_464_CORPUS_READER_ADMISSION_PROTOCOL_20261005.md).
-ONE first command:
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth464_corpus_reader_admission.py
---out docs\research\NATIVE_EXPERT_SCALING_20260925\meth464_corpus_reader_admission_result.json
+464 ONE7710 exit0, freeze45bc62b/firsta3ecf73; ALL5 apparatus/ALL5 retention PASS.
+ALL1243 original UTF8 rows/ALL48 known book hashes exact. Indexed corpus transport
+506604735B/SHA78a1bebade7d144a68d440ee422ada1ae726e9132625179848ba3ef8fcbd984f.
+MAIN16.922s/reader13.890s, maximum sampled parent+descendant RSS1.863GB/1.735GiB;
+8 outputs506617345B, metadata audit.625s. No model/new tokenization/selection.
+[464 result](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md),
+[retention](RETENTION_464_20261005.json). RawSHA
+7cb471f24500ff30210c231d4104d2607af5d816cc7de64bfb4852a93cb647c1.
+463 native Arrow crash retainedb31687c, no admitted manifest/no463 retry.
 
-Expected<=2min, hard MAIN300s/child180s/parent+descendant sampled RSS4GiB/output2GiB.
-No tokenization/selection/model/native forward/fit/GPU. Same corpus1243rows,
-isolated single-thread row-group reads -> indexed original UTF8 transport;
-parent checks EVERY row/offset/UTF8/length/SHA and ALL48 known382/362 books.
-Persist parent bindings/childPID/logs/progress before reader native calls.
-If live, poll same actual session until terminal; retain first fault, no464 retry.
-PASS -> metadata transport audit then separately freeze new numbered source
-manifest128newbooks/64dev64val/512contexts, ALL382 token bridge; then separate
-original393 capture/SAME462 data floors/fixed128 last bank. No factors before
-readiness. Corpus catalogue is NOT a consumed calibration/quality cohort.
-Full goal ACTIVE/INCOMPLETE;462 DATA FAIL and461 cost recipe CLOSED remain.
+Next NEW465 NOT created/frozen/imported: implement/freeze current exclusion/
+tokenizer/source-only selection manifest from cached corpus, WITHOUT Arrow reader
+in tokenizer process. [Exact next](SWITCH_CACHED_QUERY_MANIFEST_NEXT_20261005.md).
+128newbooks/64dev64diagnostic-val/512contexts, ALL96 retained382 token bridge BEFORE
+new tokenization; exclude prior rows AND duplicate whole texts; bound true excerpt
+coordinates. Corpus transport/index is catalogue data, not consumed cases; do not
+exhaust the pool by serializing unselected book hashes as calibration provenance.
+Suggested MAIN300s/4GiB/raw8MiB, no model/native/GPU/fit/download. Only afterwards
+separately freeze original393 capture/SAME462 floors/fixed128 last bank; factors
+only if data admitted.462 DATA FAIL1ID/3.70%,461 kernel recipe CLOSED remain.
+Full composed transfer/fresh donor tasks/generation/SAME50/useful-n/mass/physical
+DRAM/families~100B goal ACTIVE/INCOMPLETE. Original engine/artifacts unchanged.
+
+## Available method step: isolate and qualify the original corpus transport
+
+Tools: meth464_corpus_reader_admission.py and meth464_isolated_corpus_reader.py.
+Inputs: exact bound PG19 corpus/runtime, known382/362 source SHA controls and
+retained463 Arrow failure. Parent persists childPID/argv/logs/resources before
+Arrow-only single-thread row-group reads. Output: full indexed original UTF8
+corpus, per-entry byte/character/hash metadata, known-source controls and record.
+Parent independently checks ALL1243 strings/offsets/digests/EOF,48 known sources;
+no Transformers/tokenizer/model/source selection.16.922s/1.735GiB sampled aggregate,
+506.617MBoutputs; all5 apparatus/all5 metadata-retention gates PASS. Reproduce
+only into separately frozen fresh inquiry namespaces, never completed464 OUT.
+
+Qualified transport may feed a separate manifest/tokenizer process without Arrow
+reader calls. It does not prove root cause of the failed463 mixed-runtime reader,
+domain coverage, statistical independence, donor quality or engine speed. Corpus
+inventory entries are distinct from actually selected/consumed calibration cases.
+Do not serialize all unselected text hashes into a generic consumed-source list.
+Source-role and token controls/new captures are still required before geometry.
+[464 procedure/result](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
 
 ## Available method step: admit expert-owned INPUT data before private geometry
 

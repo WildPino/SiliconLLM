@@ -1,0 +1,18 @@
+{
+  "experiment": "METH464-metadata-transport-retention",
+  "raw_sha256": "7cb471f24500ff30210c231d4104d2607af5d816cc7de64bfb4852a93cb647c1",
+  "audit_helper_sha256": "703f19ff0b334ffb8b6502082d91cee17e2b708291a4e8e4485f9889f7c24718",
+  "gates": {
+    "frozen_sources_protocol_engine_physicalHEAD_exact": true,
+    "direct_runtime_and_ALL_output_files_SHA_exact": true,
+    "all1243_index_offsets_byte_character_totals_and48_control_digests_exact": true,
+    "first_child_command_terminal_resources_consistent": true,
+    "all3_unrelated_files_preserved": true
+  },
+  "transport_sha256": "78a1bebade7d144a68d440ee422ada1ae726e9132625179848ba3ef8fcbd984f",
+  "rows": 1243,
+  "known_original_books": 48,
+  "seconds": 0.625,
+  "OS_peak_bytes": 28930048,
+  "scope": "metadata/transport retained identity audit; no Arrow/tokenizer/main import or new model/selection/corpus read experiment"
+}

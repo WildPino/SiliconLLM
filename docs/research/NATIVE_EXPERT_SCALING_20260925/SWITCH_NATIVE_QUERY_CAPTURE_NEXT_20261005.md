@@ -4,8 +4,9 @@
 DATA admission FAIL (1ready ID,21/568=3.70%validation execution coverage). No
 factors/SVD/fit.461 ONE native cost recipe CLOSED. Full goal ACTIVE/INCOMPLETE.
 463 first execution terminated in native Arrow, no manifest admitted; first fault
-retained. Isolated corpus-reader admission NEW464 frozen45bc62b; first execution
-pending. A new numbered manifest follows only after reader admission.
+retained.464 isolated corpus transport admitted/audited; NEW465 manifest proposal
+uses cached original UTF8 without Arrow reader in tokenizer process. See
+[exact next](SWITCH_CACHED_QUERY_MANIFEST_NEXT_20261005.md). No new manifest yet.
 Native capture remains a separate unfrozen proposal.
 
 ## New uncertainty and two separate actions
