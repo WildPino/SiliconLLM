@@ -1,30 +1,24 @@
-# Current resumption after458: bounded common-input core admission
+# Current resumption459: frozen common-input admission
 
-## Current resumption after458: whole constraints admitted; bounded core admission next
+## Current resumption459: model-free admission frozen, FIRST execution next
 
-458 completed ONE session28023 exit0. Freeze1eb56f9/first run cd51633.
-ALL8apparatus/BOTH source admission gatesPASS; metadata audit34349 exit0/ALL7gates.
-ALL1536 full warm/measured output SHAs and IDs exact original;384commands/2304files
-4,951,786,960B retained.523.234s/conservative1,376,776,192B separate-peak sum;
-zero compile/new weights/fit/GPU/engine edits.457 first admission failure retained
-ec85910, ZERO native commands;458 only corrected historical363 runtime schema.
+Scientific freezeee744f7 before first import/observation. Model-free source/manifest/
+count admission only, <=60s/256MiB; no compile/model values/native timing/GPU/fit.
+Bind458 raw/retention/original sources and actual binary manifests; distinguish
+existing fp32 SWA QKV/multiple-query kernels from qualified row-I8/A16 fanout.
+Verify exact legal sites/shapes/scale/output ordering/integer bounds; independently
+rederive ALL1536 inherited dense logical-counter rows and removable operations.
+No count-derived speedup/DRAM/storage/new-quality claim. First failures retained.
 
-Whole expert-matrix fractions128:24.8585%/256:27.0944%, dense44.0788%/40.0130%,
-residual23.2835%/24.6409%, head~6%, router SCORE~1.45/2.28% (mass outside).
-Conditional ideal expert-elimination ceilings1.33082x/1.37164x. No456 local FFN
-ratio inserted into whole matrix equations; no fresh new-quality/rate claim.
-[458 result](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md),
-[retention458](RETENTION_458_20261005.json), raw SHA
-3762fd4e6c86a6ea7e64f54d4350cc2bd91761f2f856a06bb0a0a442f12d285f.
-
-Next NEW459 MODEL-FREE admission (no source/protocol/run yet): exact common-input
-A16 QKV/KV fanout redundancy, legal dimensions/scales/call counts, detect already
-implemented paths, then decide one bounded shared-core inquiry. Dense category
-combines attention/denseFFN; no QKV-specific time or promised gain. Implement/freeze
-admission first <=60s/256MiB/smallmetadata; no kernel/native timing/GPU/fit/download.
-[Whole reassessment/next proposal](WHOLE_TRANSFER_REASSESSMENT_AFTER_458_20261005.md).
-No457/458 rerun;456 fixed tile16 CLOSED. Goal ACTIVE/INCOMPLETE: new whole transfer,
-fresh donor quality/SAME50/useful-n/router mass/physicalDRAM/families~100B remain.
+Next ONCE: .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth459_switch_common_input_admission.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth459_switch_common_input_admission_result.json
+[459 prospective protocol](METH_459_SWITCH_COMMON_INPUT_ADMISSION_PROTOCOL_20261005.md).
+After completion derive report/retention only; no unchanged rerun. A future native
+fanout inquiry needs its own fixed full-quality/whole-cost/resource freeze.
+458 measured expert fractions24.86/27.09% versus dense40..44%, admitted output
+identity; [458 result](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md).
+[Whole reassessment](WHOLE_TRANSFER_REASSESSMENT_AFTER_458_20261005.md).
+No457/458 rerun;456 recipe CLOSED. Goal ACTIVE/INCOMPLETE: useful capacity/transfer,
+fresh quality/SAME50/router mass/physicalDRAM/families~100B remain required.
 ## Retained457: admission failed before native execution
 
 ONE session19372 exit1/224.109s/KeyError in historical363 runtime schema,
