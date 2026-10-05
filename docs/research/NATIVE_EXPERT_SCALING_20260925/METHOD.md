@@ -1,22 +1,22 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Operational update before first453 execution
+## Current operational decision after453
 
-METH453 scientific math/controller/protocol frozen **1661547**, before imports,
-compilation or numerical observations. Execute ONE fixed compact-WI/original-I8-WO
-exact-zero-code pilot; previous451/452 runs remain terminal and their recipes
-unchanged. New80% stored budget and conservative local footprint gates declared
-prospectively; full objective, original quality and SAMEartifact50 remain required.
+453 completed ONE session25101, terminal exit0: ALL10apparatus/ALL7local gates
+PASS. Compact WI/native I8 WO correct meanKL.0004017228,3/336changes; identity harm
+.181063.1008 sparse/full/native WO outputs BYTE exact. Mean actual nonzero codes
+222.4167/3072; logical footprint34.29% is NOT actual C cost or hardware DRAM.
+Nominal bank472,253,184B (77.94%original), actual472,254,456B.104.812s/2.532GBpeak/
+692,141,672Boutputs; zero updates/GPU/new roundings. Previous recipes stay FAILED.
 
-Command:
-
-    .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth453_switch_sparse_wo_pilot.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth453_switch_sparse_wo_result.json
-
-CPU0, one Torch/BLAS thread, no GPU/download/fit/engine edits. Bounds admission300s,
-numerical600s,total900s,peak4GiB,outputs704MiB; expected180..300s/2.5..3.5GB.
-Retain FIRST failure; no rerun on timeout. ALL apparatus and seven local gates
-must pass before a NEW C cost/primal experiment. Logical byte counts never count
-as measured DRAM or full-model cost. [Frozen453 protocol](METH_453_SWITCH_SPARSE_WO_PROTOCOL_20261005.md).
+Scientific freeze1661547, first-run resumption24552aa. Raw SHA256
+`63d0fca69ad180b5024e1152b3d2fd9e13699fcfc3efd662850e011387ba3bbf`.
+[453 result](METH_453_SWITCH_SPARSE_WO_RESULT_20261005.md),
+[453 protocol](METH_453_SWITCH_SPARSE_WO_PROTOCOL_20261005.md).
+No rerun453. Next make NEW454 C direct/LUT-WI + exact sparse-WO primal/cost protocol,
+freeze before compile/observations, define full charges/resources/stops then execute
+ONE command. [Next C-cost proposal](SWITCH_SPARSE_WO_C_COST_NEXT_20261005.md).
+All-bank/fresh quality/SAME50/useful-n/routing/DRAM/families100B remain open.
 
 **5 October current status:** the user resumed the goal after the strategic review.
 [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
@@ -41,8 +41,8 @@ repair insufficient. Next orthogonal coefficient/input basis proposal, preservin
 private ReLU and SAME block64-I4.451 completed ALL11apparatus/ALL3source-control
 PASS, sourceKL1.21e-8/0changes; compactKL.00065267/4changes>3FAIL. Fixed recipe
 CLOSED.452 completed exact2x2 WI/WO attribution: WO-only crosses all4compact
-pairs, WI-only2; native global hybrid changes3/7. Next original-I8 WO exact
-zero-code sparse execution proposal, different storage/active costs explicit.
+pairs, WI-only2; native global hybrid changes3/7. 453 exact original-I8 WO zero-code execution ALL10apparatus/7localPASS,3changes;
+next NEW C cost/primal. Different stored/active costs remain explicit.
 Keep predictive gates; full multi-layer source-relative quality remains required.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
