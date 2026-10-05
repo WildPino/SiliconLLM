@@ -97,30 +97,30 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption after464: cached corpus ready, NEW465 manifest next
+## Current resumption: frozen465, ONE manifest first execution next
 
-464 ONE7710 exit0, freeze45bc62b/firsta3ecf73; ALL5 apparatus/ALL5 retention PASS.
-ALL1243 original UTF8 rows/ALL48 known book hashes exact. Indexed corpus transport
-506604735B/SHA78a1bebade7d144a68d440ee422ada1ae726e9132625179848ba3ef8fcbd984f.
-MAIN16.922s/reader13.890s, maximum sampled parent+descendant RSS1.863GB/1.735GiB;
-8 outputs506617345B, metadata audit.625s. No model/new tokenization/selection.
-[464 result](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md),
-[retention](RETENTION_464_20261005.json). RawSHA
-7cb471f24500ff30210c231d4104d2607af5d816cc7de64bfb4852a93cb647c1.
-463 native Arrow crash retainedb31687c, no admitted manifest/no463 retry.
+Previous goal turn PROGRESS:463 native Arrow firstfault retained,464 corpus transport
+qualified/audited/retainedbefefa5. Original model/engine unchanged; goal incomplete.
+NEW465 source/protocol/input inventory frozen8146e8b BEFORE first controller
+import/parse/new selection/tokenization.1847 current prior JSON files/1.014GB and
+qualified cached original UTF8 transport bound; no new-source observations yet.
+[465 protocol](METH_465_SWITCH_CACHED_QUERY_MANIFEST_PROTOCOL_20261005.md).
 
-Next NEW465 NOT created/frozen/imported: implement/freeze current exclusion/
-tokenizer/source-only selection manifest from cached corpus, WITHOUT Arrow reader
-in tokenizer process. [Exact next](SWITCH_CACHED_QUERY_MANIFEST_NEXT_20261005.md).
-128newbooks/64dev64diagnostic-val/512contexts, ALL96 retained382 token bridge BEFORE
-new tokenization; exclude prior rows AND duplicate whole texts; bound true excerpt
-coordinates. Corpus transport/index is catalogue data, not consumed cases; do not
-exhaust the pool by serializing unselected book hashes as calibration provenance.
-Suggested MAIN300s/4GiB/raw8MiB, no model/native/GPU/fit/download. Only afterwards
-separately freeze original393 capture/SAME462 floors/fixed128 last bank; factors
-only if data admitted.462 DATA FAIL1ID/3.70%,461 kernel recipe CLOSED remain.
-Full composed transfer/fresh donor tasks/generation/SAME50/useful-n/mass/physical
-DRAM/families~100B goal ACTIVE/INCOMPLETE. Original engine/artifacts unchanged.
+ONE first command:
+results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
+benchmarks\native_expert_scaling\meth465_switch_cached_query_manifest.py --out
+docs\research\NATIVE_EXPERT_SCALING_20260925\meth465_switch_cached_query_manifest.json
+
+Expected<=3min, hard MAIN300s/4GiB/raw8MiB+logs1MiB. No Arrow reader/model/native
+forward/GPU/fit/download. ALL96 retained382 tokenizer/mask/ID/decode controls
+BEFORE new tokenization. Rehash/exclude prior rows+whole-text copies;128newbooks/
+512unique windows,64dev64diagnostic-val fixed roles; complete lossless excerpt
+tokens/coordinates retained for independent metadata audit. Fresh progress/fatal
+logs before heavy imports; preserve first failure, no465 retry. If live, poll
+same actual session until terminal. PASS -> retention audit and separately freeze
+original393 native capture/SAME462 readiness floors/fixed128bank11. No factors
+before data admission; final fresh donor tasks/generation/SAME50/useful-n/mass/
+physicalDRAM/families~100B remain.462 DATA FAIL1ID/3.70%,461 recipe CLOSED.
 
 ## Retained457: admission failed before native execution
 
