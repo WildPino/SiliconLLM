@@ -1,0 +1,684 @@
+{
+  "experiment": "METH453-metadata-only-retention-no-controller-import-or-forward",
+  "scientific_freeze": "1661547",
+  "first_run_resumption": "24552aa",
+  "result_commit": "866e25e",
+  "completed_session": 25101,
+  "terminal_exit": 0,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth453_switch_sparse_wo_result.json",
+    "bytes": 1151920,
+    "sha256": "63d0fca69ad180b5024e1152b3d2fd9e13699fcfc3efd662850e011387ba3bbf"
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\bank.npz",
+      "bytes": 472254456,
+      "sha256": "226619327842c26b30edf0522ee3a5d8c8f6f11a60d330f6ddbf4e375809a167",
+      "array_headers": {
+        "wi_packed": {
+          "shape": [
+            128,
+            3072,
+            384
+          ],
+          "fortran_order": false,
+          "dtype": "|u1"
+        },
+        "wi_scales": {
+          "shape": [
+            128,
+            3072,
+            12
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "wi_signs": {
+          "shape": [
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "|i1"
+        },
+        "wo_columns": {
+          "shape": [
+            128,
+            3072,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "|i1"
+        },
+        "wo_scales": {
+          "shape": [
+            128,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\original_logits.npy",
+      "bytes": 43180160,
+      "sha256": "80ca5f6d411e7056216b45c4c91d71fbbdb9da0e056d0ccfbd121bf6dc97074f",
+      "array_headers": {
+        "array": {
+          "shape": [
+            336,
+            32128
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\original_prefixes.npz",
+      "bytes": 17855196,
+      "sha256": "3602d953fd50e844873e02294f612b4f0218ec4a452ef574da371eb94319f1df",
+      "array_headers": {
+        "rows": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": [
+            [
+              "position",
+              "<u4"
+            ],
+            [
+              "id",
+              "<u4"
+            ],
+            [
+              "source_tokens",
+              "<u4"
+            ],
+            [
+              "route_index",
+              "<u4"
+            ],
+            [
+              "pre",
+              "<f4",
+              [
+                768
+              ]
+            ],
+            [
+              "input",
+              "<f4",
+              [
+                768
+              ]
+            ],
+            [
+              "wi_scale",
+              "<f4"
+            ],
+            [
+              "wi_codes",
+              "<i2",
+              [
+                768
+              ]
+            ],
+            [
+              "up_raw",
+              "<f4",
+              [
+                3072
+              ]
+            ],
+            [
+              "up",
+              "<f4",
+              [
+                3072
+              ]
+            ],
+            [
+              "wo_scale",
+              "<f4"
+            ],
+            [
+              "wo_codes",
+              "<i2",
+              [
+                3072
+              ]
+            ],
+            [
+              "down",
+              "<f4",
+              [
+                768
+              ]
+            ],
+            [
+              "expert",
+              "<i4"
+            ],
+            [
+              "accepted",
+              "<i4"
+            ],
+            [
+              "probability",
+              "<f4"
+            ],
+            [
+              "post",
+              "<f4",
+              [
+                768
+              ]
+            ],
+            [
+              "final",
+              "<f4",
+              [
+                768
+              ]
+            ],
+            [
+              "head_input",
+              "<f4",
+              [
+                768
+              ]
+            ],
+            [
+              "head_scale",
+              "<f4"
+            ],
+            [
+              "head_codes",
+              "<i2",
+              [
+                768
+              ]
+            ]
+          ]
+        },
+        "scores": {
+          "shape": [
+            336,
+            128
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "books": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": "<i8"
+        },
+        "keys": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": "<U88"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\removed_logits.npy",
+      "bytes": 43180160,
+      "sha256": "c7fdc4d18202e2ec49d5503869d58dd5b1b85e2ab41b2ba967d8a4c6f6582ca0",
+      "array_headers": {
+        "array": {
+          "shape": [
+            336,
+            32128
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\removed_states.npz",
+      "bytes": 8261734,
+      "sha256": "69c204940506ec8f76ab4b684ce6b152408bcee7b37a995d923a92bd749b5c1f",
+      "array_headers": {
+        "up_raw": {
+          "shape": [
+            336,
+            3072
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "down": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "post": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "final": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "actual_function_ids": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": "<i8"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\WI4_WO8_ID_plus1_logits.npy",
+      "bytes": 43180160,
+      "sha256": "92afedc0fe7041624ea99380b2836ee5e55632e1f1de6b0850453fe7e98c5673",
+      "array_headers": {
+        "array": {
+          "shape": [
+            336,
+            32128
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\WI4_WO8_ID_plus1_states.npz",
+      "bytes": 8261734,
+      "sha256": "0640808da085bc7c8d1b35bbb5beb71eacf5668423956d15065652f877a77e0d",
+      "array_headers": {
+        "up_raw": {
+          "shape": [
+            336,
+            3072
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "down": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "post": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "final": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "actual_function_ids": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": "<i8"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\WI4_WO8_original_ID_logits.npy",
+      "bytes": 43180160,
+      "sha256": "e37453cacc4df84e75ffd9897a91f1823779de3d5cc4f5ca2e9e9b71c8f16f93",
+      "array_headers": {
+        "array": {
+          "shape": [
+            336,
+            32128
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\WI4_WO8_original_ID_states.npz",
+      "bytes": 8261734,
+      "sha256": "aad32d652456cb7a699b71b7b09913860820c9c5c00819b107a12f66bdb3e13d",
+      "array_headers": {
+        "up_raw": {
+          "shape": [
+            336,
+            3072
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "down": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "post": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "final": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "head_input": {
+          "shape": [
+            336,
+            768
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "actual_function_ids": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": "<i8"
+        }
+      }
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth453_switch_sparse_wo\\WO_quant_inputs.npz",
+      "bytes": 4526178,
+      "sha256": "c04b19131afa181810f120b0898295eab795d6689d0bb535f594416cc91f850f",
+      "array_headers": {
+        "WI4_WO8_original_ID_WO_A16_codes": {
+          "shape": [
+            336,
+            3072
+          ],
+          "fortran_order": false,
+          "dtype": "<i2"
+        },
+        "WI4_WO8_original_ID_WO_A16_scales": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "WI4_WO8_ID_plus1_WO_A16_codes": {
+          "shape": [
+            336,
+            3072
+          ],
+          "fortran_order": false,
+          "dtype": "<i2"
+        },
+        "WI4_WO8_ID_plus1_WO_A16_scales": {
+          "shape": [
+            336
+          ],
+          "fortran_order": false,
+          "dtype": "<f4"
+        },
+        "correct_per_expert_active_column_union": {
+          "shape": [
+            128,
+            3072
+          ],
+          "fortran_order": false,
+          "dtype": "|b1"
+        }
+      }
+    }
+  ],
+  "helpers": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth453_switch_sparse_wo_pilot.py",
+      "bytes": 19689,
+      "sha256": "c13f9362855acc4d947c42ab51f6a6172c5331883785a8cd7711ce01578cb218"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth453_switch_sparse_wo_math.py",
+      "bytes": 6420,
+      "sha256": "f4b0c1185d53833da918778919ae8e47ae4594b2a4e0d2e8ce6e26aab0453858"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_453_SWITCH_SPARSE_WO_PROTOCOL_20261005.md",
+      "bytes": 10453,
+      "sha256": "89779431ca197229f1e24bbec218acd3f2b814fa0d9728ac7e9b174adf85cf9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth451_switch_orthogonal_i4_pilot.py",
+      "bytes": 25527,
+      "sha256": "3d2d055dcb4507e9d17d5a79376c7c8b77ee0fe0df0c75c64429383f3d3fa4f5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth451_switch_orthogonal_i4_math.py",
+      "bytes": 8548,
+      "sha256": "dde9c22c02e5e705b4d360a041cf0943d0fae4fd5ba22192f931465b5d591e97"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth448_switch_block_i4_math.py",
+      "bytes": 7725,
+      "sha256": "84e1e92cb8214e8a2739e8aa13015be2fff46cdb3d871e1c0de3966b22fd1cbf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth447_switch_i4_math.py",
+      "bytes": 5712,
+      "sha256": "21cc713b7849839f57da763326ac86cc59a69f088242d74f35efa093237c4c04"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_451_SWITCH_ORTHOGONAL_I4_PROTOCOL_20261005.md",
+      "bytes": 10578,
+      "sha256": "8ac9638f5c1d7d5763966f5185216f428d545a945f0a2a215f7eaf716cb3a378"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth443_switch_native_function_causality.py",
+      "bytes": 16205,
+      "sha256": "ed4eb92a480e656edf19076f630776a58e4b2b85430d65b6ede38ad6ca5663d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth431_switch_additive_pilot.py",
+      "bytes": 37062,
+      "sha256": "423148e2454c593825cc21778a2d7a124c470f6605468638ad2353f5f1d98432"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth324_switch_reference.py",
+      "bytes": 17931,
+      "sha256": "698b1adf6d08812595416ad14324b5aad4d58dc8925f8f1b6677b108799b092f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_gradient_contract.py",
+      "bytes": 24572,
+      "sha256": "969f76c4ab1c87e0874991dcfec81a437279d4ecd44e9913fdc060f08ccf11a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth418_switch_function_capture.py",
+      "bytes": 25349,
+      "sha256": "dcc4f4b3dc153d14dda48584f805104fe568c6f6b673e0b96bbfd4b1dab15eb9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth422_switch_function_autograd.py",
+      "bytes": 6390,
+      "sha256": "648b97ce29d16e971d0dd9758e6baf9da748cc892597c9ec71c37e1cae1e5da7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth368_switch_bank_manifest.py",
+      "bytes": 4148,
+      "sha256": "83829e76afec338db24616d784cb125d330c2c8fc8e69f34f64669648ed5776b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth401_pretrained_bank_union_applicability.py",
+      "bytes": 10069,
+      "sha256": "8f52308d4efbc6a868790919f5d3a12bb619b7b0f499f70310d8f974e45f2f83"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth452_switch_operator_attribution.py",
+      "bytes": 15878,
+      "sha256": "41923b7aa96377ce2e30ee4a874159adb13744660232e722bfd606430b6da6c6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth452_switch_operator_attribution_math.py",
+      "bytes": 2210,
+      "sha256": "3043481b896d9ee83c7825ff950c144d6cc18ee3798adfe2aba97bc179270a5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_452_SWITCH_OPERATOR_ATTRIBUTION_PROTOCOL_20261005.md",
+      "bytes": 7264,
+      "sha256": "fb7ba7828de3953c19b4d964a6abbad93e418fa5736e6ad73b319db82e35549e"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "bytes": 20415488,
+      "sha256": "63c857e738469261263c764a36be9436ebdeaa272e340a828f42047a97131080"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\_C.cp312-win_amd64.pyd",
+      "bytes": 10240,
+      "sha256": "8cc12784367470aa0f3ebe54a0c4593ac52d5bc273ed7ba719cbb10b4a3dbdb8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+      "bytes": 1310600,
+      "sha256": "f608eedb25e44de3db1d3db984ac113f3a8406a92ea87061a77f390852fe1174"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+      "bytes": 43912,
+      "sha256": "27613127ee63e4399b615bf5d105895b2dc18e3505bb92615827f7e11d88343a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+      "bytes": 251258368,
+      "sha256": "9419933b9cc163baf7859092f243de4695b45632f81b96a8d0060ea20d63d6b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 136806,
+      "sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth374_switch_physical_workers_contract\\meth374_switch_physical_workers.exe",
+      "bytes": 290816,
+      "sha256": "97965a35900cc0483e60f3e2e51f95da90af600e1fa326af8ec34f7c2a3dacd0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe",
+      "bytes": 290816,
+      "sha256": "7783d25e7dd51c6f8ad43750d5d7139e622ba74b852a71aee484ffd445860a7b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+      "bytes": 7541946880,
+      "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+      "bytes": 340450,
+      "sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a"
+    }
+  ],
+  "current_docs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\INDEX.md",
+      "bytes": 13736,
+      "sha256": "87f4c1f557559f7250a2a8511b22d452eb09ec1e257f7e9ef68fd16619587d0a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METHOD.md",
+      "bytes": 88211,
+      "sha256": "9180a88c0d3b4225ea3122d76e898a1f0436041737c24b7358e38c380141c757"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md",
+      "bytes": 16907,
+      "sha256": "77655873cbe27def581fd64867a30246828dea63245147345d3bd2e9d280c8d8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_453_SWITCH_SPARSE_WO_RESULT_20261005.md",
+      "bytes": 5551,
+      "sha256": "bdba5c45c2416c12aca9b0d17dc0d9663ba911efb8d1de4286095bc7ba590248"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\SWITCH_SPARSE_WO_C_COST_NEXT_20261005.md",
+      "bytes": 4424,
+      "sha256": "3ea4659209279ed6abc83cf8427fa1bb830cc9f0dd0a2b053230dcb528973516"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ALGEBRA_REASSESSMENT_AFTER_453_20261005.md",
+      "bytes": 7866,
+      "sha256": "d655892ad8acfaf8462377560204db3ca914f1e79ba9e726719d89c861c31c90"
+    }
+  ],
+  "excluded_own_ancestor_pids": [
+    5308,
+    9544,
+    9620,
+    16812,
+    18204,
+    20520
+  ],
+  "preserved_daemon_pids": [],
+  "remaining_model_jobs": [],
+  "gates": {
+    "all_ten_outputs_hashes_sizes_headers": true,
+    "all_scientific_helpers_physical_HEAD_and_new1661547": true,
+    "parent_raw_source_runtime_engine_original_binaries_bound": true,
+    "current_operational_docs_physical_HEAD": true,
+    "no_remaining_model_jobs": true,
+    "no_activation_math_fitting_reencoding_old_controller_import": true
+  }
+}
