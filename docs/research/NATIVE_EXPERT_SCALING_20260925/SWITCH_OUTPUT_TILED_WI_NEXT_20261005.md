@@ -1,3 +1,10 @@
+# NEW456 implementation frozen; first run pending
+
+Source/controller/protocol committed BEFORE observation.
+See [frozen456 protocol](METH_456_SWITCH_OUTPUT_TILE_COST_PROTOCOL_20261005.md).
+The proposal below records the original choice; current execution is defined
+by the protocol. No456 result/session exists yet.
+
 # NEW456 proposal: exact WI coefficients grouped by output coordinates
 
 5 October 2026.455 valid diagnosis selects this ONE physical inquiry. No456

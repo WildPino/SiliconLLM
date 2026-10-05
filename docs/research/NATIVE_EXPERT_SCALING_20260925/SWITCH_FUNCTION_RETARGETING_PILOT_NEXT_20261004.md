@@ -1,34 +1,30 @@
-# Current resumption after455: exact output-tiled WI
+# Current resumption: frozen456 output-tiled WI
 
-## Current resumption after455: one exact output-tiled WI inquiry
+## Current resumption: frozen456, first execution pending
 
-455 completed ONE session53109, terminal exit0. Freeze `db7c388`, pre-run
-resumption `211a23a`. ALL7apparatus and ALL15diagnostic admissibility gatesPASS:
-3360 full records BYTE exact454;21,168 timed outputs exact and fixed ordered.
-Direct WI188.9428us =80.1103% of profiled FFN; sparse WO column33.2576us.
-LUT build/application160.3541/522.4023us. Raw75,712B SHA
-`049e8ea6ee63f0b2efa6204e37aaaf70842bf0185c1c814720e77fba8a2d07a5`.
-25.328s/conservative1.151GBpeak/10outputs95.126MB; zero coefficient changes/GPU.
+Previous goal turn PROGRESS:455 admitted component diagnosis selected exact
+output-tile16 WI. NEW456 sources/controller/protocol frozen BEFORE first import/
+compile/permutation/numerical observation. No456 output directory/result/session.
 
-Postrun provenance fault retained at `80bff54`: mutable argv alias overwrote the
-raw primal command. NEW455-R1 reconstructs actual --qualify argv from frozen
-source/hash-bound stdout; no raw/source/metrics edit or rerun. Correction SHA
-`dcbf35cdb2d326872401e2663920c26bcc2fbaea56bdddc0b999b2e94fee1f52`.
-[455 result](METH_455_SWITCH_COMPONENT_COST_RESULT_20261005.md),
-[numbered provenance correction](METH_455_COMMAND_PROVENANCE_REPAIR_1_20261005.json).
+First next action is ONE command:
 
-The predeclared WI>=.50 condition selects ONE NEW456 output-tile16 physical layout:
-[tile192,block12,pair32,output16], SAME packed bytes/scales/ascending F64 block
-order. [456 proposal](SWITCH_OUTPUT_TILED_WI_NEXT_20261005.md). NO456 code/compile/
-execution exists yet. Next action: implement/freeze456 C/controller/protocol,
-copy argv records immutably, inverse all128 fields, BYTE primal BEFORE fixed cost.
-No tile/precision/format sweep. Frozen recommended gates mean<=.80 original,
-every book<=1.00,p95<=1.00 must be formally fixed before observation. If fail,
-close this tile16 recipe and reassess transfer economics; if pass, all-bank/new
-routes/fresh donor-relative quality/SAME accepted rate.454 recipes stay closed.
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth456_switch_output_tile_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth456_switch_output_tile_cost_result.json
+```
 
-Full goal remains INCOMPLETE: no new whole matched f or >=50 proof, useful-n/
-router mass/actualDRAM/cross-family~100B. No live model jobs at455 terminal inventory.
+[456 frozen protocol](METH_456_SWITCH_OUTPUT_TILE_COST_PROTOCOL_20261005.md):
+exact inverse ALL128 coefficients/scales;1680 full C fields BYTE exact454 BEFORE
+7056 fixed rotating whole336-trace timings. NEW16-output AVX2 integer lanes,
+SAME ascending12-block F64 sums/SAME A16/ReLU/WO. Only newtile16 eligible:
+mean<=.80 original/EACHbook<=1.00/p95<=1.00/nominal stored<=.80. Old direct
+comparator remains closed diagnostic. No format/tile/precision sweep.
+
+300/600/900s; parent512MiB/native2GiB/sum2.5GiB, outputs600MiB; copied child argv,
+first failures retained before NEW numbered repairs. No fit/GPU/download/engine
+edits. If PASS, newall-bank composition/quality/rate; if FAIL, close tile16 and
+reassess transfer economics. [455 admitted result](METH_455_SWITCH_COMPONENT_COST_RESULT_20261005.md),
+[retained provenance correction](METH_455_COMMAND_PROVENANCE_REPAIR_1_20261005.json).
+Full goal quality/SAME>=50/useful-n/router mass/actualDRAM/families/~100B open.
 
 ## Retained prior453 decision
 
