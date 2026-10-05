@@ -1,0 +1,29 @@
+{
+  "scope": "Read-only stored-F32 serialization diagnosis, no numerical library/model/LP execution;1e-9 is documented HiGHS default, installed option not yet read. No exact original log exists.",
+  "fault_bank": 7,
+  "proposed_rows": 256,
+  "minimum_nonzero_abs_original_F32_promoted_to_F64": 2.4380439334059645e-10,
+  "maximum_abs_original_F32": 276.5580139160156,
+  "original_F32_nonzero_entries_at_most_documented_1e_9": [
+    {
+      "uid": 223609,
+      "coordinate": 602,
+      "F32_bits": 2944796779,
+      "exact_F64_value": -2.4380439334059645e-10
+    }
+  ],
+  "runtime_literal_templates": [
+    "small_matrix_value",
+    "small_matrix_value",
+    "small_matrix_value",
+    "readSolutionFile: Solution file is for %d rows, not %d: row values ignored",
+    "small_matrix_value",
+    "Normalised Hessian contains %d |values| in [%g, %g] less than %g: ignored",
+    "%s matrix packed vector %d has illegal start of %d < %d = previous start",
+    "%s matrix packed vector %d has illegal partition end of %d < %d =  start",
+    "%s matrix packed vector %d has illegal start of %d > %d = number of nonzeros",
+    "%s matrix packed vector %d has illegal partition end of %d > %d = number of nonzeros",
+    "%s matrix packed vector %d, entry %d, is illegal index %d",
+    "%s matrix packed vector %d, entry %d, is illegal index %12d >= %d = vector dimension"
+  ]
+}
