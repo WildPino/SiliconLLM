@@ -1,27 +1,25 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption after463: Arrow crash retained, isolated reader next
+## Current resumption: frozen464, ONE isolated reader execution next
 
-463 ONE session28546 terminal exit1, freeze4e459eb/first run0d12d4b. Windows
-events179313/179332 prove SAMEPID6912 Arrow DLL access violations0xc0000005
-after93.910/115.945s. No manifest/Python exception raw; no persisted bridge/
-exclusion/selection success, peak unknown. No model/native/GPU/fit command.
-Source/protocol/bindings/engine exact, unrelated3 files preserved. Do not rerun463.
-[First crash](METH_463_FIRST_ARROW_TERMINATION_20261005.md),
-[external raw](meth463_external_termination_result.json), SHA
-b3a46001a14449d3a60926f03681fe657d383d99b8b90e2f45929d6e76ed576d.
+463 first Arrow access violation retainedb31687c, no463 rerun or admitted manifest.
+NEW464 parent/Arrow-only child/protocol frozen45bc62b BEFORE imports/reader calls.
+[464 protocol](METH_464_CORPUS_READER_ADMISSION_PROTOCOL_20261005.md).
+ONE first command:
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth464_corpus_reader_admission.py
+--out docs\research\NATIVE_EXPERT_SCALING_20260925\meth464_corpus_reader_admission_result.json
 
-Next NEW464 proposed, not frozen/executed: isolate corpus reader from Transformers,
-explicit bounded single-thread Arrow batches, parent resource/PID/log/checkpoint
-retention before native calls. Same actual corpus, known382/362 full-text hash
-controls, no selection/model/tokenization. A passing cached UTF8 corpus can feed a
-SEPARATELY frozen new manifest; do not call it calibration or fresh quality data.
-Then128newbooks/64dev64diagnostic-val/512contexts and original token bridge ->
-separate393 capture/SAME462 floors/fixed128 last bank -> private INPUT geometry
-only if adequate. No crash-cause attribution from a passing apparatus alternative.
-462 fixed DATA FAIL1ID/3.70%, all24banks inadequate;461 cost recipe CLOSED.
-Full composed transfer/fresh donor tasks/generation/SAME50/useful-n/mass/actual
-DRAM/families~100B goal ACTIVE/INCOMPLETE. Original engine/artifacts unchanged.
+Expected<=2min, hard MAIN300s/child180s/parent+descendant sampled RSS4GiB/output2GiB.
+No tokenization/selection/model/native forward/fit/GPU. Same corpus1243rows,
+isolated single-thread row-group reads -> indexed original UTF8 transport;
+parent checks EVERY row/offset/UTF8/length/SHA and ALL48 known382/362 books.
+Persist parent bindings/childPID/logs/progress before reader native calls.
+If live, poll same actual session until terminal; retain first fault, no464 retry.
+PASS -> metadata transport audit then separately freeze new numbered source
+manifest128newbooks/64dev64val/512contexts, ALL382 token bridge; then separate
+original393 capture/SAME462 data floors/fixed128 last bank. No factors before
+readiness. Corpus catalogue is NOT a consumed calibration/quality cohort.
+Full goal ACTIVE/INCOMPLETE;462 DATA FAIL and461 cost recipe CLOSED remain.
 
 ## Available method step: admit expert-owned INPUT data before private geometry
 

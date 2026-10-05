@@ -4,7 +4,8 @@
 DATA admission FAIL (1ready ID,21/568=3.70%validation execution coverage). No
 factors/SVD/fit.461 ONE native cost recipe CLOSED. Full goal ACTIVE/INCOMPLETE.
 463 first execution terminated in native Arrow, no manifest admitted; first fault
-retained. Isolated corpus-reader admission NEW464 precedes a new numbered manifest.
+retained. Isolated corpus-reader admission NEW464 frozen45bc62b; first execution
+pending. A new numbered manifest follows only after reader admission.
 Native capture remains a separate unfrozen proposal.
 
 ## New uncertainty and two separate actions
