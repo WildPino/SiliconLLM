@@ -122,3 +122,13 @@ constraints. Neither may replace the full goal. Dense core/head/FFN cost,
 fresh own-state donor-relative quality AND SAME>=50, useful distinct large n,
 CPU LUT/mass/physicalDRAM and actual multiple families/~10B/~100B remain open.
 [Algebra and next decision](METH_480_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
+
+Closeout metadata at2da81e79e41a85700671f62b34b0962fce07dd01:
+39tracked files physical HEAD,3preserved unrelated hashes exact,11actual
+scientific PID+creation instances absent,64source output files unchanged,
+4Windows records admitted, staging empty/no live handle. Record
+`results/native_expert_scaling/meth480_session_closeout.json` SHA256
+56721eeee8eab0f6808baf5d494e14cbd14bab25fe575756bfbe1d916831b106.
+This snapshot precedes this documentation note; it is not a later-HEAD claim.
+Historical METHOD UTF8 repair is recorded separately; future text tools must
+explicitly use UTF8. [Repair record](METH_480_METHOD_UTF8_REPAIR_20261005.md).
