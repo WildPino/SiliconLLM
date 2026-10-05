@@ -1,14 +1,15 @@
 # Current resumption: original native query capture/readiness next
 
-## Current resumption: freeze468 capture/readiness; ONE first execution next
+## Current resumption: frozen468; ONE first execution next
 
 Previous goal turn PROGRESS:467 source/codec manifest admitted, same128 model-
 unconsumed source books64dev64diagnostic-val/512 S29T14cases. This turn prepared
-NEW468 controller/protocol/actual runtime/file bindings, no import/compile/native
-observation yet. Original393 binary/payload/arithmetic; no C/engine change.
+NEW468 controller/protocol/actual runtime/file bindings froze7d67337 BEFORE
+first compile/import/numerical observations. Original393 binary/payload/arithmetic;
+no C/engine change. ONE command below next; no468 namespace retry.
 [468 protocol](METH_468_SWITCH_NATIVE_DOMAIN_CAPTURE_PROTOCOL_20261005.md).
 
-After source/protocol/bindings/EOL scientific freeze, execute ONE fixed command:
+Scientific freeze complete7d67337. ONE first fixed command:
 .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth468_switch_native_domain_capture.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth468_switch_native_domain_capture_result.json
 
 1033 native commands:1worker negative+8golden controls+ALL512teacher/512natural.
