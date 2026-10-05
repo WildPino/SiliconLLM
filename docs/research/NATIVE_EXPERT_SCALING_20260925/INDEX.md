@@ -21,89 +21,84 @@ Routine Graphify disabled. Donor-adaptation frozen, evidence reusable.
 
 | Question | Established | Open |
 | --- | --- | --- |
-| Useful conditional target |369matching causalutility;370/371 real nested64/128 from256;373 fourfoldFULL cost bounded |372quality mixed; larger useful-n, groupmass/winner CPU LUT, physicalDRAM |
-| Pretrained-to-target transfer |Two qualified same-family original I8/A16 C scales;453local full-width geometry;476/477-R1actual finite prediction calibration |Convenient transformed wholeartifact/quality/rate; other families/actual100B |
+| Useful conditional target |123/183 small-donor useful learned128->1280;125/126 component/shared-A;369 Switchmatching useful;373 bounded64->256FULLcost |372quality mixed; useful large-n after convenient transfer, CPU LUT/mass, physicalDRAM |
+| Pretrained-to-target transfer |Two qualified original Switch I8/A16 C scales;453local full-width geometry;477-R1finite prediction calibration;478complete router feasibility analysis |Convenient transformed wholeartifact/quality/SAMErate; source-aware learned hierarchy; other families/actual100B |
 
 ## Latest decisive evidence
 
-[477-R1](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md): ALL9independent witness gates andALL6scalar audit gatesPASS.
-ALL7993source heads BYTE exact, ALL6649candidate codes/scales/full32128logit
-SHA exact, true teacher labels/metrics/joins/EOF admitted. Original477 remains
-FAILED at final cardinality guard; parent1/native2/endworker unavailable,
-[firstfault](METH_477_FIRST_CARDINALITY_FAULT_20261005.md) unchanged.
+[478](METH_478_GROUPED_ROUTER_RESULT_20261005.md): ALL7/ALL7 apparatus/audit gatesPASS,
+ALL96186native original score/ID/probability BYTE before candidate geometry,
+24trees/384joins/heap/counters/cuts/mass/probability/55views independently admitted.
+WorkFAIL all3source gates, coefficientmeans1.98962/1.97527, p95=2;
+logicalweightbytes2.97281/2.96693xflat. Winner phase already nearly complete.
+THIS principal-tree/radius/refinement recipe CLOSED, no sweep or C timing.
+[Algebraic whole-project reassessment and next](METH_478_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md)
+separates group support/winner from log-mass and recalls positive123/183 evidence.
 
-Natural190/3065changedargmax,meanKL.03947485 despite2.8322%pooledFFNRMS;
-maskedteacher deltaNLL+.05974024,1002->977correct/2048. All new-codeSHA;
-no fresh own-state/global quality. Old472FAIL105/107/book107 unchanged.
-Interpretation: local energy is insufficient for prediction preservation;
-normalization/head do not remove the finite loss. No candidate promotion.
-[Whole-project algebraic reassessment](ALGEBRA_REASSESSMENT_AFTER_477_20261005.md) defines separate capacity,
-functional information, physical cost and routing-mass problems.
+477-R1 remains fully retained:6649candidate finite heads,190/3065natural argmax
+changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
+Original477failed cardinality unchanged;472FAIL105/107 unchanged.
+[477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption:478 frozen, sole first grouped-router inquiry
+## Current resumption:478 admitted/closed; NEW479 supervision proposal
 
-Current turnPROGRESS: complete source/runtime admission and implemented ONE
-weight-only geometric mass/winner inquiry frozenbb86323/module-sealaf69b92.
-Previous477-R1 complete recovery/scalar audit retained02c8317, old477failed
-and472localFAIL unchanged. [478 first registration](METH_478_FIRST_RESUMPTION_20261005.md).
+Current turn PROGRESS: ONE478 native numeric inquiry and ONE independent audit
+completed, ALL7/ALL7 apparatus/retention gatesPASS. Main session77306,73.016s;
+audit21905,173.047s. No completed rerun or fault. [478 result](METH_478_GROUPED_ROUTER_RESULT_20261005.md),
+[whole-project algebra and next](METH_478_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
 
-Sole first command, unexecuted at this registration:
+ALL393384 traces/96186queries, both actual128/256sources, native fullscores/ID/
+probability BYTE before trees. Exact independent binary heap/counters/cuts,
+full geometry/enclosures and55 views admitted. WorkFAIL all3 gates/source:
+mean coefficient1.98962/1.97527, p95=2, logicalweights2.97281/2.96693xflat;
+48/48bank_mode means>.80. Winner certification already visits almost allnodes.
+THIS fixed principal-tree/spherical-bound/refinement recipe CLOSED; no sweep
+or C speed promotion. No general hierarchy/transfer impossibility claim.
 
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth478_grouped_router_probe.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth478_grouped_router_result.json
-```
+RAW61cae4d4218e0bd9590be7baf1f49de3941d7b0a43eb4f805236e482827c42e4;
+RET1ddd505b00185e53b4cffefac4e96e40e4f65319cd8718849d7e223261a6bd00.
+All scientific478 sources/mainRAW/tree/observations immutable. ONE actual-
+terminal Windows query available/zeroevents. No live scientific job remains.
 
-CPU0/BLAS1, hard300s/2GiB/new96MiB/admission120s; ALL393384traces/96186queries,
-two actual original128/256sources, no causal n curve. Source full scores/ID/
-probability BYTE before tree. ONE principal balanced split/fixed bound/heap,
-empirical native enclosures and complete paid vector/scalar/descriptor work.
-Binding07dc05c3e34df0570880b6c20315008614ffeb43061a109cbcc271a8aa6d6894;
-[protocol](METH_478_GROUPED_ROUTER_PROTOCOL_20261005.md) authoritative. No
-scientific478observations yet. Poll SAMElive handle on timeout; preserve first
-failure before numbered repair, never restart a completed main/capture/audit.
-After actualterminal: ONE478Windows event query and ONE complete independent
-audit frozen before its numerics; no interpretation/promotion before audit.
+Next chosen uncertainty: source128 development supervision for learned group
+winner support and log-partition/amplitude transfer on ALL12banks. NEW479 is
+PROPOSED, not implemented/frozen/executed. Reuse469+471387036 original queries
+once, explicit0..63dev/64..127consumed diagnosticval/128..191devaug roles;
+exact-input identity/dedup/overlap/capacity outcomes and every bank/ID/mode kept.
+Membership478 only can index targets; its failed bound recipe stays CLOSED.
+Full-score BYTE admission on this NEW source domain is required before targets.
 
-No new model/capture/training/whole-rate/native-timing/physicalDRAM. Work PASS
-only enables new C cost inquiry; workFAIL closes THIS tree/radius, no sweep.
-All fullgoal jointrequirements including fresh SAMEartifactquality/>=50,
-causal useful-n/LUT mass/DRAM/multiple actualfamilies/~10B/~100B remain open.
+At resumption read the next document and concretize one offline supervision
+compiler/native router-only verifier/input-runtime binding/protocol, freeze
+BEFORE compile/import/numerics, separate sole-first registration. Proposed
+CPU0/BLAS1 main600s/4GiB/new2GiB, audit600s/4GiB/new32MiB; exact dimensions must
+confirm budget before execution. No fit/capture/model/GPU/T4 yet. A supervision
+PASS permits separately frozen ONE learned representation/objective/cost/stop;
+it is not an accuracy, candidate, rate or useful-n result. No validation fitting.
+
+Small Qwen123/183 already show useful learned hierarchy,125/126 qualified
+component/shared-A; reuse mechanisms, do not repeat completed checks or inherit
+quality/rate to large Switch. Previous477-R1 calibration and all closures remain.
+Full newartifact/fresh own-state quality/SAME>=50/useful n/CPU LUT/mass/physical
+DRAM/multiple actualfamilies/~10B/~100B remain ACTIVE/INCOMPLETE.
 
 ## Retained evidence and closures
 
-- [476](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md): ALL6/ALL6source
-  context/head BYTE qualification; no rerun.
-- [469](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md)/
-  [471](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md): domain data
-  admitted; fixedbank11 107ready/21fallback,97.1615%coverage. All12banks DATApass.
-- [472](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md): P32INPUT recipeFAIL;
-  [473](METH_473_SWITCH_OPERATOR_SPECTRUM_RESULT_20261005.md): variablepreactivation
-  ranks overcomplete70%budget; [474](METH_474_SWITCH_PRIVATE_OUTPUT_RESULT_20261005.md):
-  fixedP32OUTPUT lowerfloorsFAIL105/107; no repair by enlarging the consumed domain.
-- [475](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md): exact bitplane
-  certificate admitted but11.31%certified/5.66%WI logicalsavings economicFAIL.
-- [453](METH_453_SWITCH_SPARSE_WO_RESULT_20261005.md): exact sparseWO/localquality
-  PASS; [454](METH_454_SWITCH_SPARSE_WO_COST_RESULT_20261005.md) direct/LUTcostFAIL;
-  [456](METH_456_SWITCH_OUTPUT_TILE_COST_RESULT_20261005.md) tile16mean19.8351%<20FAIL.
-  [458](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md) matchedwholecost;
-  [461](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md) sharingmean2.39/2.89%<5FAIL.
-- [369](METH_369_SWITCH_BANK_USEFULNESS_RESULT_20261004.md) causalfunctionmatching;
-  [372](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md) mixed useful-n;
-  [373](METH_373_SWITCH_REAL_BANK_COST_RESULT_20261004.md) bounded64->256cost.
-- [393](METH_393_SWITCH_ROUTER_AUDIT_RESULT_20261004.md) oracle m140/p95 191 at256
-  for1%mass;394/395fixed rank/integer-refinement recipesCLOSED. Different
-  sources128/256 do not prove causal scaling. Groupmass is the new variable.
-- 403/404/406/414/416bridges;426/431/435/440fits;444/445bases;446factors;
-  447/448/451I4recipes and specified Giga/Ling/Granite formats remainCLOSED.
-  397QwenNext actual79.674Bmain+MTP HEADERs only, no values/quality.
+- [123](METH_121_123_ZERO_MEAN_CHILD_EXTERNAL_RESULT_20260928.md)/[183](METH_183_E1280_CHILD_ROUTE_ALIGNMENT_RESULT_20260930.md): small BF16 Qwen hierarchy quality/functional choice;[125](METH_125_VARIED_CENTERED_FACTOR_CPU_RESULT_20260928.md)/126 component/shared-A.127FP32 fullreference16.818tokens/s is another artifact;131/133LUT semanticfailures unchanged.
+- [476](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md)/477-R1 finite head calibration; no rerun or promotion.
+- [469](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md)/[471](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md): all12banks DATApass, fixedbank11 107ready/21fallback/97.1615%; rank and routing learnability not implied.
+- [472](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md)..[475](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md): fixedINPUT/OUTPUT/spectral-byte/coarse-certificate recipes CLOSED in their metrics.
+- [453](METH_453_SWITCH_SPARSE_WO_RESULT_20261005.md): local full-width qualityPASS;454/456costFAIL;[458](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md) fullcost;461sharingmeanFAIL.
+- [369](METH_369_SWITCH_BANK_USEFULNESS_RESULT_20261004.md)/[372](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md)/[373](METH_373_SWITCH_REAL_BANK_COST_RESULT_20261004.md): identityutility/mixed useful-n/bounded FULLcost.
+- [393](METH_393_SWITCH_ROUTER_AUDIT_RESULT_20261004.md): wide mass tail;394/395fixed rank/integer-refinement CLOSED.478 closes only its fixed new geometric certificate.
+- Specified403..451bridges/factors/I4 and Giga/Ling/Granite recipes remainCLOSED;397QwenNext79.674Bmain+MTP HEADERs only, no values/quality.
 
 ## Procedure and history
 
-[METHOD](METHOD.md) describes what is implemented, qualified, provisional or
-missing; [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) is the historical native inventory.
+[METHOD](METHOD.md) distinguishes implemented/qualified/provisional/missing;
+[PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) is the historical native inventory.
 [Strategic review](STRATEGIC_REVIEW_20261004.md) is a4October snapshot;
-[through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),
-[432..453](RESEARCH_RECORDS_432_453_20261005.md), and individual laterrecords
-retain details/faults. Historical NEXT documents are superseded by current
-INDEX/METHOD/[resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md).
-Full goal stays ACTIVE/INCOMPLETE; no percentage of completion is claimed.
+[through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),[432..453](RESEARCH_RECORDS_432_453_20261005.md)
+and later individual records retain details/faults. Older NEXTs are superseded
+by INDEX/METHOD/[resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md).
+Full goal ACTIVE/INCOMPLETE; no percentage of completion claimed.

@@ -1,33 +1,70 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:478 frozen, sole first grouped-router inquiry
+## Current resumption:478 admitted/closed; NEW479 supervision proposal
 
-Current turnPROGRESS: complete source/runtime admission and implemented ONE
-weight-only geometric mass/winner inquiry frozenbb86323/module-sealaf69b92.
-Previous477-R1 complete recovery/scalar audit retained02c8317, old477failed
-and472localFAIL unchanged. [478 first registration](METH_478_FIRST_RESUMPTION_20261005.md).
+Current turn PROGRESS: ONE478 native numeric inquiry and ONE independent audit
+completed, ALL7/ALL7 apparatus/retention gatesPASS. Main session77306,73.016s;
+audit21905,173.047s. No completed rerun or fault. [478 result](METH_478_GROUPED_ROUTER_RESULT_20261005.md),
+[whole-project algebra and next](METH_478_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
 
-Sole first command, unexecuted at this registration:
+ALL393384 traces/96186queries, both actual128/256sources, native fullscores/ID/
+probability BYTE before trees. Exact independent binary heap/counters/cuts,
+full geometry/enclosures and55 views admitted. WorkFAIL all3 gates/source:
+mean coefficient1.98962/1.97527, p95=2, logicalweights2.97281/2.96693xflat;
+48/48bank_mode means>.80. Winner certification already visits almost allnodes.
+THIS fixed principal-tree/spherical-bound/refinement recipe CLOSED; no sweep
+or C speed promotion. No general hierarchy/transfer impossibility claim.
 
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth478_grouped_router_probe.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth478_grouped_router_result.json
-```
+RAW61cae4d4218e0bd9590be7baf1f49de3941d7b0a43eb4f805236e482827c42e4;
+RET1ddd505b00185e53b4cffefac4e96e40e4f65319cd8718849d7e223261a6bd00.
+All scientific478 sources/mainRAW/tree/observations immutable. ONE actual-
+terminal Windows query available/zeroevents. No live scientific job remains.
 
-CPU0/BLAS1, hard300s/2GiB/new96MiB/admission120s; ALL393384traces/96186queries,
-two actual original128/256sources, no causal n curve. Source full scores/ID/
-probability BYTE before tree. ONE principal balanced split/fixed bound/heap,
-empirical native enclosures and complete paid vector/scalar/descriptor work.
-Binding07dc05c3e34df0570880b6c20315008614ffeb43061a109cbcc271a8aa6d6894;
-[protocol](METH_478_GROUPED_ROUTER_PROTOCOL_20261005.md) authoritative. No
-scientific478observations yet. Poll SAMElive handle on timeout; preserve first
-failure before numbered repair, never restart a completed main/capture/audit.
-After actualterminal: ONE478Windows event query and ONE complete independent
-audit frozen before its numerics; no interpretation/promotion before audit.
+Next chosen uncertainty: source128 development supervision for learned group
+winner support and log-partition/amplitude transfer on ALL12banks. NEW479 is
+PROPOSED, not implemented/frozen/executed. Reuse469+471387036 original queries
+once, explicit0..63dev/64..127consumed diagnosticval/128..191devaug roles;
+exact-input identity/dedup/overlap/capacity outcomes and every bank/ID/mode kept.
+Membership478 only can index targets; its failed bound recipe stays CLOSED.
+Full-score BYTE admission on this NEW source domain is required before targets.
 
-No new model/capture/training/whole-rate/native-timing/physicalDRAM. Work PASS
-only enables new C cost inquiry; workFAIL closes THIS tree/radius, no sweep.
-All fullgoal jointrequirements including fresh SAMEartifactquality/>=50,
-causal useful-n/LUT mass/DRAM/multiple actualfamilies/~10B/~100B remain open.
+At resumption read the next document and concretize one offline supervision
+compiler/native router-only verifier/input-runtime binding/protocol, freeze
+BEFORE compile/import/numerics, separate sole-first registration. Proposed
+CPU0/BLAS1 main600s/4GiB/new2GiB, audit600s/4GiB/new32MiB; exact dimensions must
+confirm budget before execution. No fit/capture/model/GPU/T4 yet. A supervision
+PASS permits separately frozen ONE learned representation/objective/cost/stop;
+it is not an accuracy, candidate, rate or useful-n result. No validation fitting.
+
+Small Qwen123/183 already show useful learned hierarchy,125/126 qualified
+component/shared-A; reuse mechanisms, do not repeat completed checks or inherit
+quality/rate to large Switch. Previous477-R1 calibration and all closures remain.
+Full newartifact/fresh own-state quality/SAME>=50/useful n/CPU LUT/mass/physical
+DRAM/multiple actualfamilies/~10B/~100B remain ACTIVE/INCOMPLETE.
+
+## Available analysis step: complete grouped-router work feasibility
+
+Tools478 main/C/math plus independent retention auditor and Windows metadata.
+Inputs: ALL393 complete source/router witnesses, both original fullpayloads/
+manifests, all24router banks and actual Python/compiler/OS assets. Source
+fullscore/ID/probability BYTE pass BEFORE one fixed weight-only geometry.
+Fixed radius/mean/native envelopes, exact paid maxheap/refinement/cut, ALLquery
+scalar/vector/logical-byte output. Independent explicit-lane centroid arithmetic,
+full source/tree joins, exact binary heap/11counters, all55 views; no C replay/refit.
+
+Main73.016s/185540608Bpeak/new91848837B; audit173.047s/678871040Bpeak/new74683B,
+ALL7/ALL7PASS. WorkFAIL1.98962/1.97527coefficients,~2.97logicalweights; all48
+bankmode means>.80, p95=2. This is an implemented/qualified feasibility method,
+not a transformed artifact or speed/DRAM gain. THIS fixed tree/radius recipe
+CLOSED, not all hierarchies. Positive small-donor123/183 and125/126component
+remain qualified in their own scope. [478 result](METH_478_GROUPED_ROUTER_RESULT_20261005.md).
+
+NEW479 proposed supervision compiler would transfer winner support and native
+log-partition/amplitude targets from explicitdevelopment source128 trajectories.
+No learned representation/fit/wholecandidate yet. A log-mass hierarchy alone
+neither reproduces flatargmax nor guarantees cheap best-first search. Future
+branch model, outputcontribution information, native export/cost, fresh own-state
+quality and SAME>=50 need separate admitted steps;[algebra/next](METH_478_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
 
 ## Available analysis step: complete finite head information calibration
 
