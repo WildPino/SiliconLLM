@@ -1,0 +1,51 @@
+{
+  "experiment": "METH479-R2 first audit immutable-admission fault retained",
+  "tool_session": 66704,
+  "actual_tool_exit_code": 1,
+  "no_NumPy_import_queries_or_targets": true,
+  "observed_competing_processes": [
+    {
+      "pid": 15784,
+      "parent_pid": 24480,
+      "creation_date_display_local": "2026-10-05 20:58:46",
+      "executable": "D:/_THINGS/Progetti/SiliconLLM-progressive-runtime/.venv/Scripts/python.exe",
+      "script": "scripts/progressive_ternary/kaggle_run.py"
+    },
+    {
+      "pid": 27536,
+      "parent_pid": 15784,
+      "creation_date_display_local": "2026-10-05 20:58:46",
+      "executable": "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+      "script": "scripts/progressive_ternary/kaggle_run.py"
+    }
+  ],
+  "observed_creation_precision": "CIM displayed seconds only; not an exact subsecond creation claim",
+  "subsequent_CIM_PID_query_empty": true,
+  "external_process_not_terminated_by_agent": true,
+  "records": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth479_r2_first_audit_failure.json",
+      "bytes": 1162,
+      "mtime_ns": 1791226973586725800,
+      "sha256": "2cc9c4978230368538c02a2df5847bf3c3d8a0ce548d2fe224d39ab5c08a71a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_r2_retention_audit\\fatal_native.log",
+      "bytes": 0,
+      "mtime_ns": 1791226724373429500,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_r2_retention_audit\\first_failure.json",
+      "bytes": 1162,
+      "mtime_ns": 1791226766363187600,
+      "sha256": "2cc9c4978230368538c02a2df5847bf3c3d8a0ce548d2fe224d39ab5c08a71a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_r2_retention_audit\\progress.jsonl",
+      "bytes": 182,
+      "mtime_ns": 1791226766363187600,
+      "sha256": "eef2b1a73c13ed0a475a9dfc6def60a0adb303b423c714d2c4dad26a08cd963b"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "experiment": "METH479-R2 independent retention FIRST fault",
+  "phase": "immutable_admission",
+  "raw_sha256": "c03efee574a62743ac214f0c94213f41e2cbb34db0b6db86ddd18ebab53d9200",
+  "binding_sha256": "0523b1822b84f6e11b40025b3c677116042a06853f4094375d271df73a4016ac",
+  "audit_source_sha256": "dea6ef6fded238953d95939f85d05c1d94bd3da7cb1dbdc5a32e7f31608e8294",
+  "process_instance": {
+    "pid": 9748,
+    "create_time_unix": 1791226724.148165,
+    "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+  },
+  "queries_audited": 0,
+  "unique_audited": 0,
+  "seconds": 41.937000000005355,
+  "OS_peak_bytes": 101101568,
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_r2_retention_audit.py\", line 195, in <module>\n    assert not (name.startswith('python') or name.startswith('clang') or (name.startswith('meth') and name.endswith('.exe'))), (p.pid, name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: (15784, 'python.exe')\n"
+}
