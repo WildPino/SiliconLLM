@@ -29,6 +29,7 @@ MATH = ROOT / 'benchmarks/native_expert_scaling/meth480_transfer_math.py'
 REPORTING = ROOT / 'benchmarks/native_expert_scaling/meth480_reporting.py'
 WINDOWS = ROOT / 'benchmarks/native_expert_scaling/meth480_windows_terminal.ps1'
 PROTO = DOC / 'METH_480_LEARNED_ROUTER_PROTOCOL_20261005.md'
+ARITHMETIC_NOTE = DOC / 'METH_480_STATIC_ARITHMETIC_CLARIFICATION_20261005.md'
 parser = argparse.ArgumentParser()
 parser.add_argument('--out', required=True, type=Path)
 args = parser.parse_args()
@@ -46,7 +47,7 @@ phase = 'immutable_source_supervision_runtime_admission'
 commands = []
 peak = hashed = 0
 cache = {}
-scientific = (Path(__file__).resolve(), C, MATH, REPORTING, WINDOWS, PROTO)
+scientific = (Path(__file__).resolve(), C, MATH, REPORTING, WINDOWS, PROTO, ARITHMETIC_NOTE)
 
 def write(path, value):
     with Path(path).open('xb') as stream:
@@ -437,6 +438,10 @@ report = {'experiment': 'METH480 ONE learned convex support2/root16 native trans
           'reports_path': str(OUT / 'complete_reports.json'), 'unique_overall': summaries['unique_views'][0],
           'physical_diagnostics_path': str(OUT / 'physical_diagnostics.json'),
           'native_model_commands': 0, 'native_numeric_commands': 3, 'optimizer_updates': 12 * 63 * 32,
+          'inference_arithmetic_per_unique': {'ordered_dot_forms': 42, 'coefficient_values': 32256,
+              'root_exp_calls_meta6': 16, 'probability_exp_calls': 1, 'total_exp_calls': 17, 'root_log_calls': 1,
+              'query_dot_read_bytes': 129024, 'weights_including_log_b_bytes': 129152,
+              'node_bytes': 672, 'member_ID_bytes': 24, 'complete_charged_weights_metadata_bytes': 129848},
           'steps_per_head': 32, 'validation_training_examples': 0, 'fallback_queries': 0, 'preserved_daemons': daemons,
           'decision': ('LOCAL_SOURCE_TRANSFER_PASS' if all(scientific_gates.values()) else 'THIS_FIXED_LEARNED_SUPPORT2_PARTITION16_RECIPE_FAIL') + '_PENDING_INDEPENDENT_ADMISSION',
           'scope': 'Pretrained128 complete consumed-domain local router transfer only; 32 fixed development steps/all12banks/new physical C dot predictions; no complete artifact/fresh ownstate quality/rate/useful-n/LUT/DRAM/other-family promotion',
