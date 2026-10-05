@@ -3,8 +3,9 @@
 5 October2026.462 completed: ALL8 apparatus/ALL6 retention PASS; fixed128 bank11
 DATA admission FAIL (1ready ID,21/568=3.70%validation execution coverage). No
 factors/SVD/fit.461 ONE native cost recipe CLOSED. Full goal ACTIVE/INCOMPLETE.
-463 source/protocol/prospective bindings frozen4e459eb; first manifest execution
-pending. Native capture remains a separate unfrozen proposal.
+463 first execution terminated in native Arrow, no manifest admitted; first fault
+retained. Isolated corpus-reader admission NEW464 precedes a new numbered manifest.
+Native capture remains a separate unfrozen proposal.
 
 ## New uncertainty and two separate actions
 

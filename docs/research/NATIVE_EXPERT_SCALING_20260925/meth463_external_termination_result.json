@@ -1,0 +1,72 @@
+{
+  "experiment": "METH463-external-first-termination-retention",
+  "scientific_freeze_commit": "4e459eb",
+  "first_execution_resumption_commit": "0d12d4b",
+  "terminal_session_id": 28546,
+  "terminal_tool_exit_code": 1,
+  "command": [
+    "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe",
+    "benchmarks/native_expert_scaling/meth463_switch_query_source_manifest.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth463_switch_query_source_manifest.json"
+  ],
+  "observed_tool_combined_output": "Token indices sequence length is longer than the specified maximum sequence length for this model (1134 > 512). Running this sequence through the model will result in indexing errors\n",
+  "process_pid_hex": "0x1B00",
+  "process_pid_decimal": 6912,
+  "reported_process_start_utc": "2026-10-05T06:04:50.923856+00:00",
+  "windows_events": [
+    {
+      "message": "Nome applicazione con errore: python.exe, versione: 3.12.10150.1013, timestamp: 0x67f515a7\r\nNome modulo non valido: arrow.dll, versione: 0.0.0.0, timestamp: 0x69de57f9\r\nCodice eccezione: 0xc0000005\r\nOffset errore: 0x0000000000bc542e\r\nId di processo in errore: 0x1B00\r\nOra di avvio dell'applicazione in errore: 0x1DD548F6EEFA524\r\nPercorso dell'applicazione in errore: C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\r\nPercorso del modulo in errore: D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll\r\nId di rapporto: 72eb1b86-63c9-4474-b232-f72093160f77\r\nNome completo del pacchetto guasto: \r\nID applicativo relativo al pacchetto guasto: ",
+      "record_id": 179313,
+      "xml": "<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System><Provider Name='Application Error' Guid='{a0e9b465-b939-57d7-b27d-95d8e925ff57}'/><EventID>1000</EventID><Version>0</Version><Level>2</Level><Task>100</Task><Opcode>0</Opcode><Keywords>0x8000000000000000</Keywords><TimeCreated SystemTime='2026-10-05T06:06:24.8343249Z'/><EventRecordID>179313</EventRecordID><Correlation/><Execution ProcessID='6176' ThreadID='19492'/><Channel>Application</Channel><Computer>SirFissoWindows</Computer><Security UserID='S-1-5-21-4142847766-172438236-149005514-1001'/></System><EventData><Data Name='AppName'>python.exe</Data><Data Name='AppVersion'>3.12.10150.1013</Data><Data Name='AppTimeStamp'>67f515a7</Data><Data Name='ModuleName'>arrow.dll</Data><Data Name='ModuleVersion'>0.0.0.0</Data><Data Name='ModuleTimeStamp'>69de57f9</Data><Data Name='ExceptionCode'>c0000005</Data><Data Name='FaultingOffset'>0000000000bc542e</Data><Data Name='ProcessId'>0x1b00</Data><Data Name='ProcessCreationTime'>0x1dd548f6eefa524</Data><Data Name='AppPath'>C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe</Data><Data Name='ModulePath'>D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll</Data><Data Name='IntegratorReportId'>72eb1b86-63c9-4474-b232-f72093160f77</Data><Data Name='PackageFullName'></Data><Data Name='PackageRelativeAppId'></Data></EventData></Event>",
+      "time_utc": "2026-10-05T06:06:24.8343249Z",
+      "seconds_from_reported_process_start": 93.910468
+    },
+    {
+      "message": "Nome applicazione con errore: python.exe, versione: 3.12.10150.1013, timestamp: 0x67f515a7\r\nNome modulo non valido: arrow.dll, versione: 0.0.0.0, timestamp: 0x69de57f9\r\nCodice eccezione: 0xc0000005\r\nOffset errore: 0x0000000000bc3c45\r\nId di processo in errore: 0x1B00\r\nOra di avvio dell'applicazione in errore: 0x1DD548F6EEFA524\r\nPercorso dell'applicazione in errore: C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\r\nPercorso del modulo in errore: D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll\r\nId di rapporto: 445e6f74-d54d-4b61-b072-d151793bd53f\r\nNome completo del pacchetto guasto: \r\nID applicativo relativo al pacchetto guasto: ",
+      "record_id": 179332,
+      "xml": "<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System><Provider Name='Application Error' Guid='{a0e9b465-b939-57d7-b27d-95d8e925ff57}'/><EventID>1000</EventID><Version>0</Version><Level>2</Level><Task>100</Task><Opcode>0</Opcode><Keywords>0x8000000000000000</Keywords><TimeCreated SystemTime='2026-10-05T06:06:46.8689879Z'/><EventRecordID>179332</EventRecordID><Correlation/><Execution ProcessID='9060' ThreadID='12744'/><Channel>Application</Channel><Computer>SirFissoWindows</Computer><Security UserID='S-1-5-21-4142847766-172438236-149005514-1001'/></System><EventData><Data Name='AppName'>python.exe</Data><Data Name='AppVersion'>3.12.10150.1013</Data><Data Name='AppTimeStamp'>67f515a7</Data><Data Name='ModuleName'>arrow.dll</Data><Data Name='ModuleVersion'>0.0.0.0</Data><Data Name='ModuleTimeStamp'>69de57f9</Data><Data Name='ExceptionCode'>c0000005</Data><Data Name='FaultingOffset'>0000000000bc3c45</Data><Data Name='ProcessId'>0x1b00</Data><Data Name='ProcessCreationTime'>0x1dd548f6eefa524</Data><Data Name='AppPath'>C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe</Data><Data Name='ModulePath'>D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll</Data><Data Name='IntegratorReportId'>445e6f74-d54d-4b61-b072-d151793bd53f</Data><Data Name='PackageFullName'></Data><Data Name='PackageRelativeAppId'></Data></EventData></Event>",
+      "time_utc": "2026-10-05T06:06:46.8689879Z",
+      "seconds_from_reported_process_start": 115.945131
+    }
+  ],
+  "windows_event_export_sha256": "bcac49f3d0614afbcbc9a99155cff352e606e3fda61b4ab571e6741b39860d91",
+  "fault_module": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll",
+    "bytes": 22129664,
+    "sha256": "b9a22a56c2e4c08e6b13924b65552531075f659116737e0a2242b2496c788b24"
+  },
+  "qualified_file_sha256": {
+    "benchmarks/native_expert_scaling/meth463_switch_query_source_manifest.py": "4b3839f1832774b46a8b792c2113a6c7578ed8688cb99791c88713bc831c2003",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/METH_463_SWITCH_QUERY_SOURCE_MANIFEST_PROTOCOL_20261005.md": "85f29e2d59661302a8825201e6593d01890ca1f2e9101cf06f4ea2fce0ba5504",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth463_prospective_bindings.json": "65309f005dfb17d3c02abcdf3382b4a947b6a2ae365ccbcc2616fb4c99cd6211",
+    "benchmarks/phase60/engine.c": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414"
+  },
+  "retention_helper_sha256": "a9155d3d9ab4df5d213527139180b8e53c4513a1097465a82469b4de765333ce",
+  "preserved_unrelated_files": {
+    "benchmarks/donor_adaptation/configs/_manifest.json": {
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    "benchmarks/donor_adaptation/density/build_document_holdout.py": {
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    "docs/research/RESEARCH_INDEX.md": {
+      "bytes": 50845,
+      "sha256": "639afab9f5330bb7170a2a8e6fad61759bb848839f0a86a6479ce688edd61f61"
+    }
+  },
+  "scientific_success_raw_present": false,
+  "scientific_exception_raw_present": false,
+  "native_or_model_commands": 0,
+  "persisted_selected_book_count": null,
+  "persisted_token_bridge_gates": null,
+  "resource": {
+    "native_OS_peak_bytes": null,
+    "complete_wall_time_seconds": null,
+    "available_cost": "reported process-start to first crash93.910s; second crash115.945s, not successful whole-main timing"
+  },
+  "decision": "first_native_Arrow_access_violation_retained_no463_rerun_freeze_isolated_corpus_reader_before_new_manifest",
+  "scope": "Windows APPCRASH proves Arrow access violations on actual process; no full Python stack or causal concurrency/DLL diagnosis. In-memory bridge/exclusion/source results not persisted and not promoted. No manifest or donor/model-quality/geometry observation admitted."
+}

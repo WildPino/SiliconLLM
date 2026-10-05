@@ -1,29 +1,27 @@
 # Current resumption: independent native query-domain data463
 
-## Current resumption: frozen463, ONE first execution next
+## Current resumption after463: Arrow crash retained, isolated reader next
 
-Previous goal turn PROGRESS:462 completed/audited/retained3279855; fixed128 last
-bank DATA FAIL1readyID/3.70%coverage, ALL24banks inadequate. Full goal incomplete.
-New463 controller/protocol/input inventory frozen4e459eb BEFORE first import/
-parse/selection/tokenization. Local qualified4.57.6 tokenizer/runtime and actual
-PAR1 corpus308888290B/SHA verified read-only;1842 prior JSON files/1.014GB bound.
-No new-source tokenization/model/native/geometry observation yet.
+463 ONE session28546 terminal exit1, freeze4e459eb/first run0d12d4b. Windows
+events179313/179332 prove SAMEPID6912 Arrow DLL access violations0xc0000005
+after93.910/115.945s. No manifest/Python exception raw; no persisted bridge/
+exclusion/selection success, peak unknown. No model/native/GPU/fit command.
+Source/protocol/bindings/engine exact, unrelated3 files preserved. Do not rerun463.
+[First crash](METH_463_FIRST_ARROW_TERMINATION_20261005.md),
+[external raw](meth463_external_termination_result.json), SHA
+b3a46001a14449d3a60926f03681fe657d383d99b8b90e2f45929d6e76ed576d.
 
-ONE first command:
-results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
-benchmarks\native_expert_scaling\meth463_switch_query_source_manifest.py --out
-docs\research\NATIVE_EXPERT_SCALING_20260925\meth463_switch_query_source_manifest.json
-
-Expected<=3min, hard300s/4GiB/8MiB raw; zero model/native/GPU/download. Rehash prior
-inventory/exclude old rows AND whole-text hashes; ALL96 retained382 token/mask/
-decode bridge BEFORE new tokenization; source-only128newbooks/512windows,64dev/
-64diagnostic-val roles fixed before routing. Preserve first failure, no463 retry.
-[463 protocol](METH_463_SWITCH_QUERY_SOURCE_MANIFEST_PROTOCOL_20261005.md).
-If live, poll actual session/process until terminal; then metadata retention audit
-and results/METHOD update. If manifest admitted, separately freeze native393
-capture/readiness, SAME462 floors/fixed128 last bank; no factors before admission.
-All composed transfer/fresh donor tasks/generation/SAME50/useful-n/mass/physical
-DRAM/families~100B requirements remain. Original engine/artifacts unchanged.
+Next NEW464 proposed, not frozen/executed: isolate corpus reader from Transformers,
+explicit bounded single-thread Arrow batches, parent resource/PID/log/checkpoint
+retention before native calls. Same actual corpus, known382/362 full-text hash
+controls, no selection/model/tokenization. A passing cached UTF8 corpus can feed a
+SEPARATELY frozen new manifest; do not call it calibration or fresh quality data.
+Then128newbooks/64dev64diagnostic-val/512contexts and original token bridge ->
+separate393 capture/SAME462 floors/fixed128 last bank -> private INPUT geometry
+only if adequate. No crash-cause attribution from a passing apparatus alternative.
+462 fixed DATA FAIL1ID/3.70%, all24banks inadequate;461 cost recipe CLOSED.
+Full composed transfer/fresh donor tasks/generation/SAME50/useful-n/mass/actual
+DRAM/families~100B goal ACTIVE/INCOMPLETE. Original engine/artifacts unchanged.
 
 ## Retained457: admission failed before native execution
 
