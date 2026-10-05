@@ -1,46 +1,73 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: frozen472, ONE first rank32 function execution next
+## Current resumption:472 rank32 recipe FAIL retained; operator-aware bound next
 
-Previous turn PROGRESS:471 retained8b68367, ALL13/ALL10PASS; fixedbank11DATA
-107ready IDs/2978of3065=97.1615%, originalvalidation fixed. ONEdevelopment ladder
-complete; no rank/factor/quality/rate/useful-n promotion. Full goal ACTIVE/INCOMPLETE.
+472 freeze88d77ab/first5fa6fc8, ONE main89758exit0/86.562s, ALL8apparatus;
+ONE audit29262exit0/ALL9retention. Full107factor/21original-fallback bank
+406110272B=67.0209%original, all19962paired function vectors and107SVD witnesses
+retained. RecipeFAIL:105of107novel per-IDFFNRMS>.05, book107>.10; natural pooled
+RMS.028322passes because25/37supply99.8934%reference energy. Only25/37pass,
+no validation-selected fallback. Numericaldevranks34..308/median102; ideal32
+valinputRMSmedian.799579, actualfunctionmedian.897222. No native cost promotion.
 
-NEW472 source/math/protocol/runtime+input binding frozen88d77ab BEFORE first
-compile/import/numerical observation. Binding SHA
-e4405d9ab38524da5cd1915eeca03f16fb00a26fa65a10506c1726f9de170cda;
-ALL6224old469/new471files6.895GB,96old418native/1344FFNpositions,13integer fixtures,
-actualPython3.12.10/NumPy2.4.6/psutil7.2.2/threadpoolctl3.7.0assets bound.
-Sourceab2585d21fc01943fed23935f23551726ed93848f5ca6f4b97db248d2d010648;
-mathd5f25e5d6698a71847b6520beb0e3d108d54a606c6cc87e8a68963edde74dd82.
-ONE first command:
+[472result](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md),
+[retention](RETENTION_472_20261005.json): raw SHA9fc2efb0acde8f354fffa81e8525dcd30940b07eb8f4bbf7fed49321193ae0b3,
+RET SHAdb9c654df1bfb63ff31f85079a6853d4564ad5c772951c141742c63b51b7eae5.
+697176601Bnew outputs/~982.67MiBmainpeak; audit34.516s/1.255GiB. Fatal0B,
+available literalUTCWindowsquery ZEROevents, actualinstances terminal; original
+engine/payload/inputs/unrelated3 preserved. Goal turn PROGRESS, goal FULLACTIVE/
+INCOMPLETE. ONEdevelopment ladder complete; no main/native/SVD/tokenizer rerun.
 
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth472_switch_private_input_probe.py
---out docs\research\NATIVE_EXPERT_SCALING_20260925\meth472_switch_private_input_probe_result.json
+Close fixed32INPUT-PCA under declared gates; no rank grid, extra sources or
+retiming failed bank. [Algebra reassessment](ALGEBRA_REASSESSMENT_AFTER_472_20261005.md)
+separates data/rank/operator sensitivity, unseen directions and metric conditioning.
+Next NEW473 source/protocol/bindings must be implemented/frozen BEFORE first
+compile/import/numerics: ONEoperator-aware PREACTIVATION feasibility bound using
+known A=S_IW_I and same development-only equal-book/dedup effectiveinputs X.
+Optimal rank-r developmental action residual is tail energy of AX^T;
+B_r=U_rU_r^T A gives a defined pretrained extension beyond sampledinputspan.
+Full spectrum once, no candidate/rank sweep. The same107/21/70%bank budget
+allows UNIFORM rank<=43 (42withadditionalWIscales); VARIABLE ranks require
+sum(r_e)<=4684 (4599withWIscales). Derive each expert's minimum required rank
+and compare their sum with the byte cap; uniform failure is not general failure.
+5%preactivationRMS means99.75%energy. Original-order/native rounding qualifier,
+exact byte/workspace/runtime/input bounds and decisions still require freeze.
+Proposed CPU600s/4GiB/new128MiB, noGPU/update/newdata/model replay. No473exists
+or has run. A preactivation bound is not a nonlinear/task impossibility proof.
 
-Fresh allactual bytes/manifest/arithmetic/1344nativeFFNs, reconstructALL19962bank11
-q/scale/trace/ledger/mass/roles/128readiness BEFORE geometry. ONEprivate rank32,
-ALL107ready factors/ALL21original fallback policy fixed, development-only equal
-book/exactq+scale dedup/uncenteredalpha-squared thinSVD. ActualstoredF32P/A through
-originalrowscales/ReLU/secondA16/I8WO. All pairedfunctionvectors/spectra/provenance
-retained. Rho includes operationalF64rounding and finalF32, not solecast.
+Full real C operator/all-bank/newstates/fresh donorrelative quality AND SAME50,
+causal useful-n/winner AND mass/CPU LUT/physicalDRAM/multiple actualfamilies/
+~10B~100B remain required.472rejected one representation, not the full objective.
 
-ALL8apparatus; recipe:completebank<=70%original, EACH107novel-val equal-bookFFN
-RMS<=.05, ALL3065naturalvalFFNRMS<=.05, ALL64bookRMS<=.10. No observederror-ID
-fallback, rank grid, extra data, valfit or native/model/codec replay. HardCPU900s/
-8GiB/new768MiB/admission300s; algebraic outputupper725089696B, singleBLASworker/
-physicalCPU0. No472compile/import/numerical observation yet. Proposal is the
-historical design; [472frozen protocol](METH_472_SWITCH_PRIVATE_INPUT_PROTOCOL_20261005.md)
-is authoritative for this inquiry.
+## Available analysis step: private input factors and complete function rejection
 
-If live poll SAMEactualhandle, never restart on observation timeout. First failure
-immutable BEFORE separately numbered correction; completed main never rerun.
-After mainactualexit independent pairedvector/weight/spectralwitness/byte/policy/
-gate/storage/resource/Windowsactualinstance audit, no SVDfit or model replay.
-PASS+retention -> separately frozen nativeoperator/Ccost; recipeFAIL -> close
-fixed rank32inputPCA and choose a different justified variable. Full all-bank/
-fresh donorquality AND SAME50/useful-n/winner AND mass/CPU LUT/physicalDRAM/
-otherfamily/actual~10B~100B remain required; no final-goal narrowing.
+Tools: meth472_switch_private_input_probe.py/meth472_private_input_math.py,
+meth472_retention_audit.py/meth472_windows_terminal.ps1. Inputs: qualified471
+conditionaldomain, original380I8/A16payload/manifest, cachednative418functions/
+integercontrols and actual runtime/source/file bindings. Fresh6224inputSHA/
+manifest3320entries; cached1344FFNs byte-exact before new geometry. Reconstruct
+all19962actual bank11q/scale/ledger/role/route/mass fields and128datafloor tables.
+
+Development-only uncentered alpha*q/equal-book exactq+scale dedup, qualified thin
+F64SVD/fullwitnesses. ActualF32privateP32/A32, originalWIrowScales/ReLU/secondA16/
+I8WO. Fixed107factor/21originalfallback policy, complete406110272Bbank saved/
+reloaded, all19962pairedvectors/metric/provenance outputs retained. Independent
+audit reconstructs data/weights/novelty/SVDwitnesses/coefficient/storage/policy and
+all primary vector-error gates without refit or model replay. Intermediate
+direction fields remain source-recorded, with audited signed-energy identity.
+
+Execution86.562s/982.67MiBpeak/new697.177MB; audit34.516s/1.255GiB/ALL9PASS,
+ALL8apparatusPASS. RecipeFAIL105/107experts andbook107; poolednatural2.83%does
+not represent typical functions because25/37dominate99.8934%sourceenergy.
+Close fixedINPUT-PCArecipe before native timing or whole quality. No finalmodel/
+rate/useful-n/DRAM claim. Sampling/rank/operator geometry and metrics are distinct.
+
+Provisional next step: source-known operator-aware bound under explicit bytes,
+not another input-PCA sweep. This mathematical procedure is not implemented or
+qualified yet. Native rounding/metric/storage and full nonlinear quality remain
+separate qualifications; neither a spectral bound nor data count replaces them.
+[472procedure/result](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md),
+[mathematical next question](ALGEBRA_REASSESSMENT_AFTER_472_20261005.md).
 
 ## Available method step: extend development and recompute a fixed domain
 
