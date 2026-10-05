@@ -1,0 +1,583 @@
+{
+  "experiment": "METH482 ONE all-bank root affine normalized maximum-margin inquiry",
+  "start_utc": "2026-10-05T21:55:24.997344+00:00",
+  "end_utc": "2026-10-05T22:04:29.861909+00:00",
+  "process_instance": {
+    "pid": 24760,
+    "create_time_unix": 1791237324.997344,
+    "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+  },
+  "commands": [],
+  "source_binding_sha256": "2c33137557c5a958680633187b536dde37df75e12ce3882e0cff04330259579e",
+  "source481_RAW_sha256": "73f2da6d08172d7e2e8c189cab55039d573bae27e64f3751a3fda89c62405787",
+  "source481_RET_sha256": "a8573719fa6fc34fa91be6844dfa94068be47867d62a8c44d3a87ccbd2821111",
+  "new_scipy_runtime_binding_sha256": "d506a86753ea0f1e1a16253461e07811602272dfdffafa4b45e13567381f17ad",
+  "scientific_sources": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth482_r1_affine_root.py": "cd359a633903806055d3c65319140dde316353760c914d61e6b3f683eeafbf4d",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_482_R1_RESOURCE_PROTOCOL_20261005.md": "9ced524ebc9f38e9f51e9e4794dabf7ed946119495b5df90ef3cc5081ae87cac",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth482_first_fault_inventory.json": "6fb489e567dd52e1a342454d91ae41538f600397705670638997643d4dbc4deb",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth482_affine_root_result.failure.json": "316066cd551787c02f9fd7547646c1dfb59d49fb5d8665a52c4696a521d046fc",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_482_FIRST_FAULT_20261005.md": "9109a6136ef2ee857d338e467cf6c8568c2c768e2fc0bfdd3fd9088f9dd3fced",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth482_affine_root.py": "301b3c3d74d58a473d7af26b60adfb7e49328aee720c2773e69ce85472530443",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth482_windows_terminal.ps1": "c15ee51f8062bb02c0d7f4c8b2e5e9df7279f50facbac3c31bf662f98556ca9e",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_482_AFFINE_ROOT_PROTOCOL_20261005.md": "99bc5706de65ddbc94db26772855686ae71d8b02d41ffd91e59409dbf618a1b4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth482_affine_math.py": "f0b97278e54f0b26ba65b2d7ed9418d369c40f3470d7bf9bf07a97ed6091dee2",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth482_r1_windows_terminal.ps1": "d74f5e9114ec05f258b07d98d27d47b1440df9760c4f8ad3500f13bfd3070bed",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth482_runtime_binding.json": "d506a86753ea0f1e1a16253461e07811602272dfdffafa4b45e13567381f17ad",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_481_R2_20261005.json": "a8573719fa6fc34fa91be6844dfa94068be47867d62a8c44d3a87ccbd2821111",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_r2_retention_audit.py": "d4f86c2305097a9f0391ecc93d2df54a2a916ec7bf26cb857eda76f56769e5b8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_481_R2_RETENTION_PROTOCOL_20261005.md": "2580fc9a179aeb470de1dd9c0e6bac61a8950db4bb8423fa88cb179ed5c54e14",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth481_r1_first_audit_fault_inventory.json": "9bad5d9a8aa9f5da55d82b35177416edf130fe61300c2a0dbaa291125555f563",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_481_R1_20261005.failure.json": "bf8b2e0509e3bf04609a8eafd4d1dacb4a5d9492b312c2d8014f0f5df6de8a22",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_481_R1_FIRST_AUDIT_FAULT_20261005.md": "db384eac930009a8fd639089c2e3167f95ead00bf9b59e8eb3b74a47df903c4c",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_r1_retention_audit.py": "e302603dbe223077a6ace0013ee5a4803cdf419e32d66531bc075a7616a6c577",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_r1_audit_windows_terminal.ps1": "594a8c9e1646ebb9909824fe18a50542c08a7b0731274c2bec3c33c830675f94",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_481_R1_RETENTION_PROTOCOL_20261005.md": "6ba1941599f42bfdcc1884da1a3b292188a98027eaabead9a13f964615330b62",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth481_first_audit_fault_inventory.json": "53471ad32f2d78f28ae06bbe4d47f83513902ce3896aa72d416e494cf2465da5",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_481_20261005.failure.json": "d3c6bdb2bd1ef3c37b75206ff8db90487ed77132f50d234a9ea1f930353de7f2",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_481_FIRST_AUDIT_FAULT_20261005.md": "df1377c284f64abdb98f8697a08fe9050739d91a5a4ff55306e421a249e20253",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_retention_audit.py": "98184a06c0769cf9ce2ebb036338753ff9779c8baeb9ff35ac8c0600d8495ac0",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_audit_windows_terminal.ps1": "dc8065f9770d4e592bc69d1bf77f4560d001b19658946f82bf65f0c7a08d4ebf",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_481_RETENTION_PROTOCOL_20261005.md": "3c842f731616e1b8fdb684251dda9a07094e2ea4772e66378e96ef069ca80a21",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_r2_audit_windows_terminal.ps1": "ac5b7d5d941b8a991faba4326cadcc55c788c7eaa1bdce83a373f76b2f220976",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_geometry.py": "ee6e751ab1ded2aef83cedc516f27efae15a68ae6bdc79e0a8b70795b5afc2d3",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth481_geometry_result.json": "73f2da6d08172d7e2e8c189cab55039d573bae27e64f3751a3fda89c62405787",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_481_MAIN_TERMINAL_PENDING_20261005.md": "b8c32e867014847aa9473dab13843a4f56f0dddcf1042630ca1fac03667ef5d8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_481_GEOMETRY_PROTOCOL_20261005.md": "1c98cb0daf0039ed4bb1861062ab389ae09d49970752395c07c64a160bff011a",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_geometry_math.py": "f3e1e473eea1e07b54f748a64f7686b73817f3b5a21862b35a2ac9f9d16bfb98",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth481_windows_terminal.ps1": "9f89d3aa2b1e5ff436838d91217f2c77fc8913d430117835777c11a91a76fe5f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_480_R1_20261005.json": "059185c63d0df5f1e83795c0eb1bc965c779e7bfac08be34acc164e239d75f5f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_r1_retention_audit.py": "155a64bfb8dfee6bedecafeebc79031fe4465d55b67d05d80fe8297f7be6d5d5",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_480_RETENTION_PROTOCOL_20261005.md": "e00a76a1ee9a98633db42137786334ec6bcb3797b184de5d7be8dd665b94985f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_r1_audit_windows_terminal.ps1": "06d09b6b2eb204dfc58a577e2aec2c5c999563ffce1d43873a43974df8481028",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_480_R1_RETENTION_PROTOCOL_20261005.md": "bda05712b5bcdb93169ec23503e4fa9b264a328ff9571e111360a679cc121202",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth480_first_audit_fault_inventory.json": "65c8c2bb6e7431a398c01d42a343ef0e69f87f3287920a54cfd802c331fa3bb8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_480_20261005.failure.json": "0596eeb7c322be528ebcea599a3620e06f55932a7492526ce67aebaeb4a73aa4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_480_FIRST_AUDIT_FAULT_20261005.md": "ea747cd19a556d684be6cc9d2c6a598d24ed4f8edeaea5d4cd9d80655d886caa",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_retention_audit.py": "92b6bd021a61fe8d1f4d6357d59e7c6cb8d63be1c15998a3297f4e6c487c135c",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_audit_windows_terminal.ps1": "5473c4f876d1ec4736763f9eb77d43fc752e137006a5cfed16dffcf345d4aa48",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_r1_learned_router.py": "9d10c465c29e4adc3b03791037ff9bf2287b8543042e9b53d326e0e720a9b080",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_learned_router.py": "9c4cc94c4e727983276fd16d62905e1cf79a4f268a0f19790a4bd9c7b21a072d",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_learned_router.c": "37df807e94b6977f0c64c5790ed2286315cdd594c731bad5940d787c87af8293",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_transfer_math.py": "d597c76300fb5a36fa0acfb14d15b63318ed14bb23877d9463f30bb200b7553e",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_reporting.py": "0d39237364b9418f0d8ef4d6ecfa2ede178003fcd77a525e3b7729e120bef852",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth480_r1_windows_terminal.ps1": "7e1d31c1e6c871215f17509eeff942cfd6453cfb351141e66798f11029ab14df",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_480_LEARNED_ROUTER_PROTOCOL_20261005.md": "0a9587d105b503906816bcd69a093c2fe1eaa3501ceca208fde3b55f712bcb3d",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_480_STATIC_ARITHMETIC_CLARIFICATION_20261005.md": "ee13f3e2cf60b6b799a90456a5b2ac45a13b80f6b5a8a78e1dc30996cf24a0b6",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_480_R1_ADMISSION_REPAIR_PROTOCOL_20261005.md": "6fe0b49cd44370eddeec86aa5bab8cd4291737a4f700de26fb85c4e756e397c4",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth480_first_fault_inventory.json": "7c3d688be6e070605fb59a5c9ade737df7748ee57906e170aa4f4803dcf2e21e",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth480_learned_router_result.failure.json": "d9050cb687dd836230a8b97d4262f5c88de5d405a0e0c0a2906ae0b07f6dd223",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_480_FIRST_FAULT_20261005.md": "6eee7158cd541744fd0a8f703cba977f35605386c8e1c95bd70945fec903ea14"
+  },
+  "gates": {
+    "full_source6224_artifact_runtime_scientific_freezes_admitted479_supervision": true,
+    "analytic_solver_Decimal_interval_controls_all_UID_roles_source_wire_admitted": true,
+    "ALL12_root_labels_ID_BYTES_development_only_LPs_saved_primal_dual_every_UID_intervals": true,
+    "ALL39_72_4608_9216_views_empty_ID_slots_roles_and_complete_denominators": true,
+    "resources_preservation_fixed_solver_no_native_or_previous_science_replay_no_sweep": true
+  },
+  "decisions": {
+    "all12_roots_consumed_domain_physical_sign_sufficient": false,
+    "any_root_uniform_sufficient_envelope_unattainable_on_development": false,
+    "all12_solver_calls_optimal": false
+  },
+  "decision": "ROOT_AFFINE_INQUIRY_COMPLETE_PENDING_INDEPENDENT_ADMISSION",
+  "unique_inputs": 238872,
+  "queries": 387036,
+  "root_maximum_and_ID_fields_BYTE_checked": 955488,
+  "root_LP_calls": 12,
+  "control_LP_calls": 3,
+  "development_training_examples": 159414,
+  "validation_training_examples": 0,
+  "banks": [
+    {
+      "bank": 0,
+      "unique_queries": 22272,
+      "development_examples": 14848,
+      "consumed_validation_examples": 7424,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+        "nit": 1073,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 29.890999999988708,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank0_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 2.165043928110088e-05,
+      "development_max_augmented_coordinate": 181.61691284179688,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 1,
+      "unique_queries": 22272,
+      "development_examples": 14848,
+      "consumed_validation_examples": 7424,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+        "nit": 1013,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 29.89100000000326,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank1_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 2.136796093020399e-05,
+      "development_max_augmented_coordinate": 179.247314453125,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 2,
+      "unique_queries": 22272,
+      "development_examples": 14848,
+      "consumed_validation_examples": 7424,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+        "nit": 1410,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 29.85899999999674,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank2_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 6.779561912311345e-05,
+      "development_max_augmented_coordinate": 568.71044921875,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 3,
+      "unique_queries": 22272,
+      "development_examples": 14848,
+      "consumed_validation_examples": 7424,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+        "nit": 988,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 29.860000000000582,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank3_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 8.231024133102182e-05,
+      "development_max_augmented_coordinate": 690.4678344726562,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 4,
+      "unique_queries": 22272,
+      "development_examples": 14848,
+      "consumed_validation_examples": 7424,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Infeasible)",
+        "nit": 965,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 30.0,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank4_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 8.577988616783701e-05,
+      "development_max_augmented_coordinate": 719.5733032226562,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 5,
+      "unique_queries": 22272,
+      "development_examples": 14848,
+      "consumed_validation_examples": 7424,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+        "nit": 997,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 29.875,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank5_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 0.00014321363898537958,
+      "development_max_augmented_coordinate": 1201.3621826171875,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 6,
+      "unique_queries": 17540,
+      "development_examples": 11721,
+      "consumed_validation_examples": 5819,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+        "nit": 1332,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 28.812000000005355,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank6_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 2.1599009136386605e-05,
+      "development_max_augmented_coordinate": 181.18548583984375,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 7,
+      "unique_queries": 17540,
+      "development_examples": 11721,
+      "consumed_validation_examples": 5819,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Infeasible)",
+        "nit": 1223,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 28.875,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank7_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 3.298633148223027e-05,
+      "development_max_augmented_coordinate": 276.7091979980469,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 8,
+      "unique_queries": 17540,
+      "development_examples": 11721,
+      "consumed_validation_examples": 5819,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Infeasible)",
+        "nit": 1542,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 28.781999999991967,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank8_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 4.4856235714364747e-05,
+      "development_max_augmented_coordinate": 376.2810974121094,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 9,
+      "unique_queries": 17540,
+      "development_examples": 11721,
+      "consumed_validation_examples": 5819,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Feasible)",
+        "nit": 1232,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 28.812999999994645,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank9_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 3.780273524897093e-05,
+      "development_max_augmented_coordinate": 317.1120910644531,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 10,
+      "unique_queries": 17540,
+      "development_examples": 11721,
+      "consumed_validation_examples": 5819,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Infeasible)",
+        "nit": 1246,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 28.812000000005355,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank10_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 4.576548371102092e-05,
+      "development_max_augmented_coordinate": 383.9084167480469,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    },
+    {
+      "bank": 11,
+      "unique_queries": 17540,
+      "development_examples": 11721,
+      "consumed_validation_examples": 5819,
+      "solver": {
+        "status": 1,
+        "success": false,
+        "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is Infeasible)",
+        "nit": 1250,
+        "fun": null,
+        "available": false,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      "LP_seconds": 28.875,
+      "model_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank11_witness.npz",
+      "dual_unit_L1_margin_upper": null,
+      "uniform_F32_export_and_arithmetic_envelope": 4.051171089229014e-05,
+      "development_max_augmented_coordinate": 339.83660888671875,
+      "candidate_unit_L1_norm_upper": 3.8e-321,
+      "candidate_development_min_ideal_margin_lower": null,
+      "every_development_physical_sign_sufficient": false,
+      "every_consumed_domain_physical_sign_sufficient": false,
+      "uniform_sufficient_envelope_unattainable_on_development": false,
+      "scope": "12 fixed original tree roots; dual margin bound, not unrestricted affine impossibility; interval model, not executed C/LUT."
+    }
+  ],
+  "overall": {
+    "bank": -1,
+    "role": "ALL",
+    "count": 238872,
+    "available_candidate_count": 0,
+    "source_ties": 1,
+    "strict_physical_sign_sufficient": 0,
+    "strict_physical_wrong_sign": 0,
+    "physical_sign_not_proved": 0,
+    "min_signed_physical_lower": null,
+    "max_arithmetic_error_upper": null
+  },
+  "reports_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\complete_reports.json",
+  "controls": {
+    "solver_analytic_controls": [
+      {
+        "status": 0,
+        "expected_optimum": 1.0,
+        "dual_upper": 1.0000000000000009,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      {
+        "status": 0,
+        "expected_optimum": 0.0,
+        "dual_upper": 2.4980018054066037e-16,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      },
+      {
+        "status": 0,
+        "expected_optimum": 1.0,
+        "dual_upper": 1.0000000000000016,
+        "warnings": [
+          "Unrecognized options detected: {'threads': 1}. These will be passed to HiGHS verbatim."
+        ]
+      }
+    ],
+    "Decimal100_cancellation_enclosed": true,
+    "IEEE_F64_subnormal_arithmetic": true,
+    "control_LP_calls": 3,
+    "physical_contract_requires_FTZ_DAZ_off": true
+  },
+  "native_commands": 0,
+  "SVD_refits": 0,
+  "geometry_wire_width": 88,
+  "interval_fields": 1910976,
+  "physical_contract": "Finite F32 coefficients/inputs,augmented bias1,exact F64 products,any summation tree <=768 F64 additions,one correctly rounded F32 cast,FTZ/DAZ off. The C gate is not executed/export-integrated.",
+  "scope": "Consumed finite original tree roots. Checked intervals of saved affine candidates and dual normalized-margin bounds. No complete tree/mass/functions/new-n/freshquality/rate/LUT/physicalDRAM/general-family claim.",
+  "tracked_status": [
+    " M benchmarks/donor_adaptation/configs/_manifest.json",
+    " M benchmarks/donor_adaptation/density/build_document_holdout.py",
+    " M docs/research/RESEARCH_INDEX.md"
+  ],
+  "head_at_execution": "f0abf9281d9a9d87f768047756aeeafdefc8e8f2",
+  "resource": {
+    "seconds_before_RAW": 544.875,
+    "OS_peak_bytes": 5646962688,
+    "file_bytes_hashed": 17093294224,
+    "hard_seconds": 600,
+    "hard_peak_bytes": 8589934592,
+    "hard_new_bytes": 67108864,
+    "per_root_solver_time_limit": 25
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank0_witness.npz",
+      "bytes": 217714,
+      "sha256": "a2a33d27e08feb04c9096ade55553a010512f3a046853418464b14f85e41d68f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank10_witness.npz",
+      "bytes": 177063,
+      "sha256": "ce349c50ab41d0ac355dcdb0b2793e8a691e0a353460384b7e3d70c566be58f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank11_witness.npz",
+      "bytes": 177063,
+      "sha256": "cd7f61149a66b334c888fe5ac1558e6e7ad1b5b0400564564d1dd054424066a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank1_witness.npz",
+      "bytes": 217714,
+      "sha256": "65af6d26ce540f43893a16f704496ee1f4f7b352b8d41e31ebf9d2fc7d84c778"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank2_witness.npz",
+      "bytes": 217714,
+      "sha256": "bf87688c2b9de4a3e0d0f15765f4eed134bf10d0f2942ec6043fc22f883cb5ef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank3_witness.npz",
+      "bytes": 217714,
+      "sha256": "98aa13400854b6dfba7e7983090b0d41f554ec3bcbb20daa2993a82668989cac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank4_witness.npz",
+      "bytes": 217714,
+      "sha256": "957bb23a69f3b1c2714bb2443741f6867d59c1c213ae4527c0f2d4c1972f5166"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank5_witness.npz",
+      "bytes": 217714,
+      "sha256": "de09f44f48da9b8e25d4dd2b5e12790c94e961d61ffa9ba1bc074da44ab82316"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank6_witness.npz",
+      "bytes": 177063,
+      "sha256": "e635b0fda28623ccd9a58a19a62b3fb381aa70125a554dbeb2c94696250a58d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank7_witness.npz",
+      "bytes": 177063,
+      "sha256": "f53927b7286df220f68a7ead738fc93290e6bb0a11033a3f5727ac74f2ab84da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank8_witness.npz",
+      "bytes": 177063,
+      "sha256": "f0d3708d399c3574d80634dfef1b1ce3aef2e4ab1d53446897018b532faffada"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank9_witness.npz",
+      "bytes": 177063,
+      "sha256": "5d18703e914a0ebeb6250aa091fa5b4b9ffb66b9d3e29ab0f0ca5f9a9dfa5eaf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\bank_records.json",
+      "bytes": 15664,
+      "sha256": "ce71dc6a705410339ec4e658774077e7a3375090a4c6d1e70a862bc73da94995"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\certificate.bin",
+      "bytes": 21020760,
+      "sha256": "9acb75b9f2f964e5c0282553886d7b16ad4cf8b7ee803bf211f4973ca6dd306e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\complete_reports.json",
+      "bytes": 5545859,
+      "sha256": "bea01ada8164c949abd8a0f1006fcaea42de95008193d47a188b289f4029d1d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\controls.json",
+      "bytes": 919,
+      "sha256": "3ddffa701c0bf72fdfcfbea9782a6af02244d906f5feee2fe4811081fa1a20bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth482_r1_affine_root\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
