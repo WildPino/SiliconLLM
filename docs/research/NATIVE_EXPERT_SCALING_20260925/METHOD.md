@@ -1,34 +1,48 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:482 original audit fault retained, sole first R1 audit
+## Current resumption:482 admitted inconclusive;483 sole first main
 
-Previous goal turn PROGRESS:481 geometry fully admitted. Current482 source
-R1 main sole36751exit0/545.063s/5.647GB/5gates retained1ef97f3. ALL12root
-LPs time_limit/status1/no candidate or dual; geometry feasibility unresolved.
-Original audit63310exit1 BEFORE NumPy/dataset checks: wrong source481 output
-cap32MiB instead of frozen64MiB. Fault retained2f13747 before repair.
+Previous goal turn PROGRESS:481 fully admitted. Current turn PROGRESS:482main
+R1 all12LP time limits/no exposed vectors; complete independent R1audit sole
+96144exit0/73.657s/2.039GB/4gates admittedb9e993a. Original audit admission fault
+retained2f13747 before repair68c75dc; all completed namespaces stay exclusive.
+[Result482](METH_482_AFFINE_ROOT_RESULT_20261006.md),
+[whole algebra/new method](METH_482_ALGEBRA_REASSESSMENT_AND_NEXT_20261006.md).
 
-R1 full independent auditor frozen68c75dc; input accounting only corrected,
-complete numerical suffix14,318B BYTE unchanged01804cdd... Own600s/4GiB/new32MiB/
-admission180s unchanged. Original full source/runtime/fault chains admitted.
-ALL238872UID/955488source rootmax-ID/1910976F64field/12archives/39-72-4608-9216views.
-[Complete repair contract](METH_482_R1_RETENTION_PROTOCOL_20261006.md).
+483 complete main/helper/protocol/Windows/science frozen86df87f BEFORE numerics.
+NEWactive constraints/direct typed solver vectors, ALLdevelopment separation
+and every round retained. Same unit-L1 target; max8rounds/256newrows/root/25s
+remaining-wall search allowance; atomic verification/output paid in600s budget.
+CPU0/BLAS1/8GiB/new64MiB/admission180s; no previous LP/native/main/audit replay.
+[Complete prospective contract](METH_483_CONSTRAINT_ROOT_PROTOCOL_20261006.md).
 
-SOLE FIRST AUDIT-R1, unexecuted at registration (MAIN-R1 unchanged):
+SOLE FIRST MAIN,unexecuted at registration:
 
 ```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth482_r1_retention_audit.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\RETENTION_482_R1_AUDIT_R1_20261006.json
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_constraint_root.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth483_constraint_root_result.json
 ```
 
 Separate current process preflight inspected BEFORE launch; live SAMEhandle/
-smallPowerShell/commentary only. Actualterminal then ONE frozen R1auditWindows
-query available/0matching before interpretation. First new fault before numbered
-repair; no completed main/LP/source/native/audit replay. No geometry or quality
-promotion from status messages. Full goal ACTIVE/INCOMPLETE.
+smallPowerShell/commentary only, no editor/hash/Git/science mutation. Timeout
+observes samehandle. Actualterminal then ONE frozen483Windows query; firstfault
+before numberedrepair. Complete independent audit required before interpretation.
+No affine impossibility/freshquality/C/LUT/rate promotion from solver status.
 
-Next prospective method must expose verifiable primal/dual values and reduce
-LP matrix cost. Retain wholeartifact/fresh ownstate donor-quality ANDSAME>=50/
-usefuldistinctn/CPU LUT/winner ANDmass/physicalDRAM/multiple actualfamilies goals.
+Full goal ACTIVE/INCOMPLETE: useful distinctn scaling with RAM, winner ANDmass,
+physicalDRAM, donor-relative fresh ownstate prediction/generation/task quality
+ANDSAME>=50batch1accepted IDs/s on one complete transformed artifact, multiple
+actualfamilies/scales/~100B when resources allow. Router remains enabling work;
+whole core/head/selected-function budget and causal utility remain open.
+
+## Available analysis: normalized root affine feasibility inquiry
+
+482 all12development-only full LPs/controls/source fields and every unresolved
+output independently admitted. No affine geometry established; wrapper omits
+nonoptimal vectors. Original main memory and audit accounting faults retained
+before numbered repairs. [Result](METH_482_AFFINE_ROOT_RESULT_20261006.md).
+483 bounded active-row representation/vector retention is implemented and frozen,
+unexecuted at registration, not yet qualified or audited. No whole transfer
+artifact/fresh quality/SAMErate/useful-n/C LUT promotion.
 
 ## Implemented transfer attempt: learned supports and partition
 
