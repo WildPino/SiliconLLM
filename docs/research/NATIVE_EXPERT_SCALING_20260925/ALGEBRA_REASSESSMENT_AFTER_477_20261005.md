@@ -134,6 +134,12 @@ nessun nuovo capture/modello/rifit delle funzioni o benchmark delle vecchie LUT.
 
 Prima del freeze definitivo:
 
+Ispezione statica successiva: il router393 usa prodotti/riduzione F64 di input
+e pesi F32, poi cast F32. La softmax include sottrazione F32, exp libreria,
+cast F32 e somma F64 sequenziale. [Nota di contratto nativo](METH_478_STATIC_ROUTER_CONTRACT_NOTE_20261005.md)
+separa i bound deducibili dalle ipotesi/runtime ancora da ammettere. Non
+chiamare certificato floating-point il solo bound geometrico in aritmetica reale.
+
 1. Ammettere file/schema e rivedere il dot F32 sorgente; completare i bound per
    centro arrotondato, score/exp/somme e tie-break. Nessun risultato geometrico
    prima del congelamento di sorgente/protocollo/input/runtime.
