@@ -1,6 +1,23 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current operational decision after453
+## Exact next action: ONE454 execution
+
+Scientific C/controller/protocol frozen **2ba2a3c**, before first import/compile.
+Compare unchanged original C FFN with direct-I4 and full pair-LUT-I4 WI, each
+followed by exact sparse original-I8 WO. All1680 original/correct/wrong C states/
+A16/bases must match existing evidence BEFORE timing. Two warm/five measured
+WHOLE336 trace sweeps per arm, rotating arm order, all outputs checked.
+
+    .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth454_switch_sparse_wo_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth454_switch_sparse_wo_cost_result.json
+
+CPU0/one worker, no GPU/download/fit/engine edit. Expected60..180s/~520MBoutputs;
+stops admission300/numeric600/total900s, parent3GiB/native2GiB/conservative sum4GiB,
+outputs600MiB. First failure retained, no rerun on observation timeout. Each kernel
+must pass mean<=80%, every book<=100%,p95<=100%of original FFN cost. Preserve each
+failed variant. Selected-FFN scope; full quality/accepted50/DRAM/n remain required.
+[454 protocol](METH_454_SWITCH_SPARSE_WO_COST_PROTOCOL_20261005.md).
+
+## Retained prior453 decision
 
 453 completed ONE session25101, terminal exit0: ALL10apparatus/ALL7local gates
 PASS. Compact WI/native I8 WO correct meanKL.0004017228,3/336changes; identity harm
