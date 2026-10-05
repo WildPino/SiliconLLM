@@ -144,3 +144,15 @@ damage. No new quality/performance/useful-n/LUT/DRAM/family-scale claim.
 Next: ONE separately implemented/frozen learned support representation and
 separate partition surrogate, with explicit data/rounding/work/stops before
 fit. [Geometry and proposed next procedure](METH_479_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
+
+## Session closeout
+
+Metadata-only closeout at4f477b4:41physical HEAD source/control files exact,
+all3unrelated physical files/hash unchanged,12actual controller/compiler/native/
+auditor PID+creation instances absent,0active scientific processes, staging
+empty. Full30first-fault output sizes/mtimes retained; no repeat large source/
+target hash or numerical/native work. Closeout JSON in results/native_expert_scaling/
+meth479_session_closeout.json, SHA
+f571247439362503f1dfb7049a8eec0603300cd2efb1a2e7f072aef59a5d11b8.
+This is a dated source/control snapshot before the final documentation note,
+not an additional scientific execution or full-goal completion.
