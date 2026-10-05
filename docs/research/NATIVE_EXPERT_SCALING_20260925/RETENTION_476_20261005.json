@@ -1,0 +1,91 @@
+{
+  "experiment": "METH476 independent retention audit",
+  "raw_sha256": "1f5402b1cf059458ad095c113070c6a5c99a8a6ccf29f280cdfb4c718dd0230f",
+  "helper_sha256": "7a6666f2590db71586fbba3c4c2c331ef41db86c1f1293ee87e420cebd36116a",
+  "source_binding_sha256": "2d3d5b225a0126c293ed716c99cc33125e36f8c7e64b628bf9b9c02db4991dc2",
+  "gates": {
+    "all_frozen_actual_sources_runtime_payload_prior6567_extra193_outputs_terminal_instances_bound": true,
+    "independent_exact_I8_A16_codes_dot_scales13_native_fixtures": true,
+    "ALL1344_known_true_pre_norm_residual_final_head_codes_ALL_logits_independent_BYTE_exact": true,
+    "ALL6649_query_ledger_digests_roles_original_prefix_order_independent_exact": true,
+    "ALL6649_pre_norm_source_residual_final_A16_head_ALL_logits_independent_BYTE_exact": true,
+    "whole_count_scope_source_recorded_controls_preserved_budget_and_decision_exact": true
+  },
+  "files": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\compile.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\compile.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\context.bin",
+      "bytes": 36991620,
+      "sha256": "25cb595e26ab305198b1c32a70dda85983e91b03f2c92b4440f3756ce384eaeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\head-int-dot.bin",
+      "bytes": 41388,
+      "sha256": "0162a37a6a521c7ddd9c80097c193eaa0e7e85e39c056aa88bb5017f68559b87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\jobs.bin",
+      "bytes": 301396,
+      "sha256": "bfc840ba5b4d3073a47d3a9b0ddb5c3678996e57377c4403ff6826cf16170b33"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\libomp.dll",
+      "bytes": 1262080,
+      "sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\meth476_switch_last_layer_context.exe",
+      "bytes": 310272,
+      "sha256": "3a5a069e64dd8412e73f31d89eceef35a3b9d878d371a74c635be98909842552"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\native.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\native.stdout.log",
+      "bytes": 69239,
+      "sha256": "560f45f473aff016461bad8630762363d61187a12f2ee8f816c8b7772bfe00d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\progress.jsonl",
+      "bytes": 655,
+      "sha256": "f35cbaf63438b39dfd41854b86d07b07cc80e3276714cec59a751c4731c0a674"
+    }
+  ],
+  "window_event_metadata": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_windows_terminal.json",
+    "sha256": "8eebf1232e8f2e0533b98d01da10431296da40d954148be1ede1deb725afce1a"
+  },
+  "independent_positions": 7993,
+  "independent_head_logits": 256799104,
+  "validation_positions": 6649,
+  "native_recorded_only": "last-layer attention reconstruction and original full WI/WO comparisons; cached native records independently byte bound",
+  "decision": "CONTEXT_ADMITTED_for_separately_frozen_observable_diagnostic_only",
+  "resource": {
+    "seconds": 60.23399999999674,
+    "OS_peak_bytes": 472940544,
+    "file_bytes_hashed": 15948392115,
+    "scientific_new_OUT_plus_RAW_bytes": 38990991
+  },
+  "audit_process_instance": {
+    "pid": 23504,
+    "create_time_unix": 1791212536.5633547
+  },
+  "preserved_daemons": []
+}

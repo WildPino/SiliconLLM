@@ -46,7 +46,10 @@ ranks fail this metric/budget family.
 private rank32OUTPUT lower floors FAIL105/107 despite pooled1.31%PASS.
 [475](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md): ALL6/ALL6PASS;
 exact functions but certified11.31%/logical WI coefficient savings5.66% economicFAIL.
-476 complete source-context reconstruction frozen70c6a8f; no observations yet.
+[476](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md): ALL6/ALL6PASS;
+ALL6649validation +1344knowntruepre source contexts/head BYTE exact;
+256,799,104headlogits independently rederived. Next: actual head-observable
+saved472 candidate diagnostic, all original prefixes; no candidate quality yet.
 
 Input apparatus: [467 source/codec admission](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
 [464 corpus transport](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
@@ -117,46 +120,50 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: frozen476, sole complete source-context first invocation
+## Current resumption:476 complete source context admitted; observable diagnostic next
 
-Previous goal turn PROGRESS:475 retained4e5feba, ALL6apparatus/ALL6auditPASS,
-exact functions but11.31%certificate/5.66%logicalWI savings economicFAIL/CLOSED.
-Full goal ACTIVE/INCOMPLETE;472 keeps original localFAIL/no candidate promotion.
+Current goal turn PROGRESS.476 main60373exit0/audit71464exit0, ALL6apparatus/
+ALL6auditPASS. ALL1344 knowntruepre controls plus ALL6649 validation472 queries
+(3584teacher/3065natural,64books/512originaltrajectories) complete source context
+BYTE exact through sourceFFN/norm/A16 head/ALL32128logits. Independent audit
+rederived ALL7993positions/256,799,104headlogits, allledger/digests/roles/order.
+Missingcachedpre resolved constructively with ONLY finaldecoderlayer replay;
+no subtraction inverse, whole source recapture, changed own states or candidate.
+[Result and algebraic reassessment](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md),
+[raw](meth476_switch_last_layer_context_result.json),
+[retention](RETENTION_476_20261005.json). Freeze70c6a8f/first8d5e124/audit4ca1536.
+Main48.391s beforeRAW/conservativepeak1,018,068,992B; audit60.531s/472,940,544B;
+newOUT+RAW38,990,991B, ALLlimitsPASS/WindowsEvent1000availableZEROmatches.
+No completed476 rerun. Closed472local105/107/book107 and473/474/475 unchanged.
 
-NEW476 source/C/protocol/binding frozen70c6a8f BEFORE first scientific compile/
-import/numerics. Binding SHA2d3d5b225a0126c293ed716c99cc33125e36f8c7e64b628bf9b9c02db4991dc2.
-Controller SHAb4b42bf8eefac0204ae7ae60f9fbb7ca64f061b7d44b9fde656a3b51ff8148e5;
-C SHAd298f6bcef111d6bef7f4b4d49b4104fb9a5108237ab29df68066f476e7e49f3.
-ALL6567 prior files7,702,062,531B/full original payload/actual runtime plus
-192golden whole/trace files and frozen metadata body bound before observations.
+Next NEW477: ONE descriptive finite head-observable diagnostic for ALL6649
+admitted original prefixes using saved472candidate/source functions and476pre.
+Compute actual residual/originalprobability/finalnorm/rescale/A16head/all32128
+candidate logits, stable KL, source margins/delta range/actual argmax changes.
+KL=log(sum(p*exp(delta)))-sum(p*delta); it ignores constant logit shifts, and
+finite actual quantized head comparisons are required. Smooth norm/Fisher
+geometry motivates a metric; it is not a formal floating-point certificate.
+Predetermine uniformquery/everybook/teacher-natural/ready-fallback/rare-dominant/
+novel-coordinate summaries with complete denominators. True-label deltaNLL only
+after exact label provenance. No refit/IDfilter/rankgrid/promotion or altered472gate.
 
-Cached469whole lacks exactpre. Replay ONLY finaldecoderlayer from cached
-layer10/all-original-prefix states and finalencoder outputs, capturepre before
-FFN. ALL1344 knowntruepre controls first, ALL6649 validation472queries next:
-3584teacher/3065natural,64books/512originaltrajectories/608batches total.
-Original source input/routes/mass/fullFFN/post/final/ALL32128logits BYTE exact;
-original472 referencefunctions join, no candidate quality yet/cohort narrowing.
+Exact next action: metadata-only full context/candidate/header/label availability
+and output cost review; NEW477 controller/math/protocol/full runtime/input/budget
+binding; freeze BEFORE first scientific compile/import/candidate forward, then
+separate sole first-command registration. No477source/frozenbinding/protocol/
+observation/executablecommand yet. Prospective budget must cover ALL6649 and
+fullvocabulary; retain per-query witnesses rather than854MB full logits or a
+narrowed cohort. Qualify sourceprimal/softmax controls before candidate metrics;
+ONE independent complete head/metrics/terminal/resource audit after actualterminal.
+No threshold chosen after observations; this is consumed-prefix diagnostic
+calibration, not fresh whole quality. First failures BEFORE numbered repairs.
 
-ONE first command, never repeat a completed scientific namespace:
-
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth476_switch_last_layer_context.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth476_switch_last_layer_context_result.json
-```
-
-Prospective600s/2GiB/new64MiB, admission150s/compile120s/native420s,
-native3workers0,2,4/parentCPU0, original primitives/compiler/runtime unchanged.
-Outputupper47,690,884B. [Frozen protocol](METH_476_SWITCH_LAST_LAYER_CONTEXT_PROTOCOL_20261005.md)
-authoritative; no476scientific observation yet. Poll SAMElivehandle; timeout
-not termination. Then WindowsEvent1000 actualparent/compiler/native instances
-and ONE independent complete pre->norm/residual/final/A16head/ALLlogits audit.
-Any first fault retained BEFORE numbered repair; no old source recapture.
-
-Only qualification permits separately frozen saved472 candidate/head observable
-diagnostic; consumed original prefixes cannot establish fresh/global quality.
-Foreground369..373 real-n evidence unchanged: matched functions useful, nested
-64/128/256qualitymixed, fourfoldfullcost bounded but no monotonic useful-n proof.
-Full newartifact/freshquality/SAME>=50/CPU LUT/winner ANDmass/physicalDRAM/
-causal useful-n/multiple actualfamilies/~10B/~100B remain open.
+Foreground369..373 real-n evidence unchanged: matching trainedfunctions useful,
+actual nested64/128/256qualitymixed; fourfoldfullcost bounded but router~3.83x,
+no monotonic useful-n/physicalDRAM/winner ANDmass CPU LUT proof. FullgoalACTIVE/
+INCOMPLETE: viable newall-bank reusable artifact -> fresh changed-own-state
+prediction/generation/tasks AND SAME>=50 -> physicalDRAM/causal useful-n/mass/
+CPU LUT/multiple actualfamilies/~10B/~100B. No original rate inherited.
 
 ## Retained457: admission failed before native execution
 

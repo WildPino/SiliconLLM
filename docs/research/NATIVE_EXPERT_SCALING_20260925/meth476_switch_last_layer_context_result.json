@@ -1,0 +1,355 @@
+{
+  "experiment": "METH476 all6649 validation original128 partial last-layer context reconstruction",
+  "start_utc": "2026-10-05T14:56:59.810632+00:00",
+  "argv": [
+    "benchmarks\\native_expert_scaling\\meth476_switch_last_layer_context.py",
+    "--out",
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth476_switch_last_layer_context_result.json"
+  ],
+  "source_binding_sha256": "2d3d5b225a0126c293ed716c99cc33125e36f8c7e64b628bf9b9c02db4991dc2",
+  "apparatus_gates": {
+    "frozen_actual_runtime_sources_all6567_inputs_original_payload": true,
+    "ALL6649_immutable_validation_queries_ledger_prefixes_no_selection": true,
+    "same_source_primitives_compiler_flags_actual3_workers_integer13_BYTE_exact": true,
+    "ALL1344_known_true_pre_complete_FFN_norm_codes_down_head_and_logits_BYTE_exact": true,
+    "ALL6649_source_pre_FFN_input_scores_winner_mass_complete_function_post_final_ALL_logits_BYTE_exact": true,
+    "complete_output_counts_bound_budget_inputs_no_candidate_or_whole_recapture": true
+  },
+  "experts": [],
+  "native_or_model_commands": 1,
+  "updates": 0,
+  "main_process_instance": {
+    "pid": 23900,
+    "create_time_unix": 1791212219.6388192,
+    "name": "python.exe",
+    "executable": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+  },
+  "preserved_daemons_before": [],
+  "head_at_execution": "8d5e12406f38322e426f6123d9f72a8da62e03f2",
+  "scientific_sources": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth476_switch_last_layer_context.py": "b4b42bf8eefac0204ae7ae60f9fbb7ca64f061b7d44b9fde656a3b51ff8148e5",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth476_switch_last_layer_context.c": "d298f6bcef111d6bef7f4b4d49b4104fb9a5108237ab29df68066f476e7e49f3",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_476_SWITCH_LAST_LAYER_CONTEXT_PROTOCOL_20261005.md": "14398f0aa2edb9ae95d73d9592bb8ebf9c4f40e56924ff9964adbd07b56c4462"
+  },
+  "preserved_engine_sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414",
+  "artifact": {
+    "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+    "bytes": 7541946880,
+    "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe",
+    "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+    "manifest_sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a",
+    "source_unique_parameters": 7415217408,
+    "original_experts_per_bank": 128,
+    "f32_embedding_alias_names": [
+      "decoder.embed_tokens.weight",
+      "encoder.embed_tokens.weight",
+      "shared.weight"
+    ],
+    "f32_embedding_physical_copies": 1,
+    "separate_I8_head_view_from_same_tied_source": true,
+    "row_I8_tensor_names": 3241,
+    "f32_tensor_names": 79
+  },
+  "payload_stat_before": [
+    7541946880,
+    1791084550563060000
+  ],
+  "admission": {
+    "seconds": 30.48399999999674,
+    "OS_peak_bytes": 87412736,
+    "file_bytes_hashed": 15870404127
+  },
+  "query_admission": {
+    "count": 6649,
+    "teacher": 3584,
+    "natural": 3065,
+    "books": {
+      "64": 105,
+      "65": 105,
+      "66": 107,
+      "67": 105,
+      "68": 102,
+      "69": 103,
+      "70": 103,
+      "71": 100,
+      "72": 102,
+      "73": 103,
+      "74": 110,
+      "75": 99,
+      "76": 102,
+      "77": 104,
+      "78": 107,
+      "79": 105,
+      "80": 105,
+      "81": 105,
+      "82": 108,
+      "83": 104,
+      "84": 104,
+      "85": 102,
+      "86": 104,
+      "87": 105,
+      "88": 108,
+      "89": 101,
+      "90": 106,
+      "91": 106,
+      "92": 103,
+      "93": 107,
+      "94": 101,
+      "95": 105,
+      "96": 104,
+      "97": 102,
+      "98": 103,
+      "99": 104,
+      "100": 105,
+      "101": 108,
+      "102": 105,
+      "103": 102,
+      "104": 105,
+      "105": 104,
+      "106": 99,
+      "107": 104,
+      "108": 105,
+      "109": 105,
+      "110": 105,
+      "111": 104,
+      "112": 102,
+      "113": 104,
+      "114": 103,
+      "115": 104,
+      "116": 103,
+      "117": 105,
+      "118": 105,
+      "119": 100,
+      "120": 104,
+      "121": 103,
+      "122": 102,
+      "123": 102,
+      "124": 104,
+      "125": 102,
+      "126": 102,
+      "127": 104
+    },
+    "all_original_query_indices_sha256": "ffebbaa0f9dcb4175b4ff05a8882cd46ec42400815defedf609fe49fd1dfce19"
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-fno-fast-math",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth476_switch_last_layer_context.c",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\meth476_switch_last_layer_context.exe"
+      ],
+      "label": "compile",
+      "start_utc": "2026-10-05T14:57:32.248694+00:00",
+      "process_instance": {
+        "pid": 18340,
+        "create_time_unix": 1791212252.2511213,
+        "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe"
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-05T14:57:35.898020+00:00",
+      "wall_seconds": 3.6560000000026776,
+      "OS_child_peak_bytes": 127844352,
+      "descendant_process_peaks": [
+        {
+          "pid": 3488,
+          "create_time_unix": 1791212252.2998354,
+          "peak_bytes": 19726336
+        },
+        {
+          "pid": 21748,
+          "create_time_unix": 1791212252.6429467,
+          "peak_bytes": 81891328
+        },
+        {
+          "pid": 23444,
+          "create_time_unix": 1791212255.7236962,
+          "peak_bytes": 21630976
+        }
+      ],
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\compile.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\compile.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\meth476_switch_last_layer_context.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\jobs.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth472_switch_private_input_probe\\query_inputs.npy",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth472_switch_private_input_probe\\reference_functions.npy",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\context.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth356_switch_all_a16_contract\\integer_cases.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\head-int-dot.bin"
+      ],
+      "label": "native",
+      "start_utc": "2026-10-05T14:57:35.976265+00:00",
+      "process_instance": {
+        "pid": 9484,
+        "create_time_unix": 1791212256.003517,
+        "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\meth476_switch_last_layer_context.exe"
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-05T14:57:47.933394+00:00",
+      "wall_seconds": 11.952999999994063,
+      "OS_child_peak_bytes": 818061312,
+      "descendant_process_peaks": [],
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\native.stdout.log",
+        "sha256": "560f45f473aff016461bad8630762363d61187a12f2ee8f816c8b7772bfe00d3"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\native.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth476_switch_last_layer_context.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\meth476_switch_last_layer_context.exe"
+    ],
+    "binary_sha256": "3a5a069e64dd8412e73f31d89eceef35a3b9d878d371a74c635be98909842552",
+    "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+  },
+  "native_runtime_environment": {
+    "OMP_WAIT_POLICY": "ACTIVE",
+    "KMP_AFFINITY": "none",
+    "KMP_BLOCKTIME": "infinite",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_MAX_ACTIVE_LEVELS": "1",
+    "OMP_NUM_THREADS": "3"
+  },
+  "native_terminal": {
+    "terminal": true,
+    "positions": 7993,
+    "goldens": 1344,
+    "validation": 6649,
+    "checked_logits": 256799104,
+    "worker_physical_cores": 6,
+    "worker_affinity": [
+      {
+        "slot": 0,
+        "windows_thread_id": 6612,
+        "group": 0,
+        "actual_mask": 1
+      },
+      {
+        "slot": 1,
+        "windows_thread_id": 7220,
+        "group": 0,
+        "actual_mask": 4
+      },
+      {
+        "slot": 2,
+        "windows_thread_id": 3384,
+        "group": 0,
+        "actual_mask": 16
+      }
+    ],
+    "worker_binding_events": [
+      {
+        "slot": 0,
+        "windows_thread_id": 6612,
+        "group": 0,
+        "actual_mask": 1
+      },
+      {
+        "slot": 1,
+        "windows_thread_id": 7220,
+        "group": 0,
+        "actual_mask": 4
+      },
+      {
+        "slot": 2,
+        "windows_thread_id": 3384,
+        "group": 0,
+        "actual_mask": 16
+      }
+    ]
+  },
+  "preserved_daemons_after": [],
+  "decision": "CONTEXT_ADMITTED_pending_independent_retention_audit",
+  "scope": "Source-prefix conditional last-layer reconstruction only. All validation472 prefixes retained; no candidate forward, changed states, fitting, global quality, speed, DRAM, useful-n or model promotion.",
+  "end_utc": "2026-10-05T14:57:48.004840+00:00",
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\compile.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\compile.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\context.bin",
+      "bytes": 36991620,
+      "sha256": "25cb595e26ab305198b1c32a70dda85983e91b03f2c92b4440f3756ce384eaeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\head-int-dot.bin",
+      "bytes": 41388,
+      "sha256": "0162a37a6a521c7ddd9c80097c193eaa0e7e85e39c056aa88bb5017f68559b87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\jobs.bin",
+      "bytes": 301396,
+      "sha256": "bfc840ba5b4d3073a47d3a9b0ddb5c3678996e57377c4403ff6826cf16170b33"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\libomp.dll",
+      "bytes": 1262080,
+      "sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\meth476_switch_last_layer_context.exe",
+      "bytes": 310272,
+      "sha256": "3a5a069e64dd8412e73f31d89eceef35a3b9d878d371a74c635be98909842552"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\native.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\native.stdout.log",
+      "bytes": 69239,
+      "sha256": "560f45f473aff016461bad8630762363d61187a12f2ee8f816c8b7772bfe00d3"
+    }
+  ],
+  "resource": {
+    "seconds_before_raw_write": 48.39099999998871,
+    "OS_peak_bytes_before_raw_write": 1018068992,
+    "file_bytes_hashed_before_raw_write": 16350560784,
+    "hard_seconds": 600,
+    "hard_peak_bytes": 2147483648,
+    "hard_new_bytes": 67108864,
+    "output_upper_bytes": 47690884
+  }
+}
