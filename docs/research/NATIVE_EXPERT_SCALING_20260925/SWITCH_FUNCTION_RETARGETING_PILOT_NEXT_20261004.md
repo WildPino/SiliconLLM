@@ -1,36 +1,33 @@
-# Function information calibration retained; grouped routing mass admission next
+# Fixed grouped router mass feasibility: sole first inquiry
 
-## Current resumption:477-R1 retained, grouped routing-mass feasibility next
+## Current resumption:478 frozen, sole first grouped-router inquiry
 
-5 October2026. Current goal turnPROGRESS, full goalACTIVE/INCOMPLETE.
-477-R1 ONEsession71544exit0/131.547s/491724800Bpeak,ALL9PASS. Independent
-stdlib scalar retention ONEsession10241exit0/37.156s/70156288Bpeak,ALL6PASS;
-14352float statistics/4241integer counts checked. Windows query available,
-zeroEvents/Matches, exactR1PID7708+creation. No live scientific handle.
+Current turnPROGRESS: complete source/runtime admission and implemented ONE
+weight-only geometric mass/winner inquiry frozenbb86323/module-sealaf69b92.
+Previous477-R1 complete recovery/scalar audit retained02c8317, old477failed
+and472localFAIL unchanged. [478 first registration](METH_478_FIRST_RESUMPTION_20261005.md).
 
-ALL7993source heads BYTE exact; ALL6649candidate codes/scales BYTE exact/full
-32128logits SHA exact; ALLlabels/metrics/jobs/EOF/correct470418176 rederived.
-Original477parent1/native2/endworker unavailable retained; old472 localFAIL
-unchanged. Natural190/3065argmax changes,KLmean.03947485 despite pooledFFNRMS
-.02832230; maskedteacher deltaNLL+.05974024,1002->977 correct/2048.
-[Complete result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md) and [scalar retention](RETENTION_477_R1_20261005.json).
-RAW SHA593baadd707f5e0526e77e6d90bee637ed7bd48b432a84abf93f6b6f73b99791;
-RET SHA5569e232d135cc7ee8ad11836af62b6cbe058c8b0552a23912c7eeb0b5463deb.
-Scientificfreezeb557c94/first8ead24a; scalarfreeze844eaf7/first59de800.
-NEVER repeat completed477/477-R1/476 or their audits/captures.
+Sole first command, unexecuted at this registration:
 
-Next proposed NEW478, not frozen/executed: qualify F32 score/group interval
-math then freeze ONE weight-only binary hierarchy/adaptive refinement inquiry
-on ALL qualified393real128/256input/fullscore traces. Preserve winner ANDmass;
-pay allcenters/bounds/norms/refinement/fallback. Complete runtime/input/source
-bindings BEFORE numerics, sole command in separate resumption. Proposed
-180s/2GiB/new96MiB budget needs static admission first, no model/native timing.
-No tree/threshold/cluster sweep after result. [Algebra and decision](ALGEBRA_REASSESSMENT_AFTER_477_20261005.md).
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth478_grouped_router_probe.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth478_grouped_router_result.json
+```
 
-Full newartifact/fresh own-state prediction/generation/tasks AND SAME>=50,
-physicalDRAM/causal useful-n/CPU LUT winner ANDmass/multiple actualfamilies/
-~10B/~100B remain joint requirements.369..373real-n evidence unchanged;
-393tailmass/394..395recipe rejections retained. No new candidate promoted.
+CPU0/BLAS1, hard300s/2GiB/new96MiB/admission120s; ALL393384traces/96186queries,
+two actual original128/256sources, no causal n curve. Source full scores/ID/
+probability BYTE before tree. ONE principal balanced split/fixed bound/heap,
+empirical native enclosures and complete paid vector/scalar/descriptor work.
+Binding07dc05c3e34df0570880b6c20315008614ffeb43061a109cbcc271a8aa6d6894;
+[protocol](METH_478_GROUPED_ROUTER_PROTOCOL_20261005.md) authoritative. No
+scientific478observations yet. Poll SAMElive handle on timeout; preserve first
+failure before numbered repair, never restart a completed main/capture/audit.
+After actualterminal: ONE478Windows event query and ONE complete independent
+audit frozen before its numerics; no interpretation/promotion before audit.
+
+No new model/capture/training/whole-rate/native-timing/physicalDRAM. Work PASS
+only enables new C cost inquiry; workFAIL closes THIS tree/radius, no sweep.
+All fullgoal jointrequirements including fresh SAMEartifactquality/>=50,
+causal useful-n/LUT mass/DRAM/multiple actualfamilies/~10B/~100B remain open.
 
 ## Retained457: admission failed before native execution
 

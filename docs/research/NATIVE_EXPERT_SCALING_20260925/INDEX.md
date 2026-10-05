@@ -40,22 +40,34 @@ normalization/head do not remove the finite loss. No candidate promotion.
 [Whole-project algebraic reassessment](ALGEBRA_REASSESSMENT_AFTER_477_20261005.md) defines separate capacity,
 functional information, physical cost and routing-mass problems.
 
-## Current resumption
+## Current resumption:478 frozen, sole first grouped-router inquiry
 
-477-R1 ONEsession71544exit0/131.547s/491724800Bpeak, scientificfreezeb557c94/
-first8ead24a. Scalar ONEsession10241exit0/37.156s/70156288Bpeak, freeze844eaf7/
-first59de800;14352floatstats/4241counts. Windows query available/zeroevents.
-RAW593baadd707f5e0526e77e6d90bee637ed7bd48b432a84abf93f6b6f73b99791;
-RET5569e232d135cc7ee8ad11836af62b6cbe058c8b0552a23912c7eeb0b5463deb.
-No live scientific handle. Do not rerun any completed namespace.
+Current turnPROGRESS: complete source/runtime admission and implemented ONE
+weight-only geometric mass/winner inquiry frozenbb86323/module-sealaf69b92.
+Previous477-R1 complete recovery/scalar audit retained02c8317, old477failed
+and472localFAIL unchanged. [478 first registration](METH_478_FIRST_RESUMPTION_20261005.md).
 
-Next proposed NEW478 is UNFROZEN/UNEXECUTED: static source/F32 interval admission
-for ONE weight-only binary routing hierarchy, ALL393real128/256scores/inputs.
-Evaluate winner ANDgroupmass with paid centroid/bound/norm/refinement/fallback;
-prospective work gates/budget in the [proposal](ALGEBRA_REASSESSMENT_AFTER_477_20261005.md). New source/protocol/
-bindings and separate solefirst command before any geometry/numerics. No model,
-native timing, training or threshold/cluster sweep. PASS only enables C cost;
-FAIL closes this bound/tree recipe and motivates learned structured gating.
+Sole first command, unexecuted at this registration:
+
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth478_grouped_router_probe.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth478_grouped_router_result.json
+```
+
+CPU0/BLAS1, hard300s/2GiB/new96MiB/admission120s; ALL393384traces/96186queries,
+two actual original128/256sources, no causal n curve. Source full scores/ID/
+probability BYTE before tree. ONE principal balanced split/fixed bound/heap,
+empirical native enclosures and complete paid vector/scalar/descriptor work.
+Binding07dc05c3e34df0570880b6c20315008614ffeb43061a109cbcc271a8aa6d6894;
+[protocol](METH_478_GROUPED_ROUTER_PROTOCOL_20261005.md) authoritative. No
+scientific478observations yet. Poll SAMElive handle on timeout; preserve first
+failure before numbered repair, never restart a completed main/capture/audit.
+After actualterminal: ONE478Windows event query and ONE complete independent
+audit frozen before its numerics; no interpretation/promotion before audit.
+
+No new model/capture/training/whole-rate/native-timing/physicalDRAM. Work PASS
+only enables new C cost inquiry; workFAIL closes THIS tree/radius, no sweep.
+All fullgoal jointrequirements including fresh SAMEartifactquality/>=50,
+causal useful-n/LUT mass/DRAM/multiple actualfamilies/~10B/~100B remain open.
 
 ## Retained evidence and closures
 
