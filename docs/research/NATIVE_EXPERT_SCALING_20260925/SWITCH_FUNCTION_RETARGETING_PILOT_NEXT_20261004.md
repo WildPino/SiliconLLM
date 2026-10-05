@@ -1,6 +1,6 @@
 # Current resumption: one bounded development information augmentation
 
-## Current resumption: prospective470 development-only manifest, first execution pending
+## Current resumption: frozen470 development-only manifest, ONE first execution next
 
 469 original-native capture retained1b52f57: ALL10/ALL9PASS, fixedbank11 DATAFAIL
 84ready IDs/84.99%coverage.25IDs/389validation executions have development-only
@@ -9,12 +9,11 @@ added development may shrink novelty. ONE64new-dev extension only, no adaptive
 ladder, changed validation/bank/floors/filter or factor before adequate data.
 [469 result](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md).
 
-NEW470 source/protocol prepared BEFORE compile/import/selection. Prospective
+NEW470 source/protocol/bindings frozen161ce77 BEFORE compile/import/selection.
 binding SHA0f4cc3136c3cb2c8f8795a9bd807c86320ad6494d7d058a8ee4cccad3a4ca90d;
 current1863priorJSONs/1042233407B, actual qualified referencePython/25tokenizers+
 11psutilcode-native files/7originalsidefiles/cached464source/467golden96. No
-scientific observation yet. Freeze all owned files, record freeze revision,
-then ONE first command with original reference venv:
+scientific observation yet. ONE first command with original reference venv:
 
 results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
 benchmarks\native_expert_scaling\meth470_switch_development_manifest.py --out

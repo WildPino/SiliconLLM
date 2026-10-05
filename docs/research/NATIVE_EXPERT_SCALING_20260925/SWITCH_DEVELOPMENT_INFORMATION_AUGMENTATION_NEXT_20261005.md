@@ -3,8 +3,8 @@
 5 October2026.469 original128 conditional-input capture admitted, ALL10 apparatus/
 ALL9 independent retention PASS. Fixedbank11 DATA FAIL:84readyIDs,2605/3065=
 84.991843%own-natural validation executed-query coverage (<90%). No factors.
-Full goal ACTIVE/INCOMPLETE.470 source/protocol/bindings prepared, freeze and first
-execution pending;471 not created/frozen/imported/executed.
+Full goal ACTIVE/INCOMPLETE.470 source/protocol/bindings frozen161ce77 BEFORE compile/import/selection, ONE
+first execution next;471 not created/frozen/imported/executed.
 See [470 prospective protocol](METH_470_SWITCH_DEVELOPMENT_MANIFEST_PROTOCOL_20261005.md).
 
 ## Precise bottleneck, feasibility and stop
