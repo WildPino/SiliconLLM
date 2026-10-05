@@ -39,6 +39,24 @@ gates before measurement. No parameter sweep based on results. If LUT loses,
 retain its failure even when direct packed wins. Scope is selected FFN only;
 whole source-specific multiworker rate cannot be extrapolated from this microcost.
 
+Use the EXACT committed374/356-qualified native original matrix/quantization
+primitive as baseline, not a new scalar source surrogate. Source inclusion must
+bind unchanged entry/C/thread helpers and engine SHA54194c36...; current compiler
+SHA8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7.
+One-worker OpenMP/configuration overhead remains explicit. Candidate arithmetic
+may use a new independently qualified kernel; comparison must preserve precision
+and shape and retain differences between these functions' prediction semantics.
+
+Prospective C-cost decision to freeze with code: two warm trace sweeps, five
+measured sweeps of336 positions, fixed rotating three-arm order. Save every
+query duration; require each candidate independently mean cost<=.80 of original,
+all book mean ratios<=1.00 and p95 query cost<=1.00 of original p95. At least one
+candidate must pass before all-bank export; a failed LUT remains failed even if
+direct wins. Fixed measurements only, no widening after outcome. Scope selected
+FFN including full Walsh/quantizers/ReLU/scan/LUT/reductions/scales/output; no50
+claim or inherited full3worker rate. Make final resource bounds concrete after
+static code/layout review, before any compile/numerical observation.
+
 ## Remaining physical/global proof
 
 Report stored/mapped/working buffers, per-call builders and actual alignment;
@@ -48,5 +66,6 @@ rates in every layer, validate fresh source-relative quality and changed routing
 then SAME actual whole-model accepted batch1 rate and hardware memory cost.
 Useful-n/RAM/routing normalization/cross-family/~100B conditions stay open.
 
-No454 observations or execution is authorized by this document alone; make the
-fixed source/protocol/resource plan concrete and commit exact operational action.
+No454 source/compilation/observations yet. Make the fixed source/protocol/resource
+plan concrete and commit exact operational action before its first execution.
+[Whole algebraic reassessment](ALGEBRA_REASSESSMENT_AFTER_453_20261005.md).

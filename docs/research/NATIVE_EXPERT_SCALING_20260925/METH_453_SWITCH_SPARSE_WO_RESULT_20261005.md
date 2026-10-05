@@ -52,7 +52,7 @@ the WO input basis/A16 rounding differs and no bit identity is inferred.
 
 ## Sparsity, stored bytes and logical footprint
 
-Correct WO mean nonzero A16 codes222.41666666666666/3072 =7.2391% active;
+Correct WO mean nonzero A16 codes222.41666666666666/3072 =7.2401% active;
 p95=418 (13.6068%), max=766 (24.9349%). Actual zeros are measured AFTER compact
 WI and original ReLU/A16. All correct/wrong codes/scales and per-expert observed
 column unions retained. All128 real functions have distinct stored fingerprints;
@@ -95,3 +95,5 @@ generation/tasks, SAME artifact>=50 accepted batch1 IDs/s, two real useful-n
 increments with correct winner AND softmax mass, physical CPU LUT/routing/DRAM,
 and actual other-family/~100B transfer. Stored capacity grows with RAM, but useful
 capacity and active cost have not yet been proved to grow as the user intends.
+[Whole algebraic reassessment](ALGEBRA_REASSESSMENT_AFTER_453_20261005.md) separates
+conditional column spans, stored capacity, access requests and route normalization.

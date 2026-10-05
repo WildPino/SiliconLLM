@@ -1,0 +1,19 @@
+{
+  "kind": "metadata-audit-first-stop-only-not-a-METH453-scientific-failure",
+  "session": 13894,
+  "terminal_exit": 1,
+  "script_sha256_before_repair": "6c9c05e24c60656d85eb48c42a0dc99b52d4de86d87a66d2cf51887ff04da688",
+  "failure_stage": "final_process_inventory",
+  "error": "AssertionError: [{'pid': 17140, 'name': 'python.exe'}]",
+  "limitation": "First audit did not retain PID17140 argv or ancestry; no retrospective identity claim.",
+  "fresh_parent_probe": {
+    "own_pid": 21516,
+    "python_ancestor_pid": 14164,
+    "python_ancestor_argv": [
+      "D:/_THINGS/Progetti/SiliconLLM/.venv/Scripts/python.exe",
+      "-"
+    ]
+  },
+  "repair": "Exclude only the live audit process and its verified current ancestors, as the qualified scientific controllers already do. All unrelated Python/meth jobs remain rejected.",
+  "scientific_result": "METH453 terminal25101/exit0/raw63d0fca69ad180b5024e1152b3d2fd9e13699fcfc3efd662850e011387ba3bbf unchanged; no controller rerun or activation calculation."
+}

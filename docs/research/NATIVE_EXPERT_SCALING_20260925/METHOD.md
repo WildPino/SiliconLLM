@@ -17,6 +17,9 @@ No rerun453. Next make NEW454 C direct/LUT-WI + exact sparse-WO primal/cost prot
 freeze before compile/observations, define full charges/resources/stops then execute
 ONE command. [Next C-cost proposal](SWITCH_SPARSE_WO_C_COST_NEXT_20261005.md).
 All-bank/fresh quality/SAME50/useful-n/routing/DRAM/families100B remain open.
+[Algebraic reassessment after453](ALGEBRA_REASSESSMENT_AFTER_453_20261005.md):
+dynamic column span is not global low rank; bytes stored/read/accessed differ,
+10x n needs actual comparable geometry and useful distinct pretrained functions.
 
 **5 October current status:** the user resumed the goal after the strategic review.
 [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
