@@ -25,15 +25,12 @@ admission first <=60s/256MiB/smallmetadata; no kernel/native timing/GPU/fit/down
 [Whole reassessment/next proposal](WHOLE_TRANSFER_REASSESSMENT_AFTER_458_20261005.md).
 No457/458 rerun;456 fixed tile16 CLOSED. Goal ACTIVE/INCOMPLETE: new whole transfer,
 fresh donor quality/SAME50/useful-n/router mass/physicalDRAM/families~100B remain.
-## Retained457: admission FAILED before native execution
+## Retained457: admission failed before native execution
 
-ONE session19372 exit1,224.109s, KeyError('runtime_environment') in historical
-quality363 schema. ZERO native commands/new outputs; first raw/source/protocol
-retained immutable. [First fault](METH_457_FIRST_ADMISSION_FAULT_20261005.md).
-Raw SHAd5923940e18e7a127b99959e30694ebd7ebfa470c563a09204f023ade5c7ba9a.
-No457 retry. Next prepare separately frozen458 with only explicit schema correction,
-same data/order/gates/resources, bind first fault before observations. No whole
-fraction/cost result yet. Goal ACTIVE/INCOMPLETE;456 fixed tile16 remains CLOSED.
+ONE session19372 exit1/224.109s/KeyError in historical363 runtime schema,
+ZERO native commands. First raw/source/protocol immutable ec85910.
+[First fault](METH_457_FIRST_ADMISSION_FAULT_20261005.md);458 above completed
+the separately frozen schema correction and measured whole costs. No457 retry.
 
 ## Retained prior453 decision
 
