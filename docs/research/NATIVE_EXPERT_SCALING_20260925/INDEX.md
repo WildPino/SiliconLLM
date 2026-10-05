@@ -39,7 +39,7 @@ admitted before capture; data floors do not imply compressible functions.
 [472](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md): ALL8/ALL9PASS apparatus,
 rank32INPUT-PCA recipeFAIL105/107experts/book107. Actual67.02%bank stored but
 no Ccost promotion. Pooled2.83%is dominated by25/37(99.8934%reference energy).
-Next separately freeze operator-aware preactivation feasibility under byte cap.
+473 operator-aware feasibility is now frozen7f2679c; first execution next.
 
 Input apparatus: [467 source/codec admission](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
 [464 corpus transport](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
@@ -110,44 +110,46 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption:472 rank32 recipe FAIL retained; operator-aware bound next
+## Current resumption: frozen473, one first learned-WI spectrum execution
 
-472 freeze88d77ab/first5fa6fc8, ONE main89758exit0/86.562s, ALL8apparatus;
-ONE audit29262exit0/ALL9retention. Full107factor/21original-fallback bank
-406110272B=67.0209%original, all19962paired function vectors and107SVD witnesses
-retained. RecipeFAIL:105of107novel per-IDFFNRMS>.05, book107>.10; natural pooled
-RMS.028322passes because25/37supply99.8934%reference energy. Only25/37pass,
-no validation-selected fallback. Numericaldevranks34..308/median102; ideal32
-valinputRMSmedian.799579, actualfunctionmedian.897222. No native cost promotion.
+Previous goal turn PROGRESS: 472 retained in4ffe52a, ALL8apparatus/ALL9audit
+PASS; fixed rank32 INPUT-PCA recipeFAIL105of107IDs/book107. All original
+failures remain immutable. Goal ACTIVE/INCOMPLETE; no further data ladder.
 
-[472result](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md),
-[retention](RETENTION_472_20261005.json): raw SHA9fc2efb0acde8f354fffa81e8525dcd30940b07eb8f4bbf7fed49321193ae0b3,
-RET SHAdb9c654df1bfb63ff31f85079a6853d4564ad5c772951c141742c63b51b7eae5.
-697176601Bnew outputs/~982.67MiBmainpeak; audit34.516s/1.255GiB. Fatal0B,
-available literalUTCWindowsquery ZEROevents, actualinstances terminal; original
-engine/payload/inputs/unrelated3 preserved. Goal turn PROGRESS, goal FULLACTIVE/
-INCOMPLETE. ONEdevelopment ladder complete; no main/native/SVD/tokenizer rerun.
+NEW473 controller/math/protocol/binding frozen7f2679c BEFORE first scientific
+compile/import/numerics. Binding SHA
+d2e8fe7566ebbfd8d6bcc70f2cc62729f189ba403d520b5a50863b12ebf05476.
+Controller SHAce7f6679a602a603ebcd6133b0031019d8f6bf72cca7d92856eeb1a5c3cec264;
+math SHA746db8a822e46b723b5fb535647fdc1616e43b07940a1fd9e2dd1478857f4fef.
+Actual runtime assets and6338retained input files/7,591,995,508B bound; fresh
+full original payload/manifest and native arithmetic controls before spectra.
 
-Close fixed32INPUT-PCA under declared gates; no rank grid, extra sources or
-retiming failed bank. [Algebra reassessment](ALGEBRA_REASSESSMENT_AFTER_472_20261005.md)
-separates data/rank/operator sensitivity, unseen directions and metric conditioning.
-Next NEW473 source/protocol/bindings must be implemented/frozen BEFORE first
-compile/import/numerics: ONEoperator-aware PREACTIVATION feasibility bound using
-known A=S_IW_I and same development-only equal-book/dedup effectiveinputs X.
-Optimal rank-r developmental action residual is tail energy of AX^T;
-B_r=U_rU_r^T A gives a defined pretrained extension beyond sampledinputspan.
-Full spectrum once, no candidate/rank sweep. The same107/21/70%bank budget
-allows UNIFORM rank<=43 (42withadditionalWIscales); VARIABLE ranks require
-sum(r_e)<=4684 (4599withWIscales). Derive each expert's minimum required rank
-and compare their sum with the byte cap; uniform failure is not general failure.
-5%preactivationRMS means99.75%energy. Original-order/native rounding qualifier,
-exact byte/workspace/runtime/input bounds and decisions still require freeze.
-Proposed CPU600s/4GiB/new128MiB, noGPU/update/newdata/model replay. No473exists
-or has run. A preactivation bound is not a nonlinear/task impossibility proof.
+ONE first command, never repeat a completed namespace:
 
-Full real C operator/all-bank/newstates/fresh donorrelative quality AND SAME50,
-causal useful-n/winner AND mass/CPU LUT/physicalDRAM/multiple actualfamilies/
-~10B~100B remain required.472rejected one representation, not the full objective.
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth473_switch_operator_spectrum.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth473_switch_operator_spectrum_result.json
+```
+
+Direct learned-WI response Y=A X^T, same107fixed IDs/21fallbacks; development-only
+effective alpha*q/equal-book exact dedup,11331representatives/max308perID.
+Full operator spectra once; no truncated input-PCA axes, candidate export,
+validation fit, native/model/tokenizer replay or rank grid. Native-order13cached
+integer and1344WI controls; response rounding envelope; all spectrum/byte
+witnesses.5apparatus gates, fixed numerical guard band1e-6 on squared tail
+ratio around0.0025. Full rank allocation must meet sum(r_e)<=4684 for nominal
+70%decoded bank. Uniform43failure does not settle variable ranks.
+
+Hard CPU600s/4GiB/new128MiB, singleCPU0/BLAS1. Witnessupper13,102,228B,
+no scientific observation yet. [Frozen protocol](METH_473_SWITCH_OPERATOR_SPECTRUM_PROTOCOL_20261005.md)
+is authoritative. If live, re-poll SAMEactualhandle; timeout is not terminal.
+First fault immutable before numbered repair; after actual terminal, independent
+right-Gram/eigen/energy/input/weight/rank/byte/Windows/process/resource retention
+audit without SVD refit or main replay. Spectral feasibility concerns ideal
+development preactivation, not nonlinear functions or final model quality.
+
+Full reusable artifact/all-bank/fresh donor-relative quality AND SAME>=50,
+causal useful-n/winner AND mass/CPU LUT/physicalDRAM/multiple actual families/
+~10B/~100B remain required. Full objective unchanged, active and incomplete.
 
 ## Retained457: admission failed before native execution
 
