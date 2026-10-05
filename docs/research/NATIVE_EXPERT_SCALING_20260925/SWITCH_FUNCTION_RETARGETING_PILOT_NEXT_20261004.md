@@ -1,40 +1,17 @@
 # Current learned routing transfer resumption
 
-## Current resumption:480 frozen, sole first learned transfer inquiry
+## Current resumption:480 original first admission fault retained
 
-Previous goal turn PROGRESS:479complete source-aware supervision independently
-admitted6/6. NEW480 implements ONE support2/root16 convex learned transfer,
-ALL12banks/ALL159414development-only/equal-book UIDs, exact small groups and
-32fixed updates per head. No trained/model numerical observation at this
-registration. Math/C/protocol dd187b0+report clarification e30f2f1, controller/
-report/binding1273b99, total arithmetic clarification38406d7 frozen BEFORE fit.
+Original sole main3564 actualexit1 before NumPy/compile/fit/prediction.
+External Python24920 was already visible in preflight; agent should have
+deferred launch. Original output remains FAILED, science NOT OBSERVED.
+ONE Windows query available/0matching events. Full inventory committed
+before any numbered repair. No external kill/exemption; processes ended
+autonomously. [First fault](METH_480_FIRST_FAULT_20261005.md).
 
-Metadata sole73077 actualexit0/44.609s/16,763,265,402hashed bytes, no NumPy;
-binding2c33137557c5a958680633187b536dde37df75e12ce3882e0cff04330259579e.
-[480protocol](METH_480_LEARNED_ROUTER_PROTOCOL_20261005.md),
-[arithmetic clarification](METH_480_STATIC_ARITHMETIC_CLARIFICATION_20261005.md),
-[sole-first registration](METH_480_FIRST_RESUMPTION_20261005.md).
-
-Sole first command, unexecuted at this registration:
-
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth480_learned_router.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth480_learned_router_result.json
-```
-
-CPU0/BLAS1/1200s watchdog/4GiB/new512MiB/admission180s, no GPU/T4/model/capture/
-native performance. Four simplex/14gradient/Adam/Decimal/native-dot/weighted-
-partition/FPU/negative controls before fit; ALLfinal12models before any source
-accuracy evaluation. Physical268vectors per bank/native ALL238872predictions/
-10,032,624visited dot fields,39unique/72occurrence/4608book/9216ID/1680surrogate
-views. Strict ALL source IDs/EVERY p<=1%/valid p/paidwork<=80% gates separately
-from apparatus.42forms/32256coefficients,17TOTALexp/1log (meta6stores16rootexp).
-No epsilon/clamp/rare removal/validation-fit/best checkpoint/fallback/sweep.
-
-While live SAME handle/small PowerShell metadata/commentary only; no Python
-editor/hash/numeric/Git mutation. Firstfault retained before numbered repair.
-Actual terminal then ONE480Windows query, separate frozen ALL-gradient/update/
-physical-vector/new-C-dot/report independent audit<=1200s/4GiB/new32MiB before
-source PASS/FAIL admission. No old native/main/audit replay. LocalFAIL closes
-only this fixed recipe, not all learned hierarchies; localPASS still needs full
-artifact/fresh SAMEquality>=50/useful n/CPU LUT/mass/DRAM/families/~100B. Full
-original goal ACTIVE/INCOMPLETE; current inquiry does not create new FFN experts.
+Next separately numbered480-R1 may add EARLY process preflight, preserving
+original math/data/native C/32steps/ALL12banks/strict gates and later gate.
+No original rerun. Freeze repair then register sole first invocation; actual
+terminal and ONE repair Windows query precede separately frozen complete
+independent gradient/history/physical-vector/ALL-dot/report audit.
+Full original goal ACTIVE/INCOMPLETE; no learned or wholeartifact result.
