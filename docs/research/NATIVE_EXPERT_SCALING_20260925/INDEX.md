@@ -83,7 +83,7 @@ ALL1536 full warm/measured output SHAs and IDs exact original;384commands/2304fi
 zero compile/new weights/fit/GPU/engine edits.457 first admission failure retained
 ec85910, ZERO native commands;458 only corrected historical363 runtime schema.
 
-Whole expert-matrix fractions12824.8585%/25627.0944%, dense44.0788%/40.0130%,
+Whole expert-matrix fractions128:24.8585%/256:27.0944%, dense44.0788%/40.0130%,
 residual23.2835%/24.6409%, head~6%, router SCORE~1.45/2.28% (mass outside).
 Conditional ideal expert-elimination ceilings1.33082x/1.37164x. No456 local FFN
 ratio inserted into whole matrix equations; no fresh new-quality/rate claim.
