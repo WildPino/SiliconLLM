@@ -80,6 +80,7 @@ assert digest(BIND)==BIND_SHA;head(BIND);b=json.loads(BIND.read_bytes())
 for p in (Path(__file__),C,MATH,PROTO,WINDOWS):head(p)
 assert (ROOT/'.gitattributes').read_bytes()==subprocess.check_output(['git','show','HEAD:.gitattributes'])
 assert sys.version==b['runtime']['python'] and Path(sys.executable).resolve()==Path(b['runtime']['executable']).resolve()
+assert psutil.__version__==b['runtime']['packages']['psutil']['version'] and str(Path(psutil.__file__).resolve()) in b['runtime']['packages']['psutil']['files']
 for path,item in b['runtime']['files'].items():check({'path':path,**item})
 for package,item in b['runtime']['packages'].items():
     assert importlib.metadata.version(package)==item['version']
@@ -177,9 +178,11 @@ import numpy as np
 import threadpoolctl
 threadpoolctl.threadpool_limits(limits=1)
 assert np.__version__==b['runtime']['packages']['numpy']['version'] and threadpoolctl.__version__==b['runtime']['packages']['threadpoolctl']['version']
+for module in (np,threadpoolctl):assert str(Path(module.__file__).resolve()) in b['runtime']['packages'][module.__name__]['files']
 for pool in threadpoolctl.threadpool_info():assert pool['num_threads']==1 and str(Path(pool['filepath']).resolve()) in b['runtime']['packages']['numpy']['files']
 np.seterr(over='raise',invalid='raise',divide='raise',under='ignore')
 import meth478_grouped_router_math as M
+assert Path(M.__file__).resolve()==MATH.resolve()
 trees=[]
 for weight in b['weights']:
     with Path(weight['payload']).open('rb') as f:f.seek(weight['offset']);data=f.read(weight['bytes'])
