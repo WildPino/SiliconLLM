@@ -1,0 +1,61 @@
+{
+  "experiment": "METH467-retained-source-token-role-runtime-provenance-audit",
+  "raw_sha256": "d90553a6b4454fae41978d7a1221f7389ea4c52a9517eb0a0ea079b0840bddb5",
+  "audit_helper_sha256": "54088368b0408562ad3c8bfed09b7fd99dfe4e729880ff8b1d42c8e6534a5c23",
+  "gates": {
+    "sources_protocol_engine_physicalHEAD_and_direct_runtime_records_exact": true,
+    "original_codec_files_SHA_and_recorded_forbidden_modules_absent": true,
+    "ALL1847_prior_files_physical_canonical_SHA_exclusions_and_hash_membership_rederived": true,
+    "ALL96_original_case_bridge_digests_exact": true,
+    "ALL1243_cached_UTF8_rows_offsets_charcounts_SHA_EOF_exact": true,
+    "ALL128_selected_actual_source_coordinates_hashes_prior_disjointness_exact": true,
+    "ALL512_token_windows_masks_fields_digests_roles_rank_prefix_rejections_rederived": true,
+    "same466_diagnostic_cohort_not_additional128_books": true,
+    "actual_terminal_empty_fault_log_PID_absent_no_Windows_APPCRASH_and_no_jobs": true,
+    "all3_unrelated_byte_hashes_preserved": true
+  },
+  "books": 128,
+  "contexts": 512,
+  "excerpt_token_count": 136460,
+  "source_rows_excluded": 162,
+  "raw_bytes": 4167060,
+  "main_terminal": {
+    "tool_session": 21510,
+    "tool_exit_code": 0,
+    "actual_pid": 11200
+  },
+  "windows_event_query": {
+    "experiment": "METH467 terminal Windows metadata",
+    "pid": 11200,
+    "query_start_utc": "2026-10-05T07:08:47.5278864Z",
+    "query_end_utc": "2026-10-05T07:19:24.5921676Z",
+    "query_available": true,
+    "query_error": null,
+    "event_id": 1000,
+    "returned_event_count": 0,
+    "matching_pid_events": [],
+    "actual_pid_present": false
+  },
+  "preserved_daemon_pids": [],
+  "retained_metadata_files": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth467_switch_rust_query_manifest\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth467_switch_rust_query_manifest\\progress.jsonl",
+      "bytes": 31780,
+      "sha256": "7f64d8c2882e30b797e39beb80dab92e1b1bb0cdde06bb434459856d11d54ec7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth467_windows_terminal.json",
+      "bytes": 347,
+      "sha256": "eb85207951be8e6d54503ab09d27965e0e925036e5d73f601766a9c8bdee4165"
+    }
+  ],
+  "seconds": 31.375,
+  "OS_peak_bytes": 87146496,
+  "bytes_hashed": 1884047963,
+  "scope": "Independent metadata/source/token-array audit; no main/codec/Transformers/Arrow import, no new tokenization/model/capture/fit. Original96 decode/codec equivalence is the frozen MAIN control; audit reconstructs arrays from retained full excerpt codes. Windows Application Error1000 query covers actual invocation and subsequent completion; no events returned."
+}

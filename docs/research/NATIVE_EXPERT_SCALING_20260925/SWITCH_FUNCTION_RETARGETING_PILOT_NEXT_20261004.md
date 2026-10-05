@@ -1,28 +1,26 @@
-# Current resumption: cached native query-domain source manifest next
+# Current resumption: original native query capture/readiness next
 
-## Current resumption: frozen467 original Rust codec, ONE first execution next
+## Current resumption: admitted467 manifest; prepare NEW468 native capture
 
-466 indirect Arrow runtime fault retainedd888f9e, no466 rerun/admitted cohort;
-nominal raw serves diagnostic equality only. NEW467 source/protocol/actual codec
-bindings frozena8f3c01 BEFORE compile/import/data observations. Original tokenizer
-JSON/tokenizers0.22.2 directly; no Transformers/Torch/sklearn/pandas/Arrow. ALL96
-original382 golden IDs/masks/decodes before data, same512 source-only diagnostic
-case equivalence, forbidden modules absent, empty native log/real terminal health.
-[467 protocol](METH_467_SWITCH_RUST_QUERY_MANIFEST_PROTOCOL_20261005.md).
+467 ONE session21510 exit0, ALL11 apparatus/ALL10 independent retention PASS;
+original codec/96-case bridge, all1243 cached UTF8 rows,1847 prior files/162excluded
+rows,128 whole books64dev64diagnostic-val/512 S29T14contexts exact.36.250s/
+343.82MiB peak, raw4167060B. Native fault logEMPTY, forbidden modules absent,
+actualPID11200 exited, Windows Application Error1000 query available/no events.
+Same466 diagnostic preselection counted ONCE; no model/capture/fit yet.
+[467 result](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
+[retention](RETENTION_467_20261005.json).465 compilation and466 Arrow first faults
+remain retained; no completed controller rerun. Full goal ACTIVE/INCOMPLETE.
 
-ONE first command:
-results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
-benchmarks\native_expert_scaling\meth467_switch_rust_query_manifest.py --out
-docs\research\NATIVE_EXPERT_SCALING_20260925\meth467_switch_rust_query_manifest.json
-
-SAME465 seeds/1847-file input universe/128sources64dev64val/512contexts and guards,
-requalifies existing model-unconsumed preselection, not additional128 new books.
-Hard300s4GiB8MiB+logs1MiB; no model/native/GPU/fit/download. If live poll same actual
-session to terminal. After completion audit source/tokens/roles/logs and matching
-PID Windows APPCRASH, preserving any first failure; no467 retry. PASS -> separately
-freeze original393 native capture/SAME462 floors/fixed128bank11 -> private INPUT
-geometry if data adequate. No final fresh donor quality/rate/useful-n claims.
-Full goal ACTIVE/INCOMPLETE, original model/engine artifacts unchanged.
+Exact next: prepare/freeze NEW468 original393 source128 native capture/readiness,
+EVERY512 context teacher+own-natural, fixed64/64 book roles and bank11. Refresh
+complete payload/binary/runtime/golden controls; freeze resource/output bounds,
+trace/whole/A16/order/health/negative controls before first execution. Proposed
+35min/16GiB/12GiB,3workers[0,2,4], original cap64. SAME46232devcodes/4books,
+16NOVELvalcodes/4books,>=32readyIDs/>=90%ALL natural-val executed-query coverage.
+No factors until data adequate; capture timings do not qualify final50.
+[468 proposal](SWITCH_467_NATIVE_CAPTURE_READINESS_NEXT_20261005.md).
+468 source/protocol NOT yet created/frozen/executed. No quality/rank/n gain claim.
 
 ## Retained457: admission failed before native execution
 

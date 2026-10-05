@@ -1,66 +1,28 @@
-# NEW465 proposal: source manifest from qualified UTF8 corpus transport
+# Cached source manifest admitted467; native capture is next
 
-5October2026.464 isolated transport ALL5 apparatus/ALL5 retention PASS, ONE7710
-exit0.463 native Arrow access violation retained, no manifest admitted/no retry.
-462 DATA FAIL fixed128 last bank1ID/3.70%coverage; no private INPUT factors yet.
-Full goal ACTIVE/INCOMPLETE.466 nominal manifest retained but runtime NOT admitted:
-indirect Transformers/sklearn/pandas/Arrow import fault. NEW467 proposed original
-Rust codec directly, same seeds/inputs/diagnostic preselection, no new book count.
-467 source/protocol/codec bindings frozena8f3c01, first execution pending.
-See [first runtime fault](METH_466_INDIRECT_ARROW_RUNTIME_FAULT_20261005.md).
+5 October2026. Supersedes this file's earlier465 manifest proposal.465 first
+compilation failure and466 indirect Arrow runtime fault retained, no reruns.
+464 isolated corpus transport qualified.467 direct original Rust codec execution
+and independent source/token/role/runtime audit ALL11 apparatus/ALL10 retention
+PASS:128 whole books64development64diagnostic-validation,512 S29/T14 cases.
+Same466 source-only diagnostic preselection requalified, counted only once.
+[467 result](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
+[protocol](METH_467_SWITCH_RUST_QUERY_MANIFEST_PROTOCOL_20261005.md).
 
-## First exact action
+No new source selection/tokenization is needed for this cohort. Frozen prior
+1847files/162excluded rows and whole-text exclusion/unique-window/true-coordinate/
+lossless token controls passed. Native fault log0bytes, actual process terminated,
+Windows Application Error1000 query available/zeroevents, forbidden modules absent.
+36.250s MAIN/343.82MiBpeak/4167060Braw; independent metadata31.375s/83.11MiBpeak.
+No model, capture, factor, donor-quality, rate or geometry result yet.
 
-Implement/freeze NEW465 source/protocol/input inventory BEFORE first import/parse/
-new selection/tokenization. Reuse actual464 corpus_utf8.bin,506604735B/SHA
-78a1bebade7d144a68d440ee422ada1ae726e9132625179848ba3ef8fcbd984f;
-M464TX01/u32count1243/u32indexwidth56, `<QQQ32s` row records. Fresh complete spool/
-header/index/SHA qualification and retained464 raw/retention exact. Standard Python
-binary/UTF8 reads in tokenizer process; no Arrow reader import/native call there.
-This avoids combining corpus reader and tokenizer runtimes; no crash-cause claim.
+Exact next: prepare/freeze separate NEW468 original393 source128 native capture/
+readiness using admitted467 arrays and immutable64/64 roles, all512 teacher and
+512 own-natural streams. SAME462 floors/fixed128decoderbank11, no factors until
+data adequate. Original462 data deficiency remains1readyID/3.70%coverage pending
+actual new exposure. [Exact capture proposal](SWITCH_467_NATIVE_CAPTURE_READINESS_NEXT_20261005.md).
 
-Current exhaustive frozen JSON provenance inventory under docs/research and
-benchmarks/donor_adaptation, tracked plus untracked partials; preserve unrelated
-3status-M files. Exclude earlier selected source IDs/rows AND known full-text
-hashes, including both original128/256 cohorts and earlier applicable records.
-Reconstruct excluded rows' full hashes from the cached corpus to catch duplicate
-text with another row ID. Bound physical/canonical identity for broad metadata;
-strict byte/physicalHEAD for numerical source/tokenizer/engine/qualified records.
-Corpus transport index is unselected catalogue data, not a consumed case set;
-retain only selected/excluded row hashes in scientific consumption provenance.
-Do not silently label all1243 read-only source fingerprints consumed calibration.
-
-## Original task, independent book roles and fixed decisions
-
-Qualified source128 local4.57.6 tokenizer/runtime, seven sidefile hashes and exact
-pad/EOS/sentinel controls. FIRST reproduce ALL96 retained382 cases/384two-token
-fields/known IDs/decodes/digests from actual retained excerpts; its historical
-excerpt_start_character bug must not be copied. NEW book coordinates bound to
-actual cached source UTF8 and original seed calculation. No source weights loaded.
-
-Fixed target128 distinct NEW whole sources;64development/64diagnostic-validation,
-4nonoverlap32-token windows/book,512contexts; starts3/10/17/24 with2IDs each,
-source29/decoder14/target14 and original labels. Selection/role seeds/ranks/max
-candidates/text/diversity/special-token/duplicate guards frozen before observations.
-No model/router/loss/generation feedback. Keep all source-only rejected candidates,
-whole source/excerpt hashes/original tokens/masks/digests/roles. Distinct book IDs
-and exact hashes establish disjoint provenance, not iid or donor-pretraining exclusion.
-
-Expected<=3min; proposed hard MAIN300s/4GiB/raw8MiB, no model/native/GPU/download/
-fit/SVD. Fresh output namespace and first-failure checkpoints/log retention. If any
-deficit or apparatus fault, retain before numbered repair; no favorable subsampling.
-
-PASS manifest -> SEPARATELY freeze original393 source-native capture/readiness
-with complete own-natural/teacher streams and exact qualified arithmetic/worker/
-identity controls/resources. Same readiness floors32devcodes/4books,16novelvalcodes/
-4books,32readyIDs/90%natural-val execution coverage, FIXED128decoderbank11.
-New64/64 roles require new protocol, not rerunning completed462. Expected~CPU
-minutes/5GiB output; proposed hard35min/16GiB/12GiB. No factor or geometry fit
-before sufficient independent domain data. Capture I/O timings cannot qualify50.
-
-If data inadequate retain deficiency and choose explicit different informative
-data/geometry strategy; if adequate separately freeze ONE private INPUT probe with
-original functions/identity/held-out errors/byte/fallback controls. Finite training
-span agreement is not preserved pretrained information on unseen inputs.
-All composed donor-relative fresh prediction/tasks/generation/SAME50/useful-n/
-winnerANDmass/physicalDRAM/families/actual~100B requirements remain.
+Full goal ACTIVE/INCOMPLETE: viable original-function geometry, all-bank composed
+artifact, fresh donor-relative prediction/tasks/generation/SAME50, useful-n/winner
+ANDmass/physicalDRAM/LUT/other-family/actual~100B still required. No original
+engine/model artifact or unrelated work changed.

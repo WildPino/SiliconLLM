@@ -1,28 +1,55 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: frozen467 original Rust codec, ONE first execution next
+## Current resumption: admitted467 manifest; prepare NEW468 native capture
 
-466 indirect Arrow runtime fault retainedd888f9e, no466 rerun/admitted cohort;
-nominal raw serves diagnostic equality only. NEW467 source/protocol/actual codec
-bindings frozena8f3c01 BEFORE compile/import/data observations. Original tokenizer
-JSON/tokenizers0.22.2 directly; no Transformers/Torch/sklearn/pandas/Arrow. ALL96
-original382 golden IDs/masks/decodes before data, same512 source-only diagnostic
-case equivalence, forbidden modules absent, empty native log/real terminal health.
-[467 protocol](METH_467_SWITCH_RUST_QUERY_MANIFEST_PROTOCOL_20261005.md).
+467 ONE session21510 exit0, ALL11 apparatus/ALL10 independent retention PASS;
+original codec/96-case bridge, all1243 cached UTF8 rows,1847 prior files/162excluded
+rows,128 whole books64dev64diagnostic-val/512 S29T14contexts exact.36.250s/
+343.82MiB peak, raw4167060B. Native fault logEMPTY, forbidden modules absent,
+actualPID11200 exited, Windows Application Error1000 query available/no events.
+Same466 diagnostic preselection counted ONCE; no model/capture/fit yet.
+[467 result](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
+[retention](RETENTION_467_20261005.json).465 compilation and466 Arrow first faults
+remain retained; no completed controller rerun. Full goal ACTIVE/INCOMPLETE.
 
-ONE first command:
-results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
-benchmarks\native_expert_scaling\meth467_switch_rust_query_manifest.py --out
-docs\research\NATIVE_EXPERT_SCALING_20260925\meth467_switch_rust_query_manifest.json
+Exact next: prepare/freeze NEW468 original393 source128 native capture/readiness,
+EVERY512 context teacher+own-natural, fixed64/64 book roles and bank11. Refresh
+complete payload/binary/runtime/golden controls; freeze resource/output bounds,
+trace/whole/A16/order/health/negative controls before first execution. Proposed
+35min/16GiB/12GiB,3workers[0,2,4], original cap64. SAME46232devcodes/4books,
+16NOVELvalcodes/4books,>=32readyIDs/>=90%ALL natural-val executed-query coverage.
+No factors until data adequate; capture timings do not qualify final50.
+[468 proposal](SWITCH_467_NATIVE_CAPTURE_READINESS_NEXT_20261005.md).
+468 source/protocol NOT yet created/frozen/executed. No quality/rank/n gain claim.
 
-SAME465 seeds/1847-file input universe/128sources64dev64val/512contexts and guards,
-requalifies existing model-unconsumed preselection, not additional128 new books.
-Hard300s4GiB8MiB+logs1MiB; no model/native/GPU/fit/download. If live poll same actual
-session to terminal. After completion audit source/tokens/roles/logs and matching
-PID Windows APPCRASH, preserving any first failure; no467 retry. PASS -> separately
-freeze original393 native capture/SAME462 floors/fixed128bank11 -> private INPUT
-geometry if data adequate. No final fresh donor quality/rate/useful-n claims.
-Full goal ACTIVE/INCOMPLETE, original model/engine artifacts unchanged.
+## Available method step: qualify original codec and source-only query roles
+
+Tool: meth467_switch_rust_query_manifest.py, prospective input/runtime/codec bindings,
+qualified464 UTF8 transport and original382 golden cases. Read original tokenizer
+JSON via exact installed Rust extension; verify ALL96 original IDs/masks/decodes
+before new selection. Hash ALL frozen current prior JSONs and actual cached source
+texts; exclude prior rows/whole texts, retain true excerpt coordinates and lossless
+complete-excerpt token vectors. Fix rank/selection/diversity/masking/role seeds
+before routing; no loss/router feedback or model load. Output:128 whole books,
+64dev64diagnostic-val,512 S29/T14 contexts and full provenance/roles/native arrays.
+
+Qualification requires exact original token/code files, all1243 cached row digests,
+all1847 prior record identities and explicit162-row/hash exclusion rules, unique
+whole texts/windows and exact role/coordinate/mask arrays. Verify actual process
+completion, empty native fault logs, forbidden frameworks absent and matching
+Windows Application Error records after exit; launcher exit0/raw gates alone are
+insufficient. Independent metadata audit rebuilds source/mask/role/exclusion counts
+without new codec import/tokenization. ALL11 apparatus/ALL10 retention PASS;
+36.250s MAIN/343.82MiBpeak/4167060Braw. Separate audit31.375s/83.11MiBpeak.
+
+Reproduce only in a separately frozen NEW inquiry namespace. The admitted467
+manifest requalifies the SAME466 source-only diagnostic preselection, not another
+128 books. Disjoint recorded sources are not iid/pretraining-disjointness proof;
+inventory hashes are not consumed calibration. A larger manifest cannot establish
+per-expert rank/readiness: separately capture original normalized inputs/routes/
+executions and count conditional novelty/coverage before private factors. No
+donor quality/rate/useful-n/physicalDRAM follows from this source/codec admission.
+[467 procedure/result](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md).
 
 ## Available method step: isolate and qualify the original corpus transport
 
