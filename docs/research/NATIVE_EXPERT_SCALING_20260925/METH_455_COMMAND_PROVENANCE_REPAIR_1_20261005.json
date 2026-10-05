@@ -1,0 +1,56 @@
+{
+  "kind": "METH455-R1-numbered-metadata-command-provenance-correction",
+  "first_fault_commit": "80bff54",
+  "first_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_455_COMMAND_RECORD_FIRST_FAULT_20261005.json",
+    "sha256": "47c08a6defb31fb66c6a363a2fabd5295b991bb4a40818eac56b2a9cbe6940ee"
+  },
+  "unchanged_raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth455_switch_component_cost_result.json",
+    "bytes": 75712,
+    "sha256": "049e8ea6ee63f0b2efa6204e37aaaf70842bf0185c1c814720e77fba8a2d07a5"
+  },
+  "frozen_controller": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth455_switch_component_cost.py",
+    "sha256": "54843e6375152f51861ddac1b8326ad01662e2a5d8e6d6a44a0268fd3ef5b15f",
+    "freeze_commit": "db7c388",
+    "initial_common_line": 96,
+    "mutated_common_lines": [
+      106,
+      106
+    ]
+  },
+  "corrected_primal_argv": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth455_switch_component_cost\\meth455_switch_component_cpu.exe",
+    "--qualify",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth454_switch_sparse_wo_cost\\bank.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth454_switch_sparse_wo_cost\\trace.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth454_switch_sparse_wo_cost\\primal.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth455_switch_component_cost\\primal.bin"
+  ],
+  "correct_profile_argv": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth455_switch_component_cost\\meth455_switch_component_cpu.exe",
+    "--profile",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth454_switch_sparse_wo_cost\\bank.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth454_switch_sparse_wo_cost\\trace.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth454_switch_sparse_wo_cost\\primal.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth455_switch_component_cost\\timings.jsonl"
+  ],
+  "proof": "Reconstructed from frozen source initial list/call before mutation, hash-bound qualifying stdout/exit0/primal wire, and distinct profile stdout. No OS argv snapshot existed.",
+  "separate_primal_stdout_mode": "--qualify",
+  "separate_profile_stdout_mode": "--profile",
+  "original_raw_argv_fault_preserved": true,
+  "raw_source_or_metrics_modified": false,
+  "scientific_imports": false,
+  "numerical_or_native_rerun": false,
+  "future_controller_rule": "Store list(argv) or immutable tuple; create independent child argument lists, never mutate an aliased record.",
+  "gates": {
+    "first_fault_committed_before_repair": true,
+    "frozen_source_and_AST_initial_before_mutations": true,
+    "distinct_native_mode_logs_hash_bound": true,
+    "corrected_argv_explains_exact_serialized_alias": true,
+    "all_numerical_records_preserved": true
+  }
+}

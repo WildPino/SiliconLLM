@@ -1,3 +1,11 @@
+# Historical455 proposal, completed and retained
+
+455 completed session53109 exit0. ALL numerical/admissibility gatesPASS; retained
+argv metadata fault corrected455-R1. Current next is
+[ONE456 output-tile proposal](SWITCH_OUTPUT_TILED_WI_NEXT_20261005.md).
+[455 result](METH_455_SWITCH_COMPONENT_COST_RESULT_20261005.md).
+The prospective text below is historical; it is not a rerun instruction.
+
 # Proposed NEW455: decompose the cost before changing physical algebra
 
 5 October 2026. NEW455 source/controller/protocol frozen db7c388; first execution pending.454 ALL8apparatus
