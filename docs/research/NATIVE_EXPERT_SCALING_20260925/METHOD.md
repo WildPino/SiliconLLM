@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: freeze469 corrected ledger; ONE first execution next
+## Current resumption: frozen469; ONE first execution next
 
 468 first ledger layout fault retainedf5cc590, ONE38983exit1/36.734s after10native
 commands, zero ledger records/new natural cases. No468retry. NEW469 corrects ONLY
@@ -9,7 +9,7 @@ first468teacher complete-byte equivalence. SAME467128books64dev64diagnostic-val/
 512S29T14cases, original393core/binary/payload/command order/resources/datafloors.
 [469 protocol](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_PROTOCOL_20261005.md).
 
-Source/protocol/EOL freeze BEFORE first parse/import/observations. Then ONE command:
+Source/protocol/EOL froze411da46 BEFORE first parse/import/observations. ONE command:
 .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth469_switch_native_domain_capture.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth469_switch_native_domain_capture_result.json
 
 118B14field roundtrip+13field negative before native;10retained468commands/first
