@@ -1,6 +1,6 @@
 # Proposed NEW455: decompose the cost before changing physical algebra
 
-5 October 2026. Proposal only, no455 source/compile/profile yet.454 ALL8apparatus
+5 October 2026. NEW455 source/controller/protocol frozen db7c388; first execution pending.454 ALL8apparatus
 PASS but direct/full-pair-LUT BOTH fail every fixed cost gate. Close their recipes;
 retain reusable exact C operators/bank and all data. Goal ACTIVE/INCOMPLETE.
 
@@ -12,7 +12,8 @@ time is not. Re-running454 without a NEW observable would add no evidence.
 NEW455 should independently instrument components, preserving the same qualified
 functions and inputs, so a physical-format decision has a measured bottleneck.
 
-Freeze new source/controller/protocol before compile/numerics. Reuse complete454
+See [455 frozen protocol](METH_455_SWITCH_COMPONENT_COST_PROTOCOL_20261005.md).
+No first import/compile/profile yet. Reuse complete454
 bank/primal/trace/compiler/runtime/source hashes; preserve original C primitives.
 No new coefficient roundings/fit/data/source masking or gate relaxation.
 

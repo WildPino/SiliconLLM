@@ -1,28 +1,29 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current decision after454: exact C, fixed cost recipes FAILED
+## Current resumption: frozen455, first execution pending
 
-454 completed ONE session70388, terminal exit0. Scientific freeze2ba2a3c and
-first-run resumption8a9a376. ALL8apparatusPASS: all1680 C original/correct/wrong
-states/bases/A16 codes/scales byte-exact before timing;7056 timed outputs exact.
-All128 real bank fields64-aligned and inverse exact, reserved-8 fault detected.
+Previous goal turn was PROGRESS:454 produced byte-exact C and evidence closing
+both fixed cost recipes. NEW455 sources/controller/protocol frozen `db7c388`
+BEFORE compilation/import/numerics. No455 result/output directory/session yet.
 
-Both direct/full-pair-LUT kernels FAIL ALL3cost gates. Original mean237.684us;
-direct234.428us/ratio.9863,p95ratio1.0932; LUT718.821us/ratio3.0243. Source timings
-are selected-FFN/one CPU/consumed inputs; whole rate and DRAM not measured.
-25.062s, conservative2.347GBpeak,14outputs519.351MB; zero updates/new roundings/GPU.
-Raw SHA `efc087e32c2f88631654efaa4d0f30bf9b23288f66243deb51ed5f07a947d277`.
+First next action is ONE command:
+
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth455_switch_component_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth455_switch_component_cost_result.json
+```
+
+[455 prospective protocol](METH_455_SWITCH_COMPONENT_COST_PROTOCOL_20261005.md):
+3360 full-state BYTE checks against454 BEFORE21,168 timing records; three modes
+per arm (unchanged/split/profiled), fixed336-trace order, explicit timer/separation
+admissibility. If all admitted and direct WI fraction>=.50, select ONE exact
+output-tiled WI inquiry; otherwise WO>=.30 selects paired columns, else reassess.
+No new precision/fit/data/GPU/engine edits.300/600/900s; parent512MiB/native2GiB/
+sum2.5GiB, outputs128MiB. First failures retained before numbered repairs.
+
+No rerun454 or all-bank export of failed kernels. Full donor-relative fresh quality,
+SAME>=50 accepted rate, useful-n/router/hardwareDRAM/families/~100B still open.
 [454 result](METH_454_SWITCH_SPARSE_WO_COST_RESULT_20261005.md),
-[454 protocol](METH_454_SWITCH_SPARSE_WO_COST_PROTOCOL_20261005.md).
-
-No rerun454 or all-bank export for these kernels. Next NEW455 component cost
-profile: freeze source/controller/protocol/resources BEFORE compile/observations,
-verify preserved C states then measure WI/WO/quantizers/basis/LUT-build/gathers/
-scan/reductions separately. Choose ONE different physical algebra only if its
-measured bottleneck changes the decision. No455 implementation/execution yet.
-[Next component diagnosis](SWITCH_NATIVE_COMPONENT_COST_NEXT_20261005.md),
-[whole cost/capacity reassessment](ALGEBRA_COST_REASSESSMENT_AFTER_454_20261005.md).
-Full quality/SAME50/useful-n/routing/realDRAM/families100B remain required.
+[whole algebra/cost review](ALGEBRA_COST_REASSESSMENT_AFTER_454_20261005.md).
 
 ## Retained prior453 decision
 
