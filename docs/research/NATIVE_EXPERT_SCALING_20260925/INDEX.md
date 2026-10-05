@@ -97,24 +97,26 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption after465: compile fault retained, literal-only466 next
+## Current resumption: frozen466 literal repair, ONE first execution next
 
-465 first command exit1 during module compilation, freeze8146e8b/firstc2e9f4c:
-unterminated progress.write string line94, source-generator newline escaping.
-No imports/source selection/tokenization/model/native, no scientific raw or OUT.
-Source/protocol/input inventory/engine physicalHEAD exact, unrelated3 preserved.
-[First fault](METH_465_FIRST_COMPILE_FAULT_20261005.md), first rawSHA
-51daf7fe571065bff2cb80a529201c8459425ec6322be38c5830bdf26c82d5e5.
-No465 rerun or frozen first-source edit.
+465 first compile fault retained4ddf0c3; no module execution/selected case, no465
+retry. NEW466 source/protocol frozenbfed077 BEFORE compile/import/observations.
+Literal+fresh namespace only; exact465 seeds/input inventory/science preserved,
+first465 compile fault additionally bound. [466 protocol](METH_466_SWITCH_CACHED_QUERY_MANIFEST_PROTOCOL_20261005.md).
 
-Next NEW466 not created/frozen: namespace + progress literal repair ONLY. Preserve
-465 selection/split seeds/exact frozen1847-file inventory/corpus/runtime/guards/
-128books512contexts64dev64val scientific design. Additional465 records are solely
-compile apparatus metadata, no new consumed sources. Freeze before compilation/
-imports; SAME300s4GiB8MiB+logs1MiB. Qualify ALL382 token controls before new data.
-Then metadata audit -> separate original393 capture/SAME462 readiness/fixed128
-last bank -> private INPUT geometry if adequate. No readiness/fresh donor quality/
-rate/useful-n promotion yet. Full goal ACTIVE/INCOMPLETE, original engine intact.
+ONE first command:
+results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
+benchmarks\native_expert_scaling\meth466_switch_cached_query_manifest.py --out
+docs\research\NATIVE_EXPERT_SCALING_20260925\meth466_switch_cached_query_manifest.json
+
+Hard MAIN300s4GiB8MiB+logs1MiB;128newbooks/512windows64dev64val from qualified
+cached originalUTF8 without Arrow reader calls; ALL96 retained382 token controls
+BEFORE new tokenization; current frozen1847 record exclusions+whole-text copies.
+Progress/fatal logs exclusive before imports, no model/native/GPU/fit/download.
+If live poll same actual session to terminal; first fault retained/no466 retry.
+PASS -> independent metadata/token/mask/provenance audit then separately freeze
+original393 capture/SAME462 floors/fixed128last bank. No private INPUT geometry
+before readiness. Full goal ACTIVE/INCOMPLETE, original engine/artifacts intact.
 
 ## Retained457: admission failed before native execution
 
