@@ -1,24 +1,22 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption459: model-free admission frozen, FIRST execution next
+## Current resumption460: catalog identity correction frozen, FIRST execution next
 
-Scientific freezeee744f7 before first import/observation. Model-free source/manifest/
-count admission only, <=60s/256MiB; no compile/model values/native timing/GPU/fit.
-Bind458 raw/retention/original sources and actual binary manifests; distinguish
-existing fp32 SWA QKV/multiple-query kernels from qualified row-I8/A16 fanout.
-Verify exact legal sites/shapes/scale/output ordering/integer bounds; independently
-rederive ALL1536 inherited dense logical-counter rows and removable operations.
-No count-derived speedup/DRAM/storage/new-quality claim. First failures retained.
-
-Next ONCE: .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth459_switch_common_input_admission.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth459_switch_common_input_admission_result.json
-[459 prospective protocol](METH_459_SWITCH_COMMON_INPUT_ADMISSION_PROTOCOL_20261005.md).
-After completion derive report/retention only; no unchanged rerun. A future native
-fanout inquiry needs its own fixed full-quality/whole-cost/resource freeze.
-458 measured expert fractions24.86/27.09% versus dense40..44%, admitted output
-identity; [458 result](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md).
+Scientific freezea467981.459 first catalog EOL fault retained e0a98ab:1.078s,
+ZERO native/model work/operation counts.460 changes only catalog physical-versus-
+canonical identity, namespace and first-failure binding; qualified374/388/engine/
+metadata/manifest byte contracts and all algebra/count gates remain exact.
+[First fault](METH_459_FIRST_CATALOG_FAULT_20261005.md),
+[460 protocol](METH_460_SWITCH_COMMON_INPUT_ADMISSION_PROTOCOL_20261005.md).
+Next ONCE: .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth460_switch_common_input_admission.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth460_switch_common_input_admission_result.json
+Model-free<=60s/256MiB, no weights/native/compile/GPU/fit/download/engine edits.
+After completion derive report/retention, no unchanged rerun. Quantization/parallel
+region counts are not time or DRAM benefit. Native implementation needs a new
+prospective full-output/whole-cost/resource protocol.458 fractions and original
+same-quality artifacts remain inherited evidence; goal ACTIVE/INCOMPLETE.
 [Whole reassessment](WHOLE_TRANSFER_REASSESSMENT_AFTER_458_20261005.md).
-No457/458 rerun;456 recipe CLOSED. Goal ACTIVE/INCOMPLETE: useful capacity/transfer,
-fresh quality/SAME50/router mass/physicalDRAM/families~100B remain required.
+No459/458 rerun;456 CLOSED. Full transfer/fresh quality/SAME50/useful-n/router mass/
+physicalDRAM/other families/~100B remain required.
 ## Retained457: admission failed before native execution
 
 ONE session19372 exit1/224.109s/KeyError in historical363 runtime schema,
