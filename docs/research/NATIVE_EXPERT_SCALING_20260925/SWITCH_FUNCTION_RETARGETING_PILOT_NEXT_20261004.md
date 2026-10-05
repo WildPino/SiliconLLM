@@ -1,48 +1,38 @@
 # Exact certificate economically rejected; observable-quality admission next
 
-## Current resumption: frozen477, sole first complete head-observable diagnostic
+## Current resumption:477 first cardinality fault retained; complete witness recovery next
 
-Previous goal turn PROGRESS:476 retained964789c, ALL6apparatus/ALL6auditPASS;
-ALL6649 validation contexts +1344knownpre qualified through256,799,104logits.
-Full goalACTIVE/INCOMPLETE;472 remains localFAIL105/107/book107. No promotion.
+Current turnPROGRESS:477first parent32173exit1/compiler0/controls0/native2.
+Frozenf32e3f1/firstcb17e97 sources/binding unchanged. ALL608batches completed,
+source7993/candidate6649, full wire6649rows/11,622,468B, no query narrowing.
+Final C/controller constant470422176 is wrong: exact(7993+6649)*32128=470418176,
+difference4000. Native final require aborts before endworkerreadback/terminal;
+do not report exit0 or measured native accepted speed. All13outputs immutable.
+[First fault](METH_477_FIRST_CARDINALITY_FAULT_20261005.md),
+[rawfailure](meth477_switch_head_observable_result.failure.json),
+[retention](RETENTION_477_FIRST_FAILURE_20261005.json). Allinitialinput/control
+gatesPASS, teacher3584/masked2048 metadata rows complete, WindowsEvent1000
+availableZEROmatches. Main76.625s/438,255,616B within resources. Quality NOT
+interpreted; scalar firstfault retention examines only cardinality/metadata.
 
-NEW477 source/C/math/protocol/binding frozenf32e3f1 BEFORE first scientific
-compile/import/numerics. Binding SHA630af85674071dd453595dc5d1a9c810072c0328f9edfaa4987f5ca1ebe742f8.
-Controller SHA54fa9b984f284f18ee0df7df8d6bea3762cadbaa65d4f1dd508b1b6359bf7585;
-C SHAa1c0ca58fda0f408c2852d5b44994908a171f0d0eb996a920ec85d3acbfc42bb;
-math SHAc9cc03c18b5c49890bdf22cbd3a22a636d9a1d527f0ba245951e513b85b103cc.
-ALL6578 prior files7,741,039,181B/195extra files/full original payload/actual
-runtime/sourcecompiler/OpenMP/newCNG dependencies bound before observations.
+Next separately numbered NEW477-R1: admit complete ORIGINAL saved477witnesses
+without native/model/candidate rerun. Freeze independentrecovery source/protocol/
+actualruntime/fullprior/failure/outputbindings BEFORE NumPy/numerics, separate
+sole first command. Re-derive ALL7993source and ALL6649candidate heads from
+admitted476pre/saved472functions/originalweights. Source vectors BYTE exact,
+candidateA16codes/alpha BYTE exact and ALL32128logitSHA exact, allF64metrics/
+true teacherlabels/novelty/flags/groups independently checked. Exactjobs/record/
+batchEOF/cardinality470418176 controls, original exit2/missing native endworker
+readback retained. Recover descriptive report only if complete admissionPASS.
+No477-R1source/protocol/binding/observation/executablecommand yet. CPU0/BLAS1,
+prospective600s/2GiB/newsmall report, no new logits/native/model/fitting/selection.
+First faults before repairs, failed477controller/C/protocol/binding immutable.
 
-ALL6649 saved472candidate/sourcefunctions and admitted476pre at original source
-prefixes. Finite originalprobability/residual/finalnorm/rescale/A16head complete
-32128candidate logits; KL/TV/margins/range/Fisher/actualargmax. Teacher3584true
-labels +2048maskedcontent provenance rederived from467originalexcerpt/windows;
-natural source tokens not groundtruth. Fixed107ready/21fallback, fullnovelcode
-classification vsALL13313dev, everybook/ID/mode/dominant25_37/otherID views.
-No fit/newrank/IDfilter/thresholdchosenfromresults/472gatechange/promotion.
-
-ONE first parent command, never repeat a completed scientific namespace:
-
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth477_switch_head_observable.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth477_switch_head_observable_result.json
-```
-
-Prospective180s/2GiB/new24MiB,admission90s/compile60s/controls30s/candidate90s;
-parentCPU0/native3physicalworkers0,2,4. Outputupper18,389,572B. ONEcompile,
-ONEcontrols child qualifying13nativefixtures/6highprecisiontoys/CNG BEFORE
-ONEcandidate child. ALL7993sourceheads exact,ALL6649candidatecodes/alpha/
-full-logitSHA witnesses retained (payload11,622,468B). [Frozen protocol](METH_477_SWITCH_HEAD_OBSERVABLE_PROTOCOL_20261005.md)
-authoritative; no477scientific observation yet. Poll SAMElivehandle; timeout
-not termination. Then actualparent/compiler/controls/candidate WindowsEvent1000
-and ONE independent fullhead/metric/label/flag/summary/terminal/resource audit.
-First failures before separately numbered repair, no completed477 rerun.
-
-Diagnostic calibration only: oldconsumed ORIGINAL prefixes, no changed own
-candidate states/fresh/global quality. Fullgoal jointnewall-bank geometry/
-fresh donor-relative prediction/generation/tasks/SAME>=50/physicalDRAM/causal
-useful-n/winner ANDmass CPU LUT/actualmultiplefamilies/~10B/~100B remain open.
-Foreground369..373 real-n/mixedquality/cost evidence unchanged.
+Previous476retained964789c ALL6/ALL6PASS; original contexts qualified. Old472
+local105/107/book107FAIL and473/474/475closed remain unchanged/no promotion.
+FullgoalACTIVE/INCOMPLETE: viable all-banknewgeometry/fresh changedownstate
+donor-relative prediction/generation/tasks AND SAME>=50,physicalDRAM/useful-n/
+winner ANDmass CPU LUT/multipleactualfamilies/~10B/~100B.369..373 unchanged.
 
 ## Retained457: admission failed before native execution
 

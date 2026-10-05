@@ -1,0 +1,115 @@
+{
+  "experiment": "METH477 immutable first failure before numbered recovery",
+  "failure_sha256": "f28571f5ee24d07ef6e786fcef3852516069305c1bdead5731b0686d4274c339",
+  "files": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\compile.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime_ns": 1791214397790894800
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\compile.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime_ns": 1791214397790894800
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\controls.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime_ns": 1791214399159568500
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\controls.stdout.log",
+      "bytes": 1913,
+      "sha256": "2ad76a482be16cc1308edfef34b6aa58a8c9ee9dcc77c9157983aa645cf50201",
+      "mtime_ns": 1791214399216697600
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime_ns": 1791214366136035800
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\head-int-dot.bin",
+      "bytes": 41388,
+      "sha256": "0162a37a6a521c7ddd9c80097c193eaa0e7e85e39c056aa88bb5017f68559b87",
+      "mtime_ns": 1791214399213316700
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\jobs.bin",
+      "bytes": 186660,
+      "sha256": "c5583399f3f15d517ad0bc15d6965cd3c0bdbeaed1abc85942d0b812c0fa7c01",
+      "mtime_ns": 1791214397772729300
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\libomp.dll",
+      "bytes": 1262080,
+      "sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698",
+      "mtime_ns": 1791214397789894100
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\meth477_switch_head_observable.exe",
+      "bytes": 310272,
+      "sha256": "c819315ca2a1e85e9a1ecc04b8b6b61c22bc1c4d32b3ea93df03d594ac83bf02",
+      "mtime_ns": 1791214398982911300
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\native.stderr.log",
+      "bytes": 48,
+      "sha256": "af0144c3ce71d8a481aa58a01f31b35430fc724c38b8e9ab3fd34d66f976883f",
+      "mtime_ns": 1791214442495862000
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\native.stdout.log",
+      "bytes": 39568,
+      "sha256": "13e4ff41824a625989b06cb97ef6f8f013246631a348e4f226472ec8405eb00c",
+      "mtime_ns": 1791214442495862000
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\observables.bin",
+      "bytes": 11622468,
+      "sha256": "6960d231e70d9bdcbb4377e4276bcf18d17238e236ff71ed75d442d4d7edf72c",
+      "mtime_ns": 1791214442495862000
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\progress.jsonl",
+      "bytes": 626,
+      "sha256": "d00e6316c586e370f7e13f400a45dfda627cea435c1c21164a2f9c0eb89b981b",
+      "mtime_ns": 1791214442618712200
+    }
+  ],
+  "actual_parent_session": 32173,
+  "parent_exit": 1,
+  "native_exit": 2,
+  "compile_and_controls_exit": 0,
+  "failure_reason": "Final frozen metadata constant470422176 disagrees with exact(7993+6649)*32128=470418176 by4000; final native require fails after all608batches.",
+  "complete_wire_rows": 6649,
+  "native_completed_source_positions": 7993,
+  "native_completed_candidate_positions": 6649,
+  "teacher_label_records": 3584,
+  "masked_content_label_records": 2048,
+  "original_frozen_wrong_constant": 470422176,
+  "correct_integer_count": 470418176,
+  "window_event_metadata": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_first_failure_windows_terminal.json",
+    "sha256": "ed4375329105d84da46b5da0e0f46abdd7b586b1cb7a5cf5efcbac7b4a261904"
+  },
+  "resource": {
+    "seconds": 76.625,
+    "OS_peak_bytes": 438255616,
+    "file_bytes_hashed": 15915348836
+  },
+  "native_end_worker_readback": "unavailable: final require precedes worker_json; setup/worker checks only source-recorded",
+  "quality_metrics_examined": false,
+  "scientific_numerics_in_this_retention": false,
+  "decision": "FAILED477 preserved; full saved-head witnesses require separately frozen477-R1 independent admission; no477rerun or native reexecution",
+  "original_sources_unchanged": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.py": "54fa9b984f284f18ee0df7df8d6bea3762cadbaa65d4f1dd508b1b6359bf7585",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.c": "a1c0ca58fda0f408c2852d5b44994908a171f0d0eb996a920ec85d3acbfc42bb",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_observable_math.py": "c9cc03c18b5c49890bdf22cbd3a22a636d9a1d527f0ba245951e513b85b103cc",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_477_SWITCH_HEAD_OBSERVABLE_PROTOCOL_20261005.md": "863e311d9091e27b22a8b29d4732ec62d821cbfc27ec2c68bcc985bb94c07d23"
+  }
+}

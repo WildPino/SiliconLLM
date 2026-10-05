@@ -1,0 +1,325 @@
+{
+  "experiment": "METH477 all6649 saved472 candidate finite head-observable diagnostic",
+  "start_utc": "2026-10-05T15:32:46.129214+00:00",
+  "argv": [
+    "benchmarks\\native_expert_scaling\\meth477_switch_head_observable.py",
+    "--out",
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth477_switch_head_observable_result.json"
+  ],
+  "source_binding_sha256": "630af85674071dd453595dc5d1a9c810072c0328f9edfaa4987f5ca1ebe742f8",
+  "apparatus_gates": {
+    "frozen_actual_runtime_sources_all6578_inputs_original_payload": true,
+    "ALL6649_original_queries_roles_ready_novel_masks_and_true_teacher_label_provenance": true,
+    "actual3_workers_integer13_and6high_precision_softmax_margin_shift_controls_and_SHA": true
+  },
+  "experts": [],
+  "native_or_model_commands": 2,
+  "updates": 0,
+  "main_process_instance": {
+    "pid": 5832,
+    "create_time_unix": 1791214365.97094,
+    "name": "python.exe",
+    "executable": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+  },
+  "preserved_daemons_before": [],
+  "head_at_execution": "cb17e973a056d2886af6d63d0c9bf129961f85fc",
+  "scientific_sources": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.py": "54fa9b984f284f18ee0df7df8d6bea3762cadbaa65d4f1dd508b1b6359bf7585",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.c": "a1c0ca58fda0f408c2852d5b44994908a171f0d0eb996a920ec85d3acbfc42bb",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_observable_math.py": "c9cc03c18b5c49890bdf22cbd3a22a636d9a1d527f0ba245951e513b85b103cc",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_477_SWITCH_HEAD_OBSERVABLE_PROTOCOL_20261005.md": "863e311d9091e27b22a8b29d4732ec62d821cbfc27ec2c68bcc985bb94c07d23"
+  },
+  "preserved_engine_sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414",
+  "artifact": {
+    "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+    "bytes": 7541946880,
+    "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe",
+    "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+    "manifest_sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a",
+    "source_unique_parameters": 7415217408,
+    "original_experts_per_bank": 128,
+    "f32_embedding_alias_names": [
+      "decoder.embed_tokens.weight",
+      "encoder.embed_tokens.weight",
+      "shared.weight"
+    ],
+    "f32_embedding_physical_copies": 1,
+    "separate_I8_head_view_from_same_tied_source": true,
+    "row_I8_tensor_names": 3241,
+    "f32_tensor_names": 79
+  },
+  "payload_stat_before": [
+    7541946880,
+    1791084550563060000
+  ],
+  "admission": {
+    "seconds": 31.360000000000582,
+    "OS_peak_bytes": 88571904,
+    "file_bytes_hashed": 15913734955
+  },
+  "label_admission": {
+    "cases": 256,
+    "teacher_labels": 3584,
+    "masked_content_labels": 2048,
+    "natural_true_labels": 0,
+    "source_record": "meth467_switch_rust_query_manifest.json"
+  },
+  "query_admission": {
+    "count": 6649,
+    "teacher": 3584,
+    "natural": 3065,
+    "all_original_query_indices_sha256": "ffebbaa0f9dcb4175b4ff05a8882cd46ec42400815defedf609fe49fd1dfce19",
+    "ready_IDs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      37,
+      38,
+      40,
+      41,
+      42,
+      43,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      53,
+      54,
+      55,
+      56,
+      58,
+      60,
+      61,
+      62,
+      65,
+      66,
+      67,
+      68,
+      70,
+      71,
+      72,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      116,
+      117,
+      118,
+      119,
+      120,
+      122,
+      123,
+      125,
+      126,
+      127
+    ],
+    "novelty_against_ALL13313_development_codes": true
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-fno-fast-math",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.c",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\meth477_switch_head_observable.exe",
+        "-lbcrypt"
+      ],
+      "label": "compile",
+      "start_utc": "2026-10-05T15:33:17.789894+00:00",
+      "process_instance": {
+        "pid": 6164,
+        "create_time_unix": 1791214397.792265,
+        "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe"
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-05T15:33:19.075992+00:00",
+      "wall_seconds": 1.2809999999881256,
+      "OS_child_peak_bytes": 124928000,
+      "descendant_process_peaks": [
+        {
+          "pid": 10000,
+          "create_time_unix": 1791214397.8114135,
+          "peak_bytes": 19652608
+        },
+        {
+          "pid": 20552,
+          "create_time_unix": 1791214397.8981571,
+          "peak_bytes": 79634432
+        },
+        {
+          "pid": 18608,
+          "create_time_unix": 1791214398.9015076,
+          "peak_bytes": 21061632
+        }
+      ],
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\compile.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\compile.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\meth477_switch_head_observable.exe",
+        "--controls",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth356_switch_all_a16_contract\\integer_cases.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\head-int-dot.bin"
+      ],
+      "label": "controls",
+      "start_utc": "2026-10-05T15:33:19.159568+00:00",
+      "process_instance": {
+        "pid": 25192,
+        "create_time_unix": 1791214399.1877832,
+        "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\meth477_switch_head_observable.exe"
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-05T15:33:19.306871+00:00",
+      "wall_seconds": 0.15699999999196734,
+      "OS_child_peak_bytes": 2543616,
+      "descendant_process_peaks": [],
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\controls.stdout.log",
+        "sha256": "2ad76a482be16cc1308edfef34b6aa58a8c9ee9dcc77c9157983aa645cf50201"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\controls.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\meth477_switch_head_observable.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\jobs.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth472_switch_private_input_probe\\query_inputs.npy",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth472_switch_private_input_probe\\reference_functions.npy",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth472_switch_private_input_probe\\candidate_functions.npy",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth476_switch_last_layer_context\\context.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\observables.bin"
+      ],
+      "label": "native",
+      "start_utc": "2026-10-05T15:33:19.323805+00:00",
+      "process_instance": {
+        "pid": 18348,
+        "create_time_unix": 1791214399.3259096,
+        "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\meth477_switch_head_observable.exe"
+      },
+      "returncode": 2,
+      "end_utc": "2026-10-05T15:34:02.595904+00:00",
+      "wall_seconds": 43.26600000000326,
+      "OS_child_peak_bytes": 290136064,
+      "descendant_process_peaks": [],
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\native.stdout.log",
+        "sha256": "13e4ff41824a625989b06cb97ef6f8f013246631a348e4f226472ec8405eb00c"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\native.stderr.log",
+        "sha256": "af0144c3ce71d8a481aa58a01f31b35430fc724c38b8e9ab3fd34d66f976883f"
+      }
+    }
+  ],
+  "compile": {
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "-O3",
+      "-std=c11",
+      "-march=x86-64-v3",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fopenmp",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_switch_head_observable\\meth477_switch_head_observable.exe",
+      "-lbcrypt"
+    ],
+    "binary_sha256": "c819315ca2a1e85e9a1ecc04b8b6b61c22bc1c4d32b3ea93df03d594ac83bf02",
+    "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+  },
+  "failure": {
+    "stage": "ONE_frozen_compile_source_primal_and_complete_candidate_observable",
+    "type": "AssertionError",
+    "message": "{'argv': ['D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\meth477_switch_head_observable.exe', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth380_switch_w8a8_export\\\\manifest.bin', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\jobs.bin', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth472_switch_private_input_probe\\\\query_inputs.npy', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth472_switch_private_input_probe\\\\reference_functions.npy', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth472_switch_private_input_probe\\\\candidate_functions.npy', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth476_switch_last_layer_context\\\\context.bin', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\observables.bin'], 'label': 'native', 'start_utc': '2026-10-05T15:33:19.323805+00:00', 'process_instance': {'pid': 18348, 'create_time_unix': 1791214399.3259096, 'executable': 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\meth477_switch_head_observable.exe'}, 'returncode': 2, 'end_utc': '2026-10-05T15:34:02.595904+00:00', 'wall_seconds': 43.26600000000326, 'OS_child_peak_bytes': 290136064, 'descendant_process_peaks': [], 'stdout': {'path': 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\native.stdout.log', 'sha256': '13e4ff41824a625989b06cb97ef6f8f013246631a348e4f226472ec8405eb00c'}, 'stderr': {'path': 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\native.stderr.log', 'sha256': 'af0144c3ce71d8a481aa58a01f31b35430fc724c38b8e9ab3fd34d66f976883f'}}",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.py\", line 333, in main\n    invoke(native, 'native', env, 90)\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth477_switch_head_observable.py\", line 310, in invoke\n    assert child.returncode == 0 and stderr.stat().st_size == 0, entry\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'argv': ['D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\meth477_switch_head_observable.exe', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth380_switch_w8a8_export\\\\manifest.bin', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\jobs.bin', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth472_switch_private_input_probe\\\\query_inputs.npy', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth472_switch_private_input_probe\\\\reference_functions.npy', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth472_switch_private_input_probe\\\\candidate_functions.npy', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth476_switch_last_layer_context\\\\context.bin', 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\observables.bin'], 'label': 'native', 'start_utc': '2026-10-05T15:33:19.323805+00:00', 'process_instance': {'pid': 18348, 'create_time_unix': 1791214399.3259096, 'executable': 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\meth477_switch_head_observable.exe'}, 'returncode': 2, 'end_utc': '2026-10-05T15:34:02.595904+00:00', 'wall_seconds': 43.26600000000326, 'OS_child_peak_bytes': 290136064, 'descendant_process_peaks': [], 'stdout': {'path': 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\native.stdout.log', 'sha256': '13e4ff41824a625989b06cb97ef6f8f013246631a348e4f226472ec8405eb00c'}, 'stderr': {'path': 'D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth477_switch_head_observable\\\\native.stderr.log', 'sha256': 'af0144c3ce71d8a481aa58a01f31b35430fc724c38b8e9ab3fd34d66f976883f'}}\n"
+  },
+  "end_utc": "2026-10-05T15:34:02.618712+00:00",
+  "resource_on_failure": {
+    "seconds": 76.625,
+    "OS_peak_bytes": 438255616,
+    "file_bytes_hashed": 15915348836
+  }
+}
