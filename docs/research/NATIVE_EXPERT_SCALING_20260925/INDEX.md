@@ -104,19 +104,18 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: prospective471 native extension, freeze and first execution next
+## Current resumption: frozen471 native extension, ONE first execution next
 
 470 source extension admitted07e6648, ALL12apparatus/ALL10retention:64NEW whole
 development books128..191/256S29T14cases, no new validation. Original469 baseline
 84ready IDs/2605of3065=84.99%fixedbank11coverage DATAFAIL. Goal turn PROGRESS from
 qualified source extension; native benefit remains unknown. Full goal ACTIVE/INCOMPLETE.
 
-NEW471 source/protocol/actual runtime/input binding prepared BEFORE any compile/
+NEW471 source/protocol/actual runtime/input binding frozenfbe0306 BEFORE any compile/
 import/new native/numerical observation. Binding SHA
 e1a41142aebbf572033693de50af11ebafd64aab9f4f4877392820a2e322222f,
 17direct records/13helpers/429NumPy+12psutilassets/ALL4136old469files exact bounded
-inventory; original393binary/payload/math/3workers. Freeze all owned files then
-record freeze and ONE first command:
+inventory; original393binary/payload/math/3workers. ONE first command:
 
 .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth471_switch_development_capture.py
 --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth471_switch_development_capture_result.json
