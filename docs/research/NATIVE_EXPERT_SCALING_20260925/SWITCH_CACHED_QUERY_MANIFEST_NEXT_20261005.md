@@ -3,10 +3,10 @@
 5October2026.464 isolated transport ALL5 apparatus/ALL5 retention PASS, ONE7710
 exit0.463 native Arrow access violation retained, no manifest admitted/no retry.
 462 DATA FAIL fixed128 last bank1ID/3.70%coverage; no private INPUT factors yet.
-Full goal ACTIVE/INCOMPLETE.465 first compilation failed before module execution,
-retained. NEW466 fresh namespace/progress-literal-only repair preserves465 seeds/
-input inventory/design.466 frozenbfed077, first execution pending; no source
-selection/tokenization yet.
+Full goal ACTIVE/INCOMPLETE.466 nominal manifest retained but runtime NOT admitted:
+indirect Transformers/sklearn/pandas/Arrow import fault. NEW467 proposed original
+Rust codec directly, same seeds/inputs/diagnostic preselection, no new book count.
+See [first runtime fault](METH_466_INDIRECT_ARROW_RUNTIME_FAULT_20261005.md).
 
 ## First exact action
 

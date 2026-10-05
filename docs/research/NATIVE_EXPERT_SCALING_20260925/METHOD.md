@@ -1,25 +1,26 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: frozen466 literal repair, ONE first execution next
+## Current resumption after466: indirect Arrow fault, Rust-only467 next
 
-465 first compile fault retained4ddf0c3; no module execution/selected case, no465
-retry. NEW466 source/protocol frozenbfed077 BEFORE compile/import/observations.
-Literal+fresh namespace only; exact465 seeds/input inventory/science preserved,
-first465 compile fault additionally bound. [466 protocol](METH_466_SWITCH_CACHED_QUERY_MANIFEST_PROTOCOL_20261005.md).
+466 ONE38283 nominal exit0/raw ALL8 gates/128books512cases; runtime NOT admitted:
+native fault log8273B, samePID10048 Windows APPCRASH179345/179364 in Arrow.
+Indirect import stack Transformers->sklearn->pandas->pyarrow, no Arrow reader call.
+Metadata source/token/mask/role checks reached; terminal-health gate FAIL, no
+RETENTION466 success. [First runtime fault](METH_466_INDIRECT_ARROW_RUNTIME_FAULT_20261005.md),
+fault rawSHAc7e6c200f8018a63b8418d40f2c7b189786965605479d79ad2f7e98d43954cf2.
+Manifest/logs/OS events retained; no466 rerun or quality/readiness promotion.
 
-ONE first command:
-results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
-benchmarks\native_expert_scaling\meth466_switch_cached_query_manifest.py --out
-docs\research\NATIVE_EXPERT_SCALING_20260925\meth466_switch_cached_query_manifest.json
-
-Hard MAIN300s4GiB8MiB+logs1MiB;128newbooks/512windows64dev64val from qualified
-cached originalUTF8 without Arrow reader calls; ALL96 retained382 token controls
-BEFORE new tokenization; current frozen1847 record exclusions+whole-text copies.
-Progress/fatal logs exclusive before imports, no model/native/GPU/fit/download.
-If live poll same actual session to terminal; first fault retained/no466 retry.
-PASS -> independent metadata/token/mask/provenance audit then separately freeze
-original393 capture/SAME462 floors/fixed128last bank. No private INPUT geometry
-before readiness. Full goal ACTIVE/INCOMPLETE, original engine/artifacts intact.
+Next NEW467 not created/frozen: SAME original tokenizer.json/tokenizers0.22.2
+direct Rust encode/decode, no Transformers/Torch/sklearn/pandas/Arrow. Local
+qualified source/config delegates decode with skip_special_tokensFalse/cleanupFalse.
+Freeze codec dependency hashes/protocol before import; preserve465 seeds/input
+universe/guards/roles/counts. Requalify SAME128 source-only diagnostic preselection,
+not128 additional fresh books. ALL96 original382 golden controls BEFORE data;
+fresh reconstruction + exact512 diagnostics equivalence to466, no normative trust
+in invalid466. Disallowed modules absent and actual native fault logs empty/healthy
+terminal required. SAME300s4GiB8MiB+1MiBlogs. Then metadata audit -> separate
+original393 capture/SAME462 floors/fixed128lastbank -> private INPUT geometry if
+data admitted. Full goal ACTIVE/INCOMPLETE, model/engine unchanged.
 
 ## Available method step: isolate and qualify the original corpus transport
 
