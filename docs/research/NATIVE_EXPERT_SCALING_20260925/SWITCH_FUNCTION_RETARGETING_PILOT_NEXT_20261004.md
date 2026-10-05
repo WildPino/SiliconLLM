@@ -1,31 +1,31 @@
-# Current resumption after461: return to transfer geometry
+# Current resumption:462 frozen, first execution pending
 
-## Current resumption after461: native recipe closed, return to transfer geometry
+## Current resumption:462 frozen, first retained-trace execution pending
 
-461 ONE session87477 exit0, freeze778d86a/first runcf4f90f. ALL8 apparatus PASS:
-ALL1536 complete states/logits/routes/IDs exact originals. Mean reductions
-2.3894003%128/2.8852085%256 FAIL frozen5%; ALL24book and pooledp95 gates PASS.
-No threshold change/retry/kernel sweep.591.031s/1,372,618,752B conservative sum/
-4,954,377,631B new outputs. Audit86059 ALL7gates PASS,32.922s; no scientific rerun.
-[461 result](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md),
-[retention461](RETENTION_461_20261005.json). Raw SHA
-1477dcab26918bc11d82a081ee7cc180a6d09c0c022848935f205ed9ff0d1f57.
-Original engine/payloads/qualified binaries unchanged; candidate not promoted.
+462 source/protocol frozen6f5930e before first import/parse/observation.
+[Prospective462](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_PROTOCOL_20261005.md).
+Same-core expert INPUT data admission only: ALL384 qualified393 trace/whole
+outputs, book0..11dev/12..23val; cached native13 + exact-rational A16 controls;
+actual accepted WI queries, duplicates/book provenance, no rank/SVD/fit/model.
+Per-ID floors32dev codes/4books +16novelval codes/4books; bank>=32readyIDs and
+>=90%own-natural validation execution coverage. A priori128 last decoderbank11
+alone decides next probe; these are DATA floors, not model/capacity acceptance.
 
-Next NEW462, proposal only: trace-based admission of actual expert-owned INPUT
-query domains under the same original cores, before private factors/fit.
-[Whole algebra/information reassessment](TRANSFER_GEOMETRY_REASSESSMENT_AFTER_461_20261005.md),
-[bounded next admission](SWITCH_NATIVE_QUERY_DOMAIN_ADMISSION_NEXT_20261005.md).
-No462 source/protocol/import/observation yet. Implement/freeze bindings, book
-split/duplication/coverage/readiness/A16 controls/resources BEFORE reading retained
-393 traces for new counts. No model forward/compile/fit/GPU/download; expected
-<=2min, prospective hard<=300s/512MiB/32MiB. Selected future probe bank fixed:
-last decoder sparse bank128; no favorable bank selection after counts.
-Insufficient independent coverage -> data deficit/new capture design before fit;
-adequate coverage -> separately frozen ONE private INPUT-domain geometric probe.
-444..446 global/output/Frobenius and old fits remain CLOSED; actual rank/quality/
-compression/native cost not inferred from finite count. Goal ACTIVE/INCOMPLETE:
-composed transfer/fresh donor quality/SAME50/useful-n/mass/DRAM/families~100B open.
+Execute ONCE .venv/Scripts/python.exe
+benchmarks/native_expert_scaling/meth462_switch_query_domain_admission.py --out
+docs/research/NATIVE_EXPERT_SCALING_20260925/meth462_switch_query_domain_admission_result.json.
+No462 import/numeric observation yet. Hard300s/512MiB/32MiB ledger+raw; admission
+120s. Retain first failure before numbered minimal repair; no completed rerun.
+If insufficient coverage: stop factors and design new independent captures.
+If admitted: separately freeze ONE rank32 private INPUT geometry probe, with
+held-out/identity/byte/error controls. No favorable-bank selection after counts.
+[Next proposal](SWITCH_NATIVE_QUERY_DOMAIN_ADMISSION_NEXT_20261005.md).
+
+461 numerics ALL1536exact, whole2.39/2.89% FAILED5%: ONE kernel recipe CLOSED,
+[retained461](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md).
+[Whole reassessment](TRANSFER_GEOMETRY_REASSESSMENT_AFTER_461_20261005.md).
+Goal ACTIVE/INCOMPLETE: composed transfer/fresh donor quality/SAME50/useful-n/
+router mass/physicalDRAM/families~100B still required. Originals/engine unchanged.
 
 ## Retained457: admission failed before native execution
 
