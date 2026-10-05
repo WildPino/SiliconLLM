@@ -1,0 +1,36 @@
+{
+  "experiment": "METH479-R1 FIRST sequential target recovery fault",
+  "phase": "immutable_admission",
+  "start_utc": "2026-10-05T18:51:06.047511+00:00",
+  "end_utc": "2026-10-05T18:51:47.605890+00:00",
+  "process_instance": {
+    "pid": 3844,
+    "create_time_unix": 1791226266.047511,
+    "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+  },
+  "commands": [],
+  "binding_sha256": "0523b1822b84f6e11b40025b3c677116042a06853f4094375d271df73a4016ac",
+  "scientific_sources": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_r1_routing_supervision.py": "e62679a2af94313ebca3ee63e891b7f1ce245c6ff2429c4aa1eb6a3e00bd6c8f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_source_router.c": "62030865d3c7227f7d9195ae0e81786fb3499cd93ca6dbbf1e8a5a667c9278a2",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_supervision_math.py": "1146659c0d8a62c42f2db8ed15d9c7acf251c9de318c1853a09cbcdc06cc4c7b",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_r1_windows_terminal.ps1": "048b6589929a23d14f34d935716760a39b550b64c540c372183c7278c69bc44f",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_479_R1_ROUTING_SUPERVISION_PROTOCOL_20261005.md": "cc5cf662b1797295b843f7fb52bae320c2e8dafd7e421432eb9d7a9283753512"
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_r1_routing_supervision.py\", line 176, in <module>\n    assert not (name.startswith('python') or name.startswith('clang') or (name.startswith('meth') and name.endswith('.exe'))), (p.pid, name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: (3540, 'python.exe')\n",
+  "resource": {
+    "seconds": 41.51600000000326,
+    "OS_peak_combined_bytes": 96952320,
+    "file_bytes_hashed": 14966090637
+  },
+  "partial_output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_r1_routing_supervision\\fatal_native.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_r1_routing_supervision\\progress.jsonl",
+      "bytes": 79
+    }
+  ]
+}
