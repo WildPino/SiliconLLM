@@ -104,38 +104,45 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: admitted470 development extension; NEW471 native capture next
+## Current resumption: prospective471 native extension, freeze and first execution next
 
-470 ONE56339exit0/ALL12apparatus, ONE56344exit0/ALL10independent retention PASS.
-64NEW whole development books/global128..191/256S29T14cases, source-only deterministic
-ranks0..63/zero rejects/68495full-excerpt tokens.293prior rows excluded, all1863
-priorJSONs/36packagecode-native files/96original fields/all1243cached rows exact.
-Original128books/0..63dev/64..127diagnostic-validation roles/raw/RET unchanged;
-no new validation, native/model/router observations or factor in470.
-[470 result](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md),
-[retention](RETENTION_470_20261005.json).36.625s/379.41MiB/2.837MBmain outputs;
-audit38.703s/83.77MiB. Windows available/0events, actualmain23952terminal/no jobs.
-Freeze161ce77/firstb5df6eb BEFORE observations. No completed scientific rerun.
+470 source extension admitted07e6648, ALL12apparatus/ALL10retention:64NEW whole
+development books128..191/256S29T14cases, no new validation. Original469 baseline
+84ready IDs/2605of3065=84.99%fixedbank11coverage DATAFAIL. Goal turn PROGRESS from
+qualified source extension; native benefit remains unknown. Full goal ACTIVE/INCOMPLETE.
 
-Original469 admitted capture DATAFAIL still current:84ready IDs/2605of3065=
-84.99%fixedbank11coverage.25IDs/389queries have dev-only deficits,19IDs/71queries
-also fail val novelty. Added D can only shrink V\D;64newbooks alone do not prove
-readiness/rank/quality/rate. [469 result](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md).
+NEW471 source/protocol/actual runtime/input binding prepared BEFORE any compile/
+import/new native/numerical observation. Binding SHA
+e1a41142aebbf572033693de50af11ebafd64aab9f4f4877392820a2e322222f,
+17direct records/13helpers/429NumPy+12psutilassets/ALL4136old469files exact bounded
+inventory; original393binary/payload/math/3workers. Freeze all owned files then
+record freeze and ONE first command:
 
-Exact next separately freezeNEW471: ALL256newteacher+natural contexts=512newstreams,
-original393binary/payload/3workers/A16/worker/golden/grammar/parser/118Bledger
-controls; refresh/read ALLold469retained files without old recapture/main rerun.
-Combine old258120queries +newdev with explicit role map0..63dev/64..127val/
-128..191devaug (NEVER book>=64). Original validation3065bank11 denominator,
-SAME32devcodes/4books/16NOVELvalcodes/4books/>=32ready/>=90%coverage/FIXEDbank11,
-all cases health-independent. Combined new bound467016queries/55107908Bledger;
-260new+goldenpairs4891637920B, plus256MiBreserve =>5215181284B prospective.
-Check disk/bindings and freeze source/protocol BEFORE compile/import/capture.
-Proposed35min16GiB/new12GiB/child120s; expected~8CPUminutes. ONE64devaugmentation
-only; DATAFAIL stops this data ladder/reassess geometry. PASS+retention -> separately
-frozen private INPUT spectrum/function probe. No470 or469main repeat.
-[Bounded next](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
-471 source/protocol NOTcreated/frozen/executed. Full goal ACTIVE/INCOMPLETE.
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth471_switch_development_capture.py
+--out docs\research\NATIVE_EXPERT_SCALING_20260925\meth471_switch_development_capture_result.json
+
+Refresh all old file SHA, original192/golden/A16/worker/parser/118Bledger controls;
+reconstruct ALL258120oldqueries/12banks1536IDtables EXACT before new data. Capture
+ALL256new contexts in BOTH modes=512newstreams/521totalnative commands incl controls,
+no old469 cohort recapture/main rerun. Explicit roles0..63dev/64..127val/128..191devaug,
+NEVER book>=64. Same fixed validation3065bank11denominator, full V\Dprime novelty
+recomputed; same32devcodes/4books/16NOVELvalcodes/4books/>=32ready/>=90%coverage.
+All cases/health/unsupported IDs retained, no encoder/bank/subset selection.
+
+HardMAIN35min16GiB/new12GiB/child120s/pre-native180s; expected~8CPUminutes+old input
+refresh/reconstruction. Exactnew native+combinedledger+256MiBreserve upper5215181284B,
+combined<=467016118Brecords/55107908B. NoGPU/model/framework/codec/download/fit/SVD.
+Per-native actual OSpeak+FILETIMEcreation from retained handles, copyargv before
+Popen, no hashing while child live, raw/OUT/finalprogress counters separate.
+[471 protocol](METH_471_SWITCH_DEVELOPMENT_CAPTURE_PROTOCOL_20261005.md).
+
+If live poll same actualhandle; do not restart after observation timeout. First
+failure immutable BEFORE numbered repair. After actual completion independent
+ALLcombinedledger/actualtrace/role/novelty/byte/Windowsprocess terminal audit.
+DATA PASS+retention -> separately freeze private INPUT spectral/function probe;
+DATAFAIL -> stop this ONE64dev data ladder/reassess geometry or data contract.
+No scientific471 observation yet.470/469 mains complete and never repeated.
+[Bounded extension](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
 
 ## Retained457: admission failed before native execution
 

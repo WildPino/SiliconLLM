@@ -7,7 +7,9 @@ Full goal ACTIVE/INCOMPLETE.470 source manifest admitted ALL12apparatus/ALL10
 retention PASS,64NEW devbooks/256cases, zero model/native/router observations.
 Freeze161ce77/firstb5df6eb, ONE56339exit0. Original64validation fixed.
 [470 source admission](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md).
-471 source/protocol not created/frozen/imported/executed. Sections below retain
+471 source/protocol/bindings prepared, freeze and ONE first execution next;
+no compile/import/new native/numerical observation yet.
+See [471 prospective protocol](METH_471_SWITCH_DEVELOPMENT_CAPTURE_PROTOCOL_20261005.md). Sections below retain
 prospective source/capture design;470 is now completed, do not rerun its main.
 
 ## Precise bottleneck, feasibility and stop
