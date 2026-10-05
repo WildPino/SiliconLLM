@@ -521,6 +521,18 @@ assert root_fields==955488
 gates['ALL12_unresolved_raw_and_sentinel_fields_root_ID_BYTES_and_ALL1910976_interval_BYTES'] = True
 
 phase='independent_complete_reports_controls_and_inconclusive_decision'
+def schema_exact(a,z):
+    assert type(a) is type(z)
+    if isinstance(a,dict):
+        assert a.keys()==z.keys()
+        for key in a:
+            schema_exact(a[key],z[key])
+    elif isinstance(a,list):
+        assert len(a)==len(z)
+        for left,right in zip(a,z):
+            schema_exact(left,right)
+    else:
+        assert a==z
 actual=json.loads(Path(r482['reports_path']).read_bytes())
 expected={key:[] for key in ('unique_views','occurrence_views','book_views','source_ID_views')}
 def summary(ids):
@@ -544,9 +556,10 @@ for book in range(192):
             rows=links[(links[:,2]==book)&(links[:,6]==bank)&(links[:,4]==mode)]
             expected['book_views'].append({'book':book,'bank':bank,'mode':mode,'role':0 if book<64 else 1 if book<128 else 2,'accepted':int(rows[:,10].sum(dtype='<u8')),'rejected':int(np.count_nonzero(rows[:,10]==0)),**summary(rows[:,12])})
 assert [len(expected[key]) for key in expected]==[39,72,4608,9216]
-assert expected==actual and expected['unique_views'][0]==r482['overall']
+schema_exact(expected,actual)
+schema_exact(expected['unique_views'][0],r482['overall'])
 assert all(sum(v['count'] for v in expected[key])==Q for key in ('occurrence_views','book_views','source_ID_views'))
-assert json.loads((SOURCE482_OUT/'bank_records.json').read_bytes())==r482['banks']
+schema_exact(json.loads((SOURCE482_OUT/'bank_records.json').read_bytes()),r482['banks'])
 controls=json.loads((SOURCE482_OUT/'controls.json').read_bytes())
 assert controls==r482['controls'] and controls['control_LP_calls']==3
 assert controls['Decimal100_cancellation_enclosed'] and controls['IEEE_F64_subnormal_arithmetic'] and controls['physical_contract_requires_FTZ_DAZ_off']
