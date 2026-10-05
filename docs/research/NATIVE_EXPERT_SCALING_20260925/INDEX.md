@@ -97,30 +97,24 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: frozen465, ONE manifest first execution next
+## Current resumption after465: compile fault retained, literal-only466 next
 
-Previous goal turn PROGRESS:463 native Arrow firstfault retained,464 corpus transport
-qualified/audited/retainedbefefa5. Original model/engine unchanged; goal incomplete.
-NEW465 source/protocol/input inventory frozen8146e8b BEFORE first controller
-import/parse/new selection/tokenization.1847 current prior JSON files/1.014GB and
-qualified cached original UTF8 transport bound; no new-source observations yet.
-[465 protocol](METH_465_SWITCH_CACHED_QUERY_MANIFEST_PROTOCOL_20261005.md).
+465 first command exit1 during module compilation, freeze8146e8b/firstc2e9f4c:
+unterminated progress.write string line94, source-generator newline escaping.
+No imports/source selection/tokenization/model/native, no scientific raw or OUT.
+Source/protocol/input inventory/engine physicalHEAD exact, unrelated3 preserved.
+[First fault](METH_465_FIRST_COMPILE_FAULT_20261005.md), first rawSHA
+51daf7fe571065bff2cb80a529201c8459425ec6322be38c5830bdf26c82d5e5.
+No465 rerun or frozen first-source edit.
 
-ONE first command:
-results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
-benchmarks\native_expert_scaling\meth465_switch_cached_query_manifest.py --out
-docs\research\NATIVE_EXPERT_SCALING_20260925\meth465_switch_cached_query_manifest.json
-
-Expected<=3min, hard MAIN300s/4GiB/raw8MiB+logs1MiB. No Arrow reader/model/native
-forward/GPU/fit/download. ALL96 retained382 tokenizer/mask/ID/decode controls
-BEFORE new tokenization. Rehash/exclude prior rows+whole-text copies;128newbooks/
-512unique windows,64dev64diagnostic-val fixed roles; complete lossless excerpt
-tokens/coordinates retained for independent metadata audit. Fresh progress/fatal
-logs before heavy imports; preserve first failure, no465 retry. If live, poll
-same actual session until terminal. PASS -> retention audit and separately freeze
-original393 native capture/SAME462 readiness floors/fixed128bank11. No factors
-before data admission; final fresh donor tasks/generation/SAME50/useful-n/mass/
-physicalDRAM/families~100B remain.462 DATA FAIL1ID/3.70%,461 recipe CLOSED.
+Next NEW466 not created/frozen: namespace + progress literal repair ONLY. Preserve
+465 selection/split seeds/exact frozen1847-file inventory/corpus/runtime/guards/
+128books512contexts64dev64val scientific design. Additional465 records are solely
+compile apparatus metadata, no new consumed sources. Freeze before compilation/
+imports; SAME300s4GiB8MiB+logs1MiB. Qualify ALL382 token controls before new data.
+Then metadata audit -> separate original393 capture/SAME462 readiness/fixed128
+last bank -> private INPUT geometry if adequate. No readiness/fresh donor quality/
+rate/useful-n promotion yet. Full goal ACTIVE/INCOMPLETE, original engine intact.
 
 ## Retained457: admission failed before native execution
 

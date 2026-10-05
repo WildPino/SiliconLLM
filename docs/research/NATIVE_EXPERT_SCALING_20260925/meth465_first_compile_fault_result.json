@@ -1,0 +1,36 @@
+{
+  "experiment": "METH465-first-source-compilation-fault",
+  "scientific_freeze_commit": "8146e8b",
+  "first_execution_resumption_commit": "c2e9f4c",
+  "terminal_exit_code": 1,
+  "argv": [
+    "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe",
+    "benchmarks/native_expert_scaling/meth465_switch_cached_query_manifest.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth465_switch_cached_query_manifest.json"
+  ],
+  "stage": "module_compile_before_any_top_level_execution",
+  "error": "SyntaxError: unterminated string literal (detected at line 94)",
+  "source_line94_95": [
+    "        progress.write(json.dumps(row) + '",
+    "'); progress.flush()"
+  ],
+  "qualified_file_sha256": {
+    "benchmarks\\native_expert_scaling\\meth465_switch_cached_query_manifest.py": "b68628b6271303bed2193bf77f7cbf26a0c69ee3970cecfff8cc566ece3ce839",
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_465_SWITCH_CACHED_QUERY_MANIFEST_PROTOCOL_20261005.md": "e6b6e4464b5f530b51c116293c38ec71dcc58342aa44c8d736d7f5515eb79d3f",
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth465_prospective_bindings.json": "b19177fabf8faedec468dae2e6bdb0e195d1074e95417df87333ba2031a1dbb0",
+    "benchmarks\\phase60\\engine.c": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414"
+  },
+  "source_generator_sha256": "b925fd7c964fc0ffab2409fca01a2cac2813fd133bfccf6bc0d3d9f3518f1a70",
+  "gates": {
+    "source_protocol_bindings_engine_physicalHEAD_exact": true,
+    "first_compile_before_module_execution": true,
+    "no_success_failure_raw_or_OUT": true,
+    "all3_unrelated_byte_hashes_preserved": true
+  },
+  "no_source_selection_or_tokenization_executed": true,
+  "native_or_model_commands": 0,
+  "source_window_observations": 0,
+  "decision": "retain_first_compile_failure_then_NEW466_namespace_and_literal_only_repair_preserve_seeds_inputs_thresholds",
+  "scope": "controller generation inserted a newline inside progress.write string; no scientific controls/admission/imports executed. No465 rerun or first source edit."
+}
