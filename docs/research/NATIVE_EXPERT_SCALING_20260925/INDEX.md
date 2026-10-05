@@ -26,6 +26,12 @@ daemons. Routine Graphify disabled. Donor-adaptation remains frozen reusable evi
 
 ## Latest decisive evidence
 
+[460](METH_460_SWITCH_COMMON_INPUT_ADMISSION_RESULT_20261005.md): exact common-input
+A16 sharing admitted in qualified sources: removes38.7..38.9% dense A16 CALLS/
+~29.7% parallel regions; no product/storage/speed benefit measured. One bounded
+native whole-cost inquiry next;459 catalog EOL first fault preserved.
+
+
 [458](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md): admitted matched whole
 fractions, experts24.86/27.09% versus dense40..44%; hypothetical expert-elimination
 ceiling1.33..1.37x. ALL1536 generation outputs exact originals. Next exact shared
@@ -74,23 +80,35 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption460: catalog identity correction frozen, FIRST execution next
+## Current resumption after460: exact sharing admitted, ONE whole native inquiry next
 
-Scientific freezea467981.459 first catalog EOL fault retained e0a98ab:1.078s,
-ZERO native/model work/operation counts.460 changes only catalog physical-versus-
-canonical identity, namespace and first-failure binding; qualified374/388/engine/
-metadata/manifest byte contracts and all algebra/count gates remain exact.
-[First fault](METH_459_FIRST_CATALOG_FAULT_20261005.md),
-[460 protocol](METH_460_SWITCH_COMMON_INPUT_ADMISSION_PROTOCOL_20261005.md).
-Next ONCE: .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth460_switch_common_input_admission.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth460_switch_common_input_admission_result.json
-Model-free<=60s/256MiB, no weights/native/compile/GPU/fit/download/engine edits.
-After completion derive report/retention, no unchanged rerun. Quantization/parallel
-region counts are not time or DRAM benefit. Native implementation needs a new
-prospective full-output/whole-cost/resource protocol.458 fractions and original
-same-quality artifacts remain inherited evidence; goal ACTIVE/INCOMPLETE.
-[Whole reassessment](WHOLE_TRANSFER_REASSESSMENT_AFTER_458_20261005.md).
-No459/458 rerun;456 CLOSED. Full transfer/fresh quality/SAME50/useful-n/router mass/
-physicalDRAM/other families/~100B remain required.
+460 completed ONE command exit0, freezea467981/first run656fd15.
+ALL8admission gates PASS; metadata-only audit ALL6gates PASS.9.594s/53,153,792Bpeak,
+634,016Braw, zero compile/native/model-value/GPU/fit/download/engine edits.
+36legal fanouts/source; ALL1536 inherited dense counter rows rederived exact.
+Removed A16 CALLS38.7017%128/38.9044%256; parallel regions29.6792%/29.7527%.
+Integer products/logical coefficient bytes/storage/capacity reductions ZERO.
+These counts are not speed/DRAM/quality gains. Original weights/quality inherited;
+only binary manifest SHA and payload size/mtime refreshed in this model-free step.
+[460 result](METH_460_SWITCH_COMMON_INPUT_ADMISSION_RESULT_20261005.md),
+[retention460](RETENTION_460_20261005.json), raw SHA
+6e1f921d05f08eba48e59c05d167420fc9160732ef3060617e23a4cdbf4646b0.
+
+459 first catalogue EOL stop retained e0a98ab,1.078s/zero case counts;
+460 changed only catalog identity/namespace/fault binding. Eight physical EOL
+mismatches recorded with identical canonical HEAD text; no historical rewrite.
+Qualified source/engine byte contracts remain exact. No459/460 rerun.
+
+Next NEW461 (no source/protocol/run yet): ONE exact shared-A16 common-input
+QKV/KV primitive + whole original/candidate cost and complete-output comparison.
+Implement/freeze native source/controller/protocol/quality/cost/resource gates
+BEFORE compile/observations. Suggested whole mean<=.95/books<=1.05/p95<=1.00,
+actual definitions frozen in next protocol, not inferred from removed call ratios.
+[Bounded native proposal](SWITCH_COMMON_INPUT_FANOUT_COST_NEXT_20261005.md).
+After this ONE decision return to transfer/useful-capacity composition; no indefinite
+kernel sequence.458 whole dense/expert constraints inherited;456 fixed tile CLOSED.
+Goal ACTIVE/INCOMPLETE: full transfer/fresh donor quality/SAME50/useful-n/router
+mass/physicalDRAM/families~100B remain required.
 ## Retained457: admission failed before native execution
 
 ONE session19372 exit1/224.109s/KeyError in historical363 runtime schema,
