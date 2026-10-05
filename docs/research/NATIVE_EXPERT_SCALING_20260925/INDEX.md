@@ -26,6 +26,11 @@ daemons. Routine Graphify disabled. Donor-adaptation remains frozen reusable evi
 
 ## Latest decisive evidence
 
+[462](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_RESULT_20261005.md): actual private
+INPUT-data readiness FAIL before factors;1eligibleID/3.70%coverage in fixed128
+bank, all24banks inadequate. Numerical/provenance controls PASS. Select new
+independent source books before captures/geometry, rather than repeated prefixes.
+
 [461](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md): ALL1536 outputs exact;
 whole mean reductions2.39/2.89% FAIL frozen5% (books/p95 PASS). Recipe CLOSED;
 return to expert-owned input geometry/data admission, no further kernel sweep.
@@ -84,32 +89,32 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption:462 frozen, first retained-trace execution pending
+## Current resumption after462: data inadequate, new independent manifest next
 
-462 source/protocol frozen6f5930e before first import/parse/observation.
-[Prospective462](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_PROTOCOL_20261005.md).
-Same-core expert INPUT data admission only: ALL384 qualified393 trace/whole
-outputs, book0..11dev/12..23val; cached native13 + exact-rational A16 controls;
-actual accepted WI queries, duplicates/book provenance, no rank/SVD/fit/model.
-Per-ID floors32dev codes/4books +16novelval codes/4books; bank>=32readyIDs and
->=90%own-natural validation execution coverage. A priori128 last decoderbank11
-alone decides next probe; these are DATA floors, not model/capacity acceptance.
+462 ONE session84098 exit0, freeze6f5930e/first run24e4c63. ALL8apparatus PASS:
+ALL384trace+384whole outputs SHA exact,96186 native route/code fingerprints;
+13cached native+6rational A16controls pass. ALL24bank DATA readiness FAIL.
+Fixed128 decoderbank11: onlyID37 ready,21/568=3.69718%val-natural executions,
+versus32IDs/90%required. Dev code median7/max33; no factor/SVD/fit/model/native.
+40.515s through aggregation/287,133,696Bpeak/31,454,865Braw+ledger (<32MiB).
+Metadata-only audit ALL6 PASS,6.047s; no scientific rerun. [462 result](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_RESULT_20261005.md),
+[retention462](RETENTION_462_20261005.json). Raw SHA
+ dbf6114776ae1f6850300c708ddda9f95c6a0071ae91ae848519bf6c82a8f096.
 
-Execute ONCE .venv/Scripts/python.exe
-benchmarks/native_expert_scaling/meth462_switch_query_domain_admission.py --out
-docs/research/NATIVE_EXPERT_SCALING_20260925/meth462_switch_query_domain_admission_result.json.
-No462 import/numeric observation yet. Hard300s/512MiB/32MiB ledger+raw; admission
-120s. Retain first failure before numbered minimal repair; no completed rerun.
-If insufficient coverage: stop factors and design new independent captures.
-If admitted: separately freeze ONE rank32 private INPUT geometry probe, with
-held-out/identity/byte/error controls. No favorable-bank selection after counts.
-[Next proposal](SWITCH_NATIVE_QUERY_DOMAIN_ADMISSION_NEXT_20261005.md).
-
-461 numerics ALL1536exact, whole2.39/2.89% FAILED5%: ONE kernel recipe CLOSED,
-[retained461](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md).
-[Whole reassessment](TRANSFER_GEOMETRY_REASSESSMENT_AFTER_461_20261005.md).
-Goal ACTIVE/INCOMPLETE: composed transfer/fresh donor quality/SAME50/useful-n/
-router mass/physicalDRAM/families~100B still required. Originals/engine unchanged.
+Next NEW463, proposal only: source/tokenizer/corpus applicability then one new
+original128 manifest,128 independent new books (64dev/64diagnostic-val),4cases
+perbook,512contexts. [New-data design](SWITCH_NATIVE_QUERY_CAPTURE_NEXT_20261005.md).
+First inspect actual corpus/tokenizer/local runtime and current source exclusions;
+implement/freeze selection/split/token bridge/gates/resources BEFORE new selection/
+tokenization. No463 source/protocol/import/new observations yet. Suggested hard
+300s/4GiB/8MiB; no model/native/fit/GPU/download. Only afterwards separately
+freeze source-native393 capture/readiness with unchanged462 floors, fixed128 last
+bank, complete records/resources. Capture is not fresh donor quality/SAME50.
+Data FAIL -> stop factors/design informative data; adequate -> ONE private INPUT
+geometry probe with independent-role/identity/byte/error controls. No lower floors
+or favorable-bank selection. Kernel461 and prior fits/global/Frobenius stay CLOSED.
+Full goal ACTIVE/INCOMPLETE: composed transfer/fresh donor tasks/generation/SAME50,
+real useful-n/mass/physicalDRAM/families~100B open. Original engine/artifacts intact.
 
 ## Retained457: admission failed before native execution
 

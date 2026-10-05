@@ -1,31 +1,59 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:462 frozen, first retained-trace execution pending
+## Current resumption after462: data inadequate, new independent manifest next
 
-462 source/protocol frozen6f5930e before first import/parse/observation.
-[Prospective462](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_PROTOCOL_20261005.md).
-Same-core expert INPUT data admission only: ALL384 qualified393 trace/whole
-outputs, book0..11dev/12..23val; cached native13 + exact-rational A16 controls;
-actual accepted WI queries, duplicates/book provenance, no rank/SVD/fit/model.
-Per-ID floors32dev codes/4books +16novelval codes/4books; bank>=32readyIDs and
->=90%own-natural validation execution coverage. A priori128 last decoderbank11
-alone decides next probe; these are DATA floors, not model/capacity acceptance.
+462 ONE session84098 exit0, freeze6f5930e/first run24e4c63. ALL8apparatus PASS:
+ALL384trace+384whole outputs SHA exact,96186 native route/code fingerprints;
+13cached native+6rational A16controls pass. ALL24bank DATA readiness FAIL.
+Fixed128 decoderbank11: onlyID37 ready,21/568=3.69718%val-natural executions,
+versus32IDs/90%required. Dev code median7/max33; no factor/SVD/fit/model/native.
+40.515s through aggregation/287,133,696Bpeak/31,454,865Braw+ledger (<32MiB).
+Metadata-only audit ALL6 PASS,6.047s; no scientific rerun. [462 result](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_RESULT_20261005.md),
+[retention462](RETENTION_462_20261005.json). Raw SHA
+ dbf6114776ae1f6850300c708ddda9f95c6a0071ae91ae848519bf6c82a8f096.
 
-Execute ONCE .venv/Scripts/python.exe
-benchmarks/native_expert_scaling/meth462_switch_query_domain_admission.py --out
-docs/research/NATIVE_EXPERT_SCALING_20260925/meth462_switch_query_domain_admission_result.json.
-No462 import/numeric observation yet. Hard300s/512MiB/32MiB ledger+raw; admission
-120s. Retain first failure before numbered minimal repair; no completed rerun.
-If insufficient coverage: stop factors and design new independent captures.
-If admitted: separately freeze ONE rank32 private INPUT geometry probe, with
-held-out/identity/byte/error controls. No favorable-bank selection after counts.
-[Next proposal](SWITCH_NATIVE_QUERY_DOMAIN_ADMISSION_NEXT_20261005.md).
+Next NEW463, proposal only: source/tokenizer/corpus applicability then one new
+original128 manifest,128 independent new books (64dev/64diagnostic-val),4cases
+perbook,512contexts. [New-data design](SWITCH_NATIVE_QUERY_CAPTURE_NEXT_20261005.md).
+First inspect actual corpus/tokenizer/local runtime and current source exclusions;
+implement/freeze selection/split/token bridge/gates/resources BEFORE new selection/
+tokenization. No463 source/protocol/import/new observations yet. Suggested hard
+300s/4GiB/8MiB; no model/native/fit/GPU/download. Only afterwards separately
+freeze source-native393 capture/readiness with unchanged462 floors, fixed128 last
+bank, complete records/resources. Capture is not fresh donor quality/SAME50.
+Data FAIL -> stop factors/design informative data; adequate -> ONE private INPUT
+geometry probe with independent-role/identity/byte/error controls. No lower floors
+or favorable-bank selection. Kernel461 and prior fits/global/Frobenius stay CLOSED.
+Full goal ACTIVE/INCOMPLETE: composed transfer/fresh donor tasks/generation/SAME50,
+real useful-n/mass/physicalDRAM/families~100B open. Original engine/artifacts intact.
 
-461 numerics ALL1536exact, whole2.39/2.89% FAILED5%: ONE kernel recipe CLOSED,
-[retained461](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md).
-[Whole reassessment](TRANSFER_GEOMETRY_REASSESSMENT_AFTER_461_20261005.md).
-Goal ACTIVE/INCOMPLETE: composed transfer/fresh donor quality/SAME50/useful-n/
-router mass/physicalDRAM/families~100B still required. Originals/engine unchanged.
+## Available method step: admit expert-owned INPUT data before private geometry
+
+Tool: benchmarks/native_expert_scaling/meth462_switch_query_domain_admission.py.
+Inputs: original393 normalized-input/full-score traces and complete native outputs,
+retained source/quality/token manifests,461 fresh artifact bindings, cached374/
+356 A16 primitives. No model/native/fit/SVD/source-weight scan. Output: fingerprint
+ledger and complete per-expert/book/mode/role/novelty/readiness tables, provenance
+and resources.40.515s through aggregation,287.134MBpeak,31.455MBraw+ledger.
+
+Procedure: qualify exact A16 scalar/vector reconstruction; bind complete native
+input/route/accept/probability order; count actual executed queries; separate
+input/code/scale identities, repeated views and distinct source books. Fix split,
+novelty/data floors and bank before observations; retain every unsupported ID.
+Do not infer effective rank from finite count. Distinguish data readiness from
+quality/generalization/storage/performance acceptance. Metadata audit rederives
+counts/readiness from retained ledger without scientific rerun.
+
+Validated: ALL96186 original queries, all4608per-ID tables, exact A16 controls,
+all384 whole/trace bindings and correlated encoder identities. Decision: existing
+cohort inadequate for fixed128/finalbank private rank32 inquiry (1ready ID,
+3.70%coverage). No factor representation qualified. Families require their own
+quantizer/route/accepted-execution/source-data contracts; no n-only causal claim.
+Provisional next: new independent original128 calibration/diagnostic manifest,
+then separately frozen native capture/readiness; actual factor/generalization/
+composed fresh quality/SAME50/useful-n/physicalDRAM/families~100B still missing.
+[462 result](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_RESULT_20261005.md),
+[new data prerequisites](SWITCH_NATIVE_QUERY_CAPTURE_NEXT_20261005.md).
 
 ## Available method step: verify exact common-input reuse and charge whole cost
 
@@ -49,7 +77,7 @@ full96case/source generation. Cost: this ONE row scheduling recipe FAILED its
 further kernel tuning. No transfer/storage/useful-n/physicalDRAM benefit follows.
 [461 result](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md).
 Provisional next procedure: admit expert-owned query data BEFORE private INPUT
-subspaces; finite sample count is not transferable rank. New462 unimplemented.
+subspaces; finite sample count is not transferable rank.462 qualified counts, DATA FAIL.
 [New variable/prerequisites](SWITCH_NATIVE_QUERY_DOMAIN_ADMISSION_NEXT_20261005.md).
 
 ## Available method step: admit an exact common-input operator before implementation
