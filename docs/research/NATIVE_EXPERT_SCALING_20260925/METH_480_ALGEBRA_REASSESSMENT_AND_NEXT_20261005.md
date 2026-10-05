@@ -183,8 +183,10 @@ This is a proposed inquiry, NOT yet frozen/executed and no result claimed.
 If moment remainder or decision margins cannot justify a cheap replacement,
 do not launch another support/prototype fit. Move to direct branch/conditional
 function distillation with an explicit capacity and whole-model loss argument,
-or another geometry justified by the resulting constraints. No automatic LP,
-SVD/training/seed/K sweep is authorized by this outline.
+or another geometry justified by the resulting constraints. This outline supplies no scientific protocol for an automatic LP,
+SVD/training/seed/K sweep; any justified next inquiry must freeze one before
+its first numerical observation. Work already within the original goal and
+resource authorization does not require further user approval.
 
 Any locally passing replacement then needs physical C admission/cost, a full
 transformed artifact, fresh own-state donor-relative prediction/generation/task
