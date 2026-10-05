@@ -1,4 +1,4 @@
-# Current resumption after450: state error and orthogonal input bases
+# Current resumption after452: WO decision geometry and exact sparse cost
 
 **5 October 2026. Goal ACTIVE/INCOMPLETE.** Previous goal turn was PROGRESS:
 443..445 yielded native identity and function-geometry evidence;446 qualified
@@ -9,7 +9,7 @@ FAIL.450 completed the margin diagnosis after449's retained serialization stop:
 all4row/9block changed pairs also cross in smooth F64 readout. State displacement
 is sufficient for these pairs. Next proposed NEW451 changes input basis before
 SAME block64-I4, with rotated uncompressed activation control first.451 completed
-ALL11apparatus/3source-controlPASS but compact4argmax>3FAIL. Next WI/WO diagnosis. The [strategic review](STRATEGIC_REVIEW_20261004.md)
+ALL11apparatus/3source-controlPASS but compact4argmax>3FAIL. 452 completed WO-only crosses all4pairs; next exact sparse native-WO screen. The [strategic review](STRATEGIC_REVIEW_20261004.md)
 remains a historical analysis snapshot. Current operational instructions are here.
 
 ## Preserve the full objective
@@ -171,17 +171,20 @@ ALL11apparatus and3strict source-control gates PASS. Rotated sourceKL1.21e-8/
 2016 actual basis transforms qualified, source672/compact1344 projections exact.
 296.062s/2.625GB/606.547MB. Close fixed basis/codec before C timing/export.
 
-Next [NEW452 operator attribution proposal](SWITCH_OPERATOR_ERROR_ATTRIBUTION_NEXT_20261005.md):
-exact2x2 source/compact WI/WO at SAME128 source input/ID/p/bases. BOTH451 full
-diagonals/state/logits must replay byte-exact before interpreting hybrids. Resolve
-WI, WO and joint directional/readout errors on ALL336 before choosing another
-conditional metric/exposure/correction. No new representation/seed/precision
-sweep/fit; higher-precision hybrids exceed storage cap and are not the goal.
-452 source/math/[protocol](METH_452_SWITCH_OPERATOR_ATTRIBUTION_PROTOCOL_20261005.md)
-frozen ae28ebd BEFORE first import; no numerical outcome yet. Run ONCE CPU0/
-BLAS1/admission300/numeric600/total900s/4GiB/128MiB/free1GiB, retain FIRST stop;
-no scientific edit/rerun/budget extension. Future compact local PASS must still lead
-to separate actual C primal/LUT cost, fresh whole quality/SAMErate/actualDRAM.
+[452 result](METH_452_SWITCH_OPERATOR_ATTRIBUTION_RESULT_20261005.md),ae28ebd/f252a01:
+ALL9apparatusPASS,672 complete451 diagonal outputs/states/IDs byte-exact. All
+observed4 compact pairs cross with WO-only,2with WI-only; explicit interaction
+not required. Global hybrid changes3/7, KL.00040170/.00029898.183.39s/2.309GB/
+102.884MB. Higher precision is diagnostic,451 remainsFAIL.
+
+Next [NEW453 sparse native-WO proposal](SWITCH_SPARSE_NATIVE_WO_NEXT_20261005.md):
+original-coordinate I8 WO with exact actual A16 zero-only skipping/transposed
+storage, compact WI retained. Freeze math/primal/quality/applicability/resource
+gates BEFORE new codes/counts/forward. Stored about78%source explicitly charged;
+active savings/cache-line footprint UNKNOWN until measured. No promotion of452
+source-I32 hybrid or altered60% failed storage gate. No453 source/protocol/outcome
+yet. Actual C packed-WI versus pair-LUT and sparse-WO cost is later, followed by
+fresh complete all-bank held-out/generation/tasks/SAMErate/realDRAM/useful n.
 
 ## Actual arithmetic and memory, not nominal byte promises
 

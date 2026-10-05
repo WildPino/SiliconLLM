@@ -23,8 +23,9 @@ ALL8apparatusPASS/2688 selected head rows exact. ALL4row/9block changed pairs
 also cross in smooth F64 readout: state displacement is sufficient in these pairs.
 451 completed: ALL11apparatus/ALL3source-controlPASS, compact4of5 gatesPASS.
 Rotated sourceKL1.21e-8/0argmax; compactKL.00065267/4argmax>3 FAIL. RecipeCLOSED.
-NEW452 WI/WO factorial diagnosis frozen ae28ebd BEFORE first import; both451
-diagonal heads exact first. No452 numerical outcome yet; run ONCE linked protocol.
+452 completed ALL9apparatusPASS/672diagonal heads exact: WO-only crosses all4
+changed compact pairs, WI-only2; hybrids global argmax3/7. Prior recipes stayFAIL.
+Next proposed NEW453 original-I8 WO exact zero-code sparsity/primal/cost screen.
 Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
@@ -133,6 +134,13 @@ compactKL.00065267/4changes>3FAIL. All2016 actual F64 basis checks exact here;
 339.742MB nominal bank/signs.296.062s/2.625GB/606.547MB/zero updates. Fixed recipe
 CLOSED before C timing/export. WI versus WO error still unseparated.
 
+- 452 [WI/WO attribution](METH_452_SWITCH_OPERATOR_ATTRIBUTION_RESULT_20261005.md),
+ae28ebd: ALL9apparatusPASS/672 full451 diagonal heads/states/IDs byte-exact.
+All4 compact-selected pair changes occur with WO-only compression,2 with WI-only;
+none requires explicit interaction. WI-only meanKL.00040170/3global changes,
+WO-only .00029898/7; higher-precision diagnostics, not compact model promotion.
+183.39s/2.309GB/102.884MB/zero updates or new encodings. Prioritize WO error/cost.
+
 ## Closed routes and retained context
 
 Identity403, affine activation404/406, lexical414/416 bridges closed;405
@@ -154,15 +162,15 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 [Current resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md) records
 450's completed pair-margin mechanism; all448/449/450 sessions terminal and
 first failures retained.451 completed and CLOSED by compact argmax gate; all
-sources/outputs retained, no live model jobs. Next [operator attribution](SWITCH_OPERATOR_ERROR_ATTRIBUTION_NEXT_20261005.md):
-452 source/math/[protocol](METH_452_SWITCH_OPERATOR_ATTRIBUTION_PROTOCOL_20261005.md)
-frozen ae28ebd BEFORE first import; original128 source/p/bases fixed. Replay BOTH451 uncompressed/compact full diagonal logits/states
-byte-exact, then only-WI/only-WO compact hybrid diagnostics and native readout
-main/joint-margin terms. No new encoding/fit/seed/precision sweep. Higher-precision
-hybrids are diagnostics, exceed original60% cap and never replace the goal.
-No452 numerical outcome yet. Run ONCE CPU0/BLAS1/admission300/numeric600/
-total900s/4GiB/128MiB/free1GiB; retain FIRST failure without edits/extensions.
-Full-native quality,
+sources/outputs retained, no live model jobs.452 complete factorial attribution
+prioritizes WO fidelity for the observed decision pairs. Next [NEW453 proposal](SWITCH_SPARSE_NATIVE_WO_NEXT_20261005.md):
+freeze native ORIGINAL-coordinate I8 WO/actual A16 zero-only skip applicability
+and exact-primal test BEFORE any new codes/counts/forward. Keep compact WI, charge
+transposed storage/higher nominal78% bank/scan/indices/whole active costs. This is
+a NEW joint operator/layout hypothesis, not promotion of452 source-I32 hybrids or
+relaxation of failed60% storage gates. Exact sparse sums must match original WO;
+new local quality then physical C cost/fresh whole quality/rate/DRAM required.
+No453 source/protocol/numerical outcome yet. Full-native quality,
 C/LUT/routing cost/SAME accepted rate and physicalDRAM still required.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
