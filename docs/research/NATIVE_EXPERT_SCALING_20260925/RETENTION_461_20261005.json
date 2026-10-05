@@ -1,0 +1,100 @@
+{
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth461_switch_common_input_cost_result.json",
+    "bytes": 10590124,
+    "sha256": "1477dcab26918bc11d82a081ee7cc180a6d09c0c022848935f205ed9ff0d1f57"
+  },
+  "scientific_freeze": "778d86a",
+  "first_execution_resumption": "cf4f90f",
+  "exit_code": 0,
+  "native_commands": 388,
+  "new_files": 2318,
+  "reused458_files": 2304,
+  "source_whole_cost": {
+    "128": {
+      "mean_ratio": 0.9761059971283826,
+      "book_mean_ratios": [
+        0.988206958583685,
+        1.0064099457058224,
+        0.9692437695177437,
+        0.9736480237177354,
+        0.9731276059422338,
+        1.0017951284670692,
+        0.967629072787656,
+        1.0133825880151273,
+        0.9615114004262392,
+        0.9734158949801085,
+        0.9746898165484967,
+        0.9975665941691322,
+        0.9804262377790859,
+        0.9325284925071968,
+        0.9466639677855623,
+        0.9754210007750704,
+        0.9727264220933897,
+        0.9801210684842098,
+        0.965514644820826,
+        0.9846561615968916,
+        0.9824348870460478,
+        0.9584362439808376,
+        0.9881923518647661,
+        0.9628932804323628
+      ],
+      "p95_ratio": 0.9934651020318831,
+      "gates": {
+        "whole_mean_ratio_le0p95": false,
+        "ALL24_book_mean_ratios_le1p05": true,
+        "pooled_measured_full_p95_ratio_le1p00": true
+      },
+      "passed": false
+    },
+    "256": {
+      "mean_ratio": 0.9711479150978503,
+      "book_mean_ratios": [
+        1.0264383349498416,
+        0.9606146073245987,
+        0.9376323644377461,
+        0.981441722475086,
+        0.9468976803459633,
+        0.9250774212104795,
+        1.0272459744888969,
+        1.0301582003085095,
+        0.9476078799047682,
+        0.9797519147605384,
+        0.9550039212026296,
+        0.9687483074295018,
+        0.9708190930834072,
+        0.9134566079362885,
+        0.9965996821687106,
+        0.960171762383373,
+        0.9508303821020281,
+        0.9674286252520662,
+        0.9923971538609719,
+        0.9943540852556477,
+        0.9637741428312099,
+        0.9591057142182907,
+        0.9973907409409836,
+        0.9628014221472769
+      ],
+      "p95_ratio": 0.9486012933822335,
+      "gates": {
+        "whole_mean_ratio_le0p95": false,
+        "ALL24_book_mean_ratios_le1p05": true,
+        "pooled_measured_full_p95_ratio_le1p00": true
+      },
+      "passed": false
+    }
+  },
+  "decision": "ONE_exact_fanout_execution_recipe_closed_by_whole_cost_gates_no_tuning_return_to_transfer_capacity",
+  "gates": {
+    "all_bound_helpers_records_engine_physical_HEAD_SHA_exact": true,
+    "all_new_and_reused_output_inventory_full_SHA_exact": true,
+    "original_and_candidate_payload_manifest_binary_compiler_runtime_exact": true,
+    "all_native_logs_match_raw_AND_complete_outputs_exact_parent458": true,
+    "all_fixed_means_books_p95_rates_and_gate_decision_independently_rederived": true,
+    "all_terminal_root_peaks_limits_and_expected_negative_retained": true,
+    "no_scientific_rerun_or_competing_native_model_job": true
+  },
+  "metadata_audit_seconds": 32.92199999999866,
+  "bytes_hashed": 32309405117,
+  "preserved_daemons": []
+}

@@ -1,23 +1,56 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:461 frozen, first execution pending
+## Current resumption after461: native recipe closed, return to transfer geometry
 
-ONE exact common-input fanout source/controller/protocol frozen778d86a before
-first import/compile/numerical execution. Whole gates EACH128/256: mean<=.95,
-EVERY24book<=1.05, pooled measured p95<=1.00; complete states/logits/routes/IDs
-must match originals exactly. Original payloads/cores/precision/weights unchanged.
-[Prospective461 protocol](METH_461_SWITCH_COMMON_INPUT_COST_PROTOCOL_20261005.md).
-460 admission/retention PASS;458 whole economics inherited;456 tile recipe CLOSED.
+461 ONE session87477 exit0, freeze778d86a/first runcf4f90f. ALL8 apparatus PASS:
+ALL1536 complete states/logits/routes/IDs exact originals. Mean reductions
+2.3894003%128/2.8852085%256 FAIL frozen5%; ALL24book and pooledp95 gates PASS.
+No threshold change/retry/kernel sweep.591.031s/1,372,618,752B conservative sum/
+4,954,377,631B new outputs. Audit86059 ALL7gates PASS,32.922s; no scientific rerun.
+[461 result](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md),
+[retention461](RETENTION_461_20261005.json). Raw SHA
+1477dcab26918bc11d82a081ee7cc180a6d09c0c022848935f205ed9ff0d1f57.
+Original engine/payloads/qualified binaries unchanged; candidate not promoted.
 
-Next: execute ONCE .venv/Scripts/python.exe
-benchmarks/native_expert_scaling/meth461_switch_common_input_cost.py --out
-docs/research/NATIVE_EXPERT_SCALING_20260925/meth461_switch_common_input_cost_result.json.
-No461 import/compile/run yet. Retain first failure before numbered minimal repair;
-never rerun completed controller. Budget CPU main<=1800s, admission<=300s,
-numeric<=1500s, parent<=1GiB/conservative sum<=16GiB/new outputs<=8GiB.
-After ONE outcome, audit/retain all results and return to transfer/useful-n
-composition. No further kernel sweep. Full goal ACTIVE/INCOMPLETE: fresh donor
-quality/SAME50/composed capacity/router mass/physicalDRAM/families~100B open.
+Next NEW462, proposal only: trace-based admission of actual expert-owned INPUT
+query domains under the same original cores, before private factors/fit.
+[Whole algebra/information reassessment](TRANSFER_GEOMETRY_REASSESSMENT_AFTER_461_20261005.md),
+[bounded next admission](SWITCH_NATIVE_QUERY_DOMAIN_ADMISSION_NEXT_20261005.md).
+No462 source/protocol/import/observation yet. Implement/freeze bindings, book
+split/duplication/coverage/readiness/A16 controls/resources BEFORE reading retained
+393 traces for new counts. No model forward/compile/fit/GPU/download; expected
+<=2min, prospective hard<=300s/512MiB/32MiB. Selected future probe bank fixed:
+last decoder sparse bank128; no favorable bank selection after counts.
+Insufficient independent coverage -> data deficit/new capture design before fit;
+adequate coverage -> separately frozen ONE private INPUT-domain geometric probe.
+444..446 global/output/Frobenius and old fits remain CLOSED; actual rank/quality/
+compression/native cost not inferred from finite count. Goal ACTIVE/INCOMPLETE:
+composed transfer/fresh donor quality/SAME50/useful-n/mass/DRAM/families~100B open.
+
+## Available method step: verify exact common-input reuse and charge whole cost
+
+Tool: benchmarks/native_expert_scaling/meth461_switch_common_input_cost.py plus
+its separate C/H fanout entry. Inputs: qualified row-I8/A16 original128/256,
+388 arithmetic,460 source admission,458 full golden generation bytes/runtime.
+Output: exact scalar/original arithmetic controls, all complete output hashes,
+worker/counter checks, paired whole means/books/p95 and retained resource ledger.
+One frozen execution591.031s, conservative parent/root peaks1.373GB,4.954GBoutputs.
+
+Procedure: establish identical activation input/quantizer and disjoint outputs;
+reuse original A16 codes/scales; preserve integer accumulation/floating scale
+order; check source reversal; compare complete original outputs before whole
+cost acceptance. Fix weighting, rejected-time charge, worker settings and mean/
+book/tail gates before compilation. Retain every failure/timing record and audit
+without scientific rerun. Other precisions/families require their own admission.
+
+Validated: numerical equivalence on five arithmetic shapes/CPU3&6 and original
+full96case/source generation. Cost: this ONE row scheduling recipe FAILED its
+5% usefulness criterion (2.39/2.89% measured); no promoted default/candidate or
+further kernel tuning. No transfer/storage/useful-n/physicalDRAM benefit follows.
+[461 result](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md).
+Provisional next procedure: admit expert-owned query data BEFORE private INPUT
+subspaces; finite sample count is not transferable rank. New462 unimplemented.
+[New variable/prerequisites](SWITCH_NATIVE_QUERY_DOMAIN_ADMISSION_NEXT_20261005.md).
 
 ## Available method step: admit an exact common-input operator before implementation
 
@@ -43,12 +76,12 @@ and its full-output/whole-cost gates before compilation. If no genuine missing
 operation/meaningful measured whole benefit, close this execution recipe.
 
 Validated here: legal source algebra, dimensions, counter/count correspondence
-and safe pair/lane/I64 bounds. Provisional: native fanout implementation and its
-actual speed. Missing: fresh composed transfer quality/SAME50, conditional-capacity
+and safe pair/lane/I64 bounds. Subsequent461 numerics qualified, cost gate failed;
+its scoped cost recorded above. Missing: fresh composed quality/SAME50, conditional-capacity
 benefit, physicalDRAM, other families/~100B. No expert/weight/storage information
 is added or removed by sharing an identical activation quantization.
 [Admission460](METH_460_SWITCH_COMMON_INPUT_ADMISSION_RESULT_20261005.md),
-[one future native inquiry](SWITCH_COMMON_INPUT_FANOUT_COST_NEXT_20261005.md).
+[original native proposal, completed461](SWITCH_COMMON_INPUT_FANOUT_COST_NEXT_20261005.md).
 ## Retained457: admission failed before native execution
 
 ONE session19372 exit1/224.109s/KeyError in historical363 runtime schema,
