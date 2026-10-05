@@ -26,6 +26,10 @@ daemons. Routine Graphify disabled. Donor-adaptation remains frozen reusable evi
 
 ## Latest decisive evidence
 
+[454](METH_454_SWITCH_SPARSE_WO_COST_RESULT_20261005.md): ALL8apparatusPASS,
+both cost recipesFAIL. Original/direct/LUT means237.68/234.43/718.82us, direct
+tail worse. Native arithmetic/exact bank export real; no deployable new candidate.
+
 [453](METH_453_SWITCH_SPARSE_WO_RESULT_20261005.md), frozen1661547: ALL10apparatus/
 ALL7local gatesPASS. Original-I8 WO zero-only sum exact in1008 comparisons; fixed
 451 WI reused. Mean222.4167/3072active codes; correct meanKL.0004017228/3argmax
@@ -55,33 +59,41 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Exact next action: ONE454 execution
+## Current decision after454: exact C, fixed cost recipes FAILED
 
-Scientific C/controller/protocol frozen **2ba2a3c**, before first import/compile.
-Compare unchanged original C FFN with direct-I4 and full pair-LUT-I4 WI, each
-followed by exact sparse original-I8 WO. All1680 original/correct/wrong C states/
-A16/bases must match existing evidence BEFORE timing. Two warm/five measured
-WHOLE336 trace sweeps per arm, rotating arm order, all outputs checked.
+454 completed ONE session70388, terminal exit0. Scientific freeze2ba2a3c and
+first-run resumption8a9a376. ALL8apparatusPASS: all1680 C original/correct/wrong
+states/bases/A16 codes/scales byte-exact before timing;7056 timed outputs exact.
+All128 real bank fields64-aligned and inverse exact, reserved-8 fault detected.
 
-    .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth454_switch_sparse_wo_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth454_switch_sparse_wo_cost_result.json
-
-CPU0/one worker, no GPU/download/fit/engine edit. Expected60..180s/~520MBoutputs;
-stops admission300/numeric600/total900s, parent3GiB/native2GiB/conservative sum4GiB,
-outputs600MiB. First failure retained, no rerun on observation timeout. Each kernel
-must pass mean<=80%, every book<=100%,p95<=100%of original FFN cost. Preserve each
-failed variant. Selected-FFN scope; full quality/accepted50/DRAM/n remain required.
+Both direct/full-pair-LUT kernels FAIL ALL3cost gates. Original mean237.684us;
+direct234.428us/ratio.9863,p95ratio1.0932; LUT718.821us/ratio3.0243. Source timings
+are selected-FFN/one CPU/consumed inputs; whole rate and DRAM not measured.
+25.062s, conservative2.347GBpeak,14outputs519.351MB; zero updates/new roundings/GPU.
+Raw SHA `efc087e32c2f88631654efaa4d0f30bf9b23288f66243deb51ed5f07a947d277`.
+[454 result](METH_454_SWITCH_SPARSE_WO_COST_RESULT_20261005.md),
 [454 protocol](METH_454_SWITCH_SPARSE_WO_COST_PROTOCOL_20261005.md).
+
+No rerun454 or all-bank export for these kernels. Next NEW455 component cost
+profile: freeze source/controller/protocol/resources BEFORE compile/observations,
+verify preserved C states then measure WI/WO/quantizers/basis/LUT-build/gathers/
+scan/reductions separately. Choose ONE different physical algebra only if its
+measured bottleneck changes the decision. No455 implementation/execution yet.
+[Next component diagnosis](SWITCH_NATIVE_COMPONENT_COST_NEXT_20261005.md),
+[whole cost/capacity reassessment](ALGEBRA_COST_REASSESSMENT_AFTER_454_20261005.md).
+Full quality/SAME50/useful-n/routing/realDRAM/families100B remain required.
 
 ## Open dependencies and closed routes
 
-C primal/cost -> all-bank geometry/sparsity/export -> fresh donor-relative quality/
+NEW cost decomposition/viable physical format -> all-bank geometry/sparsity/export -> fresh donor-relative quality/
 changed routes -> SAME whole accepted rate and physicalDRAM -> real useful-n
 increments/router scaling -> another-family/~100B applicability. Every condition
 needs its matching scope of evidence; none is replaced by the local screen.
 
 403/404/406/414/416 bridges;426/431/435/440fits;444/445 fixed global bases;
 446 reference0/Frobenius factors;447 row-I4,448 block64-I4,451 both orthogonal-I4
-remain CLOSED by their declared gates. Giga/Ling/Granite specified full-width/LUT
+and454 fixed direct/full-pair-LUT kernels remain CLOSED by their declared gates.
+Giga/Ling/Granite specified full-width/LUT
 formats remain closed. QwenNext397 headers are actual79.674B/main+MTP geometry,
 not acquired values/quality. Full details:
 [records through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),

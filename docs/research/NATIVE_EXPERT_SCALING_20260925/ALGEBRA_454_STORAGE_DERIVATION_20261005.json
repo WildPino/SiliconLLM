@@ -1,0 +1,33 @@
+{
+  "type": "derived_exact_storage_algebra_no_forward",
+  "source389_sha256": "fd12cfc2809fb42f52faef0b442781154c30ba27576f264c5f693bc30ec91dd2",
+  "source391_reference_to389_matches": true,
+  "D": 768,
+  "M": 3072,
+  "banks": 12,
+  "source_points": {
+    "128": {
+      "trained_unique_parameters": 7415217408,
+      "payload_bytes": 7541946880
+    },
+    "256": {
+      "trained_unique_parameters": 14664154368,
+      "payload_bytes": 14818015744
+    }
+  },
+  "parameter_per_expert_per_bank_including_router": 4719360,
+  "fixed_trained_parameters": 166280448,
+  "original_expert_payload_bytes": 4733952,
+  "router_F32_bytes_per_expert_per_bank": 3072,
+  "fixed_nonexpert_nonrouter_payload_bytes": 265878016,
+  "candidate453_expert_bytes": 3689472,
+  "RAM_upper_bound_bytes": 85899345920,
+  "payload_only_E_max_original": 1506,
+  "payload_only_E_max_hypothetical453_all_bank": 1932,
+  "comparable_geometry_100B_over10B_E_ratio_exact": [
+    389975467,
+    38412967
+  ],
+  "comparable_geometry_100B_over10B_E_ratio_decimal": 10.152182907402077,
+  "scope": "Two actual same-geometry source points fit EXACT counts/storage. LargerE remains hypothetical; payload-only full80GiB ignores OS/context/workspaces/header/new data.453 all-bank hypothetical representation failed454 C kernel cost. No new trained source/useful-n/routing/DRAM/quality/rate claim."
+}
