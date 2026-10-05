@@ -51,7 +51,7 @@ matrix counters but profile=0, so matrix_seconds are not a measured fraction.
 391 raw SHA
 `b738cd25449a4903595d1c33e6257b8de8267367cf6d685418a29db186b8f5d8`.
 
-390 has three-worker source9 and64 FORCE-decoder profiles with decoder4; these
+390 has three-worker source9 and64 FORCE-decoder profiles with decoder32; these
 are not source29/natural length391.390 raw SHA
 `7a09d4aaa54af2a1455ef4153fa21461f661dec8e0d22b252c944c0d34f7e44b`.
 The qualified389 binary already supports --generate profile0 OR1 without source
