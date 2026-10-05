@@ -1,3 +1,7 @@
+> Current5October2026: this historical capture proposal was executed through
+> retained468fault and admitted469capture/DATAFAIL. No first main remains pending.
+> Current next is [ONE bounded dev-only augmentation](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
+
 # Proposed NEW468: actual conditional input domain on the admitted467 cohort
 
 5 October2026.467 ALL11 apparatus/ALL10 retention PASS.128 whole books,64dev/

@@ -1,0 +1,26 @@
+{
+  "experiment": "METH469-first-output-counter-metadata-audit-fault",
+  "scientific_main_unchanged": {
+    "session": 5698,
+    "exit_code": 0,
+    "raw_sha256": "ccb34e789d6e3ed955171b619639dc4d34bc032f960e44996b5dc1f7fa60f870"
+  },
+  "metadata_audit_v2": {
+    "session": 68291,
+    "exit_code": 1,
+    "source_sha256": "2a23ff4e79fd2e6e1b95a804b7d5a8d75c3e5f417a18dcae73cf36cbb55c7767",
+    "line": 226,
+    "error": "AssertionError output-byte equality omitted raw JSON",
+    "no_retention_created": true
+  },
+  "observed": {
+    "OUT_bytes": 4566198260,
+    "raw_JSON_bytes": 17214568,
+    "terminal_progress_last_row_bytes": 545,
+    "snapshot_field_labeled_including_raw": 4566197715,
+    "actual_all_output_bytes": 4583412828
+  },
+  "identity": "actual_all_bytes = OUT-only snapshot + terminal progress row545B + raw JSON17214568B",
+  "cause": "Frozen scientific main stores OUT file sum in a progress field mislabeled including_raw; hard resource guard separately and correctly adds RAW bytes. Snapshot precedes its own final progress row.",
+  "scope": "Metadata accounting defect, not data/capture/readiness or resource-gate failure. Firstv2audit verified all source/runtime/whole/trace/ledger/per-ID/role/novelty/Windows/terminal/unrelated checks before this last equality. Preserve immutable main/raw and failed metadata audits. Auditv3 corrects only equality and explicitly retains this discrepancy."
+}

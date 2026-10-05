@@ -1,3 +1,7 @@
+> Current5October2026: this historical capture proposal was executed through
+> retained468fault and admitted469capture/DATAFAIL. No first main remains pending.
+> Current next is [ONE bounded dev-only augmentation](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
+
 # Native conditional-domain capture next: admitted467 cohort, proposed NEW468
 
 5 October2026. This file's NEW463 manifest proposal has been resolved through

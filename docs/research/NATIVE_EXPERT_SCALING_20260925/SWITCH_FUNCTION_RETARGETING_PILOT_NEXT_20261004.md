@@ -1,27 +1,32 @@
-# Current resumption: original native query capture/readiness next
+# Current resumption: one bounded development information augmentation
 
-## Current resumption: frozen469; ONE first execution next
+## Current resumption: admitted469 capture; fixed DATAFAIL; bounded dev-only next
 
-468 first ledger layout fault retainedf5cc590, ONE38983exit1/36.734s after10native
-commands, zero ledger records/new natural cases. No468retry. NEW469 corrects ONLY
-third32Bhash field to118B14fields/new namespace, adds pre-native layout controls/
-first468teacher complete-byte equivalence. SAME467128books64dev64diagnostic-val/
-512S29T14cases, original393core/binary/payload/command order/resources/datafloors.
-[469 protocol](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_PROTOCOL_20261005.md).
+469 ONE5698exit0, ALL10apparatus/ALL9independent retention PASS.1033commands,
+ALL512teacher+512natural,258120actual queries/full states/logits/input-score/route
+records. Fixed128bank11:84readyIDs/2605of3065=84.991843%coverage FAIL>=90%;
+no factors. All6encoderbanksPASS/all6decoderbanksFAIL, no bank substitution.
+963.015s MAIN, final conservative parent+child peaks1.612GiB/4.583GBalloutputs.
+[469 result](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md),
+[retention](RETENTION_469_20261005.json). Correct Windows query0events; actual
+instances terminal/no scientific job.468first layout fault and two metadata-only
+date/accounting audit faults retained; no scientific main rerun.
 
-Source/protocol/EOL froze411da46 BEFORE first parse/import/observations. ONE command:
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth469_switch_native_domain_capture.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth469_switch_native_domain_capture_result.json
+25currently val-eligible IDs need only dev information (389val queries),19IDs
+already fail val novelty (71queries). Pure-development coverage upper97.6835%
+NOT promise: adding D can only shrink V\D.90%needs154additional covered queries;
+all25dev deficits require at least226new code/ID identities. No rank/error claim.
+[Exact information-gap algebra](meth469_information_gap_analysis.json).
 
-118B14field roundtrip+13field negative before native;10retained468commands/first
-failure/RET exact.1033 new native commands1negative+8golden+512teacher+512natural.
-Immutable roles/bank11/SAME462>=32devcodes4books,>=16novelvalcodes4books,
->=32readyIDs/>=90%ALL natural-val executed coverage. No healthy-case exclusion.
-Hard35min/admission180s/child120s/16GiB/alloutputs12GiB, ledgermax49299476B;
-complete normalized inputs/scores/states/logits/routes/worker/log/PID records.
-If live poll SAME actual session to terminal; no469rerun. Full capture requires
-independent metadata/ledger/actual Windows terminal audit before DATA admission.
-PASS -> separately frozen private INPUT probe; DATAFAIL -> stop before factors/
-reassess information or geometry. GoalACTIVE/INCOMPLETE; rank/rate/n unmeasured.
+Exact next NEW470: separately freeze ONE model-free64NEW DEVELOPMENT-book/
+256S29T14case manifest, current exhaustive prior row/hash exclusions/original
+Rust codec/golden controls. No val/router-weight selection. Then separateNEW471
+512new native streams+combined retained469ledger/readiness, old64validation
+books/outputs/roles fixed; explicit global roles0..63dev/64..127val/128..191devaug,
+never book>=64 shortcut. SAMEfloors/FIXEDbank11/no healthy-case filter. ONE64book
+augmentation only; if DATAFAIL again stop this data ladder/reassess geometry.
+[Bounded next](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
+470/471 source/protocol NOTcreated/frozen/executed. Full goal ACTIVE/INCOMPLETE.
 
 ## Retained457: admission failed before native execution
 

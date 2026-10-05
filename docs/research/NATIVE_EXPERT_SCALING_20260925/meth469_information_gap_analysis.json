@@ -1,0 +1,738 @@
+{
+  "purpose": "posthoc descriptive information bottleneck algebra; fixed data decision unchanged; not a new experiment/fit or adaptive validation selection",
+  "source_raw_sha256": "ccb34e789d6e3ed955171b619639dc4d34bc032f960e44996b5dc1f7fa60f870",
+  "retention_sha256": "22e1cb909ca77097cb5a572462b191355ade0aad92ebe837facaa625f9d355c5",
+  "analysis_helper_sha256": "369b347fe91ddb56f0738abfcde35567821b7bb92594dc0dcef4c797f0f85e74",
+  "fixed_bank": 11,
+  "ready_IDs": 84,
+  "unsupported_IDs": 44,
+  "natural_validation_queries": 3065,
+  "covered_queries": 2605,
+  "current_coverage": 0.8499184339314845,
+  "threshold_coverage": 0.9,
+  "minimum_additional_covered_queries_to_threshold": 154,
+  "deficiency_groups": [
+    {
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ],
+      "experts": [
+        11,
+        14,
+        16,
+        19,
+        22,
+        28,
+        31,
+        42,
+        46,
+        66,
+        70,
+        79,
+        80,
+        85,
+        86,
+        90,
+        96,
+        101,
+        102,
+        106,
+        110,
+        116,
+        122,
+        125
+      ],
+      "natural_validation_executed_queries": 379
+    },
+    {
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4"
+      ],
+      "experts": [
+        52
+      ],
+      "natural_validation_executed_queries": 10
+    },
+    {
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16"
+      ],
+      "experts": [
+        20,
+        124
+      ],
+      "natural_validation_executed_queries": 6
+    },
+    {
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ],
+      "experts": [
+        0,
+        1,
+        15,
+        115
+      ],
+      "natural_validation_executed_queries": 3
+    },
+    {
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ],
+      "experts": [
+        12,
+        44,
+        45,
+        57,
+        59,
+        63,
+        64,
+        69,
+        108,
+        121
+      ],
+      "natural_validation_executed_queries": 57
+    },
+    {
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ],
+      "experts": [
+        36,
+        39,
+        73
+      ],
+      "natural_validation_executed_queries": 5
+    }
+  ],
+  "development_only_deficit_IDs": [
+    {
+      "expert": 11,
+      "development_unique_codes": 29,
+      "development_books": 18,
+      "minimum_additional_development_unique_codes_to32": 3,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 42,
+      "validation_novel_books": 17,
+      "natural_validation_executed_queries": 23,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 14,
+      "development_unique_codes": 30,
+      "development_books": 17,
+      "minimum_additional_development_unique_codes_to32": 2,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 32,
+      "validation_novel_books": 22,
+      "natural_validation_executed_queries": 20,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 16,
+      "development_unique_codes": 23,
+      "development_books": 17,
+      "minimum_additional_development_unique_codes_to32": 9,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 21,
+      "validation_novel_books": 13,
+      "natural_validation_executed_queries": 10,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 19,
+      "development_unique_codes": 28,
+      "development_books": 18,
+      "minimum_additional_development_unique_codes_to32": 4,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 42,
+      "validation_novel_books": 20,
+      "natural_validation_executed_queries": 27,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 22,
+      "development_unique_codes": 20,
+      "development_books": 11,
+      "minimum_additional_development_unique_codes_to32": 12,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 16,
+      "validation_novel_books": 10,
+      "natural_validation_executed_queries": 7,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 28,
+      "development_unique_codes": 30,
+      "development_books": 18,
+      "minimum_additional_development_unique_codes_to32": 2,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 22,
+      "validation_novel_books": 16,
+      "natural_validation_executed_queries": 11,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 31,
+      "development_unique_codes": 25,
+      "development_books": 14,
+      "minimum_additional_development_unique_codes_to32": 7,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 42,
+      "validation_novel_books": 21,
+      "natural_validation_executed_queries": 21,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 42,
+      "development_unique_codes": 31,
+      "development_books": 20,
+      "minimum_additional_development_unique_codes_to32": 1,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 39,
+      "validation_novel_books": 21,
+      "natural_validation_executed_queries": 21,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 46,
+      "development_unique_codes": 25,
+      "development_books": 15,
+      "minimum_additional_development_unique_codes_to32": 7,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 25,
+      "validation_novel_books": 16,
+      "natural_validation_executed_queries": 16,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 52,
+      "development_unique_codes": 4,
+      "development_books": 3,
+      "minimum_additional_development_unique_codes_to32": 28,
+      "minimum_additional_development_books_to4": 1,
+      "validation_novel_codes": 20,
+      "validation_novel_books": 11,
+      "natural_validation_executed_queries": 10,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4"
+      ]
+    },
+    {
+      "expert": 66,
+      "development_unique_codes": 13,
+      "development_books": 12,
+      "minimum_additional_development_unique_codes_to32": 19,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 29,
+      "validation_novel_books": 20,
+      "natural_validation_executed_queries": 15,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 70,
+      "development_unique_codes": 29,
+      "development_books": 17,
+      "minimum_additional_development_unique_codes_to32": 3,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 31,
+      "validation_novel_books": 18,
+      "natural_validation_executed_queries": 14,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 79,
+      "development_unique_codes": 25,
+      "development_books": 15,
+      "minimum_additional_development_unique_codes_to32": 7,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 41,
+      "validation_novel_books": 23,
+      "natural_validation_executed_queries": 26,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 80,
+      "development_unique_codes": 24,
+      "development_books": 15,
+      "minimum_additional_development_unique_codes_to32": 8,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 22,
+      "validation_novel_books": 15,
+      "natural_validation_executed_queries": 12,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 85,
+      "development_unique_codes": 27,
+      "development_books": 14,
+      "minimum_additional_development_unique_codes_to32": 5,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 18,
+      "validation_novel_books": 11,
+      "natural_validation_executed_queries": 12,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 86,
+      "development_unique_codes": 20,
+      "development_books": 16,
+      "minimum_additional_development_unique_codes_to32": 12,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 24,
+      "validation_novel_books": 14,
+      "natural_validation_executed_queries": 10,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 90,
+      "development_unique_codes": 16,
+      "development_books": 14,
+      "minimum_additional_development_unique_codes_to32": 16,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 19,
+      "validation_novel_books": 15,
+      "natural_validation_executed_queries": 6,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 96,
+      "development_unique_codes": 31,
+      "development_books": 21,
+      "minimum_additional_development_unique_codes_to32": 1,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 42,
+      "validation_novel_books": 22,
+      "natural_validation_executed_queries": 18,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 101,
+      "development_unique_codes": 7,
+      "development_books": 4,
+      "minimum_additional_development_unique_codes_to32": 25,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 33,
+      "validation_novel_books": 20,
+      "natural_validation_executed_queries": 21,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 102,
+      "development_unique_codes": 29,
+      "development_books": 21,
+      "minimum_additional_development_unique_codes_to32": 3,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 27,
+      "validation_novel_books": 14,
+      "natural_validation_executed_queries": 13,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 106,
+      "development_unique_codes": 27,
+      "development_books": 14,
+      "minimum_additional_development_unique_codes_to32": 5,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 18,
+      "validation_novel_books": 13,
+      "natural_validation_executed_queries": 10,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 110,
+      "development_unique_codes": 23,
+      "development_books": 13,
+      "minimum_additional_development_unique_codes_to32": 9,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 37,
+      "validation_novel_books": 18,
+      "natural_validation_executed_queries": 21,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 116,
+      "development_unique_codes": 15,
+      "development_books": 8,
+      "minimum_additional_development_unique_codes_to32": 17,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 25,
+      "validation_novel_books": 13,
+      "natural_validation_executed_queries": 10,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 122,
+      "development_unique_codes": 18,
+      "development_books": 11,
+      "minimum_additional_development_unique_codes_to32": 14,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 30,
+      "validation_novel_books": 19,
+      "natural_validation_executed_queries": 16,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    },
+    {
+      "expert": 125,
+      "development_unique_codes": 25,
+      "development_books": 15,
+      "minimum_additional_development_unique_codes_to32": 7,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 35,
+      "validation_novel_books": 17,
+      "natural_validation_executed_queries": 19,
+      "failed_gates": [
+        "development_unique_codes_ge32"
+      ]
+    }
+  ],
+  "already_validation_floor_blocked_IDs": [
+    {
+      "expert": 0,
+      "development_unique_codes": 0,
+      "development_books": 0,
+      "minimum_additional_development_unique_codes_to32": 32,
+      "minimum_additional_development_books_to4": 4,
+      "validation_novel_codes": 0,
+      "validation_novel_books": 0,
+      "natural_validation_executed_queries": 0,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ]
+    },
+    {
+      "expert": 1,
+      "development_unique_codes": 1,
+      "development_books": 1,
+      "minimum_additional_development_unique_codes_to32": 31,
+      "minimum_additional_development_books_to4": 3,
+      "validation_novel_codes": 0,
+      "validation_novel_books": 0,
+      "natural_validation_executed_queries": 0,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ]
+    },
+    {
+      "expert": 12,
+      "development_unique_codes": 19,
+      "development_books": 12,
+      "minimum_additional_development_unique_codes_to32": 13,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 15,
+      "validation_novel_books": 7,
+      "natural_validation_executed_queries": 8,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 15,
+      "development_unique_codes": 4,
+      "development_books": 2,
+      "minimum_additional_development_unique_codes_to32": 28,
+      "minimum_additional_development_books_to4": 2,
+      "validation_novel_codes": 3,
+      "validation_novel_books": 3,
+      "natural_validation_executed_queries": 2,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ]
+    },
+    {
+      "expert": 20,
+      "development_unique_codes": 2,
+      "development_books": 1,
+      "minimum_additional_development_unique_codes_to32": 30,
+      "minimum_additional_development_books_to4": 3,
+      "validation_novel_codes": 5,
+      "validation_novel_books": 4,
+      "natural_validation_executed_queries": 3,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 36,
+      "development_unique_codes": 4,
+      "development_books": 4,
+      "minimum_additional_development_unique_codes_to32": 28,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 3,
+      "validation_novel_books": 3,
+      "natural_validation_executed_queries": 2,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ]
+    },
+    {
+      "expert": 39,
+      "development_unique_codes": 10,
+      "development_books": 8,
+      "minimum_additional_development_unique_codes_to32": 22,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 2,
+      "validation_novel_books": 2,
+      "natural_validation_executed_queries": 1,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ]
+    },
+    {
+      "expert": 44,
+      "development_unique_codes": 10,
+      "development_books": 7,
+      "minimum_additional_development_unique_codes_to32": 22,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 10,
+      "validation_novel_books": 7,
+      "natural_validation_executed_queries": 5,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 45,
+      "development_unique_codes": 7,
+      "development_books": 6,
+      "minimum_additional_development_unique_codes_to32": 25,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 8,
+      "validation_novel_books": 6,
+      "natural_validation_executed_queries": 4,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 57,
+      "development_unique_codes": 8,
+      "development_books": 5,
+      "minimum_additional_development_unique_codes_to32": 24,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 11,
+      "validation_novel_books": 7,
+      "natural_validation_executed_queries": 5,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 59,
+      "development_unique_codes": 15,
+      "development_books": 10,
+      "minimum_additional_development_unique_codes_to32": 17,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 10,
+      "validation_novel_books": 4,
+      "natural_validation_executed_queries": 6,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 63,
+      "development_unique_codes": 15,
+      "development_books": 8,
+      "minimum_additional_development_unique_codes_to32": 17,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 10,
+      "validation_novel_books": 7,
+      "natural_validation_executed_queries": 4,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 64,
+      "development_unique_codes": 13,
+      "development_books": 9,
+      "minimum_additional_development_unique_codes_to32": 19,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 12,
+      "validation_novel_books": 9,
+      "natural_validation_executed_queries": 9,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 69,
+      "development_unique_codes": 8,
+      "development_books": 6,
+      "minimum_additional_development_unique_codes_to32": 24,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 9,
+      "validation_novel_books": 6,
+      "natural_validation_executed_queries": 6,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 73,
+      "development_unique_codes": 4,
+      "development_books": 4,
+      "minimum_additional_development_unique_codes_to32": 28,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 3,
+      "validation_novel_books": 3,
+      "natural_validation_executed_queries": 2,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ]
+    },
+    {
+      "expert": 108,
+      "development_unique_codes": 23,
+      "development_books": 15,
+      "minimum_additional_development_unique_codes_to32": 9,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 8,
+      "validation_novel_books": 7,
+      "natural_validation_executed_queries": 5,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 115,
+      "development_unique_codes": 2,
+      "development_books": 2,
+      "minimum_additional_development_unique_codes_to32": 30,
+      "minimum_additional_development_books_to4": 2,
+      "validation_novel_codes": 2,
+      "validation_novel_books": 2,
+      "natural_validation_executed_queries": 1,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16",
+        "validation_novel_code_books_ge4"
+      ]
+    },
+    {
+      "expert": 121,
+      "development_unique_codes": 9,
+      "development_books": 7,
+      "minimum_additional_development_unique_codes_to32": 23,
+      "minimum_additional_development_books_to4": 0,
+      "validation_novel_codes": 11,
+      "validation_novel_books": 8,
+      "natural_validation_executed_queries": 5,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "validation_novel_codes_ge16"
+      ]
+    },
+    {
+      "expert": 124,
+      "development_unique_codes": 1,
+      "development_books": 1,
+      "minimum_additional_development_unique_codes_to32": 31,
+      "minimum_additional_development_books_to4": 3,
+      "validation_novel_codes": 5,
+      "validation_novel_books": 4,
+      "natural_validation_executed_queries": 3,
+      "failed_gates": [
+        "development_unique_codes_ge32",
+        "development_books_ge4",
+        "validation_novel_codes_ge16"
+      ]
+    }
+  ],
+  "development_only_deficit_queries": 389,
+  "already_validation_floor_blocked_queries": 71,
+  "pure_development_augmentation_coverage_UPPER_bound": {
+    "queries": 2994,
+    "coverage": 0.9768352365415987,
+    "not_a_guarantee": true
+  },
+  "minimum_distinct_additional_dev_codes_if_ALL25_currently_val_eligible_deficits_repaired": 226,
+  "minimum_distinct_additional_dev_codes_if_ALL44_dev_deficits_repaired": 679,
+  "monotonic_novelty_proof": "For fixed validation code set V_e, development D_e subset Dprime_e implies V_e\\Dprime_e subset V_e\\D_e. Novel code counts and novel-code book unions cannot grow by adding development alone;19already validation-floor-blocked IDs cannot be repaired that way.25current val-eligible IDs have only development deficits; extra development may still remove novel validation codes.",
+  "prospective_action": "ONE bounded model-free64-new-DEVELOPMENT-book/256-context manifest, then separate512native-stream augmentation/combined readiness with old64validation books unchanged and no factor until SAME90%fixed-bank gate. Source selection uses no validation scores/route IDs or the25-ID list; cover development information deficits uniformly. Stop after this one augmentation if inadequate; no endless new-data ladder.",
+  "limitations": "Counts are information floors, not rank or function error.389potentially repairable queries only define an upper bound; added development can lower validation novelty. No selection of expert IDs or contexts by validation performance. Pure development supports prospective fit; final donor-relative quality needs separate untouched cases."
+}

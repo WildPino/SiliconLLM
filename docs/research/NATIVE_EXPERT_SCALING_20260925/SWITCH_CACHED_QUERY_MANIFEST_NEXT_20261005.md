@@ -1,4 +1,7 @@
-# Cached source manifest admitted467; native capture is next
+> Current5October2026: this historical capture dependency was completed by469.
+> Fixed decoder DATAFAIL; current next is [ONE bounded development augmentation](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
+
+# Cached source manifest admitted467; historical native capture dependency
 
 5 October2026. Supersedes this file's earlier465 manifest proposal.465 first
 compilation failure and466 indirect Arrow runtime fault retained, no reruns.

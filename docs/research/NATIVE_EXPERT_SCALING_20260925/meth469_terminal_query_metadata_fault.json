@@ -1,0 +1,44 @@
+{
+  "experiment": "METH469-first-metadata-only-Windows-date-query-fault",
+  "scientific_main_unchanged_terminal": {
+    "session": 5698,
+    "exit_code": 0,
+    "raw_sha256": "ccb34e789d6e3ed955171b619639dc4d34bc032f960e44996b5dc1f7fa60f870"
+  },
+  "first_metadata_audit": {
+    "session": 66499,
+    "exit_code": 1,
+    "file": "results/native_expert_scaling/meth469_retention_audit.py",
+    "sha256": "1a8c07cd299e07ba8d7aae145a4aec4b3d4f390c6ca54d3726764c90c2f52edc",
+    "line": 196,
+    "error": "AssertionError matching_main_or_native_events == []",
+    "no_RETENTION469_created": true
+  },
+  "cause": "PowerShell ConvertFrom-Json date object coerced to current-culture string before DateTimeOffset.Parse, misreading5October as10May; first query interval invalid for this main and contained unrelated historical PID reuse events.",
+  "first_query": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth469_windows_terminal.json",
+    "sha256": "99328f185e7f848dab86a34c3d4ad8926bcbb97e91bdff86087c3a0db5a11cbe",
+    "start_utc": "2026-05-10T08:02:22.0000000Z",
+    "events": 487,
+    "matching_PID_name_events": 42
+  },
+  "corrected_query": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth469_windows_terminal_v2.json",
+    "sha256": "5d54951049107274423b2bc4deb50309b3e5725ef54827f3be97a4386797a12e",
+    "start_utc": "2026-10-05T08:02:22.6660220Z",
+    "end_utc": "2026-10-05T08:20:48.4066295Z",
+    "events": 0,
+    "query_available": true
+  },
+  "scripts": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth469_windows_terminal.ps1",
+      "sha256": "a032259fcd7a4f614cca2d705575e8c2c7b6fb7f7e1dfcd52618694ec872744b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth469_windows_terminal_v2.ps1",
+      "sha256": "c2c0e542d7aef7ee9f87dc34ef4c468b966c13e18f91d7aab44b41c0e5858789"
+    }
+  ],
+  "scope": "First METADATA query/audit preserved; no native crash in corrected actual invocation interval. Only metadata date parsing changes: extract literal ISO UTC from raw text and parse invariant culture. No scientific main/native recapture or data/role/floor change. New auditv2 will revalidate all retained bytes/ledger against corrected query."
+}
