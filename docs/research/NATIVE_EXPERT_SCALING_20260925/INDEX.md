@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-5 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+6 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 
 ## Goal and constraints
 
@@ -52,35 +52,35 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption:482 R1 terminal, sole first full unresolved-outcome audit
+## Current resumption:482 original audit fault retained, sole first R1 audit
 
-Previous goal turn PROGRESS:481geometry fully admitted. Current482original
-memory fault retainedafcd265;R1sole36751 exit0/545.063s/5.647GBpeak/5gates,
-RAW506296ee... retained1ef97f3. All12 rootLPs reached time_limit,status1,
-no saved candidate/dual;no affine feasibility/infeasibility conclusion. ONE
-mainR1Windows available/0matchingevents. Full goal ACTIVE/INCOMPLETE.
+Previous goal turn PROGRESS:481 geometry fully admitted. Current482 source
+R1 main sole36751exit0/545.063s/5.647GB/5gates retained1ef97f3. ALL12root
+LPs time_limit/status1/no candidate or dual; geometry feasibility unresolved.
+Original audit63310exit1 BEFORE NumPy/dataset checks: wrong source481 output
+cap32MiB instead of frozen64MiB. Fault retained2f13747 before repair.
 
-Independent full audit frozen5d4809f/schema strengthened BEFORE firstnumeric
-import. ALL238872UID/955488source rootmax-ID BYTE/1910976F64interval BYTE/
-12complete absent-witness archives/39-72-4608-9216views. Fixedzero recurrences
-rederived once,EVERY field checked;no sampling/LP/helper/native replay.
-[Independent prospective contract](METH_482_RETENTION_PROTOCOL_20261006.md).
+R1 full independent auditor frozen68c75dc; input accounting only corrected,
+complete numerical suffix14,318B BYTE unchanged01804cdd... Own600s/4GiB/new32MiB/
+admission180s unchanged. Original full source/runtime/fault chains admitted.
+ALL238872UID/955488source rootmax-ID/1910976F64field/12archives/39-72-4608-9216views.
+[Complete repair contract](METH_482_R1_RETENTION_PROTOCOL_20261006.md).
 
-SOLE FIRST audit,unexecuted at registration:
+SOLE FIRST AUDIT-R1, unexecuted at registration (MAIN-R1 unchanged):
 
 ```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth482_retention_audit.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\RETENTION_482_R1_20261006.json
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth482_r1_retention_audit.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\RETENTION_482_R1_AUDIT_R1_20261006.json
 ```
 
-CPU0/BLAS1/600s/4GiB/new32MiB/admission180s,current separate process preflight
-inspected BEFORE launch/early AND late gates. Live SAME handle/smallPowerShell/
-commentary only;actualterminal thenONE frozen auditWindows before admission.
-Firstfault before numbered repair;no completedmain/native/source/audit replay.
-Status messages from SciPy wrapper are diagnostic;LPnonoptimal branch omits
-solution values. Next prospective method must retain partial valid witnesses
-and/or reduce solver matrix cost,verify them mathematically on ALLinputs.
-Full wholeartifact/freshquality AND SAME>=50/usefuldistinctn/CPU LUT/mass/
-physicalDRAM/multiple actualfamilies goal remains unchanged.
+Separate current process preflight inspected BEFORE launch; live SAMEhandle/
+smallPowerShell/commentary only. Actualterminal then ONE frozen R1auditWindows
+query available/0matching before interpretation. First new fault before numbered
+repair; no completed main/LP/source/native/audit replay. No geometry or quality
+promotion from status messages. Full goal ACTIVE/INCOMPLETE.
+
+Next prospective method must expose verifiable primal/dual values and reduce
+LP matrix cost. Retain wholeartifact/fresh ownstate donor-quality ANDSAME>=50/
+usefuldistinctn/CPU LUT/winner ANDmass/physicalDRAM/multiple actualfamilies goals.
 
 ## Retained evidence and closures
 

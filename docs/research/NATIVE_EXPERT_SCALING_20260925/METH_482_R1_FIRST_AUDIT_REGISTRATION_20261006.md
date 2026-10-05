@@ -1,4 +1,10 @@
-# Current conditional transfer resumption
+# METH482 sole first AUDIT-R1 registration
+
+Original fault retained2f13747; repair complete freeze68c75dc before firstnumerics.
+
+benchmarks/native_expert_scaling/meth482_r1_retention_audit.py: 7e8ca421526f2aadaf673a6073d991f437bd154733c136e3dc68ffe39362f297
+benchmarks/native_expert_scaling/meth482_r1_audit_windows_terminal.ps1: dbfed38eb100eee48d218a15656cf87b2cd9446ef682d993bcc48646e67ae1ca
+docs/research/NATIVE_EXPERT_SCALING_20260925/METH_482_R1_RETENTION_PROTOCOL_20261006.md: 3ac826dab2084ff1aebe36afc581b505c0ce49f8fcc246d900d2f4460055d1a3
 
 ## Current resumption:482 original audit fault retained, sole first R1 audit
 
