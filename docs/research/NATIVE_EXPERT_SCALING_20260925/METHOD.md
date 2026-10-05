@@ -1,34 +1,24 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption after460: exact sharing admitted, ONE whole native inquiry next
+## Current resumption:461 frozen, first execution pending
 
-460 completed ONE command exit0, freezea467981/first run656fd15.
-ALL8admission gates PASS; metadata-only audit ALL6gates PASS.9.594s/53,153,792Bpeak,
-634,016Braw, zero compile/native/model-value/GPU/fit/download/engine edits.
-36legal fanouts/source; ALL1536 inherited dense counter rows rederived exact.
-Removed A16 CALLS38.7017%128/38.9044%256; parallel regions29.6792%/29.7527%.
-Integer products/logical coefficient bytes/storage/capacity reductions ZERO.
-These counts are not speed/DRAM/quality gains. Original weights/quality inherited;
-only binary manifest SHA and payload size/mtime refreshed in this model-free step.
-[460 result](METH_460_SWITCH_COMMON_INPUT_ADMISSION_RESULT_20261005.md),
-[retention460](RETENTION_460_20261005.json), raw SHA
-6e1f921d05f08eba48e59c05d167420fc9160732ef3060617e23a4cdbf4646b0.
+ONE exact common-input fanout source/controller/protocol frozen778d86a before
+first import/compile/numerical execution. Whole gates EACH128/256: mean<=.95,
+EVERY24book<=1.05, pooled measured p95<=1.00; complete states/logits/routes/IDs
+must match originals exactly. Original payloads/cores/precision/weights unchanged.
+[Prospective461 protocol](METH_461_SWITCH_COMMON_INPUT_COST_PROTOCOL_20261005.md).
+460 admission/retention PASS;458 whole economics inherited;456 tile recipe CLOSED.
 
-459 first catalogue EOL stop retained e0a98ab,1.078s/zero case counts;
-460 changed only catalog identity/namespace/fault binding. Eight physical EOL
-mismatches recorded with identical canonical HEAD text; no historical rewrite.
-Qualified source/engine byte contracts remain exact. No459/460 rerun.
+Next: execute ONCE .venv/Scripts/python.exe
+benchmarks/native_expert_scaling/meth461_switch_common_input_cost.py --out
+docs/research/NATIVE_EXPERT_SCALING_20260925/meth461_switch_common_input_cost_result.json.
+No461 import/compile/run yet. Retain first failure before numbered minimal repair;
+never rerun completed controller. Budget CPU main<=1800s, admission<=300s,
+numeric<=1500s, parent<=1GiB/conservative sum<=16GiB/new outputs<=8GiB.
+After ONE outcome, audit/retain all results and return to transfer/useful-n
+composition. No further kernel sweep. Full goal ACTIVE/INCOMPLETE: fresh donor
+quality/SAME50/composed capacity/router mass/physicalDRAM/families~100B open.
 
-Next NEW461 (no source/protocol/run yet): ONE exact shared-A16 common-input
-QKV/KV primitive + whole original/candidate cost and complete-output comparison.
-Implement/freeze native source/controller/protocol/quality/cost/resource gates
-BEFORE compile/observations. Suggested whole mean<=.95/books<=1.05/p95<=1.00,
-actual definitions frozen in next protocol, not inferred from removed call ratios.
-[Bounded native proposal](SWITCH_COMMON_INPUT_FANOUT_COST_NEXT_20261005.md).
-After this ONE decision return to transfer/useful-capacity composition; no indefinite
-kernel sequence.458 whole dense/expert constraints inherited;456 fixed tile CLOSED.
-Goal ACTIVE/INCOMPLETE: full transfer/fresh donor quality/SAME50/useful-n/router
-mass/physicalDRAM/families~100B remain required.
 ## Available method step: admit an exact common-input operator before implementation
 
 Tool: benchmarks/native_expert_scaling/meth460_switch_common_input_admission.py.
