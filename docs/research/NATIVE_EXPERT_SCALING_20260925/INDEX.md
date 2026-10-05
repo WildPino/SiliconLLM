@@ -105,39 +105,47 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption:471 data admitted; ONE rank32 INPUT inquiry to freeze
+## Current resumption: frozen472, ONE first rank32 function execution next
 
-471 retained ALL13apparatus/ALL10independent audit PASS. ONE main24999exit0,
-ONE metadata audit87092exit0; no completed main/cohort native/tokenizer rerun.
-Fixed128decoderbank11 now107readyIDs/2978of3065=97.1615%natural validation
-coverage, versus46984ready/84.9918%. ALL64validation books/queries/tables fixed;
-ALL192books/768cases/387036combined queries independently reconstructed, original
-258120records reused byte-exact once. ONE64-book development ladder COMPLETE.
-All12banks dataPASS, original selectedbank11 unchanged; no measured rank/factor.
+Previous turn PROGRESS:471 retained8b68367, ALL13/ALL10PASS; fixedbank11DATA
+107ready IDs/2978of3065=97.1615%, originalvalidation fixed. ONEdevelopment ladder
+complete; no rank/factor/quality/rate/useful-n promotion. Full goal ACTIVE/INCOMPLETE.
 
-[471 result](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md),
-[retention](RETENTION_471_20261005.json): raw SHA45aad972f69181201cd6337a4c46b06595ff9e974b2f283592815c49a8f8537a,
-RET SHA56cb78aa059647f312d22376d817d7266e6d1cd11a89272dcd788f6d325a0e0f.
-Actual main474.031s/1.709GiBconservative peak/new2.347GB; audit76.391s/385.88MiB.
-Fatal0B/available Windowsquery ZEROevents, all actual instances terminal,
-original engine/payload/unrelated3 preserved. Goal turn PROGRESS, full goal
-ACTIVE/INCOMPLETE; no compressed-quality/rate/useful-n claim.
+NEW472 source/math/protocol/runtime+input binding frozen88d77ab BEFORE first
+compile/import/numerical observation. Binding SHA
+e4405d9ab38524da5cd1915eeca03f16fb00a26fa65a10506c1726f9de170cda;
+ALL6224old469/new471files6.895GB,96old418native/1344FFNpositions,13integer fixtures,
+actualPython3.12.10/NumPy2.4.6/psutil7.2.2/threadpoolctl3.7.0assets bound.
+Sourceab2585d21fc01943fed23935f23551726ed93848f5ca6f4b97db248d2d010648;
+mathd5f25e5d6698a71847b6520beb0e3d108d54a606c6cc87e8a68963edde74dd82.
+ONE first command:
 
-Next NEW472: implement and separately freeze ONE rank32 private INPUT spectral/
-complete-function inquiry BEFORE first compile/import/numerics. Proposal defines
-effective x=alpha*q, equal-book/code+scale dedup, development-only uncentered
-alpha-squared covariance; compare actual storedF32 factors through original
-row-scales/ReLU/secondA16/WO, not only input energy. ALL107ready factors and
-ALL21original fallbacks fixed, every validation query retained. No rank grid,
-extra data, validation fitting or observed-error ID substitution. Exact arithmetic/
-SVD/zero/tie controls, runtime/input SHA, gates, workspace/output bounds, budget
-and decision still need scientific source/protocol/binding freeze. No472 exists
-or has run yet. Proposed CPU900s/8GiB/512MiB, noGPU/model/native/codec replay.
-[Algebra and next proposal](SWITCH_PRIVATE_INPUT_GEOMETRY_NEXT_20261005.md).
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth472_switch_private_input_probe.py
+--out docs\research\NATIVE_EXPERT_SCALING_20260925\meth472_switch_private_input_probe_result.json
 
-After local geometry/function admission: real C economics/all-bank composition,
-fresh donor-relative whole quality AND SAME>=50, causal useful-n/winner AND mass/
-CPU LUT/physicalDRAM/other-family/actual~10B~100B still required.
+Fresh allactual bytes/manifest/arithmetic/1344nativeFFNs, reconstructALL19962bank11
+q/scale/trace/ledger/mass/roles/128readiness BEFORE geometry. ONEprivate rank32,
+ALL107ready factors/ALL21original fallback policy fixed, development-only equal
+book/exactq+scale dedup/uncenteredalpha-squared thinSVD. ActualstoredF32P/A through
+originalrowscales/ReLU/secondA16/I8WO. All pairedfunctionvectors/spectra/provenance
+retained. Rho includes operationalF64rounding and finalF32, not solecast.
+
+ALL8apparatus; recipe:completebank<=70%original, EACH107novel-val equal-bookFFN
+RMS<=.05, ALL3065naturalvalFFNRMS<=.05, ALL64bookRMS<=.10. No observederror-ID
+fallback, rank grid, extra data, valfit or native/model/codec replay. HardCPU900s/
+8GiB/new768MiB/admission300s; algebraic outputupper725089696B, singleBLASworker/
+physicalCPU0. No472compile/import/numerical observation yet. Proposal is the
+historical design; [472frozen protocol](METH_472_SWITCH_PRIVATE_INPUT_PROTOCOL_20261005.md)
+is authoritative for this inquiry.
+
+If live poll SAMEactualhandle, never restart on observation timeout. First failure
+immutable BEFORE separately numbered correction; completed main never rerun.
+After mainactualexit independent pairedvector/weight/spectralwitness/byte/policy/
+gate/storage/resource/Windowsactualinstance audit, no SVDfit or model replay.
+PASS+retention -> separately frozen nativeoperator/Ccost; recipeFAIL -> close
+fixed rank32inputPCA and choose a different justified variable. Full all-bank/
+fresh donorquality AND SAME50/useful-n/winner AND mass/CPU LUT/physicalDRAM/
+otherfamily/actual~10B~100B remain required; no final-goal narrowing.
 
 ## Retained457: admission failed before native execution
 

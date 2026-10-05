@@ -8,9 +8,9 @@ Original ALL64validation books/token fields/queries/tables fixed. All12banks dat
 no rank/factor/function preservation observed. Full goal ACTIVE/INCOMPLETE.
 [471 retained result](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md).
 
-ONEaugmentation complete; no additional books or validation resampling. Separately
-implement/freeze NEW472privateINPUT spectrum/complete-function inquiry before any
-scientific observation. [Next proposal](SWITCH_PRIVATE_INPUT_GEOMETRY_NEXT_20261005.md).
+ONEaugmentation complete; no additional books or validation resampling. NEW472
+privateINPUT source/math/protocol/bindings now frozen88d77ab BEFORE first compile/
+import/numerics; ONEfirst execution next. See [frozen472protocol](METH_472_SWITCH_PRIVATE_INPUT_PROTOCOL_20261005.md).
 470/471 mains and audits terminal, never repeated. Sections below preserve the
 HISTORICAL deficit, feasibility algebra and prospective design used before
 470/471, not current execution instructions.
