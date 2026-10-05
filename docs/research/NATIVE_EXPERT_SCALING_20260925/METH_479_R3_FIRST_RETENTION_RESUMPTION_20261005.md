@@ -1,4 +1,10 @@
-# Current pretrained routing supervision resumption
+# METH479-R3 sole first independent complete admission
+
+5 October2026. Previous failed auditor retained780c424 before new0d9801d freeze.
+New source09430f9e819cdf77c3de90f49745b923c79fa9d1dce78155cde95c0947e8fd12;
+protocol1cbe2bd8a6042f0632c585d851f3e192987ced3c7a22c6e2ed5a873b85dc1085.
+No R3 invocation at this registration. R2main completed dataset RAW immutable.
+Original479/R1main/R2audit remain failed; no rerun/PASS promotion.
 
 ## Current resumption:479-R2 complete, sole first R3 independent admission
 
