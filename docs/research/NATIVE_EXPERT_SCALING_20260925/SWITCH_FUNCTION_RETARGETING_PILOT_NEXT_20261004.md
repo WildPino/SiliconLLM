@@ -1,49 +1,48 @@
 # Exact certificate economically rejected; observable-quality admission next
 
-## Current resumption:476 complete source context admitted; observable diagnostic next
+## Current resumption: frozen477, sole first complete head-observable diagnostic
 
-Current goal turn PROGRESS.476 main60373exit0/audit71464exit0, ALL6apparatus/
-ALL6auditPASS. ALL1344 knowntruepre controls plus ALL6649 validation472 queries
-(3584teacher/3065natural,64books/512originaltrajectories) complete source context
-BYTE exact through sourceFFN/norm/A16 head/ALL32128logits. Independent audit
-rederived ALL7993positions/256,799,104headlogits, allledger/digests/roles/order.
-Missingcachedpre resolved constructively with ONLY finaldecoderlayer replay;
-no subtraction inverse, whole source recapture, changed own states or candidate.
-[Result and algebraic reassessment](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md),
-[raw](meth476_switch_last_layer_context_result.json),
-[retention](RETENTION_476_20261005.json). Freeze70c6a8f/first8d5e124/audit4ca1536.
-Main48.391s beforeRAW/conservativepeak1,018,068,992B; audit60.531s/472,940,544B;
-newOUT+RAW38,990,991B, ALLlimitsPASS/WindowsEvent1000availableZEROmatches.
-No completed476 rerun. Closed472local105/107/book107 and473/474/475 unchanged.
+Previous goal turn PROGRESS:476 retained964789c, ALL6apparatus/ALL6auditPASS;
+ALL6649 validation contexts +1344knownpre qualified through256,799,104logits.
+Full goalACTIVE/INCOMPLETE;472 remains localFAIL105/107/book107. No promotion.
 
-Next NEW477: ONE descriptive finite head-observable diagnostic for ALL6649
-admitted original prefixes using saved472candidate/source functions and476pre.
-Compute actual residual/originalprobability/finalnorm/rescale/A16head/all32128
-candidate logits, stable KL, source margins/delta range/actual argmax changes.
-KL=log(sum(p*exp(delta)))-sum(p*delta); it ignores constant logit shifts, and
-finite actual quantized head comparisons are required. Smooth norm/Fisher
-geometry motivates a metric; it is not a formal floating-point certificate.
-Predetermine uniformquery/everybook/teacher-natural/ready-fallback/rare-dominant/
-novel-coordinate summaries with complete denominators. True-label deltaNLL only
-after exact label provenance. No refit/IDfilter/rankgrid/promotion or altered472gate.
+NEW477 source/C/math/protocol/binding frozenf32e3f1 BEFORE first scientific
+compile/import/numerics. Binding SHA630af85674071dd453595dc5d1a9c810072c0328f9edfaa4987f5ca1ebe742f8.
+Controller SHA54fa9b984f284f18ee0df7df8d6bea3762cadbaa65d4f1dd508b1b6359bf7585;
+C SHAa1c0ca58fda0f408c2852d5b44994908a171f0d0eb996a920ec85d3acbfc42bb;
+math SHAc9cc03c18b5c49890bdf22cbd3a22a636d9a1d527f0ba245951e513b85b103cc.
+ALL6578 prior files7,741,039,181B/195extra files/full original payload/actual
+runtime/sourcecompiler/OpenMP/newCNG dependencies bound before observations.
 
-Exact next action: metadata-only full context/candidate/header/label availability
-and output cost review; NEW477 controller/math/protocol/full runtime/input/budget
-binding; freeze BEFORE first scientific compile/import/candidate forward, then
-separate sole first-command registration. No477source/frozenbinding/protocol/
-observation/executablecommand yet. Prospective budget must cover ALL6649 and
-fullvocabulary; retain per-query witnesses rather than854MB full logits or a
-narrowed cohort. Qualify sourceprimal/softmax controls before candidate metrics;
-ONE independent complete head/metrics/terminal/resource audit after actualterminal.
-No threshold chosen after observations; this is consumed-prefix diagnostic
-calibration, not fresh whole quality. First failures BEFORE numbered repairs.
+ALL6649 saved472candidate/sourcefunctions and admitted476pre at original source
+prefixes. Finite originalprobability/residual/finalnorm/rescale/A16head complete
+32128candidate logits; KL/TV/margins/range/Fisher/actualargmax. Teacher3584true
+labels +2048maskedcontent provenance rederived from467originalexcerpt/windows;
+natural source tokens not groundtruth. Fixed107ready/21fallback, fullnovelcode
+classification vsALL13313dev, everybook/ID/mode/dominant25_37/otherID views.
+No fit/newrank/IDfilter/thresholdchosenfromresults/472gatechange/promotion.
 
-Foreground369..373 real-n evidence unchanged: matching trainedfunctions useful,
-actual nested64/128/256qualitymixed; fourfoldfullcost bounded but router~3.83x,
-no monotonic useful-n/physicalDRAM/winner ANDmass CPU LUT proof. FullgoalACTIVE/
-INCOMPLETE: viable newall-bank reusable artifact -> fresh changed-own-state
-prediction/generation/tasks AND SAME>=50 -> physicalDRAM/causal useful-n/mass/
-CPU LUT/multiple actualfamilies/~10B/~100B. No original rate inherited.
+ONE first parent command, never repeat a completed scientific namespace:
+
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth477_switch_head_observable.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth477_switch_head_observable_result.json
+```
+
+Prospective180s/2GiB/new24MiB,admission90s/compile60s/controls30s/candidate90s;
+parentCPU0/native3physicalworkers0,2,4. Outputupper18,389,572B. ONEcompile,
+ONEcontrols child qualifying13nativefixtures/6highprecisiontoys/CNG BEFORE
+ONEcandidate child. ALL7993sourceheads exact,ALL6649candidatecodes/alpha/
+full-logitSHA witnesses retained (payload11,622,468B). [Frozen protocol](METH_477_SWITCH_HEAD_OBSERVABLE_PROTOCOL_20261005.md)
+authoritative; no477scientific observation yet. Poll SAMElivehandle; timeout
+not termination. Then actualparent/compiler/controls/candidate WindowsEvent1000
+and ONE independent fullhead/metric/label/flag/summary/terminal/resource audit.
+First failures before separately numbered repair, no completed477 rerun.
+
+Diagnostic calibration only: oldconsumed ORIGINAL prefixes, no changed own
+candidate states/fresh/global quality. Fullgoal jointnewall-bank geometry/
+fresh donor-relative prediction/generation/tasks/SAME>=50/physicalDRAM/causal
+useful-n/winner ANDmass CPU LUT/actualmultiplefamilies/~10B/~100B remain open.
+Foreground369..373 real-n/mixedquality/cost evidence unchanged.
 
 ## Retained457: admission failed before native execution
 

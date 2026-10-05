@@ -1,49 +1,48 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:476 complete source context admitted; observable diagnostic next
+## Current resumption: frozen477, sole first complete head-observable diagnostic
 
-Current goal turn PROGRESS.476 main60373exit0/audit71464exit0, ALL6apparatus/
-ALL6auditPASS. ALL1344 knowntruepre controls plus ALL6649 validation472 queries
-(3584teacher/3065natural,64books/512originaltrajectories) complete source context
-BYTE exact through sourceFFN/norm/A16 head/ALL32128logits. Independent audit
-rederived ALL7993positions/256,799,104headlogits, allledger/digests/roles/order.
-Missingcachedpre resolved constructively with ONLY finaldecoderlayer replay;
-no subtraction inverse, whole source recapture, changed own states or candidate.
-[Result and algebraic reassessment](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md),
-[raw](meth476_switch_last_layer_context_result.json),
-[retention](RETENTION_476_20261005.json). Freeze70c6a8f/first8d5e124/audit4ca1536.
-Main48.391s beforeRAW/conservativepeak1,018,068,992B; audit60.531s/472,940,544B;
-newOUT+RAW38,990,991B, ALLlimitsPASS/WindowsEvent1000availableZEROmatches.
-No completed476 rerun. Closed472local105/107/book107 and473/474/475 unchanged.
+Previous goal turn PROGRESS:476 retained964789c, ALL6apparatus/ALL6auditPASS;
+ALL6649 validation contexts +1344knownpre qualified through256,799,104logits.
+Full goalACTIVE/INCOMPLETE;472 remains localFAIL105/107/book107. No promotion.
 
-Next NEW477: ONE descriptive finite head-observable diagnostic for ALL6649
-admitted original prefixes using saved472candidate/source functions and476pre.
-Compute actual residual/originalprobability/finalnorm/rescale/A16head/all32128
-candidate logits, stable KL, source margins/delta range/actual argmax changes.
-KL=log(sum(p*exp(delta)))-sum(p*delta); it ignores constant logit shifts, and
-finite actual quantized head comparisons are required. Smooth norm/Fisher
-geometry motivates a metric; it is not a formal floating-point certificate.
-Predetermine uniformquery/everybook/teacher-natural/ready-fallback/rare-dominant/
-novel-coordinate summaries with complete denominators. True-label deltaNLL only
-after exact label provenance. No refit/IDfilter/rankgrid/promotion or altered472gate.
+NEW477 source/C/math/protocol/binding frozenf32e3f1 BEFORE first scientific
+compile/import/numerics. Binding SHA630af85674071dd453595dc5d1a9c810072c0328f9edfaa4987f5ca1ebe742f8.
+Controller SHA54fa9b984f284f18ee0df7df8d6bea3762cadbaa65d4f1dd508b1b6359bf7585;
+C SHAa1c0ca58fda0f408c2852d5b44994908a171f0d0eb996a920ec85d3acbfc42bb;
+math SHAc9cc03c18b5c49890bdf22cbd3a22a636d9a1d527f0ba245951e513b85b103cc.
+ALL6578 prior files7,741,039,181B/195extra files/full original payload/actual
+runtime/sourcecompiler/OpenMP/newCNG dependencies bound before observations.
 
-Exact next action: metadata-only full context/candidate/header/label availability
-and output cost review; NEW477 controller/math/protocol/full runtime/input/budget
-binding; freeze BEFORE first scientific compile/import/candidate forward, then
-separate sole first-command registration. No477source/frozenbinding/protocol/
-observation/executablecommand yet. Prospective budget must cover ALL6649 and
-fullvocabulary; retain per-query witnesses rather than854MB full logits or a
-narrowed cohort. Qualify sourceprimal/softmax controls before candidate metrics;
-ONE independent complete head/metrics/terminal/resource audit after actualterminal.
-No threshold chosen after observations; this is consumed-prefix diagnostic
-calibration, not fresh whole quality. First failures BEFORE numbered repairs.
+ALL6649 saved472candidate/sourcefunctions and admitted476pre at original source
+prefixes. Finite originalprobability/residual/finalnorm/rescale/A16head complete
+32128candidate logits; KL/TV/margins/range/Fisher/actualargmax. Teacher3584true
+labels +2048maskedcontent provenance rederived from467originalexcerpt/windows;
+natural source tokens not groundtruth. Fixed107ready/21fallback, fullnovelcode
+classification vsALL13313dev, everybook/ID/mode/dominant25_37/otherID views.
+No fit/newrank/IDfilter/thresholdchosenfromresults/472gatechange/promotion.
 
-Foreground369..373 real-n evidence unchanged: matching trainedfunctions useful,
-actual nested64/128/256qualitymixed; fourfoldfullcost bounded but router~3.83x,
-no monotonic useful-n/physicalDRAM/winner ANDmass CPU LUT proof. FullgoalACTIVE/
-INCOMPLETE: viable newall-bank reusable artifact -> fresh changed-own-state
-prediction/generation/tasks AND SAME>=50 -> physicalDRAM/causal useful-n/mass/
-CPU LUT/multiple actualfamilies/~10B/~100B. No original rate inherited.
+ONE first parent command, never repeat a completed scientific namespace:
+
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth477_switch_head_observable.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth477_switch_head_observable_result.json
+```
+
+Prospective180s/2GiB/new24MiB,admission90s/compile60s/controls30s/candidate90s;
+parentCPU0/native3physicalworkers0,2,4. Outputupper18,389,572B. ONEcompile,
+ONEcontrols child qualifying13nativefixtures/6highprecisiontoys/CNG BEFORE
+ONEcandidate child. ALL7993sourceheads exact,ALL6649candidatecodes/alpha/
+full-logitSHA witnesses retained (payload11,622,468B). [Frozen protocol](METH_477_SWITCH_HEAD_OBSERVABLE_PROTOCOL_20261005.md)
+authoritative; no477scientific observation yet. Poll SAMElivehandle; timeout
+not termination. Then actualparent/compiler/controls/candidate WindowsEvent1000
+and ONE independent fullhead/metric/label/flag/summary/terminal/resource audit.
+First failures before separately numbered repair, no completed477 rerun.
+
+Diagnostic calibration only: oldconsumed ORIGINAL prefixes, no changed own
+candidate states/fresh/global quality. Fullgoal jointnewall-bank geometry/
+fresh donor-relative prediction/generation/tasks/SAME>=50/physicalDRAM/causal
+useful-n/winner ANDmass CPU LUT/actualmultiplefamilies/~10B/~100B remain open.
+Foreground369..373 real-n/mixedquality/cost evidence unchanged.
 
 ## Available analysis step: exact bitplane and sign-certificate admission
 
@@ -381,7 +380,7 @@ generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
-running in the project C engine at ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥50 accepted batch-1 tokens/s on a declared
+running in the project C engine at ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
 family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
@@ -874,7 +873,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -882,13 +881,13 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
@@ -949,7 +948,7 @@ validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
 [318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
 now passes all source/numeric/format/route/capacity controls on fully allocated
 3.187GB with actual source head/router/norm/embedding. All nine repetition
-medians38.124ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+medians38.124ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
 full-width decoder is CLOSED before training/640-bank allocation.318 startup
 failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
 No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.
