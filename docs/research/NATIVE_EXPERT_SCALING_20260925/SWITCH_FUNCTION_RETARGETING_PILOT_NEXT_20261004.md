@@ -1,26 +1,28 @@
 # Current resumption: cached native query-domain source manifest next
 
-## Current resumption after466: indirect Arrow fault, Rust-only467 next
+## Current resumption: frozen467 original Rust codec, ONE first execution next
 
-466 ONE38283 nominal exit0/raw ALL8 gates/128books512cases; runtime NOT admitted:
-native fault log8273B, samePID10048 Windows APPCRASH179345/179364 in Arrow.
-Indirect import stack Transformers->sklearn->pandas->pyarrow, no Arrow reader call.
-Metadata source/token/mask/role checks reached; terminal-health gate FAIL, no
-RETENTION466 success. [First runtime fault](METH_466_INDIRECT_ARROW_RUNTIME_FAULT_20261005.md),
-fault rawSHAc7e6c200f8018a63b8418d40f2c7b189786965605479d79ad2f7e98d43954cf2.
-Manifest/logs/OS events retained; no466 rerun or quality/readiness promotion.
+466 indirect Arrow runtime fault retainedd888f9e, no466 rerun/admitted cohort;
+nominal raw serves diagnostic equality only. NEW467 source/protocol/actual codec
+bindings frozena8f3c01 BEFORE compile/import/data observations. Original tokenizer
+JSON/tokenizers0.22.2 directly; no Transformers/Torch/sklearn/pandas/Arrow. ALL96
+original382 golden IDs/masks/decodes before data, same512 source-only diagnostic
+case equivalence, forbidden modules absent, empty native log/real terminal health.
+[467 protocol](METH_467_SWITCH_RUST_QUERY_MANIFEST_PROTOCOL_20261005.md).
 
-Next NEW467 not created/frozen: SAME original tokenizer.json/tokenizers0.22.2
-direct Rust encode/decode, no Transformers/Torch/sklearn/pandas/Arrow. Local
-qualified source/config delegates decode with skip_special_tokensFalse/cleanupFalse.
-Freeze codec dependency hashes/protocol before import; preserve465 seeds/input
-universe/guards/roles/counts. Requalify SAME128 source-only diagnostic preselection,
-not128 additional fresh books. ALL96 original382 golden controls BEFORE data;
-fresh reconstruction + exact512 diagnostics equivalence to466, no normative trust
-in invalid466. Disallowed modules absent and actual native fault logs empty/healthy
-terminal required. SAME300s4GiB8MiB+1MiBlogs. Then metadata audit -> separate
-original393 capture/SAME462 floors/fixed128lastbank -> private INPUT geometry if
-data admitted. Full goal ACTIVE/INCOMPLETE, model/engine unchanged.
+ONE first command:
+results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
+benchmarks\native_expert_scaling\meth467_switch_rust_query_manifest.py --out
+docs\research\NATIVE_EXPERT_SCALING_20260925\meth467_switch_rust_query_manifest.json
+
+SAME465 seeds/1847-file input universe/128sources64dev64val/512contexts and guards,
+requalifies existing model-unconsumed preselection, not additional128 new books.
+Hard300s4GiB8MiB+logs1MiB; no model/native/GPU/fit/download. If live poll same actual
+session to terminal. After completion audit source/tokens/roles/logs and matching
+PID Windows APPCRASH, preserving any first failure; no467 retry. PASS -> separately
+freeze original393 native capture/SAME462 floors/fixed128bank11 -> private INPUT
+geometry if data adequate. No final fresh donor quality/rate/useful-n claims.
+Full goal ACTIVE/INCOMPLETE, original model/engine artifacts unchanged.
 
 ## Retained457: admission failed before native execution
 

@@ -6,6 +6,7 @@ exit0.463 native Arrow access violation retained, no manifest admitted/no retry.
 Full goal ACTIVE/INCOMPLETE.466 nominal manifest retained but runtime NOT admitted:
 indirect Transformers/sklearn/pandas/Arrow import fault. NEW467 proposed original
 Rust codec directly, same seeds/inputs/diagnostic preselection, no new book count.
+467 source/protocol/codec bindings frozena8f3c01, first execution pending.
 See [first runtime fault](METH_466_INDIRECT_ARROW_RUNTIME_FAULT_20261005.md).
 
 ## First exact action
