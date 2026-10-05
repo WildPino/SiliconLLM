@@ -1,30 +1,15 @@
 # Current resumption457: frozen matched whole cost diagnosis
 
-## Current resumption457: frozen matched whole diagnosis, FIRST execution next
+## Current resumption457: admission FAILED before native execution
 
-NEW457 controller/protocol/attributes frozen in `45e949f` before imports/native
-observations. Reuse unchanged qualified389/374 binaries: original128 CPU3 and
-original256 CPU6, all96 own natural cases each, profile0/1 warm1/measured3.
-384 sequential children/1536 complete output hashes; every rejected time charged.
-Admit timers only if aggregate mean ratio[.90,1.10] AND all book ratios[.85,1.15].
-Phase0 matrices include encoder AND crossKV; no finer matrix attribution.
-Conditional bounds use SAME profile1 arithmetic-mean denominator, never historical
-case medians or456 local FFN ratio. No new quality/model/kernel/fit/GPU/engine edit.
+ONE session19372 exit1,224.109s, KeyError('runtime_environment') in historical
+quality363 schema. ZERO native commands/new outputs; first raw/source/protocol
+retained immutable. [First fault](METH_457_FIRST_ADMISSION_FAULT_20261005.md).
+Raw SHAd5923940e18e7a127b99959e30694ebd7ebfa470c563a09204f023ade5c7ba9a.
+No457 retry. Next prepare separately frozen458 with only explicit schema correction,
+same data/order/gates/resources, bind first fault before observations. No whole
+fraction/cost result yet. Goal ACTIVE/INCOMPLETE;456 fixed tile16 remains CLOSED.
 
-Hard main1800s/admission300s/numeric1500s/child60s, parent1GiB/conservative sum16GiB,
-all outputs8GiB/child128MiB. Fresh disk>=10GiB/RAM>=16GiB. Windows actual process
-peak including terminal query required; no hardwareDRAM interpretation. Preserve
-all outputs/failures; no automatic retry. Exact publisher allowlist preserved.
-
-Next action ONCE from repo root:
-`.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth457_switch_matched_whole_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth457_switch_matched_whole_cost_result.json`
-[457 prospective protocol](METH_457_SWITCH_MATCHED_WHOLE_COST_PROTOCOL_20261005.md).
-After termination derive report/retention only; do not repeat completed command.
-456 fixed tile16 FAILED/CLOSED (mean.801649); raw/retention immutable.
-[456 result](METH_456_SWITCH_OUTPUT_TILE_COST_RESULT_20261005.md),
-[whole economic reassessment](SWITCH_MATCHED_WHOLE_COST_REASSESSMENT_AFTER_456_20261005.md).
-Goal ACTIVE/INCOMPLETE: new whole transfer/quality/SAME50/useful-n/router mass/
-actualDRAM/other families/~100B still open.
 ## Retained prior453 decision
 
 453 completed ONE session25101, terminal exit0: ALL10apparatus/ALL7local gates

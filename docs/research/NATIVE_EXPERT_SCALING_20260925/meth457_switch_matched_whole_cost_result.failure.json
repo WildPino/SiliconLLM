@@ -1,0 +1,3060 @@
+{
+  "experiment": "METH457-matched-whole-original128-256-cost",
+  "sources": {
+    "128": {
+      "artifact": {
+        "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+        "bytes": 7541946880,
+        "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe",
+        "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "manifest_sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a",
+        "source_unique_parameters": 7415217408,
+        "original_experts_per_bank": 128,
+        "f32_embedding_alias_names": [
+          "decoder.embed_tokens.weight",
+          "encoder.embed_tokens.weight",
+          "shared.weight"
+        ],
+        "f32_embedding_physical_copies": 1,
+        "separate_I8_head_view_from_same_tied_source": true,
+        "row_I8_tensor_names": 3241,
+        "f32_tensor_names": 79
+      },
+      "artifact_stat_before": [
+        7541946880,
+        1791084550563060000
+      ],
+      "compile": {
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+          "-O3",
+          "-std=c11",
+          "-march=x86-64-v3",
+          "-fno-fast-math",
+          "-ffp-contract=off",
+          "-fopenmp",
+          "-DSILICON_SWITCH_THREE_WORKERS",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth389_switch_three_workers_contract\\meth389_switch_three_workers.exe"
+        ],
+        "binary_sha256": "7783d25e7dd51c6f8ad43750d5d7139e622ba74b852a71aee484ffd445860a7b",
+        "compiler_sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7",
+        "runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+      },
+      "runtime_environment": {
+        "OMP_WAIT_POLICY": "ACTIVE",
+        "KMP_AFFINITY": "none",
+        "KMP_BLOCKTIME": "infinite",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_MAX_ACTIVE_LEVELS": "1"
+      },
+      "threads": 3,
+      "affinity": [
+        0,
+        2,
+        4
+      ],
+      "accepted_cases": 96,
+      "accepted_generated_tokens": 1142,
+      "accepted_prose_tokens": 662,
+      "rejected_cases_time_charged": 0,
+      "historical_accepted_full_rate": {
+        "accepted_generated_tokens": 1142,
+        "accepted_prose_tokens": 662,
+        "ALL_case_median_full_seconds": 11.826372,
+        "tokens_per_second": 96.56384899781608,
+        "one_sided_lower95": 94.58826676845753,
+        "prose_tokens_per_second": 55.97659197596693,
+        "prose_one_sided_lower95": 54.59729097168343,
+        "accepted_cases": 96,
+        "rejected_case_time_charged": true,
+        "repetition_ALL_case_full_seconds": [
+          12.041893300000002,
+          11.894369399999999,
+          11.992890899999999
+        ],
+        "aggregate_repeat_ratio_max_min": 1.0124028349077507,
+        "bootstrap_unit": "book",
+        "draws": 10000,
+        "seed": 364364,
+        "context_source_tokens": 29
+      },
+      "cases": []
+    }
+  },
+  "commands": [],
+  "retained_record_sha256": {
+    "meth456_switch_output_tile_cost_result.json": "cb7b9be5af6da6ce7fcbcbc058142ae6e8af2dda97c162727d44e9b591020977",
+    "RETENTION_456_20261005.json": "37580c7af58d09b82d41c361bc4b0e4c1b7dc300131b8d03f8fd52f9e93d6eb9",
+    "meth391_switch_base128_accepted_rate_result.json": "b738cd25449a4903595d1c33e6257b8de8267367cf6d685418a29db186b8f5d8",
+    "meth387_switch_base128_multi_span_quality_result.json": "539275a209c8b8a5680c388ec9130012157a681ed382ba1a4bf49ab8cccb9d4c",
+    "meth382_switch_multi_span_manifest.json": "96b3ffd09b0bdd42d7c990006e8744e39b5e1f32b7ae40aaf3b3dca98bf4db78",
+    "meth389_switch_three_workers_contract_result.json": "fd12cfc2809fb42f52faef0b442781154c30ba27576f264c5f693bc30ec91dd2",
+    "meth390_switch_three_workers_cost_result.json": "7a09d4aaa54af2a1455ef4153fa21461f661dec8e0d22b252c944c0d34f7e44b",
+    "meth376_switch_physical_workers_accepted_rate_result.json": "5986695ed0966f110c72129b058109d028b9f4bb90c23b763d57d7a62507bea5",
+    "meth363_switch_all_a16_multi_span_quality_result.json": "ba4f18454cb8788dceacfa7c8d629e6083420c75a9b69318f4277d7a9edfedeb",
+    "meth362_switch_multi_span_manifest.json": "c387fc7b831b6b7bb50634686ac39b8e8873f20fedc7dec9b8556f62c54de2cf",
+    "meth374_switch_physical_workers_contract_result.json": "4601be80b787341f6d60e01f7219c1cd4cd71c0451f835d25e31ded3c468f4b1",
+    "meth375_switch_physical_workers_cost_result.json": "28b535b6a01ba67fcf45aaa008d8cf033d4f4cbc1aefcdc17c261a8749244375"
+  },
+  "helper_sha256": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth457_switch_matched_whole_cost.py": "4fd144c6e276b3b295aabee401fc2dba630b689018228c7784f91835dd5765db",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_457_SWITCH_MATCHED_WHOLE_COST_PROTOCOL_20261005.md": "b6f58ec06d98482d9101b28bf2f9beba107b7c3af889c7bc7323427cc2f67d67"
+  },
+  "reused_output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\bank.bin",
+      "bytes": 472257280,
+      "sha256": "52041297797ffa3919b0b30461bd6f1502670241a67cde05837497ba4a901889"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\compile.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\compile.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\libomp.dll",
+      "bytes": 1262080,
+      "sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\meth456_switch_output_tile_cpu.exe",
+      "bytes": 331776,
+      "sha256": "e4b38bb7703faab53b6eee100c9fc9347c36072a14d875769a5f028284b4fe49"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\negative_nibble.stderr.log",
+      "bytes": 44,
+      "sha256": "6724f9b9950cafc44f5fd172eceed28c7f35f4d5ed9bebe7bc097cffb588dc19"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\negative_nibble.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\primal.bin",
+      "bytes": 43915224,
+      "sha256": "a304cb945fd139bc92733589fb6b8cde25868441ea79091a4f78e6ee5755f548"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\primal.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\primal.stdout.log",
+      "bytes": 467,
+      "sha256": "547bc183b1c626a6c00c08b9b76a02b82678248753f3cc69f271e3a20b32a5f8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\timing.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\timing.stdout.log",
+      "bytes": 485,
+      "sha256": "3feb158a2a413b07e35cb95736864007456682a022a70a5838a8bd2ae4f2cdbc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth456_switch_output_tile_cost\\timings.jsonl",
+      "bytes": 571977,
+      "sha256": "5a7bb7bc79743a772888e92f5826f236bf6d6807f2ebbc67fb9df8a252ecc0d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case0.-1.bin",
+      "bytes": 3480052,
+      "sha256": "7b98fa665a8660446cd3999864db915834bdc41dc6a2d9fa01ac32e80645e15a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case0.0.bin",
+      "bytes": 3480052,
+      "sha256": "7b98fa665a8660446cd3999864db915834bdc41dc6a2d9fa01ac32e80645e15a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case0.1.bin",
+      "bytes": 3480052,
+      "sha256": "7b98fa665a8660446cd3999864db915834bdc41dc6a2d9fa01ac32e80645e15a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case0.2.bin",
+      "bytes": 3480052,
+      "sha256": "7b98fa665a8660446cd3999864db915834bdc41dc6a2d9fa01ac32e80645e15a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case0.stdout.log",
+      "bytes": 7533,
+      "sha256": "ed4a5c9573c877a0940f2cad889afda9ea82f309843fd4203ed5b76fc0de2535"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "4d28f4dc7914d183b5dc1c4ab2beb72f153bed6411dc1a566237377daa446050"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "4d28f4dc7914d183b5dc1c4ab2beb72f153bed6411dc1a566237377daa446050"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "4d28f4dc7914d183b5dc1c4ab2beb72f153bed6411dc1a566237377daa446050"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "4d28f4dc7914d183b5dc1c4ab2beb72f153bed6411dc1a566237377daa446050"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case1.stdout.log",
+      "bytes": 7449,
+      "sha256": "ab3c70943c3644c674797481aa124913761df3931fabaf00f6a7204379a008c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "5264a48d8b0038ce3e8ea14eb8a2ec4e6b14304932ddb8ad3d15638169dd935e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "5264a48d8b0038ce3e8ea14eb8a2ec4e6b14304932ddb8ad3d15638169dd935e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "5264a48d8b0038ce3e8ea14eb8a2ec4e6b14304932ddb8ad3d15638169dd935e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "5264a48d8b0038ce3e8ea14eb8a2ec4e6b14304932ddb8ad3d15638169dd935e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case2.stdout.log",
+      "bytes": 7433,
+      "sha256": "64ce19fbb8b83441122c23a1c50c261b045ba54d36c1e6fc5c82b6536bc4a411"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "ad64571214a8e1a4a99dedd2202b1db1d543159463053f2b73a5173a0f4de5a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "ad64571214a8e1a4a99dedd2202b1db1d543159463053f2b73a5173a0f4de5a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "ad64571214a8e1a4a99dedd2202b1db1d543159463053f2b73a5173a0f4de5a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "ad64571214a8e1a4a99dedd2202b1db1d543159463053f2b73a5173a0f4de5a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case3.stdout.log",
+      "bytes": 7401,
+      "sha256": "70067efb672c8ac97575cb6b4a53e187bf62e04653169588d206a3a8094617dd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book0.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "1a713bc788eb3b6cb98c539f7d0632d8fe6d673972e54e938bbccbff9bcea65f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "1a713bc788eb3b6cb98c539f7d0632d8fe6d673972e54e938bbccbff9bcea65f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "1a713bc788eb3b6cb98c539f7d0632d8fe6d673972e54e938bbccbff9bcea65f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "1a713bc788eb3b6cb98c539f7d0632d8fe6d673972e54e938bbccbff9bcea65f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case0.stdout.log",
+      "bytes": 7457,
+      "sha256": "0e1935ed249606c25436f181f2644873285ff6c1e43ea8a26c53d03a9e6b7285"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "e90118f7bd616912cf1a436662f54f84ac7540a94ec11646d237a83d0654b546"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "e90118f7bd616912cf1a436662f54f84ac7540a94ec11646d237a83d0654b546"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "e90118f7bd616912cf1a436662f54f84ac7540a94ec11646d237a83d0654b546"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "e90118f7bd616912cf1a436662f54f84ac7540a94ec11646d237a83d0654b546"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case1.stdout.log",
+      "bytes": 7377,
+      "sha256": "3c4ab6e8dcc4735724b9704c8beaa4a2a887732fdf10bd0321dd350345dac510"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "c6aec490094ffcccab54a5160295ff2a5dbecc2b9bfe61e192da77da4fcb3f36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "c6aec490094ffcccab54a5160295ff2a5dbecc2b9bfe61e192da77da4fcb3f36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "c6aec490094ffcccab54a5160295ff2a5dbecc2b9bfe61e192da77da4fcb3f36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "c6aec490094ffcccab54a5160295ff2a5dbecc2b9bfe61e192da77da4fcb3f36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case2.stdout.log",
+      "bytes": 7461,
+      "sha256": "c1c8a685b6c4762d96871413b0a89db612925b279c4f0401c529a69444f4ee16"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case3.-1.bin",
+      "bytes": 3480052,
+      "sha256": "70ad06886a5a98893f21aea8159f5fb22bf5ee77c7cff96f3cab7f0ca1aca401"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case3.0.bin",
+      "bytes": 3480052,
+      "sha256": "70ad06886a5a98893f21aea8159f5fb22bf5ee77c7cff96f3cab7f0ca1aca401"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case3.1.bin",
+      "bytes": 3480052,
+      "sha256": "70ad06886a5a98893f21aea8159f5fb22bf5ee77c7cff96f3cab7f0ca1aca401"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case3.2.bin",
+      "bytes": 3480052,
+      "sha256": "70ad06886a5a98893f21aea8159f5fb22bf5ee77c7cff96f3cab7f0ca1aca401"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case3.stdout.log",
+      "bytes": 7521,
+      "sha256": "979f1d266b8de83d7103b03829e90307d79df527b71dad9610d2c95b10d7742a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book1.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case0.-1.bin",
+      "bytes": 3480052,
+      "sha256": "296458c103a6f776020651ff7880f3ca8a76a5d994d6d2a21db7aaeebe48b830"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case0.0.bin",
+      "bytes": 3480052,
+      "sha256": "296458c103a6f776020651ff7880f3ca8a76a5d994d6d2a21db7aaeebe48b830"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case0.1.bin",
+      "bytes": 3480052,
+      "sha256": "296458c103a6f776020651ff7880f3ca8a76a5d994d6d2a21db7aaeebe48b830"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case0.2.bin",
+      "bytes": 3480052,
+      "sha256": "296458c103a6f776020651ff7880f3ca8a76a5d994d6d2a21db7aaeebe48b830"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case0.stdout.log",
+      "bytes": 7525,
+      "sha256": "cfddeacfbac792d42a295f89b01a3b2f21ac611da9e2242f93fe7fd3e14edb85"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "4ebe73e457b1aaeb4f3806e83952cedd244a5048295ee29cdb196009769886e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "4ebe73e457b1aaeb4f3806e83952cedd244a5048295ee29cdb196009769886e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "4ebe73e457b1aaeb4f3806e83952cedd244a5048295ee29cdb196009769886e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "4ebe73e457b1aaeb4f3806e83952cedd244a5048295ee29cdb196009769886e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case1.stdout.log",
+      "bytes": 7465,
+      "sha256": "54ebafa450cc5ef205c9a741c98fbe585a4d39728f2e8f3634dbe0e024998653"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case2.-1.bin",
+      "bytes": 3480052,
+      "sha256": "45f1ac35da5554ff488e0b8aeb0a9fda1b6a3a372d813a86d4337b1c1eb0c804"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case2.0.bin",
+      "bytes": 3480052,
+      "sha256": "45f1ac35da5554ff488e0b8aeb0a9fda1b6a3a372d813a86d4337b1c1eb0c804"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case2.1.bin",
+      "bytes": 3480052,
+      "sha256": "45f1ac35da5554ff488e0b8aeb0a9fda1b6a3a372d813a86d4337b1c1eb0c804"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case2.2.bin",
+      "bytes": 3480052,
+      "sha256": "45f1ac35da5554ff488e0b8aeb0a9fda1b6a3a372d813a86d4337b1c1eb0c804"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case2.stdout.log",
+      "bytes": 7501,
+      "sha256": "c166dad18e53aeb7f5fb42ba59bb04b761061513a704b89dd9a23ba53f611a47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "6e263b0ca298b714acd49d608e712fbaabcb146fbff2b51b3606fe60d2c7d5d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "6e263b0ca298b714acd49d608e712fbaabcb146fbff2b51b3606fe60d2c7d5d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "6e263b0ca298b714acd49d608e712fbaabcb146fbff2b51b3606fe60d2c7d5d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "6e263b0ca298b714acd49d608e712fbaabcb146fbff2b51b3606fe60d2c7d5d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case3.stdout.log",
+      "bytes": 7477,
+      "sha256": "fe0fc06dd8816e06aa07459686c248ecb12f60c79f13a52ddff18897cb9d91ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book2.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "57d9533997e5fbd4c4bffa9119e5889d1a55e85a7d7bb0fcb09f1a74223f8431"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "57d9533997e5fbd4c4bffa9119e5889d1a55e85a7d7bb0fcb09f1a74223f8431"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "57d9533997e5fbd4c4bffa9119e5889d1a55e85a7d7bb0fcb09f1a74223f8431"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "57d9533997e5fbd4c4bffa9119e5889d1a55e85a7d7bb0fcb09f1a74223f8431"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case0.stdout.log",
+      "bytes": 7497,
+      "sha256": "05eb8e40a72d8dd57e4c213e486dbdeb89040c0e0bac4070b5c8b8e34626c6a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "97052221bfc52d7cca19139f1cccbd30e9515604ea3d0496f0ca2c92122b49e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "97052221bfc52d7cca19139f1cccbd30e9515604ea3d0496f0ca2c92122b49e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "97052221bfc52d7cca19139f1cccbd30e9515604ea3d0496f0ca2c92122b49e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "97052221bfc52d7cca19139f1cccbd30e9515604ea3d0496f0ca2c92122b49e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case1.stdout.log",
+      "bytes": 7461,
+      "sha256": "5b66d25d9370ee0e39717efb60e3202ed6701a38e889bcd965b28ce292318b56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case2.-1.bin",
+      "bytes": 3480052,
+      "sha256": "d4b0f065832adb51bd17831effb7254ec6c5082d21dab39e93174de70d3a17dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case2.0.bin",
+      "bytes": 3480052,
+      "sha256": "d4b0f065832adb51bd17831effb7254ec6c5082d21dab39e93174de70d3a17dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case2.1.bin",
+      "bytes": 3480052,
+      "sha256": "d4b0f065832adb51bd17831effb7254ec6c5082d21dab39e93174de70d3a17dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case2.2.bin",
+      "bytes": 3480052,
+      "sha256": "d4b0f065832adb51bd17831effb7254ec6c5082d21dab39e93174de70d3a17dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case2.stdout.log",
+      "bytes": 7521,
+      "sha256": "415a24c9586d177f3188f4db83ced37ffced61217e8c0fe06bb211fae77e8c38"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "119f3c9d97da2061265479a8e50035482b219a5f8bcf679610abbfb0e20cc0c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "119f3c9d97da2061265479a8e50035482b219a5f8bcf679610abbfb0e20cc0c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "119f3c9d97da2061265479a8e50035482b219a5f8bcf679610abbfb0e20cc0c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "119f3c9d97da2061265479a8e50035482b219a5f8bcf679610abbfb0e20cc0c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case3.stdout.log",
+      "bytes": 7401,
+      "sha256": "4fbbad716739a83a638246c26824717a533a40616b759d4c48e3ecc15f155277"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book3.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "9c68a7b3f1c7360b5b5f0ef703ffb7a96a8c0821b69c3502cb7eb575f92726c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "9c68a7b3f1c7360b5b5f0ef703ffb7a96a8c0821b69c3502cb7eb575f92726c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "9c68a7b3f1c7360b5b5f0ef703ffb7a96a8c0821b69c3502cb7eb575f92726c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "9c68a7b3f1c7360b5b5f0ef703ffb7a96a8c0821b69c3502cb7eb575f92726c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case0.stdout.log",
+      "bytes": 7473,
+      "sha256": "201037471c3b01a2bf8f1349c69124305ca8c7e3735f34c790462f82f5bc7b98"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "52df00d3cfe9f5eefd3802a8bbf66053a14a2571b12434a4b56cbe51faf65322"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "52df00d3cfe9f5eefd3802a8bbf66053a14a2571b12434a4b56cbe51faf65322"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "52df00d3cfe9f5eefd3802a8bbf66053a14a2571b12434a4b56cbe51faf65322"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "52df00d3cfe9f5eefd3802a8bbf66053a14a2571b12434a4b56cbe51faf65322"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case1.stdout.log",
+      "bytes": 7453,
+      "sha256": "b6cec2cb48d5b5bf653e8c400a9484466ddaba4e6f1656f6e2fc1184ff590339"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case2.-1.bin",
+      "bytes": 3136868,
+      "sha256": "0088693712f408d8e219ed4b98140baa46227ed819fc96b713c3073e210cd858"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case2.0.bin",
+      "bytes": 3136868,
+      "sha256": "0088693712f408d8e219ed4b98140baa46227ed819fc96b713c3073e210cd858"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case2.1.bin",
+      "bytes": 3136868,
+      "sha256": "0088693712f408d8e219ed4b98140baa46227ed819fc96b713c3073e210cd858"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case2.2.bin",
+      "bytes": 3136868,
+      "sha256": "0088693712f408d8e219ed4b98140baa46227ed819fc96b713c3073e210cd858"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case2.stdout.log",
+      "bytes": 7393,
+      "sha256": "81f37f77a3b0e953b242d825208b71d29542057b0b04cce28f501b63d4528d67"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "ad6443f895bc2a2bb61f2474c4cc203d5a4791f1151f2e6ce452510e74346ba0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "ad6443f895bc2a2bb61f2474c4cc203d5a4791f1151f2e6ce452510e74346ba0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "ad6443f895bc2a2bb61f2474c4cc203d5a4791f1151f2e6ce452510e74346ba0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "ad6443f895bc2a2bb61f2474c4cc203d5a4791f1151f2e6ce452510e74346ba0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case3.stdout.log",
+      "bytes": 7389,
+      "sha256": "1c2c607816f44755df426d3542b9872339cba7f428eae6ecefe657b487c8d336"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book4.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "b05e89ab478bafb6e7d3fcf37aaefe6637c7d3b10e2efee550e756b84ab3995a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "b05e89ab478bafb6e7d3fcf37aaefe6637c7d3b10e2efee550e756b84ab3995a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "b05e89ab478bafb6e7d3fcf37aaefe6637c7d3b10e2efee550e756b84ab3995a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "b05e89ab478bafb6e7d3fcf37aaefe6637c7d3b10e2efee550e756b84ab3995a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case0.stdout.log",
+      "bytes": 7461,
+      "sha256": "f1449db5d62b905a46770c563f3c756f8955b3b4320c4a416f299daf5e3d580e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "de3b31088846c539deef95c9a9d1bd60a20ff46782cdace27edb5877eddf6f76"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "de3b31088846c539deef95c9a9d1bd60a20ff46782cdace27edb5877eddf6f76"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "de3b31088846c539deef95c9a9d1bd60a20ff46782cdace27edb5877eddf6f76"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "de3b31088846c539deef95c9a9d1bd60a20ff46782cdace27edb5877eddf6f76"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case1.stdout.log",
+      "bytes": 7389,
+      "sha256": "71f57e735ae3b1619ddc957b826acae2d46e6061ecab23ce04de516d5eb3b7c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case2.-1.bin",
+      "bytes": 3480052,
+      "sha256": "f6046d8a02ebfae3f4a9f4daf21046445f9a211fcbad8800fae9a76c5b3b3298"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case2.0.bin",
+      "bytes": 3480052,
+      "sha256": "f6046d8a02ebfae3f4a9f4daf21046445f9a211fcbad8800fae9a76c5b3b3298"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case2.1.bin",
+      "bytes": 3480052,
+      "sha256": "f6046d8a02ebfae3f4a9f4daf21046445f9a211fcbad8800fae9a76c5b3b3298"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case2.2.bin",
+      "bytes": 3480052,
+      "sha256": "f6046d8a02ebfae3f4a9f4daf21046445f9a211fcbad8800fae9a76c5b3b3298"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case2.stdout.log",
+      "bytes": 7557,
+      "sha256": "9130da74b16abf2dddfe62698768877af1f2589b56ebc0b47b095549774586ba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case3.-1.bin",
+      "bytes": 3480052,
+      "sha256": "6cd36c0938b22ac65e40e941db6020974b67fc21ab2ffef36a201aa87e3c550b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case3.0.bin",
+      "bytes": 3480052,
+      "sha256": "6cd36c0938b22ac65e40e941db6020974b67fc21ab2ffef36a201aa87e3c550b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case3.1.bin",
+      "bytes": 3480052,
+      "sha256": "6cd36c0938b22ac65e40e941db6020974b67fc21ab2ffef36a201aa87e3c550b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case3.2.bin",
+      "bytes": 3480052,
+      "sha256": "6cd36c0938b22ac65e40e941db6020974b67fc21ab2ffef36a201aa87e3c550b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case3.stdout.log",
+      "bytes": 7513,
+      "sha256": "d1480a42150e1c6786e761e0680aa6c1cfd7c8974c54c81ecb97891e80068bbd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book5.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "43b73d0175985ea7601db425c2a2d68f90538b4e748ef0d9065b0022b7b7841f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "43b73d0175985ea7601db425c2a2d68f90538b4e748ef0d9065b0022b7b7841f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "43b73d0175985ea7601db425c2a2d68f90538b4e748ef0d9065b0022b7b7841f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "43b73d0175985ea7601db425c2a2d68f90538b4e748ef0d9065b0022b7b7841f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case0.stdout.log",
+      "bytes": 7449,
+      "sha256": "d95a047688b8f50c82bce2f360447d43d8bd4d3e973e2fe027011513464033f5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case1.-1.bin",
+      "bytes": 3480052,
+      "sha256": "fb38f68d959e40c7f87ad4238e7f61d99243eb694bb4e59ddaef6beae6aa32e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case1.0.bin",
+      "bytes": 3480052,
+      "sha256": "fb38f68d959e40c7f87ad4238e7f61d99243eb694bb4e59ddaef6beae6aa32e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case1.1.bin",
+      "bytes": 3480052,
+      "sha256": "fb38f68d959e40c7f87ad4238e7f61d99243eb694bb4e59ddaef6beae6aa32e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case1.2.bin",
+      "bytes": 3480052,
+      "sha256": "fb38f68d959e40c7f87ad4238e7f61d99243eb694bb4e59ddaef6beae6aa32e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case1.stdout.log",
+      "bytes": 7521,
+      "sha256": "d653134b13ca73e377801cd13c75d457ca428dd5188d161891bbe5044ea2ff3d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "aa602ba5267e0dd11a0a259150a1f97d3ff1823780ff4d97a82896da20652a02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "aa602ba5267e0dd11a0a259150a1f97d3ff1823780ff4d97a82896da20652a02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "aa602ba5267e0dd11a0a259150a1f97d3ff1823780ff4d97a82896da20652a02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "aa602ba5267e0dd11a0a259150a1f97d3ff1823780ff4d97a82896da20652a02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case2.stdout.log",
+      "bytes": 7437,
+      "sha256": "b64898d2be24d91e3d27b1092572a5d1f1a905e6a71be9736e57e73def8350f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "170fd6dbd5616b4a50468aa7515ff2665e8bbdaff98a11b586c0ee386abea8a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "170fd6dbd5616b4a50468aa7515ff2665e8bbdaff98a11b586c0ee386abea8a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "170fd6dbd5616b4a50468aa7515ff2665e8bbdaff98a11b586c0ee386abea8a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "170fd6dbd5616b4a50468aa7515ff2665e8bbdaff98a11b586c0ee386abea8a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case3.stdout.log",
+      "bytes": 7457,
+      "sha256": "5809e8543a37b94e4a250a007279c2c26764e7800126da7adc66014263ca2f37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book6.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case0.-1.bin",
+      "bytes": 3480052,
+      "sha256": "ddfe6fb5d4c80dd553d6a28a2226a51e6f7a5262cf5aa5a208ad258faa30f742"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case0.0.bin",
+      "bytes": 3480052,
+      "sha256": "ddfe6fb5d4c80dd553d6a28a2226a51e6f7a5262cf5aa5a208ad258faa30f742"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case0.1.bin",
+      "bytes": 3480052,
+      "sha256": "ddfe6fb5d4c80dd553d6a28a2226a51e6f7a5262cf5aa5a208ad258faa30f742"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case0.2.bin",
+      "bytes": 3480052,
+      "sha256": "ddfe6fb5d4c80dd553d6a28a2226a51e6f7a5262cf5aa5a208ad258faa30f742"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case0.stdout.log",
+      "bytes": 7501,
+      "sha256": "b75cb3ee95f352a85f5e9c995c15a3b4ece7f8c7f231d3e667dbe67c2affa398"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case1.-1.bin",
+      "bytes": 3480052,
+      "sha256": "fab51b56ec8e89254300900d444edfaeba3ec3af6adbeeea8589427ff55b7bc0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case1.0.bin",
+      "bytes": 3480052,
+      "sha256": "fab51b56ec8e89254300900d444edfaeba3ec3af6adbeeea8589427ff55b7bc0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case1.1.bin",
+      "bytes": 3480052,
+      "sha256": "fab51b56ec8e89254300900d444edfaeba3ec3af6adbeeea8589427ff55b7bc0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case1.2.bin",
+      "bytes": 3480052,
+      "sha256": "fab51b56ec8e89254300900d444edfaeba3ec3af6adbeeea8589427ff55b7bc0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case1.stdout.log",
+      "bytes": 7533,
+      "sha256": "7310c1a71a2642dccb7b3aa5a666cef00fd3eb169303a2599984debc24c21001"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case2.-1.bin",
+      "bytes": 3480052,
+      "sha256": "dc4f043723dc4a45ccb9bd6d9db7b8a33ce5297132a6bed3eda01fd676a7c181"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case2.0.bin",
+      "bytes": 3480052,
+      "sha256": "dc4f043723dc4a45ccb9bd6d9db7b8a33ce5297132a6bed3eda01fd676a7c181"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case2.1.bin",
+      "bytes": 3480052,
+      "sha256": "dc4f043723dc4a45ccb9bd6d9db7b8a33ce5297132a6bed3eda01fd676a7c181"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case2.2.bin",
+      "bytes": 3480052,
+      "sha256": "dc4f043723dc4a45ccb9bd6d9db7b8a33ce5297132a6bed3eda01fd676a7c181"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case2.stdout.log",
+      "bytes": 7529,
+      "sha256": "d01f69734259dfdda3e84c39c9c82b18d9a43d06e97a232220996bca0598756b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case3.-1.bin",
+      "bytes": 2793684,
+      "sha256": "4cd764aac77158c27b0723ca8511ac37e66473e15e9d3fd9831d7eaf6ede0413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case3.0.bin",
+      "bytes": 2793684,
+      "sha256": "4cd764aac77158c27b0723ca8511ac37e66473e15e9d3fd9831d7eaf6ede0413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case3.1.bin",
+      "bytes": 2793684,
+      "sha256": "4cd764aac77158c27b0723ca8511ac37e66473e15e9d3fd9831d7eaf6ede0413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case3.2.bin",
+      "bytes": 2793684,
+      "sha256": "4cd764aac77158c27b0723ca8511ac37e66473e15e9d3fd9831d7eaf6ede0413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case3.stdout.log",
+      "bytes": 7253,
+      "sha256": "47d10415cd3b5d23645528d5205deb176d19481a77d88debcbc4ec5bd7c19fa7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book7.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "00f8c4fe5a338c5aa183d095a8c380b9896dd628c7e2dda9670936ccb9aaf413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "00f8c4fe5a338c5aa183d095a8c380b9896dd628c7e2dda9670936ccb9aaf413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "00f8c4fe5a338c5aa183d095a8c380b9896dd628c7e2dda9670936ccb9aaf413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "00f8c4fe5a338c5aa183d095a8c380b9896dd628c7e2dda9670936ccb9aaf413"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case0.stdout.log",
+      "bytes": 7449,
+      "sha256": "b6c9fd1d2b6b7cfed779c85a29b6f6788f9dc173d92b724f3c0dad6abc7358d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case1.-1.bin",
+      "bytes": 3480052,
+      "sha256": "a78e105981f3b42ddbb4408c80065c9cb39b61d66637402dd135f769e63b54ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case1.0.bin",
+      "bytes": 3480052,
+      "sha256": "a78e105981f3b42ddbb4408c80065c9cb39b61d66637402dd135f769e63b54ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case1.1.bin",
+      "bytes": 3480052,
+      "sha256": "a78e105981f3b42ddbb4408c80065c9cb39b61d66637402dd135f769e63b54ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case1.2.bin",
+      "bytes": 3480052,
+      "sha256": "a78e105981f3b42ddbb4408c80065c9cb39b61d66637402dd135f769e63b54ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case1.stdout.log",
+      "bytes": 7521,
+      "sha256": "f6c901d0f5008501219b505c446ab3e53c0f35d4558649c5e3b02bef2f824673"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case2.-1.bin",
+      "bytes": 3136868,
+      "sha256": "6d81549c292063519e14839df5c00f3773e9801624a86545beb725272e82c88b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case2.0.bin",
+      "bytes": 3136868,
+      "sha256": "6d81549c292063519e14839df5c00f3773e9801624a86545beb725272e82c88b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case2.1.bin",
+      "bytes": 3136868,
+      "sha256": "6d81549c292063519e14839df5c00f3773e9801624a86545beb725272e82c88b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case2.2.bin",
+      "bytes": 3136868,
+      "sha256": "6d81549c292063519e14839df5c00f3773e9801624a86545beb725272e82c88b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case2.stdout.log",
+      "bytes": 7389,
+      "sha256": "4b9dea0cf05d6d7586b938353cc5d326092e14a5a0650bef09914eef6077e21a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "0ececf6396ddf4b838f0896f98fe6db5c15d5ddaead9f62cad8c4d03705f5d25"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "0ececf6396ddf4b838f0896f98fe6db5c15d5ddaead9f62cad8c4d03705f5d25"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "0ececf6396ddf4b838f0896f98fe6db5c15d5ddaead9f62cad8c4d03705f5d25"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "0ececf6396ddf4b838f0896f98fe6db5c15d5ddaead9f62cad8c4d03705f5d25"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case3.stdout.log",
+      "bytes": 7441,
+      "sha256": "cc762163e7e71df8bb329004677a81055bbf0c826d9ceda5288ea2b970bc1609"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book8.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "cd3204ac9771ba89d74f6512c96a827d70f24fd7bddec948b793dbbac30b0352"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "cd3204ac9771ba89d74f6512c96a827d70f24fd7bddec948b793dbbac30b0352"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "cd3204ac9771ba89d74f6512c96a827d70f24fd7bddec948b793dbbac30b0352"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "cd3204ac9771ba89d74f6512c96a827d70f24fd7bddec948b793dbbac30b0352"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case0.stdout.log",
+      "bytes": 7461,
+      "sha256": "76fca989b67ec63428904c0252101c449508da4a714fe5a23f7422a5f00b207e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "4a25b005dae4ed8704c8dc87730932e1bdf358fa70b2751fc07991904a4440ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "4a25b005dae4ed8704c8dc87730932e1bdf358fa70b2751fc07991904a4440ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "4a25b005dae4ed8704c8dc87730932e1bdf358fa70b2751fc07991904a4440ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "4a25b005dae4ed8704c8dc87730932e1bdf358fa70b2751fc07991904a4440ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case1.stdout.log",
+      "bytes": 7401,
+      "sha256": "271e0cfc11e0d019d8d2bb3fc9b529a9588953fec0b40201b1cbe73566a18dc1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case2.-1.bin",
+      "bytes": 3480052,
+      "sha256": "9737234a6e7e0df1374f6bf79fdc3aa2f8426b07526ad527e87f28d48174525f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case2.0.bin",
+      "bytes": 3480052,
+      "sha256": "9737234a6e7e0df1374f6bf79fdc3aa2f8426b07526ad527e87f28d48174525f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case2.1.bin",
+      "bytes": 3480052,
+      "sha256": "9737234a6e7e0df1374f6bf79fdc3aa2f8426b07526ad527e87f28d48174525f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case2.2.bin",
+      "bytes": 3480052,
+      "sha256": "9737234a6e7e0df1374f6bf79fdc3aa2f8426b07526ad527e87f28d48174525f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case2.stdout.log",
+      "bytes": 7529,
+      "sha256": "3a7ec6530bcf8a9851f6b04dc666dfaf4ee43cf67b1a0b4e1ef6901cc74e1b4e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "6cdf22c2b3ccffa3d18295a30c4a5fbb9bba1e2539129787fde2a65d3eef621e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "6cdf22c2b3ccffa3d18295a30c4a5fbb9bba1e2539129787fde2a65d3eef621e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "6cdf22c2b3ccffa3d18295a30c4a5fbb9bba1e2539129787fde2a65d3eef621e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "6cdf22c2b3ccffa3d18295a30c4a5fbb9bba1e2539129787fde2a65d3eef621e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case3.stdout.log",
+      "bytes": 7469,
+      "sha256": "acf754b6fa8be6b4f56fcc5a6e1b162a4e30d92d0e125a986ac3b3f904774f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book9.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "b4a39dcd46f9731750038189eacd724482cf52dbf7edd8fccbefe77221cc0e1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "b4a39dcd46f9731750038189eacd724482cf52dbf7edd8fccbefe77221cc0e1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "b4a39dcd46f9731750038189eacd724482cf52dbf7edd8fccbefe77221cc0e1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "b4a39dcd46f9731750038189eacd724482cf52dbf7edd8fccbefe77221cc0e1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case0.stdout.log",
+      "bytes": 7481,
+      "sha256": "1dc2d750e9a0499141ddd05c1b8009cdde662f1874434deded31d668d9d3d77a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "fecbd387b0c1a211d673fbe50d7063a0e8e4be3e6433fa20165805f9fc3ccfcc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "fecbd387b0c1a211d673fbe50d7063a0e8e4be3e6433fa20165805f9fc3ccfcc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "fecbd387b0c1a211d673fbe50d7063a0e8e4be3e6433fa20165805f9fc3ccfcc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "fecbd387b0c1a211d673fbe50d7063a0e8e4be3e6433fa20165805f9fc3ccfcc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case1.stdout.log",
+      "bytes": 7389,
+      "sha256": "62e7cd03fed683e42b5bae22ce0968bed2519874b1d257c38cdb8c8330370c02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "a49940c649fb9a2062d1562fe69de62f61183e1e6ee4d89bebfbcbee5ab28701"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "a49940c649fb9a2062d1562fe69de62f61183e1e6ee4d89bebfbcbee5ab28701"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "a49940c649fb9a2062d1562fe69de62f61183e1e6ee4d89bebfbcbee5ab28701"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "a49940c649fb9a2062d1562fe69de62f61183e1e6ee4d89bebfbcbee5ab28701"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case2.stdout.log",
+      "bytes": 7441,
+      "sha256": "dc7c766ae966c144b99dc5981366b2720e0c6e2a6f320591ea2c3ef9af289e99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "760c9e86b95eef5d68b6d53ac4127f53fb811c2e9dbd11c02dc1fe4ab8fa2df6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "760c9e86b95eef5d68b6d53ac4127f53fb811c2e9dbd11c02dc1fe4ab8fa2df6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "760c9e86b95eef5d68b6d53ac4127f53fb811c2e9dbd11c02dc1fe4ab8fa2df6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "760c9e86b95eef5d68b6d53ac4127f53fb811c2e9dbd11c02dc1fe4ab8fa2df6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case3.stdout.log",
+      "bytes": 7417,
+      "sha256": "63e6105d570a9f09790ea663f647c3fad8ae6181d8cf8ebd8d7be37a569eb823"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book10.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case0.-1.bin",
+      "bytes": 3136868,
+      "sha256": "3333c9c8666db1131131b22c2cf2964b0f0d03eada3fabf90c44958a64df16bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case0.0.bin",
+      "bytes": 3136868,
+      "sha256": "3333c9c8666db1131131b22c2cf2964b0f0d03eada3fabf90c44958a64df16bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case0.1.bin",
+      "bytes": 3136868,
+      "sha256": "3333c9c8666db1131131b22c2cf2964b0f0d03eada3fabf90c44958a64df16bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case0.2.bin",
+      "bytes": 3136868,
+      "sha256": "3333c9c8666db1131131b22c2cf2964b0f0d03eada3fabf90c44958a64df16bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case0.stdout.log",
+      "bytes": 7369,
+      "sha256": "5bc07f22e95e26c7a66d3f93e096fd373269dbdd4a0d6342bcb3f34e311aa7dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "5f2857d38476173845e97fa559d7eb55ba6c39a768de3391979ac5be14d848f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "5f2857d38476173845e97fa559d7eb55ba6c39a768de3391979ac5be14d848f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "5f2857d38476173845e97fa559d7eb55ba6c39a768de3391979ac5be14d848f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "5f2857d38476173845e97fa559d7eb55ba6c39a768de3391979ac5be14d848f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case1.stdout.log",
+      "bytes": 7453,
+      "sha256": "32f8026f171956929b3f2da5fc0f929ddaf6449ca07d8cae8a2d4e743c941835"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "f733f1e760a00e7b4b7bc125b658d7fc206b6e627ab64a270c6aa45b710d27aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "f733f1e760a00e7b4b7bc125b658d7fc206b6e627ab64a270c6aa45b710d27aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "f733f1e760a00e7b4b7bc125b658d7fc206b6e627ab64a270c6aa45b710d27aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "f733f1e760a00e7b4b7bc125b658d7fc206b6e627ab64a270c6aa45b710d27aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case2.stdout.log",
+      "bytes": 7453,
+      "sha256": "6fce2fc278ca1840b49cadfef4fccd6131f6d2d80768a5d53eefc506031d3977"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "478e3ad9710d51709809f746fc42ead0d17470e2c4a96048781a5ed93f591cf3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "478e3ad9710d51709809f746fc42ead0d17470e2c4a96048781a5ed93f591cf3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "478e3ad9710d51709809f746fc42ead0d17470e2c4a96048781a5ed93f591cf3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "478e3ad9710d51709809f746fc42ead0d17470e2c4a96048781a5ed93f591cf3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case3.stdout.log",
+      "bytes": 7381,
+      "sha256": "8e622322413a2d28b1d49505e53e248b8d67cd777906dcb8762e29621d866dcc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book11.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "f6c513d74d303f3e1f108c4d9a58051ef3c718d9b9a1cd137298ec9c6fb177c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "f6c513d74d303f3e1f108c4d9a58051ef3c718d9b9a1cd137298ec9c6fb177c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "f6c513d74d303f3e1f108c4d9a58051ef3c718d9b9a1cd137298ec9c6fb177c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "f6c513d74d303f3e1f108c4d9a58051ef3c718d9b9a1cd137298ec9c6fb177c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case0.stdout.log",
+      "bytes": 7485,
+      "sha256": "1b98aaec971c9415a7b1d2d8e68033a856a360f2b2943058c7cbfb47f6acacb3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case1.-1.bin",
+      "bytes": 3480052,
+      "sha256": "38342c5724ad22478a5360a4c0b651993c0bc0892a9d3677fd48cd5a10d99832"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case1.0.bin",
+      "bytes": 3480052,
+      "sha256": "38342c5724ad22478a5360a4c0b651993c0bc0892a9d3677fd48cd5a10d99832"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case1.1.bin",
+      "bytes": 3480052,
+      "sha256": "38342c5724ad22478a5360a4c0b651993c0bc0892a9d3677fd48cd5a10d99832"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case1.2.bin",
+      "bytes": 3480052,
+      "sha256": "38342c5724ad22478a5360a4c0b651993c0bc0892a9d3677fd48cd5a10d99832"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case1.stdout.log",
+      "bytes": 7501,
+      "sha256": "6a5a6dc083bf892fab57c9909722709879694c59a15eec808a51618a9ca46c1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case2.-1.bin",
+      "bytes": 2965276,
+      "sha256": "2137b732150d051599c7944c51ac5efd08ced0874947cef80e166eb71f04b0cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case2.0.bin",
+      "bytes": 2965276,
+      "sha256": "2137b732150d051599c7944c51ac5efd08ced0874947cef80e166eb71f04b0cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case2.1.bin",
+      "bytes": 2965276,
+      "sha256": "2137b732150d051599c7944c51ac5efd08ced0874947cef80e166eb71f04b0cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case2.2.bin",
+      "bytes": 2965276,
+      "sha256": "2137b732150d051599c7944c51ac5efd08ced0874947cef80e166eb71f04b0cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case2.stdout.log",
+      "bytes": 7321,
+      "sha256": "004c9aab9865dcf6bf4933f496bfa4030835580a2d1f63367414059c07040e18"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "7e010ad0b75c6d4c458d4b9e20df309132ddb8516d72231e4978a11cd3ef79c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "7e010ad0b75c6d4c458d4b9e20df309132ddb8516d72231e4978a11cd3ef79c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "7e010ad0b75c6d4c458d4b9e20df309132ddb8516d72231e4978a11cd3ef79c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "7e010ad0b75c6d4c458d4b9e20df309132ddb8516d72231e4978a11cd3ef79c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case3.stdout.log",
+      "bytes": 7441,
+      "sha256": "74ccb370b1abf583814935492608bcd36dadaa8a76e8fe3b96c8b10fcfc22ec3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book12.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case0.-1.bin",
+      "bytes": 3480052,
+      "sha256": "65c4b8ddd4282af2c3399a9d28ba370dafd783bfd551b04016155fc74386ea9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case0.0.bin",
+      "bytes": 3480052,
+      "sha256": "65c4b8ddd4282af2c3399a9d28ba370dafd783bfd551b04016155fc74386ea9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case0.1.bin",
+      "bytes": 3480052,
+      "sha256": "65c4b8ddd4282af2c3399a9d28ba370dafd783bfd551b04016155fc74386ea9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case0.2.bin",
+      "bytes": 3480052,
+      "sha256": "65c4b8ddd4282af2c3399a9d28ba370dafd783bfd551b04016155fc74386ea9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case0.stdout.log",
+      "bytes": 7529,
+      "sha256": "7e0f059bae483c2c14a02b38778f683b8639772c7cc4036ffb48d76c62a9093a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case1.-1.bin",
+      "bytes": 3480052,
+      "sha256": "537d34e77fb3f108f46de85b10d75c2ed26fb5fa38bd55c5c57f2acd229dba60"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case1.0.bin",
+      "bytes": 3480052,
+      "sha256": "537d34e77fb3f108f46de85b10d75c2ed26fb5fa38bd55c5c57f2acd229dba60"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case1.1.bin",
+      "bytes": 3480052,
+      "sha256": "537d34e77fb3f108f46de85b10d75c2ed26fb5fa38bd55c5c57f2acd229dba60"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case1.2.bin",
+      "bytes": 3480052,
+      "sha256": "537d34e77fb3f108f46de85b10d75c2ed26fb5fa38bd55c5c57f2acd229dba60"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case1.stdout.log",
+      "bytes": 7529,
+      "sha256": "cdc3d7786a000d94cdb20d9d6a5768027bae5e8730814967ff883d96e5b6b78f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case2.-1.bin",
+      "bytes": 3480052,
+      "sha256": "2c7309599066002515091f26afdbc26aec85fdb7a3294cfa2531614cfee761b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case2.0.bin",
+      "bytes": 3480052,
+      "sha256": "2c7309599066002515091f26afdbc26aec85fdb7a3294cfa2531614cfee761b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case2.1.bin",
+      "bytes": 3480052,
+      "sha256": "2c7309599066002515091f26afdbc26aec85fdb7a3294cfa2531614cfee761b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case2.2.bin",
+      "bytes": 3480052,
+      "sha256": "2c7309599066002515091f26afdbc26aec85fdb7a3294cfa2531614cfee761b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case2.stdout.log",
+      "bytes": 7481,
+      "sha256": "77f6f67c9fcadf2ac31a860b928ec7354c0d2d480abd205c5ae0e854079abbec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "c60c56614f462d469b1c201ddf738e44d048499b74a0f0392450038bc2877f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "c60c56614f462d469b1c201ddf738e44d048499b74a0f0392450038bc2877f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "c60c56614f462d469b1c201ddf738e44d048499b74a0f0392450038bc2877f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "c60c56614f462d469b1c201ddf738e44d048499b74a0f0392450038bc2877f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case3.stdout.log",
+      "bytes": 7461,
+      "sha256": "1911c5047a9a40dd2f0a5be46069ebfd9b043d39a5aec96a1fc2610baf7900ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book13.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case0.-1.bin",
+      "bytes": 3136868,
+      "sha256": "692165451ec37465823f719b43e5bd8223bc3b7d3641953de0b4c14c6f8f3aa2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case0.0.bin",
+      "bytes": 3136868,
+      "sha256": "692165451ec37465823f719b43e5bd8223bc3b7d3641953de0b4c14c6f8f3aa2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case0.1.bin",
+      "bytes": 3136868,
+      "sha256": "692165451ec37465823f719b43e5bd8223bc3b7d3641953de0b4c14c6f8f3aa2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case0.2.bin",
+      "bytes": 3136868,
+      "sha256": "692165451ec37465823f719b43e5bd8223bc3b7d3641953de0b4c14c6f8f3aa2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case0.stdout.log",
+      "bytes": 7421,
+      "sha256": "47a30980c8c5b0b983e6d9a41c85ccd272573e13e6bb96bc78572ffe223f8c71"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "e9a5e2b46c66a9567822575f2b82f5e1dcab32b7ef73d8acab69ef14b372e286"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "e9a5e2b46c66a9567822575f2b82f5e1dcab32b7ef73d8acab69ef14b372e286"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "e9a5e2b46c66a9567822575f2b82f5e1dcab32b7ef73d8acab69ef14b372e286"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "e9a5e2b46c66a9567822575f2b82f5e1dcab32b7ef73d8acab69ef14b372e286"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case1.stdout.log",
+      "bytes": 7461,
+      "sha256": "8015495caa2e03cead6a1a4ab8587764bde757d214debf12bdd1f5e5d6b2d8ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "5fda603f9e169fcf0e81640247b0ddf9506084744813fb8641933d29eb3160b0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "5fda603f9e169fcf0e81640247b0ddf9506084744813fb8641933d29eb3160b0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "5fda603f9e169fcf0e81640247b0ddf9506084744813fb8641933d29eb3160b0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "5fda603f9e169fcf0e81640247b0ddf9506084744813fb8641933d29eb3160b0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case2.stdout.log",
+      "bytes": 7441,
+      "sha256": "7edd3fb0dcd930d0fb0bd5db67a5ee8f6ad8bc144924e960120c67c48bca86cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case3.-1.bin",
+      "bytes": 3480052,
+      "sha256": "3368acd81ca9c32d9d6f5a996476ab558bd474b1444387467383697809f26b5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case3.0.bin",
+      "bytes": 3480052,
+      "sha256": "3368acd81ca9c32d9d6f5a996476ab558bd474b1444387467383697809f26b5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case3.1.bin",
+      "bytes": 3480052,
+      "sha256": "3368acd81ca9c32d9d6f5a996476ab558bd474b1444387467383697809f26b5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case3.2.bin",
+      "bytes": 3480052,
+      "sha256": "3368acd81ca9c32d9d6f5a996476ab558bd474b1444387467383697809f26b5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case3.stdout.log",
+      "bytes": 7549,
+      "sha256": "8e7d259561629b33f2228a73c5535d17b22a61f4be0788cf72b43d9d7f95fc84"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book14.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case0.-1.bin",
+      "bytes": 3136868,
+      "sha256": "b34ba547b0cf630efb347c25d8751373d7ca55a6f358e582256851e37634cb6a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case0.0.bin",
+      "bytes": 3136868,
+      "sha256": "b34ba547b0cf630efb347c25d8751373d7ca55a6f358e582256851e37634cb6a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case0.1.bin",
+      "bytes": 3136868,
+      "sha256": "b34ba547b0cf630efb347c25d8751373d7ca55a6f358e582256851e37634cb6a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case0.2.bin",
+      "bytes": 3136868,
+      "sha256": "b34ba547b0cf630efb347c25d8751373d7ca55a6f358e582256851e37634cb6a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case0.stdout.log",
+      "bytes": 7417,
+      "sha256": "1e726349d83c3a44b3addee2733da9d798be7c2a66c0df33fd863e9b0340a7f5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "aaeebe61c0ddf8677192d1089c6d9438fbca253a3fbcb82cfee577b856364c0d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "aaeebe61c0ddf8677192d1089c6d9438fbca253a3fbcb82cfee577b856364c0d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "aaeebe61c0ddf8677192d1089c6d9438fbca253a3fbcb82cfee577b856364c0d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "aaeebe61c0ddf8677192d1089c6d9438fbca253a3fbcb82cfee577b856364c0d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case1.stdout.log",
+      "bytes": 7465,
+      "sha256": "bda77e708e29fbab841233a6bc2d0e916a3c235b5b8304c0a7195f0bde1f5df1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case2.-1.bin",
+      "bytes": 2965276,
+      "sha256": "c776187cee1cc6c3faea280ed7f510a49d8ce8cf96104f7321764e50fec3cf72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case2.0.bin",
+      "bytes": 2965276,
+      "sha256": "c776187cee1cc6c3faea280ed7f510a49d8ce8cf96104f7321764e50fec3cf72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case2.1.bin",
+      "bytes": 2965276,
+      "sha256": "c776187cee1cc6c3faea280ed7f510a49d8ce8cf96104f7321764e50fec3cf72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case2.2.bin",
+      "bytes": 2965276,
+      "sha256": "c776187cee1cc6c3faea280ed7f510a49d8ce8cf96104f7321764e50fec3cf72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case2.stdout.log",
+      "bytes": 7325,
+      "sha256": "67cb784b43c828a95cf9fe8dc01d15135b410044fc7726e6c83cb339deffa781"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "30ec8384d628997f432f496245ca2463169ae046e86a72290fe4f95e71e931d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "30ec8384d628997f432f496245ca2463169ae046e86a72290fe4f95e71e931d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "30ec8384d628997f432f496245ca2463169ae046e86a72290fe4f95e71e931d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "30ec8384d628997f432f496245ca2463169ae046e86a72290fe4f95e71e931d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case3.stdout.log",
+      "bytes": 7469,
+      "sha256": "5f4bd2f63b3419ab2db36adbc0a05c1d86d9bb7b8bc6091f72587838272c2fab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book15.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case0.-1.bin",
+      "bytes": 3480052,
+      "sha256": "ea0695e8ea8d07a531251177c1b76961e0bd3bee0d7c117f4a5bfa7c7d8addc2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case0.0.bin",
+      "bytes": 3480052,
+      "sha256": "ea0695e8ea8d07a531251177c1b76961e0bd3bee0d7c117f4a5bfa7c7d8addc2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case0.1.bin",
+      "bytes": 3480052,
+      "sha256": "ea0695e8ea8d07a531251177c1b76961e0bd3bee0d7c117f4a5bfa7c7d8addc2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case0.2.bin",
+      "bytes": 3480052,
+      "sha256": "ea0695e8ea8d07a531251177c1b76961e0bd3bee0d7c117f4a5bfa7c7d8addc2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case0.stdout.log",
+      "bytes": 7513,
+      "sha256": "c89784a170484d456d0026f30489df22831bc52268206557476be02f92dab94c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case1.-1.bin",
+      "bytes": 3480052,
+      "sha256": "ded92e27c051167ffb739245e2ad8493df334a6ed7165548a5085c42947da2aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case1.0.bin",
+      "bytes": 3480052,
+      "sha256": "ded92e27c051167ffb739245e2ad8493df334a6ed7165548a5085c42947da2aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case1.1.bin",
+      "bytes": 3480052,
+      "sha256": "ded92e27c051167ffb739245e2ad8493df334a6ed7165548a5085c42947da2aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case1.2.bin",
+      "bytes": 3480052,
+      "sha256": "ded92e27c051167ffb739245e2ad8493df334a6ed7165548a5085c42947da2aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case1.stdout.log",
+      "bytes": 7513,
+      "sha256": "f80730a6e8c471406aff1bdf2dd321cbdc90e9a3650231f47dbdaee9c04c229b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case2.-1.bin",
+      "bytes": 3136868,
+      "sha256": "1ba0ec83bec4540150842c0e4d281b02225d37c53872d69ceea87aaaf9b1dd56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case2.0.bin",
+      "bytes": 3136868,
+      "sha256": "1ba0ec83bec4540150842c0e4d281b02225d37c53872d69ceea87aaaf9b1dd56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case2.1.bin",
+      "bytes": 3136868,
+      "sha256": "1ba0ec83bec4540150842c0e4d281b02225d37c53872d69ceea87aaaf9b1dd56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case2.2.bin",
+      "bytes": 3136868,
+      "sha256": "1ba0ec83bec4540150842c0e4d281b02225d37c53872d69ceea87aaaf9b1dd56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case2.stdout.log",
+      "bytes": 7393,
+      "sha256": "664d0da010a97b33850097bec914f8f0eea41ffcca4fffc583a45f8e10fe0a02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "62e6b4c02d9bfa01c951b17e85225d13ebb6061ce35f0153a4bf83c8b0bc473e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "62e6b4c02d9bfa01c951b17e85225d13ebb6061ce35f0153a4bf83c8b0bc473e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "62e6b4c02d9bfa01c951b17e85225d13ebb6061ce35f0153a4bf83c8b0bc473e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "62e6b4c02d9bfa01c951b17e85225d13ebb6061ce35f0153a4bf83c8b0bc473e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case3.stdout.log",
+      "bytes": 7461,
+      "sha256": "e5315aaaddee6157dbdd300cf7a3f0f75c90706a5e3da81d3ee0c21136c1cb5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book16.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "f26f72b80aab7d1a1d2dd0650a4b74841f6bf80806c3b19887ea3d71df17079f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "f26f72b80aab7d1a1d2dd0650a4b74841f6bf80806c3b19887ea3d71df17079f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "f26f72b80aab7d1a1d2dd0650a4b74841f6bf80806c3b19887ea3d71df17079f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "f26f72b80aab7d1a1d2dd0650a4b74841f6bf80806c3b19887ea3d71df17079f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case0.stdout.log",
+      "bytes": 7469,
+      "sha256": "94bf2c22edea2c53198fca9cf547de040e1d393725b504e763e487365d7015c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "ec22398b8749da976f10e4c7b13bd28218ad125116944620bdf7523b36e84400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "ec22398b8749da976f10e4c7b13bd28218ad125116944620bdf7523b36e84400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "ec22398b8749da976f10e4c7b13bd28218ad125116944620bdf7523b36e84400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "ec22398b8749da976f10e4c7b13bd28218ad125116944620bdf7523b36e84400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case1.stdout.log",
+      "bytes": 7469,
+      "sha256": "8cfc3d04ecf6880abfde124b9932a094205d1f1bec9ce8d624ac1743931b1e22"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "67e0e20d1f9bd2d70f390393c5bf4915ae2a79c064a31de38e3065164f0d1356"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "67e0e20d1f9bd2d70f390393c5bf4915ae2a79c064a31de38e3065164f0d1356"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "67e0e20d1f9bd2d70f390393c5bf4915ae2a79c064a31de38e3065164f0d1356"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "67e0e20d1f9bd2d70f390393c5bf4915ae2a79c064a31de38e3065164f0d1356"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case2.stdout.log",
+      "bytes": 7481,
+      "sha256": "c7bcb83d06435de90554440c4893a98451ffad99c71fe4ed903378b83fd7c78f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "aa9e983aa5232fa35cb0f62656939746dde75c848b81a94824c58f4019d6a60f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "aa9e983aa5232fa35cb0f62656939746dde75c848b81a94824c58f4019d6a60f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "aa9e983aa5232fa35cb0f62656939746dde75c848b81a94824c58f4019d6a60f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "aa9e983aa5232fa35cb0f62656939746dde75c848b81a94824c58f4019d6a60f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case3.stdout.log",
+      "bytes": 7417,
+      "sha256": "de6d634ea9acd2120b7166882861f7bb98aa9add8f6382277440202c20d04194"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book17.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case0.-1.bin",
+      "bytes": 2965276,
+      "sha256": "6de100e882ba969fa492663bab0dbc489648fb6c6a122723270658c6785a1bab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case0.0.bin",
+      "bytes": 2965276,
+      "sha256": "6de100e882ba969fa492663bab0dbc489648fb6c6a122723270658c6785a1bab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case0.1.bin",
+      "bytes": 2965276,
+      "sha256": "6de100e882ba969fa492663bab0dbc489648fb6c6a122723270658c6785a1bab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case0.2.bin",
+      "bytes": 2965276,
+      "sha256": "6de100e882ba969fa492663bab0dbc489648fb6c6a122723270658c6785a1bab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case0.stdout.log",
+      "bytes": 7329,
+      "sha256": "9a935ca4678b2085e1d95d0866017bdc3e9ba37f00f0d6fa0edf48177a137292"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "c772bc8e143c973c20df370db69fd6758b4d83afce6d0f2cfc2491258906f608"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "c772bc8e143c973c20df370db69fd6758b4d83afce6d0f2cfc2491258906f608"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "c772bc8e143c973c20df370db69fd6758b4d83afce6d0f2cfc2491258906f608"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "c772bc8e143c973c20df370db69fd6758b4d83afce6d0f2cfc2491258906f608"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case1.stdout.log",
+      "bytes": 7453,
+      "sha256": "993f28403f58ee26e0a6e58a295c9f06ffab37cdff31afe90bbed1c3a5f5eead"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "d461e21c2d95ba06003f4c34c882a71105329d9190c8e25668aefa90772465a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "d461e21c2d95ba06003f4c34c882a71105329d9190c8e25668aefa90772465a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "d461e21c2d95ba06003f4c34c882a71105329d9190c8e25668aefa90772465a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "d461e21c2d95ba06003f4c34c882a71105329d9190c8e25668aefa90772465a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case2.stdout.log",
+      "bytes": 7461,
+      "sha256": "feb41fd6a1f07d79c383d5ffbca94022936ca9bf25047d3842e6d7c2a16d1438"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "6cabb22719783b2af6e5268ef58b0a8885309b58d3ac257eba30b55f33c2dc61"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "6cabb22719783b2af6e5268ef58b0a8885309b58d3ac257eba30b55f33c2dc61"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "6cabb22719783b2af6e5268ef58b0a8885309b58d3ac257eba30b55f33c2dc61"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "6cabb22719783b2af6e5268ef58b0a8885309b58d3ac257eba30b55f33c2dc61"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case3.stdout.log",
+      "bytes": 7409,
+      "sha256": "31d4a38228b43b07dcd5d433d45a1ed09e1121d1c289b1c75602645cab069a2d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book18.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case0.-1.bin",
+      "bytes": 3651644,
+      "sha256": "0439577fd0141d7d76eb397631694dbb74b395679a1de798dfd36586aa360caa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case0.0.bin",
+      "bytes": 3651644,
+      "sha256": "0439577fd0141d7d76eb397631694dbb74b395679a1de798dfd36586aa360caa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case0.1.bin",
+      "bytes": 3651644,
+      "sha256": "0439577fd0141d7d76eb397631694dbb74b395679a1de798dfd36586aa360caa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case0.2.bin",
+      "bytes": 3651644,
+      "sha256": "0439577fd0141d7d76eb397631694dbb74b395679a1de798dfd36586aa360caa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case0.stdout.log",
+      "bytes": 7573,
+      "sha256": "d8439836a38127626c2caaf8469012df0dca98f97a603ee7e9cbc014a6a0bab8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "2323cacef61808286d775d55b71edf5eb85493913a0f6d490be090b26726f9ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "2323cacef61808286d775d55b71edf5eb85493913a0f6d490be090b26726f9ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "2323cacef61808286d775d55b71edf5eb85493913a0f6d490be090b26726f9ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "2323cacef61808286d775d55b71edf5eb85493913a0f6d490be090b26726f9ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case1.stdout.log",
+      "bytes": 7389,
+      "sha256": "c0160d671d26a7face998c0a6cb12af80493aa67675037408168216825f3593d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case2.-1.bin",
+      "bytes": 2965276,
+      "sha256": "50cf68a0e53265022adb7d0af03daae4d3ce955fc4dab92eedc20cc08a2e554f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case2.0.bin",
+      "bytes": 2965276,
+      "sha256": "50cf68a0e53265022adb7d0af03daae4d3ce955fc4dab92eedc20cc08a2e554f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case2.1.bin",
+      "bytes": 2965276,
+      "sha256": "50cf68a0e53265022adb7d0af03daae4d3ce955fc4dab92eedc20cc08a2e554f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case2.2.bin",
+      "bytes": 2965276,
+      "sha256": "50cf68a0e53265022adb7d0af03daae4d3ce955fc4dab92eedc20cc08a2e554f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case2.stdout.log",
+      "bytes": 7321,
+      "sha256": "f6e45e4cf3748a69f968e1d559b81d21a96a6b08abffbb152386559d1c4f7110"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case3.-1.bin",
+      "bytes": 2965276,
+      "sha256": "d416d84b95603a8843d3dc15f04690c045c72c3d061c87733c99e973643822b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case3.0.bin",
+      "bytes": 2965276,
+      "sha256": "d416d84b95603a8843d3dc15f04690c045c72c3d061c87733c99e973643822b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case3.1.bin",
+      "bytes": 2965276,
+      "sha256": "d416d84b95603a8843d3dc15f04690c045c72c3d061c87733c99e973643822b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case3.2.bin",
+      "bytes": 2965276,
+      "sha256": "d416d84b95603a8843d3dc15f04690c045c72c3d061c87733c99e973643822b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case3.stdout.log",
+      "bytes": 7313,
+      "sha256": "c9b3ae85cf49aa58c20d102c7b4b0c812d638e74daab0ecb033fb9e7ee500984"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book19.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case0.-1.bin",
+      "bytes": 3136868,
+      "sha256": "2cf840d1a1509e62e087850bffe9290de62e9ca16f059368f13f3a2e8c79046c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case0.0.bin",
+      "bytes": 3136868,
+      "sha256": "2cf840d1a1509e62e087850bffe9290de62e9ca16f059368f13f3a2e8c79046c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case0.1.bin",
+      "bytes": 3136868,
+      "sha256": "2cf840d1a1509e62e087850bffe9290de62e9ca16f059368f13f3a2e8c79046c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case0.2.bin",
+      "bytes": 3136868,
+      "sha256": "2cf840d1a1509e62e087850bffe9290de62e9ca16f059368f13f3a2e8c79046c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case0.stdout.log",
+      "bytes": 7397,
+      "sha256": "4bd3b739e7c3d0294255d31887b9f80a076764cf9ab83c1be4cb8f454abe27b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "1d6029a946033786cb4fe503285eccc1e0c966fcbb4248a5e44676b16cb7a902"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "1d6029a946033786cb4fe503285eccc1e0c966fcbb4248a5e44676b16cb7a902"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "1d6029a946033786cb4fe503285eccc1e0c966fcbb4248a5e44676b16cb7a902"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "1d6029a946033786cb4fe503285eccc1e0c966fcbb4248a5e44676b16cb7a902"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case1.stdout.log",
+      "bytes": 7389,
+      "sha256": "8a509209f34029ced7f29e05012b8c9bf928205677c83fc2fd46a861aeb67f45"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "d905ed3d841839ff4cccc0c794629e8f7ce11aabb9071c0ca8655b92f9181057"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "d905ed3d841839ff4cccc0c794629e8f7ce11aabb9071c0ca8655b92f9181057"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "d905ed3d841839ff4cccc0c794629e8f7ce11aabb9071c0ca8655b92f9181057"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "d905ed3d841839ff4cccc0c794629e8f7ce11aabb9071c0ca8655b92f9181057"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case2.stdout.log",
+      "bytes": 7469,
+      "sha256": "21c1fef7219ad942838ddf447a984d92cfee3f1d1d7d2307939c995959368cea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "1e6fbaa394df152a06af4fd6061026e929edd4e63878c1a55c3626c56f66bb42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "1e6fbaa394df152a06af4fd6061026e929edd4e63878c1a55c3626c56f66bb42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "1e6fbaa394df152a06af4fd6061026e929edd4e63878c1a55c3626c56f66bb42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "1e6fbaa394df152a06af4fd6061026e929edd4e63878c1a55c3626c56f66bb42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case3.stdout.log",
+      "bytes": 7489,
+      "sha256": "099ac6cc0cc2dda56b071245b536a4d34823959ea69fcce78ebc3702fa509354"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book20.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "f8f5d3669bb796fbf09790fb373b62334cd3ac8d6ab3945bd35529f860fa3798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "f8f5d3669bb796fbf09790fb373b62334cd3ac8d6ab3945bd35529f860fa3798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "f8f5d3669bb796fbf09790fb373b62334cd3ac8d6ab3945bd35529f860fa3798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "f8f5d3669bb796fbf09790fb373b62334cd3ac8d6ab3945bd35529f860fa3798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case0.stdout.log",
+      "bytes": 7477,
+      "sha256": "c52fb91e3136220863515c819d8d3ee966857bd63a91e8dcb18abe4172efbfb3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case1.-1.bin",
+      "bytes": 3308460,
+      "sha256": "dd48573a4e013a03990e2004d1fc313cca5a2be688be0f68de1defea50d292bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case1.0.bin",
+      "bytes": 3308460,
+      "sha256": "dd48573a4e013a03990e2004d1fc313cca5a2be688be0f68de1defea50d292bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case1.1.bin",
+      "bytes": 3308460,
+      "sha256": "dd48573a4e013a03990e2004d1fc313cca5a2be688be0f68de1defea50d292bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case1.2.bin",
+      "bytes": 3308460,
+      "sha256": "dd48573a4e013a03990e2004d1fc313cca5a2be688be0f68de1defea50d292bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case1.stdout.log",
+      "bytes": 7469,
+      "sha256": "670a738ee1b19bef42dc48a6c3b9add6f49a6856ae4aa3f8a6c636334dfb416c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case2.-1.bin",
+      "bytes": 3308460,
+      "sha256": "33398c42cb174c6c4ac4d3c10d38f7152a3a9a2c25f794e46f5740e9bea8a400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case2.0.bin",
+      "bytes": 3308460,
+      "sha256": "33398c42cb174c6c4ac4d3c10d38f7152a3a9a2c25f794e46f5740e9bea8a400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case2.1.bin",
+      "bytes": 3308460,
+      "sha256": "33398c42cb174c6c4ac4d3c10d38f7152a3a9a2c25f794e46f5740e9bea8a400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case2.2.bin",
+      "bytes": 3308460,
+      "sha256": "33398c42cb174c6c4ac4d3c10d38f7152a3a9a2c25f794e46f5740e9bea8a400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case2.stdout.log",
+      "bytes": 7453,
+      "sha256": "a97547d4d72ed21e001943a50fe9ba293dae27a08a93703e1917c1a6f6d662c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case3.-1.bin",
+      "bytes": 3308460,
+      "sha256": "071592d43091bbb5178327225d13e9f02ea7da7e59190ef0ffb5557c7df9ee99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case3.0.bin",
+      "bytes": 3308460,
+      "sha256": "071592d43091bbb5178327225d13e9f02ea7da7e59190ef0ffb5557c7df9ee99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case3.1.bin",
+      "bytes": 3308460,
+      "sha256": "071592d43091bbb5178327225d13e9f02ea7da7e59190ef0ffb5557c7df9ee99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case3.2.bin",
+      "bytes": 3308460,
+      "sha256": "071592d43091bbb5178327225d13e9f02ea7da7e59190ef0ffb5557c7df9ee99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case3.stdout.log",
+      "bytes": 7449,
+      "sha256": "18d55122b5498fefc13872140736c666db36141ca9a7a51dbf85fd661f4b118f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book21.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case0.-1.bin",
+      "bytes": 3651644,
+      "sha256": "9a77b4257604f67f6f68cf6210e69aaa2218a164d513bec26280d983c9b72b24"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case0.0.bin",
+      "bytes": 3651644,
+      "sha256": "9a77b4257604f67f6f68cf6210e69aaa2218a164d513bec26280d983c9b72b24"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case0.1.bin",
+      "bytes": 3651644,
+      "sha256": "9a77b4257604f67f6f68cf6210e69aaa2218a164d513bec26280d983c9b72b24"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case0.2.bin",
+      "bytes": 3651644,
+      "sha256": "9a77b4257604f67f6f68cf6210e69aaa2218a164d513bec26280d983c9b72b24"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case0.stdout.log",
+      "bytes": 7577,
+      "sha256": "74c7c5b44c9a4944210954053275f38e3fe58b0766a1925ec1ae605b622c7be5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "8536fcb8925df4676b72048f56e1b0bb4c9d2263d9e0ef09f1505f164f975e13"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "8536fcb8925df4676b72048f56e1b0bb4c9d2263d9e0ef09f1505f164f975e13"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "8536fcb8925df4676b72048f56e1b0bb4c9d2263d9e0ef09f1505f164f975e13"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "8536fcb8925df4676b72048f56e1b0bb4c9d2263d9e0ef09f1505f164f975e13"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case1.stdout.log",
+      "bytes": 7409,
+      "sha256": "b44714c263c578a62674a078ba7ee47ded28f8caf08235ebad5e49eb01d5590c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case2.-1.bin",
+      "bytes": 3651644,
+      "sha256": "a51e60d6cdf2d19cf1d26b360a99bb858de86668de11c22f90e5d9eaf14cd6cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case2.0.bin",
+      "bytes": 3651644,
+      "sha256": "a51e60d6cdf2d19cf1d26b360a99bb858de86668de11c22f90e5d9eaf14cd6cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case2.1.bin",
+      "bytes": 3651644,
+      "sha256": "a51e60d6cdf2d19cf1d26b360a99bb858de86668de11c22f90e5d9eaf14cd6cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case2.2.bin",
+      "bytes": 3651644,
+      "sha256": "a51e60d6cdf2d19cf1d26b360a99bb858de86668de11c22f90e5d9eaf14cd6cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case2.stdout.log",
+      "bytes": 7577,
+      "sha256": "440010fb0a6f0c6c34f045843625d1f8b082200e60ffcbe1c9f4f392a7deeaf7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "5fa50dd5e8feb1b1277f4336e046e21c7ff3d46c86afbce8e0072612319d2ce9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "5fa50dd5e8feb1b1277f4336e046e21c7ff3d46c86afbce8e0072612319d2ce9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "5fa50dd5e8feb1b1277f4336e046e21c7ff3d46c86afbce8e0072612319d2ce9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "5fa50dd5e8feb1b1277f4336e046e21c7ff3d46c86afbce8e0072612319d2ce9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case3.stdout.log",
+      "bytes": 7401,
+      "sha256": "8431af08f01bb9c11c0346ec21ac795182fb40f132ca62d3fb5bb3e6089f30ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book22.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case0.-1.bin",
+      "bytes": 3308460,
+      "sha256": "475bb51560e9baa0df671bb878ccbcec61081f40dd6854036a0cb5ce931b6a1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case0.0.bin",
+      "bytes": 3308460,
+      "sha256": "475bb51560e9baa0df671bb878ccbcec61081f40dd6854036a0cb5ce931b6a1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case0.1.bin",
+      "bytes": 3308460,
+      "sha256": "475bb51560e9baa0df671bb878ccbcec61081f40dd6854036a0cb5ce931b6a1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case0.2.bin",
+      "bytes": 3308460,
+      "sha256": "475bb51560e9baa0df671bb878ccbcec61081f40dd6854036a0cb5ce931b6a1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case0.stdout.log",
+      "bytes": 7473,
+      "sha256": "898b6a25a99ef197b5d3fc346fd7818fad24145995f6fd8e587478a595d1e4f0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case1.-1.bin",
+      "bytes": 3136868,
+      "sha256": "c153c3673ffdb763700cdc89d9c76e59477e6d48e4723d69a24054137351cc05"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case1.0.bin",
+      "bytes": 3136868,
+      "sha256": "c153c3673ffdb763700cdc89d9c76e59477e6d48e4723d69a24054137351cc05"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case1.1.bin",
+      "bytes": 3136868,
+      "sha256": "c153c3673ffdb763700cdc89d9c76e59477e6d48e4723d69a24054137351cc05"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case1.2.bin",
+      "bytes": 3136868,
+      "sha256": "c153c3673ffdb763700cdc89d9c76e59477e6d48e4723d69a24054137351cc05"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case1.stdout.log",
+      "bytes": 7393,
+      "sha256": "fe645b7b0902ce7ee666ab4f933750f559fc4e7c99a65effeb491aa8d823e72e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case2.-1.bin",
+      "bytes": 3480052,
+      "sha256": "f163c4ff43c7eb1fcb12873364249e2e3ea498ee77d906ee05ffed83bd5d1da2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case2.0.bin",
+      "bytes": 3480052,
+      "sha256": "f163c4ff43c7eb1fcb12873364249e2e3ea498ee77d906ee05ffed83bd5d1da2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case2.1.bin",
+      "bytes": 3480052,
+      "sha256": "f163c4ff43c7eb1fcb12873364249e2e3ea498ee77d906ee05ffed83bd5d1da2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case2.2.bin",
+      "bytes": 3480052,
+      "sha256": "f163c4ff43c7eb1fcb12873364249e2e3ea498ee77d906ee05ffed83bd5d1da2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case2.stdout.log",
+      "bytes": 7541,
+      "sha256": "8ab974db613b6862160b516a72d468953fc758339ece35c4be7a1eb949b49318"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case3.-1.bin",
+      "bytes": 3136868,
+      "sha256": "2391690d5213ef411745b88c947d12ee3711d3de56a20c280a55c772e98c23bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case3.0.bin",
+      "bytes": 3136868,
+      "sha256": "2391690d5213ef411745b88c947d12ee3711d3de56a20c280a55c772e98c23bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case3.1.bin",
+      "bytes": 3136868,
+      "sha256": "2391690d5213ef411745b88c947d12ee3711d3de56a20c280a55c772e98c23bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case3.2.bin",
+      "bytes": 3136868,
+      "sha256": "2391690d5213ef411745b88c947d12ee3711d3de56a20c280a55c772e98c23bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case3.stdout.log",
+      "bytes": 7397,
+      "sha256": "447325e280bdfcb2fe9fbff73876bb35f1723aca4c1ef88e103789e8e5cc165d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth391_switch_base128_accepted_rate\\book23.case3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "output_inventory": [],
+  "git_head_before_execution": "5b39fdb1200d705851ecb7ef0280a4590625d579",
+  "preserved_engine_sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414",
+  "stage": "fresh_bindings",
+  "error": "KeyError('runtime_environment')",
+  "main_seconds_excluding_imports": 224.10900000000038,
+  "parent_peak_working_set_bytes": 55574528,
+  "native_peak_working_set_bytes": 0
+}
