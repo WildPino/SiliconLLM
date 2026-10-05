@@ -1,38 +1,43 @@
 # Exact certificate economically rejected; observable-quality admission next
 
-## Current resumption:477 first cardinality fault retained; complete witness recovery next
+## Current resumption: frozen477-R1, sole complete saved-head recovery invocation
 
-Current turnPROGRESS:477first parent32173exit1/compiler0/controls0/native2.
-Frozenf32e3f1/firstcb17e97 sources/binding unchanged. ALL608batches completed,
-source7993/candidate6649, full wire6649rows/11,622,468B, no query narrowing.
-Final C/controller constant470422176 is wrong: exact(7993+6649)*32128=470418176,
-difference4000. Native final require aborts before endworkerreadback/terminal;
-do not report exit0 or measured native accepted speed. All13outputs immutable.
-[First fault](METH_477_FIRST_CARDINALITY_FAULT_20261005.md),
-[rawfailure](meth477_switch_head_observable_result.failure.json),
-[retention](RETENTION_477_FIRST_FAILURE_20261005.json). Allinitialinput/control
-gatesPASS, teacher3584/masked2048 metadata rows complete, WindowsEvent1000
-availableZEROmatches. Main76.625s/438,255,616B within resources. Quality NOT
-interpreted; scalar firstfault retention examines only cardinality/metadata.
+Current turnPROGRESS:477firstfault retained7168916 BEFORE numbered recovery.
+Originalparent32173exit1/compiler0/controls0/native2 remain; ALL608batches/
+7993source/6649candidate records complete. Frozenfinalconstant470422176 wrong,
+exact(7993+6649)*32128=470418176. Missing native endworkerreadback retained.
+[Firstfault](METH_477_FIRST_CARDINALITY_FAULT_20261005.md); frozen477unchanged,
+no native/model/candidate/capture rerun. Quality not interpreted yet.
 
-Next separately numbered NEW477-R1: admit complete ORIGINAL saved477witnesses
-without native/model/candidate rerun. Freeze independentrecovery source/protocol/
-actualruntime/fullprior/failure/outputbindings BEFORE NumPy/numerics, separate
-sole first command. Re-derive ALL7993source and ALL6649candidate heads from
-admitted476pre/saved472functions/originalweights. Source vectors BYTE exact,
-candidateA16codes/alpha BYTE exact and ALL32128logitSHA exact, allF64metrics/
-true teacherlabels/novelty/flags/groups independently checked. Exactjobs/record/
-batchEOF/cardinality470418176 controls, original exit2/missing native endworker
-readback retained. Recover descriptive report only if complete admissionPASS.
-No477-R1source/protocol/binding/observation/executablecommand yet. CPU0/BLAS1,
-prospective600s/2GiB/newsmall report, no new logits/native/model/fitting/selection.
-First faults before repairs, failed477controller/C/protocol/binding immutable.
+NEW477-R1 independentrecovery source/protocol/binding frozenb557c94 BEFORE
+scientificimports/numerics. Binding SHAe304e512c361f03af06db46bbe7b0497f841e2516709aae02af2ad126e379bb9;
+source SHA29e17e36ef2c94e12e7b166fcc24bf1d8be2a186d0f021318cb1bd1153c31b48;
+protocol SHA66da4bb7a8f50791f7ea36c1b08358c7ae369f31b638730bb91d64226a1e5429.
+ALL6591prior files7,754,504,204B/197extra assets/fullpayload/actualruntime bound.
 
-Previous476retained964789c ALL6/ALL6PASS; original contexts qualified. Old472
-local105/107/book107FAIL and473/474/475closed remain unchanged/no promotion.
-FullgoalACTIVE/INCOMPLETE: viable all-banknewgeometry/fresh changedownstate
-donor-relative prediction/generation/tasks AND SAME>=50,physicalDRAM/useful-n/
-winner ANDmass CPU LUT/multipleactualfamilies/~10B/~100B.369..373 unchanged.
+ONE first recovery command, never repeat completed scientificnamespace:
+
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth477_r1_head_observable_recovery.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth477_r1_head_observable_result.json
+```
+
+CPU0/BLAS1, hard600s/2GiB/new8MiB,admission150s. No newnative/model/wholecapture/
+fit/queryfilter. Re-deriveALL7993source andALL6649candidate heads from476pre/
+saved472functions/originalweights: sourceBYTE exact, candidateheadcodes/alpha
+BYTE exact/full32128logitsSHA exact. Independently verifyallF64metrics/labels/
+novelty/flags/margins/originaljobEOF/correctcounter and planned477fullcohort
+reporting. [Frozen recovery protocol](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_PROTOCOL_20261005.md)
+authoritative; noR1scientific observation yet. Poll SAMElivehandle on timeout.
+After actualterminal: R1WindowsEvent1000/PID+creation and ONE independently
+frozen scalar wire/group/reporting/resource retention audit. Only complete
+independent admission permits descriptivecalibration; firstfaults beforeR2.
+
+Old472105/107/book107localFAIL unchanged,no promotion;476ALL6/ALL6 source
+qualification retained. Original477native2 cannot establish rates or newwhole
+quality. FullgoalACTIVE/INCOMPLETE: newviableall-bankgeometry/freshchanged-own-
+state donor-relative prediction/generation/tasks AND SAME>=50,physicalDRAM/
+causal useful-n/winner ANDmass CPU LUT/multiple actualfamilies/~10B/~100B.
+Foreground369..373real-n/mixedquality/cost evidence unchanged.
 
 ## Retained457: admission failed before native execution
 
