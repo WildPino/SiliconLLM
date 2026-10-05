@@ -108,6 +108,9 @@ Raw10,274,971B SHA256
 `3762fd4e6c86a6ea7e64f54d4350cc2bd91761f2f856a06bb0a0a442f12d285f`.
 [Raw](meth458_switch_matched_whole_cost_result.json),
 [fresh metadata retention](RETENTION_458_20261005.json).
+Metadata-only audit session34349 exit0: ALL7 retention gates PASS,28.344s,
+30,335,727,235B freshly hashed, no scientific rerun/import. Retention SHA256
+`65ec6408bc1de79d0a3bad869b57de7298285901c5c91ca502330250ea9ea8b0`.
 ALL2304 new files4,951,786,960B retained,1165 reused files inventoried; no files
 trimmed.523.234s=33.047admission+490.187native/aggregation. Parent peak84,107,264B,
 native peak1,292,668,928B, conservative separate-peak sum1,376,776,192B.
