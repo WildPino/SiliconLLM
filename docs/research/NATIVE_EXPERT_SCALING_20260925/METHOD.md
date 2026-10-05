@@ -1,30 +1,29 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: frozen456, first execution pending
+## Current resumption after456: fixed tile16 FAILED; matched whole costs next
 
-Previous goal turn PROGRESS:455 admitted component diagnosis selected exact
-output-tile16 WI. NEW456 sources/controller/protocol frozen BEFORE first import/
-compile/permutation/numerical observation. No456 output directory/result/session.
+456 completed ONE session8078, terminal exit0. Freeze `259397b`, first run
+`554fa45`. ALL8apparatusPASS: ALL128 permutation inverse exact/1680 full states
+BYTE exact454/7056 timed outputs exact. Mean188.6539us versus original235.3323us,
+ratio.8016492386 =19.8351% reduction: prospective<=.80 FAIL. Book/p95/storage
+other3gatesPASS. Preserve slower third sweep; fixed tile16 CLOSED, no rerun/tuning.
 
-First next action is ONE command:
+23.156s/conservative1.591GBpeak/13outputs518.339MB; zero coefficient changes/GPU/
+engine edits. Raw SHA
+`cb7b9be5af6da6ce7fcbcbc058142ae6e8af2dda97c162727d44e9b591020977`.
+[456 result](METH_456_SWITCH_OUTPUT_TILE_COST_RESULT_20261005.md),
+[456 protocol](METH_456_SWITCH_OUTPUT_TILE_COST_PROTOCOL_20261005.md).
 
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth456_switch_output_tile_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth456_switch_output_tile_cost_result.json
-```
-
-[456 frozen protocol](METH_456_SWITCH_OUTPUT_TILE_COST_PROTOCOL_20261005.md):
-exact inverse ALL128 coefficients/scales;1680 full C fields BYTE exact454 BEFORE
-7056 fixed rotating whole336-trace timings. NEW16-output AVX2 integer lanes,
-SAME ascending12-block F64 sums/SAME A16/ReLU/WO. Only newtile16 eligible:
-mean<=.80 original/EACHbook<=1.00/p95<=1.00/nominal stored<=.80. Old direct
-comparator remains closed diagnostic. No format/tile/precision sweep.
-
-300/600/900s; parent512MiB/native2GiB/sum2.5GiB, outputs600MiB; copied child argv,
-first failures retained before NEW numbered repairs. No fit/GPU/download/engine
-edits. If PASS, newall-bank composition/quality/rate; if FAIL, close tile16 and
-reassess transfer economics. [455 admitted result](METH_455_SWITCH_COMPONENT_COST_RESULT_20261005.md),
-[retained provenance correction](METH_455_COMMAND_PROVENANCE_REPAIR_1_20261005.json).
-Full goal quality/SAME>=50/useful-n/router mass/actualDRAM/families/~100B open.
+Next NEW457 matched WHOLE generation cost diagnosis on BOTH qualified original
+sources: same respective baseline cases/context/worker/binary/output bytes;
+profile0 versus1, explicit perturbation admission, sparse matrices/router/head/
+core fractions and algebraic upper bounds. No457 controller/protocol/run yet.
+Next action: implement/freeze457 protocol/controller/resources before observations,
+fresh complete source/quality/rate/manifest/output bindings. No456 all-bank export.
+[Whole economic reassessment/proposal](SWITCH_MATCHED_WHOLE_COST_REASSESSMENT_AFTER_456_20261005.md).
+Internal20% gate remains separate from final>=50; close this recipe without a
+claim of mathematical impossibility. Full new-artifact fresh donor-relative quality,
+SAME accepted rate/useful-n/router mass/actualDRAM/families~100B still open.
 
 ## Retained prior453 decision
 

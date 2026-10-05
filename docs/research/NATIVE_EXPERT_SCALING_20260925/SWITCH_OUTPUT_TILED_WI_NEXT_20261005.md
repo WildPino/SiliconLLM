@@ -1,9 +1,10 @@
-# NEW456 implementation frozen; first run pending
+# Historical456 proposal, completed and cost FAILED
 
-Source/controller/protocol committed BEFORE observation.
-See [frozen456 protocol](METH_456_SWITCH_OUTPUT_TILE_COST_PROTOCOL_20261005.md).
-The proposal below records the original choice; current execution is defined
-by the protocol. No456 result/session exists yet.
+456 completed session8078 exit0. ALL8apparatusPASS but mean cost ratio.801649> .80
+FAIL; fixed tile16 recipe CLOSED, no rerun/sweep.
+[456 result](METH_456_SWITCH_OUTPUT_TILE_COST_RESULT_20261005.md). Current next is
+[matched whole cost diagnosis](SWITCH_MATCHED_WHOLE_COST_REASSESSMENT_AFTER_456_20261005.md).
+The prospective proposal below is historical, not an execution instruction.
 
 # NEW456 proposal: exact WI coefficients grouped by output coordinates
 
