@@ -44,7 +44,7 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption:480-R1 terminal, sole first independent audit
+## Current resumption:480-R1 terminal, sole first repair audit
 
 Current turn PROGRESS:original480 metadata-only fault retained39da8e1, new
 R1 sole72908 actualexit0/262.219s/2,143,719,424B peak/8apparatus gates.
@@ -57,10 +57,12 @@ RAW9800b5635f700e18df6862afced186b644541155e87a64d1139a59f9bcc994a5 frozen
 070858b. ONE R1Windows available/0matching events. Complete independent audit/
 Windows/protocol frozen2626067; no audit numerical observation at registration.
 
-SOLE first audit command, unexecuted at registration:
+Original audit89608 admission-failed before NumPy: late gate new Python352.
+[Audit fault](METH_480_FIRST_AUDIT_FAULT_20261005.md). Repair frozeneaea93f,
+ALL numerical code identical. SOLE first repair audit command, unexecuted at registration:
 
 ```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth480_retention_audit.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\RETENTION_480_20261005.json
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth480_r1_retention_audit.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\RETENTION_480_R1_20261005.json
 ```
 
 CPU0/BLAS1/1200s/4GiB/new32MiB/admission180s. ALL saved updates, physicalmodel
