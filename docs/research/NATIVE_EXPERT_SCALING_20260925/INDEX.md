@@ -39,7 +39,9 @@ admitted before capture; data floors do not imply compressible functions.
 [472](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md): ALL8/ALL9PASS apparatus,
 rank32INPUT-PCA recipeFAIL105/107experts/book107. Actual67.02%bank stored but
 no Ccost promotion. Pooled2.83%is dominated by25/37(99.8934%reference energy).
-473 operator-aware feasibility is now frozen7f2679c; first execution next.
+[473](METH_473_SWITCH_OPERATOR_SPECTRUM_RESULT_20261005.md): ALL5/ALL6PASS;
+ideal preactivation rank sums7365..7366 exceed4684complete70%budget. Variable
+ranks fail this metric/budget family. Next ask about complete function outputs.
 
 Input apparatus: [467 source/codec admission](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
 [464 corpus transport](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
@@ -110,46 +112,43 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: frozen473, one first learned-WI spectrum execution
+## Current resumption:473 rank-allocation budget rejected; complete function floor next
 
-Previous goal turn PROGRESS: 472 retained in4ffe52a, ALL8apparatus/ALL9audit
-PASS; fixed rank32 INPUT-PCA recipeFAIL105of107IDs/book107. All original
-failures remain immutable. Goal ACTIVE/INCOMPLETE; no further data ladder.
+473 frozen7f2679c/first58945e4, ONE main33007exit0/45.641s, ALL5apparatus;
+ONE audit30816exit0/26.500s/ALL6retention. Same107fixed IDs/21fallbacks,
+11331development representatives, original payload/source policy unchanged.
+Rank32preactivation8PASS/99FAIL; rank43 24PASS/83FAIL. Requiredrank sums
+7365..7366 versus4684 cap; nominal bank floor465329216B=76.7939%original.
+The70% decoded-factor family fails its5% development preactivation metric,
+even with variable ranks. This local budget is not the full goal's definition.
 
-NEW473 controller/math/protocol/binding frozen7f2679c BEFORE first scientific
-compile/import/numerics. Binding SHA
-d2e8fe7566ebbfd8d6bcc70f2cc62729f189ba403d520b5a50863b12ebf05476.
-Controller SHAce7f6679a602a603ebcd6133b0031019d8f6bf72cca7d92856eeb1a5c3cec264;
-math SHA746db8a822e46b723b5fb535647fdc1616e43b07940a1fd9e2dd1478857f4fef.
-Actual runtime assets and6338retained input files/7,591,995,508B bound; fresh
-full original payload/manifest and native arithmetic controls before spectra.
+[473 result](METH_473_SWITCH_OPERATOR_SPECTRUM_RESULT_20261005.md),
+[retention](RETENTION_473_20261005.json): raw SHAf94ae611921cfc25bcbdac05adc7aa607a5c43eef2bf4fd22f536ced1764b8cf,
+RET SHA3566a28a5a37e2898590d8474ebd1d49d56861cb170cc70377b90aaf8dcd373b.
+109OUTfiles+raw=12650706B; mainpeak237.152MiB,
+auditpeak178.660MiB. Fatal0B/available literalUTC Windowsquery0events,
+actual instances terminal; original engine/6338inputs/unrelated3 preserved.
+Goal turn PROGRESS; goal FULLACTIVE/INCOMPLETE. No completed main/SVD replay.
 
-ONE first command, never repeat a completed namespace:
+Next NEW474 is only a proposal: [complete-function output-space floor](ALGEBRA_REASSESSMENT_AFTER_473_20261005.md).
+Same107/21fixed policy; complete source F32FFNs already retained in472. Fit
+one private rank32 OUTPUT basis on development source functions, then measure
+the ideal projection floor on all original107novel/3065natural/64book function
+gates. Any map constrained to that fixed output space has at least this error.
+This differs from global output bases444/445 and WI/preactivation spectra.
+No new data, rank grid, oracle deployment or validation-selected fallback.
 
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth473_switch_operator_spectrum.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth473_switch_operator_spectrum_result.json
-```
+Before first compile/import/numerics freeze NEW474 source/protocol/bindings,
+null-mode policy, arithmetic scope, final-F32 allowance and exact bytes/workspace/
+decision. Proposed CPU180s/2GiB/new96MiB; noGPU/framework/tokenizer/source replay.
+Nominal original-WI/decoded-WO rank32bank405781568B (~66.967%original) is
+prospective only. No474source, basis, spectrum, numerical evidence or export yet.
+A floor PASS would justify one real complete-function coefficient inquiry;
+it would not supply whole-model quality/performance or useful-n evidence.
 
-Direct learned-WI response Y=A X^T, same107fixed IDs/21fallbacks; development-only
-effective alpha*q/equal-book exact dedup,11331representatives/max308perID.
-Full operator spectra once; no truncated input-PCA axes, candidate export,
-validation fit, native/model/tokenizer replay or rank grid. Native-order13cached
-integer and1344WI controls; response rounding envelope; all spectrum/byte
-witnesses.5apparatus gates, fixed numerical guard band1e-6 on squared tail
-ratio around0.0025. Full rank allocation must meet sum(r_e)<=4684 for nominal
-70%decoded bank. Uniform43failure does not settle variable ranks.
-
-Hard CPU600s/4GiB/new128MiB, singleCPU0/BLAS1. Witnessupper13,102,228B,
-no scientific observation yet. [Frozen protocol](METH_473_SWITCH_OPERATOR_SPECTRUM_PROTOCOL_20261005.md)
-is authoritative. If live, re-poll SAMEactualhandle; timeout is not terminal.
-First fault immutable before numbered repair; after actual terminal, independent
-right-Gram/eigen/energy/input/weight/rank/byte/Windows/process/resource retention
-audit without SVD refit or main replay. Spectral feasibility concerns ideal
-development preactivation, not nonlinear functions or final model quality.
-
-Full reusable artifact/all-bank/fresh donor-relative quality AND SAME>=50,
-causal useful-n/winner AND mass/CPU LUT/physicalDRAM/multiple actual families/
-~10B/~100B remain required. Full objective unchanged, active and incomplete.
+Full real reusable Cartifact/all-bank/newstates/fresh donor-relative quality
+AND SAME>=50/causal useful-n/winner AND mass/CPU LUT/physicalDRAM/multiple
+actual families/scales/~10B/~100B remain required. Goal scope unchanged.
 
 ## Retained457: admission failed before native execution
 
