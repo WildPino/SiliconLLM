@@ -177,8 +177,10 @@ diagonals/state/logits must replay byte-exact before interpreting hybrids. Resol
 WI, WO and joint directional/readout errors on ALL336 before choosing another
 conditional metric/exposure/correction. No new representation/seed/precision
 sweep/fit; higher-precision hybrids exceed storage cap and are not the goal.
-Prepare/freeze NEW source/controller/protocol/resources before import; no452
-source/protocol/numerical outcome yet. Future compact local PASS must still lead
+452 source/math/[protocol](METH_452_SWITCH_OPERATOR_ATTRIBUTION_PROTOCOL_20261005.md)
+frozen ae28ebd BEFORE first import; no numerical outcome yet. Run ONCE CPU0/
+BLAS1/admission300/numeric600/total900s/4GiB/128MiB/free1GiB, retain FIRST stop;
+no scientific edit/rerun/budget extension. Future compact local PASS must still lead
 to separate actual C primal/LUT cost, fresh whole quality/SAMErate/actualDRAM.
 
 ## Actual arithmetic and memory, not nominal byte promises

@@ -23,7 +23,8 @@ ALL8apparatusPASS/2688 selected head rows exact. ALL4row/9block changed pairs
 also cross in smooth F64 readout: state displacement is sufficient in these pairs.
 451 completed: ALL11apparatus/ALL3source-controlPASS, compact4of5 gatesPASS.
 Rotated sourceKL1.21e-8/0argmax; compactKL.00065267/4argmax>3 FAIL. RecipeCLOSED.
-Next NEW452 WI/WO factorial diagnosis, both451 diagonal heads exact first.
+NEW452 WI/WO factorial diagnosis frozen ae28ebd BEFORE first import; both451
+diagonal heads exact first. No452 numerical outcome yet; run ONCE linked protocol.
 Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
@@ -154,12 +155,14 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 450's completed pair-margin mechanism; all448/449/450 sessions terminal and
 first failures retained.451 completed and CLOSED by compact argmax gate; all
 sources/outputs retained, no live model jobs. Next [operator attribution](SWITCH_OPERATOR_ERROR_ATTRIBUTION_NEXT_20261005.md):
-prepare/freeze NEW4522x2 WI/WO diagnostic before import; original128 source/p/
-bases fixed. Replay BOTH451 uncompressed/compact full diagonal logits/states
+452 source/math/[protocol](METH_452_SWITCH_OPERATOR_ATTRIBUTION_PROTOCOL_20261005.md)
+frozen ae28ebd BEFORE first import; original128 source/p/bases fixed. Replay BOTH451 uncompressed/compact full diagonal logits/states
 byte-exact, then only-WI/only-WO compact hybrid diagnostics and native readout
 main/joint-margin terms. No new encoding/fit/seed/precision sweep. Higher-precision
 hybrids are diagnostics, exceed original60% cap and never replace the goal.
-No452 source/protocol/numeric outcome yet. Full-native quality,
+No452 numerical outcome yet. Run ONCE CPU0/BLAS1/admission300/numeric600/
+total900s/4GiB/128MiB/free1GiB; retain FIRST failure without edits/extensions.
+Full-native quality,
 C/LUT/routing cost/SAME accepted rate and physicalDRAM still required.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
