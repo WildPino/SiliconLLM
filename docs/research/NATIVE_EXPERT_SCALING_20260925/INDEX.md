@@ -26,6 +26,10 @@ daemons. Routine Graphify disabled. Donor-adaptation remains frozen reusable evi
 
 ## Latest decisive evidence
 
+[468](METH_468_FIRST_LEDGER_LAYOUT_FAULT_20261005.md): first ledger schema fault;
+original/golden controls passed, incomplete capture retained. Correct missing
+third hash in a separately frozen469 namespace; no data/factor result.
+
 [467](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md): original Rust
 codec and same128-book/512-context manifest admitted, ALL11/ALL10PASS; actual
 terminal/log/Windows health verified. New expert-domain capture is still required.
@@ -105,33 +109,22 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: frozen468; ONE first execution next
+## Current resumption: retained468 ledger fault; prepare separate469 correction
 
-Previous goal turn PROGRESS:467 source/codec manifest admitted, same128 model-
-unconsumed source books64dev64diagnostic-val/512 S29T14cases. This turn prepared
-NEW468 controller/protocol/actual runtime/file bindings froze7d67337 BEFORE
-first compile/import/numerical observations. Original393 binary/payload/arithmetic;
-no C/engine change. ONE command below next; no468 namespace retry.
-[468 protocol](METH_468_SWITCH_NATIVE_DOMAIN_CAPTURE_PROTOCOL_20261005.md).
+468 ONE38983exit1/36.734s,10nativecommands (worker negative+8golden+first new
+teacher). Original/primitive/golden controls PASS; ledger first pack FAIL: actual
+86B13fields omitted third32Bhash from intended118B14fields. Zero ledger records/
+new natural captures, incomplete cohort. Source/protocol/raw immutable; no468retry.
+[First468 fault](METH_468_FIRST_LEDGER_LAYOUT_FAULT_20261005.md),
+[retention](RETENTION_468_20261005.json). No native/model job live. Full goal active.
 
-Scientific freeze complete7d67337. ONE first fixed command:
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth468_switch_native_domain_capture.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth468_switch_native_domain_capture_result.json
-
-1033 native commands:1worker negative+8golden controls+ALL512teacher/512natural.
-ALL192 old128 whole/trace SHA,13cached+6rational A16controls before new domain.
-3workers[0,2,4]/ACTIVE/infinite, original cap64; parent/child peak/readback,
-full states/logits/routes/normalized inputs/full scores retained, no health filter.
-HardMAIN35min/admission180s/child120s/16GiB/ALLoutputs12GiB; prospective worst
-9976455328B including256MiBmetadata reserve, ledger<=49299476B/raw64MiB.
-No hashing while native child live. Same512 encoder/firstdecoder views deduplicate.
-
-Actual data decision FIXED128bank11, immutable64/64roles; SAME46232devcodes/4books,
-16novelvalcodes/4books,>=32readyIDs/>=90%ALL own-natural val executed coverage.
-PASS -> metadata/ledger/terminal Windows audit then separately freeze private
-INPUT rank32 probe. DATA FAIL -> retain deficit/reassess information or geometry;
-no factor/threshold/bank/data substitution. First apparatus fault retained before
-numbered repair, no468rerun. If live resume actual same session to terminal.
-Full goal ACTIVE/INCOMPLETE; new rank/quality/rate/useful-n/DRAM unmeasured.
+Exact next: freeze NEW469 SAME467128-book/512-context/64dev64diagnostic-val
+capture with corrected third32s field and pre-native118B14field controls; SAME
+393original binary/payload/command order/resources/SAME462 floors/FIXED128bank11.
+Bind468first failure/retention; require new first teacher bytes exact retained468,
+count that already observed DEVELOPMENT context once. No new book selection.
+Then ONE full1033command capture, terminal/ledger audit before DATA decision;
+no factors until sufficient.469 not created/frozen/executed yet.
 
 ## Retained457: admission failed before native execution
 

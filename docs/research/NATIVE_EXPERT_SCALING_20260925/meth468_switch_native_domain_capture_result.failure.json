@@ -1,0 +1,3545 @@
+{
+  "experiment": "METH468-original128-cohort467-native-private-INPUT-domain",
+  "start_utc": "2026-10-05T07:53:10.607918+00:00",
+  "argv": [
+    "benchmarks\\native_expert_scaling\\meth468_switch_native_domain_capture.py",
+    "--out",
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth468_switch_native_domain_capture_result.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "2,1",
+        "0",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\negative_worker",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "negative_worker",
+      "mode": "teacher",
+      "negative": true,
+      "start_utc": "2026-10-05T07:53:39.472025+00:00",
+      "pid": 23308,
+      "OS_peak_bytes": 4481024,
+      "returncode": 2,
+      "end_utc": "2026-10-05T07:53:40.010799+00:00",
+      "wall_seconds": 0.5310000000026776,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\negative_worker.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\negative_worker.stderr.log",
+        "sha256": "d1114b6b7aa4f775e5f687e4d1075c9b64a296072003d0b7995845731fffbc8b"
+      }
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "38,27,410,32099,65,2817,728,5,27,32098,17,8286,24,34,1522,32097,145,728,5,784,196,32096,2661,10,96,553,32,17,1",
+        "0,32099,5,466,32098,278,31,32097,1837,72,32096,40,10008,32095",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.teacher",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book0.teacher",
+      "mode": "teacher",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:40.682593+00:00",
+      "pid": 2344,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1225650176,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:41.495419+00:00",
+      "wall_seconds": 0.8130000000019209,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.teacher.stdout.log",
+        "sha256": "b6a4d7a1b93f564842c99c8af0b6485086c66cb6ebd4d03776ad76158900ac4f"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.teacher.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "decoder_positions": 14,
+        "experts_per_bank": 128,
+        "load_seconds": 0.0029319,
+        "encode_seconds": 0.1819457,
+        "cross_kv_seconds": 0.0105475,
+        "decode_seconds": 0.1271773,
+        "full_seconds": 0.3196705,
+        "routes": 258,
+        "embedding_lookup_bytes": 132096,
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1176,
+              "code_bytes": 990904320,
+              "f32_bytes": 0,
+              "scale_bytes": 4386816,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 168,
+              "code_bytes": 396361728,
+              "f32_bytes": 0,
+              "scale_bytes": 1290240,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 84,
+              "code_bytes": 0,
+              "f32_bytes": 33030144,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 14,
+              "code_bytes": 345440256,
+              "f32_bytes": 0,
+              "scale_bytes": 1799168,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "decode_step_seconds": [
+          0.0192074,
+          0.0076344,
+          0.0080226,
+          0.0072586,
+          0.0087214,
+          0.0073763,
+          0.0093855,
+          0.0075831,
+          0.0092555,
+          0.0101507,
+          0.0071918,
+          0.0101617,
+          0.0075176,
+          0.0077091
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 7588,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 20816,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 12284,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 20816,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 12284,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 7588,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.teacher.router.bin",
+      "trace_sha256": "e08dbb9ddda5a78c0f86544eee4e6ce5c541e580d6bc67b30d4f72093a360907",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.teacher.0.bin",
+      "whole_output_sha256": "fda7926079737bc57e2b3c6447679501469169a09cb4e2c2c97c201d99351cc1"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "--generate",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "38,27,410,32099,65,2817,728,5,27,32098,17,8286,24,34,1522,32097,145,728,5,784,196,32096,2661,10,96,553,32,17,1",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.natural",
+        "3",
+        "64",
+        "32095",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book0.natural",
+      "mode": "natural",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:41.545142+00:00",
+      "pid": 4644,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1149796352,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:42.202804+00:00",
+      "wall_seconds": 0.6569999999992433,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.natural.stdout.log",
+        "sha256": "af99530236b8584d6c78b477af5108338acf72eddae48eba1271ffe517fe69c6"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.natural.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "actual_generated_tokens": 13,
+        "closing_id": 32095,
+        "stopped_on_EOS": false,
+        "stopped_on_closing": true,
+        "stopped_at_cap": false,
+        "load_seconds": 0.0028516,
+        "encoder_seconds": 0.1643025,
+        "cross_kv_seconds": 0.0111211,
+        "decode_greedy_seconds": 0.1102181,
+        "full_generation_seconds": 0.2856417,
+        "first_token_seconds": 0.194156,
+        "generated_ids": [
+          32099,
+          5,
+          94,
+          32098,
+          40,
+          10008,
+          32097,
+          1837,
+          72,
+          32096,
+          40,
+          10008,
+          32095
+        ],
+        "step_seconds": [
+          0.0187322,
+          0.0090131,
+          0.007707,
+          0.0085016,
+          0.0090972,
+          0.0083678,
+          0.0081982,
+          0.0080137,
+          0.0081753,
+          0.0075554,
+          0.0059619,
+          0.00551,
+          0.0053841
+        ],
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1092,
+              "code_bytes": 920125440,
+              "f32_bytes": 0,
+              "scale_bytes": 4073472,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 156,
+              "code_bytes": 368050176,
+              "f32_bytes": 0,
+              "scale_bytes": 1198080,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 78,
+              "code_bytes": 0,
+              "f32_bytes": 30670848,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 13,
+              "code_bytes": 320765952,
+              "f32_bytes": 0,
+              "scale_bytes": 1670656,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 19216,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 13452,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 22356,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 1,
+            "windows_thread_id": 13452,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 22356,
+            "group": 0,
+            "actual_mask": 16
+          },
+          {
+            "slot": 0,
+            "windows_thread_id": 19216,
+            "group": 0,
+            "actual_mask": 1
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.natural.router.bin",
+      "trace_sha256": "0b260659195a55f59f294f61340931a17bb7ab63a240dcebdb5a0156d3cf0fce",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book0.natural.0.bin",
+      "whole_output_sha256": "7b98fa665a8660446cd3999864db915834bdc41dc6a2d9fa01ac32e80645e15a"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "42,4973,7,32099,16,452,6775,6,68,32098,23076,3,929,9,739,32097,6306,22048,908,37,2939,32096,3141,47,66,18,6740,1329,1",
+        "0,32099,33,2225,32098,33,3,32097,179,5,32096,13,8,32095",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.teacher",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book11.teacher",
+      "mode": "teacher",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:42.254399+00:00",
+      "pid": 20604,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1296711680,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:43.129602+00:00",
+      "wall_seconds": 0.875,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.teacher.stdout.log",
+        "sha256": "4e0df7d604fdf831aed2efd36f97b56e833cbf83019c58bd2013063a56d8ff98"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.teacher.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "decoder_positions": 14,
+        "experts_per_bank": 128,
+        "load_seconds": 0.0028174,
+        "encode_seconds": 0.1850958,
+        "cross_kv_seconds": 0.0102572,
+        "decode_seconds": 0.1414969,
+        "full_seconds": 0.3368499,
+        "routes": 258,
+        "embedding_lookup_bytes": 132096,
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1176,
+              "code_bytes": 990904320,
+              "f32_bytes": 0,
+              "scale_bytes": 4386816,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 168,
+              "code_bytes": 396361728,
+              "f32_bytes": 0,
+              "scale_bytes": 1290240,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 84,
+              "code_bytes": 0,
+              "f32_bytes": 33030144,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 14,
+              "code_bytes": 345440256,
+              "f32_bytes": 0,
+              "scale_bytes": 1799168,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "decode_step_seconds": [
+          0.0289011,
+          0.0107493,
+          0.0095679,
+          0.0085859,
+          0.0101855,
+          0.0073388,
+          0.0092851,
+          0.0081622,
+          0.008045,
+          0.0093673,
+          0.0088558,
+          0.0082692,
+          0.0074496,
+          0.0067322
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23276,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 24240,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23276,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 24240,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18352,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.teacher.router.bin",
+      "trace_sha256": "d55470deba9265d8322765d214afe8898ad1de035bc4d5237c2fc76c49cacc64",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.teacher.0.bin",
+      "whole_output_sha256": "6c8adfe1e3e7e5c6465ae85a384bdf7a9c04521ac50e6066508091bc2070e892"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "--generate",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "42,4973,7,32099,16,452,6775,6,68,32098,23076,3,929,9,739,32097,6306,22048,908,37,2939,32096,3141,47,66,18,6740,1329,1",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.natural",
+        "3",
+        "64",
+        "32095",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book11.natural",
+      "mode": "natural",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:43.186794+00:00",
+      "pid": 22520,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1244147712,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:44.402198+00:00",
+      "wall_seconds": 1.2030000000013388,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.natural.stdout.log",
+        "sha256": "a53443b240d2ec19ff7fb4264427d30544c991045bff08bc3e10a0c2bfd50c90"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.natural.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "actual_generated_tokens": 11,
+        "closing_id": 32095,
+        "stopped_on_EOS": false,
+        "stopped_on_closing": true,
+        "stopped_at_cap": false,
+        "load_seconds": 0.0028372,
+        "encoder_seconds": 0.1434533,
+        "cross_kv_seconds": 0.0106178,
+        "decode_greedy_seconds": 0.0932977,
+        "full_generation_seconds": 0.2473688,
+        "first_token_seconds": 0.1720468,
+        "generated_ids": [
+          32099,
+          6,
+          42,
+          32098,
+          79,
+          3,
+          32097,
+          5,
+          32096,
+          13,
+          32095
+        ],
+        "step_seconds": [
+          0.0179755,
+          0.0074535,
+          0.0081122,
+          0.0076463,
+          0.0075445,
+          0.0075875,
+          0.0075143,
+          0.0076709,
+          0.0075876,
+          0.0073053,
+          0.0068998
+        ],
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 924,
+              "code_bytes": 778567680,
+              "f32_bytes": 0,
+              "scale_bytes": 3446784,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 132,
+              "code_bytes": 311427072,
+              "f32_bytes": 0,
+              "scale_bytes": 1013760,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 66,
+              "code_bytes": 0,
+              "f32_bytes": 25952256,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 11,
+              "code_bytes": 271417344,
+              "f32_bytes": 0,
+              "scale_bytes": 1413632,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23532,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22064,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 15588,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23532,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22064,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 15588,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.natural.router.bin",
+      "trace_sha256": "8cdbd659b9d8ce535d13eb9f241cb6dfff5632c928e156267b8a772a5b0310bd",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book11.natural.0.bin",
+      "whole_output_sha256": "3333c9c8666db1131131b22c2cf2964b0f0d03eada3fabf90c44958a64df16bc"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "1323,5,94,32099,12,44,709,48,5996,32098,69,11228,396,33,2852,32097,920,11,69,684,1747,32096,26,5,101,33,1540,44,1",
+        "0,32099,65,917,32098,6,24,32097,3,4672,32096,2213,162,32095",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.teacher",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book12.teacher",
+      "mode": "teacher",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:44.451555+00:00",
+      "pid": 23648,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1201954816,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:44.923045+00:00",
+      "wall_seconds": 0.4680000000007567,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.teacher.stdout.log",
+        "sha256": "330d46209659f74647d24b7f0be7e1bcbe64f3bb04965a25a5aa60fe5c0da110"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.teacher.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "decoder_positions": 14,
+        "experts_per_bank": 128,
+        "load_seconds": 0.0028048,
+        "encode_seconds": 0.1323241,
+        "cross_kv_seconds": 0.0103355,
+        "decode_seconds": 0.1122226,
+        "full_seconds": 0.2548822,
+        "routes": 258,
+        "embedding_lookup_bytes": 132096,
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1176,
+              "code_bytes": 990904320,
+              "f32_bytes": 0,
+              "scale_bytes": 4386816,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 168,
+              "code_bytes": 396361728,
+              "f32_bytes": 0,
+              "scale_bytes": 1290240,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 84,
+              "code_bytes": 0,
+              "f32_bytes": 33030144,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 14,
+              "code_bytes": 345440256,
+              "f32_bytes": 0,
+              "scale_bytes": 1799168,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "decode_step_seconds": [
+          0.0173206,
+          0.0073895,
+          0.007738,
+          0.0074886,
+          0.0073044,
+          0.0075061,
+          0.0074126,
+          0.0072739,
+          0.0075243,
+          0.0077162,
+          0.0073088,
+          0.0077884,
+          0.0063468,
+          0.0061028
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 7716,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 16240,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18608,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 7716,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 16240,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18608,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.teacher.router.bin",
+      "trace_sha256": "ac2b03db6c27b61670eea6402f92373901a3dc71bed9f2f2160057067dfc24f6",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.teacher.0.bin",
+      "whole_output_sha256": "ec742bd82777e20a30083b747a206ad245de95c7b744412d8b2a2eb9ac24376e"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "--generate",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "1323,5,94,32099,12,44,709,48,5996,32098,69,11228,396,33,2852,32097,920,11,69,684,1747,32096,26,5,101,33,1540,44,1",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.natural",
+        "3",
+        "64",
+        "32095",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book12.natural",
+      "mode": "natural",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:44.976769+00:00",
+      "pid": 23596,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1140137984,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:45.443745+00:00",
+      "wall_seconds": 0.46899999999732245,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.natural.stdout.log",
+        "sha256": "00175a20d704c3aea8d4ec3e31f61529bac604ac351a4b72fdc34f07fec00f22"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.natural.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "actual_generated_tokens": 12,
+        "closing_id": 32095,
+        "stopped_on_EOS": false,
+        "stopped_on_closing": true,
+        "stopped_at_cap": false,
+        "load_seconds": 0.0026567,
+        "encoder_seconds": 0.1362958,
+        "cross_kv_seconds": 0.0106329,
+        "decode_greedy_seconds": 0.0937357,
+        "full_generation_seconds": 0.2406644,
+        "first_token_seconds": 0.1646407,
+        "generated_ids": [
+          32099,
+          19,
+          32098,
+          24,
+          32097,
+          142,
+          18301,
+          32096,
+          33,
+          271,
+          24281,
+          32095
+        ],
+        "step_seconds": [
+          0.0177116,
+          0.0071524,
+          0.0071688,
+          0.0069086,
+          0.0069802,
+          0.0082179,
+          0.0069844,
+          0.0072992,
+          0.0064322,
+          0.0062202,
+          0.005249,
+          0.0074103
+        ],
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1008,
+              "code_bytes": 849346560,
+              "f32_bytes": 0,
+              "scale_bytes": 3760128,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 144,
+              "code_bytes": 339738624,
+              "f32_bytes": 0,
+              "scale_bytes": 1105920,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 72,
+              "code_bytes": 0,
+              "f32_bytes": 28311552,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 12,
+              "code_bytes": 296091648,
+              "f32_bytes": 0,
+              "scale_bytes": 1542144,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 21992,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 3364,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 6244,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 21992,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 3364,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 6244,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.natural.router.bin",
+      "trace_sha256": "fe56460eb08546a2763546d903a53af73da50dab4f0ef565185aa33e65a72d00",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book12.natural.0.bin",
+      "whole_output_sha256": "f6c513d74d303f3e1f108c4d9a58051ef3c718d9b9a1cd137298ec9c6fb177c5"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "27,281,58,32099,8,3,122,10293,17,32098,275,8,2107,576,20434,32097,2102,58,3234,8,307,32096,549,1007,53,82,1780,11,1",
+        "0,32099,3195,12,32098,120,10351,32097,15,26,32096,2815,6,32095",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.teacher",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book23.teacher",
+      "mode": "teacher",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:45.490685+00:00",
+      "pid": 23376,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1206710272,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:45.947783+00:00",
+      "wall_seconds": 0.4529999999940628,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.teacher.stdout.log",
+        "sha256": "186e96b8a94a1b76572a68eebd224ebc42da67a6d8d95ae27ab6ae82086351bc"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.teacher.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "decoder_positions": 14,
+        "experts_per_bank": 128,
+        "load_seconds": 0.0025554,
+        "encode_seconds": 0.127369,
+        "cross_kv_seconds": 0.0103752,
+        "decode_seconds": 0.1074493,
+        "full_seconds": 0.2451935,
+        "routes": 258,
+        "embedding_lookup_bytes": 132096,
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1176,
+              "code_bytes": 990904320,
+              "f32_bytes": 0,
+              "scale_bytes": 4386816,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 168,
+              "code_bytes": 396361728,
+              "f32_bytes": 0,
+              "scale_bytes": 1290240,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 84,
+              "code_bytes": 0,
+              "f32_bytes": 33030144,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 14,
+              "code_bytes": 345440256,
+              "f32_bytes": 0,
+              "scale_bytes": 1799168,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "decode_step_seconds": [
+          0.0168441,
+          0.0068123,
+          0.0074487,
+          0.0068478,
+          0.0067206,
+          0.0065469,
+          0.0070603,
+          0.0061596,
+          0.0071124,
+          0.0067531,
+          0.0071612,
+          0.0073469,
+          0.0070666,
+          0.0075668
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 2508,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21948,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 7232,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 2508,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 21948,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 7232,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.teacher.router.bin",
+      "trace_sha256": "d00bada5022c58640897bf4550d5c49dc9e2913af0d783ff085ae9de5e8e6c6a",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.teacher.0.bin",
+      "whole_output_sha256": "b633c8ce3b34b13191e1dca91934974b48f1db922f9c2630820f06088d6d3d83"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "--generate",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "27,281,58,32099,8,3,122,10293,17,32098,275,8,2107,576,20434,32097,2102,58,3234,8,307,32096,549,1007,53,82,1780,11,1",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.natural",
+        "3",
+        "64",
+        "32095",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "control.book23.natural",
+      "mode": "natural",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:45.995600+00:00",
+      "pid": 19712,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1130651648,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:46.455147+00:00",
+      "wall_seconds": 0.46899999999732245,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.natural.stdout.log",
+        "sha256": "02d6019a7e43959253303708370c25b4e2f1b6bf2fae7322bf8158b5aaf0e607"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.natural.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "actual_generated_tokens": 12,
+        "closing_id": 32095,
+        "stopped_on_EOS": false,
+        "stopped_on_closing": true,
+        "stopped_at_cap": false,
+        "load_seconds": 0.0037176,
+        "encoder_seconds": 0.1285493,
+        "cross_kv_seconds": 0.010258,
+        "decode_greedy_seconds": 0.0939618,
+        "full_generation_seconds": 0.2327691,
+        "first_token_seconds": 0.1561709,
+        "generated_ids": [
+          32099,
+          304,
+          32098,
+          120,
+          7808,
+          58,
+          32097,
+          7,
+          32096,
+          1373,
+          58,
+          32095
+        ],
+        "step_seconds": [
+          0.0173634,
+          0.0068655,
+          0.0075212,
+          0.0073887,
+          0.0070219,
+          0.0070124,
+          0.0061269,
+          0.0064385,
+          0.0072116,
+          0.007564,
+          0.0075083,
+          0.0059389
+        ],
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1008,
+              "code_bytes": 849346560,
+              "f32_bytes": 0,
+              "scale_bytes": 3760128,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 144,
+              "code_bytes": 339738624,
+              "f32_bytes": 0,
+              "scale_bytes": 1105920,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 72,
+              "code_bytes": 0,
+              "f32_bytes": 28311552,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 12,
+              "code_bytes": 296091648,
+              "f32_bytes": 0,
+              "scale_bytes": 1542144,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23004,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18404,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 3896,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 23004,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 18404,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 3896,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.natural.router.bin",
+      "trace_sha256": "3301536580f71ca52dbe02bbc5e1786be607b17403c28c50178fb9b71d28e74c",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\control.book23.natural.0.bin",
+      "whole_output_sha256": "475bb51560e9baa0df671bb878ccbcec61081f40dd6854036a0cb5ce931b6a1f"
+    },
+    {
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "5167,8,15,32099,1129,224,4585,1045,14394,32098,150,1545,1368,5,299,32097,33,2799,16,8,11350,32096,578,118,10431,21,70,293,1",
+        "0,32099,834,535,32098,132,19,32097,633,14394,32096,11557,38,32095",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\book0.case0.teacher",
+        "3",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "label": "book0.case0.teacher",
+      "mode": "teacher",
+      "negative": false,
+      "start_utc": "2026-10-05T07:53:46.592754+00:00",
+      "pid": 15892,
+      "actual_affinity": [
+        0,
+        2,
+        4
+      ],
+      "OS_peak_bytes": 1239822336,
+      "returncode": 0,
+      "end_utc": "2026-10-05T07:53:47.055472+00:00",
+      "wall_seconds": 0.4530000000013388,
+      "stdout": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\book0.case0.teacher.stdout.log",
+        "sha256": "a8749d5748dba8c2e3b49977d121d4f1a2073648dbc8e0f3451eac311c963545"
+      },
+      "stderr": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\book0.case0.teacher.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "native_row": {
+        "repetition": 0,
+        "threads": 3,
+        "profile": 0,
+        "source_tokens": 29,
+        "decoder_positions": 14,
+        "experts_per_bank": 128,
+        "load_seconds": 0.0033664,
+        "encode_seconds": 0.1331105,
+        "cross_kv_seconds": 0.0107155,
+        "decode_seconds": 0.1061955,
+        "full_seconds": 0.2500215,
+        "routes": 258,
+        "embedding_lookup_bytes": 132096,
+        "counters": [
+          [
+            {
+              "calls": 2436,
+              "code_bytes": 2052587520,
+              "f32_bytes": 0,
+              "scale_bytes": 9086976,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 348,
+              "code_bytes": 821035008,
+              "f32_bytes": 0,
+              "scale_bytes": 2672640,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 174,
+              "code_bytes": 0,
+              "f32_bytes": 68419584,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 0,
+              "code_bytes": 0,
+              "f32_bytes": 0,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            }
+          ],
+          [
+            {
+              "calls": 1176,
+              "code_bytes": 990904320,
+              "f32_bytes": 0,
+              "scale_bytes": 4386816,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 168,
+              "code_bytes": 396361728,
+              "f32_bytes": 0,
+              "scale_bytes": 1290240,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 84,
+              "code_bytes": 0,
+              "f32_bytes": 33030144,
+              "scale_bytes": 0,
+              "matrix_seconds": 0.0
+            },
+            {
+              "calls": 14,
+              "code_bytes": 345440256,
+              "f32_bytes": 0,
+              "scale_bytes": 1799168,
+              "matrix_seconds": 0.0
+            }
+          ]
+        ],
+        "decode_step_seconds": [
+          0.0172379,
+          0.0072074,
+          0.0070329,
+          0.0071553,
+          0.0069401,
+          0.0071883,
+          0.0064755,
+          0.0065916,
+          0.007033,
+          0.0066842,
+          0.0069748,
+          0.0070352,
+          0.00644,
+          0.0061976
+        ],
+        "worker_physical_cores": 6,
+        "worker_affinity": [
+          {
+            "slot": 0,
+            "windows_thread_id": 16576,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22056,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18884,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ],
+        "worker_binding_events": [
+          {
+            "slot": 0,
+            "windows_thread_id": 16576,
+            "group": 0,
+            "actual_mask": 1
+          },
+          {
+            "slot": 1,
+            "windows_thread_id": 22056,
+            "group": 0,
+            "actual_mask": 4
+          },
+          {
+            "slot": 2,
+            "windows_thread_id": 18884,
+            "group": 0,
+            "actual_mask": 16
+          }
+        ]
+      },
+      "trace_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\book0.case0.teacher.router.bin",
+      "trace_sha256": "2ac128b9f92fbdb758ed5b4c34fa361f3f86037c7fb0f55d931c12eac7ff24ea",
+      "whole_output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth468_switch_native_domain_capture\\book0.case0.teacher.0.bin",
+      "whole_output_sha256": "4f8c3de6c1833d0dd6ca9e8b87326e090962b32b4a60314544622ca0b3987185"
+    }
+  ],
+  "cases": [
+    {
+      "book": 0,
+      "case": 0,
+      "role": "development",
+      "source_ids_sha256": "3b545a3b51078b87bafa2cc25cede9f5a7be28aae7f7fdcaf14ed40c39cb07fa",
+      "modes": {
+        "teacher": 9
+      }
+    }
+  ],
+  "reused_files": [
+    {
+      "book": 0,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case0.0.bin",
+      "whole_sha256": "fda7926079737bc57e2b3c6447679501469169a09cb4e2c2c97c201d99351cc1",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case0.router.bin",
+      "trace_sha256": "e08dbb9ddda5a78c0f86544eee4e6ce5c541e580d6bc67b30d4f72093a360907"
+    },
+    {
+      "book": 0,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case0.generation.0.bin",
+      "whole_sha256": "7b98fa665a8660446cd3999864db915834bdc41dc6a2d9fa01ac32e80645e15a",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case0.generation.router.bin",
+      "trace_sha256": "0b260659195a55f59f294f61340931a17bb7ab63a240dcebdb5a0156d3cf0fce"
+    },
+    {
+      "book": 0,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case1.0.bin",
+      "whole_sha256": "b67a6f416556c1ea119ce744c03ae68018447e4090900a1a96122bed17a2a50d",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case1.router.bin",
+      "trace_sha256": "7e0d6be694f707fc775c5c47a7bc27a8d39635034fa6ca4c2ac0aea975a1d671"
+    },
+    {
+      "book": 0,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case1.generation.0.bin",
+      "whole_sha256": "4d28f4dc7914d183b5dc1c4ab2beb72f153bed6411dc1a566237377daa446050",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case1.generation.router.bin",
+      "trace_sha256": "bcf3b2d4e521060d51a58f7ff7cf9c8b3118f0f11916fbd1c3de6f6f20c95fa6"
+    },
+    {
+      "book": 0,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case2.0.bin",
+      "whole_sha256": "bdc59d72d79310c938c8261f49eb88e21db24f3b0a1898bd81867b06e9b9cebf",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case2.router.bin",
+      "trace_sha256": "e297ce6554dbeb9877b95594515d3a37103a22202dcd104c21aa2e6dfed73c40"
+    },
+    {
+      "book": 0,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case2.generation.0.bin",
+      "whole_sha256": "5264a48d8b0038ce3e8ea14eb8a2ec4e6b14304932ddb8ad3d15638169dd935e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case2.generation.router.bin",
+      "trace_sha256": "2546ec5495508aa9cafe26195881c54f3d2c3224fd26faba3c0cfab17337649d"
+    },
+    {
+      "book": 0,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case3.0.bin",
+      "whole_sha256": "6bbf088bf275c20efc81ef9455f88b500208ad2341c33221790472c9f2ef3e94",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case3.router.bin",
+      "trace_sha256": "503cefba588eb692d1c3ec3520c7ad0cb594fbc86289ffc16b71ed90d3ef57f3"
+    },
+    {
+      "book": 0,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case3.generation.0.bin",
+      "whole_sha256": "ad64571214a8e1a4a99dedd2202b1db1d543159463053f2b73a5173a0f4de5a9",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book0.case3.generation.router.bin",
+      "trace_sha256": "150b2d810bb59ef33c6040ca9d254aa8264619e274aa0325854877c686d1f7ae"
+    },
+    {
+      "book": 1,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case0.0.bin",
+      "whole_sha256": "f7af9c7293a06f0761209427f718a1b3e6d46e4b4c77c765dedc4b6a5ffbc8ac",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case0.router.bin",
+      "trace_sha256": "8ccd601311b98b2e93bc5b1a9e8b636ff743dcc972adb0c5bd65656746b3e825"
+    },
+    {
+      "book": 1,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case0.generation.0.bin",
+      "whole_sha256": "1a713bc788eb3b6cb98c539f7d0632d8fe6d673972e54e938bbccbff9bcea65f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case0.generation.router.bin",
+      "trace_sha256": "9113dc3f4f0313e4d891a06acb95f565ceae3f182121054e38e7973b5f4593dc"
+    },
+    {
+      "book": 1,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case1.0.bin",
+      "whole_sha256": "8e80da3da04abbd17adc7909dac5c838512d5df7f132926f51ce0d91b7318d3f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case1.router.bin",
+      "trace_sha256": "a6a0a22f08a18bffeb243363964e1a813508c843e04a8bd862b99b4e8a0d1ee2"
+    },
+    {
+      "book": 1,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case1.generation.0.bin",
+      "whole_sha256": "e90118f7bd616912cf1a436662f54f84ac7540a94ec11646d237a83d0654b546",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case1.generation.router.bin",
+      "trace_sha256": "a66a0829fa95dc932c7ad679ad6ff331a88cf6995f3081fab3673ebf08b5828e"
+    },
+    {
+      "book": 1,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case2.0.bin",
+      "whole_sha256": "7e904ee6a270fba0a7437032ab7ff4d97ba37317a21f2f524a3acbc1cb7146af",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case2.router.bin",
+      "trace_sha256": "0250c240c0873b110131a18abb47740687d495fe36094e0480b292702fd898ef"
+    },
+    {
+      "book": 1,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case2.generation.0.bin",
+      "whole_sha256": "c6aec490094ffcccab54a5160295ff2a5dbecc2b9bfe61e192da77da4fcb3f36",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case2.generation.router.bin",
+      "trace_sha256": "1a9f6d1ec688666a655a2deaa26244be617ae1a600e6fab1c712ed95f21c9814"
+    },
+    {
+      "book": 1,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case3.0.bin",
+      "whole_sha256": "9da20b9a1431288b2956959c60a51efcd0247961071a5be4fe3bf27f558d280d",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case3.router.bin",
+      "trace_sha256": "5045811a841cbfde50f51f53ee9b8575d4a69d6e107729bfbacebddd9246fa8a"
+    },
+    {
+      "book": 1,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case3.generation.0.bin",
+      "whole_sha256": "70ad06886a5a98893f21aea8159f5fb22bf5ee77c7cff96f3cab7f0ca1aca401",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book1.case3.generation.router.bin",
+      "trace_sha256": "e43af73f703434b23c806892be7a250245c9b4373dd9224d7600ba9eaa884835"
+    },
+    {
+      "book": 2,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case0.0.bin",
+      "whole_sha256": "86e08d972b1ac36c3480c3a89400c5a2f6aa1240123d6be5ff139d98dedd6c19",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case0.router.bin",
+      "trace_sha256": "98eb6f35ea6b5c039b42f8635de5d7ccc14e0ae9823e1703a32ea028d6d69736"
+    },
+    {
+      "book": 2,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case0.generation.0.bin",
+      "whole_sha256": "296458c103a6f776020651ff7880f3ca8a76a5d994d6d2a21db7aaeebe48b830",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case0.generation.router.bin",
+      "trace_sha256": "06806f7c467df8674ee98689004aacea0e49da4c3beb825ed8a4c7994788eebe"
+    },
+    {
+      "book": 2,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case1.0.bin",
+      "whole_sha256": "5d9f876740ded7bf09956753489c24de90880036b1ca6e4edbb5e00dba18c163",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case1.router.bin",
+      "trace_sha256": "18fa114db2f3a4cf75c543c5decc49b8441797eaaa4dd5e5b4f1ed1766accd79"
+    },
+    {
+      "book": 2,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case1.generation.0.bin",
+      "whole_sha256": "4ebe73e457b1aaeb4f3806e83952cedd244a5048295ee29cdb196009769886e9",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case1.generation.router.bin",
+      "trace_sha256": "278cf940a21f5b34f5095b454cc2658562b5bf9066092b16f7303bca730e95d0"
+    },
+    {
+      "book": 2,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case2.0.bin",
+      "whole_sha256": "1135bb50cb88ddc3bd03774dc256c43e89cd1b9b37ac35251ae1fe225331c5ea",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case2.router.bin",
+      "trace_sha256": "36ed540b6bb7bd7bbd598b09f7ddd3e1f76d07ca222d12ce1c7a2959027fab8d"
+    },
+    {
+      "book": 2,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case2.generation.0.bin",
+      "whole_sha256": "45f1ac35da5554ff488e0b8aeb0a9fda1b6a3a372d813a86d4337b1c1eb0c804",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case2.generation.router.bin",
+      "trace_sha256": "d045d24b1edf38066d8758366b74699b677467d674a30cb69316da6279201f6f"
+    },
+    {
+      "book": 2,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case3.0.bin",
+      "whole_sha256": "89c3caca8a9256362458833ea4c06e8bab1c78c19658c4fd14998ee14e051790",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case3.router.bin",
+      "trace_sha256": "463ca4fc741d57b8fb8bc5c7732fc33064324af4409947619858b2823ff7494c"
+    },
+    {
+      "book": 2,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case3.generation.0.bin",
+      "whole_sha256": "6e263b0ca298b714acd49d608e712fbaabcb146fbff2b51b3606fe60d2c7d5d3",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book2.case3.generation.router.bin",
+      "trace_sha256": "0917be5de888275ed9a1ebd110057f7f191fb136f3cb23025ee3f74510fac6cf"
+    },
+    {
+      "book": 3,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case0.0.bin",
+      "whole_sha256": "b1227aa4347aa44360e972b8f6acfb6a8cc0bee9f9c985b9f0770f6148968638",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case0.router.bin",
+      "trace_sha256": "63c2abc4237248e04225b192f8eab41bb1feec773d2338dfe8d74b09aee12a44"
+    },
+    {
+      "book": 3,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case0.generation.0.bin",
+      "whole_sha256": "57d9533997e5fbd4c4bffa9119e5889d1a55e85a7d7bb0fcb09f1a74223f8431",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case0.generation.router.bin",
+      "trace_sha256": "296c8ecd25103e1420b33386e17a57a952dd6773a2f4229bf9e8902173ee7e48"
+    },
+    {
+      "book": 3,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case1.0.bin",
+      "whole_sha256": "9178b6318995b08c5354f9083ec39c877d52db0c591a8836ac6b1615171ef652",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case1.router.bin",
+      "trace_sha256": "93f557b7f8524a62a00c1c2f02ef4ffc0db5b2381636b4ed28d100d6c2272d6d"
+    },
+    {
+      "book": 3,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case1.generation.0.bin",
+      "whole_sha256": "97052221bfc52d7cca19139f1cccbd30e9515604ea3d0496f0ca2c92122b49e3",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case1.generation.router.bin",
+      "trace_sha256": "58f6d483e392ccd3c7b2c9a2402f9d94f45fbc4da4eb9458df1c57179686dc1b"
+    },
+    {
+      "book": 3,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case2.0.bin",
+      "whole_sha256": "7b9a1f40e1e3cc77f64ccd277a8da2e4a2aab43e01abadf5bb58987a44f23912",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case2.router.bin",
+      "trace_sha256": "b459696296b37f0f18aa615edb1de5deae77758b0b3051dde094813471ada423"
+    },
+    {
+      "book": 3,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case2.generation.0.bin",
+      "whole_sha256": "d4b0f065832adb51bd17831effb7254ec6c5082d21dab39e93174de70d3a17dc",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case2.generation.router.bin",
+      "trace_sha256": "570ee2029e0d50d9f7c6b83ad4ac1d4ff146ddf5989134f740a5a31a56cf4c1b"
+    },
+    {
+      "book": 3,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case3.0.bin",
+      "whole_sha256": "ac0e66465c45d1888e60df8c547ee30ed30428e0280f97bd7c744417c55dc781",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case3.router.bin",
+      "trace_sha256": "1cf4f77f4b4dfa0f85a4c135f789aca7593d991cc2875e115d5d8efdf5884614"
+    },
+    {
+      "book": 3,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case3.generation.0.bin",
+      "whole_sha256": "119f3c9d97da2061265479a8e50035482b219a5f8bcf679610abbfb0e20cc0c9",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book3.case3.generation.router.bin",
+      "trace_sha256": "e8ac7cbc71733c1c8fc64a9bf3b9f5047a9c8e6a0dfef46f44385854350db3ff"
+    },
+    {
+      "book": 4,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case0.0.bin",
+      "whole_sha256": "f7f3be6d96adc5e2259a7237cfa6373887f0947f40bdbcd031e3015dc75bf75a",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case0.router.bin",
+      "trace_sha256": "9edd7db4486f846c361bb94fa0d5a02087f50b81a835d92a54f9e03f167670e0"
+    },
+    {
+      "book": 4,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case0.generation.0.bin",
+      "whole_sha256": "9c68a7b3f1c7360b5b5f0ef703ffb7a96a8c0821b69c3502cb7eb575f92726c2",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case0.generation.router.bin",
+      "trace_sha256": "cb46a5d111633733a288bdd1840ebdfc4694bfc5c5af6d206ff0b665f45b74a0"
+    },
+    {
+      "book": 4,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case1.0.bin",
+      "whole_sha256": "dfadc9d9fd165c1f1d46d01b44b2c0b7b24be1cff03f7e8ff48468eace35f903",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case1.router.bin",
+      "trace_sha256": "3dd4c0cd59215f318032e87a79e4b5c7656ea7623013866655d1fce016483a0a"
+    },
+    {
+      "book": 4,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case1.generation.0.bin",
+      "whole_sha256": "52df00d3cfe9f5eefd3802a8bbf66053a14a2571b12434a4b56cbe51faf65322",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case1.generation.router.bin",
+      "trace_sha256": "c65ea5eb8d6d10c46bd4a64171f0a06b6510dfafd69a966979c5bd7637be51ca"
+    },
+    {
+      "book": 4,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case2.0.bin",
+      "whole_sha256": "529da754afd978c59efbc40129b34690f699e0b4cfef240744740fcc2da20ba9",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case2.router.bin",
+      "trace_sha256": "b6f4bc2fc20609235dcdd961211b85fcaa19527e5854010599ead448a6afd6cb"
+    },
+    {
+      "book": 4,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case2.generation.0.bin",
+      "whole_sha256": "0088693712f408d8e219ed4b98140baa46227ed819fc96b713c3073e210cd858",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case2.generation.router.bin",
+      "trace_sha256": "cad2286dde51411ca44fe326f606d4f7212142b8983fa80d82a02dbd9d84efb0"
+    },
+    {
+      "book": 4,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case3.0.bin",
+      "whole_sha256": "978e9afcc87e0d7d6941a66e73917b51b63e23335d74571999eff128e8a19f09",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case3.router.bin",
+      "trace_sha256": "fda7332a63ea961cb1aad3e1cd8d02f667c88635edd73d18908c452280bd80cd"
+    },
+    {
+      "book": 4,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case3.generation.0.bin",
+      "whole_sha256": "ad6443f895bc2a2bb61f2474c4cc203d5a4791f1151f2e6ce452510e74346ba0",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book4.case3.generation.router.bin",
+      "trace_sha256": "37d0897a70244dd4efbb55e5073b6be413ca7525a88b4b19367cb02f5dd990c3"
+    },
+    {
+      "book": 5,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case0.0.bin",
+      "whole_sha256": "479f48a3e90cf6ae53f6ed7b9b8dae26fd56444dc3f3d1cfddfad42ee7aedb77",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case0.router.bin",
+      "trace_sha256": "f95b8833dda04bf1456dbe6bbc9b225ff115a95bb54041eaf23cbd3cfe982563"
+    },
+    {
+      "book": 5,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case0.generation.0.bin",
+      "whole_sha256": "b05e89ab478bafb6e7d3fcf37aaefe6637c7d3b10e2efee550e756b84ab3995a",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case0.generation.router.bin",
+      "trace_sha256": "9e5e6902666359aeb0334699f49c9e266f1dcef553b3f2d8445774399dc00650"
+    },
+    {
+      "book": 5,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case1.0.bin",
+      "whole_sha256": "0e4d81822b6d52c6c5cc958fd20f9520ef77427298819500d0d4b22545c652e8",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case1.router.bin",
+      "trace_sha256": "53548008ebf480fca239cd635279fef8639f1349b4fbdcc0ec407451105da6d9"
+    },
+    {
+      "book": 5,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case1.generation.0.bin",
+      "whole_sha256": "de3b31088846c539deef95c9a9d1bd60a20ff46782cdace27edb5877eddf6f76",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case1.generation.router.bin",
+      "trace_sha256": "48d3d33ee814599d7697684ef74d721a55902c947394a216605e9f08dd6ab5d0"
+    },
+    {
+      "book": 5,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case2.0.bin",
+      "whole_sha256": "067780480984cd9099103b01a51dcdceefa6ae0269001933f284ee96cf1f5c00",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case2.router.bin",
+      "trace_sha256": "8805004e94c9951ff2714c0965774a7d30ded8ede49a67d6f9634dfd6583fc22"
+    },
+    {
+      "book": 5,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case2.generation.0.bin",
+      "whole_sha256": "f6046d8a02ebfae3f4a9f4daf21046445f9a211fcbad8800fae9a76c5b3b3298",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case2.generation.router.bin",
+      "trace_sha256": "8ea632d4c673b9f842537a7ddce17730e88d72ae90319fbb289efe97046d8ea9"
+    },
+    {
+      "book": 5,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case3.0.bin",
+      "whole_sha256": "5664e3311e42aa4c8b2b36b0ba94e35b75bc2f8d256d264db9e40a256abdda8e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case3.router.bin",
+      "trace_sha256": "4c045a5729736f762aa8ea6df6e3883c639898be161b43e09caf2df8c1c14b89"
+    },
+    {
+      "book": 5,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case3.generation.0.bin",
+      "whole_sha256": "6cd36c0938b22ac65e40e941db6020974b67fc21ab2ffef36a201aa87e3c550b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book5.case3.generation.router.bin",
+      "trace_sha256": "1737cb549f6f771ac2bd319ea1bb404bb8928783a8c87dd27d093e50daf93352"
+    },
+    {
+      "book": 6,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case0.0.bin",
+      "whole_sha256": "f93b4ddc117301276ad8d4dc224bcd83bad44f54e17b4765804ea94fd78232db",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case0.router.bin",
+      "trace_sha256": "acc3e213abf992eb08b74d88330ef8b1a7241e4363e24e245202a3bed4b44978"
+    },
+    {
+      "book": 6,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case0.generation.0.bin",
+      "whole_sha256": "43b73d0175985ea7601db425c2a2d68f90538b4e748ef0d9065b0022b7b7841f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case0.generation.router.bin",
+      "trace_sha256": "5ec616282f5b2a5f18e4da5744c7d0d624c2322f24dd02666b49cb9fd85f8963"
+    },
+    {
+      "book": 6,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case1.0.bin",
+      "whole_sha256": "c7ece3c6857327c7d6b49d4b14e54a3dc7dfa1c103ce707fb180792045a66d01",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case1.router.bin",
+      "trace_sha256": "c84512589cd38391ecb85ac8aaa98d9217dc1e8975a014afd583fec96ec829c6"
+    },
+    {
+      "book": 6,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case1.generation.0.bin",
+      "whole_sha256": "fb38f68d959e40c7f87ad4238e7f61d99243eb694bb4e59ddaef6beae6aa32e0",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case1.generation.router.bin",
+      "trace_sha256": "00ba5ab046bec6f1af7ffca70b74c2cf4b7627a6fd44d83ba3e95f87d4433d6a"
+    },
+    {
+      "book": 6,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case2.0.bin",
+      "whole_sha256": "9df1f7fe5ec2efbc1f613acd712aad9363efc84a37368acabdfc2472c4d0286d",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case2.router.bin",
+      "trace_sha256": "4476c74362e7ad8dd8a6d1f24e6315d773ded6f1f4aa6ef6666c5617df0df857"
+    },
+    {
+      "book": 6,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case2.generation.0.bin",
+      "whole_sha256": "aa602ba5267e0dd11a0a259150a1f97d3ff1823780ff4d97a82896da20652a02",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case2.generation.router.bin",
+      "trace_sha256": "b31f033655e12e47a9347eb23ffbedf62a4382c91c0918e24e3ba5fb0a8776c7"
+    },
+    {
+      "book": 6,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case3.0.bin",
+      "whole_sha256": "be53c3b42f174e08e86ecc8d4cd45c6ffc2c5638084f186a2c24557420038dd5",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case3.router.bin",
+      "trace_sha256": "877e7d00e09f02d329149b0bafc7a480d3d6c2158613551775345c8df5ebbf47"
+    },
+    {
+      "book": 6,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case3.generation.0.bin",
+      "whole_sha256": "170fd6dbd5616b4a50468aa7515ff2665e8bbdaff98a11b586c0ee386abea8a2",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book6.case3.generation.router.bin",
+      "trace_sha256": "8feb22886ae8e77ac59ae79f1e002eceacabfa5418d3eec96f74e4dd7fb419a9"
+    },
+    {
+      "book": 7,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case0.0.bin",
+      "whole_sha256": "8038b06f4e0867b6b8276575b3129a70fe8728490c4b20253c8c0b6560758de6",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case0.router.bin",
+      "trace_sha256": "1ea1de1635b232be7181b68d11f78e85c8490c10ccd2e720d456e5e0fdfdcd28"
+    },
+    {
+      "book": 7,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case0.generation.0.bin",
+      "whole_sha256": "ddfe6fb5d4c80dd553d6a28a2226a51e6f7a5262cf5aa5a208ad258faa30f742",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case0.generation.router.bin",
+      "trace_sha256": "bdeb409e825d6c66f571e755ea754ab150e007a91f970d80fdde51711c35c541"
+    },
+    {
+      "book": 7,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case1.0.bin",
+      "whole_sha256": "e805939f043f82f9e2c2673a6e92b5299f848a6db1cc1019a0d5e13b7e621453",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case1.router.bin",
+      "trace_sha256": "d61344f2b756795cf3ed5e94653510291da2c957d90c5d9178304216c6d19481"
+    },
+    {
+      "book": 7,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case1.generation.0.bin",
+      "whole_sha256": "fab51b56ec8e89254300900d444edfaeba3ec3af6adbeeea8589427ff55b7bc0",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case1.generation.router.bin",
+      "trace_sha256": "d96ebb0e429b2b96844870e08d0dc09245a90b9a452a8e74fa210b65e5043e99"
+    },
+    {
+      "book": 7,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case2.0.bin",
+      "whole_sha256": "735df14f83633060765aeaa7e5a8765b2980943cffeac3d67796dd2316474dff",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case2.router.bin",
+      "trace_sha256": "431611f73a1e23e5b211bce7d4300455c497ca1fcb34fa34c745081dce7c807d"
+    },
+    {
+      "book": 7,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case2.generation.0.bin",
+      "whole_sha256": "dc4f043723dc4a45ccb9bd6d9db7b8a33ce5297132a6bed3eda01fd676a7c181",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case2.generation.router.bin",
+      "trace_sha256": "08a170fbc56e16023d0be07ab2fe783652f9b96b271e62a72de6fe791dae40cb"
+    },
+    {
+      "book": 7,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case3.0.bin",
+      "whole_sha256": "5514d784eea2ba14858b6b5f810ef8d9d0c13552742393d92c18071c413d05ff",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case3.router.bin",
+      "trace_sha256": "42d169ebf7927e2b959e5cab809c22fa56f922cd55635222e20d4371f09e5932"
+    },
+    {
+      "book": 7,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case3.generation.0.bin",
+      "whole_sha256": "4cd764aac77158c27b0723ca8511ac37e66473e15e9d3fd9831d7eaf6ede0413",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book7.case3.generation.router.bin",
+      "trace_sha256": "38d8520ffdeb0e84d9a1790a868fe7976516357b44c51f04cbc50c24f11d32aa"
+    },
+    {
+      "book": 8,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case0.0.bin",
+      "whole_sha256": "316366bb3a538a202470fe465e51bf2246919287b6c24c4ab2350b04149d1983",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case0.router.bin",
+      "trace_sha256": "083ec8a1cc4dd76016cab01aa093da3288ea19c205f5ca1681abfa4a5f5ebc62"
+    },
+    {
+      "book": 8,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case0.generation.0.bin",
+      "whole_sha256": "00f8c4fe5a338c5aa183d095a8c380b9896dd628c7e2dda9670936ccb9aaf413",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case0.generation.router.bin",
+      "trace_sha256": "c80d1a11138dd4134b18691d103a52d38cfd7b6f425bbfbb7e79e35d17024722"
+    },
+    {
+      "book": 8,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case1.0.bin",
+      "whole_sha256": "b8ae449de403706060ca12cfef55a115a5453bb40e467b320c3625e2eda8a647",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case1.router.bin",
+      "trace_sha256": "4049a523d79993d5b3cad9559fc61ae598e19e9496cb3c2cba1b588acc509fe6"
+    },
+    {
+      "book": 8,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case1.generation.0.bin",
+      "whole_sha256": "a78e105981f3b42ddbb4408c80065c9cb39b61d66637402dd135f769e63b54ff",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case1.generation.router.bin",
+      "trace_sha256": "f486104bb0b252cfd55fdcae0987de3895b91d405fecfe5d05f661b853f920d5"
+    },
+    {
+      "book": 8,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case2.0.bin",
+      "whole_sha256": "eb80ad838c0f855b91ebf86f2182460f81d0a0eba65b75afa027539ecc6f8153",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case2.router.bin",
+      "trace_sha256": "415c26b003aa26d32fe68de467a8b6be192ce10861d920227adf89e8477bb4c9"
+    },
+    {
+      "book": 8,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case2.generation.0.bin",
+      "whole_sha256": "6d81549c292063519e14839df5c00f3773e9801624a86545beb725272e82c88b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case2.generation.router.bin",
+      "trace_sha256": "fb366cc06ea42ce2711cc707c952a38350e9cb53376ba30a160077abb329ad61"
+    },
+    {
+      "book": 8,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case3.0.bin",
+      "whole_sha256": "c2d6c32c91b0347da7d9e22f51e000a5d75b2e61ae5dc22cec16f8e379846cc3",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case3.router.bin",
+      "trace_sha256": "61b2e521bf6e05a60378e8ac299af98a252b3ceb8585a2b213bd8aeec1f33a80"
+    },
+    {
+      "book": 8,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case3.generation.0.bin",
+      "whole_sha256": "0ececf6396ddf4b838f0896f98fe6db5c15d5ddaead9f62cad8c4d03705f5d25",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book8.case3.generation.router.bin",
+      "trace_sha256": "5871f1869fb2fcb41b21a155876e58bd168188aa0894078a271af2458931d8e7"
+    },
+    {
+      "book": 9,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case0.0.bin",
+      "whole_sha256": "28343ffe0721aa949b60396c83a95533abe70a7fa604de9f841c9be856407d1f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case0.router.bin",
+      "trace_sha256": "0b8e4b8a7f4f874f110113807ae64cc5d0114b38acc3796f1884a0019b270d7e"
+    },
+    {
+      "book": 9,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case0.generation.0.bin",
+      "whole_sha256": "cd3204ac9771ba89d74f6512c96a827d70f24fd7bddec948b793dbbac30b0352",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case0.generation.router.bin",
+      "trace_sha256": "fb55304f018817d9957637b970beb587232b0abe1a3ad7f5ce3d3716976d4c85"
+    },
+    {
+      "book": 9,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case1.0.bin",
+      "whole_sha256": "87aa0f9cf8aab182c4a03591de10131f4487403e0158c7a2df49d523b854763b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case1.router.bin",
+      "trace_sha256": "4e39d6bf8b9d803aef18519dc835cf72a13c831a036f0a720d06c09455e7a8f9"
+    },
+    {
+      "book": 9,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case1.generation.0.bin",
+      "whole_sha256": "4a25b005dae4ed8704c8dc87730932e1bdf358fa70b2751fc07991904a4440ac",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case1.generation.router.bin",
+      "trace_sha256": "60abbeccd4d296a1b3b04b7493343c4f40ac72b77bdfae318df1b64115e72954"
+    },
+    {
+      "book": 9,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case2.0.bin",
+      "whole_sha256": "9ee6fed9627496524f1310a8dd219c60b691c9b7555088716b9ef0db8b351f97",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case2.router.bin",
+      "trace_sha256": "a6ee8d82662c461666de55c1e6a34988142cf4c7b9e8cd66b5a932eb65236297"
+    },
+    {
+      "book": 9,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case2.generation.0.bin",
+      "whole_sha256": "9737234a6e7e0df1374f6bf79fdc3aa2f8426b07526ad527e87f28d48174525f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case2.generation.router.bin",
+      "trace_sha256": "65824f512a81df470e3d9bf412447ef159459d7d9d77f996b400e6fa8f1cb6e4"
+    },
+    {
+      "book": 9,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case3.0.bin",
+      "whole_sha256": "7a79744c4e62a3a66928bdd85c8679cef90fe951a0cbc2fcc779afa459f2d4d9",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case3.router.bin",
+      "trace_sha256": "9623269a874b4f100c203064438535c4c19a017dc440a2459cde516356b38e33"
+    },
+    {
+      "book": 9,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case3.generation.0.bin",
+      "whole_sha256": "6cdf22c2b3ccffa3d18295a30c4a5fbb9bba1e2539129787fde2a65d3eef621e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book9.case3.generation.router.bin",
+      "trace_sha256": "f22cfc5cf6bfb8f409b4ca3ea74ab94e3c772ffff1d975011ced612072f5412d"
+    },
+    {
+      "book": 10,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case0.0.bin",
+      "whole_sha256": "967cb015186956d67c4dd9bfafc9d7ec132d746669000d4452fe5919573f870f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case0.router.bin",
+      "trace_sha256": "23b0b1a0882aeaed099635cff2b1a583365cc65bf7ddcf5208b22daaf3517448"
+    },
+    {
+      "book": 10,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case0.generation.0.bin",
+      "whole_sha256": "b4a39dcd46f9731750038189eacd724482cf52dbf7edd8fccbefe77221cc0e1a",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case0.generation.router.bin",
+      "trace_sha256": "8c7c83b0bde8635bbc60b218c9ddc61b756a0c96c4025fdd1dcd7b7747aaa22d"
+    },
+    {
+      "book": 10,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case1.0.bin",
+      "whole_sha256": "b1a5adac741272cf66d27538f16df136be9f021c349938376c9143662fba2a69",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case1.router.bin",
+      "trace_sha256": "6c2af346bfd4d336f72a502995f5c75e31f5c25086b5f729a3d3145b9094b66a"
+    },
+    {
+      "book": 10,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case1.generation.0.bin",
+      "whole_sha256": "fecbd387b0c1a211d673fbe50d7063a0e8e4be3e6433fa20165805f9fc3ccfcc",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case1.generation.router.bin",
+      "trace_sha256": "1fd099adf3a3774deb6934fbb18efc5c71a00c5e9553bf3655669af7bd994353"
+    },
+    {
+      "book": 10,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case2.0.bin",
+      "whole_sha256": "a38b1c090b97da6014cb3bf1016f5504575206f4a46d4f7103bcba9a416a7dc1",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case2.router.bin",
+      "trace_sha256": "e1895cde73883df4faa062736a8c90c3fbad3d1f78f5b8e3becc3086c6b10ca5"
+    },
+    {
+      "book": 10,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case2.generation.0.bin",
+      "whole_sha256": "a49940c649fb9a2062d1562fe69de62f61183e1e6ee4d89bebfbcbee5ab28701",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case2.generation.router.bin",
+      "trace_sha256": "e15cd4f2dd13a108a69cfda0b20d1673ff059730b2132156f706d7b51031af6f"
+    },
+    {
+      "book": 10,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case3.0.bin",
+      "whole_sha256": "39fb07ba604e2482d75bfbc43a4f8fbb7cd6498669b86294fd4a9f1ebbf2252b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case3.router.bin",
+      "trace_sha256": "21a8f3486926d8adafc3a05cc5ce73efdd4d10b185f6abc20aaa1fccaf6c5949"
+    },
+    {
+      "book": 10,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case3.generation.0.bin",
+      "whole_sha256": "760c9e86b95eef5d68b6d53ac4127f53fb811c2e9dbd11c02dc1fe4ab8fa2df6",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book10.case3.generation.router.bin",
+      "trace_sha256": "8dcd69c845bfb765b52aabd922f60d8a583da79635c45f4eed8615898e692c71"
+    },
+    {
+      "book": 11,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case0.0.bin",
+      "whole_sha256": "6c8adfe1e3e7e5c6465ae85a384bdf7a9c04521ac50e6066508091bc2070e892",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case0.router.bin",
+      "trace_sha256": "d55470deba9265d8322765d214afe8898ad1de035bc4d5237c2fc76c49cacc64"
+    },
+    {
+      "book": 11,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case0.generation.0.bin",
+      "whole_sha256": "3333c9c8666db1131131b22c2cf2964b0f0d03eada3fabf90c44958a64df16bc",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case0.generation.router.bin",
+      "trace_sha256": "8cdbd659b9d8ce535d13eb9f241cb6dfff5632c928e156267b8a772a5b0310bd"
+    },
+    {
+      "book": 11,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case1.0.bin",
+      "whole_sha256": "37812d85c4a9e65c80065505c943e89861ad506d032b8bc521c80267ae24ab7f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case1.router.bin",
+      "trace_sha256": "68a37ee90e4de3727c213713a95d4777686649690e3f8ddbafc137418879d938"
+    },
+    {
+      "book": 11,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case1.generation.0.bin",
+      "whole_sha256": "5f2857d38476173845e97fa559d7eb55ba6c39a768de3391979ac5be14d848f7",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case1.generation.router.bin",
+      "trace_sha256": "18ab05bde260853c096bae934b6e6e0c0c1d415bff83b62f34ed9713898ae433"
+    },
+    {
+      "book": 11,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case2.0.bin",
+      "whole_sha256": "73e8b094f77a0af7972ca79db5de87481b91aef7bfc71e246123dce8620f852b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case2.router.bin",
+      "trace_sha256": "5424f886fe9226f21ec2cfb57f92871d84b10ca2d953c991038e0074ecb1d7f7"
+    },
+    {
+      "book": 11,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case2.generation.0.bin",
+      "whole_sha256": "f733f1e760a00e7b4b7bc125b658d7fc206b6e627ab64a270c6aa45b710d27aa",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case2.generation.router.bin",
+      "trace_sha256": "9831b864b604d8c94ef3dc80ff0cfd1ec1aa008e0cc6856b200d9e5e46412374"
+    },
+    {
+      "book": 11,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case3.0.bin",
+      "whole_sha256": "7c63378b4cd1281e251afc2e59b791e64bb4f2ad6ac048755f56578f70cfa8e8",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case3.router.bin",
+      "trace_sha256": "b8622dcf719e13d39c3bf619407b9b0999c7fedeaee22d9b7befe830a4ffc837"
+    },
+    {
+      "book": 11,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case3.generation.0.bin",
+      "whole_sha256": "478e3ad9710d51709809f746fc42ead0d17470e2c4a96048781a5ed93f591cf3",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book11.case3.generation.router.bin",
+      "trace_sha256": "06319e3c015f020b61455e2c24b337b79c3b31553507f55bfe9778688c4aec8d"
+    },
+    {
+      "book": 12,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case0.0.bin",
+      "whole_sha256": "ec742bd82777e20a30083b747a206ad245de95c7b744412d8b2a2eb9ac24376e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case0.router.bin",
+      "trace_sha256": "ac2b03db6c27b61670eea6402f92373901a3dc71bed9f2f2160057067dfc24f6"
+    },
+    {
+      "book": 12,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case0.generation.0.bin",
+      "whole_sha256": "f6c513d74d303f3e1f108c4d9a58051ef3c718d9b9a1cd137298ec9c6fb177c5",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case0.generation.router.bin",
+      "trace_sha256": "fe56460eb08546a2763546d903a53af73da50dab4f0ef565185aa33e65a72d00"
+    },
+    {
+      "book": 12,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case1.0.bin",
+      "whole_sha256": "497ecc5bf9b80e38d1d796a7d519c4156e5adc816d43d8df93b0a2ae014d28c7",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case1.router.bin",
+      "trace_sha256": "d2b6c1e989f6e342eb30ef21f213a8a8a60f49bfc2b753b01cd17e66a1a628dd"
+    },
+    {
+      "book": 12,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case1.generation.0.bin",
+      "whole_sha256": "38342c5724ad22478a5360a4c0b651993c0bc0892a9d3677fd48cd5a10d99832",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case1.generation.router.bin",
+      "trace_sha256": "3c840ca7a3440cc2aa23fc49aa92e600aaabf2d362c38b99df37d7eaf06fd51c"
+    },
+    {
+      "book": 12,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case2.0.bin",
+      "whole_sha256": "dadcdffbaab0318c9c6edb2a8fc0e16c5579a0110db3d43855e4b15da2809b10",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case2.router.bin",
+      "trace_sha256": "0db73e38983246e7359e8eaa7ad592dd01aebfd6c26d3a87ab8fc1912a418392"
+    },
+    {
+      "book": 12,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case2.generation.0.bin",
+      "whole_sha256": "2137b732150d051599c7944c51ac5efd08ced0874947cef80e166eb71f04b0cf",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case2.generation.router.bin",
+      "trace_sha256": "ba061b1f0fd040bc338f83d97687b92dc88ec535a35779aca7e88959e710949c"
+    },
+    {
+      "book": 12,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case3.0.bin",
+      "whole_sha256": "adbc4474d47210c350eb7d8d65459cbcf7ffe32d558545ff5c0b9bfd1aca65d3",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case3.router.bin",
+      "trace_sha256": "802dcbd8aec3d21e9f13ae16e80f81b20f886609e02e8caba2d05586ead3bd76"
+    },
+    {
+      "book": 12,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case3.generation.0.bin",
+      "whole_sha256": "7e010ad0b75c6d4c458d4b9e20df309132ddb8516d72231e4978a11cd3ef79c8",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book12.case3.generation.router.bin",
+      "trace_sha256": "10e132d64db86dfb45088d55b97c59dab604505d26bd0cb2c18094ca72b2f11d"
+    },
+    {
+      "book": 13,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case0.0.bin",
+      "whole_sha256": "7e46547ae6f90c5abae17a46a017493bdc97202f6b2c4f3e89d1099417af3565",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case0.router.bin",
+      "trace_sha256": "5fd1b7917358d4c1578521053a67d0dcd4cd6bc456b88dfeb9643b4c56c8ccbc"
+    },
+    {
+      "book": 13,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case0.generation.0.bin",
+      "whole_sha256": "65c4b8ddd4282af2c3399a9d28ba370dafd783bfd551b04016155fc74386ea9e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case0.generation.router.bin",
+      "trace_sha256": "f87fd183f76af6564f26686a6767c808e4a60bdf0d92b7aec9ba3049cdb63126"
+    },
+    {
+      "book": 13,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case1.0.bin",
+      "whole_sha256": "873d8b8dd4b46d95cbf4c40168516c652a3b106bbfa7c31a642ab30ec389ccfb",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case1.router.bin",
+      "trace_sha256": "d857cd5b9b8ad362c74060613321bd059c5afe4994802037a7572b6a264aa55d"
+    },
+    {
+      "book": 13,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case1.generation.0.bin",
+      "whole_sha256": "537d34e77fb3f108f46de85b10d75c2ed26fb5fa38bd55c5c57f2acd229dba60",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case1.generation.router.bin",
+      "trace_sha256": "5dec0f29cd268f6f310c8c41152644dd3ccc9d4fab7cdfeb482e9404a1ad02a5"
+    },
+    {
+      "book": 13,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case2.0.bin",
+      "whole_sha256": "48bdee56553a7c6e7436aad6280f0fe640a30c24fb1f2730a95629d33d444bc6",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case2.router.bin",
+      "trace_sha256": "65fed1c4835558dda3188b00173f5df393e523501cb6a5de2fd9da0d6e8342fe"
+    },
+    {
+      "book": 13,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case2.generation.0.bin",
+      "whole_sha256": "2c7309599066002515091f26afdbc26aec85fdb7a3294cfa2531614cfee761b7",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case2.generation.router.bin",
+      "trace_sha256": "ff0ab71c46c2b1bd92c4aa62360be16fdcaa4d5e20390523345e85519dda9af4"
+    },
+    {
+      "book": 13,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case3.0.bin",
+      "whole_sha256": "ff29de9d532fbe082689b34cc9edb1d37014a336114ebff596dc75528239783f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case3.router.bin",
+      "trace_sha256": "d5c3fec769c2c8339f997ef90ce51f06843bea2dd92b294709c094032829ef25"
+    },
+    {
+      "book": 13,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case3.generation.0.bin",
+      "whole_sha256": "c60c56614f462d469b1c201ddf738e44d048499b74a0f0392450038bc2877f30",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book13.case3.generation.router.bin",
+      "trace_sha256": "e9be2c22c9c3f1731aeb3b11e274ce66a3515a9739ae453d13a8818805f6011c"
+    },
+    {
+      "book": 14,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case0.0.bin",
+      "whole_sha256": "e09b7614e61591ce3fddede04cc2c060192c77892d99232e90dde15944dc6209",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case0.router.bin",
+      "trace_sha256": "c5a4c57d8a2642a34d28f437fb9e3d5b69aa94f6b8cc7022ff17e073cae19774"
+    },
+    {
+      "book": 14,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case0.generation.0.bin",
+      "whole_sha256": "692165451ec37465823f719b43e5bd8223bc3b7d3641953de0b4c14c6f8f3aa2",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case0.generation.router.bin",
+      "trace_sha256": "ad110a0614ee16ca182a58ea929a157c60f069b6c1c799dd139b952c0d0286cc"
+    },
+    {
+      "book": 14,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case1.0.bin",
+      "whole_sha256": "03a6ac9f8fec74bbb442cb40727b4574172acd662a02be78a78a989a9060f4c1",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case1.router.bin",
+      "trace_sha256": "9fcd6ff8d8a5883ae3ca29c99974081a7ed4cdfec1c41e8f1311718d585bdb71"
+    },
+    {
+      "book": 14,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case1.generation.0.bin",
+      "whole_sha256": "e9a5e2b46c66a9567822575f2b82f5e1dcab32b7ef73d8acab69ef14b372e286",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case1.generation.router.bin",
+      "trace_sha256": "844579bace56785db43968be38ff1192bd4ddd12a74db9e94bfcfaa8be323461"
+    },
+    {
+      "book": 14,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case2.0.bin",
+      "whole_sha256": "b3cc1dbdf5397440602d9618fdcb0dcf396306166b772604b68242a7bd12a664",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case2.router.bin",
+      "trace_sha256": "dc3b782fb32e38368b5799f0d25204b9ecf1fc204cd7ae266f66e3caecf21a87"
+    },
+    {
+      "book": 14,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case2.generation.0.bin",
+      "whole_sha256": "5fda603f9e169fcf0e81640247b0ddf9506084744813fb8641933d29eb3160b0",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case2.generation.router.bin",
+      "trace_sha256": "1532f9921b872399fc4376c86c6371192209cd61a6cc4929ee6579859b670b4a"
+    },
+    {
+      "book": 14,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case3.0.bin",
+      "whole_sha256": "db93cc8f28f29720e923324b4566b49a5fb626cc4cca5994e4d2991239ba2919",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case3.router.bin",
+      "trace_sha256": "d91473a0f140223b35d88aecec3d33c7479c6545ffb1eecf7c20cc08acd7afe3"
+    },
+    {
+      "book": 14,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case3.generation.0.bin",
+      "whole_sha256": "3368acd81ca9c32d9d6f5a996476ab558bd474b1444387467383697809f26b5e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book14.case3.generation.router.bin",
+      "trace_sha256": "69719cfd30f899d14f541393dac33960537dc35b0f77a5331ee4f22d544ae5f8"
+    },
+    {
+      "book": 15,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case0.0.bin",
+      "whole_sha256": "ae21aeeeee971d72e701464151818da921a2f9ac532119385b627b9f823ce262",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case0.router.bin",
+      "trace_sha256": "19b2428ce89f9e517a6d625c1736f2813c8e0a91cfd0be8c139103cd674798ec"
+    },
+    {
+      "book": 15,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case0.generation.0.bin",
+      "whole_sha256": "b34ba547b0cf630efb347c25d8751373d7ca55a6f358e582256851e37634cb6a",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case0.generation.router.bin",
+      "trace_sha256": "8cb2d511fcfede7821497eb88100e8cc1e6b8e33bf25aa7dec57a16b13d16d0c"
+    },
+    {
+      "book": 15,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case1.0.bin",
+      "whole_sha256": "36d9389262e820dd01dfbe86d8f9d8a93e7e51b8bbb881330e56f2142683dcb6",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case1.router.bin",
+      "trace_sha256": "6b63cd7cf455d4a3602cf89d935788d1347425f080c7c1fd5cf9bdf4a6d442ce"
+    },
+    {
+      "book": 15,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case1.generation.0.bin",
+      "whole_sha256": "aaeebe61c0ddf8677192d1089c6d9438fbca253a3fbcb82cfee577b856364c0d",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case1.generation.router.bin",
+      "trace_sha256": "1d01a0ebf5de3a6d505115a9929c82e54e3599625db8f9d323aa18117d5206b3"
+    },
+    {
+      "book": 15,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case2.0.bin",
+      "whole_sha256": "5750d7afe824149d34649b3187b905f0c675cf04f5a477d29fb7c6e27c1df728",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case2.router.bin",
+      "trace_sha256": "4713fc53af0a161cae2d77673c5aeac4aab0bfdc1f95e8bcdb6598e08ea5d541"
+    },
+    {
+      "book": 15,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case2.generation.0.bin",
+      "whole_sha256": "c776187cee1cc6c3faea280ed7f510a49d8ce8cf96104f7321764e50fec3cf72",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case2.generation.router.bin",
+      "trace_sha256": "7f062d7e40573e4689c64f8f42bd3ef7a540c805e162c7acb92b1c87cc4e4374"
+    },
+    {
+      "book": 15,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case3.0.bin",
+      "whole_sha256": "75726e1806bc3de1fc25227b5fe52075db5bfe40d44f6173f42ef42e0cdb552b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case3.router.bin",
+      "trace_sha256": "ff0e5ffb6cccb4b9fcdcb161f66e35fdeed7fb47456d2f57f73518d3417bbc22"
+    },
+    {
+      "book": 15,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case3.generation.0.bin",
+      "whole_sha256": "30ec8384d628997f432f496245ca2463169ae046e86a72290fe4f95e71e931d2",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book15.case3.generation.router.bin",
+      "trace_sha256": "0462c84f3e7cd1a50748d3b1dbb9d446ca70ad85eeff95e580864ee0788ddc00"
+    },
+    {
+      "book": 16,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case0.0.bin",
+      "whole_sha256": "17140ebd2e1c27ee6bfaba71d0105d01a10031470a544e26be26f931be20005c",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case0.router.bin",
+      "trace_sha256": "6247b9bfd3f881d7a1f703b90954bec637e9ba42c39459c22d34ef4d4488504b"
+    },
+    {
+      "book": 16,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case0.generation.0.bin",
+      "whole_sha256": "ea0695e8ea8d07a531251177c1b76961e0bd3bee0d7c117f4a5bfa7c7d8addc2",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case0.generation.router.bin",
+      "trace_sha256": "09c25fe25ebdc93d7d2ed67778affdf9410f22a4f26baae61964c053eae4f892"
+    },
+    {
+      "book": 16,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case1.0.bin",
+      "whole_sha256": "c68811d8f4aa8b15b821231b56f311c808872f433304919dcfb63042c295f398",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case1.router.bin",
+      "trace_sha256": "bf6b5318ef741d3d87dfdd339b9236b89c8527ea634d05c1ef937576ab4c1c64"
+    },
+    {
+      "book": 16,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case1.generation.0.bin",
+      "whole_sha256": "ded92e27c051167ffb739245e2ad8493df334a6ed7165548a5085c42947da2aa",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case1.generation.router.bin",
+      "trace_sha256": "eff10e884cee65662e622cd7e1150d9acd3cdf0c8e586113c65444cd930439af"
+    },
+    {
+      "book": 16,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case2.0.bin",
+      "whole_sha256": "4291d98f413c791b41094a39c8cc81828b56d9341c57df504c81c95a3c828e1b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case2.router.bin",
+      "trace_sha256": "4e6872d0bed73bda259f6c49655cbc4b21b85fe6f479d12863a2e7d207de708a"
+    },
+    {
+      "book": 16,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case2.generation.0.bin",
+      "whole_sha256": "1ba0ec83bec4540150842c0e4d281b02225d37c53872d69ceea87aaaf9b1dd56",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case2.generation.router.bin",
+      "trace_sha256": "c77a034f3898c5f27a93b462326945a3e3005a94d93f1776ca937c76354ab445"
+    },
+    {
+      "book": 16,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case3.0.bin",
+      "whole_sha256": "82fea07a2f5400162b08a1e32bd24e227636e3e6510315565cf2a6ffae9f3396",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case3.router.bin",
+      "trace_sha256": "0be53ab448b6374a4ce1070c5079e824285942cc93c64ccbd8befac7ec7cf373"
+    },
+    {
+      "book": 16,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case3.generation.0.bin",
+      "whole_sha256": "62e6b4c02d9bfa01c951b17e85225d13ebb6061ce35f0153a4bf83c8b0bc473e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book16.case3.generation.router.bin",
+      "trace_sha256": "ac6ba95e257e9f47f788d930f6be632b791b435c441dbe06431ea1403730e846"
+    },
+    {
+      "book": 17,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case0.0.bin",
+      "whole_sha256": "d4bbab85a22283f0fddeda7d86d52788fd118d95b159c3e6067729fb0376e644",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case0.router.bin",
+      "trace_sha256": "1969a5f74ddea393d26c810c20c420d15013298a92f52b65c563d526e5ca10db"
+    },
+    {
+      "book": 17,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case0.generation.0.bin",
+      "whole_sha256": "f26f72b80aab7d1a1d2dd0650a4b74841f6bf80806c3b19887ea3d71df17079f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case0.generation.router.bin",
+      "trace_sha256": "29811f41cdb68ebfe83a553db0818d6a9964e31fc215b1fd94a3893366de08ec"
+    },
+    {
+      "book": 17,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case1.0.bin",
+      "whole_sha256": "1a9029a6bd7ef73dca46e3eab8c791eb5564eeb8d55bcf2e3b7084d5ca963c13",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case1.router.bin",
+      "trace_sha256": "4d2c9dfed160b592c78e0c114ab8df5ab4be6a8f1666c5d0d0b8979807acb773"
+    },
+    {
+      "book": 17,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case1.generation.0.bin",
+      "whole_sha256": "ec22398b8749da976f10e4c7b13bd28218ad125116944620bdf7523b36e84400",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case1.generation.router.bin",
+      "trace_sha256": "474697b049607d955ebcaebc54ec27feb7218e40bf2c01c14fddab6d2d5d1264"
+    },
+    {
+      "book": 17,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case2.0.bin",
+      "whole_sha256": "b1aa638b4390ea372a37eea8fb114b30c903ea2fafd567c0aa41b80b61490bc8",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case2.router.bin",
+      "trace_sha256": "fb6ec70108912a367f85b9582a0654516e03048a81193b2e67edaaf01a5ff477"
+    },
+    {
+      "book": 17,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case2.generation.0.bin",
+      "whole_sha256": "67e0e20d1f9bd2d70f390393c5bf4915ae2a79c064a31de38e3065164f0d1356",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case2.generation.router.bin",
+      "trace_sha256": "c1f2af2c6b9b3d78d58fbd1d48dbb50a549d74f85f79168439d47bae7c8ec7cc"
+    },
+    {
+      "book": 17,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case3.0.bin",
+      "whole_sha256": "5a19448975c0cf8708048ef9bd6932f30849bc2a0c484c48b876da8b5abf3759",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case3.router.bin",
+      "trace_sha256": "e5e89cdafde6d43b37328e5abadfe90a929b3a8e4ccbbfabbfd22bf70ee4ce23"
+    },
+    {
+      "book": 17,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case3.generation.0.bin",
+      "whole_sha256": "aa9e983aa5232fa35cb0f62656939746dde75c848b81a94824c58f4019d6a60f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book17.case3.generation.router.bin",
+      "trace_sha256": "98c3bc886fcb678996b43c8e7c165ea60fb5c857265d0163375917c98060b687"
+    },
+    {
+      "book": 18,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case0.0.bin",
+      "whole_sha256": "3c545d725cbde375971d663073d7625ee16580f83ad641f3984086757406b1f4",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case0.router.bin",
+      "trace_sha256": "f1d94e4b3e3712e2119fb491d1dbbedec9ccb7d879ce7755ae6772bddd0c6ec6"
+    },
+    {
+      "book": 18,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case0.generation.0.bin",
+      "whole_sha256": "6de100e882ba969fa492663bab0dbc489648fb6c6a122723270658c6785a1bab",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case0.generation.router.bin",
+      "trace_sha256": "f1ab9ca2a84ce3c641926ba7893161235d60d8e94e153f835962e945346ca5d8"
+    },
+    {
+      "book": 18,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case1.0.bin",
+      "whole_sha256": "ffe0840f45132e95e8c8683b7bae456ae9023172e0864a7e56f24e82081425aa",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case1.router.bin",
+      "trace_sha256": "4b068d10387bfd14a38d54fde255c72107f6b6b391a7366ff530c4b233bc8e47"
+    },
+    {
+      "book": 18,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case1.generation.0.bin",
+      "whole_sha256": "c772bc8e143c973c20df370db69fd6758b4d83afce6d0f2cfc2491258906f608",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case1.generation.router.bin",
+      "trace_sha256": "3b88ff9bd68df0fa564607121966b5437d883b9c73b2df0ef30ce078a98d2452"
+    },
+    {
+      "book": 18,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case2.0.bin",
+      "whole_sha256": "c3e2261325c1cd455096e78ce515059c3d740f6c171671ce076e5f09881065b0",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case2.router.bin",
+      "trace_sha256": "31167307680940b28f4bff53d53cb6629e81770aaaff802ae42bd47050455749"
+    },
+    {
+      "book": 18,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case2.generation.0.bin",
+      "whole_sha256": "d461e21c2d95ba06003f4c34c882a71105329d9190c8e25668aefa90772465a0",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case2.generation.router.bin",
+      "trace_sha256": "2b22ad8bd77ef8da06be0710bccef1099106c687026104a107e0e5d69192c29b"
+    },
+    {
+      "book": 18,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case3.0.bin",
+      "whole_sha256": "a06e6a08f9bf9573a5fdc58e4058e4dcf3c6e17cd5826288bac502eaf221ab22",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case3.router.bin",
+      "trace_sha256": "f36effe5337d4ed9760d5923f8d5bbd7795a7001701fecd106099b4982bfc0f2"
+    },
+    {
+      "book": 18,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case3.generation.0.bin",
+      "whole_sha256": "6cabb22719783b2af6e5268ef58b0a8885309b58d3ac257eba30b55f33c2dc61",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book18.case3.generation.router.bin",
+      "trace_sha256": "620f3933ee466ec32fc804e5fa0e5a43efeb8ec1898e08ad8efde06fe66d56fa"
+    },
+    {
+      "book": 19,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case0.0.bin",
+      "whole_sha256": "6c5473f65c2cff0fe737fe42e7236bbe2b0a4f4af6f7c1c5792f8e823ab18989",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case0.router.bin",
+      "trace_sha256": "a269caf56f02be3d116d9f18c288586f6bc4bc564aabc20e4d7f12eae3cafcf0"
+    },
+    {
+      "book": 19,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case0.generation.0.bin",
+      "whole_sha256": "0439577fd0141d7d76eb397631694dbb74b395679a1de798dfd36586aa360caa",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case0.generation.router.bin",
+      "trace_sha256": "8ad4ee80061999cf188f385f6ff218de8ba2a3e9f5bbbf787914714fc3cb0a09"
+    },
+    {
+      "book": 19,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case1.0.bin",
+      "whole_sha256": "3b00e9aa024b4e9d3d88b6751e92161f8cd9b948b3784abc19e43c9548ff9b83",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case1.router.bin",
+      "trace_sha256": "f00f7e062088ff25b89c7decbb2bd568efe1aaef58797251d8889413b16b99fb"
+    },
+    {
+      "book": 19,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case1.generation.0.bin",
+      "whole_sha256": "2323cacef61808286d775d55b71edf5eb85493913a0f6d490be090b26726f9ea",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case1.generation.router.bin",
+      "trace_sha256": "de4499d634e1ccc08f3d85b0c60d523b37b69fdc9b293c7200a223f96e020e58"
+    },
+    {
+      "book": 19,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case2.0.bin",
+      "whole_sha256": "8cedbee5f1ccf8b8ce8b9b3c19c99d03e3e7c680acdd1baed59219b15590efe8",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case2.router.bin",
+      "trace_sha256": "5453e2775db83e722bca7804f51befb84a73bdb1e239aad6a2836f4030a67b3d"
+    },
+    {
+      "book": 19,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case2.generation.0.bin",
+      "whole_sha256": "50cf68a0e53265022adb7d0af03daae4d3ce955fc4dab92eedc20cc08a2e554f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case2.generation.router.bin",
+      "trace_sha256": "868132a37252980c29f8ac67a8f7c950fbae7549f8399f6aa79d7ed31e02936e"
+    },
+    {
+      "book": 19,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case3.0.bin",
+      "whole_sha256": "f637c35dbe380291ed1158ec2044a3239143e2714bc4ef5ee0873a435cbff3ea",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case3.router.bin",
+      "trace_sha256": "45c3b656e312a9fb13197a7ece6ff08f02f4f1e2b6bef843bb868d1484e19601"
+    },
+    {
+      "book": 19,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case3.generation.0.bin",
+      "whole_sha256": "d416d84b95603a8843d3dc15f04690c045c72c3d061c87733c99e973643822b6",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book19.case3.generation.router.bin",
+      "trace_sha256": "16900b578bd919efd81ddd66f431cc3b192b3aa9f919a34beeeb29f2a128fe98"
+    },
+    {
+      "book": 20,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case0.0.bin",
+      "whole_sha256": "9ddeab21b9dacd4f3a3b8831cf7425454c03f0cf065e0ce75e2f83a7b41bab1a",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case0.router.bin",
+      "trace_sha256": "9a0ace6264dee3f9008ddfc8b2dba8575e28b67e45488e6066f8c3e35251ac50"
+    },
+    {
+      "book": 20,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case0.generation.0.bin",
+      "whole_sha256": "2cf840d1a1509e62e087850bffe9290de62e9ca16f059368f13f3a2e8c79046c",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case0.generation.router.bin",
+      "trace_sha256": "0fa4cb30e51ee58722a48fda0906982c1aaeca2a4244c29a60f9269045e62e14"
+    },
+    {
+      "book": 20,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case1.0.bin",
+      "whole_sha256": "1fd210b8fc97b4fd633ff2c77ef2aa6c9a9b1f17de5e3d96917425539fff44ae",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case1.router.bin",
+      "trace_sha256": "1c4056677e08e3ef86384872dd7677c481e999e224cd114aa479fb1be6506435"
+    },
+    {
+      "book": 20,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case1.generation.0.bin",
+      "whole_sha256": "1d6029a946033786cb4fe503285eccc1e0c966fcbb4248a5e44676b16cb7a902",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case1.generation.router.bin",
+      "trace_sha256": "7f397f4b0b4e1f192c518314feb89bd4946f96a7f9225ba45b27d1555c6924f5"
+    },
+    {
+      "book": 20,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case2.0.bin",
+      "whole_sha256": "17cf99d09cc70f27b07cf3cce2199f8b947543c2af0d15b06ce834eb3a62abd2",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case2.router.bin",
+      "trace_sha256": "e2a8da9b68fd61ee83b860ed48e608b69dc6fe2f5888297df0f87d1755d11d8d"
+    },
+    {
+      "book": 20,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case2.generation.0.bin",
+      "whole_sha256": "d905ed3d841839ff4cccc0c794629e8f7ce11aabb9071c0ca8655b92f9181057",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case2.generation.router.bin",
+      "trace_sha256": "5ad311cfdc50a53e254a80790790cd6d5876f4b91b8b1bd7e80adddccfa40726"
+    },
+    {
+      "book": 20,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case3.0.bin",
+      "whole_sha256": "db7f1bf2c11b89ffd52c04c797e10f156d78eef1d4e9b266c06e62a5114b4419",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case3.router.bin",
+      "trace_sha256": "d7108e8630ee0cf6774c83fc5770802d17486c437becf5203f5d904b5ce4f6d7"
+    },
+    {
+      "book": 20,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case3.generation.0.bin",
+      "whole_sha256": "1e6fbaa394df152a06af4fd6061026e929edd4e63878c1a55c3626c56f66bb42",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book20.case3.generation.router.bin",
+      "trace_sha256": "c377d15affddbd1e0fb05471152bd01d8901fb107bc7c73090d99baeedcfe39b"
+    },
+    {
+      "book": 21,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case0.0.bin",
+      "whole_sha256": "81b4e8319508dbe21dc1e27b44e2c90e8b7c42051951a7a3c9a50c85365b4871",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case0.router.bin",
+      "trace_sha256": "cfdfb4ec6e7a1d6ec242cb3297b27844b78cef936f6193a626f3eabd2b0ba97c"
+    },
+    {
+      "book": 21,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case0.generation.0.bin",
+      "whole_sha256": "f8f5d3669bb796fbf09790fb373b62334cd3ac8d6ab3945bd35529f860fa3798",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case0.generation.router.bin",
+      "trace_sha256": "49be00a6c00f49e9da49d8d985cad3b824c840cd32a1568e4ba6153728e41851"
+    },
+    {
+      "book": 21,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case1.0.bin",
+      "whole_sha256": "f3d46bdb40fe50786e57fdcc6c7445a08390c694544230309f266b90e4379b27",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case1.router.bin",
+      "trace_sha256": "b046cdf631d4173300b30d7b7c4b2cc773f3b2ec8f096c6d0ac2e4be14339f03"
+    },
+    {
+      "book": 21,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case1.generation.0.bin",
+      "whole_sha256": "dd48573a4e013a03990e2004d1fc313cca5a2be688be0f68de1defea50d292bf",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case1.generation.router.bin",
+      "trace_sha256": "5e6ab6b99df303831dadc52633fb7a3efb17d7a50a6ae96e8de00f1f502f4402"
+    },
+    {
+      "book": 21,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case2.0.bin",
+      "whole_sha256": "63f99551032e4c730c5a949b435d1c3ec19e98e1b80c6df8c11a44ad9e64b74e",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case2.router.bin",
+      "trace_sha256": "ba9e9a759dbdcaf4471ffdebd4b60c688c80c6bfa2021c1dc70f9ddd6e520094"
+    },
+    {
+      "book": 21,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case2.generation.0.bin",
+      "whole_sha256": "33398c42cb174c6c4ac4d3c10d38f7152a3a9a2c25f794e46f5740e9bea8a400",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case2.generation.router.bin",
+      "trace_sha256": "23aac443dd3db966e85a938f07e2f32a08cf64dd7a9bbd41a46470dbae8a5d2b"
+    },
+    {
+      "book": 21,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case3.0.bin",
+      "whole_sha256": "be3a97935a98247151ea12d2bb344902101e880f3a64bb228c491c5ae44b9945",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case3.router.bin",
+      "trace_sha256": "c814525da7d16997db92ab8e2b94d3d90434004da7cb78d7e28325533b3c927a"
+    },
+    {
+      "book": 21,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case3.generation.0.bin",
+      "whole_sha256": "071592d43091bbb5178327225d13e9f02ea7da7e59190ef0ffb5557c7df9ee99",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book21.case3.generation.router.bin",
+      "trace_sha256": "0244897bb639334f93fd2092b114005ac9308a20839e96261de83767e4fdc856"
+    },
+    {
+      "book": 22,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case0.0.bin",
+      "whole_sha256": "f78ffee9456d43ac8f3b0db49393cbc1e3d3c22976d9d62db881e371ca9ab340",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case0.router.bin",
+      "trace_sha256": "9b2d45c1c2faea5f754f04df6167a1ace5ede2d93f09938a13043fe39a83d29f"
+    },
+    {
+      "book": 22,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case0.generation.0.bin",
+      "whole_sha256": "9a77b4257604f67f6f68cf6210e69aaa2218a164d513bec26280d983c9b72b24",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case0.generation.router.bin",
+      "trace_sha256": "d5a40e1dcae1cb56bc30908d3d5841d575e03d527d916ac721b04798dd574d96"
+    },
+    {
+      "book": 22,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case1.0.bin",
+      "whole_sha256": "2f82642bb15ada551d34455452a3a27e235faa914ed294f9ca1ebfa75bc8efac",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case1.router.bin",
+      "trace_sha256": "9662e0f2b39dae1a8552c1ee12ee78a643023c3338ca1d77998cf4ab4c7fd7a1"
+    },
+    {
+      "book": 22,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case1.generation.0.bin",
+      "whole_sha256": "8536fcb8925df4676b72048f56e1b0bb4c9d2263d9e0ef09f1505f164f975e13",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case1.generation.router.bin",
+      "trace_sha256": "4fe3e06106fc6ace6ce925a1d705be9c24882d09094e71f4dc34c76d12b0fb23"
+    },
+    {
+      "book": 22,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case2.0.bin",
+      "whole_sha256": "3daf5033ff0ac4b04009155b38e7c5801136d6d0364f1de5829d75c43ba89948",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case2.router.bin",
+      "trace_sha256": "39db0dc8fefd41cb6e776e3ed57f32ce96281143ddc4776d03ddeb2ba0991f1c"
+    },
+    {
+      "book": 22,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case2.generation.0.bin",
+      "whole_sha256": "a51e60d6cdf2d19cf1d26b360a99bb858de86668de11c22f90e5d9eaf14cd6cc",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case2.generation.router.bin",
+      "trace_sha256": "98778cb0c5ec64ea97ee091622bb00ad18bba105406ab7df7de0c074e8f568c5"
+    },
+    {
+      "book": 22,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case3.0.bin",
+      "whole_sha256": "a142b6b47e6b7ff7fbb4b93f5e6da3c381a7c52629bb71df70593040f100b8fa",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case3.router.bin",
+      "trace_sha256": "a79cd7febd681e21e1f2cdd91f415177d01213d00b2df95ed65d4f13e9379c53"
+    },
+    {
+      "book": 22,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case3.generation.0.bin",
+      "whole_sha256": "5fa50dd5e8feb1b1277f4336e046e21c7ff3d46c86afbce8e0072612319d2ce9",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book22.case3.generation.router.bin",
+      "trace_sha256": "5e7d8092559bb318d18ac821f0ca6a1100eef2688ecc9e4ae331e7f5d0ce8285"
+    },
+    {
+      "book": 23,
+      "case": 0,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case0.0.bin",
+      "whole_sha256": "b633c8ce3b34b13191e1dca91934974b48f1db922f9c2630820f06088d6d3d83",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case0.router.bin",
+      "trace_sha256": "d00bada5022c58640897bf4550d5c49dc9e2913af0d783ff085ae9de5e8e6c6a"
+    },
+    {
+      "book": 23,
+      "case": 0,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case0.generation.0.bin",
+      "whole_sha256": "475bb51560e9baa0df671bb878ccbcec61081f40dd6854036a0cb5ce931b6a1f",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case0.generation.router.bin",
+      "trace_sha256": "3301536580f71ca52dbe02bbc5e1786be607b17403c28c50178fb9b71d28e74c"
+    },
+    {
+      "book": 23,
+      "case": 1,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case1.0.bin",
+      "whole_sha256": "0d014d0d3d0db3955cac66071f5e4f99d5d67c2e09cb31d8c03362d986dd435a",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case1.router.bin",
+      "trace_sha256": "6f49523f099291d94c90a1654ce550dae464d74aac3bda2763e418a8c5080623"
+    },
+    {
+      "book": 23,
+      "case": 1,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case1.generation.0.bin",
+      "whole_sha256": "c153c3673ffdb763700cdc89d9c76e59477e6d48e4723d69a24054137351cc05",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case1.generation.router.bin",
+      "trace_sha256": "5ac2feae6a94fa8f2c2b5af2733801ee19d40f2b30ab309943253c0bf9c315cc"
+    },
+    {
+      "book": 23,
+      "case": 2,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case2.0.bin",
+      "whole_sha256": "994f5faf255dd55778cd844fc9a4cca9f6e8e72a77453fe4c79ba0e32607d5e3",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case2.router.bin",
+      "trace_sha256": "a9482869472834d8fb31f01490b118231270e14052c390972a005cfda53345ef"
+    },
+    {
+      "book": 23,
+      "case": 2,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case2.generation.0.bin",
+      "whole_sha256": "f163c4ff43c7eb1fcb12873364249e2e3ea498ee77d906ee05ffed83bd5d1da2",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case2.generation.router.bin",
+      "trace_sha256": "8099b22666ada17355fe6777a59548693833ddcf72fa86a6fa25db30557a9dcb"
+    },
+    {
+      "book": 23,
+      "case": 3,
+      "mode": "teacher",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case3.0.bin",
+      "whole_sha256": "e01e13701373e54f9c7a72c3e8f3ca1a179fcdbede4ae61ff8fd893cce8e557b",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case3.router.bin",
+      "trace_sha256": "a9efa898f75e435579c03c6f475359340f5afffdae18b09ebc71e05ce76e241e"
+    },
+    {
+      "book": 23,
+      "case": 3,
+      "mode": "natural",
+      "whole": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case3.generation.0.bin",
+      "whole_sha256": "2391690d5213ef411745b88c947d12ee3711d3de56a20c280a55c772e98c23bd",
+      "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\n128.book23.case3.generation.router.bin",
+      "trace_sha256": "097219936d4265d38e59d0c20bc890f6eccd2853b1a092e91a00e3562b2943c1"
+    }
+  ],
+  "gates": {
+    "strict_frozen_source_runtime_original_payload_binary_records_roles": true,
+    "ALL192_original128_retained_whole_trace_SHA_and13plus6_A16_controls": true,
+    "fresh_worker_fault_8_full_golden_bytes_and3_trace_route_negative_controls": true
+  },
+  "source_binding_sha256": "a15510850296a09dc32c305873b50d99cbd6722ed0863402195e2283c5214394",
+  "preserved_daemons_before": [],
+  "controller_sha256": "c4a687078ef275988862ea955640ffcd15d44a4f987941292de58da36e0f66b7",
+  "protocol_sha256": "4973ec3e9cedb2e4533772d7a2c62b940a78651040e3fd0a268128129a47d0ea",
+  "head_at_execution": "a3bf62666b7be716ccec5200a46c5737b4b1e91c",
+  "preserved_engine_sha256": "54194c36b62571df014e8ebc251147ddd37436b5fb81c75db76f6fd4d8da0414",
+  "artifact": {
+    "payload": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\weights.bin",
+    "bytes": 7541946880,
+    "sha256": "6bee473e1797332b4650b69a3ba6771128d24e7395d4b961515d844fd71c0cfe",
+    "manifest": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+    "manifest_sha256": "3a4892ad2bc846937a3ad7898048df64b9a26dc391a3d02c110fe75cd614511a",
+    "source_unique_parameters": 7415217408,
+    "original_experts_per_bank": 128,
+    "f32_embedding_alias_names": [
+      "decoder.embed_tokens.weight",
+      "encoder.embed_tokens.weight",
+      "shared.weight"
+    ],
+    "f32_embedding_physical_copies": 1,
+    "separate_I8_head_view_from_same_tied_source": true,
+    "row_I8_tensor_names": 3241,
+    "f32_tensor_names": 79
+  },
+  "payload_stat_before": [
+    7541946880,
+    1791084550563060000
+  ],
+  "native_binary": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth393_switch_router_audit\\meth393_switch_router_audit.exe",
+    "sha256": "67cc62872ea51748f2f92818567dbfcc54c94a152606dfde674ad65a5f3b4afd"
+  },
+  "native_runtime_sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698",
+  "prospective_byte_bounds": {
+    "native_and_metadata_upper_bound": 9976455328,
+    "ledger_max_records": 417792,
+    "ledger_upper_bytes": 35930132,
+    "metadata_reserve_bytes": 268435456
+  },
+  "actual_loaded_package_paths": {
+    "numpy": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+    "psutil": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py"
+  },
+  "fresh_topology": {
+    "api": "GetLogicalProcessorInformation/RelationProcessorCore",
+    "group_scope": "single group/local<=64 logical processors",
+    "physical_cores": [
+      {
+        "processor_mask": 3,
+        "SMT_flag": 1,
+        "logical_processors": [
+          0,
+          1
+        ]
+      },
+      {
+        "processor_mask": 12,
+        "SMT_flag": 1,
+        "logical_processors": [
+          2,
+          3
+        ]
+      },
+      {
+        "processor_mask": 48,
+        "SMT_flag": 1,
+        "logical_processors": [
+          4,
+          5
+        ]
+      },
+      {
+        "processor_mask": 192,
+        "SMT_flag": 1,
+        "logical_processors": [
+          6,
+          7
+        ]
+      },
+      {
+        "processor_mask": 768,
+        "SMT_flag": 1,
+        "logical_processors": [
+          8,
+          9
+        ]
+      },
+      {
+        "processor_mask": 3072,
+        "SMT_flag": 1,
+        "logical_processors": [
+          10,
+          11
+        ]
+      }
+    ],
+    "process_allowed_logical_processors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "selected_one_logical_per_physical_core": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "selected_processor_mask": 1365,
+    "physical_cpu_count": 6,
+    "logical_cpu_count": 12
+  },
+  "stage": "ALL512_teacher_natural_capture_and_domain_ledger",
+  "error": "error('pack expected 13 items for packing (got 14)')",
+  "end_utc": "2026-10-05T07:53:47.349976+00:00",
+  "main_seconds": 36.73399999999674,
+  "ledger_queries_written": 0
+}
