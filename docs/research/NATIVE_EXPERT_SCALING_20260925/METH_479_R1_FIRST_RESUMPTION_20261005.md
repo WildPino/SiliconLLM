@@ -1,4 +1,13 @@
-# Current pretrained routing supervision resumption
+# METH479-R1 sole first sequential supervision recovery
+
+5 October2026. Original failure retained af1614a BEFORE new recovery7e25da8.
+Original metadata/main/native/C/math/wires unchanged, no completed rerun.
+R1sourcee62679a2af94313ebca3ee63e891b7f1ce245c6ff2429c4aa1eb6a3e00bd6c8f;
+R1Windows048b6589929a23d14f34d935716760a39b550b64c540c372183c7278c69bc44f;
+protocolcc5cf662b1797295b843f7fb52bae320c2e8dafd7e421432eb9d7a9283753512.
+No R1 numerical invocation at this registration. Original479 timed out and
+partial target file is excluded from scientific reuse. All completed source/
+canonical bytes bound by first-failure inventory33ecee9303981d42597a63c9fcd90546b9b9b3f7054e014d231be54ad7bf8b96.
 
 ## Current resumption:479-R1 frozen, sole first sequential recovery
 
