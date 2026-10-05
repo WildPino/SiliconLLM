@@ -1,4 +1,18 @@
-# Current learned routing transfer resumption
+# METH480 sole first learned pretrained routing transfer
+
+5 October2026. Previous goal turn PROGRESS:479independent full supervision6/6;
+full goal ACTIVE/INCOMPLETE. NEW480 sources/inputs/runtime/controls/protocol
+frozen BEFORE first scientific compile/import/fit/export/prediction. No first
+numerical observation yet. Metadata helper73077 completed44.609s without NumPy.
+No completed original scientific program or native capture replay.
+
+Controller9c4cc94c4e727983276fd16d62905e1cf79a4f268a0f19790a4bd9c7b21a072d;
+mathd597c76300fb5a36fa0acfb14d15b63318ed14bb23877d9463f30bb200b7553e;
+C37df807e94b6977f0c64c5790ed2286315cdd594c731bad5940d787c87af8293;
+report0d39237364b9418f0d8ef4d6ecfa2ede178003fcd77a525e3b7729e120bef852;
+protocol0a9587d105b503906816bcd69a093c2fe1eaa3501ceca208fde3b55f712bcb3d;
+binding2c33137557c5a958680633187b536dde37df75e12ce3882e0cff04330259579e.
+Separate arithmetic note38406d7 distinguishes16rootexp from17totalexp/1log.
 
 ## Current resumption:480 frozen, sole first learned transfer inquiry
 
