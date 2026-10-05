@@ -20,8 +20,9 @@ meanKL lower.00062314.450 completed SAME449 margin diagnosis after retained
 first serialization stop: all4row/9block changed pairs cross in F64 readout too.
 State displacement is sufficient for these paired crossings; sole head-rounding
 repair insufficient. Next orthogonal coefficient/input basis proposal, preserving
-private ReLU and SAME block64-I4;451 source/math/protocol frozen ef63b0e BEFORE
-first import. Strict uncompressed control first, no451 numerical outcome yet.
+private ReLU and SAME block64-I4.451 completed ALL11apparatus/ALL3source-control
+PASS, sourceKL1.21e-8/0changes; compactKL.00065267/4changes>3FAIL. Fixed recipe
+CLOSED. Next proposed WI/WO factorial attribution, both diagonals exact first.
 Keep predictive gates; full multi-layer source-relative quality remains required.
 
 **Status: two bounded same-family pretrained source scales have qualified quality/rate;
@@ -29,7 +30,7 @@ generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
-running in the project C engine at Ã¢â€°Â¥50 accepted batch-1 tokens/s on a declared
+running in the project C engine at ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€šÃ‚Â¥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
 family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
@@ -74,10 +75,15 @@ block-Hadamard input basis before SAME block64-I4, ALL original coefficients/
 IDs/private ReLU retained. Exact-real equivalence and integer coefficient
 witnesses are proposed; native activation rounding remains a separate question.
 451 source/math/[protocol](METH_451_SWITCH_ORTHOGONAL_I4_PROTOCOL_20261005.md)
-frozen ef63b0e BEFORE first import. Rotated UNCOMPRESSED control meanKL<=1e-6/
-book<=1e-5/ZEROargmax BEFORE unchanged448 compressed gates. No numeric outcome
-yet; run ONCE CPU0/BLAS1/admission300/numeric600/total900s/4GiB/640MiB/free2GiB.
-If local gates pass, actual C primal/LUT cost must qualify, followed by fresh whole
+frozen ef63b0e BEFORE first import; [result](METH_451_SWITCH_ORTHOGONAL_I4_RESULT_20261005.md)
+ALL11apparatus/ALL3uncompressed-controlPASS. SourceKL1.21e-8/0changes, compact
+KL.00065267/4changes>3FAIL.339.742MB bank/signs,296.062s/2.625GB/606.547MB.
+Exact-real coefficient witnesses/new activation qualifier reusable; fixed compact
+recipe CLOSED. Next [452 operator attribution proposal](SWITCH_OPERATOR_ERROR_ATTRIBUTION_NEXT_20261005.md):
+2x2 WI/WO native diagnostic, BOTH451 diagonals byte-exact first. Higher-precision
+hybrids diagnose main/joint errors, not a new compact export or inherited quality.
+No452 implementation/outcome yet. A future eligible format needs actual C primal/
+LUT cost, followed by fresh whole
 held-out/generation/tasks and SAMEartifact>=50 accepted rate/physical DRAM.
 Byte savings, local KL or an exact integer reference alone do not compose those
 missing stages. Larger n/families/actual~100B remain the final method requirements.
@@ -509,7 +515,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268Ã¢â‚¬â€œ31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -517,13 +523,13 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846Ã¢â‚¬â€œ22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20Ã¢â‚¬â€œ22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
@@ -584,7 +590,7 @@ validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
 [318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
 now passes all source/numeric/format/route/capacity controls on fully allocated
 3.187GB with actual source head/router/norm/embedding. All nine repetition
-medians38.124Ã¢â‚¬â€œ55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+medians38.124ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
 full-width decoder is CLOSED before training/640-bank allocation.318 startup
 failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
 No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.

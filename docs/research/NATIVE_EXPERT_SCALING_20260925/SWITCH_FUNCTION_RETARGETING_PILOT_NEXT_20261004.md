@@ -8,8 +8,8 @@ gate.448 lowers matrix/KL distortion but increases argmax changes to9; recipe
 FAIL.450 completed the margin diagnosis after449's retained serialization stop:
 all4row/9block changed pairs also cross in smooth F64 readout. State displacement
 is sufficient for these pairs. Next proposed NEW451 changes input basis before
-SAME block64-I4, with rotated uncompressed activation control first.451 sources/
-protocol frozen ef63b0e BEFORE first import, no numerical outcome yet. The [strategic review](STRATEGIC_REVIEW_20261004.md)
+SAME block64-I4, with rotated uncompressed activation control first.451 completed
+ALL11apparatus/3source-controlPASS but compact4argmax>3FAIL. Next WI/WO diagnosis. The [strategic review](STRATEGIC_REVIEW_20261004.md)
 remains a historical analysis snapshot. Current operational instructions are here.
 
 ## Preserve the full objective
@@ -163,21 +163,23 @@ fallback certificates. Native original logits/capacity/RAM usage stay charged.
 Close head A16/F32 rounding as the SOLE explanation/repair for these observed
 paired crossings. Mean-KL improvement alone does not preserve directional margins.
 
-## Immediate frozen NEW451: fixed orthogonal bases before SAME block64-I4
+## Completed451 and immediate proposed NEW452
 
-[Prospective algebra and primary evidence](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md)
-define the NEW variable: one deterministic signed block-Hadamard input basis,
-ALL coefficients/IDs and original-coordinate private ReLU preserved. This is a
-proposal, not an implemented method or inherited QuaRot/QuIP#/SpinQuant result.
-451 source/math/[protocol](METH_451_SWITCH_ORTHOGONAL_I4_PROTOCOL_20261005.md)
-frozen ef63b0e BEFORE first import. Run ONCE linked command: exact coefficient
-integer roundtrips and independent activation transform/primal, rotated SOURCE
-control meanKL<=1e-6/book<=1e-5/ZEROargmax BEFORE unchanged448 compact gates.
-CPU0/BLAS1/admission300/numeric600/total900s/4GiB/640MiB/free2GiB; retain FIRST
-failure, no scientific edits/reruns/budget extension. No451 numerical outcome/
-transformed weights yet at this pre-run resumption. No basis/seed/blocksize/
-precision grid or validation fitting. Only local PASS would license
-separate actual C packed-versus-pair-LUT cost, then fresh whole quality/rate/DRAM.
+[451 result](METH_451_SWITCH_ORTHOGONAL_I4_RESULT_20261005.md),ef63b0e/72e181b:
+ALL11apparatus and3strict source-control gates PASS. Rotated sourceKL1.21e-8/
+0argmax; compactKL.00065267/4argmax>3FAIL. All real coefficient inverse witnesses/
+2016 actual basis transforms qualified, source672/compact1344 projections exact.
+296.062s/2.625GB/606.547MB. Close fixed basis/codec before C timing/export.
+
+Next [NEW452 operator attribution proposal](SWITCH_OPERATOR_ERROR_ATTRIBUTION_NEXT_20261005.md):
+exact2x2 source/compact WI/WO at SAME128 source input/ID/p/bases. BOTH451 full
+diagonals/state/logits must replay byte-exact before interpreting hybrids. Resolve
+WI, WO and joint directional/readout errors on ALL336 before choosing another
+conditional metric/exposure/correction. No new representation/seed/precision
+sweep/fit; higher-precision hybrids exceed storage cap and are not the goal.
+Prepare/freeze NEW source/controller/protocol/resources before import; no452
+source/protocol/numerical outcome yet. Future compact local PASS must still lead
+to separate actual C primal/LUT cost, fresh whole quality/SAMErate/actualDRAM.
 
 ## Actual arithmetic and memory, not nominal byte promises
 

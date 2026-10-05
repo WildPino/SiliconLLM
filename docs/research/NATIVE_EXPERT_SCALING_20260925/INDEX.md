@@ -21,8 +21,9 @@ KL improves to.00062314 while winners worsen; fixed recipeFAIL.449 first JSON/
 failure-writer stop retained externally;450 serialization-only repair completed.
 ALL8apparatusPASS/2688 selected head rows exact. ALL4row/9block changed pairs
 also cross in smooth F64 readout: state displacement is sufficient in these pairs.
-NEW451 fixed orthogonal input bases before SAME block64-I4 source/math/protocol
-frozen ef63b0e BEFORE first import; uncompressed control first. No outcome yet.
+451 completed: ALL11apparatus/ALL3source-controlPASS, compact4of5 gatesPASS.
+Rotated sourceKL1.21e-8/0argmax; compactKL.00065267/4argmax>3 FAIL. RecipeCLOSED.
+Next NEW452 WI/WO factorial diagnosis, both451 diagonal heads exact first.
 Whole new quality/rate/physicalDRAM still open.
 
 ## Goal and constraints
@@ -125,6 +126,12 @@ head too;13 arm events/11 unique positions, all among24 source margins<.1.
 Sole head-rounding repair insufficient for these pairs.9.625s/186.389MB/5.690MB,
 zero FFNs/complete-head forwards/updates. No deployed reference-free certificate.
 
+- 451 [orthogonal basis](METH_451_SWITCH_ORTHOGONAL_I4_RESULT_20261005.md),ef63b0e:
+ALL11apparatus/3source-controlPASS,4of5compact gatesPASS. SourceKL1.21e-8/0changes;
+compactKL.00065267/4changes>3FAIL. All2016 actual F64 basis checks exact here;
+339.742MB nominal bank/signs.296.062s/2.625GB/606.547MB/zero updates. Fixed recipe
+CLOSED before C timing/export. WI versus WO error still unseparated.
+
 ## Closed routes and retained context
 
 Identity403, affine activation404/406, lexical414/416 bridges closed;405
@@ -145,16 +152,14 @@ The user resumed goal work after the [strategic review](STRATEGIC_REVIEW_2026100
 
 [Current resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md) records
 450's completed pair-margin mechanism; all448/449/450 sessions terminal and
-first failures retained. NEW451 [frozen protocol](METH_451_SWITCH_ORTHOGONAL_I4_PROTOCOL_20261005.md)
-ef63b0e BEFORE first import, based on [dated proposal](SWITCH_ORTHOGONAL_I4_NEXT_20261005.md).
-ONE deterministic signed block-Hadamard input basis, SAME block64-I4 precision;
-private ReLU stays in original neuron coordinates. Exact coefficient integer
-witnesses and rotated UNCOMPRESSED control first (meanKL<=1e-6/book<=1e-5/
-ZEROargmax), then unchanged448 compact gates. CPU0/BLAS1, admission300/numeric600/
-total900s,4GiB/640MiB/free2GiB frozen prospectively. Run ONCE linked command;
-retain FIRST failure, never edit scientific files or extend bounds. No451 outcome
-or transformed weights yet at this pre-run resumption. No precision/blocksize/
-seed sweep;447/448 remain FAIL. Full-native quality,
+first failures retained.451 completed and CLOSED by compact argmax gate; all
+sources/outputs retained, no live model jobs. Next [operator attribution](SWITCH_OPERATOR_ERROR_ATTRIBUTION_NEXT_20261005.md):
+prepare/freeze NEW4522x2 WI/WO diagnostic before import; original128 source/p/
+bases fixed. Replay BOTH451 uncompressed/compact full diagonal logits/states
+byte-exact, then only-WI/only-WO compact hybrid diagnostics and native readout
+main/joint-margin terms. No new encoding/fit/seed/precision sweep. Higher-precision
+hybrids are diagnostics, exceed original60% cap and never replace the goal.
+No452 source/protocol/numeric outcome yet. Full-native quality,
 C/LUT/routing cost/SAME accepted rate and physicalDRAM still required.
 
 UsefulRAM-n/LUT/routing/realDRAM/whole quality/SAMEartifact50/families/~100B remain
