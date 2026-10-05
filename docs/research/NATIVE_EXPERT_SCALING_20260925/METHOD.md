@@ -29,6 +29,36 @@ After this ONE decision return to transfer/useful-capacity composition; no indef
 kernel sequence.458 whole dense/expert constraints inherited;456 fixed tile CLOSED.
 Goal ACTIVE/INCOMPLETE: full transfer/fresh donor quality/SAME50/useful-n/router
 mass/physicalDRAM/families~100B remain required.
+## Available method step: admit an exact common-input operator before implementation
+
+Tool: benchmarks/native_expert_scaling/meth460_switch_common_input_admission.py.
+Inputs: frozen458 original qualified source/profile metadata, binary tensor
+manifests,374/388 C source contracts and117 tracked C/H source catalog. Output:
+source-specific legal fanout inventory, exact shapes/scales/offsets, all-case
+operation budget and integer overflow bounds in460 raw. Cost9.594s/53.154MBpeak;
+no weight values/GPU/training/compiled numerical inference. First failures retained.
+
+Prerequisites for this admitted step: SAME input vector values/length/A16 quantizer,
+FE_TONEAREST, row-I8 weights, independent original row scales, disjoint outputs
+and original per-row floating product order. Keep normalization/nonlinear/route
+boundaries. Original Switch128/256 satisfy the source/manifest contract at D768,
+F3072; no other-family numerical compatibility is established by this admission.
+Native whole-model loader restrictions remain separate from integer cols<=4096.
+
+Procedure: bind source/manifest/current numeric evidence; identify common-input
+branches; verify original precision/output ordering; independently rederive
+logical counters and ALL-case cost-relevant operation counts (including rejected
+outputs); distinguish existing implementations; freeze one exact native candidate
+and its full-output/whole-cost gates before compilation. If no genuine missing
+operation/meaningful measured whole benefit, close this execution recipe.
+
+Validated here: legal source algebra, dimensions, counter/count correspondence
+and safe pair/lane/I64 bounds. Provisional: native fanout implementation and its
+actual speed. Missing: fresh composed transfer quality/SAME50, conditional-capacity
+benefit, physicalDRAM, other families/~100B. No expert/weight/storage information
+is added or removed by sharing an identical activation quantization.
+[Admission460](METH_460_SWITCH_COMMON_INPUT_ADMISSION_RESULT_20261005.md),
+[one future native inquiry](SWITCH_COMMON_INPUT_FANOUT_COST_NEXT_20261005.md).
 ## Retained457: admission failed before native execution
 
 ONE session19372 exit1/224.109s/KeyError in historical363 runtime schema,
