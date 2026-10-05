@@ -3,7 +3,8 @@
 5 October2026.462 completed: ALL8 apparatus/ALL6 retention PASS; fixed128 bank11
 DATA admission FAIL (1ready ID,21/568=3.70%validation execution coverage). No
 factors/SVD/fit.461 ONE native cost recipe CLOSED. Full goal ACTIVE/INCOMPLETE.
-No463 source/protocol/import/new-source selection/tokenization/capture yet.
+463 source/protocol/prospective bindings frozen4e459eb; first manifest execution
+pending. Native capture remains a separate unfrozen proposal.
 
 ## New uncertainty and two separate actions
 

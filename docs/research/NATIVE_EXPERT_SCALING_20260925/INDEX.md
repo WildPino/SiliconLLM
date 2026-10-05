@@ -89,32 +89,30 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption after462: data inadequate, new independent manifest next
+## Current resumption: frozen463, ONE first execution next
 
-462 ONE session84098 exit0, freeze6f5930e/first run24e4c63. ALL8apparatus PASS:
-ALL384trace+384whole outputs SHA exact,96186 native route/code fingerprints;
-13cached native+6rational A16controls pass. ALL24bank DATA readiness FAIL.
-Fixed128 decoderbank11: onlyID37 ready,21/568=3.69718%val-natural executions,
-versus32IDs/90%required. Dev code median7/max33; no factor/SVD/fit/model/native.
-40.515s through aggregation/287,133,696Bpeak/31,454,865Braw+ledger (<32MiB).
-Metadata-only audit ALL6 PASS,6.047s; no scientific rerun. [462 result](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_RESULT_20261005.md),
-[retention462](RETENTION_462_20261005.json). Raw SHA
- dbf6114776ae1f6850300c708ddda9f95c6a0071ae91ae848519bf6c82a8f096.
+Previous goal turn PROGRESS:462 completed/audited/retained3279855; fixed128 last
+bank DATA FAIL1readyID/3.70%coverage, ALL24banks inadequate. Full goal incomplete.
+New463 controller/protocol/input inventory frozen4e459eb BEFORE first import/
+parse/selection/tokenization. Local qualified4.57.6 tokenizer/runtime and actual
+PAR1 corpus308888290B/SHA verified read-only;1842 prior JSON files/1.014GB bound.
+No new-source tokenization/model/native/geometry observation yet.
 
-Next NEW463, proposal only: source/tokenizer/corpus applicability then one new
-original128 manifest,128 independent new books (64dev/64diagnostic-val),4cases
-perbook,512contexts. [New-data design](SWITCH_NATIVE_QUERY_CAPTURE_NEXT_20261005.md).
-First inspect actual corpus/tokenizer/local runtime and current source exclusions;
-implement/freeze selection/split/token bridge/gates/resources BEFORE new selection/
-tokenization. No463 source/protocol/import/new observations yet. Suggested hard
-300s/4GiB/8MiB; no model/native/fit/GPU/download. Only afterwards separately
-freeze source-native393 capture/readiness with unchanged462 floors, fixed128 last
-bank, complete records/resources. Capture is not fresh donor quality/SAME50.
-Data FAIL -> stop factors/design informative data; adequate -> ONE private INPUT
-geometry probe with independent-role/identity/byte/error controls. No lower floors
-or favorable-bank selection. Kernel461 and prior fits/global/Frobenius stay CLOSED.
-Full goal ACTIVE/INCOMPLETE: composed transfer/fresh donor tasks/generation/SAME50,
-real useful-n/mass/physicalDRAM/families~100B open. Original engine/artifacts intact.
+ONE first command:
+results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
+benchmarks\native_expert_scaling\meth463_switch_query_source_manifest.py --out
+docs\research\NATIVE_EXPERT_SCALING_20260925\meth463_switch_query_source_manifest.json
+
+Expected<=3min, hard300s/4GiB/8MiB raw; zero model/native/GPU/download. Rehash prior
+inventory/exclude old rows AND whole-text hashes; ALL96 retained382 token/mask/
+decode bridge BEFORE new tokenization; source-only128newbooks/512windows,64dev/
+64diagnostic-val roles fixed before routing. Preserve first failure, no463 retry.
+[463 protocol](METH_463_SWITCH_QUERY_SOURCE_MANIFEST_PROTOCOL_20261005.md).
+If live, poll actual session/process until terminal; then metadata retention audit
+and results/METHOD update. If manifest admitted, separately freeze native393
+capture/readiness, SAME462 floors/fixed128 last bank; no factors before admission.
+All composed transfer/fresh donor tasks/generation/SAME50/useful-n/mass/physical
+DRAM/families~100B requirements remain. Original engine/artifacts unchanged.
 
 ## Retained457: admission failed before native execution
 
