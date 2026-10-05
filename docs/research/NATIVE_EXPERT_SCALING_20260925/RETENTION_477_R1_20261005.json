@@ -1,0 +1,63 @@
+{
+  "experiment": "METH477-R1 independent scalar reporting retention",
+  "audit_head": "59de80041df437344d9bee8c03cb955183072c31",
+  "raw_sha256": "593baadd707f5e0526e77e6d90bee637ed7bd48b432a84abf93f6b6f73b99791",
+  "source_binding_sha256": "e304e512c361f03af06db46bbe7b0497f841e2516709aae02af2ad126e379bb9",
+  "first_failure_sha256": "f28571f5ee24d07ef6e786fcef3852516069305c1bdead5731b0686d4274c339",
+  "audit_source_sha256": "e552bd7b6c661ddb791b3ec8479c8685eafefbe3928855a8e6f86413c2e229cf",
+  "audit_protocol_sha256": "fdbb1ba2e56974a0816e4d634210612768f4aacd12631448b0df68a57456eb01",
+  "windows_source_sha256": "7e4be4d38d21a3066709169d96151e99c1fa177d090e3fb449244a421477b115",
+  "windows_terminal_sha256": "3743ec44f0829ecf0eb76b4cd9be734a7d6919900e7fa1ea70463c5ea4311ca6",
+  "gates": {
+    "immutable6591_inputs_runtime_artifact_first_failure_and_frozen_sources": true,
+    "actual_R1_terminal_progress_PID_creation_windows_resources_and_output_SHA": true,
+    "independent_all608_jobs_context_query_labels_novelty_flags_EOF_cardinality": true,
+    "saved_all6649x16_error_matrix_tolerances_and_reported_maxima": true,
+    "ALL_uniformquery_21views_64books_128IDs_3modes_independent_scalar_stats": true,
+    "stdlib_only_no_head_native_model_fitting_query_selection_or_promotion": true
+  },
+  "statistics_checked": 14352,
+  "integers_checked": 4241,
+  "max_absolute_stat_difference": 0.00390625,
+  "complete_denominators": {
+    "source_contexts": 7993,
+    "candidate_contexts": 6649,
+    "teacher": 3584,
+    "masked_content": 2048,
+    "natural": 3065,
+    "books": 64,
+    "ID_slots": 128,
+    "head_logits": 470418176
+  },
+  "original477_parent_exit": 1,
+  "original477_native_exit": 2,
+  "original477_end_worker_readback": "unavailable; unchanged source failure before terminal worker_json",
+  "resource": {
+    "seconds_before_retention": 37.15600000000268,
+    "OS_peak_bytes": 70156288,
+    "file_bytes_hashed": 15932018985,
+    "hard_seconds": 120,
+    "hard_peak_bytes": 268435456,
+    "CPU_affinity_mask": 1,
+    "R1_new_bytes_raw_plus_OUT": 1732049
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_r1_head_observable_recovery\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_r1_head_observable_recovery\\metric_rederivation_absolute_error.npy",
+      "bytes": 851200,
+      "sha256": "3a4b5dbe06955c4cbbf5ffa0542d4c3b9f37abdbfb587f31b188ead705e482f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth477_r1_head_observable_recovery\\progress.jsonl",
+      "bytes": 1515,
+      "sha256": "c8307a15ce20a0966299fbe07bedd6f24414740cbeed1f3a72eb44c9bc21b834"
+    }
+  ],
+  "decision": "COMPLETE_HEAD_OBSERVABLE_WITNESSES_RECOVERED_for_descriptive_calibration_NO_PROMOTION",
+  "scope": "Original477 remains failed; old472 remains localFAIL; no new artifact, changed own-state quality, rate, physicalDRAM, useful-n or multiple-family conclusion."
+}

@@ -1,187 +1,97 @@
 # Native expert scaling: research control index
 
-5 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+5 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 
 ## Goal and constraints
 
-Discover/implement/reproduce pretrained knowledge/capacity transfer to compact
-reusable core plus useful selectively consulted functions in `engine.c`, with
-explicit donor-relative held-out/generation/task quality AND>=50 accepted batch1
-IDs/s on SAME artifact (100 stretch). Multiple families/scales, actual~10B/~100B
-as resources allow. User priority: useful n grows with RAM while CPU LUT/routing/
-real DRAM and quality remain viable. Distinct stored IDs/functions, active work,
-causal usefulness and bytes physically read are separate quantities.
+Reproducible pretrained knowledge/capacity transfer to compact reusable core
+and useful selectively consulted functions in `engine.c`; donor-relative fresh
+prediction/generation/task quality AND>=50 accepted batch1 IDs/s on SAME
+artifact (100stretch). Useful n grows with RAM; CPU LUT/routing winner ANDmass,
+physicalDRAM and multiple actualfamilies/scales/~10B/~100B remain joint gates.
+Stored distinct functions, active work and causal usefulness are separate.
 
-Ryzen53600X/80GiB/RTX306012GB. Scientific freeze before observations, first failures
-retained before numbered repairs, no concurrent model jobs/native timing. T4 needs
-prior reason/budget/stops. Preserve unrelated work and exact approved publisher
-daemons. Routine Graphify disabled. Donor-adaptation remains frozen reusable evidence.
+Ryzen53600X/80GiB/RTX306012GB. Freeze science/input/runtime/source BEFORE
+observations; firstfaults before numbered repairs; no completed main/capture/
+audit reruns. No concurrent science/native timing. T4 requires prior reason/
+budget/stops. Preserve unrelated work and exact approved publisherdaemon.
+Routine Graphify disabled. Donor-adaptation frozen, evidence reusable.
 
 ## Two research questions
 
 | Question | Established | Open |
 | --- | --- | --- |
-| Useful conditional target |369matching useful;370/371 real nested64/128 artifacts;373 fourfold cost bounded|372quality mixed; monotonic useful-n, winner AND mass, physicalDRAM/LUT scaling|
-| Pretrained-to-target transfer |Two bounded original same-family I8/A16 C source scales;453 exact conditional WO/local prediction screen|New whole artifact/quality/rate, other families/scales/~100B|
+| Useful conditional target |369matching causalutility;370/371 real nested64/128 from256;373 fourfoldFULL cost bounded |372quality mixed; larger useful-n, groupmass/winner CPU LUT, physicalDRAM |
+| Pretrained-to-target transfer |Two qualified same-family original I8/A16 C scales;453local full-width geometry;476/477-R1actual finite prediction calibration |Convenient transformed wholeartifact/quality/rate; other families/actual100B |
 
 ## Latest decisive evidence
 
-[469](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md): original native
-conditional domain admitted, ALL10/ALL9PASS; fixed decoder bank84readyIDs but
-84.99%coverage<90% DATAFAIL. Other decoderbanksFAIL; no factors.25IDs/389queries
-have dev-only deficits; bounded dev augmentation feasible upper97.68%, not promise.
+[477-R1](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md): ALL9independent witness gates andALL6scalar audit gatesPASS.
+ALL7993source heads BYTE exact, ALL6649candidate codes/scales/full32128logit
+SHA exact, true teacher labels/metrics/joins/EOF admitted. Original477 remains
+FAILED at final cardinality guard; parent1/native2/endworker unavailable,
+[firstfault](METH_477_FIRST_CARDINALITY_FAULT_20261005.md) unchanged.
 
-[471](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md): ONEdev extension
-combined exactly with469; ALL13/ALL10PASS. Fixedbank11 DATA PASS107ready/97.1615%,
-unchanged validation. All12banks dataPASS. [470 source](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md)
-admitted before capture; data floors do not imply compressible functions.
+Natural190/3065changedargmax,meanKL.03947485 despite2.8322%pooledFFNRMS;
+maskedteacher deltaNLL+.05974024,1002->977correct/2048. All new-codeSHA;
+no fresh own-state/global quality. Old472FAIL105/107/book107 unchanged.
+Interpretation: local energy is insufficient for prediction preservation;
+normalization/head do not remove the finite loss. No candidate promotion.
+[Whole-project algebraic reassessment](ALGEBRA_REASSESSMENT_AFTER_477_20261005.md) defines separate capacity,
+functional information, physical cost and routing-mass problems.
 
-[472](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md): ALL8/ALL9PASS apparatus,
-rank32INPUT-PCA recipeFAIL105/107experts/book107. Actual67.02%bank stored but
-no Ccost promotion. Pooled2.83%is dominated by25/37(99.8934%reference energy).
-[473](METH_473_SWITCH_OPERATOR_SPECTRUM_RESULT_20261005.md): ALL5/ALL6PASS;
-ideal preactivation rank sums7365..7366 exceed4684complete70%budget. Variable
-ranks fail this metric/budget family.
-[474](METH_474_SWITCH_PRIVATE_OUTPUT_RESULT_20261005.md): ALL6/ALL6PASS;
-private rank32OUTPUT lower floors FAIL105/107 despite pooled1.31%PASS.
-[475](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md): ALL6/ALL6PASS;
-exact functions but certified11.31%/logical WI coefficient savings5.66% economicFAIL.
-[476](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md): ALL6/ALL6PASS;
-ALL6649validation +1344knowntruepre source contexts/head BYTE exact;
-256,799,104headlogits independently rederived. Next: actual head-observable
-477 firstfinal-cardinality fault retained; full candidatewitnesses require
-separately frozen477-R1 admission before quality interpretation.
+## Current resumption
 
-Input apparatus: [467 source/codec admission](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
-[464 corpus transport](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
-First faults retained: [468 ledger](METH_468_FIRST_LEDGER_LAYOUT_FAULT_20261005.md),
-[466 indirect Arrow](METH_466_INDIRECT_ARROW_RUNTIME_FAULT_20261005.md),
-[463 reader](METH_463_FIRST_ARROW_TERMINATION_20261005.md). No completed main rerun.
+477-R1 ONEsession71544exit0/131.547s/491724800Bpeak, scientificfreezeb557c94/
+first8ead24a. Scalar ONEsession10241exit0/37.156s/70156288Bpeak, freeze844eaf7/
+first59de800;14352floatstats/4241counts. Windows query available/zeroevents.
+RAW593baadd707f5e0526e77e6d90bee637ed7bd48b432a84abf93f6b6f73b99791;
+RET5569e232d135cc7ee8ad11836af62b6cbe058c8b0552a23912c7eeb0b5463deb.
+No live scientific handle. Do not rerun any completed namespace.
 
-[462](METH_462_SWITCH_QUERY_DOMAIN_ADMISSION_RESULT_20261005.md): actual private
-INPUT-data readiness FAIL before factors;1eligibleID/3.70%coverage in fixed128
-bank, all24banks inadequate. Numerical/provenance controls PASS. Select new
-independent source books before captures/geometry, rather than repeated prefixes.
+Next proposed NEW478 is UNFROZEN/UNEXECUTED: static source/F32 interval admission
+for ONE weight-only binary routing hierarchy, ALL393real128/256scores/inputs.
+Evaluate winner ANDgroupmass with paid centroid/bound/norm/refinement/fallback;
+prospective work gates/budget in the [proposal](ALGEBRA_REASSESSMENT_AFTER_477_20261005.md). New source/protocol/
+bindings and separate solefirst command before any geometry/numerics. No model,
+native timing, training or threshold/cluster sweep. PASS only enables C cost;
+FAIL closes this bound/tree recipe and motivates learned structured gating.
 
-[461](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md): ALL1536 outputs exact;
-whole mean reductions2.39/2.89% FAIL frozen5% (books/p95 PASS). Recipe CLOSED;
-return to expert-owned input geometry/data admission, no further kernel sweep.
+## Retained evidence and closures
 
-[460](METH_460_SWITCH_COMMON_INPUT_ADMISSION_RESULT_20261005.md): exact common-input
-A16 sharing admitted in qualified sources: removes38.7..38.9% dense A16 CALLS/
-~29.7% parallel regions; no product/storage/speed benefit measured. One bounded
-native whole-cost inquiry next;459 catalog EOL first fault preserved.
+- [476](METH_476_SWITCH_LAST_LAYER_CONTEXT_RESULT_20261005.md): ALL6/ALL6source
+  context/head BYTE qualification; no rerun.
+- [469](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md)/
+  [471](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md): domain data
+  admitted; fixedbank11 107ready/21fallback,97.1615%coverage. All12banks DATApass.
+- [472](METH_472_SWITCH_PRIVATE_INPUT_RESULT_20261005.md): P32INPUT recipeFAIL;
+  [473](METH_473_SWITCH_OPERATOR_SPECTRUM_RESULT_20261005.md): variablepreactivation
+  ranks overcomplete70%budget; [474](METH_474_SWITCH_PRIVATE_OUTPUT_RESULT_20261005.md):
+  fixedP32OUTPUT lowerfloorsFAIL105/107; no repair by enlarging the consumed domain.
+- [475](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md): exact bitplane
+  certificate admitted but11.31%certified/5.66%WI logicalsavings economicFAIL.
+- [453](METH_453_SWITCH_SPARSE_WO_RESULT_20261005.md): exact sparseWO/localquality
+  PASS; [454](METH_454_SWITCH_SPARSE_WO_COST_RESULT_20261005.md) direct/LUTcostFAIL;
+  [456](METH_456_SWITCH_OUTPUT_TILE_COST_RESULT_20261005.md) tile16mean19.8351%<20FAIL.
+  [458](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md) matchedwholecost;
+  [461](METH_461_SWITCH_COMMON_INPUT_COST_RESULT_20261005.md) sharingmean2.39/2.89%<5FAIL.
+- [369](METH_369_SWITCH_BANK_USEFULNESS_RESULT_20261004.md) causalfunctionmatching;
+  [372](METH_372_SWITCH_NESTED_BANK_USEFULNESS_RESULT_20261004.md) mixed useful-n;
+  [373](METH_373_SWITCH_REAL_BANK_COST_RESULT_20261004.md) bounded64->256cost.
+- [393](METH_393_SWITCH_ROUTER_AUDIT_RESULT_20261004.md) oracle m140/p95 191 at256
+  for1%mass;394/395fixed rank/integer-refinement recipesCLOSED. Different
+  sources128/256 do not prove causal scaling. Groupmass is the new variable.
+- 403/404/406/414/416bridges;426/431/435/440fits;444/445bases;446factors;
+  447/448/451I4recipes and specified Giga/Ling/Granite formats remainCLOSED.
+  397QwenNext actual79.674Bmain+MTP HEADERs only, no values/quality.
 
+## Procedure and history
 
-[458](METH_458_SWITCH_MATCHED_WHOLE_COST_RESULT_20261005.md): admitted matched whole
-fractions, experts24.86/27.09% versus dense40..44%; hypothetical expert-elimination
-ceiling1.33..1.37x. ALL1536 generation outputs exact originals. Next exact shared
-core algebra admission; useful-n/transfer still required.457 first schema fault
-retained before corrected458, no numerical457 run.
-
-
-[456](METH_456_SWITCH_OUTPUT_TILE_COST_RESULT_20261005.md): exact output-tile16
-mean reduction19.8351% narrowly misses frozen20% gate; recipe CLOSED. Other cost/
-storage gatesPASS. Stop local layout tuning; measure matched whole economics.
-
-[455](METH_455_SWITCH_COMPONENT_COST_RESULT_20261005.md): admitted component costs
-identify direct WI as80.1103% of FFN; selects ONE exact output-tile16 inquiry.
-All arithmetic/profile gatesPASS; command-argv metadata fault corrected455-R1.
-
-[454](METH_454_SWITCH_SPARSE_WO_COST_RESULT_20261005.md): ALL8apparatusPASS,
-both cost recipesFAIL. Original/direct/LUT means237.68/234.43/718.82us, direct
-tail worse. Native arithmetic/exact bank export real; no deployable new candidate.
-
-[453](METH_453_SWITCH_SPARSE_WO_RESULT_20261005.md), frozen1661547: ALL10apparatus/
-ALL7local gatesPASS. Original-I8 WO zero-only sum exact in1008 comparisons; fixed
-451 WI reused. Mean222.4167/3072active codes; correct meanKL.0004017228/3argmax
-changes of336, ID+1 harm.181063. Stored472,253,184B =77.94%original bank;
-mean logical addressed footprint34.29%. These are consumed local prefixes and
-logical bytes, not whole fresh quality or physical DRAM/performance.104.812s/
-2.532GBpeak/692.142MBoutputs, zero updates/new roundings/GPU. Ten archives retained;
-[retention453](RETENTION_453_20261005.json), raw SHA63d0fca6...; no rerun453.
-
-[452](METH_452_SWITCH_OPERATOR_ATTRIBUTION_RESULT_20261005.md): exact native2x2
-attribution prioritizes WO's directional error; WO-only crosses all four selected
-451 compact-changed pairs, WI-only two. Hybrids were diagnostics, not deployment.
-[Algebra reassessment](ALGEBRA_REASSESSMENT_AFTER_453_20261005.md): dynamic column
-span is not fixed global low rank; LUT indexed traffic differs from unique bytes;
-RAM-only accounting does not prove useful n or a comparable100B geometry.
-
-## Qualified ORIGINAL source artifacts
-
-| Source | Physical workers | Ordinary accepted IDs/s (lower95) | Prose (lower95) |
-| --- | --- | ---: | ---: |
-| Switch128 /7.415B |3 [0,2,4]|96.56385 (94.58827)|55.97659 (54.59729)|
-| Switch256 /14.664B |6 [0,2,4,6,8,10]|63.52543 (59.51178)|34.77928 (32.64971)|
-
-[128 reproduction](SWITCH_BASE128_REPRODUCTION_20261004.md),
-[256 reproduction](SWITCH_BASE256_REPRODUCTION_20261004.md):387/363 quality18/18,
-391/376 SAMEartifact FULL rate. Warm S29/T14 infilling; encoder/crossKV/cached
- decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
-context/cold/global rate, new combined artifact or inherited453/candidate rate.
-
-## Current resumption: frozen477-R1, sole complete saved-head recovery invocation
-
-Current turnPROGRESS:477firstfault retained7168916 BEFORE numbered recovery.
-Originalparent32173exit1/compiler0/controls0/native2 remain; ALL608batches/
-7993source/6649candidate records complete. Frozenfinalconstant470422176 wrong,
-exact(7993+6649)*32128=470418176. Missing native endworkerreadback retained.
-[Firstfault](METH_477_FIRST_CARDINALITY_FAULT_20261005.md); frozen477unchanged,
-no native/model/candidate/capture rerun. Quality not interpreted yet.
-
-NEW477-R1 independentrecovery source/protocol/binding frozenb557c94 BEFORE
-scientificimports/numerics. Binding SHAe304e512c361f03af06db46bbe7b0497f841e2516709aae02af2ad126e379bb9;
-source SHA29e17e36ef2c94e12e7b166fcc24bf1d8be2a186d0f021318cb1bd1153c31b48;
-protocol SHA66da4bb7a8f50791f7ea36c1b08358c7ae369f31b638730bb91d64226a1e5429.
-ALL6591prior files7,754,504,204B/197extra assets/fullpayload/actualruntime bound.
-
-ONE first recovery command, never repeat completed scientificnamespace:
-
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth477_r1_head_observable_recovery.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth477_r1_head_observable_result.json
-```
-
-CPU0/BLAS1, hard600s/2GiB/new8MiB,admission150s. No newnative/model/wholecapture/
-fit/queryfilter. Re-deriveALL7993source andALL6649candidate heads from476pre/
-saved472functions/originalweights: sourceBYTE exact, candidateheadcodes/alpha
-BYTE exact/full32128logitsSHA exact. Independently verifyallF64metrics/labels/
-novelty/flags/margins/originaljobEOF/correctcounter and planned477fullcohort
-reporting. [Frozen recovery protocol](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_PROTOCOL_20261005.md)
-authoritative; noR1scientific observation yet. Poll SAMElivehandle on timeout.
-After actualterminal: R1WindowsEvent1000/PID+creation and ONE independently
-frozen scalar wire/group/reporting/resource retention audit. Only complete
-independent admission permits descriptivecalibration; firstfaults beforeR2.
-
-Old472105/107/book107localFAIL unchanged,no promotion;476ALL6/ALL6 source
-qualification retained. Original477native2 cannot establish rates or newwhole
-quality. FullgoalACTIVE/INCOMPLETE: newviableall-bankgeometry/freshchanged-own-
-state donor-relative prediction/generation/tasks AND SAME>=50,physicalDRAM/
-causal useful-n/winner ANDmass CPU LUT/multiple actualfamilies/~10B/~100B.
-Foreground369..373real-n/mixedquality/cost evidence unchanged.
-
-## Retained457: admission failed before native execution
-
-ONE session19372 exit1/224.109s/KeyError in historical363 runtime schema,
-ZERO native commands. First raw/source/protocol immutable ec85910.
-[First fault](METH_457_FIRST_ADMISSION_FAULT_20261005.md);458 above completed
-the separately frozen schema correction and measured whole costs. No457 retry.
-
-## Open dependencies and closed routes
-
-Matched whole cost/transfer economics -> viable method/all-bank composition -> fresh donor-relative quality/
-changed routes -> SAME whole accepted rate and physicalDRAM -> real useful-n
-increments/router scaling -> another-family/~100B applicability. Every condition
-needs its matching scope of evidence; none is replaced by the local screen.
-
-403/404/406/414/416 bridges;426/431/435/440fits;444/445 fixed global bases;
-446 reference0/Frobenius factors;447 row-I4,448 block64-I4,451 both orthogonal-I4
-and454 fixed direct/full-pair-LUT plus456 fixed tile16 kernels remain CLOSED by declared gates.
-Giga/Ling/Granite specified full-width/LUT
-formats remain closed. QwenNext397 headers are actual79.674B/main+MTP geometry,
-not acquired values/quality. Full details:
-[records through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),
-[432..453 snapshot](RESEARCH_RECORDS_432_453_20261005.md),
-[prior native evidence](PRIOR_EVIDENCE.md), [method](METHOD.md),
-[strategic review](STRATEGIC_REVIEW_20261004.md),
-[current resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md).
+[METHOD](METHOD.md) describes what is implemented, qualified, provisional or
+missing; [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) is the historical native inventory.
+[Strategic review](STRATEGIC_REVIEW_20261004.md) is a4October snapshot;
+[through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),
+[432..453](RESEARCH_RECORDS_432_453_20261005.md), and individual laterrecords
+retain details/faults. Historical NEXT documents are superseded by current
+INDEX/METHOD/[resumption](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md).
+Full goal stays ACTIVE/INCOMPLETE; no percentage of completion is claimed.

@@ -1,43 +1,36 @@
-# Exact certificate economically rejected; observable-quality admission next
+# Function information calibration retained; grouped routing mass admission next
 
-## Current resumption: frozen477-R1, sole complete saved-head recovery invocation
+## Current resumption:477-R1 retained, grouped routing-mass feasibility next
 
-Current turnPROGRESS:477firstfault retained7168916 BEFORE numbered recovery.
-Originalparent32173exit1/compiler0/controls0/native2 remain; ALL608batches/
-7993source/6649candidate records complete. Frozenfinalconstant470422176 wrong,
-exact(7993+6649)*32128=470418176. Missing native endworkerreadback retained.
-[Firstfault](METH_477_FIRST_CARDINALITY_FAULT_20261005.md); frozen477unchanged,
-no native/model/candidate/capture rerun. Quality not interpreted yet.
+5 October2026. Current goal turnPROGRESS, full goalACTIVE/INCOMPLETE.
+477-R1 ONEsession71544exit0/131.547s/491724800Bpeak,ALL9PASS. Independent
+stdlib scalar retention ONEsession10241exit0/37.156s/70156288Bpeak,ALL6PASS;
+14352float statistics/4241integer counts checked. Windows query available,
+zeroEvents/Matches, exactR1PID7708+creation. No live scientific handle.
 
-NEW477-R1 independentrecovery source/protocol/binding frozenb557c94 BEFORE
-scientificimports/numerics. Binding SHAe304e512c361f03af06db46bbe7b0497f841e2516709aae02af2ad126e379bb9;
-source SHA29e17e36ef2c94e12e7b166fcc24bf1d8be2a186d0f021318cb1bd1153c31b48;
-protocol SHA66da4bb7a8f50791f7ea36c1b08358c7ae369f31b638730bb91d64226a1e5429.
-ALL6591prior files7,754,504,204B/197extra assets/fullpayload/actualruntime bound.
+ALL7993source heads BYTE exact; ALL6649candidate codes/scales BYTE exact/full
+32128logits SHA exact; ALLlabels/metrics/jobs/EOF/correct470418176 rederived.
+Original477parent1/native2/endworker unavailable retained; old472 localFAIL
+unchanged. Natural190/3065argmax changes,KLmean.03947485 despite pooledFFNRMS
+.02832230; maskedteacher deltaNLL+.05974024,1002->977 correct/2048.
+[Complete result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md) and [scalar retention](RETENTION_477_R1_20261005.json).
+RAW SHA593baadd707f5e0526e77e6d90bee637ed7bd48b432a84abf93f6b6f73b99791;
+RET SHA5569e232d135cc7ee8ad11836af62b6cbe058c8b0552a23912c7eeb0b5463deb.
+Scientificfreezeb557c94/first8ead24a; scalarfreeze844eaf7/first59de800.
+NEVER repeat completed477/477-R1/476 or their audits/captures.
 
-ONE first recovery command, never repeat completed scientificnamespace:
+Next proposed NEW478, not frozen/executed: qualify F32 score/group interval
+math then freeze ONE weight-only binary hierarchy/adaptive refinement inquiry
+on ALL qualified393real128/256input/fullscore traces. Preserve winner ANDmass;
+pay allcenters/bounds/norms/refinement/fallback. Complete runtime/input/source
+bindings BEFORE numerics, sole command in separate resumption. Proposed
+180s/2GiB/new96MiB budget needs static admission first, no model/native timing.
+No tree/threshold/cluster sweep after result. [Algebra and decision](ALGEBRA_REASSESSMENT_AFTER_477_20261005.md).
 
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth477_r1_head_observable_recovery.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth477_r1_head_observable_result.json
-```
-
-CPU0/BLAS1, hard600s/2GiB/new8MiB,admission150s. No newnative/model/wholecapture/
-fit/queryfilter. Re-deriveALL7993source andALL6649candidate heads from476pre/
-saved472functions/originalweights: sourceBYTE exact, candidateheadcodes/alpha
-BYTE exact/full32128logitsSHA exact. Independently verifyallF64metrics/labels/
-novelty/flags/margins/originaljobEOF/correctcounter and planned477fullcohort
-reporting. [Frozen recovery protocol](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_PROTOCOL_20261005.md)
-authoritative; noR1scientific observation yet. Poll SAMElivehandle on timeout.
-After actualterminal: R1WindowsEvent1000/PID+creation and ONE independently
-frozen scalar wire/group/reporting/resource retention audit. Only complete
-independent admission permits descriptivecalibration; firstfaults beforeR2.
-
-Old472105/107/book107localFAIL unchanged,no promotion;476ALL6/ALL6 source
-qualification retained. Original477native2 cannot establish rates or newwhole
-quality. FullgoalACTIVE/INCOMPLETE: newviableall-bankgeometry/freshchanged-own-
-state donor-relative prediction/generation/tasks AND SAME>=50,physicalDRAM/
-causal useful-n/winner ANDmass CPU LUT/multiple actualfamilies/~10B/~100B.
-Foreground369..373real-n/mixedquality/cost evidence unchanged.
+Full newartifact/fresh own-state prediction/generation/tasks AND SAME>=50,
+physicalDRAM/causal useful-n/CPU LUT winner ANDmass/multiple actualfamilies/
+~10B/~100B remain joint requirements.369..373real-n evidence unchanged;
+393tailmass/394..395recipe rejections retained. No new candidate promoted.
 
 ## Retained457: admission failed before native execution
 
