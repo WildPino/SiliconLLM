@@ -1,0 +1,213 @@
+{
+  "experiment": "METH479 FIRST full-domain source/supervision fault",
+  "phase": "all_group_support_and_native_mass_targets",
+  "start_utc": "2026-10-05T18:30:05.502728+00:00",
+  "end_utc": "2026-10-05T18:42:46.704931+00:00",
+  "process_instance": {
+    "pid": 26480,
+    "create_time_unix": 1791225005.502728,
+    "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+  },
+  "commands": [
+    {
+      "label": "compile",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-fno-fast-math",
+        "-ffp-contract=off",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_source_router.c",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "process_instance": {
+        "pid": 26992,
+        "create_time_unix": 1791225046.3311727,
+        "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe"
+      },
+      "start_utc": "2026-10-05T18:30:46.319224+00:00",
+      "end_utc": "2026-10-05T18:30:47.373094+00:00",
+      "OS_peak_bytes": 4579328,
+      "descendant_process_peaks": [
+        {
+          "pid": 4896,
+          "create_time_unix": 1791225046.3596575,
+          "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "OS_peak_bytes": 19619840
+        },
+        {
+          "pid": 27320,
+          "create_time_unix": 1791225046.4569697,
+          "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "OS_peak_bytes": 78974976
+        },
+        {
+          "pid": 18840,
+          "create_time_unix": 1791225047.2505271,
+          "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\ld.lld.exe",
+          "OS_peak_bytes": 17178624
+        }
+      ]
+    },
+    {
+      "label": "controls",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe",
+        "controls"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "process_instance": {
+        "pid": 11756,
+        "create_time_unix": 1791225047.3964937,
+        "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe"
+      },
+      "start_utc": "2026-10-05T18:30:47.373094+00:00",
+      "end_utc": "2026-10-05T18:30:47.449651+00:00",
+      "OS_peak_bytes": 2543616,
+      "descendant_process_peaks": []
+    },
+    {
+      "label": "negative_weight_ledger",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe",
+        "source",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\negative_weight_ledger.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\jobs.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\negative_source_fields.bin"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "process_instance": {
+        "pid": 26708,
+        "create_time_unix": 1791225047.5018013,
+        "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe"
+      },
+      "start_utc": "2026-10-05T18:30:47.493867+00:00",
+      "end_utc": "2026-10-05T18:30:47.584148+00:00",
+      "OS_peak_bytes": 2543616,
+      "descendant_process_peaks": []
+    },
+    {
+      "label": "source",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe",
+        "source",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\weights.ledger.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\jobs.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\source_fields.bin"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "process_instance": {
+        "pid": 23012,
+        "create_time_unix": 1791225047.5917196,
+        "executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe"
+      },
+      "start_utc": "2026-10-05T18:30:47.590153+00:00",
+      "end_utc": "2026-10-05T18:30:59.587771+00:00",
+      "OS_peak_bytes": 9166848,
+      "descendant_process_peaks": []
+    }
+  ],
+  "binding_sha256": "0523b1822b84f6e11b40025b3c677116042a06853f4094375d271df73a4016ac",
+  "scientific_sources": {
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_routing_supervision.py": "6c6785791f337e57642bde69e5502a77d268b3517381e6c9affe50d610fc92da",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_source_router.c": "62030865d3c7227f7d9195ae0e81786fb3499cd93ca6dbbf1e8a5a667c9278a2",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_supervision_math.py": "1146659c0d8a62c42f2db8ed15d9c7acf251c9de318c1853a09cbcdc06cc4c7b",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_windows_terminal.ps1": "877f3a40a00de928441be33d46ec0950fb8e0009a579d9bbf5d3a5fae51962f8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_479_ROUTING_SUPERVISION_PROTOCOL_20261005.md": "6317a816bf21136b9b7bde347930a1c164c09795eb0e9e7044434139e8a8519e"
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_routing_supervision.py\", line 398, in <module>\n    guard()\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth479_routing_supervision.py\", line 68, in guard\n    assert time.monotonic() - START <= 600 and peak <= 4 << 30, (phase, peak)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('all_group_support_and_native_mass_targets', 1699819520)\n",
+  "resource": {
+    "seconds": 761.1559999999881,
+    "OS_peak_combined_bytes": 1699819520,
+    "file_bytes_hashed": 14966090637
+  },
+  "partial_output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\compile.stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\compile.stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\controls.stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\controls.stdout.log",
+      "bytes": 771
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\fatal_native.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\group_targets.bin",
+      "bytes": 850384344
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\jobs.bin",
+      "bytes": 443184
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\membership.json",
+      "bytes": 758021
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\meth479_source_router.exe",
+      "bytes": 235520
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\negative_weight_ledger.bin",
+      "bytes": 16
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\negative_weight_ledger.stderr.log",
+      "bytes": 41
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\negative_weight_ledger.stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\ownership.bin",
+      "bytes": 7643928
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\progress.jsonl",
+      "bytes": 4580
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\query_links.bin",
+      "bytes": 20125896
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\source.stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\source.stdout.log",
+      "bytes": 781
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\source_fields.bin",
+      "bytes": 27866616
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\unique_inputs.bin",
+      "bytes": 888603864
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\weights.ledger.bin",
+      "bytes": 1396
+    }
+  ]
+}
