@@ -1,37 +1,35 @@
 # Current resumption: one bounded development information augmentation
 
-## Current resumption: frozen470 development-only manifest, ONE first execution next
+## Current resumption: admitted470 development extension; NEW471 native capture next
 
-469 original-native capture retained1b52f57: ALL10/ALL9PASS, fixedbank11 DATAFAIL
-84ready IDs/84.99%coverage.25IDs/389validation executions have development-only
-deficits;19IDs/71executions also lack validation novelty. V\Dprime subset V\D:
-added development may shrink novelty. ONE64new-dev extension only, no adaptive
-ladder, changed validation/bank/floors/filter or factor before adequate data.
-[469 result](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md).
+470 ONE56339exit0/ALL12apparatus, ONE56344exit0/ALL10independent retention PASS.
+64NEW whole development books/global128..191/256S29T14cases, source-only deterministic
+ranks0..63/zero rejects/68495full-excerpt tokens.293prior rows excluded, all1863
+priorJSONs/36packagecode-native files/96original fields/all1243cached rows exact.
+Original128books/0..63dev/64..127diagnostic-validation roles/raw/RET unchanged;
+no new validation, native/model/router observations or factor in470.
+[470 result](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md),
+[retention](RETENTION_470_20261005.json).36.625s/379.41MiB/2.837MBmain outputs;
+audit38.703s/83.77MiB. Windows available/0events, actualmain23952terminal/no jobs.
+Freeze161ce77/firstb5df6eb BEFORE observations. No completed scientific rerun.
 
-NEW470 source/protocol/bindings frozen161ce77 BEFORE compile/import/selection.
-binding SHA0f4cc3136c3cb2c8f8795a9bd807c86320ad6494d7d058a8ee4cccad3a4ca90d;
-current1863priorJSONs/1042233407B, actual qualified referencePython/25tokenizers+
-11psutilcode-native files/7originalsidefiles/cached464source/467golden96. No
-scientific observation yet. ONE first command with original reference venv:
+Original469 admitted capture DATAFAIL still current:84ready IDs/2605of3065=
+84.99%fixedbank11coverage.25IDs/389queries have dev-only deficits,19IDs/71queries
+also fail val novelty. Added D can only shrink V\D;64newbooks alone do not prove
+readiness/rank/quality/rate. [469 result](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md).
 
-results\native_expert_scaling\meth324_switch_reference\venv\Scripts\python.exe
-benchmarks\native_expert_scaling\meth470_switch_development_manifest.py --out
-docs\research\NATIVE_EXPERT_SCALING_20260925\meth470_switch_development_manifest.json
-
-Hard300s4GiB8MiBraw+2MiBOUT, no model/native/GPU/fit/download. Select64new whole
-development sources/256cases in deterministic model-free rank order; globals
-128..191ALLdevelopment_augmentation. Old0..63dev/64..127validation unchanged.
-Strict prior row/hash/window exclusions, originalRustcodec/96golden/all1243cached
-source rows, actual loaded-code/fault/terminal controls. Firstfailure immutable
-before numbered repair; if live poll same handle. No completed scientific rerun.
-[470 protocol](METH_470_SWITCH_DEVELOPMENT_MANIFEST_PROTOCOL_20261005.md).
-
-After terminal, independently audit retained source/token arrays/provenance/
-roles and literalISO/invariantUTC Windows ApplicationError query. PASS only ->
-separately freezeNEW471512new teacher/natural streams+combined ALLold469ledger/
-readiness, explicit role map (never book>=64), fixed64validation/3065denominator/
-SAMEfloors/FIXEDbank11. DATAFAIL again stops this data ladder/reassess geometry.
+Exact next separately freezeNEW471: ALL256newteacher+natural contexts=512newstreams,
+original393binary/payload/3workers/A16/worker/golden/grammar/parser/118Bledger
+controls; refresh/read ALLold469retained files without old recapture/main rerun.
+Combine old258120queries +newdev with explicit role map0..63dev/64..127val/
+128..191devaug (NEVER book>=64). Original validation3065bank11 denominator,
+SAME32devcodes/4books/16NOVELvalcodes/4books/>=32ready/>=90%coverage/FIXEDbank11,
+all cases health-independent. Combined new bound467016queries/55107908Bledger;
+260new+goldenpairs4891637920B, plus256MiBreserve =>5215181284B prospective.
+Check disk/bindings and freeze source/protocol BEFORE compile/import/capture.
+Proposed35min16GiB/new12GiB/child120s; expected~8CPUminutes. ONE64devaugmentation
+only; DATAFAIL stops this data ladder/reassess geometry. PASS+retention -> separately
+frozen private INPUT spectrum/function probe. No470 or469main repeat.
 [Bounded next](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
 471 source/protocol NOTcreated/frozen/executed. Full goal ACTIVE/INCOMPLETE.
 

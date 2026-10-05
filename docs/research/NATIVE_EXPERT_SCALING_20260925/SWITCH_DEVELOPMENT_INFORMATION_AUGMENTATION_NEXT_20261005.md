@@ -1,11 +1,14 @@
-# Proposed NEW470/471: ONE bounded development-only information augmentation
+# Bounded development extension:470 admitted,471 native combination next
 
 5 October2026.469 original128 conditional-input capture admitted, ALL10 apparatus/
 ALL9 independent retention PASS. Fixedbank11 DATA FAIL:84readyIDs,2605/3065=
 84.991843%own-natural validation executed-query coverage (<90%). No factors.
-Full goal ACTIVE/INCOMPLETE.470 source/protocol/bindings frozen161ce77 BEFORE compile/import/selection, ONE
-first execution next;471 not created/frozen/imported/executed.
-See [470 prospective protocol](METH_470_SWITCH_DEVELOPMENT_MANIFEST_PROTOCOL_20261005.md).
+Full goal ACTIVE/INCOMPLETE.470 source manifest admitted ALL12apparatus/ALL10
+retention PASS,64NEW devbooks/256cases, zero model/native/router observations.
+Freeze161ce77/firstb5df6eb, ONE56339exit0. Original64validation fixed.
+[470 source admission](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md).
+471 source/protocol not created/frozen/imported/executed. Sections below retain
+prospective source/capture design;470 is now completed, do not rerun its main.
 
 ## Precise bottleneck, feasibility and stop
 
@@ -69,6 +72,13 @@ ALL64 new books, all256 native cases, exact original token controls/true coordin
 whole-source disjointness/immutable dev-only roles. No partial cohort substitution.
 
 ## Then NEW471 capture/combined admission, separately frozen
+
+Actual470 manifest SHA41151e8d80cfa67d0766e6ce2f610ee5834900d08c29f5dd41b74214a28e4dee;
+RET SHA9362a214779753369a59c2a659f0f105daaaa75ffed9f8d514848fb0a2d6f36d.
+Old258120actualqueries+new max208896 ->467016combined118Brecords+20=55107908B.
+260new/goldenpairs whole+trace4891637920B; plusledger+256MiBreserve=5215181284B
+prospective new-output bound. Reused old469inputs charged separately. Derive exact
+remaining metadata/raw/progress/runtime/input/disk contracts in NEW471 freeze.
 
 Reuse exact original393binary/payload/core/head/router/experts and qualified469
 arithmetic/runtime/worker/ledger controls. Capture EVERY256new context teacher+

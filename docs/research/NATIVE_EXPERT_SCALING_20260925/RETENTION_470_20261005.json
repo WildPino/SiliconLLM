@@ -1,0 +1,100 @@
+{
+  "experiment": "METH470-retained-source-token-role-runtime-provenance-audit",
+  "raw_sha256": "41151e8d80cfa67d0766e6ce2f610ee5834900d08c29f5dd41b74214a28e4dee",
+  "audit_helper_sha256": "34cbb0a842ee2630094758623522c371eff1495b58be6f1ec67936f2eb952589",
+  "gates": {
+    "source_protocol_engine_physicalHEAD_and_direct_records_runtime_exact": true,
+    "all36_actual_package_code_native_files_and_loaded_paths_SHA_bound": true,
+    "ALL1863_prior_files_physical_canonical_SHA_exclusions_hash_membership_rederived": true,
+    "ALL96_original_case_bridge_digests_exact": true,
+    "ALL1243_cached_UTF8_rows_offsets_charcounts_SHA_EOF_exact": true,
+    "ALL64_selected_actual_source_coordinates_hashes_prior_disjointness_exact": true,
+    "ALL256_token_windows_masks_fields_digests_dev_only_roles_rank_prefix_rederived": true,
+    "all_old128_roles_and_original64_validation_manifest_capture_records_unchanged": true,
+    "actual_terminal_empty_fault_log_process_instance_absent_Windows_query_zero_no_jobs": true,
+    "exact_afterwrite_resources_RAW_OUT_terminal_row_and_unrelated3_preserved": true
+  },
+  "books": 64,
+  "contexts": 256,
+  "excerpt_token_count": 68495,
+  "source_rows_excluded": 293,
+  "raw_bytes": 2820431,
+  "output_bytes": {
+    "OUT_only": 16485,
+    "raw_outside_OUT": 2820431,
+    "combined": 2836916,
+    "terminal_progress_row": 390
+  },
+  "main_terminal": {
+    "tool_session": 56339,
+    "tool_exit_code": 0,
+    "actual_instance": {
+      "pid": 23952,
+      "create_time_unix": 1791191733.3236616,
+      "name": "python.exe",
+      "executable": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+    },
+    "PID_current_reuse_if_any": null,
+    "terminal_progress": {
+      "stage": "fixed_source_only_selection",
+      "pid": 23952,
+      "seconds": 36.625,
+      "selected_books": 64,
+      "admitted": true,
+      "end_utc": "2026-10-05T09:16:10.163379+00:00",
+      "raw_bytes": 2820431,
+      "raw_sha256": "41151e8d80cfa67d0766e6ce2f610ee5834900d08c29f5dd41b74214a28e4dee",
+      "OUT_bytes_before_terminal_progress_row": 16095,
+      "final_parent_OS_peak_bytes": 397840384,
+      "final_bytes_hashed": 1955458985
+    }
+  },
+  "windows_event_query": {
+    "experiment": "METH470 source-only terminal Windows metadata",
+    "main_pid": 23952,
+    "source_process_instance": {
+      "pid": 23952,
+      "create_time_unix": 1791191733.3236616,
+      "name": "python.exe",
+      "executable": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+    },
+    "query_start_utc": "2026-10-05T09:15:31.5337980Z",
+    "query_end_utc": "2026-10-05T09:18:48.7540867Z",
+    "query_available": true,
+    "query_error": null,
+    "event_id": 1000,
+    "returned_event_count": 0,
+    "matching_main_events": [],
+    "other_events": []
+  },
+  "preserved_daemon_pids": [],
+  "retained_metadata_files": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth470_switch_development_manifest\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth470_switch_development_manifest\\progress.jsonl",
+      "bytes": 16485,
+      "sha256": "7aa8c7b5362a13810e2f1faae828a921208812016f86114b5c9e7bf29eaf9e5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth470_windows_terminal.json",
+      "bytes": 580,
+      "sha256": "88514d7866aef7c6d485cd3829517eca9fd73ef821fb766a506a793f5cf09de8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth470_windows_terminal.ps1",
+      "bytes": 2985,
+      "sha256": "186c3481202cb127e537bc8f39c7c1f68606679392882a2caa603c2384e5737f"
+    }
+  ],
+  "seconds_before_RET_write": 38.70299999999406,
+  "OS_peak_bytes_before_RET_write": 87838720,
+  "bytes_hashed_before_RET_write": 1938511731,
+  "hard_audit_seconds": 300,
+  "hard_audit_OS_peak_bytes": 536870912,
+  "auxiliary_readout_note": "An ad hoc display used locale-default cp1252 and failed decoding the valid UTF8 raw; corrected explicit UTF8 display. No scientific main or audit rerun, no raw/source changes.",
+  "scope": "Independent metadata/source/token-array audit; no main/codec/tokenization/Arrow/framework/model/capture/fit rerun. Original96 decode equivalence is the frozen MAIN control; audit independently reconstructs ALL256 native arrays from retained full excerpt codes. Old467/469 roles/raw/RET are SHA-bound; old469 native files are not rehashed here and must be refreshed by separate471 capture. Windows actual invocation query available/zeroevents. Source admission only, no readiness/quality/rate/useful-n result."
+}
