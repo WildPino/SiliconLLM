@@ -1,42 +1,45 @@
 # Private input recipe rejected; operator-aware feasibility next
 
-## Current resumption:473 rank-allocation budget rejected; complete function floor next
+## Current resumption: frozen474, one first complete-function private OUTPUT floor
 
-473 frozen7f2679c/first58945e4, ONE main33007exit0/45.641s, ALL5apparatus;
-ONE audit30816exit0/26.500s/ALL6retention. Same107fixed IDs/21fallbacks,
-11331development representatives, original payload/source policy unchanged.
-Rank32preactivation8PASS/99FAIL; rank43 24PASS/83FAIL. Requiredrank sums
-7365..7366 versus4684 cap; nominal bank floor465329216B=76.7939%original.
-The70% decoded-factor family fails its5% development preactivation metric,
-even with variable ranks. This local budget is not the full goal's definition.
+Previous goal turn PROGRESS:473 retained26dab4a, ALL5apparatus/ALL6auditPASS;
+ideal preactivation rank sums7365..7366>4684complete70%budget. This local
+metric/budget family is closed; full goal ACTIVE/INCOMPLETE.
 
-[473 result](METH_473_SWITCH_OPERATOR_SPECTRUM_RESULT_20261005.md),
-[retention](RETENTION_473_20261005.json): raw SHAf94ae611921cfc25bcbdac05adc7aa607a5c43eef2bf4fd22f536ced1764b8cf,
-RET SHA3566a28a5a37e2898590d8474ebd1d49d56861cb170cc70377b90aaf8dcd373b.
-109OUTfiles+raw=12650706B; mainpeak237.152MiB,
-auditpeak178.660MiB. Fatal0B/available literalUTC Windowsquery0events,
-actual instances terminal; original engine/6338inputs/unrelated3 preserved.
-Goal turn PROGRESS; goal FULLACTIVE/INCOMPLETE. No completed main/SVD replay.
+NEW474 controller/math/protocol/binding frozena601514 BEFORE first scientific
+compile/import/numerics. Binding SHA
+53999bd7023770320a77a5c7698e7c624738ac7b76ff81be2f7e8cf4236b4618.
+Controller SHA73b4dcf6eabaf60ee50a679ec9fb2159984601000a7a8f4ec7d9d6321382bc1a;
+math SHA8728d94f309e5e967e5ac582c3a4b6982554cfe3c699d9e52c5a29bc48e0b7c9.
+Actual runtime assets/6447prior files7,604,388,190B/full original payload and
+manifest bound.11331development and5653novel-val representatives fixed.
 
-Next NEW474 is only a proposal: [complete-function output-space floor](ALGEBRA_REASSESSMENT_AFTER_473_20261005.md).
-Same107/21fixed policy; complete source F32FFNs already retained in472. Fit
-one private rank32 OUTPUT basis on development source functions, then measure
-the ideal projection floor on all original107novel/3065natural/64book function
-gates. Any map constrained to that fixed output space has at least this error.
-This differs from global output bases444/445 and WI/preactivation spectra.
-No new data, rank grid, oracle deployment or validation-selected fallback.
+ONE first command, never repeat a completed scientific namespace:
 
-Before first compile/import/numerics freeze NEW474 source/protocol/bindings,
-null-mode policy, arithmetic scope, final-F32 allowance and exact bytes/workspace/
-decision. Proposed CPU180s/2GiB/new96MiB; noGPU/framework/tokenizer/source replay.
-Nominal original-WI/decoded-WO rank32bank405781568B (~66.967%original) is
-prospective only. No474source, basis, spectrum, numerical evidence or export yet.
-A floor PASS would justify one real complete-function coefficient inquiry;
-it would not supply whole-model quality/performance or useful-n evidence.
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth474_switch_private_output_floor.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth474_switch_private_output_floor_result.json
+```
 
-Full real reusable Cartifact/all-bank/newstates/fresh donor-relative quality
-AND SAME>=50/causal useful-n/winner AND mass/CPU LUT/physicalDRAM/multiple
-actual families/scales/~10B/~100B remain required. Goal scope unchanged.
+Same107fixed IDs/21original fallbacks. Source complete F32FFNs from472,
+development-only equal-book effective-input dedup, one private rank32 OUTPUT
+span perexpert. Full thin SVD; fixed returned null-axis policy. Actualstored
+P32 span qualified through Q64/R64, finite F64 factor plus finalF32 rounding
+envelopes and explicit1e-8distance guard. ALL107novel<=5%/ALL3065natural<=5%/
+ALL64books<=10%, with PASS/FAIL/INDETERMINATE envelopes. A lower-bound FAIL
+rejects THIS space; PASS does not construct coordinates or converted model.
+
+HardCPU180s/2GiB/new96MiB/admission120s, CPU0/BLAS1. Exact outputupper
+73,482,080B<96MiB; noGPU/source/native/model/tokenizer replay or rank grid.
+Nominal rank32format405781568B (~66.967%original), no actual bank export.
+[Frozen protocol](METH_474_SWITCH_PRIVATE_OUTPUT_PROTOCOL_20261005.md) is
+authoritative. No474compile/import/fit/projection observation yet.
+
+If live, re-poll SAMEactualhandle; timeout is not terminal. First fault retained
+before numbered repair. Actual terminal then independent source-function/right
+Gram/topaxes/P32/QR/metric/input/weight/novelty/gate/Windows/resource audit,
+without SVD refit or main replay. Full objective remains real reusable Cartifact/
+all-bank/newstates/fresh donor-relative quality AND SAME>=50/causal useful-n/
+winner AND mass/CPU LUT/physicalDRAM/multiple actualfamilies/~10B/~100B.
 
 ## Retained457: admission failed before native execution
 
