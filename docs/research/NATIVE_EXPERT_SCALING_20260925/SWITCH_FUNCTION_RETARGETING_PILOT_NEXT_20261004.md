@@ -1,6 +1,15 @@
 # Current resumption457: frozen matched whole cost diagnosis
 
-## Current resumption457: admission FAILED before native execution
+## Current resumption458: corrected schema frozen; FIRST execution next
+
+Scientific freeze1eb56f9.457 first admission failure retained ec85910, zero native
+commands.458 changes only namespace/failure binding/historical363 environment-field
+absence check; same data/order/gates/budget. No457 rerun or relaxed metric.
+[458 protocol](METH_458_SWITCH_MATCHED_WHOLE_COST_PROTOCOL_20261005.md).
+Next ONCE: .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth458_switch_matched_whole_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth458_switch_matched_whole_cost_result.json
+Then retain/analyze only. Goal ACTIVE/INCOMPLETE;456 remains CLOSED.
+
+## Retained457: admission FAILED before native execution
 
 ONE session19372 exit1,224.109s, KeyError('runtime_environment') in historical
 quality363 schema. ZERO native commands/new outputs; first raw/source/protocol
