@@ -1,26 +1,31 @@
 # Current resumption: original native query capture/readiness next
 
-## Current resumption: admitted467 manifest; prepare NEW468 native capture
+## Current resumption: freeze468 capture/readiness; ONE first execution next
 
-467 ONE session21510 exit0, ALL11 apparatus/ALL10 independent retention PASS;
-original codec/96-case bridge, all1243 cached UTF8 rows,1847 prior files/162excluded
-rows,128 whole books64dev64diagnostic-val/512 S29T14contexts exact.36.250s/
-343.82MiB peak, raw4167060B. Native fault logEMPTY, forbidden modules absent,
-actualPID11200 exited, Windows Application Error1000 query available/no events.
-Same466 diagnostic preselection counted ONCE; no model/capture/fit yet.
-[467 result](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
-[retention](RETENTION_467_20261005.json).465 compilation and466 Arrow first faults
-remain retained; no completed controller rerun. Full goal ACTIVE/INCOMPLETE.
+Previous goal turn PROGRESS:467 source/codec manifest admitted, same128 model-
+unconsumed source books64dev64diagnostic-val/512 S29T14cases. This turn prepared
+NEW468 controller/protocol/actual runtime/file bindings, no import/compile/native
+observation yet. Original393 binary/payload/arithmetic; no C/engine change.
+[468 protocol](METH_468_SWITCH_NATIVE_DOMAIN_CAPTURE_PROTOCOL_20261005.md).
 
-Exact next: prepare/freeze NEW468 original393 source128 native capture/readiness,
-EVERY512 context teacher+own-natural, fixed64/64 book roles and bank11. Refresh
-complete payload/binary/runtime/golden controls; freeze resource/output bounds,
-trace/whole/A16/order/health/negative controls before first execution. Proposed
-35min/16GiB/12GiB,3workers[0,2,4], original cap64. SAME46232devcodes/4books,
-16NOVELvalcodes/4books,>=32readyIDs/>=90%ALL natural-val executed-query coverage.
-No factors until data adequate; capture timings do not qualify final50.
-[468 proposal](SWITCH_467_NATIVE_CAPTURE_READINESS_NEXT_20261005.md).
-468 source/protocol NOT yet created/frozen/executed. No quality/rank/n gain claim.
+After source/protocol/bindings/EOL scientific freeze, execute ONE fixed command:
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth468_switch_native_domain_capture.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth468_switch_native_domain_capture_result.json
+
+1033 native commands:1worker negative+8golden controls+ALL512teacher/512natural.
+ALL192 old128 whole/trace SHA,13cached+6rational A16controls before new domain.
+3workers[0,2,4]/ACTIVE/infinite, original cap64; parent/child peak/readback,
+full states/logits/routes/normalized inputs/full scores retained, no health filter.
+HardMAIN35min/admission180s/child120s/16GiB/ALLoutputs12GiB; prospective worst
+9976455328B including256MiBmetadata reserve, ledger<=49299476B/raw64MiB.
+No hashing while native child live. Same512 encoder/firstdecoder views deduplicate.
+
+Actual data decision FIXED128bank11, immutable64/64roles; SAME46232devcodes/4books,
+16novelvalcodes/4books,>=32readyIDs/>=90%ALL own-natural val executed coverage.
+PASS -> metadata/ledger/terminal Windows audit then separately freeze private
+INPUT rank32 probe. DATA FAIL -> retain deficit/reassess information or geometry;
+no factor/threshold/bank/data substitution. First apparatus fault retained before
+numbered repair, no468rerun. If live resume actual same session to terminal.
+Full goal ACTIVE/INCOMPLETE; new rank/quality/rate/useful-n/DRAM unmeasured.
 
 ## Retained457: admission failed before native execution
 
