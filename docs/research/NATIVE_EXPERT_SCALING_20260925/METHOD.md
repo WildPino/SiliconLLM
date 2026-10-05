@@ -1,36 +1,46 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: frozen475, first exact coarse/fine certificate admission
+## Current resumption:475 exact but economic FAIL; observable-quality admission next
 
-Previous goal turn PROGRESS:474 retained3d0f532, ALL6apparatus/ALL6auditPASS;
-THIS private rank32 output span FAIL105/107. Full goal ACTIVE/INCOMPLETE.
+Current goal turn PROGRESS.475 main96814exit0/audit59134exit0, ALL6apparatus/
+ALL6auditPASS. Exact lossless planes and all1344 complete native functions
+qualified;466964/4128768rows certified=11.3100%, mean coefficient savings5.6550%
+before costs. BOTHmean60%/EACHbook40% gatesFAIL; all24books8.63..16.69%.
+THIS fixed nibble-center/Cauchy certificate CLOSED; no C/center/width/grid.
+[Result](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md),
+[raw](meth475_switch_coarse_certificate_result.json),
+[retention](RETENTION_475_20261005.json). Frozenf59feeb sources/binding unchanged.
 
-NEW475 source/math/protocol/binding frozenf59feeb BEFORE first scientific
-compile/import/numerics. Binding SHA
-c80c00c80f5baf4b57e643ef14520d83ab635076fff3749cfd023298b9f10c03.
-Controller SHAae435cc7ca401a379eef31abde8d5ee4df585f28f8237ce3041b34723909b98e;
-math SHAf0d67db17d0e6ea61c0599bdb7fb85893d9fc00cc2924e9da5729b3a1e9fdb1f.
-Actual runtime assets/6557prior files7,671,004,356B/full original payload/manifest
-bound. ALL128lossless codecs, ALLcached1344native positions/24books, no fitting.
+Next NEW476 inquiry: admit ALL6649 validation472 source ledger/context/head
+joins before comparing source/old saved candidate complete functions through
+actual residual/probability/final norm/A16 head. This calibrates function-error
+criteria against observable KL/margins, not native promotion or a changed472gate.
+[Whole algebraic reassessment and proposed stops](ALGEBRA_REASSESSMENT_AFTER_475_20261005.md).
+Exact next action: static source-schema/context availability review, NEW476
+controller/protocol/full runtime/input/output budget bindings, scientific freeze
+BEFORE first compile/import/numerics, separate sole first-command registration.
+No476 source/frozenprotocol/binding/observations/executable command yet.
+Proposed180s/2GiB/64MiB must cover ALL6649query/full vocabulary; missing context
+or budget failure retained before quality and before any reduced query selection.
+Never rerun475/474/472 or source captures; first failures before numbered repairs.
 
-ONE first command, never repeat a completed scientific namespace:
+Foreground n evidence369..373: real matched functions useful; actual nested
+64/128/256 already exported/qualified/tested.372qualitymixed, not monotonic n
+gain;373 fourfold fullcost+2.91%/upper+3.62% but router~3.83x, no DRAM/LUT/rate.
+Full goal ACTIVE/INCOMPLETE: new real reusable artifact/all-bank/newstates/fresh
+quality AND SAME>=50, useful-n/mass/CPU LUT/DRAM/other actualfamilies/~10B/~100B.
 
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth475_switch_coarse_certificate.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth475_switch_coarse_certificate_result.json
-```
+## Available analysis step: exact bitplane and sign-certificate admission
 
-w=16h+8+b, h/b signed4bits; certify C<0 and C²>||b||²||q||², otherwise read
-fine bits and reconstruct exact dots. Preserve hidden A16 codes/scales/complete
-native down BYTE; raw/up signedzero differences permitted. Strict exact integer
-overflow/cast/codec/13fixture controls; mean certified rows>=.60/EACHbook>=.40.
-Logical read gate only, storage increases; no native packed execution/rate/DRAM.
-Hard180s/2GiB/new32MiB, byte admission120s, CPU0/BLAS1. Outputupper33,157,888B.
-[Frozen protocol](METH_475_SWITCH_COARSE_CERTIFICATE_PROTOCOL_20261005.md)
-authoritative; no475scientific observation yet. If live re-poll SAMEhandle;
-timeout is not termination. Then ONE independent scalar-chunked-I64 codec/
-primal/margin/count/status/Windows/resource audit. Fail closes THIS certificate
-without C or parameter grid. Full artifact/freshquality/SAME>=50/useful-n/
-winner ANDmass/CPU LUT/physicalDRAM/multiple actualfamilies/~100B remain open.
+Tools475 controller/math and independent scalar-I64 audit/query helpers. Exact
+full128codec, native13fixtures/1344complete WI/WO/quantizer references, original
+payload/manifest/runtime/all6557files preserved. Explicit signedzero/raw scope;
+T=C/8 I32 plus U32row/U64query norms losslessly retain all integer margins.
+72.719s/215.414MiB main,42.516s/270.617MiB audit; ALL6/ALL6PASS.
+Economic gatesFAIL11.31%certified against60%mean/40%eachbook. No packed C bank,
+native cost or physicalDRAM benefit. This fixed certificate is CLOSED.
+[475 result](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md),
+[next observable-information question](ALGEBRA_REASSESSMENT_AFTER_475_20261005.md).
 
 ## Available analysis step: learned-operator spectra and complete rank budget
 
@@ -356,7 +366,7 @@ generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
-running in the project C engine at ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¥50 accepted batch-1 tokens/s on a declared
+running in the project C engine at ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€šÃ‚Â¥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
 family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
@@ -849,7 +859,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -857,13 +867,13 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
@@ -924,7 +934,7 @@ validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
 [318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
 now passes all source/numeric/format/route/capacity controls on fully allocated
 3.187GB with actual source head/router/norm/embedding. All nine repetition
-medians38.124ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+medians38.124ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
 full-width decoder is CLOSED before training/640-bank allocation.318 startup
 failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
 No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.

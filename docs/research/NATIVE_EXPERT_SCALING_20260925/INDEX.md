@@ -21,7 +21,7 @@ daemons. Routine Graphify disabled. Donor-adaptation remains frozen reusable evi
 
 | Question | Established | Open |
 | --- | --- | --- |
-| Useful conditional target |Real bank correspondence/subsets, bounded routing cost, local identity sensitivity|Monotonic useful-n increments, winner AND mass certification, physicalDRAM/LUT scaling|
+| Useful conditional target |369matching useful;370/371 real nested64/128 artifacts;373 fourfold cost bounded|372quality mixed; monotonic useful-n, winner AND mass, physicalDRAM/LUT scaling|
 | Pretrained-to-target transfer |Two bounded original same-family I8/A16 C source scales;453 exact conditional WO/local prediction screen|New whole artifact/quality/rate, other families/scales/~100B|
 
 ## Latest decisive evidence
@@ -44,7 +44,9 @@ ideal preactivation rank sums7365..7366 exceed4684complete70%budget. Variable
 ranks fail this metric/budget family.
 [474](METH_474_SWITCH_PRIVATE_OUTPUT_RESULT_20261005.md): ALL6/ALL6PASS;
 private rank32OUTPUT lower floors FAIL105/107 despite pooled1.31%PASS.
-475 exact conditional-bit admission now frozenf59feeb; no observations yet.
+[475](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md): ALL6/ALL6PASS;
+exact functions but certified11.31%/logical WI coefficient savings5.66% economicFAIL.
+Next: complete original context/head admission before observable-quality calibration.
 
 Input apparatus: [467 source/codec admission](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
 [464 corpus transport](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
@@ -115,37 +117,35 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: frozen475, first exact coarse/fine certificate admission
+## Current resumption:475 exact but economic FAIL; observable-quality admission next
 
-Previous goal turn PROGRESS:474 retained3d0f532, ALL6apparatus/ALL6auditPASS;
-THIS private rank32 output span FAIL105/107. Full goal ACTIVE/INCOMPLETE.
+Current goal turn PROGRESS.475 main96814exit0/audit59134exit0, ALL6apparatus/
+ALL6auditPASS. Exact lossless planes and all1344 complete native functions
+qualified;466964/4128768rows certified=11.3100%, mean coefficient savings5.6550%
+before costs. BOTHmean60%/EACHbook40% gatesFAIL; all24books8.63..16.69%.
+THIS fixed nibble-center/Cauchy certificate CLOSED; no C/center/width/grid.
+[Result](METH_475_SWITCH_COARSE_CERTIFICATE_RESULT_20261005.md),
+[raw](meth475_switch_coarse_certificate_result.json),
+[retention](RETENTION_475_20261005.json). Frozenf59feeb sources/binding unchanged.
 
-NEW475 source/math/protocol/binding frozenf59feeb BEFORE first scientific
-compile/import/numerics. Binding SHA
-c80c00c80f5baf4b57e643ef14520d83ab635076fff3749cfd023298b9f10c03.
-Controller SHAae435cc7ca401a379eef31abde8d5ee4df585f28f8237ce3041b34723909b98e;
-math SHAf0d67db17d0e6ea61c0599bdb7fb85893d9fc00cc2924e9da5729b3a1e9fdb1f.
-Actual runtime assets/6557prior files7,671,004,356B/full original payload/manifest
-bound. ALL128lossless codecs, ALLcached1344native positions/24books, no fitting.
+Next NEW476 inquiry: admit ALL6649 validation472 source ledger/context/head
+joins before comparing source/old saved candidate complete functions through
+actual residual/probability/final norm/A16 head. This calibrates function-error
+criteria against observable KL/margins, not native promotion or a changed472gate.
+[Whole algebraic reassessment and proposed stops](ALGEBRA_REASSESSMENT_AFTER_475_20261005.md).
+Exact next action: static source-schema/context availability review, NEW476
+controller/protocol/full runtime/input/output budget bindings, scientific freeze
+BEFORE first compile/import/numerics, separate sole first-command registration.
+No476 source/frozenprotocol/binding/observations/executable command yet.
+Proposed180s/2GiB/64MiB must cover ALL6649query/full vocabulary; missing context
+or budget failure retained before quality and before any reduced query selection.
+Never rerun475/474/472 or source captures; first failures before numbered repairs.
 
-ONE first command, never repeat a completed scientific namespace:
-
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth475_switch_coarse_certificate.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth475_switch_coarse_certificate_result.json
-```
-
-w=16h+8+b, h/b signed4bits; certify C<0 and C²>||b||²||q||², otherwise read
-fine bits and reconstruct exact dots. Preserve hidden A16 codes/scales/complete
-native down BYTE; raw/up signedzero differences permitted. Strict exact integer
-overflow/cast/codec/13fixture controls; mean certified rows>=.60/EACHbook>=.40.
-Logical read gate only, storage increases; no native packed execution/rate/DRAM.
-Hard180s/2GiB/new32MiB, byte admission120s, CPU0/BLAS1. Outputupper33,157,888B.
-[Frozen protocol](METH_475_SWITCH_COARSE_CERTIFICATE_PROTOCOL_20261005.md)
-authoritative; no475scientific observation yet. If live re-poll SAMEhandle;
-timeout is not termination. Then ONE independent scalar-chunked-I64 codec/
-primal/margin/count/status/Windows/resource audit. Fail closes THIS certificate
-without C or parameter grid. Full artifact/freshquality/SAME>=50/useful-n/
-winner ANDmass/CPU LUT/physicalDRAM/multiple actualfamilies/~100B remain open.
+Foreground n evidence369..373: real matched functions useful; actual nested
+64/128/256 already exported/qualified/tested.372qualitymixed, not monotonic n
+gain;373 fourfold fullcost+2.91%/upper+3.62% but router~3.83x, no DRAM/LUT/rate.
+Full goal ACTIVE/INCOMPLETE: new real reusable artifact/all-bank/newstates/fresh
+quality AND SAME>=50, useful-n/mass/CPU LUT/DRAM/other actualfamilies/~10B/~100B.
 
 ## Retained457: admission failed before native execution
 
