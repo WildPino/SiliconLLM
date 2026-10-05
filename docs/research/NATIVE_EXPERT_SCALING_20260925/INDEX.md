@@ -31,9 +31,10 @@ conditional domain admitted, ALL10/ALL9PASS; fixed decoder bank84readyIDs but
 84.99%coverage<90% DATAFAIL. Other decoderbanksFAIL; no factors.25IDs/389queries
 have dev-only deficits; bounded dev augmentation feasible upper97.68%, not promise.
 
-[470](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md): ONE64new-development/
-256case source manifest admitted ALL12/ALL10PASS; unchanged diagnostic validation.
-No new routing/readiness result yet; separately freeze471 native combination.
+[471](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md): ONEdev extension
+combined exactly with469; ALL13/ALL10PASS. Fixedbank11 DATA PASS107ready/97.1615%,
+unchanged validation. All12banks dataPASS. [470 source](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md)
+admitted before capture. Next separately freeze ONErank32INPUT/function inquiry.
 
 Input apparatus: [467 source/codec admission](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
 [464 corpus transport](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
@@ -104,44 +105,39 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption: frozen471 native extension, ONE first execution next
+## Current resumption:471 data admitted; ONE rank32 INPUT inquiry to freeze
 
-470 source extension admitted07e6648, ALL12apparatus/ALL10retention:64NEW whole
-development books128..191/256S29T14cases, no new validation. Original469 baseline
-84ready IDs/2605of3065=84.99%fixedbank11coverage DATAFAIL. Goal turn PROGRESS from
-qualified source extension; native benefit remains unknown. Full goal ACTIVE/INCOMPLETE.
+471 retained ALL13apparatus/ALL10independent audit PASS. ONE main24999exit0,
+ONE metadata audit87092exit0; no completed main/cohort native/tokenizer rerun.
+Fixed128decoderbank11 now107readyIDs/2978of3065=97.1615%natural validation
+coverage, versus46984ready/84.9918%. ALL64validation books/queries/tables fixed;
+ALL192books/768cases/387036combined queries independently reconstructed, original
+258120records reused byte-exact once. ONE64-book development ladder COMPLETE.
+All12banks dataPASS, original selectedbank11 unchanged; no measured rank/factor.
 
-NEW471 source/protocol/actual runtime/input binding frozenfbe0306 BEFORE any compile/
-import/new native/numerical observation. Binding SHA
-e1a41142aebbf572033693de50af11ebafd64aab9f4f4877392820a2e322222f,
-17direct records/13helpers/429NumPy+12psutilassets/ALL4136old469files exact bounded
-inventory; original393binary/payload/math/3workers. ONE first command:
+[471 result](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md),
+[retention](RETENTION_471_20261005.json): raw SHA45aad972f69181201cd6337a4c46b06595ff9e974b2f283592815c49a8f8537a,
+RET SHA56cb78aa059647f312d22376d817d7266e6d1cd11a89272dcd788f6d325a0e0f.
+Actual main474.031s/1.709GiBconservative peak/new2.347GB; audit76.391s/385.88MiB.
+Fatal0B/available Windowsquery ZEROevents, all actual instances terminal,
+original engine/payload/unrelated3 preserved. Goal turn PROGRESS, full goal
+ACTIVE/INCOMPLETE; no compressed-quality/rate/useful-n claim.
 
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth471_switch_development_capture.py
---out docs\research\NATIVE_EXPERT_SCALING_20260925\meth471_switch_development_capture_result.json
+Next NEW472: implement and separately freeze ONE rank32 private INPUT spectral/
+complete-function inquiry BEFORE first compile/import/numerics. Proposal defines
+effective x=alpha*q, equal-book/code+scale dedup, development-only uncentered
+alpha-squared covariance; compare actual storedF32 factors through original
+row-scales/ReLU/secondA16/WO, not only input energy. ALL107ready factors and
+ALL21original fallbacks fixed, every validation query retained. No rank grid,
+extra data, validation fitting or observed-error ID substitution. Exact arithmetic/
+SVD/zero/tie controls, runtime/input SHA, gates, workspace/output bounds, budget
+and decision still need scientific source/protocol/binding freeze. No472 exists
+or has run yet. Proposed CPU900s/8GiB/512MiB, noGPU/model/native/codec replay.
+[Algebra and next proposal](SWITCH_PRIVATE_INPUT_GEOMETRY_NEXT_20261005.md).
 
-Refresh all old file SHA, original192/golden/A16/worker/parser/118Bledger controls;
-reconstruct ALL258120oldqueries/12banks1536IDtables EXACT before new data. Capture
-ALL256new contexts in BOTH modes=512newstreams/521totalnative commands incl controls,
-no old469 cohort recapture/main rerun. Explicit roles0..63dev/64..127val/128..191devaug,
-NEVER book>=64. Same fixed validation3065bank11denominator, full V\Dprime novelty
-recomputed; same32devcodes/4books/16NOVELvalcodes/4books/>=32ready/>=90%coverage.
-All cases/health/unsupported IDs retained, no encoder/bank/subset selection.
-
-HardMAIN35min16GiB/new12GiB/child120s/pre-native180s; expected~8CPUminutes+old input
-refresh/reconstruction. Exactnew native+combinedledger+256MiBreserve upper5215181284B,
-combined<=467016118Brecords/55107908B. NoGPU/model/framework/codec/download/fit/SVD.
-Per-native actual OSpeak+FILETIMEcreation from retained handles, copyargv before
-Popen, no hashing while child live, raw/OUT/finalprogress counters separate.
-[471 protocol](METH_471_SWITCH_DEVELOPMENT_CAPTURE_PROTOCOL_20261005.md).
-
-If live poll same actualhandle; do not restart after observation timeout. First
-failure immutable BEFORE numbered repair. After actual completion independent
-ALLcombinedledger/actualtrace/role/novelty/byte/Windowsprocess terminal audit.
-DATA PASS+retention -> separately freeze private INPUT spectral/function probe;
-DATAFAIL -> stop this ONE64dev data ladder/reassess geometry or data contract.
-No scientific471 observation yet.470/469 mains complete and never repeated.
-[Bounded extension](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
+After local geometry/function admission: real C economics/all-bank composition,
+fresh donor-relative whole quality AND SAME>=50, causal useful-n/winner AND mass/
+CPU LUT/physicalDRAM/other-family/actual~10B~100B still required.
 
 ## Retained457: admission failed before native execution
 

@@ -1,66 +1,82 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: frozen471 native extension, ONE first execution next
+## Current resumption:471 data admitted; ONE rank32 INPUT inquiry to freeze
 
-470 source extension admitted07e6648, ALL12apparatus/ALL10retention:64NEW whole
-development books128..191/256S29T14cases, no new validation. Original469 baseline
-84ready IDs/2605of3065=84.99%fixedbank11coverage DATAFAIL. Goal turn PROGRESS from
-qualified source extension; native benefit remains unknown. Full goal ACTIVE/INCOMPLETE.
+471 retained ALL13apparatus/ALL10independent audit PASS. ONE main24999exit0,
+ONE metadata audit87092exit0; no completed main/cohort native/tokenizer rerun.
+Fixed128decoderbank11 now107readyIDs/2978of3065=97.1615%natural validation
+coverage, versus46984ready/84.9918%. ALL64validation books/queries/tables fixed;
+ALL192books/768cases/387036combined queries independently reconstructed, original
+258120records reused byte-exact once. ONE64-book development ladder COMPLETE.
+All12banks dataPASS, original selectedbank11 unchanged; no measured rank/factor.
 
-NEW471 source/protocol/actual runtime/input binding frozenfbe0306 BEFORE any compile/
-import/new native/numerical observation. Binding SHA
-e1a41142aebbf572033693de50af11ebafd64aab9f4f4877392820a2e322222f,
-17direct records/13helpers/429NumPy+12psutilassets/ALL4136old469files exact bounded
-inventory; original393binary/payload/math/3workers. ONE first command:
+[471 result](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md),
+[retention](RETENTION_471_20261005.json): raw SHA45aad972f69181201cd6337a4c46b06595ff9e974b2f283592815c49a8f8537a,
+RET SHA56cb78aa059647f312d22376d817d7266e6d1cd11a89272dcd788f6d325a0e0f.
+Actual main474.031s/1.709GiBconservative peak/new2.347GB; audit76.391s/385.88MiB.
+Fatal0B/available Windowsquery ZEROevents, all actual instances terminal,
+original engine/payload/unrelated3 preserved. Goal turn PROGRESS, full goal
+ACTIVE/INCOMPLETE; no compressed-quality/rate/useful-n claim.
 
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth471_switch_development_capture.py
---out docs\research\NATIVE_EXPERT_SCALING_20260925\meth471_switch_development_capture_result.json
+Next NEW472: implement and separately freeze ONE rank32 private INPUT spectral/
+complete-function inquiry BEFORE first compile/import/numerics. Proposal defines
+effective x=alpha*q, equal-book/code+scale dedup, development-only uncentered
+alpha-squared covariance; compare actual storedF32 factors through original
+row-scales/ReLU/secondA16/WO, not only input energy. ALL107ready factors and
+ALL21original fallbacks fixed, every validation query retained. No rank grid,
+extra data, validation fitting or observed-error ID substitution. Exact arithmetic/
+SVD/zero/tie controls, runtime/input SHA, gates, workspace/output bounds, budget
+and decision still need scientific source/protocol/binding freeze. No472 exists
+or has run yet. Proposed CPU900s/8GiB/512MiB, noGPU/model/native/codec replay.
+[Algebra and next proposal](SWITCH_PRIVATE_INPUT_GEOMETRY_NEXT_20261005.md).
 
-Refresh all old file SHA, original192/golden/A16/worker/parser/118Bledger controls;
-reconstruct ALL258120oldqueries/12banks1536IDtables EXACT before new data. Capture
-ALL256new contexts in BOTH modes=512newstreams/521totalnative commands incl controls,
-no old469 cohort recapture/main rerun. Explicit roles0..63dev/64..127val/128..191devaug,
-NEVER book>=64. Same fixed validation3065bank11denominator, full V\Dprime novelty
-recomputed; same32devcodes/4books/16NOVELvalcodes/4books/>=32ready/>=90%coverage.
-All cases/health/unsupported IDs retained, no encoder/bank/subset selection.
+After local geometry/function admission: real C economics/all-bank composition,
+fresh donor-relative whole quality AND SAME>=50, causal useful-n/winner AND mass/
+CPU LUT/physicalDRAM/other-family/actual~10B~100B still required.
 
-HardMAIN35min16GiB/new12GiB/child120s/pre-native180s; expected~8CPUminutes+old input
-refresh/reconstruction. Exactnew native+combinedledger+256MiBreserve upper5215181284B,
-combined<=467016118Brecords/55107908B. NoGPU/model/framework/codec/download/fit/SVD.
-Per-native actual OSpeak+FILETIMEcreation from retained handles, copyargv before
-Popen, no hashing while child live, raw/OUT/finalprogress counters separate.
-[471 protocol](METH_471_SWITCH_DEVELOPMENT_CAPTURE_PROTOCOL_20261005.md).
+## Available method step: extend development and recompute a fixed domain
 
-If live poll same actualhandle; do not restart after observation timeout. First
-failure immutable BEFORE numbered repair. After actual completion independent
-ALLcombinedledger/actualtrace/role/novelty/byte/Windowsprocess terminal audit.
-DATA PASS+retention -> separately freeze private INPUT spectral/function probe;
-DATAFAIL -> stop this ONE64dev data ladder/reassess geometry or data contract.
-No scientific471 observation yet.470/469 mains complete and never repeated.
-[Bounded extension](SWITCH_DEVELOPMENT_INFORMATION_AUGMENTATION_NEXT_20261005.md).
+Tools: meth470_switch_development_manifest.py, meth470_retention_audit.py,
+meth470_windows_terminal.ps1, then separately frozen
+meth471_switch_development_capture.py, meth471_retention_audit.py and
+meth471_windows_terminal.ps1. Inputs: originalRustcodec/464source/467token golden,
+current source/runtime bindings; ALLold469actual files/ledger, original393binary/
+payload/math/controls. Source selection is model-free, excludes prior identities,
+keeps explicit roles/global128..191 and original64validation books fixed.
 
-## Available method step: extend development while keeping validation fixed
+Source-only output64whole development books/256S29T14cases, all lossless native
+fields/coordinates/token windows retained. Source step36.625s/379.41MiB/2.837MB,
+independent metadata audit38.703s/83.77MiB, ALL12/ALL10PASS. Then refresh ALLold
+retained file SHA, original arithmetic/golden/worker/ledger controls; reconstruct
+every original query/table exactly BEFORE capture. Execute all256new contexts in
+both modes; combine ALLactual records once, not by recapturing old native cases.
+Explicit book roles prevent the wrong high-book validation cutoff.
 
-Tools: meth470_switch_development_manifest.py, meth470_retention_audit.py and
-meth470_windows_terminal.ps1; qualified originalRustcodec/464source/467golden,
-current scoped exhaustive priorJSON/file/runtime bindings. ONE new64whole-source/
-256case source-only manifest, no router/loss/expert feedback, explicit new book
-roles/global128..191. Original development0..63/diagnostic-validation64..127
-remain fixed; all old/prior whole sources and window identities excluded.
-Reproduce all original96 token fields before selection; retain full excerpt
-codes/coordinates/candidate rejections. Independently reconstruct all actual
-source/token/mask/native/role arrays without codec/main/model replay. LiteralISO/
-invariantUTC Windows query, actual process-instance/fault/resource proof required.
-Output admitted64development sources, not adequate private geometry or quality.
-Source step36.625s/379.41MiB/~2.837MB; audit38.703s/83.77MiB, ALL12/ALL10PASS.
+Output387036queries/192books/768cases,118B lossless ledger, complete12bank/1536ID
+four-mode tables. Original validation per-ID/input/code/scale/prob/count/book
+tables remain exact. Recompute V\Dprime: added development can remove novelty.
+Deduplicate correlated modes, preserve all health outcomes/unsupported IDs and
+fixed denominators. Same32devcodes/4books/16NOVELvalcodes/4novelbooks and bank
+>=32ready/>=90%ALLnatural-val queries. ONEaugmentation only, no adaptive ladder.
 
-Then separate native capture reads ALL retained old queries and new trajectories,
-uses explicit roles (new high IDs are development), deduplicates correlated
-teacher/natural views and recomputes validation novelty V\Dprime. Adding D may
-remove novelty; old validation denominators never resampled. Same data floors/
-bank/health-independent coverage; one bounded augmentation only. Function rank/
-error/storage/composition/fresh donor quality/SAME50/useful-n require later gates.
-[470 source procedure/result](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md).
+Independent retained-byte audit reconstructs every combined actual A16code/scale/
+role/route/fingerprint/book/count/readiness record and checks all old records
+byte-exact once. Bound actual Python/native process instances using creation time
+and retained-handle FILETIME; query Windows using literalISO/invariantUTC. Charge
+reused input bytes, newOUT, raw and terminal row separately; no native/main replay.
+Native step474.031s/1.709GiBconservativepeak/new2.347GB, ALL13apparatus; independent
+audit76.391s/385.88MiB/ALL10PASS. Original data-floor bank11 admitted107IDs/97.1615%.
+
+Validated conditional-input exposure and its provenance only. Code counts do not
+identify rank. A private spectral/complete-function procedure is still provisional:
+effective alpha*q with alpha-squared covariance, exposure/dedup rules, actual
+learned row scales, ReLU/second-A16/WO, stored-factor rounding, fallback/export/C
+cost and full composition remain to be qualified. Do not fit diagnostic validation
+or inherit original quality/rate. Full useful-n/mass/DRAM/family-scale gates persist.
+Reproduction requires separately frozen NEW namespaces, not completed470/471OUT.
+[470 source procedure](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md),
+[471 capture procedure](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md),
+[private geometry proposal](SWITCH_PRIVATE_INPUT_GEOMETRY_NEXT_20261005.md).
 
 ## Available method step: capture a new original conditional domain and audit it
 
@@ -91,8 +107,8 @@ first metadata faults. Final audit31.765s/279.49MiBpeak; ALL9retention gates PAS
 Validated apparatus/data provenance, DATAFAIL fixed128bank11:84ready IDs but
 84.99%coverage<90%. No factor/generalization/quality/rate/n/physicalDRAM promotion.
 All6decoderbanks fail,6encoderbanks pass but cannot substitute the fixed decision.
-Next is ONE bounded development-only information augmentation with unchanged
-validation and full novelty recomputation; do not grow data indefinitely.
+Historical469deficit motivated the ONEdevelopment extension now completed471
+above; fixed data admission now PASS. Do not grow data indefinitely.
 Reproduce only in separately frozen NEW namespaces, not completed469/468 OUT.
 [469 procedure/result](METH_469_SWITCH_NATIVE_DOMAIN_CAPTURE_RESULT_20261005.md).
 

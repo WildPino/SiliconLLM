@@ -1,16 +1,19 @@
-# Bounded development extension:470 admitted,471 native combination next
+# Bounded development extension COMPLETE:470source and471data admitted
 
-5 October2026.469 original128 conditional-input capture admitted, ALL10 apparatus/
-ALL9 independent retention PASS. Fixedbank11 DATA FAIL:84readyIDs,2605/3065=
-84.991843%own-natural validation executed-query coverage (<90%). No factors.
-Full goal ACTIVE/INCOMPLETE.470 source manifest admitted ALL12apparatus/ALL10
-retention PASS,64NEW devbooks/256cases, zero model/native/router observations.
-Freeze161ce77/firstb5df6eb, ONE56339exit0. Original64validation fixed.
-[470 source admission](METH_470_SWITCH_DEVELOPMENT_MANIFEST_RESULT_20261005.md).
-471 source/protocol/bindings frozenfbe0306, ONE first execution next;
-no compile/import/new native/numerical observation yet.
-See [471 prospective protocol](METH_471_SWITCH_DEVELOPMENT_CAPTURE_PROTOCOL_20261005.md). Sections below retain
-prospective source/capture design;470 is now completed, do not rerun its main.
+5 October2026.470 ALL12apparatus/ALL10retention PASS: ONE64new DEVELOPMENT-books/
+256case source manifest.471 ALL13apparatus/ALL10retention PASS: all new native
+teacher/natural streams combined once with unchanged original469queries.
+Fixedbank11 now107ready IDs/2978of3065=97.1615%coverage, versus84/84.9918% before.
+Original ALL64validation books/token fields/queries/tables fixed. All12banks dataPASS;
+no rank/factor/function preservation observed. Full goal ACTIVE/INCOMPLETE.
+[471 retained result](METH_471_SWITCH_DEVELOPMENT_CAPTURE_RESULT_20261005.md).
+
+ONEaugmentation complete; no additional books or validation resampling. Separately
+implement/freeze NEW472privateINPUT spectrum/complete-function inquiry before any
+scientific observation. [Next proposal](SWITCH_PRIVATE_INPUT_GEOMETRY_NEXT_20261005.md).
+470/471 mains and audits terminal, never repeated. Sections below preserve the
+HISTORICAL deficit, feasibility algebra and prospective design used before
+470/471, not current execution instructions.
 
 ## Precise bottleneck, feasibility and stop
 
