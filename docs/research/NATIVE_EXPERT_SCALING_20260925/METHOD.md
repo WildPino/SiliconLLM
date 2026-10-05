@@ -1,5 +1,23 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
+## Operational update before first453 execution
+
+METH453 scientific math/controller/protocol frozen **1661547**, before imports,
+compilation or numerical observations. Execute ONE fixed compact-WI/original-I8-WO
+exact-zero-code pilot; previous451/452 runs remain terminal and their recipes
+unchanged. New80% stored budget and conservative local footprint gates declared
+prospectively; full objective, original quality and SAMEartifact50 remain required.
+
+Command:
+
+    .venv\Scripts\python.exe benchmarks\native_expert_scaling\meth453_switch_sparse_wo_pilot.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth453_switch_sparse_wo_result.json
+
+CPU0, one Torch/BLAS thread, no GPU/download/fit/engine edits. Bounds admission300s,
+numerical600s,total900s,peak4GiB,outputs704MiB; expected180..300s/2.5..3.5GB.
+Retain FIRST failure; no rerun on timeout. ALL apparatus and seven local gates
+must pass before a NEW C cost/primal experiment. Logical byte counts never count
+as measured DRAM or full-model cost. [Frozen453 protocol](METH_453_SWITCH_SPARSE_WO_PROTOCOL_20261005.md).
+
 **5 October current status:** the user resumed the goal after the strategic review.
 [Evidence and proposed paths](STRATEGIC_REVIEW_20261004.md) distinguish
 qualified Switch transfer from useful-n scaling, cross-core interfaces and
