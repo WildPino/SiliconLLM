@@ -151,6 +151,16 @@ reported separately, so valid negative evidence is retained. Root log-error/
 ID-conditioned probability/fit losses and surrogate-to-physical differences
 are descriptive; they cannot override strict primary gates.
 
+Reporting clarification frozen before the metadata/helper/main observations:
+p95 is sorted nearest-order value at ceil(.95*count)-1, not an interpolated
+quantile. Emit ALL4608book/mode/bank and ALL9216bank/role/mode/sourceID slots,
+including empty slots with count0/undefined averages as JSONnull. Unique
+all/dev/validation views overall+12banks=39; occurrence bank/role/mode=72.
+Report IDs differing, valid-p failures, p-relative>1% counts/mean/max/p95,
+charged coefficient/weight+node+member bytes and native log-partition error.
+No metric denominator discards wrong IDs or zero probabilities. Same-ID
+diagnostics are labelled with their own count and cannot replace ALL views.
+
 Successful main requires complete output/resource/schema apparatus, ONE frozen
 Windows query actual PID+creation/compiler/native descendants and independent
 full audit before interpreting PASS/FAIL. Original goal quality/SAME>=50/useful
