@@ -1,30 +1,30 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption after456: fixed tile16 FAILED; matched whole costs next
+## Current resumption457: frozen matched whole diagnosis, FIRST execution next
 
-456 completed ONE session8078, terminal exit0. Freeze `259397b`, first run
-`554fa45`. ALL8apparatusPASS: ALL128 permutation inverse exact/1680 full states
-BYTE exact454/7056 timed outputs exact. Mean188.6539us versus original235.3323us,
-ratio.8016492386 =19.8351% reduction: prospective<=.80 FAIL. Book/p95/storage
-other3gatesPASS. Preserve slower third sweep; fixed tile16 CLOSED, no rerun/tuning.
+NEW457 controller/protocol/attributes frozen in `45e949f` before imports/native
+observations. Reuse unchanged qualified389/374 binaries: original128 CPU3 and
+original256 CPU6, all96 own natural cases each, profile0/1 warm1/measured3.
+384 sequential children/1536 complete output hashes; every rejected time charged.
+Admit timers only if aggregate mean ratio[.90,1.10] AND all book ratios[.85,1.15].
+Phase0 matrices include encoder AND crossKV; no finer matrix attribution.
+Conditional bounds use SAME profile1 arithmetic-mean denominator, never historical
+case medians or456 local FFN ratio. No new quality/model/kernel/fit/GPU/engine edit.
 
-23.156s/conservative1.591GBpeak/13outputs518.339MB; zero coefficient changes/GPU/
-engine edits. Raw SHA
-`cb7b9be5af6da6ce7fcbcbc058142ae6e8af2dda97c162727d44e9b591020977`.
+Hard main1800s/admission300s/numeric1500s/child60s, parent1GiB/conservative sum16GiB,
+all outputs8GiB/child128MiB. Fresh disk>=10GiB/RAM>=16GiB. Windows actual process
+peak including terminal query required; no hardwareDRAM interpretation. Preserve
+all outputs/failures; no automatic retry. Exact publisher allowlist preserved.
+
+Next action ONCE from repo root:
+`.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth457_switch_matched_whole_cost.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth457_switch_matched_whole_cost_result.json`
+[457 prospective protocol](METH_457_SWITCH_MATCHED_WHOLE_COST_PROTOCOL_20261005.md).
+After termination derive report/retention only; do not repeat completed command.
+456 fixed tile16 FAILED/CLOSED (mean.801649); raw/retention immutable.
 [456 result](METH_456_SWITCH_OUTPUT_TILE_COST_RESULT_20261005.md),
-[456 protocol](METH_456_SWITCH_OUTPUT_TILE_COST_PROTOCOL_20261005.md).
-
-Next NEW457 matched WHOLE generation cost diagnosis on BOTH qualified original
-sources: same respective baseline cases/context/worker/binary/output bytes;
-profile0 versus1, explicit perturbation admission, sparse matrices/router/head/
-core fractions and algebraic upper bounds. No457 controller/protocol/run yet.
-Next action: implement/freeze457 protocol/controller/resources before observations,
-fresh complete source/quality/rate/manifest/output bindings. No456 all-bank export.
-[Whole economic reassessment/proposal](SWITCH_MATCHED_WHOLE_COST_REASSESSMENT_AFTER_456_20261005.md).
-Internal20% gate remains separate from final>=50; close this recipe without a
-claim of mathematical impossibility. Full new-artifact fresh donor-relative quality,
-SAME accepted rate/useful-n/router mass/actualDRAM/families~100B still open.
-
+[whole economic reassessment](SWITCH_MATCHED_WHOLE_COST_REASSESSMENT_AFTER_456_20261005.md).
+Goal ACTIVE/INCOMPLETE: new whole transfer/quality/SAME50/useful-n/router mass/
+actualDRAM/other families/~100B still open.
 ## Retained prior453 decision
 
 453 completed ONE session25101, terminal exit0: ALL10apparatus/ALL7local gates
