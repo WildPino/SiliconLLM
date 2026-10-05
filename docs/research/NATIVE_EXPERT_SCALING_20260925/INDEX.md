@@ -44,7 +44,7 @@ ideal preactivation rank sums7365..7366 exceed4684complete70%budget. Variable
 ranks fail this metric/budget family.
 [474](METH_474_SWITCH_PRIVATE_OUTPUT_RESULT_20261005.md): ALL6/ALL6PASS;
 private rank32OUTPUT lower floors FAIL105/107 despite pooled1.31%PASS.
-Next: exact conditional-bit sign-certificate admission; no475 observations yet.
+475 exact conditional-bit admission now frozenf59feeb; no observations yet.
 
 Input apparatus: [467 source/codec admission](METH_467_SWITCH_RUST_QUERY_MANIFEST_RESULT_20261005.md),
 [464 corpus transport](METH_464_CORPUS_READER_ADMISSION_RESULT_20261005.md).
@@ -115,32 +115,37 @@ RAM-only accounting does not prove useful n or a comparable100B geometry.
  decode/head/argmax/stop included, startup/load/tokenization excluded. No broad
 context/cold/global rate, new combined artifact or inherited453/candidate rate.
 
-## Current resumption:474 rejected/audited; exact conditional-bit certificate next
+## Current resumption: frozen475, first exact coarse/fine certificate admission
 
-Current goal turn PROGRESS.474 first main50935exit0, independent audit3787exit0;
-ALL6apparatus/ALL6auditPASS. THIS private stored rank32 OUTPUT span FAIL105/107,
-no indeterminate; pooled natural1.314714% and ALL64books PASS do not control
-the per-expert criterion. No WO coefficients, actual candidate or C promotion.
-[Result](METH_474_SWITCH_PRIVATE_OUTPUT_RESULT_20261005.md),
-[raw](meth474_switch_private_output_floor_result.json),
-[retention](RETENTION_474_20261005.json). Scientific sources frozena601514 unchanged.
+Previous goal turn PROGRESS:474 retained3d0f532, ALL6apparatus/ALL6auditPASS;
+THIS private rank32 output span FAIL105/107. Full goal ACTIVE/INCOMPLETE.
 
-Next is ONE NEW prospective exact two4bit-group/ReLU sign-certificate admission:
-w=16h+8+b; C=16(h dot q)+8sum(q); C<0 and C²>||b||²||q||² permits omitting
-fine bits for that row, otherwise reconstruct the original integer dot exactly.
-This retains all8bits/dimensions and adds per-row norms; storage compression
-and performance are not established.453 local quality cannot reopen454/456costFAIL.
-[Whole-project algebra/proof/economics and proposed stops](ALGEBRA_REASSESSMENT_AFTER_474_20261005.md).
+NEW475 source/math/protocol/binding frozenf59feeb BEFORE first scientific
+compile/import/numerics. Binding SHA
+c80c00c80f5baf4b57e643ef14520d83ab635076fff3749cfd023298b9f10c03.
+Controller SHAae435cc7ca401a379eef31abde8d5ee4df585f28f8237ce3041b34723909b98e;
+math SHAf0d67db17d0e6ea61c0599bdb7fb85893d9fc00cc2924e9da5729b3a1e9fdb1f.
+Actual runtime assets/6557prior files7,671,004,356B/full original payload/manifest
+bound. ALL128lossless codecs, ALLcached1344native positions/24books, no fitting.
 
-Exact next action: implement NEW475 source/protocol and actual runtime/input
-bindings for cached original1344native positions; verify static budget, commit
-scientific freeze BEFORE first compile/import/numerics, then register ONE literal
-first-run command in a separate resumption commit. No475 sources, frozen protocol,
-bindings, measurements or executable command exist yet. Proposed180s/2GiB/32MiB;
-exact primal, pmean>=.60/everybook>=.40 must be frozen before observations.
-Never rerun completed474/473/472 or source captures. First failure retained before
-numbered repair. Full artifact/fresh quality/SAME>=50/DRAM/useful-n/mass/LUT/
-multiple actualfamilies/~100B goal remains ACTIVE/INCOMPLETE.
+ONE first command, never repeat a completed scientific namespace:
+
+```powershell
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth475_switch_coarse_certificate.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth475_switch_coarse_certificate_result.json
+```
+
+w=16h+8+b, h/b signed4bits; certify C<0 and C²>||b||²||q||², otherwise read
+fine bits and reconstruct exact dots. Preserve hidden A16 codes/scales/complete
+native down BYTE; raw/up signedzero differences permitted. Strict exact integer
+overflow/cast/codec/13fixture controls; mean certified rows>=.60/EACHbook>=.40.
+Logical read gate only, storage increases; no native packed execution/rate/DRAM.
+Hard180s/2GiB/new32MiB, byte admission120s, CPU0/BLAS1. Outputupper33,157,888B.
+[Frozen protocol](METH_475_SWITCH_COARSE_CERTIFICATE_PROTOCOL_20261005.md)
+authoritative; no475scientific observation yet. If live re-poll SAMEhandle;
+timeout is not termination. Then ONE independent scalar-chunked-I64 codec/
+primal/margin/count/status/Windows/resource audit. Fail closes THIS certificate
+without C or parameter grid. Full artifact/freshquality/SAME>=50/useful-n/
+winner ANDmass/CPU LUT/physicalDRAM/multiple actualfamilies/~100B remain open.
 
 ## Retained457: admission failed before native execution
 
