@@ -29,14 +29,17 @@ quantizer. Supersedes inaccurate483geometric prose without changing its labels/
 certificates.483 affine class remains inconclusive; saved heads insufficient,
 no equivalent longerLP retry and no failed-head Ctiming.
 
-Next485 complete integer backend apparatus/protocol/runtime/quality cohort/C
-integration/audit NOT yet prepared/frozen; no GPUcontrol begun. Prepare ONE
-complete fixed-layout inquiry before first initialization/control: actual runtime,
-meaningful arithmetic controls, whole source parity, fresh ownstate donor quality
-AND SAMEaccepted rate, ALL packing/launch/transfer/sync/post/init cold/warm costs.
-Prospective45min/24GiBhost/2GiBdevice/12GiBoutputs ceiling, refine before freeze.
-No indefinite kernel sweep; failures retained and recipe stopped at failed gate.
-No remaining live science handle. Completed namespaces MUST NOT rerun.
+485 complete fixed-layout C/backend/engine integration, controller, independent
+ALL-output auditor, Windows terminals and finalizer are now prepared; compile,
+CUDA initialization and numerical/model controls NOT begun. Reversible source
+bytes admitted by static preparation; preparation-only EOL assertion fault01
+retained before correction. [Frozen prospective protocol](METH_485_SHARED_INTEGER_BACKEND_PROTOCOL_20261006.md).
+Next: freeze complete apparatus, prepare/freeze runtime/input binding, then sole
+main. BOTH actual artifacts/ALL192 cases/3456 outputs; fresh same-compilation
+CPU counterfactual explicitly justified by new backend variable. Refresh full
+payload/references before CUDA.45min/24GiBhost/2GiBexplicit-device/12GiBoutputs;
+metadata refines ALL-output bound. No live science handle or numerical attempt.
+Completed namespaces MUST NOT rerun; full goal ACTIVE/INCOMPLETE.
 
 Full goal ACTIVE/INCOMPLETE: useful distinctn/RAM/CPU LUT/winnerANDmass/physicalDRAM,
 donor-relative fresh ownstate prediction-generation-task quality ANDSAME>=50batch1

@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_FUNCTION_CAPTURE
+#ifdef SILICON_SWITCH_SHARED_INTEGER_GPU
+#include "../native_expert_scaling/meth485_shared_integer_entry.c"
+#elif defined(SILICON_SWITCH_FUNCTION_CAPTURE)
 #include "../native_expert_scaling/meth417_switch_function_capture_entry.c"
 #elif defined(SILICON_GRANITE_I8_FOUR_ROWS_PREFLIGHT)
 #include "../native_expert_scaling/meth413_granite_i8_four_rows_cpu.c"
