@@ -1,43 +1,32 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:492 constant amplitude excluded; weighted-function transfer next
+## Current resumption:493 complete weighted-function supervision; transfer prior/cost next
 
-Goal ACTIVE/INCOMPLETE. [492 result](METH_492_SELECTED_AMPLITUDE_RESULT_20261006.md):
-sole main3918c3/session95700/714362 exit0,27.313s/150077440B; independent
-verifier6e62fc/session72228/fa9e4a exit0,27.797s/120582144B. ALL5 main/ALL8
-verifier/ALL5 finalizer5cacff gates PASS,ALL1536cells/238872UID/387036occurrences
-and39/72/4608/9216/144reports admitted. Actual Windows both available/zero
-application events. First metadata/builder faults retained before origin-only
-R1; combined builders41.735s<=90. Completed numerical namespaces immutable.
+Goal ACTIVE/INCOMPLETE. [493 result](METH_493_WEIGHTED_TARGET_RESULT_20261006.md):
+complete bank11 target compiler and independent verifier admitted, ALL5/7/5
+main/verifier/finalizer gates PASS.17540UID/19962occurrences/11721development/
+5819consumedvalidation, all128cells/768views; all15330816 occurrence product
+coordinates BYTEexact. R2 main f2b3e0/10669/ee1722 exit0,39.859s/100794368B;
+verifier ef8c44/72718/6cfd6e exit0,23.454s/88760320B; finalizer a84fbd exit0.
+Actual Windows both available/zero Event1000. Original role0/2 fault and R1
+pre-NumPy180s hashing deadline are admitted/immutable. R2 fresh direct input
+catalog preserves historical qualification separately; no numerical scope,
+rounding/control/split/domain change or old completed namespace rerun.
 
-Exact source extrema exclude uniform1% constant amplitude on1499 of1522
-nonempty development cells.23 eligible cells contain only1..4states/34devUID;
-27/30 consumedvalUID with a fixed scalar fail.14 development-empty slots
-remain unsupported,including4 validation-exposed. No function/task loss is
-inferred from amplitude alone; no budget/ID/scalar sweep or constant promotion.
+[Whole algebra/next](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md): fixed-feature
+r512 real readouts have at least41329920 unidentified coefficient directions
+with11721development states. Ideal local rank and n-dependent normalization
+are separate constraints; no task-failure theorem or quantized-space dimension
+is inferred. All source supervision is now real, student remains untrained.
 
-[Whole algebra/next](METH_492_WHOLE_ALGEBRA_AND_NEXT_20261006.md) selects direct
-weighted output Y=p_e F_e (with original acceptance/rounding contract).
-[493 eligibility](METH_493_WEIGHTED_FUNCTION_TRANSFER_ELIGIBILITY_20261006.md):
-complete bank11 pilot17540UID/11721dev/5819consumedval/19962occurrences/all128slots.
-[Source metadata](meth493_weighted_target_metadata.json),146ffb exit0,1.625s/
-25370624B,fresh SHA of472 query/reference arrays matches original records;
-no vector calculation. Those direct arrays must be added to493 binding:
-they were absent in492 catalog.472/476 source chains are reusable,old recipes
-remain rejected and old main/audits are not replayed.
-
-Next implement/freeze493 compiler pF, independent verifier, exact wire/control/
-rounding/provenance and resource inventory; sole fresh binding/commit/main
-180s256MiB/verifier300s256MiB/new128MiB.493 target compiler/numeric observation/
-fit/native remain unimplemented. Shared nonlinear features/conditional B and
-product-key are an untrained logical candidate,not quality/cost evidence.
-No own live scientific process. No new resources or old capture/replay.
-
-491's four necessary affine slope bounds19M..99M/eight inconclusive remain
-valid with nonzero residuals; no generic affine/C impossibility.489CPU n128
-warm prose54.8773/lower53.4759 remains positive on its original artifact.
-Full goal still requires convenient pretrained transfer,useful distinctn/RAM,
-CPU LUT,physicalDRAM,fresh quality/SAME>=50 and multiple actualfamilies/scales.
+Next494: implement/freeze ONE full cost/learning protocol with donor prior,
+rare/development-empty IDs, feature/bias/precision/LUT/private readout/cheap
+control and physical active cost. No width/update/ID sweep; parameters are
+not yet frozen. Development-only learning/consumedval diagnostic, then composed
+source476 path; allbanks/ownstates/fresh quality/SAME>=50/useful n/LUT/DRAM/
+actualfamilies/scales remain. No own live scientific process.493 numerical
+namespaces are terminal, never rerun. Engine and three unrelated files preserved.
+489CPU128 original warm54.8773/lower53.4759 remains positive; full goal open.
 
 ## Implemented analysis: exact constant selected-amplitude exclusion
 
@@ -50,12 +39,22 @@ support complete preservation. This is a reproducible NEGATIVE class filter,
 not a new functional artifact. First patch/builder faults and origin-only R1
 retained. [492 result](METH_492_SELECTED_AMPLITUDE_RESULT_20261006.md).
 
-493 metadata-only helper freshly qualifies saved472 source query/reference
-headers and hashes after492;it calculates no vector/target. Complete bank11
-pF target compiler and independent verifier remain to implement/freeze,with
-17540UID/19962occurrence pilot and explicit472/476 source chains. Proposed
-shared nonlinear dictionary/conditional readout/product-key is UNTRAINED;
-no wholeart,quality/rate/LUT/DRAM or family promotion. [493 eligibility](METH_493_WEIGHTED_FUNCTION_TRANSFER_ELIGIBILITY_20261006.md).
+## Implemented source supervision: complete selected weighted-function targets
+
+493 original metadata and R2 full compiler/independent verifier/finalizer are
+implemented/admitted. Target17540UID/19962occurrences includes every source
+bank11 ID, role/control/exposure and byte identity. All15330816 occurrence
+products independently qualify via exact F64 multiplication plus F32 cast;
+controls have an independent integer RNE proof. Source472/476 qualification
+is reused without replay. First role-schema fault/R1 pre-numerical hashing
+deadline remain; direct current dependencies are fresh, unused historical
+payloads only remain expected descriptors. [493 result](METH_493_WEIGHTED_TARGET_RESULT_20261006.md).
+
+This is a reproducible positive supervision step, not a functional student.
+Shared nonlinear dictionary/private readout/cheap decision remain UNTRAINED;
+width/bias/precision/prior/cost/learning protocol is missing. [Whole algebra](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
+requires donor priors and complete cost before one fit. No whole quality/rate/
+LUT/DRAM/useful n/family promotion follows from source target qualification.
 
 ## Available analysis: exact parametric affine root-mass bounds
 
@@ -68,12 +67,11 @@ unrestricted affine/physical impossibility proof. A reproducible analysis
 step, not a transformed model or new quality/rate evidence.
 [491 result](METH_491_MASS_INTERVAL_RESULT_20261006.md).
 
-The subsequent492 constant selected-amplitude inquiry is proposed only. It
-changes the conditioning domain to each original expert's winner cell and
-uses exact-ratio extrema to select the functional transfer route. Main,
-independent verifier, binding and observations remain absent. It cannot
-stand in for convenient FFN/core transfer, winner cost or whole quality.
-[492 eligibility](METH_492_SELECTED_AMPLITUDE_ELIGIBILITY_20261006.md).
+492 subsequently completed the constant selected-amplitude inquiry on each
+winner cell;1499/1522 exposed cells exclude its uniform1% class. This selects
+functional transfer, not a generic function/quality impossibility.493 source
+target compilation is now independently admitted; student/core/control transfer
+remains open. [492 result](METH_492_SELECTED_AMPLITUDE_RESULT_20261006.md).
 
 ## Available analysis: normalized root affine decision feasibility inquiry
 
