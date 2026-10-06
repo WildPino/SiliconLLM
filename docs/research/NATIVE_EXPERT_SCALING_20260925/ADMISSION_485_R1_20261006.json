@@ -1,0 +1,57 @@
+{
+  "experiment": "METH485 original first ABI fault plus independent numbered retention admission",
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth485_shared_integer_backend_result.failure.json",
+    "bytes": 304615,
+    "sha256": "f7d07791f5ddc0371bc0ec09d4e898e443d91a8bca557ba514dfb644702e05ef"
+  },
+  "original_audit_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_485_20261006.failure.json",
+    "bytes": 1360,
+    "sha256": "794d0aca21b508e5bb6d16a8be78fbbfb71acd799fc07cc184afe1bba635a7ea"
+  },
+  "retention_r1": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_485_R1_20261006.json",
+    "bytes": 2359,
+    "sha256": "7d3c8801d991fe715312da80b4e53d5c4b64f4e34fb166c28466ebcb4f9f0190"
+  },
+  "records": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth485_main_sole_first_registration.json",
+      "bytes": 759,
+      "sha256": "fad5701066a26a64af60b2eb91789c2954a6e9591bd33284bd68da3e9072ffc0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth485_windows_terminal.json",
+      "bytes": 1711,
+      "sha256": "0501ff4ea591b78138e18def7faf09966965d6fbf6c55f0e56f32d7e5bc6cc41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth485_audit_sole_first_registration.json",
+      "bytes": 572,
+      "sha256": "80c3b64976c64ba73118ae650d4f43f987f6af376c01971de3c7bc9ed057c143"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth485_audit_windows_terminal.json",
+      "bytes": 597,
+      "sha256": "efe32b1a5c2f4e0235e6195b448d9f59fd205093eacfe79bc8d3d0c4a033cfd6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth485_audit_r1_sole_first_registration.json",
+      "bytes": 670,
+      "sha256": "c3445e82102c7b78226016ede92502293ed19d512b38b0631afa1c4a2dca2e35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth485_audit_r1_windows_terminal.json",
+      "bytes": 594,
+      "sha256": "7edc4a0c77860645ce59813ddee234fedd970abbf3875baf44a307e1ffaeee66"
+    }
+  ],
+  "gates": {
+    "ALL_R1_retention_gates": true,
+    "THREE_actual_sole_executions": true,
+    "THREE_available_zero_matching_Windows_faults": true,
+    "original_main_and_audit_faults_unchanged": true
+  },
+  "decision": "Original main failed symbol resolution before explicit CUDA initialization/GEMM/model. Algebra/speed/quality not experimentally qualified. Next candidate requires new frozen namespace and corrected bound Windows export, never a replay."
+}
