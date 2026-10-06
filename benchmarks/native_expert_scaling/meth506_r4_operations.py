@@ -7,7 +7,7 @@ import sys
 import time
 import meth506_operations as previous
 ROOT,DOC,write,stamp=previous.ROOT,previous.DOC,previous.write,previous.stamp
-BIND=DOC/'meth506_r4_binding.json'
+BIND=DOC/'meth506_r4_1_binding.json'
 PREP,PREPRAW=previous.PREP,previous.PREPRAW
 NATIVE=previous.OUT
 OUT=ROOT/'results/native_expert_scaling/meth506_r4_quality'
@@ -16,14 +16,18 @@ RAW=DOC/'meth506_r4_result.json'
 
 class Context(previous.Context):
     def __init__(self,out,raw):
+        self.last_extra_size=-1.
         super().__init__(out,raw);self.r['experiment']='METH506-R4 original4.57.6 F32 donor-only recovery'
         self.r['new_compile_native_calls']=0
     def guard(self):
         super().guard()
-        extra=sum(p.stat().st_size for d in [OUT,AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
-        original=sum(p.stat().st_size for d in [ROOT/'results/native_expert_scaling/meth506_artifact',ROOT/'results/native_expert_scaling/meth506_r2_artifact',PREP,NATIVE,previous.AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
-        metadata=sum(p.stat().st_size for p in DOC.glob('meth506*.json'))
-        assert extra+original+metadata<=24<<30
+        now=time.monotonic()
+        if now-self.last_extra_size>=1:
+            extra=sum(p.stat().st_size for d in [OUT,AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
+            original=sum(p.stat().st_size for d in [ROOT/'results/native_expert_scaling/meth506_artifact',ROOT/'results/native_expert_scaling/meth506_r2_artifact',PREP,NATIVE,previous.AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
+            metadata=sum(p.stat().st_size for p in DOC.glob('meth506*.json'))
+            assert extra+original+metadata<=24<<30
+            self.last_extra_size=now
     def admit(self,sha):
         self.quiet('initial');assert self.digest(BIND)==sha;self.head(BIND);b=json.loads(BIND.read_bytes());self.binding=b;self.r['binding_sha256']=sha
         assert sys.version==b['runtime']['python'] and str(Path(sys.executable).resolve())==b['runtime']['executable']
