@@ -1,0 +1,31 @@
+{
+  "experiment": "METH500 sole first metadata builder registration",
+  "attempt": 1,
+  "source_freeze": "18e182d",
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth500_prepare_binding.py",
+  "actual_tool_results": [
+    {
+      "chunk_id": "247507",
+      "wall_time_seconds": 8.6689351,
+      "exit_code": 0,
+      "original_token_count": 100,
+      "output": "{\"binding\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth500_binding.json\", \"bytes\": 229135, \"sha256\": \"75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf\"}, \"resource\": {\"seconds\": 8.296999999991385, \"peak_bytes\": 43618304, \"hashed_bytes\": 7743144670}, \"process_instance\": {\"pid\": 30820, \"create_time_unix\": 1791288551.4340923}}\r\n"
+    }
+  ],
+  "actual_exit_code": 0,
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth500_binding.json",
+    "bytes": 229135,
+    "sha256": "75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf"
+  },
+  "resource": {
+    "seconds": 8.296999999991385,
+    "peak_bytes": 43618304,
+    "hashed_bytes": 7743144670
+  },
+  "process_instance": {
+    "pid": 30820,
+    "create_time_unix": 1791288551.4340923
+  },
+  "scope": "Metadata and byte hashing only; no new numerical observation."
+}
