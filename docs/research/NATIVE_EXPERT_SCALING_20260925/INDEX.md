@@ -56,38 +56,44 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption:483 complete main; sole first independent audit
+## Current resumption:483 fully admitted; whole algebra/next eligibility
 
-Current turn PROGRESS: original483 partial warning fault retained273a11d,
-R1pre-numeric admission fault6f05410 and R2foreign-process faultdbdbeb8 retained;
-sole R3session83060 ACTUAL exit0/328.906s/2.528GB/5gates. Original57root LPs reused,
-36NEW roots, total93;4original controls+1R2warning control retained, new R3controls0.
-ALL12global certificate/witnesses/complete views retained92a4e36, PROVISIONAL.
-[Actual main terminal](METH_483_R3_MAIN_TERMINAL_PENDING_20261006.md).
-All-root candidate physical flagfalse and dual uniform-exclusion flagfalse;
-no affine impossibility or sufficient head claimed. No longer equivalent LP.
+Current goal turn PROGRESS: complete483 main R3sole83060exit0/328.906s/2.528GB/
+5gates, complete independent audit92559exit0/242.250s/2.100GB/5gates, BOTH frozen
+Windows available/0matching and actualprocess instants admittede91e06f.
+ALL93root+5control rounds,238872UID/387036links/full root fields/intervals/archives/
+39-72-4608-9216views admitted.57root LPs reused,36new; no old LP/control/main/
+audit/model/native replay. Original/R1/R2firstfaults retained before repairs.
+[483 result](METH_483_CONSTRAINT_ROOT_RESULT_20261006.md).
 
-Complete independent audit3file freezee931c28 BEFORE first NumPy import:
-ALL93root+5control rounds, full source roles/UID/labels/norms/proposals/selection/
-primal-dual/interval/witness/interface record/report reconstruction, no solver/
-producer-helper/main/model/control replay. BYTE every interval/archived array;
-exact typed JSON. CPU0/BLAS1/600s/4GiB/new32MiB/admission180s. Old source allowances
-stay their own64MiB. [Audit protocol](METH_483_RETENTION_PROTOCOL_20261006.md).
+Saved heads:151062proved correct ROOTsigns,87810proved opposite,1tie. All12saved
+candidate development lower margins negative; certified Mlower0/upper>E_uniform.
+ALLroots physical sufficientfalse and any dual uniform-exclusionfalse. Affine
+class INCONCLUSIVE, candidate recipe insufficient, no affine impossibility.
+No equivalent longer LP/seed/tolerance/support retry and no C timing on failed
+heads. Conditional mass/C/LUT/new-n/freshquality/SAMErate/physicalDRAM still open.
 
-SOLE FIRST AUDIT, unexecuted at registration:
+[Whole algebra and exact next](METH_483_WHOLE_ALGEBRA_REASSESSMENT_AND_NEXT_20261006.md):
+propose ONE bounded484 model-free shared-core/head operator eligibility admission.
+Signed16 query =3signed8 digit planes; one integer matrix multiply can produce
+all3partials; CPU I64 reconstruction and original scale/cast remain exact under
+qualified bounds. Eligible shared matrices could use existing GPU, expertpool
+and routing/LUT remain CPU/RAM. This is DERIVED/proposed, not implemented/timed.
+ALL transfer/padding/control/cold/warm costs must enter SAMEwhole artifact.
 
-```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_retention_audit.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\RETENTION_483_20261006.json
-```
+Next484 parser/protocol/bindings/code/runtime NOT prepared/frozen/executed. First
+freeze complete eligibility inquiry; then<=60s/256MiB/smallmetadata, ZERO model/
+solver/GPU calls, classify EVERY original128/256 tensor/codec/shape/bounds/alias/
+shared bytes, source458 whole-cost constraints and existing backend inventory.
+If justified, ONE frozen complete primitive+C integration/parity/freshquality/
+SAMErate cycle; no indefinite kernel sweep. Function-compatible commoncore,
+causal useful distinctn and efficient normalized geometry remain coupled goals.
+No remaining live science handle. Previous attempted namespaces MUST NOT rerun.
 
-Separate preflight before launch; SAMEhandle live/smallPowerShell/commentary only;
-actualterminal then ONE frozen auditWindows query. Firstfault before repair.
-Independent admission requires actualexit0/ALL5audit gates/Windows qualification.
-No completed source namespace reruns. Unresolved outcome returns to function/
-feature geometry and dominant core/head cost; mass and C qualification absent.
 Full goal ACTIVE/INCOMPLETE: useful distinctn/RAM/CPU LUT/winnerANDmass/physicalDRAM,
-donor-relative fresh ownstate quality ANDSAME>=50batch1accepted IDs/s on one
-complete artifact; multiple actualfamilies/scales/~100B when feasible.
+donor-relative fresh ownstate prediction-generation-task quality ANDSAME>=50batch1
+accepted IDs/s on one complete transformed artifact; multiple actualfamilies/
+scales/~100B when feasible. A faster generic donor runtime alone is insufficient.
 
 ## Retained evidence and closures
 
