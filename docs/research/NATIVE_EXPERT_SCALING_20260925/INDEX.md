@@ -95,8 +95,11 @@ no optimum certificate. This closes the fixed recipe,leaves affine class open.
 ONE mass-interval dual witness per root,SVD on770development states,integer
 weights/exact dyadic residuals,outward endpoints and parametric norm bounds.
 A subset certificate has the valid exclusion direction;primal feasibility
-requires ALLconstraints. Prepare verifier/eligibility/freeze before numerics.
-No own live science handle. No completed namespace replay.
+requires ALLconstraints. [491 full protocol](METH_491_ROOT_MASS_INTERVAL_PROTOCOL_20261006.md):
+main/math/operations/verifier/builder/Windows/finalizer prepared,AST/PS parse PASS.
+No491 numerical observation or live science handle. Next freeze sources,sole
+binding/commit,sole main180s512MiB,independent verifier300s256MiB,new64MiB.
+First metadata patch context fault retained;all numerical namespaces unattempted.
 
 489CPU n128 warm prose54.8773/lower53.4759 remains positive; fixedGPU layout
 closed for speedFAIL. Full goal remains convenient pretrained transfer,useful

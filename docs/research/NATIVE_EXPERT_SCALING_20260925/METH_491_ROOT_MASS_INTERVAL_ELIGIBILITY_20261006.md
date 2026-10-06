@@ -3,7 +3,11 @@
 Prospective,6 October2026. Goal ACTIVE/INCOMPLETE. No491 numerical import,
 source scan,SVD,solver,fit or witness observation has occurred. This document
 prices a possible inquiry; it is not an executable frozen scientific protocol.
-Its code/runtime/input binding and independent verification remain to prepare.
+Its code/runtime/input binding and independent verification remain to prepare
+in this initial proposal. Implementation update: constructor,interval/exact
+helpers and independent verifier are now prepared and syntax-checked;the
+[full protocol](METH_491_ROOT_MASS_INTERVAL_PROTOCOL_20261006.md) fixes the next
+freeze/binding/sole invocation. No491 numerical observation has occurred.
 
 ## Question and new variable
 
@@ -92,8 +96,10 @@ CPU LUT/physicalDRAM,useful n and families/100B remain open for every result.
 
 ## Exact preparation point
 
-Next: implement interval arithmetic/exact-dyadic residual helper and independent
-validator,check the runtime/working-set eligibility and freeze one complete
-protocol/binding before any491 numerical observation. The existing490 data and
+Next: freeze the prepared interval arithmetic/exact-dyadic helper and independent
+validator/protocol,prepare the sole fresh binding,commit it,and invoke the
+sole491 main with its actual SHA before independent admission. Runtime files
+exist and matrix/workspace accounting is priced;actual guards enforce limits.
+The existing490 data and
 all original namespaces remain immutable. This prospective plan can be revised
 before code freeze in response to algebraic or resource eligibility findings.
