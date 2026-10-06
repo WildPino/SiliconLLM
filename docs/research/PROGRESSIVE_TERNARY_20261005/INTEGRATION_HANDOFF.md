@@ -1,5 +1,13 @@
 # Documentation integration handoff
 
+**Applied, 6 October 2026:** the documentation merge completed on
+`research/native-expert-scaling` at
+`fed7b6b0c652ca1d66a223fadc6adb9b92e85fd2`. All pre-existing working edits
+were preserved and left uncommitted. See the
+[application record](INTEGRATION_APPLICATION.json). Preparation/application
+instructions below are historical; do not repeat the completed merge.
+
+
 6 October 2026. **Ready for review; not applied to the active checkout.**
 
 | Identity | Value |
