@@ -1,0 +1,52 @@
+{
+  "inherited_first_admission": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ADMISSION_490_20261006.json",
+    "bytes": 2411,
+    "sha256": "825988cc2d0ac726e003a7c5246dbdfeb1c7993eb547a689cd4b9b5406450e80"
+  },
+  "experiment": "METH490 complete sole-execution independent admission",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth490_r1_root_mass_result.json",
+    "bytes": 14694,
+    "sha256": "30760087a7b3866255a91df8ded30d47c96c72099cb9bbc72789d0e7bcbbdaf5"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_490_R1_20261006.json",
+    "bytes": 4203,
+    "sha256": "bb3c4e7d2c741848564373454088e808a065f8eb55040920bdfcafddb98f497b"
+  },
+  "registrations": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth490_r1_main_sole_first_registration.json",
+      "bytes": 902,
+      "sha256": "ef0799e063f371360328f651fa53a25cf798ca908feb2b6af01252cee873a4d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth490_r1_audit_sole_first_registration.json",
+      "bytes": 875,
+      "sha256": "c9bbcd16d5adf3412fe4c63e7bedcea3c81f401f04d58193deb3ed4436565810"
+    }
+  ],
+  "Windows_events": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_windows_terminal.json",
+      "bytes": 806,
+      "sha256": "99834bcfe122a6a4cd00d17e6b4401e05c396102179d8bf16e3c8f7d5d076a91"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_audit_windows_terminal.json",
+      "bytes": 596,
+      "sha256": "57ace657bbe0028f9d32afaf56509dd0b394ff0fef70c1d281f04502886c8241"
+    }
+  ],
+  "gates": {
+    "sole_first_actual_main_and_audit": true,
+    "raw_retention_digest_link": true,
+    "ALL_independent_retention_gates": true,
+    "BOTH_actual_Windows_instances_without_application_fault": true,
+    "no_incomplete_fit_or_source_fidelity_promotion": true
+  },
+  "decision": "FIXED_ROOT_MASS_RECIPE_FAIL_NOT_A_CLASS_IMPOSSIBILITY",
+  "scope": "Only the observed fixed root recipe/retained first fault; full goal remains active/incomplete."
+}
