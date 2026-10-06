@@ -1,0 +1,177 @@
+{
+  "experiment": "METH484 independent ALL-descriptor eligibility admission",
+  "start_utc": "2026-10-06T00:48:44.110187+00:00",
+  "process_instance": {
+    "pid": 28776,
+    "create_time_unix": 1791247723.999646
+  },
+  "commands": [],
+  "preserved_daemons_before": [],
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth484_shared_integer_eligibility_result.json",
+    "bytes": 4293497,
+    "sha256": "389deaba1ccd0315778388032c1f8e824fe6439d0a7ed3b8947e1eb0f3d001b4"
+  },
+  "main_windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth484_windows_terminal.json",
+    "sha256": "aa5897219a2c58c728047f9e54a31f11af7eb4bf8db1f1a828e67d544034b1f0",
+    "actual_controller_instance_exact": true
+  },
+  "sources": {
+    "128": {
+      "ALL_tensor_names": 3320,
+      "ALL_case_rows": 768,
+      "budget": {
+        "payload_bytes": 7541946880,
+        "unique_component_bytes": 7541946880,
+        "file_alignment_or_trailing_bytes": 0,
+        "groups": {
+          "shared_attention": {
+            "value_bytes": 84934656,
+            "row_scale_bytes": 442368,
+            "tensor_names": 144
+          },
+          "F32_control": {
+            "value_bytes": 193536,
+            "row_scale_bytes": 0,
+            "tensor_names": 64
+          },
+          "shared_dense_FFN": {
+            "value_bytes": 56623104,
+            "row_scale_bytes": 184320,
+            "tensor_names": 24
+          },
+          "CPU_expert": {
+            "value_bytes": 7247757312,
+            "row_scale_bytes": 23592960,
+            "tensor_names": 3072
+          },
+          "CPU_F32_router": {
+            "value_bytes": 4718592,
+            "row_scale_bytes": 0,
+            "tensor_names": 12
+          },
+          "F32_embedding_alias": {
+            "value_bytes": 98697216,
+            "row_scale_bytes": 0,
+            "tensor_names": 3
+          },
+          "shared_head": {
+            "value_bytes": 24674304,
+            "row_scale_bytes": 128512,
+            "tensor_names": 1
+          }
+        },
+        "alias_groups": [
+          {
+            "offset": 2458578432,
+            "bytes": 98697216,
+            "names": [
+              "decoder.embed_tokens.weight",
+              "encoder.embed_tokens.weight",
+              "shared.weight"
+            ]
+          }
+        ],
+        "shared_tensor_count": 169,
+        "GPU_shared_weights_bytes": 166232064,
+        "GPU_weight_padding_bytes": 0,
+        "GPU_max_operator_scratch_bytes": 3932160,
+        "CPU_max_operator_arrays_bytes": 7472128,
+        "CPU_shared_row_scale_bytes": 755200
+      },
+      "charged": {
+        "eligible_logical_query_maps": 330926,
+        "proposed_integer_GEMM_invocations": 169646,
+        "H2D_digit_bytes": 1233696768,
+        "D2H_four_I32_partial_bytes": 5507796992
+      }
+    },
+    "256": {
+      "ALL_tensor_names": 6392,
+      "ALL_case_rows": 768,
+      "budget": {
+        "payload_bytes": 14818015744,
+        "unique_component_bytes": 14818015744,
+        "file_alignment_or_trailing_bytes": 0,
+        "groups": {
+          "shared_attention": {
+            "value_bytes": 84934656,
+            "row_scale_bytes": 442368,
+            "tensor_names": 144
+          },
+          "F32_control": {
+            "value_bytes": 193536,
+            "row_scale_bytes": 0,
+            "tensor_names": 64
+          },
+          "shared_dense_FFN": {
+            "value_bytes": 56623104,
+            "row_scale_bytes": 184320,
+            "tensor_names": 24
+          },
+          "CPU_expert": {
+            "value_bytes": 14495514624,
+            "row_scale_bytes": 47185920,
+            "tensor_names": 6144
+          },
+          "CPU_F32_router": {
+            "value_bytes": 9437184,
+            "row_scale_bytes": 0,
+            "tensor_names": 12
+          },
+          "F32_embedding_alias": {
+            "value_bytes": 98697216,
+            "row_scale_bytes": 0,
+            "tensor_names": 3
+          },
+          "shared_head": {
+            "value_bytes": 24674304,
+            "row_scale_bytes": 128512,
+            "tensor_names": 1
+          }
+        },
+        "alias_groups": [
+          {
+            "offset": 2459343360,
+            "bytes": 98697216,
+            "names": [
+              "decoder.embed_tokens.weight",
+              "encoder.embed_tokens.weight",
+              "shared.weight"
+            ]
+          }
+        ],
+        "shared_tensor_count": 169,
+        "GPU_shared_weights_bytes": 166232064,
+        "GPU_weight_padding_bytes": 0,
+        "GPU_max_operator_scratch_bytes": 3932160,
+        "CPU_max_operator_arrays_bytes": 7472128,
+        "CPU_shared_row_scale_bytes": 755200
+      },
+      "charged": {
+        "eligible_logical_query_maps": 324381,
+        "proposed_integer_GEMM_invocations": 163101,
+        "H2D_digit_bytes": 1209332736,
+        "D2H_four_I32_partial_bytes": 5371705344
+      }
+    }
+  },
+  "signed16_identity_scalar_values_audited": 65536,
+  "preserved_daemons_after": [],
+  "end_utc": "2026-10-06T00:48:46.727034+00:00",
+  "gates": {
+    "all_frozen_runtime_sources_and_original_records_exact": true,
+    "ALL_binary_descriptors_categories_aliases_byte_and_scratch_budgets_exact": true,
+    "ALL1536_inherited_case_rows_cost_and_transfer_algebra_exact": true,
+    "signed16_identity_and_overflow_bounds_exact": true,
+    "main_actual_Windows_instance_available_zero_matching_faults": true,
+    "zero_payload_native_GPU_solver_model_replays": true
+  },
+  "decision": "COMPLETE_METADATA_ELIGIBILITY_INDEPENDENTLY_ADMITTED_NO_SPEED_QUALITY_OR_DRIVER_PROOF",
+  "resource": {
+    "seconds_excluding_imports": 2.6090000000112923,
+    "peak_working_set_bytes": 61689856,
+    "bytes_hashed": 89408376
+  }
+}

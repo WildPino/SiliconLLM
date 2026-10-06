@@ -1,0 +1,291 @@
+{
+  "experiment": "METH484 BOTH sole invocations and actual Windows metadata final admission",
+  "head_at_finalization": "c89cdd9de0c5283178472dcdbb70b946c29dcae2",
+  "finalizer_sha256": "d25943577c22fae6c48b34b0b74285c6bc63d28f9766aa014d361f6c5eb75465",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth484_source_binding.json",
+    "bytes": 886227,
+    "sha256": "9cbbececd51bc1cf748502db585f826ae1a21f693943b97673121e120d824e1c"
+  },
+  "instances": [
+    {
+      "record": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth484_shared_integer_eligibility_result.json",
+        "bytes": 4293497,
+        "sha256": "389deaba1ccd0315778388032c1f8e824fe6439d0a7ed3b8947e1eb0f3d001b4"
+      },
+      "registration": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth484_sole_first_registration.json",
+        "bytes": 859,
+        "sha256": "6ec96cbc51ccea56e7fca800f0368e37ec1585957cec95f9db6c0b804e73aab9"
+      },
+      "sole_exec_chunk": "f88625",
+      "actual_exit_code": 0,
+      "terminal_seconds": 2.7339999999967404,
+      "terminal_peak_working_set_bytes": 79757312,
+      "windows": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth484_windows_terminal.json",
+        "bytes": 862,
+        "sha256": "aa5897219a2c58c728047f9e54a31f11af7eb4bf8db1f1a828e67d544034b1f0",
+        "available": true,
+        "matching_faults": 0,
+        "actual_instance": {
+          "label": "controller",
+          "start_utc": "2026-10-06T00:48:10.440613+00:00",
+          "pid": 24400,
+          "end_utc": "2026-10-06T00:48:13.023517+00:00",
+          "create_time_unix": 1791247690.3242044
+        }
+      }
+    },
+    {
+      "record": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_484_20261006.json",
+        "bytes": 5947,
+        "sha256": "27d3e0c9f2ec9b7160c4bf7a63685f5aef7e1a8b5e60e8226605877055eaf6dc"
+      },
+      "registration": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth484_audit_sole_first_registration.json",
+        "bytes": 699,
+        "sha256": "8749c03a8bf1d33f460b93daebb7cfee1f4edc8decc7422442c492cc5a61eb44"
+      },
+      "sole_exec_chunk": "0f17ba",
+      "actual_exit_code": 0,
+      "terminal_seconds": 2.625,
+      "terminal_peak_working_set_bytes": 61898752,
+      "windows": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth484_audit_windows_terminal.json",
+        "bytes": 867,
+        "sha256": "dc62a0a943d0b6d92067fc39d2f9f5507f1da9eb805998b98691ae201100f56d",
+        "available": true,
+        "matching_faults": 0,
+        "actual_instance": {
+          "label": "controller",
+          "start_utc": "2026-10-06T00:48:44.110187+00:00",
+          "pid": 28776,
+          "end_utc": "2026-10-06T00:48:46.727034+00:00",
+          "create_time_unix": 1791247723.999646
+        }
+      }
+    }
+  ],
+  "sources": {
+    "128": {
+      "byte_budget": {
+        "payload_bytes": 7541946880,
+        "unique_component_bytes": 7541946880,
+        "file_alignment_or_trailing_bytes": 0,
+        "groups": {
+          "shared_attention": {
+            "value_bytes": 84934656,
+            "row_scale_bytes": 442368,
+            "tensor_names": 144
+          },
+          "F32_control": {
+            "value_bytes": 193536,
+            "row_scale_bytes": 0,
+            "tensor_names": 64
+          },
+          "shared_dense_FFN": {
+            "value_bytes": 56623104,
+            "row_scale_bytes": 184320,
+            "tensor_names": 24
+          },
+          "CPU_expert": {
+            "value_bytes": 7247757312,
+            "row_scale_bytes": 23592960,
+            "tensor_names": 3072
+          },
+          "CPU_F32_router": {
+            "value_bytes": 4718592,
+            "row_scale_bytes": 0,
+            "tensor_names": 12
+          },
+          "F32_embedding_alias": {
+            "value_bytes": 98697216,
+            "row_scale_bytes": 0,
+            "tensor_names": 3
+          },
+          "shared_head": {
+            "value_bytes": 24674304,
+            "row_scale_bytes": 128512,
+            "tensor_names": 1
+          }
+        },
+        "alias_groups": [
+          {
+            "offset": 2458578432,
+            "bytes": 98697216,
+            "names": [
+              "decoder.embed_tokens.weight",
+              "encoder.embed_tokens.weight",
+              "shared.weight"
+            ]
+          }
+        ],
+        "shared_tensor_count": 169,
+        "GPU_shared_weights_bytes": 166232064,
+        "GPU_weight_padding_bytes": 0,
+        "GPU_max_operator_scratch_bytes": 3932160,
+        "CPU_max_operator_arrays_bytes": 7472128,
+        "CPU_shared_row_scale_bytes": 755200
+      },
+      "logical_transfer": {
+        "eligible_logical_query_maps": 330926,
+        "proposed_integer_GEMM_invocations": 169646,
+        "H2D_digit_bytes": 1233696768,
+        "D2H_four_I32_partial_bytes": 5507796992
+      },
+      "prose50_whole_constraint": {
+        "metric": "prose",
+        "target_accepted_IDs_per_second": 50,
+        "inherited_rate": 59.994373760254106,
+        "required_whole_cost_ratio": 1.199887475205082,
+        "maximum_component_multiplier_at_h0": 1.3965055084811628,
+        "maximum_additional_overhead_fraction_at_r0": 0.7040102955178756,
+        "equation": "(1-f)+f*r+h <= inherited_rate/target"
+      },
+      "illustrative_overhead_limits": [
+        {
+          "component_multiplier_r": 0.0,
+          "maximum_h": 0.7040102955178756,
+          "maximum_additional_seconds_for_ALL96": 7.7683087,
+          "maximum_mean_additional_seconds_per_proposed_invocation": 4.579128715089068e-05
+        },
+        {
+          "component_multiplier_r": 0.5,
+          "maximum_h": 0.45194888536147887,
+          "maximum_additional_seconds_for_ALL96": 4.986970333333334,
+          "maximum_mean_additional_seconds_per_proposed_invocation": 2.9396333148635002e-05
+        },
+        {
+          "component_multiplier_r": 1.3965055084811628,
+          "maximum_h": 0.0,
+          "maximum_additional_seconds_for_ALL96": 0.0,
+          "maximum_mean_additional_seconds_per_proposed_invocation": 0.0
+        }
+      ],
+      "fixed_geometry_model_file_law": {
+        "fixed_bytes": 265878016,
+        "bytes_per_added_expert_ID_across_ALL_banks": 56844288,
+        "formula": "model_file_bytes(n)=fixed_bytes+n*bytes_per_added_expert_ID_across_ALL_banks",
+        "80GiB_model_only_upper_n_excluding_OS_runtime_state_workspaces": 1506,
+        "not_trained_capacity_or_actual_residency_measurement": true
+      }
+    },
+    "256": {
+      "byte_budget": {
+        "payload_bytes": 14818015744,
+        "unique_component_bytes": 14818015744,
+        "file_alignment_or_trailing_bytes": 0,
+        "groups": {
+          "shared_attention": {
+            "value_bytes": 84934656,
+            "row_scale_bytes": 442368,
+            "tensor_names": 144
+          },
+          "F32_control": {
+            "value_bytes": 193536,
+            "row_scale_bytes": 0,
+            "tensor_names": 64
+          },
+          "shared_dense_FFN": {
+            "value_bytes": 56623104,
+            "row_scale_bytes": 184320,
+            "tensor_names": 24
+          },
+          "CPU_expert": {
+            "value_bytes": 14495514624,
+            "row_scale_bytes": 47185920,
+            "tensor_names": 6144
+          },
+          "CPU_F32_router": {
+            "value_bytes": 9437184,
+            "row_scale_bytes": 0,
+            "tensor_names": 12
+          },
+          "F32_embedding_alias": {
+            "value_bytes": 98697216,
+            "row_scale_bytes": 0,
+            "tensor_names": 3
+          },
+          "shared_head": {
+            "value_bytes": 24674304,
+            "row_scale_bytes": 128512,
+            "tensor_names": 1
+          }
+        },
+        "alias_groups": [
+          {
+            "offset": 2459343360,
+            "bytes": 98697216,
+            "names": [
+              "decoder.embed_tokens.weight",
+              "encoder.embed_tokens.weight",
+              "shared.weight"
+            ]
+          }
+        ],
+        "shared_tensor_count": 169,
+        "GPU_shared_weights_bytes": 166232064,
+        "GPU_weight_padding_bytes": 0,
+        "GPU_max_operator_scratch_bytes": 3932160,
+        "CPU_max_operator_arrays_bytes": 7472128,
+        "CPU_shared_row_scale_bytes": 755200
+      },
+      "logical_transfer": {
+        "eligible_logical_query_maps": 324381,
+        "proposed_integer_GEMM_invocations": 163101,
+        "H2D_digit_bytes": 1209332736,
+        "D2H_four_I32_partial_bytes": 5371705344
+      },
+      "prose50_whole_constraint": {
+        "metric": "prose",
+        "target_accepted_IDs_per_second": 50,
+        "inherited_rate": 43.44347306841726,
+        "required_whole_cost_ratio": 0.8688694613683452,
+        "maximum_component_multiplier_at_h0": 0.7148494462538275,
+        "maximum_additional_overhead_fraction_at_r0": 0.32873368715687723,
+        "equation": "(1-f)+f*r+h <= inherited_rate/target"
+      },
+      "illustrative_overhead_limits": [
+        {
+          "component_multiplier_r": 0.0,
+          "maximum_h": 0.32873368715687723,
+          "maximum_additional_seconds_for_ALL96": 3.707795333333333,
+          "maximum_mean_additional_seconds_per_proposed_invocation": 2.2733124464799928e-05
+        },
+        {
+          "component_multiplier_r": 0.5,
+          "maximum_h": 0.09880157426261121,
+          "maximum_additional_seconds_for_ALL96": 1.114385383333333,
+          "maximum_mean_additional_seconds_per_proposed_invocation": 6.832486516534742e-06
+        },
+        {
+          "component_multiplier_r": 0.7148494462538275,
+          "maximum_h": 0.0,
+          "maximum_additional_seconds_for_ALL96": 0.0,
+          "maximum_mean_additional_seconds_per_proposed_invocation": 0.0
+        }
+      ],
+      "fixed_geometry_model_file_law": {
+        "fixed_bytes": 265878016,
+        "bytes_per_added_expert_ID_across_ALL_banks": 56844288,
+        "formula": "model_file_bytes(n)=fixed_bytes+n*bytes_per_added_expert_ID_across_ALL_banks",
+        "80GiB_model_only_upper_n_excluding_OS_runtime_state_workspaces": 1506,
+        "not_trained_capacity_or_actual_residency_measurement": true
+      }
+    }
+  },
+  "gates": {
+    "main_ALL7_and_independent_ALL6_gates": true,
+    "BOTH_actual_exit0_within60seconds256MiB": true,
+    "BOTH_Windows_available_zero_fault_matching_PID_create_ISOinstants": true,
+    "complete_manifest_alias_and_source_runtime_audit_admitted": true,
+    "derived_whole_overhead_and_fixed_format_RAM_law_exact": true,
+    "no_GPU_model_native_payload_solver_or_completed_inquiry_replay": true
+  },
+  "decision": "COMPLETE_METADATA_ELIGIBILITY_ADMITTED_ONE_COMPLETE_BACKEND_CANDIDATE_PERMITTED_NO_SPEED_QUALITY_OR_GENERALITY_PROMOTION",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "seconds": 0.10899999999674037
+}
