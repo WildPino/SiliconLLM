@@ -1,0 +1,6 @@
+{
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 66, in <module>\n    acquired=json.loads((DOC/names[0]).read_bytes());donor=[add(v['path'],v['sha256']) for v in acquired['files']]\n                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 36, in add\n    if key not in catalog:catalog[key]=item(key,expected)\n                                       ^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 26, in item\n    while data:=f.read(4<<20):h.update(data);HASHED+=len(data);guard()\n                                                               ^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 21, in guard\n    assert PEAK<=512<<20 and time.monotonic()-START<=600\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 600.125,
+  "peak_bytes": 74047488,
+  "hashed_bytes": 23703238968
+}

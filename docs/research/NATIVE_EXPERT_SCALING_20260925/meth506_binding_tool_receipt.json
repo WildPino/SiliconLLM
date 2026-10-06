@@ -1,0 +1,137 @@
+{
+  "experiment": "METH506 first metadata-only binding fault",
+  "source_freeze": "4931db1",
+  "tool_registrations": [
+    {
+      "key": "meth506_binding_tool",
+      "result": {
+        "chunk_id": "5be8cf",
+        "wall_time_seconds": 10.0021521,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll1",
+      "result": {
+        "chunk_id": "a0759c",
+        "wall_time_seconds": 5.0037373,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll2",
+      "result": {
+        "chunk_id": "bbf0d5",
+        "wall_time_seconds": 5.0101577,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll3",
+      "result": {
+        "chunk_id": "5b3718",
+        "wall_time_seconds": 5.0020296,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll4",
+      "result": {
+        "chunk_id": "0cf0fb",
+        "wall_time_seconds": 5.0015018,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll5",
+      "result": {
+        "chunk_id": "f955c7",
+        "wall_time_seconds": 5.0022597,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll6",
+      "result": {
+        "chunk_id": "6bdd58",
+        "wall_time_seconds": 5.009288,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll7",
+      "result": {
+        "chunk_id": "f4de46",
+        "wall_time_seconds": 30.0104554,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll8",
+      "result": {
+        "chunk_id": "e41324",
+        "wall_time_seconds": 30.0148185,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll9",
+      "result": {
+        "chunk_id": "9a89d7",
+        "wall_time_seconds": 30.010748,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll10",
+      "result": {
+        "chunk_id": "ab454a",
+        "wall_time_seconds": 30.0088092,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll11",
+      "result": {
+        "chunk_id": "483181",
+        "wall_time_seconds": 30.0075565,
+        "session_id": 62917,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_binding_poll12",
+      "result": {
+        "chunk_id": "f6073c",
+        "wall_time_seconds": 14.4161772,
+        "exit_code": 1,
+        "original_token_count": 279,
+        "output": "Traceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 66, in <module>\r\n    acquired=json.loads((DOC/names[0]).read_bytes());donor=[add(v['path'],v['sha256']) for v in acquired['files']]\r\n                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 36, in add\r\n    if key not in catalog:catalog[key]=item(key,expected)\r\n                                       ^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 26, in item\r\n    while data:=f.read(4<<20):h.update(data);HASHED+=len(data);guard()\r\n                                                               ^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_prepare_binding.py\", line 21, in guard\r\n    assert PEAK<=512<<20 and time.monotonic()-START<=600\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n"
+      }
+    }
+  ],
+  "scope": "Exit1 at600.125s before full source binding, numerical imports, cohort, export, compile, native or donor model calls. No binding result created."
+}
