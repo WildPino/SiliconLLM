@@ -1,0 +1,228 @@
+{
+  "experiment": "METH506 sole full native calls complete; first F32 capture interface fault",
+  "binding_sha256": "58c1bbd8daa6ef5c398dca46892937de72c833268b4b393e97e11b2e1188392e",
+  "preparation_sha256": "695d5438942220e82431eb2cc64e39d95f39cf7bc63af834e2a16ca1eb718dab",
+  "tool_registrations": [
+    {
+      "key": "meth506_r3_binding_tool",
+      "result": {
+        "chunk_id": "6e25b7",
+        "wall_time_seconds": 10.0018835,
+        "session_id": 34635,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_binding_poll1",
+      "result": {
+        "chunk_id": "4b438c",
+        "wall_time_seconds": 30.010852,
+        "session_id": 34635,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_binding_poll2",
+      "result": {
+        "chunk_id": "44e169",
+        "wall_time_seconds": 5.4213075,
+        "exit_code": 0,
+        "original_token_count": 139,
+        "output": "{\"phase\": \"inherited_actual_catalog_terminal\", \"seconds\": 79.70299999997951, \"bytes_hashed\": 44948999047, \"files\": 25255}\r\n{\"binding\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth506_r3_binding.json\", \"bytes\": 15323588, \"sha256\": \"58c1bbd8daa6ef5c398dca46892937de72c833268b4b393e97e11b2e1188392e\"}, \"resource\": {\"seconds\": 105.45299999997951, \"peak_bytes\": 125526016, \"bytes_hashed\": 45041782035}, \"Defender_DLL_count\": 35, \"process_instance\": {\"pid\": 23792, \"create_time_unix\": 1791302424.3803215}}\r\n"
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_tool",
+      "result": {
+        "chunk_id": "ab233b",
+        "wall_time_seconds": 10.009693,
+        "session_id": 74742,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll1",
+      "result": {
+        "chunk_id": "6ca1dd",
+        "wall_time_seconds": 30.0108441,
+        "session_id": 74742,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll2",
+      "result": {
+        "chunk_id": "5200a4",
+        "wall_time_seconds": 30.0044376,
+        "session_id": 74742,
+        "original_token_count": 50,
+        "output": "[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (965 > 512). Running this sequence through the model will result in indexing errors\r\n"
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll3",
+      "result": {
+        "chunk_id": "71f3f1",
+        "wall_time_seconds": 30.0167357,
+        "session_id": 74742,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll4",
+      "result": {
+        "chunk_id": "ea96e5",
+        "wall_time_seconds": 30.0015476,
+        "session_id": 74742,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll5",
+      "result": {
+        "chunk_id": "fdd7d4",
+        "wall_time_seconds": 30.0119862,
+        "session_id": 74742,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll6",
+      "result": {
+        "chunk_id": "5690af",
+        "wall_time_seconds": 30.0038316,
+        "session_id": 74742,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll7",
+      "result": {
+        "chunk_id": "665758",
+        "wall_time_seconds": 30.0150044,
+        "session_id": 74742,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r3_prepare_poll8",
+      "result": {
+        "chunk_id": "4bc319",
+        "wall_time_seconds": 29.4852176,
+        "exit_code": 0,
+        "original_token_count": 158,
+        "output": "{\"raw\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth506_r3_preparation_result.json\", \"sha256\": \"695d5438942220e82431eb2cc64e39d95f39cf7bc63af834e2a16ca1eb718dab\", \"gates\": {\"actual_source_runtime_protocol_before_numerical_import\": true, \"all1536_WO_and_all_payload_bytes_inverse\": true, \"all24_fresh_books96_source_only_tasks\": true, \"no_model_native_or_GPU_observation\": true}, \"resource\": {\"wall_seconds\": 517.6090000000258, \"parent_peak_bytes\": 2201432064, \"native_peak_bytes\": 0, \"bytes_hashed\": 52556306648, \"wall_limit_seconds\": 3600, \"combined_host_limit_bytes\": 25769803776}}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_tool",
+      "result": {
+        "chunk_id": "cf04ff",
+        "wall_time_seconds": 10.0064481,
+        "session_id": 65817,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_run_poll1",
+      "result": {
+        "chunk_id": "ce1afc",
+        "wall_time_seconds": 30.0117091,
+        "session_id": 65817,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_run_poll2",
+      "result": {
+        "chunk_id": "d52663",
+        "wall_time_seconds": 30.0098433,
+        "session_id": 65817,
+        "original_token_count": 21,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 0, \"seconds\": 135.76600000000326}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_poll3",
+      "result": {
+        "chunk_id": "40c727",
+        "wall_time_seconds": 30.0161694,
+        "session_id": 65817,
+        "original_token_count": 62,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 1, \"seconds\": 164.57800000000861}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 2, \"seconds\": 188.56299999999464}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 3, \"seconds\": 215.5470000000205}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_poll4",
+      "result": {
+        "chunk_id": "1d3571",
+        "wall_time_seconds": 30.0185592,
+        "session_id": 65817,
+        "original_token_count": 114,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 4, \"seconds\": 241.40700000000652}\r\n{\"quiet\": \"b05c1.source.teacher\", \"foreign\": [{\"pid\": 5184, \"name\": \"python.exe\"}, {\"pid\": 21408, \"name\": \"python.exe\"}]}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 5, \"seconds\": 264.93799999999464}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 6, \"seconds\": 291.4070000000065}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 7, \"seconds\": 314.98500000001513}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_poll5",
+      "result": {
+        "chunk_id": "3d1a34",
+        "wall_time_seconds": 30.0035341,
+        "session_id": 65817,
+        "original_token_count": 125,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 8, \"seconds\": 356.5940000000119}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 9, \"seconds\": 381.4070000000065}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 10, \"seconds\": 410.86000000001513}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 11, \"seconds\": 433.5470000000205}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 12, \"seconds\": 457.1720000000205}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 13, \"seconds\": 481.4070000000065}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_poll6",
+      "result": {
+        "chunk_id": "31724b",
+        "wall_time_seconds": 30.0091921,
+        "session_id": 65817,
+        "original_token_count": 91,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 14, \"seconds\": 507.625}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 15, \"seconds\": 540.1410000000033}\r\n{\"quiet\": \"b16c1.source.profile\", \"foreign\": [{\"pid\": 23136, \"name\": \"python.exe\"}, {\"pid\": 24436, \"name\": \"python.exe\"}]}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 16, \"seconds\": 568.9850000000151}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_poll7",
+      "result": {
+        "chunk_id": "a98f7e",
+        "wall_time_seconds": 30.0098436,
+        "session_id": 65817,
+        "original_token_count": 63,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 17, \"seconds\": 620.9850000000151}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 18, \"seconds\": 653.6720000000205}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 19, \"seconds\": 683.0940000000119}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_poll8",
+      "result": {
+        "chunk_id": "8c325d",
+        "wall_time_seconds": 30.0075923,
+        "session_id": 65817,
+        "original_token_count": 60,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 20, \"seconds\": 707.3440000000119}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 21, \"seconds\": 735.5}\r\n{\"phase\": \"whole-native-matched-fresh\", \"book\": 22, \"seconds\": 764.8600000000151}\r\n"
+      }
+    },
+    {
+      "key": "meth506_run_poll9",
+      "result": {
+        "chunk_id": "3e3e23",
+        "wall_time_seconds": 0.0000088,
+        "exit_code": 1,
+        "original_token_count": 285,
+        "output": "{\"phase\": \"whole-native-matched-fresh\", \"book\": 23, \"seconds\": 790.6570000000065}\r\nTraceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_whole.py\", line 129, in <module>\r\n    if __name__=='__main__':main()\r\n                            ^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_whole.py\", line 109, in main\r\n    ref=Q.torch_reference(model,source,decoder);ctx.guard();official_teacher=Q.official_teacher_cached(model,source,case['decoder_ids']);err=Q.relative(official_teacher,ref[2])\r\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_quality.py\", line 33, in torch_reference\r\n    decoder_states.append(np.stack(current));logits.append(output.logits.numpy()[0,0].copy())\r\n                          ^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\shape_base.py\", line 458, in stack\r\n    raise ValueError('all input arrays must have the same shape')\r\nValueError: all input arrays must have the same shape\r\n"
+      }
+    }
+  ],
+  "scope": "All compile/control/576 source-model processes exit0 exactly once; all96 teacher and960 generation wires BYTE acrosssource/candidate. All3320 original F32 canonicalvalues qualified, firstreference capturefailed on current block output shape before any valid donor logits/qualityscore. Preserve all native timings and prefix waits without native replay."
+}
