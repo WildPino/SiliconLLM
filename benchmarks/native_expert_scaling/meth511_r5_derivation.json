@@ -1,0 +1,64 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r4_operations.py",
+    "old_sha256": "ed5edfcab7b1d53ff8ecd038e8d59ea55a621b5e6cfdec6f091910ac8c122faf",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_operations.py",
+    "new_sha256": "bf002b32c4f102dc55c09e6ea5fa9693a88c73787e6f5aff09c50fb07808a779",
+    "replacements": [
+      {
+        "before": "meth511_r4_binding.json",
+        "after": "meth511_r5_binding.json",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r4_'+kind)",
+        "after": "('meth511_r5_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "'meth511_r4_'",
+        "after": "'meth511_r5_'",
+        "occurrences": 2
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r4_native.py",
+    "old_sha256": "7e0c00271ac5e17d36fc314bb980e97d011d5c32c50f90e5f37e7d9fdca2715a",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_native.py",
+    "new_sha256": "402e86c014c20254c8beadb82e571fd83ad19ca406d9b55ec24134540768e8d4",
+    "replacements": [
+      {
+        "before": "import meth511_r4_operations as O",
+        "after": "import meth511_r5_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r4_donor.py",
+    "old_sha256": "98aff95ded9a83fd8c6598515b7f1a99bb5fc7a31b62bc53c3f6dcf4e4070210",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_donor.py",
+    "new_sha256": "174d10a417cdda6fad01180ecad7a9f9f7d391d476d4f8f4098a169f76eade4f",
+    "replacements": [
+      {
+        "before": "import meth511_r4_operations as O",
+        "after": "import meth511_r5_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r4_retention_audit.py",
+    "old_sha256": "e409f0189974864741d1fea855e0992aae0823b750d60035f1433e1aaa64cea7",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_retention_audit.py",
+    "new_sha256": "de9058646f925d921db7874c1cba9794c791a7f955bbcefe97b47decaf1101f3",
+    "replacements": [
+      {
+        "before": "import meth511_r4_operations as O",
+        "after": "import meth511_r5_operations as O",
+        "occurrences": 1
+      }
+    ]
+  }
+]
