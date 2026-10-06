@@ -9,7 +9,7 @@ new control, field mapping, rank, candidate or main/audit invocation.
 Original builder/failure/registration remain unchanged and retained first.
 The original failure did not emit PID/create-time; these fields are unknown.
 
-The original literal495 admission digest missed characters (58 hexadecimal
+The original literal495 admission digest missed characters (61 hexadecimal
 characters). The authoritative unchanged HEAD artifact digest is
 de9e28638e3abc6b9a512c7fdf7c6e6751f4505d9501d51d1e6763fd8e98280f.
 No source495 file changed. The admission and retained496 source qualification
