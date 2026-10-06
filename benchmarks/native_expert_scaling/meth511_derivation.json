@@ -1,0 +1,29 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_quality.py",
+    "old_sha256": "eb4453c9a83f6722cf41076787bfa4bb08b4101f25b44ae16a262bb86acb648f",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_quality.py",
+    "new_sha256": "6dccf3805c5f4b1278cf7678a703b3492d470e65c005382f1dbb772b627b0269",
+    "changes": {
+      "literal_AST_functions": [
+        "read_output",
+        "relative",
+        "metrics",
+        "edit_distance",
+        "lcs",
+        "task",
+        "paired_interval"
+      ]
+    }
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_results.py",
+    "old_sha256": "b3d6a57f4419b4727f62c1fca0e107b72cab365eac538999503bdd9c2f1b32e9",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_results.py",
+    "new_sha256": "7549e70949e22610fde267217b2a4d6e480d4d4410087c4a6ddfe64a97a14227",
+    "changes": {
+      "import": "meth511_quality",
+      "only_numerator_fix": "task=c[arm+'_task']"
+    }
+  }
+]
