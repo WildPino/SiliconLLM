@@ -1,0 +1,53 @@
+{
+  "scope": "Preserve complete once-only independent numeric check evidence and failed original serialization; metadata-only source/log recovery required. No audit/model/native replay.",
+  "recorded_utc": "2026-10-06T18:12:26.5400318+00:00",
+  "actual_launcher_pid_from_OS_snapshots": 1888,
+  "execution_head": "5972acc",
+  "error": "TypeError: Object of type bool is not JSON serializable",
+  "exact_terminal_OS_peak_and_hash_count": null,
+  "records": [
+    {
+      "creation_utc": "2026-10-06T18:06:30.4117060Z",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_506_R4_2_20261006.json",
+      "bytes": 0,
+      "mtime_utc": "2026-10-06T18:06:30.4117060Z",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "creation_utc": "2026-10-06T17:50:04.0453399Z",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth506_r4_2_retention\\fatal_native.log",
+      "bytes": 0,
+      "mtime_utc": "2026-10-06T17:50:04.0453399Z",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "creation_utc": "2026-10-06T17:50:04.0453399Z",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth506_r4_2_retention\\progress.jsonl",
+      "bytes": 2979,
+      "mtime_utc": "2026-10-06T18:06:30.3955836Z",
+      "sha256": "2e59c88515b4bc362a9f92b36e55b3d3190d4d745fd2cb126faf9d9abe24c58f"
+    },
+    {
+      "creation_utc": "2026-10-06T16:40:18.6116402Z",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_retention_audit.py",
+      "bytes": 21233,
+      "mtime_utc": "2026-10-06T17:27:54.2001278Z",
+      "sha256": "2307e9b125aa469de9c232259de2df5651ad3ab310120f91c3d605db53bb66b5"
+    },
+    {
+      "creation_utc": "2026-10-06T16:40:18.0038170Z",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_operations.py",
+      "bytes": 4754,
+      "mtime_utc": "2026-10-06T17:27:54.2001278Z",
+      "sha256": "a88c4d31515c5d1310bdc35790fe191184ef415f9d431f77342669c6dd21251e"
+    }
+  ],
+  "actual_auditor_pid_from_OS_snapshots": 25756,
+  "owned_auditor_absent": true,
+  "actual_tool_exit_code": 1,
+  "experiment": "METH506 R4.2 sole independent audit terminal serialization first fault",
+  "owned_launcher_absent": true,
+  "execution_commit_unix": "1791308998",
+  "source_reason": "Independent qg scalars from np.mean comparisons are NumPy bool objects. All close/assertions and terminal guard precede json.dumps. Exclusive writer opens zero-byte destination before dumps; subsequent fail() sees raw exists, so no failure JSON was written.",
+  "resource_limit_evaluation": "All original guards completed before serialization, actual last terminal progress retained; no invented exact peak/hash total."
+}

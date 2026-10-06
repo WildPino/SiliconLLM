@@ -1,0 +1,33 @@
+{
+  "scope": "Sole independent R4.2 audit finished all24 book reconstructions and frozen decision assertions; terminal JSON serialization failed on NumPy boolean. Original empty destination is retained, no independent audit replay.",
+  "first_call": {
+    "chunk_id": "1aa898",
+    "wall_time_seconds": 10.0034344,
+    "session_id": 7744,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "chunk_id": "0ea2c5",
+      "wall_time_seconds": 5.01257,
+      "session_id": 7744,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "3246f0",
+      "wall_time_seconds": 5.0060094,
+      "session_id": 7744,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "01fe6f",
+      "wall_time_seconds": 0.000008,
+      "exit_code": 1,
+      "original_token_count": 905,
+      "output": "Token indices sequence length is longer than the specified maximum sequence length for this model (965 > 512). Running this sequence through the model will result in indexing errors\r\nTraceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_retention_audit.py\", line 204, in <module>\r\n    if __name__=='__main__':main()\r\n                            ^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_retention_audit.py\", line 200, in main\r\n    r=ctx.finish({'raw_sha256':args.raw_sha,'preparation_sha256':raw['preparation_sha256'],'quality_gates':qg,'economic_gates':eg,'whole_recipe_eligible':s['whole_recipe_eligible'],'all_bank_inverse_bytes':7541946880,'fresh_books':24,'fresh_cases':96,'scope':'Independent data/format/arithmetic/task/decision rederivation from retained files; no new model or native calls. Physical DRAM and generality remain unverified.'});print(json.dumps({'retention':str(destination),'sha256':ctx.digest(destination),'gates':r['gates'],'resource':r['resource']}),flush=True)\r\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_operations.py\", line 62, in finish\r\n    return super().finish(value)\r\n           ^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_operations.py\", line 102, in finish\r\n    r=super().finish(value)\r\n      ^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth490_r1_operations.py\", line 174, in finish\r\n    write(self.raw,result);self.progress.close();faulthandler.disable();self.fatal.close();return result\r\n    ^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth490_r1_operations.py\", line 24, in write\r\n    with Path(path).open('xb') as f:f.write((json.dumps(value,indent=2,allow_nan=False)+'\\n').replace('\\n','\\r\\n').encode())\r\n                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\__init__.py\", line 238, in dumps\r\n    **kw).encode(obj)\r\n          ^^^^^^^^^^^\r\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py\", line 202, in encode\r\n    chunks = list(chunks)\r\n             ^^^^^^^^^^^^\r\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py\", line 432, in _iterencode\r\n    yield from _iterencode_dict(o, _current_indent_level)\r\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py\", line 406, in _iterencode_dict\r\n    yield from chunks\r\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py\", line 406, in _iterencode_dict\r\n    yield from chunks\r\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py\", line 439, in _iterencode\r\n    o = _default(o)\r\n        ^^^^^^^^^^^\r\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py\", line 180, in default\r\n    raise TypeError(f'Object of type {o.__class__.__name__} '\r\nTypeError: Object of type bool is not JSON serializable\r\n"
+    }
+  ]
+}
