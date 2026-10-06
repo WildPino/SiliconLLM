@@ -1,0 +1,325 @@
+{
+  "experiment": "METH509-R1 complete top8 fixed-state verification",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth509_finalize.py",
+    "bytes": 5306,
+    "sha256": "e3e812c566500638b36a4f8d67a6c29208701a85b6f6f31cd84bbc47bc681b23"
+  },
+  "revision": "72830ac5f68f635f1b40c274f9dd1e304a7583d8",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_r1_binding.json",
+    "bytes": 595019,
+    "sha256": "e60e36b5aa24da575ed4597ad729405cf8910f9a59f69c316ea16c77046aa682"
+  },
+  "main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_r1_main_result.json",
+    "bytes": 1743878,
+    "sha256": "e9541ad77a3f4e36b6145202c6c815ad0be33c33781161f8adc6698b26f25e3d"
+  },
+  "independent_audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_r1_audit_result.json",
+    "bytes": 31673,
+    "sha256": "edd64bb4dec6d0a8cdef945aef2ada597123dd1d1de18bffb9b4cdecf97b6c64"
+  },
+  "tool_receipts": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_tool_receipts.json",
+    "bytes": 12096,
+    "sha256": "070471b3d7531f3a90b92d4f8e7a5e0a860fab84ebe73986abda5696ba92d8ca"
+  },
+  "original_prequery_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_main_result.failure.json",
+    "bytes": 1599,
+    "sha256": "fbaee74c718efb047ed882d698ef919292153481a5ef235989f6bcb18cb2c199"
+  },
+  "unchanged_scientific_recipe_repair": {
+    "original_main": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth509_shortlist_head.py",
+      "bytes": 6185,
+      "sha256": "6686c83937de2301b5ac2d4a28be3f96c661f7a02c3a84d7d1ad60b74395ada8"
+    },
+    "original_audit": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth509_retention_audit.py",
+      "bytes": 8233,
+      "sha256": "a4371371e67f96e80799f8487e265c53d867f0b16f21a0cf92c8b5b0802bfa1f"
+    },
+    "original_scientific_protocol": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_509_SHORTLIST_HEAD_PROTOCOL_20261006.md",
+      "bytes": 3632,
+      "sha256": "241231ba92cd04fc1353cf85211f660b55bda7c818a5dcd47137f8744d82add1"
+    },
+    "original_binding": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_binding.json",
+      "bytes": 488660,
+      "sha256": "e67fa79fc1d6ce21cbf6203700e49ba5cefce4f9bb2e343ccac8578df66b78e8"
+    },
+    "original_failure": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_main_result.failure.json",
+      "bytes": 1599,
+      "sha256": "fbaee74c718efb047ed882d698ef919292153481a5ef235989f6bcb18cb2c199"
+    },
+    "original_tool_receipt": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth509_first_fault_tool_receipt.json",
+      "bytes": 1454,
+      "sha256": "93e899e0cd726d5754dc1a8ca9d05b32259acade3d8e06c852e96aef3eb6d45f"
+    },
+    "scientific_main_audit_logic_unchanged": true,
+    "original_rank_and_source_row_queries": 0,
+    "actual508_numpy_psutil_files_added": 445,
+    "added_actual_dependency_bytes": 37407042
+  },
+  "summary": {
+    "counts": {
+      "positions": 996,
+      "source_winner_not_in_top8": 0,
+      "hybrid_differs_full_source_winner": 0,
+      "selected_only_differs_full_source_winner": 0,
+      "unrefined_tail_wins": 0,
+      "original_differences": 31,
+      "recovered": 20,
+      "introduced": 3,
+      "remaining_differences": 14,
+      "maximum_source_winner_I8_rank": 3
+    },
+    "source_winner_rank_histogram": {
+      "1": 972,
+      "2": 22,
+      "3": 2
+    },
+    "local_eligibility_gates": {
+      "ALL996_source_winner_in_top8": true,
+      "ALL996_hybrid_winner_equals_qualified_source_head": true
+    },
+    "local_recipe_pass": true,
+    "full_source508_counts": {
+      "positions": 996,
+      "original_differences": 31,
+      "recovered": 20,
+      "introduced": 3,
+      "remaining_differences": 14,
+      "original_state_bridge_bad_positions": 0
+    },
+    "scope": "ONE consumed top8 hybrid; no unseen guarantee, new generation/quality/speed/DRAM/useful-n claim."
+  },
+  "terminal_resource_receipts": {
+    "main": {
+      "scope": "OS peak and elapsed through main/audit result serialization, SHA, terminal guard and final input-stat check; process exit follows.",
+      "result_sha256": "e9541ad77a3f4e36b6145202c6c815ad0be33c33781161f8adc6698b26f25e3d",
+      "seconds": 14.719000000011874,
+      "OS_peak_bytes": 161239040,
+      "bytes_hashed": 516905373,
+      "limits": {
+        "seconds": 180,
+        "OS_peak_bytes": 2147483648,
+        "output_bytes": 33554432
+      },
+      "process_instance": {
+        "pid": 4796,
+        "create_time_unix": 1791315490.8865545
+      },
+      "gates": {
+        "ALL_actual_used_wires_runtime_original_extent_AND_frozen508_oracle": true,
+        "actual_numpy_only_modules_and_images": true,
+        "ALL96_996_original_wires_and_qualified508_oracle_join": true,
+        "ALL996_deterministic_top8_source_rows_F32_scale_and_refinement": true,
+        "ALL996_full_hybrid_tail_argmax_AND_recoveries_introductions_retained": true,
+        "no_whole_model_native_compiler_calls_and_empty_fatal_log": true
+      },
+      "summary": {
+        "counts": {
+          "positions": 996,
+          "source_winner_not_in_top8": 0,
+          "hybrid_differs_full_source_winner": 0,
+          "selected_only_differs_full_source_winner": 0,
+          "unrefined_tail_wins": 0,
+          "original_differences": 31,
+          "recovered": 20,
+          "introduced": 3,
+          "remaining_differences": 14,
+          "maximum_source_winner_I8_rank": 3
+        },
+        "source_winner_rank_histogram": {
+          "1": 972,
+          "2": 22,
+          "3": 2
+        },
+        "local_eligibility_gates": {
+          "ALL996_source_winner_in_top8": true,
+          "ALL996_hybrid_winner_equals_qualified_source_head": true
+        },
+        "local_recipe_pass": true,
+        "full_source508_counts": {
+          "positions": 996,
+          "original_differences": 31,
+          "recovered": 20,
+          "introduced": 3,
+          "remaining_differences": 14,
+          "original_state_bridge_bad_positions": 0
+        },
+        "scope": "ONE consumed top8 hybrid; no unseen guarantee, new generation/quality/speed/DRAM/useful-n claim."
+      }
+    },
+    "audit": {
+      "scope": "OS peak and elapsed through main/audit result serialization, SHA, terminal guard and final input-stat check; process exit follows.",
+      "result_sha256": "edd64bb4dec6d0a8cdef945aef2ada597123dd1d1de18bffb9b4cdecf97b6c64",
+      "seconds": 43.280999999988126,
+      "OS_peak_bytes": 165552128,
+      "bytes_hashed": 516937046,
+      "limits": {
+        "seconds": 180,
+        "OS_peak_bytes": 2147483648,
+        "output_bytes": 33554432
+      },
+      "process_instance": {
+        "pid": 21404,
+        "create_time_unix": 1791315564.2304358
+      },
+      "gates": {
+        "ALL_actual_used_wires_runtime_original_extent_AND_frozen508_oracle": true,
+        "actual_numpy_only_modules_and_images": true,
+        "independent_ALL_actual_manifest_source_extent_and_used_wires": true,
+        "independent_ALL996_exact_ranks_and_lowest_ID_top8": true,
+        "independent_ALL7968_selected_source_rows_F64_and_exact_F32_cells": true,
+        "independent_ALL996_full_hybrid_tail_winners_ties_and_new_changes": true,
+        "independent_ALL24_books_and_frozen_local_decisions": true,
+        "no_whole_model_native_compiler_calls_and_empty_fatal_log": true
+      },
+      "summary": {
+        "counts": {
+          "positions": 996,
+          "source_winner_not_in_top8": 0,
+          "hybrid_differs_full_source_winner": 0,
+          "selected_only_differs_full_source_winner": 0,
+          "unrefined_tail_wins": 0,
+          "original_differences": 31,
+          "recovered": 20,
+          "introduced": 3,
+          "remaining_differences": 14,
+          "maximum_source_winner_I8_rank": 3
+        },
+        "source_winner_rank_histogram": {
+          "1": 972,
+          "2": 22,
+          "3": 2
+        },
+        "local_eligibility_gates": {
+          "ALL996_source_winner_in_top8": true,
+          "ALL996_hybrid_winner_equals_qualified_source_head": true
+        },
+        "local_recipe_pass": true,
+        "full_source508_counts": {
+          "positions": 996,
+          "original_differences": 31,
+          "recovered": 20,
+          "introduced": 3,
+          "remaining_differences": 14,
+          "original_state_bridge_bad_positions": 0
+        },
+        "scope": "ONE consumed top8 hybrid; no unseen guarantee, new generation/quality/speed/DRAM/useful-n claim."
+      }
+    }
+  },
+  "output_inventory": {
+    "main": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_r1_main\\fatal.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_r1_main\\progress.jsonl",
+        "bytes": 1443,
+        "sha256": "07a4ea0e8db0f4cdeb9846894e74ba3447adb33c6e106fcba818ae30276c2153"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_r1_main\\terminal_resource.json",
+        "bytes": 1955,
+        "sha256": "b981ce6ea18af437682c3385716cb72188144ea573fd7fecb582e58d0985a252"
+      }
+    ],
+    "audit": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_r1_audit\\fatal.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_r1_audit\\progress.jsonl",
+        "bytes": 1268,
+        "sha256": "170bcbc5c9230d534dffb892bb247c068af0e3f2324fab40e6914162056b9409"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_r1_audit\\terminal_resource.json",
+        "bytes": 2088,
+        "sha256": "920293c472580bbea4de8e10e6890d1affa5f8ce1a017ec49c4fd7bccc8c096e"
+      }
+    ],
+    "original_prequery_fault": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_main\\fatal.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth509_main\\progress.jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "owned_process_closure": [
+    {
+      "kind": "original_prequery_fault",
+      "original": {
+        "pid": 29480,
+        "create_time_unix": 1791315234.5597868
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "kind": "R1_main",
+      "original": {
+        "pid": 4796,
+        "create_time_unix": 1791315490.8865545
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "kind": "R1_audit",
+      "original": {
+        "pid": 21404,
+        "create_time_unix": 1791315564.2304358
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    }
+  ],
+  "preserved_foreign": {
+    "benchmarks/donor_adaptation/configs/_manifest.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    "benchmarks/donor_adaptation/density/build_document_holdout.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    "docs/research/RESEARCH_INDEX.md": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  },
+  "engine": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "bytes": 137140,
+    "sha256": "d58e3c5fdbe789129c97e3d821b54eb3ffb53352de81a686f3fc186109823e93"
+  },
+  "apparatus_complete": true,
+  "local_recipe_pass": true,
+  "goal_complete": false,
+  "scope": "Consumed top8 hybrid winner equality only; no unseen/fresh whole quality/native cost/DRAM/useful-n promotion.",
+  "decision": "Select510 one native operator/control/cost inquiry; qualify source C arithmetic and total extra head cost before new whole fresh quality/rate."
+}

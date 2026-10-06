@@ -1,5 +1,13 @@
 # Native expert-count scaling: prior evidence
 
+**6 October after508/509:** [508](METH_508_SOURCE_HEAD_RESULT_20261006.md)
+qualifies actual source-head bridge at996 common states;20 original differences
+recovered/3 introduced,31->14. [509](METH_509_SHORTLIST_HEAD_RESULT_20261006.md)
+ONE top8 hybrid exactly matches full source-head winnersALL996, no tail overtakes,
+independently checked rounded cells/ranks/IDs. Original pre-query dependency
+fault and unchanged-science R1 repair retained. Selected510 native parity/cost
+before new whole quality/rate. No useful-n/DRAM/compact-core promotion.
+
 **6 October after507:** [result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md)
 independently closes96 retained cases/996 common-history positions/31 first rank
 flips. State difference begins before the first router; unchanged IDs can coexist

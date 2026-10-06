@@ -26,6 +26,17 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[509 top8 head](METH_509_SHORTLIST_HEAD_RESULT_20261006.md): sole numerical
+main/audit6/8 gates and BOTH local criteria PASS after retained pre-query
+dependency repair. ALL996 hybrid winners equal full source head;0 tail overtakes,
+source winner ranks972/22/2 at1/2/3. Recovered20/31, introduced3/965, remaining14.
+Selected510 one native head/control/cost inquiry; no fresh whole quality/rate.
+
+[508 readout decomposition](METH_508_SOURCE_HEAD_RESULT_20261006.md): source head
+reproducesALL996 donor-state choices/max relative L2 1.65375e-7, then candidate
+state changes31->14 choices (20 recovered/3 introduced). Actual source extent;
+independent audit complete. Fixed-state effect, not generation/capacity proof.
+
 [507 diagnosis](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md): main/audit6/8 gates,
 ALL96 cases/996 common-history steps independently verified;31 divergent65
 identical trajectories. Initial state error after dense block0 precedes first
@@ -93,7 +104,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption:507 complete;508 source-head/state decomposition
+## Current resumption:509 complete;510 native top8 head and bounded cost
 
 [506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
 artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
@@ -116,17 +127,27 @@ ONCE,13.234/15.843s pre-serialization receipts. Final lifetime peaks not persist
 terminal bounds pass. All507 source/RAW files frozen before first observation.
 No model/C/corpus/source-function calls. Common histories include first divergence.
 
-**First action:** implement/price/freeze [508 source-head/state decomposition](METH_508_SOURCE_HEAD_NEXT_20261006.md)
-and independent checker before any source linear-function call. Source F32 head
-already exists as exact98.7MB shared extent; verify actual manifest/extent SHA.
-ALL996 common positions, qualify source-state readout bridge, count recoveries
-AND newly introduced disagreements; close31 pair perturbation decompositions.
-No new whole inference or fresh-quality claim. Source I8 equality proves an
-exact acceleration cannot repair506's failed prose criterion.
+[508](METH_508_SOURCE_HEAD_RESULT_20261006.md) completes source-head decomposition:
+20 original differences recovered,3 introduced,31->14. Its ALL996 original-state
+head bridge passes; source rows already exist in the exact shared F32 extent.
+[509](METH_509_SHORTLIST_HEAD_RESULT_20261006.md) preserves these source-head
+winners with ONE top8 hybrid atALL996 positions, no tail overtakes. Actual old
+I8 head remains, extra logical F32 rows24,576B/position; not DRAM/speed proof.
+Original509 pre-query module-list fault preserved; R1 includes actual already-
+qualified508 .venv NumPy/psutil files, mathematical main/audit unchanged.
+
+**First action:** implement/price/freeze [510 native top8 operator/control/cost](METH_510_NATIVE_HYBRID_HEAD_NEXT_20261006.md)
+and independent checker BEFORE compile/native/timing. CPU3 same worker binding,
+actual source shared-row pointer and C F64/F32 parity to509 onALL996 states;
+unrefined tail preserved. Measure selection/refinement/I8 work and overhead.
+No k tuning to observed rank3. If qualified, then NEW whole original-donor
+quality/own-state generation AND SAMEartifact accepted-ID rate. Do not promote
+old53.1992 or fixed-state31->14 to final joint quality/speed. Source I8 equality
+proves exact acceleration alone cannot repair506's failed prose criterion.
 [Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
 and256 expansion deferred until this discrepancy is understood.
 
-All completed495..507 scientific namespaces terminal. Preserve first faults,
+All completed495..509 scientific namespaces terminal. Preserve first faults,
 unrelated work and known import/event exceptions. All operations before this
 update remain BYTE in [archived index](INDEX_THROUGH_506_OPERATIONS_20261006.md).
 

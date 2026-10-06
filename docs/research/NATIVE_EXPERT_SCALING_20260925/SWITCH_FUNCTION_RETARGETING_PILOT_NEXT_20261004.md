@@ -17,7 +17,7 @@ event query finds3 parent arrow.dll import events, no C child/audit events.
 Clean-event criterion FAIL; legacy shifted zero-event claims superseded.
 [Final evaluation](EVALUATION_506_20261006.json) preserves all negatives/limits.
 
-##507 complete; selected508
+##508/509 complete; selected510
 
 [507 result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md): all96 retained cases,
 996 common-history positions and31 exact rational first flips independently
@@ -25,12 +25,19 @@ verified; main/audit exit0 ONCE. State error after dense block0 precedes first
 router; five divergences retain expert IDs but change mass. Changed IDs alone
 do not explain the output disagreements. No new whole capture or quality/rate.
 
-[Selected508](METH_508_SOURCE_HEAD_NEXT_20261006.md), PROPOSED only: freeze ONE
-source-head fixed-state decomposition and independent checker. F32 original
-readout is already retained in the exact shared extent; bind actual SHA/manifest,
-qualify source-state bridge, evaluate all996 common positions, count recoveries
-AND newly introduced changes; close31 pairwise upstream/readout/arithmetic terms.
-No whole model/C/new corpus call or fresh-quality promotion.
+[508](METH_508_SOURCE_HEAD_RESULT_20261006.md): actual F32 source head reproduces
+all996 donor-state choices, candidate-state disagreements31->14,20 recovered/
+3 introduced. [509](METH_509_SHORTLIST_HEAD_RESULT_20261006.md): ONE top8 source-
+row hybrid matches all996 source-head winners/no tail overtakes. Independent
+math/rounded-cell/rank/ID audits complete; pre-query actual-library-list fault
+retained, unchanged-science R1 repair. No new whole inference or quality/rate.
+
+[Selected510](METH_510_NATIVE_HYBRID_HEAD_NEXT_20261006.md), PROPOSED only:
+freeze ONE C head branch/control/cost before native calls; source rows already
+exist in F32 shared embedding, preserve unrefined tail. Qualify finite C parity
+and actual selection/refinement/I8 overhead at same worker3 layout, then NEW
+own-state whole generation/teacher/tasks and SAMEartifact accepted-ID rate.
+No k tuning from8 to observed max rank3. Previous local recovery/rate not inherited.
 
 Any exact I8-source acceleration leaves these IDs and the failed prose score
 unchanged. Defer256 expansion and
@@ -45,5 +52,5 @@ Compact reusable core, much larger useful n/RAM, CPU LUT winner AND normalized
 mass, physical DRAM and actual other families/scales/~10B/~100B remain open.
 SAMEartifact qualified fresh quality AND>=50 is still missing. Routine Graphify
 disabled; donor-adaptation frozen, evidence reusable. Foreign work preserved.
-All completed495..507 scientific namespaces terminal; metadata faults/exceptions
+All completed495..509 scientific namespaces terminal; metadata faults/exceptions
 remain part of their evidence.

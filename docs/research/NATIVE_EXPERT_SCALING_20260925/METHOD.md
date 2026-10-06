@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:507 complete; isolate upstream/readout effects
+## Current resumption:509 complete; native conditional readout qualification
 
 [506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
 7,541,946,880B conditional artifact with reusable exact column primitive/engine
@@ -55,17 +55,29 @@ have unchanged expert IDs but changed selected mass;62 identical trajectories
 have changed IDs. ID change alone is neither necessary nor sufficient here.
 No whole-model inference/capture/quality/performance replay or promotion.
 
-[Selected508](METH_508_SOURCE_HEAD_NEXT_20261006.md) is PROPOSED: apply original
-F32 head to both captured final states, qualify donor bridge, count recoveries
-AND introduced changes, decompose pairwise readout/upstream/arithmetic terms.
-Source head is retained original shared F32 extent; verify actual SHA/manifest
-and freeze main/audit/price before any new source-function call. Old355 informs
-this question but does not supply current results. Source-derived upstream
-residual correction remains conditional. Exact I8 acceleration keeps failed506
-IDs/score, so adaptive WI certificates and256 expansion remain deferred.
+[508 result](METH_508_SOURCE_HEAD_RESULT_20261006.md) now qualifies source readout
+onALL996 original states (max relative L2 1.65375e-7, exact choices), reduces
+current candidate-state disagreements31->14 (20 recovered/3 introduced).
+All31 pair terms independently close; readout/upstream both contribute. This is
+not new generation or source-head performance. Old355 is a different cohort/
+body precision; current evidence selects readout fidelity before body correction.
+
+[509 result](METH_509_SHORTLIST_HEAD_RESULT_20261006.md) qualifies ONE top8
+hybrid source-F32-row refinement:ALL996 full hybrid winners match508 source
+head, no unrefined tail win, same20/3 outcomes. Pre-query dependency fault and
+R1 actual-runtime repair retained; no mathematical K/arithmetic/threshold change.
+Source F32 rows already stored in shared embedding;24,576B logical extra reads
+plus old I8 head per position, no physical DRAM or speed claim.
+
+[Selected510](METH_510_NATIVE_HYBRID_HEAD_NEXT_20261006.md) is PROPOSED: one
+native C branch/control/cost, actual finite parity and overhead at same CPU3
+layout, then NEW own-state whole quality/generation and SAMEartifact rate.
+No k tuning after observed max rank3, no copied local recovery or old rate.
+Source-derived upstream correction remains conditional; exact I8 acceleration
+keeps506's failed IDs/score, so adaptive WI/256 expansion remain deferred.
 
 505's exact one-bank component remains retained, with5/6 economic gates and
-12/192 regressions; all495..507 scientific calls terminal. Source-sized storage/
+12/192 regressions; all495..509 scientific calls terminal. Source-sized storage/
 WI does not supply a compact core, useful larger n/RAM/LUT/mass/DRAM or another
 actual family/scale. All remain goal requirements.
 

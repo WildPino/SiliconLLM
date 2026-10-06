@@ -1,5 +1,9 @@
 # Selected508: separate state error from readout error
 
+**TERMINAL update:** original main/audit exit0 ONCE;20/31 recovered,3/965
+introduced,31->14; actual source bridge qualified. [Result](METH_508_SOURCE_HEAD_RESULT_20261006.md)
+supersedes the pre-call proposal below.509 completed; current next510 native cost.
+
 PROPOSED only: no508 source/function/evaluation call. Goal ACTIVE/INCOMPLETE.
 507 is complete, independently verified. Preserve506's negative whole result.
 

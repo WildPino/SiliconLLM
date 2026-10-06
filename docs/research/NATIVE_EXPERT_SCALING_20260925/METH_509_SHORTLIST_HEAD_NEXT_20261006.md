@@ -1,5 +1,10 @@
 # Selected509: ONE top8 I8-to-source-F32 head refinement
 
+**TERMINAL update:** original pre-query dependency fault retained; R1 first
+numerical main/audit exit0 ONCE, BOTH local criteria PASS,ALL996 hybrid winners
+equal full source head. [Result](METH_509_SHORTLIST_HEAD_RESULT_20261006.md)
+supersedes the pre-call proposal below. Current next510 native control/cost.
+
 PROPOSED only. Goal ACTIVE/INCOMPLETE.508 source-head/state intervention complete
 and independently verified:20 original differences recovered,3 introduced,
 31->14 disagreements on996 common-history positions. No new whole quality/rate.
