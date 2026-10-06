@@ -1,5 +1,15 @@
 # Native expert-count scaling: prior evidence
 
+**6 October update after503:** [502](METH_502_VARIABLE_COVER_RESULT_20261006.md)
+constructs783 finite development support-cover children at1536 active ceiling,
+2.940994 source-atom copy ratio. [503](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md)
+independently checks ALL127570 new functions: development oracle exact, natural
+oracle p95 39.941205% >5%, so this fixed mask set fails despite extra storage.
+Next [504 source angular regions](METH_504_SOURCE_ANGULAR_REGION_CERTIFICATE_NEXT_20261006.md)
+is PROPOSED. Source-WI region certification and explicit fallback cost are new
+variables; no fresh/native/rate or family promotion. Current INDEX takes
+precedence over historical resumptions below.
+
 **Purpose.** Evidence inventory for a native `benchmarks/phase60/engine.c` expert-count comparison, keeping top-k, model width, core count, and training recipe fixed. Donor-adaptation work is paused context, not evidence for this native question.
 
 **25 September asset update:** the local E32 checkpoint, phase55 ids/tokenizer,

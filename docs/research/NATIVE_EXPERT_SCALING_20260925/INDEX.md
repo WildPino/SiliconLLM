@@ -26,6 +26,18 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[503 result](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md): all6/7/5 apparatus/
+independent function/admission PASS. ALL127570 new functions BYTE checked on
+ALL17540 original UIDs. Development oracle0%; natural oracle p95 39.941205%,
+selected47.736777%, against<=5%. Four/six local gates PASS, recipeFAIL. No
+selector among these masks can repair the oracle tail. Extra finite development
+coverage does not provide fresh support-domain control.
+
+[502 result](METH_502_VARIABLE_COVER_RESULT_20261006.md): all5/6/5 PASS. Retained
+prefix continuation produces783 children/127 exposed IDs, max active1536,
+copy ratio2.940994. Complete development support11721/11721, consumed262/5819.
+No optimal-memory/physical/fresh claim. Empty0 remains uncompiled/unpromoted.
+
 [501 result](METH_501_SUPPORT_COVER_RESULT_20261006.md): all5/6/5 apparatus/
 independent audit/admission PASS. Exact C4/B1536/6144 development support covers
 for61/127 exposed IDs;52 first packing conflicts,14 global-copy conflicts.
@@ -56,36 +68,23 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption: variable child storage at fixed active ceiling502
+## Current resumption: source-derived angular regions504
 
-Completed499 scope:128 IDs/127 solves/17540UID/19962occurrences/1040groups/
-384exposures. Main84.250s/combined peaks1073999872B; independent audit39.688s/
-895311872B; actual exits0, both Windows queries available/zero events.
-Finalizercafc96 exit0. One compile/three new native calls; no source/model/
-optimizer/GPU/new resource. Bank127232136B; large outputs local/hash-qualified.
-All495..499 scientific namespaces terminal; engine/foreign hashes unchanged.
+502 complete main4.782s/204873728B, audit5.766s/165515264B.503 complete
+main62.234s/826671104B, audit26.734s/830164992B. All actual exits0, both stages'
+Windows queries available/zero faults; preserved engine/foreign3. All495..503
+namespaces terminal, no surviving scientific job. Large arrays local/hash-bound.
 
-500 completed: main53.843s/1694863360B, audit49.891s/1690177536B; exits0,
-both Windows queries available/zero faults. No surviving scientific job.
-Four half-width masks preserve all source atoms in their global union for127
-exposed IDs; selected coverage insufficient. Empty0 uncompiled, rare failures
-retained. Frozen coarse automatic selector label retained; admitted next
-decision follows the stronger oracle-tail bound. No old namespace replay.
-
-501 complete main6.594s/206319616B, independent bitset audit6.141s/200151040B;
-exits0, both Windows available/zero events. All495..501 namespaces terminal.
-Fixed partitions reveal extra-memory uncertainty; no surviving scientific job.
-
-**First action:** implement/price/freeze ONE monotone502 extension and independent
-certificates, then sole actual read binding/main/audit.
-[502 next](METH_502_VARIABLE_CHILD_RAM_CERTIFICATE_NEXT_20261006.md) carries61
-positive masks BYTE, resumes only52 retained conflict prefixes, reuses14 complete
-partitions and adds storage as needed. Max selected width1536; new widths may be
-smaller to avoid gratuitous padding. No C grid/old prefix/source/model replay.
-Derive this construction's RAM upper witness, not an optimal-memory claim.
-Complete construction -> ONE actual-function/selector/physical eligibility
-inquiry before more packing refinements. Proposed120s/512MiB each; no502 code/
-observations yet. Full parent winner/mass and fresh quality remain open.
+**First action:** price/implement/freeze ONE original-WI angular-region geometry
+inquiry. [504 next](METH_504_SOURCE_ANGULAR_REGION_CERTIFICATE_NEXT_20261006.md)
+derives exact integer input-cone predicates certifying every omitted neuron
+inactive. Choose one development code centre per nonempty502 assigned group;
+no child/centre grid. Acquire original negative WI margins (new information
+previously lost by ReLU), max active1536, ALL-original-domain coverage and
+explicit source-fallback storage/cost. Economic coverage gate90% consumed and
+natural before physical work; no504 code/binding/protocol/observations yet.
+This changes region definition after503 oracle failure; it does not rerun475's
+closed nibble/Cauchy certificate. Source parent winner/mass remains separate.
 
 All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual additional families/scales remain open.

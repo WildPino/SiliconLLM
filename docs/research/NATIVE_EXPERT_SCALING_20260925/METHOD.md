@@ -24,30 +24,40 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:501 admitted; data-driven child storage502
+## Current resumption:503 admitted; source-derived angular regions504
 
-[501 result](METH_501_SUPPORT_COVER_RESULT_20261006.md): all5 main/6 independent
-integer-bitset audit/5 admission gates PASS. Complete C4/B1536/6144 development
-support-cover witnesses61/127,52 first packing conflicts,14 global-copy budget
-conflicts. Complete cohort ineligible; other partitions' existence unresolved.
-Positive3649/11721 development inputs; consumed complete-support261/1913 on
-positive subset,261/5819 complete domain. No new source F or fresh quality claim.
-Main6.594s/206319616B, audit6.141s/200151040B, exits0, Windows available/zero
-faults; all495..501 namespaces terminal and no surviving scientific job.
+[502 result](METH_502_VARIABLE_COVER_RESULT_20261006.md): independently admitted
+retained-prefix continuation,783 children/127 exposed IDs, max selected1536,
+copy ratio2.940994. All11721 development supports covered, consumed262/5819.
+Original61 baseline501 masks BYTE; only3955 remaining UIDs from52 conflicts
+continued,14 completed partitions reused. No globally optimal RAM or fresh
+quality inference. Empty0 uncompiled/unpromoted; no completed-prefix replay.
 
-[502 next](METH_502_VARIABLE_CHILD_RAM_CERTIFICATE_NEXT_20261006.md) selects a
-monotone extension from retained501 witnesses/conflicts. Preserve61 positive
-masks BYTE; resume only52 incomplete prefixes; reuse14 complete partitions.
-Derive additional child count/storage at maximum selected width1536; newly
-constructed widths may be smaller without padding. No child-count grid/source/
-model/native/GPU/new labels or completed-prefix replay. First implement/price/
-freeze complete source-prefix/bitset/subset/copy-cost certificates and actual
-read binding; proposed120s/512MiB main/audit. No502 code/observations yet.
+[503 result](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md): all6 main/7 function
+independent audit/5 admission PASS. ALL127570 actual child functions independently
+BYTE checked on ALL17540 UIDs. Source500 hidden values reused; no old WI/full F
+replay. Development oracle0%, natural source-p² oracle/routed RMS1.531985%/
+1.863503%, natural p95 oracle39.941205%/routed47.736777% against<=5%. Four/six
+local gates pass; recipeFAIL. Single-child selector improvements cannot repair
+this mask set's pointwise best-child tail. Rare/empty inputs are not excluded.
 
-Explicit development cover -> ONE complete actual-function/input-selection/
-physical inquiry before more finite packing refinements. A constructive RAM
-upper bound for fixed partitions is not globally optimal storage or fresh
-quality. All full return gates below remain open.
+502 terminal main4.782s/204873728B, audit5.766s/165515264B;503 main62.234s/
+826671104B, audit26.734s/830164992B. Actual exits0 and available Windows/zero
+faults; all495..503 scientific namespaces terminal, engine/foreign3 preserved.
+
+[504 next](METH_504_SOURCE_ANGULAR_REGION_CERTIFICATE_NEXT_20261006.md) selects
+source-WI hyperplane regions replacing sample-only unions. Input-centre integer
+margins yield exact angular cone predicates: all omitted rows inactive inside
+a region, max selected1536. Query coverage, centre lookup, complete source
+fallback storage and3072-width uncovered work must be charged. One centre per
+nonempty502 development group, no grid/consumed fit. New negative preactivation
+information is not retained in500; acquire and charge it separately. Proposed
+90% consumed/natural certificate coverage before physical work. First price/
+implement/freeze main and independent controls/binding; no504 observations yet.
+This differs from475's closed coefficient-plane Cauchy recipe.
+
+Geometry certification is not an economic/fresh/whole-model qualification.
+All full return gates below remain open.
 
 ### Retained preceding500
 

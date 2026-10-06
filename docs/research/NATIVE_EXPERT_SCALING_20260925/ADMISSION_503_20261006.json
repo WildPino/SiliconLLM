@@ -1,0 +1,274 @@
+{
+  "experiment": "METH503 admitted variable-child actual function and input-only selector inquiry",
+  "main_completed": true,
+  "gates": {
+    "all_six_main_apparatus": true,
+    "all_seven_independent_function_apparatus": true,
+    "ALL_original_domain_views_rare_and_frozen_eligibility_unchanged": true,
+    "actual_main_audit_exit0_Windows_available_zero_faults": true,
+    "engine_foreign_files_preserved": true
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth503_function_result.json",
+    "bytes": 147224,
+    "sha256": "8dc0d06a19f4136985d07ae2521afc7c290522de2f95bd619dfbf7663af7168b"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_503_20261006.json",
+    "bytes": 10654,
+    "sha256": "62ea4c2577a7ec5f1ebb93b370378820abf8f472b14e46217f7b954dc300295f"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth503_binding.json",
+    "bytes": 297454,
+    "sha256": "f9a9efb5aafebf98284e9748e432eafb00f7ceb82792de2dea07a165da044076"
+  },
+  "windows": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_windows_terminal.json",
+      "bytes": 577,
+      "sha256": "c9ce3d230771b9261be68752796b1ec14f4e35eb815921ff2a20dda8596607a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_audit_windows_terminal.json",
+      "bytes": 580,
+      "sha256": "2c4b7c9273c06132ceb1e6104ab35e784ff6aece26c71b05e9089af65af2a804"
+    }
+  ],
+  "views": {
+    "development": {
+      "routed": {
+        "RMS": 0.0026150681403477346,
+        "error_energy": 186630546.45861822,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.15994614569059734,
+        "max_UID_RMS": 0.6631844595214603,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.0,
+        "error_energy": 0.0,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.0,
+        "max_UID_RMS": 0.0,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 11721.0,
+      "routed_complete_support_count": 10089,
+      "any_child_complete_support_count": 11721
+    },
+    "development_source_p": {
+      "routed": {
+        "RMS": 0.003629676471544288,
+        "error_energy": 35734895.582687736,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.15994614569059734,
+        "max_UID_RMS": 0.6631844595214603,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.0,
+        "error_energy": 0.0,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.0,
+        "max_UID_RMS": 0.0,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 1850.3580510328693,
+      "routed_complete_support_count": 10089,
+      "any_child_complete_support_count": 11721
+    },
+    "consumed": {
+      "routed": {
+        "RMS": 0.012454846363248818,
+        "error_energy": 2042817136.8798437,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.4726092128612462,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.010470306157158252,
+        "error_energy": 1443681877.4787116,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.3959607554762972,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 5819.0,
+      "routed_complete_support_count": 261,
+      "any_child_complete_support_count": 262
+    },
+    "consumed_source_p": {
+      "routed": {
+        "RMS": 0.024639447161676136,
+        "error_energy": 786322328.3187673,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.4726092128612462,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.020314288073198815,
+        "error_energy": 534492853.8382422,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.3959607554762972,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 959.9641362901605,
+      "routed_complete_support_count": 261,
+      "any_child_complete_support_count": 262
+    },
+    "natural_consumed": {
+      "routed": {
+        "RMS": 0.009245111042060179,
+        "error_energy": 1124541514.3389797,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.47736777120510837,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.007710896621170124,
+        "error_energy": 782277772.5436182,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.3994120476457898,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 3065.0,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259
+    },
+    "natural_consumed_source_p": {
+      "routed": {
+        "RMS": 0.018635025501196147,
+        "error_energy": 448740181.4569745,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.47736777120510837,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.015319851778606786,
+        "error_energy": 303280231.7966322,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.3994120476457898,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 535.8416493128393,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259
+    },
+    "teacher_consumed": {
+      "routed": {
+        "RMS": 0.00955954549100269,
+        "error_energy": 1202459219.6650248,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.46657434872449616,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.008011308666881904,
+        "error_energy": 844506113.8963546,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.38972686776107307,
+        "max_UID_RMS": 0.6124235347359551,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 3584.0,
+      "routed_complete_support_count": 258,
+      "any_child_complete_support_count": 259
+    },
+    "teacher_consumed_source_p": {
+      "routed": {
+        "RMS": 0.01901790728951739,
+        "error_energy": 467395958.5608542,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.46657434872449616,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.015518020314589289,
+        "error_energy": 311194657.92859066,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.38972686776107307,
+        "max_UID_RMS": 0.6124235347359551,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 574.5130006745965,
+      "routed_complete_support_count": 258,
+      "any_child_complete_support_count": 259
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "routed": {
+        "RMS": 0.18515939476398174,
+        "error_energy": 70885.43104767243,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.36667249371031596,
+        "max_UID_RMS": 0.38593679980620693,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.18515939476398174,
+        "error_energy": 70885.43104767243,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.36667249371031596,
+        "max_UID_RMS": 0.38593679980620693,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3,
+      "weight_sum": 3.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 0
+    },
+    "dev_count5_15": {
+      "routed": {
+        "RMS": 0.26241454436359957,
+        "error_energy": 878341.776422732,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.7233764826371603,
+        "max_UID_RMS": 0.8650655143778052,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.24655329819702954,
+        "error_energy": 775370.6688057206,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.47749883226694445,
+        "max_UID_RMS": 0.4911078139788348,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 19,
+      "weight_sum": 19.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 0
+    }
+  },
+  "eligibility": {
+    "oracle_all_consumed_RMS_le_2pct": true,
+    "oracle_natural_consumed_source_p_RMS_le_2pct": true,
+    "oracle_natural_consumed_p95_UID_RMS_le_5pct": false,
+    "routed_all_consumed_RMS_le_2pct": true,
+    "routed_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_p95_UID_RMS_le_5pct": false
+  },
+  "local_recipe_eligible": false,
+  "decision": "RECONSIDER_REPRESENTATION_OR_SUPPORT_DOMAIN",
+  "raw_experiment_label_note": "Inherited operations label says four overlapping children. The frozen binding/protocol, masks and checked per-expert counts define783 variable children. RAW remains unchanged.",
+  "scope": "Exact development interpolation but failed consumed oracle tail. Not a refutation of all redundancy or of other source-derived regions; no fresh/model/native/rate promotion."
+}
