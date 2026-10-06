@@ -1,0 +1,24 @@
+{
+  "kind": "FIRST metadata finalizer fault before any admission output",
+  "actual_tool_chunk_id": "34b531",
+  "actual_exit_code": 1,
+  "source_sha256": "cd8d72fc74a77f7865fe101c0af028fd2938fb636da3153b626647f851b07c3d",
+  "assertion": "literal ISO string equality; actual instant equality independently verified",
+  "observed_pairs": [
+    {
+      "label": "main",
+      "raw_start": "2026-10-06T04:39:58.412464+00:00",
+      "event_start": "2026-10-06T06:39:58.412464+02:00",
+      "raw_end": "2026-10-06T04:40:28.884739+00:00",
+      "event_end": "2026-10-06T06:40:28.884739+02:00"
+    },
+    {
+      "label": "audit",
+      "raw_start": "2026-10-06T04:42:59.724783+00:00",
+      "event_start": "2026-10-06T06:42:59.724783+02:00",
+      "raw_end": "2026-10-06T04:43:20.698021+00:00",
+      "event_end": "2026-10-06T06:43:20.698021+02:00"
+    }
+  ],
+  "new_numerical_imports_or_fits": 0
+}
