@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-6 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+7 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 
 ## Goal and constraints
 
@@ -112,7 +112,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption:510 complete;511 fresh whole quality and same-artifact rate
+## Current resumption:511 cohort complete; first native call awaiting quiet system
 
 [506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
 artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
@@ -151,13 +151,19 @@ pre-timing fault, seven closed calls reused without execution, sole new paired
 head command, actual idle process identities/zero CPU and corrected UTC receipt.
 No new generation/quality/rate/n/RAM/DRAM/family claim.
 
-**First action:** implement/price/freeze [511 fresh whole inquiry](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md)
-and independent checker BEFORE new corpus/cohort/donor/native calls. SAME510
-binary/506 parameter artifact, actual original F32 donor, NEW excluded books and
-own generation histories, unchanged506 quality/economic criteria, strictly
-isolated direct>=50 accepted batch1 IDs/s. No k tuning, rate/fixed-state recovery
-inheritance or silent regression-gate relaxation. Source I8 equality alone
-cannot repair506's failed prose criterion.
+511 sources, independent checker, runtime and bounds are frozen. R3 completed
+ONE fresh24-book/96-case corpus,383 excluded rows and both tokenizer controls
+BYTE;8.547s/735,428,608B OS peak. RAW SHA90b790c2.. . No511 native or donor
+call has started. [Operational receipt and R6 resumption](METH_511_R6_DYNAMIC_IDLE_BINDING_20261007.md)
+retain inventory/archive/reader/pre-timing faults and the exact completed cohort.
+
+**First action:** coordinate a quiet system (external Ollama model was active),
+then bind actual idle identities using frozen R6 sources and run the first576 C
+calls on the retained R3 cohort;384 original F32 donor bridges and independent
+audit follow. SAME510 binary/506 artifact, unchanged quality/economic criteria,
+own histories and strictly isolated direct>=50 accepted batch1 rate. No cohort
+reselection, completed-call replay, k tuning or inherited recovery/rate claim.
+The actual whole quality/rate conjunction is still unmeasured.
 [Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
 and256 expansion deferred until this discrepancy is understood.
 

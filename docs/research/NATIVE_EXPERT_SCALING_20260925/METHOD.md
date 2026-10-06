@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method
 
-6 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+7 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 This is the procedure/status document. Individual records retain experiments.
 The former extended method/history is preserved BYTE in
 [METHOD through498](METHOD_THROUGH_498_20261006.md); its old resumptions are
@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:510 complete; fresh whole hybrid-head qualification
+## Current resumption:511 cohort complete; whole hybrid-head qualification pending
 
 [506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
 7,541,946,880B conditional artifact with reusable exact column primitive/engine
@@ -76,9 +76,14 @@ pairs mean increment0.148116ms/p95 0.619665ms, local cost gates PASS; head
 ratio1.1748545/max30.504500ms retained. Original pre-timing fault and R1 preserve
 seven completed compile/control calls without execution; sole paired query.
 Actual idle identity/zero CPU/typed UTC checks complete, all owned processes closed.
-[Selected511](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md) is PROPOSED: NEW own-state
-whole quality/tasks versus actual original F32 donor AND SAMEartifact>=50 rate,
-unchanged506 quality/economic criteria. No copied local recovery or old rate.
+[Selected511](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md) is implemented/frozen,
+with ONE completed R3 source-only project-excluded24-book/96-case cohort and
+both text/tokenizer controls BYTE. Sources/criteria/runtime/input receipts and
+independent checker are available. [R6 operational record](METH_511_R6_DYNAMIC_IDLE_BINDING_20261007.md)
+preserves setup/reader/idle-identity faults; external Ollama model activity keeps
+the first native call pending. Reuse this exact cohort after quiet identity
+binding. Whole donor-relative quality AND SAMEartifact>=50 rate remain
+unmeasured under unchanged506 gates; no copied local recovery or old rate.
 Source-derived upstream correction remains conditional; exact I8 acceleration
 keeps506's failed IDs/score, so adaptive WI/256 expansion remain deferred.
 

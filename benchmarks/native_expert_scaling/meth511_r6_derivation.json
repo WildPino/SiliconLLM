@@ -1,0 +1,130 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_operations.py",
+    "old_sha256": "bf002b32c4f102dc55c09e6ea5fa9693a88c73787e6f5aff09c50fb07808a779",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_operations.py",
+    "new_sha256": "d14c81b8d3c72142d6626f952ecde903b84d4a685ce9d62d40253ccdd1a497fa",
+    "replacements": [
+      {
+        "before": "meth511_r5_binding.json",
+        "after": "meth511_r6_binding.json",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r5_'+kind)",
+        "after": "('meth511_r6_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "'meth511_r5_'",
+        "after": "'meth511_r6_'",
+        "occurrences": 2
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_native.py",
+    "old_sha256": "402e86c014c20254c8beadb82e571fd83ad19ca406d9b55ec24134540768e8d4",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_native.py",
+    "new_sha256": "b04d8272eba5a63ed13470892fd793651a9884d768f0609876aaf77dd0e48a96",
+    "replacements": [
+      {
+        "before": "import meth511_r5_operations as O",
+        "after": "import meth511_r6_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_donor.py",
+    "old_sha256": "174d10a417cdda6fad01180ecad7a9f9f7d391d476d4f8f4098a169f76eade4f",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_donor.py",
+    "new_sha256": "88cccd06b92e13d9b4d192598b563c4ef2d3df23f15a26661861b3f1e96eebf9",
+    "replacements": [
+      {
+        "before": "import meth511_r5_operations as O",
+        "after": "import meth511_r6_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_retention_audit.py",
+    "old_sha256": "de9058646f925d921db7874c1cba9794c791a7f955bbcefe97b47decaf1101f3",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_retention_audit.py",
+    "new_sha256": "ee3afa199d42b760b0b0044f75483460791cadfa7b16f5d69c26b316fb0cf17f",
+    "replacements": [
+      {
+        "before": "import meth511_r5_operations as O",
+        "after": "import meth511_r6_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r5_prepare_binding.py",
+    "old_sha256": "5e0eb8ee64b3439468f0a6b89eee085fc525ea77bcae693188ba1815bdd5eb96",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_prepare_binding.py",
+    "new_sha256": "86d5180e8a54801c0bdb8e790f3e904f1928d4eacafcdf1ed37d1bfae02d5919",
+    "replacements": [
+      {
+        "before": "import meth511_r5_operations as O",
+        "after": "import meth511_r6_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "meth511_r5*",
+        "after": "meth511_r6*",
+        "occurrences": 1
+      },
+      {
+        "before": "startswith('meth511_r5')",
+        "after": "startswith('meth511_r6')",
+        "occurrences": 1
+      },
+      {
+        "before": "meth511_r5_derivation.json",
+        "after": "meth511_r6_derivation.json",
+        "occurrences": 1
+      },
+      {
+        "before": "METH_511_R5_CURRENT_IDLE_IDENTITIES_20261007.md",
+        "after": "METH_511_R6_DYNAMIC_IDLE_BINDING_20261007.md",
+        "occurrences": 1
+      },
+      {
+        "before": "    assert set(current)=={24880,28180,29836},('current_idle_topology',current)",
+        "after": "    # Exact current identities/topology are recorded prospectively, never guessed PIDs.\n    for row in current.values():\n        p=psutil.Process(row['pid']);assert p.create_time()==row['create_time_unix']\n        assert p.name()==row['name'] and p.exe()==row['exe']\n        assert sum(p.cpu_times()[:2])==row['cpu_seconds'],('idle_CPU_during_binding',row['pid'])\n        assert sorted((q.pid,q.create_time()) for q in p.children(recursive=True))==row['descendants']",
+        "occurrences": 1
+      },
+      {
+        "before": "    metadata_fault=item(O.DOC/'meth511_r4_binding.failure.json');catalog[metadata_fault['path'].lower()]=metadata_fault",
+        "after": "    for name in ['meth511_r4_binding.failure.json','meth511_r5_binding.failure.json']:\n        metadata_fault=item(O.DOC/name);catalog[metadata_fault['path'].lower()]=metadata_fault",
+        "occurrences": 1
+      },
+      {
+        "before": "'idle_processes':0",
+        "after": "'idle_processes':len(current)",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_windows_terminal.ps1",
+    "old_sha256": "5ecf7ebeaec0dea8b7fe2820bee2b725e5c16d68c62eab7fc856a56641209596",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_windows_terminal.ps1",
+    "new_sha256": "0d59949dbca822c5cfb9a595b8e4d08f9595c974c0467db62e8aca83add4551b",
+    "replacements": [
+      {
+        "before": "meth511_windows_terminal.json",
+        "after": "meth511_r6_windows_terminal.json",
+        "occurrences": 1
+      },
+      {
+        "before": "    $path=Join-Path $doc ('meth511_'+$kind+'_result.json');$raw=",
+        "after": "    $prefix=if ($kind -eq 'cohort') {'meth511_r3_'} else {'meth511_r6_'}\n    $path=Join-Path $doc ($prefix+$kind+'_result.json');$raw=",
+        "occurrences": 1
+      }
+    ]
+  }
+]
