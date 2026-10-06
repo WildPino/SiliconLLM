@@ -1,51 +1,39 @@
 # Current conditional transfer resumption
 
-## Current resumption:484 metadata eligibility admitted; complete backend next
+## Current resumption:488 numerical prefix admitted;489 staged completion ready
 
-Current goal turn PROGRESS:484 solemain f88625exit0/2.734s/79,757,312B terminalpeak,
-independent soleaudit0f17baexit0/2.625s/61,898,752B, ALL7/6gates. BOTH actual
-Windows available/zero matching faults with PID/create/awareISOinstants; final
-metadata admission sole3fda3aexit0/ALL6gates, admitted da18882.
-[484 result](METH_484_SHARED_INTEGER_ELIGIBILITY_RESULT_20261006.md),
-[complete admission](ADMISSION_484_20261006.json).
+Goal ACTIVE/INCOMPLETE. UnchangedC486 now actually executed: ALL11 integer controls
+and174complete teacher/ownstate cases independently admitted (96/96 n128,78/96
+n256),3132whole files with exact states/routes/probabilities/logits/IDs/counters.
+[488 result](METH_488_SHARED_INTEGER_PREFIX_RESULT_20261006.md),
+[ALL9 retention](RETENTION_488_R1_20261006.json),
+[complete admission](ADMISSION_488_R1_20261006.json).
 
-ALL3320/6392 original128/256 descriptors independently classified, exact codec/
-shape/offset/scale/alias/file bytes;169shared matrices166232064B (158.53125MiB)
-for BOTH fixed geometries, maxGPUoperator scratch3932160B, CPUarrays7472128B.
-Expertpool/F32router stayCPU/RAM. Complete signed16 identity65536scalar values
-and overflow proof admitted. ZERO GPU/native/model/solver/payload-value reads;
-payload SHA inherited458 with unchanged path/size/mtime, not refreshed.
+488 sole main ef334d/session27098/eab268 exit1 at2700.125s TEMPORAL bound,
+within parent/combined memory limits. ALL5232files/10318508656B retained;
+last own GPUteacher n256.book19.case2 guard-terminated exit15. Original audit
+2fdf5d isolation fault retained; sole R1 9a0f96/session46873/839f66 exit0/ALL9;
+all THREE actual Windows available/zero matching, finalizer27e986 exit0/ALL5.
+Earlier485 ABI,486 precompile foreign guard and487 compiler-monitor race remain
+immutable/admitted. No attempted old main/control/audit namespace may rerun.
 
-Whole256 constraint for50prose: r<=.7148494463 at h0. Proposed163101GEMMinvocations
-across96cases,1.209GB digit upload/5.372GB partial readback; at r=.5 additional
-overhead ceiling6.832487us/invocation. Memory feasible; speed/driver/parity and
-fresh complete quality/SAMErate UNPROVEN.100prose cannot follow from dense+head
-alone under these fractions. RAM law265878016+56844288*nB is fixed-format metadata,
-not useful-n/trained capacity/residency evidence;80GiB model-only uppern1506.
+Static bootstrap discrepancy retained: old helper486486 versus protocol485485.
+Original source128 summaries remain UNADMITTED; R1 did not compute rates.
+NO complete192/3456 or >=50 result yet. Full128 cohort inherits original ALL18
+source-donor quality through exact outputs; n256 first78 is individual parity,
+not a newly aggregated subset18gate claim. No new books or donor inference.
 
-[Whole algebra/correction/exact next](METH_484_WHOLE_ALGEBRA_AND_NEXT_20261006.md):
-source Switch routers use F32weights/input,F64dot,F32cast; no directA16router
-quantizer. Supersedes inaccurate483geometric prose without changing its labels/
-certificates.483 affine class remains inconclusive; saved heads insufficient,
-no equivalent longerLP retry and no failed-head Ctiming.
+[489 prospective staged completion](METH_489_STAGED_COMPLETION_PROTOCOL_20261006.md):
+reuse byte-pinned original488 binary/controls/allfirst data, run ONLY107missing
+successful native blocks (remaining18 source256 cases, already completed
+CPUteacher preserved). Correct only metadata bootstrap to precommitted485485;
+no C/precision/layout/cohort/threshold change, no completed block replay.
+Freeze all489 apparatus/binding before sole main; new20min including waits,
+180s/child, same1GiBparent/24GiBcombined/12GiB COMBINEDoutputs,600s quiet waits.
+Audit15min/512MiB. Both full sources and original profile gates then rederived.
+No live science handle at this documentation freeze. Next sole489 binding/main.
 
-485 complete source/runtime/payload/reference integrity and compiler PASS;
-solemain f04891/session75205/06f0fa exit1: missing Win64 cublasSetWorkspace
-export, before explicit CUDA init/GEMM/model. ALL first inputs/logs retained.
-Original audit ISO-string comparison fault retained; independent numbered
-retention ae9014/session35273/ee26fe exit0/ALL4 gates and all three actual
-Windows available/zero matching faults; finalizer2eaf9d exit0/ALL4 gates.
-[485 result](METH_485_SHARED_INTEGER_BACKEND_RESULT_20261006.md),
-[admission](ADMISSION_485_R1_20261006.json). NO GPU/whole quality/speed evidence.
-486 complete numbered candidate now prepared: corrected Workspace_v2 symbol,
-ALL25 static PE export prerequisite, exact same integer layout/cohort/gates,
-aware-ISO audit. [Protocol](METH_486_SHARED_INTEGER_BACKEND_PROTOCOL_20261006.md).
-Next freeze486 apparatus/binding before sole CUDA/main. No live science handle.
-Completed485 main/control/audit/audit-R1 namespaces MUST NOT rerun.
-Full goal ACTIVE/INCOMPLETE; this interface repair is not a numerical failure.
-
-Full goal ACTIVE/INCOMPLETE: useful distinctn/RAM/CPU LUT/winnerANDmass/physicalDRAM,
-donor-relative fresh ownstate prediction-generation-task quality ANDSAME>=50batch1
-accepted IDs/s on one complete transformed artifact; multiple actualfamilies/
-scales/~100B when feasible. Generic donor acceleration alone is insufficient.
+Full goal still requires convenient transfer, useful distinctn/RAM, CPU LUT
+winner ANDmass, physicalDRAM and multiple families/actual100B. A qualified
+arithmetic backend alone does not establish those parts.
 
