@@ -56,39 +56,46 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption:482 admitted inconclusive;483 sole first main
+## Current resumption:483 retained partial fault; R1 sole first recovery
 
-Previous goal turn PROGRESS:481 fully admitted. Current turn PROGRESS:482main
-R1 all12LP time limits/no exposed vectors; complete independent R1audit sole
-96144exit0/73.657s/2.039GB/4gates admittedb9e993a. Original audit admission fault
-retained2f13747 before repair68c75dc; all completed namespaces stay exclusive.
-[Result482](METH_482_AFFINE_ROOT_RESULT_20261006.md),
-[whole algebra/new method](METH_482_ALGEBRA_REASSESSMENT_AND_NEXT_20261006.md).
+Previous goal turn PROGRESS:481 fully admitted. Current turn PROGRESS:482 all12
+budget-inconclusive outcomes independently admittedb9e993a;483 first controller
+50660exit1/264.032s/2.366GB after57root+4control LPs. First fault and ALL134records
+retained273a11d; read-only coefficient diagnoses and exact resumption planc7e1f25.
+No original global certificate/reports/science admission. No affine impossibility.
+[482 result](METH_482_AFFINE_ROOT_RESULT_20261006.md),
+[483 first fault](METH_483_FIRST_FAULT_20261006.md),
+[483 repair plan](METH_483_WARNING_REPAIR_PLAN_20261006.md).
 
-483 complete main/helper/protocol/Windows/science frozen86df87f BEFORE numerics.
-NEWactive constraints/direct typed solver vectors, ALLdevelopment separation
-and every round retained. Same unit-L1 target; max8rounds/256newrows/root/25s
-remaining-wall search allowance; atomic verification/output paid in600s budget.
-CPU0/BLAS1/8GiB/new64MiB/admission180s; no previous LP/native/main/audit replay.
-[Complete prospective contract](METH_483_CONSTRAINT_ROOT_PROTOCOL_20261006.md).
+R1 complete4file freeze5518558 BEFORE its first numerical import/control:
+full getLp matrix readback after every mutation, fixed small_matrix_value1e-9,
+exclusive solver logs; original-input math preserved. ALL56completed bank0..6
+rounds and7witnesses reconstructed/reused BYTE, zero repeated LPs. Bank7 resumes
+saved round0/proposal with explicitly reconstructed basis and prior time paid;
+banks8..11 first inquiries. Exactly1NEW tiny-coefficient control, old4retained.
+Hard600s/8GiB/new64MiB/admission180s CPU0/BLAS1,57old+<=39newroot LPs; no longer
+optimization budget/rank/seed/support sweep/native or completed science replay.
+[Complete R1 protocol](METH_483_R1_CONSTRAINT_ROOT_PROTOCOL_20261006.md).
 
-SOLE FIRST MAIN,unexecuted at registration:
+SOLE FIRST R1 MAIN, unexecuted at registration:
 
 ```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_constraint_root.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth483_constraint_root_result.json
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_r1_constraint_root.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth483_r1_constraint_root_result.json
 ```
 
-Separate current process preflight inspected BEFORE launch; live SAMEhandle/
-smallPowerShell/commentary only, no editor/hash/Git/science mutation. Timeout
-observes samehandle. Actualterminal then ONE frozen483Windows query; firstfault
-before numberedrepair. Complete independent audit required before interpretation.
-No affine impossibility/freshquality/C/LUT/rate promotion from solver status.
+Separate current preflight BEFORE launch. Live SAMEhandle/smallPowerShell/
+commentary only; actualterminal then ONE frozen R1Windows query. Firstfault
+retained BEFORE numberedrepair. Complete independent audit BEFORE interpretation;
+original main and completed inquiries MUST NOT rerun. Unresolved bracket closes
+equivalent longer LP retries and redirects to feature/function geometry and
+wholeartifact cost. Conditional mass and C still absent.
 
 Full goal ACTIVE/INCOMPLETE: useful distinctn scaling with RAM, winner ANDmass,
 physicalDRAM, donor-relative fresh ownstate prediction/generation/task quality
 ANDSAME>=50batch1accepted IDs/s on one complete transformed artifact, multiple
-actualfamilies/scales/~100B when resources allow. Router remains enabling work;
-whole core/head/selected-function budget and causal utility remain open.
+actualfamilies/scales/~100B when resources allow. Core/head/selected functions
+and causal utility remain part of the budget. Every prospective backend must
+preserve/qualify arithmetic and charge transfer/padding/full execution.
 
 ## Retained evidence and closures
 

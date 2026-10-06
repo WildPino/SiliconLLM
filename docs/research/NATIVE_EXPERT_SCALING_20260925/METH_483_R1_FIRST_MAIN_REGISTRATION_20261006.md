@@ -1,4 +1,11 @@
-# Current conditional transfer resumption
+# METH483-R1 sole first recovery registration
+
+Complete4file freeze5518558 BEFORE any R1 numerical import/control.
+
+benchmarks/native_expert_scaling/meth483_r1_constraint_geometry.py: 1a33ebd9e7572faf53027e578eaa4c47ca3f325134247dd5d26c80fa528aff94
+benchmarks/native_expert_scaling/meth483_r1_constraint_root.py: 57c48a2c174bad027d5b374aa76f143b5006f3623de3d44d024ca53c1b931fc6
+benchmarks/native_expert_scaling/meth483_r1_windows_terminal.ps1: 9981afb2e09c8a19186e53a283d4dae43b9c7e3f35e0b9be0732051266f50755
+docs/research/NATIVE_EXPERT_SCALING_20260925/METH_483_R1_CONSTRAINT_ROOT_PROTOCOL_20261006.md: 309a369a281d52097a1a8c53efe7d5d675f0405939fabea77d58a790159e9e7a
 
 ## Current resumption:483 retained partial fault; R1 sole first recovery
 

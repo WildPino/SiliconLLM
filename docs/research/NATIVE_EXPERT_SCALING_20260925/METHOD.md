@@ -1,38 +1,45 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:482 admitted inconclusive;483 sole first main
+## Current resumption:483 retained partial fault; R1 sole first recovery
 
-Previous goal turn PROGRESS:481 fully admitted. Current turn PROGRESS:482main
-R1 all12LP time limits/no exposed vectors; complete independent R1audit sole
-96144exit0/73.657s/2.039GB/4gates admittedb9e993a. Original audit admission fault
-retained2f13747 before repair68c75dc; all completed namespaces stay exclusive.
-[Result482](METH_482_AFFINE_ROOT_RESULT_20261006.md),
-[whole algebra/new method](METH_482_ALGEBRA_REASSESSMENT_AND_NEXT_20261006.md).
+Previous goal turn PROGRESS:481 fully admitted. Current turn PROGRESS:482 all12
+budget-inconclusive outcomes independently admittedb9e993a;483 first controller
+50660exit1/264.032s/2.366GB after57root+4control LPs. First fault and ALL134records
+retained273a11d; read-only coefficient diagnoses and exact resumption planc7e1f25.
+No original global certificate/reports/science admission. No affine impossibility.
+[482 result](METH_482_AFFINE_ROOT_RESULT_20261006.md),
+[483 first fault](METH_483_FIRST_FAULT_20261006.md),
+[483 repair plan](METH_483_WARNING_REPAIR_PLAN_20261006.md).
 
-483 complete main/helper/protocol/Windows/science frozen86df87f BEFORE numerics.
-NEWactive constraints/direct typed solver vectors, ALLdevelopment separation
-and every round retained. Same unit-L1 target; max8rounds/256newrows/root/25s
-remaining-wall search allowance; atomic verification/output paid in600s budget.
-CPU0/BLAS1/8GiB/new64MiB/admission180s; no previous LP/native/main/audit replay.
-[Complete prospective contract](METH_483_CONSTRAINT_ROOT_PROTOCOL_20261006.md).
+R1 complete4file freeze5518558 BEFORE its first numerical import/control:
+full getLp matrix readback after every mutation, fixed small_matrix_value1e-9,
+exclusive solver logs; original-input math preserved. ALL56completed bank0..6
+rounds and7witnesses reconstructed/reused BYTE, zero repeated LPs. Bank7 resumes
+saved round0/proposal with explicitly reconstructed basis and prior time paid;
+banks8..11 first inquiries. Exactly1NEW tiny-coefficient control, old4retained.
+Hard600s/8GiB/new64MiB/admission180s CPU0/BLAS1,57old+<=39newroot LPs; no longer
+optimization budget/rank/seed/support sweep/native or completed science replay.
+[Complete R1 protocol](METH_483_R1_CONSTRAINT_ROOT_PROTOCOL_20261006.md).
 
-SOLE FIRST MAIN,unexecuted at registration:
+SOLE FIRST R1 MAIN, unexecuted at registration:
 
 ```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_constraint_root.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth483_constraint_root_result.json
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_r1_constraint_root.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth483_r1_constraint_root_result.json
 ```
 
-Separate current process preflight inspected BEFORE launch; live SAMEhandle/
-smallPowerShell/commentary only, no editor/hash/Git/science mutation. Timeout
-observes samehandle. Actualterminal then ONE frozen483Windows query; firstfault
-before numberedrepair. Complete independent audit required before interpretation.
-No affine impossibility/freshquality/C/LUT/rate promotion from solver status.
+Separate current preflight BEFORE launch. Live SAMEhandle/smallPowerShell/
+commentary only; actualterminal then ONE frozen R1Windows query. Firstfault
+retained BEFORE numberedrepair. Complete independent audit BEFORE interpretation;
+original main and completed inquiries MUST NOT rerun. Unresolved bracket closes
+equivalent longer LP retries and redirects to feature/function geometry and
+wholeartifact cost. Conditional mass and C still absent.
 
 Full goal ACTIVE/INCOMPLETE: useful distinctn scaling with RAM, winner ANDmass,
 physicalDRAM, donor-relative fresh ownstate prediction/generation/task quality
 ANDSAME>=50batch1accepted IDs/s on one complete transformed artifact, multiple
-actualfamilies/scales/~100B when resources allow. Router remains enabling work;
-whole core/head/selected-function budget and causal utility remain open.
+actualfamilies/scales/~100B when resources allow. Core/head/selected functions
+and causal utility remain part of the budget. Every prospective backend must
+preserve/qualify arithmetic and charge transfer/padding/full execution.
 
 ## Available analysis: normalized root affine feasibility inquiry
 
@@ -40,8 +47,9 @@ whole core/head/selected-function budget and causal utility remain open.
 output independently admitted. No affine geometry established; wrapper omits
 nonoptimal vectors. Original main memory and audit accounting faults retained
 before numbered repairs. [Result](METH_482_AFFINE_ROOT_RESULT_20261006.md).
-483 bounded active-row representation/vector retention is implemented and frozen,
-unexecuted at registration, not yet qualified or audited. No whole transfer
+483 bounded active-row representation failed at an API warning after seven
+completed banks. R1 coefficient readback/partial recovery frozen, pending sole
+first execution and complete independent audit. No whole transfer
 artifact/fresh quality/SAMErate/useful-n/C LUT promotion.
 
 ## Implemented transfer attempt: learned supports and partition
@@ -459,7 +467,7 @@ generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
-running in the project C engine at ≥50 accepted batch-1 tokens/s on a declared
+running in the project C engine at â‰¥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
 family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
@@ -952,7 +960,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268–31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268â€“31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -960,13 +968,13 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846–22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846â€“22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20–22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20â€“22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
@@ -1027,7 +1035,7 @@ validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
 [318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
 now passes all source/numeric/format/route/capacity controls on fully allocated
 3.187GB with actual source head/router/norm/embedding. All nine repetition
-medians38.124–55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+medians38.124â€“55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
 full-width decoder is CLOSED before training/640-bank allocation.318 startup
 failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
 No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.
