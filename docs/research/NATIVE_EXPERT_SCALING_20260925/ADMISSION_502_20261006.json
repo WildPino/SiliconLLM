@@ -1,0 +1,67 @@
+{
+  "experiment": "METH502 admitted variable storage construction",
+  "main_completed": true,
+  "gates": {
+    "all_five_main_apparatus": true,
+    "all_six_independent_Boolean_apparatus": true,
+    "complete_original_cohort_and_summary_unchanged": true,
+    "actual_main_audit_exit0_Windows_available_zero_faults": true,
+    "engine_foreign_files_preserved": true
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth502_variable_cover_result.json",
+    "bytes": 123068,
+    "sha256": "7aa6503b09e3137cd72521668f0d2b616a550d052d9f911d37f0da3a1a72e61c"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_502_20261006.json",
+    "bytes": 3489,
+    "sha256": "63df8497532eca19ccb9e2fee5437fcd5bad805df586942b9b06e899f7f67001"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth502_binding.json",
+    "bytes": 227710,
+    "sha256": "128e3d809055dec6746634a79a6fcb5dbb4f71224c70bbad7dae14f55d87f5d5"
+  },
+  "windows": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth502_windows_terminal.json",
+      "bytes": 577,
+      "sha256": "06bb548f09aae2c7c02b02f3fccefa776dd6f76bade45add11046626ceb8ecfd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth502_audit_windows_terminal.json",
+      "bytes": 580,
+      "sha256": "5d81cc71381778c6c0e7ca8d2d0c4cc2e43a3a41b3d34fa6dd86b76061c83718"
+    }
+  ],
+  "summary": {
+    "nonempty_experts": 127,
+    "development_UIDs": 11721,
+    "consumed_UIDs": 5819,
+    "baseline_experts": 61,
+    "resumed_experts": 52,
+    "resumed_UIDs": 3955,
+    "children": 783,
+    "children_min": 4,
+    "children_max": 15,
+    "copies": 1147411,
+    "bank_copy_ratio": 2.9409935818569553,
+    "development_any_child_complete_support": 11721,
+    "consumed_any_child_complete_support": 262,
+    "consumed_old_selector_complete_support": 168,
+    "logical_bytes": {
+      "I8_coefficients": 1762423296,
+      "WI_F32_scales": 4589644,
+      "WO_F32_scales": 2405376,
+      "u16_indices": 2294822
+    },
+    "active_width_ceiling": 1536,
+    "empty_expert_0": "UNCOMPILED_UNPROMOTED"
+  },
+  "eligibility": {
+    "ALL127_finite_development_exact_support_cover": true
+  },
+  "decision": "NEXT_ACTUAL_FUNCTION_ORACLE_AND_INPUT_SELECTOR",
+  "scope": "Exact finite development cover/copy witness only; no quality/fresh/physical/rate promotion."
+}
