@@ -1,0 +1,43 @@
+{
+  "experiment": "METH485-R1 independent retention: semantic ISO repair, original main unchanged",
+  "start_utc": "2026-10-06T01:40:23.578740+00:00",
+  "process_instance": {
+    "pid": 6028,
+    "create_time_unix": 1791250823.350164
+  },
+  "commands": [],
+  "gates": {
+    "frozen_sources_runtime_full_payload_and_reference_digests": true,
+    "actual_terminal_windows_instance_without_application_fault": true,
+    "ALL_command_partials_and_output_files_retained": true,
+    "failure_preserved_without_candidate_replay": true
+  },
+  "preserved_daemons": [],
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth485_shared_integer_backend_result.failure.json",
+    "sha256": "f7d07791f5ddc0371bc0ec09d4e898e443d91a8bca557ba514dfb644702e05ef",
+    "bytes": 304615
+  },
+  "main_completed": false,
+  "audit_r1_binding_sha256": "b16bea227846884a684649f19e03351a20d4f8968b60c4ab3a0551ab31da29a5",
+  "original_audit_failure_retained": true,
+  "main_windows": {
+    "sha256": "0501ff4ea591b78138e18def7faf09966965d6fbf6c55f0e56f32d7e5bc6cc41",
+    "actual_PID_creation_and_ISO_bounds": true
+  },
+  "retained_files": 7,
+  "retained_bytes": 1580134,
+  "main_failure": {
+    "stage": "first_CUDA_runtime_and_complete_controls",
+    "exception": "AssertionError(('native_exit', 'controls', 3))",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth485_shared_integer_inquiry.py\", line 127, in main\n    rows,command=run([binary,'--controls',controlfile],'controls',[0],env)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth485_shared_integer_inquiry.py\", line 92, in run\n    assert cmd['returncode']==0,('native_exit',label,cmd['returncode'])\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('native_exit', 'controls', 3)\n"
+  },
+  "partial_control_bytes": 55,
+  "decision": "Retain sole first failure. No backend arithmetic, whole quality or speed promotion beyond completed gates.",
+  "end_utc": "2026-10-06T01:40:49.969561+00:00",
+  "resource": {
+    "wall_seconds": 26.39100000000326,
+    "peak_working_set_bytes": 49160192,
+    "bytes_hashed": 27816338411
+  }
+}
