@@ -1,0 +1,92 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_operations.py",
+    "old_sha256": "17d9bd5944eb2d7c740bf364ab85c0027827d45dfe68012f6a1d05c97676c730",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_operations.py",
+    "new_sha256": "05624a32207700ef88a60488160ac93fd9dfc9f9afba705c499244c184fa30e4",
+    "replacements": [
+      {
+        "before": "BIND=DOC/'meth511_binding.json'",
+        "after": "BIND=DOC/'meth511_r1_binding.json'",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_'+kind)",
+        "after": "('meth511_r1_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_'+kind+'_result.json')",
+        "after": "('meth511_r1_'+kind+'_result.json')",
+        "occurrences": 2
+      },
+      {
+        "before": "        for k,v in b['packages'].items():assert importlib.metadata.version(k)==v",
+        "after": "        for k,v in b['packages'].items():assert importlib.metadata.version(k)==v\n        assert sys.pycache_prefix==b['runtime_empty_cache'] and not any(Path(sys.pycache_prefix).rglob('*'))",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_cohort.py",
+    "old_sha256": "3abcb434a4ecd78a06437bcbef63dc4856507de3a8b3189659688a852a3a6d96",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_cohort.py",
+    "new_sha256": "e75d4da00ef448420f135a023007f4abbf7557b821895160bee8cbfd89e5d98e",
+    "replacements": [
+      {
+        "before": "import meth511_operations as O",
+        "after": "import meth511_r1_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_native.py",
+    "old_sha256": "fe59f72bf015db1436a8472668d1a030f3e7caf1639915a33ec503deedcb9d6c",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_native.py",
+    "new_sha256": "bfdaf0e7604b9ecfad4fc2947300097fc008ee456c44e0135e4158e4d28e7fd5",
+    "replacements": [
+      {
+        "before": "import meth511_operations as O",
+        "after": "import meth511_r1_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "results/native_expert_scaling/meth511_cohort/cohort.json",
+        "after": "results/native_expert_scaling/meth511_r1_cohort/cohort.json",
+        "occurrences": 2
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_donor.py",
+    "old_sha256": "eaf9f707efa3008df9a55c6d8c2ea3d55f10922fa9253816ca6d9516e27b75f9",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_donor.py",
+    "new_sha256": "dc340e5e8b934c592d1baad2051dd87fc402a14a168e586dde9f143943e2bf70",
+    "replacements": [
+      {
+        "before": "import meth511_operations as O",
+        "after": "import meth511_r1_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_retention_audit.py",
+    "old_sha256": "3897113299b54004f43acbd9bce7332484078d2ae910d698ed0c62b51deee941",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_retention_audit.py",
+    "new_sha256": "1c76470dac10d1e8e0d7b50c28163fa64a123392669a73123632c4bed2d04c9c",
+    "replacements": [
+      {
+        "before": "import meth511_operations as O",
+        "after": "import meth511_r1_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "results/native_expert_scaling/meth511_cohort/cohort.json",
+        "after": "results/native_expert_scaling/meth511_r1_cohort/cohort.json",
+        "occurrences": 2
+      }
+    ]
+  }
+]

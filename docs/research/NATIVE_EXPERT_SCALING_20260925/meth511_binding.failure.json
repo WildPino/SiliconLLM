@@ -1,0 +1,7 @@
+{
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_prepare_binding.py\", line 49, in main\n    runtime=Path(sys.executable).parent.parent;tree(runtime)\n                                               ^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_prepare_binding.py\", line 36, in tree\n    for f in files:add(Path(base)/f)\n                   ^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_prepare_binding.py\", line 28, in add\n    while data:=f.read(8<<20):h.update(data);hashed+=len(data);guard()\n                                                               ^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_prepare_binding.py\", line 21, in guard\n    peak=max(peak,proc.memory_info().peak_wset);assert peak<=512<<20 and time.monotonic()-start<=900\n                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 912.5469999999914,
+  "OS_peak_bytes": 93331456,
+  "bytes_hashed": 3898215548,
+  "scientific_calls": 0
+}
