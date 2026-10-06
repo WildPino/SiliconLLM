@@ -9,7 +9,7 @@ import psutil
 import meth490_r1_operations as base
 
 ROOT,DOC,write,stamp=base.ROOT,base.DOC,base.write,base.stamp
-BIND=DOC/'meth506_binding.json'
+BIND=DOC/'meth506_r1_binding.json'
 OUT=ROOT/'results/native_expert_scaling/meth506_whole'
 PREP=ROOT/'results/native_expert_scaling/meth506_artifact'
 AUDIT=ROOT/'results/native_expert_scaling/meth506_retention'

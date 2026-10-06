@@ -105,7 +105,10 @@ Resolve excluded fresh assets/donor quality gates,full-artifact output/resource
 contract and observer on UNUSED physical core before numerical work. 506 engine branch, reusable phase60 primitive, full writer/cohort/controller/independent
 audit and [frozen prospective protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
 implemented. Current step: source freeze -> actual binding -> source-only preparation
-freeze -> one complete main/audit. No506 export/compile/model/native observations yet.
+freeze -> one complete main/audit. First metadata binding hit600s at23,703,238,968B hashed/74,047,488B peak,
+exit1 retained392b1ff BEFORE imports/data selection/export/compile/model/native.
+Operational R1 raises ONLY metadata preparation to1800s; frozen scientific
+kernel/cohort/quality/economic/resource criteria unchanged. No scientific replay.
 
 All-bank composition/fresh own-state generation/tasks/SAMEartifact>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual other families/scales remain open.
