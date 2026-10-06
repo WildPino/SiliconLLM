@@ -1,0 +1,6361 @@
+{
+  "experiment": "METH493-R2 complete weighted targets with fresh direct dependency catalog",
+  "start_utc": "2026-10-06T07:16:13.025154+00:00",
+  "process_instance": {
+    "pid": 29548,
+    "create_time_unix": 1791270972.821803
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth493_r2_weighted_targets.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth493_r2_weighted_targets_result.json",
+    "--binding-sha",
+    "884db0ede443ce5f1e058949c951677de022eb1265a51f6b6b8c72eb631954b0"
+  ],
+  "commands": [],
+  "gates": {
+    "frozen_source_supervision_runtime_and_scientific_files": true,
+    "retained_original_eleven_controls_without_reexecution": true,
+    "ALL17540_UID_and19962_occurrence_input_p_A16_hash_alpha_role_expert_and_control_BYTE_joins": true,
+    "ALL_duplicate_UID_reference_and_target_BYTES_equal_no_averaging": true,
+    "ALL128_cells_768_book_mode_control_views_and_denominators_preserved": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "884db0ede443ce5f1e058949c951677de022eb1265a51f6b6b8c72eb631954b0",
+  "source_freeze": "45266a647992f928eb6fd1bed42ec5a3b3adec73",
+  "execution_head": "d44a80cdd80453956bb378f0803fcdf6adb87212",
+  "unique_inputs": 17540,
+  "development_inputs": 11721,
+  "consumed_validation_inputs": 5819,
+  "occurrences": 19962,
+  "target_coordinates": 13470720,
+  "occurrence_product_coordinates": 15330816,
+  "duplicate_occurrences": 2422,
+  "accepted_occurrences": 19962,
+  "rejected_occurrences": 0,
+  "cells": [
+    {
+      "expert": 0,
+      "unique_count": 0,
+      "development": 0,
+      "consumed_validation": 0,
+      "occurrences": 0
+    },
+    {
+      "expert": 1,
+      "unique_count": 3,
+      "development": 3,
+      "consumed_validation": 0,
+      "occurrences": 3
+    },
+    {
+      "expert": 2,
+      "unique_count": 241,
+      "development": 160,
+      "consumed_validation": 81,
+      "occurrences": 259
+    },
+    {
+      "expert": 3,
+      "unique_count": 118,
+      "development": 73,
+      "consumed_validation": 45,
+      "occurrences": 131
+    },
+    {
+      "expert": 4,
+      "unique_count": 201,
+      "development": 135,
+      "consumed_validation": 66,
+      "occurrences": 235
+    },
+    {
+      "expert": 5,
+      "unique_count": 278,
+      "development": 188,
+      "consumed_validation": 90,
+      "occurrences": 292
+    },
+    {
+      "expert": 6,
+      "unique_count": 229,
+      "development": 161,
+      "consumed_validation": 68,
+      "occurrences": 249
+    },
+    {
+      "expert": 7,
+      "unique_count": 104,
+      "development": 74,
+      "consumed_validation": 30,
+      "occurrences": 111
+    },
+    {
+      "expert": 8,
+      "unique_count": 114,
+      "development": 76,
+      "consumed_validation": 38,
+      "occurrences": 128
+    },
+    {
+      "expert": 9,
+      "unique_count": 90,
+      "development": 61,
+      "consumed_validation": 29,
+      "occurrences": 97
+    },
+    {
+      "expert": 10,
+      "unique_count": 127,
+      "development": 64,
+      "consumed_validation": 63,
+      "occurrences": 142
+    },
+    {
+      "expert": 11,
+      "unique_count": 110,
+      "development": 68,
+      "consumed_validation": 42,
+      "occurrences": 118
+    },
+    {
+      "expert": 12,
+      "unique_count": 59,
+      "development": 44,
+      "consumed_validation": 15,
+      "occurrences": 63
+    },
+    {
+      "expert": 13,
+      "unique_count": 155,
+      "development": 113,
+      "consumed_validation": 42,
+      "occurrences": 179
+    },
+    {
+      "expert": 14,
+      "unique_count": 107,
+      "development": 75,
+      "consumed_validation": 32,
+      "occurrences": 123
+    },
+    {
+      "expert": 15,
+      "unique_count": 7,
+      "development": 4,
+      "consumed_validation": 3,
+      "occurrences": 7
+    },
+    {
+      "expert": 16,
+      "unique_count": 69,
+      "development": 48,
+      "consumed_validation": 21,
+      "occurrences": 77
+    },
+    {
+      "expert": 17,
+      "unique_count": 183,
+      "development": 134,
+      "consumed_validation": 49,
+      "occurrences": 198
+    },
+    {
+      "expert": 18,
+      "unique_count": 126,
+      "development": 83,
+      "consumed_validation": 43,
+      "occurrences": 133
+    },
+    {
+      "expert": 19,
+      "unique_count": 101,
+      "development": 59,
+      "consumed_validation": 42,
+      "occurrences": 117
+    },
+    {
+      "expert": 20,
+      "unique_count": 21,
+      "development": 16,
+      "consumed_validation": 5,
+      "occurrences": 24
+    },
+    {
+      "expert": 21,
+      "unique_count": 242,
+      "development": 168,
+      "consumed_validation": 74,
+      "occurrences": 258
+    },
+    {
+      "expert": 22,
+      "unique_count": 56,
+      "development": 40,
+      "consumed_validation": 16,
+      "occurrences": 59
+    },
+    {
+      "expert": 23,
+      "unique_count": 156,
+      "development": 104,
+      "consumed_validation": 52,
+      "occurrences": 165
+    },
+    {
+      "expert": 24,
+      "unique_count": 210,
+      "development": 144,
+      "consumed_validation": 66,
+      "occurrences": 223
+    },
+    {
+      "expert": 25,
+      "unique_count": 409,
+      "development": 260,
+      "consumed_validation": 149,
+      "occurrences": 783
+    },
+    {
+      "expert": 26,
+      "unique_count": 168,
+      "development": 122,
+      "consumed_validation": 46,
+      "occurrences": 181
+    },
+    {
+      "expert": 27,
+      "unique_count": 156,
+      "development": 95,
+      "consumed_validation": 61,
+      "occurrences": 170
+    },
+    {
+      "expert": 28,
+      "unique_count": 68,
+      "development": 46,
+      "consumed_validation": 22,
+      "occurrences": 80
+    },
+    {
+      "expert": 29,
+      "unique_count": 91,
+      "development": 59,
+      "consumed_validation": 32,
+      "occurrences": 98
+    },
+    {
+      "expert": 30,
+      "unique_count": 141,
+      "development": 87,
+      "consumed_validation": 54,
+      "occurrences": 153
+    },
+    {
+      "expert": 31,
+      "unique_count": 97,
+      "development": 55,
+      "consumed_validation": 42,
+      "occurrences": 108
+    },
+    {
+      "expert": 32,
+      "unique_count": 144,
+      "development": 102,
+      "consumed_validation": 42,
+      "occurrences": 154
+    },
+    {
+      "expert": 33,
+      "unique_count": 235,
+      "development": 183,
+      "consumed_validation": 52,
+      "occurrences": 255
+    },
+    {
+      "expert": 34,
+      "unique_count": 300,
+      "development": 200,
+      "consumed_validation": 100,
+      "occurrences": 329
+    },
+    {
+      "expert": 35,
+      "unique_count": 151,
+      "development": 98,
+      "consumed_validation": 53,
+      "occurrences": 166
+    },
+    {
+      "expert": 36,
+      "unique_count": 8,
+      "development": 5,
+      "consumed_validation": 3,
+      "occurrences": 9
+    },
+    {
+      "expert": 37,
+      "unique_count": 393,
+      "development": 271,
+      "consumed_validation": 122,
+      "occurrences": 786
+    },
+    {
+      "expert": 38,
+      "unique_count": 222,
+      "development": 142,
+      "consumed_validation": 80,
+      "occurrences": 237
+    },
+    {
+      "expert": 39,
+      "unique_count": 20,
+      "development": 18,
+      "consumed_validation": 2,
+      "occurrences": 22
+    },
+    {
+      "expert": 40,
+      "unique_count": 300,
+      "development": 183,
+      "consumed_validation": 117,
+      "occurrences": 322
+    },
+    {
+      "expert": 41,
+      "unique_count": 190,
+      "development": 116,
+      "consumed_validation": 74,
+      "occurrences": 218
+    },
+    {
+      "expert": 42,
+      "unique_count": 92,
+      "development": 53,
+      "consumed_validation": 39,
+      "occurrences": 98
+    },
+    {
+      "expert": 43,
+      "unique_count": 87,
+      "development": 70,
+      "consumed_validation": 17,
+      "occurrences": 92
+    },
+    {
+      "expert": 44,
+      "unique_count": 31,
+      "development": 21,
+      "consumed_validation": 10,
+      "occurrences": 36
+    },
+    {
+      "expert": 45,
+      "unique_count": 36,
+      "development": 28,
+      "consumed_validation": 8,
+      "occurrences": 38
+    },
+    {
+      "expert": 46,
+      "unique_count": 69,
+      "development": 44,
+      "consumed_validation": 25,
+      "occurrences": 80
+    },
+    {
+      "expert": 47,
+      "unique_count": 161,
+      "development": 108,
+      "consumed_validation": 53,
+      "occurrences": 182
+    },
+    {
+      "expert": 48,
+      "unique_count": 133,
+      "development": 89,
+      "consumed_validation": 44,
+      "occurrences": 142
+    },
+    {
+      "expert": 49,
+      "unique_count": 191,
+      "development": 123,
+      "consumed_validation": 68,
+      "occurrences": 212
+    },
+    {
+      "expert": 50,
+      "unique_count": 151,
+      "development": 106,
+      "consumed_validation": 45,
+      "occurrences": 164
+    },
+    {
+      "expert": 51,
+      "unique_count": 122,
+      "development": 75,
+      "consumed_validation": 47,
+      "occurrences": 135
+    },
+    {
+      "expert": 52,
+      "unique_count": 39,
+      "development": 19,
+      "consumed_validation": 20,
+      "occurrences": 45
+    },
+    {
+      "expert": 53,
+      "unique_count": 83,
+      "development": 60,
+      "consumed_validation": 23,
+      "occurrences": 89
+    },
+    {
+      "expert": 54,
+      "unique_count": 106,
+      "development": 76,
+      "consumed_validation": 30,
+      "occurrences": 115
+    },
+    {
+      "expert": 55,
+      "unique_count": 187,
+      "development": 122,
+      "consumed_validation": 65,
+      "occurrences": 193
+    },
+    {
+      "expert": 56,
+      "unique_count": 208,
+      "development": 149,
+      "consumed_validation": 59,
+      "occurrences": 230
+    },
+    {
+      "expert": 57,
+      "unique_count": 27,
+      "development": 16,
+      "consumed_validation": 11,
+      "occurrences": 31
+    },
+    {
+      "expert": 58,
+      "unique_count": 221,
+      "development": 152,
+      "consumed_validation": 69,
+      "occurrences": 233
+    },
+    {
+      "expert": 59,
+      "unique_count": 27,
+      "development": 17,
+      "consumed_validation": 10,
+      "occurrences": 34
+    },
+    {
+      "expert": 60,
+      "unique_count": 157,
+      "development": 100,
+      "consumed_validation": 57,
+      "occurrences": 166
+    },
+    {
+      "expert": 61,
+      "unique_count": 143,
+      "development": 104,
+      "consumed_validation": 39,
+      "occurrences": 157
+    },
+    {
+      "expert": 62,
+      "unique_count": 85,
+      "development": 60,
+      "consumed_validation": 25,
+      "occurrences": 92
+    },
+    {
+      "expert": 63,
+      "unique_count": 37,
+      "development": 27,
+      "consumed_validation": 10,
+      "occurrences": 40
+    },
+    {
+      "expert": 64,
+      "unique_count": 46,
+      "development": 34,
+      "consumed_validation": 12,
+      "occurrences": 52
+    },
+    {
+      "expert": 65,
+      "unique_count": 189,
+      "development": 116,
+      "consumed_validation": 73,
+      "occurrences": 215
+    },
+    {
+      "expert": 66,
+      "unique_count": 67,
+      "development": 38,
+      "consumed_validation": 29,
+      "occurrences": 73
+    },
+    {
+      "expert": 67,
+      "unique_count": 272,
+      "development": 165,
+      "consumed_validation": 107,
+      "occurrences": 313
+    },
+    {
+      "expert": 68,
+      "unique_count": 142,
+      "development": 98,
+      "consumed_validation": 44,
+      "occurrences": 152
+    },
+    {
+      "expert": 69,
+      "unique_count": 21,
+      "development": 12,
+      "consumed_validation": 9,
+      "occurrences": 23
+    },
+    {
+      "expert": 70,
+      "unique_count": 84,
+      "development": 53,
+      "consumed_validation": 31,
+      "occurrences": 89
+    },
+    {
+      "expert": 71,
+      "unique_count": 204,
+      "development": 147,
+      "consumed_validation": 57,
+      "occurrences": 223
+    },
+    {
+      "expert": 72,
+      "unique_count": 160,
+      "development": 119,
+      "consumed_validation": 41,
+      "occurrences": 182
+    },
+    {
+      "expert": 73,
+      "unique_count": 19,
+      "development": 16,
+      "consumed_validation": 3,
+      "occurrences": 21
+    },
+    {
+      "expert": 74,
+      "unique_count": 178,
+      "development": 124,
+      "consumed_validation": 54,
+      "occurrences": 200
+    },
+    {
+      "expert": 75,
+      "unique_count": 172,
+      "development": 124,
+      "consumed_validation": 48,
+      "occurrences": 202
+    },
+    {
+      "expert": 76,
+      "unique_count": 171,
+      "development": 115,
+      "consumed_validation": 56,
+      "occurrences": 188
+    },
+    {
+      "expert": 77,
+      "unique_count": 156,
+      "development": 110,
+      "consumed_validation": 46,
+      "occurrences": 177
+    },
+    {
+      "expert": 78,
+      "unique_count": 323,
+      "development": 213,
+      "consumed_validation": 110,
+      "occurrences": 370
+    },
+    {
+      "expert": 79,
+      "unique_count": 94,
+      "development": 53,
+      "consumed_validation": 41,
+      "occurrences": 100
+    },
+    {
+      "expert": 80,
+      "unique_count": 78,
+      "development": 56,
+      "consumed_validation": 22,
+      "occurrences": 87
+    },
+    {
+      "expert": 81,
+      "unique_count": 180,
+      "development": 113,
+      "consumed_validation": 67,
+      "occurrences": 208
+    },
+    {
+      "expert": 82,
+      "unique_count": 202,
+      "development": 144,
+      "consumed_validation": 58,
+      "occurrences": 230
+    },
+    {
+      "expert": 83,
+      "unique_count": 88,
+      "development": 70,
+      "consumed_validation": 18,
+      "occurrences": 94
+    },
+    {
+      "expert": 84,
+      "unique_count": 498,
+      "development": 308,
+      "consumed_validation": 190,
+      "occurrences": 525
+    },
+    {
+      "expert": 85,
+      "unique_count": 69,
+      "development": 51,
+      "consumed_validation": 18,
+      "occurrences": 78
+    },
+    {
+      "expert": 86,
+      "unique_count": 64,
+      "development": 40,
+      "consumed_validation": 24,
+      "occurrences": 67
+    },
+    {
+      "expert": 87,
+      "unique_count": 190,
+      "development": 134,
+      "consumed_validation": 56,
+      "occurrences": 212
+    },
+    {
+      "expert": 88,
+      "unique_count": 208,
+      "development": 131,
+      "consumed_validation": 77,
+      "occurrences": 219
+    },
+    {
+      "expert": 89,
+      "unique_count": 138,
+      "development": 86,
+      "consumed_validation": 52,
+      "occurrences": 156
+    },
+    {
+      "expert": 90,
+      "unique_count": 49,
+      "development": 30,
+      "consumed_validation": 19,
+      "occurrences": 50
+    },
+    {
+      "expert": 91,
+      "unique_count": 110,
+      "development": 78,
+      "consumed_validation": 32,
+      "occurrences": 125
+    },
+    {
+      "expert": 92,
+      "unique_count": 120,
+      "development": 78,
+      "consumed_validation": 42,
+      "occurrences": 128
+    },
+    {
+      "expert": 93,
+      "unique_count": 123,
+      "development": 67,
+      "consumed_validation": 56,
+      "occurrences": 137
+    },
+    {
+      "expert": 94,
+      "unique_count": 111,
+      "development": 84,
+      "consumed_validation": 27,
+      "occurrences": 123
+    },
+    {
+      "expert": 95,
+      "unique_count": 159,
+      "development": 108,
+      "consumed_validation": 51,
+      "occurrences": 168
+    },
+    {
+      "expert": 96,
+      "unique_count": 103,
+      "development": 61,
+      "consumed_validation": 42,
+      "occurrences": 113
+    },
+    {
+      "expert": 97,
+      "unique_count": 173,
+      "development": 103,
+      "consumed_validation": 70,
+      "occurrences": 179
+    },
+    {
+      "expert": 98,
+      "unique_count": 158,
+      "development": 92,
+      "consumed_validation": 66,
+      "occurrences": 171
+    },
+    {
+      "expert": 99,
+      "unique_count": 315,
+      "development": 238,
+      "consumed_validation": 77,
+      "occurrences": 336
+    },
+    {
+      "expert": 100,
+      "unique_count": 117,
+      "development": 65,
+      "consumed_validation": 52,
+      "occurrences": 133
+    },
+    {
+      "expert": 101,
+      "unique_count": 72,
+      "development": 39,
+      "consumed_validation": 33,
+      "occurrences": 83
+    },
+    {
+      "expert": 102,
+      "unique_count": 78,
+      "development": 51,
+      "consumed_validation": 27,
+      "occurrences": 85
+    },
+    {
+      "expert": 103,
+      "unique_count": 153,
+      "development": 121,
+      "consumed_validation": 32,
+      "occurrences": 169
+    },
+    {
+      "expert": 104,
+      "unique_count": 156,
+      "development": 87,
+      "consumed_validation": 69,
+      "occurrences": 178
+    },
+    {
+      "expert": 105,
+      "unique_count": 162,
+      "development": 113,
+      "consumed_validation": 49,
+      "occurrences": 176
+    },
+    {
+      "expert": 106,
+      "unique_count": 70,
+      "development": 52,
+      "consumed_validation": 18,
+      "occurrences": 78
+    },
+    {
+      "expert": 107,
+      "unique_count": 225,
+      "development": 180,
+      "consumed_validation": 45,
+      "occurrences": 245
+    },
+    {
+      "expert": 108,
+      "unique_count": 47,
+      "development": 39,
+      "consumed_validation": 8,
+      "occurrences": 61
+    },
+    {
+      "expert": 109,
+      "unique_count": 162,
+      "development": 99,
+      "consumed_validation": 63,
+      "occurrences": 180
+    },
+    {
+      "expert": 110,
+      "unique_count": 92,
+      "development": 55,
+      "consumed_validation": 37,
+      "occurrences": 103
+    },
+    {
+      "expert": 111,
+      "unique_count": 203,
+      "development": 127,
+      "consumed_validation": 76,
+      "occurrences": 226
+    },
+    {
+      "expert": 112,
+      "unique_count": 173,
+      "development": 121,
+      "consumed_validation": 52,
+      "occurrences": 193
+    },
+    {
+      "expert": 113,
+      "unique_count": 190,
+      "development": 133,
+      "consumed_validation": 57,
+      "occurrences": 223
+    },
+    {
+      "expert": 114,
+      "unique_count": 262,
+      "development": 168,
+      "consumed_validation": 94,
+      "occurrences": 295
+    },
+    {
+      "expert": 115,
+      "unique_count": 14,
+      "development": 12,
+      "consumed_validation": 2,
+      "occurrences": 16
+    },
+    {
+      "expert": 116,
+      "unique_count": 59,
+      "development": 34,
+      "consumed_validation": 25,
+      "occurrences": 66
+    },
+    {
+      "expert": 117,
+      "unique_count": 156,
+      "development": 116,
+      "consumed_validation": 40,
+      "occurrences": 168
+    },
+    {
+      "expert": 118,
+      "unique_count": 195,
+      "development": 139,
+      "consumed_validation": 56,
+      "occurrences": 212
+    },
+    {
+      "expert": 119,
+      "unique_count": 166,
+      "development": 125,
+      "consumed_validation": 41,
+      "occurrences": 179
+    },
+    {
+      "expert": 120,
+      "unique_count": 93,
+      "development": 63,
+      "consumed_validation": 30,
+      "occurrences": 105
+    },
+    {
+      "expert": 121,
+      "unique_count": 33,
+      "development": 22,
+      "consumed_validation": 11,
+      "occurrences": 35
+    },
+    {
+      "expert": 122,
+      "unique_count": 69,
+      "development": 39,
+      "consumed_validation": 30,
+      "occurrences": 76
+    },
+    {
+      "expert": 123,
+      "unique_count": 175,
+      "development": 102,
+      "consumed_validation": 73,
+      "occurrences": 189
+    },
+    {
+      "expert": 124,
+      "unique_count": 12,
+      "development": 7,
+      "consumed_validation": 5,
+      "occurrences": 13
+    },
+    {
+      "expert": 125,
+      "unique_count": 98,
+      "development": 63,
+      "consumed_validation": 35,
+      "occurrences": 118
+    },
+    {
+      "expert": 126,
+      "unique_count": 128,
+      "development": 82,
+      "consumed_validation": 46,
+      "occurrences": 144
+    },
+    {
+      "expert": 127,
+      "unique_count": 153,
+      "development": 102,
+      "consumed_validation": 51,
+      "occurrences": 161
+    }
+  ],
+  "views": [
+    {
+      "book": 0,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 0,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 0,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 0,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 1,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 1,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 1,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 1,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 2,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 2,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 2,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 2,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 3,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 3,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 3,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 3,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 4,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 4,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 4,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 4,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 44
+    },
+    {
+      "book": 5,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 5,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 5,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 5,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 6,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 6,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 6,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 6,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 7,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 7,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 7,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 7,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 8,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 8,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 8,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 8,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 9,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 9,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 9,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 9,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 10,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 10,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 10,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 10,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 11,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 11,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 11,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 11,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 12,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 12,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 12,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 12,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 13,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 13,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 13,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 13,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 14,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 14,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 14,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 14,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 15,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 15,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 15,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 15,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 16,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 16,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 16,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 16,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 17,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 17,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 17,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 17,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 18,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 18,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 18,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 18,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 19,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 19,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 19,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 19,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 20,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 20,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 20,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 20,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 21,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 21,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 21,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 21,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 22,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 22,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 22,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 22,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 23,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 23,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 23,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 23,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 24,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 24,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 24,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 24,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 25,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 25,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 25,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 25,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 26,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 26,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 26,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 26,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 27,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 27,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 27,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 27,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 28,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 28,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 28,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 28,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 29,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 29,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 29,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 29,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 30,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 30,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 30,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 30,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 31,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 31,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 31,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 31,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 32,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 32,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 32,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 32,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 33,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 33,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 33,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 33,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 34,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 34,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 34,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 34,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 35,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 35,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 35,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 35,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 36,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 36,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 36,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 36,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 37,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 37,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 37,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 37,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 38,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 38,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 38,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 38,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 39,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 39,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 39,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 39,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 40,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 40,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 40,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 40,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 41,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 41,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 41,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 41,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 42,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 42,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 42,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 42,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 43,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 43,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 43,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 43,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 44,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 44,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 44,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 44,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 45,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 45,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 45,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 45,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 46,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 46,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 46,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 46,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 47,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 47,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 47,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 47,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 48,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 48,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 48,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 48,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 49,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 49,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 49,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 49,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 44
+    },
+    {
+      "book": 50,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 50,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 50,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 50,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 51,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 51,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 51,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 51,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 52,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 52,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 52,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 52,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 53,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 53,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 53,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 53,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 54,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 54,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 54,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 54,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 55,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 55,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 55,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 55,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 56,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 56,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 56,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 56,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 57,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 57,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 57,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 57,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 58,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 58,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 58,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 58,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 59,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 59,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 59,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 59,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 60,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 60,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 60,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 60,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 61,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 61,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 61,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 61,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 62,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 62,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 62,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 62,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 63,
+      "role": 0,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 63,
+      "role": 0,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 63,
+      "role": 0,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 63,
+      "role": 0,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 64,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 64,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 64,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 64,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 65,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 65,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 65,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 65,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 66,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 66,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 66,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 66,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 67,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 67,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 67,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 67,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 68,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 68,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 68,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 68,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 69,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 69,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 69,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 69,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 70,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 70,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 70,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 70,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 71,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 71,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 71,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 71,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 44
+    },
+    {
+      "book": 72,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 72,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 72,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 72,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 73,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 73,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 73,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 73,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 74,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 74,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 74,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 74,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 54
+    },
+    {
+      "book": 75,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 75,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 75,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 75,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 43
+    },
+    {
+      "book": 76,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 76,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 76,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 76,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 77,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 77,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 77,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 77,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 78,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 78,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 78,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 78,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 79,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 79,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 79,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 79,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 80,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 80,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 80,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 80,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 81,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 81,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 81,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 81,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 82,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 82,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 82,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 82,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 83,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 83,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 83,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 83,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 84,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 84,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 84,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 84,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 85,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 85,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 85,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 85,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 86,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 86,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 86,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 86,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 87,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 87,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 87,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 87,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 88,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 88,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 88,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 88,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 89,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 89,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 89,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 89,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 90,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 90,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 90,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 90,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 91,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 91,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 91,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 91,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 92,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 92,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 92,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 92,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 93,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 93,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 93,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 93,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 94,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 94,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 94,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 94,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 95,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 95,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 95,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 95,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 96,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 96,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 96,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 96,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 97,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 97,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 97,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 97,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 98,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 98,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 98,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 98,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 99,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 99,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 99,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 99,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 100,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 100,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 100,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 100,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 101,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 101,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 101,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 101,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 102,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 102,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 102,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 102,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 103,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 103,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 103,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 103,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 104,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 104,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 104,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 104,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 105,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 105,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 105,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 105,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 106,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 106,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 106,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 106,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 43
+    },
+    {
+      "book": 107,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 107,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 107,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 107,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 108,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 108,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 108,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 108,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 109,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 109,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 109,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 109,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 110,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 110,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 110,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 110,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 111,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 111,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 111,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 111,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 112,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 112,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 112,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 112,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 113,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 113,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 113,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 113,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 114,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 114,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 114,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 114,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 115,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 115,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 115,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 115,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 116,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 116,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 116,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 116,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 117,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 117,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 117,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 117,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 118,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 118,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 118,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 118,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 119,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 119,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 119,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 119,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 44
+    },
+    {
+      "book": 120,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 120,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 120,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 120,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 121,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 121,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 121,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 121,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 122,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 122,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 122,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 122,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 123,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 123,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 123,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 123,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 124,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 124,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 124,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 124,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 125,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 125,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 125,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 125,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 126,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 126,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 126,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 126,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 127,
+      "role": 1,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 127,
+      "role": 1,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 127,
+      "role": 1,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 127,
+      "role": 1,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 128,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 128,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 128,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 128,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 129,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 129,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 129,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 129,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 130,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 130,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 130,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 130,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 131,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 131,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 131,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 131,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 132,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 132,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 132,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 132,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 133,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 133,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 133,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 133,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 134,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 134,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 134,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 134,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 135,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 135,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 135,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 135,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 136,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 136,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 136,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 136,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 137,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 137,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 137,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 137,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 138,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 138,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 138,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 138,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 139,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 139,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 139,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 139,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 140,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 140,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 140,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 140,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 141,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 141,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 141,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 141,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 142,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 142,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 142,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 142,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 143,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 143,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 143,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 143,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 144,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 144,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 144,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 144,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 51
+    },
+    {
+      "book": 145,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 145,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 145,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 145,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 146,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 146,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 146,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 146,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 147,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 147,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 147,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 147,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 148,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 148,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 148,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 148,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 149,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 149,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 149,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 149,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 150,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 150,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 150,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 150,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 151,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 151,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 151,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 151,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 152,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 152,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 152,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 152,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 153,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 153,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 153,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 153,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 44
+    },
+    {
+      "book": 154,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 154,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 154,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 154,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 155,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 155,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 155,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 155,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 156,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 156,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 156,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 156,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 157,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 157,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 157,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 157,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 158,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 158,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 158,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 158,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 159,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 159,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 159,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 159,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 160,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 160,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 160,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 160,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 161,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 161,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 161,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 161,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 162,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 162,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 162,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 162,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 43
+    },
+    {
+      "book": 163,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 163,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 163,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 163,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 164,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 164,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 164,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 164,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 165,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 165,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 165,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 165,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 166,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 166,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 166,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 166,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 167,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 167,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 167,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 167,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 168,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 168,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 168,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 168,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 48
+    },
+    {
+      "book": 169,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 169,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 169,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 169,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 170,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 170,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 170,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 170,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 171,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 171,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 171,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 171,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 44
+    },
+    {
+      "book": 172,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 172,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 172,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 172,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 173,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 173,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 173,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 173,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 174,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 174,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 174,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 174,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 175,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 175,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 175,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 175,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 176,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 176,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 176,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 176,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 177,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 177,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 177,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 177,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 178,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 178,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 178,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 178,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 53
+    },
+    {
+      "book": 179,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 179,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 179,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 179,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 180,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 180,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 180,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 180,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 43
+    },
+    {
+      "book": 181,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 181,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 181,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 181,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 44
+    },
+    {
+      "book": 182,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 182,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 182,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 182,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 183,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 183,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 183,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 183,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 184,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 184,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 184,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 184,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 50
+    },
+    {
+      "book": 185,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 185,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 185,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 185,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 45
+    },
+    {
+      "book": 186,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 186,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 186,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 186,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 187,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 187,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 187,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 187,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 47
+    },
+    {
+      "book": 188,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 188,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 188,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 188,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 46
+    },
+    {
+      "book": 189,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 189,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 189,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 189,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 52
+    },
+    {
+      "book": 190,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 190,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 190,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 190,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    },
+    {
+      "book": 191,
+      "role": 2,
+      "mode": 0,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 191,
+      "role": 2,
+      "mode": 0,
+      "accepted": 1,
+      "count": 56
+    },
+    {
+      "book": 191,
+      "role": 2,
+      "mode": 1,
+      "accepted": 0,
+      "count": 0
+    },
+    {
+      "book": 191,
+      "role": 2,
+      "mode": 1,
+      "accepted": 1,
+      "count": 49
+    }
+  ],
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "SVD_calls": 0,
+  "decision": "FULL_BANK11_WEIGHTED_SOURCE_TARGETS_COMPILED_PENDING_INDEPENDENT_AUDIT",
+  "scope": "Source supervision only. No functional student, fresh quality, physical cost or goal completion.",
+  "end_utc": "2026-10-06T07:16:52.818807+00:00",
+  "resource": {
+    "wall_seconds": 39.78100000000268,
+    "parent_peak_bytes": 100794368,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 1262202371,
+    "wall_limit_seconds": 180,
+    "combined_host_limit_bytes": 268435456
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r2_weighted_targets\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r2_weighted_targets\\occurrences.bin",
+      "bytes": 1357440,
+      "sha256": "f51352e8b09017f7c63e280a22d867a58bccde3737d34011ec2a1674adcce152"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r2_weighted_targets\\progress.jsonl",
+      "bytes": 71,
+      "sha256": "5b8ee76ebece0e055ebbc604a781e3aac87d00172ec349a99d97117ab938840f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r2_weighted_targets\\rounding_controls.json",
+      "bytes": 1567,
+      "sha256": "a4de78d3de053a9b3a004224177ddc07f0ee22e44be5aabbf9a04a15f1610e8f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r2_weighted_targets\\uid_info.bin",
+      "bytes": 3157224,
+      "sha256": "b77eb4b421095e7e689089224b125755d71ee9fe65a3411e80211f4406d97b2b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r2_weighted_targets\\weighted_targets.bin",
+      "bytes": 53882904,
+      "sha256": "bbaa9d6ce780b42b2dcd2134ad7a1d93c585867e5e1047d8aa7718ec1d1d0e76"
+    }
+  ],
+  "terminal_resource_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r2_weighted_targets\\terminal_resources.json"
+}
