@@ -1,0 +1,160 @@
+{
+  "experiment": "METH500 ONE four overlapping half-width source experts",
+  "start_utc": "2026-10-06T12:11:54.947115+00:00",
+  "process_instance": {
+    "pid": 18360,
+    "create_time_unix": 1791288714.652466
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth500_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_500_20261006.json",
+    "--binding-sha",
+    "75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf",
+    "--raw-sha",
+    "ed36f270cb793f42043f1afdb2a1ba5e4c055dd607f4ea4a2a068a4c44cf74db"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_data_runtime_scientific_SHA_before_NumPy": true,
+    "complete_main_RAW_ALL_outputs_and_terminal_SHA": true,
+    "ALL17540_new_source_supports_original_F_BYTE_and_quantizers": true,
+    "ALL127_input_only_regions_dev_only_masks_union_width_and_selector": true,
+    "ALL157860_partial_outputs_and_energies_BYTE_independently_reconstructed": true,
+    "ALL_complete_support_identities_and_original_case_denominators": true,
+    "ALL_view_energy_RMS_p95_and_frozen_eligibility_independent": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf",
+  "source_freeze": "18e182d13bd8148bec6b60f23ac7f4438eb0f8c8",
+  "execution_head": "b19e8f6cb148a25cf2a2256999c9548bcd3fc187",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth500_overlap_result.json",
+    "sha256": "ed36f270cb793f42043f1afdb2a1ba5e4c055dd607f4ea4a2a068a4c44cf74db"
+  },
+  "retained_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\centres.npy",
+      "bytes": 3145856,
+      "sha256": "d9b74df8f651248fc62116a3de8919be70e84848300238253e45c02168da5d56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\centroid_history.npy",
+      "bytes": 28311680,
+      "sha256": "d5b5dc78d6235d8b948567cfdfc82a1373e67e204ddf980c075761e564e965ef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\child_actual.npy",
+      "bytes": 215531648,
+      "sha256": "729ab93cc917d6cca4b5334fe9b5d8902e4cc0596f31ec185e30b3fd6e37d3d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\child_source_scale.npy",
+      "bytes": 215531648,
+      "sha256": "934ec042a026a62b6c7c325aa44d9746ad17bf3301f41a1a71360f8f48276e30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\controls.json",
+      "bytes": 143,
+      "sha256": "2747cbb89ef4174e20a15eb0b7c29e031011b668a915622b4e553ab2da67562b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\hidden.npy",
+      "bytes": 215531648,
+      "sha256": "e50bd8b22d9f86ba8ed254060ef4b8c128e8d8c7c45b2047fc6fb39f8c0ac477"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\hidden_codes.npy",
+      "bytes": 107765888,
+      "sha256": "2023f2c867595abf9254949811e37f31782fbcd0560806f2edd0f212486cae65"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\hidden_scales.npy",
+      "bytes": 70288,
+      "sha256": "42cc8a54e63488d8298bb519923e4ec765d41f24274f3bbb56d6af04ea520d9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\mandatory_owner.npy",
+      "bytes": 1572992,
+      "sha256": "151de3d9b92a2b5af4227f3fb75154e474fb0b80faae3be4c0d889b4ba5ee7da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\mask_scores.npy",
+      "bytes": 12583040,
+      "sha256": "94ad72377716a74343c77e28349dcf7e33270e12df3a8596cc15638e99146931"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\masks.npy",
+      "bytes": 1572992,
+      "sha256": "97d4cf9d7f701bd620cc87a8d5e4ca9cf227e83620b6a7d855934ba4726b0a8b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\metrics.npy",
+      "bytes": 1964800,
+      "sha256": "13a9cdcbe0b3c2cb00fb7537ad100f516830f513fd489f6ce9a151d3f2e7d584"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\progress.jsonl",
+      "bytes": 19342,
+      "sha256": "56cfe4e6ac2044f9ad58f51efb1ab958e56e30a142bc95b27328afb0e56aeeea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\static_actual.npy",
+      "bytes": 53883008,
+      "sha256": "0fa093286482b45525982af367d32ad439858867ebf819c54ca24cdc19050b14"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\static_masks.npy",
+      "bytes": 393344,
+      "sha256": "aba9f1b61073b7e75fdd166a2526cd7a631b84e5136647a8ec83115b9eacab6f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\summary.json",
+      "bytes": 17533,
+      "sha256": "b324ec7f0e307a4bfa31e3414c2042ddb308fb7cafa3266b46865bb1aaad5129"
+    }
+  ],
+  "unique_inputs_audited": 17540,
+  "partial_functions_audited": 157860,
+  "new_source_FFN_rows_reconstructed": 17540,
+  "complete_support_child_cases": 4774,
+  "child_quantizer_scale_changes": 14943,
+  "eligibility": {
+    "oracle_all_consumed_RMS_le_2pct": true,
+    "routed_all_consumed_RMS_le_2pct": true,
+    "oracle_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_p95_UID_RMS_le_5pct": false
+  },
+  "decision": "RECONSIDER_INPUT_SELECTOR",
+  "scope": "Independent local apparatus and eligibility audit; no original-parent routing, fresh model quality or physical rate/DRAM qualification.",
+  "end_utc": "2026-10-06T12:12:44.827152+00:00",
+  "resource": {
+    "wall_seconds": 49.890999999974156,
+    "parent_peak_bytes": 1690177536,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 8597238978,
+    "wall_limit_seconds": 900,
+    "combined_host_limit_bytes": 2147483648
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_retention\\progress.jsonl",
+      "bytes": 21317,
+      "sha256": "2471af2842f78f4aa4690d5f5062ed37cd890abdd0616bf26fb89c19354e61fa"
+    }
+  ]
+}

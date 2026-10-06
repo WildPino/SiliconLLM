@@ -1,0 +1,31 @@
+{
+  "experiment": "METH500 sole first independent audit registration",
+  "attempt": 1,
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth500_retention_audit.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_500_20261006.json --binding-sha 75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf --raw-sha ed36f270cb793f42043f1afdb2a1ba5e4c055dd607f4ea4a2a068a4c44cf74db",
+  "actual_tool_results": [
+    {
+      "chunk_id": "06fdd4",
+      "wall_time_seconds": 10.0094547,
+      "session_id": 60827,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "7f24b1",
+      "wall_time_seconds": 0.0000099,
+      "exit_code": 0,
+      "original_token_count": 289,
+      "output": "{\"audited_expert\": 15, \"seconds\": 15.515999999974156}\r\n{\"audited_expert\": 31, \"seconds\": 20.437999999994645}\r\n{\"audited_expert\": 47, \"seconds\": 25.546999999991385}\r\n{\"audited_expert\": 63, \"seconds\": 29.82799999997951}\r\n{\"audited_expert\": 79, \"seconds\": 35.125}\r\n{\"audited_expert\": 95, \"seconds\": 40.09399999998277}\r\n{\"audited_expert\": 111, \"seconds\": 45.5}\r\n{\"audited_expert\": 127, \"seconds\": 49.84399999998277}\r\n{\"gates\": {\"actual_source_data_runtime_scientific_SHA_before_NumPy\": true, \"complete_main_RAW_ALL_outputs_and_terminal_SHA\": true, \"ALL17540_new_source_supports_original_F_BYTE_and_quantizers\": true, \"ALL127_input_only_regions_dev_only_masks_union_width_and_selector\": true, \"ALL157860_partial_outputs_and_energies_BYTE_independently_reconstructed\": true, \"ALL_complete_support_identities_and_original_case_denominators\": true, \"ALL_view_energy_RMS_p95_and_frozen_eligibility_independent\": true}, \"decision\": \"RECONSIDER_INPUT_SELECTOR\", \"resource\": {\"wall_seconds\": 49.890999999974156, \"parent_peak_bytes\": 1690177536, \"native_peak_bytes\": 0, \"bytes_hashed\": 8597246319, \"wall_limit_seconds\": 900, \"combined_host_limit_bytes\": 2147483648}}\r\n"
+    }
+  ],
+  "actual_exit_code": 0,
+  "record_sha256": "200bd7b28045e9d45a7d63df54b11dcf0bca72d2250853849e76f6675c9aa2a0",
+  "actual_Windows_tool_result": {
+    "chunk_id": "5a4257",
+    "wall_time_seconds": 1.1364509,
+    "exit_code": 0,
+    "original_token_count": 159,
+    "output": "{\r\n  \"query_start_utc\": \"2026-10-06T12:11:52.9471150+00:00\",\r\n  \"query_end_utc\": \"2026-10-06T12:13:52.3419931+00:00\",\r\n  \"query_available\": true,\r\n  \"returned_event_count\": 0,\r\n  \"query_error\": null\r\n}\r\n{\r\n  \"complete_support_child_cases\": 4774,\r\n  \"child_quantizer_scale_changes\": 14943,\r\n  \"new_source_FFN_rows_reconstructed\": 17540,\r\n  \"unique_inputs_audited\": 17540,\r\n  \"partial_functions_audited\": 157860\r\n}\r\n200bd7b28045e9d45a7d63df54b11dcf0bca72d2250853849e76f6675c9aa2a0\r\n M benchmarks/donor_adaptation/configs/_manifest.json\n M benchmarks/donor_adaptation/density/build_document_holdout.py\n M docs/research/RESEARCH_INDEX.md\n"
+  },
+  "scope": "ALL seven independent apparatus gates PASS. ALL17540 original source/support rows and157860 new partial functions audited. No main/audit replay; four/five eligibility PASS means recipe FAIL."
+}
