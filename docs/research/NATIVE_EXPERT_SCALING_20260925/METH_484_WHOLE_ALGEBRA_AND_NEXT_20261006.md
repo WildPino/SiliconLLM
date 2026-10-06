@@ -164,7 +164,7 @@ never rerun completed original main/audit/capture/LP/control namespaces.
 
 5. **Charge the complete physical invocation path.** All pack/query transfers/
    GEMM/padding/readback/I64reconstruct/F64scales/F32cast/sync/control work enters
-   actual full time. Report initialization/upload167MB separately AND its
+   actual full time. Report initialization/upload166232064B separately AND its
    amortization or cold request charge, with a declared requests-per-process
    condition; no free weights warmup, hidden asynchronous work or exclusion of
    rejected requests. Hot runtime is not a measured cold DRAM pool. No claims
