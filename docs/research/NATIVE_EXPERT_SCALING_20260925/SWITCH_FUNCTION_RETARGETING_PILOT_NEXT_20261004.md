@@ -17,14 +17,20 @@ event query finds3 parent arrow.dll import events, no C child/audit events.
 Clean-event criterion FAIL; legacy shifted zero-event claims superseded.
 [Final evaluation](EVALUATION_506_20261006.json) preserves all negatives/limits.
 
-## Selected507
+##507 complete; selected508
 
-[Concrete next](METH_507_FIRST_DIVERGENCE_NEXT_20261006.md): implement and freeze
-a bounded retained-array first-divergence diagnosis and independent checker.
-All96 cases, common generated prefixes including first changed choice, logits
-margins/state evolution/normalized parent routes. No model/C/new corpus or source
-function calls. Bind actual used data and NumPy dependencies; no unused Torch/
-PyArrow/compiler/whole checkpoint closure for this calculation.
+[507 result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md): all96 retained cases,
+996 common-history positions and31 exact rational first flips independently
+verified; main/audit exit0 ONCE. State error after dense block0 precedes first
+router; five divergences retain expert IDs but change mass. Changed IDs alone
+do not explain the output disagreements. No new whole capture or quality/rate.
+
+[Selected508](METH_508_SOURCE_HEAD_NEXT_20261006.md), PROPOSED only: freeze ONE
+source-head fixed-state decomposition and independent checker. F32 original
+readout is already retained in the exact shared extent; bind actual SHA/manifest,
+qualify source-state bridge, evaluate all996 common positions, count recoveries
+AND newly introduced changes; close31 pairwise upstream/readout/arithmetic terms.
+No whole model/C/new corpus call or fresh-quality promotion.
 
 Any exact I8-source acceleration leaves these IDs and the failed prose score
 unchanged. Defer256 expansion and
@@ -39,5 +45,5 @@ Compact reusable core, much larger useful n/RAM, CPU LUT winner AND normalized
 mass, physical DRAM and actual other families/scales/~10B/~100B remain open.
 SAMEartifact qualified fresh quality AND>=50 is still missing. Routine Graphify
 disabled; donor-adaptation frozen, evidence reusable. Foreign work preserved.
-All completed495..506 scientific namespaces terminal; metadata faults/exceptions
+All completed495..507 scientific namespaces terminal; metadata faults/exceptions
 remain part of their evidence.

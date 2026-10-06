@@ -1,5 +1,11 @@
 # Native expert-count scaling: prior evidence
 
+**6 October after507:** [result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md)
+independently closes96 retained cases/996 common-history positions/31 first rank
+flips. State difference begins before the first router; unchanged IDs can coexist
+with changed mass and different token choices. Selected508 isolates source-head
+versus upstream-state effects. No new whole quality/rate/capacity promotion.
+
 **6 October after506:** [complete result](METH_506_WHOLE_RESULT_20261006.md) and [evaluation](EVALUATION_506_20261006.json) supersede old operational resumptions. Whole exact conditional artifact verified;14/15 F32 quality and4/5 observed economics, negative conjunctions; timing isolation/OS events/audit serializer limits explicit. Selected507 diagnoses common-prefix divergence before further exact acceleration or scale expansion.
 
 **6 October update after505:** [505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md)

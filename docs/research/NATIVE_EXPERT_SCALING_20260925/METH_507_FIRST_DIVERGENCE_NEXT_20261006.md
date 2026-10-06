@@ -1,5 +1,9 @@
 # Selected507: locate first common-prefix divergence before another transformation
 
+**TERMINAL update:** main/audit exit0 ONCE, all96 cases/996 aligned steps.
+[Result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md) supersedes the pre-call
+proposal below. Current next is proposed508; no507 numerical replay.
+
 507 source prepared for freeze; no507 observation or scientific call yet.
 Goal ACTIVE/INCOMPLETE.506 main/audit/evaluation terminal, negative conjunction.
 The same full column artifact equals original I8 source states/head/routes/IDs

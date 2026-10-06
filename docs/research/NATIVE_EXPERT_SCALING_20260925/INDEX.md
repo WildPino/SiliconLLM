@@ -26,7 +26,14 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
-[506 whole result](METH_506_WHOLE_RESULT_20261006.md): full physical function/native states exact to I8 source;14/15 fresh F32 quality and4/5 observed economics. Prose-edit confidence and ALL-book criteria FAIL. Corrected OS events and auditor serializer exception retained. Goal still incomplete; current507 below.
+[507 diagnosis](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md): main/audit6/8 gates,
+ALL96 cases/996 common-history steps independently verified;31 divergent65
+identical trajectories. Initial state error after dense block0 precedes first
+router. Five diverge with identical expert IDs but different masses;62 identical
+trajectories contain changed expert IDs. No simple ID-only causal explanation.
+Selected508 source-head/state decomposition; no quality/rate promotion.
+
+[506 whole result](METH_506_WHOLE_RESULT_20261006.md): full physical function/native states exact to I8 source;14/15 fresh F32 quality and4/5 observed economics. Prose-edit confidence and ALL-book criteria FAIL. Corrected OS events and auditor serializer exception retained. Goal still incomplete.
 
 [505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md): complete physical
 original-I8 WI/zero-only column-WO function qualified BYTE on ALL17540 states,
@@ -86,7 +93,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption:506 complete negative evidence;507 first divergence
+## Current resumption:507 complete;508 source-head/state decomposition
 
 [506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
 artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
@@ -103,15 +110,23 @@ no measured C child/audit event. Legacy shifted zero-event claims superseded;
 clean-event criterion FAIL. [Final evaluation](EVALUATION_506_20261006.json)
 is negative, not a manufactured all-pass admission.
 
-**First action:** implement/price/freeze [507 retained-array diagnosis](METH_507_FIRST_DIVERGENCE_NEXT_20261006.md)
-on all96 cases. Find first differing generated choices while token histories
-remain identical, reconstruct margins/state/routes, then independent rederivation.
-No new model/C/corpus capture; only actual NumPy/data dependencies. Source I8
-equality proves an exact acceleration cannot repair this failed prose criterion.
+[507 result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md) closes all96 retained
+joins/states/routes and31 exact rational rank flips; original main/audit exit0
+ONCE,13.234/15.843s pre-serialization receipts. Final lifetime peaks not persisted,
+terminal bounds pass. All507 source/RAW files frozen before first observation.
+No model/C/corpus/source-function calls. Common histories include first divergence.
+
+**First action:** implement/price/freeze [508 source-head/state decomposition](METH_508_SOURCE_HEAD_NEXT_20261006.md)
+and independent checker before any source linear-function call. Source F32 head
+already exists as exact98.7MB shared extent; verify actual manifest/extent SHA.
+ALL996 common positions, qualify source-state readout bridge, count recoveries
+AND newly introduced disagreements; close31 pair perturbation decompositions.
+No new whole inference or fresh-quality claim. Source I8 equality proves an
+exact acceleration cannot repair506's failed prose criterion.
 [Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
 and256 expansion deferred until this discrepancy is understood.
 
-All completed495..506 scientific namespaces terminal. Preserve first faults,
+All completed495..507 scientific namespaces terminal. Preserve first faults,
 unrelated work and known import/event exceptions. All operations before this
 update remain BYTE in [archived index](INDEX_THROUGH_506_OPERATIONS_20261006.md).
 

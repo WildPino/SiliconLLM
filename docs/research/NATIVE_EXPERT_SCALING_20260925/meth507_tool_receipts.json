@@ -1,0 +1,52 @@
+{
+  "experiment": "METH507 original one-shot tool receipts",
+  "commands": {
+    "binding": "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe -X utf8 benchmarks/native_expert_scaling/meth507_prepare_binding.py",
+    "main": "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe -X utf8 benchmarks/native_expert_scaling/meth507_first_divergence.py --binding-sha 59f6ebee73460b58745a6637499ef1eb3f35ecf150db5c31da2f46bc6c4afc09",
+    "audit": "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe -X utf8 benchmarks/native_expert_scaling/meth507_retention_audit.py --binding-sha 59f6ebee73460b58745a6637499ef1eb3f35ecf150db5c31da2f46bc6c4afc09 --raw-sha 6b21f71416ffda30e9c5b8631aad3408515221b519590e09486a6f92463035ab"
+  },
+  "tools": {
+    "meth507_binding_tool": {
+      "chunk_id": "3caab2",
+      "wall_time_seconds": 5.0083356,
+      "session_id": 62746,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth507_binding_poll2": {
+      "chunk_id": "75fe09",
+      "wall_time_seconds": 0.0000119,
+      "exit_code": 0,
+      "original_token_count": 162,
+      "output": "{\"binding\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth507_binding.json\", \"bytes\": 638742, \"sha256\": \"59f6ebee73460b58745a6637499ef1eb3f35ecf150db5c31da2f46bc6c4afc09\"}, \"price\": {\"selected_array_bytes\": 1313899344, \"catalog_bytes\": 1436025333, \"catalog_files\": 2508, \"maximum_one_wire_bytes\": 3823236, \"maximum_one_npz_bytes\": 11210616, \"main_audit_each_limits\": {\"seconds\": 180, \"OS_peak_bytes\": 2147483648, \"output_bytes\": 33554432}, \"new_native_model_compiler_calls\": 0, \"new_cohorts\": 0}, \"resource\": {\"seconds\": 20.26500000001397, \"OS_peak_bytes\": 92409856, \"bytes_hashed\": 1436025333}}\r\n"
+    },
+    "meth507_main_tool": {
+      "chunk_id": "25f9ff",
+      "wall_time_seconds": 10.0010885,
+      "session_id": 36173,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth507_main_poll1": {
+      "chunk_id": "ca98aa",
+      "wall_time_seconds": 1.5529136000000001,
+      "exit_code": 0,
+      "original_token_count": 378,
+      "output": "{\"result\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth507_main_result.json\", \"sha256\": \"6b21f71416ffda30e9c5b8631aad3408515221b519590e09486a6f92463035ab\", \"gates\": {\"frozen_selected_data_and_small_runtime_before_numpy\": true, \"actual_numpy_only_modules_and_images\": true, \"all96_prefixes_only_equal_histories_and_lowest_ID_choices\": true, \"all_first_rank_flip_identities_exact_binary_rationals\": true, \"all_recorded_states_and_actual_choice_acceptance_selected_mass_aligned\": true, \"zero_native_model_calls_and_empty_fatal_log\": true}, \"resource\": {\"seconds\": 13.23399999999674, \"OS_peak_bytes\": 101933056, \"bytes_hashed\": 1436901082, \"limits\": {\"seconds\": 180, \"OS_peak_bytes\": 2147483648, \"output_bytes\": 33554432}}, \"summary\": {\"cases\": 96, \"books\": 24, \"divergent_cases\": 31, \"identical_generated_trajectories\": 65, \"aligned_steps_including_first_divergence\": 996, \"first_differing_step_histogram\": {\"2\": 3, \"5\": 3, \"8\": 2, \"3\": 3, \"1\": 3, \"11\": 3, \"6\": 4, \"4\": 2, \"7\": 3, \"9\": 2, \"10\": 3}, \"all_encoder_route_choice_changes\": 165, \"all_encoder_acceptance_changes\": 0, \"aligned_decoder_route_choice_changes\": 115, \"aligned_decoder_acceptance_changes\": 0, \"divergent_cases_without_any_prior_or_current_route_choice_change\": 5, \"first_flip_donor_margin_min_median_max\": [0.0012917518615722656, 0.05293130874633789, 0.6600155830383301], \"scope\": \"Consumed retained states; no causal attribution, new source calls, fresh quality, timing, DRAM or goal promotion.\"}}\r\n"
+    },
+    "meth507_audit_tool": {
+      "chunk_id": "59fd57",
+      "wall_time_seconds": 10.0041469,
+      "session_id": 78196,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth507_audit_poll1": {
+      "chunk_id": "8cc571",
+      "wall_time_seconds": 0.0000096,
+      "exit_code": 0,
+      "original_token_count": 412,
+      "output": "{\"result\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth507_audit_result.json\", \"sha256\": \"439facabc4a201978065069f776f5355215330dcc8bde3d586f1f46616cd2476\", \"gates\": {\"frozen_selected_data_and_small_runtime_before_numpy\": true, \"actual_numpy_only_modules_and_images\": true, \"independent_ALL96_native_NPZ_format_IDs_official_bridges_and_join\": true, \"independent_ALL96_equal_histories_and_lowest_ID_argmax\": true, \"independent_ALL_first_flips_exact_rational_pair_identity\": true, \"independent_ALL_encoder_aligned_decoder_vectors_and_choice_acceptance_mass\": true, \"independent_ALL24_books_and_terminal_summary\": true, \"zero_native_model_calls_and_empty_fatal_log\": true}, \"resource\": {\"seconds\": 15.84299999999348, \"OS_peak_bytes\": 107925504, \"bytes_hashed\": 1452202541, \"limits\": {\"seconds\": 180, \"OS_peak_bytes\": 2147483648, \"output_bytes\": 33554432}}, \"summary\": {\"cases\": 96, \"books\": 24, \"divergent_cases\": 31, \"identical_generated_trajectories\": 65, \"aligned_steps_including_first_divergence\": 996, \"first_differing_step_histogram\": {\"2\": 3, \"5\": 3, \"8\": 2, \"3\": 3, \"1\": 3, \"11\": 3, \"6\": 4, \"4\": 2, \"7\": 3, \"9\": 2, \"10\": 3}, \"all_encoder_route_choice_changes\": 165, \"all_encoder_acceptance_changes\": 0, \"aligned_decoder_route_choice_changes\": 115, \"aligned_decoder_acceptance_changes\": 0, \"divergent_cases_without_any_prior_or_current_route_choice_change\": 5, \"first_flip_donor_margin_min_median_max\": [0.0012917518615722656, 0.05293130874633789, 0.6600155830383301], \"scope\": \"Consumed retained states; no causal attribution, new source calls, fresh quality, timing, DRAM or goal promotion.\"}}\r\n"
+    }
+  }
+}

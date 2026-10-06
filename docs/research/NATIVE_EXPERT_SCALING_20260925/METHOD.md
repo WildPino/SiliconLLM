@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:506 complete; diagnose source-to-donor divergence
+## Current resumption:507 complete; isolate upstream/readout effects
 
 [506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
 7,541,946,880B conditional artifact with reusable exact column primitive/engine
@@ -47,17 +47,25 @@ Windows query finds3 parent arrow.dll import events and no C child/audit event;
 older shifted zero-event claims superseded. [Evaluation](EVALUATION_506_20261006.json)
 does not declare passing final admission or goal completion.
 
-[Selected507](METH_507_FIRST_DIVERGENCE_NEXT_20261006.md) is bounded diagnosis
-from retained arrays: first diverging choices on common token prefixes, head
-margins, encoder/decoder states and parent ID/accepted/mass. Only actual NumPy/
-data dependencies; no model/C/new cohort calls. Exact I8-source acceleration
-would retain this failed quality score, so adaptive WI certificates and256
-expansion are deferred. Source-derived quantization residual corrections are
-possible subsequent hypotheses, not observations. Old355 attribution remains
-prior evidence, not a substitute for current localization.
+[507 result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md) is independently
+verified retained-state diagnosis, all96 cases/996 aligned steps and31 exact
+rational rank flips.65 identical trajectories;31 divergent. Initial encoder
+state discrepancy follows dense block0 before first router. Five divergent cases
+have unchanged expert IDs but changed selected mass;62 identical trajectories
+have changed IDs. ID change alone is neither necessary nor sufficient here.
+No whole-model inference/capture/quality/performance replay or promotion.
+
+[Selected508](METH_508_SOURCE_HEAD_NEXT_20261006.md) is PROPOSED: apply original
+F32 head to both captured final states, qualify donor bridge, count recoveries
+AND introduced changes, decompose pairwise readout/upstream/arithmetic terms.
+Source head is retained original shared F32 extent; verify actual SHA/manifest
+and freeze main/audit/price before any new source-function call. Old355 informs
+this question but does not supply current results. Source-derived upstream
+residual correction remains conditional. Exact I8 acceleration keeps failed506
+IDs/score, so adaptive WI certificates and256 expansion remain deferred.
 
 505's exact one-bank component remains retained, with5/6 economic gates and
-12/192 regressions; all495..506 scientific calls terminal. Source-sized storage/
+12/192 regressions; all495..507 scientific calls terminal. Source-sized storage/
 WI does not supply a compact core, useful larger n/RAM/LUT/mass/DRAM or another
 actual family/scale. All remain goal requirements.
 
