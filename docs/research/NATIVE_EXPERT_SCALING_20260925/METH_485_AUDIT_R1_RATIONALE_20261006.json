@@ -1,0 +1,14 @@
+{
+  "experiment": "METH485 independent audit R1 repair rationale",
+  "original_audit_freeze": "672a52f",
+  "sole_original_initial_chunk": "a8cdea",
+  "sole_original_session": 97580,
+  "sole_original_terminal_chunk": "ced39e",
+  "actual_exit": 1,
+  "original_audit_fault_sha256": "794d0aca21b508e5bb6d16a8be78fbbfb71acd799fc07cc184afe1bba635a7ea",
+  "cause": "PowerShell DateTime serialization represents same UTC instant with Z and seven fractional digits; strict string equality rejected equivalent aware ISO instants.",
+  "new_variable": "Compare parsed aware datetime values, preserving original PID/create/time-bound checks and all numerical/file/resource criteria.",
+  "actual_first_main": "f04891/75205/06f0fa exit1, byte-exact retained; NEVER replayed.",
+  "new_output_namespace": "RETENTION_485_R1_20261006.json; original audit and fault untouched.",
+  "scope": "Retention of failed ABI initialization; no GPU controls/model timing or numerical promotion."
+}
