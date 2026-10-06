@@ -1,0 +1,209 @@
+{
+  "experiment": "METH499 goal-turn completion receipt",
+  "goal_status": "ACTIVE/INCOMPLETE",
+  "goal_turn_outcome": "PROGRESS",
+  "completion_date": "2026-10-06",
+  "qualified_record_head": "032bdbd76a090b426d2607bbfb24b7f289ffe22a",
+  "source_freeze": "4b04319b4182eda18e092192c84afafd14b5a741",
+  "binding_head": "3b106d22f645feb69e5b0688df9f70ff1780118c",
+  "main_record_commit": "ee9b402e2f54e62c503edd454acc90d84a00c7a8",
+  "audit_record_commits": [
+    "ee4bdef",
+    "3e79e9c"
+  ],
+  "anchors": {
+    "binding": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/meth499_binding.json",
+      "sha256": "ce3cf895f4093d221a2d096b7b3246d599f04e4f84b5ce3e0f459b31697a1576"
+    },
+    "raw": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/meth499_factor_fit_result.json",
+      "sha256": "1bf8785e5991ef8d629f419e17879bd011f95ec0175824308832654742300cde"
+    },
+    "retention": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_499_20261006.json",
+      "sha256": "48d27fdf39413b5912c60f6e37a3b80e54fa575a62c6162777044204432a1411"
+    },
+    "admission": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/ADMISSION_499_20261006.json",
+      "sha256": "a7852bfbc67a695a3696006b5098a1a06afb5e7401a0fb3b045adf4d3a288c6d"
+    }
+  },
+  "qualification_gates": {
+    "main": 8,
+    "independent_audit": 7,
+    "final_admission": 5,
+    "all_pass": true
+  },
+  "local_outcomes": {
+    "unweighted_fit64_ALL_six_RMS_1pct": false,
+    "unweighted_fit32_ALL_six_RMS_1pct": false,
+    "unweighted_oracle_ALL_six_RMS_1pct": false,
+    "weighted_fit64_ALL_six_RMS_1pct": false,
+    "weighted_fit32_ALL_six_RMS_1pct": false,
+    "weighted_oracle_ALL_six_RMS_1pct": false,
+    "coupled_ALL_six_RMS_1pct": false,
+    "ID_ALL_six_999permille": false,
+    "mass_ALL_six_relative_RMS_1pct": false
+  },
+  "decision": "NEXT_SOURCE_FEATURE_INFORMATION",
+  "executions": {
+    "builder": {
+      "initial_chunk": "e0463a",
+      "session_id": 84488,
+      "terminal_chunk": "8ae742",
+      "actual_exit_code": 0,
+      "seconds": 78.31299999999464,
+      "peak_bytes": 55939072,
+      "process_instance": {
+        "pid": 14396,
+        "create_time_unix": 1791285262.677055
+      }
+    },
+    "main": {
+      "initial_chunk": "bb10f6",
+      "session_id": 86808,
+      "terminal_chunk": "f347c4",
+      "actual_exit_code": 0,
+      "process_instance": {
+        "pid": 15100,
+        "create_time_unix": 1791285378.1019871
+      },
+      "wall_seconds": 84.25,
+      "parent_peak_bytes": 942465024,
+      "native_peak_bytes": 131534848
+    },
+    "compile": {
+      "calls": 1,
+      "actual_exit_code": 0,
+      "observed_descendant_peaks_bytes": [
+        19681280,
+        81256448,
+        21180416
+      ]
+    },
+    "native": {
+      "calls": 3,
+      "labels": [
+        "new_controls",
+        "negative_magic",
+        "new_candidate_predict"
+      ],
+      "actual_exit_codes": [
+        0,
+        2,
+        0
+      ],
+      "negative_exit2_expected": true,
+      "prediction_instance": {
+        "pid": 6784,
+        "create_time_unix": 1791285438.6280212
+      },
+      "prediction_seconds": 13.169007,
+      "observed_module_exit_races": 0
+    },
+    "audit": {
+      "initial_chunk": "ce7614",
+      "session_id": 59676,
+      "terminal_chunk": "e66c5e",
+      "actual_exit_code": 0,
+      "process_instance": {
+        "pid": 28904,
+        "create_time_unix": 1791285768.774137
+      },
+      "wall_seconds": 39.687999999994645,
+      "parent_peak_bytes": 895311872,
+      "native_calls": 0
+    },
+    "Windows": {
+      "main_chunk": "5f1b2d",
+      "audit_chunk": "f9e33d",
+      "both_available": true,
+      "returned_events": 0,
+      "matching_events": 0
+    },
+    "finalizer": {
+      "chunk": "cafc96",
+      "actual_exit_code": 0
+    }
+  },
+  "scope": {
+    "UIDs": 17540,
+    "occurrences": 19962,
+    "development_UIDs": 11721,
+    "consumed_validation_UIDs": 5819,
+    "coefficient_cases": 128,
+    "readout_solves": 127,
+    "metric_groups": 1040,
+    "exposure_groups": 384,
+    "optimizer_updates": 0,
+    "source_FFN_calls": 0,
+    "model_calls": 0,
+    "new_resources": 0,
+    "whole_quality_promotion": false,
+    "SAME_rate_promotion": false,
+    "useful_n_promotion": false,
+    "family_scale_promotion": false,
+    "goal_complete": false
+  },
+  "canonical_consumed_validation_RMS": {
+    "unweighted_fit64": 0.0613539496914771,
+    "unweighted_native_oracle": 0.061408903786571066,
+    "weighted_fit64": 0.09718714296444948,
+    "weighted_native_oracle": 0.09724961814880709,
+    "weighted_I8_parameter": 0.0028794545165483115,
+    "weighted_arithmetic": 5.918703284516485e-8,
+    "ID_fidelity": 0.22701495102251246,
+    "probability_relative_RMS": 0.6479215773838781,
+    "coupled": 0.9059754723489604
+  },
+  "scientific_namespace_status": "Builder/main/new controls/compile/native/audit/finalizer terminal. No scientific faults, numbered repair or completed namespace rerun.",
+  "large_assets": "1145213144 core evidence bytes plus235008B executable remain local/hash-qualified; physical deployment bank127232136B.",
+  "preserved_hashes": {
+    "benchmarks/donor_adaptation/configs/_manifest.json": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+    "benchmarks/donor_adaptation/density/build_document_holdout.py": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+    "docs/research/RESEARCH_INDEX.md": "639afab9f5330bb7170a2a8e6fad61759bb848839f0a86a6479ce688edd61f61",
+    "benchmarks/phase60/engine.c": "ea3b9f17e2664b8191397a6afa4fabe48af3f583d5dfaf1583a734ba115203db"
+  },
+  "documentation": {
+    "method_archive": "docs/research/NATIVE_EXPERT_SCALING_20260925/METHOD_THROUGH_498_20261006.md",
+    "archive_byte_identical_to_previous_method": true,
+    "archive_sha256": "79068a17dffb71d3487bb88cf0998015eddb3568f4f9a08a15ba81e61e6ac6f4",
+    "current_method_lines": 209,
+    "current_index_lines": 92,
+    "link_validation_actual_chunk": "5c2f13",
+    "local_links": 43,
+    "missing": 0,
+    "changes": "Current procedure/entry points shortened; all historical method bytes retained; new whole-project mathematical reassessment and next information question documented."
+  },
+  "resumption": {
+    "selected_next": "METH500 pooled development feature rank and complete geometry-only source query complement eligibility",
+    "plan": "docs/research/NATIVE_EXPERT_SCALING_20260925/METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md",
+    "implemented": false,
+    "scientific_invocations": 0,
+    "global_development_rank_known": false,
+    "data_only_null_directions": 53943,
+    "scalar_output_coefficient_directions": 41428224,
+    "proposed_additional_query_range": [
+      27703,
+      53943
+    ],
+    "maximum_logical_source_MAC": 254535008256,
+    "maximum_F32_response_bytes": 165712896,
+    "first_action": "Implement/price/freeze pooled exact and numerical rank/innovation selection, all128 deterministic complement manifests, actual read bindings, independent audit and resource/first-fault protocol; no donor response before complete frozen eligible plan.",
+    "unchanged": "A/r512/Kreg/current495 keys/I8/full original domains; no consumed-row query selection or lambda/width/prior/precision/ID sweep.",
+    "open_final_gates": "All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/RAM/CPU LUT winner+mass/physical DRAM/actual additional families and scales."
+  },
+  "final_readonly_snapshot": {
+    "actual_tool": {
+      "chunk_id": "f0ed06",
+      "wall_time_seconds": 0.5543165,
+      "exit_code": 0,
+      "original_token_count": 250,
+      "output": "032bdbd76a090b426d2607bbfb24b7f289ffe22a\n M benchmarks/donor_adaptation/configs/_manifest.json\n M benchmarks/donor_adaptation/density/build_document_holdout.py\n M docs/research/RESEARCH_INDEX.md\n\r\nAlgorithm       Hash                                                                   Path\r\n---------       ----                                                                   ----\r\nSHA256          EA3B9F17E2664B8191397A6AFA4FABE48AF3F583D5DFAF1583A734BA115203DB       D:\\_THINGS\\Progetti\\SiliconLLM\\…\r\nSHA256          FCB168F0D2004BAF6C0F2938F997E095C9210E72B004C0A561ADD8608500E35D       D:\\_THINGS\\Progetti\\SiliconLLM\\…\r\nSHA256          C5C9ED40864989592664C15790E69E41A5EBBAD73D00EE7AC067D98E2BAF15E9       D:\\_THINGS\\Progetti\\SiliconLLM\\…\r\nSHA256          639AFAB9F5330BB7170A2A8E6FAD61759BB848839F0A86A6479CE688EDD61F61       D:\\_THINGS\\Progetti\\SiliconLLM\\…\r\nSHA256          79068A17DFFB71D3487BB88CF0998015EDDB3568F4F9A08A15BA81E61E6AC6F4       D:\\_THINGS\\Progetti\\SiliconLLM\\…\r\n\r\n"
+    },
+    "tracked_changes": "Only the three exact preserved foreign files.",
+    "scientific_processes": "No python* or meth*.exe entries returned.",
+    "staged_diff_empty": true
+  }
+}
