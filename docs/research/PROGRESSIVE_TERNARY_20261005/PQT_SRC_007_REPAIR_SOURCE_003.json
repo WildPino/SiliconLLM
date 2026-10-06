@@ -1,0 +1,28 @@
+{
+  "schema": "PQT_SRC_007_REPAIR_SOURCE_V1",
+  "base_commit": "6c4ebc7ec3eda80fb86655bea2bb08cbba4e5c07",
+  "files": {
+    "benchmarks/progressive_ternary/src007_float_003.py": {
+      "bytes": 30659,
+      "sha256": "9491217484ff34490d84daa7e44c7bab51e6925b69f071b7039ed35236ee6a78"
+    },
+    "benchmarks/progressive_ternary/audit_src007_float_003.py": {
+      "bytes": 25581,
+      "sha256": "1cf1da04b14e3c7243221f04870772114bc3f8553b08d26794933d8b44a832dd"
+    },
+    "scripts/progressive_ternary/build_src007_float_003.py": {
+      "bytes": 8015,
+      "sha256": "0bea158364daff36868d49f80bab14fc282a28a8c3b48cde3ad858a4586c2138"
+    }
+  },
+  "changes": [
+    "original/source phase 5400 to12600 seconds",
+    "worker9000 to15600 seconds",
+    "server10800 to18000 seconds",
+    "all references before fresh captures",
+    "independent actual-order check"
+  ],
+  "numerical_thresholds_changed": false,
+  "documents_changed": false,
+  "original_functions_executed": 0
+}

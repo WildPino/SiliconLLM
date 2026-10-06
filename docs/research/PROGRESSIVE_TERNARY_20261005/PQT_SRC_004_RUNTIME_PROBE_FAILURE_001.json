@@ -1,0 +1,15 @@
+{
+  "schema": "PQT_SRC_004_PREPARATION_OBSERVATION_V1",
+  "operation": "premature_reference_import_probe",
+  "setup_sequence": "001",
+  "setup_process_was_still_live": true,
+  "error_type": "ModuleNotFoundError",
+  "missing_distribution_module": "huggingface_hub",
+  "cause": "Probe issued before the independently running offline install was confirmed terminal.",
+  "command_process_elapsed_seconds": 0.3146903,
+  "model_constructions": 0,
+  "model_forwards": 0,
+  "original_payload_reads": 0,
+  "qualified_runtime_claim": false,
+  "recovery": "Observe the same live setup handle until terminal, then qualify the completed runtime. Do not restart installation."
+}

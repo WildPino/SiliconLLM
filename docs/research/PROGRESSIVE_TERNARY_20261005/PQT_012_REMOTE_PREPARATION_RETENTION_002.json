@@ -1,0 +1,110 @@
+{
+  "schema": "PQT_012_LOCAL_RETENTION_V1",
+  "passed": true,
+  "stage": "remote_preparation",
+  "sequence": "002",
+  "attempt_passed": false,
+  "source_commit": "46ac0030cb25f0b3d9ec09690127ab3a1dbb36f0",
+  "attempt_report": {
+    "passed": false,
+    "source_commit": "46ac0030cb25f0b3d9ec09690127ab3a1dbb36f0",
+    "failure": {
+      "type": "ValueError",
+      "gate": "process_admission"
+    },
+    "candidate_fits": 0,
+    "private_write": false,
+    "admission": {
+      "own_pid": 22516,
+      "parent_pid": 28920,
+      "allowed_live_pids": [
+        22516,
+        28920
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 28920,
+        "ParentProcessId": 12460,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 20056,
+          "ParentProcessId": 30372,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 7592,
+          "ParentProcessId": 20056,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 28920,
+          "ParentProcessId": 12460,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 22516,
+          "ParentProcessId": 28920,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 20056,
+          "ParentProcessId": 30372,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 7592,
+          "ParentProcessId": 20056,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "passed": false,
+      "native_timing_reservation": false
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 0.6410000000032596,
+      "peak_process_RSS_bytes": 21917696
+    },
+    "complete_preparation_child_duration_separately_instrumented": true
+  },
+  "controller": {
+    "schema": "PQT_012_LOCAL_CONTROLLER_V1",
+    "stage": "remote_preparation",
+    "sequence": "002",
+    "source_commit": "46ac0030cb25f0b3d9ec09690127ab3a1dbb36f0",
+    "controller_sha256": "9a9c4ddf97d3d39cf223fe2e9241d44ee3f742bfb2ca8776e237ebdc16d79746",
+    "complete": false,
+    "timeout_seconds": 600,
+    "timed_out": false,
+    "exit_code": 1,
+    "worker_report_sha256": "cbe548bd37daa8f55b58ed246cdbdd6dfee69d8ad4f0b8e8be68b0c3e2b0937f",
+    "worker_passed": false,
+    "elapsed_complete_worker_seconds": 1.2692184,
+    "owned_process_ids": [
+      28920,
+      22516
+    ]
+  },
+  "manifest": "pqt_012_controls_evidence/remote_preparation_002/manifest.json",
+  "manifest_identity": {
+    "bytes": 6491,
+    "sha256": "27d3bfac1e0fdbf5bedaaebf0cf48d08b4302e6824af5c7c037c9e7cdaee5e5c"
+  },
+  "raw_entries": 17,
+  "raw_bytes": 68130,
+  "resource": {
+    "elapsed_seconds_before_report": 0.6719999999913853,
+    "peak_process_RSS_bytes": 22482944
+  },
+  "complete_retainer_child_duration_separately_instrumented": false,
+  "whole_research_complete": false
+}

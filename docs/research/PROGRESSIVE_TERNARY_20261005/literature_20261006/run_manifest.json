@@ -1,0 +1,39 @@
+{
+  "query": "Assess progressive conversion of pretrained floating-point language models to ternary codes, including original expert functions and native deployment.",
+  "mode": "deep",
+  "cutoff": "2026-10-06",
+  "output_language": "English",
+  "chat_language": "Italian",
+  "storage": "Dedicated research worktree; repository documentation overrides default external output folder.",
+  "assumptions": [
+    "No pretraining from scratch; bounded calibration/distillation allowed and counted.",
+    "A scoped negative feasibility result is a valid outcome.",
+    "Single-plane symmetric, asymmetric, affine, multi-plane, and codebook formats must be distinguished.",
+    "Existing held-out data cannot become new untouched final confirmation data."
+  ],
+  "provider_config": {
+    "retrieval": "web search and primary full-text/author code inspection",
+    "search_cli": "unavailable; web fallback",
+    "quotations": "None in reading notes; bounded paraphrases"
+  },
+  "research_lanes": [
+    "ternary_conversion",
+    "behavior_aware_ptq",
+    "moe_native",
+    "low_rank_compensation"
+  ],
+  "experiment_status": "No fitting, GPU benchmark, private upload, or native timing performed in this literature run.",
+  "source_identity": "URL identifiers identify locators, not downloaded content hashes; cluster identity is the paper/project.",
+  "status": "literature_phase_complete",
+  "unique_paper_clusters": 47,
+  "lane_source_records": 49,
+  "evidence_records": 53,
+  "atomic_reading_claims": 217,
+  "report_word_count": 8939,
+  "report_sha256": "1ac89aa65d19010c9e221613767c89c2fa57bdee627551a1ffae27604c47b984",
+  "experimental_goal_status": "active_incomplete",
+  "pdf_sha256": "def46d7d165869f30a178fb8a541fddadfb07773f067ad7b9b6a25c8e5f25f44",
+  "verification": "checks/review_verification.json",
+  "negative_result_accepted": true,
+  "report_logical_utf8_sha256": "933ef8cf0576c9524714a409ead4cf06331f0e59c7d34d2a70f916a649b9ec86"
+}

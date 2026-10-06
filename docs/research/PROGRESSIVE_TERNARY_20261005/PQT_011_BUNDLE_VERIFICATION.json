@@ -1,0 +1,52 @@
+{
+  "schema": "PQT_LEARNED_SCALE_BUNDLE_VERIFICATION_V1",
+  "passed": true,
+  "run_id": "PQT-011",
+  "bundle_evidence_commit": "a30d65fe1009f8758b69755435f9f3b049a782dc",
+  "frozen_source_commit": "9a47a85cd6ffe2289705198b13d05f4e598264c1",
+  "source_files_verified": 47,
+  "inline_sources_verified": 46,
+  "external_sources_verified": 1,
+  "executable_import_closure": [
+    "apparatus",
+    "audit_pqt007",
+    "audit_pqt008",
+    "audit_pqt009",
+    "audit_pqt011",
+    "audit_scale_payload",
+    "binding_transport",
+    "breadth_selection",
+    "frozen_parent_io",
+    "full_model_math",
+    "learned_scale_math",
+    "model_payload",
+    "news_selection",
+    "news_selection_qat",
+    "pqt001",
+    "pqt007",
+    "pqt008",
+    "pqt011",
+    "pqt_audit_io",
+    "pqt_memory",
+    "qat_math",
+    "scale_math",
+    "scale_payload",
+    "ternary_math"
+  ],
+  "all_nine_bound_certificate_bytes_exact": true,
+  "all_sources_exact_against_git": true,
+  "private_T4_metadata_verified": true,
+  "bootstrap_identity": {
+    "bytes": 210791,
+    "sha256": "10e6876074a3523e2b7e8612c54b11ea1dc72a56f520323ac68512f7d7f64e45"
+  },
+  "phase_caps_seconds": [
+    900,
+    9300,
+    2400
+  ],
+  "server_cap_seconds": 12600,
+  "original_model_or_corpus_function_executed": false,
+  "gpu_used": false,
+  "whole_research_complete": false
+}

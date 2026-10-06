@@ -1,0 +1,10 @@
+{
+  "schema": "PQT_LOCAL_SETUP_FIRST_FAILURE_V1",
+  "phase": "CPU synthetic-control import",
+  "error_type": "ModuleNotFoundError",
+  "missing_package": "torch",
+  "cause": "Control command issued before owned package installation had completed. No control executed, donor read or GPU/native job launched.",
+  "repair": "Wait for installation process to terminate successfully before the numbered CPU control attempt; preserve installation log.",
+  "environment": "D:/_THINGS/Progetti/SiliconLLM-progressive-runtime/.scientific-venv",
+  "main_environment_modified": false
+}

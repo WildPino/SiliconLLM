@@ -1,0 +1,46 @@
+{
+  "schema": "PQT_NEWS_SOURCE_ADMISSION_V1",
+  "source_commit": "72700e17d787872af7c74387bbf021f3be46baa8",
+  "complete": true,
+  "dataset": "fancyzhx/ag_news",
+  "time_utc": "2026-10-05T21:59:15.769621+00:00",
+  "controller_sha256": "e837929891252d998f8c6b825320934f2aecdc9318bcdc01239a21aa0f1cf6a3",
+  "protocol_sha256": "f1b47da11372b5d40da8ab8c3efc009bde09a49dfb05a86e230ff5454be2b1d3",
+  "model_function_evaluated": false,
+  "tokens_selected": false,
+  "gpu_jobs_launched": 0,
+  "native_timing_performed": false,
+  "prior_source_search": {
+    "commit": "d55f188",
+    "query": [
+      "git",
+      "grep",
+      "-I",
+      "-i",
+      "-n",
+      "-E",
+      "ag.?news|fancyzhx",
+      "d55f188",
+      "--",
+      "docs",
+      "benchmarks",
+      "scripts"
+    ],
+    "exit_code": 1,
+    "reference_matches_present": false
+  },
+  "revision": "eb185aade064a813bc0b7f42de02595523103ca4",
+  "source_path": "data/test-00000-of-00001.parquet",
+  "canonical_url": "https://huggingface.co/datasets/fancyzhx/ag_news/resolve/eb185aade064a813bc0b7f42de02595523103ca4/data/test-00000-of-00001.parquet",
+  "metadata_sha256": "f5bd69de886600949da83110560b2a4c357ee1d11f0cde8f893f02f23424d49a",
+  "file": {
+    "name": "test-00000-of-00001.parquet",
+    "bytes": 1234829,
+    "sha256": "71de87ec66bc5737752a2502204dfa6d7fe9856ade3ea444dc6317789a4f13fb"
+  },
+  "license_metadata": [
+    "unknown"
+  ],
+  "source_role": "Public news test bytes bound before any text/token selection; independent of WikiText fitting, no pretraining/project-wide novelty claim",
+  "safety_elapsed_seconds": 3.125
+}

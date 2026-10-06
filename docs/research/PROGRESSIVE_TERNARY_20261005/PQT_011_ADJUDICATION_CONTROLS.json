@@ -1,0 +1,109 @@
+{
+  "schema": "PQT_LEARNED_SCALE_ADJUDICATION_CONTROLS_V1",
+  "passed": true,
+  "source_commit": "ddab1cd10457ab4ec490d49f3cb740374425858a",
+  "source_files": {
+    "scripts/progressive_ternary/adjudicate_pqt011.py": {
+      "bytes": 20022,
+      "sha256": "b932d9a5f53a6b03edc28d027067865603e92bb0dc3e045edfe2a25b0bebedd5"
+    },
+    "scripts/progressive_ternary/adjudicate_pqt007.py": {
+      "bytes": 9902,
+      "sha256": "55f4c2fd3e35a4e9a9e021a499e2be2354b568f86dd2d07779002f9aa5679a01"
+    },
+    "scripts/progressive_ternary/adjudicate_pqt008.py": {
+      "bytes": 15756,
+      "sha256": "ef051f033388ea3197b574a9f5c19ffd9c089c76377be17c2bc5ec2fa4a66557"
+    },
+    "scripts/progressive_ternary/check_pqt011_adjudication.py": {
+      "bytes": 11355,
+      "sha256": "efecb1dd07687c7c372fedde6775e6ae5754c64f01a571c675c38894a4264d83"
+    }
+  },
+  "malformed_stops": [
+    "zero_relative_denominator",
+    "empty_trace",
+    "boolean_token",
+    "changed_prompt_mapping",
+    "unsafe_path",
+    "noncanonical_path",
+    "nonfinite_points",
+    "missing_point",
+    "deceptive_geometry",
+    "object_dtype",
+    "fortran_order",
+    "extra_payload_byte",
+    "header_cap",
+    "missing_audit_passed",
+    "missing_audit_no_writer_or_fitting_imports",
+    "missing_audit_consumed_roles_exact",
+    "missing_audit_all256_original_teacher_targets_exact",
+    "missing_audit_all22_source_fixed_output_files_exact",
+    "missing_audit_phase_memory_accounting_verified",
+    "missing_counter_audit",
+    "missing_source",
+    "invalid_promotion",
+    "failed_phase"
+  ],
+  "inclusive_absolute_gates_verified": true,
+  "all_relative_gates_verified": true,
+  "unequal_tail_counted_as_disagreement": true,
+  "point_reaggregation_verified": true,
+  "fixtures": {
+    "absolute_gates.json": {
+      "bytes": 336,
+      "sha256": "0a79b32f4a51a241544d331b7c7876ada3953a0ba5e7612b1ed4adf34f99ab89"
+    },
+    "continuations.json": {
+      "bytes": 12838,
+      "sha256": "ffa8fa9a8df3b9ebfaebeefdb07ddc27158f685208e7a8ea0f7c8c63a802c8fe"
+    },
+    "deceptive_geometry.npy": {
+      "bytes": 84,
+      "sha256": "103fb5d0184ec49490322d8d26c0abac230a6f6c41f44f43c0f8368722df18d9"
+    },
+    "extra_payload_byte.npy": {
+      "bytes": 71,
+      "sha256": "05ea458333c33f0b2ccb70c75aa5c2f2b140a76c3363e8fc005965d7299e2730"
+    },
+    "fortran_order.npy": {
+      "bytes": 65,
+      "sha256": "88af96def79b9cd695bf756f05d42e63dab7633068e1b2f628cb657c2d491fce"
+    },
+    "header_cap.npy": {
+      "bytes": 65548,
+      "sha256": "e7fa37f01dad58f022a5f4d62f4b9042a35124e7a94ece472f4e5ad84e9c8f7b"
+    },
+    "object_dtype.npy": {
+      "bytes": 65,
+      "sha256": "3684201261d03ad0bce4552f5bf0d1897e757954da18e8f69f6c927ac1c00533"
+    },
+    "points.json": {
+      "bytes": 63654,
+      "sha256": "c47c82e53bb084b3e7927942aeeddb39e784671cbe05243df70d31e2bdcfd15a"
+    },
+    "relative_gates.json": {
+      "bytes": 725,
+      "sha256": "5913c4bc6f4c390439eb3dcb3b5c3ff4d16d913abeab3d3116c6b0123b0d4aed"
+    },
+    "resource_guard.json": {
+      "bytes": 848,
+      "sha256": "e388860153f913ae5752eb0a421352007fc8ef5d9a35528637bbd29ba1d28244"
+    },
+    "synthetic_admission.json": {
+      "bytes": 1671,
+      "sha256": "49e355aa0ee9cd0f45d073e49a9fc62a4071d4163d8426156ba7a6cccb4bcb66"
+    },
+    "valid_npy.npy": {
+      "bytes": 70,
+      "sha256": "f19e38f86b4ae5294d3021095680fdaf314b762eae2b20e062c4a01e6b073fab"
+    }
+  },
+  "synthetic_admission_metadata_only": true,
+  "full_adjudication_executed": false,
+  "original_model_or_corpus_access": false,
+  "gpu_used": false,
+  "native_timing_measured": false,
+  "whole_research_complete": false,
+  "elapsed_seconds": 0.7649999999994179
+}

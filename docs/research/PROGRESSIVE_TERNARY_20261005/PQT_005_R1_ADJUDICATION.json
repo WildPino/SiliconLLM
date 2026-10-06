@@ -1,0 +1,1047 @@
+{
+  "schema": "PQT_ORIGINAL_EXPERT_ADJUDICATION_V1",
+  "run_id": "PQT-005-R1",
+  "source_commit": "3215ca3eee87738061793810cd0727d03eba066f",
+  "independent_audit_passed": true,
+  "experts": {
+    "8": {
+      "D": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.37740425329601374,
+            "normalized_sse": 0.14243397040592168,
+            "mean_cosine": 0.9319956765587487,
+            "source_zero_rows": 0,
+            "rows": 87,
+            "output_norm_ratio_to_calibration": 0.781822250080712
+          },
+          "consumed_raw": {
+            "relative_rms": 0.38969184329214485,
+            "normalized_sse": 0.1518597327284296,
+            "mean_cosine": 0.931693920723802,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7674129080017326
+          },
+          "consumed_effective": {
+            "relative_rms": 0.38969156526203375,
+            "normalized_sse": 0.1518595160363739,
+            "mean_cosine": 0.9316940645481504,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7674135785750117
+          },
+          "gaussian": {
+            "relative_rms": 0.42770281250657705,
+            "normalized_sse": 0.18292969582603621,
+            "mean_cosine": 0.8782169056919141,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.4854990525337965
+          },
+          "perturbed": {
+            "relative_rms": 0.3740634549602126,
+            "normalized_sse": 0.139923468336771,
+            "mean_cosine": 0.9316046414365159,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.772405464771015
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": true,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1474560,
+        "fp16_storage_ratio": 0.15625,
+        "native_file_bytes": 1474624,
+        "native_file_sha256": "d9163dc343ac50f2c1b253ebc7c4f521ab92a8702ad317cf8b4a70a1baa2312f"
+      },
+      "DR": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.011636450328687967,
+            "normalized_sse": 0.0001354069762520223,
+            "mean_cosine": 0.999884557835519,
+            "source_zero_rows": 0,
+            "rows": 87,
+            "output_norm_ratio_to_calibration": 0.9989286603825996
+          },
+          "consumed_raw": {
+            "relative_rms": 0.4218906098668485,
+            "normalized_sse": 0.17799168669382137,
+            "mean_cosine": 0.9109710162930029,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7821907570021018
+          },
+          "consumed_effective": {
+            "relative_rms": 0.42189085989085134,
+            "normalized_sse": 0.17799189765944196,
+            "mean_cosine": 0.9109710378579868,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7821907951273377
+          },
+          "gaussian": {
+            "relative_rms": 0.535318784472143,
+            "normalized_sse": 0.2865662010087327,
+            "mean_cosine": 0.82290103499027,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.4563410377406104
+          },
+          "perturbed": {
+            "relative_rms": 0.0311415646753489,
+            "normalized_sse": 0.0009697970504289383,
+            "mean_cosine": 0.9994554882576009,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.9755743435711238
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": true,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1474560,
+        "fp16_storage_ratio": 0.15625,
+        "native_file_bytes": 1474624,
+        "native_file_sha256": "49fab9a25486ef56f15a97f38176954487b9d353729e1cdbcccd020376e55431"
+      },
+      "PR-B": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.00813786681954028,
+            "normalized_sse": 6.622487637257463e-05,
+            "mean_cosine": 0.9999424543303496,
+            "source_zero_rows": 0,
+            "rows": 87,
+            "output_norm_ratio_to_calibration": 0.9997396723833316
+          },
+          "consumed_raw": {
+            "relative_rms": 0.4011504724910659,
+            "normalized_sse": 0.16092170157980543,
+            "mean_cosine": 0.9229293916880489,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7723672877297459
+          },
+          "consumed_effective": {
+            "relative_rms": 0.40115111705511797,
+            "normalized_sse": 0.16092221871456894,
+            "mean_cosine": 0.9229294385394121,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7723659276503082
+          },
+          "gaussian": {
+            "relative_rms": 0.5193756713392933,
+            "normalized_sse": 0.26975108797914166,
+            "mean_cosine": 0.8428805731645634,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.43769029501913626
+          },
+          "perturbed": {
+            "relative_rms": 0.026347829242424528,
+            "normalized_sse": 0.0006942081057879612,
+            "mean_cosine": 0.999602242002544,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.9756245900277907
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 0.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.029938737475318878
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": false,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1489920,
+        "fp16_storage_ratio": 0.15787760416666666,
+        "native_file_bytes": 1489984,
+        "native_file_sha256": "070a35da815ee30e0c98ddf12d23329edd56f2b4427ff03be895075db224ee31"
+      },
+      "FF": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.13206322033487367,
+            "normalized_sse": 0.017440694165217388,
+            "mean_cosine": 0.9923741194606721,
+            "source_zero_rows": 0,
+            "rows": 87,
+            "output_norm_ratio_to_calibration": 1.0048025189850223
+          },
+          "consumed_raw": {
+            "relative_rms": 0.4138979299975342,
+            "normalized_sse": 0.17131149645624372,
+            "mean_cosine": 0.9172350324138059,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7643523654941989
+          },
+          "consumed_effective": {
+            "relative_rms": 0.4138986374869515,
+            "normalized_sse": 0.1713120821135549,
+            "mean_cosine": 0.9172350602541532,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.7643509914949079
+          },
+          "gaussian": {
+            "relative_rms": 0.525792764839845,
+            "normalized_sse": 0.2764580315579286,
+            "mean_cosine": 0.8395753988230472,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.43449980978606345
+          },
+          "perturbed": {
+            "relative_rms": 0.1464163909644505,
+            "normalized_sse": 0.021437759543054824,
+            "mean_cosine": 0.9907542775753925,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.9880220203760736
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 0.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.03048551998954553
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": false,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1489920,
+        "fp16_storage_ratio": 0.15787760416666666,
+        "native_file_bytes": 1489984,
+        "native_file_sha256": "77ea3d42bb81ede823877d5ff7ed47ea61e2045db28e1695434aa437df122a00"
+      },
+      "I4": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.08302637837642526,
+            "normalized_sse": 0.006893379506305336,
+            "mean_cosine": 0.9960912000509374,
+            "source_zero_rows": 0,
+            "rows": 87,
+            "output_norm_ratio_to_calibration": 0.9924691383740046
+          },
+          "consumed_raw": {
+            "relative_rms": 0.08940330705499441,
+            "normalized_sse": 0.007992951312369613,
+            "mean_cosine": 0.9958998393389751,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.9610491448152386
+          },
+          "consumed_effective": {
+            "relative_rms": 0.08940330374919837,
+            "normalized_sse": 0.007992950721271428,
+            "mean_cosine": 0.9958998375201451,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.9610498007796374
+          },
+          "gaussian": {
+            "relative_rms": 0.10985102854838524,
+            "normalized_sse": 0.01206724847313815,
+            "mean_cosine": 0.9920814595543266,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.5521759722681129
+          },
+          "perturbed": {
+            "relative_rms": 0.08289360911916388,
+            "normalized_sse": 0.006871350432800729,
+            "mean_cosine": 0.9960741212165397,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.969101872482638
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": true,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 2654208,
+        "fp16_storage_ratio": 0.28125,
+        "native_file_bytes": 2654272,
+        "native_file_sha256": "8ba30d85480d3eab465edd7c886f99286f6e7d3aa21d6da913cea22f6e452a8d"
+      },
+      "I8": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.007033480330248521,
+            "normalized_sse": 4.946984555599284e-05,
+            "mean_cosine": 0.9999713218006222,
+            "source_zero_rows": 0,
+            "rows": 87,
+            "output_norm_ratio_to_calibration": 1.0002773111860053
+          },
+          "consumed_raw": {
+            "relative_rms": 0.007472072074662711,
+            "normalized_sse": 5.5831861088954306e-05,
+            "mean_cosine": 0.9999709307700384,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.9739815335428713
+          },
+          "consumed_effective": {
+            "relative_rms": 0.00747206334620684,
+            "normalized_sse": 5.583173064972776e-05,
+            "mean_cosine": 0.9999709306196916,
+            "source_zero_rows": 0,
+            "rows": 41,
+            "output_norm_ratio_to_calibration": 0.9739822217631894
+          },
+          "gaussian": {
+            "relative_rms": 0.009372467777070348,
+            "normalized_sse": 8.784315223222198e-05,
+            "mean_cosine": 0.9999423679066323,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.5563335800713535
+          },
+          "perturbed": {
+            "relative_rms": 0.007057317358997497,
+            "normalized_sse": 4.9805728305607414e-05,
+            "mean_cosine": 0.9999713596411648,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.9766342231353806
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": true,
+          "gaussian": true,
+          "perturbed": true,
+          "zero": true,
+          "payload": false,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": true,
+        "payload_bytes": 4733952,
+        "fp16_storage_ratio": 0.5016276041666666,
+        "native_file_bytes": 4734016,
+        "native_file_sha256": "666416acfedfb65043ea3029f8dbab4d7866978abf59579e35f6dad82b9d1c3a"
+      }
+    },
+    "105": {
+      "D": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.3800349734458434,
+            "normalized_sse": 0.14442658104198292,
+            "mean_cosine": 0.9205113510687141,
+            "source_zero_rows": 0,
+            "rows": 122,
+            "output_norm_ratio_to_calibration": 0.8214667030214021
+          },
+          "consumed_raw": {
+            "relative_rms": 0.38840347596769503,
+            "normalized_sse": 0.15085726014378786,
+            "mean_cosine": 0.928261591395747,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.8993476806501267
+          },
+          "consumed_effective": {
+            "relative_rms": 0.3884023868208862,
+            "normalized_sse": 0.15085641408816128,
+            "mean_cosine": 0.9282619649809131,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.8993498433579546
+          },
+          "gaussian": {
+            "relative_rms": 0.4211268625554739,
+            "normalized_sse": 0.177347834365817,
+            "mean_cosine": 0.8478671409893112,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.5264489257877258
+          },
+          "perturbed": {
+            "relative_rms": 0.37611989327072903,
+            "normalized_sse": 0.1414661741139846,
+            "mean_cosine": 0.9194188975311387,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.846155470124017
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": true,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1474560,
+        "fp16_storage_ratio": 0.15625,
+        "native_file_bytes": 1474624,
+        "native_file_sha256": "391e08aa49921082c23087bb08c1a5a221e0b0526f7e92c3af5ebc63778b6416"
+      },
+      "DR": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.020842577985807575,
+            "normalized_sse": 0.0004344130570944706,
+            "mean_cosine": 0.9995188205955767,
+            "source_zero_rows": 0,
+            "rows": 122,
+            "output_norm_ratio_to_calibration": 0.9972367291744764
+          },
+          "consumed_raw": {
+            "relative_rms": 0.5083142763886548,
+            "normalized_sse": 0.2583834035805217,
+            "mean_cosine": 0.8785414384266302,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.8052392544843192
+          },
+          "consumed_effective": {
+            "relative_rms": 0.5083142446313104,
+            "normalized_sse": 0.2583833712950996,
+            "mean_cosine": 0.8785416811961432,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.805238889637654
+          },
+          "gaussian": {
+            "relative_rms": 0.5776295032584331,
+            "normalized_sse": 0.3336558430345842,
+            "mean_cosine": 0.7585057816156249,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.4252710891031868
+          },
+          "perturbed": {
+            "relative_rms": 0.037620498166594116,
+            "normalized_sse": 0.0014153018823027112,
+            "mean_cosine": 0.998856809803123,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 1.025049559034396
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": true,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1474560,
+        "fp16_storage_ratio": 0.15625,
+        "native_file_bytes": 1474624,
+        "native_file_sha256": "d66a0c732f3bdd35c910dda8b24ac6ecbf8c7c9908f20d7b2e9508f0229a35e9"
+      },
+      "PR-B": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.017597931524564882,
+            "normalized_sse": 0.0003096871939432745,
+            "mean_cosine": 0.99973341926074,
+            "source_zero_rows": 0,
+            "rows": 122,
+            "output_norm_ratio_to_calibration": 0.9992701419308262
+          },
+          "consumed_raw": {
+            "relative_rms": 0.47389914185025844,
+            "normalized_sse": 0.22458039664641136,
+            "mean_cosine": 0.8947974499309659,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.824883365437068
+          },
+          "consumed_effective": {
+            "relative_rms": 0.4738993697350077,
+            "normalized_sse": 0.22458061263523751,
+            "mean_cosine": 0.8947973813445658,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.8248833185849173
+          },
+          "gaussian": {
+            "relative_rms": 0.5457187964555659,
+            "normalized_sse": 0.29780900480491135,
+            "mean_cosine": 0.7670131694072845,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.44781143738013585
+          },
+          "perturbed": {
+            "relative_rms": 0.03400423533516358,
+            "normalized_sse": 0.0011562880207291874,
+            "mean_cosine": 0.9991397858444429,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 1.0273564638772161
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 0.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0622858932601487
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": false,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1489920,
+        "fp16_storage_ratio": 0.15787760416666666,
+        "native_file_bytes": 1489984,
+        "native_file_sha256": "7996ac6456428f6f9a2323e56a64d68fada125ba6a525f89779bfc760ef2cd35"
+      },
+      "FF": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.13238671602408045,
+            "normalized_sse": 0.01752624257964052,
+            "mean_cosine": 0.9901778825435126,
+            "source_zero_rows": 0,
+            "rows": 122,
+            "output_norm_ratio_to_calibration": 0.9962416507303516
+          },
+          "consumed_raw": {
+            "relative_rms": 0.505721853152587,
+            "normalized_sse": 0.2557545927560868,
+            "mean_cosine": 0.8805701557057947,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.7851397397940459
+          },
+          "consumed_effective": {
+            "relative_rms": 0.5057217496501858,
+            "normalized_sse": 0.25575448806924517,
+            "mean_cosine": 0.8805702375057399,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 0.7851392525467004
+          },
+          "gaussian": {
+            "relative_rms": 0.565476163527218,
+            "normalized_sse": 0.31976329151746097,
+            "mean_cosine": 0.7545517993527818,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.41635883962834214
+          },
+          "perturbed": {
+            "relative_rms": 0.1199964058980061,
+            "normalized_sse": 0.014399137428439032,
+            "mean_cosine": 0.9900493096569543,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 1.0184003687144965
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 0.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.06541367035826408
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": false,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 1489920,
+        "fp16_storage_ratio": 0.15787760416666666,
+        "native_file_bytes": 1489984,
+        "native_file_sha256": "1bce3ca500c52a7c44f8ce772779748ff4c0e0d68401850f38e30830ed7e7ce0"
+      },
+      "I4": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.09105057731974177,
+            "normalized_sse": 0.008290207630258275,
+            "mean_cosine": 0.9948818973801699,
+            "source_zero_rows": 0,
+            "rows": 122,
+            "output_norm_ratio_to_calibration": 0.9916387870959829
+          },
+          "consumed_raw": {
+            "relative_rms": 0.08377465140461918,
+            "normalized_sse": 0.007018192217965462,
+            "mean_cosine": 0.9954706481303659,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 1.1626056680592596
+          },
+          "consumed_effective": {
+            "relative_rms": 0.08377449099692219,
+            "normalized_sse": 0.007018165341793398,
+            "mean_cosine": 0.9954706607491802,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 1.1626071527989383
+          },
+          "gaussian": {
+            "relative_rms": 0.11474239087768114,
+            "normalized_sse": 0.013165816264326563,
+            "mean_cosine": 0.9887481558560745,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.5803734768542718
+          },
+          "perturbed": {
+            "relative_rms": 0.08895322142419174,
+            "normalized_sse": 0.007912675601741283,
+            "mean_cosine": 0.9950485070309152,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 1.0200404890501378
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": false,
+          "gaussian": false,
+          "perturbed": false,
+          "zero": true,
+          "payload": true,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": false,
+        "payload_bytes": 2654208,
+        "fp16_storage_ratio": 0.28125,
+        "native_file_bytes": 2654272,
+        "native_file_sha256": "84699cca8e56d30d6d3178c587191cf390f407e7ba8fda93b973f0283fd65eca"
+      },
+      "I8": {
+        "metrics": {
+          "calibration": {
+            "relative_rms": 0.007409832835905163,
+            "normalized_sse": 5.490562265605834e-05,
+            "mean_cosine": 0.9999664732031641,
+            "source_zero_rows": 0,
+            "rows": 122,
+            "output_norm_ratio_to_calibration": 1.0000407825708502
+          },
+          "consumed_raw": {
+            "relative_rms": 0.006848480477335841,
+            "normalized_sse": 4.690168484845014e-05,
+            "mean_cosine": 0.999968902048752,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 1.1796928597386764
+          },
+          "consumed_effective": {
+            "relative_rms": 0.006848496645497095,
+            "normalized_sse": 4.6901906303384964e-05,
+            "mean_cosine": 0.9999689021150233,
+            "source_zero_rows": 0,
+            "rows": 54,
+            "output_norm_ratio_to_calibration": 1.1796940376990284
+          },
+          "gaussian": {
+            "relative_rms": 0.009180359643896626,
+            "normalized_sse": 8.427900319128579e-05,
+            "mean_cosine": 0.9999271456026357,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 0.5793634909865282
+          },
+          "perturbed": {
+            "relative_rms": 0.007251838806600026,
+            "normalized_sse": 5.258916607691009e-05,
+            "mean_cosine": 0.9999669830500203,
+            "source_zero_rows": 0,
+            "rows": 64,
+            "output_norm_ratio_to_calibration": 1.0295223597717489
+          },
+          "zero": {
+            "relative_rms": null,
+            "normalized_sse": null,
+            "mean_cosine": 1.0,
+            "source_zero_rows": 1,
+            "rows": 1,
+            "output_norm_ratio_to_calibration": 0.0
+          }
+        },
+        "gates": {
+          "consumed_raw": true,
+          "gaussian": true,
+          "perturbed": true,
+          "zero": true,
+          "payload": false,
+          "fit_budget": true
+        },
+        "all_gates_passed": false,
+        "function_gates_passed": true,
+        "payload_bytes": 4733952,
+        "fp16_storage_ratio": 0.5016276041666666,
+        "native_file_bytes": 4734016,
+        "native_file_sha256": "7a1b578ddefceec40e6ad50a176a920acf5bcf9f4e04a06f6cec8c5e996c9946"
+      }
+    }
+  },
+  "pooled_row_energy_aggregates": {
+    "D": {
+      "calibration": {
+        "squared_error": 51822344.49344387,
+        "source_energy": 361388693.2957244,
+        "rows": 209,
+        "relative_rms": 0.3786790231492919
+      },
+      "consumed_raw": {
+        "squared_error": 28909170.72723604,
+        "source_energy": 191078543.7464978,
+        "rows": 95,
+        "relative_rms": 0.38896619238792624
+      },
+      "consumed_effective": {
+        "squared_error": 28909115.10807488,
+        "source_energy": 191078898.03281072,
+        "rows": 95,
+        "relative_rms": 0.3889654576183041
+      },
+      "gaussian": {
+        "squared_error": 13220265.608950483,
+        "source_energy": 73208203.48788477,
+        "rows": 128,
+        "relative_rms": 0.4249523307616858
+      },
+      "perturbed": {
+        "squared_error": 32056453.321991988,
+        "source_energy": 228028427.06223977,
+        "rows": 128,
+        "relative_rms": 0.37494126451436827
+      },
+      "zero": {
+        "squared_error": 0.0,
+        "source_energy": 0.0,
+        "rows": 2,
+        "relative_rms": null
+      }
+    },
+    "DR": {
+      "calibration": {
+        "squared_error": 101202.26995126427,
+        "source_energy": 361388693.2957244,
+        "rows": 209,
+        "relative_rms": 0.016734311408928865
+      },
+      "consumed_raw": {
+        "squared_error": 42668544.82610892,
+        "source_energy": 191078543.7464978,
+        "rows": 95,
+        "relative_rms": 0.47255020352870103
+      },
+      "consumed_effective": {
+        "squared_error": 42668640.71470736,
+        "source_energy": 191078898.03281072,
+        "rows": 95,
+        "relative_rms": 0.4725502964201719
+      },
+      "gaussian": {
+        "squared_error": 22427395.92913853,
+        "source_energy": 73208203.48788477,
+        "rows": 128,
+        "relative_rms": 0.553489708756452
+      },
+      "perturbed": {
+        "squared_error": 264436.8360992826,
+        "source_energy": 228028427.06223977,
+        "rows": 128,
+        "relative_rms": 0.034053870519572954
+      },
+      "zero": {
+        "squared_error": 0.0,
+        "source_energy": 0.0,
+        "rows": 2,
+        "relative_rms": null
+      }
+    },
+    "PR-B": {
+      "calibration": {
+        "squared_error": 66491.3208376869,
+        "source_energy": 361388693.2957244,
+        "rows": 209,
+        "relative_rms": 0.013564231702610136
+      },
+      "consumed_raw": {
+        "squared_error": 37604697.84180986,
+        "source_energy": 191078543.7464978,
+        "rows": 95,
+        "relative_rms": 0.4436240581634988
+      },
+      "consumed_effective": {
+        "squared_error": 37604836.0544104,
+        "source_energy": 191078898.03281072,
+        "rows": 95,
+        "relative_rms": 0.44362446214174417
+      },
+      "gaussian": {
+        "squared_error": 20611007.457288444,
+        "source_energy": 73208203.48788477,
+        "rows": 128,
+        "relative_rms": 0.5306030419477027
+      },
+      "perturbed": {
+        "squared_error": 203205.540473481,
+        "source_energy": 228028427.06223977,
+        "rows": 128,
+        "relative_rms": 0.029851989262327874
+      },
+      "zero": {
+        "squared_error": 7481.0005574715815,
+        "source_energy": 0.0,
+        "rows": 2,
+        "relative_rms": null
+      }
+    },
+    "FF": {
+      "calibration": {
+        "squared_error": 6317823.95418606,
+        "source_energy": 361388693.2957244,
+        "rows": 209,
+        "relative_rms": 0.13221979506927334
+      },
+      "consumed_raw": {
+        "squared_error": 41828435.58361691,
+        "source_energy": 191078543.7464978,
+        "rows": 95,
+        "relative_rms": 0.46787501019061656
+      },
+      "consumed_effective": {
+        "squared_error": 41828553.49253654,
+        "source_energy": 191078898.03281072,
+        "rows": 95,
+        "relative_rms": 0.46787523587672974
+      },
+      "gaussian": {
+        "squared_error": 21570993.69658293,
+        "source_energy": 73208203.48788477,
+        "rows": 128,
+        "relative_rms": 0.5428192007072679
+      },
+      "perturbed": {
+        "squared_error": 4204383.479510369,
+        "source_energy": 228028427.06223977,
+        "rows": 128,
+        "relative_rms": 0.13578652204771235
+      },
+      "zero": {
+        "squared_error": 8124.150845132193,
+        "source_energy": 0.0,
+        "rows": 2,
+        "relative_rms": null
+      }
+    },
+    "I4": {
+      "calibration": {
+        "squared_error": 2735361.7738295537,
+        "source_energy": 361388693.2957244,
+        "rows": 209,
+        "relative_rms": 0.08700017102392535
+      },
+      "consumed_raw": {
+        "squared_error": 1422300.3714633116,
+        "source_energy": 191078543.7464978,
+        "rows": 95,
+        "relative_rms": 0.08627594011964275
+      },
+      "consumed_effective": {
+        "squared_error": 1422300.0324844318,
+        "source_energy": 191078898.03281072,
+        "rows": 95,
+        "relative_rms": 0.08627584985480619
+      },
+      "gaussian": {
+        "squared_error": 917211.7022990498,
+        "source_energy": 73208203.48788477,
+        "rows": 128,
+        "relative_rms": 0.1119321688107595
+      },
+      "perturbed": {
+        "squared_error": 1668062.437827697,
+        "source_energy": 228028427.06223977,
+        "rows": 128,
+        "relative_rms": 0.08552865759516982
+      },
+      "zero": {
+        "squared_error": 0.0,
+        "source_energy": 0.0,
+        "rows": 2,
+        "relative_rms": null
+      }
+    },
+    "I8": {
+      "calibration": {
+        "squared_error": 18828.04316415591,
+        "source_energy": 361388693.2957244,
+        "rows": 209,
+        "relative_rms": 0.007217973982060333
+      },
+      "consumed_raw": {
+        "squared_error": 9706.494660006158,
+        "source_energy": 191078543.7464978,
+        "rows": 95,
+        "relative_rms": 0.007127303433704438
+      },
+      "consumed_effective": {
+        "squared_error": 9706.525336225834,
+        "source_energy": 191078898.03281072,
+        "rows": 95,
+        "relative_rms": 0.007127308088682758
+      },
+      "gaussian": {
+        "squared_error": 6321.212059176922,
+        "source_energy": 73208203.48788477,
+        "rows": 128,
+        "relative_rms": 0.00929223758209015
+      },
+      "perturbed": {
+        "squared_error": 11627.62499232719,
+        "source_energy": 228028427.06223977,
+        "rows": 128,
+        "relative_rms": 0.007140868122453862
+      },
+      "zero": {
+        "squared_error": 0.0,
+        "source_energy": 0.0,
+        "rows": 2,
+        "relative_rms": null
+      }
+    }
+  },
+  "both_experts_pass": {
+    "D": false,
+    "DR": false,
+    "PR-B": false,
+    "FF": false,
+    "I4": false,
+    "I8": false
+  },
+  "any_ternary_pass": false,
+  "all_arms_fit_seconds": 21.251462556999968,
+  "native_cpu_timing_performed": false,
+  "whole_research_complete": false,
+  "scope": "Both matrices of two original pretrained ReLU experts; consumed I8-core development and fresh conditional synthetic inputs. No complete-model language or CPU execution claim."
+}

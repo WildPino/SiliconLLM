@@ -1,0 +1,17 @@
+{
+  "schema": "PQT_SRC_007_FLOAT_AUDIT_STOP_V1",
+  "source_commit": "af9ba91b132acb8d48b5801064e892c890a84c57",
+  "passed": false,
+  "failure_type": "ValueError",
+  "failure_gate": "process_admission",
+  "stage": "Before NumPy import, model execution or raw input replay",
+  "original_forwards": 0,
+  "optimizer_updates": 0,
+  "GPU_jobs": 0,
+  "observed_tool_seconds_including_preceding_Git_operations": 2.6205621,
+  "complete_child_seconds": null,
+  "actual_PID_snapshot_retained": false,
+  "empty_destination": "pqt_src007_controls_evidence/float_001",
+  "limitation": "First audit stopped before its finally/report block. The rejection gate was observed in the actual tool trace; actual PID snapshot and complete child/RSS costs were not saved and are not retrospectively claimed.",
+  "resumption": "Record admission failures inside the report scope; use exclusive numbered audit002. Do not repeat the four passing toy forwards merely to reaggregate their retained evidence."
+}

@@ -1,0 +1,6 @@
+{
+  "phase": "post-admission committed-byte verification",
+  "error_type": "AssertionError",
+  "cause": "Inherited binding working file uses CRLF; committed object uses LF. Actual binding hash matches admission, parsed input agrees. Controller and protocol match commit exactly. No tensor identity check failed.",
+  "repair": "Retain the actual raw binding bytes and verify only this metadata newline normalization against the committed object; independently verify all output arrays without re-extraction."
+}

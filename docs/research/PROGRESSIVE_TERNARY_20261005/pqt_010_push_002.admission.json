@@ -1,0 +1,128 @@
+{
+  "schema": "PQT_KAGGLE_ADMISSION_V1",
+  "time_utc": "2026-10-06T02:53:09.822346+00:00",
+  "account": {
+    "account": "acct3",
+    "status": "verified",
+    "configured_username": "sirwildpino",
+    "server_identity": "sirwildpino",
+    "gpu_quota": {
+      "used_hours": 1.540742222222222,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 28.45925777777778,
+      "conservative_unreserved_hours": 28.45925777777778,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-06T02:53:01.314780+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "sirwildpino/pqt-008-global-staged-20261006-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/pqt-007-full-model-20261006-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "",
+      "status": "UNADDRESSABLE_HISTORICAL_MARKER",
+      "kernel_id": 0,
+      "runtime_utc": "2010-04-01T00:00:00",
+      "frozen_non_resource_schema_matches": true,
+      "title_sha256": "4ea58a5babe7a48151e6e0d9dbe11e97e0200ac5a9f96c68e0cc4af0111dec63"
+    },
+    {
+      "ref": "sirwildpino/pqt-009-r1-frozen-evaluation-20261006-002",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/pqt-009-calibration-breadth-20261006-001",
+      "status": "ERROR",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/h4-rank48-stagea-v2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/s1-sparsity-bpb-scale-arm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-relaytest",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-arm6",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/notebook3f8b10f091",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/wilddataset-3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/siliconllm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "ref": "sirwildpino/pqt-010-shared-parameter-ablation-20261006-002",
+  "timeout_seconds": 4500,
+  "source_commit": "eea292f555a87100b7e2f0048699b29a58ac045a",
+  "prior_ref_fresh_status": {
+    "ref": "sirwildpino/pqt-010-shared-parameter-ablation-20261006-001",
+    "http_status_code": 404,
+    "time_utc": "2026-10-06T02:53:09.790815+00:00"
+  },
+  "bundle_sha256": {
+    "bootstrap.py": "f8913c6dfd19897240bcc82f5af9aaab105cbb73d40f64933e45880e982032be",
+    "kernel-metadata.json": "d4914889392485b24fb0966b9d8f8c2d65af5b14bafc6b6ed9b08cf8a302a3d8"
+  },
+  "interactive_session_absence_proven": false,
+  "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+}

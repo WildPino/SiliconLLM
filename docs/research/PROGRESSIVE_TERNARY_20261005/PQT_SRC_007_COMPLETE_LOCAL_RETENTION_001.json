@@ -1,0 +1,125 @@
+{
+  "schema": "PQT_SRC_007_COMPLETE_LOCAL_RETENTION_V1",
+  "passed": true,
+  "source_commit": "1715587a3c2ccae621cd730e29adb29cd779e97f",
+  "audit_report": {
+    "schema": "PQT_SRC_007_COMPLETE_LOCAL_AUDIT_V1",
+    "passed": false,
+    "source_commit": "1715587a3c2ccae621cd730e29adb29cd779e97f",
+    "model_forwards": 0,
+    "optimizer_updates": 0,
+    "GPU_allocations": 0,
+    "whole_research_complete": false,
+    "admission": {
+      "own_pid": 27768,
+      "parent_pid": 24144,
+      "allowed_live_pids": [
+        24144,
+        27768
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 24144,
+        "ParentProcessId": 21804,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 27348,
+          "ParentProcessId": 15796,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 18452,
+          "ParentProcessId": 27348,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 24144,
+          "ParentProcessId": 21804,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 27768,
+          "ParentProcessId": 24144,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 27348,
+          "ParentProcessId": 15796,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 18452,
+          "ParentProcessId": 27348,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "passed": false,
+      "native_timing_reservation": false
+    },
+    "failure": {
+      "type": "ValueError",
+      "frames": [
+        {
+          "file": "audit_src007_complete.py",
+          "line": 42,
+          "function": "main"
+        },
+        {
+          "file": "src007_io.py",
+          "line": 12,
+          "function": "require"
+        }
+      ],
+      "gate": "process_admission"
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 0.6570000000065193,
+      "peak_process_RSS_bytes": 22126592
+    }
+  },
+  "controller": {
+    "schema": "PQT_SRC_007_COMPLETE_AUDIT_CONTROLLER_V1",
+    "sequence": "001",
+    "source_commit": "1715587a3c2ccae621cd730e29adb29cd779e97f",
+    "controller_sha256": "4f6b4f827d3a4e56320972458903150e45caf951783e2bf0d785bf69d134cc7a",
+    "complete": false,
+    "timeout_seconds": 1800,
+    "timed_out": false,
+    "exit_code": 1,
+    "worker_report_sha256": "80cb80b76fbd8e9cafe2d560075fcc2b30eb1f159ef951380f338bda26f23045",
+    "worker_passed": false,
+    "elapsed_complete_worker_seconds": 0.9930437,
+    "owned_process_ids": [
+      24144,
+      27768
+    ]
+  },
+  "manifest": "pqt_src007_controls_evidence/complete_audit_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 4588,
+    "sha256": "2124771d9316292273ce0f1b18229e197d054288847923c595bf9ccb172ba03e"
+  },
+  "archive_identity": {
+    "bytes": 83555,
+    "sha256": "61f991ca829507bae4f8659c959f2ec868fdf2167baf42e2d5019281c15529e7"
+  },
+  "raw_entries": 13,
+  "raw_bytes": 80949,
+  "resource": {
+    "elapsed_seconds_before_report": 0.4840000000258442,
+    "peak_process_RSS_bytes": 22392832
+  },
+  "retainer_complete_child_duration_independently_instrumented": false,
+  "model_forwards": 0,
+  "whole_research_complete": false
+}

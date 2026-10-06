@@ -1,0 +1,173 @@
+{
+  "schema": "PQT_SRC_007_CORPUS_FRAMING_V1",
+  "passed": true,
+  "records": [
+    {
+      "bytes": 1775,
+      "oversized": false,
+      "keys": [
+        "text",
+        "timestamp",
+        "url"
+      ],
+      "text_UTF8_bytes": 1625,
+      "url_present": true
+    },
+    {
+      "bytes": 2812,
+      "oversized": false,
+      "keys": [
+        "text",
+        "timestamp",
+        "url"
+      ],
+      "text_UTF8_bytes": 2702,
+      "url_present": true
+    },
+    {
+      "bytes": 3157,
+      "oversized": false,
+      "keys": [
+        "text",
+        "timestamp",
+        "url"
+      ],
+      "text_UTF8_bytes": 3033,
+      "url_present": true
+    }
+  ],
+  "controls": [
+    {
+      "label": "positive_0",
+      "passed": true,
+      "raw_hex": "7b2261223a317d7b2262223a327d",
+      "statistics": {
+        "decompressed_read_bytes": 14,
+        "maximum_chunk_bytes": 14,
+        "maximum_record_buffer_bytes": 7,
+        "records": 2,
+        "oversized_records": 0
+      }
+    },
+    {
+      "label": "positive_1",
+      "passed": true,
+      "raw_hex": "7b2261223a20227d207b205c222078227d200a7b2262223a205b312c207b2263223a20327d5d7d",
+      "statistics": {
+        "decompressed_read_bytes": 39,
+        "maximum_chunk_bytes": 39,
+        "maximum_record_buffer_bytes": 20,
+        "records": 2,
+        "oversized_records": 0
+      }
+    },
+    {
+      "label": "positive_2",
+      "passed": true,
+      "raw_hex": "7b2261223a227878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878227d7b2262223a327d",
+      "statistics": {
+        "decompressed_read_bytes": 95,
+        "maximum_chunk_bytes": 95,
+        "maximum_record_buffer_bytes": 32,
+        "records": 2,
+        "oversized_records": 1
+      }
+    },
+    {
+      "label": "truncated",
+      "rejected": true,
+      "gate": "JSON_stream_truncated",
+      "raw_hex": "7b2261223a2278"
+    },
+    {
+      "label": "invalid_root",
+      "rejected": true,
+      "gate": "JSON_stream_root",
+      "raw_hex": "5b5d"
+    },
+    {
+      "label": "byte_cap",
+      "rejected": true,
+      "gate": "decompression_cap",
+      "raw_hex": "7b2261223a317d"
+    },
+    {
+      "label": "deadline",
+      "rejected": true,
+      "gate": "JSON_stream_deadline",
+      "raw_hex": "7b2261223a317d"
+    }
+  ],
+  "source_commit": "b6abb0d2c6ab4b15219358be35435b2ef1bdd92c",
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "admission": {
+    "own_pid": 26476,
+    "parent_pid": 21348,
+    "allowed_live_pids": [
+      21348,
+      26476
+    ],
+    "own_venv_launcher_verified": {
+      "Name": "python.exe",
+      "ProcessId": 21348,
+      "ParentProcessId": 26776,
+      "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.venv\\Scripts\\python.exe"
+    },
+    "snapshot_processes": [
+      {
+        "Name": "python.exe",
+        "ProcessId": 21348,
+        "ParentProcessId": 26776,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "Name": "python.exe",
+        "ProcessId": 26476,
+        "ParentProcessId": 21348,
+        "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+      }
+    ],
+    "relevant_other_processes": [],
+    "passed": true,
+    "native_timing_reservation": false
+  },
+  "sources": [
+    {
+      "path": "scripts/progressive_ternary/inspect_src007_format.py",
+      "bytes": 3932,
+      "sha256": "b6f5d01a986ea4216c1d2c78877478dc4adce9c3c99d512d861af59dee9affd7"
+    },
+    {
+      "path": "benchmarks/progressive_ternary/json_records.py",
+      "bytes": 2526,
+      "sha256": "d73152f203dc738c3b478f8f3f3e1bf1465f72eb5a2857ceed4486a81d1797d0"
+    },
+    {
+      "path": "benchmarks/progressive_ternary/native_resource.py",
+      "bytes": 1563,
+      "sha256": "71dd32c2f6cbea46ddb8af84b239a1d6890a12c9aeac80e76e670838c283f993"
+    },
+    {
+      "path": "scripts/progressive_ternary/qualify_src003_reader.py",
+      "bytes": 13594,
+      "sha256": "392e27b18198c585133748edddb32915706433c7ed72e655d9ef16bd0c941ea0"
+    },
+    {
+      "path": "scripts/progressive_ternary/qualify_src006_source.py",
+      "bytes": 18572,
+      "sha256": "56c2bf1029a01c686f8b5496f265f0a7ee75317dafab070e39acbdc8ce7d2a6a"
+    }
+  ],
+  "stream_statistics": {
+    "decompressed_read_bytes": 65536,
+    "maximum_chunk_bytes": 65536,
+    "maximum_record_buffer_bytes": 3157,
+    "records": 3,
+    "oversized_records": 0
+  },
+  "resource": {
+    "elapsed_seconds_before_report": 0.625,
+    "peak_process_RSS_bytes": 22691840
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema": "PQT_012_LOCAL_RETENTION_V1",
+  "passed": true,
+  "stage": "remote_preparation",
+  "sequence": "003",
+  "attempt_passed": true,
+  "source_commit": "81cb53839e421dd0331b64de3238481c866a2605",
+  "attempt_report": {
+    "passed": true,
+    "source_commit": "81cb53839e421dd0331b64de3238481c866a2605",
+    "admission": {
+      "own_pid": 25316,
+      "parent_pid": 29200,
+      "allowed_live_pids": [
+        25316,
+        29200
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 29200,
+        "ParentProcessId": 30660,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 29200,
+          "ParentProcessId": 30660,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 25316,
+          "ParentProcessId": 29200,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [],
+      "passed": true,
+      "native_timing_reservation": false
+    },
+    "capsule": {
+      "bytes": 117362605,
+      "sha256": "654535bbed88a8a525af351b6052810fff6c495aa7845b17759db8e059a26f83"
+    },
+    "candidate_fits": 0,
+    "private_write": false,
+    "resource": {
+      "elapsed_seconds_before_report": 1.8289999999979045,
+      "peak_process_RSS_bytes": 24821760
+    },
+    "complete_preparation_child_duration_separately_instrumented": true
+  },
+  "controller": {
+    "schema": "PQT_012_LOCAL_CONTROLLER_V1",
+    "stage": "remote_preparation",
+    "sequence": "003",
+    "source_commit": "81cb53839e421dd0331b64de3238481c866a2605",
+    "controller_sha256": "9a9c4ddf97d3d39cf223fe2e9241d44ee3f742bfb2ca8776e237ebdc16d79746",
+    "complete": true,
+    "timeout_seconds": 600,
+    "timed_out": false,
+    "exit_code": 0,
+    "worker_report_sha256": "ded213ab3a25f65715ca235e02d306b9404f77b9dcc0609a2b9bbed96c36b42d",
+    "worker_passed": true,
+    "elapsed_complete_worker_seconds": 2.1458695,
+    "owned_process_ids": [
+      29200,
+      25316
+    ]
+  },
+  "manifest": "pqt_012_controls_evidence/remote_preparation_003/manifest.json",
+  "manifest_identity": {
+    "bytes": 7229,
+    "sha256": "196cb42e3048b84504dbf8944eea537eff9c4f35986f3da7f769c03b8b7e17e5"
+  },
+  "raw_entries": 19,
+  "raw_bytes": 117427748,
+  "resource": {
+    "elapsed_seconds_before_report": 0.9379999999946449,
+    "peak_process_RSS_bytes": 136949760
+  },
+  "complete_retainer_child_duration_separately_instrumented": false,
+  "whole_research_complete": false
+}

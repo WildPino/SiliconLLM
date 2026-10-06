@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "scale_solve_matches_scalar_inverse",
+    "int4_golden_bytes",
+    "offset_matches_scalar_mean"
+  ],
+  "synthetic_only": true,
+  "source_commit": "2221391",
+  "python": "3.12.10",
+  "torch": "2.6.0+cu124",
+  "scope": "Tiny CPU controls in read-only existing runtime; not GPU admission"
+}

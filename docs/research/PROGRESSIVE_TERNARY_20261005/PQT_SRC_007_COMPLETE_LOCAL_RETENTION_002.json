@@ -1,0 +1,128 @@
+{
+  "schema": "PQT_SRC_007_COMPLETE_LOCAL_RETENTION_V1",
+  "passed": true,
+  "source_commit": "34b13b8e371c9877d9c69377c48d2e6707f0fd82",
+  "audit_report": {
+    "schema": "PQT_SRC_007_COMPLETE_LOCAL_AUDIT_V1",
+    "passed": true,
+    "source_commit": "34b13b8e371c9877d9c69377c48d2e6707f0fd82",
+    "model_forwards": 0,
+    "optimizer_updates": 0,
+    "GPU_allocations": 0,
+    "whole_research_complete": false,
+    "admission": {
+      "own_pid": 30748,
+      "parent_pid": 23860,
+      "allowed_live_pids": [
+        23860,
+        30748
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 23860,
+        "ParentProcessId": 24324,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 23860,
+          "ParentProcessId": 24324,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 30748,
+          "ParentProcessId": 23860,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [],
+      "passed": true,
+      "native_timing_reservation": false
+    },
+    "toy_maximum_CPU_reference_relative_RMS": 8.196127306114756e-07,
+    "remote_scientific_source_commit": "9068b2b260fbdb5b9954d0ba6cf0814655bb558a",
+    "remote_report_identity": {
+      "bytes": 96651388,
+      "sha256": "824f29b3b8e5deaec4ce57d347061669945af228bf8433e231773078271e8a9d"
+    },
+    "remote_audit_identity": {
+      "bytes": 1072,
+      "sha256": "c471738572ab2c5f05020e6e99a72d9466dccfad5ae44ffd05a1d2145be678a8"
+    },
+    "original": {
+      "maximum_CPU_reference_relative_RMS": 9.174933495357991e-06,
+      "witness_F64_relative_RMS": [
+        9.429850421310744e-08,
+        7.331531048340299e-08,
+        1.2879307326203947e-07,
+        1.2361933391494872e-07
+      ],
+      "eligible_final_decoder_experts": [
+        37
+      ],
+      "selected_final_decoder_experts": [],
+      "fit_admitted": false,
+      "complete_original_forwards": 60,
+      "capture_batches": 48,
+      "documents": 384,
+      "actual_original_SDPA_calls": 2052,
+      "optimizer_updates": 0,
+      "whole_research_complete": false,
+      "coverage_sha256": "63769518517d9368d2399b5534b879186b809620e0bf298b07f8f3bd5f67f5c3",
+      "predictions_sha256": "c04fcdcc84f2d9ec422f1b9e081ec1786a3a1ce19417b960cb2a49b96d774625"
+    },
+    "fit_admitted": false,
+    "maximum_prediction_NLL_reaggregation_difference": 0.0,
+    "derived_files": {
+      "baseline_predictions.json": {
+        "bytes": 37087,
+        "sha256": "c04fcdcc84f2d9ec422f1b9e081ec1786a3a1ce19417b960cb2a49b96d774625"
+      },
+      "coverage.json": {
+        "bytes": 16465194,
+        "sha256": "63769518517d9368d2399b5534b879186b809620e0bf298b07f8f3bd5f67f5c3"
+      }
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 142.13999999998487,
+      "peak_process_RSS_bytes": 1882038272
+    }
+  },
+  "controller": {
+    "schema": "PQT_SRC_007_COMPLETE_AUDIT_CONTROLLER_V1",
+    "sequence": "002",
+    "source_commit": "34b13b8e371c9877d9c69377c48d2e6707f0fd82",
+    "controller_sha256": "4f6b4f827d3a4e56320972458903150e45caf951783e2bf0d785bf69d134cc7a",
+    "complete": true,
+    "timeout_seconds": 1800,
+    "timed_out": false,
+    "exit_code": 0,
+    "worker_report_sha256": "cef80561d10adfc1ecb9dc7f18b806ff65a9c55a9f6929c8c2c2b827229f29d3",
+    "worker_passed": true,
+    "elapsed_complete_worker_seconds": 146.37139449999998,
+    "owned_process_ids": [
+      23860,
+      30748
+    ]
+  },
+  "manifest": "pqt_src007_controls_evidence/complete_audit_002/manifest.json",
+  "manifest_identity": {
+    "bytes": 5273,
+    "sha256": "e8d3a4f5d391e737bbbc1ab9725fc5b24618a6667765f7acc15c4ac4452f4878"
+  },
+  "archive_identity": {
+    "bytes": 16587484,
+    "sha256": "41ee6915302a796240cbc8a3bd5c6b63f89a289e69b26d5133a933d2440eb0e0"
+  },
+  "raw_entries": 15,
+  "raw_bytes": 16584574,
+  "resource": {
+    "elapsed_seconds_before_report": 0.5469999999913853,
+    "peak_process_RSS_bytes": 37269504
+  },
+  "retainer_complete_child_duration_independently_instrumented": false,
+  "model_forwards": 0,
+  "whole_research_complete": false
+}

@@ -1,0 +1,188 @@
+{
+  "schema": "PQT_012_REMOTE_RETENTION_V1",
+  "passed": true,
+  "source_commit": "31aecfa97d809922c2a7dd31cb9aa90606780113",
+  "actual_source_files": {
+    "apparatus.py": {
+      "bytes": 5125,
+      "sha256": "473165a883ef3e1fb7c3ae91ba0e18777a4de9e3f5781662ad699f12d66257af"
+    },
+    "audit_pqt012.py": {
+      "bytes": 14950,
+      "sha256": "48a329e8957d9492c34b248ccf136977e8afe30a84425c960b9e2f18af9964e7"
+    },
+    "pqt012_artifact.py": {
+      "bytes": 7724,
+      "sha256": "c61ff0228fae78343add8649d5de97fa5a96df96a830496f281799122c74eae1"
+    },
+    "pqt012_inputs.py": {
+      "bytes": 3867,
+      "sha256": "c52c778bb223293746d537163da673a56e214afa92b24ef94bf8a4b6c846fef6"
+    },
+    "pqt012_metrics.py": {
+      "bytes": 3251,
+      "sha256": "daa75ccb7368bb11e6ec03d4753457c677d0baa4db83a0ad27c4588ff0390ce5"
+    },
+    "pqt012_ridge.py": {
+      "bytes": 1758,
+      "sha256": "00d3056c7d4c1aede6b25d4e0cd5d3ec076b24d712f43ba7c08bf9492aa302b8"
+    },
+    "pqt012_worker.py": {
+      "bytes": 17926,
+      "sha256": "a9a302ab4ab549c2cf0a7dd2c4f92b6da92a4b1353b9ec62305f22bde5a7e375"
+    },
+    "scale_math.py": {
+      "bytes": 4789,
+      "sha256": "df3b384cfd5c0de73807391daf91f77f985f77090434e4e759956fa79d512eba"
+    },
+    "src007_io.py": {
+      "bytes": 6661,
+      "sha256": "d72ec0ca1d8e11deaa0be1e7311a7fd4d57b0ec06b0ddc997b0e89c9b40345d0"
+    },
+    "ternary_math.py": {
+      "bytes": 4732,
+      "sha256": "44f9009acdab3c90d1244aea8fd53408ceb9c08a3997e6c85bafcfc7724534aa"
+    },
+    "PQT_012_REMOTE_BINDING.json": {
+      "bytes": 9128,
+      "sha256": "3e687fcff0ebdd1996d7bac0c0a40ed70f6ed7e7e8c588a0749056f39929b0ff"
+    },
+    "PQT_012_PREREGISTRATION.md": {
+      "bytes": 9157,
+      "sha256": "fc1d4fcaae7cb6cfda84d4bd8691d0e0266b0828a9a5c1e7c2460e126d9c77fa"
+    },
+    "PQT_012_EXECUTION_PROTOCOL.md": {
+      "bytes": 4107,
+      "sha256": "451bb04917f05e3a43f0eb815cab148b31716fbd628247bbb111c4059d144acf"
+    },
+    "PQT_012_INPUT_PROTOCOL.md": {
+      "bytes": 3324,
+      "sha256": "d7b8849e731184b54dd4cfc996d32d0b625af3a0c7bea3902868ff8f7d40f90c"
+    },
+    "PQT_012_CONTROLS_PROTOCOL.md": {
+      "bytes": 2424,
+      "sha256": "8a81c5318c765ac33e586e1ec66d6780e76b12d58a3e686053404dfbd8ea47f7"
+    },
+    "PQT_012_PREPARATION_RESULTS.md": {
+      "bytes": 6637,
+      "sha256": "14cc05278ad86e5a9b1bc2bf1466e51935f09c2d8f0f31d755d1d9626738c834"
+    },
+    "PQT_012_PREPARATION_GIT_001.json": {
+      "bytes": 1277,
+      "sha256": "8f246ea21af30f591b87ee89e6677cb1c1aae21efe429d98539c486aab2c1d61"
+    },
+    "PQT_012_AUDIT_GIT_001.json": {
+      "bytes": 1247,
+      "sha256": "5bc5b6d1f4837f6a3ce396779980ea2c6cc0f5dab0fb54ac01f33cf22a5a97b2"
+    },
+    "PQT_012_CONTROLS_GIT_002.json": {
+      "bytes": 1262,
+      "sha256": "5da9d6c3c87e29420c50d1406438f1187285c1f57a1fdc79d85a4208ededb14b"
+    },
+    "PQT_012_PREPARATION_RETENTION_001.json": {
+      "bytes": 16116,
+      "sha256": "9b25ed9886ea51e52fb31599c07d33ca0c1b01192fcfdce621401d1c108af94f"
+    },
+    "PQT_012_AUDIT_RETENTION_001.json": {
+      "bytes": 3832,
+      "sha256": "c4c866eaceeae65446e5f201647a6d079131996d96937d2758ed231c95bd23f4"
+    },
+    "PQT_012_CONTROLS_RETENTION_002.json": {
+      "bytes": 6739,
+      "sha256": "f8677a81fe69ddd281207dbdd82a93b9a2fde6d10e774c39dad004fc0ed5fd5b"
+    }
+  },
+  "pulled_bootstrap_only_CRLF_difference": true,
+  "worker_passed": true,
+  "worker_failure": null,
+  "audit_passed": true,
+  "audit_failure": null,
+  "advancing_arms": [],
+  "bootstrap_progress": [
+    {
+      "step": "install",
+      "returncode": 0,
+      "error": null,
+      "declared_seconds": 600,
+      "budget_seconds": 600,
+      "elapsed_complete_child_seconds": 2.621652035000011,
+      "cumulative_peak_child_RSS_bytes": 51888128
+    },
+    {
+      "step": "experiment",
+      "returncode": 0,
+      "error": null,
+      "declared_seconds": 3600,
+      "budget_seconds": 3600,
+      "elapsed_complete_child_seconds": 45.84183495100001,
+      "cumulative_peak_child_RSS_bytes": 1888755712
+    },
+    {
+      "step": "audit",
+      "returncode": 0,
+      "error": null,
+      "declared_seconds": 1200,
+      "budget_seconds": 1200,
+      "elapsed_complete_child_seconds": 27.695172649,
+      "cumulative_peak_child_RSS_bytes": 1888755712
+    }
+  ],
+  "bootstrap_costs": {
+    "source_preparation_seconds": 0.011059845999994877,
+    "server_elapsed_seconds": 76.17085156600001,
+    "server_budget_seconds": 5400,
+    "peak_child_RSS_scope": "Maximum across all completed children; per-process actual RSS is recorded separately"
+  },
+  "worker_resource": {
+    "elapsed_seconds_before_report": 35.421171316,
+    "peak_process_RSS_bytes": 1856229376,
+    "devices": [
+      {
+        "device": 0,
+        "name": "Tesla T4",
+        "peak_allocated_bytes": 280032768,
+        "peak_reserved_bytes": 316669952
+      },
+      {
+        "device": 1,
+        "name": "Tesla T4",
+        "peak_allocated_bytes": 279860736,
+        "peak_reserved_bytes": 316669952
+      }
+    ]
+  },
+  "audit_resource": {
+    "elapsed_seconds_before_report": 26.99226611200001,
+    "peak_process_RSS_bytes": 1217064960
+  },
+  "retention_manifest": "pqt012_remote_evidence_001/manifest.json",
+  "retention_manifest_identity": {
+    "bytes": 380253,
+    "sha256": "fc398c88c1543212319754aa73fb83d6c07ec9fbaf0a0e46c15f845e07ab6dce"
+  },
+  "raw_entries": 1013,
+  "raw_bytes": 635782256,
+  "archives": [
+    {
+      "file": "raw_001.zip",
+      "bytes": 182504639,
+      "sha256": "96d900e5849d145885e72bd889b0b22a310d280e6cb89c6994e193f1daaed668"
+    },
+    {
+      "file": "raw_002.zip",
+      "bytes": 251376046,
+      "sha256": "e9decd980d743f473220441f674846ac81539d3d414ed47ecca0dfba47c4997c"
+    },
+    {
+      "file": "raw_003.zip",
+      "bytes": 202084395,
+      "sha256": "9a73058fd42be22247dc6626fea7f6476389611dd08309cfb945cf9a097eaf3b"
+    }
+  ],
+  "numerical_replays": 0,
+  "whole_research_complete": false,
+  "resource": {
+    "elapsed_seconds_before_report": 12.094000000011874,
+    "peak_process_RSS_bytes": 27570176
+  }
+}

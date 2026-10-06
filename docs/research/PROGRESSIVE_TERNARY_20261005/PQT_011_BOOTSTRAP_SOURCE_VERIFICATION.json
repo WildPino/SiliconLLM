@@ -1,0 +1,34 @@
+{
+  "schema": "PQT_ACTUAL_BOOTSTRAP_ADJUDICATOR_SOURCE_VERIFICATION_V1",
+  "run_id": "PQT-011",
+  "passed": true,
+  "bundle_evidence_commit": "1abfd3d2a55e2af7cdc16e9f2885036aff75265e",
+  "frozen_scientific_source_commit": "9a47a85cd6ffe2289705198b13d05f4e598264c1",
+  "actual_bootstrap": {
+    "bytes": 210840,
+    "sha256": "406b5d834838621e4d9f5a26a87df747855efd04c617239d2fbeaeed4c562f4f"
+  },
+  "frozen_bootstrap": {
+    "bytes": 210791,
+    "sha256": "10e6876074a3523e2b7e8612c54b11ea1dc72a56f520323ac68512f7d7f64e45"
+  },
+  "only_CRLF_to_LF_normalization_required": true,
+  "extra_CR_bytes": 49,
+  "actual_bootstrap_identity_matches_single_fetch": true,
+  "local_adjudicator_and_dependencies_exact_to_frozen_bundle": {
+    "adjudicate_pqt011.py": {
+      "bytes": 20575,
+      "sha256": "b3f5012df1b5cd4f063b1a84b2bcbd19008f7b5d6d7ab0c99ed494cdbf31178b"
+    },
+    "adjudicate_pqt007.py": {
+      "bytes": 9902,
+      "sha256": "55f4c2fd3e35a4e9a9e021a499e2be2354b568f86dd2d07779002f9aa5679a01"
+    },
+    "adjudicate_pqt008.py": {
+      "bytes": 15756,
+      "sha256": "ef051f033388ea3197b574a9f5c19ffd9c089c76377be17c2bc5ec2fa4a66557"
+    }
+  },
+  "source_not_executed_by_verification": true,
+  "whole_research_complete": false
+}

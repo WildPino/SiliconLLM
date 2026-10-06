@@ -1,0 +1,383 @@
+{
+  "schema": "PQT_013_CPU_RETENTION_V1",
+  "passed": true,
+  "attempt_passed": true,
+  "sequence": "002",
+  "ref": "giggio253/pqt-013-primitive-controls-20261006-002",
+  "scientific_source_commit": "4a7ff0163098d99a11860c3e5b936f688296d3d3",
+  "all_actual_source_and_raw_bytes_verified": true,
+  "server_bootstrap": {
+    "original": {
+      "bytes": 70917,
+      "sha256": "eefb4da0c5a5e56d8c55ab8a1a151198acaa1b20da5572ad4c6ed3637dcdbd34"
+    },
+    "pulled": {
+      "bytes": 70985,
+      "sha256": "c341d8e83ad29ba2d6089aee687330c3ebef24f85ae7368392deab565f3983ff"
+    },
+    "exact_after_explicit_CRLF_to_LF_only": true,
+    "pull_CRLF_count": 68,
+    "pulled_raw_bytes_retained_unchanged": true
+  },
+  "qualification_report": {
+    "schema": "PQT_013_CONTROLS_V1",
+    "passed": true,
+    "source_commit": "4a7ff0163098d99a11860c3e5b936f688296d3d3",
+    "synthetic_only": true,
+    "original_candidate_fits": 0,
+    "GPU_allocations": 0,
+    "optimizer_updates": 0,
+    "checks": [
+      "scalar_endpoints_one_sided_all_zero_and_half_ties",
+      "independent_literal_golden_packing",
+      "scalar_compensation_and_panel_tail_False",
+      "scalar_compensation_and_panel_tail_True",
+      "zero_curvature_floor_without_fallback",
+      "packed_asymmetric_function_without_source_lookup",
+      "packed_symmetric_function_levels",
+      "packed_group64_baseline_golden",
+      "malformed_deployment_stops",
+      "all_artifact_phase_False",
+      "all_artifact_phase_True"
+    ],
+    "rejections": [
+      {
+        "control": "reserved_code",
+        "gate": "pqt013_reserved_code"
+      },
+      {
+        "control": "short_code_stream",
+        "gate": "pqt013_packed_length"
+      },
+      {
+        "control": "stale_hash",
+        "gate": "pqt013_member_hash"
+      },
+      {
+        "control": "negative_level",
+        "gate": "pqt013_nonnegative_levels"
+      },
+      {
+        "control": "F64_level",
+        "gate": "pqt012_npy_layout_finite"
+      },
+      {
+        "control": "wrong_level_shape",
+        "gate": "pqt012_npy_layout_finite"
+      },
+      {
+        "control": "NaN_level",
+        "gate": "pqt012_npy_layout_finite"
+      },
+      {
+        "control": "wrong_group",
+        "gate": "pqt013_artifact_group"
+      },
+      {
+        "control": "unknown_encoding",
+        "gate": "pqt013_artifact_geometry"
+      },
+      {
+        "control": "original_dense_extra",
+        "gate": "zip_namespace"
+      },
+      {
+        "control": "inactive_nonzero_code",
+        "gate": "pqt013_canonical_zero_levels"
+      },
+      {
+        "control": "F64_endpoint_input",
+        "gate": "pqt013_weight_layout"
+      },
+      {
+        "control": "negative_endpoint_input",
+        "gate": "pqt013_endpoint_layout"
+      },
+      {
+        "control": "zero_panel_width",
+        "gate": "pqt013_progressive_layout"
+      },
+      {
+        "control": "early_development_False",
+        "gate": "pqt013_calibration_only_phase"
+      },
+      {
+        "control": "missing_seal_False",
+        "gate": "pqt013_all_artifacts_sealed"
+      },
+      {
+        "control": "duplicate_seal_False",
+        "gate": "pqt013_artifact_seal"
+      },
+      {
+        "control": "evaluate_twice_False",
+        "gate": "pqt013_all_artifacts_sealed"
+      },
+      {
+        "control": "early_development_True",
+        "gate": "pqt013_calibration_only_phase"
+      },
+      {
+        "control": "missing_seal_True",
+        "gate": "pqt013_all_artifacts_sealed"
+      },
+      {
+        "control": "duplicate_seal_True",
+        "gate": "pqt013_artifact_seal"
+      },
+      {
+        "control": "evaluate_twice_True",
+        "gate": "pqt013_all_artifacts_sealed"
+      }
+    ],
+    "whole_research_complete": false,
+    "admission": {
+      "scope": "Dedicated private CPU-only host; full actual source manifest independently checked",
+      "passed": true,
+      "all_actual_source_bytes_verified": true,
+      "native_timing_reservation": false
+    },
+    "runtime": {
+      "python": "3.13.15",
+      "torch": "2.11.0+cu128",
+      "numpy": "2.1.3",
+      "cuda_devices": 0,
+      "threads": 1
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 16.698844707999996,
+      "peak_process_RSS_bytes": 658325504
+    },
+    "files": {
+      "golden_group64.bin": {
+        "bytes": 4222,
+        "sha256": "f4ab090a003470888b7028cb809880eebe2d9909f09f70975f2ae4cabea44d52"
+      },
+      "wrong_level_shape.bin": {
+        "bytes": 1489,
+        "sha256": "5f5dd174d0e3fba1822d276e36d93e02a202108fe1266a971fcd6e02518bbc17"
+      },
+      "original_dense_extra.bin": {
+        "bytes": 1931,
+        "sha256": "e650075bcd0db25ea2c74f414472519616a00594b6dd14d2346c150f6b0a5f62"
+      },
+      "negative_level.bin": {
+        "bytes": 1505,
+        "sha256": "2f8b817a0170a4233e0ba2c47ed50eac83cf6c6b2dea1d68ca8a8b4c1f08e9be"
+      },
+      "golden_symmetric.bin": {
+        "bytes": 1690,
+        "sha256": "dba4e7cef22e633155468a3ce2cf56602635adfd551b9cb97c3084cbdb8e32ce"
+      },
+      "scalar_True_128.json": {
+        "bytes": 994,
+        "sha256": "f4ee54f1bb5f9ef8c21d4ed6844eeebe30a66ebb70fbac4cc29a186adf3a2d5b"
+      },
+      "F64_level.bin": {
+        "bytes": 1537,
+        "sha256": "d1c29b2608728fcc7734c81756fe8a3bea586adcfada3348f95963a23df59bba"
+      },
+      "scalar_True_3.json": {
+        "bytes": 1266,
+        "sha256": "a03a7df1bcdbb8c5a0a3c023b13bea4a80d80ebfdee620f47d098a5d2571b42c"
+      },
+      "wrong_group.bin": {
+        "bytes": 1505,
+        "sha256": "9f45fe7db46b8a9bdf9bf7b0e1576443f0ffaec953291fc8517c4e995f8eff3d"
+      },
+      "scalar_False_3.json": {
+        "bytes": 1266,
+        "sha256": "7b6e812ecda035658b1157731ad30ec328e33366add8c989c5c339045649433e"
+      },
+      "reserved_code.bin": {
+        "bytes": 1505,
+        "sha256": "f837d2accae5e88cb3efa5ed193dc48617a3108c2de7fe92e1405531ed55070b"
+      },
+      "scalar_False_128.json": {
+        "bytes": 994,
+        "sha256": "59d2a02e831ff9dfe170dfac1da66d88b3312ef49a9104b41da693700022108b"
+      },
+      "NaN_level.bin": {
+        "bytes": 1505,
+        "sha256": "0de85bfc52b40b807a1f6b5c138cca2788ce289b6196e0becb262436ec2626b6"
+      },
+      "golden_asymmetric.bin": {
+        "bytes": 1724,
+        "sha256": "df90f73a4182d526e545fe6602f460f92cdf84e8b5091be13a46d57b09c10f85"
+      },
+      "inactive_nonzero_code.bin": {
+        "bytes": 1505,
+        "sha256": "36edb10c9372df1dc17b8bdafa92df4cbb3775948784832d68755a5ace368ae0"
+      },
+      "short_code_stream.bin": {
+        "bytes": 1504,
+        "sha256": "263416c695c82a9a203f58cca4693c70a79b77680af547671974c39b9ea8a96e"
+      },
+      "unknown_encoding.bin": {
+        "bytes": 1504,
+        "sha256": "5cb2fe13cff10f8b6195a1f22d5c9ef7dc08194f06d780c09c800dcb150c7f54"
+      },
+      "stale_hash.bin": {
+        "bytes": 1505,
+        "sha256": "bc4deb72f5788bdb0249b07c33769617b5fc8df7aca0c03591a80d6714c19523"
+      },
+      "resource_guard.json": {
+        "bytes": 200,
+        "sha256": "ecc621aae3e3e70053c5aca17093847b5ce7984d6d8475d6728ab43d52654eb0"
+      }
+    }
+  },
+  "bootstrap_costs": {
+    "schema": "PQT_013_CPU_BOOTSTRAP_V1",
+    "passed": true,
+    "source_commit": "4a7ff0163098d99a11860c3e5b936f688296d3d3",
+    "ref": "giggio253/pqt-013-primitive-controls-20261006-002",
+    "source_preparation_seconds": 0.025309700000008206,
+    "server_elapsed_seconds_before_report": 25.398454928000007,
+    "server_budget_seconds": 1200,
+    "bootstrap_peak_RSS_bytes": 21057536,
+    "raw_output_bytes_before_report": 170266,
+    "steps": [
+      {
+        "step": "install",
+        "returncode": 0,
+        "resource_stop": null,
+        "declared_seconds": 300,
+        "budget_seconds": 300,
+        "elapsed_complete_child_seconds": 4.23140946700002,
+        "actual_child_peak_RSS_bytes": 51486720,
+        "sampled_direct_child_peak_RSS_bytes": 50118656,
+        "RSS_scope": "Actual wait4 rusage of this direct child, not cumulative; sampled RSS monitors the direct child"
+      },
+      {
+        "step": "controls",
+        "returncode": 0,
+        "resource_stop": null,
+        "declared_seconds": 600,
+        "budget_seconds": 600,
+        "elapsed_complete_child_seconds": 21.139784555000006,
+        "actual_child_peak_RSS_bytes": 752029696,
+        "sampled_direct_child_peak_RSS_bytes": 749830144,
+        "RSS_scope": "Actual wait4 rusage of this direct child, not cumulative; sampled RSS monitors the direct child"
+      }
+    ],
+    "GPU_enabled": false,
+    "original_candidate_fits": 0,
+    "optimizer_updates": 0
+  },
+  "admission": {
+    "schema": "PQT_KAGGLE_ADMISSION_V1",
+    "time_utc": "2026-10-06T17:35:05.968300+00:00",
+    "account": {
+      "account": "acct2",
+      "status": "verified",
+      "configured_username": "giggio253",
+      "server_identity": "giggio253",
+      "gpu_quota": {
+        "used_hours": 0.06602194444444444,
+        "reserved_hours": 0.0,
+        "total_hours": 30.0,
+        "remaining_before_reservations_hours": 29.933978055555556,
+        "conservative_unreserved_hours": 29.933978055555556,
+        "idle_proven": false,
+        "reset_time": null
+      },
+      "observed_at_utc": "2026-10-06T17:34:58.816128+00:00"
+    },
+    "owned_kernels": [
+      {
+        "ref": "giggio253/pqt-013-primitive-controls-20261006-001",
+        "status": "ERROR",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/pqt-012-natural-encoder-20261006-001",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/pqt-005-r1-original-experts-20261005-002",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/pqt-005-original-experts-20261005-001",
+        "status": "ERROR",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/h2i-one-byte-phase-b",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/phase64-mainrun",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/phase64-arm5",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/seearm2-v4096",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/wilddataset-2",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/siliconllm2",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      }
+    ],
+    "ref": "giggio253/pqt-013-primitive-controls-20261006-002",
+    "timeout_seconds": 1200,
+    "source_commit": "abe393ef1d386739cb49078d5e0652da709a3cdd",
+    "CPU_quota_margin_explicitly_required": true,
+    "prior_ref_fresh_status": null,
+    "bundle_sha256": {
+      "bootstrap.py": "eefb4da0c5a5e56d8c55ab8a1a151198acaa1b20da5572ad4c6ed3637dcdbd34",
+      "kernel-metadata.json": "135216f9113e9f188d02406d160826ea2ea03984921f10b9505180906cae1595"
+    },
+    "interactive_session_absence_proven": false,
+    "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+  },
+  "manifest": "pqt013_cpu_evidence_002/manifest.json",
+  "manifest_identity": {
+    "bytes": 24894,
+    "sha256": "5fcdb350fe9c1884d265ae270e938210198769041453f59a0ef3cd5a1505ff2e"
+  },
+  "raw_entries": 66,
+  "raw_bytes": 344111,
+  "resource": {
+    "elapsed_seconds_before_report": 0.8589999999967404,
+    "peak_process_RSS_bytes": 23609344
+  },
+  "whole_research_complete": false
+}

@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "values": {
+    "group64_f32_bits": 2.5,
+    "group64_f32_percent_fp16": 15.625,
+    "group8_f32_percent_fp16": 37.5,
+    "group8_f16_percent_fp16": 25.0,
+    "two_plane_group64_f32_bits": 5.0,
+    "two_plane_group64_f32_percent_fp16": 31.25,
+    "ptqtp_example_bytes": 2101248,
+    "pqt012_rank256_residual_bytes": 1575936,
+    "pqt012_rank256_estimated_percent_fp16": 32.32421875,
+    "cloe_rounded_storage_percent": 47.76839565741858,
+    "gemq_mmlu_percentage_point_loss": 7.160000000000004,
+    "gemq_mmlu_relative_loss_percent": 10.174790393633655,
+    "catq_nominal_token_exposures_per_window": 62914560,
+    "scaleq_nominal_token_exposures_per_window": 240000000,
+    "continual_nominal_trajectory_tokens": 41943040000
+  },
+  "interpretation": "Arithmetic from declared formats/reported rounded values; not measured artifact or implementation counters.",
+  "covariance_note": "Centered empirical covariance rank<=min(n-1,768); n=321/238/236/229, thus singular without regularization."
+}

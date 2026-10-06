@@ -1,0 +1,132 @@
+{
+  "schema": "PQT_013_STAGE_RETENTION_V1",
+  "passed": true,
+  "stage": "controls",
+  "sequence": "001",
+  "attempt_passed": false,
+  "source_commit": "e5c1e58b76a92ec2ee13affbd39f8444c2260614",
+  "producer_report": {
+    "schema": "PQT_013_CONTROLS_V1",
+    "passed": false,
+    "source_commit": "e5c1e58b76a92ec2ee13affbd39f8444c2260614",
+    "synthetic_only": true,
+    "original_candidate_fits": 0,
+    "GPU_allocations": 0,
+    "optimizer_updates": 0,
+    "checks": [],
+    "rejections": [],
+    "whole_research_complete": false,
+    "admission": {
+      "own_pid": 31592,
+      "parent_pid": 29408,
+      "allowed_live_pids": [
+        29408,
+        31592
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 29408,
+        "ParentProcessId": 26708,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 28284,
+          "ParentProcessId": 16196,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 24980,
+          "ParentProcessId": 28284,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 29408,
+          "ParentProcessId": 26708,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 31592,
+          "ParentProcessId": 29408,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 28284,
+          "ParentProcessId": 16196,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth324_switch_reference\\venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 24980,
+          "ParentProcessId": 28284,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "passed": false,
+      "native_timing_reservation": false
+    },
+    "failure": {
+      "type": "ValueError",
+      "frames": [
+        {
+          "file": "qualify_pqt013.py",
+          "line": 74,
+          "function": "main"
+        },
+        {
+          "file": "src007_io.py",
+          "line": 12,
+          "function": "require"
+        }
+      ],
+      "gate": "process_admission"
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 0.7810000000172295,
+      "peak_process_RSS_bytes": 24514560
+    },
+    "files": {
+      "resource_guard.json": {
+        "bytes": 1759,
+        "sha256": "88d22ec3e4836a6f7935031378edf62757af6899395bf05366e7107cf31b8bcc"
+      }
+    }
+  },
+  "controller": {
+    "schema": "PQT_013_CONTROLS_CONTROLLER_V1",
+    "sequence": "001",
+    "source_commit": "e5c1e58b76a92ec2ee13affbd39f8444c2260614",
+    "controller_sha256": "94b5a4158a09301e962b98f89ec7319531d59bfff610c42e20c33d5f02b9a431",
+    "complete": false,
+    "timeout_seconds": 600,
+    "timed_out": false,
+    "exit_code": 1,
+    "worker_report_sha256": "6c3ca3675c861ceaca96d13fe5fc292e5159cd477603f47498c04b96e2419c32",
+    "worker_passed": false,
+    "elapsed_complete_worker_seconds": 1.2938042,
+    "owned_process_ids": [
+      29408,
+      31592
+    ]
+  },
+  "manifest": "pqt013_stage_evidence/controls_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 8431,
+    "sha256": "3533c38e4439b28d2ab957485e7b4de095cca6838ad9a9be4ef233290b17da4b"
+  },
+  "raw_entries": 23,
+  "raw_bytes": 129219,
+  "source_note": "Static transitive local import closure at producer commit; includes unexecuted branches",
+  "resource": {
+    "elapsed_seconds_before_report": 0.9679999999934807,
+    "peak_process_RSS_bytes": 23998464
+  },
+  "whole_research_complete": false
+}

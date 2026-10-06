@@ -1,0 +1,80 @@
+{
+  "schema": "PQT_KAGGLE_ADMISSION_V1",
+  "time_utc": "2026-10-05T21:00:35.296452+00:00",
+  "account": {
+    "account": "acct2",
+    "status": "verified",
+    "configured_username": "giggio253",
+    "server_identity": "giggio253",
+    "gpu_quota": {
+      "used_hours": 0.020646666666666667,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 29.979353333333332,
+      "conservative_unreserved_hours": 29.979353333333332,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-05T21:00:30.086995+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "giggio253/pqt-005-original-experts-20261005-001",
+      "status": "ERROR",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/h2i-one-byte-phase-b",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/phase64-arm5",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/seearm2-v4096",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/wilddataset-2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/siliconllm2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "ref": "giggio253/pqt-005-r1-original-experts-20261005-002",
+  "timeout_seconds": 5400,
+  "source_commit": "01e53cdc791f98d3c45868f07b269bf87def6521",
+  "bundle_sha256": {
+    "bootstrap.py": "124b76452884c4f0199649b8c1f3b2101fdea111a26b0f2b6e005d2ecfd97374",
+    "kernel-metadata.json": "783b34a5e2964dd42856ad594a60874e46a1f0f216297daa7d92b504650aa8f8"
+  },
+  "interactive_session_absence_proven": false,
+  "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+}

@@ -1,0 +1,141 @@
+{
+  "schema": "PQT_SRC_003_RETENTION_V1",
+  "kind": "original",
+  "sequence": "001",
+  "passed": true,
+  "source_directory": "<research-worktree>/SiliconLLM\\results\\progressive_ternary\\PQT-SRC-003\\original_001",
+  "report_complete": true,
+  "report_source_commit": "810c599335a13cb7dd09c06ce78ab95adb36a346",
+  "retained": [
+    {
+      "file": "admission.json",
+      "bytes": 13150,
+      "sha256": "e7ee5d706ae3ecee528d5055146bafa226b569d6112b6217415629622d3aa34f",
+      "role": "raw_evidence"
+    }
+  ],
+  "independent_npy_checks": [
+    {
+      "tensor": "encoder.block.0.layer.0.SelfAttention.q.weight",
+      "file": "encoder.block.0.layer.0.SelfAttention.q.weight.npy",
+      "raw_bytes": 2359296,
+      "original_sha256": "c0b5aef477d158d6ca80c9e08c6f041ecad5ecb8f081ec5ae8069d5aab54795c",
+      "file_sha256": "24becde429b7213035413365d6e9264f4ca13b97edc4833da3f7707fe05e25a9",
+      "file_bytes": 2359424
+    },
+    {
+      "tensor": "encoder.block.11.layer.1.mlp.router.classifier.weight",
+      "file": "encoder.block.11.layer.1.mlp.router.classifier.weight.npy",
+      "raw_bytes": 393216,
+      "original_sha256": "b9e05806b95b0dcf36ba1f2e3fff702dfe16a285d7c8028d89b6528bda69bf96",
+      "file_sha256": "b0a36435d8e7eed9ce922a54300e106e2fc36d25e63e7285eab24242fbdab928",
+      "file_bytes": 393344
+    },
+    {
+      "tensor": "decoder.block.0.layer.0.SelfAttention.q.weight",
+      "file": "decoder.block.0.layer.0.SelfAttention.q.weight.npy",
+      "raw_bytes": 2359296,
+      "original_sha256": "917d5d3961667934e604744e91a343ed0ec515ab74e95c3418cbd55aae81b67a",
+      "file_sha256": "e745e60d8cd83b6faaaa500a7f3c069bfcf28a5ac9d7cd8f4c81a868133b0424",
+      "file_bytes": 2359424
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_0.wi.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_0.wi.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "4c303089af1e788ffd4bf1277cfb8d9add44c7d5d2071084a063dd3532419492",
+      "file_sha256": "1eafd07cfd0212fa50362f7f2b37a3bae4a4d3351b0a9fe625bde13286ff5d31",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_0.wo.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_0.wo.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "8316ba23ea88a3ebf77c4db84011f6796b307af3ac5a86e0e29b5fe0316d51e5",
+      "file_sha256": "cc4ba475d06c055714b024a7306ebbbdbc9132bd64d24374c0166a5a2184b7bf",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_8.wi.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_8.wi.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "769a7bc758ec2e035ddc20c8f7edeaf5e5803c12a860a9dfe64c75bf2697bf95",
+      "file_sha256": "7025f6f8a8e0875b2dbaec59344fb765fd3bcb24b37ac7541d8316b03ad6e18d",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_8.wo.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_8.wo.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "c12097d1372aaafa4e7288bc7d82a9f1dbaaac2f4180f1fdf0b439d699c1cd98",
+      "file_sha256": "e20ec0ec8b936a6e57ef82379135c83402be13928c0e3e9710581141dd7278b0",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_32.wi.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_32.wi.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "a13ba5c24e785d60219470d07529ec6901013dd6453ddd4115ce5e4d5ae8ec69",
+      "file_sha256": "5bdc408658a26aed11c01d9af0f1903c40b033d777ed3d7461234fd36c52d4c3",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_32.wo.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_32.wo.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "b12791c3d8baa8ad7b84ba42e867f6b85b8c3ad4265a45d0e945125f71209f61",
+      "file_sha256": "7499da9f114e579d8490fa1fd4c22f29634013be3de09346a90b3c5cb89aaba0",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_64.wi.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_64.wi.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "5967a14bd8231c18a4c920a056530b261ffb140808d62a8f10599a20cafa491d",
+      "file_sha256": "c3ed729538bf0d4e5713ebfca4198bf353e8c1f787d5be5a3bc1609e01a8aecd",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_64.wo.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_64.wo.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "d8bd5493b3a9ed0d183c99f241a92d0ef35865195ca460c34ca31d48bfd46cc6",
+      "file_sha256": "f99d9206baf918f7b21c5ac9302604854127f9ffb6c62f2f7661506261746c81",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_96.wi.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_96.wi.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "b20ddae6ebf773cd9621525ddd181a10356b28105f8612e2daa54277a90fead3",
+      "file_sha256": "dc5ae2f4b3d46401fe42c4b344220b4599debc152e59535e8e325c4859f632dc",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_96.wo.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_96.wo.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "697b89e4960771022181f79509d9aed5effb0086751c3d4e043d2babd1ecd4f4",
+      "file_sha256": "8ecb8d1a713fe4606539cac04564d0f8bb1d32da0eae724760a4f0190698d6b4",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_105.wi.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_105.wi.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "c5dfa50d4eca3c305f13d2600faa0024cc82b9d9387893534cbf4c196b868027",
+      "file_sha256": "908baaf6e343ef1415dc9726b40e2ee46cf3a4cb0ec2207735d3067095cd1760",
+      "file_bytes": 9437312
+    },
+    {
+      "tensor": "decoder.block.11.layer.2.mlp.experts.expert_105.wo.weight",
+      "file": "decoder.block.11.layer.2.mlp.experts.expert_105.wo.weight.npy",
+      "raw_bytes": 9437184,
+      "original_sha256": "1d33711587d1128635c65eb44562b0239ac604456a05c74bb5ec933ff6d245e6",
+      "file_sha256": "728103dbb7357590f9e9ffc5d9d24b91bf49a8d0233d05a953c8bbdb474d3681",
+      "file_bytes": 9437312
+    }
+  ],
+  "verified_original_bytes": 118358016,
+  "elapsed_seconds": 0.5779999999940628
+}

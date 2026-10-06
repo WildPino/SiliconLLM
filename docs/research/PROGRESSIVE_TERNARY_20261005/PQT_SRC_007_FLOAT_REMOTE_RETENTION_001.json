@@ -1,0 +1,156 @@
+{
+  "schema": "PQT_SRC_007_FLOAT_REMOTE_RETENTION_V1",
+  "sequence": "001",
+  "passed": true,
+  "source_commit": "ce8464d1b7bdd07fb1c1542474d897f4ba60d64d",
+  "actual_source_files": {
+    "src007_io.py": {
+      "bytes": 6513,
+      "sha256": "c24d2d05bb337fb37320fe06adab8d1cd9a6972d043fe206ae552a4d885551f2"
+    },
+    "src007_float.py": {
+      "bytes": 30496,
+      "sha256": "7739953530980c0441a21025a312fc3d902cf595e03e85112759156c13248755"
+    },
+    "audit_src007_float.py": {
+      "bytes": 25175,
+      "sha256": "75a106531a732e4133367cad973f574221a24e0a50dc8df669657e34c0f752f1"
+    },
+    "src005_fixture.py": {
+      "bytes": 4751,
+      "sha256": "e795bdfaee17acb3fa8a7cf780077b90d32e2b0eecc0aee45e082ee8f23bd8b8"
+    },
+    "switch_zip_source.py": {
+      "bytes": 10448,
+      "sha256": "508c4bfaa4b8cb3e4f78c6081f155bdbd651b745acc5e8a0238ccb9280b0490d"
+    },
+    "switch_zip_tensor.py": {
+      "bytes": 7849,
+      "sha256": "6df61a66e74e1f187c09d12b2b653541e9d91d5f8988558e2a89e8931e854f5a"
+    },
+    "switch_lazy_float.py": {
+      "bytes": 9932,
+      "sha256": "010fa3fcc9ee950336dc0060e7501ea94d00ac8db7b367ce4997d70259c9c911"
+    },
+    "PQT_SRC_007_FLOAT_BINDING.json": {
+      "bytes": 4266,
+      "sha256": "3d3f9a82589da0c7583900af101cae2861ab0e89a765e258e40604ecde460e2b"
+    },
+    "PQT_SRC_007_EXECUTION_PROTOCOL.md": {
+      "bytes": 10295,
+      "sha256": "cb2e64caf6caac87f00a4da4479beb52bdafff39972a05c9cc65f279ad961031"
+    },
+    "PQT_SRC_007_FLOAT_CONTROLS_RETENTION_002.json": {
+      "bytes": 2727,
+      "sha256": "ab43b64cdcd5596daf1f1f4e525b1aed40aa900454f287e5253df8e48a14ac63"
+    },
+    "PQT_SRC_007_FLOAT_CONTROLS_GIT_002.json": {
+      "bytes": 2049,
+      "sha256": "8cf4099b07fb2390f6d10a8e99c12a567e8cecaf09b5ede5fbb50559cfc289a0"
+    }
+  },
+  "pulled_bootstrap_only_CRLF_difference": true,
+  "qualification_passed": false,
+  "audit_passed": false,
+  "worker_failure": {
+    "type": "ValueError",
+    "frames": [
+      {
+        "file": "src007_float.py",
+        "line": 447,
+        "function": "main"
+      },
+      {
+        "file": "src007_io.py",
+        "line": 44,
+        "function": "safe_entries"
+      },
+      {
+        "file": "src007_io.py",
+        "line": 12,
+        "function": "require"
+      }
+    ],
+    "gate": "zip_record"
+  },
+  "actual_SDPA_calls": 0,
+  "optimizer_updates": 0,
+  "bootstrap_progress": [
+    {
+      "step": "install",
+      "returncode": 0,
+      "error": null,
+      "declared_seconds": 600,
+      "budget_seconds": 600,
+      "elapsed_complete_child_seconds": 17.26175971500004,
+      "cumulative_peak_child_RSS_bytes": 84475904
+    },
+    {
+      "step": "qualification",
+      "returncode": 1,
+      "error": null,
+      "declared_seconds": 9000,
+      "budget_seconds": 9000,
+      "elapsed_complete_child_seconds": 40.789015276999976,
+      "cumulative_peak_child_RSS_bytes": 1625489408
+    },
+    {
+      "step": "audit",
+      "returncode": 1,
+      "error": null,
+      "declared_seconds": 1800,
+      "budget_seconds": 1800,
+      "elapsed_complete_child_seconds": 0.2149148649999688,
+      "cumulative_peak_child_RSS_bytes": 1625489408
+    }
+  ],
+  "bootstrap_costs": {
+    "source_preparation_seconds": 0.01118095499998617,
+    "server_elapsed_seconds": 58.27831947699997,
+    "server_budget_seconds": 10800,
+    "peak_child_RSS_scope": "Maximum across all completed child processes, conservative per-stage bound"
+  },
+  "worker_resource": {
+    "elapsed_seconds_before_manifest": 1.2846650839999825,
+    "peak_process_RSS_bytes": 1595912192,
+    "devices": [
+      {
+        "gpu": 0,
+        "name": "Tesla T4",
+        "peak_allocated_bytes": 0,
+        "peak_reserved_bytes": 0
+      },
+      {
+        "gpu": 1,
+        "name": "Tesla T4",
+        "peak_allocated_bytes": 0,
+        "peak_reserved_bytes": 0
+      }
+    ],
+    "elapsed_seconds_before_report": 1.4939020340000297
+  },
+  "audit_resource": {
+    "elapsed_seconds_before_report": 0.000999070999966989,
+    "peak_process_RSS_bytes": 36229120
+  },
+  "retention_manifest": "pqt_src007_evidence/remote_001/manifest.json",
+  "retention_manifest_identity": {
+    "bytes": 13227,
+    "sha256": "a6064ebef0636f97c858a822640d00b7ac6b50dd02f1d157165b892b3fe23eea"
+  },
+  "archives": [
+    {
+      "bytes": 71597319,
+      "sha256": "58458da10d96c2c3cd2b4594aa710af7a2ea2422ae44c7c510a34d851a134961",
+      "file": "raw_001.zip"
+    }
+  ],
+  "raw_entries": 37,
+  "raw_bytes": 71591837,
+  "original_functions_repeated_locally": 0,
+  "whole_research_complete": false,
+  "resource": {
+    "elapsed_seconds_before_report": 1.2659999999741558,
+    "peak_process_RSS_bytes": 22470656
+  }
+}

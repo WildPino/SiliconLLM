@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "synthetic_only": true,
+  "original_reset_order_fails_synthetic_allocator": true,
+  "corrected_order": [
+    "init",
+    "reset_0",
+    "reset_1"
+  ],
+  "whole_telemetry_file_single_line_change_verified": true,
+  "exact_copied_view": {
+    "all_original_view_files_exact": 2,
+    "all_first_failure_files_exact": 2,
+    "unknown_view_files": 0
+  },
+  "malformed_input_or_view_cases_rejected": [
+    "existing_copy",
+    "missing_mount",
+    "ambiguous_mount",
+    "unknown_view_file",
+    "changed_view_file",
+    "changed_mounted_file"
+  ],
+  "original_model_or_corpus_access": false,
+  "local_cuda_access": false,
+  "new_optimizer_steps": 0,
+  "original_T4_cause_reproduced": false,
+  "fixture_directory": "<research-worktree>/SiliconLLM\\results\\progressive_ternary\\PQT-010-R1\\controls_001"
+}

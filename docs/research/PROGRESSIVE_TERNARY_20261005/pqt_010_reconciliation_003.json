@@ -1,0 +1,85 @@
+{
+  "started_utc": "2026-10-06T02:46:36.630509+00:00",
+  "finished_utc": "2026-10-06T02:46:42.357535+00:00",
+  "success": true,
+  "value": {
+    "schema": "PQT_UNKNOWN_DISPATCH_RECONCILIATION_V1",
+    "time_utc": "2026-10-06T02:46:42.357535+00:00",
+    "account": {
+      "account": "acct3",
+      "status": "verified",
+      "configured_username": "sirwildpino",
+      "server_identity": "sirwildpino",
+      "gpu_quota": {
+        "used_hours": 1.540742222222222,
+        "reserved_hours": 0.0,
+        "total_hours": 30.0,
+        "remaining_before_reservations_hours": 28.45925777777778,
+        "conservative_unreserved_hours": 28.45925777777778,
+        "idle_proven": false,
+        "reset_time": null
+      },
+      "observed_at_utc": "2026-10-06T02:46:39.750399+00:00"
+    },
+    "ref": "sirwildpino/pqt-010-shared-parameter-ablation-20261006-001",
+    "owned_inventory": {
+      "started_utc": "2026-10-06T02:46:39.750399+00:00",
+      "finished_utc": "2026-10-06T02:46:40.749212+00:00",
+      "success": true,
+      "value": {
+        "pages": [
+          {
+            "page": 1,
+            "returned_count": 13,
+            "owned_refs": [
+              "sirwildpino/pqt-008-global-staged-20261006-001",
+              "sirwildpino/pqt-007-full-model-20261006-001",
+              "sirwildpino/pqt-009-r1-frozen-evaluation-20261006-002",
+              "sirwildpino/pqt-009-calibration-breadth-20261006-001",
+              "sirwildpino/h4-rank48-stagea-v2",
+              "sirwildpino/s1-sparsity-bpb-scale-arm",
+              "sirwildpino/phase64-mainrun",
+              "sirwildpino/phase64-relaytest",
+              "sirwildpino/phase64-arm6",
+              "sirwildpino/notebook3f8b10f091",
+              "sirwildpino/wilddataset-3",
+              "sirwildpino/siliconllm"
+            ]
+          }
+        ],
+        "foreign_or_missing_ref_count": 1,
+        "duplicates": [],
+        "anomalies": [
+          {
+            "page": 1,
+            "kernel_id": 0,
+            "ref": "",
+            "author": "",
+            "slug": "",
+            "version": 0
+          }
+        ],
+        "pagination_complete": true,
+        "exact_ref_present": false,
+        "structurally_valid": false
+      }
+    },
+    "exact_status": {
+      "started_utc": "2026-10-06T02:46:40.749212+00:00",
+      "finished_utc": "2026-10-06T02:46:41.641431+00:00",
+      "success": false,
+      "error_type": "HTTPError",
+      "http_status_code": 404
+    },
+    "exact_metadata": {
+      "started_utc": "2026-10-06T02:46:41.642567+00:00",
+      "finished_utc": "2026-10-06T02:46:42.357535+00:00",
+      "success": false,
+      "error_type": "HTTPError",
+      "http_status_code": 403
+    },
+    "remote_mutations": 0,
+    "exact_ref_in_inventory": false,
+    "absence_claimed": false
+  }
+}

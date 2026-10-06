@@ -1,0 +1,61 @@
+{
+  "schema": "PQT_013_CPU_BUNDLE_VERIFICATION_V1",
+  "passed": true,
+  "bundle_evidence_commit": "46a6140d1c7488b17a9d4731eda29a7636a61bc2",
+  "scientific_source_commit": "3fecc44cc08273d60a870adea6a33d1fb55f1bcb",
+  "all_source_Git_bytes_exact": true,
+  "source_files": 18,
+  "executable_import_closure": [
+    "benchmarks/progressive_ternary/apparatus.py",
+    "benchmarks/progressive_ternary/native_resource.py",
+    "benchmarks/progressive_ternary/pqt012_artifact.py",
+    "benchmarks/progressive_ternary/pqt012_inputs.py",
+    "benchmarks/progressive_ternary/pqt012_metrics.py",
+    "benchmarks/progressive_ternary/pqt012_ridge.py",
+    "benchmarks/progressive_ternary/pqt013_artifact.py",
+    "benchmarks/progressive_ternary/pqt013_inputs.py",
+    "benchmarks/progressive_ternary/pqt013_math.py",
+    "benchmarks/progressive_ternary/scale_math.py",
+    "benchmarks/progressive_ternary/src007_io.py",
+    "benchmarks/progressive_ternary/switch_zip_source.py",
+    "benchmarks/progressive_ternary/ternary_math.py",
+    "scripts/progressive_ternary/qualify_pqt012.py",
+    "scripts/progressive_ternary/qualify_pqt013.py",
+    "scripts/progressive_ternary/qualify_src003_reader.py"
+  ],
+  "metadata_verified": true,
+  "CPU_actual_device_check_deferred_to_private_child": true,
+  "transport_negative_controls": [
+    {
+      "control": "source_traversal",
+      "gate": "source_path"
+    },
+    {
+      "control": "source_backslash",
+      "gate": "source_path"
+    },
+    {
+      "control": "stale_source_hash",
+      "gate": "source_identity"
+    },
+    {
+      "control": "wrong_source_size",
+      "gate": "source_identity"
+    },
+    {
+      "control": "oversized_source",
+      "gate": "source_bound"
+    },
+    {
+      "control": "trailing_stream",
+      "gate": "source_identity"
+    }
+  ],
+  "resource": {
+    "elapsed_seconds_before_report": 0.8910000000032596,
+    "peak_process_RSS_bytes": 25415680
+  },
+  "original_candidate_fits": 0,
+  "private_write": false,
+  "whole_research_complete": false
+}

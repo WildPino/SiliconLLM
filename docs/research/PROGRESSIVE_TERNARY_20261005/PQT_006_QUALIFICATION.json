@@ -1,0 +1,10 @@
+{
+  "schema": "PQT_NATIVE_QUALIFICATION_V1",
+  "passed": false,
+  "native_timing_performed": false,
+  "time_utc": "2026-10-05T21:27:33.778685+00:00",
+  "error_type": "CalledProcessError",
+  "message": "Command '['powershell', '-NoProfile', '-Command', 'Get-Process -Name python,pythonw,llama-cli,llama-server -ErrorAction SilentlyContinue | Select-Object Id,ProcessName | ConvertTo-Json -Compress']' returned non-zero exit status 1.",
+  "safety_elapsed_seconds": 2.110000000000582,
+  "scope": "Selected two-row native arithmetic per pair, all coefficient paths and synthetic malformed/golden controls; no CPU performance or whole-model claim"
+}

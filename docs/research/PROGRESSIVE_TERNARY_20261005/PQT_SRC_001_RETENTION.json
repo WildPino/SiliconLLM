@@ -1,0 +1,55 @@
+{
+  "schema": "PQT_ORIGINAL_TENSOR_RETENTION_V1",
+  "run_id": "PQT-SRC-001",
+  "complete_local_directory": "<research-worktree>/SiliconLLM\\results\\progressive_ternary\\PQT-SRC-001\\original_001",
+  "source_commit": "66815895421de785651575c4a74918ef181435e7",
+  "files": {
+    "decoder.block.11.layer.2.mlp.experts.expert_8.wi.weight.npy": {
+      "bytes": 9437312,
+      "file_sha256": "8a6fd406bc6731fd9bcb8088267c5d03ab8b88215ecee620b5abbfbcfb35f33b",
+      "original_raw_identity_verified": true
+    },
+    "decoder.block.11.layer.2.mlp.experts.expert_8.wo.weight.npy": {
+      "bytes": 9437312,
+      "file_sha256": "c97c934d996a6dac5984282bb16e4780b806054cb4d73e4ec957488e65303d78",
+      "original_raw_identity_verified": true
+    },
+    "decoder.block.11.layer.2.mlp.experts.expert_105.wi.weight.npy": {
+      "bytes": 9437312,
+      "file_sha256": "caa575ad51342103e4370076d418cafd8a7ff4aff314c4e51c6583582a7f7051",
+      "original_raw_identity_verified": true
+    },
+    "decoder.block.11.layer.2.mlp.experts.expert_105.wo.weight.npy": {
+      "bytes": 9437312,
+      "file_sha256": "0b7bfc9d72f5a0b525f86a7287d652117b13b8fffa6d73410cd2ca73036475f0",
+      "original_raw_identity_verified": true
+    }
+  },
+  "source_identities": {
+    "controller_sha256": {
+      "actual_sha256": "d18c4f9da0bd6e974272e69a9a84aab1f707db188aab6af3de8fc1a1b280ed9f",
+      "committed_sha256": "d18c4f9da0bd6e974272e69a9a84aab1f707db188aab6af3de8fc1a1b280ed9f",
+      "byte_exact": true,
+      "metadata_only_CRLF_to_LF_equivalence": false
+    },
+    "protocol_sha256": {
+      "actual_sha256": "86d3bf7800ccc29c343a36d1c05d2e5dc616f1c063f13725d6e8fc1c13842803",
+      "committed_sha256": "86d3bf7800ccc29c343a36d1c05d2e5dc616f1c063f13725d6e8fc1c13842803",
+      "byte_exact": true,
+      "metadata_only_CRLF_to_LF_equivalence": false
+    },
+    "binding_sha256": {
+      "actual_sha256": "e40710575189b2c635226200a83f56c3242e68915bd0901926bbb9efb728dbe2",
+      "committed_sha256": "ceda5031e7c07e4397ff6c691861c63861ebf8723e71518da181b8cd88287d16",
+      "byte_exact": false,
+      "metadata_only_CRLF_to_LF_equivalence": true
+    }
+  },
+  "total_original_raw_bytes": 37748736,
+  "total_npy_file_bytes": 37749248,
+  "independent_standard_library_header_and_hash_check": true,
+  "admission_bytes_retained_at": "pqt_src_001_evidence/admission.json",
+  "admission_sha256": "9d395ad8c70ff53e76440eebeb33303cf403f85c91bf493971a36da0aa5c4fd5",
+  "verification_attempt": "R1 metadata-byte qualification, no repeated extraction",
+  "goal_complete": false
+}

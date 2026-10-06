@@ -1,0 +1,142 @@
+{
+  "schema": "PQT_012_LOCAL_RETENTION_V1",
+  "passed": true,
+  "stage": "controls",
+  "sequence": "001",
+  "attempt_passed": false,
+  "source_commit": "2ebe6477eae3a5df813ca6532d1e440d082c74fd",
+  "attempt_report": {
+    "schema": "PQT_012_CONTROLS_V1",
+    "passed": false,
+    "source_commit": "2ebe6477eae3a5df813ca6532d1e440d082c74fd",
+    "synthetic_only": true,
+    "original_candidate_fits": 0,
+    "model_forwards": 0,
+    "GPU_allocations": 0,
+    "optimizer_updates": 0,
+    "native_timing": false,
+    "checks": [
+      "actual_ternary_threshold_zero_ties_and_T2_I4_golden_bytes",
+      "F64_dual_ridge_matches_independent_scalar_primal_equation"
+    ],
+    "rejections": [
+      {
+        "control": "reserved_T2_11",
+        "gate": "pqt012_reserved_ternary_code"
+      },
+      {
+        "control": "reserved_I4_minus8",
+        "gate": "pqt012_reserved_int4_code"
+      },
+      {
+        "control": "reserved_I8_minus128",
+        "gate": "pqt012_reserved_int8_code"
+      },
+      {
+        "control": "wrong_packed_length",
+        "gate": "pqt012_ternary_packed_length"
+      },
+      {
+        "control": "invalid_source_ternary_code",
+        "gate": "invalid ternary code stream"
+      },
+      {
+        "control": "invalid_source_int4_code",
+        "gate": "invalid int4 stream"
+      }
+    ],
+    "whole_research_complete": false,
+    "admission": {
+      "own_pid": 22268,
+      "parent_pid": 16832,
+      "allowed_live_pids": [
+        16832,
+        22268
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 16832,
+        "ParentProcessId": 11660,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 16832,
+          "ParentProcessId": 11660,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 22268,
+          "ParentProcessId": 16832,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [],
+      "passed": true,
+      "native_timing_reservation": false
+    },
+    "runtime": {
+      "python": "3.12.10",
+      "numpy": "2.1.3",
+      "torch": "2.6.0+cpu",
+      "threads": 1
+    },
+    "failure": {
+      "type": "FileExistsError",
+      "frames": [
+        {
+          "file": "qualify_pqt012.py",
+          "line": 127,
+          "function": "main"
+        },
+        {
+          "file": "qualify_pqt012.py",
+          "line": 79,
+          "function": "save"
+        },
+        {
+          "file": "pathlib.py",
+          "line": 1013,
+          "function": "open"
+        }
+      ]
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 14.594000000011874,
+      "peak_process_RSS_bytes": 189460480
+    }
+  },
+  "controller": {
+    "schema": "PQT_012_LOCAL_CONTROLLER_V1",
+    "stage": "controls",
+    "sequence": "001",
+    "source_commit": "2ebe6477eae3a5df813ca6532d1e440d082c74fd",
+    "controller_sha256": "00ade1cd8b174c1ee3b70d08d664c6b4ef2f55a0dc7c81c54e6815b7be3868db",
+    "complete": false,
+    "timeout_seconds": 600,
+    "timed_out": false,
+    "exit_code": 1,
+    "worker_report_sha256": "5e82d28053b0fc58b394d24580b0664882bc3f2cfc05b0f3328ccba03799e890",
+    "worker_passed": false,
+    "elapsed_complete_worker_seconds": 15.3439616,
+    "owned_process_ids": [
+      16832,
+      22268
+    ]
+  },
+  "manifest": "pqt_012_controls_evidence/controls_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 12665,
+    "sha256": "8bcfe9d4c53a3d5eb94a29e1a053f91c4433757fdec59051c257ea7922ee941f"
+  },
+  "raw_entries": 35,
+  "raw_bytes": 103641,
+  "resource": {
+    "elapsed_seconds_before_report": 1.0159999999741558,
+    "peak_process_RSS_bytes": 22634496
+  },
+  "complete_retainer_child_duration_separately_instrumented": false,
+  "whole_research_complete": false
+}

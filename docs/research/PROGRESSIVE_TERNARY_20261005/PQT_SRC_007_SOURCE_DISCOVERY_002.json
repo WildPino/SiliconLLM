@@ -1,0 +1,45 @@
+{
+  "schema": "PQT_SRC_007_PUBLIC_SOURCE_DISCOVERY_V1",
+  "passed": true,
+  "files": {
+    "c4_dataset_metadata.json": {
+      "url": "https://huggingface.co/api/datasets/allenai/c4?expand=sha&expand=cardData",
+      "bytes": 29111,
+      "sha256": "77a305ba59f0707c0c3e00f07300b7848ae9909a196f763657cad8376fafabee"
+    },
+    "c4_README.md": {
+      "url": "https://huggingface.co/datasets/allenai/c4/resolve/1588ec454efa1a09f29cd18ddd04fe05fc8653a2/README.md",
+      "bytes": 41136,
+      "sha256": "bfa4b9d8af6f9d2955d39b7cb617d580763aad7fb9024e425be60738b69ea140"
+    },
+    "c4_validation_pointer.txt": {
+      "url": "https://huggingface.co/datasets/allenai/c4/raw/f998d2cd8b92435980789e3ecb2f89b4c68bfe1e/en/c4-validation.00000-of-00008.json.gz",
+      "bytes": 133,
+      "sha256": "23b33b73465b327838ec3325e172871e7fe3cedb81172e2ee3d515098ca49564"
+    },
+    "switch_README.md": {
+      "url": "https://huggingface.co/google/switch-base-128/resolve/86c815ec05361a33a8b49fc717277da9c0a4e711/README.md",
+      "bytes": 8226,
+      "sha256": "63b5d0905f5e738f0c52982364dc1394a02fd98621ddf37cd14144a0be3e4d8e"
+    }
+  },
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "source_commit": "e936e469ae8508db36a034d8d176b4e731e9bcc9",
+  "corpus": {
+    "repository": "allenai/c4",
+    "revision": "f998d2cd8b92435980789e3ecb2f89b4c68bfe1e",
+    "path": "en/c4-validation.00000-of-00008.json.gz",
+    "bytes": 40435873,
+    "sha256": "bc35d7c1b1d14b90cd3a394cccbcbe191935edd04bf42ee965379c6e2987a5f0",
+    "card_revision": "1588ec454efa1a09f29cd18ddd04fe05fc8653a2",
+    "license": "ODC-BY; Common Crawl terms referenced by the dataset card"
+  },
+  "model": {
+    "repository": "google/switch-base-128",
+    "revision": "86c815ec05361a33a8b49fc717277da9c0a4e711"
+  },
+  "scientific_corpus_downloaded": false,
+  "scientific_split_frozen": false,
+  "elapsed_seconds_before_report": 1.0309999999881256
+}

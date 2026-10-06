@@ -1,0 +1,9 @@
+{
+  "passed": false,
+  "operation": "verify_pqt005_repair.py post-retrieval metadata verification",
+  "error_type": "CalledProcessError",
+  "cause": "Fetch/retention keys preserve Windows separators; git show requires POSIX tree path separators. First attempted path PQT-005\\apparatus.json returned exit 128.",
+  "scientific_artifacts_modified": false,
+  "numerical_tolerances_changed": false,
+  "repair": "Normalize separators only for the Git lookup. Preserve all raw manifests/evidence and repeat the independent checks."
+}

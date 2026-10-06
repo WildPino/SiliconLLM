@@ -1,0 +1,189 @@
+{
+  "time_utc": "2026-10-06T03:25:57.009874+00:00",
+  "identity": {
+    "account": "acct3",
+    "status": "verified",
+    "configured_username": "sirwildpino",
+    "server_identity": "sirwildpino",
+    "gpu_quota": {
+      "used_hours": 1.6578966666666666,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 28.342103333333334,
+      "conservative_unreserved_hours": 28.342103333333334,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-06T03:25:43.598792+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "sirwildpino/pqt-008-global-staged-20261006-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/pqt-007-full-model-20261006-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/pqt-010-r1-frozen-audit-20261006-001",
+      "status": "ERROR",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/pqt-010-shared-parameter-ablation-20261006-002",
+      "status": "ERROR",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "",
+      "status": "UNADDRESSABLE_HISTORICAL_MARKER",
+      "kernel_id": 0,
+      "runtime_utc": "2010-04-01T00:00:00",
+      "frozen_non_resource_schema_matches": true,
+      "title_sha256": "4ea58a5babe7a48151e6e0d9dbe11e97e0200ac5a9f96c68e0cc4af0111dec63"
+    },
+    {
+      "ref": "sirwildpino/pqt-009-r1-frozen-evaluation-20261006-002",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/pqt-009-calibration-breadth-20261006-001",
+      "status": "ERROR",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/h4-rank48-stagea-v2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/s1-sparsity-bpb-scale-arm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-relaytest",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-arm6",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/notebook3f8b10f091",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/wilddataset-3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/siliconllm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "owned_datasets": [
+    {
+      "ref": "sirwildpino/siliconllm-h4-rank48-v2"
+    },
+    {
+      "ref": "sirwildpino/phase64-mainrun-resume"
+    },
+    {
+      "ref": "sirwildpino/s1-sparsity-bpb-code"
+    },
+    {
+      "ref": "sirwildpino/phase64-arch-g173774"
+    },
+    {
+      "ref": "sirwildpino/phase64-arch-g155996"
+    },
+    {
+      "ref": "sirwildpino/phase64-arch-g138170"
+    },
+    {
+      "ref": "sirwildpino/arm3-xproj26-v2048"
+    },
+    {
+      "ref": "sirwildpino/code-bundle"
+    },
+    {
+      "ref": "sirwildpino/phase64-stage3-data"
+    },
+    {
+      "ref": "sirwildpino/phase64-code"
+    },
+    {
+      "ref": "sirwildpino/phase64-logits"
+    },
+    {
+      "ref": "sirwildpino/phase64-code-main"
+    },
+    {
+      "ref": "sirwildpino/phase64-code-rt"
+    },
+    {
+      "ref": "sirwildpino/phase64-relaytest-resume"
+    },
+    {
+      "ref": "sirwildpino/phase64-main-data"
+    },
+    {
+      "ref": "sirwildpino/dataset-3"
+    },
+    {
+      "ref": "sirwildpino/dataset-aggiuntivo"
+    },
+    {
+      "ref": "sirwildpino/account-3-relay"
+    },
+    {
+      "ref": "sirwildpino/pqt-009-frozen-parent-20261006"
+    }
+  ],
+  "ref": "sirwildpino/pqt-010-frozen-audit-input-20261006",
+  "private_required": true,
+  "data_manifest_sha256": "bca030a07b53cf78eb8accec22d4880db401c8abd72f9134f978716f8dc147a6"
+}

@@ -10,6 +10,15 @@ below is suspended, not an instruction to resume donor execution.
 Use its short queue and prior-evidence map before proposing work. The donor
 pause checkpoint is `90bf966`; no new scaling experiment has run at handoff.
 
+**Completed parallel research — 6 October 2026:**
+[progressive ternary feasibility](PROGRESSIVE_TERNARY_20261005/INTEGRATION_README.md)
+closes with a scoped negative result. The extensive literature review covers
+47 primary paper/project clusters; no investigated artifact meets the joint
+behavior/storage requirements. Native speed remains unmeasured. This is
+supporting evidence for native expert scaling, not a change to its active
+queue or promotion of a ternary model. The documentation snapshot identifies
+the separate immutable source/raw archive.
+
 **Purpose.** This is the short control-plane for the repository research record.
 Read it before proposing or running work.  It is a navigation and
 no-duplication index, not a replacement for a canonical result, raw artifact,

@@ -1,0 +1,106 @@
+{
+  "schema": "PQT_013_STAGE_RETENTION_V1",
+  "passed": true,
+  "stage": "auxiliary",
+  "sequence": "001",
+  "attempt_passed": true,
+  "source_commit": "afd35f1c9df1216ed3b7e5741e8516a57d13c166",
+  "producer_report": {
+    "schema": "PQT_013_AUX_PREPARATION_V1",
+    "passed": true,
+    "source_commit": "afd35f1c9df1216ed3b7e5741e8516a57d13c166",
+    "original_numerical_array_reads": 0,
+    "original_candidate_fits": 0,
+    "private_write": false,
+    "whole_research_complete": false,
+    "capsule": {
+      "bytes": 12071742,
+      "sha256": "98dab1dcf77314558c6f4f77ecc39c43d30db303a6fb4556a7c1426a582ba229"
+    },
+    "member_count": 14,
+    "baseline_count": 8,
+    "files": {
+      "e81_D.bin": {
+        "bytes": 1476264,
+        "sha256": "d5b249bb12c3e87a403cc0768537d5cfe41619607ed8fdbc1fc09364a0b998fe"
+      },
+      "e81_PR.bin": {
+        "bytes": 1476265,
+        "sha256": "b49a0d60727f7d78fa4337555ad3d975cc5009565737b6d1d73199194578a7da"
+      },
+      "e87_D.bin": {
+        "bytes": 1476264,
+        "sha256": "04157d186cb608c324c503e55a8df642c938d0b814105e838f58b3c55c4bd545"
+      },
+      "e87_PR.bin": {
+        "bytes": 1476265,
+        "sha256": "b05b49daf6eb1c3cb48377ba2f9e47bd8616fdfd62714aed779739eafda2666c"
+      },
+      "e18_D.bin": {
+        "bytes": 1476264,
+        "sha256": "7d58bd02a0db999e58ce1bd0f77d752418fd11834ec2c091fdaf7727add49831"
+      },
+      "e18_PR.bin": {
+        "bytes": 1476265,
+        "sha256": "79c89a306637d8d07dfbefcae14ef783029f2c5ec83d5574059ba4adc51203a5"
+      },
+      "e91_D.bin": {
+        "bytes": 1476264,
+        "sha256": "af7be0f673ad03999f7bbcdfaed3a60dfbe8f7737e6865668578898fe1e68dc4"
+      },
+      "e91_PR.bin": {
+        "bytes": 1476265,
+        "sha256": "8d1e466acc755771732d8b91b6d52d837ed16a4626df404b193cc0946a339aa6"
+      },
+      "filter_binding.json": {
+        "bytes": 11674,
+        "sha256": "18f8c20ced9acd6f6288771c05826a318c1df6b6f154aa6bc76a8e00bb3928d3"
+      },
+      "calibration_token_mapping.json": {
+        "bytes": 238200,
+        "sha256": "9760a7e3466b663bfb4bf9b3e55fdc4b3b7d22a1b87e189474b2671eab1d0599"
+      },
+      "qualification.json": {
+        "bytes": 1736,
+        "sha256": "ea8545241ad7bd651c48e998f7a9389d371b3162682d7423366c1865f07275ee"
+      },
+      "PQT_012_REMOTE_GIT_001.json": {
+        "bytes": 1672,
+        "sha256": "9d91fe919e44319b1b871a492888203e5959e26da6017f113694faef777e0672"
+      },
+      "PQT_013_METADATA_GIT_001.json": {
+        "bytes": 1252,
+        "sha256": "09fb200a76a6fcdb351a8359b3f78c3b7324b1bdd7542772b3426eaa0dd86569"
+      },
+      "aux_manifest.json": {
+        "bytes": 5574,
+        "sha256": "8197d29c1d7256b2bcb231e722d62e2efb43f090a225e9882d1580d6fc9dff25"
+      }
+    },
+    "consumed_parent_evidence_commit": "a9ddda480974cc606509fb57c8aabee7eff19549",
+    "parent_artifacts_refitted": 0,
+    "resource": {
+      "elapsed_seconds_before_report": 2.860000000015134,
+      "peak_process_RSS_bytes": 37584896
+    }
+  },
+  "controller": {
+    "schema": "PQT_013_AUX_PREPARATION_CLOCK_V1",
+    "elapsed_complete_child_seconds": 3.0183891,
+    "exit_code": 0,
+    "source_commit": "afd35f1c9df1216ed3b7e5741e8516a57d13c166"
+  },
+  "manifest": "pqt013_stage_evidence/auxiliary_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 4528,
+    "sha256": "29b849004f0e14f03170bb2aec79fd5669703b48a0b3a4550fa29c96c5f2b455"
+  },
+  "raw_entries": 12,
+  "raw_bytes": 12133307,
+  "source_note": "Static transitive local import closure at producer commit; includes unexecuted branches",
+  "resource": {
+    "elapsed_seconds_before_report": 0.4529999999795109,
+    "peak_process_RSS_bytes": 45301760
+  },
+  "whole_research_complete": false
+}

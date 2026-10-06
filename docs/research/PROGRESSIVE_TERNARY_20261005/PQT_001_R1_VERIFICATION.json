@@ -1,0 +1,14 @@
+{
+  "schema": "PQT_COMMITTED_EVIDENCE_VERIFICATION_V1",
+  "evidence_commit": "897998c503fa6a6c3509cdb68e1871d2d8d329a9",
+  "small_raw_evidence_files_checked": 48,
+  "all_raw_bytes_match_commit_and_fetch_manifest": true,
+  "frozen_scientific_source_commit": "10f1f45cf0ffc0d90762193ca3a078b5d7677615",
+  "actual_remote_embedded_source_files_checked": 7,
+  "actual_remote_source_matches_frozen_commit_and_source_manifest": true,
+  "verification_method": "Compare each locally retained small raw file and its Git blob SHA-256 to the original fetch manifest; parse actual retrieved remote bootstrap with ast, decode its seven base64 sources and compare each exact byte sequence to the frozen Git source and source manifest.",
+  "git_worktree_status_after_evidence_commit": "clean",
+  "evidence_commit_signature_status": "unsigned",
+  "scope": "Retention and executed-source identity; scientific interpretation remains restricted by PQT_001_R1_RESULTS.md.",
+  "goal_complete": false
+}

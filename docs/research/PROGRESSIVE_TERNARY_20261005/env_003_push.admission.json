@@ -1,0 +1,143 @@
+{
+  "schema": "PQT_KAGGLE_ADMISSION_V1",
+  "time_utc": "2026-10-05T18:50:29.785773+00:00",
+  "account": {
+    "account": "acct1",
+    "status": "verified",
+    "configured_username": "wildpino",
+    "server_identity": "wildpino",
+    "gpu_quota": {
+      "used_hours": 0.015128333333333334,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 29.984871666666667,
+      "conservative_unreserved_hours": 29.984871666666667,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-05T18:50:18.905090+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "wildpino/pqt-001-projection-20261005-001",
+      "status": "ERROR",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/pqt-gpu-admission-20261005-002",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/pqt-runtime-admission-20261005-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h1-qat-run-session-3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h1-qat-run-session-2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h1-qat-run-session-1",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h0-qat-run",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/s1-fp16-gpu-nan-hunt",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/s1-sparsity-bpb-scale-arm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-relaytest",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-arm7",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-arm4",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/seearm1-v2048",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/wilddataset-1",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/siliconllm3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "ref": "wildpino/pqt-env-repair-20261005-003",
+  "timeout_seconds": 600,
+  "source_commit": "8ba04ed5ebc99f0d81ab4850b52a54beff3090ec",
+  "bundle_sha256": {
+    "runtime_probe.py": "ff7130255398e07777cb5c12363989b6827fc504631197b17c037c302f38ac71",
+    "kernel-metadata.json": "480fce09200305287d39655f72752d4a79cb8b5085491e9f9ec4442bf7a5786a"
+  },
+  "interactive_session_absence_proven": false,
+  "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+}

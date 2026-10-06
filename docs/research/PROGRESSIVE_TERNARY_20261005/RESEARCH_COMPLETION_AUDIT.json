@@ -1,0 +1,79 @@
+{
+  "schema": "PQT_RESEARCH_COMPLETION_AUDIT_V1",
+  "passed": true,
+  "decision": "Bounded negative feasibility result; no investigated candidate meets all declared requirements",
+  "latest_scientific_evidence_commit": "3bbc58fa7f36a5d4174718a69609f3036ec1160d",
+  "latest_complete_raw_entries": 74,
+  "latest_scientific_inner_entries": 762,
+  "relative_links": [
+    {
+      "file": "RESEARCH_CONCLUSION.md",
+      "relative_document_links_exist": true
+    },
+    {
+      "file": "PQT_013_RESULTS.md",
+      "relative_document_links_exist": true
+    },
+    {
+      "file": "TERNARY_INDEX.md",
+      "relative_document_links_exist": true
+    }
+  ],
+  "first_retention_only_changed_original": [
+    "operations/retention_stdout_001.log"
+  ],
+  "files": {
+    "RESEARCH_CONCLUSION.md": {
+      "bytes": 11998,
+      "sha256": "6e6fd9ab206b6f7737b3b104bc26ab4bd5656630ffd52ed22d03a32205cc6d6e"
+    },
+    "PQT_013_RESULTS.md": {
+      "bytes": 10506,
+      "sha256": "e5ae79bdde75429804f6b1e24b06fd21a178cb671c4486e8a64c875c8d2dadfa"
+    },
+    "TERNARY_INDEX.md": {
+      "bytes": 112694,
+      "sha256": "7ea890045012c5a825419f303cd86e338400698288fed740acca71a9e21c705b"
+    },
+    "PQT_013_ADJUDICATION_001.json": {
+      "bytes": 38318,
+      "sha256": "f83a2dc88eeaaf3c1dd61783d67a62cf32597d945ad3a5a7107217db8ab11f05"
+    },
+    "PQT_013_REMOTE_GIT_002.json": {
+      "bytes": 2506,
+      "sha256": "bae83955b6dd10c53d90a9cd42cc8bf4db57904998a78e5bad5ac4e4482c58f2"
+    },
+    "PQT_013_REMOTE_RETENTION_002.json": {
+      "bytes": 3819,
+      "sha256": "100e858dbdf87d660dc2da8416c99cc473bdf93e2e6e88616ca7f9eeff9529d6"
+    },
+    "PQT_013_RETENTION_FIRST_STOP_001.json": {
+      "bytes": 777,
+      "sha256": "f7f7324646883014a3ca5424b29e8ff06957be0e60c07dd01c354883de3c06c5"
+    },
+    "literature_20261006/report.md": {
+      "bytes": 72238,
+      "sha256": "1ac89aa65d19010c9e221613767c89c2fa57bdee627551a1ffae27604c47b984"
+    },
+    "FEASIBILITY_EVIDENCE_MATRIX.md": {
+      "bytes": 17511,
+      "sha256": "9c6d50a1da8befb6ff86ce7524d63bed1365a7fda13f206094251622aa7a63f9"
+    }
+  },
+  "native_timing": "unmeasured, not a measured failure",
+  "untested_alternatives_explicit": true,
+  "pending_required_work": [],
+  "new_fits": 0,
+  "new_numerical_replays": 0,
+  "elapsed_seconds_before_report": 0.42199999999138527,
+  "final_document_check_first_stop": {
+    "file": "PQT_013_RETENTION_FIRST_STOP_001.json",
+    "reason": "Inherited Git text normalization changed the first committed standalone diagnostic CRLF to LF; exact final document check rejected it. Explicit owned -text attribute now retains its original CRLF bytes in the final commit as well as retention002. Original producer path restored to the qualified archived bytes; no scientific packet changed.",
+    "original_and_final_identity": {
+      "bytes": 777,
+      "sha256": "f7f7324646883014a3ca5424b29e8ff06957be0e60c07dd01c354883de3c06c5"
+    },
+    "first_committed_document_exact_after_CRLF_to_LF_only": true,
+    "repair_changes_no_original_retained_byte": true
+  }
+}

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive ternary conversion of pretrained language models - Deep Research Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .header {
+            background: #003d5c;
+            color: white;
+            padding: 25px 40px;
+            border-bottom: 3px solid #002840;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-meta {
+            font-size: 13px;
+            color: #b8d4e6;
+            display: flex;
+            gap: 25px;
+        }
+
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            border-bottom: 2px solid #003d5c;
+        }
+
+        .metric {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-right: 1px solid #d1d5db;
+            text-align: center;
+        }
+
+        .metric:last-child {
+            border-right: none;
+        }
+
+        .metric-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #003d5c;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #003d5c;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #003d5c;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1.3;
+        }
+
+        .subsection-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 24px 0 12px 0;
+            line-height: 1.4;
+        }
+
+        .executive-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid #003d5c;
+        }
+
+        .executive-summary p {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        p {
+            margin-bottom: 14px;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        /* Better paragraph spacing in content sections */
+        .content > p,
+        .section p {
+            margin-bottom: 16px;
+        }
+
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .finding-card {
+            background: #f8f9fa;
+            padding: 18px;
+            border-left: 3px solid #003d5c;
+        }
+
+        .finding-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #003d5c;
+            margin-bottom: 10px;
+        }
+
+        .finding-card p {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .data-table th {
+            background: #003d5c;
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        ul, ol {
+            margin: 16px 0 16px 28px;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            padding-left: 8px;
+        }
+
+        /* Nested lists */
+        li ul, li ol {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Better bullet/number spacing */
+        ol {
+            list-style-position: outside;
+            padding-left: 0;
+        }
+
+        ul {
+            list-style-position: outside;
+            padding-left: 0;
+        }
+
+        .key-insight {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-left: 3px solid #003d5c;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .key-insight strong {
+            color: #003d5c;
+            font-weight: 600;
+        }
+
+        .citation {
+            color: #003d5c;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            padding: 2px 4px;
+            background: #f0f7fc;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .citation:hover {
+            background: #003d5c;
+            color: white;
+        }
+
+        /* Attribution Gradients (2025 Enhancement) */
+        .citation-tooltip {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 8px;
+            background: white;
+            border: 2px solid #003d5c;
+            box-shadow: 0 4px 12px rgba(0, 61, 92, 0.15);
+            padding: 12px;
+            min-width: 300px;
+            max-width: 500px;
+            z-index: 1000;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .citation:hover .citation-tooltip {
+            display: block;
+        }
+
+        .tooltip-title {
+            font-weight: 700;
+            color: #003d5c;
+            margin-bottom: 8px;
+            font-size: 13px;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 6px;
+        }
+
+        .tooltip-source {
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .tooltip-claim {
+            background: #f8f9fa;
+            padding: 8px;
+            margin-top: 8px;
+            border-left: 3px solid #003d5c;
+            font-size: 11px;
+        }
+
+        .tooltip-claim-label {
+            font-weight: 600;
+            color: #003d5c;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .evidence-chain {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #d1d5db;
+        }
+
+        .evidence-chain-label {
+            font-weight: 600;
+            color: #003d5c;
+            font-size: 11px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .evidence-step {
+            padding: 6px;
+            background: #f8f9fa;
+            margin-bottom: 4px;
+            font-size: 11px;
+            border-left: 2px solid #d1d5db;
+            padding-left: 8px;
+        }
+
+        .bibliography {
+            background: #f8f9fa;
+            padding: 30px;
+            margin-top: 40px;
+            border-left: 4px solid #003d5c;
+        }
+
+        .bibliography-content {
+            background: #f8f9fa;
+            padding: 20px 0;
+        }
+
+        .bib-entry {
+            margin-bottom: 18px;
+            padding-left: 50px;
+            text-indent: -50px;
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .bib-number {
+            color: #003d5c;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .bib-entry a {
+            color: #003d5c;
+            word-wrap: break-word;
+            text-decoration: none;
+        }
+
+        .bib-entry a:hover {
+            text-decoration: underline;
+        }
+
+        .compact-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .compact-list li {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .info-box {
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .info-box h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #003d5c;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .highlight-stat {
+            font-weight: 700;
+            color: #003d5c;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        @media print {
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .findings-grid {
+                grid-template-columns: 1fr;
+            }
+            .compact-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    code {overflow-wrap:anywhere} td {vertical-align:top} a {overflow-wrap:anywhere} .bib-entry {margin-bottom:10px} h2 {margin-top:28px} h3 {margin-top:20px}</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Progressive ternary conversion of pretrained language models</h1>
+            <div class="header-meta">
+                <span>2026-10-06</span>
+                <span>•</span>
+                <span>47 Sources</span>
+            </div>
+        </div>
+
+        <div class="metrics-dashboard"><div class="metric"><span class="metric-number">47</span><span class="metric-label">Primary paper clusters</span></div><div class="metric"><span class="metric-number">53</span><span class="metric-label">Retained reading records</span></div><div class="metric"><span class="metric-number">2026-10-06</span><span class="metric-label">Retrieval cutoff</span></div><div class="metric"><span class="metric-number">Active</span><span class="metric-label">Experimental goal</span></div></div>
+
+        <div class="content">
+            <p>Evidence review and research decision, 6 October 2026. Literature results are reported results, not local reproductions. The experimental goal remains active.</p>
+<h2 class="section-title">Executive Summary</h2>
+<p>Progressive conversion of a pretrained floating-point model is a legitimate research direction. The closest historical precedent, incremental network quantization, freezes quantized subsets and retrains the remaining weights. Modern post-training methods replace uninformed random perturbations with activation-aware compensation, optimized rounding, or block reconstruction. These mechanisms support the proposed approach; none guarantees preservation of an arbitrary pretrained model after complete ternarization. <a href="https://arxiv.org/pdf/1702.03044v2">[7]</a> <a href="https://arxiv.org/pdf/2210.17323v2">[15]</a> <a href="https://arxiv.org/pdf/2102.05426v2">[17]</a></p>
+<p>The most relevant positive counterexample to a premature negative conclusion is QMoE: it quantizes the same Switch-base-128 family. However, its asymmetric three-level weights, special-token treatment, router capacity, evaluation objective and CUDA deployment differ materially from the current symmetric ternary experiment. A small, carefully labelled comparison is more informative than another unchanged global fit. Genuine no-backpropagation ternary conversion also exists in PT²-LLM, but substantial quality gaps remain. <a href="https://arxiv.org/html/2310.16795v1">[28]</a> <a href="https://arxiv.org/html/2510.03267v2">[1]</a></p>
+<p>Recent conversion methods can use substantial checkpoint optimization even when called post-training quantization. CAT-Q uses 60 calibration epochs; TernaryLLM uses distillation; Tequila reports ten billion conversion tokens. Useful ternary pretraining demonstrates that the representation can support language models, but does not solve cheap conversion of an independently trained float teacher. <a href="https://arxiv.org/html/2606.26650v1">[2]</a> <a href="https://arxiv.org/pdf/2406.07177v1">[6]</a> <a href="https://arxiv.org/html/2509.23809v2">[9]</a> <a href="https://www.jmlr.org/papers/volume26/24-2050/24-2050.pdf">[12]</a></p>
+<p>The research must keep representation, fidelity, storage, fitting cost and native execution separate. Two ternary planes are a richer approximation than one plane. Compact checkpoints can still execute slowly. Task recovery is weaker than preserving the original output distribution or generated trajectory. <a href="https://arxiv.org/html/2509.16989v1">[5]</a> <a href="https://arxiv.org/html/2609.01962v1">[13]</a> <a href="https://arxiv.org/html/2605.02404v2">[27]</a></p>
+<p>Recommendation: preserve existing negative results and the frozen PQT-012 mixed-residual screen; consider a finite literature-informed comparison of symmetric and asymmetric activation-aware conversion on original expert contexts. Add bounded joint-FFN soft-to-hard fitting only if its prospective mechanism and budget justify it. Promote a candidate only after actual export, independent quality and uncontended native evaluation. If the selected methods fail jointly within the declared resources, close with a reproducible scoped negative result. Universal impossibility is neither required nor supported.</p>
+<h2 class="section-title">Introduction</h2>
+<p>The research question is whether a pretrained language model can be progressively converted to codes <code>{-1,0,+1}</code>, choosing transformations according to the original model&#x27;s behavior, without starting pretraining again. The intended application is economical storage and execution of pretrained expert functions in <code>native-expert-scaling</code>. Limited calibration, distillation and adaptation are allowed, provided their cost and any additional representation are explicit. The project also accepts a precise negative feasibility decision. These requirements come from the authoritative Italian <a href="../GOAL.md">goal</a>.</p>
+<p>This review asks what the literature actually establishes under those conditions. It covers early progressive conversion, behavior-aware scalar post-training quantization, genuine pretrained ternarization, richer ultra-low-bit representations, low-rank compensation, sparse expert routing and native execution. It includes relevant primary material available by 6 October 2026. Sources are grouped by paper/project: an abstract, a paper revision and its repository are not three independent confirmations. The ledger records the inspected version and the strength of access. Recent preprints are included as evidence to evaluate, with publication status distinguished from independent reproduction.</p>
+<p>The review&#x27;s main assumption is that success means a joint quality/storage/execution tradeoff on the same deployed artifact. A paper&#x27;s nominal bit count is insufficient; a small calibration error is insufficient; a favorable mean benchmark score is insufficient to prove the existing fidelity thresholds. This is a project decision rule, not a claim that those papers used inappropriate objectives. Their objectives can be useful even when different from ours.</p>
+<p>The repository already contains negative screens and qualified original-context acquisition. Those records are treated as local primary evidence, not independent replications of named literature methods. Four final-encoder experts are now selected for PQT-012, with exact source/input qualification and synthetic controls; original fitting has not executed. The failed final-decoder four-expert eligibility gate remains unchanged. The <a href="../PQT_012_PREPARATION_RESULTS.md">preparation record</a> and <a href="../PQT_012_PREREGISTRATION.md">preregistration</a> distinguish these states. The historical global Qwen experiment concerns a different architecture and task from the Switch masked-span source model.</p>
+<p>The report therefore avoids a binary verdict based on slogans. It distinguishes demonstrated mechanisms, reported capability recovery, methodological differences, plausible adaptations, unavailable reproduction evidence and experiments still worth doing. It is an extensive targeted evidence review, rather than a preregistered exhaustive systematic review or a meta-analysis of comparable effect sizes. Search coverage and unresolved gaps are retained in the appendix and ledgers.</p>
+<h2 class="section-title">Main Analysis</h2>
+<h3 class="subsection-title">Finding 1: Progressive behavior-aware conversion has precedent, but random search is not the strongest starting point</h3>
+<p>The proposed sequence is conceptually sound: change a subset, measure the behavioral effect, retain or revise the change, and continue until conversion is complete. The critical design choice is how each step uses available information. Random replacement uses almost none of the known structure of the weights or activations. Activation-aware methods estimate which perturbations matter and how uncommitted degrees of freedom can compensate. Progressive schedules and compensation are therefore distinct ingredients. A schedule alone does not establish that the final restricted representation can approximate the original function.</p>
+<p>INQ is a direct historical precedent. It partitions pretrained CNN weights, quantizes and freezes one subset, retrains the remaining subset, and repeats. Its ternary ResNet-18 experiment uses ten cumulative conversion stages and 30 ImageNet epochs; top-1 error rises from 31.73% to 33.98%. Random partition is worse than importance-based partition in its higher-bit ablation. This is conversion without training from scratch, but supervised recovery in a CNN, not cheap language-model calibration. The paper&#x27;s “lossless” title must not be generalized to its ternary outcome. <a href="https://arxiv.org/pdf/1702.03044v2">[7]</a></p>
+<p>Trained Ternary Quantization learns assignments and separate positive and negative magnitudes using gradients through latent floating-point weights. Some CIFAR experiments initialize from pretrained models; the ImageNet AlexNet from-scratch arm has a different regime. It establishes another conversion mechanism, while changing both the optimization cost and the common-scale symmetry constraint. <a href="https://arxiv.org/pdf/1612.01064v3">[8]</a></p>
+<p>Optimal Brain Compression supplies the sequential second-order compensation perspective: fix a weight and update remaining weights according to curvature. Its evidence includes vision and BERT rather than the original Switch checkpoint. GPTQ makes compensated column-wise reconstruction practical for large generative transformers. Its standard calibration uses 128 C4 segments of 2,048 tokens; its extreme-quantization section explicitly reports a group-eight ternary OPT-175B result, with WikiText2 perplexity 9.20 against 8.34 for float. That is meaningful conversion evidence, with a remaining quality gap and different granularity. <a href="https://arxiv.org/pdf/2208.11580v2">[14]</a> <a href="https://arxiv.org/pdf/2210.17323v2">[15]</a></p>
+<p>AdaRound optimizes soft floor/ceiling choices under a layer reconstruction objective and an annealed rounding penalty. Its original vision experiment uses 1,024 unlabeled calibration images, Adam and 10,000 iterations. BRECQ reconstructs blocks and discusses the danger of calibration overfitting; boundary layers can retain higher precision. These papers justify behavioral rounding and reconstruction scope as mechanisms to compare. They do not establish that the same optimization can meet a strict three-level expert-output target. <a href="https://arxiv.org/pdf/2004.10568v2">[16]</a> <a href="https://arxiv.org/pdf/2102.05426v2">[17]</a></p>
+<p>OmniQuant learns clipping and equivalent transformations under block reconstruction; its W2A16 setup uses 40 epochs rather than its usual 20. AutoRound&#x27;s signed-gradient rounding/clipping optimization commonly uses 200 steps on a larger calibration set. Their integer grids, learned parameters and tuned reconstruction scope differ from fixed-scale ternary conversion. Calling these methods post-training does not mean they avoid gradient optimization. A reduced implementation should be labelled an adaptation and its exact updates counted. <a href="https://arxiv.org/html/2308.13137v3">[18]</a> <a href="https://arxiv.org/html/2309.05516v5">[19]</a></p>
+<p>CoreQ adds a particularly relevant recent distinction: propagated input mismatch has reachable and unreachable components. It applies closed-form mismatch correction and successive rounding, with optional bounded beam search. Its finite-calibration argument warns against both ignoring mismatch and fitting it without restraint. The reported experiments concern integer grids, so its application to a nonlinear ternary expert remains a hypothesis. <a href="https://arxiv.org/html/2602.05902v2">[26]</a></p>
+<p>The practical inference is to spend computation on structured proposals before an unrestricted random search. For a layer, a useful objective is calibration error in <code>WX</code>, possibly weighted by an output metric, rather than coefficient distance alone. For an expert, the function includes two matrices and ReLU; changing WI also changes the inputs to WO. For a whole model, earlier conversion changes later activations and routing. These are progressively harder targets. A method can succeed at the first and fail at the others without a contradiction.</p>
+<p>If random search is tested, it should answer a specific ablation: does uninformed proposal-and-acceptance outperform informed selection at equal measured fitting cost? It needs a deterministic seed, a finite proposal budget, an acceptance rule based only on calibration, and a separate evaluation. Reusing development results to accept successive proposals would make development data part of training. Resetting to the teacher after each accepted local perturbation would also miss accumulated changes unless the deployed candidate is evaluated at the end.</p>
+<p>This finding explains the existing records without asserting a retrospective cause. PQT-007 improved some local matrix fits while global divergence remained large. PQT-008/009/011 used limited global adaptation and still missed absolute gates. The evidence supports changing a clearly named mechanism, not extending the same schedule indefinitely. A materially new experiment could change the alphabet, reconstruction scope, propagated-input treatment or compensation capacity; merely adding more iterations needs an independently motivated reason. [Local evidence: ../PQT_007_RESULTS.md; ../PQT_011_RESULTS.md.]</p>
+<h3 class="subsection-title">Finding 2: Pretrained ternarization exists; reported successes vary sharply in alphabet, training and fidelity</h3>
+<p>There is no basis for declaring that pretrained float-to-ternary conversion is intrinsically impossible. There is equally no basis for expecting complete original behavior to survive automatically. The relevant papers support a spectrum from no-backpropagation approximation to lengthy quantization-aware recovery. Their outcomes depend on checkpoint size, architecture, calibration, retained parameters and evaluated tasks. The correct comparison is an explicitly defined conversion regime, not the word “ternary” in a title.</p>
+<p>PT²-LLM is the clearest direct training-free example in this review. It alternates discrete assignments and closed-form asymmetric grid fitting, then aligns the grid using activations and curvature compensation. Its represented weights are <code>alpha*T + mu</code>, with grid metadata; this is not the current common-scale zero-centered format. In the inspected v2 table, LLaMA3-8B WikiText2 perplexity rises from 6.14 to 32.19 and average accuracy falls from 65.59 to 37.79. It demonstrates conversion, not parity. Its author export option writes fake-quantized checkpoints, so an actual compact deployment needs separate verification. <a href="https://arxiv.org/html/2510.03267v2">[1]</a></p>
+<p>CAT-Q converts pretrained dense and MoE checkpoints through learned modulation and soft-to-hard sliding-layer reconstruction. Appendix B.1 specifies AdamW, 512 calibration sequences of 2,048 tokens and 60 epochs. Its group-128 deployed ternary format and activation options differ from the current group-64 screen. Qwen3-4B&#x27;s five-task mean decreases from 68.25 to 57.06. The term PTQ describes the pipeline position after pretraining; it does not eliminate calibration training. <a href="https://arxiv.org/html/2606.26650v1">[2]</a></p>
+<p>TWLA uses asymmetric ternary fitting after learned structured rotations, with activation-aware objectives and mixed activation precision. Its rotation optimization is another measured cost. For LLaMA2-7B W1.58A16, the reported perplexity is 6.97 versus 5.47 for float and task accuracy 62.91 versus 69.49. The method improves over weaker ternary baselines without restoring all original performance. Rotations are relevant to conditioning, but their applicability across a Switch ReLU boundary needs explicit algebraic validation. <a href="https://arxiv.org/html/2606.13054v2">[3]</a></p>
+<p>ScaleQ/Attend to Your Own Thoughts builds on CAT-Q and uses teacher-generated reasoning traces. Its default four million calibration tokens undergo 60 epochs, with generation before conversion. Qwen3-4B Math500 decreases from 96.8 to 58.4 and OmniMATH from 34.64 to 14.93. Its comparison with a separately pretrained ternary model answers a different question from preserving its own float teacher. It also shows why calibration content matters beyond generic language likelihood. CAT-Q and ScaleQ share lineage and do not constitute independent replications. <a href="https://arxiv.org/html/2608.01078v1">[4]</a></p>
+<p>TernaryLLM uses pretrained initialization, learned scale/shift and feature/logits distillation. The inspected primary v1 specifies 10,000 AdamW steps with batch 16, rather than a verified trillion-token budget. For LLaMA3-8B, its WikiText2/C4 perplexities change from 6.1/9.2 to 11.2/13.4. Tequila addresses a specific deadzone optimization mechanism by deriving exportable output biases; its conversion experiments use ten billion training tokens. These are legitimate recovery approaches, but not evidence that a small no-optimizer screen can attain their outcomes. <a href="https://arxiv.org/pdf/2406.07177v1">[6]</a> <a href="https://arxiv.org/html/2509.23809v2">[9]</a></p>
+<p>Continual quantization-aware pretraining studies transitions at intermediate OLMo checkpoints, including optimizer-state retention and smooth quantization. Its training settings imply approximately 41.94 billion processed tokens over the complete trajectory. This is evidence about when to change representation during continuing pretraining, not an inexpensive conversion of an arbitrary converged checkpoint. BitNet&#x27;s ternary-aware pretraining similarly demonstrates that useful language models can be trained for that representation; its principal comparison is not a paired conversion of an independent float teacher. <a href="https://arxiv.org/html/2502.11895v1">[10]</a> <a href="https://www.jmlr.org/papers/volume26/24-2050/24-2050.pdf">[12]</a></p>
+<p>The distinction between three representation families matters operationally. Symmetric ternary is <code>alpha*{-1,0,+1}</code>. Affine ternary is <code>{mu-alpha,mu,mu+alpha}</code>. Independent positive/negative levels are <code>{-alpha_negative,0,+alpha_positive}</code>. The last two are not generally the same: an affine grid is equally spaced, while independent magnitudes need not be. Each can be stored with three symbols, but its reconstruction formula, metadata and kernel differ. An implementation must declare which function is actually executed.</p>
+<p>Inference for this project: the strongest next pure-conversion comparison is informed asymmetric versus symmetric reconstruction at a declared granularity, rather than indiscriminate randomization. The strongest bounded optimization comparison is joint expert reconstruction with a controlled soft-to-hard transition, if the current residual screen and resource review justify it. Both would be new prospective tests. Neither should be described as a complete CAT-Q or TWLA reproduction unless the source model, data, algorithm and budget actually match.</p>
+<p>A strict fidelity gate is a legitimate goal even if literature tables often use a looser capability target. It may lead to a negative outcome under tight storage. That outcome should say which representation and budget failed. It should not erase the evidence that pretrained conversion can retain useful capability at different tolerances, on different models or with much greater fitting cost.</p>
+<h3 class="subsection-title">Finding 3: Nominal 1.58 or 2 bits often hides a different capacity and a different deployable artifact</h3>
+<p>The symbol alphabet and the physical storage format are separate. Three equally available symbols have a maximum information content of <code>log2(3)</code> bits per symbol, but a straightforward fixed-width code uses two bits. Actual compressibility depends on symbol probabilities and correlations. A statement of 1.58 bits is therefore not a measured file size, and it says nothing about scales, shifts, masks, exceptions or decompression. A model can also use ternary intermediate planes while representing more than three possible values per original coefficient.</p>
+<p>PTQTP illustrates the latter issue. Its approximation uses two ternary planes, alternates ridge scale solves and exhaustive nine-choice assignments, and needs no calibration corpus. This is a structured deterministic alternative to random discrete search. It represents up to nine joint values rather than one ternary value. Appendix A.3 explicitly describes two two-bit planes and two FP16 scale vectors, while its worked storage example conflicts with that formula. The label in a quality table cannot override the actual representation. <a href="https://arxiv.org/html/2509.16989v1">[5]</a></p>
+<p>Derived accounting, using the paper&#x27;s own formula: for <code>n=1024,d=4096</code>, <code>nd/2 + 4n</code> is 2,101,248 bytes, approximately 2.004 MiB, not its 1.004 MB example. This is arithmetic checking, not an independently measured export. The maximum independent uniform symbol capacity of two planes is <code>2*log2(3)</code>; it is not an entropy lower bound, because correlated or nonuniform codes may compress further. The physical fixed-width format remains four code bits before metadata. <a href="https://arxiv.org/html/2509.16989v1">[5]</a></p>
+<p>PTQ1.61 is another useful control with a different alphabet: most channels are binary and selected salient channels use four bits. Its structured mask avoids a full per-weight selection mask; calibration still learns scales. An average bitrate near ternary does not make the method ternary. It is a capacity-allocation alternative that can help test whether the restriction to three values is the binding constraint. <a href="https://arxiv.org/html/2502.13179v2">[11]</a></p>
+<p>QuIP uses randomized orthogonal conditioning and compensated integer rounding. QuIP# uses Hadamard transforms and lattice vector codebooks. QTIP uses trellis-coded high-dimensional quantization; computed-code and tuned hybrid variants have different costs. Their decoded coefficients occupy richer structured spaces than a single original-coordinate ternary grid. Low-bit successes demonstrate that representation geometry can matter, not that arbitrary scalar ternary weights preserve a teacher. Theoretical proxy-error guarantees must remain attached to their assumptions. <a href="https://arxiv.org/pdf/2307.13304v2">[20]</a> <a href="https://arxiv.org/html/2402.04396v2">[21]</a> <a href="https://arxiv.org/html/2406.11235v4">[22]</a></p>
+<p>AQLM approximates groups by sums of learned vector codewords, including code search, codebook optimization and joint block reconstruction. GPTVQ uses activation-aware multidimensional codebooks and curvature compensation, explicitly counting book overhead. These are especially informative as richer low-bit comparison points. They require codebooks and their own decoding path, so success does not establish compatibility with the project&#x27;s existing packed ternary evaluator. <a href="https://arxiv.org/html/2401.06118v4">[23]</a> <a href="https://arxiv.org/html/2402.15319v2">[24]</a></p>
+<p>SpQR keeps sensitive outliers at higher precision and compresses the rest. Its near-lossless examples count effective bits above the nominal dense code width, with outlier values/indices and pointers. Specialized sparse decoding can matter as much as coefficient count. The inference for research design is that exceptions are acceptable only if declared and counted; they cannot silently be called a fully ternary model. <a href="https://arxiv.org/pdf/2306.03078v1">[25]</a></p>
+<p>For the project&#x27;s current fixed-width symmetric format, arithmetic gives <code>2 + 32/g</code> bits per coefficient when one F32 scale serves a group of <code>g</code> weights, before headers and retained tensors. Group 64 therefore costs 2.5 bits, or 15.625% of an FP16 coefficient payload. Group eight would cost at least six bits, or 37.5%, already above the 35% screen limit. This is a lower-bound calculation for that particular scale format, not a measured GPTQ artifact. Using FP16 scales changes the estimate to four bits at group eight, but numerical effects and exact export would be untested. It is inappropriate to import group-eight quality while assuming group-64 storage.</p>
+<p>Similarly, two two-bit planes with two F32 group-64 scales would cost five bits per coefficient, or 31.25% of FP16 before metadata, vectors or exceptions. This arithmetic makes a two-plane control potentially interesting under the existing cap. It remains a different representation, may require two passes or fused decoding, and needs an actual complete export before acceptance. Paper rowwise FP16 scales and project grouped F32 scales are not interchangeable cost models.</p>
+<p>A useful capacity ledger separates committed codes, scales, shifts, codebooks, masks, residual factors, unquantized shared parameters, alignment and headers. A runtime ledger separately measures decoded buffers, activation precision, caches, temporary memory and actual read traffic. Source-file compression such as ZIP can reduce archival size without providing a directly executable representation. Conversely, an executable packed artifact may need padding and indexing that its ideal code count omits.</p>
+<p>These distinctions also prevent a misleading negative result. If a richer format succeeds at the same physical budget, the conclusion could be that the tested single-plane format was too restrictive, not that low-bit compression was infeasible. If a rich format exceeds the cap, it cannot establish project feasibility even if its quality is better. If every qualified candidate fails the joint gate, report the actual tested capacity range rather than a nominal bit-width slogan.</p>
+<h3 class="subsection-title">Finding 4: Low-rank compensation is credible, but PQT-012 tests its own residual function</h3>
+<p>A small additional correction is a plausible way to recover useful behavior while retaining a compact base. Its value depends on what residual it approximates, which activations weight the error, how it generalizes, and whether storing/executing it fits the budget. Low rank is an architectural capacity restriction, not a guarantee of small error. Several papers support the mechanism while using different mathematical objects from the current expert-output residual.</p>
+<p>ZeroQuant-V2&#x27;s LoRC approximates the weight error <code>W-Q</code> with low-rank factors. Its tested historical quantizers did not uniformly recover original quality, and small corrections improved some settings. The main approximation is a linear weight residual; quantization-aware training is separately discussed. Its findings justify a counted correction baseline, not a statement that every modern quantizer fails or that nonlinear ternary expert outputs are recoverable. <a href="https://arxiv.org/html/2303.08302v3">[46]</a></p>
+<p>EoRA weights linear compression error using activation covariance, performs an eigenspace/SVD approximation and maps the factors back. Its language setup uses 128 WikiText2 sequences of 2,048 tokens and one H100. This gives a principled activation-aware fixed-backbone correction. The inspected v6 is an ICLR 2026 workshop paper. Appendix A.14&#x27;s two-bit MathQA comparison uses subsequent fine-tuning; it cannot be cited as a training-free ternary result. The theoretical statement concerns its linear objective and covariance assumptions. <a href="https://arxiv.org/html/2410.21271v6">[41]</a></p>
+<p>LoftQ alternates quantization and low-rank initialization for subsequent LoRA fine-tuning. Its generation appendix uses two WikiText2 epochs and six GSM8K epochs. LQ-LoRA likewise combines a frozen quantized matrix and trained low-rank factors, with memory-budget allocation. Its nominal 2.75-bit 70B model becomes 2.85 effective bits including adapters; its Table 4 benchmark mean falls from 67.7 to 65.3, with larger loss on GSM8K. These are relevant recovery strategies, but use richer grids and adaptation. <a href="https://arxiv.org/html/2310.08659v4">[43]</a> <a href="https://arxiv.org/html/2311.12023v4">[42]</a></p>
+<p>ApiQ uses activation matching when initializing quantized weights and adapters, explicitly addressing propagated error. ASVD transforms weights using activation information and selects truncation ranks; SVD-LLM uses whitening and sequential closed-form updates for dense low-rank compression. These works suggest which geometry a correction should consider. Their low-rank factors, task-specific fitting or dense decompositions cannot simply be renamed ternary conversion. <a href="https://arxiv.org/html/2402.05147v3">[47]</a> <a href="https://arxiv.org/html/2312.05821v5">[45]</a> <a href="https://arxiv.org/html/2403.07378v5">[44]</a></p>
+<p>PQT-012&#x27;s frozen correction instead predicts the residual of an entire two-matrix expert function. It centers original input <code>X</code> and residual <code>R=Y_original-Y_base</code>, fits a regularized linear map, then exports rank-limited F32 factors and a bias. This is an output regression on a nonlinear FFN discrepancy. It is not EoRA&#x27;s activation-weighted approximation of each linear matrix&#x27;s weight error, nor LoftQ initialization, nor a reproduction of those papers. Its independent auditor and deployed artifact are therefore essential. [Local protocol: ../PQT_012_PREREGISTRATION.md.]</p>
+<p>The current original calibration row counts are 321, 238, 236 and 229 for experts 81, 87, 18 and 91, with input width 768. Derived linear algebra: each empirical input covariance has rank at most its row count, and centering further lowers the bound by one. A direct inverse of a 768-dimensional covariance is therefore unavailable in exact arithmetic. An EoRA-inspired adaptation needs a prospectively declared pseudoinverse or damping convention; the original theorem cannot silently be imported. The PQT-012 dual ridge solve has its own regularization and does not rely on pretending this covariance is full rank. [Local row table: ../PQT_012_PREREGISTRATION.md.]</p>
+<p>There are at least three possible outcomes worth distinguishing. A low-rank residual may fit calibration and transfer, indicating reusable structure in the measured discrepancy. It may fit calibration but fail development, indicating insufficient evidence for transfer under this model and corpus. Or it may fail even calibration within the stored rank, suggesting that this representation cannot capture enough of the relevant residual at the chosen budget. None alone establishes a universal rank lower bound for other expert functions, distributions or objectives.</p>
+<p>Storage constrains this route before performance does. The current FFN pair has 768 input/output channels and 3,072 hidden channels. An output residual with rank <code>r</code> stores two <code>768*r</code> F32 factor arrays and 768 F32 bias values: <code>6144*r + 3072</code> bytes, derived before headers. At rank 256 that is 1,575,936 bytes; added to the current base pair payload of 1,474,560 bytes it is roughly 32.32% of the FP16 pair payload. The complete exported file, not this estimate, decides the 35% gate. This correction also adds actual multiplies and reads, whose native cost remains unmeasured.</p>
+<p>The present ten-arm screen already contrasts direct/progressive bases, three correction ranks per base, and I4/I8 controls. It should execute unchanged if admitted and retain every outcome. A failure is evidence about this prospective mixed artifact. A positive result would justify a later whole-model or integration question, not immediate promotion of the entire language model. The review supplies context for interpreting that screen; it does not retrospectively change ranks, regularization, expert selection or gates to obtain a favorable outcome.</p>
+<h3 class="subsection-title">Finding 5: MoE quantization must preserve expert coverage, routing and the source task</h3>
+<p>Sparse experts create a specific calibration problem: a corpus can contain many tokens while providing few natural inputs to an individual expert. Total corpus size is therefore not an adequate description of evidence coverage. A rare expert might be important on a domain poorly represented in calibration. Conversely, forcing tokens into that expert creates inputs that are no longer the naturally routed distribution. Research must distinguish conditional function approximation, routing behavior and whole-model quality.</p>
+<p>Switch uses a top-one router, gate-weighted expert output and capacity-dependent token dropping, with ReLU between two expert matrices. Its encoder-decoder pretraining task differs from causal decoding. Mixtral uses two selected SwiGLU experts per token within a decoder architecture. A result on Mixtral supplies a mechanism or comparative observation; its perplexity and routing statistics are not a measurement of the original Switch checkpoint. <a href="https://arxiv.org/html/2101.03961v3">[37]</a> <a href="https://arxiv.org/html/2401.04088v1">[38]</a></p>
+<p>QMoE is the strongest direct model-family evidence in this review. It quantizes Switch-base-128 with rowwise asymmetric levels <code>{xmin,0,xmax}</code>, while retaining the core at standard precision. Its C4 loss changes from BF16 1.73 to 1.99 with 10,000 calibration samples, or 1.93 with 20,000. Direct ternary rounding is much worse. Excluding special-token rows improves the reported loss from 2.16 to 1.99; activation ordering worsens it in the ablation. These are not symmetric group-64 or 1% expert-RMS results. <a href="https://arxiv.org/html/2310.16795v1">[28]</a></p>
+<p>The pinned official QMoE implementation increases expert capacity to 1,024 and disables router jitter, quantizes using current propagated contexts and excludes validation rows from curvature construction. Later routing may change after earlier blocks are quantized. Its storage includes entropy coding and decoding metadata; its runtime uses custom CUDA and optimistic simulated float baselines. These details materially differ from original capacity-64 fidelity in this research. A reproduction must disclose them rather than quietly replacing the original function. <a href="https://arxiv.org/html/2310.16795v1">[28]</a></p>
+<p>MoQE studies a multilingual translation MoE. Its two-bit result uses quantization-aware training, while its measured speed improvement concerns four-bit GPU inference; the lower-bit kernels are not optimized. QuantMoE-Bench finds that expert frequency is a useful but imperfect importance indicator and that structure-aware mixed precision improves over uniform two-bit conversion. Neither result establishes a shared symmetric ternary alphabet or preservation of individual original expert functions. <a href="https://arxiv.org/html/2310.02410v1">[29]</a> <a href="https://arxiv.org/html/2406.08155v2">[30]</a></p>
+<p>MoEQuant uses expert-balanced generated calibration and token-router affinity weighting. EAQuant separately treats smoothing, router alignment and underrepresented expert coverage, while keeping routers at higher precision. These are plausible sampling/objective adaptations, but generation itself costs computation and changes the calibration distribution. Natural independent evaluation must remain natural; generated or artificially balanced training inputs should not be advertised as proof that rare natural contexts are covered. <a href="https://arxiv.org/html/2505.03804v1">[31]</a> <a href="https://arxiv.org/html/2506.13329v1">[33]</a></p>
+<p>Mixture Compressor allocates mixed precision and dynamically prunes expert execution. AlphaQ allocates bits using weight spectra, avoiding calibration for that allocation while retaining runtime and correction considerations. These approaches reveal different optimization targets: all stored functions, selected precision by importance, or altered execution. A frequency- or spectral-weighted mean can improve while a low-frequency expert becomes inaccurate. The project should therefore report per-expert outcomes and coverage beside weighted whole-model metrics. <a href="https://arxiv.org/html/2410.06270v2">[32]</a> <a href="https://arxiv.org/html/2606.04980v1">[34]</a></p>
+<p>GEMQ is a recent progressive budget-allocation approach with router fine-tuning. Its expert candidates are integer one-, two- and three-bit formats, not ternary; “1.5 bits” is an average allocation. Its setup uses three H100 80GB GPUs and one epoch of AdamW router fitting. Mixtral MMLU at 2.5 bits changes from 70.37 to 63.21: a 7.16 percentage-point decline, about 10.2% relative. At 1.5 bits C4 perplexity changes from 7.40 to 16.20. Its routing adaptation is a legitimate alternative objective, with a different fidelity contract. <a href="https://arxiv.org/html/2605.23078v1">[40]</a></p>
+<p>The local SRC007 qualification makes a crucial distinction: complete original float traces pass, but the final-decoder four-expert eligibility gate fails because only one expert meets the fixed coverage minima. This is a data-admission result, not a failed ternary fit. The final encoder has enough eligible experts for the separately declared PQT-012 selection. Moving to that architectural counterpart is explicit and prospectively defined; it does not erase the decoder coverage limitation. [Local records: ../PQT_SRC_007_RESULTS.md; ../PQT_012_PREREGISTRATION.md.]</p>
+<p>The most informative QMoE-inspired screen would hold the source checkpoint, original contexts and capacity fixed, then compare the current symmetric reconstruction with a declared asymmetric rowwise alternative and calibration-only special-token filtering. Evaluation should retain its fixed natural rows, including special tokens, and report meaningful strata rather than filter difficult outcomes away. Because these changes differ from the published setup, label the screen literature-informed. Any faithful publication reproduction would be a distinct experiment with changed capacity and task procedure.</p>
+<p>No reviewed paper implies that four popular final-encoder experts represent all experts, layers, domains or the complete sparse model. A local pass can justify broader sampling; a local failure can reject that method under the measured conditions. If coverage cannot be qualified within resources, report an unresolved coverage limitation. Do not replace it with a fitting failure or use the favorable subset to claim model-wide success.</p>
+<h3 class="subsection-title">Finding 6: Useful compression requires native execution evidence on the same artifact</h3>
+<p>The application is native expert scaling, so a representation must be evaluated as part of an execution path. Fewer stored coefficient bits can reduce transfers, but decoding, lookups, extra corrections and layout can cost more than they save. This is an engineering hypothesis to measure, not a consequence of entropy. The relevant benchmark uses the actual packed artifact, actual expert batch shapes, declared activation arithmetic and an uncontended target machine.</p>
+<p>T-MAC supplies primary CPU evidence for table-lookup low-bit execution. Its speed depends on tuned LUT layouts, target hardware and a historically pinned comparison runtime. Optional fast aggregation improves speed while degrading its reported language metrics. Its inspected devices include ARM and Intel systems, rather than the project&#x27;s original Switch route. The mechanism is relevant, but it does not establish a Ryzen expert speedup or justify changing arithmetic without a new correctness gate. <a href="https://arxiv.org/html/2407.00088v2">[35]</a></p>
+<p>Bitnet.cpp distinguishes lossless and lossy kernel variants. Lossless means preserving an already ternary model&#x27;s training arithmetic, including INT8 activation quantization; it is not preservation of an arbitrary float checkpoint after ternarization. The fast TL2_0 format is lossy, while separate variants preserve its stated arithmetic. The author repository identifies large speed-test models as dummy research setups. Their throughput cannot establish large-model pretrained quality. <a href="https://aclanthology.org/2025.acl-long.457.pdf">[36]</a></p>
+<p>HOBBIT accelerates expert offloading by maintaining multiple precision versions and substituting a lower-precision version on cache misses. That can improve residency or transfer behavior without reducing total stored model copies by the same factor. All host copies, caches, transfers and any CPU/GPU collaboration must be counted. Its tested RTX4090/large-memory host and quality tasks do not establish performance on this project&#x27;s local resources. <a href="https://arxiv.org/html/2411.01433v2">[39]</a></p>
+<p>The September 2026 Qwen3-4B case is particularly useful counterevidence. It reports conversion from a previously rotated checkpoint using 64 calibration sequences of 2,048 tokens and adaptive planes. Capability remains below float, while the reported packed file is 3.96 GiB versus 8.29 GiB. Its single tested Triton GEMV shape is approximately 4.6 times slower than FP16. These are reported partial-system findings; packed end-to-end task/throughput validation and original rotation cost are not established by that comparison. <a href="https://arxiv.org/html/2609.01962v1">[13]</a></p>
+<p>Derived from the reported rounded file sizes, the retained storage ratio is about 47.77%, above this project&#x27;s 35% limit. Its nominal 1.641-bit rate describes selected code symbols rather than all model storage, and masks, extra planes, rotations and retained head matter. The study is a useful example of a negative deployment outcome being scientifically informative. It does not prove that every packed ternary kernel is slower or that a different CPU route must fail. <a href="https://arxiv.org/html/2609.01962v1">[13]</a></p>
+<p>GPU codebooks and fused decode provide additional lessons. QuIP reports a setting slower than its comparator despite low-bit compression. QTIP throughput relies on dedicated decoding. AlphaQ&#x27;s fused path and metadata cache trade memory for speed; GEMQ&#x27;s current prefill path loops in Python even though decode is fused. These facts show why kernel-only, decode-only and whole-execution timings must remain separate. They do not supply a portable speed estimate for the local target. <a href="https://arxiv.org/pdf/2307.13304v2">[20]</a> <a href="https://arxiv.org/html/2406.11235v4">[22]</a> <a href="https://arxiv.org/html/2606.04980v1">[34]</a> <a href="https://arxiv.org/html/2605.23078v1">[40]</a></p>
+<p>For this research, the current packed CPU qualification establishes arithmetic correctness on its tested cases. It supplies no native latency or throughput result. The unanswered owner timing reservation remains a blocker for uncontended native measurements; an idle process snapshot is not that reservation. The literature review does not infer consent to compete with the other active checkout. This distinction protects both benchmark validity and the shared development environment. [Local status: ../TERNARY_INDEX.md.]</p>
+<p>A future native benchmark should first establish that its loaded bytes are exactly those which passed the quality gate. Then compare original FP16/F32, declared I4/I8 controls and the candidate at the same function boundary, input rows, thread count and machine conditions. Separate warm/cache-resident inference from first-load and transfer costs. Include decoding and correction work; a residual cannot be removed from timing after being used to achieve fidelity. Record compiler flags, ISA, cache sizes where observed, affinity, batch sizes, repetitions and paired variability before claiming benefit.</p>
+<p>The workload also determines the useful metric. A tiny single-token expert may be dominated by load or decode. Several token rows can reuse weights and favor a different kernel. An expert cache can change both bytes read and route latency. A matrix benchmark with favorable dimensions should therefore be a diagnostic, followed by the actual sparse route and an end-to-end task check. Performance on two T4s is helpful for fitting and source acquisition but cannot replace CPU native measurements.</p>
+<p>The prospective decision remains joint. If a candidate improves quality but exceeds complete storage, it is outside the current deployment gate. If it saves storage but is slower, it may still be useful for archival purposes, but that is not the stated storage-and-execution success. If native timing cannot be admitted, leave execution feasibility unresolved. A bounded negative research report can include this resource limitation without inventing a measured slowdown. A positive claim requires all relevant observations on a consistent artifact.</p>
+<h2 class="section-title">Synthesis &amp; Insights</h2>
+<p>The strongest conclusion is conditional feasibility. The literature establishes pretrained conversion mechanisms and useful low-bit capability, including an unusually close Switch-family study. It also supplies repeated examples of residual quality loss, large calibration optimization budgets and nontrivial deployment overhead. These observations are compatible: a representation can support capable models while cheap conversion at a strict fidelity target fails. <a href="https://arxiv.org/html/2310.16795v1">[28]</a> <a href="https://arxiv.org/html/2510.03267v2">[1]</a> <a href="https://arxiv.org/html/2606.26650v1">[2]</a></p>
+<p>Three distinctions organize the decision. First, an optimization procedure can improve within a restricted alphabet without enough capacity to preserve the teacher. Second, adding planes, exceptions or residuals can improve capacity while changing both storage and execution. Third, a metric of task usefulness can stay high while detailed output distributions or generated trajectories change. None should be collapsed into the statement “ternary works” or “ternary cannot work.” <a href="https://arxiv.org/html/2509.16989v1">[5]</a> <a href="https://arxiv.org/pdf/2306.03078v1">[25]</a> <a href="https://arxiv.org/html/2605.02404v2">[27]</a></p>
+<p>SLQ makes the metric distinction explicit: its task-preserving mixed-precision points use 3.3–4.7 effective bits, while distribution-preserving points use 5.0–6.6. Its QTIP4 example recovers 99.9% of benchmark means yet has EAR 0.9544. EAR and its calibration/benchmark anchoring have their own scope limitations, so these are not universal bounds or untouched-held-out proofs. They do demonstrate why task averages cannot substitute for the project&#x27;s teacher-agreement criterion. <a href="https://arxiv.org/html/2605.02404v2">[27]</a></p>
+<p>The local negative chain is coherent with these distinctions. Direct and progressive single-plane models can fit selected contexts better and still lose global behavior. Scale learning can give small in-domain gains without robust cross-domain preservation. Restoring a shared tensor can leave other errors unresolved. These records reject specific methods under their protocols. They do not reproduce every joint-reconstruction, asymmetric, rotated, codebook or long-QAT method reviewed here. [Local results: ../PQT_007_RESULTS.md; ../PQT_011_RESULTS.md; ../PQT_010_RESULTS.md.]</p>
+<p>The review changes priority rather than demanding an unlimited benchmark matrix. PQT-012 has a defined new capacity mechanism and qualified natural inputs. QMoE/ PT² suggest a small original-context alphabet comparison with especially high information value. A bounded soft-to-hard joint FFN objective is another materially new mechanism, but lower priority until the previous screen is adjudicated. Full-scale replicated QAT on large causal checkpoints is a separate resource decision; papers using many large GPUs do not make it automatically feasible here.</p>
+<p>A negative result is valid when it answers the scoped question with reproducible evidence. It need not prove that no algorithm could ever work. The conclusion can identify a strict original-function requirement as unattained within the admitted alphabet, storage cap and fitting budget; it can also identify a smaller viable target, such as useful task quality, as a different follow-up objective. Altering the goal after observing outcomes must be explicit and must not retroactively convert failures into successes.</p>
+<h2 class="section-title">Counterevidence Register</h2>
+<table>
+<tr><th>Tempting conclusion</th><th>Strongest counterevidence</th><th>Correct interpretation</th></tr>
+<tr><td>Pretrained ternary conversion is impossible</td><td>PT², CAT-Q and QMoE convert pretrained checkpoints <a href="https://arxiv.org/html/2510.03267v2">[1]</a> <a href="https://arxiv.org/html/2606.26650v1">[2]</a> <a href="https://arxiv.org/html/2310.16795v1">[28]</a></td><td>Conversion is demonstrated; this project&#x27;s joint tolerances are not</td></tr>
+<tr><td>Ternary quality matching float is easy</td><td>Small-model gaps in PT²/CAT-Q; QMoE base-128 residual loss <a href="https://arxiv.org/html/2510.03267v2">[1]</a> <a href="https://arxiv.org/html/2606.26650v1">[2]</a> <a href="https://arxiv.org/html/2310.16795v1">[28]</a></td><td>Preserve model/metric/budget conditions</td></tr>
+<tr><td>Progressive batching alone solves recovery</td><td>INQ retrains uncommitted weights; CoreQ corrects mismatch <a href="https://arxiv.org/pdf/1702.03044v2">[7]</a> <a href="https://arxiv.org/html/2602.05902v2">[26]</a></td><td>Schedule needs a defined compensation mechanism</td></tr>
+<tr><td>PTQ means no optimization</td><td>CAT-Q, OmniQuant and AutoRound optimize calibration objectives <a href="https://arxiv.org/html/2606.26650v1">[2]</a> <a href="https://arxiv.org/html/2308.13137v3">[18]</a> <a href="https://arxiv.org/html/2309.05516v5">[19]</a></td><td>Count actual updates and exposures</td></tr>
+<tr><td>1.58-bit paper labels imply one-plane cost</td><td>PTQTP&#x27;s two planes; binary-plus-4-bit PTQ1.61 <a href="https://arxiv.org/html/2509.16989v1">[5]</a> <a href="https://arxiv.org/html/2502.13179v2">[11]</a></td><td>Declare alphabet and export bytes</td></tr>
+<tr><td>Strong benchmarks prove teacher fidelity</td><td>SLQ contrasts task and distribution recovery <a href="https://arxiv.org/html/2605.02404v2">[27]</a></td><td>Test the requested behavioral objective</td></tr>
+<tr><td>Compact representation implies faster deployment</td><td>Qwen3-4B&#x27;s packed GEMV slowdown; hardware-dependent LUT paths <a href="https://arxiv.org/html/2609.01962v1">[13]</a> <a href="https://arxiv.org/html/2407.00088v2">[35]</a></td><td>Measure the same deployed artifact on target hardware</td></tr>
+<tr><td>Our existing failures reject all reviewed methods</td><td>Existing protocols have different alphabets/objectives/budgets</td><td>Close only tested scope; name untested alternatives</td></tr>
+</table>
+<h2 class="section-title">Limitations &amp; Caveats</h2>
+<p>This is primary-source inspection and local evidence reconciliation, not independent reproduction of the papers. Public code inspection does not qualify numerical correctness, released weights or compact file accounting. Some author code is dynamically addressed; pinned commits and unpinned status are recorded separately. Recent preprints have not acquired independent validation merely because several pages repeat them. The paper and its website are one evidence cluster, and CAT-Q/ScaleQ method dependence is explicit.</p>
+<p>Reported metrics are heterogeneous. Causal perplexity, masked-span loss, classification/translation accuracy, mean benchmark recovery, expert relative RMS and exact continuation agreement cannot be pooled as one effect size. The QMoE loss protocol also changes capacity and sampling; its 1.73 float baseline is not the local masked-span reference under a different procedure. Where rounded sizes imply a ratio, the report labels arithmetic rather than pretending those are measured local bytes.</p>
+<p>The remaining original-context sample supports only selected experts and the admitted corpus. The C4 data are consumed research evidence; exclusion from checkpoint pretraining is not established. Previously evaluated WikiText/news windows are also consumed. Repeatedly selecting methods against these same values does not create a fresh independent confirmation set. A future promoted candidate needs a separately frozen final confirmation protocol with no feedback into fitting or arm selection.</p>
+<p>Resource limits constrain what can be concluded. Two T4s do not form one contiguous memory pool, and three account quotas do not pool six GPUs into one distributed allocation automatically. Hardware/configuration discrepancies, missing original-context coverage and unavailable uncontended native timing can prevent a test. Record those as limitations or admission failures rather than numerical failures. No new model fitting, private upload, GPU benchmark or native timing was executed in this literature review.</p>
+<p>Some relevant leads remain insufficiently documented for a decisive comparison, including PT-BitNet&#x27;s inaccessible detailed budget and unretrieved raw artifacts for the September systems case. This report does not fill those gaps with publicity claims. Search was targeted across related methods and citation chains; it is not a proof that every paper or commercial implementation before the cutoff was found. No universal ternary impossibility theorem was found in the inspected sources; that is a coverage statement, not proof that no such theorem could exist.</p>
+<h2 class="section-title">Recommendations</h2>
+<h3 class="subsection-title">A finite decision sequence</h3>
+<p>First adjudicate the already frozen PQT-012 screen after safe resource admission. Its purpose is to test whether a counted low-rank output residual changes the natural-context outcome within the current cap. Retain the preregistered ten arms and every failure. If a method cannot satisfy artifact or numerical qualification, that arm is inadmissible; it is not a quality success. If all valid artifacts fail, close the stated mixed-residual hypothesis at its declared ranks and coverage.</p>
+<p>Next consider one prospective original-context comparison inspired by QMoE and PT²: the existing symmetric base versus a precisely declared asymmetric rowwise/affine alternative, with bounded deterministic assignment and activation-aware compensation. These are separate alphabets. Include a declared calibration-only special-token ablation if it addresses the QMoE discrepancy; keep natural evaluation intact. Fix methods, damping, scale precision, metadata and cost before fitting. This would be a literature-informed screen rather than a faithful QMoE reproduction. <a href="https://arxiv.org/html/2310.16795v1">[28]</a> <a href="https://arxiv.org/html/2510.03267v2">[1]</a></p>
+<p>Only if that comparison leaves a materially unresolved objective issue should the next screen examine bounded joint-FFN soft-to-hard reconstruction. Use a declared maximum update/exposure/wall-time budget and source-proven controls. Its causal question is whether reconstructing the whole nonlinear function improves generalization over matrix-local fitting, not whether one can tune until a development set passes. Full CAT-Q-style replication requires a separately justified resource plan. <a href="https://arxiv.org/html/2606.26650v1">[2]</a> <a href="https://arxiv.org/pdf/2102.05426v2">[17]</a></p>
+<p>A two-plane or mixed-precision control may be informative if single-plane capacity is the unresolved mechanism. It must be labelled an alternative representation and counted at complete physical size. Decide admission prospectively from the budget calculation and runtime feasibility, not after its quality looks promising. Richer codebook methods can guide an alternate compression objective; implementing all of them is not required to close the ternary scope. <a href="https://arxiv.org/html/2509.16989v1">[5]</a> <a href="https://arxiv.org/html/2502.13179v2">[11]</a> <a href="https://arxiv.org/html/2401.06118v4">[23]</a></p>
+<p>After a quality-qualified exported candidate exists, obtain the explicit uncontended native window and evaluate the actual execution route. Follow with broader original-model predictive/generative evaluation using a frozen confirmation set. An expert-only pass is a necessary screening observation under this sequence, not sufficient evidence for full-model success. Stop native work if no admitted artifact passes the prerequisite quality/capacity conditions; benchmarking a known inadequate artifact cannot promote it.</p>
+<h3 class="subsection-title">Closure rule and valid negative result</h3>
+<p>The decision can close negatively when the selected, literature-informed hypotheses have qualified controls and bounded tests, no candidate satisfies the joint gates, and remaining alternatives are documented as outside the declared scope, infeasible within resources or too weakly motivated to justify more cost. The stopping decision must name the admitted method families and the reasons for omitting materially relevant ones. “All possible tests” is neither achievable nor necessary; a finite justified investigation is the requirement.</p>
+<p>Use this conclusion form: <b>For the specified checkpoint, original-context coverage, representation family, quality tolerances, complete storage limit and fitting budget, no admitted candidate met the joint requirements.</b> Attach the complete outcome table, artifact identities, raw retained evidence and resumption instructions. If execution was unmeasured, add that limitation explicitly; do not say measured runtime failed. If no candidate passed fidelity, identify that as the binding observed failure rather than implying every downstream property was tested.</p>
+<p>An alternative successful capability target is legitimate future research, but it requires a new prospective question and acceptance criteria. Loosening the current thresholds after seeing results does not complete this goal. Likewise, omitting a residual from accounting or renaming two planes as one ternary matrix cannot convert a failure into success. Negative closure is informative precisely because these distinctions survive the conclusion.</p>
+<h2 class="section-title">Claims-Evidence Table</h2>
+<table>
+<tr><th>Decision claim</th><th>Evidence clusters or local record</th><th>Support scope</th></tr>
+<tr><td>Behavior-aware progressive conversion is established</td><td>INQ, GPTQ, AdaRound, BRECQ <a href="https://arxiv.org/pdf/1702.03044v2">[7]</a> <a href="https://arxiv.org/pdf/2210.17323v2">[15]</a> <a href="https://arxiv.org/pdf/2004.10568v2">[16]</a> <a href="https://arxiv.org/pdf/2102.05426v2">[17]</a></td><td>Mechanism precedent across tasks; not local reproduction</td></tr>
+<tr><td>Pretrained ternary conversion can retain useful capability with residual loss</td><td>PT², CAT-Q, QMoE <a href="https://arxiv.org/html/2510.03267v2">[1]</a> <a href="https://arxiv.org/html/2606.26650v1">[2]</a> <a href="https://arxiv.org/html/2310.16795v1">[28]</a></td><td>Specific models, alphabets and reported metrics</td></tr>
+<tr><td>Additional conversion cost can be large despite PTQ terminology</td><td>CAT-Q, TernaryLLM, Tequila <a href="https://arxiv.org/html/2606.26650v1">[2]</a> <a href="https://arxiv.org/pdf/2406.07177v1">[6]</a> <a href="https://arxiv.org/html/2509.23809v2">[9]</a></td><td>Count optimizer work and inherited pretraining separately</td></tr>
+<tr><td>Low-bit success need not use scalar ternary</td><td>PTQTP, QuIP#, AQLM <a href="https://arxiv.org/html/2509.16989v1">[5]</a> <a href="https://arxiv.org/html/2402.04396v2">[21]</a> <a href="https://arxiv.org/html/2401.06118v4">[23]</a></td><td>Different capacity and decoding</td></tr>
+<tr><td>Routing, coverage and task conventions matter</td><td>QMoE, MoEQuant, EAQuant, GEMQ <a href="https://arxiv.org/html/2310.16795v1">[28]</a> <a href="https://arxiv.org/html/2505.03804v1">[31]</a> <a href="https://arxiv.org/html/2506.13329v1">[33]</a> <a href="https://arxiv.org/html/2605.23078v1">[40]</a></td><td>Hypotheses for original-context controls</td></tr>
+<tr><td>Task means and teacher fidelity differ</td><td>SLQ plus local Qwen records <a href="https://arxiv.org/html/2605.02404v2">[27]</a></td><td>No universal bit threshold derived</td></tr>
+<tr><td>Native benefit requires measured complete execution</td><td>T-MAC, Bitnet.cpp, HOBBIT, Qwen systems case <a href="https://arxiv.org/html/2407.00088v2">[35]</a> <a href="https://aclanthology.org/2025.acl-long.457.pdf">[36]</a> <a href="https://arxiv.org/html/2411.01433v2">[39]</a> <a href="https://arxiv.org/html/2609.01962v1">[13]</a></td><td>Hardware-specific evidence; local speed unresolved</td></tr>
+<tr><td>A scoped negative is currently possible, universal impossibility is unsupported</td><td>Existing local protocols plus the counterevidence above</td><td>Research decision rule, not a literature theorem</td></tr>
+</table>
+<h2 class="section-title">Methodology Appendix</h2>
+<h3 class="subsection-title">Search and identity</h3>
+<p>The review uses four focused lanes: pretrained ternary conversion; behavior-aware post-training methods and richer low-bit controls; MoE/routing/native systems; and low-rank compensation. Retrieval used web search because the preferred search CLI was unavailable. Queries, primary URLs, inspected revisions and section/table/code locators are retained in lane logs. Abstracts and search snippets discover sources; substantive mechanism claims use full primary text where available. Older source revisions are not silently substituted for a newer inspected revision.</p>
+<p>Registry identifiers derive from canonical URL identity, not downloaded content. Consolidation groups arXiv versions and author companions under one paper/project; duplicate INQ entries across lanes are merged. The registry preserves every lane alias and version. Original lane records remain intact, so consolidation can be reconstructed. The reviewed papers span historical prerequisites and material available through September 2026; the retrieval cutoff is 6 October 2026.</p>
+<p>Each paper&#x27;s reading note is a bounded paraphrase with precise locators and explicit limitations. No full copyrighted paper is copied into the repository. Numeric extraction records the reported numbers and setting; derived exposures/storage ratios are separate calculations. Source-level observations are reported, project-level implications are inferences, and prospective tests are recommendations. The report&#x27;s bibliography contains the primary source for every numbered citation; local evidence links point to the existing research record.</p>
+<h3 class="subsection-title">Triangulation and verification</h3>
+<p>Broad conclusions are cross-checked against independent method/project clusters rather than duplicated URLs. The report keeps counterevidence beside promising claims. In particular, positive conversion results prevent premature universal rejection, while reported residual losses and deployment limitations prevent premature promotion. CAT-Q and its ScaleQ extension do not count as independent confirmations of the same conversion mechanism.</p>
+<p>The source/evidence/claim ledgers connect review statements to inspected locators. A deterministic support checker is an auxiliary consistency check on wording, entities and numbers, not a semantic proof or independent reproduction. Its input adapter uses labelled paraphrases and numeric extracts rather than inventing verbatim quotations. Manual review checks whether the paragraph stays within the paper&#x27;s actual alphabet, optimization regime, model, metric and hardware. Calculations are checked independently from paper publicity labels.</p>
+<p>Packaging verification covers citation numbering, source registry resolution, bibliography completeness, section coverage, report length, claim traceability, placeholder absence and HTML preservation. Printable PDF is generated from the report and inspected as an artifact; it is a convenience copy. Markdown, JSONL evidence and original experiment records remain authoritative for revision and resumption. No document signature or authorship attribution is added.</p>
+<h3 class="subsection-title">Local evidence and resumption</h3>
+<p>Read the Italian <a href="../GOAL.md">goal</a> and <a href="../TERNARY_INDEX.md">research index</a> first, then this report&#x27;s recommendations. For scientific state, the priority records are <a href="../PQT_011_RESULTS.md">PQT-011 outcome</a>, <a href="../PQT_SRC_007_RESULTS.md">SRC007 original-context qualification</a>, <a href="../PQT_012_PREREGISTRATION.md">PQT-012 preregistration</a>, <a href="../PQT_012_PREPARATION_RESULTS.md">qualified input preparation</a> and <a href="../PQT_012_EXECUTION_PROTOCOL.md">execution protocol</a>. Source/run identity proofs already attached to those records remain the authority.</p>
+<p>PQT-012 was prepared before this review and remains unexecuted on original candidate fitting. Its first remote-input preparation stopped on local process admission before copying; a separate operational recording repair is frozen. Do not repeat qualified inputs, audits or synthetic controls merely to resume. Before any new export/dispatch, use fresh live resource checks and the existing admission protocol. A historical snapshot cannot admit new work. Long admitted T4 jobs use status-only delegated monitoring while the coordinator waits dormant, as requested by the owner.</p>
+<p>The negative-result instruction is preserved in the goal and strengthened by the finite closure rule. This review completes the literature phase, not the complete experimental objective. Pending numerical and native questions remain separately identified; they must not be marked successful, failed or complete merely because the report is finished.</p>
+
+            <div class="bibliography">
+                <div class="section-title">Bibliography</div>
+                <p>Years refer to the inspected version or publication; earlier submissions remain in the registry. Paper revisions and author companions count once. All sources retrieved on 6 October 2026.</p>
+<p class="bib-entry">[1] Xianglong Yan et al. (2026). &quot;PT2-LLM: Post-Training Ternarization for Large Language Models&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2510.03267v2">https://arxiv.org/html/2510.03267v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[2] Shigeng Wang et al. (2026). &quot;CAT-Q: Cost-efficient and Accurate Ternary Quantization for LLMs&quot;. Primary paper, inspected v1. <a href="https://arxiv.org/html/2606.26650v1">https://arxiv.org/html/2606.26650v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[3] Zhixiong Zhao et al. (2026). &quot;TWLA: Achieving Ternary Weights and Low-Bit Activations for LLMs via Post-Training Quantization&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2606.13054v2">https://arxiv.org/html/2606.13054v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[4] Shigeng Wang et al. (2026). &quot;Attend to Your Own Thoughts: Breaking the Barrier for Post-Training Quantization of Reasoning LLMs through the Lens of 1.58-Bit Quantization&quot;. Primary paper, inspected v1. <a href="https://arxiv.org/html/2608.01078v1">https://arxiv.org/html/2608.01078v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[5] He Xiao et al. (2025). &quot;PTQTP: Post-Training Quantization to Trit-Planes for Large Language Models&quot;. Primary paper, inspected v1. <a href="https://arxiv.org/html/2509.16989v1">https://arxiv.org/html/2509.16989v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[6] Tianqi Chen et al. (2024). &quot;TernaryLLM: Ternarized Large Language Model&quot;. Primary paper, inspected v1. <a href="https://arxiv.org/pdf/2406.07177v1">https://arxiv.org/pdf/2406.07177v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[7] Aojun Zhou et al. (2017). &quot;Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/pdf/1702.03044v2">https://arxiv.org/pdf/1702.03044v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[8] Chenzhuo Zhu et al. (2017). &quot;Trained Ternary Quantization&quot;. Primary paper, inspected v3. <a href="https://arxiv.org/pdf/1612.01064v3">https://arxiv.org/pdf/1612.01064v3</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[9] Hong Huang et al. (2025). &quot;Tequila: Trapping-free Ternary Quantization for Large Language Models&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2509.23809v2">https://arxiv.org/html/2509.23809v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[10] Jacob Nielsen et al. (2025). &quot;Continual Quantization-Aware Pre-Training: When to transition from 16-bit to 1.58-bit pre-training for BitNet language models?&quot;. Primary paper, inspected v1. <a href="https://arxiv.org/html/2502.11895v1">https://arxiv.org/html/2502.11895v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[11] Jiaqi Zhao et al. (2025). &quot;PTQ1.61: Push the Real Limit of Extremely Low-Bit Post-Training Quantization Methods for Large Language Models&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2502.13179v2">https://arxiv.org/html/2502.13179v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[12] Hongyu Wang et al. (2025). &quot;BitNet: 1-bit Pre-training for Large Language Models&quot;. Primary paper, inspected JMLR26(125):1-29. <a href="https://www.jmlr.org/papers/volume26/24-2050/24-2050.pdf">https://www.jmlr.org/papers/volume26/24-2050/24-2050.pdf</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[13] Anirudh Malik et al. (2026). &quot;Post-Training Ternarization of Qwen3-4B Capability, Effective Bit Budget, Storage Compression, and Deployment&quot;. Primary paper, inspected v1. <a href="https://arxiv.org/html/2609.01962v1">https://arxiv.org/html/2609.01962v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[14] Elias Frantar et al. (2023). &quot;Optimal Brain Compression: A Framework for Accurate Post-Training Quantization and Pruning&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/pdf/2208.11580v2">https://arxiv.org/pdf/2208.11580v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[15] Elias Frantar et al. (2023). &quot;GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/pdf/2210.17323v2">https://arxiv.org/pdf/2210.17323v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[16] Markus Nagel et al. (2020). &quot;Up or Down? Adaptive Rounding for Post-Training Quantization&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/pdf/2004.10568v2">https://arxiv.org/pdf/2004.10568v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[17] Yuhang Li et al. (2021). &quot;BRECQ: Pushing the Limit of Post-Training Quantization by Block Reconstruction&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/pdf/2102.05426v2">https://arxiv.org/pdf/2102.05426v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[18] Wenqi Shao et al. (2024). &quot;OmniQuant: Omnidirectionally Calibrated Quantization for Large Language Models&quot;. Primary paper, inspected v3. <a href="https://arxiv.org/html/2308.13137v3">https://arxiv.org/html/2308.13137v3</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[19] Wenhua Cheng et al. (2024). &quot;Optimize Weight Rounding via Signed Gradient Descent for the Quantization of LLMs&quot;. Primary paper, inspected v5. <a href="https://arxiv.org/html/2309.05516v5">https://arxiv.org/html/2309.05516v5</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[20] Jerry Chee et al. (2024). &quot;QuIP: 2-Bit Quantization of Large Language Models With Guarantees&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/pdf/2307.13304v2">https://arxiv.org/pdf/2307.13304v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[21] Albert Tseng et al. (2024). &quot;QuIP#: Even Better LLM Quantization with Hadamard Incoherence and Lattice Codebooks&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2402.04396v2">https://arxiv.org/html/2402.04396v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[22] Albert Tseng et al. (2025). &quot;QTIP: Quantization with Trellises and Incoherence Processing&quot;. Primary paper, inspected v4. <a href="https://arxiv.org/html/2406.11235v4">https://arxiv.org/html/2406.11235v4</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[23] Vage Egiazarian et al. (2024). &quot;Extreme Compression of Large Language Models via Additive Quantization&quot;. Primary paper, inspected v4. <a href="https://arxiv.org/html/2401.06118v4">https://arxiv.org/html/2401.06118v4</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[24] Mart van Baalen et al. (2025). &quot;GPTVQ: The Blessing of Dimensionality for LLM Quantization&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2402.15319v2">https://arxiv.org/html/2402.15319v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[25] Tim Dettmers et al. (2023). &quot;SpQR: A Sparse-Quantized Representation for Near-Lossless LLM Weight Compression&quot;. Primary paper, inspected v1. <a href="https://arxiv.org/pdf/2306.03078v1">https://arxiv.org/pdf/2306.03078v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[26] Seohyeon Cha et al. (2026). &quot;CoreQ: Learning-Free Mismatch Correction and Successive Rounding for Quantization&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2602.05902v2">https://arxiv.org/html/2602.05902v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[27] Michael Helcig et al. (2026). &quot;Statistically-Lossless Quantization of Large Language Models&quot;. Primary paper, inspected v2. <a href="https://arxiv.org/html/2605.02404v2">https://arxiv.org/html/2605.02404v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[28] Elias Frantar and Dan Alistarh (2023). &quot;QMoE: Practical Sub-1-Bit Compression of Trillion-Parameter Models&quot;. Primary paper, inspected 2310.16795v1. <a href="https://arxiv.org/html/2310.16795v1">https://arxiv.org/html/2310.16795v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[29] Young Jin Kim, Raffy Fahim and Hany Hassan Awadalla (2023). &quot;Mixture of Quantized Experts (MoQE): Complementary Effect of Low-bit Quantization and Robustness&quot;. Primary paper, inspected 2310.02410v1. <a href="https://arxiv.org/html/2310.02410v1">https://arxiv.org/html/2310.02410v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[30] Pingzhi Li et al. (2025). &quot;QuantMoE-Bench: Examining Post-Training Quantization for Mixture-of-Experts&quot;. Primary paper, inspected 2406.08155v2. <a href="https://arxiv.org/html/2406.08155v2">https://arxiv.org/html/2406.08155v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[31] Xing Hu et al. (2025). &quot;MoEQuant: Enhancing Quantization for Mixture-of-Experts Large Language Models via Expert-Balanced Sampling and Affinity Guidance&quot;. Primary paper, inspected 2505.03804v1. <a href="https://arxiv.org/html/2505.03804v1">https://arxiv.org/html/2505.03804v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[32] Wei Huang et al. (2025). &quot;Mixture Compressor for Mixture-of-Experts LLMs Gains More&quot;. Primary paper, inspected 2410.06270v2. <a href="https://arxiv.org/html/2410.06270v2">https://arxiv.org/html/2410.06270v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[33] Zhongqian Fu et al. (2025). &quot;EAQuant: Enhancing Post-Training Quantization for MoE Models via Expert-Aware Optimization&quot;. Primary paper, inspected 2506.13329v1. <a href="https://arxiv.org/html/2506.13329v1">https://arxiv.org/html/2506.13329v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[34] Wanqi Yang et al. (2026). &quot;AlphaQ: Calibration-Free Bit Allocation for Mixture-of-Experts Quantization&quot;. Primary paper, inspected 2606.04980v1. <a href="https://arxiv.org/html/2606.04980v1">https://arxiv.org/html/2606.04980v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[35] Jianyu Wei et al. (2025). &quot;T-MAC: CPU Renaissance via Table Lookup for Low-Bit LLM Deployment on Edge&quot;. Primary paper, inspected 2407.00088v2. <a href="https://arxiv.org/html/2407.00088v2">https://arxiv.org/html/2407.00088v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[36] Jinheng Wang et al. (2025). &quot;Bitnet.cpp: Efficient Edge Inference for Ternary LLMs&quot;. Primary paper, inspected ACL2025. <a href="https://aclanthology.org/2025.acl-long.457.pdf">https://aclanthology.org/2025.acl-long.457.pdf</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[37] William Fedus, Barret Zoph and Noam Shazeer (2022). &quot;Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity&quot;. Primary paper, inspected 2101.03961v3. <a href="https://arxiv.org/html/2101.03961v3">https://arxiv.org/html/2101.03961v3</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[38] Albert Q. Jiang et al. (2024). &quot;Mixtral of Experts&quot;. Primary paper, inspected 2401.04088v1. <a href="https://arxiv.org/html/2401.04088v1">https://arxiv.org/html/2401.04088v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[39] Peng Tang et al. (2024). &quot;HOBBIT: A Mixed Precision Expert Offloading System for Fast MoE Inference&quot;. Primary paper, inspected 2411.01433v2. <a href="https://arxiv.org/html/2411.01433v2">https://arxiv.org/html/2411.01433v2</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[40] Jianing Deng et al. (2026). &quot;GEMQ: Global Expert-Level Mixed-Precision Quantization for MoE LLMs&quot;. Primary paper, inspected 2605.23078v1. <a href="https://arxiv.org/html/2605.23078v1">https://arxiv.org/html/2605.23078v1</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[41] Shih-Yang Liu et al. (2026). &quot;EoRA: Fine-tuning-free Compensation for Compressed LLM with Eigenspace Low-Rank Approximation&quot;. Primary paper, inspected 6. <a href="https://arxiv.org/html/2410.21271v6">https://arxiv.org/html/2410.21271v6</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[42] Han Guo, Philip Greengard, Eric P. Xing, and Yoon Kim (2024). &quot;LQ-LoRA: Low-rank Plus Quantized Matrix Decomposition for Efficient Language Model Finetuning&quot;. Primary paper, inspected 4. <a href="https://arxiv.org/html/2311.12023v4">https://arxiv.org/html/2311.12023v4</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[43] Yixiao Li et al. (2023). &quot;LoftQ: LoRA-Fine-Tuning-Aware Quantization for Large Language Models&quot;. Primary paper, inspected 4. <a href="https://arxiv.org/html/2310.08659v4">https://arxiv.org/html/2310.08659v4</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[44] Xin Wang, Yu Zheng, Zhongwei Wan, and Mi Zhang (2025). &quot;SVD-LLM: Truncation-aware Singular Value Decomposition for Large Language Model Compression&quot;. Primary paper, inspected 5. <a href="https://arxiv.org/html/2403.07378v5">https://arxiv.org/html/2403.07378v5</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[45] Zhihang Yuan et al. (2025). &quot;ASVD: Activation-aware Singular Value Decomposition for Compressing Large Language Models&quot;. Primary paper, inspected 5. <a href="https://arxiv.org/html/2312.05821v5">https://arxiv.org/html/2312.05821v5</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[46] Zhewei Yao, Xiaoxia Wu, Cheng Li, Stephen Youn, and Yuxiong He (2023). &quot;ZeroQuant-V2: Exploring Post-training Quantization in LLMs from Comprehensive Study to Low Rank Compensation&quot;. Primary paper, inspected 3. <a href="https://arxiv.org/html/2303.08302v3">https://arxiv.org/html/2303.08302v3</a> (Retrieved: 2026-10-06).</p>
+<p class="bib-entry">[47] Baohao Liao, Christian Herold, Shahram Khadivi, and Christof Monz (2024). &quot;ApiQ: Finetuning of 2-Bit Quantized Large Language Model&quot;. Primary paper, inspected 3. <a href="https://arxiv.org/html/2402.05147v3">https://arxiv.org/html/2402.05147v3</a> (Retrieved: 2026-10-06).</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

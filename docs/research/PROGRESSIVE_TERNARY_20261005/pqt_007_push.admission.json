@@ -1,0 +1,87 @@
+{
+  "schema": "PQT_KAGGLE_ADMISSION_V1",
+  "time_utc": "2026-10-05T22:25:38.554203+00:00",
+  "account": {
+    "account": "acct3",
+    "status": "verified",
+    "configured_username": "sirwildpino",
+    "server_identity": "sirwildpino",
+    "gpu_quota": {
+      "used_hours": 0.0,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 30.0,
+      "conservative_unreserved_hours": 30.0,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-05T22:25:33.166357+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "sirwildpino/h4-rank48-stagea-v2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/s1-sparsity-bpb-scale-arm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-relaytest",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-arm6",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/notebook3f8b10f091",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/wilddataset-3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/siliconllm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "ref": "sirwildpino/pqt-007-full-model-20261006-001",
+  "timeout_seconds": 5400,
+  "source_commit": "18e998e8b7301897e7ba35dde4990e76a87e366d",
+  "bundle_sha256": {
+    "bootstrap.py": "944c0f219f19f0983d701876d01717d9b44e5c3327a5adfc52fba5fdbe3c0c3b",
+    "kernel-metadata.json": "06a7d69da2313d39c0f4c1392c79198810e6aee4e69cbace5b61c2eff9f6cb1d"
+  },
+  "interactive_session_absence_proven": false,
+  "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+}

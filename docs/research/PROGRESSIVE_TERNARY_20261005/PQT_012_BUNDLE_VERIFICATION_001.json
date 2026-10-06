@@ -1,0 +1,91 @@
+{
+  "schema": "PQT_012_BUNDLE_VERIFICATION_V1",
+  "passed": true,
+  "bundle_evidence_commit": "85e63bdff4596727a72d04747c4d5d2ce730772f",
+  "scientific_source_commit": "31aecfa97d809922c2a7dd31cb9aa90606780113",
+  "all_source_Git_bytes_exact": true,
+  "executable_import_closure": [
+    "apparatus",
+    "audit_pqt012",
+    "pqt012_artifact",
+    "pqt012_inputs",
+    "pqt012_metrics",
+    "pqt012_ridge",
+    "pqt012_worker",
+    "scale_math",
+    "src007_io",
+    "ternary_math"
+  ],
+  "source_files": 22,
+  "bootstrap": {
+    "bytes": 76187,
+    "sha256": "df96e155d8cd8c25fcdd6409431a0ca3d2ba644156c4eca64cfaa54fc8252161"
+  },
+  "capsule": {
+    "bytes": 117362605,
+    "sha256": "654535bbed88a8a525af351b6052810fff6c495aa7845b17759db8e059a26f83"
+  },
+  "metadata_verified": true,
+  "transport_negative_controls": [
+    {
+      "name": "wrong_capsule_hash",
+      "gate": "capsule_hash"
+    },
+    {
+      "name": "wrong_capsule_size",
+      "gate": "capsule_size"
+    },
+    {
+      "name": "wrong_capsule_namespace",
+      "gate": "capsule_namespace"
+    },
+    {
+      "name": "missing_recursive_mount",
+      "gate": "capsule_mount_count"
+    },
+    {
+      "name": "ambiguous_recursive_mount",
+      "gate": "capsule_mount_count"
+    }
+  ],
+  "admission": {
+    "own_pid": 23056,
+    "parent_pid": 10092,
+    "allowed_live_pids": [
+      10092,
+      23056
+    ],
+    "own_venv_launcher_verified": {
+      "Name": "python.exe",
+      "ProcessId": 10092,
+      "ParentProcessId": 29652,
+      "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.venv\\Scripts\\python.exe"
+    },
+    "snapshot_processes": [
+      {
+        "Name": "python.exe",
+        "ProcessId": 10092,
+        "ParentProcessId": 29652,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "Name": "python.exe",
+        "ProcessId": 23056,
+        "ParentProcessId": 10092,
+        "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+      }
+    ],
+    "relevant_other_processes": [],
+    "passed": true,
+    "native_timing_reservation": false
+  },
+  "original_candidate_fits": 0,
+  "GPU_allocations": 0,
+  "private_write": false,
+  "resource": {
+    "elapsed_seconds_before_report": 1.8599999999860302,
+    "peak_process_RSS_bytes": 39727104
+  },
+  "complete_preflight_child_duration_separately_instrumented": false,
+  "whole_research_complete": false
+}

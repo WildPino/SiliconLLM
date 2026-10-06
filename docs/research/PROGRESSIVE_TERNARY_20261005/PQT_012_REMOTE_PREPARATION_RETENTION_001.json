@@ -1,0 +1,53 @@
+{
+  "schema": "PQT_012_LOCAL_RETENTION_V1",
+  "passed": true,
+  "stage": "remote_preparation",
+  "sequence": "001",
+  "attempt_passed": false,
+  "source_commit": "fc9b81657985b585b3e765e3d7832e13f562e310",
+  "attempt_report": {
+    "passed": false,
+    "source_commit": "fc9b81657985b585b3e765e3d7832e13f562e310",
+    "failure": {
+      "type": "ValueError",
+      "gate": "process_admission"
+    },
+    "candidate_fits": 0,
+    "private_write": false,
+    "resource": {
+      "peak_process_RSS_bytes": 21794816
+    },
+    "complete_preparation_child_duration_separately_instrumented": true
+  },
+  "controller": {
+    "schema": "PQT_012_LOCAL_CONTROLLER_V1",
+    "stage": "remote_preparation",
+    "sequence": "001",
+    "source_commit": "fc9b81657985b585b3e765e3d7832e13f562e310",
+    "controller_sha256": "9a9c4ddf97d3d39cf223fe2e9241d44ee3f742bfb2ca8776e237ebdc16d79746",
+    "complete": false,
+    "timeout_seconds": 600,
+    "timed_out": false,
+    "exit_code": 1,
+    "worker_report_sha256": "789e6e0659f9267d836d91bea50f305ac0d4daa378f320e7725da0ccf52b37b9",
+    "worker_passed": false,
+    "elapsed_complete_worker_seconds": 0.9097532,
+    "owned_process_ids": [
+      10756,
+      16576
+    ]
+  },
+  "manifest": "pqt_012_controls_evidence/remote_preparation_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 6125,
+    "sha256": "a8da9b1f67e59066e22445122c9e11d60cd8e03669e6baae1b14e783f2c42899"
+  },
+  "raw_entries": 16,
+  "raw_bytes": 62311,
+  "resource": {
+    "elapsed_seconds_before_report": 0.48399999999674037,
+    "peak_process_RSS_bytes": 22355968
+  },
+  "complete_retainer_child_duration_separately_instrumented": false,
+  "whole_research_complete": false
+}

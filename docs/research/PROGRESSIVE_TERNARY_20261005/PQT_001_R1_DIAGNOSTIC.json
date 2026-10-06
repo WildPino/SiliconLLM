@@ -1,0 +1,34 @@
+{
+  "schema": "PQT_POSTHOC_DIAGNOSTIC_V1",
+  "source_run": "PQT-001-R1",
+  "scope": "Post hoc descriptive analysis of already observed evaluation; no new model or fitted correction; cannot be used as a holdout-based calibration bias.",
+  "residual_mean": {
+    "D": {
+      "heldout_residual_mean_energy_fraction": 0.5800179645043799
+    },
+    "DR": {
+      "heldout_residual_mean_energy_fraction": 0.09136259402863027
+    },
+    "P": {
+      "heldout_residual_mean_energy_fraction": 0.4631794357320523
+    },
+    "PR": {
+      "heldout_residual_mean_energy_fraction": 0.10613988289469063
+    }
+  },
+  "window_consistency_vs_direct": {
+    "DR": {
+      "windows_with_lower_local_sse": 8,
+      "windows_with_lower_kl": 8
+    },
+    "P": {
+      "windows_with_lower_local_sse": 8,
+      "windows_with_lower_kl": 0
+    },
+    "PR": {
+      "windows_with_lower_local_sse": 8,
+      "windows_with_lower_kl": 8
+    }
+  },
+  "next_hypothesis": "Test a calibration-only output offset and scale adaptation on different evaluation windows; count all float correction storage."
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "PQT_KAGGLE_ADMISSION_V1",
+  "time_utc": "2026-10-05T20:54:54.585738+00:00",
+  "account": {
+    "account": "acct2",
+    "status": "verified",
+    "configured_username": "giggio253",
+    "server_identity": "giggio253",
+    "gpu_quota": {
+      "used_hours": 0.0,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 30.0,
+      "conservative_unreserved_hours": 30.0,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-05T20:54:49.845738+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "giggio253/h2i-one-byte-phase-b",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/phase64-arm5",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/seearm2-v4096",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/wilddataset-2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "giggio253/siliconllm2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "ref": "giggio253/pqt-005-original-experts-20261005-001",
+  "timeout_seconds": 5400,
+  "source_commit": "23325ebcabcb10761aa635a6b2cc61211b17aea4",
+  "bundle_sha256": {
+    "bootstrap.py": "420590710b6f0a4a0fce23da115b32d5d7c67822c8ac095bf31d018b91eb02d6",
+    "kernel-metadata.json": "c2c9821b9b850c46248fdb80b5e123ba314167762f82f053f519a1cfa4f6969f"
+  },
+  "interactive_session_absence_proven": false,
+  "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "PQT_SRC_007_FLOAT_CONTROLS_RETENTION_V1",
+  "passed": true,
+  "source_commit": "9106675f5a4f664835e1047da31d276867e71279",
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "GPU_allocations": 0,
+  "attempts": [
+    {
+      "sequence": "001",
+      "worker_passed": true,
+      "controller_complete": false,
+      "maximum_independent_CPU_RMS": 3.028156007543614e-07,
+      "malformed_stops": 16,
+      "synthetic_CPU_forwards": 4,
+      "actual_CPU_SDPA_calls": 48,
+      "negative_provider_controls": 7,
+      "worker_resource": {
+        "elapsed_seconds_before_report": 8.5,
+        "peak_process_RSS_bytes": 298237952
+      },
+      "complete_child_seconds": 9.5234604
+    },
+    {
+      "sequence": "002",
+      "worker_passed": true,
+      "controller_complete": true,
+      "maximum_independent_CPU_RMS": 3.028156007543614e-07,
+      "malformed_stops": 16,
+      "synthetic_CPU_forwards": 4,
+      "actual_CPU_SDPA_calls": 48,
+      "negative_provider_controls": 7,
+      "worker_resource": {
+        "elapsed_seconds_before_report": 7.797000000005937,
+        "peak_process_RSS_bytes": 298799104
+      },
+      "complete_child_seconds": 8.7888474
+    }
+  ],
+  "admission": {
+    "own_pid": 30316,
+    "parent_pid": 7784,
+    "allowed_live_pids": [
+      7784,
+      30316
+    ],
+    "own_venv_launcher_verified": {
+      "Name": "python.exe",
+      "ProcessId": 7784,
+      "ParentProcessId": 29716,
+      "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+    },
+    "snapshot_processes": [
+      {
+        "Name": "python.exe",
+        "ProcessId": 7784,
+        "ParentProcessId": 29716,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      {
+        "Name": "python.exe",
+        "ProcessId": 30316,
+        "ParentProcessId": 7784,
+        "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+      }
+    ],
+    "relevant_other_processes": [],
+    "passed": true,
+    "native_timing_reservation": false
+  },
+  "retention": {
+    "archive": "pqt_src007_controls_evidence/float_002/raw.zip",
+    "archive_identity": {
+      "bytes": 2060456,
+      "sha256": "af435d3c705890c160807243e3ad0b3a9be9602a759e4ea057a2e9cdf483b1fb"
+    },
+    "manifest": "pqt_src007_controls_evidence/float_002/manifest.json",
+    "manifest_identity": {
+      "bytes": 25854,
+      "sha256": "11cb20cdd76f96d1fa032c889e6b05edd9d0e1295564d2192e80356cbf168b8f"
+    },
+    "raw_entries": 82,
+    "raw_bytes": 2044502
+  },
+  "resource": {
+    "elapsed_seconds_before_report": 2.1560000000172295,
+    "peak_process_RSS_bytes": 48795648
+  }
+}

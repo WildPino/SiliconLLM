@@ -1,0 +1,1650 @@
+{
+  "ref": "sirwildpino/pqt-src-005-switch-t4-20261006-001",
+  "time_utc": "2026-10-06T07:43:20.433767+00:00",
+  "files": {
+    "audit.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audit.stdout.log": {
+      "bytes": 509,
+      "sha256": "e41f2b31f44e3f06d888d297502cae053e6170c6963df08c8a57899d5af9f061"
+    },
+    "bootstrap_costs.json": {
+      "bytes": 136,
+      "sha256": "8464a1e4df74ccc8faf1ecd9a6a08df43ccc4a5ab7d7adbb9923f952f9d34839"
+    },
+    "bootstrap_progress.json": {
+      "bytes": 514,
+      "sha256": "e8db005e3c8840e38f4e00e14f5e6fc0cb17208eca773c019f0fe8598f50041b"
+    },
+    "install.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "install.stdout.log": {
+      "bytes": 1894,
+      "sha256": "84a0d9e86a1e904f0bec9d0eeaf7cc1c4c407e1d2fcab0bd19b22203ef560120"
+    },
+    "PQT-SRC-005\\audit.json": {
+      "bytes": 15980,
+      "sha256": "2ea9f12ecd96101d0221f683c0b2a4560cb4c4434ee29a7df51d1f2f63935cc8"
+    },
+    "PQT-SRC-005\\consumed_fixture.bin": {
+      "bytes": 6539661,
+      "sha256": "2884701bbcce29571387ba0cb73d484465d508b4bd32c7794d457ea50298a279"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p0_attention_mask.npy": {
+      "bytes": 232,
+      "sha256": "3c4b0930ede789e1c9c9455ca443905f7dfcfc8b7afbf93a2a167a81e075d081"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p0_decoder_attention_mask.npy": {
+      "bytes": 168,
+      "sha256": "c76223e9104873ac53a487dde6140b329f550f0476d574ea0f9894866c3c5eab"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p0_decoder_input_ids.npy": {
+      "bytes": 168,
+      "sha256": "d72a6e87ee60a3cbd259a8a49236e8b6aa793aaab7a1d0000d3efb05cdef6554"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p0_input_ids.npy": {
+      "bytes": 232,
+      "sha256": "c42f68dccffdccb1b54688834291a3b84505d1f59a7a0239b1d940e727a4c21e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p1_attention_mask.npy": {
+      "bytes": 232,
+      "sha256": "e963c8ffacdf390db493c74ee5e592192db33457e124c79af3a4bac639ee982e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p1_decoder_attention_mask.npy": {
+      "bytes": 168,
+      "sha256": "7ead7d6a0a5b29a4ace7ea199468deba796c776dc2da0915521cd33008a2703d"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p1_decoder_input_ids.npy": {
+      "bytes": 168,
+      "sha256": "53d11d547e865234c43cfa58f8250a935a67f00b06a7df0d6e32d3675688b3ec"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d5_p1_input_ids.npy": {
+      "bytes": 232,
+      "sha256": "8ffef1a88e9cc1ef539d851d60415f70f118a078cf28b23f3afd5cf733e8ecbb"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p0_attention_mask.npy": {
+      "bytes": 232,
+      "sha256": "3c4b0930ede789e1c9c9455ca443905f7dfcfc8b7afbf93a2a167a81e075d081"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p0_decoder_attention_mask.npy": {
+      "bytes": 200,
+      "sha256": "4292712eaeffc4065ddbdfb90f9dfd926ae01dd77c7b6bd003a1b1494f3a921e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p0_decoder_input_ids.npy": {
+      "bytes": 200,
+      "sha256": "5a1bcbe45bf0c062ebdbb85c0b31e43e49d760b8ee436a84689fa5d6859facda"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p0_input_ids.npy": {
+      "bytes": 232,
+      "sha256": "a68b4ca64cecbd7ab07786ed9e37d180947e3759401987815f4f8423d5583d48"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p1_attention_mask.npy": {
+      "bytes": 232,
+      "sha256": "e963c8ffacdf390db493c74ee5e592192db33457e124c79af3a4bac639ee982e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p1_decoder_attention_mask.npy": {
+      "bytes": 200,
+      "sha256": "c4b18154c4cef4ca5714e8d44634213ba2f103254ebd046088b15ebfd146f3f8"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p1_decoder_input_ids.npy": {
+      "bytes": 200,
+      "sha256": "e9f8ccb4b81885bbaddef29ed4dd0c07f1b4ae764d8c7becda4741f4e8c4a89c"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e13_d9_p1_input_ids.npy": {
+      "bytes": 232,
+      "sha256": "98c8369c72d9cd1091d842305c025db3b0e5a9d60e6ec535d827048b6076f49d"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p0_attention_mask.npy": {
+      "bytes": 184,
+      "sha256": "f46bf98e229a6aeaaa7d735f661f800f83bc953a8adeaa8cf811366f63e55650"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p0_decoder_attention_mask.npy": {
+      "bytes": 168,
+      "sha256": "c76223e9104873ac53a487dde6140b329f550f0476d574ea0f9894866c3c5eab"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p0_decoder_input_ids.npy": {
+      "bytes": 168,
+      "sha256": "4a3f9d6cd95eaff3e8d29ab548d36588c1b7b8b2aeb41d6badd703a350cbd3ae"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p0_input_ids.npy": {
+      "bytes": 184,
+      "sha256": "832ee232b5a23ac86ee19869a76a6699547ac7284308c6efbb0413b64b052921"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p1_attention_mask.npy": {
+      "bytes": 184,
+      "sha256": "6602900024374610cc3f7ba12848b849c21d33b621948e78de7e5608854ef040"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p1_decoder_attention_mask.npy": {
+      "bytes": 168,
+      "sha256": "7ead7d6a0a5b29a4ace7ea199468deba796c776dc2da0915521cd33008a2703d"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p1_decoder_input_ids.npy": {
+      "bytes": 168,
+      "sha256": "bc0e2e3a25d3eee4d16c249e8a40c472a5021f5395240f71bfac600c8e4e4262"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d5_p1_input_ids.npy": {
+      "bytes": 184,
+      "sha256": "f4c2e32b32df1ea0159b50a7663c553cda0e3961ccb248fa9aa850f119eee0a6"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p0_attention_mask.npy": {
+      "bytes": 184,
+      "sha256": "f46bf98e229a6aeaaa7d735f661f800f83bc953a8adeaa8cf811366f63e55650"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p0_decoder_attention_mask.npy": {
+      "bytes": 200,
+      "sha256": "4292712eaeffc4065ddbdfb90f9dfd926ae01dd77c7b6bd003a1b1494f3a921e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p0_decoder_input_ids.npy": {
+      "bytes": 200,
+      "sha256": "421ceb791fc488d632bd51ec8f6dbf8cb09a7ab6eaf1e0d8237b2f814f6bc38a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p0_input_ids.npy": {
+      "bytes": 184,
+      "sha256": "bd6232ffc4d8c1daf93abb708ab2abf3f7bc9d546d6cb4fbe487f2e95e9794ba"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p1_attention_mask.npy": {
+      "bytes": 184,
+      "sha256": "6602900024374610cc3f7ba12848b849c21d33b621948e78de7e5608854ef040"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p1_decoder_attention_mask.npy": {
+      "bytes": 200,
+      "sha256": "c4b18154c4cef4ca5714e8d44634213ba2f103254ebd046088b15ebfd146f3f8"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p1_decoder_input_ids.npy": {
+      "bytes": 200,
+      "sha256": "8a4273963db4091fadf860167fd9f90df4aaccf391e962a828ed79b5c097c2e3"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b1_e7_d9_p1_input_ids.npy": {
+      "bytes": 184,
+      "sha256": "e521ab3e6a2a208a08c7cd48ee9faec1308edde52a107d63be04f81fd060cee7"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p0_attention_mask.npy": {
+      "bytes": 440,
+      "sha256": "3e7346aada1e8ce067674a25e1763fce2aecadf81280e05d926b125a0f2a7b57"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p0_decoder_attention_mask.npy": {
+      "bytes": 248,
+      "sha256": "0e6af766aaa25db90352e1bae9fa514e9f0b8e26909a6e3ccd1c68273a7b9c11"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p0_decoder_input_ids.npy": {
+      "bytes": 248,
+      "sha256": "2fd1c32ceb1e01bdd24c6f8d049ca5886ae58f8403314193145941002622989d"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p0_input_ids.npy": {
+      "bytes": 440,
+      "sha256": "9872529dcc9dbba93c7ab707e5d870835e8b308416fdf18a9958c8a662dec047"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p1_attention_mask.npy": {
+      "bytes": 440,
+      "sha256": "3ff1fb4b6ac8db515c9cf4da4b94444273ae2604611e9d5eeb168d0c4b1d209a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p1_decoder_attention_mask.npy": {
+      "bytes": 248,
+      "sha256": "fef980c5fbcedfa4da686808c25da9bd7fc0f82d766ef723321c7dba60f27279"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p1_decoder_input_ids.npy": {
+      "bytes": 248,
+      "sha256": "2a9a7458902b917f8f19b334ea8ac4b9e8b6faeaac598c550bb7fb688f95438b"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d5_p1_input_ids.npy": {
+      "bytes": 440,
+      "sha256": "779931989d92d58b4c845d68681739e58a36646045a664b2790e94a3ed7b9021"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p0_attention_mask.npy": {
+      "bytes": 440,
+      "sha256": "3e7346aada1e8ce067674a25e1763fce2aecadf81280e05d926b125a0f2a7b57"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p0_decoder_attention_mask.npy": {
+      "bytes": 344,
+      "sha256": "6401f0dacc61561961390a22eaf826bfd3797aa993ce830820ce08e8d305bf21"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p0_decoder_input_ids.npy": {
+      "bytes": 344,
+      "sha256": "939d24501e47fdebe15f922a6638d166b3cf4faf20c676f22ec8c11e42f2f513"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p0_input_ids.npy": {
+      "bytes": 440,
+      "sha256": "9b3932c4f70cf6bccfa2d69dd868f183ba9552ee639ce84809cc2c6dab78ae6f"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p1_attention_mask.npy": {
+      "bytes": 440,
+      "sha256": "3ff1fb4b6ac8db515c9cf4da4b94444273ae2604611e9d5eeb168d0c4b1d209a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p1_decoder_attention_mask.npy": {
+      "bytes": 344,
+      "sha256": "9d22388eab12bc3880db71fc99363124fb9e9dcb1819287f430e515faaae9e84"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p1_decoder_input_ids.npy": {
+      "bytes": 344,
+      "sha256": "9866909c713181cfe642ee368b959eebda0026ec4281e229ca1acb2895c0e07c"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e13_d9_p1_input_ids.npy": {
+      "bytes": 440,
+      "sha256": "77c0a545ca2a92c03f7994aa44934594d27d99f287b234b2c48ab42b58c7e293"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p0_attention_mask.npy": {
+      "bytes": 296,
+      "sha256": "dd2981ff50950ca500cabac7f733abb99265c2b33850d1e89b4d4227b4f86078"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p0_decoder_attention_mask.npy": {
+      "bytes": 248,
+      "sha256": "0e6af766aaa25db90352e1bae9fa514e9f0b8e26909a6e3ccd1c68273a7b9c11"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p0_decoder_input_ids.npy": {
+      "bytes": 248,
+      "sha256": "fd35a857c656a726765866541abfd4375c6d4449d6d9b57d190c1dbdee3cd4e2"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p0_input_ids.npy": {
+      "bytes": 296,
+      "sha256": "f7615fb718f307a5fa2913e08fb0ef34765c95c20b234ed934ded7f42c94804a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p1_attention_mask.npy": {
+      "bytes": 296,
+      "sha256": "8163e25737c421e9075530a820f2317b8d80574cfda98452fa3038f1c2ce7818"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p1_decoder_attention_mask.npy": {
+      "bytes": 248,
+      "sha256": "fef980c5fbcedfa4da686808c25da9bd7fc0f82d766ef723321c7dba60f27279"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p1_decoder_input_ids.npy": {
+      "bytes": 248,
+      "sha256": "896f117e1a20d041ab522cf5a0ca125ba1cefa04feb2b6e2c2c9323a1980c766"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d5_p1_input_ids.npy": {
+      "bytes": 296,
+      "sha256": "442a0b0b75f257f0438d05dd78c4d62cef2947cf1a347145363b1a1d99cb7ed9"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p0_attention_mask.npy": {
+      "bytes": 296,
+      "sha256": "dd2981ff50950ca500cabac7f733abb99265c2b33850d1e89b4d4227b4f86078"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p0_decoder_attention_mask.npy": {
+      "bytes": 344,
+      "sha256": "6401f0dacc61561961390a22eaf826bfd3797aa993ce830820ce08e8d305bf21"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p0_decoder_input_ids.npy": {
+      "bytes": 344,
+      "sha256": "6027dcc13baff8262d59de35ddb7477f734e91c7d03fddb825679c4f5db94037"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p0_input_ids.npy": {
+      "bytes": 296,
+      "sha256": "e3d9cf4ab76fa0450be7ff46175c477763151c999bb0d0c9bf4f62563ee329f1"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p1_attention_mask.npy": {
+      "bytes": 296,
+      "sha256": "8163e25737c421e9075530a820f2317b8d80574cfda98452fa3038f1c2ce7818"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p1_decoder_attention_mask.npy": {
+      "bytes": 344,
+      "sha256": "9d22388eab12bc3880db71fc99363124fb9e9dcb1819287f430e515faaae9e84"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p1_decoder_input_ids.npy": {
+      "bytes": 344,
+      "sha256": "d314299290083eaf7933dabe891707bdd969533d28e3f57b946bcee6ce34bbc3"
+    },
+    "PQT-SRC-005\\fixture_inputs\\inputs\\b3_e7_d9_p1_input_ids.npy": {
+      "bytes": 296,
+      "sha256": "bd1de46decf1a978e9cd90551712de9e6e01483be2177975f49d77ee68f5043c"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0000.npy": {
+      "bytes": 4224,
+      "sha256": "06f42bf8471dee39a6330490f9165099179e952e6c786619a78872d46dd5fcbb"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0001.npy": {
+      "bytes": 4224,
+      "sha256": "06f42bf8471dee39a6330490f9165099179e952e6c786619a78872d46dd5fcbb"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0002.npy": {
+      "bytes": 1152,
+      "sha256": "a87bae70b76e88872b3a2afcf2f5cb8b36f4848822841111d8c6305e33d63660"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0003.npy": {
+      "bytes": 1152,
+      "sha256": "d24f0eb47839bfcb3abaac62b5a39ded90e36e9bb61b14d62a8a49265a7c2624"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0004.npy": {
+      "bytes": 1152,
+      "sha256": "85544c027d2de79a302689cff47b44d8add10776fb2766ecd612dc99e782583a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0005.npy": {
+      "bytes": 1152,
+      "sha256": "f16239fe680e649f9748c4e8a89a4e989cc443234ab92ec39e4cfa8b40b4a524"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0006.npy": {
+      "bytes": 640,
+      "sha256": "f6d0354e22e7470d9d482171312f87ac6fed8cb58a44c98bd44ca15244bbf210"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0007.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0008.npy": {
+      "bytes": 2176,
+      "sha256": "d6519e7c394db29436bcd52a2fe1cadb2351f5f0f45194d9c69d9b1daf4edfa5"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0009.npy": {
+      "bytes": 2176,
+      "sha256": "0bc3ac288a2244a50c0850a4cce7e33c6ee243bc12671983bf905372639af83e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0010.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0011.npy": {
+      "bytes": 1152,
+      "sha256": "f5ce3fa663a71a54ae7ee59a53cd166abb48a80de3e30f643bdc22ffd83c150b"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0012.npy": {
+      "bytes": 1152,
+      "sha256": "63f0a26a96d06b845bc6886caf9916b1ee45b595a0134111db3c1726a43c965e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0013.npy": {
+      "bytes": 1152,
+      "sha256": "d6bad16648010fd593c3a5054634891ff40668cd9e937ae5182d47d6125e1217"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0014.npy": {
+      "bytes": 1152,
+      "sha256": "975a8b535996d9d3f74ecf4735ecf3578807a33c64008ccd2348038464295c7a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0015.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0016.npy": {
+      "bytes": 384,
+      "sha256": "90cb864de7236fcaa68ff3ee1074c5884527a364bc4846171a94287d08d9ab7a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0017.npy": {
+      "bytes": 2176,
+      "sha256": "0d863f4c2cd075b67e2d55e95efa8aa12489ced0bfdd1a1a3a53f265c6351f90"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0018.npy": {
+      "bytes": 2176,
+      "sha256": "6f32613c69807ce14071e92b62fb3610a7b57b5fe216183d7781f01afafc1993"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0019.npy": {
+      "bytes": 2176,
+      "sha256": "7764584a3a3aaabd3ec93030e9620084f4927ff9bb1b80617ff0b911738d261c"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0020.npy": {
+      "bytes": 2176,
+      "sha256": "e95bc32228ccd7cac01b27937f0728cb022ca3f1be79b3b8cbbba641588737fd"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0021.npy": {
+      "bytes": 2176,
+      "sha256": "5c3e2a924cbc734aa30ddec2c02a3660be484a32d7f2668144aaca9f79493044"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0022.npy": {
+      "bytes": 2176,
+      "sha256": "c38b6b870e195392c50f316f749f53f2a1d691b4dbe5feddbab641686e6ba430"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0023.npy": {
+      "bytes": 2176,
+      "sha256": "73331a918adeb9c350d54464dabd65180fcb96215b12a6c5e5d4c7b53e13165f"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0024.npy": {
+      "bytes": 2176,
+      "sha256": "2b3c217e49e51c9ffa0d37322183c005ec484378099f926616fef9776ebda4a5"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0025.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0026.npy": {
+      "bytes": 1152,
+      "sha256": "a909b0aef2ce85cfe47ecee8452193d943ecb370d43add38e7c9bf41a24089d7"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0027.npy": {
+      "bytes": 1152,
+      "sha256": "37d4977c5874d08aa3ff09a7cd037a5effa9f6ed85c6f0951e0736b4ddac1e5c"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0028.npy": {
+      "bytes": 1152,
+      "sha256": "995b34652d0c072c517d8efa4a54e893206ae22225ef1b810d32b6f28d60039e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0029.npy": {
+      "bytes": 1152,
+      "sha256": "9767229ea4feb60475effec4d7afa88a4d8e76547a41324396ef9fb9299f9545"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0030.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0031.npy": {
+      "bytes": 2176,
+      "sha256": "871a97cee9200eeb6f212caf4d48a6a70dc82ad04486b00576f693f981b41b03"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0032.npy": {
+      "bytes": 2176,
+      "sha256": "542278f8097dc34c7d1966884907810459823d830061f1cf84683b112ca1dc92"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0033.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0034.npy": {
+      "bytes": 1152,
+      "sha256": "aac6388e10ca7975fae41fbd2561180101c71b430850bea2bf0e0301902e7972"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0035.npy": {
+      "bytes": 1152,
+      "sha256": "9debb7ab1517892abb5276ae4d33ee2f411f4ca22d1f7fe33617af88617ca0e0"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0036.npy": {
+      "bytes": 1152,
+      "sha256": "e30b4fa99042636f89c53120c6eb91d12c2dae193f09c63198ab22b3e82a7acf"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0037.npy": {
+      "bytes": 1152,
+      "sha256": "882e6c31c4dc2081abe67d7c2c202ac2b4332dbf707d2b03d79f61c789475541"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0038.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0039.npy": {
+      "bytes": 384,
+      "sha256": "bef787bd5f25e5dcc35d154ab23e46b1bc19a0fd17144f6d60285cedc3e852f6"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0040.npy": {
+      "bytes": 2176,
+      "sha256": "284be86ce00573284a3ba3016c416976488fea4b75f9b7409cab2278bbcc1ab2"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0041.npy": {
+      "bytes": 2176,
+      "sha256": "85e917aee78224aeddda2ccf9830fc37af631f3c7558e462ae4c8160feff7f97"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0042.npy": {
+      "bytes": 2176,
+      "sha256": "420534212dd8c5a3db5d115e1dd5b65c771dc6bc335de0252412a9e3293239ff"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0043.npy": {
+      "bytes": 2176,
+      "sha256": "b7918934466c5dac5ee36c1755fff869da60fcfb9832e9702d1ce2206714f198"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0044.npy": {
+      "bytes": 2176,
+      "sha256": "8c826dadb9920d735ae2e037b7729fddb618d97cf25f9bcc8a7bb04e39bbbc39"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0045.npy": {
+      "bytes": 2176,
+      "sha256": "ebe4dacc8872ff14f73e958fa8f940b2e651f753c1cfe2013e68baf3fcda72ed"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0046.npy": {
+      "bytes": 2176,
+      "sha256": "1ed33bd0da051dec78f83f0c3e244322caa092938bc5aeea47ccb801f2faca72"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0047.npy": {
+      "bytes": 2176,
+      "sha256": "5eb1cf081afbeb3db7d0dc286996bc2f1c939ccd466310212c0bfac22ea69b99"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0048.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0049.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0050.npy": {
+      "bytes": 4224,
+      "sha256": "06f42bf8471dee39a6330490f9165099179e952e6c786619a78872d46dd5fcbb"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0051.npy": {
+      "bytes": 1152,
+      "sha256": "8d40bb12f75c2868e5c1e8b6972761a8e669353c0f50f00f8a4ce8df2e0d6580"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0052.npy": {
+      "bytes": 1152,
+      "sha256": "d042666a2e7073b78d54e5683b11ef37b1357f41fff81f20a8ace5bb01c0dd9b"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0053.npy": {
+      "bytes": 1152,
+      "sha256": "f30bd75e45cd0ecb2524182256a9103954214ed0049f8ac1e0d1020ecbdd9e86"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0054.npy": {
+      "bytes": 1152,
+      "sha256": "b10b5aa4f9d4b2b119890d8f9b0bdb4d0850438a30e7ba3363cb5cc36cda740b"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0055.npy": {
+      "bytes": 640,
+      "sha256": "c27561c170cadf76718ce0e8cda8709c825f0d166fd145f3fedcf29aef27d670"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0056.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0057.npy": {
+      "bytes": 1152,
+      "sha256": "f2e0b5a1d6690f311ac788989694a964e5a92ed701278b5e344b6ca4a01c4afc"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0058.npy": {
+      "bytes": 1152,
+      "sha256": "af31b0e36a24e7e8d18b8cb1273f8edade9f8e8d69a161ff19f815e060cce6dc"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0059.npy": {
+      "bytes": 1152,
+      "sha256": "534c2f45a78c56e98580ce1f5b236f0b30b13d2177778e465c7826b77341c244"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0060.npy": {
+      "bytes": 1152,
+      "sha256": "7f480c444b0fb0d72af799ef13dd04674c77851f996ea3a7c2a9878c2ce83586"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0061.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0062.npy": {
+      "bytes": 2176,
+      "sha256": "153724ca0b364186d07537dd2c15c2903bf4876774c0d6e8f9b25a510da1351d"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0063.npy": {
+      "bytes": 2176,
+      "sha256": "b363d22f863a8713d5948609c3fe7afd749596d4c12f68c1b6e63032981677a6"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0064.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0065.npy": {
+      "bytes": 1152,
+      "sha256": "a2793fee69ebef4315a67e0bcdbc50c5fc5b948c887deb8d848ceb8989274f99"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0066.npy": {
+      "bytes": 1152,
+      "sha256": "1621126306b23925413208334c3ee783d13c6cf4d4c2406719362c52a91f03c2"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0067.npy": {
+      "bytes": 1152,
+      "sha256": "aaa67a645aeaf423866d37c63bb88b4b93fdada54bd20c308c1c01ffca1809de"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0068.npy": {
+      "bytes": 1152,
+      "sha256": "fcdb80d1d252afdde649f9ade19734a0e6be7fea59691971f7f0723a458c77f6"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0069.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0070.npy": {
+      "bytes": 1152,
+      "sha256": "96bc8a8d7f6060be938613b0720bf493510a71c4d19a5fb2df77d110c96c5a40"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0071.npy": {
+      "bytes": 1152,
+      "sha256": "5aef0752da6c56824e880c5315d9c3e4543327a3947a5eac0d7a4bdef7d8df2b"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0072.npy": {
+      "bytes": 1152,
+      "sha256": "bbbff434d11ae31a23d6e44c67384274ff40b8035093fedc4cde04bc6ef62094"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0073.npy": {
+      "bytes": 1152,
+      "sha256": "023abd2c9f02c1e1d76037e9df87594bbdacd3043d2df44e5c634619e745282f"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0074.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0075.npy": {
+      "bytes": 384,
+      "sha256": "69528f44608c582665be0119ad59ef12a250d35fe91cfe90c56e7b3681927a4b"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0076.npy": {
+      "bytes": 2176,
+      "sha256": "23c8ed72700372c3dc5c803042207a5aa6e6da49e08788170b708de9c7232f9b"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0077.npy": {
+      "bytes": 2176,
+      "sha256": "8171f8663a54ba6f198db87e6009e02652ac23563f8c0a84b320268f1e4a9e44"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0078.npy": {
+      "bytes": 2176,
+      "sha256": "0d877a9e38e1b46244a4160caa69cad773590505998a9296edf022eecd583d79"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0079.npy": {
+      "bytes": 2176,
+      "sha256": "e3a78e15e89674ba5afc8fea60f6c7bcc506cb3948c4462cfd405618595b3051"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0080.npy": {
+      "bytes": 2176,
+      "sha256": "0ca9992f418eb2b360e0b6ec7f10483fb88a5eecb4243e356e927fbaa24ff5e4"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0081.npy": {
+      "bytes": 2176,
+      "sha256": "2bb8a878abe11e8083ae2d3582cfecb16b31983c40dbce8d0d56c4af24606775"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0082.npy": {
+      "bytes": 2176,
+      "sha256": "08b019cf7b5c91eb4ca9e360b138ff5a3145444b62f9f5c15ccfca387f5b7d96"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0083.npy": {
+      "bytes": 2176,
+      "sha256": "a60c3e5ff7ece840361df53270f48834ecfb2a259961b6b999d47a837efa8632"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0084.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0085.npy": {
+      "bytes": 1152,
+      "sha256": "cac9bcc9fc102567b8aca0cbe9c4462e753a63ce5f704ada590415f64efaa59e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0086.npy": {
+      "bytes": 1152,
+      "sha256": "fdc626b4411d7d5556e9e6c104a2a9db4a8d0a829117ad4d378a031dd31786d3"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0087.npy": {
+      "bytes": 1152,
+      "sha256": "7c8c28909f5687f0550f1ff401b1118827fc6317d758e994054bca7de8574f58"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0088.npy": {
+      "bytes": 1152,
+      "sha256": "b05cce015153e0d546d2b7a1b7f1bb97224396e9ad55f87fe179bddea9ea484c"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0089.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0090.npy": {
+      "bytes": 1152,
+      "sha256": "817a3790162d032bb8ebf4c6ab58255e6002c047c0838253ceade840ea5c27e3"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0091.npy": {
+      "bytes": 1152,
+      "sha256": "c3b73af87b60534745e96911aa2c55d5ffd89f2f069f1f05c969779daea1d890"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0092.npy": {
+      "bytes": 1152,
+      "sha256": "d4d3c9679192b69db77a44759081ca1d21f7cde95df4dc2e03abd0df5ce5eaad"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0093.npy": {
+      "bytes": 1152,
+      "sha256": "0c9cfa86b90a6ae0bd52e42e5ea5cbd28ef3738697f98b9bc3a42b0d43157126"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0094.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0095.npy": {
+      "bytes": 2176,
+      "sha256": "c8754d8ffd2165e68ff3bfc3c865d35d0ea8ccd590ac5b3e65e8e701eb860658"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0096.npy": {
+      "bytes": 2176,
+      "sha256": "415e718ed4f6a69e4530ab06c12d0d3fcc532aa1d04e206c6263c0b7c3523542"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0097.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0098.npy": {
+      "bytes": 1152,
+      "sha256": "baa6de4639ad9149259f454d1936dde6f7aa1cfbd9857b688669c6b2fec47676"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0099.npy": {
+      "bytes": 1152,
+      "sha256": "94efcf0e0058bea54cbd59b1d2112c4a1792e41644b64f5f121de8849b19157e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0100.npy": {
+      "bytes": 1152,
+      "sha256": "3de349adb7edf7c01a356c15e940e41fba357836aa2f6c1fa9c6daa68f1644bd"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0101.npy": {
+      "bytes": 1152,
+      "sha256": "5649ea0b26d759a7f48f10a2756594b24e934dba1fa502f1193f5120dc97d65a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0102.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0103.npy": {
+      "bytes": 1152,
+      "sha256": "c058000fe58bb807fbd1835c2f068e3807bd8d21a33d2796eabf2688b4335fc5"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0104.npy": {
+      "bytes": 1152,
+      "sha256": "c1a1f64f994b65821c017467848a46eab06b0fc2cada60bd835a7fb58283733f"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0105.npy": {
+      "bytes": 1152,
+      "sha256": "d9061c1a4d76020dc831010477fe10355b9af182250f9770aaf211ae8097ead7"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0106.npy": {
+      "bytes": 1152,
+      "sha256": "15569617fa7c9e0ee7284519f530ccab9df3b076ac77093683b9425212442b4a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0107.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0108.npy": {
+      "bytes": 384,
+      "sha256": "d50d9d2d9b32c49141d36d6f1c2023b2814bc99554be44dc9cb7c6218aef0c8e"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0109.npy": {
+      "bytes": 2176,
+      "sha256": "f4c9b49ceb96d452ee9cf417cad14399d48dc92efa2ef61026974beb3ab37df7"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0110.npy": {
+      "bytes": 2176,
+      "sha256": "35204610f4f95abe346110a380e3942361fdc672f25e9fbb6d1e396c87f96797"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0111.npy": {
+      "bytes": 2176,
+      "sha256": "d366d3a34058b1cdb8ec8299dcbd04243f2aebc51a5009380e3d57866809e111"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0112.npy": {
+      "bytes": 2176,
+      "sha256": "16ff597f199678f8b376280ba4943b4bd8caa9899fa389c35dde475e2132ca84"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0113.npy": {
+      "bytes": 2176,
+      "sha256": "a0a72ccba744f7971af603e7620dca075247a42ba6b7dabd3dbbb74e00e1968a"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0114.npy": {
+      "bytes": 2176,
+      "sha256": "f0f4cfee72ced6ef9870efba1b89482e5c42c3955760c24d07d75a655856e3e2"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0115.npy": {
+      "bytes": 2176,
+      "sha256": "b12c0a9b47f38d450f6d8b7db8c2fd80a026db137841dd98d833a0de3c37f360"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0116.npy": {
+      "bytes": 2176,
+      "sha256": "be22fceab3005decacb0773fd3edb3e94f85b99c7495aacfa570667965a0fd79"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0117.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0118.npy": {
+      "bytes": 192,
+      "sha256": "562ecd5274bbccf957ea9423944c14753e86c06e02ac8f2d103b72337da89449"
+    },
+    "PQT-SRC-005\\fixture_inputs\\weights\\0119.npy": {
+      "bytes": 4224,
+      "sha256": "06f42bf8471dee39a6330490f9165099179e952e6c786619a78872d46dd5fcbb"
+    },
+    "PQT-SRC-005\\frozen_inputs.json": {
+      "bytes": 61849,
+      "sha256": "49715c1ed25b1a607a1f276e2927642eede422af4ca506d07a011f500bf431cc"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d5_p0_repeated.zip": {
+      "bytes": 30779,
+      "sha256": "7cf736a3eade20033f808a8e196aa8c0cf894451b42879b5430af150e0a80f30"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d5_p0_resident.zip": {
+      "bytes": 30779,
+      "sha256": "7cf736a3eade20033f808a8e196aa8c0cf894451b42879b5430af150e0a80f30"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d5_p0_streamed.zip": {
+      "bytes": 30779,
+      "sha256": "7cf736a3eade20033f808a8e196aa8c0cf894451b42879b5430af150e0a80f30"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d5_p1_repeated.zip": {
+      "bytes": 30779,
+      "sha256": "a6fdab99542efabd6eccf4c338524b0fedf00fc1ab8447c5032c2372a3b4dd11"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d5_p1_resident.zip": {
+      "bytes": 30779,
+      "sha256": "a6fdab99542efabd6eccf4c338524b0fedf00fc1ab8447c5032c2372a3b4dd11"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d5_p1_streamed.zip": {
+      "bytes": 30779,
+      "sha256": "a6fdab99542efabd6eccf4c338524b0fedf00fc1ab8447c5032c2372a3b4dd11"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d9_p0_repeated.zip": {
+      "bytes": 37679,
+      "sha256": "62513d71a6f5b4df1e100a56ad6ac3d4c017245a931915e1b35511d208409b5a"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d9_p0_resident.zip": {
+      "bytes": 37679,
+      "sha256": "62513d71a6f5b4df1e100a56ad6ac3d4c017245a931915e1b35511d208409b5a"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d9_p0_streamed.zip": {
+      "bytes": 37679,
+      "sha256": "62513d71a6f5b4df1e100a56ad6ac3d4c017245a931915e1b35511d208409b5a"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d9_p1_repeated.zip": {
+      "bytes": 32454,
+      "sha256": "b388f78ead8b13a1e9d7ecdbda21c507fa6ad3d3dcd249d767bbd644f1a806b4"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d9_p1_resident.zip": {
+      "bytes": 32454,
+      "sha256": "b388f78ead8b13a1e9d7ecdbda21c507fa6ad3d3dcd249d767bbd644f1a806b4"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e13_d9_p1_streamed.zip": {
+      "bytes": 32454,
+      "sha256": "b388f78ead8b13a1e9d7ecdbda21c507fa6ad3d3dcd249d767bbd644f1a806b4"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d5_p0_repeated.zip": {
+      "bytes": 28224,
+      "sha256": "81878bad4a1fb5b2ddbfffe212bbfac92b37f6c5b767cc4d86d4ae846489641f"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d5_p0_resident.zip": {
+      "bytes": 28224,
+      "sha256": "81878bad4a1fb5b2ddbfffe212bbfac92b37f6c5b767cc4d86d4ae846489641f"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d5_p0_streamed.zip": {
+      "bytes": 28224,
+      "sha256": "81878bad4a1fb5b2ddbfffe212bbfac92b37f6c5b767cc4d86d4ae846489641f"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d5_p1_repeated.zip": {
+      "bytes": 33449,
+      "sha256": "a96a32188d8eb6ef14ba757d3f3a60a859749c44b9476bf068b7ca76c0804f7c"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d5_p1_resident.zip": {
+      "bytes": 33449,
+      "sha256": "a96a32188d8eb6ef14ba757d3f3a60a859749c44b9476bf068b7ca76c0804f7c"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d5_p1_streamed.zip": {
+      "bytes": 33449,
+      "sha256": "a96a32188d8eb6ef14ba757d3f3a60a859749c44b9476bf068b7ca76c0804f7c"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d9_p0_repeated.zip": {
+      "bytes": 29899,
+      "sha256": "a1ca1f30f0e7479b70ac77c42225a65c342d5b0f9f9b3ea8d5d7a06a6a9d2415"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d9_p0_resident.zip": {
+      "bytes": 29899,
+      "sha256": "a1ca1f30f0e7479b70ac77c42225a65c342d5b0f9f9b3ea8d5d7a06a6a9d2415"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d9_p0_streamed.zip": {
+      "bytes": 29899,
+      "sha256": "a1ca1f30f0e7479b70ac77c42225a65c342d5b0f9f9b3ea8d5d7a06a6a9d2415"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d9_p1_repeated.zip": {
+      "bytes": 29899,
+      "sha256": "ca58cc4c7d34c12c9c89b7d29cd456fb108a9bc9586b4f79698240014a52d05c"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d9_p1_resident.zip": {
+      "bytes": 29899,
+      "sha256": "ca58cc4c7d34c12c9c89b7d29cd456fb108a9bc9586b4f79698240014a52d05c"
+    },
+    "PQT-SRC-005\\g0_c1_b1_e7_d9_p1_streamed.zip": {
+      "bytes": 29899,
+      "sha256": "ca58cc4c7d34c12c9c89b7d29cd456fb108a9bc9586b4f79698240014a52d05c"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d5_p0_repeated.zip": {
+      "bytes": 55727,
+      "sha256": "dc6006d186ad75379331799a44e2b1d13c2d0f87736d007f2361e7a414b48512"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d5_p0_resident.zip": {
+      "bytes": 55727,
+      "sha256": "dc6006d186ad75379331799a44e2b1d13c2d0f87736d007f2361e7a414b48512"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d5_p0_streamed.zip": {
+      "bytes": 55727,
+      "sha256": "dc6006d186ad75379331799a44e2b1d13c2d0f87736d007f2361e7a414b48512"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d5_p1_repeated.zip": {
+      "bytes": 54042,
+      "sha256": "d0cc0ba84de604243e4db5df3cec9a9e1cef78d9b083516494cd118dba8b0416"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d5_p1_resident.zip": {
+      "bytes": 54042,
+      "sha256": "d0cc0ba84de604243e4db5df3cec9a9e1cef78d9b083516494cd118dba8b0416"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d5_p1_streamed.zip": {
+      "bytes": 54042,
+      "sha256": "d0cc0ba84de604243e4db5df3cec9a9e1cef78d9b083516494cd118dba8b0416"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d9_p0_repeated.zip": {
+      "bytes": 63375,
+      "sha256": "bbcb937697014b9d398604a893b1801f545e415ea040dd8e0c6fcc58a38d179e"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d9_p0_resident.zip": {
+      "bytes": 63375,
+      "sha256": "bbcb937697014b9d398604a893b1801f545e415ea040dd8e0c6fcc58a38d179e"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d9_p0_streamed.zip": {
+      "bytes": 63375,
+      "sha256": "bbcb937697014b9d398604a893b1801f545e415ea040dd8e0c6fcc58a38d179e"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d9_p1_repeated.zip": {
+      "bytes": 62991,
+      "sha256": "e27b6b70855130b93649bb6d642a2cabc77c1671e53d19f95f775402dcc56af1"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d9_p1_resident.zip": {
+      "bytes": 62991,
+      "sha256": "e27b6b70855130b93649bb6d642a2cabc77c1671e53d19f95f775402dcc56af1"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e13_d9_p1_streamed.zip": {
+      "bytes": 62991,
+      "sha256": "e27b6b70855130b93649bb6d642a2cabc77c1671e53d19f95f775402dcc56af1"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d5_p0_repeated.zip": {
+      "bytes": 44970,
+      "sha256": "9aa42dadf093f66bf0024f8f8381d2a1657a205f175f10c36392d4cedf2f5f87"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d5_p0_resident.zip": {
+      "bytes": 44970,
+      "sha256": "9aa42dadf093f66bf0024f8f8381d2a1657a205f175f10c36392d4cedf2f5f87"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d5_p0_streamed.zip": {
+      "bytes": 44970,
+      "sha256": "9aa42dadf093f66bf0024f8f8381d2a1657a205f175f10c36392d4cedf2f5f87"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d5_p1_repeated.zip": {
+      "bytes": 47188,
+      "sha256": "281703f66b296242b549ac40aa83bdbe840cc12fea0b059e9625c65b91166c68"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d5_p1_resident.zip": {
+      "bytes": 47188,
+      "sha256": "281703f66b296242b549ac40aa83bdbe840cc12fea0b059e9625c65b91166c68"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d5_p1_streamed.zip": {
+      "bytes": 47188,
+      "sha256": "281703f66b296242b549ac40aa83bdbe840cc12fea0b059e9625c65b91166c68"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d9_p0_repeated.zip": {
+      "bytes": 52469,
+      "sha256": "3b0cab191b092ecbf0d454440f73dd00ee7436938f45f3a8c21d1675b5b1aeb9"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d9_p0_resident.zip": {
+      "bytes": 52469,
+      "sha256": "3b0cab191b092ecbf0d454440f73dd00ee7436938f45f3a8c21d1675b5b1aeb9"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d9_p0_streamed.zip": {
+      "bytes": 52469,
+      "sha256": "3b0cab191b092ecbf0d454440f73dd00ee7436938f45f3a8c21d1675b5b1aeb9"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d9_p1_repeated.zip": {
+      "bytes": 55476,
+      "sha256": "5bf2c91811cebd42dbffcf9cd1f7fd83595f226c33326277558eda0e58c254ac"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d9_p1_resident.zip": {
+      "bytes": 55476,
+      "sha256": "5bf2c91811cebd42dbffcf9cd1f7fd83595f226c33326277558eda0e58c254ac"
+    },
+    "PQT-SRC-005\\g0_c1_b3_e7_d9_p1_streamed.zip": {
+      "bytes": 55476,
+      "sha256": "5bf2c91811cebd42dbffcf9cd1f7fd83595f226c33326277558eda0e58c254ac"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d5_p0_repeated.zip": {
+      "bytes": 33979,
+      "sha256": "46c459c3cebd86f2a7c31393c1f97759b5d22b7b15a9c6090e50b42177583eed"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d5_p0_resident.zip": {
+      "bytes": 33979,
+      "sha256": "46c459c3cebd86f2a7c31393c1f97759b5d22b7b15a9c6090e50b42177583eed"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d5_p0_streamed.zip": {
+      "bytes": 33979,
+      "sha256": "46c459c3cebd86f2a7c31393c1f97759b5d22b7b15a9c6090e50b42177583eed"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d5_p1_repeated.zip": {
+      "bytes": 34896,
+      "sha256": "d78e0bd89485183fe397c72aa9b33cbfdde0f037196b627c7302e7bc94aa9e68"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d5_p1_resident.zip": {
+      "bytes": 34896,
+      "sha256": "d78e0bd89485183fe397c72aa9b33cbfdde0f037196b627c7302e7bc94aa9e68"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d5_p1_streamed.zip": {
+      "bytes": 34896,
+      "sha256": "d78e0bd89485183fe397c72aa9b33cbfdde0f037196b627c7302e7bc94aa9e68"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d9_p0_repeated.zip": {
+      "bytes": 40474,
+      "sha256": "5a0d6f15dd1617e669e9dd20424ca1a2ad9867bc9b4036f6ca4045f840c38788"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d9_p0_resident.zip": {
+      "bytes": 40474,
+      "sha256": "5a0d6f15dd1617e669e9dd20424ca1a2ad9867bc9b4036f6ca4045f840c38788"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d9_p0_streamed.zip": {
+      "bytes": 40474,
+      "sha256": "5a0d6f15dd1617e669e9dd20424ca1a2ad9867bc9b4036f6ca4045f840c38788"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d9_p1_repeated.zip": {
+      "bytes": 38640,
+      "sha256": "69dfdc0ac979ca17d6d89d9830bd3703da712618cc8891a76e9f1f10cbcf4e7d"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d9_p1_resident.zip": {
+      "bytes": 38640,
+      "sha256": "69dfdc0ac979ca17d6d89d9830bd3703da712618cc8891a76e9f1f10cbcf4e7d"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e13_d9_p1_streamed.zip": {
+      "bytes": 38640,
+      "sha256": "69dfdc0ac979ca17d6d89d9830bd3703da712618cc8891a76e9f1f10cbcf4e7d"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d5_p0_repeated.zip": {
+      "bytes": 29888,
+      "sha256": "badcc7cc799319194c4020ed608bc0d5e75119adee07b5be5450426136a9573a"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d5_p0_resident.zip": {
+      "bytes": 29888,
+      "sha256": "badcc7cc799319194c4020ed608bc0d5e75119adee07b5be5450426136a9573a"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d5_p0_streamed.zip": {
+      "bytes": 29888,
+      "sha256": "badcc7cc799319194c4020ed608bc0d5e75119adee07b5be5450426136a9573a"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d5_p1_repeated.zip": {
+      "bytes": 32639,
+      "sha256": "614e21c2ae13a19158338ddb9ee5426d9f507234b8e128c860fef35cdc5e3f2c"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d5_p1_resident.zip": {
+      "bytes": 32639,
+      "sha256": "614e21c2ae13a19158338ddb9ee5426d9f507234b8e128c860fef35cdc5e3f2c"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d5_p1_streamed.zip": {
+      "bytes": 32639,
+      "sha256": "614e21c2ae13a19158338ddb9ee5426d9f507234b8e128c860fef35cdc5e3f2c"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d9_p0_repeated.zip": {
+      "bytes": 33632,
+      "sha256": "f61e5641c1ce6754b1dd79c4d8b8f1317bd061e5d418b341063cecd9769e23b2"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d9_p0_resident.zip": {
+      "bytes": 33632,
+      "sha256": "f61e5641c1ce6754b1dd79c4d8b8f1317bd061e5d418b341063cecd9769e23b2"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d9_p0_streamed.zip": {
+      "bytes": 33632,
+      "sha256": "f61e5641c1ce6754b1dd79c4d8b8f1317bd061e5d418b341063cecd9769e23b2"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d9_p1_repeated.zip": {
+      "bytes": 32715,
+      "sha256": "0a064a0323c0e7ef68481b2430d46173a9be7badfb1891b00c356b76856046e5"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d9_p1_resident.zip": {
+      "bytes": 32715,
+      "sha256": "0a064a0323c0e7ef68481b2430d46173a9be7badfb1891b00c356b76856046e5"
+    },
+    "PQT-SRC-005\\g0_c64_b1_e7_d9_p1_streamed.zip": {
+      "bytes": 32715,
+      "sha256": "0a064a0323c0e7ef68481b2430d46173a9be7badfb1891b00c356b76856046e5"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d5_p0_repeated.zip": {
+      "bytes": 64693,
+      "sha256": "7312b5502a0f866647d86dfaaa242db4dbff0b2f1a567776fe15e999e32de5d0"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d5_p0_resident.zip": {
+      "bytes": 64693,
+      "sha256": "7312b5502a0f866647d86dfaaa242db4dbff0b2f1a567776fe15e999e32de5d0"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d5_p0_streamed.zip": {
+      "bytes": 64693,
+      "sha256": "7312b5502a0f866647d86dfaaa242db4dbff0b2f1a567776fe15e999e32de5d0"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d5_p1_repeated.zip": {
+      "bytes": 63778,
+      "sha256": "32f62abf39cf156b0c6447585471033c129a9e3bb65a5e6af205707a62dd132b"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d5_p1_resident.zip": {
+      "bytes": 63778,
+      "sha256": "32f62abf39cf156b0c6447585471033c129a9e3bb65a5e6af205707a62dd132b"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d5_p1_streamed.zip": {
+      "bytes": 63778,
+      "sha256": "32f62abf39cf156b0c6447585471033c129a9e3bb65a5e6af205707a62dd132b"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d9_p0_repeated.zip": {
+      "bytes": 76846,
+      "sha256": "37be1e673f830b77731969cc16b708ead8f42e9ebff4773378156f633f0b1cb2"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d9_p0_resident.zip": {
+      "bytes": 76846,
+      "sha256": "37be1e673f830b77731969cc16b708ead8f42e9ebff4773378156f633f0b1cb2"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d9_p0_streamed.zip": {
+      "bytes": 76846,
+      "sha256": "37be1e673f830b77731969cc16b708ead8f42e9ebff4773378156f633f0b1cb2"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d9_p1_repeated.zip": {
+      "bytes": 76848,
+      "sha256": "75ec2335609633dfd8b687dbdce1f95204de527859d48ba861bd742d5b6df0da"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d9_p1_resident.zip": {
+      "bytes": 76848,
+      "sha256": "75ec2335609633dfd8b687dbdce1f95204de527859d48ba861bd742d5b6df0da"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e13_d9_p1_streamed.zip": {
+      "bytes": 76848,
+      "sha256": "75ec2335609633dfd8b687dbdce1f95204de527859d48ba861bd742d5b6df0da"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d5_p0_repeated.zip": {
+      "bytes": 50606,
+      "sha256": "3f2272c14a6413f840893ad59bacb08f97779cc74d571f96876cf4d0c719ba9a"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d5_p0_resident.zip": {
+      "bytes": 50606,
+      "sha256": "3f2272c14a6413f840893ad59bacb08f97779cc74d571f96876cf4d0c719ba9a"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d5_p0_streamed.zip": {
+      "bytes": 50606,
+      "sha256": "3f2272c14a6413f840893ad59bacb08f97779cc74d571f96876cf4d0c719ba9a"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d5_p1_repeated.zip": {
+      "bytes": 52438,
+      "sha256": "f650ceb84636d046ac1158653d9fb58d77fba5f589bb1c46797932ffc592db73"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d5_p1_resident.zip": {
+      "bytes": 52438,
+      "sha256": "f650ceb84636d046ac1158653d9fb58d77fba5f589bb1c46797932ffc592db73"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d5_p1_streamed.zip": {
+      "bytes": 52438,
+      "sha256": "f650ceb84636d046ac1158653d9fb58d77fba5f589bb1c46797932ffc592db73"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d9_p0_repeated.zip": {
+      "bytes": 60008,
+      "sha256": "5e3556af0cc9f3cddc4bf97d791077e2906a63a96fc21e0d742e67f35480d02a"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d9_p0_resident.zip": {
+      "bytes": 60008,
+      "sha256": "5e3556af0cc9f3cddc4bf97d791077e2906a63a96fc21e0d742e67f35480d02a"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d9_p0_streamed.zip": {
+      "bytes": 60008,
+      "sha256": "5e3556af0cc9f3cddc4bf97d791077e2906a63a96fc21e0d742e67f35480d02a"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d9_p1_repeated.zip": {
+      "bytes": 63674,
+      "sha256": "c723a8f7f4066201a0f7c6b107f91eb679c08b832beab2eb09ca5a8d40aa6d6f"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d9_p1_resident.zip": {
+      "bytes": 63674,
+      "sha256": "c723a8f7f4066201a0f7c6b107f91eb679c08b832beab2eb09ca5a8d40aa6d6f"
+    },
+    "PQT-SRC-005\\g0_c64_b3_e7_d9_p1_streamed.zip": {
+      "bytes": 63674,
+      "sha256": "c723a8f7f4066201a0f7c6b107f91eb679c08b832beab2eb09ca5a8d40aa6d6f"
+    },
+    "PQT-SRC-005\\g0_capacity.f64.npy": {
+      "bytes": 1664,
+      "sha256": "9e3bbe8c731fbd163ab18ea9bc58af45522fba51ecbda58c8840b63241b84f15"
+    },
+    "PQT-SRC-005\\g0_capacity.zip": {
+      "bytes": 5117,
+      "sha256": "fcfdf80540d53346cf9e120334b42fffc9a677e1f503a4b47cbfa681334d5253"
+    },
+    "PQT-SRC-005\\g0_negative\\changed_bytes.npy": {
+      "bytes": 2176,
+      "sha256": "1dc534b8f9c96bacb9aaee21c9ac69ee4833472e4273d7fa331ec8addd94131f"
+    },
+    "PQT-SRC-005\\g0_negative\\nonfinite_weight.npy": {
+      "bytes": 2176,
+      "sha256": "63e60b7802ceccf540ce2dd85534643c09bc004e646721bda2969855c9acf33b"
+    },
+    "PQT-SRC-005\\g0_negative\\weight_dtype.npy": {
+      "bytes": 1152,
+      "sha256": "33ff9312479511581a02de5ab7c3475aa9bd33c04552e99a33b3aa5e701257c5"
+    },
+    "PQT-SRC-005\\g0_negative\\weight_shape.npy": {
+      "bytes": 2176,
+      "sha256": "34c46b7ab9fa01ac91ca34bc38e124c0759c763e2960e7fe4403f18e666a3c90"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d5_p0_repeated.zip": {
+      "bytes": 30779,
+      "sha256": "7cf736a3eade20033f808a8e196aa8c0cf894451b42879b5430af150e0a80f30"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d5_p0_resident.zip": {
+      "bytes": 30779,
+      "sha256": "7cf736a3eade20033f808a8e196aa8c0cf894451b42879b5430af150e0a80f30"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d5_p0_streamed.zip": {
+      "bytes": 30779,
+      "sha256": "7cf736a3eade20033f808a8e196aa8c0cf894451b42879b5430af150e0a80f30"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d5_p1_repeated.zip": {
+      "bytes": 30779,
+      "sha256": "a6fdab99542efabd6eccf4c338524b0fedf00fc1ab8447c5032c2372a3b4dd11"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d5_p1_resident.zip": {
+      "bytes": 30779,
+      "sha256": "a6fdab99542efabd6eccf4c338524b0fedf00fc1ab8447c5032c2372a3b4dd11"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d5_p1_streamed.zip": {
+      "bytes": 30779,
+      "sha256": "a6fdab99542efabd6eccf4c338524b0fedf00fc1ab8447c5032c2372a3b4dd11"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d9_p0_repeated.zip": {
+      "bytes": 37679,
+      "sha256": "62513d71a6f5b4df1e100a56ad6ac3d4c017245a931915e1b35511d208409b5a"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d9_p0_resident.zip": {
+      "bytes": 37679,
+      "sha256": "62513d71a6f5b4df1e100a56ad6ac3d4c017245a931915e1b35511d208409b5a"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d9_p0_streamed.zip": {
+      "bytes": 37679,
+      "sha256": "62513d71a6f5b4df1e100a56ad6ac3d4c017245a931915e1b35511d208409b5a"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d9_p1_repeated.zip": {
+      "bytes": 32454,
+      "sha256": "b388f78ead8b13a1e9d7ecdbda21c507fa6ad3d3dcd249d767bbd644f1a806b4"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d9_p1_resident.zip": {
+      "bytes": 32454,
+      "sha256": "b388f78ead8b13a1e9d7ecdbda21c507fa6ad3d3dcd249d767bbd644f1a806b4"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e13_d9_p1_streamed.zip": {
+      "bytes": 32454,
+      "sha256": "b388f78ead8b13a1e9d7ecdbda21c507fa6ad3d3dcd249d767bbd644f1a806b4"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d5_p0_repeated.zip": {
+      "bytes": 28224,
+      "sha256": "81878bad4a1fb5b2ddbfffe212bbfac92b37f6c5b767cc4d86d4ae846489641f"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d5_p0_resident.zip": {
+      "bytes": 28224,
+      "sha256": "81878bad4a1fb5b2ddbfffe212bbfac92b37f6c5b767cc4d86d4ae846489641f"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d5_p0_streamed.zip": {
+      "bytes": 28224,
+      "sha256": "81878bad4a1fb5b2ddbfffe212bbfac92b37f6c5b767cc4d86d4ae846489641f"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d5_p1_repeated.zip": {
+      "bytes": 33449,
+      "sha256": "a96a32188d8eb6ef14ba757d3f3a60a859749c44b9476bf068b7ca76c0804f7c"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d5_p1_resident.zip": {
+      "bytes": 33449,
+      "sha256": "a96a32188d8eb6ef14ba757d3f3a60a859749c44b9476bf068b7ca76c0804f7c"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d5_p1_streamed.zip": {
+      "bytes": 33449,
+      "sha256": "a96a32188d8eb6ef14ba757d3f3a60a859749c44b9476bf068b7ca76c0804f7c"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d9_p0_repeated.zip": {
+      "bytes": 29899,
+      "sha256": "a1ca1f30f0e7479b70ac77c42225a65c342d5b0f9f9b3ea8d5d7a06a6a9d2415"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d9_p0_resident.zip": {
+      "bytes": 29899,
+      "sha256": "a1ca1f30f0e7479b70ac77c42225a65c342d5b0f9f9b3ea8d5d7a06a6a9d2415"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d9_p0_streamed.zip": {
+      "bytes": 29899,
+      "sha256": "a1ca1f30f0e7479b70ac77c42225a65c342d5b0f9f9b3ea8d5d7a06a6a9d2415"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d9_p1_repeated.zip": {
+      "bytes": 29899,
+      "sha256": "ca58cc4c7d34c12c9c89b7d29cd456fb108a9bc9586b4f79698240014a52d05c"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d9_p1_resident.zip": {
+      "bytes": 29899,
+      "sha256": "ca58cc4c7d34c12c9c89b7d29cd456fb108a9bc9586b4f79698240014a52d05c"
+    },
+    "PQT-SRC-005\\g1_c1_b1_e7_d9_p1_streamed.zip": {
+      "bytes": 29899,
+      "sha256": "ca58cc4c7d34c12c9c89b7d29cd456fb108a9bc9586b4f79698240014a52d05c"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d5_p0_repeated.zip": {
+      "bytes": 55727,
+      "sha256": "dc6006d186ad75379331799a44e2b1d13c2d0f87736d007f2361e7a414b48512"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d5_p0_resident.zip": {
+      "bytes": 55727,
+      "sha256": "dc6006d186ad75379331799a44e2b1d13c2d0f87736d007f2361e7a414b48512"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d5_p0_streamed.zip": {
+      "bytes": 55727,
+      "sha256": "dc6006d186ad75379331799a44e2b1d13c2d0f87736d007f2361e7a414b48512"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d5_p1_repeated.zip": {
+      "bytes": 54042,
+      "sha256": "d0cc0ba84de604243e4db5df3cec9a9e1cef78d9b083516494cd118dba8b0416"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d5_p1_resident.zip": {
+      "bytes": 54042,
+      "sha256": "d0cc0ba84de604243e4db5df3cec9a9e1cef78d9b083516494cd118dba8b0416"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d5_p1_streamed.zip": {
+      "bytes": 54042,
+      "sha256": "d0cc0ba84de604243e4db5df3cec9a9e1cef78d9b083516494cd118dba8b0416"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d9_p0_repeated.zip": {
+      "bytes": 63375,
+      "sha256": "bbcb937697014b9d398604a893b1801f545e415ea040dd8e0c6fcc58a38d179e"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d9_p0_resident.zip": {
+      "bytes": 63375,
+      "sha256": "bbcb937697014b9d398604a893b1801f545e415ea040dd8e0c6fcc58a38d179e"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d9_p0_streamed.zip": {
+      "bytes": 63375,
+      "sha256": "bbcb937697014b9d398604a893b1801f545e415ea040dd8e0c6fcc58a38d179e"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d9_p1_repeated.zip": {
+      "bytes": 62991,
+      "sha256": "e27b6b70855130b93649bb6d642a2cabc77c1671e53d19f95f775402dcc56af1"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d9_p1_resident.zip": {
+      "bytes": 62991,
+      "sha256": "e27b6b70855130b93649bb6d642a2cabc77c1671e53d19f95f775402dcc56af1"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e13_d9_p1_streamed.zip": {
+      "bytes": 62991,
+      "sha256": "e27b6b70855130b93649bb6d642a2cabc77c1671e53d19f95f775402dcc56af1"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d5_p0_repeated.zip": {
+      "bytes": 44970,
+      "sha256": "9aa42dadf093f66bf0024f8f8381d2a1657a205f175f10c36392d4cedf2f5f87"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d5_p0_resident.zip": {
+      "bytes": 44970,
+      "sha256": "9aa42dadf093f66bf0024f8f8381d2a1657a205f175f10c36392d4cedf2f5f87"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d5_p0_streamed.zip": {
+      "bytes": 44970,
+      "sha256": "9aa42dadf093f66bf0024f8f8381d2a1657a205f175f10c36392d4cedf2f5f87"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d5_p1_repeated.zip": {
+      "bytes": 47188,
+      "sha256": "281703f66b296242b549ac40aa83bdbe840cc12fea0b059e9625c65b91166c68"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d5_p1_resident.zip": {
+      "bytes": 47188,
+      "sha256": "281703f66b296242b549ac40aa83bdbe840cc12fea0b059e9625c65b91166c68"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d5_p1_streamed.zip": {
+      "bytes": 47188,
+      "sha256": "281703f66b296242b549ac40aa83bdbe840cc12fea0b059e9625c65b91166c68"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d9_p0_repeated.zip": {
+      "bytes": 52469,
+      "sha256": "3b0cab191b092ecbf0d454440f73dd00ee7436938f45f3a8c21d1675b5b1aeb9"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d9_p0_resident.zip": {
+      "bytes": 52469,
+      "sha256": "3b0cab191b092ecbf0d454440f73dd00ee7436938f45f3a8c21d1675b5b1aeb9"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d9_p0_streamed.zip": {
+      "bytes": 52469,
+      "sha256": "3b0cab191b092ecbf0d454440f73dd00ee7436938f45f3a8c21d1675b5b1aeb9"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d9_p1_repeated.zip": {
+      "bytes": 55476,
+      "sha256": "5bf2c91811cebd42dbffcf9cd1f7fd83595f226c33326277558eda0e58c254ac"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d9_p1_resident.zip": {
+      "bytes": 55476,
+      "sha256": "5bf2c91811cebd42dbffcf9cd1f7fd83595f226c33326277558eda0e58c254ac"
+    },
+    "PQT-SRC-005\\g1_c1_b3_e7_d9_p1_streamed.zip": {
+      "bytes": 55476,
+      "sha256": "5bf2c91811cebd42dbffcf9cd1f7fd83595f226c33326277558eda0e58c254ac"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d5_p0_repeated.zip": {
+      "bytes": 33979,
+      "sha256": "46c459c3cebd86f2a7c31393c1f97759b5d22b7b15a9c6090e50b42177583eed"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d5_p0_resident.zip": {
+      "bytes": 33979,
+      "sha256": "46c459c3cebd86f2a7c31393c1f97759b5d22b7b15a9c6090e50b42177583eed"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d5_p0_streamed.zip": {
+      "bytes": 33979,
+      "sha256": "46c459c3cebd86f2a7c31393c1f97759b5d22b7b15a9c6090e50b42177583eed"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d5_p1_repeated.zip": {
+      "bytes": 34896,
+      "sha256": "d78e0bd89485183fe397c72aa9b33cbfdde0f037196b627c7302e7bc94aa9e68"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d5_p1_resident.zip": {
+      "bytes": 34896,
+      "sha256": "d78e0bd89485183fe397c72aa9b33cbfdde0f037196b627c7302e7bc94aa9e68"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d5_p1_streamed.zip": {
+      "bytes": 34896,
+      "sha256": "d78e0bd89485183fe397c72aa9b33cbfdde0f037196b627c7302e7bc94aa9e68"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d9_p0_repeated.zip": {
+      "bytes": 40474,
+      "sha256": "5a0d6f15dd1617e669e9dd20424ca1a2ad9867bc9b4036f6ca4045f840c38788"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d9_p0_resident.zip": {
+      "bytes": 40474,
+      "sha256": "5a0d6f15dd1617e669e9dd20424ca1a2ad9867bc9b4036f6ca4045f840c38788"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d9_p0_streamed.zip": {
+      "bytes": 40474,
+      "sha256": "5a0d6f15dd1617e669e9dd20424ca1a2ad9867bc9b4036f6ca4045f840c38788"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d9_p1_repeated.zip": {
+      "bytes": 38640,
+      "sha256": "69dfdc0ac979ca17d6d89d9830bd3703da712618cc8891a76e9f1f10cbcf4e7d"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d9_p1_resident.zip": {
+      "bytes": 38640,
+      "sha256": "69dfdc0ac979ca17d6d89d9830bd3703da712618cc8891a76e9f1f10cbcf4e7d"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e13_d9_p1_streamed.zip": {
+      "bytes": 38640,
+      "sha256": "69dfdc0ac979ca17d6d89d9830bd3703da712618cc8891a76e9f1f10cbcf4e7d"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d5_p0_repeated.zip": {
+      "bytes": 29888,
+      "sha256": "badcc7cc799319194c4020ed608bc0d5e75119adee07b5be5450426136a9573a"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d5_p0_resident.zip": {
+      "bytes": 29888,
+      "sha256": "badcc7cc799319194c4020ed608bc0d5e75119adee07b5be5450426136a9573a"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d5_p0_streamed.zip": {
+      "bytes": 29888,
+      "sha256": "badcc7cc799319194c4020ed608bc0d5e75119adee07b5be5450426136a9573a"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d5_p1_repeated.zip": {
+      "bytes": 32639,
+      "sha256": "614e21c2ae13a19158338ddb9ee5426d9f507234b8e128c860fef35cdc5e3f2c"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d5_p1_resident.zip": {
+      "bytes": 32639,
+      "sha256": "614e21c2ae13a19158338ddb9ee5426d9f507234b8e128c860fef35cdc5e3f2c"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d5_p1_streamed.zip": {
+      "bytes": 32639,
+      "sha256": "614e21c2ae13a19158338ddb9ee5426d9f507234b8e128c860fef35cdc5e3f2c"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d9_p0_repeated.zip": {
+      "bytes": 33632,
+      "sha256": "f61e5641c1ce6754b1dd79c4d8b8f1317bd061e5d418b341063cecd9769e23b2"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d9_p0_resident.zip": {
+      "bytes": 33632,
+      "sha256": "f61e5641c1ce6754b1dd79c4d8b8f1317bd061e5d418b341063cecd9769e23b2"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d9_p0_streamed.zip": {
+      "bytes": 33632,
+      "sha256": "f61e5641c1ce6754b1dd79c4d8b8f1317bd061e5d418b341063cecd9769e23b2"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d9_p1_repeated.zip": {
+      "bytes": 32715,
+      "sha256": "0a064a0323c0e7ef68481b2430d46173a9be7badfb1891b00c356b76856046e5"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d9_p1_resident.zip": {
+      "bytes": 32715,
+      "sha256": "0a064a0323c0e7ef68481b2430d46173a9be7badfb1891b00c356b76856046e5"
+    },
+    "PQT-SRC-005\\g1_c64_b1_e7_d9_p1_streamed.zip": {
+      "bytes": 32715,
+      "sha256": "0a064a0323c0e7ef68481b2430d46173a9be7badfb1891b00c356b76856046e5"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d5_p0_repeated.zip": {
+      "bytes": 64693,
+      "sha256": "7312b5502a0f866647d86dfaaa242db4dbff0b2f1a567776fe15e999e32de5d0"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d5_p0_resident.zip": {
+      "bytes": 64693,
+      "sha256": "7312b5502a0f866647d86dfaaa242db4dbff0b2f1a567776fe15e999e32de5d0"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d5_p0_streamed.zip": {
+      "bytes": 64693,
+      "sha256": "7312b5502a0f866647d86dfaaa242db4dbff0b2f1a567776fe15e999e32de5d0"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d5_p1_repeated.zip": {
+      "bytes": 63778,
+      "sha256": "32f62abf39cf156b0c6447585471033c129a9e3bb65a5e6af205707a62dd132b"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d5_p1_resident.zip": {
+      "bytes": 63778,
+      "sha256": "32f62abf39cf156b0c6447585471033c129a9e3bb65a5e6af205707a62dd132b"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d5_p1_streamed.zip": {
+      "bytes": 63778,
+      "sha256": "32f62abf39cf156b0c6447585471033c129a9e3bb65a5e6af205707a62dd132b"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d9_p0_repeated.zip": {
+      "bytes": 76846,
+      "sha256": "37be1e673f830b77731969cc16b708ead8f42e9ebff4773378156f633f0b1cb2"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d9_p0_resident.zip": {
+      "bytes": 76846,
+      "sha256": "37be1e673f830b77731969cc16b708ead8f42e9ebff4773378156f633f0b1cb2"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d9_p0_streamed.zip": {
+      "bytes": 76846,
+      "sha256": "37be1e673f830b77731969cc16b708ead8f42e9ebff4773378156f633f0b1cb2"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d9_p1_repeated.zip": {
+      "bytes": 76848,
+      "sha256": "75ec2335609633dfd8b687dbdce1f95204de527859d48ba861bd742d5b6df0da"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d9_p1_resident.zip": {
+      "bytes": 76848,
+      "sha256": "75ec2335609633dfd8b687dbdce1f95204de527859d48ba861bd742d5b6df0da"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e13_d9_p1_streamed.zip": {
+      "bytes": 76848,
+      "sha256": "75ec2335609633dfd8b687dbdce1f95204de527859d48ba861bd742d5b6df0da"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d5_p0_repeated.zip": {
+      "bytes": 50606,
+      "sha256": "3f2272c14a6413f840893ad59bacb08f97779cc74d571f96876cf4d0c719ba9a"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d5_p0_resident.zip": {
+      "bytes": 50606,
+      "sha256": "3f2272c14a6413f840893ad59bacb08f97779cc74d571f96876cf4d0c719ba9a"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d5_p0_streamed.zip": {
+      "bytes": 50606,
+      "sha256": "3f2272c14a6413f840893ad59bacb08f97779cc74d571f96876cf4d0c719ba9a"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d5_p1_repeated.zip": {
+      "bytes": 52438,
+      "sha256": "f650ceb84636d046ac1158653d9fb58d77fba5f589bb1c46797932ffc592db73"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d5_p1_resident.zip": {
+      "bytes": 52438,
+      "sha256": "f650ceb84636d046ac1158653d9fb58d77fba5f589bb1c46797932ffc592db73"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d5_p1_streamed.zip": {
+      "bytes": 52438,
+      "sha256": "f650ceb84636d046ac1158653d9fb58d77fba5f589bb1c46797932ffc592db73"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d9_p0_repeated.zip": {
+      "bytes": 60008,
+      "sha256": "5e3556af0cc9f3cddc4bf97d791077e2906a63a96fc21e0d742e67f35480d02a"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d9_p0_resident.zip": {
+      "bytes": 60008,
+      "sha256": "5e3556af0cc9f3cddc4bf97d791077e2906a63a96fc21e0d742e67f35480d02a"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d9_p0_streamed.zip": {
+      "bytes": 60008,
+      "sha256": "5e3556af0cc9f3cddc4bf97d791077e2906a63a96fc21e0d742e67f35480d02a"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d9_p1_repeated.zip": {
+      "bytes": 63674,
+      "sha256": "c723a8f7f4066201a0f7c6b107f91eb679c08b832beab2eb09ca5a8d40aa6d6f"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d9_p1_resident.zip": {
+      "bytes": 63674,
+      "sha256": "c723a8f7f4066201a0f7c6b107f91eb679c08b832beab2eb09ca5a8d40aa6d6f"
+    },
+    "PQT-SRC-005\\g1_c64_b3_e7_d9_p1_streamed.zip": {
+      "bytes": 63674,
+      "sha256": "c723a8f7f4066201a0f7c6b107f91eb679c08b832beab2eb09ca5a8d40aa6d6f"
+    },
+    "PQT-SRC-005\\g1_capacity.f64.npy": {
+      "bytes": 1664,
+      "sha256": "9e3bbe8c731fbd163ab18ea9bc58af45522fba51ecbda58c8840b63241b84f15"
+    },
+    "PQT-SRC-005\\g1_capacity.zip": {
+      "bytes": 5117,
+      "sha256": "fcfdf80540d53346cf9e120334b42fffc9a677e1f503a4b47cbfa681334d5253"
+    },
+    "PQT-SRC-005\\g1_negative\\changed_bytes.npy": {
+      "bytes": 2176,
+      "sha256": "1dc534b8f9c96bacb9aaee21c9ac69ee4833472e4273d7fa331ec8addd94131f"
+    },
+    "PQT-SRC-005\\g1_negative\\nonfinite_weight.npy": {
+      "bytes": 2176,
+      "sha256": "63e60b7802ceccf540ce2dd85534643c09bc004e646721bda2969855c9acf33b"
+    },
+    "PQT-SRC-005\\g1_negative\\weight_dtype.npy": {
+      "bytes": 1152,
+      "sha256": "33ff9312479511581a02de5ab7c3475aa9bd33c04552e99a33b3aa5e701257c5"
+    },
+    "PQT-SRC-005\\g1_negative\\weight_shape.npy": {
+      "bytes": 2176,
+      "sha256": "34c46b7ab9fa01ac91ca34bc38e124c0759c763e2960e7fe4403f18e666a3c90"
+    },
+    "PQT-SRC-005\\qualification.json": {
+      "bytes": 1567965,
+      "sha256": "85c3c08341050949dea950e4d1d534f81eabe0b476668ed944ac47b752418afc"
+    },
+    "pqt-src-005-switch-t4-20261006-001.log": {
+      "bytes": 809,
+      "sha256": "21bfcc1023f2ba9dd388044e182cd2a02298eaf1f2035b7b7cb893bdbbcce313"
+    },
+    "qualification.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "qualification.stdout.log": {
+      "bytes": 226,
+      "sha256": "e9a3ffde86ed8622c2121d003147a6a0b1da5f6f825a597b93892ea2753e546b"
+    },
+    "server_bundle\\kernel-metadata.json": {
+      "bytes": 702,
+      "sha256": "b6121f17f39ed309a741fdee794d00d58304379099deada21230e03597654905"
+    },
+    "server_bundle\\pqt-src-005-switch-t4-20261006-001.py": {
+      "bytes": 40981,
+      "sha256": "b5dda51a71750813e3d70495aef7bc15ff7dcfafbc6dd313619dcc754ba8a9ed"
+    },
+    "source_audit_src005_t4.py": {
+      "bytes": 10464,
+      "sha256": "5cc89b7445c54bd621f6b73147d37651649f43cbc5e57c46c1308e93a89a7e2d"
+    },
+    "source_manifest.json": {
+      "bytes": 1730,
+      "sha256": "b200128bc1152cf6939e7cfc93c33ca8c9df6a1717031bbfc0ce1455f6bc57fd"
+    },
+    "source_PQT_SRC_005_BINDING.json": {
+      "bytes": 1310,
+      "sha256": "e5ca289211149d17971a25e39637ec60b83df07eb34395889aff2e65c17a0a6d"
+    },
+    "source_PQT_SRC_005_LOCAL_CONTROLS_RETENTION.json": {
+      "bytes": 37357,
+      "sha256": "68c65d763edc00ef8e937b27ff9c59f07b5acfa243446eb13fa13dcd2bf3fc3f"
+    },
+    "source_PQT_SRC_005_PROTOCOL.md": {
+      "bytes": 4708,
+      "sha256": "a64055ed94365163ea7f9686c4faa856e33df0aab0c10b17959c798492bf2033"
+    },
+    "source_src005_fixture.py": {
+      "bytes": 4751,
+      "sha256": "e795bdfaee17acb3fa8a7cf780077b90d32e2b0eecc0aee45e082ee8f23bd8b8"
+    },
+    "source_src005_t4.py": {
+      "bytes": 22082,
+      "sha256": "a543af99ff507e48a3d8cb1165fbda1dec78bfac38821b781e8498bf6b59abe3"
+    },
+    "source_switch_lazy_float.py": {
+      "bytes": 9932,
+      "sha256": "010fa3fcc9ee950336dc0060e7501ea94d00ac8db7b367ce4997d70259c9c911"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "PQT_013_REMOTE_RETENTION_V1",
+  "passed": true,
+  "worker_passed": true,
+  "audit_passed": true,
+  "scientific_source_commit": "e218e3e36d44ab4a34de091f5ccad05c0a9267db",
+  "ref": "giggio253/pqt-013-row-alphabet-20261006-001",
+  "retention_manifest": "pqt013_remote_evidence_001/manifest.json",
+  "retention_manifest_identity": {
+    "bytes": 194961,
+    "sha256": "797794b2a628b6f395add3d8621feb92ab0e3b8a0ae848e4cb6464b1bd150361"
+  },
+  "raw_entries": 71,
+  "raw_bytes": 439803659,
+  "scientific_inner_entries": 762,
+  "scientific_inner_bytes": 439298392,
+  "all_actual_executed_source_bytes_exact": true,
+  "all_scientific_raw_member_hashes_verified": true,
+  "pulled_bootstrap_CRLF_count": 77,
+  "pulled_bootstrap_raw_unchanged": true,
+  "bootstrap_costs": {
+    "schema": "PQT_013_BOOTSTRAP_V1",
+    "passed": true,
+    "scientific_source_commit": "e218e3e36d44ab4a34de091f5ccad05c0a9267db",
+    "ref": "giggio253/pqt-013-row-alphabet-20261006-001",
+    "source_preparation_seconds": 0.02697699000003695,
+    "server_elapsed_seconds_before_report": 131.71481692000003,
+    "server_budget_seconds": 5400,
+    "bootstrap_peak_RSS_bytes": 20758528,
+    "final_output_bytes_before_report": 439599111,
+    "steps": [
+      {
+        "step": "install",
+        "returncode": 0,
+        "resource_stop": null,
+        "declared_seconds": 300,
+        "budget_seconds": 300,
+        "elapsed_complete_child_seconds": 5.231645361999995,
+        "actual_direct_child_peak_RSS_bytes": 51507200,
+        "sampled_direct_child_peak_RSS_bytes": 49987584,
+        "RSS_scope": "Actual wait4 of this direct child, not cumulative"
+      },
+      {
+        "step": "experiment",
+        "returncode": 0,
+        "resource_stop": null,
+        "declared_seconds": 2400,
+        "budget_seconds": 2400,
+        "elapsed_complete_child_seconds": 87.27896111299998,
+        "actual_direct_child_peak_RSS_bytes": 1643671552,
+        "sampled_direct_child_peak_RSS_bytes": 1644138496,
+        "RSS_scope": "Actual wait4 of this direct child, not cumulative"
+      },
+      {
+        "step": "audit",
+        "returncode": 0,
+        "resource_stop": null,
+        "declared_seconds": 1200,
+        "budget_seconds": 1200,
+        "elapsed_complete_child_seconds": 22.744500078999977,
+        "actual_direct_child_peak_RSS_bytes": 1065623552,
+        "sampled_direct_child_peak_RSS_bytes": 1051537408,
+        "RSS_scope": "Actual wait4 of this direct child, not cumulative"
+      },
+      {
+        "step": "transport",
+        "returncode": 0,
+        "resource_stop": null,
+        "declared_seconds": 600,
+        "budget_seconds": 600,
+        "elapsed_complete_child_seconds": 16.430923386000018,
+        "actual_direct_child_peak_RSS_bytes": 257380352,
+        "sampled_direct_child_peak_RSS_bytes": 154857472,
+        "RSS_scope": "Actual wait4 of this direct child, not cumulative"
+      }
+    ],
+    "private_T4_dispatch": true,
+    "optimizer_updates": 0
+  },
+  "worker_resource": {
+    "elapsed_seconds_before_report": 65.65718258099997,
+    "peak_process_RSS_bytes": 1643671552,
+    "devices": [
+      {
+        "device": 0,
+        "name": "Tesla T4",
+        "peak_allocated_bytes": 407337472,
+        "peak_reserved_bytes": 450887680
+      },
+      {
+        "device": 1,
+        "name": "Tesla T4",
+        "peak_allocated_bytes": 369754624,
+        "peak_reserved_bytes": 408944640
+      }
+    ]
+  },
+  "audit_resource": {
+    "elapsed_seconds_before_report": 21.960511773999997,
+    "peak_process_RSS_bytes": 1065623552
+  },
+  "resource": {
+    "elapsed_seconds_before_report": 3.812000000005355,
+    "peak_process_RSS_bytes": 151101440
+  },
+  "new_fits": 0,
+  "new_numerical_replays": 0,
+  "whole_research_complete": false
+}

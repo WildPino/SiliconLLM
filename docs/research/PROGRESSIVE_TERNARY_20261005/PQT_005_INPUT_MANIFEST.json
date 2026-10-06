@@ -1,0 +1,58 @@
+{
+  "schema": "PQT_EXPERT_INPUT_MANIFEST_V1",
+  "run_id": "PQT-005",
+  "ref": "giggio253/pqt-005-switch-original-20261005",
+  "packaging_commit": "6be69c5a8ff9f690c5ba4048a414ed0f41af4edf",
+  "files": {
+    "decoder.block.11.layer.2.mlp.experts.expert_8.wi.weight.npy": {
+      "bytes": 9437312,
+      "sha256": "8a6fd406bc6731fd9bcb8088267c5d03ab8b88215ecee620b5abbfbcfb35f33b",
+      "admission": "PQT_SRC_001_RETENTION.json"
+    },
+    "decoder.block.11.layer.2.mlp.experts.expert_8.wo.weight.npy": {
+      "bytes": 9437312,
+      "sha256": "c97c934d996a6dac5984282bb16e4780b806054cb4d73e4ec957488e65303d78",
+      "admission": "PQT_SRC_001_RETENTION.json"
+    },
+    "decoder.block.11.layer.2.mlp.experts.expert_105.wi.weight.npy": {
+      "bytes": 9437312,
+      "sha256": "caa575ad51342103e4370076d418cafd8a7ff4aff314c4e51c6583582a7f7051",
+      "admission": "PQT_SRC_001_RETENTION.json"
+    },
+    "decoder.block.11.layer.2.mlp.experts.expert_105.wo.weight.npy": {
+      "bytes": 9437312,
+      "sha256": "0b7bfc9d72f5a0b525f86a7287d652117b13b8fffa6d73410cd2ca73036475f0",
+      "admission": "PQT_SRC_001_RETENTION.json"
+    },
+    "selected_queries.npy": {
+      "bytes": 1438976,
+      "sha256": "63bd19c4bbb21e71c72317bfc71f40931bf484d8c11b17ef1d5f6c3397068a54",
+      "admission": "PQT_SRC_002_RETENTION.json"
+    },
+    "source_row_indices.npy": {
+      "bytes": 2560,
+      "sha256": "f374c4df0a3076ca375a2de69ee6db5afc81e6fd0444da27896d0470d5c9adca",
+      "admission": "PQT_SRC_002_RETENTION.json"
+    },
+    "raw_inputs.npy": {
+      "bytes": 934016,
+      "sha256": "a63d7f9d79bdd01bc50f50e5704c67973b46c744146559f7ce45e8f8d4652461",
+      "admission": "PQT_SRC_002_RETENTION.json"
+    },
+    "effective_inputs.npy": {
+      "bytes": 934016,
+      "sha256": "80def1b84387cfefc8d1ebb24b63709a368bc8bc9d9d6a9f4b09046f59343538",
+      "admission": "PQT_SRC_002_RETENTION.json"
+    },
+    "config.json": {
+      "bytes": 1116,
+      "sha256": "b932aa6e954dfcfe647c60ef457eb14f878aca681dc6987f44616f00368d28b7",
+      "admission": "original config read-only architecture check"
+    }
+  },
+  "source_model": "google/switch-base-128",
+  "source_revision": "86c815ec05361a33a8b49fc717277da9c0a4e711",
+  "input_role": "Consumed inherited I8-core contexts; fresh algebraic probes will be separately generated after fitting",
+  "expert_bank": "decoder.block.11.layer.2.mlp.experts",
+  "activation": "relu, inference dropout disabled"
+}
