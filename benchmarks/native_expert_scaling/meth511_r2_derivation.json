@@ -1,0 +1,112 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_operations.py",
+    "old_sha256": "05624a32207700ef88a60488160ac93fd9dfc9f9afba705c499244c184fa30e4",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_operations.py",
+    "new_sha256": "6f9cfb2ecfaf5e05e0afe349bb0aa09795082370139606fd6c28f0f0fd4ecc3a",
+    "replacements": [
+      {
+        "before": "meth511_r1_binding.json",
+        "after": "meth511_r2_binding.json",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r1_'+kind)",
+        "after": "('meth511_r2_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r1_'+kind+'_result.json')",
+        "after": "('meth511_r2_'+kind+'_result.json')",
+        "occurrences": 2
+      },
+      {
+        "before": "input_admission_scope='Full SHA was freshly computed by metadata binder. This stage requires unchanged size/mtime and retained Win32 read/share-read handles denying writes/deletion; small scientific source is freshly SHA checked.'",
+        "after": "input_admission_scope='Fresh full SHA of runtime/source/candidate/corpus/ledgers; original donor ZIP whole SHA retained from acquisition with current stat/write-deny binding. All3320 loaded original F32 tensors receive fresh canonical SHA before first donor inference. Small scientific source is freshly SHA checked.'",
+        "occurrences": 1
+      },
+      {
+        "before": "env={**os.environ,**ENV}",
+        "after": "env={**os.environ,**ENV,**self.binding['native_runtime_environment']}",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_cohort.py",
+    "old_sha256": "e75d4da00ef448420f135a023007f4abbf7557b821895160bee8cbfd89e5d98e",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_cohort.py",
+    "new_sha256": "801dcc2529b24f26c325a246aa4324e99dee24e0267833161f134f9d508e239a",
+    "replacements": [
+      {
+        "before": "import meth511_r1_operations as O",
+        "after": "import meth511_r2_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_native.py",
+    "old_sha256": "bfdaf0e7604b9ecfad4fc2947300097fc008ee456c44e0135e4158e4d28e7fd5",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_native.py",
+    "new_sha256": "f1685df9dc174f146f93b60fa1af5a233a65a731ec80c4d4c1430f58a36e8a33",
+    "replacements": [
+      {
+        "before": "import meth511_r1_operations as O",
+        "after": "import meth511_r2_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "results/native_expert_scaling/meth511_r1_cohort/cohort.json",
+        "after": "results/native_expert_scaling/meth511_r2_cohort/cohort.json",
+        "occurrences": 2
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_donor.py",
+    "old_sha256": "dc340e5e8b934c592d1baad2051dd87fc402a14a168e586dde9f143943e2bf70",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_donor.py",
+    "new_sha256": "b66223edc0259c29ac9da8fccba34fa7e4f926ca2a6cd57016f34f02beafe12b",
+    "replacements": [
+      {
+        "before": "import meth511_r1_operations as O",
+        "after": "import meth511_r2_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "namespace=model.state_dict();assert set(namespace)==set(bound['tensors']);seen=set();shards=[]",
+        "after": "namespace=model.state_dict();assert set(namespace)==set(bound['tensors']);seen=set();shards=[];canonical_hashed_bytes=0",
+        "occurrences": 1
+      },
+      {
+        "before": "assert hashlib.sha256(memoryview(value.numpy()).cast('B')).hexdigest()==expected['sha256'],name;seen.add(name)",
+        "after": "assert hashlib.sha256(memoryview(value.numpy()).cast('B')).hexdigest()==expected['sha256'],name;seen.add(name)\n                canonical_hashed_bytes+=value.numel()*value.element_size()",
+        "occurrences": 1
+      },
+      {
+        "before": "ctx.r['gates']['all3320_actual_original_F32_coefficients7415217408_unique_parameters']=True",
+        "after": "ctx.r['gates']['all3320_actual_original_F32_coefficients7415217408_unique_parameters']=True\n        ctx.r['canonical_F32_bytes_hashed_before_first_inference']=canonical_hashed_bytes",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r1_retention_audit.py",
+    "old_sha256": "1c76470dac10d1e8e0d7b50c28163fa64a123392669a73123632c4bed2d04c9c",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_retention_audit.py",
+    "new_sha256": "576a464cef4cf49c40116eed802b4444a91b316060c8ce8fddf68e90cc9f2b00",
+    "replacements": [
+      {
+        "before": "import meth511_r1_operations as O",
+        "after": "import meth511_r2_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "results/native_expert_scaling/meth511_r1_cohort/cohort.json",
+        "after": "results/native_expert_scaling/meth511_r2_cohort/cohort.json",
+        "occurrences": 2
+      }
+    ]
+  }
+]
