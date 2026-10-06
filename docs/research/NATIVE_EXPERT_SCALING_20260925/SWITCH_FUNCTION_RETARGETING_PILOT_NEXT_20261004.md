@@ -1,33 +1,29 @@
 # Current conditional transfer resumption
 
-## Current resumption: 495 complete fixed hybrid fit admitted FAIL; isolate readout error next
+## Current resumption: 496 complete error decomposition; exact feature-information geometry next
 
-Goal ACTIVE/INCOMPLETE. [495 result](METH_495_WEIGHTED_HYBRID_FIT_RESULT_20261006.md):
-all 8 main / 8 independent audit / 5 admission gates PASS; both local recipe
-gates FAIL. Complete 127 readout solves/128 Adam updates and native group4
-LUT evaluator; all 17,540 UID physical bytes qualify, with all 19,962
-occurrences/1040 metrics/384 exposure groups independently recounted.
-Canonical development/consumed-validation oracle RMS 2.7986%/8.9192%; ID
-fidelity 56.0362%/22.7015%; coupled RMS 71.0824%/75.8041%. All six role/mode
-occurrence groups fail the frozen1%/99.9% recipe. ID0 has no observed UID;
-128 distinct byte blocks do not establish128 useful functions.
-Main252.125s/combined peaks1,022,603,264B; audit263.047s/1,150,582,784B.
-Actual exits0; Windows queries available/zero events. No source FFN/model/GPU
-or new resource, no first fault or namespace rerun. Engine/foreign hashes preserved.
+Goal ACTIVE/INCOMPLETE. [496 result](METH_496_READOUT_ERROR_RESULT_20261006.md)
+admits ALL17540UID/19962occurrences/128experts/1040metrics/384exposures;
+all5 main/5 audit/5 admission gates PASS. Same495 artifact, no new fit/candidate.
+Fitted U RMS2.38%..6.98% on all six groups, coefficient Q-U1.27%..1.32%,
+arithmetic P-Q ratio~4.5e-8. Canonical U2.4802% development/8.8280% consumed
+validation. Precision-only change cannot fix this saved fitted function.
+Main6.016s/477896704B, audit6.781s/479539200B; actual exits0, both Windows
+available/zero events. No numerical first fault/repair/rerun, source/native/
+model/optimizer/projection call or new resource. Engine/foreign hashes preserve.
 
-[Whole algebra and next](METH_495_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
-oracle function error, choice error/cross terms, regularized solve correctness
-and finite-optimizer uncertainty. The key gap expression31.31 does not prove
-near-optimality; no unrestricted function/key class is closed. THIS recipe
-is CLOSED, no width/update/prior/ID/checkpoint sweep.
+[Whole algebra and next](METH_496_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
+regularized fitting from representation and prior information. Every expert
+has at most308 development states for513 feature coefficients per output:
+at least53943 data-only null directions summed over128experts. This is an
+exact count/rank bound, not a floating SVD floor. Weighted pF also changes the
+ideal odd/even algebra; no empirical paired-state impossibility follows.
 
-Next496: freeze a complete unchanged-artifact decomposition U/Q/P separating
-unquantized fitted-function error, physical coefficient error and arithmetic
-rounding, with all UID/occurrence/rare views and independent audit. No fit,
-new candidate/export, C/source replay or optimizer update. Use actual saved
-coefficient/feature/prediction/bank/target/UID/occurrence/runtime dependencies;
-compiler snapshot is historical qualification because496 does not execute C.
-Then derive one changed variable from the measured component. Routing remains
-separately unresolved. Completed495 namespaces terminal; no own live science.
-Full goal remains open: composed/own-state/fresh quality, SAME>=50, useful n,
-CPU LUT/DRAM and actual additional families/scales.489CPU128 positive unchanged.
+Next497: freeze exact dyadic-feature modular row-rank certificates, ALLoriginal
+domains, new controls and independent minor verification. Nonzero modular
+minors certify real row rank; deficient modular rank is INCONCLUSIVE. No
+new fitted predictor, consumed-target learning, coefficient export or source/
+native/model replay. Full helpers/protocol freeze is required before execution.
+Then select one learner/information change. Routing remains separately open;
+all composed/fresh quality/SAME>=50/useful-n/DRAM/family gates remain open.
+Completed495/496 numerical namespaces are terminal.

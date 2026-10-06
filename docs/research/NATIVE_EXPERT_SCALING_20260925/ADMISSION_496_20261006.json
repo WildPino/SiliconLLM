@@ -1,0 +1,59 @@
+{
+  "experiment": "METH496 unchanged-artifact readout error admission",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth496_readout_error_result.json",
+    "bytes": 1139374,
+    "sha256": "a633e57526de03d6bf17848504e0b2318be6e80b4109f10c0dbbe3143e346456"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_496_20261006.json",
+    "bytes": 1129823,
+    "sha256": "984679b08f896483ec29381c972c8afef8c21f87bbf85ed49ad9aefe080c095b"
+  },
+  "registrations": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth496_main_sole_first_registration.json",
+      "bytes": 460,
+      "sha256": "0a1dbf21538d926991a27285407e27be644f65846abf38466f0d0ae9d4384796"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth496_audit_sole_first_registration.json",
+      "bytes": 456,
+      "sha256": "c17acf97f294fa7f258a36b3933122a0584bd5aad7843271af1ea33a6833da57"
+    }
+  ],
+  "Windows_events": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth496_windows_terminal.json",
+      "bytes": 577,
+      "sha256": "ae20a66ff1785327c32694993705f9ad73727d71a86f37c221c78d28d0ee3106"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth496_audit_windows_terminal.json",
+      "bytes": 579,
+      "sha256": "3acc8b671bd275493ebd3e9962f0d784f988ecde7fcec917ddc4438f34e85672"
+    }
+  ],
+  "terminal_resources": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth496_readout_error\\terminal_resources.json",
+      "bytes": 536,
+      "sha256": "fa923213326701c01828e398dd0fc6941acf6514ae7e0c48118950456938025b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth496_retention\\terminal_resources.json",
+      "bytes": 531,
+      "sha256": "d34840650cb7a63c2908f56e806c13ab28ab67937853b0f1cee66b26c7391eaf"
+    }
+  ],
+  "gates": {
+    "sole_first_actual_main_audit_and_terminal_resources": true,
+    "ALL_independent_full_domain_decomposition_gates": true,
+    "BOTH_actual_Windows_process_instances_without_fault": true,
+    "raw_retention_scope_digest_link": true,
+    "fixed_artifact_only_no_candidate_quality_rate_useful_n_or_goal_promotion": true
+  },
+  "decision": "UNQUANTIZED_FITTED_FUNCTION_REQUIRES_ANALYSIS_BEFORE_PRECISION_CHANGE",
+  "scope": "One-bank fixed artifact consumed-domain diagnostic. Goal ACTIVE/INCOMPLETE."
+}
