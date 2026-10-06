@@ -1,0 +1,88 @@
+{
+  "kind": "Algebraic deductions from already admitted primary0 timings; no model execution or new timing observation",
+  "raw_sha256": "db73d42f51867f6574ca024e1660186b7c97f7cdcb6a7c2bc973fcc3ffdcac1a",
+  "retention_sha256": "72a85d3883e54b70ffe48fdfc82669310d30bd78301173358d365307232d361c",
+  "sources": {
+    "128": {
+      "0": {
+        "phase_sums_seconds": {
+          "encoder_seconds": 6.011169466666667,
+          "cross_kv_seconds": 0.8835367,
+          "decode_greedy_seconds": 5.1685696,
+          "full_generation_seconds": 12.063275766666667
+        },
+        "ordinary_accepted_ids": 1142,
+        "prose_accepted_ids": 662,
+        "GPUcalls": 0,
+        "GPUqueries": 0,
+        "target50_prose_max_total_seconds": 13.24,
+        "free_prefill_unchanged_decode_prose_ceiling": 128.08185847008812,
+        "free_decode_unchanged_prefill_prose_ceiling": 96.01569435990227,
+        "prefill_only_change_can_reach50_with_unchanged_decode": true,
+        "decode_only_change_can_reach50_with_unchanged_prefill": true,
+        "maximum_decode_fraction_of_observed_for50_even_at_free_prefill": 2.5616371694017626,
+        "maximum_prefill_fraction_of_observed_for50_even_at_free_decode": 1.9203138871980452
+      },
+      "1": {
+        "phase_sums_seconds": {
+          "encoder_seconds": 15.021009966666666,
+          "cross_kv_seconds": 0.9798024,
+          "decode_greedy_seconds": 16.401574366666665,
+          "full_generation_seconds": 32.40238673333333
+        },
+        "ordinary_accepted_ids": 1142,
+        "prose_accepted_ids": 662,
+        "GPUcalls": 169646,
+        "GPUqueries": 330926,
+        "target50_prose_max_total_seconds": 13.24,
+        "free_prefill_unchanged_decode_prose_ceiling": 40.36197899059003,
+        "free_decode_unchanged_prefill_prose_ceiling": 41.37289937722767,
+        "prefill_only_change_can_reach50_with_unchanged_decode": false,
+        "decode_only_change_can_reach50_with_unchanged_prefill": false,
+        "maximum_decode_fraction_of_observed_for50_even_at_free_prefill": 0.8072395798118007,
+        "maximum_prefill_fraction_of_observed_for50_even_at_free_decode": 0.8274579875445534
+      }
+    },
+    "256": {
+      "0": {
+        "phase_sums_seconds": {
+          "encoder_seconds": 6.898050366666666,
+          "cross_kv_seconds": 0.7985452,
+          "decode_greedy_seconds": 5.9234355,
+          "full_generation_seconds": 13.620031066666666
+        },
+        "ordinary_accepted_ids": 895,
+        "prose_accepted_ids": 490,
+        "GPUcalls": 0,
+        "GPUqueries": 0,
+        "target50_prose_max_total_seconds": 9.8,
+        "free_prefill_unchanged_decode_prose_ceiling": 82.7222648073065,
+        "free_decode_unchanged_prefill_prose_ceiling": 63.66451189434332,
+        "prefill_only_change_can_reach50_with_unchanged_decode": true,
+        "decode_only_change_can_reach50_with_unchanged_prefill": true,
+        "maximum_decode_fraction_of_observed_for50_even_at_free_prefill": 1.6544452961461302,
+        "maximum_prefill_fraction_of_observed_for50_even_at_free_decode": 1.2732902378868665
+      },
+      "1": {
+        "phase_sums_seconds": {
+          "encoder_seconds": 17.519399033333332,
+          "cross_kv_seconds": 1.0412082,
+          "decode_greedy_seconds": 18.5245866,
+          "full_generation_seconds": 37.085193833333335
+        },
+        "ordinary_accepted_ids": 895,
+        "prose_accepted_ids": 490,
+        "GPUcalls": 163101,
+        "GPUqueries": 324381,
+        "target50_prose_max_total_seconds": 9.8,
+        "free_prefill_unchanged_decode_prose_ceiling": 26.451332522583797,
+        "free_decode_unchanged_prefill_prose_ceiling": 26.399998331951128,
+        "prefill_only_change_can_reach50_with_unchanged_decode": false,
+        "decode_only_change_can_reach50_with_unchanged_prefill": false,
+        "maximum_decode_fraction_of_observed_for50_even_at_free_prefill": 0.529026650451676,
+        "maximum_prefill_fraction_of_observed_for50_even_at_free_decode": 0.5279999666390226
+      }
+    }
+  },
+  "assumptions": "Free-stage ceilings hold only if the retained stage cost and accepted IDs remain unchanged. They are not a causal decomposition or a universal impossibility claim."
+}

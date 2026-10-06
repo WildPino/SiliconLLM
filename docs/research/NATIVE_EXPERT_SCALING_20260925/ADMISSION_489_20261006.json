@@ -1,0 +1,44 @@
+{
+  "experiment": "METH489 complete sole execution and independent admission",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth489_shared_integer_backend_result.json",
+    "bytes": 27098395,
+    "sha256": "db73d42f51867f6574ca024e1660186b7c97f7cdcb6a7c2bc973fcc3ffdcac1a"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_489_20261006.json",
+    "bytes": 13684,
+    "sha256": "72a85d3883e54b70ffe48fdfc82669310d30bd78301173358d365307232d361c"
+  },
+  "records": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth489_main_sole_first_registration.json",
+      "bytes": 1518,
+      "sha256": "5bab9f5542e8e907ca3c7a423f45f4b7f526165ab4167b2a41063c8964bd0487"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth489_windows_terminal.json",
+      "bytes": 26909,
+      "sha256": "c4e199c1d98493f5336d89b290e26d6d499351f0b8f3e19c14831b3196316f73"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth489_audit_sole_first_registration.json",
+      "bytes": 1120,
+      "sha256": "67b01c6895251ff155c5c5e366fa1f6996570cf1072490e88ae82f472e4bf2bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth489_audit_windows_terminal.json",
+      "bytes": 595,
+      "sha256": "c19f73f644f5f1f642b590005ccd9e7292e2ce9cde16f2156444e505e2509f24"
+    }
+  ],
+  "gates": {
+    "sole_first_actual_main_and_audit": true,
+    "raw_retention_digest_link": true,
+    "ALL_retention_gates": true,
+    "complete_staged192_cases_original_seed485485": true,
+    "BOTH_actual_Windows_instance_without_fault": true
+  },
+  "decision": "Retain exactly the completed gates. If main failed, no backend promotion; if speed failed, close this fixed layout. Full goal remains active/incomplete."
+}
