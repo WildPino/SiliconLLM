@@ -1,0 +1,42 @@
+{
+  "experiment": "METH489 sole first missing-block completion; original timings and seed485485 reconstructed",
+  "attempt": 1,
+  "initial_chunk_id": "bcaaef",
+  "actual_session_id": 22140,
+  "terminal_chunk_id": "529b42",
+  "actual_exit_code": 0,
+  "process_instance": {
+    "pid": 29128,
+    "create_time_unix": 1791257993.6883795
+  },
+  "record_sha256": "db73d42f51867f6574ca024e1660186b7c97f7cdcb6a7c2bc973fcc3ffdcac1a",
+  "source_freeze": "767944d",
+  "binding_freeze": "8ff9c60",
+  "reported_guard_resources": {
+    "wall_seconds": 675.875,
+    "parent_peak_bytes": 131026944,
+    "native_peak_bytes": 1614770176,
+    "bytes_hashed": 51553898977,
+    "output_bytes": 1032090074,
+    "inherited_output_bytes": 10318508656,
+    "device_limit_scope": "Explicit operator buffers + weights + workspace <=2GiB. CUDA context/library allocation is not a measured WDDM process peak; global MemGetInfo snapshots retained."
+  },
+  "actual_new_commands": 107,
+  "all192_cohort_complete": true,
+  "profile_cost_admission": false,
+  "performance_feasibility": {
+    "128": {
+      "warm_ordinary_lower95_ge50": false,
+      "warm_prose_lower95_ge50": false,
+      "fresh_matched_GPU_faster": false,
+      "stretch_prose_lower95_ge100": false
+    },
+    "256": {
+      "warm_ordinary_lower95_ge50": false,
+      "warm_prose_lower95_ge50": false,
+      "fresh_matched_GPU_faster": false,
+      "stretch_prose_lower95_ge100": false
+    }
+  },
+  "completed_old_blocks_not_replayed": true
+}
