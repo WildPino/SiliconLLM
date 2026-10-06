@@ -1,0 +1,115 @@
+{
+  "experiment": "METH506-R4.4 completed independent audit source/log-derived recovery",
+  "raw_sha256": "2bc2a9cfa9772fbc235f4c8e492e093be864784a023ed54cb711322f1c15d476",
+  "binding_sha256": "f9fa553e598070d68646694d52369faf91cadba584f9d4dd308f17db53ab8ab3",
+  "preparation_sha256": "695d5438942220e82431eb2cc64e39d95f39cf7bc63af834e2a16ca1eb718dab",
+  "gates": {
+    "original_runtime_input_source_HEAD_admission": true,
+    "ALL_bank_inverse_assertions": true,
+    "all24_fresh_books_all96_masks": true,
+    "ALL_whole_wires_official_bridges_tasks_NLL": true,
+    "all_frozen_bootstrap_quality_economic_close_assertions": true,
+    "all578_original_process_module_bounds_assertions": true,
+    "terminal_immutable_output_import_diagnostic_assertions": true,
+    "source_log_metadata_recovery_only": true
+  },
+  "quality_gates": {
+    "all_nll_upper_le.05": true,
+    "masked_nll_upper_le.05": true,
+    "teacher_masked_accuracy_lower_ge-.02": true,
+    "teacher_field_accuracy_lower_ge-.05": true,
+    "all_top1_ge.95": true,
+    "masked_top1_ge.95": true,
+    "donor_field_signal_ge.10": true,
+    "donor_health_ge.80": true,
+    "candidate_health_ge.80": true,
+    "generation_token_accuracy_lower_ge-.02": true,
+    "generation_field_accuracy_lower_ge-.05": true,
+    "generation_LCS_lower_ge-.02": true,
+    "generation_health_lower_ge-.05": true,
+    "generation_repeat_upper_le.05": true,
+    "prose_edit_upper_le.10": false
+  },
+  "economic_gates": {
+    "whole_mean_ratio_le.95": true,
+    "whole_ratio_upper_le1": true,
+    "all_book_ratio_le1": false,
+    "candidate_ordinary_warm_and_lower_ge50": true,
+    "candidate_prose_warm_and_lower_ge50": true
+  },
+  "whole_recipe_eligible": false,
+  "all_bank_inverse_bytes": 7541946880,
+  "fresh_books": 24,
+  "fresh_cases": 96,
+  "original_audit_exit_code": 1,
+  "original_empty_retention": {
+    "creation_utc": "2026-10-06T18:06:30.4117060Z",
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_506_R4_2_20261006.json",
+    "bytes": 0,
+    "mtime_utc": "2026-10-06T18:06:30.4117060Z",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "original_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth506_r4_2_audit_serialization_fault.json",
+    "bytes": 2944,
+    "sha256": "eb943ec5d4cbb4f86b23a891f1e117dd3c41784961ad76cf20ea06d5d030b971"
+  },
+  "actual_tool_receipt": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth506_r4_2_audit_fault_tool_receipt.json",
+    "bytes": 4706,
+    "sha256": "a8debba7d379bba69e721cb0af84590096e2680e899917e5bdc6c49268774f48"
+  },
+  "original_progress": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth506_r4_2_retention\\progress.jsonl",
+    "bytes": 2979,
+    "sha256": "2e59c88515b4bc362a9f92b36e55b3d3190d4d745fd2cb126faf9d9abe24c58f"
+  },
+  "source_witnesses": [
+    {
+      "creation_utc": "2026-10-06T16:40:18.6116402Z",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_retention_audit.py",
+      "bytes": 21233,
+      "mtime_utc": "2026-10-06T17:27:54.2001278Z",
+      "sha256": "2307e9b125aa469de9c232259de2df5651ad3ab310120f91c3d605db53bb66b5"
+    },
+    {
+      "creation_utc": "2026-10-06T16:40:18.0038170Z",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_operations.py",
+      "bytes": 4754,
+      "mtime_utc": "2026-10-06T17:27:54.2001278Z",
+      "sha256": "a88c4d31515c5d1310bdc35790fe191184ef415f9d431f77342669c6dd21251e"
+    }
+  ],
+  "start_utc": "2026-10-06T17:49:57+00:00",
+  "end_utc": "2026-10-06T18:12:26.5400318+00:00",
+  "process_instance": {
+    "pid": 25756,
+    "create_time_unix": null,
+    "creation_interval_utc": [
+      "2026-10-06T17:49:57+00:00",
+      "2026-10-06T17:50:04.045339+00:00"
+    ],
+    "provenance": "Actual PID from live OS snapshots; exact creation not serialized. Conservative interval from preceding execution commit minus1s to fatal-log creation."
+  },
+  "resource": {
+    "wall_at_original_terminal_progress_seconds": 986.9679999999935,
+    "exact_parent_OS_peak_bytes": null,
+    "exact_hash_total_bytes": null,
+    "source_evaluated_bounds_completed": true,
+    "wall_limit_seconds": 3600,
+    "combined_host_limit_bytes": 25769803776
+  },
+  "recovery_sources": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_r4_4_recover_audit.py",
+      "bytes": 5116,
+      "sha256": "be018904f4a448210a3dec60c49059b55e2cf2605f40ecafc643b50eab585f1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_506_R4_4_AUDIT_SERIALIZATION_RECOVERY_20261006.md",
+      "bytes": 1977,
+      "sha256": "4d425e54f2536dc7b977d24bb257e9fac19a95d7ef8e802067a265f4c543c173"
+    }
+  ],
+  "scope": "Source/log-derived once-only independent assertion-path qualification; no new numeric audit/metric/model/native calls. Original serializer failed; precise peak/hash/creation unavailable and reported null. Negative decisions unchanged."
+}
