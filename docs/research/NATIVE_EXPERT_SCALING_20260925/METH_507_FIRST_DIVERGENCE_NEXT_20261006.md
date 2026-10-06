@@ -1,7 +1,7 @@
 # Selected507: locate first common-prefix divergence before another transformation
 
-PROPOSED, no507 observation or scientific call. Goal ACTIVE/INCOMPLETE.
-506 main complete; sole independent audit must finish before its admission.
+507 source prepared for freeze; no507 observation or scientific call yet.
+Goal ACTIVE/INCOMPLETE.506 main/audit/evaluation terminal, negative conjunction.
 The same full column artifact equals original I8 source states/head/routes/IDs
 BYTE in all96 cases, but fresh F32 quality passes14/15: prose-edit upper95
 .10865265376984125 >.10, mean.08283730158730158. All task/NLL/health criteria
@@ -49,8 +49,10 @@ delta[c]-delta[d] >= m.
 5. Independently reconstruct identities/joins/array differences/margins from the
    retained files. No main imports or new numerical model/reference replay.
 
-Price main/audit <=180s, <=2GiB host peak, <=32MiB new outputs. Actual input/output
-maxima and records must replace these proposals before source freeze. This is
+Main/audit <=180s, <=2GiB host peak, <=32MiB new outputs EACH. Selected192 files
+total1,313,899,344B; actual per-file maxima/dependency closure are recorded by
+the pre-numerical binding. The [frozen protocol](METH_507_RETAINED_DIAGNOSIS_PROTOCOL_20261006.md)
+and independent source precede the first call. This is
 consumed-state diagnosis, with no new quality or performance promotion. No
 arbitrary PASS score should force a precision choice; select the next single
 intervention from its actual localization and the retained prior attribution.
