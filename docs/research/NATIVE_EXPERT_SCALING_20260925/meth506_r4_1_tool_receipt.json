@@ -1,0 +1,128 @@
+{
+  "scope": "Original R4.1 pre-import admission aborted deliberately; no numerical/model/native calls. The first attempted abort receipt failed on locked zero-byte log, leaving process alive; second receipt and owned-process termination succeeded.",
+  "first_call": {
+    "chunk_id": "f089f5",
+    "wall_time_seconds": 10.0066531,
+    "session_id": 60118,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "chunk_id": "ad3d12",
+      "wall_time_seconds": 5.0090123,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "759601",
+      "wall_time_seconds": 5.0107835,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "beae0e",
+      "wall_time_seconds": 5.0163647,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "ae9795",
+      "wall_time_seconds": 5.0054325,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "f324c6",
+      "wall_time_seconds": 5.0164932,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "bac9ab",
+      "wall_time_seconds": 5.0038723,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "bc5c8a",
+      "wall_time_seconds": 5.0127739,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "90fe5e",
+      "wall_time_seconds": 5.0115672,
+      "session_id": 60118,
+      "original_token_count": 0,
+      "output": ""
+    }
+  ],
+  "failed_abort_poll": {
+    "chunk_id": "fa007f",
+    "wall_time_seconds": 5.0013179,
+    "session_id": 60118,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "abort_metadata": {
+    "chunk_id": "b38629",
+    "wall_time_seconds": 0.6332482,
+    "exit_code": 0,
+    "original_token_count": 101,
+    "output": "{\r\n  \"recorded_utc\": \"2026-10-06T17:25:04.5420891+00:00\",\r\n  \"observation\": {\r\n    \"kernel_time_100ns\": 4751093750,\r\n    \"OS_peak_working_set_bytes\": 86507520,\r\n    \"user_time_100ns\": 1608750000,\r\n    \"working_set_bytes\": 86507520,\r\n    \"read_transfer_bytes\": 24972372754,\r\n    \"read_transfer_is_not_hashed_byte_count\": true\r\n  },\r\n  \"numerical_DLLs_absent\": true,\r\n  \"partial_outputs_zero\": true\r\n}\r\n"
+  },
+  "actual_terminal": {
+    "chunk_id": "691d85",
+    "wall_time_seconds": 0.0223638,
+    "exit_code": 1,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "original_binding": {
+    "first_call": {
+      "chunk_id": "e7f4f6",
+      "wall_time_seconds": 10.0082351,
+      "session_id": 95613,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "polls": [
+      {
+        "chunk_id": "67c169",
+        "wall_time_seconds": 30.0075995,
+        "session_id": 95613,
+        "original_token_count": 0,
+        "output": ""
+      },
+      {
+        "chunk_id": "a5aea6",
+        "wall_time_seconds": 30.0015754,
+        "session_id": 95613,
+        "original_token_count": 0,
+        "output": ""
+      },
+      {
+        "chunk_id": "418aa5",
+        "wall_time_seconds": 30.0076,
+        "session_id": 95613,
+        "original_token_count": 0,
+        "output": ""
+      },
+      {
+        "chunk_id": "c74565",
+        "wall_time_seconds": 0.0000123,
+        "exit_code": 0,
+        "original_token_count": 188,
+        "output": "{\"binding\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth506_r4_binding.json\", \"bytes\": 17516967, \"sha256\": \"d0542cc8a5b36a50f792bc3d79e19abeef86c160b30b38cd9d04b14f1513cb93\"}, \"reference_model_code\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\meth324_switch_reference\\\\venv\\\\Lib\\\\site-packages\\\\transformers\\\\models\\\\switch_transformers\\\\modeling_switch_transformers.py\", \"bytes\": 84654, \"sha256\": \"5acb527d50a07e4bce3a5dec4db4f0c476cb4a01e8eb05219f26607034a12a83\"}, \"native_files\": 2408, \"resource\": {\"seconds\": 676.0160000000033, \"peak_bytes\": 150425600, \"bytes_hashed\": 56558893434}, \"process_instance\": {\"pid\": 18360, \"create_time_unix\": 1791305195.70024}}\r\n"
+      }
+    ]
+  }
+}
