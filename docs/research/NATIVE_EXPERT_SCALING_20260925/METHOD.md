@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:511 cohort complete; whole hybrid-head qualification pending
+## Current resumption:511 retains553 native calls; whole qualification pending
 
 [506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
 7,541,946,880B conditional artifact with reusable exact column primitive/engine
@@ -80,9 +80,13 @@ Actual idle identity/zero CPU/typed UTC checks complete, all owned processes clo
 with ONE completed R3 source-only project-excluded24-book/96-case cohort and
 both text/tokenizer controls BYTE. Sources/criteria/runtime/input receipts and
 independent checker are available. [R6 operational record](METH_511_R6_DYNAMIC_IDLE_BINDING_20261007.md)
-preserves setup/reader/idle-identity faults; external Ollama model activity keeps
-the first native call pending. Reuse this exact cohort after quiet identity
-binding. Whole donor-relative quality AND SAMEartifact>=50 rate remain
+preserves setup/reader/idle-identity faults. After model closure, R6 completed553
+native calls once,ALL exit0 with constant sampled idle counters; service CPU
+advanced0.015625s in call554 preflight before creation, stopping the global stage.
+[R7 continuation](METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md) freshly binds retained
+outputs and executes only23 unbegun calls in a separate quiet interval, preserving
+the first fault and total native budget. Donor384 bridges and audit remain unbegun.
+Whole donor-relative quality AND SAMEartifact>=50 rate remain
 unmeasured under unchanged506 gates; no copied local recovery or old rate.
 Source-derived upstream correction remains conditional; exact I8 acceleration
 keeps506's failed IDs/score, so adaptive WI/256 expansion remain deferred.

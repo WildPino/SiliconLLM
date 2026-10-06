@@ -1,0 +1,185 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_operations.py",
+    "old_sha256": "d14c81b8d3c72142d6626f952ecde903b84d4a685ce9d62d40253ccdd1a497fa",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_operations.py",
+    "new_sha256": "007f3ead7c4811b1f5a61124f33a9403e29f62c21301acf87649466856cb2d40",
+    "replacements": [
+      {
+        "before": "meth511_r6_binding.json",
+        "after": "meth511_r7_binding.json",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r6_'+kind)",
+        "after": "('meth511_r7_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "'meth511_r6_'",
+        "after": "'meth511_r7_'",
+        "occurrences": 2
+      },
+      {
+        "before": "'native':(2400,2<<30,14<<30)",
+        "after": "'native':(1100,2<<30,14<<30)",
+        "occurrences": 1
+      },
+      {
+        "before": "        assert size<=output,('output_bytes',size)",
+        "after": "        size+=getattr(self,'retained_output_bytes',0)\n        assert size<=output,('output_bytes',size)",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_native.py",
+    "old_sha256": "b04d8272eba5a63ed13470892fd793651a9884d768f0609876aaf77dd0e48a96",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_native.py",
+    "new_sha256": "d14999843276d80b52450b72e01c4cf676afbaa33ac68d48cae78508b9fb5fcb",
+    "replacements": [
+      {
+        "before": "import meth511_r6_operations as O",
+        "after": "import meth511_r7_operations as O\nimport meth511_r7_retained as H",
+        "occurrences": 1
+      },
+      {
+        "before": "b=ctx.admit(args.binding_sha);prep=",
+        "after": "b=ctx.admit(args.binding_sha);H.initialize(ctx,b);prep=",
+        "occurrences": 1
+      },
+      {
+        "before": "prefix=ctx.out/label;",
+        "after": "prefix=H.prefix(ctx,label);",
+        "occurrences": 1
+      },
+      {
+        "before": "rows=ctx.run_native(argv,label);",
+        "after": "rows=H.reuse_or_run(ctx,argv,label);",
+        "occurrences": 1
+      },
+      {
+        "before": "assert ctx.r['native_calls']==576 and len(records)==96",
+        "after": "assert ctx.r['native_calls']==23 and ctx.r['retained_native_calls']==553 and len(ctx.r['commands'])==576 and len(records)==96",
+        "occurrences": 1
+      },
+      {
+        "before": "'native_calls':576,",
+        "after": "'native_calls':23,'retained_native_calls':553,'total_native_calls':576,",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_donor.py",
+    "old_sha256": "88cccd06b92e13d9b4d192598b563c4ef2d3df23f15a26661861b3f1e96eebf9",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_donor.py",
+    "new_sha256": "a30f801349674f52b0a793d7b355f09cd47ee0048c401a85224003928e4956b9",
+    "replacements": [
+      {
+        "before": "import meth511_r6_operations as O",
+        "after": "import meth511_r7_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "assert native['native_calls']==576",
+        "after": "assert native['native_calls']==23 and native['retained_native_calls']==553 and len(native['commands'])==576",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_retention_audit.py",
+    "old_sha256": "ee3afa199d42b760b0b0044f75483460791cadfa7b16f5d69c26b316fb0cf17f",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_retention_audit.py",
+    "new_sha256": "695b65601d68b254eed3cf48d4da84c234bab15014bc536cb479bda82cc89d59",
+    "replacements": [
+      {
+        "before": "import meth511_r6_operations as O",
+        "after": "import meth511_r7_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "        commands=native['commands'];expected=[]",
+        "after": "        assert native['native_calls']==23 and native['retained_native_calls']==553\n        commands=native['commands'];expected=[]",
+        "occurrences": 1
+      },
+      {
+        "before": "            own=command['process_instance']",
+        "after": "            baseline={(r['pid'],r['create_time_unix']):r['cpu_seconds'] for r in command['idle_start']}\n            assert {(r['pid'],r['create_time_unix']):r['cpu_seconds'] for r in command['idle_end']}==baseline\n            assert all({(r['pid'],r['create_time_unix']):r['cpu_seconds'] for r in o['idle']}==baseline for o in command['timing_observations'])\n            own=command['process_instance']",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_prepare_binding.py",
+    "old_sha256": "86d5180e8a54801c0bdb8e790f3e904f1928d4eacafcdf1ed37d1bfae02d5919",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_prepare_binding.py",
+    "new_sha256": "af7457af5a271e7e104d9c30b627a6b927368063e6e241ad9cbc6c05cbf64c69",
+    "replacements": [
+      {
+        "before": "import meth511_r6_operations as O",
+        "after": "import meth511_r7_operations as O\nimport meth511_r7_retained as H",
+        "occurrences": 1
+      },
+      {
+        "before": "meth511_r6*",
+        "after": "meth511_r7*",
+        "occurrences": 1
+      },
+      {
+        "before": "startswith('meth511_r6')",
+        "after": "startswith('meth511_r7')",
+        "occurrences": 1
+      },
+      {
+        "before": "meth511_r6_derivation.json",
+        "after": "meth511_r7_derivation.json",
+        "occurrences": 1
+      },
+      {
+        "before": "METH_511_R6_DYNAMIC_IDLE_BINDING_20261007.md",
+        "after": "METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md",
+        "occurrences": 1
+      },
+      {
+        "before": "    closed=[]",
+        "after": "    def retain_extra(r):\n        h=k.CreateFileW(r['path'],0x80000000,1,None,3,0x80,None);assert h not in (None,ctypes.c_void_p(-1).value),r['path'];handles.append(h)\n        s=Path(r['path']).stat();assert (s.st_size,s.st_mtime_ns)==(r['bytes'],r['mtime_ns']);guard()\n    H.bind(O,b,catalog,item,retain_extra)\n    closed=[]",
+        "occurrences": 1
+      },
+      {
+        "before": "'completed_native_calls':0",
+        "after": "'completed_native_calls':553",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r6_windows_terminal.ps1",
+    "old_sha256": "0d59949dbca822c5cfb9a595b8e4d08f9595c974c0467db62e8aca83add4551b",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_windows_terminal.ps1",
+    "new_sha256": "423d9daabd2a63ae26e15cdbee05612e65949152c1f170981f5491dde7c0d3ee",
+    "replacements": [
+      {
+        "before": "meth511_r6_windows_terminal.json",
+        "after": "meth511_r7_windows_terminal.json",
+        "occurrences": 1
+      },
+      {
+        "before": "else {'meth511_r6_'}",
+        "after": "else {'meth511_r7_'}",
+        "occurrences": 1
+      },
+      {
+        "before": "    $start=(Utc $raw.started_utc).AddSeconds(-2);$end=[DateTimeOffset]::UtcNow",
+        "after": "    $stageStart=Utc $raw.started_utc\n    foreach ($v in @($raw.retained_process_instances)) {if ($null -ne $v) {$t=Utc $v.start_utc;if ($t -lt $stageStart) {$stageStart=$t}}}\n    $start=$stageStart.AddSeconds(-2);$end=[DateTimeOffset]::UtcNow",
+        "occurrences": 1
+      },
+      {
+        "before": "    foreach ($cmd in @($raw.commands)) {",
+        "after": "    foreach ($v in @($raw.retained_process_instances)) {if ($null -ne $v) {$instances+=@{label=$v.label;pid=$v.pid;create_time_unix=$v.create_time_unix;start_utc=(Utc $v.start_utc).AddSeconds(-2).ToString('o');end_utc=(Utc $v.end_utc).AddSeconds(2).ToString('o')}}}\n    foreach ($cmd in @($raw.commands)) {",
+        "occurrences": 1
+      }
+    ]
+  }
+]
