@@ -1,0 +1,42 @@
+{
+  "experiment": "METH493-R1 original472 split mapped to extended479 source role",
+  "start_utc": "2026-10-06T07:04:15.061168+00:00",
+  "process_instance": {
+    "pid": 10296,
+    "create_time_unix": 1791270254.8632352
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth493_r1_weighted_targets.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth493_r1_weighted_targets_result.json",
+    "--binding-sha",
+    "47cd764d4c4abe5f0dc6e0fcbef434e18cda676786b4583b127705592117a5f2"
+  ],
+  "commands": [],
+  "gates": {},
+  "isolation_waits": [],
+  "numerical_imports": false,
+  "preserved_daemons": [],
+  "binding_sha256": "47cd764d4c4abe5f0dc6e0fcbef434e18cda676786b4583b127705592117a5f2",
+  "phase": "binding",
+  "end_utc": "2026-10-06T07:07:15.062054+00:00",
+  "traceback": "RuntimeError: METH493 hard wall deadline\n",
+  "resource": {
+    "wall_seconds": 180.0,
+    "parent_peak_bytes": 48869376,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 6543669870,
+    "wall_limit_seconds": 180,
+    "combined_host_limit_bytes": 268435456
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r1_weighted_targets\\fatal_native.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r1_weighted_targets\\progress.jsonl",
+      "bytes": 0
+    }
+  ]
+}
