@@ -1,0 +1,43 @@
+{
+  "experiment": "METH486 complete sole execution and independent admission",
+  "main_completed": false,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth486_shared_integer_backend_result.failure.json",
+    "bytes": 295507,
+    "sha256": "edfbd35b84e50da81f9656d4071162bfd7c8c32941c6b77a0c36fc0cc054122a"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_486_20261006.json",
+    "bytes": 2596,
+    "sha256": "ba506178e0119927daccfb00e3e2fa10bf8874b511fbb29b1660c1cb112a9eb6"
+  },
+  "records": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth486_main_sole_first_registration.json",
+      "bytes": 728,
+      "sha256": "adee7eb92f8b92c88e4d1a90b789d4a642a13ce389a4babc1fd4ab444d7c0953"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth486_windows_terminal.json",
+      "bytes": 587,
+      "sha256": "e7cc530e4f61a58187f40e52ae4b0485cf50876e28d0cf62204aa66759dc3294"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth486_audit_sole_first_registration.json",
+      "bytes": 596,
+      "sha256": "fe5d78a2023002d89ef1577e574883bbab8cf6c642cef7c72ccc07bb0b607cc3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth486_audit_windows_terminal.json",
+      "bytes": 597,
+      "sha256": "1616968f6ab6c89c2a4cb200c9fa876dab304c6136132074d06a146c5a7f35cf"
+    }
+  ],
+  "gates": {
+    "sole_first_actual_main_and_audit": true,
+    "raw_retention_digest_link": true,
+    "ALL_retention_gates": true,
+    "BOTH_actual_Windows_instance_without_fault": true
+  },
+  "decision": "Retain exactly the completed gates. If main failed, no backend promotion; if speed failed, close this fixed layout. Full goal remains active/incomplete."
+}
