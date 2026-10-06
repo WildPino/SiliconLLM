@@ -1,0 +1,753 @@
+{
+  "experiment": "METH510 native top8 source head parity and paired cost",
+  "kind": "main",
+  "argv": [
+    "benchmarks/native_expert_scaling/meth510_native_head.py",
+    "--binding-sha",
+    "03090214fb8320069cbd60804484fcee89497b3de9b0e552ebf49c8b5cc8f80c"
+  ],
+  "process_instance": {
+    "pid": 26152,
+    "create_time_unix": 1791318689.5634367
+  },
+  "started_utc": "2026-10-06T20:31:29.826829+00:00",
+  "affinity": [
+    10
+  ],
+  "commands": [
+    {
+      "label": "compile",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-fno-fast-math",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "-DSILICON_SWITCH_HYBRID_HEAD",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+        "-lpsapi",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe"
+      ],
+      "start_utc": "2026-10-06T20:32:01.659670+00:00",
+      "expected_exit": 0,
+      "timing": false,
+      "observed_modules": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\ld.lld.exe",
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\libLLVM-21.dll",
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\libc++.dll",
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\libclang-cpp.dll",
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\libunwind.dll",
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "C:\\Windows\\System32\\advapi32.dll",
+        "C:\\Windows\\System32\\bcryptprimitives.dll",
+        "C:\\Windows\\System32\\combase.dll",
+        "C:\\Windows\\System32\\cryptbase.dll",
+        "C:\\Windows\\System32\\cryptsp.dll",
+        "C:\\Windows\\System32\\dbgcore.dll",
+        "C:\\Windows\\System32\\dbghelp.dll",
+        "C:\\Windows\\System32\\gdi32.dll",
+        "C:\\Windows\\System32\\gdi32full.dll",
+        "C:\\Windows\\System32\\imm32.dll",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "C:\\Windows\\System32\\msvcp_win.dll",
+        "C:\\Windows\\System32\\msvcrt.dll",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "C:\\Windows\\System32\\ole32.dll",
+        "C:\\Windows\\System32\\oleaut32.dll",
+        "C:\\Windows\\System32\\rpcrt4.dll",
+        "C:\\Windows\\System32\\rsaenh.dll",
+        "C:\\Windows\\System32\\sechost.dll",
+        "C:\\Windows\\System32\\shell32.dll",
+        "C:\\Windows\\System32\\ucrtbase.dll",
+        "C:\\Windows\\System32\\user32.dll",
+        "C:\\Windows\\System32\\version.dll",
+        "C:\\Windows\\System32\\win32u.dll",
+        "C:\\Windows\\System32\\ws2_32.dll"
+      ],
+      "descendants": [
+        {
+          "pid": 24772,
+          "create_time_unix": 1791318721.7340093,
+          "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "OS_peak_bytes": 19660800
+        },
+        {
+          "pid": 17784,
+          "create_time_unix": 1791318721.857244,
+          "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "OS_peak_bytes": 81092608
+        },
+        {
+          "pid": 28836,
+          "create_time_unix": 1791318723.2132893,
+          "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\ld.lld.exe",
+          "OS_peak_bytes": 17207296
+        }
+      ],
+      "process_instance": {
+        "pid": 16536,
+        "create_time_unix": 1791318721.6873817
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-06T20:32:03.313007+00:00",
+      "observer_exit_races": 0,
+      "native_peak_bound_so_far": 4771840,
+      "timing_samples": 0,
+      "timing_observations": []
+    },
+    {
+      "label": "positive",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe",
+        "--head-contract",
+        "positive"
+      ],
+      "start_utc": "2026-10-06T20:32:03.467486+00:00",
+      "expected_exit": 0,
+      "timing": false,
+      "observed_modules": [
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe"
+      ],
+      "descendants": [],
+      "process_instance": {
+        "pid": 2292,
+        "create_time_unix": 1791318723.4982376
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-06T20:32:03.599727+00:00",
+      "observer_exit_races": 0,
+      "native_peak_bound_so_far": 5386240,
+      "timing_samples": 0,
+      "timing_observations": []
+    },
+    {
+      "label": "negative_rows",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe",
+        "--head-contract",
+        "rows"
+      ],
+      "start_utc": "2026-10-06T20:32:04.582740+00:00",
+      "expected_exit": 2,
+      "timing": false,
+      "observed_modules": [
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe"
+      ],
+      "descendants": [],
+      "process_instance": {
+        "pid": 2404,
+        "create_time_unix": 1791318724.5847416
+      },
+      "returncode": 2,
+      "end_utc": "2026-10-06T20:32:04.621253+00:00",
+      "observer_exit_races": 0,
+      "native_peak_bound_so_far": 5386240,
+      "timing_samples": 0,
+      "timing_observations": []
+    },
+    {
+      "label": "negative_cols",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe",
+        "--head-contract",
+        "cols"
+      ],
+      "start_utc": "2026-10-06T20:32:04.798325+00:00",
+      "expected_exit": 2,
+      "timing": false,
+      "observed_modules": [
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe"
+      ],
+      "descendants": [],
+      "process_instance": {
+        "pid": 25888,
+        "create_time_unix": 1791318724.7999916
+      },
+      "returncode": 2,
+      "end_utc": "2026-10-06T20:32:04.837364+00:00",
+      "observer_exit_races": 0,
+      "native_peak_bound_so_far": 5386240,
+      "timing_samples": 0,
+      "timing_observations": []
+    },
+    {
+      "label": "negative_dtype",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe",
+        "--head-contract",
+        "dtype"
+      ],
+      "start_utc": "2026-10-06T20:32:05.011657+00:00",
+      "expected_exit": 2,
+      "timing": false,
+      "observed_modules": [
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe"
+      ],
+      "descendants": [],
+      "process_instance": {
+        "pid": 2976,
+        "create_time_unix": 1791318725.0148067
+      },
+      "returncode": 2,
+      "end_utc": "2026-10-06T20:32:05.052857+00:00",
+      "observer_exit_races": 0,
+      "native_peak_bound_so_far": 5386240,
+      "timing_samples": 0,
+      "timing_observations": []
+    },
+    {
+      "label": "negative_source",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe",
+        "--head-contract",
+        "source"
+      ],
+      "start_utc": "2026-10-06T20:32:05.215759+00:00",
+      "expected_exit": 2,
+      "timing": false,
+      "observed_modules": [
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe"
+      ],
+      "descendants": [],
+      "process_instance": {
+        "pid": 30120,
+        "create_time_unix": 1791318725.217764
+      },
+      "returncode": 2,
+      "end_utc": "2026-10-06T20:32:05.255375+00:00",
+      "observer_exit_races": 0,
+      "native_peak_bound_so_far": 5386240,
+      "timing_samples": 0,
+      "timing_observations": []
+    },
+    {
+      "label": "negative_rounding",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe",
+        "--head-contract",
+        "rounding"
+      ],
+      "start_utc": "2026-10-06T20:32:05.433935+00:00",
+      "expected_exit": 2,
+      "timing": false,
+      "observed_modules": [
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_main\\meth510.exe"
+      ],
+      "descendants": [],
+      "process_instance": {
+        "pid": 29664,
+        "create_time_unix": 1791318725.4361
+      },
+      "returncode": 2,
+      "end_utc": "2026-10-06T20:32:05.499981+00:00",
+      "observer_exit_races": 0,
+      "native_peak_bound_so_far": 5386240,
+      "timing_samples": 0,
+      "timing_observations": []
+    }
+  ],
+  "gates": {
+    "ALL_frozen_actual_runtime_compiler_wires_509_oracle_and_head_extents": true,
+    "actual_numpy_only_modules_and_images": true,
+    "native_integer_extremes_zero_even_ties_top8_tail_and_five_rejections": true
+  },
+  "binding_sha256": "03090214fb8320069cbd60804484fcee89497b3de9b0e552ebf49c8b5cc8f80c",
+  "source_freeze": "b761514d5aa5f89ea27bbab411f7df5ba99c3176",
+  "execution_head": "5393f580aca88e435cf28cb724899080c81bf650",
+  "loaded_python_files": [
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_bz2.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_ctypes.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_hashlib.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_lzma.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_socket.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_wmi.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\select.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_collections_abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_compat_pickle.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_compression.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_sitebuiltins.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_weakrefset.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\argparse.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ast.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\base64.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\bisect.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\bz2.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\calendar.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\codecs.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\collections\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\collections\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\contextlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\contextvars.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\copyreg.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\csv.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ctypes\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ctypes\\_endian.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ctypes\\wintypes.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\datetime.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\dis.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\_encoded_words.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\_parseaddr.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\_policybase.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\base64mime.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\charset.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\encoders.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\errors.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\feedparser.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\header.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\iterators.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\message.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\parser.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\quoprimime.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\utils.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\aliases.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\utf_8.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\utf_8_sig.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\enum.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\fnmatch.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\functools.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\genericpath.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\gettext.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\hashlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\_abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\_bootstrap.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\_bootstrap_external.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\machinery.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_adapters.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_collections.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_functools.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_itertools.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_meta.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_text.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\_adapters.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\_common.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\_legacy.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\util.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\inspect.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\io.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ipaddress.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\decoder.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\encoder.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\scanner.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\keyword.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\linecache.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\locale.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\lzma.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ntpath.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\numbers.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\opcode.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\operator.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\os.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\pathlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\pickle.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\platform.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\posixpath.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\quopri.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\random.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_casefix.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_compiler.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_constants.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_parser.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\reprlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\selectors.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\shutil.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\signal.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\site.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\socket.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\stat.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\string.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\struct.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\subprocess.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\tempfile.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\textwrap.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\threading.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\token.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\tokenize.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\traceback.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\types.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\typing.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\urllib\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\urllib\\parse.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\warnings.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\weakref.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipfile\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipfile\\_path\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipfile\\_path\\glob.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipimport.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\__config__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_array_api_info.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_add_newdocs.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_add_newdocs_scalars.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_asarray.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_dtype.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_dtype_ctypes.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_exceptions.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_internal.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_methods.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_string_helpers.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_type_aliases.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\_ufunc_config.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\arrayprint.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\einsumfunc.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\fromnumeric.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\function_base.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\getlimits.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\memmap.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\multiarray.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\numeric.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\numerictypes.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\overrides.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\printoptions.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\records.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\shape_base.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_core\\umath.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_distributor_init.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_expired_attrs_2_0.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_globals.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_pytesttester.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_array_like.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_char_codes.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_dtype_like.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_nbit.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_nbit_base.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_nested_sequence.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_scalars.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_shape.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_typing\\_ufunc.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_utils\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_utils\\_convertions.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\_utils\\_inspect.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\dtypes.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\exceptions.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_array_utils_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_arraypad_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_arraysetops_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_arrayterator_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_datasource.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_format_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_function_base_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_histograms_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_index_tricks_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_iotools.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_nanfunctions_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_npyio_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_polynomial_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_scimath_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_shape_base_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_stride_tricks_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_twodim_base_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_type_check_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_ufunclike_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_utils_impl.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\_version.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\array_utils.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\format.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\introspect.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\mixins.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\npyio.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\scimath.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\lib\\stride_tricks.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\linalg\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\linalg\\_linalg.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp312-win_amd64.pyd",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\matrixlib\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\matrixlib\\defmatrix.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\numpy\\version.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_common.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_ntuples.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_psutil_windows.pyd",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_pswindows.py",
+    "d:\\_things\\progetti\\siliconllm\\benchmarks\\native_expert_scaling\\meth490_r1_operations.py",
+    "d:\\_things\\progetti\\siliconllm\\benchmarks\\native_expert_scaling\\meth507_operations.py",
+    "d:\\_things\\progetti\\siliconllm\\benchmarks\\native_expert_scaling\\meth508_operations.py",
+    "d:\\_things\\progetti\\siliconllm\\benchmarks\\native_expert_scaling\\meth510_native_head.py",
+    "d:\\_things\\progetti\\siliconllm\\benchmarks\\native_expert_scaling\\meth510_operations.py"
+  ],
+  "loaded_images": [
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python3.dll",
+      "bytes": 70376,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "system_windows_image": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "bytes": 20415488,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libcrypto-3.dll",
+      "bytes": 5231472,
+      "system_windows_image": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+      "bytes": 3714560,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll",
+      "bytes": 6945272,
+      "system_windows_image": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "bytes": 575056,
+      "system_windows_image": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+      "bytes": 70656,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_socket.pyd",
+      "bytes": 85496,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_ctypes.pyd",
+      "bytes": 127480,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_lzma.pyd",
+      "bytes": 161136,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_bz2.pyd",
+      "bytes": 86896,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_hashlib.pyd",
+      "bytes": 68976,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\vcruntime140.dll",
+      "bytes": 120400,
+      "system_windows_image": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp312-win_amd64.pyd",
+      "bytes": 112128,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_wmi.pyd",
+      "bytes": 40304,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\vcruntime140_1.dll",
+      "bytes": 49776,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\select.pyd",
+      "bytes": 33136,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\pdh.dll",
+      "bytes": 360448,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libffi-8.dll",
+      "bytes": 39696,
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\version.dll",
+      "bytes": 55192,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\propsys.dll",
+      "bytes": 1018048,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\wtsapi32.dll",
+      "bytes": 183336,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\IPHLPAPI.DLL",
+      "bytes": 220528,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\kernel.appcore.dll",
+      "bytes": 121360,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\sspicli.dll",
+      "bytes": 307328,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\umpdc.dll",
+      "bytes": 96552,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\powrprof.dll",
+      "bytes": 398160,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\bcrypt.dll",
+      "bytes": 183376,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\gdi32full.dll",
+      "bytes": 1220496,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\KernelBase.dll",
+      "bytes": 4212112,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\win32u.dll",
+      "bytes": 170952,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcp_win.dll",
+      "bytes": 642016,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\bcryptprimitives.dll",
+      "bytes": 716408,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\crypt32.dll",
+      "bytes": 1559296,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ucrtbase.dll",
+      "bytes": 1377512,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\kernel32.dll",
+      "bytes": 844496,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\psapi.dll",
+      "bytes": 42864,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ws2_32.dll",
+      "bytes": 534592,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\combase.dll",
+      "bytes": 3716184,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\advapi32.dll",
+      "bytes": 778344,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\oleaut32.dll",
+      "bytes": 898200,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\gdi32.dll",
+      "bytes": 187456,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\imm32.dll",
+      "bytes": 212288,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcrt.dll",
+      "bytes": 699848,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\sechost.dll",
+      "bytes": 704008,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\shell32.dll",
+      "bytes": 8009440,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\user32.dll",
+      "bytes": 1914656,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\rpcrt4.dll",
+      "bytes": 1162656,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ole32.dll",
+      "bytes": 1695680,
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ntdll.dll",
+      "bytes": 2522080,
+      "system_windows_image": true
+    }
+  ],
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_native_head.py\", line 52, in main\n    lines=ctx.run([binary,'--retained-head',b['source_head']['manifest']['path'],packed,output],'paired_head',timing=True)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_operations.py\", line 95, in run\n    foreign,kept=self.scientific_processes(ancestors);assert not foreign,('foreign_before_timing',foreign)\n                                                             ^^^^^^^^^^^\nAssertionError: ('foreign_before_timing', [{'pid': 22920, 'create_time_unix': 1791315164.9781234, 'name': 'ollama app.exe'}, {'pid': 31080, 'create_time_unix': 1791315166.0894115, 'name': 'ollama.exe'}])\n",
+  "seconds": 35.875,
+  "OS_peak_bytes": 61743104,
+  "bytes_hashed": 1051308665
+}

@@ -1,0 +1,46 @@
+{
+  "tools": {
+    "meth510_binding_tool": {
+      "chunk_id": "76aafe",
+      "wall_time_seconds": 10.0062552,
+      "session_id": 51667,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth510_binding_poll1": {
+      "chunk_id": "756fdc",
+      "wall_time_seconds": 5.0052175,
+      "session_id": 51667,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth510_binding_poll2": {
+      "chunk_id": "012302",
+      "wall_time_seconds": 5.0066334,
+      "session_id": 51667,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth510_binding_poll3": {
+      "chunk_id": "0cd7f4",
+      "wall_time_seconds": 0.0000096,
+      "exit_code": 0,
+      "original_token_count": 264,
+      "output": "{\"binding\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth510_binding.json\", \"bytes\": 2417790, \"sha256\": \"03090214fb8320069cbd60804484fcee89497b3de9b0e552ebf49c8b5cc8f80c\"}, \"price\": {\"positions\": 996, \"K\": 8, \"warmups\": 2, \"repetitions\": 3, \"paired_pass_orders\": [\"AB\", \"BA\", \"AB\", \"BA\", \"AB\"], \"head_input_bytes\": 3067696, \"head_output_bytes\": 256091544, \"native_I8_calls\": 9960, \"native_source_rows\": 39840, \"native_source_MACs\": 30597120, \"logical_source_bytes_per_position\": 24576, \"compiled_commands\": 1, \"positive_control_commands\": 1, \"negative_control_commands\": 5, \"paired_native_commands\": 1, \"main_audit_each_limits\": {\"seconds\": 360, \"parent_OS_peak_bytes\": 2147483648, \"native_OS_peak_bytes\": 1073741824, \"output_bytes\": 536870912}, \"cost_gates\": {\"mean_paired_extra_seconds_max\": 0.001, \"p95_all2988_paired_extra_seconds_max\": 0.002}, \"catalog_files\": 7819, \"catalog_bytes\": 921769584, \"extent_bytes\": 123500032}, \"terminal_seconds\": 72.45300000000861, \"terminal_OS_peak_bytes\": 82653184}\r\n"
+    },
+    "meth510_main_tool": {
+      "chunk_id": "a9807f",
+      "wall_time_seconds": 10.0033306,
+      "session_id": 82400,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth510_main_poll1": {
+      "chunk_id": "cb64b5",
+      "wall_time_seconds": 0.0000083,
+      "exit_code": 1,
+      "original_token_count": 273,
+      "output": "Traceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_native_head.py\", line 110, in <module>\r\n    if __name__=='__main__':main()\r\n                            ^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_native_head.py\", line 52, in main\r\n    lines=ctx.run([binary,'--retained-head',b['source_head']['manifest']['path'],packed,output],'paired_head',timing=True)\r\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_operations.py\", line 95, in run\r\n    foreign,kept=self.scientific_processes(ancestors);assert not foreign,('foreign_before_timing',foreign)\r\n                                                             ^^^^^^^^^^^\r\nAssertionError: ('foreign_before_timing', [{'pid': 22920, 'create_time_unix': 1791315164.9781234, 'name': 'ollama app.exe'}, {'pid': 31080, 'create_time_unix': 1791315166.0894115, 'name': 'ollama.exe'}])\r\n"
+    }
+  }
+}
