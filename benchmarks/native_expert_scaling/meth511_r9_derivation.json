@@ -1,0 +1,81 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r8_operations.py",
+    "old_sha256": "199e7fd78ce035c5b27bc9ad70902253a23c6a6f0005e110b5401755443f37e1",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r9_operations.py",
+    "new_sha256": "fd249a835b0047f379f3f6d8557adbe4cf51e2979a7b768ea5ea4e6aca3520a9",
+    "replacements": [
+      {
+        "before": "meth511_r8_binding.json",
+        "after": "meth511_r9_binding.json",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r8_'+kind)",
+        "after": "('meth511_r9_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "'meth511_r8_'",
+        "after": "'meth511_r9_'",
+        "occurrences": 2
+      },
+      {
+        "before": "'audit':(1200,4<<30,256<<20)",
+        "after": "'audit':(1180,4<<30,256<<20)",
+        "occurrences": 1
+      },
+      {
+        "before": "else 'meth511_r9_')+kind+'_result.json'",
+        "after": "else 'meth511_r8_' if kind=='donor' else 'meth511_r9_')+kind+'_result.json'",
+        "occurrences": 1
+      },
+      {
+        "before": "if kind=='native' else self.r['binding_sha256'])",
+        "after": "if kind=='native' else self.binding['retained_completed_donor']['binding_sha256'] if kind=='donor' else self.r['binding_sha256'])",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r8_retention_audit.py",
+    "old_sha256": "999718d589d6dfe408eee986d1306896f559fa247efcc49069fed99435182ed8",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r9_retention_audit.py",
+    "new_sha256": "2889bb1d9dc0f048c5398224fb57f6f4ec6cde5d5054bec44299084987214481",
+    "replacements": [
+      {
+        "before": "import meth511_r8_operations as O",
+        "after": "import meth511_r9_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "b=ctx.admit(args.binding_sha);prep=",
+        "after": "b=ctx.admit(args.binding_sha);ctx.r['retained_process_instances']=b['pre_audit_fault_instances'];prep=",
+        "occurrences": 1
+      },
+      {
+        "before": "assert native['native_calls']==576 and donor['model_calls']==384",
+        "after": "assert native['native_calls']==23 and native['retained_native_calls']==553 and len(native['commands'])==576 and donor['model_calls']==384",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r8_windows_terminal.ps1",
+    "old_sha256": "67dedf009a2ddfc8cd916ed5b095094e308d889f9893d23f0ddb62e9de62b1ca",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r9_windows_terminal.ps1",
+    "new_sha256": "4907a77d4479cfe48f3a221526e60bf1d56a5ec0fd4c547cbd40bad798d1e40d",
+    "replacements": [
+      {
+        "before": "meth511_r8_windows_terminal.json",
+        "after": "meth511_r9_windows_terminal.json",
+        "occurrences": 1
+      },
+      {
+        "before": "elseif ($kind -eq 'native') {'meth511_r7_'} else {'meth511_r8_'}",
+        "after": "elseif ($kind -eq 'native') {'meth511_r7_'} elseif ($kind -eq 'donor') {'meth511_r8_'} else {'meth511_r9_'}",
+        "occurrences": 1
+      }
+    ]
+  }
+]

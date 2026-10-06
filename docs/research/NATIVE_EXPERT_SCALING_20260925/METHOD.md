@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:511 all576 native calls closed; donor qualification pending
+## Current resumption:511 native/donor complete; numerical admission pending
 
 [506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
 7,541,946,880B conditional artifact with reusable exact column primitive/engine
@@ -89,10 +89,15 @@ generations,10,752 changed teacher head cells. Combined1345.109s<2400, both
 measurement intervals/original tick explicit. Native RAW SHA278df0c1.. .
 R7 donor imports then stopped before tensor load/inference because existing
 torch/testing/_utils.py was unbound. [R8 admission repair](METH_511_R8_TORCH_IMPORT_ADMISSION_20261007.md)
-adds105 original testing source files, changes no Torch operator, reuses complete
-native/cohort and starts the first384 donor bridges. Audit remains unbegun.
-Whole donor-relative quality AND SAMEartifact>=50 rate remain
-unmeasured under unchanged506 gates; no copied local recovery or old rate.
+added105 original testing sources with no Torch operator change; all3320 original
+canonical tensors/384 donor bridges then completed once. All15 fresh quality
+criteriaPASS; SAMEcandidate warm accepted prose52.5586/lower95 50.4685, ordinary
+89.9879/lower86.5096. Mean cost ratio.947115/upper.991669, but ALL-bookFAIL6/24,
+worst1.258699; whole recipe eligibilityFALSE. First-request load+warmup charged
+prose27.1382 is distinct. Numerical audit/final admission still pending:
+[R9 count repair](METH_511_R9_AUDIT_CALL_COUNT_20261007.md) preserves an old-count
+pre-numerical audit fault and starts the FIRST numerical checker; no C/donor
+replay or copied local recovery/rate. Scope remains source-sized fixed128 infilling.
 Source-derived upstream correction remains conditional; exact I8 acceleration
 keeps506's failed IDs/score, so adaptive WI/256 expansion remain deferred.
 

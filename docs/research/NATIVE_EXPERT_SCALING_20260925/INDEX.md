@@ -112,7 +112,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption:511 all576 C calls closed; donor import repair before inference
+## Current resumption:511 native/donor complete; first numerical audit pending
 
 [506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
 artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
@@ -164,12 +164,18 @@ calls, retaining553:ALL576 exit0/96 cases, all native controlsPASS.14 cross-arm
 different generations,10,752 changed teacher head cells. RAW SHA278df0c1../
 54.828s/159,424,512B peak; combined1345.109s<2400. Both intervals/tick retained.
 
-**First action:** [R8 actual Torch import admission](METH_511_R8_TORCH_IMPORT_ADMISSION_20261007.md)
-binds105 existing testing sources omitted by the broad directory filter. R7
-donor stopped51.203s before model/tensor load or inference, zero numerical calls;
-fault preserved. Reuse completed R7 native and exact R3 cohort; then first384
-original F32 donor bridges, independent audit and UTC/closure admission.
-SAME artifacts/gates; no C/corpus replay. Whole quality/rate still unmeasured.
+[R8 actual Torch admission](METH_511_R8_TORCH_IMPORT_ADMISSION_20261007.md) completed
+all3320 canonical F32 tensor hashes/384 donor bridges once. All15 qualityPASS;
+candidate warm accepted prose52.5586/lower95 50.4685, ordinary89.9879/lower86.5096.
+4/5 economicsPASS; ALL-bookFAIL6/24,worst1.258699. First-request load+warmup
+charged prose27.1382 differs from warm. RAW SHA4b731686../1027.328s/5.846GB peak.
+
+**First action:** [R9 auditor count repair](METH_511_R9_AUDIT_CALL_COUNT_20261007.md)
+fixes an old576-new-call assertion before numerical checks (23 new+553 retained).
+R8 first audit fault9.203s,zero numeric/model/C calls, preserved. Reuse all
+completed input/native/donor outputs, start FIRST independent numerical audit,
+then UTC/closure admission. No C/donor/corpus replay. Whole recipe eligibility
+FALSE; quality/rate claims await audit, useful-n/DRAM/family goal remains open.
 [Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
 and256 expansion deferred until this discrepancy is understood.
 
