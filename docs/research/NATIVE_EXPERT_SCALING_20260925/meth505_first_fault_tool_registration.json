@@ -1,0 +1,49 @@
+{
+  "stage": "main_first_fault",
+  "initial_tool_result": {
+    "chunk_id": "94ebb5",
+    "wall_time_seconds": 10.0025647,
+    "session_id": 26807,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "wait_tool_results": [
+    {
+      "chunk_id": "09577e",
+      "wall_time_seconds": 5.004052,
+      "session_id": 26807,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "780cd0",
+      "wall_time_seconds": 5.0121702,
+      "session_id": 26807,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "52f473",
+      "wall_time_seconds": 5.0043418,
+      "session_id": 26807,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "c70c3d",
+      "wall_time_seconds": 5.0088106,
+      "session_id": 26807,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "82d0b0",
+      "wall_time_seconds": 0.0000104,
+      "exit_code": 1,
+      "original_token_count": 160,
+      "output": "Traceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_exact_sparse.py\", line 109, in <module>\r\n    if __name__=='__main__':main()\r\n                            ^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_exact_sparse.py\", line 83, in main\r\n    v=allowed.get(str(Path(path).resolve()).lower());assert v is not None,('unbound_actual_module',path);ctx.exact(v);observed.append(v)\r\n                                                            ^^^^^^^^^^^^^\r\nAssertionError: ('unbound_actual_module', 'C:\\\\Windows\\\\System32\\\\apphelp.dll')\r\n"
+    }
+  ],
+  "actual_exit_code": 1,
+  "classification": "Wrapper fails after all three native children exit0: only primal observed apphelp.dll was omitted from prospective catalog. No economic outcome calculated."
+}

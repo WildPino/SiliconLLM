@@ -1,0 +1,239 @@
+{
+  "experiment": "METH505 exact original WI and zero-only column WO",
+  "start_utc": "2026-10-06T14:07:17.314031+00:00",
+  "process_instance": {
+    "pid": 31076,
+    "create_time_unix": 1791295637.0966861
+  },
+  "argv": [
+    "benchmarks\\native_expert_scaling\\meth505_exact_sparse.py",
+    "--out",
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth505_exact_sparse_result.json",
+    "--binding-sha",
+    "43b38c13e7eb3917e60cd7e6b78f11b7578bf5f0b98d5aa82f7238b2ea00cbb2"
+  ],
+  "commands": [
+    {
+      "label": "compile",
+      "argv": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-std=c11",
+        "-march=x86-64-v3",
+        "-fno-fast-math",
+        "-ffp-contract=off",
+        "-fopenmp",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_exact_sparse_cpu.c",
+        "-lpsapi",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\meth505_exact_sparse_cpu.exe"
+      ],
+      "start_utc": "2026-10-06T14:07:54.849294+00:00",
+      "descendant_process_peaks": [
+        {
+          "pid": 29448,
+          "create_time_unix": 1791295674.8893476,
+          "OS_peak_bytes": 19660800,
+          "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe"
+        },
+        {
+          "pid": 25816,
+          "create_time_unix": 1791295674.9974165,
+          "OS_peak_bytes": 78868480,
+          "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe"
+        },
+        {
+          "pid": 5544,
+          "create_time_unix": 1791295676.1941988,
+          "OS_peak_bytes": 21495808,
+          "executable": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\ld.lld.exe"
+        }
+      ],
+      "process_instance": {
+        "pid": 5756,
+        "create_time_unix": 1791295674.8513927
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-06T14:07:56.291941+00:00",
+      "observer_exit_races": 0,
+      "observed_modules": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "C:\\Windows\\System32\\ntdll.dll"
+      ]
+    },
+    {
+      "label": "primal",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\meth505_exact_sparse_cpu.exe",
+        "--primal",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\bank.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth499_factor_fit\\inputs.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth499_factor_fit\\unweighted_targets.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\primal.bin"
+      ],
+      "start_utc": "2026-10-06T14:07:56.396725+00:00",
+      "descendant_process_peaks": [],
+      "process_instance": {
+        "pid": 1780,
+        "create_time_unix": 1791295676.4287415
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-06T14:08:07.792722+00:00",
+      "observer_exit_races": 1,
+      "observed_modules": [
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "C:\\Windows\\System32\\apphelp.dll",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "C:\\Windows\\System32\\msvcrt.dll",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\libomp.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\meth505_exact_sparse_cpu.exe"
+      ]
+    },
+    {
+      "label": "bench",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\meth505_exact_sparse_cpu.exe",
+        "--bench",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth380_switch_w8a8_export\\manifest.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\bank.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth499_factor_fit\\inputs.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth499_factor_fit\\unweighted_targets.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\timing.bin"
+      ],
+      "start_utc": "2026-10-06T14:08:09.172893+00:00",
+      "descendant_process_peaks": [],
+      "process_instance": {
+        "pid": 22688,
+        "create_time_unix": 1791295689.1765785
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-06T14:09:14.050043+00:00",
+      "observer_exit_races": 0,
+      "observed_modules": [
+        "C:\\Windows\\System32\\KernelBase.dll",
+        "C:\\Windows\\System32\\kernel32.dll",
+        "C:\\Windows\\System32\\msvcrt.dll",
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\libomp.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\meth505_exact_sparse_cpu.exe"
+      ]
+    }
+  ],
+  "gates": {
+    "actual_data_toolchain_runtime_scientific_SHA_before_NumPy": true,
+    "ALL_original_UID_occurrence_parent_mass_input_quant_roles": true,
+    "ALL128_actual_I8_bank_inverse_scales_alignment_no_information_loss": true,
+    "NEW_native_scalar_extrema_controls_and_ALL17540_hidden_codes_alpha_F_BYTE": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "43b38c13e7eb3917e60cd7e6b78f11b7578bf5f0b98d5aa82f7238b2ea00cbb2",
+  "source_freeze": "7e5562b372d65449246e107066e21f4f1877fde8",
+  "execution_head": "a9007ae1611b7495b7b38719cc254ec6bb486028",
+  "runtime": {
+    "BLAS": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "CPU_affinity": [
+      0
+    ],
+    "environment": {
+      "OMP_WAIT_POLICY": "ACTIVE",
+      "KMP_AFFINITY": "none",
+      "KMP_BLOCKTIME": "infinite",
+      "OMP_DYNAMIC": "FALSE",
+      "OMP_MAX_ACTIVE_LEVELS": "1",
+      "OMP_NUM_THREADS": "1"
+    }
+  },
+  "binary": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\meth505_exact_sparse_cpu.exe",
+    "bytes": 296960,
+    "sha256": "bbb1ddad2fef54e4d3766493d23f7be419932c3acdeaf90d897003f4731360f7"
+  },
+  "phase": "matched-cost",
+  "end_utc": "2026-10-06T14:09:18.316390+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_exact_sparse.py\", line 83, in main\n    v=allowed.get(str(Path(path).resolve()).lower());assert v is not None,('unbound_actual_module',path);ctx.exact(v);observed.append(v)\n                                                            ^^^^^^^^^^^^^\nAssertionError: ('unbound_actual_module', 'C:\\\\Windows\\\\System32\\\\apphelp.dll')\n",
+  "resource": {
+    "wall_seconds": 121.0,
+    "parent_peak_bytes": 1354588160,
+    "native_peak_bytes": 1328517120,
+    "bytes_hashed": 8499331998,
+    "wall_limit_seconds": 900,
+    "combined_host_limit_bytes": 4294967296
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\active.npy",
+      "bytes": 70288
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\bank.bin",
+      "bytes": 605949952
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\bench.stderr",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\bench.stdout",
+      "bytes": 414
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\compile.stderr",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\compile.stdout",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\extents.json",
+      "bytes": 158536
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\fatal_native.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\libomp.dll",
+      "bytes": 1262080
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\meth505_exact_sparse_cpu.exe",
+      "bytes": 296960
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\primal.bin",
+      "bytes": 377460824
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\primal.stderr",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\primal.stdout",
+      "bytes": 391
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\progress.jsonl",
+      "bytes": 309
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_exact_sparse\\timing.bin",
+      "bytes": 841944
+    }
+  ]
+}
