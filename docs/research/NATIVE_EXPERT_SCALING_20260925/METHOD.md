@@ -1,46 +1,34 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:489 complete; fixed GPU layout closed; return to conditional mass
+## Current resumption:490 apparatus prepared; separate root mass, before first fit
 
-Goal ACTIVE/INCOMPLETE. ALL11 integer controls and ALL192 teacher/own-state
-cases /3456 whole output files independently admitted. Both original full
-source cohorts inherit ALL18 donor-quality gates through byte identity.
-[489 result](METH_489_SHARED_INTEGER_BACKEND_RESULT_20261006.md),
-[ALL6 retention](RETENTION_489_20261006.json),
-[ALL5 complete admission](ADMISSION_489_20261006.json).
+Goal ACTIVE/INCOMPLETE.489 complete output/quality admission is preserved;
+CPU n128 warm prose54.8773/lower53.4759 is positive. The fixed GPU layout
+fails speed on both sources and is closed. [489 result](METH_489_SHARED_INTEGER_BACKEND_RESULT_20261006.md)
+and [whole algebra](METH_489_WHOLE_ALGEBRA_AND_NEXT_20261006.md) remain authoritative.
 
-Primary0 warm prose IDs/s: CPU n128=54.8773 (book bootstrap5th percentile53.4759),
-GPU n128=20.4306; CPU n256=35.9764, GPU n256=13.2128. CPU n128 is a positive
-qualified whole-source result on this sample. Both GPU sources fail EVERY
-prospective >=50/matched-benefit/100stretch gate. THIS fixed synchronized
-per-operator layout is closed. ALL4 finer profile1 decompositions FAIL;
-do not mix their component fractions or old458 fractions with the new rates.
+[490 prospective protocol](METH_490_SEPARATE_ROOT_MASS_PROTOCOL_20261006.md)
+implements ONE new separate affine sigmoid root-mass recipe:12 n128 roots,
+ALL479 source inputs, only159414development UIDs fit,79458consumedval diagnostics,
+32fixed book-balanced Adam updates/root, actual F32 C export and finite sigmoid.
+No winner fit, source/capture replay, new held-out claim, GPU/T4 or engine edit.
+Uniform selected-child log budget log(1.01)/7. A valid pair is not faithful mass.
+An optimizer failure cannot prove the affine class impossible.
 
-[Whole algebra and next](METH_489_WHOLE_ALGEBRA_AND_NEXT_20261006.md): primary0
-phase sums imply GPU n256<=26.4513 prose/s even with free prefill and unchanged
-decode/accepted IDs; free decode with unchanged prefill gives26.4000. Thus a
-single-phase optimization cannot reach50 under those explicit assumptions.
-No causal overhead decomposition or universal GPU impossibility is claimed.
+490 main/C/math/operational guards/independent numerical auditor/Windows helpers/
+metadata binding/finalizer are prepared, NOT yet compiled/controlled/fitted.
+Main600s/combined1GiB, audit300s/512MiB,64MiB outputs,CPU0/BLAS1. Stream source
+wires one bank at a time; source479 R2/R3 admission is inherited and full direct
+payload/data/runtime/toolchain digests refreshed. No old namespace may rerun.
 
-Sole489 main bcaaef/session22140/529b42 exit0 adds exactly107 missing blocks;
-sole audit928197/session44508/c4992d exit0; finalizer93293b exit0/ALL5. BOTH
-actual Windows queries available/zero matching. Full inherited first data,
-partials, failed namespaces and timings are immutable. Corrected bootstrap
-uses ORIGINAL485485,10000 book draws,5/95 quantiles; old486486 summaries remain
-retained/unadmitted. Historical48845min stop/isolation fault/R1 remain visible.
-No completed native block/control/main/audit/compiler was replayed. Boundary
-quiet guards do not prove continuous exclusivity; foreign work was untouched.
+No own live science handle. Next: commit all490 apparatus, prepare sole
+metadata binding, commit binding, then sole main with its SHA. Retain first
+actual tool/session/terminal/exit and partials BEFORE any separately numbered
+repair. Run actual Windows query and sole independent audit; its observations
+may confirm a scientific FAIL. No completed control/main/audit replay.
 
-No own live science handle. Next: prepare and freeze ONE development-only
-eligibility/protocol/controller/independent audit for separate normalized
-conditional-mass heads on the12 n128 roots using479 inputs. New variable:
-learn mass independently of max supports and the failed second-moment formula.
-No fit yet, no new capture, no consumedval-as-fresh claim. Prospective ceiling
-10min main/1GiB,5min audit/512MiB,64MiB outputs, CPU BLAS1; stop before fit if
-actual inputs exceed eligibility. Details and scientific stops in whole489.
-
-Convenient pretrained transfer, useful distinctn/RAM, CPU LUT winner ANDmass,
-physicalDRAM and multiple actualfamilies/100B remain joint open goal gates.
+Full goal remains convenient pretrained transfer, useful distinctn/RAM,
+CPU LUT winner ANDmass, physicalDRAM, fresh quality/SAME>=50 and other families/100B.
 
 ## Available analysis: normalized root affine feasibility inquiry
 
