@@ -1,0 +1,101 @@
+{
+  "schema": "PQT_KAGGLE_ADMISSION_V1",
+  "time_utc": "2026-10-06T00:34:05.292448+00:00",
+  "account": {
+    "account": "acct3",
+    "status": "verified",
+    "configured_username": "sirwildpino",
+    "server_identity": "sirwildpino",
+    "gpu_quota": {
+      "used_hours": 0.6601202777777778,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 29.33987972222222,
+      "conservative_unreserved_hours": 29.33987972222222,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-06T00:33:58.215972+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "sirwildpino/pqt-008-global-staged-20261006-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/pqt-007-full-model-20261006-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/h4-rank48-stagea-v2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/s1-sparsity-bpb-scale-arm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-relaytest",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/phase64-arm6",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/notebook3f8b10f091",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/wilddataset-3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "sirwildpino/siliconllm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "ref": "sirwildpino/pqt-009-calibration-breadth-20261006-001",
+  "timeout_seconds": 10800,
+  "source_commit": "7c066ed93464c724edd8d966fb7a7f517248e3f4",
+  "bundle_sha256": {
+    "bootstrap.py": "580ae74e4f6fde9a69ae2b1f309e1ab2950b0582b6bd565a43a9d58d28a49a32",
+    "kernel-metadata.json": "be6a1230cfe3a4e5f43549f209871ef4334adca81ce3b5d0ccd710b28d5fdc4e"
+  },
+  "interactive_session_absence_proven": false,
+  "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+}

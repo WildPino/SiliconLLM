@@ -1,0 +1,66 @@
+{
+  "schema": "PQT_QAT_CPU_CONTROLS_RETENTION_V1",
+  "all_namespaces_preserved": true,
+  "all_three_synthetic_stages_passed": true,
+  "files": {
+    "controls_001/apparatus.json": {
+      "bytes": 1707,
+      "sha256": "1f5ee0f4fb7b9ad01b99b04b8e712047c44e17be9d66b3346de9f2c35d6a47b9"
+    },
+    "controls_001/ONE_payload.zip": {
+      "bytes": 457,
+      "sha256": "a867c8f1788bd1a282abd5c5ecfa04b399e6c496780030234d9b709698edb684"
+    },
+    "controls_001/resource_guard.json": {
+      "bytes": 869,
+      "sha256": "483da308925bac0118ce6e6ea9bb5025ff0e0aa173d619f8e044bddfc3fdb894"
+    },
+    "controls_001/STAGED_payload.zip": {
+      "bytes": 469,
+      "sha256": "ad01b3e0c2d65a35bfb0b8dad8cb7551530ae067d962d62ca359172535858b89"
+    },
+    "controls_002/apparatus.json": {
+      "bytes": 1707,
+      "sha256": "12666cedcf76aebcca936f4768f43aa756e582a469670d55f76e49b73a3ff7a8"
+    },
+    "controls_002/ONE_payload.zip": {
+      "bytes": 721,
+      "sha256": "2cdf43ba900c37b6bed1a54a35ad3d924a74b5b78d54860a85bd85442f47bb35"
+    },
+    "controls_002/resource_guard.json": {
+      "bytes": 866,
+      "sha256": "698737264e09b1a42e22a117b5ed6f206e9ccfca304732a715ce33494c942b3c"
+    },
+    "controls_002/STAGED_payload.zip": {
+      "bytes": 733,
+      "sha256": "953256463fedd956b8bd62ca43bc630d5fd41a47c075c06b7f4cbcc305c84c07"
+    },
+    "controls_003/apparatus.json": {
+      "bytes": 1978,
+      "sha256": "6a438caf96b5a4e73fabc1f113c78bc5fccf71213cc45278263fede6ad9a248e"
+    },
+    "controls_003/ONE_payload.zip": {
+      "bytes": 721,
+      "sha256": "2cdf43ba900c37b6bed1a54a35ad3d924a74b5b78d54860a85bd85442f47bb35"
+    },
+    "controls_003/resource_guard.json": {
+      "bytes": 869,
+      "sha256": "4122f0d73bdac57389ad73aaee62d75710459ab6852ec07ff61630299a0c121c"
+    },
+    "controls_003/STAGED_payload.zip": {
+      "bytes": 733,
+      "sha256": "953256463fedd956b8bd62ca43bc630d5fd41a47c075c06b7f4cbcc305c84c07"
+    }
+  },
+  "total_files": 12,
+  "total_bytes": 11830,
+  "final_controls": "controls_003",
+  "complete_toy_unique_bindings": 169,
+  "actual_toy_optimizer_counters": 169,
+  "synthetic_only": true,
+  "global_model_adaptation_executed": false,
+  "news_tokens_selected": false,
+  "local_gpu_used": false,
+  "native_timing": false,
+  "stage_history": "001 hard gradients/schedule/archive; 002 extra exact vector archive members; 003 full tied 169-matrix toy SDPA backward and actual counters"
+}

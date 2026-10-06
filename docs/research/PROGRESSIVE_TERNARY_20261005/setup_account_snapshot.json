@@ -1,0 +1,63 @@
+{
+  "schema": "PQT_SETUP_ACCOUNTS_V1",
+  "observed_at_utc": "2026-10-05T17:56:37.465189+00:00",
+  "nominal_weekly_hours_per_account_user_supplied": 30,
+  "accounts": [
+    {
+      "account": "acct1",
+      "status": "verified",
+      "configured_username": "wildpino",
+      "server_identity": "wildpino",
+      "gpu_quota": {
+        "used_hours": 0.0,
+        "reserved_hours": 0.0,
+        "total_hours": 30.0,
+        "remaining_before_reservations_hours": 30.0,
+        "conservative_unreserved_hours": 30.0,
+        "idle_proven": false,
+        "reset_time": null
+      },
+      "observed_at_utc": "2026-10-05T17:56:31.194560+00:00"
+    },
+    {
+      "account": "acct2",
+      "status": "verified",
+      "configured_username": "giggio253",
+      "server_identity": "giggio253",
+      "gpu_quota": {
+        "used_hours": 0.0,
+        "reserved_hours": 0.0,
+        "total_hours": 30.0,
+        "remaining_before_reservations_hours": 30.0,
+        "conservative_unreserved_hours": 30.0,
+        "idle_proven": false,
+        "reset_time": null
+      },
+      "observed_at_utc": "2026-10-05T17:56:34.330335+00:00"
+    },
+    {
+      "account": "acct3",
+      "status": "verified",
+      "configured_username": "sirwildpino",
+      "server_identity": "sirwildpino",
+      "gpu_quota": {
+        "used_hours": 0.0,
+        "reserved_hours": 0.0,
+        "total_hours": 30.0,
+        "remaining_before_reservations_hours": 30.0,
+        "conservative_unreserved_hours": 30.0,
+        "idle_proven": false,
+        "reset_time": null
+      },
+      "observed_at_utc": "2026-10-05T17:56:37.430694+00:00"
+    }
+  ],
+  "distinct_matching_server_identities": true,
+  "helper_sha256": {
+    "kaggle_ops.py": "d8ed5ac501a8f2bfb5ca5881813e6cf2eba4dcc2048e77cbc882cabb9a50e38e",
+    "h4_kaggle_stage_a.py": "80042c37039dc9a34861fbdb488e92597528e7ca1432f3cda90123a1f5550cb9"
+  },
+  "gpu_jobs_launched": 0,
+  "launch_admission": "not_assessed_setup_only",
+  "quota_note": "Snapshot only; recheck reservations and coordinate account ownership before a job. No reset date or account idleness inferred."
+}

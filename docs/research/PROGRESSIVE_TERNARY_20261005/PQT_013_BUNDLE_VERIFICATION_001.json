@@ -1,0 +1,49 @@
+{
+  "schema": "PQT_013_BUNDLE_VERIFICATION_V1",
+  "passed": true,
+  "bundle_evidence_commit": "1afbb93a14e4b3850bd96baebc278ba541ab312d",
+  "scientific_source_commit": "e218e3e36d44ab4a34de091f5ccad05c0a9267db",
+  "all_source_Git_bytes_exact": true,
+  "source_files": 20,
+  "executable_import_closure": [
+    "benchmarks/progressive_ternary/audit_pqt013.py",
+    "benchmarks/progressive_ternary/pqt012_artifact.py",
+    "benchmarks/progressive_ternary/pqt012_inputs.py",
+    "benchmarks/progressive_ternary/pqt012_metrics.py",
+    "benchmarks/progressive_ternary/pqt013_artifact.py",
+    "benchmarks/progressive_ternary/pqt013_inputs.py",
+    "benchmarks/progressive_ternary/pqt013_math.py",
+    "benchmarks/progressive_ternary/pqt013_transport.py",
+    "benchmarks/progressive_ternary/pqt013_worker.py",
+    "benchmarks/progressive_ternary/src007_io.py",
+    "benchmarks/progressive_ternary/ternary_math.py"
+  ],
+  "CPU_qualified_helpers_exact": [
+    "benchmarks/progressive_ternary/pqt012_artifact.py",
+    "benchmarks/progressive_ternary/pqt012_inputs.py",
+    "benchmarks/progressive_ternary/pqt012_metrics.py",
+    "benchmarks/progressive_ternary/pqt013_artifact.py",
+    "benchmarks/progressive_ternary/pqt013_inputs.py",
+    "benchmarks/progressive_ternary/pqt013_math.py",
+    "benchmarks/progressive_ternary/src007_io.py",
+    "benchmarks/progressive_ternary/ternary_math.py"
+  ],
+  "metadata_verified": true,
+  "original_capsule": {
+    "bytes": 117362605,
+    "sha256": "654535bbed88a8a525af351b6052810fff6c495aa7845b17759db8e059a26f83"
+  },
+  "auxiliary_capsule": {
+    "bytes": 12071742,
+    "sha256": "98dab1dcf77314558c6f4f77ecc39c43d30db303a6fb4556a7c1426a582ba229"
+  },
+  "original_numerical_array_reads": 0,
+  "original_candidate_fits": 0,
+  "private_write": false,
+  "actual_private_input_server_metadata_and_account_admission_still_required": true,
+  "resource": {
+    "elapsed_seconds_before_report": 1.2659999999741558,
+    "peak_process_RSS_bytes": 40681472
+  },
+  "whole_research_complete": false
+}

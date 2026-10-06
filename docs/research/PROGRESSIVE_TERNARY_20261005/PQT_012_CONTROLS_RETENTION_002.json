@@ -1,0 +1,220 @@
+{
+  "schema": "PQT_012_LOCAL_RETENTION_V1",
+  "passed": true,
+  "stage": "controls",
+  "sequence": "002",
+  "attempt_passed": true,
+  "source_commit": "1d7854ec2a1f6279d3d461390de896e5a11f15da",
+  "attempt_report": {
+    "schema": "PQT_012_CONTROLS_V1",
+    "passed": true,
+    "source_commit": "1d7854ec2a1f6279d3d461390de896e5a11f15da",
+    "synthetic_only": true,
+    "original_candidate_fits": 0,
+    "model_forwards": 0,
+    "GPU_allocations": 0,
+    "optimizer_updates": 0,
+    "native_timing": false,
+    "checks": [
+      "actual_ternary_threshold_zero_ties_and_T2_I4_golden_bytes",
+      "F64_dual_ridge_matches_independent_scalar_primal_equation",
+      "projected_rank_and_bias_match_independent_spectral_subspace",
+      "actual_T2_I4_I8_zero_row_FFN_export_reload_and_F32_F64_outputs",
+      "I8_nearest_even_rounding",
+      "actual_tiny_progressive_columns_and_codec",
+      "actual_mixed_residual_artifact_reload_and_independent_forward",
+      "real_calibration_phase_gate_all40_seals_and_exact_row_order",
+      "unequal_document_energies_PCG64_cluster_ratio_and_zero_floor"
+    ],
+    "rejections": [
+      {
+        "control": "reserved_T2_11",
+        "gate": "pqt012_reserved_ternary_code"
+      },
+      {
+        "control": "reserved_I4_minus8",
+        "gate": "pqt012_reserved_int4_code"
+      },
+      {
+        "control": "reserved_I8_minus128",
+        "gate": "pqt012_reserved_int8_code"
+      },
+      {
+        "control": "wrong_packed_length",
+        "gate": "pqt012_ternary_packed_length"
+      },
+      {
+        "control": "invalid_source_ternary_code",
+        "gate": "invalid ternary code stream"
+      },
+      {
+        "control": "invalid_source_int4_code",
+        "gate": "invalid int4 stream"
+      },
+      {
+        "control": "constant_calibration_energy",
+        "gate": "pqt012_ridge_positive_energy"
+      },
+      {
+        "control": "nonfinite_ridge_input",
+        "gate": "nonfinite numerical value"
+      },
+      {
+        "control": "mismatched_ridge_rows",
+        "gate": "pqt012_ridge_input_layout"
+      },
+      {
+        "control": "invalid_requested_rank",
+        "gate": "pqt012_requested_rank"
+      },
+      {
+        "control": "nonfinite_scale",
+        "gate": "pqt012_npy_layout_finite"
+      },
+      {
+        "control": "negative_scale",
+        "gate": "pqt012_artifact_nonnegative_scales"
+      },
+      {
+        "control": "shape_not_pair_geometry",
+        "gate": "pqt012_ternary_packed_length"
+      },
+      {
+        "control": "wrong_scale_group",
+        "gate": "pqt012_artifact_scale_group"
+      },
+      {
+        "control": "hidden_original_member",
+        "gate": "pqt012_artifact_exact_namespace"
+      },
+      {
+        "control": "changed_code_without_hash_update",
+        "gate": "pqt012_artifact_member_hash"
+      },
+      {
+        "control": "development_fit_leak",
+        "gate": "pqt012_calibration_only_phase"
+      },
+      {
+        "control": "held_out_fit_leak",
+        "gate": "pqt012_calibration_only_phase"
+      },
+      {
+        "control": "development_row_metadata_fit_leak",
+        "gate": "pqt012_calibration_only_phase"
+      },
+      {
+        "control": "incomplete_seal_unlock",
+        "gate": "pqt012_all_artifacts_sealed"
+      },
+      {
+        "control": "duplicate_seal",
+        "gate": "pqt012_artifact_seal"
+      },
+      {
+        "control": "bootstrap_wrong_document_pairing",
+        "gate": "pqt012_paired_bootstrap_document_identity"
+      },
+      {
+        "control": "bootstrap_invalid_index",
+        "gate": "pqt012_bootstrap_indices"
+      }
+    ],
+    "whole_research_complete": false,
+    "admission": {
+      "own_pid": 26472,
+      "parent_pid": 13092,
+      "allowed_live_pids": [
+        13092,
+        26472
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 13092,
+        "ParentProcessId": 14116,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 13092,
+          "ParentProcessId": 14116,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 26472,
+          "ParentProcessId": 13092,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [],
+      "passed": true,
+      "native_timing_reservation": false
+    },
+    "runtime": {
+      "python": "3.12.10",
+      "numpy": "2.1.3",
+      "torch": "2.6.0+cpu",
+      "threads": 1
+    },
+    "deployment_artifacts": {
+      "T2": {
+        "bytes": 4235,
+        "sha256": "387202baf363eec05139db17c2b53189e48870f9045da0cf6657dfd98a38959b"
+      },
+      "I4": {
+        "bytes": 6283,
+        "sha256": "28488da1591e61cdbfc76abb032fcad182a52dcdf032b5d4843f0b7aaae75a55"
+      },
+      "I8": {
+        "bytes": 10379,
+        "sha256": "d562cd6103d2e78ccc84b6f452c67fbd3134fdf0424b09a72f54dfc5872328e7"
+      },
+      "T2_LR": {
+        "bytes": 7055,
+        "sha256": "4e13ae4188a7ef3cb1e4e4792df94028410858768b9d13701b81c797e3aa28cd"
+      }
+    },
+    "synthetic_ridge_solves": 2,
+    "synthetic_residual_SVDs": 2,
+    "synthetic_progressive_matrix_fits": 2,
+    "actual_progressive_columns_committed": 128,
+    "actual_synthetic_FFN_output_comparisons": 4,
+    "resource": {
+      "elapsed_seconds_before_report": 4.85899999999674,
+      "peak_process_RSS_bytes": 201572352
+    }
+  },
+  "controller": {
+    "schema": "PQT_012_LOCAL_CONTROLLER_V1",
+    "stage": "controls",
+    "sequence": "002",
+    "source_commit": "1d7854ec2a1f6279d3d461390de896e5a11f15da",
+    "controller_sha256": "00ade1cd8b174c1ee3b70d08d664c6b4ef2f55a0dc7c81c54e6815b7be3868db",
+    "complete": true,
+    "timeout_seconds": 600,
+    "timed_out": false,
+    "exit_code": 0,
+    "worker_report_sha256": "d8e5615e7c0020f9efa6585f936cd3dd8d6d3b403e03d51f142259dc28788b79",
+    "worker_passed": true,
+    "elapsed_complete_worker_seconds": 5.3781246,
+    "owned_process_ids": [
+      13092,
+      26472
+    ]
+  },
+  "manifest": "pqt_012_controls_evidence/controls_002/manifest.json",
+  "manifest_identity": {
+    "bytes": 25718,
+    "sha256": "876995741d3e35f59a3839603dc844b369a1d4d2460679c7051c9ac5a05ff16d"
+  },
+  "raw_entries": 72,
+  "raw_bytes": 3168408,
+  "resource": {
+    "elapsed_seconds_before_report": 0.7969999999913853,
+    "peak_process_RSS_bytes": 22663168
+  },
+  "complete_retainer_child_duration_separately_instrumented": false,
+  "whole_research_complete": false
+}

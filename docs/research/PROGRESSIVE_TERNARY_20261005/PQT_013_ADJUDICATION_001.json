@@ -1,0 +1,1298 @@
+{
+  "schema": "PQT_013_ADJUDICATION_V1",
+  "passed": true,
+  "scope": "Four original encoder FFNs on consumed diagnostic natural contexts; fixed row/group alphabets and bounded calibration",
+  "metrics_verified": 96,
+  "artifacts_verified": 32,
+  "evidence_commit": "3bbc58fa7f36a5d4174718a69609f3036ec1160d",
+  "verdicts": {
+    "G64-D": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    },
+    "G64-PR": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    },
+    "SYM-D": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    },
+    "SYM-PR": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    },
+    "ASYM-D": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    },
+    "ASYM-PR": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    },
+    "SYM-PR-F": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    },
+    "ASYM-PR-F": {
+      "fidelity": false,
+      "storage": true,
+      "may_advance": false
+    }
+  },
+  "summaries": {
+    "G64-D": {
+      "storage_FP16_fraction_range": [
+        0.15646468268500435,
+        0.15646468268500435
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.48053464779942223,
+            0.7262998679401262
+          ],
+          "maximum_bootstrap_upper_RMS": 0.7384953460561073
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.48127542657806055,
+            0.7308875789215297
+          ],
+          "maximum_bootstrap_upper_RMS": 0.7448050136101392
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.47781441883752096,
+            0.7408432841005155
+          ],
+          "maximum_bootstrap_upper_RMS": 0.7537858811638705
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.7308875789215297,
+          "bootstrap_relative_RMS_percentiles": [
+            0.716995584497957,
+            0.7310566497869808,
+            0.7448050136101392
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.7408432841005155,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7285169748904143,
+            0.7408661327859989,
+            0.7537858811638705
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.48127542657806055,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4755468343086636,
+            0.4813668990257025,
+            0.4869350712104695
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.47781441883752096,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4730550156808221,
+            0.47788678086295167,
+            0.4829839024862898
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.5252781972865612,
+          "bootstrap_relative_RMS_percentiles": [
+            0.524627880631587,
+            0.5252669984974023,
+            0.5259236160552262
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.5246921983638896,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5240495119162064,
+            0.5246807236468554,
+            0.5253030117135675
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.518191046111801,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5131396067888166,
+            0.5181999168518457,
+            0.5250101752551488
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.5127131328788187,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5042434649928926,
+            0.5128643844329512,
+            0.5210538075412875
+          ],
+          "reference_arm": null
+        }
+      ]
+    },
+    "G64-PR": {
+      "storage_FP16_fraction_range": [
+        0.15646489461263022,
+        0.15646489461263022
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.07109226573615476,
+            0.354635705910369
+          ],
+          "maximum_bootstrap_upper_RMS": 0.35552874724254085
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.07216753128435889,
+            0.5409287255737584
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5569593329505679
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.07474914486668487,
+            0.5517617849005487
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5694012393543956
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.07216753128435889,
+          "bootstrap_relative_RMS_percentiles": [
+            0.0702458918024325,
+            0.07212358792396903,
+            0.07421694782409592
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 0.09873957824108405,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.09526535503452267,
+            0.09866817795836681,
+            0.10249058640778269
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.07474914486668487,
+          "bootstrap_relative_RMS_percentiles": [
+            0.07243052448399914,
+            0.0746449093610787,
+            0.07737713431772474
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 0.10089737798924708,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.09712933392508702,
+            0.10080001829605742,
+            0.10502886525905421
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.5044007971182535,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4914060472088999,
+            0.5046461161985236,
+            0.5171746624637045
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 1.0480501793008998,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0238053046599,
+            1.0486475924466276,
+            1.0697860911258532
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.5053474886782684,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4929872261946004,
+            0.5056874486768301,
+            0.5180012213517748
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 1.0576229363436391,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0338741947235226,
+            1.0580693178075102,
+            1.082145361331683
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.3553363512820363,
+          "bootstrap_relative_RMS_percentiles": [
+            0.3547493026388245,
+            0.3553249161476873,
+            0.3559452305696534
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 0.6764726826995743,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.6755256497077332,
+            0.676480625867541,
+            0.6775166564765966
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.3550963082949354,
+          "bootstrap_relative_RMS_percentiles": [
+            0.3543730401230799,
+            0.35509277707219233,
+            0.35589431454096715
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 0.6767707036662771,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.6756552536878192,
+            0.6767972547472405,
+            0.6779573666532858
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.5409287255737584,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5212921881587176,
+            0.5405988591907605,
+            0.5569593329505679
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 1.0438789508861017,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9990544112496055,
+            1.043694874618006,
+            1.0794993987430335
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.5517617849005487,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5241870975029375,
+            0.5514372100891727,
+            0.5694012393543956
+          ],
+          "reference_arm": "G64-D",
+          "RMS_ratio_to_reference": 1.0761608188237286,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.027508570793049,
+            1.0747602786396078,
+            1.1101814765965246
+          ]
+        }
+      ]
+    },
+    "SYM-D": {
+      "storage_FP16_fraction_range": [
+        0.12682384914822048,
+        0.12682384914822048
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.6254766499173855,
+            1.2700013696048378
+          ],
+          "maximum_bootstrap_upper_RMS": 1.3337863855110914
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.6239943891755749,
+            1.2625472452583826
+          ],
+          "maximum_bootstrap_upper_RMS": 1.3190549014099457
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.625026321155396,
+            1.2943999171754075
+          ],
+          "maximum_bootstrap_upper_RMS": 1.3667752406962916
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.7748541274418304,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7720727619691815,
+            0.7748233613712392,
+            0.7775733583093243
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.7726724123658605,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7697561462320965,
+            0.7726575960475055,
+            0.7754575629414403
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 1.059250955793386,
+          "bootstrap_relative_RMS_percentiles": [
+            1.0382887629051536,
+            1.0590467558456433,
+            1.082978096943629
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 1.0566554156112575,
+          "bootstrap_relative_RMS_percentiles": [
+            1.0330620146515777,
+            1.0577181461976415,
+            1.0806165391187328
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.6239943891755749,
+          "bootstrap_relative_RMS_percentiles": [
+            0.6229614905238947,
+            0.6240415045095113,
+            0.6250658410264829
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.625026321155396,
+          "bootstrap_relative_RMS_percentiles": [
+            0.624073748322961,
+            0.625043075998861,
+            0.6260730713527104
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 1.2625472452583826,
+          "bootstrap_relative_RMS_percentiles": [
+            1.209725627337688,
+            1.264411724085467,
+            1.3190549014099457
+          ],
+          "reference_arm": null
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 1.2943999171754075,
+          "bootstrap_relative_RMS_percentiles": [
+            1.2154813593143772,
+            1.2930475119120843,
+            1.3667752406962916
+          ],
+          "reference_arm": null
+        }
+      ]
+    },
+    "SYM-PR": {
+      "storage_FP16_fraction_range": [
+        0.12682395511203343,
+        0.12682395511203343
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.024397964166181688,
+            0.29599092864876597
+          ],
+          "maximum_bootstrap_upper_RMS": 0.308509092062117
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.031647072068150546,
+            1.000821773286212
+          ],
+          "maximum_bootstrap_upper_RMS": 1.0562120311516594
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.031418608562885704,
+            1.0187118653519966
+          ],
+          "maximum_bootstrap_upper_RMS": 1.0728170305246703
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.11596708603478365,
+          "bootstrap_relative_RMS_percentiles": [
+            0.1044978585119103,
+            0.11600585041828228,
+            0.12731605941139762
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.14966311971215446,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.1346683052360655,
+            0.14970247893490973,
+            0.1643895682134884
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.12802216999853336,
+          "bootstrap_relative_RMS_percentiles": [
+            0.11379475729252828,
+            0.12792590729734832,
+            0.14209933414949397
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.16568751252104344,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.1470507876020187,
+            0.16553581976052367,
+            0.18442232902284714
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.84239586392723,
+          "bootstrap_relative_RMS_percentiles": [
+            0.8070979324603486,
+            0.8427019773545751,
+            0.8804250551917635
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.7952750566991652,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.7697014823409178,
+            0.7954207284004973,
+            0.8216120143421848
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.8427815621459418,
+          "bootstrap_relative_RMS_percentiles": [
+            0.8047551523663322,
+            0.8427150352297761,
+            0.8832689950200724
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.7975935671123274,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.7718654257287515,
+            0.7968462274518459,
+            0.8262819750643454
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.031647072068150546,
+          "bootstrap_relative_RMS_percentiles": [
+            0.02747889540393261,
+            0.03155472304937354,
+            0.03616119418436369
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.050716917679280486,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.0440624787194813,
+            0.05057134741391595,
+            0.05795901626088494
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.031418608562885704,
+          "bootstrap_relative_RMS_percentiles": [
+            0.027690824747271456,
+            0.031223597974609482,
+            0.035490244145376985
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.05026765673613018,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.044296167348550394,
+            0.04993591082767349,
+            0.05680884698588945
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 1.000821773286212,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9515349032149134,
+            1.0013077450190584,
+            1.0562120311516594
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.7927004530285059,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.7694432720094762,
+            0.7925143130864024,
+            0.8111295335883433
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 1.0187118653519966,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9442881510085378,
+            1.020594196075098,
+            1.0728170305246703
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.7870147794624345,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.7487657224429131,
+            0.7857178677531919,
+            0.8284464290601103
+          ]
+        }
+      ]
+    },
+    "ASYM-D": {
+      "storage_FP16_fraction_range": [
+        0.12845177120632595,
+        0.12845177120632595
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.6022691234801658,
+            1.5604258563241202
+          ],
+          "maximum_bootstrap_upper_RMS": 1.6452314782475386
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.60062699517829,
+            1.5510208265737013
+          ],
+          "maximum_bootstrap_upper_RMS": 1.6291296774456143
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.6017103180457225,
+            1.593641902930959
+          ],
+          "maximum_bootstrap_upper_RMS": 1.6907243484189154
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.7354992984408313,
+          "bootstrap_relative_RMS_percentiles": [
+            0.732220459337884,
+            0.7354837956173917,
+            0.7386630796660097
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.9492100156568457,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.948427917066,
+            0.9491985953493325,
+            0.9499896645397377
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.7331146180088532,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7297521434023306,
+            0.7331064351642309,
+            0.736342883259226
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.948803925539564,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9479475776646489,
+            0.9488034697660012,
+            0.949642949031193
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 1.3793447587989431,
+          "bootstrap_relative_RMS_percentiles": [
+            1.3460930789285224,
+            1.3794445897062593,
+            1.4160834344634612
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 1.302188826221832,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.2913348496699322,
+            1.3023390812642381,
+            1.3123153456042607
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 1.3697580611701738,
+          "bootstrap_relative_RMS_percentiles": [
+            1.3313361659918606,
+            1.3710245034570012,
+            1.4067234386741334
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 1.2963148070156738,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.2840395993630633,
+            1.296222467701219,
+            1.3082639131284257
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.60062699517829,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5998205587191877,
+            0.6006407129790735,
+            0.6016804084588284
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.9625519164873291,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9613525902085862,
+            0.9625672402981393,
+            0.9637897229423478
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.6017103180457225,
+          "bootstrap_relative_RMS_percentiles": [
+            0.6008306184039284,
+            0.6017193195547725,
+            0.6027654023085014
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 0.9626959660409619,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9614466280074246,
+            0.9626699651940025,
+            0.9640406736274622
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 1.5510208265737013,
+          "bootstrap_relative_RMS_percentiles": [
+            1.4816218976091422,
+            1.5525588478055097,
+            1.6291296774456143
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 1.2284853754176002,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.2179713449111975,
+            1.228441526256435,
+            1.2395480377528012
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 1.593641902930959,
+          "bootstrap_relative_RMS_percentiles": [
+            1.4856007721736184,
+            1.5923588694829949,
+            1.6907243484189154
+          ],
+          "reference_arm": "SYM-D",
+          "RMS_ratio_to_reference": 1.2311820186210662,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.217195241750104,
+            1.2317505258699137,
+            1.244026903012715
+          ]
+        }
+      ]
+    },
+    "ASYM-PR": {
+      "storage_FP16_fraction_range": [
+        0.1284518771701389,
+        0.1284518771701389
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.02203677652471271,
+            0.2808489339694295
+          ],
+          "maximum_bootstrap_upper_RMS": 0.2922705001742972
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.02915994749755263,
+            0.9596822160080863
+          ],
+          "maximum_bootstrap_upper_RMS": 1.017017203938734
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.02955711917601888,
+            0.9814295059601441
+          ],
+          "maximum_bootstrap_upper_RMS": 1.0327249506238219
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.09816460678938567,
+          "bootstrap_relative_RMS_percentiles": [
+            0.08867770475363569,
+            0.09813431660327027,
+            0.10724940953262443
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.8464867933298054,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.8415147677858789,
+            0.8464843555371171,
+            0.8521632469605864
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.10813945233633493,
+          "bootstrap_relative_RMS_percentiles": [
+            0.09642250853776474,
+            0.10811880020946743,
+            0.11993328061346643
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.8446931678909504,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.8378706175626633,
+            0.8447510825453282,
+            0.8520533374680844
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.8015150305202102,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7685643671160481,
+            0.8021661440209366,
+            0.8362013630723814
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.9514707572085714,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9406686792839098,
+            0.9513940741623976,
+            0.9614042612858077
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.80020825619232,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7654685859309235,
+            0.8008943016593582,
+            0.8356036528079249
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.9494847682177349,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9354801700236558,
+            0.9499481480786739,
+            0.9611760244683719
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.02915994749755263,
+          "bootstrap_relative_RMS_percentiles": [
+            0.025044803599597775,
+            0.02906919877065403,
+            0.03364638355087711
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.9214105947860831,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.906950429718099,
+            0.9210852425502194,
+            0.9343185575434583
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.02955711917601888,
+          "bootstrap_relative_RMS_percentiles": [
+            0.02574474723209147,
+            0.029361225093922312,
+            0.03375332376478679
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.9407520106073133,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9247252647185923,
+            0.9398229028763999,
+            0.9561746328227753
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.9596822160080863,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9090738351669508,
+            0.9598681995447295,
+            1.017017203938734
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.9588942223518545,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9486405485042662,
+            0.958879651007564,
+            0.9694529651669073
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.9814295059601441,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9040774541539456,
+            0.982308375995237,
+            1.0327249506238219
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 0.963402449053668,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9486041384225653,
+            0.9628981344230072,
+            0.9740365056609666
+          ]
+        }
+      ]
+    },
+    "SYM-PR-F": {
+      "storage_FP16_fraction_range": [
+        0.1268241670396593,
+        0.12683412763807508
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.09808175274020546,
+            0.29599092864876597
+          ],
+          "maximum_bootstrap_upper_RMS": 0.308509092062117
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.09322291297571562,
+            1.000821773286212
+          ],
+          "maximum_bootstrap_upper_RMS": 1.0562120311516594
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.10124009952550708,
+            1.0187118653519966
+          ],
+          "maximum_bootstrap_upper_RMS": 1.0728170305246703
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.11596708603478365,
+          "bootstrap_relative_RMS_percentiles": [
+            0.1044978585119103,
+            0.11600585041828228,
+            0.12731605941139762
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 1.0,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.12802216999853336,
+          "bootstrap_relative_RMS_percentiles": [
+            0.11379475729252828,
+            0.12792590729734832,
+            0.14209933414949397
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 1.0,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.84239586392723,
+          "bootstrap_relative_RMS_percentiles": [
+            0.8070979324603486,
+            0.8427019773545751,
+            0.8804250551917635
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 1.0,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.8427815621459418,
+          "bootstrap_relative_RMS_percentiles": [
+            0.8047551523663322,
+            0.8427150352297761,
+            0.8832689950200724
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 1.0,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.09322291297571562,
+          "bootstrap_relative_RMS_percentiles": [
+            0.08489137453694184,
+            0.09344633321201998,
+            0.10281454015976871
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 2.9457041957930348,
+          "bootstrap_ratio_to_reference_percentiles": [
+            2.5954623891489628,
+            2.9527667574198455,
+            3.382125040102672
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.10124009952550708,
+          "bootstrap_relative_RMS_percentiles": [
+            0.09285927951585501,
+            0.10129462573281858,
+            0.11072988556147213
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 3.2222973631334,
+          "bootstrap_ratio_to_reference_percentiles": [
+            2.851572043798757,
+            3.237406663099158,
+            3.6860056131652215
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 1.000821773286212,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9515349032149134,
+            1.0013077450190584,
+            1.0562120311516594
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 1.0,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 1.0187118653519966,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9442881510085378,
+            1.020594196075098,
+            1.0728170305246703
+          ],
+          "reference_arm": "SYM-PR",
+          "RMS_ratio_to_reference": 1.0,
+          "bootstrap_ratio_to_reference_percentiles": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "ASYM-PR-F": {
+      "storage_FP16_fraction_range": [
+        0.12845208909776476,
+        0.1284621556599935
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.07431701025857802,
+            0.2808489339694295
+          ],
+          "maximum_bootstrap_upper_RMS": 0.2922705001742972
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.06888382030774222,
+            0.9596822160080863
+          ],
+          "maximum_bootstrap_upper_RMS": 1.017017203938734
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.07478763409583619,
+            0.9814295059601441
+          ],
+          "maximum_bootstrap_upper_RMS": 1.0327249506238219
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.09816460678938567,
+          "bootstrap_relative_RMS_percentiles": [
+            0.08867770475363569,
+            0.09813431660327027,
+            0.10724940953262443
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.8464867933298054,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.8415147677858789,
+            0.8464843555371171,
+            0.8521632469605864
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.10813945233633493,
+          "bootstrap_relative_RMS_percentiles": [
+            0.09642250853776474,
+            0.10811880020946743,
+            0.11993328061346643
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.8446931678909504,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.8378706175626633,
+            0.8447510825453282,
+            0.8520533374680844
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.8015150305202102,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7685643671160481,
+            0.8021661440209366,
+            0.8362013630723814
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.9514707572085714,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9406686792839098,
+            0.9513940741623976,
+            0.9614042612858077
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.80020825619232,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7654685859309235,
+            0.8008943016593582,
+            0.8356036528079249
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.9494847682177349,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9354801700236558,
+            0.9499481480786739,
+            0.9611760244683719
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.06888382030774222,
+          "bootstrap_relative_RMS_percentiles": [
+            0.06294122180929763,
+            0.06893584296644613,
+            0.07591730726519534
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.7389151240713355,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.7305061866155167,
+            0.7387176968900585,
+            0.7482643952399206
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.07478763409583619,
+          "bootstrap_relative_RMS_percentiles": [
+            0.0687047682513709,
+            0.07481464644256641,
+            0.08160684532514423
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.7387155331370819,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.7308913794186582,
+            0.7385381420378345,
+            0.7478954136589887
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.9596822160080863,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9090738351669508,
+            0.9598681995447295,
+            1.017017203938734
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.9588942223518545,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9486405485042662,
+            0.958879651007564,
+            0.9694529651669073
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.9814295059601441,
+          "bootstrap_relative_RMS_percentiles": [
+            0.9040774541539456,
+            0.982308375995237,
+            1.0327249506238219
+          ],
+          "reference_arm": "SYM-PR-F",
+          "RMS_ratio_to_reference": 0.963402449053668,
+          "bootstrap_ratio_to_reference_percentiles": [
+            0.9486041384225653,
+            0.9628981344230072,
+            0.9740365056609666
+          ]
+        }
+      ]
+    }
+  },
+  "advancing_arms": [],
+  "new_fits": 0,
+  "new_numerical_replays": 0,
+  "elapsed_seconds_before_report": 0.9849999999860302,
+  "whole_model_quality_measured_here": false,
+  "native_timing_measured_here": false
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "PQT_013_STAGE_RETENTION_V1",
+  "passed": true,
+  "stage": "metadata",
+  "sequence": "001",
+  "attempt_passed": true,
+  "source_commit": "c7725d0dc4ad6f23852d89d0e01f21a3c598b3ec",
+  "producer_report": {
+    "schema": "PQT_013_METADATA_V1",
+    "passed": true,
+    "source_commit": "c7725d0dc4ad6f23852d89d0e01f21a3c598b3ec",
+    "original_numerical_array_reads": 0,
+    "candidate_fits": 0,
+    "GPU_allocations": 0,
+    "private_write": false,
+    "include_filtered_pair": true,
+    "counts": {
+      "81": {
+        "original_rows": 321,
+        "kept_rows": 321,
+        "dropped_rows": 0,
+        "kept_documents": 119,
+        "rows_sha256": "034e7b4e72da847a44ec15bcf5ea97c052c75f77aab9fbb402abd2155d43dab0",
+        "coverage_passed": true
+      },
+      "87": {
+        "original_rows": 238,
+        "kept_rows": 238,
+        "dropped_rows": 0,
+        "kept_documents": 70,
+        "rows_sha256": "1cb46ac1562a6d9ec57c97b17a4c4dc7f331e22450eb47ca2c649d6b1db283b8",
+        "coverage_passed": true
+      },
+      "18": {
+        "original_rows": 236,
+        "kept_rows": 171,
+        "dropped_rows": 65,
+        "kept_documents": 90,
+        "rows_sha256": "78c2564e8250584e2e91bb50e9b8a23ebd804bdf1c26426ab97a0a9ff2c752a7",
+        "coverage_passed": true
+      },
+      "91": {
+        "original_rows": 229,
+        "kept_rows": 229,
+        "dropped_rows": 0,
+        "kept_documents": 38,
+        "rows_sha256": "642fe080868b4a158871e5e11254505e0f06d6281d241e14e3932143bc02160b",
+        "coverage_passed": true
+      }
+    },
+    "rows_verified": 1024,
+    "omission_reason": null,
+    "resource": {
+      "elapsed_seconds_before_report": 0.2340000000258442,
+      "peak_process_RSS_bytes": 32083968
+    },
+    "files": {
+      "calibration_token_mapping.json": {
+        "bytes": 238200,
+        "sha256": "9760a7e3466b663bfb4bf9b3e55fdc4b3b7d22a1b87e189474b2671eab1d0599"
+      },
+      "filter_binding.json": {
+        "bytes": 11674,
+        "sha256": "18f8c20ced9acd6f6288771c05826a318c1df6b6f154aa6bc76a8e00bb3928d3"
+      }
+    }
+  },
+  "controller": {
+    "operation": "pqt013_metadata_001",
+    "exit_code": 0,
+    "elapsed_complete_child_seconds": 0.4197164,
+    "original_numerical_array_reads": 0,
+    "candidate_fits": 0
+  },
+  "manifest": "pqt013_stage_evidence/metadata_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 4184,
+    "sha256": "1adaf64d317f04bad02f25459c3792f7a36ad8f3737df2a4185849969bad87e0"
+  },
+  "raw_entries": 11,
+  "raw_bytes": 302733,
+  "source_note": "Static transitive local import closure at producer commit; includes unexecuted branches",
+  "resource": {
+    "elapsed_seconds_before_report": 0.5470000000204891,
+    "peak_process_RSS_bytes": 23130112
+  },
+  "whole_research_complete": false
+}

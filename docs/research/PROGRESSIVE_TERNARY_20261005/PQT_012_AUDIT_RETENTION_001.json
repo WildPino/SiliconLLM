@@ -1,0 +1,119 @@
+{
+  "schema": "PQT_012_LOCAL_RETENTION_V1",
+  "passed": true,
+  "stage": "audit",
+  "sequence": "001",
+  "attempt_passed": true,
+  "source_commit": "61315fbe99eda8d4b84857e47d118cea74c6b9e3",
+  "attempt_report": {
+    "schema": "PQT_012_INPUT_AUDIT_V1",
+    "passed": true,
+    "source_commit": "61315fbe99eda8d4b84857e47d118cea74c6b9e3",
+    "preparation_sequence": "001",
+    "candidate_fits": 0,
+    "model_forwards": 0,
+    "GPU_allocations": 0,
+    "optimizer_updates": 0,
+    "whole_research_complete": false,
+    "admission": {
+      "own_pid": 10460,
+      "parent_pid": 17616,
+      "allowed_live_pids": [
+        10460,
+        17616
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 17616,
+        "ParentProcessId": 26672,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 17616,
+          "ParentProcessId": 26672,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 10460,
+          "ParentProcessId": 17616,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [],
+      "passed": true,
+      "native_timing_reservation": false
+    },
+    "preparation_source_commit": "61315fbe99eda8d4b84857e47d118cea74c6b9e3",
+    "binding_identity": {
+      "bytes": 8420,
+      "sha256": "7807ccf5e14a469a2fd21cdbb7121174f575495701a6e37ef9335cc723880cc6"
+    },
+    "capsule_identity": {
+      "bytes": 117362605,
+      "sha256": "654535bbed88a8a525af351b6052810fff6c495aa7845b17759db8e059a26f83"
+    },
+    "context_manifest_identity": {
+      "bytes": 191164,
+      "sha256": "a71ed4d8618f812c02b2fe44361868e5c3833ad667593c0a8045a922becbf86e"
+    },
+    "row_counts": {
+      "81/calibration": 321,
+      "81/development": 295,
+      "81/held_out": 299,
+      "87/calibration": 238,
+      "87/development": 243,
+      "87/held_out": 250,
+      "18/calibration": 236,
+      "18/development": 274,
+      "18/held_out": 267,
+      "91/calibration": 229,
+      "91/development": 180,
+      "91/held_out": 124
+    },
+    "exact_selected_weight_payloads": 8,
+    "exact_natural_rows": 2956,
+    "source_array_reads": 522,
+    "source_array_bytes": 223487232,
+    "full_source_archives_rehashed": false,
+    "capsule_read_bytes": 237494535,
+    "capsule_read_calls": 104,
+    "resource": {
+      "elapsed_seconds_before_report": 8.921999999991385,
+      "peak_process_RSS_bytes": 152928256
+    }
+  },
+  "controller": {
+    "schema": "PQT_012_LOCAL_CONTROLLER_V1",
+    "stage": "audit",
+    "sequence": "001",
+    "source_commit": "61315fbe99eda8d4b84857e47d118cea74c6b9e3",
+    "controller_sha256": "00ade1cd8b174c1ee3b70d08d664c6b4ef2f55a0dc7c81c54e6815b7be3868db",
+    "complete": true,
+    "timeout_seconds": 600,
+    "timed_out": false,
+    "exit_code": 0,
+    "worker_report_sha256": "74a76ffa59878839c088c98c17f160a9d2fd23229ec8fb8cc4cdeb9b8b341deb",
+    "worker_passed": true,
+    "elapsed_complete_worker_seconds": 9.1608237,
+    "owned_process_ids": [
+      17616,
+      10460
+    ]
+  },
+  "manifest": "pqt_012_controls_evidence/audit_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 5255,
+    "sha256": "be8b61e53357b771652cd4cb67b7b71d6e7277bdbccab4621ebc63669c33b471"
+  },
+  "raw_entries": 14,
+  "raw_bytes": 67660,
+  "resource": {
+    "elapsed_seconds_before_report": 0.40600000001722947,
+    "peak_process_RSS_bytes": 22548480
+  },
+  "complete_retainer_child_duration_separately_instrumented": false,
+  "whole_research_complete": false
+}

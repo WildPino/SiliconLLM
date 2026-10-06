@@ -1,0 +1,19 @@
+{
+  "schema": "PQT_RAW_GIT_VERIFICATION_FIRST_FAILURE_V1",
+  "run_id": "PQT-009-R1",
+  "recorded_at_utc": "2026-10-06T02:14:22Z",
+  "observed_exception_type": "CalledProcessError",
+  "git_returncode": 128,
+  "commit_read": "b27a427769c371acb004fc9f77907fe746ec52f1",
+  "first_requested_path": "docs/research/PROGRESSIVE_TERNARY_20261005/pqt_009_r1_evidence/audit.stderr.txt",
+  "observed_git_failure": "Path exists on disk but is absent from the commit read",
+  "cause": "Verification was dispatched while the preceding evidence commit command was still running; HEAD still pointed at the previous checkpoint",
+  "completed_evidence_commit": "07c485112c96dcf4e6eb854bd8d5fc2d56ae2255",
+  "original_raw_bytes_changed": false,
+  "scientific_source_or_artifacts_changed": false,
+  "independent_audit_or_adjudication_repeated": false,
+  "remote_dispatch_or_fetch_repeated": false,
+  "repair": "Wait for commit completion, preserve this first observed failure, rerun only raw Git verification with a numbered successful output namespace",
+  "evidence_kind": "Structured preservation of the observed tool error, not an originally captured stderr file",
+  "whole_research_complete": false
+}

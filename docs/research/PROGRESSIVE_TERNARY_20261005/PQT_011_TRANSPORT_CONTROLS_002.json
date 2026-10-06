@@ -1,0 +1,75 @@
+{
+  "schema": "PQT_LEARNED_SCALE_TRANSPORT_CONTROLS_V1",
+  "passed": true,
+  "source_commit": "2dab87b86ea57769f88a01bd1b16c7febb0d5ea6",
+  "source_files": {
+    "benchmarks/progressive_ternary/binding_transport.py": {
+      "bytes": 1358,
+      "sha256": "94cc29b6e6bad8d8f8f3c4714f79a8944265f4e6f63d7f34516f62ffa33f9de0"
+    },
+    "scripts/progressive_ternary/check_pqt011_transport.py": {
+      "bytes": 5331,
+      "sha256": "48a20a68c6ab44c6e54fd0586fe12658e03c9bba313c0799b49f13f3fde5083f"
+    },
+    "scripts/progressive_ternary/prepare_pqt011_input.py": {
+      "bytes": 2432,
+      "sha256": "5d5b6cee3775950c6d8763f2a30187af942d631e26098cdbcb05db0bac6d5567"
+    },
+    "docs/research/PROGRESSIVE_TERNARY_20261005/PQT_011_PROTOCOL.md": {
+      "bytes": 9086,
+      "sha256": "6ef6309ea4f151887b4d77ffb677d1463394d8ec08175cc1b1082552cb0faa70"
+    },
+    "docs/research/PROGRESSIVE_TERNARY_20261005/PQT_011_CONSUMED_BINDINGS.json": {
+      "bytes": 4112180,
+      "sha256": "3b1e54c7501173a19e414a28167709143e3aaf87a473848fb9df36b7799bf461"
+    }
+  },
+  "complete_binding_materialized": {
+    "external_source_files": 1,
+    "raw_bytes": 4112180,
+    "sha256": "3b1e54c7501173a19e414a28167709143e3aaf87a473848fb9df36b7799bf461",
+    "byte_preserving": true
+  },
+  "malformed_stops": [
+    "missing_mount",
+    "changed_hash",
+    "changed_size",
+    "size_cap",
+    "extra_source",
+    "unsafe_source",
+    "ambiguous_mount"
+  ],
+  "fixtures": {
+    "duplicates/a/pqt011_consumed_binding.bin": {
+      "bytes": 7,
+      "sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+    },
+    "duplicates/b/pqt011_consumed_binding.bin": {
+      "bytes": 7,
+      "sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+    },
+    "inputs/nested/owned/pqt011_consumed_binding.bin": {
+      "bytes": 4112180,
+      "sha256": "3b1e54c7501173a19e414a28167709143e3aaf87a473848fb9df36b7799bf461"
+    },
+    "output/external_sources/PQT_011_CONSUMED_BINDINGS.json": {
+      "bytes": 4112180,
+      "sha256": "3b1e54c7501173a19e414a28167709143e3aaf87a473848fb9df36b7799bf461"
+    },
+    "resource_guard.json": {
+      "bytes": 846,
+      "sha256": "110ed717a752307d09b8fc890a3ff56e2e5158ddc00667b2a7be8aa64747d94b"
+    },
+    "source/PQT_011_CONSUMED_BINDINGS.json": {
+      "bytes": 4112180,
+      "sha256": "3b1e54c7501173a19e414a28167709143e3aaf87a473848fb9df36b7799bf461"
+    }
+  },
+  "metadata_only": true,
+  "full_driver_executed": false,
+  "original_model_or_corpus_access": false,
+  "gpu_used": false,
+  "native_timing_measured": false,
+  "whole_research_complete": false,
+  "elapsed_seconds": 0.8600000000005821
+}

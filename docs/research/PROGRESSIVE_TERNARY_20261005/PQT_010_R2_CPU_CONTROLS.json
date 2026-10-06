@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "positive_extracted_member_exact": true,
+  "positive_container_proof": {
+    "all_binary_members_exact": 1,
+    "whole_binary_identity": {
+      "bytes": 145,
+      "sha256": "7ed936e3e002b31d5f0bbe943eafbb527fed84ddad2cf848e1c08d5dc845bf87"
+    },
+    "all_stored_safe_unique": true
+  },
+  "malformed_binary_or_mount_cases_rejected": [
+    "existing_extraction",
+    "duplicate",
+    "extra_member",
+    "unsafe_path",
+    "compressed",
+    "symlink",
+    "changed_member_same_length",
+    "wrong_declared_size",
+    "truncated_zip",
+    "wrong_whole_identity",
+    "ambiguous_mount",
+    "missing_mount"
+  ],
+  "original_model_or_corpus_access": false,
+  "local_GPU_access": false,
+  "new_optimizer_steps": 0,
+  "fixtures": {
+    "changed_member_same_length/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 145,
+      "sha256": "b8066e24a2fba96e39c705d30f0481770b5306e1224275fd2af881ee420edec0"
+    },
+    "compressed/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 147,
+      "sha256": "b90e5c1f4c18b45cc915704d0b0a164fd976653047f2cf241e0d2a3c9d04b8bd"
+    },
+    "duplicate/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 268,
+      "sha256": "53113992227168c960e15a6613311de43dfa7f7b05242db2c2f0e27fcf5166bc"
+    },
+    "extra_member/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 232,
+      "sha256": "34264d84a0851d6a5e3a951b8cc447f955c0c7ab353c2174dce0b97e211ff179"
+    },
+    "extracted/PQT-010/frozen.bin": {
+      "bytes": 11,
+      "sha256": "e38e581aade78b64cc86f7ac9f3555ca78c2dcca747942a7f1d9b3275a834f75"
+    },
+    "symlink/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 145,
+      "sha256": "98a6ac4071c52c3edc9744dbca7e511d5634b1c713645492cf7028bb16362dec"
+    },
+    "truncated/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 129,
+      "sha256": "02d8efc1acaf6bc967db211c598cb648260eb8dd13aa81a85f675e61024bd1bd"
+    },
+    "unsafe_path/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 127,
+      "sha256": "b31820daaf1ccec0ec756f7ff731f33965f48b17a8bfe59583f74ecb03aa0326"
+    },
+    "valid/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 145,
+      "sha256": "7ed936e3e002b31d5f0bbe943eafbb527fed84ddad2cf848e1c08d5dc845bf87"
+    },
+    "wrong_declared_size/pqt010_frozen_audit_outputs.bin": {
+      "bytes": 145,
+      "sha256": "7ed936e3e002b31d5f0bbe943eafbb527fed84ddad2cf848e1c08d5dc845bf87"
+    }
+  }
+}

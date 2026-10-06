@@ -1,0 +1,61 @@
+{
+  "schema": "PQT_BREADTH_CPU_CONTROLS_RETENTION_V1",
+  "all_controls_passed": true,
+  "all_169_toy_matrix_bindings_and_actual_counters": true,
+  "files": {
+    "apparatus.json": {
+      "bytes": 2753,
+      "sha256": "c5034d43a8954aab65e265e955946aa139899917a435058f19d1212f10d1df67"
+    },
+    "named_archive_fixture/B_ONE_payload.zip": {
+      "bytes": 728,
+      "sha256": "6a1390fa3e481e7c8b80050ec00f4482fb8135ed08b0ee50a18bfcc8533ee7b1"
+    },
+    "named_archive_fixture/B_STAGED_payload.zip": {
+      "bytes": 740,
+      "sha256": "83bac782c957c19dda718581dbdfc376d9371db5f30e1a5b8ea90299aa54cf94"
+    },
+    "named_archive_fixture/N_ONE_payload.zip": {
+      "bytes": 728,
+      "sha256": "b79e2bff58995cba86c65d4a5c10c6752d07b03378d340ec0f59fbf953199d71"
+    },
+    "named_archive_fixture/N_STAGED_payload.zip": {
+      "bytes": 740,
+      "sha256": "dc0586bcf45506b30fcbf457daabbc68a8ed4a4dd7c9fce92842c93f8ee6161b"
+    },
+    "resource_guard.json": {
+      "bytes": 867,
+      "sha256": "309aba298e28f1d4daf4ae1c6613006849cf48e70b4d9a25470155ac59aa3f3b"
+    }
+  },
+  "total_files": 6,
+  "total_bytes": 6556,
+  "source_hashes": {
+    "qat_math.py": {
+      "bytes": 11550,
+      "sha256": "ee847307a3251e89c9c238c1f49b106b7d4fe9cd52aca8163187f8cf89adca4e"
+    },
+    "breadth_selection.py": {
+      "bytes": 10164,
+      "sha256": "05c473a757a97dfdf4e9f6cf2604ed284da1e59b11d4ff7540d22762c5c65e8e"
+    },
+    "breadth_archive_controls.py": {
+      "bytes": 1993,
+      "sha256": "f1666f5d38fb586d1144f70647ee1b478e4ffbb67d820ab2af1135eed2875fe7"
+    },
+    "model_payload.py": {
+      "bytes": 3382,
+      "sha256": "2205e882e25f7be7f09a905dcaee385433e997d0453be526c84d4ed77255e8c2"
+    },
+    "pqt_audit_io.py": {
+      "bytes": 2226,
+      "sha256": "f1133a19cdd1a13bd300be5a65ccb6173f9b539bd57e2caf4e67ffa5398c328f"
+    }
+  },
+  "synthetic_only": true,
+  "new_original_model_function": false,
+  "new_corpus_selection": false,
+  "new_fitting": false,
+  "local_GPU_used": false,
+  "native_timing": false
+}

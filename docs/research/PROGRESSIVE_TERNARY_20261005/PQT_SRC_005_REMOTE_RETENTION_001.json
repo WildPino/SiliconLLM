@@ -1,0 +1,112 @@
+{
+  "schema": "PQT_SRC_005_REMOTE_RETENTION_V1",
+  "passed": true,
+  "model_forwards_repeated": 0,
+  "optimizer_updates": 0,
+  "GPU_allocations": 0,
+  "whole_research_complete": false,
+  "auditor_sha256": "edbce8867b43b9ad1a46c930f4a5fd581018e6cf62635b04e41c4c1de9e2ad8b",
+  "source_commit": "516744346b8c4010cfdce8916402c6083b5de827",
+  "retention": {
+    "manifest": "pqt_src005_evidence/remote_001/manifest.json",
+    "manifest_sha256": "da0dc88df0fc193d3c0b753ccb5ecb5ff1505dee9c09c01215ed39bbf510372c",
+    "raw_entries": 411,
+    "raw_bytes": 17386574,
+    "archive": "pqt_src005_evidence/remote_001/remote_raw.zip",
+    "archive_bytes": 17455244,
+    "archive_sha256": "e43ebfc4ac7ca12b84646d62fd5b4f4e85e40189960774de90046b0b989f0607"
+  },
+  "source": {
+    "commit": "169ad6661a3312b431e42554089ba51c5b386dae",
+    "verified_files": [
+      "benchmarks/progressive_ternary/src005_fixture.py",
+      "benchmarks/progressive_ternary/switch_lazy_float.py",
+      "benchmarks/progressive_ternary/src005_t4.py",
+      "benchmarks/progressive_ternary/audit_src005_t4.py",
+      "docs/research/PROGRESSIVE_TERNARY_20261005/PQT_SRC_005_BINDING.json",
+      "docs/research/PROGRESSIVE_TERNARY_20261005/PQT_SRC_005_PROTOCOL.md",
+      "docs/research/PROGRESSIVE_TERNARY_20261005/PQT_SRC_005_LOCAL_CONTROLS_RETENTION.json"
+    ],
+    "bootstrap_actual_bytes": 40981,
+    "bootstrap_actual_sha256": "b5dda51a71750813e3d70495aef7bc15ff7dcfafbc6dd313619dcc754ba8a9ed",
+    "bootstrap_LF_bytes": 40947,
+    "bootstrap_LF_sha256": "2c70b781b349101bd423877e1736acc4068c59b0f94fe990d35b0bcb8f2019ca",
+    "only_CRLF_transport_normalization": true
+  },
+  "bootstrap_progress": [
+    {
+      "step": "install",
+      "returncode": 0,
+      "error": null,
+      "declared_seconds": 600,
+      "budget_seconds": 600,
+      "elapsed_seconds": 18.41955396100002
+    },
+    {
+      "step": "qualification",
+      "returncode": 0,
+      "error": null,
+      "declared_seconds": 600,
+      "budget_seconds": 600,
+      "elapsed_seconds": 66.46277133000001
+    },
+    {
+      "step": "audit",
+      "returncode": 0,
+      "error": null,
+      "declared_seconds": 300,
+      "budget_seconds": 300,
+      "elapsed_seconds": 1.4188973450000049
+    }
+  ],
+  "bootstrap_costs": {
+    "source_preparation_seconds": 0.014110133000031055,
+    "server_elapsed_seconds": 86.31657354700008,
+    "server_budget_seconds": 1800
+  },
+  "maximum_relative_RMS": 8.196127306114756e-07,
+  "local_CPU_reference_array_comparisons": 3144,
+  "retained_trace_ZIP_entries": 9624,
+  "all64_cases_locally_reaggregated": true,
+  "qualification_resource": {
+    "elapsed_seconds_before_manifest": 18.13640480800001,
+    "peak_process_RSS_bytes": 2481627136,
+    "elapsed_seconds_before_report": 18.206880823000006
+  },
+  "audit_resource": {
+    "elapsed_seconds": 1.3254791560000285,
+    "peak_process_RSS_bytes": 45772800
+  },
+  "GPU_devices": [
+    {
+      "gpu": 0,
+      "name": "Tesla T4",
+      "physical_total_memory_bytes": 15636037632,
+      "peak_allocated_bytes": 33856512,
+      "peak_reserved_bytes": 35651584
+    },
+    {
+      "gpu": 1,
+      "name": "Tesla T4",
+      "physical_total_memory_bytes": 15636037632,
+      "peak_allocated_bytes": 33856512,
+      "peak_reserved_bytes": 35651584
+    }
+  ],
+  "capacity_F64": [
+    {
+      "gpu": 0,
+      "relative_RMS": 8.062178924162598e-08
+    },
+    {
+      "gpu": 1,
+      "relative_RMS": 8.062178924162598e-08
+    }
+  ],
+  "original_model_or_quality_claim": false,
+  "local_resource": {
+    "elapsed_seconds_before_report": 1.8439999999973224,
+    "peak_process_RSS_bytes": 54034432,
+    "scope": "Source/hash/retention and preserved numerical reaggregation; no model execution or timing benchmark."
+  }
+}

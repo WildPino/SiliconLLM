@@ -1,0 +1,23 @@
+{
+  "schema": "PQT_TRANSPORT_ADMISSION_FAILURE_V1",
+  "run_id": "PQT-011",
+  "sequence": "001",
+  "passed": false,
+  "raw_files": {
+    "resource_guard.json": {
+      "bytes": 1656,
+      "sha256": "1fef3082ecfa221a48525d0ec8bce613314fd5b05af18ba71bb5efd11ca272b7"
+    },
+    "failure.json": {
+      "bytes": 88,
+      "sha256": "554fdbc77468e914bcdb87a4b824d19c83b74ec77575ce0c18e6d0dd4da4b890"
+    }
+  },
+  "cause": "Live guard rejected a concurrent owned metadata-preparation Python process.",
+  "attempt_elapsed_seconds": 0.42199999999138527,
+  "qualification_started": false,
+  "original_model_or_corpus_function": false,
+  "gpu_used": false,
+  "next_attempt": "Sequential unchanged-source transport_controls_002; preserve 001.",
+  "whole_research_complete": false
+}

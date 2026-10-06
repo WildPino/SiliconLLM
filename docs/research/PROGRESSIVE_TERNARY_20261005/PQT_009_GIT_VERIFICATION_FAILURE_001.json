@@ -1,0 +1,14 @@
+{
+  "schema": "PQT_GIT_VERIFICATION_FIRST_FAILURE_V1",
+  "run_id": "PQT-009",
+  "evidence_commit": "b89c7d23d89f57ee5bf6681ee4ed7379c720961f",
+  "observed_error_type": "CalledProcessError",
+  "observed_git_returncode": 128,
+  "observed_missing_path": "docs/research/PROGRESSIVE_TERNARY_20261005/pqt_009_evidence/audit.stderr.txt",
+  "cause": "New verifier accidentally retained the predecessor PQT_008_RETENTION.json reference. Parent PQT-009 ran no audit phase and therefore has no audit.stderr.txt.",
+  "diagnostic_basis": "Structured record of the observed command failure and directly inspected verifier source; not an original stderr file",
+  "scientific_artifact_or_raw_evidence_changed": false,
+  "verification_record_written_before_failure": false,
+  "repair": "Correct retention/output record references, require the intended run ID and use exclusive PQT_009_GIT_VERIFICATION_R1.json.",
+  "whole_research_complete": false
+}

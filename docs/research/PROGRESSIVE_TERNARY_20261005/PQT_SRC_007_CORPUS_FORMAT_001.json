@@ -1,0 +1,73 @@
+{
+  "schema": "PQT_SRC_007_CORPUS_FRAMING_V1",
+  "passed": false,
+  "records": [],
+  "controls": [],
+  "source_commit": "cefabadeab439549988e4c84b58b80ea3a75c8b4",
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "admission": {
+    "own_pid": 10620,
+    "parent_pid": 23500,
+    "allowed_live_pids": [
+      10620,
+      23500
+    ],
+    "own_venv_launcher_verified": {
+      "Name": "python.exe",
+      "ProcessId": 23500,
+      "ParentProcessId": 18912,
+      "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.venv\\Scripts\\python.exe"
+    },
+    "snapshot_processes": [
+      {
+        "Name": "python.exe",
+        "ProcessId": 30596,
+        "ParentProcessId": 15820,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "Name": "python.exe",
+        "ProcessId": 6948,
+        "ParentProcessId": 30596,
+        "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+      },
+      {
+        "Name": "python.exe",
+        "ProcessId": 23500,
+        "ParentProcessId": 18912,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "Name": "python.exe",
+        "ProcessId": 10620,
+        "ParentProcessId": 23500,
+        "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+      }
+    ],
+    "relevant_other_processes": [
+      {
+        "Name": "python.exe",
+        "ProcessId": 30596,
+        "ParentProcessId": 15820,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "Name": "python.exe",
+        "ProcessId": 6948,
+        "ParentProcessId": 30596,
+        "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+      }
+    ],
+    "passed": false,
+    "native_timing_reservation": false
+  },
+  "failure": {
+    "type": "ValueError",
+    "gate": "process_admission"
+  },
+  "resource": {
+    "elapsed_seconds_before_report": 0.4529999999940628,
+    "peak_process_RSS_bytes": 22667264
+  }
+}

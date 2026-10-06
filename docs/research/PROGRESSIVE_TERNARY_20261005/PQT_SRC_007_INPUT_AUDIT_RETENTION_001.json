@@ -1,0 +1,42 @@
+{
+  "schema": "PQT_SRC_007_INPUT_AUDIT_RETENTION_V1",
+  "passed": true,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "GPU_allocations": 0,
+  "source_commit": "7440638a3c0f87604815c23856da9230c8ffc108",
+  "whole_research_complete": false,
+  "first_oversized_metadata_response_prefix_preserved": false,
+  "retention": {
+    "manifest": "pqt_src007_inputs_evidence/audit_001/manifest.json",
+    "manifest_sha256": "a36dac8b00e7f9e525ba686994625a20915f3d2b1c34971fd7d8f8c0720a5d15",
+    "archive": "pqt_src007_inputs_evidence/audit_001/raw.zip",
+    "archive_sha256": "798ad097770c27dcb7f1d285103ff1304843d56cebbfcdc74e7c41d7548d92ff",
+    "archive_bytes": 55824724,
+    "raw_entries": 85,
+    "raw_bytes": 55806312
+  },
+  "document_count": 384,
+  "candidate_count": 4096,
+  "all_source_documents_and_split_identities_exact": true,
+  "all384_span_reconstructions_exact": true,
+  "original_model_functions": 0,
+  "worker_resource": {
+    "elapsed_seconds_before_manifest": 24.031000000002678,
+    "peak_process_RSS_bytes": 372736000,
+    "elapsed_seconds_before_report": 24.062000000005355
+  },
+  "complete_child_seconds": 24.9144691,
+  "source_scan_statistics": {
+    "decompressed_read_bytes": 13172736,
+    "maximum_chunk_bytes": 65536,
+    "maximum_record_buffer_bytes": 98128,
+    "records": 5704,
+    "oversized_records": 0
+  },
+  "resource": {
+    "elapsed_seconds_before_report": 4.25,
+    "peak_process_RSS_bytes": 79405056,
+    "scope": "Independent source/document/span audit and raw retention; no tokenizer/model execution."
+  }
+}

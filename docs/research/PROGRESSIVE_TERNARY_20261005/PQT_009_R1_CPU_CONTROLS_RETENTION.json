@@ -1,0 +1,105 @@
+{
+  "schema": "PQT_EVALUATION_REPAIR_CPU_CONTROLS_V1",
+  "run_id": "PQT-009-R1",
+  "passed": true,
+  "complete_local_directory": "<research-worktree>/SiliconLLM\\results\\progressive_ternary\\PQT-009-R1\\controls_001",
+  "files": {
+    "apparatus.json": {
+      "bytes": 1659,
+      "sha256": "c17ef1623f3643bd58abe532c5d5fd5cbdd15ca509c09b872e96d5370c50a2ec"
+    },
+    "duplicate/frozen.bin": {
+      "bytes": 799,
+      "sha256": "ffa3a4cf4be9ce4d4868d7b2f9aebf023ce9f19789ab0fd58eb18f07363f60f6"
+    },
+    "extracted/PQT-009/failure.json": {
+      "bytes": 21,
+      "sha256": "d2283af6cc28f9cad92fdede627e7e300f8f388f0dd20fe9ea1fc821eace0d89"
+    },
+    "extracted/server_bundle/parent.py": {
+      "bytes": 227,
+      "sha256": "1844f6aa7085eda118df0a7bdade63616af9987c2dc4b5a7604861c5c317cd25"
+    },
+    "extracted/source_manifest.json": {
+      "bytes": 175,
+      "sha256": "6fa25a1c27d2fc57f999e35bbbc12b82f6cfd15297f9e5778c6fefd7965e6690"
+    },
+    "frozen.bin": {
+      "bytes": 799,
+      "sha256": "ffa3a4cf4be9ce4d4868d7b2f9aebf023ce9f19789ab0fd58eb18f07363f60f6"
+    },
+    "payloads/B_ONE_payload.zip": {
+      "bytes": 1228,
+      "sha256": "c22e502d77a89f48f3713751408a736543de9119ee2dcaa5d10e10c58973eaff"
+    },
+    "payloads/B_STAGED_payload.zip": {
+      "bytes": 1252,
+      "sha256": "1907c4f5d43c48ee46f32b3cc4fc7ae1755d2949324aa1f31cc2341ddb61efd5"
+    },
+    "payloads/D_payload.zip": {
+      "bytes": 1196,
+      "sha256": "53ce9c84a067584dc164849e89407d961703c49141c6d5a0cbc6ca0049ab3e8e"
+    },
+    "payloads/N_ONE_payload.zip": {
+      "bytes": 1228,
+      "sha256": "9f300ca933edd5b0550a760f821ee36f78935a2b20b6cc993a08859a3c50ae27"
+    },
+    "payloads/N_STAGED_payload.zip": {
+      "bytes": 1252,
+      "sha256": "40056307dea5b2b30c385b254765cf03e48f2079842cb7600677ef5cfc5ae67d"
+    },
+    "resource_guard.json": {
+      "bytes": 864,
+      "sha256": "83bc402ddc8af9ddb641182399c3e7e938b461186c568c5697440fe83b32dbc0"
+    },
+    "undeclared.bin": {
+      "bytes": 886,
+      "sha256": "34d7776d4e161c56917230221cd4d9fe7bda21af29d0fbb300bb261f47a8b335"
+    }
+  },
+  "small_raw_retained": [
+    "apparatus.json",
+    "extracted/PQT-009/failure.json",
+    "extracted/source_manifest.json",
+    "resource_guard.json"
+  ],
+  "total_files": 13,
+  "total_bytes": 11586,
+  "source_hashes": {
+    "pqt009_r1.py": {
+      "bytes": 14641,
+      "sha256": "0db1146f83333c11b7370b1f5fdbb1a51b1b668356f7b84b04691d642b2e44f5"
+    },
+    "full_model_eval.py": {
+      "bytes": 4238,
+      "sha256": "1fd59123e78b43782a3f69ee3c53a04f1759a07a1aba3bacdb05b45897d94307"
+    },
+    "r1_selection.py": {
+      "bytes": 5602,
+      "sha256": "264e75a66b60d3617ee28bac2fc9f83340be970d871ba37cc2c5f9279222974f"
+    },
+    "frozen_parent_io.py": {
+      "bytes": 5579,
+      "sha256": "2012fe1d6f22f5dba8ae06908ff2ceb14c3e6268c993d49c7aaa13520ec855eb"
+    },
+    "audit_pqt009_r1.py": {
+      "bytes": 4031,
+      "sha256": "e157571202b6904427523157f66d5ac75404fc64b1eaa1ca470c06bcb02085a8"
+    },
+    "audit_r1_selection.py": {
+      "bytes": 6812,
+      "sha256": "7fb70bc7b467dfbfa03d2cc3759f4b599c3a05811e073c2209837e87690eb30d"
+    },
+    "audit_pqt009.py": {
+      "bytes": 30989,
+      "sha256": "da2495500fd1d9effb54bff756bcf887bf0cb76baf015596866ccd8e9e1cce89"
+    }
+  },
+  "elapsed_seconds": 2.764999999999418,
+  "synthetic_only": true,
+  "original_function_access": false,
+  "new_corpus_selection": false,
+  "new_optimizer_steps": 0,
+  "GPU_used": false,
+  "native_timing": false
+}

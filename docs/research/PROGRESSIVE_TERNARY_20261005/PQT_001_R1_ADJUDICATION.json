@@ -1,0 +1,82 @@
+{
+  "schema": "PQT_PILOT_ADJUDICATION_V1",
+  "run_id": "PQT-001-R1",
+  "source_commit": "10f1f45cf0ffc0d90762193ca3a078b5d7677615",
+  "independent_audit_passed": true,
+  "arms": {
+    "D": {
+      "metrics": {
+        "layer_normalized_sse": 0.22632424261385073,
+        "mean_kl": 0.43415796117418937,
+        "mean_nll_delta": 0.45224100262077704,
+        "top1_agreement": 0.6240234375
+      },
+      "fit_seconds": 0.08922248899997953,
+      "payload_bytes": 1361920
+    },
+    "DR": {
+      "metrics": {
+        "layer_normalized_sse": 0.0764975529680005,
+        "mean_kl": 0.24273761371492653,
+        "mean_nll_delta": 0.20169513296982733,
+        "top1_agreement": 0.7587890625
+      },
+      "fit_seconds": 6.310807054999998,
+      "payload_bytes": 1361920,
+      "pilot_gate_passed": true,
+      "gates": {
+        "heldout_layer_improvement_10pct": true,
+        "mean_kl_not_worse": true,
+        "agreement_within_one_percentage_point": true,
+        "nll_within_001_nats": true,
+        "payload_at_most_35pct_fp16_projection": true,
+        "all_arm_conversion_within_45min": true
+      },
+      "layer_improvement_fraction": 0.6620001813127951
+    },
+    "P": {
+      "metrics": {
+        "layer_normalized_sse": 0.11976100052517785,
+        "mean_kl": 0.48677015428805187,
+        "mean_nll_delta": 0.5721147193571076,
+        "top1_agreement": 0.6220703125
+      },
+      "fit_seconds": 1.9433260320000159,
+      "payload_bytes": 1361920,
+      "pilot_gate_passed": false,
+      "gates": {
+        "heldout_layer_improvement_10pct": true,
+        "mean_kl_not_worse": false,
+        "agreement_within_one_percentage_point": true,
+        "nll_within_001_nats": false,
+        "payload_at_most_35pct_fp16_projection": true,
+        "all_arm_conversion_within_45min": true
+      },
+      "layer_improvement_fraction": 0.4708432506299763
+    },
+    "PR": {
+      "metrics": {
+        "layer_normalized_sse": 0.06352860997881615,
+        "mean_kl": 0.21198873228324872,
+        "mean_nll_delta": 0.23226824468540988,
+        "top1_agreement": 0.76171875
+      },
+      "fit_seconds": 7.9065761829999985,
+      "payload_bytes": 1361920,
+      "pilot_gate_passed": true,
+      "gates": {
+        "heldout_layer_improvement_10pct": true,
+        "mean_kl_not_worse": true,
+        "agreement_within_one_percentage_point": true,
+        "nll_within_001_nats": true,
+        "payload_at_most_35pct_fp16_projection": true,
+        "all_arm_conversion_within_45min": true
+      },
+      "layer_improvement_fraction": 0.7193026728152705
+    }
+  },
+  "all_arms_fit_seconds": 16.281717707000013,
+  "pilot_advance_justified": true,
+  "scope": "Single Qwen FFN projection and original-context WikiText diagnostic. No complete-model, generation, native speed or MoE capacity claim.",
+  "whole_research_complete": false
+}

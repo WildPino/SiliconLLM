@@ -1,0 +1,50 @@
+{
+  "started_utc": "2026-10-06T02:45:13.891286+00:00",
+  "finished_utc": "2026-10-06T02:45:21.227022+00:00",
+  "success": true,
+  "value": {
+    "schema": "PQT_UNKNOWN_DISPATCH_RECONCILIATION_V1",
+    "time_utc": "2026-10-06T02:45:21.227022+00:00",
+    "account": {
+      "account": "acct3",
+      "status": "verified",
+      "configured_username": "sirwildpino",
+      "server_identity": "sirwildpino",
+      "gpu_quota": {
+        "used_hours": 1.540742222222222,
+        "reserved_hours": 0.0,
+        "total_hours": 30.0,
+        "remaining_before_reservations_hours": 28.45925777777778,
+        "conservative_unreserved_hours": 28.45925777777778,
+        "idle_proven": false,
+        "reset_time": null
+      },
+      "observed_at_utc": "2026-10-06T02:45:17.209992+00:00"
+    },
+    "ref": "sirwildpino/pqt-010-shared-parameter-ablation-20261006-001",
+    "owned_inventory": {
+      "started_utc": "2026-10-06T02:45:17.209992+00:00",
+      "finished_utc": "2026-10-06T02:45:19.503711+00:00",
+      "success": false,
+      "error_type": "ValueError",
+      "http_status_code": null
+    },
+    "exact_status": {
+      "started_utc": "2026-10-06T02:45:19.503711+00:00",
+      "finished_utc": "2026-10-06T02:45:20.110775+00:00",
+      "success": false,
+      "error_type": "HTTPError",
+      "http_status_code": 404
+    },
+    "exact_metadata": {
+      "started_utc": "2026-10-06T02:45:20.111774+00:00",
+      "finished_utc": "2026-10-06T02:45:21.226022+00:00",
+      "success": false,
+      "error_type": "HTTPError",
+      "http_status_code": 403
+    },
+    "remote_mutations": 0,
+    "exact_ref_in_inventory": null,
+    "absence_claimed": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "checks": [
+    "scale_support_optimum_matches_81_code_exhaustion",
+    "ties_zero_scale_pack_roundtrip_invalid_code",
+    "blocked_progressive_matches_independent_scalar_inverse_and_cholesky",
+    "coordinate_pass_matches_independent_three_way_exhaustion",
+    "nonfinite_and_zero_curvature_fail_closed"
+  ],
+  "scope": "Read-only existing local runtime, tiny CPU controls only; not GPU environment admission",
+  "source_commit": "3bd86ea",
+  "python": "3.12.10",
+  "torch": "2.6.0+cu124"
+}

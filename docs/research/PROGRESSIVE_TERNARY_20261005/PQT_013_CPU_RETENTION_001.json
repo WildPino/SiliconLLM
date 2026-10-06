@@ -1,0 +1,338 @@
+{
+  "schema": "PQT_013_CPU_RETENTION_V1",
+  "passed": true,
+  "attempt_passed": false,
+  "sequence": "001",
+  "ref": "giggio253/pqt-013-primitive-controls-20261006-001",
+  "scientific_source_commit": "3fecc44cc08273d60a870adea6a33d1fb55f1bcb",
+  "all_actual_source_and_raw_bytes_verified": true,
+  "server_bootstrap": {
+    "original": {
+      "bytes": 68634,
+      "sha256": "609de54c20f7b33c7b9b447c4a838ea1113f134ee65dbc74684fc65d24e18a16"
+    },
+    "pulled": {
+      "bytes": 68702,
+      "sha256": "915d4099c1fa3396b1bb75af0c396b2dd1de14fec60b8642a20cadfbebaa9f93"
+    },
+    "exact_after_explicit_CRLF_to_LF_only": true,
+    "pull_CRLF_count": 68,
+    "pulled_raw_bytes_retained_unchanged": true
+  },
+  "qualification_report": {
+    "schema": "PQT_013_CONTROLS_V1",
+    "passed": false,
+    "source_commit": "3fecc44cc08273d60a870adea6a33d1fb55f1bcb",
+    "synthetic_only": true,
+    "original_candidate_fits": 0,
+    "GPU_allocations": 0,
+    "optimizer_updates": 0,
+    "checks": [
+      "scalar_endpoints_one_sided_all_zero_and_half_ties",
+      "independent_literal_golden_packing",
+      "scalar_compensation_and_panel_tail_False",
+      "scalar_compensation_and_panel_tail_True",
+      "zero_curvature_floor_without_fallback",
+      "packed_asymmetric_function_without_source_lookup",
+      "packed_symmetric_function_levels",
+      "packed_group64_baseline_golden"
+    ],
+    "rejections": [
+      {
+        "control": "reserved_code",
+        "gate": "pqt013_reserved_code"
+      },
+      {
+        "control": "short_code_stream",
+        "gate": "pqt013_packed_length"
+      },
+      {
+        "control": "stale_hash",
+        "gate": "pqt013_member_hash"
+      },
+      {
+        "control": "negative_level",
+        "gate": "pqt013_nonnegative_levels"
+      },
+      {
+        "control": "F64_level",
+        "gate": "pqt012_npy_layout_finite"
+      },
+      {
+        "control": "wrong_level_shape",
+        "gate": "pqt012_npy_layout_finite"
+      },
+      {
+        "control": "NaN_level",
+        "gate": "pqt012_npy_layout_finite"
+      },
+      {
+        "control": "wrong_group",
+        "gate": "pqt013_artifact_group"
+      },
+      {
+        "control": "unknown_encoding",
+        "gate": "pqt013_artifact_geometry"
+      }
+    ],
+    "whole_research_complete": false,
+    "admission": {
+      "scope": "Dedicated private CPU-only host; full actual source manifest independently checked",
+      "passed": true,
+      "all_actual_source_bytes_verified": true,
+      "native_timing_reservation": false
+    },
+    "runtime": {
+      "python": "3.13.15",
+      "torch": "2.11.0+cu128",
+      "numpy": "2.1.3",
+      "cuda_devices": 0,
+      "threads": 1
+    },
+    "failure": {
+      "type": "ValueError",
+      "frames": [
+        {
+          "file": "qualify_pqt013.py",
+          "line": 198,
+          "function": "main"
+        },
+        {
+          "file": "qualify_pqt013.py",
+          "line": 89,
+          "function": "reject"
+        },
+        {
+          "file": "src007_io.py",
+          "line": 12,
+          "function": "require"
+        }
+      ],
+      "gate": "pqt013_negative_gate_mismatch"
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 14.767939924000075,
+      "peak_process_RSS_bytes": 657256448
+    },
+    "files": {
+      "wrong_group.bin": {
+        "bytes": 1505,
+        "sha256": "c20d0315d1e1ac2596e53d302234ac7cec4cb88c274c1ef2293e3a307a37f522"
+      },
+      "scalar_False_128.json": {
+        "bytes": 994,
+        "sha256": "59d2a02e831ff9dfe170dfac1da66d88b3312ef49a9104b41da693700022108b"
+      },
+      "wrong_level_shape.bin": {
+        "bytes": 1489,
+        "sha256": "cec207064fc23fc8a8e676459d31378228c3542503be807e7d5e8c78133bb862"
+      },
+      "golden_asymmetric.bin": {
+        "bytes": 1724,
+        "sha256": "df90f73a4182d526e545fe6602f460f92cdf84e8b5091be13a46d57b09c10f85"
+      },
+      "reserved_code.bin": {
+        "bytes": 1505,
+        "sha256": "9bd8fb006393df9da20cca35432379f8e95dfc604585a10ab4de3ccbf459a8ee"
+      },
+      "F64_level.bin": {
+        "bytes": 1537,
+        "sha256": "1b5819d4b5f5a3b09605be68835fff182b1c9840b63070fbccece223574f0620"
+      },
+      "scalar_False_3.json": {
+        "bytes": 1266,
+        "sha256": "7b6e812ecda035658b1157731ad30ec328e33366add8c989c5c339045649433e"
+      },
+      "short_code_stream.bin": {
+        "bytes": 1504,
+        "sha256": "2ff71d1ec5f5597d56b9d12ddf3e40dc1462de98a584c1ae29fca367d1f9fa3f"
+      },
+      "golden_symmetric.bin": {
+        "bytes": 1690,
+        "sha256": "dba4e7cef22e633155468a3ce2cf56602635adfd551b9cb97c3084cbdb8e32ce"
+      },
+      "scalar_True_128.json": {
+        "bytes": 994,
+        "sha256": "f4ee54f1bb5f9ef8c21d4ed6844eeebe30a66ebb70fbac4cc29a186adf3a2d5b"
+      },
+      "negative_level.bin": {
+        "bytes": 1505,
+        "sha256": "2119ba2e1c412dfbf718063aa54c172e32650b5f9b26ee920b7b1a541da47524"
+      },
+      "unknown_encoding.bin": {
+        "bytes": 1504,
+        "sha256": "f4a5f7a9a2f05cb8ae174f5bf2ddb08f88551fe44a0f8bd31bddfcbf952e6576"
+      },
+      "resource_guard.json": {
+        "bytes": 200,
+        "sha256": "ecc621aae3e3e70053c5aca17093847b5ce7984d6d8475d6728ab43d52654eb0"
+      },
+      "original_dense_extra.bin": {
+        "bytes": 1931,
+        "sha256": "61764f4314959915907972efa18844f132ad1f126bbdf802e8c0eda16d852596"
+      },
+      "stale_hash.bin": {
+        "bytes": 1505,
+        "sha256": "729dd2a5d3071423a8a88553acaa3171aadb8cc291d2d4c1c3a8e77a58a76ee9"
+      },
+      "scalar_True_3.json": {
+        "bytes": 1266,
+        "sha256": "a03a7df1bcdbb8c5a0a3c023b13bea4a80d80ebfdee620f47d098a5d2571b42c"
+      },
+      "golden_group64.bin": {
+        "bytes": 4222,
+        "sha256": "f4ab090a003470888b7028cb809880eebe2d9909f09f70975f2ae4cabea44d52"
+      },
+      "NaN_level.bin": {
+        "bytes": 1505,
+        "sha256": "6a96b0bcff95a3dbcd8a3e2bd593ae18fe9f7c28fb6b4773c5f7205a37fc9b91"
+      }
+    }
+  },
+  "bootstrap_costs": {
+    "schema": "PQT_013_CPU_BOOTSTRAP_V1",
+    "passed": false,
+    "source_commit": "3fecc44cc08273d60a870adea6a33d1fb55f1bcb",
+    "ref": "giggio253/pqt-013-primitive-controls-20261006-001",
+    "source_preparation_seconds": 0.021563428000035856,
+    "server_elapsed_seconds_before_report": 23.15979598199999,
+    "server_budget_seconds": 1200,
+    "bootstrap_peak_RSS_bytes": 21213184,
+    "raw_output_bytes_before_report": 163905,
+    "steps": [
+      {
+        "step": "install",
+        "returncode": 0,
+        "resource_stop": null,
+        "declared_seconds": 300,
+        "budget_seconds": 300,
+        "elapsed_complete_child_seconds": 4.227983463999976,
+        "actual_child_peak_RSS_bytes": 51970048,
+        "sampled_direct_child_peak_RSS_bytes": 50294784,
+        "RSS_scope": "Actual wait4 rusage of this direct child, not cumulative; sampled RSS monitors the direct child"
+      },
+      {
+        "step": "controls",
+        "returncode": 1,
+        "resource_stop": null,
+        "declared_seconds": 600,
+        "budget_seconds": 600,
+        "elapsed_complete_child_seconds": 18.908607738,
+        "actual_child_peak_RSS_bytes": 750940160,
+        "sampled_direct_child_peak_RSS_bytes": 749637632,
+        "RSS_scope": "Actual wait4 rusage of this direct child, not cumulative; sampled RSS monitors the direct child"
+      }
+    ],
+    "GPU_enabled": false,
+    "original_candidate_fits": 0,
+    "optimizer_updates": 0
+  },
+  "admission": {
+    "schema": "PQT_KAGGLE_ADMISSION_V1",
+    "time_utc": "2026-10-06T17:28:37.721934+00:00",
+    "account": {
+      "account": "acct2",
+      "status": "verified",
+      "configured_username": "giggio253",
+      "server_identity": "giggio253",
+      "gpu_quota": {
+        "used_hours": 0.06602194444444444,
+        "reserved_hours": 0.0,
+        "total_hours": 30.0,
+        "remaining_before_reservations_hours": 29.933978055555556,
+        "conservative_unreserved_hours": 29.933978055555556,
+        "idle_proven": false,
+        "reset_time": null
+      },
+      "observed_at_utc": "2026-10-06T17:28:30.877327+00:00"
+    },
+    "owned_kernels": [
+      {
+        "ref": "giggio253/pqt-012-natural-encoder-20261006-001",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/pqt-005-r1-original-experts-20261005-002",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/pqt-005-original-experts-20261005-001",
+        "status": "ERROR",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/h2i-one-byte-phase-b",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/phase64-mainrun",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/phase64-arm5",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/seearm2-v4096",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/wilddataset-2",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      },
+      {
+        "ref": "giggio253/siliconllm2",
+        "status": "COMPLETE",
+        "private": false,
+        "version": 0,
+        "docker_image": ""
+      }
+    ],
+    "ref": "giggio253/pqt-013-primitive-controls-20261006-001",
+    "timeout_seconds": 1200,
+    "source_commit": "5aca6e1456907d9b5dc597b1b73b4a3dac271115",
+    "CPU_quota_margin_explicitly_required": true,
+    "prior_ref_fresh_status": null,
+    "bundle_sha256": {
+      "bootstrap.py": "609de54c20f7b33c7b9b447c4a838ea1113f134ee65dbc74684fc65d24e18a16",
+      "kernel-metadata.json": "f6297047e3e757e75b1efabdee8a26f8e9159495d5eba0630ab97e15a2ac8d7f"
+    },
+    "interactive_session_absence_proven": false,
+    "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+  },
+  "manifest": "pqt013_cpu_evidence_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 27261,
+    "sha256": "ce873da933a6351f633b18e214fcadac6d636ba24ac3d87c11f16498b4a36f1f"
+  },
+  "raw_entries": 72,
+  "raw_bytes": 348535,
+  "resource": {
+    "elapsed_seconds_before_report": 1.1570000000065193,
+    "peak_process_RSS_bytes": 23793664
+  },
+  "whole_research_complete": false
+}

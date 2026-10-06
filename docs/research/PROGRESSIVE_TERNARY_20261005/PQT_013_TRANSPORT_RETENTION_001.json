@@ -1,0 +1,149 @@
+{
+  "schema": "PQT_013_STAGE_RETENTION_V1",
+  "passed": true,
+  "stage": "transport",
+  "sequence": "001",
+  "attempt_passed": true,
+  "source_commit": "eca175dcf51fa9ecf64d92f7b1cab3f590f2fb78",
+  "producer_report": {
+    "schema": "PQT_013_TRANSPORT_CONTROLS_V1",
+    "passed": true,
+    "source_commit": "eca175dcf51fa9ecf64d92f7b1cab3f590f2fb78",
+    "positive_controls": [
+      "literal_binary_empty_CRLF_bytes",
+      "independent_ZIP_STORED_namespace_and_timestamp",
+      "verified_only_own_file_removal",
+      "unrelated_root_log_preserved",
+      "namespace_stop_preserves_all_originals"
+    ],
+    "rejections": [
+      {
+        "control": "repeat_pack",
+        "gate": "pqt013_transport_exclusive"
+      },
+      {
+        "control": "unsafe_path_../outside",
+        "gate": "pqt013_transport_path"
+      },
+      {
+        "control": "unsafe_path_PQT-013/../outside",
+        "gate": "pqt013_transport_path"
+      },
+      {
+        "control": "unsafe_path_/PQT-013/x",
+        "gate": "pqt013_transport_path"
+      },
+      {
+        "control": "unsafe_path_PQT-013\\x",
+        "gate": "pqt013_transport_path"
+      },
+      {
+        "control": "unsafe_path_unrelated/x",
+        "gate": "pqt013_transport_path"
+      },
+      {
+        "control": "wrong_packet_hash",
+        "gate": "pqt013_transport_packet_hash"
+      },
+      {
+        "control": "missing_member",
+        "gate": "pqt013_transport_member_namespace"
+      },
+      {
+        "control": "wrong_member_hash",
+        "gate": "pqt013_transport_member_hash"
+      },
+      {
+        "control": "oversized_member",
+        "gate": "pqt013_transport_member_spec"
+      },
+      {
+        "control": "existing_packet_before_removal",
+        "gate": "pqt013_transport_exclusive"
+      }
+    ],
+    "original_numerical_reads": 0,
+    "private_write": false,
+    "resource": {
+      "elapsed_seconds_before_report": 0.14000000001396984,
+      "peak_process_RSS_bytes": 22736896
+    },
+    "files": {
+      "golden/controller.stdout.log": {
+        "bytes": 21,
+        "sha256": "6e5e3088a3178f286d135f526fd038c32409ecd7b73589ae91460f874ae070b9"
+      },
+      "golden/pqt013_raw_001.zip": {
+        "bytes": 743,
+        "sha256": "f73615f65410a178ca349a618f82cc970e6c40b94067d1055e12909aad821a00"
+      },
+      "golden/transport.json": {
+        "bytes": 323,
+        "sha256": "4cb9db161f1a705c05f531f3c95a77e6a8a4cffa9c5841a9728d3904ae8ae8a7"
+      },
+      "golden/transport_manifest.json": {
+        "bytes": 1137,
+        "sha256": "f7614ebd38d3e854a35d50d6a5bf75859d652738dd8755a1aa419b8b8c2c8683"
+      },
+      "missing_member/pqt013_raw_001.zip": {
+        "bytes": 743,
+        "sha256": "f73615f65410a178ca349a618f82cc970e6c40b94067d1055e12909aad821a00"
+      },
+      "missing_member/transport_manifest.json": {
+        "bytes": 960,
+        "sha256": "2b3d1c89a458ea62f4ab0e34e664ec1d174841c2814a63721b1b6bbfbcf86ed8"
+      },
+      "oversized_member/pqt013_raw_001.zip": {
+        "bytes": 743,
+        "sha256": "f73615f65410a178ca349a618f82cc970e6c40b94067d1055e12909aad821a00"
+      },
+      "oversized_member/transport_manifest.json": {
+        "bytes": 1145,
+        "sha256": "8155d4e82a955788ecbe56cf74c1025213508f3a08f384fdfec99b3cad28e11f"
+      },
+      "preexisting/pqt013_raw_001.zip": {
+        "bytes": 21,
+        "sha256": "f88c1d08a569a879ed219c6f5a873c5f7d9a68313058b17d429efbcada31e781"
+      },
+      "preexisting/source_manifest.json": {
+        "bytes": 18,
+        "sha256": "eaf01ae3aff9b980a156ac207990fc168723bc4c7be751eefe79c51b0f5d2f34"
+      },
+      "wrong_member_hash/pqt013_raw_001.zip": {
+        "bytes": 743,
+        "sha256": "f73615f65410a178ca349a618f82cc970e6c40b94067d1055e12909aad821a00"
+      },
+      "wrong_member_hash/transport_manifest.json": {
+        "bytes": 1137,
+        "sha256": "e1441e6ff615679e9ff4fc899151dd91b06665ebf65f1d95ca23af937c4a1ca2"
+      },
+      "wrong_packet_hash/pqt013_raw_001.zip": {
+        "bytes": 743,
+        "sha256": "f73615f65410a178ca349a618f82cc970e6c40b94067d1055e12909aad821a00"
+      },
+      "wrong_packet_hash/transport_manifest.json": {
+        "bytes": 1137,
+        "sha256": "1e20a328b1937411b79fed202b45becd4accd428b83055a4e4fbfa4d0626e8e5"
+      }
+    }
+  },
+  "controller": {
+    "schema": "PQT_013_TRANSPORT_CONTROLS_CLOCK_V1",
+    "elapsed_complete_child_seconds": 0.3324197,
+    "exit_code": 0,
+    "source_commit": "eca175dcf51fa9ecf64d92f7b1cab3f590f2fb78"
+  },
+  "manifest": "pqt013_stage_evidence/transport_001/manifest.json",
+  "manifest_identity": {
+    "bytes": 9924,
+    "sha256": "10c03cb539fa1e1135c33fba09915958a784074d9a61ed5da8e852caf99bf429"
+  },
+  "raw_entries": 25,
+  "raw_bytes": 73236,
+  "source_note": "Static transitive local import closure at producer commit; includes unexecuted branches",
+  "resource": {
+    "elapsed_seconds_before_report": 0.42199999999138527,
+    "peak_process_RSS_bytes": 23015424
+  },
+  "whole_research_complete": false
+}

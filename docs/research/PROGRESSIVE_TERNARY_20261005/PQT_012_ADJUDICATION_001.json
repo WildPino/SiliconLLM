@@ -1,0 +1,1189 @@
+{
+  "schema": "PQT_012_ADJUDICATION_V1",
+  "passed": true,
+  "scope": "Four consumed-context original encoder FFNs; no whole-model or native claim",
+  "metrics_verified": 120,
+  "artifacts_verified": 40,
+  "verdicts": {
+    "D": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": true,
+      "may_advance": false
+    },
+    "PR": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": true,
+      "may_advance": false
+    },
+    "D-LR32": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": false,
+      "may_advance": false
+    },
+    "D-LR128": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": false,
+      "may_advance": false
+    },
+    "D-LR256": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": false,
+      "may_advance": false
+    },
+    "PR-LR32": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": false,
+      "may_advance": false
+    },
+    "PR-LR128": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": false,
+      "may_advance": false
+    },
+    "PR-LR256": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": false,
+      "may_advance": false
+    },
+    "I4": {
+      "fidelity": false,
+      "storage": true,
+      "relative_improvement": true,
+      "may_advance": false
+    },
+    "I8": {
+      "fidelity": true,
+      "storage": false,
+      "relative_improvement": true,
+      "may_advance": false
+    }
+  },
+  "summaries": {
+    "D": {
+      "storage_FP16_fraction_range": [
+        0.1564305623372396,
+        0.1564305623372396
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.48053464779942223,
+            0.7262998679401262
+          ],
+          "maximum_bootstrap_upper_RMS": 0.7384953460561073
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.48127542657806055,
+            0.7308875789215297
+          ],
+          "maximum_bootstrap_upper_RMS": 0.7448050136101392
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.47781441883752096,
+            0.7408432841005155
+          ],
+          "maximum_bootstrap_upper_RMS": 0.7537858811638705
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.7308875789215297,
+          "bootstrap_relative_RMS_percentiles": [
+            0.716995584497957,
+            0.7310566497869808,
+            0.7448050136101392
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.7408432841005155,
+          "bootstrap_relative_RMS_percentiles": [
+            0.7285169748904143,
+            0.7408661327859989,
+            0.7537858811638705
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.48127542657806055,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4755468343086636,
+            0.4813668990257025,
+            0.4869350712104695
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.47781441883752096,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4730550156808221,
+            0.47788678086295167,
+            0.4829839024862898
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.5252781972865612,
+          "bootstrap_relative_RMS_percentiles": [
+            0.524627880631587,
+            0.5252669984974023,
+            0.5259236160552262
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.5246921983638896,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5240495119162064,
+            0.5246807236468554,
+            0.5253030117135675
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.518191046111801,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5131396067888166,
+            0.5181999168518457,
+            0.5250101752551488
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.5127131328788187,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5042434649928926,
+            0.5128643844329512,
+            0.5210538075412875
+          ]
+        }
+      ]
+    },
+    "PR": {
+      "storage_FP16_fraction_range": [
+        0.1564306683010525,
+        0.1564306683010525
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.07109226573615476,
+            0.354635705910369
+          ],
+          "maximum_bootstrap_upper_RMS": 0.35552874724254085
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.07216753128435889,
+            0.5409287255737584
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5569593329505679
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.07474914486668487,
+            0.5517617849005487
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5694012393543956
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.07216753128435889,
+          "bootstrap_relative_RMS_percentiles": [
+            0.0702458918024325,
+            0.07212358792396903,
+            0.07421694782409592
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.07474914486668487,
+          "bootstrap_relative_RMS_percentiles": [
+            0.07243052448399914,
+            0.0746449093610787,
+            0.07737713431772474
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.5044007971182535,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4914060472088999,
+            0.5046461161985236,
+            0.5171746624637045
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.5053474886782684,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4929872261946004,
+            0.5056874486768301,
+            0.5180012213517748
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.3553363512820363,
+          "bootstrap_relative_RMS_percentiles": [
+            0.3547493026388245,
+            0.3553249161476873,
+            0.3559452305696534
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.3550963082949354,
+          "bootstrap_relative_RMS_percentiles": [
+            0.3543730401230799,
+            0.35509277707219233,
+            0.35589431454096715
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.5409287255737584,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5212921881587176,
+            0.5405988591907605,
+            0.5569593329505679
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.5517617849005487,
+          "bootstrap_relative_RMS_percentiles": [
+            0.5241870975029375,
+            0.5514372100891727,
+            0.5694012393543956
+          ]
+        }
+      ]
+    },
+    "D-LR32": {
+      "storage_FP16_fraction_range": [
+        0.17770459916856554,
+        0.17770459916856554
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.008105481194290724,
+            0.30349198838670405
+          ],
+          "maximum_bootstrap_upper_RMS": 0.318954402067415
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.02139425899702307,
+            0.45806539785930195
+          ],
+          "maximum_bootstrap_upper_RMS": 0.47033196021098866
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.0301169429857224,
+            0.45910047828328643
+          ],
+          "maximum_bootstrap_upper_RMS": 0.47723131185646017
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.02139425899702307,
+          "bootstrap_relative_RMS_percentiles": [
+            0.019000483683488223,
+            0.021356208330535142,
+            0.023680553233192743
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.03603375516779711,
+          "bootstrap_relative_RMS_percentiles": [
+            0.02202871728847955,
+            0.03547030625644347,
+            0.05397736122412242
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.37843495689746537,
+          "bootstrap_relative_RMS_percentiles": [
+            0.3654542802220338,
+            0.3787090419051491,
+            0.3906797620049025
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.37782454407932087,
+          "bootstrap_relative_RMS_percentiles": [
+            0.36605665803752624,
+            0.37783246336840737,
+            0.390324358016372
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.025666020067671727,
+          "bootstrap_relative_RMS_percentiles": [
+            0.0193877565667174,
+            0.025608969785220325,
+            0.031769290858476594
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.0301169429857224,
+          "bootstrap_relative_RMS_percentiles": [
+            0.022699180710780188,
+            0.029663196704818443,
+            0.03708934654724458
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.45806539785930195,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4467321441641585,
+            0.4580628259347258,
+            0.47033196021098866
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.45910047828328643,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4308276615026914,
+            0.4592355439886192,
+            0.47723131185646017
+          ]
+        }
+      ]
+    },
+    "D-LR128": {
+      "storage_FP16_fraction_range": [
+        0.24020512898763022,
+        0.24020512898763022
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.0027254499108027076,
+            0.12829106761588682
+          ],
+          "maximum_bootstrap_upper_RMS": 0.13723401416972847
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.020429539097729113,
+            0.48814296104981353
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5022402481917846
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.030434227181889064,
+            0.4918543089355865
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5151165542942292
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.020429539097729113,
+          "bootstrap_relative_RMS_percentiles": [
+            0.017968411024883946,
+            0.020386615905959506,
+            0.022777188653187796
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.03580456158263642,
+          "bootstrap_relative_RMS_percentiles": [
+            0.021094590566755465,
+            0.035258312973422815,
+            0.05428553001509021
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.39644459938875415,
+          "bootstrap_relative_RMS_percentiles": [
+            0.38062550919053356,
+            0.39679976289664876,
+            0.41163443032184444
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.3927318548874002,
+          "bootstrap_relative_RMS_percentiles": [
+            0.37773055036809455,
+            0.3927479987978118,
+            0.4090315429524375
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.02595691215438717,
+          "bootstrap_relative_RMS_percentiles": [
+            0.019594168892480408,
+            0.025897860698541737,
+            0.03216417719330505
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.030434227181889064,
+          "bootstrap_relative_RMS_percentiles": [
+            0.02293034984094153,
+            0.029944177511552705,
+            0.03742484367316742
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.48814296104981353,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4743660861062388,
+            0.48796019256879924,
+            0.5022402481917846
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.4918543089355865,
+          "bootstrap_relative_RMS_percentiles": [
+            0.45948266860633036,
+            0.4923273427287496,
+            0.5151165542942292
+          ]
+        }
+      ]
+    },
+    "D-LR256": {
+      "storage_FP16_fraction_range": [
+        0.3053092956542969,
+        0.32353846232096356
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.002663496899978643,
+            0.004435238729667824
+          ],
+          "maximum_bootstrap_upper_RMS": 0.004822630623549157
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.02020541645715187,
+            0.5038464792093169
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5196240702355815
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.030449696981353313,
+            0.5085107763230989
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5337556531671968
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.02020541645715187,
+          "bootstrap_relative_RMS_percentiles": [
+            0.01772853280580856,
+            0.02015590714147439,
+            0.022581678900355815
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.03580590946039761,
+          "bootstrap_relative_RMS_percentiles": [
+            0.02088125207931768,
+            0.03525307221141809,
+            0.05447925530642429
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.407806074820577,
+          "bootstrap_relative_RMS_percentiles": [
+            0.390904207994244,
+            0.4081787002483174,
+            0.42396781614790374
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.40513860570554,
+          "bootstrap_relative_RMS_percentiles": [
+            0.38900633612136837,
+            0.40520550889231705,
+            0.42307487265400334
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.0259548767048717,
+          "bootstrap_relative_RMS_percentiles": [
+            0.01959909718188647,
+            0.025895979071275062,
+            0.032167942169647856
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.030449696981353313,
+          "bootstrap_relative_RMS_percentiles": [
+            0.022948328838194334,
+            0.029964493809883728,
+            0.03744326523381782
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.5038464792093169,
+          "bootstrap_relative_RMS_percentiles": [
+            0.48870529656473194,
+            0.5036823912078223,
+            0.5196240702355815
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.5085107763230989,
+          "bootstrap_relative_RMS_percentiles": [
+            0.47423840630123454,
+            0.5090183225401264,
+            0.5337556531671968
+          ]
+        }
+      ]
+    },
+    "PR-LR32": {
+      "storage_FP16_fraction_range": [
+        0.17770470513237846,
+        0.17770470513237846
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.004341692276519479,
+            0.16589157707962524
+          ],
+          "maximum_bootstrap_upper_RMS": 0.1740730599337466
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.012516507111628853,
+            0.49818481586943014
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5160340288297047
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.023442763918609704,
+            0.5114075268119199
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5349777215373184
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.012516507111628853,
+          "bootstrap_relative_RMS_percentiles": [
+            0.010987070869839188,
+            0.012389942423584379,
+            0.014028695050669381
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.05225905045337989,
+          "bootstrap_relative_RMS_percentiles": [
+            0.012537112027629554,
+            0.051768596144038184,
+            0.09119652686256148
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.4228489549720821,
+          "bootstrap_relative_RMS_percentiles": [
+            0.40564193705502793,
+            0.4231846971916057,
+            0.4387009382111953
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.42767527231829755,
+          "bootstrap_relative_RMS_percentiles": [
+            0.41612226347988474,
+            0.42775931362730124,
+            0.44038303664295786
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.020751664125940605,
+          "bootstrap_relative_RMS_percentiles": [
+            0.015765412664010266,
+            0.020632784277077862,
+            0.02568029271059073
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.023442763918609704,
+          "bootstrap_relative_RMS_percentiles": [
+            0.018101195717662583,
+            0.02314774628292011,
+            0.028380446760948107
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.49818481586943014,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4795955531933182,
+            0.4977559933934206,
+            0.5160340288297047
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.5114075268119199,
+          "bootstrap_relative_RMS_percentiles": [
+            0.47530788137363494,
+            0.5110799468077484,
+            0.5349777215373184
+          ]
+        }
+      ]
+    },
+    "PR-LR128": {
+      "storage_FP16_fraction_range": [
+        0.24020523495144314,
+        0.24020523495144314
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.002367336232409015,
+            0.07361466355801294
+          ],
+          "maximum_bootstrap_upper_RMS": 0.07909726656518117
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.011965105980718843,
+            0.5035156454530747
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5214166151663562
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.023501729599812806,
+            0.517803561489123
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5421652592620441
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.011965105980718843,
+          "bootstrap_relative_RMS_percentiles": [
+            0.010400473156969025,
+            0.011834228710296294,
+            0.013502147103307598
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.052193734808637884,
+          "bootstrap_relative_RMS_percentiles": [
+            0.011996644425455545,
+            0.05170071553865946,
+            0.09123492392642082
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.4244293241198349,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4067451347047689,
+            0.4246940491131367,
+            0.44105399902583065
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.42853503685546984,
+          "bootstrap_relative_RMS_percentiles": [
+            0.4157390022584773,
+            0.4287284955825663,
+            0.44235605778659587
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.020774060527407132,
+          "bootstrap_relative_RMS_percentiles": [
+            0.015764779467502408,
+            0.020653818964121703,
+            0.025736158959150806
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.023501729599812806,
+          "bootstrap_relative_RMS_percentiles": [
+            0.018130490989819753,
+            0.023213626907179735,
+            0.028486985156579922
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.5035156454530747,
+          "bootstrap_relative_RMS_percentiles": [
+            0.48479997828003335,
+            0.5032545310876921,
+            0.5214166151663562
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.517803561489123,
+          "bootstrap_relative_RMS_percentiles": [
+            0.48040005094105287,
+            0.5175048540728822,
+            0.5421652592620441
+          ]
+        }
+      ]
+    },
+    "PR-LR256": {
+      "storage_FP16_fraction_range": [
+        0.3053094016181098,
+        0.32353856828477645
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.002289129977789411,
+            0.0025460901995208265
+          ],
+          "maximum_bootstrap_upper_RMS": 0.0029196686891536823
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.011788411609320202,
+            0.508428092875474
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5264739283300693
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.02348616133327113,
+            0.5222372393995018
+          ],
+          "maximum_bootstrap_upper_RMS": 0.5469798419213762
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.011788411609320202,
+          "bootstrap_relative_RMS_percentiles": [
+            0.01021859404099534,
+            0.011661301743160046,
+            0.013325800527989269
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.0521862858890151,
+          "bootstrap_relative_RMS_percentiles": [
+            0.011821459567943834,
+            0.05169445981365111,
+            0.091269678232425
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.42715406471972156,
+          "bootstrap_relative_RMS_percentiles": [
+            0.40916471575394353,
+            0.4273960844754663,
+            0.44389744722165164
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.4313922120822819,
+          "bootstrap_relative_RMS_percentiles": [
+            0.41842763836396407,
+            0.4315026177601141,
+            0.44557910839596043
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.020758557723134816,
+          "bootstrap_relative_RMS_percentiles": [
+            0.01574878176256121,
+            0.02063959716649924,
+            0.0257200748921875
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.02348616133327113,
+          "bootstrap_relative_RMS_percentiles": [
+            0.018107734537540277,
+            0.02319501649915698,
+            0.028469817255127566
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.508428092875474,
+          "bootstrap_relative_RMS_percentiles": [
+            0.48945257852641405,
+            0.5081914586946048,
+            0.5264739283300693
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.5222372393995018,
+          "bootstrap_relative_RMS_percentiles": [
+            0.48451104970711467,
+            0.5220117777142382,
+            0.5469798419213762
+          ]
+        }
+      ]
+    },
+    "I4": {
+      "storage_FP16_fraction_range": [
+        0.2814308802286784,
+        0.2814308802286784
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.057337591551549646,
+            0.10286602259253626
+          ],
+          "maximum_bootstrap_upper_RMS": 0.10586032383118057
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.05741869738178698,
+            0.10391200330722676
+          ],
+          "maximum_bootstrap_upper_RMS": 0.10741358133221757
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.0577121635443241,
+            0.10165226003064386
+          ],
+          "maximum_bootstrap_upper_RMS": 0.10565676774799913
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.05741869738178698,
+          "bootstrap_relative_RMS_percentiles": [
+            0.056889653384543284,
+            0.057433092086361166,
+            0.0579271456857638
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.0577121635443241,
+          "bootstrap_relative_RMS_percentiles": [
+            0.05724649658596463,
+            0.0577132517798422,
+            0.058156685685749325
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.08523922307753005,
+          "bootstrap_relative_RMS_percentiles": [
+            0.08328505179007176,
+            0.08528930028444343,
+            0.08733063122234833
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.0849792726332689,
+          "bootstrap_relative_RMS_percentiles": [
+            0.08262695504157236,
+            0.08503758723966978,
+            0.0872503511890541
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.07285576825293617,
+          "bootstrap_relative_RMS_percentiles": [
+            0.07267600507864976,
+            0.07285465034008703,
+            0.07303255628856443
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.07274393381295297,
+          "bootstrap_relative_RMS_percentiles": [
+            0.07257011377050324,
+            0.07274233112986978,
+            0.0729103520813211
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.10391200330722676,
+          "bootstrap_relative_RMS_percentiles": [
+            0.10127831924551171,
+            0.10394352376980517,
+            0.10741358133221757
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.10165226003064386,
+          "bootstrap_relative_RMS_percentiles": [
+            0.09720959260787976,
+            0.10163008454832645,
+            0.10565676774799913
+          ]
+        }
+      ]
+    },
+    "I8": {
+      "storage_FP16_fraction_range": [
+        0.5018084843953451,
+        0.5018084843953451
+      ],
+      "splits": {
+        "calibration": {
+          "relative_RMS_range": [
+            0.001847703410767606,
+            0.008599705826721322
+          ],
+          "maximum_bootstrap_upper_RMS": 0.008854293693219838
+        },
+        "development": {
+          "relative_RMS_range": [
+            0.0018372944142731502,
+            0.008853766561814075
+          ],
+          "maximum_bootstrap_upper_RMS": 0.00921233039396405
+        },
+        "held_out": {
+          "relative_RMS_range": [
+            0.001845063281538307,
+            0.008644571598143904
+          ],
+          "maximum_bootstrap_upper_RMS": 0.009030663495448113
+        }
+      },
+      "evaluation_by_expert": [
+        {
+          "expert": 81,
+          "split": "development",
+          "relative_RMS": 0.0027841229594677756,
+          "bootstrap_relative_RMS_percentiles": [
+            0.0027630589857933264,
+            0.002784490694927848,
+            0.0028051686903480776
+          ]
+        },
+        {
+          "expert": 81,
+          "split": "held_out",
+          "relative_RMS": 0.0027985455981926763,
+          "bootstrap_relative_RMS_percentiles": [
+            0.0027793467489522963,
+            0.0027983222526273563,
+            0.0028180713426152995
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "relative_RMS": 0.007245135567816101,
+          "bootstrap_relative_RMS_percentiles": [
+            0.0070578802832979215,
+            0.0072467030363230125,
+            0.00743876105149283
+          ]
+        },
+        {
+          "expert": 87,
+          "split": "held_out",
+          "relative_RMS": 0.00723266438955942,
+          "bootstrap_relative_RMS_percentiles": [
+            0.007025073394054728,
+            0.007233753008406058,
+            0.007440774163628139
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "relative_RMS": 0.0018372944142731502,
+          "bootstrap_relative_RMS_percentiles": [
+            0.001827289927182145,
+            0.0018374770441240361,
+            0.0018486836483842682
+          ]
+        },
+        {
+          "expert": 18,
+          "split": "held_out",
+          "relative_RMS": 0.001845063281538307,
+          "bootstrap_relative_RMS_percentiles": [
+            0.001833734206460559,
+            0.0018449319352468756,
+            0.0018583485706073315
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "relative_RMS": 0.008853766561814075,
+          "bootstrap_relative_RMS_percentiles": [
+            0.008539061748039914,
+            0.00886287195725565,
+            0.00921233039396405
+          ]
+        },
+        {
+          "expert": 91,
+          "split": "held_out",
+          "relative_RMS": 0.008644571598143904,
+          "bootstrap_relative_RMS_percentiles": [
+            0.008254224098717055,
+            0.008641729429714605,
+            0.009030663495448113
+          ]
+        }
+      ]
+    }
+  },
+  "advancing_arms": [],
+  "input_retention_manifest": {
+    "bytes": 380253,
+    "sha256": "fc398c88c1543212319754aa73fb83d6c07ec9fbaf0a0e46c15f845e07ab6dce"
+  },
+  "new_fits": 0,
+  "new_numerical_replays": 0,
+  "whole_research_complete": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "PQT_013_RETENTION_DIAGNOSTIC_V1",
+  "passed": false,
+  "gate": "original_raw_identity",
+  "first_evidence_commit": "c01995f00c95cb045fabfec4c7758933878001fe",
+  "record": "operations/retention_stdout_001.log",
+  "archived_identity": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "final_original_identity": {
+    "bytes": 891,
+    "sha256": "ae53f74b0e193c5ae02007d0dfc6188e70e08d1a19c92315ba3ecba112a9e360"
+  },
+  "reason": "Current retainer output stream was archived while still open; only this own log identity changed. No scientific byte changed.",
+  "repair": "Exclude only current open stream in retention002; retain completed001 stream and diagnostic; preserve001 unchanged."
+}

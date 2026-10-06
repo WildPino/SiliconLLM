@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "stage": "first_small_cpu_apparatus_only",
+  "checks": {
+    "torch.float32": {
+      "fixed_initial_forward_exact": true,
+      "half_ties_and_zero_groups_exact": true,
+      "identity_weight_and_group_scale_gradient_exact": true
+    },
+    "torch.float64": {
+      "fixed_initial_forward_exact": true,
+      "half_ties_and_zero_groups_exact": true,
+      "identity_weight_and_group_scale_gradient_exact": true
+    },
+    "piecewise_derivative": {
+      "independent_scalar_sum_exact": true,
+      "max_scale_finite_difference_error": 1.5128009955844846e-10,
+      "weight_identity_explicitly_biased": true
+    },
+    "tied_two_use_gradient_sum": true,
+    "actual_adam_counter_inactive_and_scale_change_projection": true,
+    "group64_hard_and_independent_packed_codes": {
+      "raw_code_scale_bytes": 80,
+      "latent_matrix_deployed": false
+    }
+  },
+  "malformed_stops": [
+    "nonfinite_weight",
+    "nonfinite_scale",
+    "negative_scale",
+    "wrong_group",
+    "empty_scale_groups",
+    "dtype_mismatch",
+    "unprojected_log_scale",
+    "nonfinite_log_scale"
+  ],
+  "original_model_or_data_access": false,
+  "gpu_used": false,
+  "native_timing_measured": false,
+  "full_network_bindings_qualified": false,
+  "full_experiment_ready": false,
+  "whole_research_complete": false,
+  "source_commit": "41aa828262d968a83b7377cad510070cea70546b",
+  "source_files": {
+    "benchmarks/progressive_ternary/learned_scale_math.py": {
+      "bytes": 4849,
+      "sha256": "96a10f3b72d5ba4bfd241efbedc82f1bdaaf2c7fd17e5cf7f79e7c84cc1f7be9"
+    },
+    "benchmarks/progressive_ternary/qat_math.py": {
+      "bytes": 11550,
+      "sha256": "ee847307a3251e89c9c238c1f49b106b7d4fe9cd52aca8163187f8cf89adca4e"
+    },
+    "benchmarks/progressive_ternary/ternary_math.py": {
+      "bytes": 4732,
+      "sha256": "44f9009acdab3c90d1244aea8fd53408ceb9c08a3997e6c85bafcfc7724534aa"
+    },
+    "scripts/progressive_ternary/check_pqt011_stage1.py": {
+      "bytes": 11079,
+      "sha256": "3b639c535d1dabfc01bc75795aa24e81c1d502c72117f103d17b12e4d165a4b9"
+    },
+    "docs/research/PROGRESSIVE_TERNARY_20261005/PQT_011_DIRECTION.md": {
+      "bytes": 1495,
+      "sha256": "f73c847edb658166d573cc9c8b437169ae71393e4cede795b875800643fbef17"
+    },
+    "docs/research/PROGRESSIVE_TERNARY_20261005/PQT_011_PROTOCOL.md": {
+      "bytes": 7613,
+      "sha256": "6315bbb5da09c03c73999b5d1167d08ea9f709b3d95485d5fa4cca57b9ef1159"
+    }
+  },
+  "elapsed_seconds": 36.98399999999674,
+  "runtime": {
+    "python": "3.12.10",
+    "torch": "2.6.0+cpu",
+    "numpy": "2.1.3",
+    "threads": 1
+  }
+}

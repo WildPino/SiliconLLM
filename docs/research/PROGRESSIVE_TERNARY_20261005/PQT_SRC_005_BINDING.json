@@ -1,0 +1,38 @@
+{
+  "schema": "PQT_SRC_005_BINDING_V1",
+  "preparation_commit": "d4232c32a7fcdb1ddacc58bf9a0ced827b195814",
+  "parent_certificates": {
+    "PQT_SRC_004_AUDIT_RETENTION_001.json": {
+      "bytes": 11117,
+      "sha256": "81147128b0aa11eb26cde2df9643ab6c9c040dd6010789219389bb5deb00bc30"
+    },
+    "PQT_SRC_004_GIT_VERIFICATION.json": {
+      "bytes": 6233,
+      "sha256": "48df70bf5be9f3a0aec591b7ea00c6ef91a4097656435e34ec2dffd292fd72d0"
+    }
+  },
+  "operator": {
+    "path": "benchmarks/progressive_ternary/switch_lazy_float.py",
+    "bytes": 9932,
+    "sha256": "010fa3fcc9ee950336dc0060e7501ea94d00ac8db7b367ce4997d70259c9c911"
+  },
+  "fixture": {
+    "bytes": 6539661,
+    "sha256": "2884701bbcce29571387ba0cb73d484465d508b4bd32c7794d457ea50298a279",
+    "transport_name": "pqt_src005_fixture.bin",
+    "report_sha256": "c268887cb218c0082d1f4c511a7708bae607fb436b9f88adb19a194d97e1aaa5"
+  },
+  "parent_evidence_commit": "0b42fa411784d690816d423054e43c5542dd7694",
+  "consumed_synthetic_inputs": true,
+  "new_original_model_or_corpus_function": false,
+  "new_optimizer_steps": 0,
+  "expected_runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.1.3",
+    "transformers": "4.57.6",
+    "huggingface-hub": "0.36.0",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0"
+  }
+}

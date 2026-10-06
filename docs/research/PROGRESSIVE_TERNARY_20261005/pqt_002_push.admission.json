@@ -1,0 +1,157 @@
+{
+  "schema": "PQT_KAGGLE_ADMISSION_V1",
+  "time_utc": "2026-10-05T19:21:26.366991+00:00",
+  "account": {
+    "account": "acct1",
+    "status": "verified",
+    "configured_username": "wildpino",
+    "server_identity": "wildpino",
+    "gpu_quota": {
+      "used_hours": 0.04970583333333333,
+      "reserved_hours": 0.0,
+      "total_hours": 30.0,
+      "remaining_before_reservations_hours": 29.950294166666666,
+      "conservative_unreserved_hours": 29.950294166666666,
+      "idle_proven": false,
+      "reset_time": null
+    },
+    "observed_at_utc": "2026-10-05T19:21:14.385250+00:00"
+  },
+  "owned_kernels": [
+    {
+      "ref": "wildpino/pqt-001-r1-projection-20261005-002",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/pqt-env-repair-20261005-003",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/pqt-001-projection-20261005-001",
+      "status": "ERROR",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/pqt-gpu-admission-20261005-002",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/pqt-runtime-admission-20261005-001",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h1-qat-run-session-3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h1-qat-run-session-2",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h1-qat-run-session-1",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/h0-qat-run",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/s1-fp16-gpu-nan-hunt",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/s1-sparsity-bpb-scale-arm",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-mainrun",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-relaytest",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-arm7",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/phase64-arm4",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/seearm1-v2048",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/wilddataset-1",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    },
+    {
+      "ref": "wildpino/siliconllm3",
+      "status": "COMPLETE",
+      "private": false,
+      "version": 0,
+      "docker_image": ""
+    }
+  ],
+  "ref": "wildpino/pqt-002-scale-bias-20261005-001",
+  "timeout_seconds": 5400,
+  "source_commit": "61e058c1b8965dfe6bcc16802330541dd68c0ecd",
+  "bundle_sha256": {
+    "bootstrap.py": "27c7cb6b50291b8f54bc8a2d8b444137be4a6768a195178abe91467968d873f4",
+    "kernel-metadata.json": "5608bf870441c71e22db6d913bf4ad04f163e9eb703072cf9bf129e1cd1bfb38"
+  },
+  "interactive_session_absence_proven": false,
+  "authority": "Owner started research using the three accounts; no nonterminal owned kernel or reserved GPU quota observed."
+}

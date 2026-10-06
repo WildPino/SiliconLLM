@@ -1,0 +1,42 @@
+{
+  "schema": "PQT_003_POSTHOC_DIAGNOSTIC_V1",
+  "scope": "Descriptive retained training traces and repeated control hashes; no additional fit, evaluation context or checkpoint selection",
+  "reproduced_pqt002_control_files": {
+    "source_weight.npy": true,
+    "calibration_inputs.npy": true,
+    "calibration_outputs.npy": true,
+    "train_tokens.npy": true,
+    "PR-B_packed.npy": true,
+    "PR-B_scales.npy": true,
+    "PR-B_bias.npy": true,
+    "I4_packed.npy": true,
+    "I4_scales.npy": true
+  },
+  "online_calibration": {
+    "HK": {
+      "first_epoch_mean_kl": 0.020216754608554766,
+      "last_epoch_mean_kl": 0.017403958103386685,
+      "hard_code_changes": 28003,
+      "hard_code_change_fraction": 0.006425441655897556,
+      "optimizer_steps": [
+        256,
+        256,
+        256
+      ],
+      "head_fit_seconds": 6.604279677000022
+    },
+    "HM": {
+      "first_epoch_mean_kl": 0.020522394130239263,
+      "last_epoch_mean_kl": 0.016425073408754542,
+      "hard_code_changes": 23042,
+      "hard_code_change_fraction": 0.005287113046287594,
+      "optimizer_steps": [
+        256,
+        256,
+        256
+      ],
+      "head_fit_seconds": 6.51226808399997
+    }
+  },
+  "caution": "Epoch means are losses observed on changing pre-update models, not final frozen calibration scores. Comparison with held-out KL only motivates a prospective coverage test."
+}

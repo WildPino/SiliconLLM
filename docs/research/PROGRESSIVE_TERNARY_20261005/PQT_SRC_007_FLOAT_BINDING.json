@@ -1,0 +1,112 @@
+{
+  "schema": "PQT_SRC_007_FLOAT_BINDING_V1",
+  "preparation_commit": "6d369a240ca62945f27424da8b2929d174029783",
+  "capsule": {
+    "transport_name": "pqt_src007_float_inputs.bin",
+    "bytes": 64855472,
+    "sha256": "80fa5b21d0927bacc4f449ae8cc122bdfbc0545e8988893b13347ebdad74ac20",
+    "files": {
+      "input_raw.zip": {
+        "bytes": 55824724,
+        "sha256": "798ad097770c27dcb7f1d285103ff1304843d56cebbfcdc74e7c41d7548d92ff"
+      },
+      "CPU_fixture.zip": {
+        "bytes": 6539661,
+        "sha256": "2884701bbcce29571387ba0cb73d484465d508b4bd32c7794d457ea50298a279"
+      },
+      "PQT_SRC_003_BINDING.json": {
+        "bytes": 2435020,
+        "sha256": "efb5e3889f93e8c1880095a3c7d94ff600803fea8a856297425ada6e6ae36584"
+      },
+      "PQT_SRC_003_GIT_VERIFICATION.json": {
+        "bytes": 14080,
+        "sha256": "b8671ad7bcd52eb4d2c8b5d6050415fb1d2731834607bf007bbfe02da3c628e6"
+      },
+      "PQT_SRC_004_AUDIT_RETENTION_001.json": {
+        "bytes": 11117,
+        "sha256": "81147128b0aa11eb26cde2df9643ab6c9c040dd6010789219389bb5deb00bc30"
+      },
+      "PQT_SRC_004_GIT_VERIFICATION.json": {
+        "bytes": 6233,
+        "sha256": "48df70bf5be9f3a0aec591b7ea00c6ef91a4097656435e34ec2dffd292fd72d0"
+      },
+      "PQT_SRC_005_REMOTE_RETENTION_001.json": {
+        "bytes": 3724,
+        "sha256": "9bf2b84c6c9ca7c1bbd59bc97735a541932594f6d12f6bcb37128ae02fc60a59"
+      },
+      "PQT_SRC_005_REMOTE_GIT_VERIFICATION.json": {
+        "bytes": 2004,
+        "sha256": "1b9f65d46022c68e1ad5088adf07c79ffb280cde98153e86c7737637cd6f077e"
+      },
+      "PQT_SRC_006_CONTROLS_RETENTION_001.json": {
+        "bytes": 1004,
+        "sha256": "8300a6e2ded7fe4868b46a12027fd838370eb56ba1188eeda52b72a6d0279e0a"
+      },
+      "PQT_SRC_006_CONTROLS_GIT_001.json": {
+        "bytes": 1521,
+        "sha256": "97a9131e168c9ef4fdaad63af1c99de626c64ddad1df16950c5f06c44637272f"
+      },
+      "PQT_SRC_006_ORIGINAL_RETENTION_001.json": {
+        "bytes": 909,
+        "sha256": "e7ef5806a58f352a1390e4977bc868461a8fbab8332e4e2f7ddbf8e7a72f0f1b"
+      },
+      "PQT_SRC_006_ORIGINAL_GIT_001.json": {
+        "bytes": 1519,
+        "sha256": "672706f62f8b6371ad2dc10c97a3dd7b0cc19ae88c639ddef25b704676d6cc39"
+      },
+      "PQT_SRC_007_INPUT_AUDIT_RETENTION_001.json": {
+        "bytes": 1544,
+        "sha256": "0c28f34317013fed8ba3503ee9a44687bdac57e3af083389881e9895f87eb693"
+      },
+      "PQT_SRC_007_INPUT_GIT_VERIFICATION.json": {
+        "bytes": 2072,
+        "sha256": "74a01c7840c4049c0add0e999003709bc6a0ec4eca7ca72cd7f8e9a586ebaf1a"
+      },
+      "PQT_SRC_007_SEED_AUDIT_001.json": {
+        "bytes": 592,
+        "sha256": "e069dfdf78113251a9ef3eb2da426d94b2e1bd8f29da53c553763074dbfe44d9"
+      },
+      "PQT_SRC_007_INPUT_RESULTS.md": {
+        "bytes": 7480,
+        "sha256": "442eb70df59fda059873024cb81932657ab0d17dad5c3139f58c6fde2c2ab507"
+      }
+    }
+  },
+  "fixture": {
+    "bytes": 6539661,
+    "sha256": "2884701bbcce29571387ba0cb73d484465d508b4bd32c7794d457ea50298a279",
+    "report_sha256": "c268887cb218c0082d1f4c511a7708bae607fb436b9f88adb19a194d97e1aaa5"
+  },
+  "documents_sha256": "19218f729d93cae4cb9c8596106bd82585e892260db199e468a5dce6926f4737",
+  "expected_runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.1.3",
+    "transformers": "4.57.6",
+    "huggingface-hub": "0.36.0",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0"
+  },
+  "official_sources": {
+    "modeling_switch_transformers.py": "5acb527d50a07e4bce3a5dec4db4f0c476cb4a01e8eb05219f26607034a12a83",
+    "configuration_switch_transformers.py": "86a5e37411e3fa8a8d3c13f3c07f9ee7e74a6033f0da57d681cde80de8071d51"
+  },
+  "historical_sources": {
+    "switch_zip_source.py": {
+      "bytes": 10448,
+      "sha256": "508c4bfaa4b8cb3e4f78c6081f155bdbd651b745acc5e8a0238ccb9280b0490d"
+    },
+    "switch_zip_tensor.py": {
+      "bytes": 7849,
+      "sha256": "6df61a66e74e1f187c09d12b2b653541e9d91d5f8988558e2a89e8931e854f5a"
+    },
+    "switch_lazy_float.py": {
+      "bytes": 9932,
+      "sha256": "010fa3fcc9ee950336dc0060e7501ea94d00ac8db7b367ce4997d70259c9c911"
+    },
+    "src005_fixture.py": {
+      "bytes": 4751,
+      "sha256": "e795bdfaee17acb3fa8a7cf780077b90d32e2b0eecc0aee45e082ee8f23bd8b8"
+    }
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "schema": "PQT_SRC_007_PARTIAL_RETENTION_V1",
+  "passed": true,
+  "source_commit": "ca49a28e1d1d445cae2ff582d82debf74b220b4b",
+  "audit_report": {
+    "schema": "PQT_SRC_007_PARTIAL_AUDIT_V1",
+    "passed": true,
+    "source_commit": "ca49a28e1d1d445cae2ff582d82debf74b220b4b",
+    "model_forwards": 0,
+    "optimizer_updates": 0,
+    "GPU_allocations": 0,
+    "complete_original_qualification": false,
+    "fit_admitted": false,
+    "whole_research_complete": false,
+    "admission": {
+      "own_pid": 7220,
+      "parent_pid": 28568,
+      "allowed_live_pids": [
+        7220,
+        28568
+      ],
+      "own_venv_launcher_verified": {
+        "Name": "python.exe",
+        "ProcessId": 28568,
+        "ParentProcessId": 2228,
+        "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+      },
+      "snapshot_processes": [
+        {
+          "Name": "python.exe",
+          "ProcessId": 28568,
+          "ParentProcessId": 2228,
+          "ExecutablePath": "D:\\_THINGS\\Progetti\\SiliconLLM-progressive-runtime\\.scientific-venv\\Scripts\\python.exe"
+        },
+        {
+          "Name": "python.exe",
+          "ProcessId": 7220,
+          "ParentProcessId": 28568,
+          "ExecutablePath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        }
+      ],
+      "relevant_other_processes": [],
+      "passed": true,
+      "native_timing_reservation": false
+    },
+    "remote_report_identity": {
+      "bytes": 50988180,
+      "sha256": "7409281f43ae902fbb1960de941eaf7fc0ba2dd2207ae2aa74e158c4e7cbc626"
+    },
+    "toy_maximum_CPU_reference_relative_RMS": 8.196127306114756e-07,
+    "completed_original_forwards": 31,
+    "failed_original_attempts": 1,
+    "complete_capture_batches": 20,
+    "complete_capture_documents": 160,
+    "CPU_T4_comparisons": [
+      {
+        "device": "cuda:1",
+        "split": "calibration",
+        "relative_RMS": 5.548379008465267e-06
+      },
+      {
+        "device": "cuda:1",
+        "split": "development",
+        "relative_RMS": 7.009477590058384e-06
+      },
+      {
+        "device": "cuda:1",
+        "split": "held_out",
+        "relative_RMS": 9.174933495357991e-06
+      },
+      {
+        "device": "cuda:0",
+        "split": "calibration",
+        "relative_RMS": 5.548379008465267e-06
+      },
+      {
+        "device": "cuda:0",
+        "split": "development",
+        "relative_RMS": 7.009477590058384e-06
+      }
+    ],
+    "identical_repeats": 5,
+    "witness_F64_relative_RMS": [
+      9.429850421310744e-08,
+      7.331531048340299e-08,
+      1.2879307326203947e-07,
+      1.2361933391494872e-07
+    ],
+    "remaining_capture_keys": [
+      {
+        "split": "development",
+        "offset": 32
+      },
+      {
+        "split": "development",
+        "offset": 40
+      },
+      {
+        "split": "development",
+        "offset": 48
+      },
+      {
+        "split": "development",
+        "offset": 56
+      },
+      {
+        "split": "development",
+        "offset": 64
+      },
+      {
+        "split": "development",
+        "offset": 72
+      },
+      {
+        "split": "development",
+        "offset": 80
+      },
+      {
+        "split": "development",
+        "offset": 88
+      },
+      {
+        "split": "development",
+        "offset": 96
+      },
+      {
+        "split": "development",
+        "offset": 104
+      },
+      {
+        "split": "development",
+        "offset": 112
+      },
+      {
+        "split": "development",
+        "offset": 120
+      },
+      {
+        "split": "held_out",
+        "offset": 0
+      },
+      {
+        "split": "held_out",
+        "offset": 8
+      },
+      {
+        "split": "held_out",
+        "offset": 16
+      },
+      {
+        "split": "held_out",
+        "offset": 24
+      },
+      {
+        "split": "held_out",
+        "offset": 32
+      },
+      {
+        "split": "held_out",
+        "offset": 40
+      },
+      {
+        "split": "held_out",
+        "offset": 48
+      },
+      {
+        "split": "held_out",
+        "offset": 56
+      },
+      {
+        "split": "held_out",
+        "offset": 64
+      },
+      {
+        "split": "held_out",
+        "offset": 72
+      },
+      {
+        "split": "held_out",
+        "offset": 80
+      },
+      {
+        "split": "held_out",
+        "offset": 88
+      },
+      {
+        "split": "held_out",
+        "offset": 96
+      },
+      {
+        "split": "held_out",
+        "offset": 104
+      },
+      {
+        "split": "held_out",
+        "offset": 112
+      },
+      {
+        "split": "held_out",
+        "offset": 120
+      }
+    ],
+    "missing_cuda0_references": [
+      "held_out_initial",
+      "held_out_repeat"
+    ],
+    "source_physical_payload_bytes": 792325138681,
+    "failed_unexposed_attempt": {
+      "tensor": "encoder.block.3.layer.1.mlp.experts.expert_67.wi.weight",
+      "exposed": false,
+      "verified_raw_bytes": 4194304
+    },
+    "missing_cuda0_final_residency_checks": true,
+    "capture_order_deviation": "cuda0 capture interleaved after each split reference/repeat",
+    "derived_files": {
+      "baseline_predictions.json": {
+        "bytes": 15473,
+        "sha256": "a16223ed94149cf57e3b284bbbe28d9879b4c5069d593c886342a01c8301d519"
+      },
+      "coverage.json": {
+        "bytes": 7356788,
+        "sha256": "b92a289ad535cee60b16a3e78c82342acdb371931d4e8fdad7697bd34a895966"
+      }
+    },
+    "resource": {
+      "elapsed_seconds_before_report": 69.98399999999674,
+      "peak_process_RSS_bytes": 1118461952
+    }
+  },
+  "controller": {
+    "schema": "PQT_SRC_007_PARTIAL_AUDIT_CONTROLLER_V1",
+    "sequence": "001",
+    "source_commit": "ca49a28e1d1d445cae2ff582d82debf74b220b4b",
+    "controller_sha256": "771cc7a4221f564621a875e980b72c5ecf2fce49b0c1dbaf47f6fe324a4174fa",
+    "complete": true,
+    "timeout_seconds": 1800,
+    "timed_out": false,
+    "exit_code": 0,
+    "worker_report_sha256": "d0671f9b4f18cc2ca74a995b7b78384d9e122acf77c68e6f70ace380a923df70",
+    "worker_passed": true,
+    "elapsed_complete_worker_seconds": 72.2112097,
+    "owned_process_ids": [
+      28568,
+      7220
+    ]
+  },
+  "manifest": "pqt_src007_controls_evidence/partial_audit_002/manifest.json",
+  "manifest_identity": {
+    "bytes": 4903,
+    "sha256": "5975a87a2e617b9ea6fa1d8700f493a8ed3736a8ba3dc314feab2d9359a36d34"
+  },
+  "archive_identity": {
+    "bytes": 7458031,
+    "sha256": "a9fa66b80d4a3f7e9e45cdf81e222257ee21965c046d01ffae36c0a777939745"
+  },
+  "raw_entries": 14,
+  "raw_bytes": 7455367,
+  "resource": {
+    "elapsed_seconds_before_report": 0.389999999984866,
+    "peak_process_RSS_bytes": 28123136
+  },
+  "retainer_complete_child_duration_independently_instrumented": false,
+  "model_forwards": 0,
+  "whole_research_complete": false
+}
