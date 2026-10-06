@@ -1,0 +1,877 @@
+{
+  "experiment": "METH494 hybrid full-rank donor linear term and Gaussian shared-even prior",
+  "start_utc": "2026-10-06T08:10:26.512092+00:00",
+  "process_instance": {
+    "pid": 30032,
+    "create_time_unix": 1791274226.3074534
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth494_hybrid_prior.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth494_hybrid_prior_result.json",
+    "--binding-sha",
+    "91fb15d7db330d6a36b2f25809bfa769b99fb62fe9df3b9c074d884c25b55b58"
+  ],
+  "commands": [],
+  "gates": {
+    "frozen_source_supervision_runtime_and_scientific_files": true,
+    "ALL512_WI_WO_code_scale_and_router_current_extent_SHA_before_NumPy": true,
+    "new494_analytic_and_encoding_controls": true,
+    "ALL128_weight_derived_512_dictionary_rows_no_response_selection": true,
+    "ONLY11721_UID_development_geometry_and_all128_calibration": true,
+    "ALL128_Gaussian_priors_serialized_full_rank_linear_and_physical_byte_counts": true,
+    "complete_explicit_logical_cost_not_DRAM_or_speed": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "91fb15d7db330d6a36b2f25809bfa769b99fb62fe9df3b9c074d884c25b55b58",
+  "source_freeze": "3487eea8876bb335964b3b4c93e7246d62b4f7ce",
+  "execution_head": "6b08cdae9dbcca6570988fabcb66ed4402aae6a8",
+  "decision": "HYBRID_GAUSSIAN_PRIOR_COMPILED_PENDING_INDEPENDENT_AUDIT",
+  "experts": 128,
+  "dictionary_rows": 512,
+  "development_inputs": 11721,
+  "covariance_ridge": 0.13940687996880982,
+  "kernel_ridge": 0.3731011458105516,
+  "kernel_eigmin": 0.3932588132165184,
+  "kernel_eigmax": 154405.94992493256,
+  "correlation_clips": 218,
+  "priors": [
+    {
+      "expert": 0,
+      "prior_equation_residual_Frobenius": 0.04283417237777361,
+      "L0_Frobenius": 326.54686737216184,
+      "C0_Frobenius": 205.53574951652067
+    },
+    {
+      "expert": 1,
+      "prior_equation_residual_Frobenius": 0.04493281206021937,
+      "L0_Frobenius": 349.4470016956512,
+      "C0_Frobenius": 215.74699644918533
+    },
+    {
+      "expert": 2,
+      "prior_equation_residual_Frobenius": 0.038341566088986076,
+      "L0_Frobenius": 607.7734668928231,
+      "C0_Frobenius": 265.60539694048447
+    },
+    {
+      "expert": 3,
+      "prior_equation_residual_Frobenius": 0.06980242712948109,
+      "L0_Frobenius": 609.2537096825255,
+      "C0_Frobenius": 427.7503892193423
+    },
+    {
+      "expert": 4,
+      "prior_equation_residual_Frobenius": 0.05840846643982977,
+      "L0_Frobenius": 583.9136461735044,
+      "C0_Frobenius": 330.7412676140757
+    },
+    {
+      "expert": 5,
+      "prior_equation_residual_Frobenius": 0.054732388126815024,
+      "L0_Frobenius": 635.0181690876128,
+      "C0_Frobenius": 304.1635203678063
+    },
+    {
+      "expert": 6,
+      "prior_equation_residual_Frobenius": 0.06880997519465862,
+      "L0_Frobenius": 590.4558511423061,
+      "C0_Frobenius": 322.1322374862213
+    },
+    {
+      "expert": 7,
+      "prior_equation_residual_Frobenius": 0.04120918139025889,
+      "L0_Frobenius": 644.4469232223956,
+      "C0_Frobenius": 406.8324933956946
+    },
+    {
+      "expert": 8,
+      "prior_equation_residual_Frobenius": 0.04030667864509312,
+      "L0_Frobenius": 557.7973282398654,
+      "C0_Frobenius": 326.429699358721
+    },
+    {
+      "expert": 9,
+      "prior_equation_residual_Frobenius": 0.05448691160247466,
+      "L0_Frobenius": 562.6269439993705,
+      "C0_Frobenius": 315.35852619742934
+    },
+    {
+      "expert": 10,
+      "prior_equation_residual_Frobenius": 0.047090737391432005,
+      "L0_Frobenius": 493.57594685691987,
+      "C0_Frobenius": 253.41556657413378
+    },
+    {
+      "expert": 11,
+      "prior_equation_residual_Frobenius": 0.03638771692180483,
+      "L0_Frobenius": 519.5931941029335,
+      "C0_Frobenius": 277.503109047537
+    },
+    {
+      "expert": 12,
+      "prior_equation_residual_Frobenius": 0.05539663818639903,
+      "L0_Frobenius": 609.0798430509111,
+      "C0_Frobenius": 314.33446495601
+    },
+    {
+      "expert": 13,
+      "prior_equation_residual_Frobenius": 0.056810765761487726,
+      "L0_Frobenius": 520.719029180312,
+      "C0_Frobenius": 337.3126077511422
+    },
+    {
+      "expert": 14,
+      "prior_equation_residual_Frobenius": 0.057945652852821064,
+      "L0_Frobenius": 561.2883319832094,
+      "C0_Frobenius": 304.18444045954624
+    },
+    {
+      "expert": 15,
+      "prior_equation_residual_Frobenius": 0.04543292614392348,
+      "L0_Frobenius": 348.98758610651555,
+      "C0_Frobenius": 230.6025626361947
+    },
+    {
+      "expert": 16,
+      "prior_equation_residual_Frobenius": 0.04141429138720922,
+      "L0_Frobenius": 418.86620376143304,
+      "C0_Frobenius": 222.05494207814738
+    },
+    {
+      "expert": 17,
+      "prior_equation_residual_Frobenius": 0.034676217204640924,
+      "L0_Frobenius": 574.9339427028522,
+      "C0_Frobenius": 280.56716954318154
+    },
+    {
+      "expert": 18,
+      "prior_equation_residual_Frobenius": 0.040697730236859304,
+      "L0_Frobenius": 502.7821954968513,
+      "C0_Frobenius": 244.62000998362205
+    },
+    {
+      "expert": 19,
+      "prior_equation_residual_Frobenius": 0.044954667022694426,
+      "L0_Frobenius": 526.833085356892,
+      "C0_Frobenius": 307.96875818916266
+    },
+    {
+      "expert": 20,
+      "prior_equation_residual_Frobenius": 0.03168483459111975,
+      "L0_Frobenius": 450.2110359771528,
+      "C0_Frobenius": 239.3336408499948
+    },
+    {
+      "expert": 21,
+      "prior_equation_residual_Frobenius": 0.04191494712150524,
+      "L0_Frobenius": 494.6242165907095,
+      "C0_Frobenius": 259.2708769691414
+    },
+    {
+      "expert": 22,
+      "prior_equation_residual_Frobenius": 0.03503932573540378,
+      "L0_Frobenius": 493.2547193879814,
+      "C0_Frobenius": 253.50956521513382
+    },
+    {
+      "expert": 23,
+      "prior_equation_residual_Frobenius": 0.04472130635287372,
+      "L0_Frobenius": 501.3147583416684,
+      "C0_Frobenius": 235.5929852031007
+    },
+    {
+      "expert": 24,
+      "prior_equation_residual_Frobenius": 0.07528993878725852,
+      "L0_Frobenius": 595.9285770530898,
+      "C0_Frobenius": 282.2844855680668
+    },
+    {
+      "expert": 25,
+      "prior_equation_residual_Frobenius": 0.07495086927592828,
+      "L0_Frobenius": 741.1429168803966,
+      "C0_Frobenius": 382.86332170158244
+    },
+    {
+      "expert": 26,
+      "prior_equation_residual_Frobenius": 0.05316876857437798,
+      "L0_Frobenius": 711.905096795822,
+      "C0_Frobenius": 387.3708605644607
+    },
+    {
+      "expert": 27,
+      "prior_equation_residual_Frobenius": 0.032345912047193934,
+      "L0_Frobenius": 485.1272236547913,
+      "C0_Frobenius": 249.1442830896414
+    },
+    {
+      "expert": 28,
+      "prior_equation_residual_Frobenius": 0.04266962457705956,
+      "L0_Frobenius": 585.5760524341671,
+      "C0_Frobenius": 288.30095709286985
+    },
+    {
+      "expert": 29,
+      "prior_equation_residual_Frobenius": 0.044067091699057,
+      "L0_Frobenius": 641.4193403299952,
+      "C0_Frobenius": 309.54699191067914
+    },
+    {
+      "expert": 30,
+      "prior_equation_residual_Frobenius": 0.034131264701657255,
+      "L0_Frobenius": 528.4291278078035,
+      "C0_Frobenius": 323.40798964046775
+    },
+    {
+      "expert": 31,
+      "prior_equation_residual_Frobenius": 0.06255416546747414,
+      "L0_Frobenius": 604.4885023298006,
+      "C0_Frobenius": 388.4892647760051
+    },
+    {
+      "expert": 32,
+      "prior_equation_residual_Frobenius": 0.05075570445932566,
+      "L0_Frobenius": 574.8780306687052,
+      "C0_Frobenius": 352.908736541563
+    },
+    {
+      "expert": 33,
+      "prior_equation_residual_Frobenius": 0.08308678057648015,
+      "L0_Frobenius": 683.2351040064638,
+      "C0_Frobenius": 365.3500802295397
+    },
+    {
+      "expert": 34,
+      "prior_equation_residual_Frobenius": 0.07289155864889058,
+      "L0_Frobenius": 494.76564950607656,
+      "C0_Frobenius": 291.0493060756321
+    },
+    {
+      "expert": 35,
+      "prior_equation_residual_Frobenius": 0.03551008141964371,
+      "L0_Frobenius": 551.6238063585915,
+      "C0_Frobenius": 359.7451565780126
+    },
+    {
+      "expert": 36,
+      "prior_equation_residual_Frobenius": 0.044543259287447255,
+      "L0_Frobenius": 330.90037711900607,
+      "C0_Frobenius": 208.5755755123028
+    },
+    {
+      "expert": 37,
+      "prior_equation_residual_Frobenius": 0.10205188588106504,
+      "L0_Frobenius": 540.0727605480295,
+      "C0_Frobenius": 501.6119338922088
+    },
+    {
+      "expert": 38,
+      "prior_equation_residual_Frobenius": 0.05024657640224108,
+      "L0_Frobenius": 481.82655684821736,
+      "C0_Frobenius": 307.00059693391205
+    },
+    {
+      "expert": 39,
+      "prior_equation_residual_Frobenius": 0.04516870295142552,
+      "L0_Frobenius": 302.25163513287197,
+      "C0_Frobenius": 194.66138821712732
+    },
+    {
+      "expert": 40,
+      "prior_equation_residual_Frobenius": 0.07918314092145233,
+      "L0_Frobenius": 647.859024861157,
+      "C0_Frobenius": 318.6299365111673
+    },
+    {
+      "expert": 41,
+      "prior_equation_residual_Frobenius": 0.04210477570137265,
+      "L0_Frobenius": 600.9854000039049,
+      "C0_Frobenius": 316.15674719488493
+    },
+    {
+      "expert": 42,
+      "prior_equation_residual_Frobenius": 0.03876259866890648,
+      "L0_Frobenius": 547.9191897407501,
+      "C0_Frobenius": 327.18602672097427
+    },
+    {
+      "expert": 43,
+      "prior_equation_residual_Frobenius": 0.03754187392205876,
+      "L0_Frobenius": 473.3185131622992,
+      "C0_Frobenius": 282.9459779580113
+    },
+    {
+      "expert": 44,
+      "prior_equation_residual_Frobenius": 0.0416360024600348,
+      "L0_Frobenius": 528.8601928394557,
+      "C0_Frobenius": 279.0491606150901
+    },
+    {
+      "expert": 45,
+      "prior_equation_residual_Frobenius": 0.050400391502262866,
+      "L0_Frobenius": 568.3632994948782,
+      "C0_Frobenius": 273.5866106431719
+    },
+    {
+      "expert": 46,
+      "prior_equation_residual_Frobenius": 0.05068629790203263,
+      "L0_Frobenius": 550.9215476893452,
+      "C0_Frobenius": 308.4817422716308
+    },
+    {
+      "expert": 47,
+      "prior_equation_residual_Frobenius": 0.03646113319239318,
+      "L0_Frobenius": 536.5193004426872,
+      "C0_Frobenius": 302.87104153656054
+    },
+    {
+      "expert": 48,
+      "prior_equation_residual_Frobenius": 0.03798716044491517,
+      "L0_Frobenius": 689.1979510135756,
+      "C0_Frobenius": 368.3033350293864
+    },
+    {
+      "expert": 49,
+      "prior_equation_residual_Frobenius": 0.03700732943040119,
+      "L0_Frobenius": 610.1763319196245,
+      "C0_Frobenius": 289.8564311971015
+    },
+    {
+      "expert": 50,
+      "prior_equation_residual_Frobenius": 0.052612554780175104,
+      "L0_Frobenius": 554.9461484005918,
+      "C0_Frobenius": 326.57516982982366
+    },
+    {
+      "expert": 51,
+      "prior_equation_residual_Frobenius": 0.04118509851842999,
+      "L0_Frobenius": 592.8171158334218,
+      "C0_Frobenius": 290.7120132337223
+    },
+    {
+      "expert": 52,
+      "prior_equation_residual_Frobenius": 0.054894053931124544,
+      "L0_Frobenius": 525.3162796301201,
+      "C0_Frobenius": 299.6579999285698
+    },
+    {
+      "expert": 53,
+      "prior_equation_residual_Frobenius": 0.09036961131885861,
+      "L0_Frobenius": 599.5747901646421,
+      "C0_Frobenius": 343.10922584075246
+    },
+    {
+      "expert": 54,
+      "prior_equation_residual_Frobenius": 0.04512705960318913,
+      "L0_Frobenius": 578.2160374887129,
+      "C0_Frobenius": 310.8400452151714
+    },
+    {
+      "expert": 55,
+      "prior_equation_residual_Frobenius": 0.04338985241726839,
+      "L0_Frobenius": 535.7449611296383,
+      "C0_Frobenius": 252.72055328358906
+    },
+    {
+      "expert": 56,
+      "prior_equation_residual_Frobenius": 0.04194452250546136,
+      "L0_Frobenius": 478.09689430329416,
+      "C0_Frobenius": 296.0992972277941
+    },
+    {
+      "expert": 57,
+      "prior_equation_residual_Frobenius": 0.04342558369902063,
+      "L0_Frobenius": 527.9252245628629,
+      "C0_Frobenius": 284.0170199619837
+    },
+    {
+      "expert": 58,
+      "prior_equation_residual_Frobenius": 0.052909349537809645,
+      "L0_Frobenius": 603.852885711115,
+      "C0_Frobenius": 281.35630795191787
+    },
+    {
+      "expert": 59,
+      "prior_equation_residual_Frobenius": 0.040424911875187756,
+      "L0_Frobenius": 565.8489069172484,
+      "C0_Frobenius": 277.60040991042695
+    },
+    {
+      "expert": 60,
+      "prior_equation_residual_Frobenius": 0.06637247082957251,
+      "L0_Frobenius": 726.181216930441,
+      "C0_Frobenius": 374.5033283365988
+    },
+    {
+      "expert": 61,
+      "prior_equation_residual_Frobenius": 0.04623524713187517,
+      "L0_Frobenius": 571.0541068451696,
+      "C0_Frobenius": 362.57735986547664
+    },
+    {
+      "expert": 62,
+      "prior_equation_residual_Frobenius": 0.038403012857552286,
+      "L0_Frobenius": 503.36298154060586,
+      "C0_Frobenius": 293.5917707693517
+    },
+    {
+      "expert": 63,
+      "prior_equation_residual_Frobenius": 0.03935609424974118,
+      "L0_Frobenius": 336.4602380850814,
+      "C0_Frobenius": 211.0395649784402
+    },
+    {
+      "expert": 64,
+      "prior_equation_residual_Frobenius": 0.06412162056610149,
+      "L0_Frobenius": 504.08579239745933,
+      "C0_Frobenius": 262.8193148318472
+    },
+    {
+      "expert": 65,
+      "prior_equation_residual_Frobenius": 0.04650110894594328,
+      "L0_Frobenius": 539.6732150974417,
+      "C0_Frobenius": 384.6154969941911
+    },
+    {
+      "expert": 66,
+      "prior_equation_residual_Frobenius": 0.04770830974640444,
+      "L0_Frobenius": 529.9164634661525,
+      "C0_Frobenius": 276.85424385096496
+    },
+    {
+      "expert": 67,
+      "prior_equation_residual_Frobenius": 0.04183033917830731,
+      "L0_Frobenius": 508.52713768995176,
+      "C0_Frobenius": 276.1593180219685
+    },
+    {
+      "expert": 68,
+      "prior_equation_residual_Frobenius": 0.03670230196260356,
+      "L0_Frobenius": 556.3318935836122,
+      "C0_Frobenius": 299.8073277003097
+    },
+    {
+      "expert": 69,
+      "prior_equation_residual_Frobenius": 0.04179902853192422,
+      "L0_Frobenius": 346.26026079036194,
+      "C0_Frobenius": 217.90185885027975
+    },
+    {
+      "expert": 70,
+      "prior_equation_residual_Frobenius": 0.05999840025285546,
+      "L0_Frobenius": 623.2973674369422,
+      "C0_Frobenius": 307.48345301497204
+    },
+    {
+      "expert": 71,
+      "prior_equation_residual_Frobenius": 0.03586022645886264,
+      "L0_Frobenius": 580.6445160243784,
+      "C0_Frobenius": 276.212726382429
+    },
+    {
+      "expert": 72,
+      "prior_equation_residual_Frobenius": 0.06283024231312571,
+      "L0_Frobenius": 671.9511508340664,
+      "C0_Frobenius": 371.9754003333883
+    },
+    {
+      "expert": 73,
+      "prior_equation_residual_Frobenius": 0.04314657768372896,
+      "L0_Frobenius": 352.7927556554384,
+      "C0_Frobenius": 219.22589928909173
+    },
+    {
+      "expert": 74,
+      "prior_equation_residual_Frobenius": 0.05642082915181893,
+      "L0_Frobenius": 632.5236042261259,
+      "C0_Frobenius": 347.04808726459095
+    },
+    {
+      "expert": 75,
+      "prior_equation_residual_Frobenius": 0.04422123080984157,
+      "L0_Frobenius": 517.0393467597611,
+      "C0_Frobenius": 328.28196320653933
+    },
+    {
+      "expert": 76,
+      "prior_equation_residual_Frobenius": 0.04156037037050694,
+      "L0_Frobenius": 559.114964177261,
+      "C0_Frobenius": 287.3295449873672
+    },
+    {
+      "expert": 77,
+      "prior_equation_residual_Frobenius": 0.062040840212703556,
+      "L0_Frobenius": 627.9302265976851,
+      "C0_Frobenius": 356.6606243308123
+    },
+    {
+      "expert": 78,
+      "prior_equation_residual_Frobenius": 0.04452274315533593,
+      "L0_Frobenius": 501.20158142355757,
+      "C0_Frobenius": 321.0621767424663
+    },
+    {
+      "expert": 79,
+      "prior_equation_residual_Frobenius": 0.05193738768137594,
+      "L0_Frobenius": 547.9947930127146,
+      "C0_Frobenius": 289.23586090190395
+    },
+    {
+      "expert": 80,
+      "prior_equation_residual_Frobenius": 0.059394606316894805,
+      "L0_Frobenius": 608.497381184273,
+      "C0_Frobenius": 335.41190017288613
+    },
+    {
+      "expert": 81,
+      "prior_equation_residual_Frobenius": 0.043579912049604645,
+      "L0_Frobenius": 539.8479655288469,
+      "C0_Frobenius": 307.31315840118384
+    },
+    {
+      "expert": 82,
+      "prior_equation_residual_Frobenius": 0.06073994878517225,
+      "L0_Frobenius": 601.0468855126409,
+      "C0_Frobenius": 311.9096469667741
+    },
+    {
+      "expert": 83,
+      "prior_equation_residual_Frobenius": 0.036202738531700696,
+      "L0_Frobenius": 515.6411658066451,
+      "C0_Frobenius": 286.9257630665264
+    },
+    {
+      "expert": 84,
+      "prior_equation_residual_Frobenius": 0.05996505100217419,
+      "L0_Frobenius": 690.8879299889509,
+      "C0_Frobenius": 327.81995724937303
+    },
+    {
+      "expert": 85,
+      "prior_equation_residual_Frobenius": 0.05271949752796706,
+      "L0_Frobenius": 519.2544848602913,
+      "C0_Frobenius": 379.64237553688486
+    },
+    {
+      "expert": 86,
+      "prior_equation_residual_Frobenius": 0.04032649024490947,
+      "L0_Frobenius": 543.8299490417165,
+      "C0_Frobenius": 263.18481006151484
+    },
+    {
+      "expert": 87,
+      "prior_equation_residual_Frobenius": 0.041671750473609666,
+      "L0_Frobenius": 579.0093425931118,
+      "C0_Frobenius": 318.35247874091107
+    },
+    {
+      "expert": 88,
+      "prior_equation_residual_Frobenius": 0.06443272756301321,
+      "L0_Frobenius": 572.0321249035044,
+      "C0_Frobenius": 345.6134379196844
+    },
+    {
+      "expert": 89,
+      "prior_equation_residual_Frobenius": 0.044971835759239104,
+      "L0_Frobenius": 595.1493295401925,
+      "C0_Frobenius": 346.6843272232433
+    },
+    {
+      "expert": 90,
+      "prior_equation_residual_Frobenius": 0.04155244518410803,
+      "L0_Frobenius": 392.3784505451372,
+      "C0_Frobenius": 231.73806950522822
+    },
+    {
+      "expert": 91,
+      "prior_equation_residual_Frobenius": 0.051869905864090994,
+      "L0_Frobenius": 562.7232977969254,
+      "C0_Frobenius": 285.7003987812304
+    },
+    {
+      "expert": 92,
+      "prior_equation_residual_Frobenius": 0.0695785782982118,
+      "L0_Frobenius": 629.3803124358409,
+      "C0_Frobenius": 327.61008841310945
+    },
+    {
+      "expert": 93,
+      "prior_equation_residual_Frobenius": 0.04575575339700595,
+      "L0_Frobenius": 481.56253181981924,
+      "C0_Frobenius": 257.82966777429476
+    },
+    {
+      "expert": 94,
+      "prior_equation_residual_Frobenius": 0.07589880699674299,
+      "L0_Frobenius": 633.5960819781336,
+      "C0_Frobenius": 338.5870818618677
+    },
+    {
+      "expert": 95,
+      "prior_equation_residual_Frobenius": 0.03969027756855073,
+      "L0_Frobenius": 609.0283996532041,
+      "C0_Frobenius": 296.4545965394965
+    },
+    {
+      "expert": 96,
+      "prior_equation_residual_Frobenius": 0.06732675226211896,
+      "L0_Frobenius": 667.6609609864331,
+      "C0_Frobenius": 336.3942449409369
+    },
+    {
+      "expert": 97,
+      "prior_equation_residual_Frobenius": 0.03850648900671263,
+      "L0_Frobenius": 539.2519671650798,
+      "C0_Frobenius": 254.21470839876633
+    },
+    {
+      "expert": 98,
+      "prior_equation_residual_Frobenius": 0.06564402760965922,
+      "L0_Frobenius": 718.0782443922805,
+      "C0_Frobenius": 417.7393205361474
+    },
+    {
+      "expert": 99,
+      "prior_equation_residual_Frobenius": 0.042367351402479374,
+      "L0_Frobenius": 615.5611486195355,
+      "C0_Frobenius": 311.220471528805
+    },
+    {
+      "expert": 100,
+      "prior_equation_residual_Frobenius": 0.04555398392369691,
+      "L0_Frobenius": 524.8897595816899,
+      "C0_Frobenius": 366.1414155867332
+    },
+    {
+      "expert": 101,
+      "prior_equation_residual_Frobenius": 0.036481537533553564,
+      "L0_Frobenius": 471.9004143168823,
+      "C0_Frobenius": 313.8370370148197
+    },
+    {
+      "expert": 102,
+      "prior_equation_residual_Frobenius": 0.03368562132959935,
+      "L0_Frobenius": 558.7859735198789,
+      "C0_Frobenius": 312.2470156433798
+    },
+    {
+      "expert": 103,
+      "prior_equation_residual_Frobenius": 0.06302011232923171,
+      "L0_Frobenius": 661.7104411761931,
+      "C0_Frobenius": 483.43781609297497
+    },
+    {
+      "expert": 104,
+      "prior_equation_residual_Frobenius": 0.0633306043126368,
+      "L0_Frobenius": 817.5256097198555,
+      "C0_Frobenius": 376.7050269032909
+    },
+    {
+      "expert": 105,
+      "prior_equation_residual_Frobenius": 0.05263544618264686,
+      "L0_Frobenius": 689.4572883781082,
+      "C0_Frobenius": 328.48104033782886
+    },
+    {
+      "expert": 106,
+      "prior_equation_residual_Frobenius": 0.060629594340046895,
+      "L0_Frobenius": 610.2667249141202,
+      "C0_Frobenius": 324.79039537430714
+    },
+    {
+      "expert": 107,
+      "prior_equation_residual_Frobenius": 0.044468344096533045,
+      "L0_Frobenius": 631.6646603926725,
+      "C0_Frobenius": 340.9728761104183
+    },
+    {
+      "expert": 108,
+      "prior_equation_residual_Frobenius": 0.04637838667773562,
+      "L0_Frobenius": 462.4524679381988,
+      "C0_Frobenius": 315.7176526940825
+    },
+    {
+      "expert": 109,
+      "prior_equation_residual_Frobenius": 0.07795246959172686,
+      "L0_Frobenius": 591.1214437509583,
+      "C0_Frobenius": 328.91734348630683
+    },
+    {
+      "expert": 110,
+      "prior_equation_residual_Frobenius": 0.0647273041805269,
+      "L0_Frobenius": 484.8655936351596,
+      "C0_Frobenius": 330.18228659820437
+    },
+    {
+      "expert": 111,
+      "prior_equation_residual_Frobenius": 0.05728303129805654,
+      "L0_Frobenius": 515.9955967308538,
+      "C0_Frobenius": 260.68740385996034
+    },
+    {
+      "expert": 112,
+      "prior_equation_residual_Frobenius": 0.04210808123698513,
+      "L0_Frobenius": 615.7086092733289,
+      "C0_Frobenius": 327.1408654469906
+    },
+    {
+      "expert": 113,
+      "prior_equation_residual_Frobenius": 0.0627612239337754,
+      "L0_Frobenius": 558.0421228499283,
+      "C0_Frobenius": 410.81093812333285
+    },
+    {
+      "expert": 114,
+      "prior_equation_residual_Frobenius": 0.05393511724344009,
+      "L0_Frobenius": 553.7826918377211,
+      "C0_Frobenius": 373.8027447668541
+    },
+    {
+      "expert": 115,
+      "prior_equation_residual_Frobenius": 0.0401002702437811,
+      "L0_Frobenius": 324.6400291729249,
+      "C0_Frobenius": 202.5906531189082
+    },
+    {
+      "expert": 116,
+      "prior_equation_residual_Frobenius": 0.047585203888466675,
+      "L0_Frobenius": 556.0076557839266,
+      "C0_Frobenius": 278.73263213293296
+    },
+    {
+      "expert": 117,
+      "prior_equation_residual_Frobenius": 0.0577639930142734,
+      "L0_Frobenius": 525.0951778864668,
+      "C0_Frobenius": 334.8946718525453
+    },
+    {
+      "expert": 118,
+      "prior_equation_residual_Frobenius": 0.035743400545857375,
+      "L0_Frobenius": 634.6460610898264,
+      "C0_Frobenius": 291.36885271450024
+    },
+    {
+      "expert": 119,
+      "prior_equation_residual_Frobenius": 0.07019476100893815,
+      "L0_Frobenius": 517.900584547454,
+      "C0_Frobenius": 306.663138038525
+    },
+    {
+      "expert": 120,
+      "prior_equation_residual_Frobenius": 0.059470224905058586,
+      "L0_Frobenius": 755.6440271055598,
+      "C0_Frobenius": 409.7693030532096
+    },
+    {
+      "expert": 121,
+      "prior_equation_residual_Frobenius": 0.08335689322114337,
+      "L0_Frobenius": 544.0259536414002,
+      "C0_Frobenius": 320.3544842946154
+    },
+    {
+      "expert": 122,
+      "prior_equation_residual_Frobenius": 0.04034871802521258,
+      "L0_Frobenius": 535.0302083818771,
+      "C0_Frobenius": 272.6472041598113
+    },
+    {
+      "expert": 123,
+      "prior_equation_residual_Frobenius": 0.06872002983735614,
+      "L0_Frobenius": 791.6747016486476,
+      "C0_Frobenius": 355.9450921781478
+    },
+    {
+      "expert": 124,
+      "prior_equation_residual_Frobenius": 0.045613407333454474,
+      "L0_Frobenius": 338.6629458202406,
+      "C0_Frobenius": 217.57041381601246
+    },
+    {
+      "expert": 125,
+      "prior_equation_residual_Frobenius": 0.04426998591932678,
+      "L0_Frobenius": 582.4023937953376,
+      "C0_Frobenius": 320.86814122863996
+    },
+    {
+      "expert": 126,
+      "prior_equation_residual_Frobenius": 0.03777391937129662,
+      "L0_Frobenius": 641.7630104121056,
+      "C0_Frobenius": 365.4967405322116
+    },
+    {
+      "expert": 127,
+      "prior_equation_residual_Frobenius": 0.0423267834968228,
+      "L0_Frobenius": 562.8633635962336,
+      "C0_Frobenius": 266.542888582001
+    }
+  ],
+  "Gaussian_projection_solves": 128,
+  "gradient_updates": 0,
+  "source_FFN_calls": 0,
+  "model_calls": 0,
+  "scope": "Untrained one-bank Gaussian prior; no local or model quality, DRAM, speed, n usefulness or goal promotion.",
+  "end_utc": "2026-10-06T08:12:55.577345+00:00",
+  "resource": {
+    "wall_seconds": 149.07800000000861,
+    "parent_peak_bytes": 249159680,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 2684700981,
+    "wall_limit_seconds": 600,
+    "combined_host_limit_bytes": 536870912
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\bank_prior.bin",
+      "bytes": 127232136,
+      "sha256": "64347bbc6aecc20fe659bad85b4a0222664df4a6f94fcc1241bd4243a1d5d714"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\C0_prior.bin",
+      "bytes": 201719832,
+      "sha256": "2a963ceafb3eb0f3df1cce37bab2db8bc6b5ee31b169527ec0207b8a97d84e73"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\calibration.json",
+      "bytes": 18683,
+      "sha256": "f5f77b7ae5128a64d6ca28f352ebfe60b953e5fbd9ee721d8b104c3c4832810a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\controls.json",
+      "bytes": 1025,
+      "sha256": "1c95411a1cc0e9871a9ddff995078132a5e0505e0ef612c5932b90d337f610f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\cost_contract.json",
+      "bytes": 634,
+      "sha256": "7dcbb6f32fb3c1f88e647765661d846bb44cc544aa2a846364302ec162d20b47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\geometry.bin",
+      "bytes": 20475956,
+      "sha256": "bfbdf69b8e26126e031e92a8f5735c85da39fe9ad4de9d0e816424f6f7b67be6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\L0_prior.bin",
+      "bytes": 301989912,
+      "sha256": "d2f3da7a864566a80493956bb6aea3ba23b122ba3a1e5805dc606aa95a3c4d56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\progress.jsonl",
+      "bytes": 2324,
+      "sha256": "36e0fc2c43db45ebe681bc69beef1667f9d9564444b92bb48ea26a0bd98df307"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\selection.json",
+      "bytes": 93677,
+      "sha256": "49f58fa0ae80a262516893f76d84e9de3d8c00aa939182532926d0df00bfd88d"
+    }
+  ],
+  "terminal_resource_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\terminal_resources.json"
+}
