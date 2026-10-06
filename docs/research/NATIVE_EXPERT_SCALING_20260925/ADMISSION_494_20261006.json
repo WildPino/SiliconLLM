@@ -1,0 +1,59 @@
+{
+  "experiment": "METH494 hybrid donor Gaussian prior admission",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth494_hybrid_prior_result.json",
+    "bytes": 28521,
+    "sha256": "ab3501d8add8164ef0adb2ccc2c2512ea56166a491afff0b24f887752124e527"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_494_20261006.json",
+    "bytes": 37016,
+    "sha256": "4436ef88bd926c6c5b42e7ebbec6db92ccfe31bbf099c80134f319c3fee72029"
+  },
+  "registrations": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth494_main_sole_first_registration.json",
+      "bytes": 479,
+      "sha256": "666d9f79b65b3a847673b15696240711be2c4222c82987d0242a790887dcf00e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth494_audit_sole_first_registration.json",
+      "bytes": 484,
+      "sha256": "5f0e8c145c85096911d6c48921a5350aab32d7739cf39449166d598e3e58fef2"
+    }
+  ],
+  "Windows_events": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_windows_terminal.json",
+      "bytes": 578,
+      "sha256": "31658ffcea36a700e5a35a8a79cf5399363eaceba005a8bb1f8f30c29a188c93"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_audit_windows_terminal.json",
+      "bytes": 579,
+      "sha256": "953524dc880f5bd12bbc6d7d0cb76deaa33f0334a0a3f2adbadafdd09d01b71a"
+    }
+  ],
+  "terminal_resources": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\terminal_resources.json",
+      "bytes": 527,
+      "sha256": "df772d0e00e127348b5945660e98943c57ece597d6d5d01f97a42663c280ae9c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_retention\\terminal_resources.json",
+      "bytes": 533,
+      "sha256": "a3e7c8a09a9839e6dd4d79ebba06376c58427f90059faaf2d698bac1e674fe37"
+    }
+  ],
+  "gates": {
+    "sole_first_actual_main_and_audit": true,
+    "raw_retention_ALL_output_and_scope_digest_link": true,
+    "ALL_independent_retention_gates": true,
+    "BOTH_actual_Windows_without_application_fault": true,
+    "prior_and_logical_cost_only_no_model_quality_rate_or_goal_promotion": true
+  },
+  "decision": "HYBRID_GAUSSIAN_PRIOR_AND_LOGICAL_COST_INDEPENDENTLY_ADMITTED",
+  "scope": "One untrained bank prior and logical cost. Goal ACTIVE/INCOMPLETE."
+}

@@ -1,32 +1,59 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:493 complete weighted-function supervision; transfer prior/cost next
+## Current resumption: 494 hybrid donor prior admitted; one-bank learning next
 
-Goal ACTIVE/INCOMPLETE. [493 result](METH_493_WEIGHTED_TARGET_RESULT_20261006.md):
-complete bank11 target compiler and independent verifier admitted, ALL5/7/5
-main/verifier/finalizer gates PASS.17540UID/19962occurrences/11721development/
-5819consumedvalidation, all128cells/768views; all15330816 occurrence product
-coordinates BYTEexact. R2 main f2b3e0/10669/ee1722 exit0,39.859s/100794368B;
-verifier ef8c44/72718/6cfd6e exit0,23.454s/88760320B; finalizer a84fbd exit0.
-Actual Windows both available/zero Event1000. Original role0/2 fault and R1
-pre-NumPy180s hashing deadline are admitted/immutable. R2 fresh direct input
-catalog preserves historical qualification separately; no numerical scope,
-rounding/control/split/domain change or old completed namespace rerun.
+Goal ACTIVE/INCOMPLETE. [494 result](METH_494_HYBRID_DONOR_PRIOR_RESULT_20261006.md):
+all 7 compiler / 9 independent audit / 5 admission gates PASS. All 128 source
+IDs have weight-informed private linear/shared-even priors; the 512-row
+ternary dictionary and physical bank (127,232,136 B) are byte-qualified.
+Only 11,721 canonical development inputs determine geometry/calibration;
+expert 0 has no development input and retains its marked global-amplitude
+initialization. No target fit, local/model quality, native rate or useful-n
+result. Main 149.125 s / 249,159,680 B; audit 130.797 s / 271,634,432 B.
+Actual exits 0; both Windows queries available with no matching Event 1000.
 
-[Whole algebra/next](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md): fixed-feature
-r512 real readouts have at least41329920 unidentified coefficient directions
-with11721development states. Ideal local rank and n-dependent normalization
-are separate constraints; no task-failure theorem or quantized-space dimension
-is inferred. All source supervision is now real, student remains untrained.
+[Whole algebra and next](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
+full private linear capacity, Gaussian prior assumptions, unique regularized
+readouts, decision/function errors and n-dependent calibration. Logical
+12-bank weight reads 14,587,008 B/token exclude core/head/state and other
+traffic; they are not DRAM or speed. Growing the current four-rows-per-ID
+rule would increase active r, so no n=1280 eligibility follows.
 
-Next494: implement/freeze ONE full cost/learning protocol with donor prior,
-rare/development-empty IDs, feature/bias/precision/LUT/private readout/cheap
-control and physical active cost. No width/update/ID sweep; parameters are
-not yet frozen. Development-only learning/consumedval diagnostic, then composed
-source476 path; allbanks/ownstates/fresh quality/SAME>=50/useful n/LUT/DRAM/
-actualfamilies/scales remain. No own live scientific process.493 numerical
-namespaces are terminal, never rerun. Engine and three unrelated files preserved.
-489CPU128 original warm54.8773/lower53.4759 remains positive; full goal open.
+Next 495: implement/freeze the complete fixed one-bank B/c learner, two key
+heads, byte export, native physical evaluator and independent audit BEFORE
+learning. Reuse admitted 493 targets and 494 priors. No width/update/ID or
+checkpoint sweep. All 17,540 UIDs/19,962 occurrences and source views;
+consumed validation is diagnostic. Fixed local recipe gates: coupled weighted
+RMS <=1%, ID fidelity >=99.9% in each role/mode. Then composed 476 path,
+all banks/own states/fresh quality/SAME >=50/useful n/LUT/physical DRAM/actual
+families/scales. All 494 numerical namespaces terminal; no own live science.
+Engine and three foreign files preserved. Original 489 CPU128 warm 54.8773 /
+lower 53.4759 remains a separate positive result. Full goal remains open.
+
+## Implemented transfer initialization: hybrid donor Gaussian prior
+
+494 supplies an independently audited, byte-defined bank 11 prior for all
+128 original source IDs. The ideal real identity ReLU(z)=(z+abs(z))/2
+preserves the entire source linear product in private L; a shared 512-row
+ternary dictionary approximates the even component under a development-derived
+Gaussian geometry. All original WI/WO code/scale extents and router bytes are
+freshly qualified. Only development inputs determine covariance/calibration;
+the single development-empty expert retains its marked source initialization.
+
+The physical prior bank is 127,232,136 B. All L/B row codes/scales/bias, shared
+trits and initial product-key centroids qualify BYTE; all 128 readouts satisfy
+the fixed Gaussian normal-equation envelopes. This is numerical projection
+qualification, not a formal interval or actual donor quality bound. Cost,
+CPU/RAM, schemas, controls and independent records are documented in
+[494 result](METH_494_HYBRID_DONOR_PRIOR_RESULT_20261006.md).
+
+Applicable decomposition: bias-free, non-gated two-matrix ReLU, demonstrated
+here with Switch source weights. Other activations/families need a separate
+derivation. Supervised function/key learning, native physical evaluation,
+composed/own-state/fresh quality, SAME rate and useful large-n transfer remain
+missing. The fixed next recipe is in the
+[494 protocol](METH_494_HYBRID_DONOR_PRIOR_PROTOCOL_20261006.md), with its
+[whole-project algebra and limits](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md).
 
 ## Implemented analysis: exact constant selected-amplitude exclusion
 
@@ -51,10 +78,11 @@ deadline remain; direct current dependencies are fresh, unused historical
 payloads only remain expected descriptors. [493 result](METH_493_WEIGHTED_TARGET_RESULT_20261006.md).
 
 This is a reproducible positive supervision step, not a functional student.
-Shared nonlinear dictionary/private readout/cheap decision remain UNTRAINED;
-width/bias/precision/prior/cost/learning protocol is missing. [Whole algebra](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
-requires donor priors and complete cost before one fit. No whole quality/rate/
-LUT/DRAM/useful n/family promotion follows from source target qualification.
+494 subsequently supplies the physical prior/dictionary/initial keys and
+fixed subsequent learning recipe. All are still UNTRAINED against these
+targets. [493 whole algebra](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md) is the
+historical decision to require prior/cost before that fit. No whole quality/
+rate/LUT/DRAM/useful n/family promotion follows from source target qualification.
 
 ## Available analysis: exact parametric affine root-mass bounds
 

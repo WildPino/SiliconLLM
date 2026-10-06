@@ -26,6 +26,12 @@ Routine Graphify disabled. Donor-adaptation frozen, evidence reusable.
 
 ## Latest decisive evidence
 
+[494](METH_494_HYBRID_DONOR_PRIOR_RESULT_20261006.md): all 128 hybrid source
+priors and the physical bank/logical cost contract independently admitted.
+Compiler 149.125 s, audit 130.797 s. [Whole algebra and next](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
+selects one complete fixed learning/physical evaluation pipeline. No fitted
+student, model quality, speed or large-n promotion.
+
 [493](METH_493_WEIGHTED_TARGET_RESULT_20261006.md): complete weighted-function
 source supervision independently admitted. All17540UID/19962occurrences,
 128cells/768views and15330816 F32 product coordinates qualify. [Whole algebra](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
@@ -88,33 +94,35 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption:493 complete weighted-function supervision; transfer prior/cost next
+## Current resumption: 494 hybrid donor prior admitted; one-bank learning next
 
-Goal ACTIVE/INCOMPLETE. [493 result](METH_493_WEIGHTED_TARGET_RESULT_20261006.md):
-complete bank11 target compiler and independent verifier admitted, ALL5/7/5
-main/verifier/finalizer gates PASS.17540UID/19962occurrences/11721development/
-5819consumedvalidation, all128cells/768views; all15330816 occurrence product
-coordinates BYTEexact. R2 main f2b3e0/10669/ee1722 exit0,39.859s/100794368B;
-verifier ef8c44/72718/6cfd6e exit0,23.454s/88760320B; finalizer a84fbd exit0.
-Actual Windows both available/zero Event1000. Original role0/2 fault and R1
-pre-NumPy180s hashing deadline are admitted/immutable. R2 fresh direct input
-catalog preserves historical qualification separately; no numerical scope,
-rounding/control/split/domain change or old completed namespace rerun.
+Goal ACTIVE/INCOMPLETE. [494 result](METH_494_HYBRID_DONOR_PRIOR_RESULT_20261006.md):
+all 7 compiler / 9 independent audit / 5 admission gates PASS. All 128 source
+IDs have weight-informed private linear/shared-even priors; the 512-row
+ternary dictionary and physical bank (127,232,136 B) are byte-qualified.
+Only 11,721 canonical development inputs determine geometry/calibration;
+expert 0 has no development input and retains its marked global-amplitude
+initialization. No target fit, local/model quality, native rate or useful-n
+result. Main 149.125 s / 249,159,680 B; audit 130.797 s / 271,634,432 B.
+Actual exits 0; both Windows queries available with no matching Event 1000.
 
-[Whole algebra/next](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md): fixed-feature
-r512 real readouts have at least41329920 unidentified coefficient directions
-with11721development states. Ideal local rank and n-dependent normalization
-are separate constraints; no task-failure theorem or quantized-space dimension
-is inferred. All source supervision is now real, student remains untrained.
+[Whole algebra and next](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
+full private linear capacity, Gaussian prior assumptions, unique regularized
+readouts, decision/function errors and n-dependent calibration. Logical
+12-bank weight reads 14,587,008 B/token exclude core/head/state and other
+traffic; they are not DRAM or speed. Growing the current four-rows-per-ID
+rule would increase active r, so no n=1280 eligibility follows.
 
-Next494: implement/freeze ONE full cost/learning protocol with donor prior,
-rare/development-empty IDs, feature/bias/precision/LUT/private readout/cheap
-control and physical active cost. No width/update/ID sweep; parameters are
-not yet frozen. Development-only learning/consumedval diagnostic, then composed
-source476 path; allbanks/ownstates/fresh quality/SAME>=50/useful n/LUT/DRAM/
-actualfamilies/scales remain. No own live scientific process.493 numerical
-namespaces are terminal, never rerun. Engine and three unrelated files preserved.
-489CPU128 original warm54.8773/lower53.4759 remains positive; full goal open.
+Next 495: implement/freeze the complete fixed one-bank B/c learner, two key
+heads, byte export, native physical evaluator and independent audit BEFORE
+learning. Reuse admitted 493 targets and 494 priors. No width/update/ID or
+checkpoint sweep. All 17,540 UIDs/19,962 occurrences and source views;
+consumed validation is diagnostic. Fixed local recipe gates: coupled weighted
+RMS <=1%, ID fidelity >=99.9% in each role/mode. Then composed 476 path,
+all banks/own states/fresh quality/SAME >=50/useful n/LUT/physical DRAM/actual
+families/scales. All 494 numerical namespaces terminal; no own live science.
+Engine and three foreign files preserved. Original 489 CPU128 warm 54.8773 /
+lower 53.4759 remains a separate positive result. Full goal remains open.
 
 ## Retained evidence and closures
 

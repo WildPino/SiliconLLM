@@ -1,0 +1,908 @@
+{
+  "experiment": "METH494 hybrid full-rank donor linear term and Gaussian shared-even prior",
+  "start_utc": "2026-10-06T08:13:19.192619+00:00",
+  "process_instance": {
+    "pid": 6948,
+    "create_time_unix": 1791274398.9868755
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth494_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_494_20261006.json",
+    "--binding-sha",
+    "91fb15d7db330d6a36b2f25809bfa769b99fb62fe9df3b9c074d884c25b55b58",
+    "--raw-sha",
+    "ab3501d8add8164ef0adb2ccc2c2512ea56166a491afff0b24f887752124e527"
+  ],
+  "commands": [],
+  "gates": {
+    "frozen_source_supervision_runtime_and_scientific_files": true,
+    "ALL512_WI_WO_code_scale_and_router_current_extent_SHA_before_NumPy": true,
+    "main_complete_terminal_and_ALL_current_output_SHA": true,
+    "NEW494_independent_rational_angle_and_encoding_controls": true,
+    "development_only_covariance_and_ALL128_exact_F32_mean_calibrations": true,
+    "independent_angle_Gram_Cholesky_eigen_residual_and_positive_lower_bound": true,
+    "ALL128_source_dictionary_full_linear_and_Gaussian_normal_equation_envelopes": true,
+    "ALL_physical_weights_scales_bias_packed_trits_and_centroid_keys_BYTE": true,
+    "physical_wire_sizes_and_explicit_logical_cost_independently_recounted": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "91fb15d7db330d6a36b2f25809bfa769b99fb62fe9df3b9c074d884c25b55b58",
+  "source_freeze": "3487eea8876bb335964b3b4c93e7246d62b4f7ce",
+  "execution_head": "b574abc1914aca6ba38afa4309b40c7db55145a5",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth494_hybrid_prior_result.json",
+    "sha256": "ab3501d8add8164ef0adb2ccc2c2512ea56166a491afff0b24f887752124e527"
+  },
+  "main_windows_sha256": "31658ffcea36a700e5a35a8a79cf5399363eaceba005a8bb1f8f30c29a188c93",
+  "retained_main_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\bank_prior.bin",
+      "bytes": 127232136,
+      "sha256": "64347bbc6aecc20fe659bad85b4a0222664df4a6f94fcc1241bd4243a1d5d714"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\C0_prior.bin",
+      "bytes": 201719832,
+      "sha256": "2a963ceafb3eb0f3df1cce37bab2db8bc6b5ee31b169527ec0207b8a97d84e73"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\calibration.json",
+      "bytes": 18683,
+      "sha256": "f5f77b7ae5128a64d6ca28f352ebfe60b953e5fbd9ee721d8b104c3c4832810a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\controls.json",
+      "bytes": 1025,
+      "sha256": "1c95411a1cc0e9871a9ddff995078132a5e0505e0ef612c5932b90d337f610f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\cost_contract.json",
+      "bytes": 634,
+      "sha256": "7dcbb6f32fb3c1f88e647765661d846bb44cc544aa2a846364302ec162d20b47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\geometry.bin",
+      "bytes": 20475956,
+      "sha256": "bfbdf69b8e26126e031e92a8f5735c85da39fe9ad4de9d0e816424f6f7b67be6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\L0_prior.bin",
+      "bytes": 301989912,
+      "sha256": "d2f3da7a864566a80493956bb6aea3ba23b122ba3a1e5805dc606aa95a3c4d56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\progress.jsonl",
+      "bytes": 2324,
+      "sha256": "36e0fc2c43db45ebe681bc69beef1667f9d9564444b92bb48ea26a0bd98df307"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\selection.json",
+      "bytes": 93677,
+      "sha256": "49f58fa0ae80a262516893f76d84e9de3d8c00aa939182532926d0df00bfd88d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_hybrid_prior\\terminal_resources.json",
+      "bytes": 527,
+      "sha256": "df772d0e00e127348b5945660e98943c57ece597d6d5d01f97a42663c280ae9c"
+    }
+  ],
+  "experts_audited": 128,
+  "dictionary_rows_audited": 512,
+  "development_inputs_audited": 11721,
+  "private_physical_bytes_audited": 127008768,
+  "eigen_orthogonality_Frobenius": 5.219421221473775e-14,
+  "eigen_reconstruction_Frobenius": 3.4078401605937164e-10,
+  "computed_Gram_eigen_lower": 0.3932433537861806,
+  "prior_audits": [
+    {
+      "expert": 0,
+      "linear_rounding_envelope_ratio": 0.24942213877021663,
+      "equation_casting_arithmetic_envelope_ratio": 0.03068782616023779,
+      "computed_Gram_objective_gap_upper": 0.004665727492008261
+    },
+    {
+      "expert": 1,
+      "linear_rounding_envelope_ratio": 0.2475886701653831,
+      "equation_casting_arithmetic_envelope_ratio": 0.0280346233783848,
+      "computed_Gram_objective_gap_upper": 0.005134117544946445
+    },
+    {
+      "expert": 2,
+      "linear_rounding_envelope_ratio": 0.24861875232951763,
+      "equation_casting_arithmetic_envelope_ratio": 0.02930628608887412,
+      "computed_Gram_objective_gap_upper": 0.0037383357545559812
+    },
+    {
+      "expert": 3,
+      "linear_rounding_envelope_ratio": 0.24914360144161155,
+      "equation_casting_arithmetic_envelope_ratio": 0.036604695467654685,
+      "computed_Gram_objective_gap_upper": 0.012390238284827309
+    },
+    {
+      "expert": 4,
+      "linear_rounding_envelope_ratio": 0.2481059842046791,
+      "equation_casting_arithmetic_envelope_ratio": 0.03127965679997653,
+      "computed_Gram_objective_gap_upper": 0.00867541410347507
+    },
+    {
+      "expert": 5,
+      "linear_rounding_envelope_ratio": 0.24920070150232615,
+      "equation_casting_arithmetic_envelope_ratio": 0.034028232270646996,
+      "computed_Gram_objective_gap_upper": 0.0076177621234698395
+    },
+    {
+      "expert": 6,
+      "linear_rounding_envelope_ratio": 0.2491064510665953,
+      "equation_casting_arithmetic_envelope_ratio": 0.028253499375383028,
+      "computed_Gram_objective_gap_upper": 0.012040413823910065
+    },
+    {
+      "expert": 7,
+      "linear_rounding_envelope_ratio": 0.24876295069817345,
+      "equation_casting_arithmetic_envelope_ratio": 0.03208178935397567,
+      "computed_Gram_objective_gap_upper": 0.004318436917877424
+    },
+    {
+      "expert": 8,
+      "linear_rounding_envelope_ratio": 0.24869743843378164,
+      "equation_casting_arithmetic_envelope_ratio": 0.02825104193364418,
+      "computed_Gram_objective_gap_upper": 0.004131356103106854
+    },
+    {
+      "expert": 9,
+      "linear_rounding_envelope_ratio": 0.24742928691202903,
+      "equation_casting_arithmetic_envelope_ratio": 0.028874126898388426,
+      "computed_Gram_objective_gap_upper": 0.007549583548351341
+    },
+    {
+      "expert": 10,
+      "linear_rounding_envelope_ratio": 0.24914235296589063,
+      "equation_casting_arithmetic_envelope_ratio": 0.030974353732792274,
+      "computed_Gram_objective_gap_upper": 0.0056390973566395235
+    },
+    {
+      "expert": 11,
+      "linear_rounding_envelope_ratio": 0.24736283724453775,
+      "equation_casting_arithmetic_envelope_ratio": 0.028377711205642118,
+      "computed_Gram_objective_gap_upper": 0.003367039618455075
+    },
+    {
+      "expert": 12,
+      "linear_rounding_envelope_ratio": 0.2493241980132999,
+      "equation_casting_arithmetic_envelope_ratio": 0.033949112338517905,
+      "computed_Gram_objective_gap_upper": 0.007803787297451631
+    },
+    {
+      "expert": 13,
+      "linear_rounding_envelope_ratio": 0.24936117815510064,
+      "equation_casting_arithmetic_envelope_ratio": 0.027915491762194346,
+      "computed_Gram_objective_gap_upper": 0.008207292146847529
+    },
+    {
+      "expert": 14,
+      "linear_rounding_envelope_ratio": 0.24903575203369022,
+      "equation_casting_arithmetic_envelope_ratio": 0.030727683746829607,
+      "computed_Gram_objective_gap_upper": 0.008538475319005619
+    },
+    {
+      "expert": 15,
+      "linear_rounding_envelope_ratio": 0.24778592335378855,
+      "equation_casting_arithmetic_envelope_ratio": 0.03779635223926381,
+      "computed_Gram_objective_gap_upper": 0.005249041734091029
+    },
+    {
+      "expert": 16,
+      "linear_rounding_envelope_ratio": 0.24670645472984265,
+      "equation_casting_arithmetic_envelope_ratio": 0.028329269023552272,
+      "computed_Gram_objective_gap_upper": 0.004361532154934191
+    },
+    {
+      "expert": 17,
+      "linear_rounding_envelope_ratio": 0.2496620102664468,
+      "equation_casting_arithmetic_envelope_ratio": 0.030493262995928142,
+      "computed_Gram_objective_gap_upper": 0.003057750448339392
+    },
+    {
+      "expert": 18,
+      "linear_rounding_envelope_ratio": 0.2483428950705625,
+      "equation_casting_arithmetic_envelope_ratio": 0.03078003933162993,
+      "computed_Gram_objective_gap_upper": 0.004211909074913706
+    },
+    {
+      "expert": 19,
+      "linear_rounding_envelope_ratio": 0.24622004133675385,
+      "equation_casting_arithmetic_envelope_ratio": 0.030189797980550784,
+      "computed_Gram_objective_gap_upper": 0.005139113106117939
+    },
+    {
+      "expert": 20,
+      "linear_rounding_envelope_ratio": 0.24761966047605355,
+      "equation_casting_arithmetic_envelope_ratio": 0.032797988896169104,
+      "computed_Gram_objective_gap_upper": 0.0025529452119519482
+    },
+    {
+      "expert": 21,
+      "linear_rounding_envelope_ratio": 0.24884259722268828,
+      "equation_casting_arithmetic_envelope_ratio": 0.031364885656284765,
+      "computed_Gram_objective_gap_upper": 0.004467622303227166
+    },
+    {
+      "expert": 22,
+      "linear_rounding_envelope_ratio": 0.24967923504849812,
+      "equation_casting_arithmetic_envelope_ratio": 0.03334946668155024,
+      "computed_Gram_objective_gap_upper": 0.0031221235762487246
+    },
+    {
+      "expert": 23,
+      "linear_rounding_envelope_ratio": 0.24683144636994003,
+      "equation_casting_arithmetic_envelope_ratio": 0.034107534972866595,
+      "computed_Gram_objective_gap_upper": 0.005085897163225673
+    },
+    {
+      "expert": 24,
+      "linear_rounding_envelope_ratio": 0.2478552846041747,
+      "equation_casting_arithmetic_envelope_ratio": 0.030761928013427458,
+      "computed_Gram_objective_gap_upper": 0.014414928635434452
+    },
+    {
+      "expert": 25,
+      "linear_rounding_envelope_ratio": 0.24919654188456059,
+      "equation_casting_arithmetic_envelope_ratio": 0.062253738349296164,
+      "computed_Gram_objective_gap_upper": 0.01428538518952005
+    },
+    {
+      "expert": 26,
+      "linear_rounding_envelope_ratio": 0.24874563557175167,
+      "equation_casting_arithmetic_envelope_ratio": 0.03186242613574576,
+      "computed_Gram_objective_gap_upper": 0.007188723979326655
+    },
+    {
+      "expert": 27,
+      "linear_rounding_envelope_ratio": 0.2453221789133983,
+      "equation_casting_arithmetic_envelope_ratio": 0.031701642978119365,
+      "computed_Gram_objective_gap_upper": 0.0026605866909730296
+    },
+    {
+      "expert": 28,
+      "linear_rounding_envelope_ratio": 0.24925776576061764,
+      "equation_casting_arithmetic_envelope_ratio": 0.035046345074363924,
+      "computed_Gram_objective_gap_upper": 0.004629949437091664
+    },
+    {
+      "expert": 29,
+      "linear_rounding_envelope_ratio": 0.24952456618250898,
+      "equation_casting_arithmetic_envelope_ratio": 0.028452939786631205,
+      "computed_Gram_objective_gap_upper": 0.004938185360610573
+    },
+    {
+      "expert": 30,
+      "linear_rounding_envelope_ratio": 0.2491956357306335,
+      "equation_casting_arithmetic_envelope_ratio": 0.033002572620666096,
+      "computed_Gram_objective_gap_upper": 0.002962397734504929
+    },
+    {
+      "expert": 31,
+      "linear_rounding_envelope_ratio": 0.2485230051061322,
+      "equation_casting_arithmetic_envelope_ratio": 0.032159432102186275,
+      "computed_Gram_objective_gap_upper": 0.009950641417563874
+    },
+    {
+      "expert": 32,
+      "linear_rounding_envelope_ratio": 0.2495488735071527,
+      "equation_casting_arithmetic_envelope_ratio": 0.029450933560786947,
+      "computed_Gram_objective_gap_upper": 0.006551010978256264
+    },
+    {
+      "expert": 33,
+      "linear_rounding_envelope_ratio": 0.2489505611807753,
+      "equation_casting_arithmetic_envelope_ratio": 0.03536003455107894,
+      "computed_Gram_objective_gap_upper": 0.01755506617192445
+    },
+    {
+      "expert": 34,
+      "linear_rounding_envelope_ratio": 0.2471806770469975,
+      "equation_casting_arithmetic_envelope_ratio": 0.028343270400474577,
+      "computed_Gram_objective_gap_upper": 0.013511173818694622
+    },
+    {
+      "expert": 35,
+      "linear_rounding_envelope_ratio": 0.24879203321995777,
+      "equation_casting_arithmetic_envelope_ratio": 0.03366978000011194,
+      "computed_Gram_objective_gap_upper": 0.0032065789936946486
+    },
+    {
+      "expert": 36,
+      "linear_rounding_envelope_ratio": 0.24955354085816234,
+      "equation_casting_arithmetic_envelope_ratio": 0.036357050675997336,
+      "computed_Gram_objective_gap_upper": 0.005045481198386571
+    },
+    {
+      "expert": 37,
+      "linear_rounding_envelope_ratio": 0.24970347915568808,
+      "equation_casting_arithmetic_envelope_ratio": 0.05256549278340962,
+      "computed_Gram_objective_gap_upper": 0.026483823104943505
+    },
+    {
+      "expert": 38,
+      "linear_rounding_envelope_ratio": 0.24816676094911175,
+      "equation_casting_arithmetic_envelope_ratio": 0.03321680530497042,
+      "computed_Gram_objective_gap_upper": 0.006420244389175932
+    },
+    {
+      "expert": 39,
+      "linear_rounding_envelope_ratio": 0.24782494237807354,
+      "equation_casting_arithmetic_envelope_ratio": 0.03683723231033998,
+      "computed_Gram_objective_gap_upper": 0.0051881658267042335
+    },
+    {
+      "expert": 40,
+      "linear_rounding_envelope_ratio": 0.24910433147804947,
+      "equation_casting_arithmetic_envelope_ratio": 0.03502971635060864,
+      "computed_Gram_objective_gap_upper": 0.015944248729043816
+    },
+    {
+      "expert": 41,
+      "linear_rounding_envelope_ratio": 0.24778293369823673,
+      "equation_casting_arithmetic_envelope_ratio": 0.02732166510714607,
+      "computed_Gram_objective_gap_upper": 0.004508180844662958
+    },
+    {
+      "expert": 42,
+      "linear_rounding_envelope_ratio": 0.24943562018038348,
+      "equation_casting_arithmetic_envelope_ratio": 0.034162956491431626,
+      "computed_Gram_objective_gap_upper": 0.0038208886120919116
+    },
+    {
+      "expert": 43,
+      "linear_rounding_envelope_ratio": 0.24886984380714497,
+      "equation_casting_arithmetic_envelope_ratio": 0.032739441645065544,
+      "computed_Gram_objective_gap_upper": 0.0035840206361054446
+    },
+    {
+      "expert": 44,
+      "linear_rounding_envelope_ratio": 0.24850362133356574,
+      "equation_casting_arithmetic_envelope_ratio": 0.03931429397368327,
+      "computed_Gram_objective_gap_upper": 0.00440835603403905
+    },
+    {
+      "expert": 45,
+      "linear_rounding_envelope_ratio": 0.24692883307597316,
+      "equation_casting_arithmetic_envelope_ratio": 0.03520540301244774,
+      "computed_Gram_objective_gap_upper": 0.00645961190227223
+    },
+    {
+      "expert": 46,
+      "linear_rounding_envelope_ratio": 0.24900608433729265,
+      "equation_casting_arithmetic_envelope_ratio": 0.027822551809059414,
+      "computed_Gram_objective_gap_upper": 0.006533106675025432
+    },
+    {
+      "expert": 47,
+      "linear_rounding_envelope_ratio": 0.24850049061169893,
+      "equation_casting_arithmetic_envelope_ratio": 0.02980277807780451,
+      "computed_Gram_objective_gap_upper": 0.0033806400448587503
+    },
+    {
+      "expert": 48,
+      "linear_rounding_envelope_ratio": 0.2496377686011055,
+      "equation_casting_arithmetic_envelope_ratio": 0.0321399933769655,
+      "computed_Gram_objective_gap_upper": 0.003669545468230572
+    },
+    {
+      "expert": 49,
+      "linear_rounding_envelope_ratio": 0.24899513949079566,
+      "equation_casting_arithmetic_envelope_ratio": 0.03391573381780319,
+      "computed_Gram_objective_gap_upper": 0.003482684210701149
+    },
+    {
+      "expert": 50,
+      "linear_rounding_envelope_ratio": 0.24902999836161627,
+      "equation_casting_arithmetic_envelope_ratio": 0.030553038911218345,
+      "computed_Gram_objective_gap_upper": 0.007039104084829955
+    },
+    {
+      "expert": 51,
+      "linear_rounding_envelope_ratio": 0.24765284402910762,
+      "equation_casting_arithmetic_envelope_ratio": 0.02962884201034883,
+      "computed_Gram_objective_gap_upper": 0.004313390971191065
+    },
+    {
+      "expert": 52,
+      "linear_rounding_envelope_ratio": 0.24784750156719074,
+      "equation_casting_arithmetic_envelope_ratio": 0.029081932305789444,
+      "computed_Gram_objective_gap_upper": 0.007662830466053187
+    },
+    {
+      "expert": 53,
+      "linear_rounding_envelope_ratio": 0.2495106437603966,
+      "equation_casting_arithmetic_envelope_ratio": 0.029992710331886694,
+      "computed_Gram_objective_gap_upper": 0.020767462722596382
+    },
+    {
+      "expert": 54,
+      "linear_rounding_envelope_ratio": 0.24768232431346607,
+      "equation_casting_arithmetic_envelope_ratio": 0.03939853653478942,
+      "computed_Gram_objective_gap_upper": 0.005178603764936482
+    },
+    {
+      "expert": 55,
+      "linear_rounding_envelope_ratio": 0.24870345847628653,
+      "equation_casting_arithmetic_envelope_ratio": 0.03150438366778174,
+      "computed_Gram_objective_gap_upper": 0.004787568001583334
+    },
+    {
+      "expert": 56,
+      "linear_rounding_envelope_ratio": 0.24972781736532615,
+      "equation_casting_arithmetic_envelope_ratio": 0.0319934698949541,
+      "computed_Gram_objective_gap_upper": 0.004473929311229504
+    },
+    {
+      "expert": 57,
+      "linear_rounding_envelope_ratio": 0.24663021611715535,
+      "equation_casting_arithmetic_envelope_ratio": 0.02958992935331913,
+      "computed_Gram_objective_gap_upper": 0.0047954562865771926
+    },
+    {
+      "expert": 58,
+      "linear_rounding_envelope_ratio": 0.24792252532999295,
+      "equation_casting_arithmetic_envelope_ratio": 0.03067471864989808,
+      "computed_Gram_objective_gap_upper": 0.007118745267364478
+    },
+    {
+      "expert": 59,
+      "linear_rounding_envelope_ratio": 0.24879594058434887,
+      "equation_casting_arithmetic_envelope_ratio": 0.031065153653125573,
+      "computed_Gram_objective_gap_upper": 0.004155629065097495
+    },
+    {
+      "expert": 60,
+      "linear_rounding_envelope_ratio": 0.24855257893603258,
+      "equation_casting_arithmetic_envelope_ratio": 0.030483308016655462,
+      "computed_Gram_objective_gap_upper": 0.011202490448761487
+    },
+    {
+      "expert": 61,
+      "linear_rounding_envelope_ratio": 0.24920856639088185,
+      "equation_casting_arithmetic_envelope_ratio": 0.03275014662225553,
+      "computed_Gram_objective_gap_upper": 0.005436069182944208
+    },
+    {
+      "expert": 62,
+      "linear_rounding_envelope_ratio": 0.24803636037885518,
+      "equation_casting_arithmetic_envelope_ratio": 0.02916808038492555,
+      "computed_Gram_objective_gap_upper": 0.0037503275624762946
+    },
+    {
+      "expert": 63,
+      "linear_rounding_envelope_ratio": 0.24963817884567005,
+      "equation_casting_arithmetic_envelope_ratio": 0.02932790771487002,
+      "computed_Gram_objective_gap_upper": 0.003938787876591458
+    },
+    {
+      "expert": 64,
+      "linear_rounding_envelope_ratio": 0.24867787860307008,
+      "equation_casting_arithmetic_envelope_ratio": 0.029819002425099654,
+      "computed_Gram_objective_gap_upper": 0.010455566920630469
+    },
+    {
+      "expert": 65,
+      "linear_rounding_envelope_ratio": 0.2491302685729771,
+      "equation_casting_arithmetic_envelope_ratio": 0.031170977490073637,
+      "computed_Gram_objective_gap_upper": 0.0054987658675833394
+    },
+    {
+      "expert": 66,
+      "linear_rounding_envelope_ratio": 0.2472252527930339,
+      "equation_casting_arithmetic_envelope_ratio": 0.029712657227599328,
+      "computed_Gram_objective_gap_upper": 0.00578797532034412
+    },
+    {
+      "expert": 67,
+      "linear_rounding_envelope_ratio": 0.24914846362165294,
+      "equation_casting_arithmetic_envelope_ratio": 0.0320268510267029,
+      "computed_Gram_objective_gap_upper": 0.004449604239280667
+    },
+    {
+      "expert": 68,
+      "linear_rounding_envelope_ratio": 0.24644239056724487,
+      "equation_casting_arithmetic_envelope_ratio": 0.03587480328320931,
+      "computed_Gram_objective_gap_upper": 0.0034255097986351755
+    },
+    {
+      "expert": 69,
+      "linear_rounding_envelope_ratio": 0.24930368567654884,
+      "equation_casting_arithmetic_envelope_ratio": 0.031001624947453822,
+      "computed_Gram_objective_gap_upper": 0.004442945486921673
+    },
+    {
+      "expert": 70,
+      "linear_rounding_envelope_ratio": 0.24902044768171558,
+      "equation_casting_arithmetic_envelope_ratio": 0.03162395316843182,
+      "computed_Gram_objective_gap_upper": 0.009154148480668423
+    },
+    {
+      "expert": 71,
+      "linear_rounding_envelope_ratio": 0.2476275705254245,
+      "equation_casting_arithmetic_envelope_ratio": 0.02918912524725563,
+      "computed_Gram_objective_gap_upper": 0.003270127320992805
+    },
+    {
+      "expert": 72,
+      "linear_rounding_envelope_ratio": 0.24785574323375814,
+      "equation_casting_arithmetic_envelope_ratio": 0.03459392477907495,
+      "computed_Gram_objective_gap_upper": 0.010038667646784677
+    },
+    {
+      "expert": 73,
+      "linear_rounding_envelope_ratio": 0.24827606831975713,
+      "equation_casting_arithmetic_envelope_ratio": 0.032368695316637684,
+      "computed_Gram_objective_gap_upper": 0.004734033382268413
+    },
+    {
+      "expert": 74,
+      "linear_rounding_envelope_ratio": 0.24890624676906933,
+      "equation_casting_arithmetic_envelope_ratio": 0.03144103329433893,
+      "computed_Gram_objective_gap_upper": 0.008095012704049772
+    },
+    {
+      "expert": 75,
+      "linear_rounding_envelope_ratio": 0.24927550651023545,
+      "equation_casting_arithmetic_envelope_ratio": 0.030885663316493592,
+      "computed_Gram_objective_gap_upper": 0.004972791607098279
+    },
+    {
+      "expert": 76,
+      "linear_rounding_envelope_ratio": 0.24900353245053625,
+      "equation_casting_arithmetic_envelope_ratio": 0.028069513833123446,
+      "computed_Gram_objective_gap_upper": 0.004392354905060224
+    },
+    {
+      "expert": 77,
+      "linear_rounding_envelope_ratio": 0.24909312186825666,
+      "equation_casting_arithmetic_envelope_ratio": 0.030366732872063713,
+      "computed_Gram_objective_gap_upper": 0.009787999718965445
+    },
+    {
+      "expert": 78,
+      "linear_rounding_envelope_ratio": 0.24935250658524655,
+      "equation_casting_arithmetic_envelope_ratio": 0.034641614485061714,
+      "computed_Gram_objective_gap_upper": 0.005040834485255151
+    },
+    {
+      "expert": 79,
+      "linear_rounding_envelope_ratio": 0.24834036736830828,
+      "equation_casting_arithmetic_envelope_ratio": 0.0280126263291999,
+      "computed_Gram_objective_gap_upper": 0.006859600361761869
+    },
+    {
+      "expert": 80,
+      "linear_rounding_envelope_ratio": 0.24682047678125146,
+      "equation_casting_arithmetic_envelope_ratio": 0.031380124318391926,
+      "computed_Gram_objective_gap_upper": 0.00897082988517926
+    },
+    {
+      "expert": 81,
+      "linear_rounding_envelope_ratio": 0.24715247831052542,
+      "equation_casting_arithmetic_envelope_ratio": 0.02861843950070926,
+      "computed_Gram_objective_gap_upper": 0.004829601564892767
+    },
+    {
+      "expert": 82,
+      "linear_rounding_envelope_ratio": 0.24821525019202756,
+      "equation_casting_arithmetic_envelope_ratio": 0.0284328587415065,
+      "computed_Gram_objective_gap_upper": 0.009381827756317167
+    },
+    {
+      "expert": 83,
+      "linear_rounding_envelope_ratio": 0.24833211164058494,
+      "equation_casting_arithmetic_envelope_ratio": 0.030664881824119146,
+      "computed_Gram_objective_gap_upper": 0.00333289366108866
+    },
+    {
+      "expert": 84,
+      "linear_rounding_envelope_ratio": 0.24876539414679086,
+      "equation_casting_arithmetic_envelope_ratio": 0.03155073920105271,
+      "computed_Gram_objective_gap_upper": 0.009143974889846543
+    },
+    {
+      "expert": 85,
+      "linear_rounding_envelope_ratio": 0.24936704702660575,
+      "equation_casting_arithmetic_envelope_ratio": 0.028766984642420404,
+      "computed_Gram_objective_gap_upper": 0.007067749248526177
+    },
+    {
+      "expert": 86,
+      "linear_rounding_envelope_ratio": 0.24810056348183424,
+      "equation_casting_arithmetic_envelope_ratio": 0.03481006999293988,
+      "computed_Gram_objective_gap_upper": 0.0041354184383632945
+    },
+    {
+      "expert": 87,
+      "linear_rounding_envelope_ratio": 0.2489709838322857,
+      "equation_casting_arithmetic_envelope_ratio": 0.03302627169811811,
+      "computed_Gram_objective_gap_upper": 0.004415929145165233
+    },
+    {
+      "expert": 88,
+      "linear_rounding_envelope_ratio": 0.24810036196388532,
+      "equation_casting_arithmetic_envelope_ratio": 0.02926410208806098,
+      "computed_Gram_objective_gap_upper": 0.010557270219793309
+    },
+    {
+      "expert": 89,
+      "linear_rounding_envelope_ratio": 0.2490105476435925,
+      "equation_casting_arithmetic_envelope_ratio": 0.03198532629215557,
+      "computed_Gram_objective_gap_upper": 0.005143039272807793
+    },
+    {
+      "expert": 90,
+      "linear_rounding_envelope_ratio": 0.24916706793904364,
+      "equation_casting_arithmetic_envelope_ratio": 0.039112510709649585,
+      "computed_Gram_objective_gap_upper": 0.004390679926212404
+    },
+    {
+      "expert": 91,
+      "linear_rounding_envelope_ratio": 0.24844073785457085,
+      "equation_casting_arithmetic_envelope_ratio": 0.027442885916247124,
+      "computed_Gram_objective_gap_upper": 0.0068417866622847824
+    },
+    {
+      "expert": 92,
+      "linear_rounding_envelope_ratio": 0.24823856121964916,
+      "equation_casting_arithmetic_envelope_ratio": 0.03577231794990816,
+      "computed_Gram_objective_gap_upper": 0.012310897422425604
+    },
+    {
+      "expert": 93,
+      "linear_rounding_envelope_ratio": 0.24813577092278682,
+      "equation_casting_arithmetic_envelope_ratio": 0.03888044307298645,
+      "computed_Gram_objective_gap_upper": 0.005323901700569606
+    },
+    {
+      "expert": 94,
+      "linear_rounding_envelope_ratio": 0.2488770752899478,
+      "equation_casting_arithmetic_envelope_ratio": 0.029376271231636646,
+      "computed_Gram_objective_gap_upper": 0.014649017949076127
+    },
+    {
+      "expert": 95,
+      "linear_rounding_envelope_ratio": 0.24956274361067385,
+      "equation_casting_arithmetic_envelope_ratio": 0.0313458699987492,
+      "computed_Gram_objective_gap_upper": 0.004005962512993554
+    },
+    {
+      "expert": 96,
+      "linear_rounding_envelope_ratio": 0.24890394026207732,
+      "equation_casting_arithmetic_envelope_ratio": 0.033202523632857965,
+      "computed_Gram_objective_gap_upper": 0.011526937464887064
+    },
+    {
+      "expert": 97,
+      "linear_rounding_envelope_ratio": 0.24775742482833152,
+      "equation_casting_arithmetic_envelope_ratio": 0.03169259412496531,
+      "computed_Gram_objective_gap_upper": 0.003770565189933673
+    },
+    {
+      "expert": 98,
+      "linear_rounding_envelope_ratio": 0.24961456161933948,
+      "equation_casting_arithmetic_envelope_ratio": 0.035281311660050926,
+      "computed_Gram_objective_gap_upper": 0.010957943317419797
+    },
+    {
+      "expert": 99,
+      "linear_rounding_envelope_ratio": 0.24754548937919718,
+      "equation_casting_arithmetic_envelope_ratio": 0.028339828577336967,
+      "computed_Gram_objective_gap_upper": 0.004564584297681809
+    },
+    {
+      "expert": 100,
+      "linear_rounding_envelope_ratio": 0.2492960797113867,
+      "equation_casting_arithmetic_envelope_ratio": 0.03456602798602156,
+      "computed_Gram_objective_gap_upper": 0.005277051594698969
+    },
+    {
+      "expert": 101,
+      "linear_rounding_envelope_ratio": 0.2490570129688793,
+      "equation_casting_arithmetic_envelope_ratio": 0.03098172952951146,
+      "computed_Gram_objective_gap_upper": 0.003384424870018172
+    },
+    {
+      "expert": 102,
+      "linear_rounding_envelope_ratio": 0.24821083171513397,
+      "equation_casting_arithmetic_envelope_ratio": 0.02998705302121952,
+      "computed_Gram_objective_gap_upper": 0.0028855442228550316
+    },
+    {
+      "expert": 103,
+      "linear_rounding_envelope_ratio": 0.24922804039115484,
+      "equation_casting_arithmetic_envelope_ratio": 0.02900068071355921,
+      "computed_Gram_objective_gap_upper": 0.010099432138262806
+    },
+    {
+      "expert": 104,
+      "linear_rounding_envelope_ratio": 0.24703630654742806,
+      "equation_casting_arithmetic_envelope_ratio": 0.02872432980267129,
+      "computed_Gram_objective_gap_upper": 0.01019919457725728
+    },
+    {
+      "expert": 105,
+      "linear_rounding_envelope_ratio": 0.2489734357813867,
+      "equation_casting_arithmetic_envelope_ratio": 0.033505725826870524,
+      "computed_Gram_objective_gap_upper": 0.007045230832973761
+    },
+    {
+      "expert": 106,
+      "linear_rounding_envelope_ratio": 0.24842063504337056,
+      "equation_casting_arithmetic_envelope_ratio": 0.029063647042133572,
+      "computed_Gram_objective_gap_upper": 0.00934776827081639
+    },
+    {
+      "expert": 107,
+      "linear_rounding_envelope_ratio": 0.2497330251118621,
+      "equation_casting_arithmetic_envelope_ratio": 0.03103458221116919,
+      "computed_Gram_objective_gap_upper": 0.005028523935932954
+    },
+    {
+      "expert": 108,
+      "linear_rounding_envelope_ratio": 0.24894369120983612,
+      "equation_casting_arithmetic_envelope_ratio": 0.03307114120148627,
+      "computed_Gram_objective_gap_upper": 0.005469780317830605
+    },
+    {
+      "expert": 109,
+      "linear_rounding_envelope_ratio": 0.24678165710982666,
+      "equation_casting_arithmetic_envelope_ratio": 0.027157264406547053,
+      "computed_Gram_objective_gap_upper": 0.015452486101272112
+    },
+    {
+      "expert": 110,
+      "linear_rounding_envelope_ratio": 0.2498091859363185,
+      "equation_casting_arithmetic_envelope_ratio": 0.03243416036057409,
+      "computed_Gram_objective_gap_upper": 0.01065402337747939
+    },
+    {
+      "expert": 111,
+      "linear_rounding_envelope_ratio": 0.2484596944681473,
+      "equation_casting_arithmetic_envelope_ratio": 0.03325222431802184,
+      "computed_Gram_objective_gap_upper": 0.008344313183343352
+    },
+    {
+      "expert": 112,
+      "linear_rounding_envelope_ratio": 0.24840178063244528,
+      "equation_casting_arithmetic_envelope_ratio": 0.03714143623257058,
+      "computed_Gram_objective_gap_upper": 0.004508888643940722
+    },
+    {
+      "expert": 113,
+      "linear_rounding_envelope_ratio": 0.24892038498367042,
+      "equation_casting_arithmetic_envelope_ratio": 0.031885535853902296,
+      "computed_Gram_objective_gap_upper": 0.010016625055400524
+    },
+    {
+      "expert": 114,
+      "linear_rounding_envelope_ratio": 0.2496458006064852,
+      "equation_casting_arithmetic_envelope_ratio": 0.029604817043390116,
+      "computed_Gram_objective_gap_upper": 0.007397446915984416
+    },
+    {
+      "expert": 115,
+      "linear_rounding_envelope_ratio": 0.24888681127896334,
+      "equation_casting_arithmetic_envelope_ratio": 0.032258358673997206,
+      "computed_Gram_objective_gap_upper": 0.004089151556453485
+    },
+    {
+      "expert": 116,
+      "linear_rounding_envelope_ratio": 0.24770972635389205,
+      "equation_casting_arithmetic_envelope_ratio": 0.03447762723671109,
+      "computed_Gram_objective_gap_upper": 0.00575814343720234
+    },
+    {
+      "expert": 117,
+      "linear_rounding_envelope_ratio": 0.24931146441630073,
+      "equation_casting_arithmetic_envelope_ratio": 0.030136061576547104,
+      "computed_Gram_objective_gap_upper": 0.008485023038270863
+    },
+    {
+      "expert": 118,
+      "linear_rounding_envelope_ratio": 0.24763610119583115,
+      "equation_casting_arithmetic_envelope_ratio": 0.03573546077060899,
+      "computed_Gram_objective_gap_upper": 0.003248855104714802
+    },
+    {
+      "expert": 119,
+      "linear_rounding_envelope_ratio": 0.24722264161140484,
+      "equation_casting_arithmetic_envelope_ratio": 0.034827825013932424,
+      "computed_Gram_objective_gap_upper": 0.012529911793472693
+    },
+    {
+      "expert": 120,
+      "linear_rounding_envelope_ratio": 0.24927289894950994,
+      "equation_casting_arithmetic_envelope_ratio": 0.03509470759968312,
+      "computed_Gram_objective_gap_upper": 0.00899368695690665
+    },
+    {
+      "expert": 121,
+      "linear_rounding_envelope_ratio": 0.24826183207692082,
+      "equation_casting_arithmetic_envelope_ratio": 0.026440525895195806,
+      "computed_Gram_objective_gap_upper": 0.01766939367090489
+    },
+    {
+      "expert": 122,
+      "linear_rounding_envelope_ratio": 0.24739313530434628,
+      "equation_casting_arithmetic_envelope_ratio": 0.030703444781609197,
+      "computed_Gram_objective_gap_upper": 0.00413997858570011
+    },
+    {
+      "expert": 123,
+      "linear_rounding_envelope_ratio": 0.24867753296383402,
+      "equation_casting_arithmetic_envelope_ratio": 0.029749105421265746,
+      "computed_Gram_objective_gap_upper": 0.012008956970552927
+    },
+    {
+      "expert": 124,
+      "linear_rounding_envelope_ratio": 0.24870091639404804,
+      "equation_casting_arithmetic_envelope_ratio": 0.03234775894401323,
+      "computed_Gram_objective_gap_upper": 0.0052908279503538005
+    },
+    {
+      "expert": 125,
+      "linear_rounding_envelope_ratio": 0.2481560979764526,
+      "equation_casting_arithmetic_envelope_ratio": 0.03310681392316868,
+      "computed_Gram_objective_gap_upper": 0.0049837629601153345
+    },
+    {
+      "expert": 126,
+      "linear_rounding_envelope_ratio": 0.2483244632905074,
+      "equation_casting_arithmetic_envelope_ratio": 0.03989687460551267,
+      "computed_Gram_objective_gap_upper": 0.003628463065042895
+    },
+    {
+      "expert": 127,
+      "linear_rounding_envelope_ratio": 0.2490536707966848,
+      "equation_casting_arithmetic_envelope_ratio": 0.0321655916613965,
+      "computed_Gram_objective_gap_upper": 0.004555847062914647
+    }
+  ],
+  "source_FFN_calls": 0,
+  "model_calls": 0,
+  "gradient_updates": 0,
+  "Gaussian_projection_solves": 0,
+  "decision": "HYBRID_GAUSSIAN_PRIOR_AND_LOGICAL_COST_INDEPENDENTLY_ADMITTED",
+  "scope": "Numerical projection envelopes for chosen computed Gaussian Gram, not formal real interval certificates or model quality/speed/goal completion.",
+  "end_utc": "2026-10-06T08:15:29.916707+00:00",
+  "resource": {
+    "wall_seconds": 130.71899999999732,
+    "parent_peak_bytes": 271634432,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 2078788241,
+    "wall_limit_seconds": 900,
+    "combined_host_limit_bytes": 536870912
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_retention\\independent_controls.json",
+      "bytes": 933,
+      "sha256": "ba88ea27960148082e8ba56843c2615a7523febe87d3dadd01ff93f04507d995"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_retention\\progress.jsonl",
+      "bytes": 2557,
+      "sha256": "73227c9e1efc439f822422f9ccd85c935dcc4736230faa5e8027cf0868f6a251"
+    }
+  ],
+  "terminal_resource_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth494_retention\\terminal_resources.json"
+}
