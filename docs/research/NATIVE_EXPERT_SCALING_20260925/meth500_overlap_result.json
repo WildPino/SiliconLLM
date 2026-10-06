@@ -1,0 +1,4843 @@
+{
+  "experiment": "METH500 ONE four overlapping half-width source experts",
+  "start_utc": "2026-10-06T12:09:43.552169+00:00",
+  "process_instance": {
+    "pid": 27876,
+    "create_time_unix": 1791288583.3442278
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth500_overlap_screen.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth500_overlap_result.json",
+    "--binding-sha",
+    "75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_data_runtime_scientific_SHA_before_NumPy": true,
+    "NEW_fixed_mask_region_A16_integer_controls": true,
+    "ALL_original_UID_input_mass_A16_role_occurrence_contracts": true,
+    "ALL17540_new_hidden_supports_original_saved_F_BYTE": true,
+    "ALL127_development_only_fixed_regions_overlapping_masks_and_union3072": true,
+    "ALL_complete_retained_nonzero_support_child_functions_BYTE_identity": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf",
+  "source_freeze": "18e182d13bd8148bec6b60f23ac7f4438eb0f8c8",
+  "execution_head": "08c7021a16739407b3d93901e37a3bf47e67e938",
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      0
+    ],
+    "module": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py"
+  },
+  "experts": [
+    {
+      "expert": 0,
+      "development": 0,
+      "consumed": 0,
+      "status": "EMPTY_UNIDENTIFIED_NO_PROMOTION"
+    },
+    {
+      "expert": 1,
+      "development": 3,
+      "consumed": 0,
+      "seed_UIDs": [
+        4811,
+        15458,
+        17528,
+        4811
+      ],
+      "development_cluster_sizes": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1492,
+        784,
+        100,
+        696
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 2,
+      "development": 160,
+      "consumed": 81,
+      "seed_UIDs": [
+        6,
+        12401,
+        2972,
+        1722
+      ],
+      "development_cluster_sizes": [
+        94,
+        30,
+        12,
+        24
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1367,
+        718,
+        607,
+        380
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 3,
+      "development": 73,
+      "consumed": 45,
+      "seed_UIDs": [
+        378,
+        12812,
+        4881,
+        3349
+      ],
+      "development_cluster_sizes": [
+        9,
+        28,
+        27,
+        9
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1406,
+        690,
+        546,
+        430
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 4,
+      "development": 135,
+      "consumed": 66,
+      "seed_UIDs": [
+        268,
+        17492,
+        15951,
+        388
+      ],
+      "development_cluster_sizes": [
+        60,
+        28,
+        37,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1363,
+        765,
+        525,
+        419
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 5,
+      "development": 188,
+      "consumed": 90,
+      "seed_UIDs": [
+        9,
+        1667,
+        730,
+        11933
+      ],
+      "development_cluster_sizes": [
+        69,
+        1,
+        12,
+        106
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1219,
+        917,
+        653,
+        283
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 6,
+      "development": 161,
+      "consumed": 68,
+      "seed_UIDs": [
+        29,
+        12790,
+        2292,
+        14102
+      ],
+      "development_cluster_sizes": [
+        65,
+        26,
+        19,
+        51
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1441,
+        657,
+        507,
+        467
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 7,
+      "development": 74,
+      "consumed": 30,
+      "seed_UIDs": [
+        591,
+        12230,
+        1245,
+        16217
+      ],
+      "development_cluster_sizes": [
+        27,
+        24,
+        8,
+        15
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1332,
+        790,
+        568,
+        382
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 8,
+      "development": 76,
+      "consumed": 38,
+      "seed_UIDs": [
+        142,
+        1241,
+        14222,
+        14055
+      ],
+      "development_cluster_sizes": [
+        33,
+        8,
+        29,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1418,
+        587,
+        716,
+        351
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 9,
+      "development": 61,
+      "consumed": 29,
+      "seed_UIDs": [
+        112,
+        1769,
+        376,
+        4358
+      ],
+      "development_cluster_sizes": [
+        3,
+        18,
+        16,
+        24
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1426,
+        626,
+        614,
+        406
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 10,
+      "development": 64,
+      "consumed": 63,
+      "seed_UIDs": [
+        11,
+        1821,
+        12714,
+        3827
+      ],
+      "development_cluster_sizes": [
+        42,
+        10,
+        5,
+        7
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1409,
+        638,
+        641,
+        384
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 11,
+      "development": 68,
+      "consumed": 42,
+      "seed_UIDs": [
+        290,
+        2565,
+        16024,
+        4745
+      ],
+      "development_cluster_sizes": [
+        28,
+        11,
+        24,
+        5
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1299,
+        842,
+        563,
+        368
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 12,
+      "development": 44,
+      "consumed": 15,
+      "seed_UIDs": [
+        760,
+        2124,
+        13395,
+        15557
+      ],
+      "development_cluster_sizes": [
+        22,
+        5,
+        16,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1363,
+        776,
+        503,
+        430
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 13,
+      "development": 113,
+      "consumed": 42,
+      "seed_UIDs": [
+        51,
+        13723,
+        3609,
+        12147
+      ],
+      "development_cluster_sizes": [
+        25,
+        24,
+        14,
+        50
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1426,
+        671,
+        524,
+        451
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 14,
+      "development": 75,
+      "consumed": 32,
+      "seed_UIDs": [
+        300,
+        3634,
+        13561,
+        16701
+      ],
+      "development_cluster_sizes": [
+        15,
+        20,
+        12,
+        28
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1185,
+        952,
+        685,
+        250
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 15,
+      "development": 4,
+      "consumed": 3,
+      "seed_UIDs": [
+        742,
+        4145,
+        4091,
+        4134
+      ],
+      "development_cluster_sizes": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1530,
+        768,
+        18,
+        756
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 16,
+      "development": 48,
+      "consumed": 21,
+      "seed_UIDs": [
+        225,
+        2449,
+        16724,
+        3046
+      ],
+      "development_cluster_sizes": [
+        18,
+        17,
+        2,
+        11
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1563,
+        559,
+        337,
+        613
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 17,
+      "development": 134,
+      "consumed": 49,
+      "seed_UIDs": [
+        105,
+        13374,
+        13613,
+        5169
+      ],
+      "development_cluster_sizes": [
+        29,
+        25,
+        9,
+        71
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1230,
+        903,
+        648,
+        291
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 18,
+      "development": 83,
+      "consumed": 43,
+      "seed_UIDs": [
+        101,
+        1892,
+        13141,
+        4650
+      ],
+      "development_cluster_sizes": [
+        39,
+        17,
+        2,
+        25
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1424,
+        677,
+        518,
+        453
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 19,
+      "development": 59,
+      "consumed": 42,
+      "seed_UIDs": [
+        211,
+        5778,
+        2291,
+        921
+      ],
+      "development_cluster_sizes": [
+        29,
+        17,
+        5,
+        8
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1349,
+        754,
+        589,
+        380
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 20,
+      "development": 16,
+      "consumed": 5,
+      "seed_UIDs": [
+        1631,
+        12759,
+        16836,
+        11893
+      ],
+      "development_cluster_sizes": [
+        11,
+        1,
+        2,
+        2
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1508,
+        715,
+        190,
+        659
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 21,
+      "development": 168,
+      "consumed": 74,
+      "seed_UIDs": [
+        16,
+        529,
+        1899,
+        2941
+      ],
+      "development_cluster_sizes": [
+        36,
+        72,
+        49,
+        11
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1370,
+        729,
+        576,
+        397
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 22,
+      "development": 40,
+      "consumed": 16,
+      "seed_UIDs": [
+        811,
+        2362,
+        13548,
+        2380
+      ],
+      "development_cluster_sizes": [
+        25,
+        8,
+        1,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1641,
+        465,
+        291,
+        675
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 23,
+      "development": 104,
+      "consumed": 52,
+      "seed_UIDs": [
+        52,
+        4679,
+        13120,
+        12549
+      ],
+      "development_cluster_sizes": [
+        20,
+        18,
+        47,
+        19
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1486,
+        591,
+        504,
+        491
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 24,
+      "development": 144,
+      "consumed": 66,
+      "seed_UIDs": [
+        85,
+        13532,
+        5638,
+        835
+      ],
+      "development_cluster_sizes": [
+        88,
+        4,
+        4,
+        48
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1198,
+        990,
+        570,
+        314
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 25,
+      "development": 260,
+      "consumed": 149,
+      "seed_UIDs": [
+        49,
+        13090,
+        2903,
+        17036
+      ],
+      "development_cluster_sizes": [
+        238,
+        7,
+        2,
+        13
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1614,
+        562,
+        178,
+        718
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 26,
+      "development": 122,
+      "consumed": 46,
+      "seed_UIDs": [
+        390,
+        16687,
+        1502,
+        2537
+      ],
+      "development_cluster_sizes": [
+        42,
+        5,
+        41,
+        34
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1227,
+        915,
+        633,
+        297
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 27,
+      "development": 95,
+      "consumed": 61,
+      "seed_UIDs": [
+        81,
+        11786,
+        16821,
+        5537
+      ],
+      "development_cluster_sizes": [
+        36,
+        10,
+        39,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1211,
+        930,
+        651,
+        280
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 28,
+      "development": 46,
+      "consumed": 22,
+      "seed_UIDs": [
+        183,
+        4891,
+        2892,
+        13704
+      ],
+      "development_cluster_sizes": [
+        16,
+        22,
+        7,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1447,
+        706,
+        391,
+        528
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 29,
+      "development": 59,
+      "consumed": 32,
+      "seed_UIDs": [
+        163,
+        1258,
+        484,
+        177
+      ],
+      "development_cluster_sizes": [
+        22,
+        18,
+        11,
+        8
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1603,
+        541,
+        253,
+        675
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 30,
+      "development": 87,
+      "consumed": 54,
+      "seed_UIDs": [
+        5,
+        16162,
+        12705,
+        4714
+      ],
+      "development_cluster_sizes": [
+        40,
+        15,
+        7,
+        25
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1382,
+        711,
+        576,
+        403
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 31,
+      "development": 55,
+      "consumed": 42,
+      "seed_UIDs": [
+        134,
+        16802,
+        14106,
+        4760
+      ],
+      "development_cluster_sizes": [
+        13,
+        9,
+        11,
+        22
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1493,
+        535,
+        595,
+        449
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 32,
+      "development": 102,
+      "consumed": 42,
+      "seed_UIDs": [
+        4,
+        12177,
+        3519,
+        5237
+      ],
+      "development_cluster_sizes": [
+        45,
+        27,
+        24,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1465,
+        635,
+        479,
+        493
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 33,
+      "development": 183,
+      "consumed": 52,
+      "seed_UIDs": [
+        14,
+        13559,
+        4055,
+        16775
+      ],
+      "development_cluster_sizes": [
+        98,
+        2,
+        43,
+        40
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1234,
+        850,
+        742,
+        246
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 34,
+      "development": 200,
+      "consumed": 100,
+      "seed_UIDs": [
+        3,
+        3594,
+        15926,
+        2212
+      ],
+      "development_cluster_sizes": [
+        117,
+        11,
+        18,
+        54
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1382,
+        691,
+        616,
+        383
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 35,
+      "development": 98,
+      "consumed": 53,
+      "seed_UIDs": [
+        33,
+        17060,
+        1835,
+        947
+      ],
+      "development_cluster_sizes": [
+        52,
+        13,
+        14,
+        19
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1385,
+        709,
+        571,
+        407
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 36,
+      "development": 5,
+      "consumed": 3,
+      "seed_UIDs": [
+        2627,
+        3626,
+        14206,
+        5391
+      ],
+      "development_cluster_sizes": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1548,
+        742,
+        16,
+        766
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 37,
+      "development": 271,
+      "consumed": 122,
+      "seed_UIDs": [
+        0,
+        14510,
+        16322,
+        633
+      ],
+      "development_cluster_sizes": [
+        65,
+        200,
+        3,
+        3
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1548,
+        746,
+        8,
+        770
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 38,
+      "development": 142,
+      "consumed": 80,
+      "seed_UIDs": [
+        30,
+        2332,
+        16773,
+        5512
+      ],
+      "development_cluster_sizes": [
+        83,
+        21,
+        23,
+        15
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1390,
+        712,
+        550,
+        420
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 39,
+      "development": 18,
+      "consumed": 2,
+      "seed_UIDs": [
+        1325,
+        5319,
+        3746,
+        4227
+      ],
+      "development_cluster_sizes": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1557,
+        723,
+        27,
+        765
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 40,
+      "development": 183,
+      "consumed": 117,
+      "seed_UIDs": [
+        82,
+        2432,
+        1029,
+        2971
+      ],
+      "development_cluster_sizes": [
+        69,
+        60,
+        53,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1215,
+        887,
+        725,
+        245
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 41,
+      "development": 116,
+      "consumed": 74,
+      "seed_UIDs": [
+        41,
+        17333,
+        13155,
+        17493
+      ],
+      "development_cluster_sizes": [
+        44,
+        21,
+        26,
+        25
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1200,
+        950,
+        644,
+        278
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 42,
+      "development": 53,
+      "consumed": 39,
+      "seed_UIDs": [
+        99,
+        17063,
+        16445,
+        2720
+      ],
+      "development_cluster_sizes": [
+        28,
+        7,
+        9,
+        9
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1454,
+        593,
+        596,
+        429
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 43,
+      "development": 70,
+      "consumed": 17,
+      "seed_UIDs": [
+        213,
+        13026,
+        13717,
+        2320
+      ],
+      "development_cluster_sizes": [
+        34,
+        13,
+        16,
+        7
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1410,
+        682,
+        550,
+        430
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 44,
+      "development": 21,
+      "consumed": 10,
+      "seed_UIDs": [
+        160,
+        15559,
+        14837,
+        1036
+      ],
+      "development_cluster_sizes": [
+        6,
+        8,
+        1,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1543,
+        612,
+        291,
+        626
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 45,
+      "development": 28,
+      "consumed": 8,
+      "seed_UIDs": [
+        1347,
+        16433,
+        14058,
+        2954
+      ],
+      "development_cluster_sizes": [
+        12,
+        8,
+        6,
+        2
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1625,
+        518,
+        233,
+        696
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 46,
+      "development": 44,
+      "consumed": 25,
+      "seed_UIDs": [
+        519,
+        12253,
+        2139,
+        12185
+      ],
+      "development_cluster_sizes": [
+        6,
+        13,
+        6,
+        19
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1450,
+        629,
+        536,
+        457
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 47,
+      "development": 108,
+      "consumed": 53,
+      "seed_UIDs": [
+        27,
+        1670,
+        3766,
+        13500
+      ],
+      "development_cluster_sizes": [
+        19,
+        26,
+        55,
+        8
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1322,
+        777,
+        624,
+        349
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 48,
+      "development": 89,
+      "consumed": 44,
+      "seed_UIDs": [
+        88,
+        4179,
+        1961,
+        2156
+      ],
+      "development_cluster_sizes": [
+        31,
+        21,
+        36,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1253,
+        843,
+        699,
+        277
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 49,
+      "development": 123,
+      "consumed": 68,
+      "seed_UIDs": [
+        76,
+        16715,
+        5780,
+        13232
+      ],
+      "development_cluster_sizes": [
+        63,
+        28,
+        9,
+        23
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1184,
+        966,
+        660,
+        262
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 50,
+      "development": 106,
+      "consumed": 45,
+      "seed_UIDs": [
+        115,
+        135,
+        1888,
+        4609
+      ],
+      "development_cluster_sizes": [
+        7,
+        7,
+        31,
+        61
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1372,
+        748,
+        532,
+        420
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 51,
+      "development": 75,
+      "consumed": 47,
+      "seed_UIDs": [
+        167,
+        3741,
+        14065,
+        5555
+      ],
+      "development_cluster_sizes": [
+        27,
+        12,
+        31,
+        5
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1292,
+        827,
+        614,
+        339
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 52,
+      "development": 19,
+      "consumed": 20,
+      "seed_UIDs": [
+        646,
+        14537,
+        12267,
+        13111
+      ],
+      "development_cluster_sizes": [
+        13,
+        4,
+        1,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1540,
+        672,
+        180,
+        680
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 53,
+      "development": 60,
+      "consumed": 23,
+      "seed_UIDs": [
+        232,
+        15260,
+        1867,
+        14512
+      ],
+      "development_cluster_sizes": [
+        3,
+        23,
+        14,
+        20
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1574,
+        500,
+        422,
+        576
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 54,
+      "development": 76,
+      "consumed": 30,
+      "seed_UIDs": [
+        50,
+        277,
+        17272,
+        13606
+      ],
+      "development_cluster_sizes": [
+        8,
+        22,
+        23,
+        23
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1376,
+        741,
+        534,
+        421
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 55,
+      "development": 122,
+      "consumed": 65,
+      "seed_UIDs": [
+        173,
+        5545,
+        5649,
+        5314
+      ],
+      "development_cluster_sizes": [
+        101,
+        8,
+        6,
+        7
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1255,
+        878,
+        623,
+        316
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 56,
+      "development": 149,
+      "consumed": 59,
+      "seed_UIDs": [
+        7,
+        1625,
+        4847,
+        179
+      ],
+      "development_cluster_sizes": [
+        52,
+        43,
+        14,
+        40
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1574,
+        493,
+        436,
+        569
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 57,
+      "development": 16,
+      "consumed": 11,
+      "seed_UIDs": [
+        1107,
+        13324,
+        14004,
+        2160
+      ],
+      "development_cluster_sizes": [
+        9,
+        3,
+        3,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1700,
+        470,
+        104,
+        798
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 58,
+      "development": 152,
+      "consumed": 69,
+      "seed_UIDs": [
+        61,
+        553,
+        13650,
+        12973
+      ],
+      "development_cluster_sizes": [
+        100,
+        19,
+        13,
+        20
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1233,
+        913,
+        619,
+        307
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 59,
+      "development": 17,
+      "consumed": 10,
+      "seed_UIDs": [
+        106,
+        2908,
+        15273,
+        1279
+      ],
+      "development_cluster_sizes": [
+        1,
+        10,
+        1,
+        5
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1632,
+        542,
+        164,
+        734
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 60,
+      "development": 100,
+      "consumed": 57,
+      "seed_UIDs": [
+        56,
+        4910,
+        16675,
+        16216
+      ],
+      "development_cluster_sizes": [
+        37,
+        17,
+        26,
+        20
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1440,
+        646,
+        532,
+        454
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 61,
+      "development": 104,
+      "consumed": 39,
+      "seed_UIDs": [
+        146,
+        13009,
+        16459,
+        3612
+      ],
+      "development_cluster_sizes": [
+        7,
+        49,
+        8,
+        40
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1338,
+        772,
+        586,
+        376
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 62,
+      "development": 60,
+      "consumed": 25,
+      "seed_UIDs": [
+        8,
+        4793,
+        2290,
+        2717
+      ],
+      "development_cluster_sizes": [
+        33,
+        5,
+        12,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1318,
+        765,
+        660,
+        329
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 63,
+      "development": 27,
+      "consumed": 10,
+      "seed_UIDs": [
+        228,
+        1875,
+        3535,
+        17287
+      ],
+      "development_cluster_sizes": [
+        5,
+        17,
+        3,
+        2
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1544,
+        747,
+        18,
+        763
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 64,
+      "development": 34,
+      "consumed": 12,
+      "seed_UIDs": [
+        1476,
+        14853,
+        16977,
+        16489
+      ],
+      "development_cluster_sizes": [
+        7,
+        13,
+        11,
+        3
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1560,
+        587,
+        290,
+        635
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 65,
+      "development": 116,
+      "consumed": 73,
+      "seed_UIDs": [
+        40,
+        13134,
+        2751,
+        1285
+      ],
+      "development_cluster_sizes": [
+        38,
+        32,
+        31,
+        15
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1472,
+        602,
+        524,
+        474
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 66,
+      "development": 38,
+      "consumed": 29,
+      "seed_UIDs": [
+        343,
+        15742,
+        15325,
+        1481
+      ],
+      "development_cluster_sizes": [
+        25,
+        7,
+        2,
+        4
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1425,
+        796,
+        277,
+        574
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 67,
+      "development": 165,
+      "consumed": 107,
+      "seed_UIDs": [
+        75,
+        2920,
+        708,
+        12427
+      ],
+      "development_cluster_sizes": [
+        78,
+        21,
+        56,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1147,
+        1011,
+        681,
+        233
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 68,
+      "development": 98,
+      "consumed": 44,
+      "seed_UIDs": [
+        80,
+        11907,
+        2905,
+        15781
+      ],
+      "development_cluster_sizes": [
+        21,
+        30,
+        35,
+        12
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1264,
+        871,
+        610,
+        327
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 69,
+      "development": 12,
+      "consumed": 9,
+      "seed_UIDs": [
+        295,
+        4309,
+        3588,
+        2419
+      ],
+      "development_cluster_sizes": [
+        5,
+        3,
+        2,
+        2
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1561,
+        718,
+        25,
+        768
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 70,
+      "development": 53,
+      "consumed": 31,
+      "seed_UIDs": [
+        120,
+        5716,
+        14608,
+        11813
+      ],
+      "development_cluster_sizes": [
+        21,
+        6,
+        19,
+        7
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1537,
+        522,
+        489,
+        524
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 71,
+      "development": 147,
+      "consumed": 57,
+      "seed_UIDs": [
+        202,
+        5572,
+        12465,
+        1206
+      ],
+      "development_cluster_sizes": [
+        54,
+        54,
+        29,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1140,
+        1037,
+        650,
+        245
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 72,
+      "development": 119,
+      "consumed": 41,
+      "seed_UIDs": [
+        270,
+        2857,
+        522,
+        15971
+      ],
+      "development_cluster_sizes": [
+        64,
+        15,
+        24,
+        16
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1300,
+        822,
+        600,
+        350
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 73,
+      "development": 16,
+      "consumed": 3,
+      "seed_UIDs": [
+        305,
+        14105,
+        12618,
+        16455
+      ],
+      "development_cluster_sizes": [
+        9,
+        1,
+        4,
+        2
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1541,
+        745,
+        31,
+        755
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 74,
+      "development": 124,
+      "consumed": 54,
+      "seed_UIDs": [
+        100,
+        1528,
+        13319,
+        17209
+      ],
+      "development_cluster_sizes": [
+        66,
+        15,
+        1,
+        42
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1206,
+        942,
+        642,
+        282
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 75,
+      "development": 124,
+      "consumed": 48,
+      "seed_UIDs": [
+        117,
+        15850,
+        293,
+        3706
+      ],
+      "development_cluster_sizes": [
+        63,
+        5,
+        25,
+        31
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1429,
+        630,
+        597,
+        416
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 76,
+      "development": 115,
+      "consumed": 56,
+      "seed_UIDs": [
+        166,
+        1248,
+        15888,
+        15916
+      ],
+      "development_cluster_sizes": [
+        32,
+        13,
+        21,
+        49
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1372,
+        721,
+        586,
+        393
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 77,
+      "development": 110,
+      "consumed": 46,
+      "seed_UIDs": [
+        24,
+        1766,
+        13710,
+        1908
+      ],
+      "development_cluster_sizes": [
+        40,
+        3,
+        38,
+        29
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1456,
+        576,
+        624,
+        416
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 78,
+      "development": 213,
+      "consumed": 110,
+      "seed_UIDs": [
+        152,
+        16436,
+        2551,
+        181
+      ],
+      "development_cluster_sizes": [
+        124,
+        47,
+        13,
+        29
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1357,
+        720,
+        633,
+        362
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 79,
+      "development": 53,
+      "consumed": 41,
+      "seed_UIDs": [
+        77,
+        13661,
+        14357,
+        1841
+      ],
+      "development_cluster_sizes": [
+        31,
+        9,
+        5,
+        8
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1292,
+        822,
+        624,
+        334
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 80,
+      "development": 56,
+      "consumed": 22,
+      "seed_UIDs": [
+        603,
+        4734,
+        12547,
+        17323
+      ],
+      "development_cluster_sizes": [
+        23,
+        5,
+        18,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1603,
+        488,
+        359,
+        622
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 81,
+      "development": 113,
+      "consumed": 67,
+      "seed_UIDs": [
+        172,
+        13397,
+        2010,
+        11922
+      ],
+      "development_cluster_sizes": [
+        37,
+        20,
+        26,
+        30
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1392,
+        723,
+        522,
+        435
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 82,
+      "development": 144,
+      "consumed": 58,
+      "seed_UIDs": [
+        34,
+        2199,
+        14045,
+        14606
+      ],
+      "development_cluster_sizes": [
+        83,
+        40,
+        13,
+        8
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1186,
+        983,
+        620,
+        283
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 83,
+      "development": 70,
+      "consumed": 18,
+      "seed_UIDs": [
+        441,
+        4747,
+        2149,
+        13126
+      ],
+      "development_cluster_sizes": [
+        14,
+        27,
+        16,
+        13
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1545,
+        514,
+        481,
+        532
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 84,
+      "development": 308,
+      "consumed": 190,
+      "seed_UIDs": [
+        1,
+        15111,
+        17017,
+        13529
+      ],
+      "development_cluster_sizes": [
+        140,
+        50,
+        58,
+        60
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1494,
+        598,
+        466,
+        514
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 85,
+      "development": 51,
+      "consumed": 18,
+      "seed_UIDs": [
+        269,
+        13533,
+        12041,
+        15344
+      ],
+      "development_cluster_sizes": [
+        23,
+        7,
+        5,
+        16
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1311,
+        786,
+        639,
+        336
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 86,
+      "development": 40,
+      "consumed": 24,
+      "seed_UIDs": [
+        541,
+        12206,
+        4783,
+        5382
+      ],
+      "development_cluster_sizes": [
+        7,
+        10,
+        5,
+        18
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1450,
+        636,
+        522,
+        464
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 87,
+      "development": 134,
+      "consumed": 56,
+      "seed_UIDs": [
+        194,
+        5711,
+        5296,
+        15935
+      ],
+      "development_cluster_sizes": [
+        18,
+        49,
+        45,
+        22
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1345,
+        772,
+        565,
+        390
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 88,
+      "development": 131,
+      "consumed": 77,
+      "seed_UIDs": [
+        434,
+        3484,
+        15558,
+        2750
+      ],
+      "development_cluster_sizes": [
+        47,
+        46,
+        10,
+        28
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1414,
+        683,
+        536,
+        439
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 89,
+      "development": 86,
+      "consumed": 52,
+      "seed_UIDs": [
+        140,
+        17062,
+        14107,
+        5859
+      ],
+      "development_cluster_sizes": [
+        39,
+        12,
+        12,
+        23
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1403,
+        703,
+        529,
+        437
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 90,
+      "development": 30,
+      "consumed": 19,
+      "seed_UIDs": [
+        136,
+        4208,
+        4752,
+        17420
+      ],
+      "development_cluster_sizes": [
+        2,
+        9,
+        13,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1564,
+        617,
+        218,
+        673
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 91,
+      "development": 78,
+      "consumed": 32,
+      "seed_UIDs": [
+        204,
+        13521,
+        15232,
+        1128
+      ],
+      "development_cluster_sizes": [
+        39,
+        2,
+        10,
+        27
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1206,
+        945,
+        636,
+        285
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 92,
+      "development": 78,
+      "consumed": 42,
+      "seed_UIDs": [
+        74,
+        4287,
+        2340,
+        13198
+      ],
+      "development_cluster_sizes": [
+        29,
+        18,
+        15,
+        16
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1507,
+        551,
+        521,
+        493
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 93,
+      "development": 67,
+      "consumed": 56,
+      "seed_UIDs": [
+        824,
+        15796,
+        5721,
+        14320
+      ],
+      "development_cluster_sizes": [
+        17,
+        6,
+        24,
+        20
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1300,
+        800,
+        644,
+        328
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 94,
+      "development": 84,
+      "consumed": 27,
+      "seed_UIDs": [
+        111,
+        13059,
+        12442,
+        1086
+      ],
+      "development_cluster_sizes": [
+        25,
+        43,
+        7,
+        9
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1479,
+        600,
+        507,
+        486
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 95,
+      "development": 108,
+      "consumed": 51,
+      "seed_UIDs": [
+        150,
+        16077,
+        4755,
+        1081
+      ],
+      "development_cluster_sizes": [
+        25,
+        30,
+        39,
+        14
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1328,
+        799,
+        562,
+        383
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 96,
+      "development": 61,
+      "consumed": 42,
+      "seed_UIDs": [
+        410,
+        11966,
+        17039,
+        16793
+      ],
+      "development_cluster_sizes": [
+        29,
+        17,
+        5,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1500,
+        576,
+        492,
+        504
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 97,
+      "development": 103,
+      "consumed": 70,
+      "seed_UIDs": [
+        35,
+        13150,
+        147,
+        3727
+      ],
+      "development_cluster_sizes": [
+        73,
+        8,
+        8,
+        14
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1270,
+        856,
+        622,
+        324
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 98,
+      "development": 92,
+      "consumed": 66,
+      "seed_UIDs": [
+        124,
+        13715,
+        1210,
+        4273
+      ],
+      "development_cluster_sizes": [
+        37,
+        17,
+        14,
+        24
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1388,
+        685,
+        610,
+        389
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 99,
+      "development": 238,
+      "consumed": 77,
+      "seed_UIDs": [
+        2,
+        2301,
+        577,
+        2528
+      ],
+      "development_cluster_sizes": [
+        93,
+        87,
+        5,
+        53
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1300,
+        775,
+        694,
+        303
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 100,
+      "development": 65,
+      "consumed": 52,
+      "seed_UIDs": [
+        271,
+        13918,
+        14023,
+        2858
+      ],
+      "development_cluster_sizes": [
+        19,
+        12,
+        29,
+        5
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1424,
+        679,
+        514,
+        455
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 101,
+      "development": 39,
+      "consumed": 33,
+      "seed_UIDs": [
+        96,
+        17497,
+        15877,
+        14553
+      ],
+      "development_cluster_sizes": [
+        15,
+        9,
+        9,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1543,
+        543,
+        429,
+        557
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 102,
+      "development": 51,
+      "consumed": 27,
+      "seed_UIDs": [
+        201,
+        5342,
+        11905,
+        5534
+      ],
+      "development_cluster_sizes": [
+        19,
+        19,
+        4,
+        9
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1537,
+        540,
+        453,
+        542
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 103,
+      "development": 121,
+      "consumed": 32,
+      "seed_UIDs": [
+        1121,
+        14626,
+        2356,
+        2687
+      ],
+      "development_cluster_sizes": [
+        38,
+        29,
+        44,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1384,
+        702,
+        588,
+        398
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 104,
+      "development": 87,
+      "consumed": 69,
+      "seed_UIDs": [
+        54,
+        13316,
+        365,
+        17512
+      ],
+      "development_cluster_sizes": [
+        49,
+        7,
+        14,
+        17
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1310,
+        813,
+        588,
+        361
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 105,
+      "development": 113,
+      "consumed": 49,
+      "seed_UIDs": [
+        195,
+        5857,
+        5283,
+        17414
+      ],
+      "development_cluster_sizes": [
+        29,
+        17,
+        43,
+        24
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1395,
+        682,
+        595,
+        400
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 106,
+      "development": 52,
+      "consumed": 18,
+      "seed_UIDs": [
+        57,
+        5364,
+        4668,
+        13546
+      ],
+      "development_cluster_sizes": [
+        23,
+        3,
+        9,
+        17
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1404,
+        643,
+        646,
+        379
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 107,
+      "development": 180,
+      "consumed": 45,
+      "seed_UIDs": [
+        139,
+        16666,
+        2916,
+        16186
+      ],
+      "development_cluster_sizes": [
+        21,
+        2,
+        16,
+        141
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1198,
+        935,
+        680,
+        259
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 108,
+      "development": 39,
+      "consumed": 8,
+      "seed_UIDs": [
+        595,
+        13452,
+        15219,
+        14415
+      ],
+      "development_cluster_sizes": [
+        28,
+        5,
+        5,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1652,
+        464,
+        260,
+        696
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 109,
+      "development": 99,
+      "consumed": 63,
+      "seed_UIDs": [
+        539,
+        3836,
+        4427,
+        2166
+      ],
+      "development_cluster_sizes": [
+        34,
+        31,
+        20,
+        14
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1352,
+        739,
+        610,
+        371
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 110,
+      "development": 55,
+      "consumed": 37,
+      "seed_UIDs": [
+        324,
+        14434,
+        14254,
+        2359
+      ],
+      "development_cluster_sizes": [
+        19,
+        16,
+        7,
+        13
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1466,
+        595,
+        556,
+        455
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 111,
+      "development": 127,
+      "consumed": 76,
+      "seed_UIDs": [
+        242,
+        15834,
+        659,
+        4146
+      ],
+      "development_cluster_sizes": [
+        68,
+        26,
+        15,
+        18
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1258,
+        867,
+        636,
+        311
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 112,
+      "development": 121,
+      "consumed": 52,
+      "seed_UIDs": [
+        393,
+        13380,
+        13639,
+        470
+      ],
+      "development_cluster_sizes": [
+        43,
+        13,
+        29,
+        36
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1483,
+        593,
+        509,
+        487
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 113,
+      "development": 133,
+      "consumed": 57,
+      "seed_UIDs": [
+        102,
+        350,
+        12909,
+        13373
+      ],
+      "development_cluster_sizes": [
+        57,
+        22,
+        18,
+        36
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1467,
+        617,
+        509,
+        479
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 114,
+      "development": 168,
+      "consumed": 94,
+      "seed_UIDs": [
+        404,
+        5544,
+        13404,
+        17076
+      ],
+      "development_cluster_sizes": [
+        53,
+        31,
+        44,
+        40
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1330,
+        808,
+        538,
+        396
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 115,
+      "development": 12,
+      "consumed": 2,
+      "seed_UIDs": [
+        4119,
+        15820,
+        16546,
+        4437
+      ],
+      "development_cluster_sizes": [
+        3,
+        3,
+        2,
+        4
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1554,
+        727,
+        28,
+        763
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 116,
+      "development": 34,
+      "consumed": 25,
+      "seed_UIDs": [
+        482,
+        2147,
+        17029,
+        14511
+      ],
+      "development_cluster_sizes": [
+        17,
+        4,
+        2,
+        11
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1625,
+        479,
+        311,
+        657
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 117,
+      "development": 116,
+      "consumed": 40,
+      "seed_UIDs": [
+        25,
+        4914,
+        13516,
+        11757
+      ],
+      "development_cluster_sizes": [
+        55,
+        24,
+        22,
+        15
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1559,
+        491,
+        485,
+        537
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 118,
+      "development": 139,
+      "consumed": 56,
+      "seed_UIDs": [
+        10,
+        13351,
+        3582,
+        15921
+      ],
+      "development_cluster_sizes": [
+        49,
+        21,
+        36,
+        33
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1267,
+        871,
+        601,
+        333
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 119,
+      "development": 125,
+      "consumed": 41,
+      "seed_UIDs": [
+        84,
+        15641,
+        17061,
+        1882
+      ],
+      "development_cluster_sizes": [
+        82,
+        24,
+        10,
+        9
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1339,
+        748,
+        631,
+        354
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 120,
+      "development": 63,
+      "consumed": 30,
+      "seed_UIDs": [
+        834,
+        3809,
+        1254,
+        4617
+      ],
+      "development_cluster_sizes": [
+        6,
+        32,
+        19,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1534,
+        546,
+        450,
+        542
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 121,
+      "development": 22,
+      "consumed": 11,
+      "seed_UIDs": [
+        200,
+        1754,
+        14493,
+        16237
+      ],
+      "development_cluster_sizes": [
+        10,
+        4,
+        2,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1671,
+        406,
+        319,
+        676
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 122,
+      "development": 39,
+      "consumed": 30,
+      "seed_UIDs": [
+        227,
+        4626,
+        5470,
+        12215
+      ],
+      "development_cluster_sizes": [
+        11,
+        9,
+        9,
+        10
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1513,
+        591,
+        423,
+        545
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 123,
+      "development": 102,
+      "consumed": 73,
+      "seed_UIDs": [
+        237,
+        16006,
+        15252,
+        16110
+      ],
+      "development_cluster_sizes": [
+        64,
+        17,
+        16,
+        5
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1177,
+        984,
+        645,
+        266
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 124,
+      "development": 7,
+      "consumed": 5,
+      "seed_UIDs": [
+        3377,
+        13409,
+        17436,
+        14218
+      ],
+      "development_cluster_sizes": [
+        3,
+        2,
+        1,
+        1
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1559,
+        719,
+        29,
+        765
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 125,
+      "development": 63,
+      "consumed": 35,
+      "seed_UIDs": [
+        59,
+        2315,
+        13125,
+        2221
+      ],
+      "development_cluster_sizes": [
+        28,
+        6,
+        8,
+        21
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1327,
+        776,
+        611,
+        358
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 126,
+      "development": 82,
+      "consumed": 46,
+      "seed_UIDs": [
+        78,
+        2202,
+        2922,
+        2163
+      ],
+      "development_cluster_sizes": [
+        58,
+        9,
+        9,
+        6
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1299,
+        828,
+        591,
+        354
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    },
+    {
+      "expert": 127,
+      "development": 102,
+      "consumed": 51,
+      "seed_UIDs": [
+        28,
+        3611,
+        5302,
+        14430
+      ],
+      "development_cluster_sizes": [
+        15,
+        35,
+        41,
+        11
+      ],
+      "mask_widths": [
+        1536,
+        1536,
+        1536,
+        1536
+      ],
+      "union_width": 3072,
+      "multiplicity_histogram": [
+        0,
+        1395,
+        684,
+        591,
+        402
+      ],
+      "selector_MULs": 3072,
+      "selected_FFN_MACs": 2359296
+    }
+  ],
+  "views": {
+    "development": {
+      "routed": {
+        "RMS": 0.0026049384465552956,
+        "error_energy": 185187487.49518263,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.1270336219060292,
+        "max_UID_RMS": 0.40051004070590707,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.0026022131214422234,
+        "error_energy": 184800198.42069525,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.126888516568009,
+        "max_UID_RMS": 0.37008605877104533,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.005678433818382229,
+        "error_energy": 879982114.5584843,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.2378578418551156,
+        "max_UID_RMS": 0.5363483249203514,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.0026049384465552956,
+        "error_energy": 185187487.49518263,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.1270336219060292,
+        "max_UID_RMS": 0.40051004070590707,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.0026022131214422234,
+        "error_energy": 184800198.42069525,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.126888516568009,
+        "max_UID_RMS": 0.37008605877104533,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 11721.0,
+      "routed_complete_support_count": 4329,
+      "any_child_complete_support_count": 4329,
+      "source_support_mean": 217.88584591758382,
+      "source_support_max": 764
+    },
+    "development_source_p": {
+      "routed": {
+        "RMS": 0.004374891939203573,
+        "error_energy": 51914819.16444483,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.1270336219060292,
+        "max_UID_RMS": 0.40051004070590707,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.004370659949574955,
+        "error_energy": 51814429.61606322,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.126888516568009,
+        "max_UID_RMS": 0.37008605877104533,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.010545828806237756,
+        "error_energy": 301660272.4505464,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.2378578418551156,
+        "max_UID_RMS": 0.5363483249203514,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.004374891939203573,
+        "error_energy": 51914819.16444483,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.1270336219060292,
+        "max_UID_RMS": 0.40051004070590707,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.004370659949574955,
+        "error_energy": 51814429.61606322,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.126888516568009,
+        "max_UID_RMS": 0.37008605877104533,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 1850.3580510328693,
+      "routed_complete_support_count": 4329,
+      "any_child_complete_support_count": 4329,
+      "source_support_mean": 217.88584591758382,
+      "source_support_max": 764
+    },
+    "consumed": {
+      "routed": {
+        "RMS": 0.01229024506768777,
+        "error_energy": 1989178830.6874,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.47398520987596093,
+        "max_UID_RMS": 0.9326901866671551,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.01129025106549246,
+        "error_energy": 1678649178.6364908,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.41901126728908267,
+        "max_UID_RMS": 0.6467964729974112,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.012194736265188499,
+        "error_energy": 1958382716.5742707,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.45500105081564574,
+        "max_UID_RMS": 0.7950966164440969,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.012290244403122298,
+        "error_energy": 1989178615.5672746,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.47398520987596093,
+        "max_UID_RMS": 0.9326902427052473,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.011290249669008502,
+        "error_energy": 1678648763.3744228,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.41901126728908267,
+        "max_UID_RMS": 0.6467962531756452,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 5819.0,
+      "routed_complete_support_count": 262,
+      "any_child_complete_support_count": 263,
+      "source_support_mean": 218.0431345592026,
+      "source_support_max": 764
+    },
+    "consumed_source_p": {
+      "routed": {
+        "RMS": 0.023579897386237628,
+        "error_energy": 720149247.297113,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.47398520987596093,
+        "max_UID_RMS": 0.9326901866671551,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.02168520924274585,
+        "error_energy": 609068197.7239406,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.41901126728908267,
+        "max_UID_RMS": 0.6467964729974112,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.024337132845761517,
+        "error_energy": 767145099.1415522,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.45500105081564574,
+        "max_UID_RMS": 0.7950966164440969,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.02357989445476113,
+        "error_energy": 720149068.2377701,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.47398520987596093,
+        "max_UID_RMS": 0.9326902427052473,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.02168520436419269,
+        "error_energy": 609067923.6780494,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.41901126728908267,
+        "max_UID_RMS": 0.6467962531756452,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 959.9641362901605,
+      "routed_complete_support_count": 262,
+      "any_child_complete_support_count": 263,
+      "source_support_mean": 218.0431345592026,
+      "source_support_max": 764
+    },
+    "natural_consumed": {
+      "routed": {
+        "RMS": 0.009055738813653907,
+        "error_energy": 1078944251.1097841,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.47782643580268847,
+        "max_UID_RMS": 0.9326901866671551,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.008302899815856041,
+        "error_energy": 907007387.9183862,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.4192967936686886,
+        "max_UID_RMS": 0.6467964729974112,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.00898504035507105,
+        "error_energy": 1062163304.1466975,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.45929667891745873,
+        "max_UID_RMS": 0.7950966164440969,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.009055737852869268,
+        "error_energy": 1078944022.1647959,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.47782643580268847,
+        "max_UID_RMS": 0.9326902427052473,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.00830289917518852,
+        "error_energy": 907007247.9455659,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.41929661829047105,
+        "max_UID_RMS": 0.6467962531756452,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 3065.0,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259,
+      "source_support_mean": 226.62675367047308,
+      "source_support_max": 764
+    },
+    "natural_consumed_source_p": {
+      "routed": {
+        "RMS": 0.017725452352095987,
+        "error_energy": 406003362.8102166,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.47782643580268847,
+        "max_UID_RMS": 0.9326901866671551,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.01625204940282248,
+        "error_energy": 341311753.5351604,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.4192967936686886,
+        "max_UID_RMS": 0.6467964729974112,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.018246607120212123,
+        "error_energy": 430228541.8088472,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.45929667891745873,
+        "max_UID_RMS": 0.7950966164440969,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.017725450156617834,
+        "error_energy": 406003262.2349036,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.47782643580268847,
+        "max_UID_RMS": 0.9326902427052473,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.016252048474634045,
+        "error_energy": 341311714.54910946,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.41929661829047105,
+        "max_UID_RMS": 0.6467962531756452,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 535.8416493128393,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259,
+      "source_support_mean": 226.62675367047308,
+      "source_support_max": 764
+    },
+    "teacher_consumed": {
+      "routed": {
+        "RMS": 0.009371618084557243,
+        "error_energy": 1155646562.1489267,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.46391375881112284,
+        "max_UID_RMS": 0.7231666253327204,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.008640746648216624,
+        "error_energy": 982422750.8292503,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.4162435339454443,
+        "max_UID_RMS": 0.6445282567403996,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.009335574293844455,
+        "error_energy": 1146774288.2650776,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.4477679122881247,
+        "max_UID_RMS": 0.7933631933395198,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.009371617857838743,
+        "error_energy": 1155646506.2340465,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.4639169951448979,
+        "max_UID_RMS": 0.7231649689327948,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.008640744520387522,
+        "error_energy": 982422266.9758179,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.4162441461424674,
+        "max_UID_RMS": 0.6445302654015709,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 3584.0,
+      "routed_complete_support_count": 260,
+      "any_child_complete_support_count": 261,
+      "source_support_mean": 221.96316964285714,
+      "source_support_max": 764
+    },
+    "teacher_consumed_source_p": {
+      "routed": {
+        "RMS": 0.01794597328457183,
+        "error_energy": 416191814.86494005,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.46391375881112284,
+        "max_UID_RMS": 0.7231666253327204,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.016607479063501823,
+        "error_energy": 356423990.5065377,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.4162435339454443,
+        "max_UID_RMS": 0.6445282567403996,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.01865140705471298,
+        "error_energy": 449554864.8865049,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.4477679122881247,
+        "max_UID_RMS": 0.7933631933395198,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.01794597013811384,
+        "error_energy": 416191668.9235718,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.4639169951448979,
+        "max_UID_RMS": 0.7231649689327948,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.01660746997651681,
+        "error_energy": 356423600.46316504,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.4162441461424674,
+        "max_UID_RMS": 0.6445302654015709,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 574.5130006745965,
+      "routed_complete_support_count": 260,
+      "any_child_complete_support_count": 261,
+      "source_support_mean": 221.96316964285714,
+      "source_support_max": 764
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "routed": {
+        "RMS": 0.2559119574972179,
+        "error_energy": 135408.721359628,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.39932890661807846,
+        "max_UID_RMS": 0.40033283182018675,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.1887363408655243,
+        "error_energy": 73650.64275953038,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.39932890661807846,
+        "max_UID_RMS": 0.40033283182018675,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.2548042519828935,
+        "error_energy": 134239.03496254486,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.42981518782107486,
+        "max_UID_RMS": 0.43014847537129036,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.2559119574972179,
+        "error_energy": 135408.721359628,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.39932890661807846,
+        "max_UID_RMS": 0.40033283182018675,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.1887363408655243,
+        "error_energy": 73650.64275953038,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.39932890661807846,
+        "max_UID_RMS": 0.40033283182018675,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3,
+      "weight_sum": 3.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 0,
+      "source_support_mean": 25.0,
+      "source_support_max": 34
+    },
+    "dev_count5_15": {
+      "routed": {
+        "RMS": 0.3337098609114386,
+        "error_energy": 1420449.5549554115,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.6198617022185413,
+        "max_UID_RMS": 0.6497912940865158,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.26806011360855725,
+        "error_energy": 916541.4907521956,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.44106949663240036,
+        "max_UID_RMS": 0.4532495766413611,
+        "zero_ref_nonzero_error": 0
+      },
+      "static": {
+        "RMS": 0.21532015396131082,
+        "error_energy": 591367.0170192063,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.4443254907596453,
+        "max_UID_RMS": 0.714572398543744,
+        "zero_ref_nonzero_error": 0
+      },
+      "routed_source_scale": {
+        "RMS": 0.3337104907052998,
+        "error_energy": 1420454.9164466874,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.6198592092599018,
+        "max_UID_RMS": 0.6497935495923569,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle_source_scale": {
+        "RMS": 0.26806107255126793,
+        "error_energy": 916548.0483287168,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.44106949663240036,
+        "max_UID_RMS": 0.4532495766413611,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 19,
+      "weight_sum": 19.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 1,
+      "source_support_mean": 28.157894736842106,
+      "source_support_max": 58
+    }
+  },
+  "eligibility": {
+    "oracle_all_consumed_RMS_le_2pct": true,
+    "routed_all_consumed_RMS_le_2pct": true,
+    "oracle_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_p95_UID_RMS_le_5pct": false
+  },
+  "decision": "RECONSIDER_INPUT_SELECTOR",
+  "source_FFN_rows_reconstructed": 17540,
+  "partial_source_outputs": 157860,
+  "model_native_GPU_calls": 0,
+  "gradient_updates": 0,
+  "stored_FFN_redundancy": 2,
+  "active_FFN_fraction": 0.5,
+  "selector_MACs_per_call": 3072,
+  "scope": "ONE bank original-domain diagnostic; source parent ID/p oracle fixed. No head/composed/fresh/rate/DRAM/LUT/general-n or whole-donor-quality claim.",
+  "end_utc": "2026-10-06T12:10:37.387507+00:00",
+  "resource": {
+    "wall_seconds": 53.828000000008615,
+    "parent_peak_bytes": 1694863360,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 8597120374,
+    "wall_limit_seconds": 900,
+    "combined_host_limit_bytes": 2147483648
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\centres.npy",
+      "bytes": 3145856,
+      "sha256": "d9b74df8f651248fc62116a3de8919be70e84848300238253e45c02168da5d56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\centroid_history.npy",
+      "bytes": 28311680,
+      "sha256": "d5b5dc78d6235d8b948567cfdfc82a1373e67e204ddf980c075761e564e965ef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\child_actual.npy",
+      "bytes": 215531648,
+      "sha256": "729ab93cc917d6cca4b5334fe9b5d8902e4cc0596f31ec185e30b3fd6e37d3d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\child_source_scale.npy",
+      "bytes": 215531648,
+      "sha256": "934ec042a026a62b6c7c325aa44d9746ad17bf3301f41a1a71360f8f48276e30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\controls.json",
+      "bytes": 143,
+      "sha256": "2747cbb89ef4174e20a15eb0b7c29e031011b668a915622b4e553ab2da67562b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\hidden.npy",
+      "bytes": 215531648,
+      "sha256": "e50bd8b22d9f86ba8ed254060ef4b8c128e8d8c7c45b2047fc6fb39f8c0ac477"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\hidden_codes.npy",
+      "bytes": 107765888,
+      "sha256": "2023f2c867595abf9254949811e37f31782fbcd0560806f2edd0f212486cae65"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\hidden_scales.npy",
+      "bytes": 70288,
+      "sha256": "42cc8a54e63488d8298bb519923e4ec765d41f24274f3bbb56d6af04ea520d9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\mandatory_owner.npy",
+      "bytes": 1572992,
+      "sha256": "151de3d9b92a2b5af4227f3fb75154e474fb0b80faae3be4c0d889b4ba5ee7da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\mask_scores.npy",
+      "bytes": 12583040,
+      "sha256": "94ad72377716a74343c77e28349dcf7e33270e12df3a8596cc15638e99146931"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\masks.npy",
+      "bytes": 1572992,
+      "sha256": "97d4cf9d7f701bd620cc87a8d5e4ca9cf227e83620b6a7d855934ba4726b0a8b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\metrics.npy",
+      "bytes": 1964800,
+      "sha256": "13a9cdcbe0b3c2cb00fb7537ad100f516830f513fd489f6ce9a151d3f2e7d584"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\progress.jsonl",
+      "bytes": 19342,
+      "sha256": "56cfe4e6ac2044f9ad58f51efb1ab958e56e30a142bc95b27328afb0e56aeeea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\static_actual.npy",
+      "bytes": 53883008,
+      "sha256": "0fa093286482b45525982af367d32ad439858867ebf819c54ca24cdc19050b14"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\static_masks.npy",
+      "bytes": 393344,
+      "sha256": "aba9f1b61073b7e75fdd166a2526cd7a631b84e5136647a8ec83115b9eacab6f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_overlap\\summary.json",
+      "bytes": 17533,
+      "sha256": "b324ec7f0e307a4bfa31e3414c2042ddb308fb7cafa3266b46865bb1aaad5129"
+    }
+  ]
+}
