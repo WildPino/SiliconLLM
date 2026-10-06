@@ -89,17 +89,20 @@ quantizer. Supersedes inaccurate483geometric prose without changing its labels/
 certificates.483 affine class remains inconclusive; saved heads insufficient,
 no equivalent longerLP retry and no failed-head Ctiming.
 
-485 complete fixed-layout C/backend/engine integration, controller, independent
-ALL-output auditor, Windows terminals and finalizer are now prepared; compile,
-CUDA initialization and numerical/model controls NOT begun. Reversible source
-bytes admitted by static preparation; preparation-only EOL assertion fault01
-retained before correction. [Frozen prospective protocol](METH_485_SHARED_INTEGER_BACKEND_PROTOCOL_20261006.md).
-Next: freeze complete apparatus, prepare/freeze runtime/input binding, then sole
-main. BOTH actual artifacts/ALL192 cases/3456 outputs; fresh same-compilation
-CPU counterfactual explicitly justified by new backend variable. Refresh full
-payload/references before CUDA.45min/24GiBhost/2GiBexplicit-device/12GiBoutputs;
-metadata refines ALL-output bound. No live science handle or numerical attempt.
-Completed namespaces MUST NOT rerun; full goal ACTIVE/INCOMPLETE.
+485 complete source/runtime/payload/reference integrity and compiler PASS;
+solemain f04891/session75205/06f0fa exit1: missing Win64 cublasSetWorkspace
+export, before explicit CUDA init/GEMM/model. ALL first inputs/logs retained.
+Original audit ISO-string comparison fault retained; independent numbered
+retention ae9014/session35273/ee26fe exit0/ALL4 gates and all three actual
+Windows available/zero matching faults; finalizer2eaf9d exit0/ALL4 gates.
+[485 result](METH_485_SHARED_INTEGER_BACKEND_RESULT_20261006.md),
+[admission](ADMISSION_485_R1_20261006.json). NO GPU/whole quality/speed evidence.
+486 complete numbered candidate now prepared: corrected Workspace_v2 symbol,
+ALL25 static PE export prerequisite, exact same integer layout/cohort/gates,
+aware-ISO audit. [Protocol](METH_486_SHARED_INTEGER_BACKEND_PROTOCOL_20261006.md).
+Next freeze486 apparatus/binding before sole CUDA/main. No live science handle.
+Completed485 main/control/audit/audit-R1 namespaces MUST NOT rerun.
+Full goal ACTIVE/INCOMPLETE; this interface repair is not a numerical failure.
 
 Full goal ACTIVE/INCOMPLETE: useful distinctn/RAM/CPU LUT/winnerANDmass/physicalDRAM,
 donor-relative fresh ownstate prediction-generation-task quality ANDSAME>=50batch1

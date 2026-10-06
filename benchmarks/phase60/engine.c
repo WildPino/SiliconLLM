@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_SHARED_INTEGER_GPU
+#ifdef SILICON_SWITCH_SHARED_INTEGER_GPU_R1
+#include "../native_expert_scaling/meth486_shared_integer_entry.c"
+#elif defined(SILICON_SWITCH_SHARED_INTEGER_GPU)
 #include "../native_expert_scaling/meth485_shared_integer_entry.c"
 #elif defined(SILICON_SWITCH_FUNCTION_CAPTURE)
 #include "../native_expert_scaling/meth417_switch_function_capture_entry.c"

@@ -1,0 +1,54 @@
+{
+  "experiment": "METH486 reversible source integration",
+  "source_sha256": "aa01ce176ad54f1410a5d93eb628de8e887172225ae85a99f611168a9097fa48",
+  "engine_original_sha256": "574bab3e625d4876d976ee0f2a9ecb2cfe8568e59be2f0e023e7e348ea401487",
+  "replacements": [
+    [
+      "static void mv(Matrix w,",
+      "#include \"meth486_shared_integer_backend.h\"\nstatic void mv(Matrix w,"
+    ],
+    [
+      "    if(w.q){int16_t codes[4096];float scale=head_activation_codes(x,codes,cols);",
+      "    if(g486_eval(w,x,y,rows,cols,1)){if(cost_enabled&&cost_profile)cost_counts[cost_phase][cost_kind].matrix_seconds+=cost_clock()-cost_start;return;}\n    if(w.q){int16_t codes[4096];float scale=head_activation_codes(x,codes,cols);"
+    ],
+    [
+      "    int16_t codes[4096];float scale=head_activation_codes(x,codes,cols);",
+      "    if(g486_eval(w,x,y,rows,cols,1)){if(cost_enabled&&cost_profile)cost_counts[cost_phase][cost_kind].matrix_seconds+=cost_clock()-cost_start;return;}\n    int16_t codes[4096];float scale=head_activation_codes(x,codes,cols);"
+    ],
+    [
+      "    int16_t *codes=alloc((size_t)tokens*cols,2);",
+      "    if(g486_eval(w,x,y,rows,cols,tokens)){if(cost_enabled&&cost_profile)cost_counts[cost_phase][cost_kind].matrix_seconds+=cost_clock()-cost_start;return;}\n    int16_t *codes=alloc((size_t)tokens*cols,2);"
+    ],
+    [
+      "m->dec[l]=block_weights(m,1,l);return m;",
+      "m->dec[l]=block_weights(m,1,l);g486_model_setup(m);return m;"
+    ],
+    [
+      "static void unload(Model *m){",
+      "static void unload(Model *m){g486_teardown();"
+    ],
+    [
+      "int meth388_contract_entry(",
+      "int meth486_contract_entry("
+    ]
+  ],
+  "generated": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth486_shared_integer_model.c",
+      "bytes": 27733,
+      "sha256": "7124234c4cf40ea6be5608c0159a038bfc7562fa4396da534cf7acf337ff70ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth486_shared_integer_cost_entry.c",
+      "bytes": 4504,
+      "sha256": "8fa1a582018c89175c411c6f2ee1a0de4126eda63e4c5b0ee0c01a82b3ba63dd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth486_shared_integer_generate_entry.c",
+      "bytes": 3979,
+      "sha256": "d15415ec56182c4700d85903cda8a5ede88c88e89d6b3d07953a651a42d9c55e"
+    }
+  ],
+  "engine_sha256": "ea3b9f17e2664b8191397a6afa4fabe48af3f583d5dfaf1583a734ba115203db",
+  "exact_reverse": true
+}
