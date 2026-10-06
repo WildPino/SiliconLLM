@@ -1,0 +1,118 @@
+{
+  "experiment": "METH504 admitted source-region certificate and finite economic failure",
+  "main_completed": true,
+  "gates": {
+    "all_six_main_apparatus": true,
+    "all_seven_independent_sign_geometry_apparatus": true,
+    "ALL_original_domain_costs_and_frozen_economy_unchanged": true,
+    "actual_main_audit_exit0_Windows_available_zero_faults": true,
+    "engine_foreign_files_preserved": true
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth504_region_result.json",
+    "bytes": 446697,
+    "sha256": "2b017d297f4a21339cdd2498d5c26d5c601bf6bf4570f11c49d0532b0f90fb41"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_504_20261006.json",
+    "bytes": 5045,
+    "sha256": "f47eb586f78c456423ffb462090885c3ab396ff941cf79e857851cb47ac9ef67"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth504_binding.json",
+    "bytes": 234405,
+    "sha256": "840a23e80d7639f53a5696712caffaf3014a3bb7d5175a87f2c67711b31929c0"
+  },
+  "windows": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth504_windows_terminal.json",
+      "bytes": 577,
+      "sha256": "7edca71418a21aa8d510a52967258cf0a99231049a378965306b9922845dfd92"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth504_audit_windows_terminal.json",
+      "bytes": 580,
+      "sha256": "122d84e4ed9b5468fcf08392e0e8905fcad9d60cfc9bb4a20c8c43954f83883b"
+    }
+  ],
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "occurrences": 11721,
+      "certified": 1089,
+      "certified_fraction": 0.09291016124904018,
+      "fallback": 10632,
+      "mean_selected_width": 2929.289992321474,
+      "max_selected_width": 3072
+    },
+    "consumed": {
+      "UIDs": 5819,
+      "occurrences": 5819,
+      "certified": 196,
+      "certified_fraction": 0.0336827633614023,
+      "fallback": 5623,
+      "mean_selected_width": 3020.263275476886,
+      "max_selected_width": 3072
+    },
+    "natural_consumed": {
+      "UIDs": 3065,
+      "occurrences": 3065,
+      "certified": 196,
+      "certified_fraction": 0.06394779771615008,
+      "fallback": 2869,
+      "mean_selected_width": 2973.7761827079935,
+      "max_selected_width": 3072
+    },
+    "teacher_consumed": {
+      "UIDs": 3584,
+      "occurrences": 3584,
+      "certified": 196,
+      "certified_fraction": 0.0546875,
+      "fallback": 3388,
+      "mean_selected_width": 2988.0,
+      "max_selected_width": 3072
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "UIDs": 3,
+      "occurrences": 3,
+      "certified": 0,
+      "certified_fraction": 0.0,
+      "fallback": 3,
+      "mean_selected_width": 3072.0,
+      "max_selected_width": 3072
+    },
+    "dev_count5_15": {
+      "UIDs": 19,
+      "occurrences": 19,
+      "certified": 0,
+      "certified_fraction": 0.0,
+      "fallback": 19,
+      "mean_selected_width": 3072.0,
+      "max_selected_width": 3072
+    }
+  },
+  "logical_cost": {
+    "new_region_atom_copies": 978432,
+    "original_fallback_atom_copies_ALL128": 393216,
+    "total_atom_copies": 1371648,
+    "I8_coefficients": 2106851328,
+    "WI_F32_scales": 5486592,
+    "WO_F32_scales": 2350080,
+    "u16_region_indices": 1956864,
+    "centre_I16_codes": 978432,
+    "certificate_A_n_r_bytes": 15288,
+    "query_dot_products": 87215616,
+    "large_integer_predicates": 113562,
+    "source_WI_centre_rows": 1956864,
+    "source_WI_centre_products": 1502871552
+  },
+  "eligibility": {
+    "consumed_certified_ge_90pct": false,
+    "natural_consumed_certified_ge_90pct": false
+  },
+  "economic_recipe_eligible": false,
+  "decision": "CLOSE_THIS_FINITE_ISOTROPIC_INPUT_CONE_RECIPE",
+  "scope": "Certificate is sound but coverage insufficient; no native/whole model/fresh/rate/DRAM/LUT/family promotion. Not a general nonexistence proof."
+}

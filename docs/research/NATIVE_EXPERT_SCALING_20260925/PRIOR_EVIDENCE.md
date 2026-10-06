@@ -1,5 +1,13 @@
 # Native expert-count scaling: prior evidence
 
+**6 October update after504:** [504](METH_504_ANGULAR_REGION_RESULT_20261006.md)
+independently verifies exact original-WI angular region certificates but only
+6.394780% natural coverage; finite isotropic recipe economicallyFAIL/closed.
+[505 exact original WI/sparse WO](METH_505_EXACT_ORIGINAL_WI_SPARSE_WO_NEXT_20261006.md)
+is selected/proposed from455 component evidence: actual zero-only output reads
+AFTER full source WI, without sampled-support prediction. Full WI/source storage
+and parent normalized routing are charged. No505 observations or goal promotion.
+
 **6 October update after503:** [502](METH_502_VARIABLE_COVER_RESULT_20261006.md)
 constructs783 finite development support-cover children at1536 active ceiling,
 2.940994 source-atom copy ratio. [503](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md)

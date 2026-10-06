@@ -26,6 +26,13 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[504 result](METH_504_ANGULAR_REGION_RESULT_20261006.md): all6/7/5 apparatus/
+independent sign geometry/admission PASS.637 sound original-WI input cones,
+1285 selected cases' omitted integer dots/hidden scales verified. Economic
+coverage3.368276% consumed/6.394780% natural versus>=90%; bothFAIL. Natural
+mean selected width2973.776/3072, lookup overhead and3.48828125 stored copies.
+Close THIS finite isotropic input-cone recipe; no native promotion.
+
 [503 result](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md): all6/7/5 apparatus/
 independent function/admission PASS. ALL127570 new functions BYTE checked on
 ALL17540 original UIDs. Development oracle0%; natural oracle p95 39.941205%,
@@ -68,23 +75,24 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption: source-derived angular regions504
+## Current resumption: exact original WI and dynamic sparse WO505
 
-502 complete main4.782s/204873728B, audit5.766s/165515264B.503 complete
-main62.234s/826671104B, audit26.734s/830164992B. All actual exits0, both stages'
-Windows queries available/zero faults; preserved engine/foreign3. All495..503
-namespaces terminal, no surviving scientific job. Large arrays local/hash-bound.
+504 terminal main49.937s/474574848B, independent audit36.344s/517107712B;
+actual exits0, Windows available/zero events, engine/foreign3 preserved.
+Initial main waited3.375s for transient Python processes; no process killed.
+All495..504 namespaces terminal, no surviving scientific job.
 
-**First action:** price/implement/freeze ONE original-WI angular-region geometry
-inquiry. [504 next](METH_504_SOURCE_ANGULAR_REGION_CERTIFICATE_NEXT_20261006.md)
-derives exact integer input-cone predicates certifying every omitted neuron
-inactive. Choose one development code centre per nonempty502 assigned group;
-no child/centre grid. Acquire original negative WI margins (new information
-previously lost by ReLU), max active1536, ALL-original-domain coverage and
-explicit source-fallback storage/cost. Economic coverage gate90% consumed and
-natural before physical work; no504 code/binding/protocol/observations yet.
-This changes region definition after503 oracle failure; it does not rerun475's
-closed nibble/Cauchy certificate. Source parent winner/mass remains separate.
+**First action:** implement/price/freeze ONE physical original-I8 WI + exact
+zero-only column-WO inquiry. [505 next](METH_505_EXACT_ORIGINAL_WI_SPARSE_WO_NEXT_20261006.md)
+changes selection to AFTER original WI/ReLU/A16, retaining all source information.
+455 measured original WI120.175us versus compact188.943us, sparse WO36.664us
+versus dense106.031us; the unmeasured combination merits one actual test.
+Reuse unchanged source WI and qualified sparse accumulator components, no
+closed kernel/width/precision/centre grid. ALL17540 original states and complete
+128-ID physical bank, exact BYTE parity plus matched mean/p95/book cost gates.
+WI width3072 is charged; no1536 ceiling or storage-compression claim. No505
+code/protocol/binding/export/observations yet. Pass -> ALL-bank engine/head/fresh
+quality AND SAME>=50 immediately; no more local mask refinements first.
 
 All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual additional families/scales remain open.

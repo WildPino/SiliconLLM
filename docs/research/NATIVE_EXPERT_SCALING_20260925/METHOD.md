@@ -24,40 +24,36 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:503 admitted; source-derived angular regions504
+## Current resumption:504 admitted; exact original WI/sparse WO505
 
-[502 result](METH_502_VARIABLE_COVER_RESULT_20261006.md): independently admitted
-retained-prefix continuation,783 children/127 exposed IDs, max selected1536,
-copy ratio2.940994. All11721 development supports covered, consumed262/5819.
-Original61 baseline501 masks BYTE; only3955 remaining UIDs from52 conflicts
-continued,14 completed partitions reused. No globally optimal RAM or fresh
-quality inference. Empty0 uncompiled/unpromoted; no completed-prefix replay.
+[502](METH_502_VARIABLE_COVER_RESULT_20261006.md) constructs783 finite children,
+1536 active ceiling,2.940994 FFN copies and complete development support.
+[503](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md) verifies127570 actual
+functions: development oracle exact, natural oracle p95 39.941205% >5%.
+This fixed mask set cannot be qualified by selector-only improvements.
 
-[503 result](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md): all6 main/7 function
-independent audit/5 admission PASS. ALL127570 actual child functions independently
-BYTE checked on ALL17540 UIDs. Source500 hidden values reused; no old WI/full F
-replay. Development oracle0%, natural source-p² oracle/routed RMS1.531985%/
-1.863503%, natural p95 oracle39.941205%/routed47.736777% against<=5%. Four/six
-local gates pass; recipeFAIL. Single-child selector improvements cannot repair
-this mask set's pointwise best-child tail. Rare/empty inputs are not excluded.
+[504](METH_504_ANGULAR_REGION_RESULT_20261006.md) verifies637 original-WI
+angular cones with exact integer/Fraction certificates and actual omitted
+negative dots. All6/7/5 apparatus gates PASS; both90% economy gatesFAIL.
+Consumed coverage3.368276%, natural6.394780%, mean natural width2973.776/3072,
+additional lookup and3.48828125 FFN stored copies with full source fallback.
+This finite isotropic cone recipe is closed before physical implementation.
+Main49.937s/474574848B, audit36.344s/517107712B; exits0, Windows available/zero
+faults, engine/foreign3 intact. All495..504 scientific namespaces terminal.
 
-502 terminal main4.782s/204873728B, audit5.766s/165515264B;503 main62.234s/
-826671104B, audit26.734s/830164992B. Actual exits0 and available Windows/zero
-faults; all495..503 scientific namespaces terminal, engine/foreign3 preserved.
-
-[504 next](METH_504_SOURCE_ANGULAR_REGION_CERTIFICATE_NEXT_20261006.md) selects
-source-WI hyperplane regions replacing sample-only unions. Input-centre integer
-margins yield exact angular cone predicates: all omitted rows inactive inside
-a region, max selected1536. Query coverage, centre lookup, complete source
-fallback storage and3072-width uncovered work must be charged. One centre per
-nonempty502 development group, no grid/consumed fit. New negative preactivation
-information is not retained in500; acquire and charge it separately. Proposed
-90% consumed/natural certificate coverage before physical work. First price/
-implement/freeze main and independent controls/binding; no504 observations yet.
-This differs from475's closed coefficient-plane Cauchy recipe.
-
-Geometry certification is not an economic/fresh/whole-model qualification.
-All full return gates below remain open.
+[505 next](METH_505_EXACT_ORIGINAL_WI_SPARSE_WO_NEXT_20261006.md) shifts selection
+AFTER original WI/ReLU/A16: exact original-I8 WI plus dynamically consulted
+original-I8 WO columns whose actual hidden code is nonzero. All pretrained
+information and original parent winner/mass remain. Full3072 WI work and
+source-sized storage charged; no fixed1536 or cheap-normalizer claim.
+455's component diagnosis supplies a specific measured motivation; combining
+its stages is a hypothesis requiring actual new physical/native verification.
+Reuse unchanged original WI and sparse-WO accumulator components; no closed
+compact-I4/Walsh/tile/LUT or centre grid. First price/implement/freeze complete
+native writer/control/binding and ALL17540 target parity/cost audit. No505
+observations yet. Local exact parity AND economic pass -> ALL-bank engine/
+head/composition/fresh own-state donor quality AND SAME>=50, then actual
+source256 (~14.664B) and other family/scale variants. Full goal remains open.
 
 ### Retained preceding500
 
@@ -168,7 +164,7 @@ r512 initialization; extending r=4n would increase active work and is not an
 eligible RAM-only capacity rule.
 
 Price private/shared/core/head/state/router bytes and their n-dependent slopes.
-Current one-bank physical storage127232136B; all12 equivalent bank private slope
+499 one-bank physical storage127232136B; all12 equivalent bank private slope
 11907072B*n; logical selected12-bank weights14587008B/token plus LUT and
 768 mass products per selected bank. These are logical counts, not DRAM/rate.
 A physical cost failure closes its defined recipe, without a universal claim.
@@ -192,13 +188,24 @@ Adding SOURCE INFORMATION in missing directions remains one possible route,
 with query selection fixed before labels.500 assessed a source-anchored
 overlapping conditional representation beyond the fixed global feature class.
 Its chosen masks fail their tail gate;501 implements finite development cover
-witnesses, and502 derives extra storage from retained conflicts. The fixed499
+witnesses, and502 derives extra storage from retained conflicts.503 verifies
+actual-function tail failure;504 source-region geometry fails coverage economy.
+505 proposes exact original-WI/zero-only WO conditional representation. The fixed499
 equality problem is not reoptimized.
 
 Eligibility/capture/fit remain separate steps with separately charged costs.
 A full-span query plan, when established, is not a label acquisition or a
 successful predictor. Changing a dictionary/distribution/learning contract
 requires a new justified uncertainty and a frozen comparison.
+
+### Exact conditional output representation (505 proposed)
+
+Compute original WI/ReLU/A16, then omit only WO columns with actual zero hidden
+codes. Integer deleted summands are zero, preserving original scaled/cast output.
+Original WI work and parent router/normalizer remain full costs. This is a
+lossless source-coordinate variant, requiring real layout/native/whole quality
+and cost qualification;505 has no executed artifact yet. Column functions are
+not independently useful expert-count evidence without causal/scaling tests.
 
 ## 5. Transfer routing and normalized contribution
 
