@@ -1,0 +1,30 @@
+{
+  "experiment": "METH485 independent complete retention admission",
+  "start_utc": "2026-10-06T01:35:53.771057+00:00",
+  "process_instance": {
+    "pid": 11152,
+    "create_time_unix": 1791250553.5428538
+  },
+  "commands": [],
+  "gates": {
+    "frozen_sources_runtime_full_payload_and_reference_digests": true
+  },
+  "preserved_daemons": [],
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth485_shared_integer_backend_result.failure.json",
+    "sha256": "f7d07791f5ddc0371bc0ec09d4e898e443d91a8bca557ba514dfb644702e05ef",
+    "bytes": 304615
+  },
+  "main_completed": false,
+  "failure": {
+    "stage": "binding",
+    "exception": "AssertionError()",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth485_retention_audit.py\", line 87, in audit\n    assert win['instances'][0]['start_utc']==raw['start_utc'] and win['instances'][0]['end_utc']==raw['end_utc']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "end_utc": "2026-10-06T01:36:21.081552+00:00",
+  "resource": {
+    "wall_seconds": 27.312000000005355,
+    "peak_working_set_bytes": 48566272,
+    "bytes_hashed": 27814720842
+  }
+}
