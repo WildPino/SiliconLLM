@@ -1,0 +1,54 @@
+{
+  "experiment": "METH493 full bank11 weighted-function source supervision admission",
+  "main_completed": false,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth493_weighted_targets_result.failure.json",
+    "bytes": 2767,
+    "sha256": "37a81a2d502c574ffbef9c5f3c1dfecfdfc6e142fb076806513e9c27813ca1d1"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_493_20261006.json",
+    "bytes": 2884,
+    "sha256": "96a8e9bc3dbee70ff4ba4d1726f7d4ff9a169424b454d60ff1eb972468c66204"
+  },
+  "registrations": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth493_main_sole_first_registration.json",
+      "bytes": 2230,
+      "sha256": "85a7fc1df360cd1ac6341f14b37ad609b0c91e445b61f150d24e226785039a05"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth493_audit_sole_first_registration.json",
+      "bytes": 414,
+      "sha256": "85e39522bf20064dc538befce722e8aa832bd81562b6a3d99867fd24185c47e3"
+    }
+  ],
+  "Windows_events": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_windows_terminal.json",
+      "bytes": 578,
+      "sha256": "b1b51642fd80ad98da005ae4ad8a2042d216bae5326878be1b3068d3f76684e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_audit_windows_terminal.json",
+      "bytes": 579,
+      "sha256": "2f727eb02b52adc41a87b00cb614d51bca1961ff4b2bb8c345bf0a90476fb2f4"
+    }
+  ],
+  "terminal_resources": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_retention\\terminal_resources.json",
+      "bytes": 543,
+      "sha256": "0e7c217fce842f37d30b28f5df85f7ffa0d507c4bacbb2ff38a331642fc71fef"
+    }
+  ],
+  "gates": {
+    "sole_first_actual_main_and_audit": true,
+    "source_raw_retention_and_product_scope_digest_link": true,
+    "ALL_independent_retention_gates": true,
+    "BOTH_actual_Windows_without_application_fault": true,
+    "supervision_only_no_student_quality_speed_or_goal_promotion": true
+  },
+  "decision": "FIRST_COMPILER_FAULT_AND_PARTIALS_ADMITTED_NO_TARGET_PROMOTION",
+  "scope": "Source target compiler only; goal ACTIVE/INCOMPLETE."
+}

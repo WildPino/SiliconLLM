@@ -1,0 +1,16 @@
+{
+  "classification": "FIRST_FAULT_SCHEMA_DIAGNOSIS_NO_VECTOR_PRODUCT_OR_NUMERIC_RECIPE_CHANGE",
+  "actual_tool_chunk": "7fd20b",
+  "actual_exit_code": 0,
+  "first_failed_query": 13324,
+  "ledger_record": 258299,
+  "book": 128,
+  "expert": 25,
+  "source472_role": 0,
+  "source479_role": 2,
+  "bytes_read": 80,
+  "source_original_role_rule": "1 for books64..127;0 otherwise",
+  "source_extended_role_rule": "0 below64;1 below128;2 otherwise",
+  "deterministic_mapping": "for book>=128 map original0 to extended2; preserve both validation1 rules",
+  "first_raw_failure_sha256": "37a81a2d502c574ffbef9c5f3c1dfecfdfc6e142fb076806513e9c27813ca1d1"
+}

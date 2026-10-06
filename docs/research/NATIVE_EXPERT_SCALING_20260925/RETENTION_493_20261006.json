@@ -1,0 +1,78 @@
+{
+  "experiment": "METH493 complete bank11 selected weighted-function target compilation",
+  "start_utc": "2026-10-06T06:58:17.631159+00:00",
+  "process_instance": {
+    "pid": 4224,
+    "create_time_unix": 1791269897.3943136
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth493_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_493_20261006.json",
+    "--binding-sha",
+    "d3b7f101b86a8bfb25a12aaa4389da63e9ebb216a26f93b9b5e18d22c2f2e461"
+  ],
+  "commands": [],
+  "gates": {
+    "frozen_source_supervision_runtime_and_scientific_files": true,
+    "sole_actual_main_registration_and_available_fault_free_Windows_query": true
+  },
+  "isolation_waits": [
+    {
+      "label": "initial",
+      "seconds": 13.203000000008615,
+      "observations": [
+        {
+          "utc": "2026-10-06T06:58:17.733163+00:00",
+          "foreign": [
+            {
+              "pid": 26056,
+              "name": "python.exe"
+            },
+            {
+              "pid": 30516,
+              "name": "python.exe"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "numerical_imports": false,
+  "preserved_daemons": [],
+  "binding_sha256": "d3b7f101b86a8bfb25a12aaa4389da63e9ebb216a26f93b9b5e18d22c2f2e461",
+  "source_freeze": "f7f515e2584654bf6e96965e54846b8c20e7f0a4",
+  "execution_head": "f276ddb2cc287ed152b6ba83f4af5bfd266ffe4e",
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth493_weighted_targets_result.failure.json",
+    "bytes": 2767,
+    "sha256": "37a81a2d502c574ffbef9c5f3c1dfecfdfc6e142fb076806513e9c27813ca1d1"
+  },
+  "main_windows_sha256": "b1b51642fd80ad98da005ae4ad8a2042d216bae5326878be1b3068d3f76684e3",
+  "main_completed": false,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "decision": "FIRST_COMPILER_FAULT_AND_PARTIALS_ADMITTED_NO_TARGET_PROMOTION",
+  "end_utc": "2026-10-06T07:00:11.727324+00:00",
+  "resource": {
+    "wall_seconds": 114.09400000001187,
+    "parent_peak_bytes": 92565504,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 10143146574,
+    "wall_limit_seconds": 300,
+    "combined_host_limit_bytes": 268435456
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_retention\\progress.jsonl",
+      "bytes": 72,
+      "sha256": "92e846280b62a8cc30fcd6d3b63e00e538b40989cfe5ff885ac9ea0aa76851a6"
+    }
+  ],
+  "terminal_resource_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_retention\\terminal_resources.json"
+}
