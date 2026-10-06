@@ -1,0 +1,41 @@
+{
+  "experiment": "METH487 independent of unchanged C486 complete retention admission",
+  "start_utc": "2026-10-06T02:31:42.757138+00:00",
+  "process_instance": {
+    "pid": 30244,
+    "create_time_unix": 1791253902.491508
+  },
+  "commands": [],
+  "gates": {
+    "frozen_sources_runtime_full_payload_and_reference_digests": true,
+    "actual_terminal_windows_instance_without_application_fault": true,
+    "ALL_command_partials_and_output_files_retained": true,
+    "failure_preserved_without_candidate_replay": true
+  },
+  "preserved_daemons": [],
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth487_shared_integer_backend_result.failure.json",
+    "sha256": "0b16a18cd9de302c96d979a40dcc5a64664c4baabf9b342dbddd990254d5a04f",
+    "bytes": 298106
+  },
+  "main_completed": false,
+  "main_windows": {
+    "sha256": "d519c9da536768724168c49e2dc25f7befb733a9428edc4ebfd0ae720a435199",
+    "actual_PID_creation_and_ISO_bounds": true
+  },
+  "retained_files": 4,
+  "retained_bytes": 1580032,
+  "main_failure": {
+    "stage": "one_frozen_compile",
+    "exception": "psutil.NoSuchProcess(pid=27992, msg='process PID not found')",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth487_shared_integer_inquiry.py\", line 137, in main\n    compile_rows,compile_cmd=run(argv,'compile',list(range(psutil.cpu_count())),env)\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth487_shared_integer_inquiry.py\", line 95, in run\n    for d in child.children(recursive=True):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py\", line 982, in children\n    proc_ctime = Process(self.pid).create_time()\n                 ^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py\", line 314, in __init__\n    self._init(pid)\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py\", line 360, in _init\n    raise NoSuchProcess(pid, msg=msg) from None\npsutil.NoSuchProcess: process PID not found (pid=27992)\n"
+  },
+  "partial_control_bytes": 0,
+  "decision": "Retain sole first failure. No backend arithmetic, whole quality or speed promotion beyond completed gates.",
+  "end_utc": "2026-10-06T02:32:09.556955+00:00",
+  "resource": {
+    "wall_seconds": 26.813000000009197,
+    "peak_working_set_bytes": 49217536,
+    "bytes_hashed": 27816364488
+  }
+}
