@@ -9,10 +9,10 @@ import psutil
 import meth490_r1_operations as base
 
 ROOT,DOC,write,stamp=base.ROOT,base.DOC,base.write,base.stamp
-BIND=DOC/'meth506_r2_binding.json'
+BIND=DOC/'meth506_r3_binding.json'
 OUT=ROOT/'results/native_expert_scaling/meth506_whole'
-PREP=ROOT/'results/native_expert_scaling/meth506_r2_artifact'
-PREPRAW=DOC/'meth506_r2_preparation_result.json'
+PREP=ROOT/'results/native_expert_scaling/meth506_r3_artifact'
+PREPRAW=DOC/'meth506_r3_preparation_result.json'
 AUDIT=ROOT/'results/native_expert_scaling/meth506_retention'
 RAW=DOC/'meth506_whole_result.json'
 
@@ -36,7 +36,7 @@ class Context(base.Context):
         assert time.monotonic()-self.start<=self.seconds,('wall_bound',self.phase)
         now=time.monotonic()
         if now-self.last_size>=1:
-            size=sum(p.stat().st_size for d in [ROOT/'results/native_expert_scaling/meth506_artifact',PREP,OUT,AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
+            size=sum(p.stat().st_size for d in [ROOT/'results/native_expert_scaling/meth506_artifact',ROOT/'results/native_expert_scaling/meth506_r2_artifact',PREP,OUT,AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
             size+=sum(p.stat().st_size for p in DOC.glob('meth506*.json'))
             assert size<=24<<30,('all_new_outputs',size)
             self.last_size=now

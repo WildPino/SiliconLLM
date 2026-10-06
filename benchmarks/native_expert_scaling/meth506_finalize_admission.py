@@ -20,12 +20,12 @@ assert retained['raw_sha256']==digest(O.RAW) and raw['preparation_sha256']==reta
 assert raw['binding_sha256']==retained['binding_sha256']==prepared['binding_sha256']==digest(O.BIND)
 windows=[]
 for stage in ['prepare','main','audit']:
-    p=O.ROOT/f'results/native_expert_scaling/meth506_r2_{stage}_windows_terminal.json';v=json.loads(p.read_bytes());assert v['query_available'] and not v['matching_scientific_events'];windows.append(item(p))
+    p=O.ROOT/f'results/native_expert_scaling/meth506_r3_{stage}_windows_terminal.json';v=json.loads(p.read_bytes());assert v['query_available'] and not v['matching_scientific_events'];windows.append(item(p))
 assert retained['quality_gates']==raw['summary']['quality_gates'] and retained['economic_gates']==raw['summary']['economic_gates']
 assert all(c['returncode']==0 for c in raw['commands']) and not prepared['commands']
 for rel,sha in binding['preserved'].items():assert digest(O.ROOT/rel)==sha
 assert digest(O.ROOT/'benchmarks/phase60/engine.c')==binding['engine_sha256']
-outputs=sum(p.stat().st_size for folder in [O.ROOT/'results/native_expert_scaling/meth506_artifact',O.PREP,O.OUT,O.AUDIT] for p in folder.iterdir() if p.is_file())+sum(p.stat().st_size for p in O.DOC.glob('meth506*.json'))
+outputs=sum(p.stat().st_size for folder in [O.ROOT/'results/native_expert_scaling/meth506_artifact',O.ROOT/'results/native_expert_scaling/meth506_r2_artifact',O.PREP,O.OUT,O.AUDIT] for p in folder.iterdir() if p.is_file())+sum(p.stat().st_size for p in O.DOC.glob('meth506*.json'))
 assert outputs<=24<<30
 for p in [prepared,raw,retained]:
     resource=p['resource'];assert resource['wall_seconds']<=3600 and resource['parent_peak_bytes']+resource['native_peak_bytes']<=24<<30

@@ -139,3 +139,9 @@ method/history BYTE; old resumptions are historical.
 [432..453](RESEARCH_RECORDS_432_453_20261005.md), and individual records retain
 results/faults. [Current NEXT](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
 and this index supersede older operational NEXTs. No completion percentage.
+
+Operational update: R2 preparation also stopped BEFORE selection/export on missing
+CPython _asyncio.pyd (old bootstrap had only7 host files), faultb96e912.
+[R3 closure](METH_506_R3_PYTHON_CLOSURE_REPAIR_20261006.md) prospectively
+binds actual complete Python stdlib/extensions, venv config/pth; fresh preparation
+namespace. Source/scientific criteria unchanged; no model/native calls yet.
