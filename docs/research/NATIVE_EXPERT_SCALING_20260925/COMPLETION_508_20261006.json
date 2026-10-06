@@ -1,0 +1,282 @@
+{
+  "experiment": "METH508 completion metadata",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth508_finalize.py",
+    "bytes": 5313,
+    "sha256": "367cec871ee1d0cb2a9074f78fc0c1ddb23f764484978346db1820db0473e3c5"
+  },
+  "revision": "5bab30651f7711abbe2ee635ba56a523e953837b",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth508_binding.json",
+    "bytes": 643470,
+    "sha256": "906499fd54f132c045d2f27bb84f188b9548fa93af51781e8097499734a92e39"
+  },
+  "main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth508_main_result.json",
+    "bytes": 678507,
+    "sha256": "cf7badf270be0fce0334e4e20f3355a122d05938deb2ccab42fa079e1a1bf241"
+  },
+  "independent_audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth508_audit_result.json",
+    "bytes": 31561,
+    "sha256": "e67f3cc1a5bb65ee39cf9364d68e33c9e2a4ce6c2a391c7d1ff02cfd8968e831"
+  },
+  "tool_receipts": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth508_tool_receipts.json",
+    "bytes": 9105,
+    "sha256": "dfd7e32e39f7c12c71febc29123c39f410d4194711fcd15fe137eb1c361b8aaa"
+  },
+  "summary": {
+    "all_common_positions": {
+      "positions": 996,
+      "original_differences": 31,
+      "recovered": 20,
+      "introduced": 3,
+      "remaining_differences": 14,
+      "original_state_bridge_bad_positions": 0
+    },
+    "first_divergences": {
+      "cases": 31,
+      "recovered": 20,
+      "unchanged": 10,
+      "changed_to_third_ID": 1
+    },
+    "source_state_bridge_maximum_relative_l2": 1.653749426906298e-07,
+    "source_state_bridge_qualified": true,
+    "eligible_fixed_state_interpretation": true,
+    "scope": "Consumed fixed states, F64 source dots after F32 tied scale; no new generation/quality/rate/DRAM/useful-n claim."
+  },
+  "pair_term_rollups": {
+    "donor_margin": {
+      "minimum": 0.0012917518615722656,
+      "median": 0.05293130874633789,
+      "maximum": 0.6600155830383301
+    },
+    "total_pair_perturbation": {
+      "minimum": 0.0055370330810546875,
+      "median": 0.17918825149536133,
+      "maximum": 0.6860036849975586
+    },
+    "readout_residual": {
+      "minimum": -0.17973168978842935,
+      "median": 0.0948018103832986,
+      "maximum": 0.2803210564517684
+    },
+    "upstream_scaled_state_effect": {
+      "minimum": -0.06432467675420117,
+      "median": 0.0780173705968572,
+      "maximum": 0.6586377725762631
+    },
+    "donor_arithmetic_bridge_residual": {
+      "minimum": -5.498241634427359e-06,
+      "median": 3.5920755792062664e-07,
+      "maximum": 6.131306326651043e-06
+    }
+  },
+  "readout_abs_exceeds_upstream_cases": 14,
+  "introduced_positions": [
+    {
+      "book": 7,
+      "index": 1,
+      "step": 1,
+      "donor_id": 18375,
+      "new_id": 2965
+    },
+    {
+      "book": 12,
+      "index": 2,
+      "step": 2,
+      "donor_id": 3,
+      "new_id": 689
+    },
+    {
+      "book": 20,
+      "index": 3,
+      "step": 9,
+      "donor_id": 2991,
+      "new_id": 5803
+    }
+  ],
+  "terminal_resource_receipts": {
+    "main": {
+      "scope": "OS peak and elapsed through main/audit result serialization, SHA, terminal guard and final input-stat check; process exit follows.",
+      "result_sha256": "cf7badf270be0fce0334e4e20f3355a122d05938deb2ccab42fa079e1a1bf241",
+      "seconds": 19.67200000002049,
+      "OS_peak_bytes": 360923136,
+      "bytes_hashed": 1555319826,
+      "limits": {
+        "seconds": 180,
+        "OS_peak_bytes": 2147483648,
+        "output_bytes": 33554432
+      },
+      "process_instance": {
+        "pid": 28276,
+        "create_time_unix": 1791314497.4171824
+      },
+      "gates": {
+        "ALL_frozen_selected_data_runtime_AND_actual_F32_source_extent_before_evaluation": true,
+        "actual_numpy_only_modules_and_images": true,
+        "actual_source_shared_tied_head_extent_SHA_and_full_vocabulary_finite": true,
+        "ALL96_996_common_history_positions_and_original31_differences": true,
+        "ALL31_exact_computed_rational_pair_decompositions": true,
+        "ALL965_matching_positions_checked_for_new_disagreements": true,
+        "no_whole_model_native_compiler_calls_and_empty_fatal_log": true
+      },
+      "summary": {
+        "all_common_positions": {
+          "positions": 996,
+          "original_differences": 31,
+          "recovered": 20,
+          "introduced": 3,
+          "remaining_differences": 14,
+          "original_state_bridge_bad_positions": 0
+        },
+        "first_divergences": {
+          "cases": 31,
+          "recovered": 20,
+          "unchanged": 10,
+          "changed_to_third_ID": 1
+        },
+        "source_state_bridge_maximum_relative_l2": 1.653749426906298e-07,
+        "source_state_bridge_qualified": true,
+        "eligible_fixed_state_interpretation": true,
+        "scope": "Consumed fixed states, F64 source dots after F32 tied scale; no new generation/quality/rate/DRAM/useful-n claim."
+      }
+    },
+    "audit": {
+      "scope": "OS peak and elapsed through main/audit result serialization, SHA, terminal guard and final input-stat check; process exit follows.",
+      "result_sha256": "e67f3cc1a5bb65ee39cf9364d68e33c9e2a4ce6c2a391c7d1ff02cfd8968e831",
+      "seconds": 20.530999999988126,
+      "OS_peak_bytes": 376012800,
+      "bytes_hashed": 1555351387,
+      "limits": {
+        "seconds": 180,
+        "OS_peak_bytes": 2147483648,
+        "output_bytes": 33554432
+      },
+      "process_instance": {
+        "pid": 27656,
+        "create_time_unix": 1791314583.822612
+      },
+      "gates": {
+        "ALL_frozen_selected_data_runtime_AND_actual_F32_source_extent_before_evaluation": true,
+        "actual_numpy_only_modules_and_images": true,
+        "independent_source_extent_manifest_full_vocabulary_finite": true,
+        "independent_ALL96_996_histories_and_source_state_bridge": true,
+        "independent_ALL_winners_ties_recoveries_AND_introductions": true,
+        "independent_ALL31_source_dot_cells_and_exact_recorded_rational_decompositions": true,
+        "independent_ALL24_books_and_terminal_summary": true,
+        "no_whole_model_native_compiler_calls_and_empty_fatal_log": true
+      },
+      "summary": {
+        "all_common_positions": {
+          "positions": 996,
+          "original_differences": 31,
+          "recovered": 20,
+          "introduced": 3,
+          "remaining_differences": 14,
+          "original_state_bridge_bad_positions": 0
+        },
+        "first_divergences": {
+          "cases": 31,
+          "recovered": 20,
+          "unchanged": 10,
+          "changed_to_third_ID": 1
+        },
+        "source_state_bridge_maximum_relative_l2": 1.653749426906298e-07,
+        "source_state_bridge_qualified": true,
+        "eligible_fixed_state_interpretation": true,
+        "scope": "Consumed fixed states, F64 source dots after F32 tied scale; no new generation/quality/rate/DRAM/useful-n claim."
+      }
+    }
+  },
+  "output_inventory": {
+    "main": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth508_main\\fatal.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth508_main\\progress.jsonl",
+        "bytes": 1451,
+        "sha256": "950d01adad47ce4936b6b913959a67df232047b1967134fbb8fed740e6b1e155"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth508_main\\terminal_resource.json",
+        "bytes": 1700,
+        "sha256": "151eee69cb731810f8653d5a31b22bbdbf5b826a90576ff77a2dcdf17db153f0"
+      }
+    ],
+    "audit": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth508_audit\\fatal.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth508_audit\\progress.jsonl",
+        "bytes": 1293,
+        "sha256": "355b4885017bf4f3d23bd958ce14a39be92739c6b53a60a2b539861236513b69"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth508_audit\\terminal_resource.json",
+        "bytes": 1771,
+        "sha256": "8ad6a8a9d96e85ab7e7a44bafd1b4a77b8fe2045260a5fe1e53e7b18a79ca9e4"
+      }
+    ]
+  },
+  "owned_process_closure": [
+    {
+      "kind": "main",
+      "original": {
+        "pid": 28276,
+        "create_time_unix": 1791314497.4171824
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "kind": "audit",
+      "original": {
+        "pid": 27656,
+        "create_time_unix": 1791314583.822612
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    }
+  ],
+  "preserved_foreign": {
+    "benchmarks/donor_adaptation/configs/_manifest.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    "benchmarks/donor_adaptation/density/build_document_holdout.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    "docs/research/RESEARCH_INDEX.md": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  },
+  "engine": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "bytes": 137140,
+    "sha256": "d58e3c5fdbe789129c97e3d821b54eb3ffb53352de81a686f3fc186109823e93"
+  },
+  "post_merge": {
+    "revision": "e3441d5",
+    "changed_tracked_paths": 620,
+    "only_research_documentation": true,
+    "engine_and_506_507_scientific_files_changed": false,
+    "preserved_RESEARCH_INDEX_working_SHA256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+  },
+  "apparatus_complete": true,
+  "goal_complete": false,
+  "scope": "Fixed-state source-head benefit only; no full generation/quality/speed/DRAM/useful-n promotion.",
+  "next": "ONE proposed top8 original-I8-head shortlist with original F32 row refinement; qualify all996 coverage and hybrid winner before native integration."
+}
