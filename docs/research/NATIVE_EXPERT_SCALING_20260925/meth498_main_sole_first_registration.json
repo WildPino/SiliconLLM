@@ -1,0 +1,35 @@
+{
+  "experiment": "METH498 sole first main execution registration",
+  "attempt": 1,
+  "process_instance": {
+    "pid": 27200,
+    "create_time_unix": 1791282887.4474812
+  },
+  "record_sha256": "da4f297a8370dddc7e34039d6c0e763750f24789b407f11bf0c7a6cd323ce957",
+  "actual_exit_code": 0,
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth498_minimum_prior_fit.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth498_minimum_prior_fit_result.json --binding-sha b85fd8a136e546f7d940f518811081b2b9e993554f11c84adb6039990524bf37",
+  "actual_tool_results": [
+    {
+      "chunk_id": "326641",
+      "wall_time_seconds": 10.005928,
+      "session_id": 93177,
+      "original_token_count": 18,
+      "output": "{\"experts_fitted\": 1}\r\n{\"experts_fitted\": 17}\r\n{\"experts_fitted\": 33}\r\n"
+    },
+    {
+      "chunk_id": "637ea8",
+      "wall_time_seconds": 20.8040901,
+      "exit_code": 0,
+      "original_token_count": 319,
+      "output": "{\"experts_fitted\": 49}\r\n{\"experts_fitted\": 65}\r\n{\"experts_fitted\": 81}\r\n{\"experts_fitted\": 97}\r\n{\"experts_fitted\": 113}\r\n{\"gates\": {\"ALL_actual_inputs_runtime_native_source_and497_exact_rank_qualified_before_NumPy\": true, \"NEW498_minimum_prior_exact_fixture_and_I8_half_even_controls\": true, \"ALL17540_UID_19962_original_occurrences_and_fixed_input_feature_domains\": true, \"SAME_positive_prior_metric_factor_and_fixed_calibration\": true, \"ALL127_equality_stationarity_solves_C64_C32_and128_exports_same_A_L_keys_empty_prior\": true, \"ONE_native_changed_bank_actual_modules_and_unchanged_ID_logit_probability_BYTE\": true, \"ALL17540_native_oracle_and_coupled_physical_output_BYTE\": true, \"ALL17540_fitted_serialized_parameter_arithmetic_levels_and_closure\": true, \"ALL1040_reports_384_exposures_and_original_source_ID_denominators\": true}, \"outcomes\": {\"fit64_ALL_six_RMS_1pct\": false, \"fit32_ALL_six_RMS_1pct\": false, \"oracle_ALL_six_RMS_1pct\": false, \"coupled_ALL_six_RMS_1pct\": false, \"ID_ALL_six_999permille\": false}, \"decision\": \"NEXT_SOURCE_PRIOR_TRANSPORT\", \"resource\": {\"wall_seconds\": 36.953000000008615, \"parent_peak_bytes\": 768958464, \"native_peak_bytes\": 131522560, \"bytes_hashed\": 1616654419, \"wall_limit_seconds\": 900, \"combined_host_limit_bytes\": 1610612736}}\r\n"
+    }
+  ],
+  "actual_Windows_tool_result": {
+    "chunk_id": "1d15dc",
+    "wall_time_seconds": 0.7388226,
+    "exit_code": 0,
+    "original_token_count": 51,
+    "output": "{\r\n  \"query_start_utc\": \"2026-10-06T10:34:45.6438200+00:00\",\r\n  \"query_end_utc\": \"2026-10-06T10:35:38.3383001+00:00\",\r\n  \"query_available\": true,\r\n  \"returned_event_count\": 0,\r\n  \"query_error\": null\r\n}\r\n"
+  },
+  "scope": "Full one-bank numerical main, exact-fixture controls once, 127 development-only solves, one changed-bank native invocation. Independent audit pending. Scientific namespace terminal."
+}
