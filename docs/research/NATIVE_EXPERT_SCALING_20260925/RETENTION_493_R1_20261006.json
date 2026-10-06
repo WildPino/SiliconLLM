@@ -1,0 +1,58 @@
+{
+  "experiment": "METH493-R1 original472 split mapped to extended479 source role",
+  "start_utc": "2026-10-06T07:10:39.947964+00:00",
+  "process_instance": {
+    "pid": 25440,
+    "create_time_unix": 1791270639.752771
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth493_r1_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_493_R1_20261006.json",
+    "--binding-sha",
+    "47cd764d4c4abe5f0dc6e0fcbef434e18cda676786b4583b127705592117a5f2"
+  ],
+  "commands": [],
+  "gates": {
+    "frozen_source_supervision_runtime_and_scientific_files": true,
+    "sole_actual_main_registration_and_available_fault_free_Windows_query": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": false,
+  "preserved_daemons": [],
+  "binding_sha256": "47cd764d4c4abe5f0dc6e0fcbef434e18cda676786b4583b127705592117a5f2",
+  "source_freeze": "45fcf277fbfefb09dad8507425b05a844adde952",
+  "execution_head": "555bdfc31140952d320d72dc56c34b11b478ce53",
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth493_r1_weighted_targets_result.failure.json",
+    "bytes": 1450,
+    "sha256": "c8c77615d9a5ecafa8db7512b7b42fe1e0c3741b0bd83cc219e68523fd58a2fc"
+  },
+  "main_windows_sha256": "729b7b1440c48bd4a24243f00b2c15ec290f3bc303ac2e49e627e2a56a3fd0db",
+  "main_completed": false,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "decision": "FIRST_COMPILER_FAULT_AND_PARTIALS_ADMITTED_NO_TARGET_PROMOTION",
+  "end_utc": "2026-10-06T07:14:11.396889+00:00",
+  "resource": {
+    "wall_seconds": 211.43799999999464,
+    "parent_peak_bytes": 91729920,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 10200132874,
+    "wall_limit_seconds": 300,
+    "combined_host_limit_bytes": 268435456
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r1_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r1_retention\\progress.jsonl",
+      "bytes": 72,
+      "sha256": "fba9885cd8c02fcf88214f4294838060782e28f7bd97df9577b897dc3478d877"
+    }
+  ],
+  "terminal_resource_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_r1_retention\\terminal_resources.json"
+}
