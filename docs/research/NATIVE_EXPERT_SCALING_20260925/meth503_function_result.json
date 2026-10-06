@@ -1,0 +1,4409 @@
+{
+  "experiment": "METH503 ONE four overlapping half-width source experts",
+  "start_utc": "2026-10-06T13:05:02.626962+00:00",
+  "process_instance": {
+    "pid": 3588,
+    "create_time_unix": 1791291902.3983085
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth503_function_screen.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth503_function_result.json",
+    "--binding-sha",
+    "f9a9efb5aafebf98284e9748e432eafb00f7ceb82792de2dea07a165da044076"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_data_runtime_scientific_SHA_before_NumPy": true,
+    "NEW_exact_integer_A16_centroid_unsupported_tie_controls": true,
+    "ALL_original_UID_roles_occurrences_parent_mass_saved_hidden_A16_contracts": true,
+    "ALL_fixed_masks_development_only_input_prototypes_and_selection_no_consumed_fit": true,
+    "ALL127570_actual_child_functions_original_I8_WO_own_A16_and_complete_support_BYTE_identity": true,
+    "ALL_views_original_denominators_oracle_lower_bound_tail_and_frozen_decisions": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "f9a9efb5aafebf98284e9748e432eafb00f7ceb82792de2dea07a165da044076",
+  "source_freeze": "b9e0a2184b7bdfe29d75dc14bc47237c486420c3",
+  "execution_head": "b0dcaee19362dc59d442e3ea4c8eb4c52b3567d2",
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      0
+    ]
+  },
+  "experts": [
+    {
+      "expert": 0,
+      "status": "EMPTY_UNCOMPILED_UNPROMOTED"
+    },
+    {
+      "expert": 1,
+      "development": 3,
+      "consumed": 0,
+      "children": 4,
+      "development_group_counts": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 2,
+      "development": 160,
+      "consumed": 81,
+      "children": 9,
+      "development_group_counts": [
+        11,
+        14,
+        17,
+        14,
+        19,
+        28,
+        28,
+        29,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 6912,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 3,
+      "development": 73,
+      "consumed": 45,
+      "children": 7,
+      "development_group_counts": [
+        11,
+        12,
+        11,
+        10,
+        11,
+        13,
+        5
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 4,
+      "development": 135,
+      "consumed": 66,
+      "children": 7,
+      "development_group_counts": [
+        14,
+        19,
+        22,
+        19,
+        24,
+        29,
+        8
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 5,
+      "development": 188,
+      "consumed": 90,
+      "children": 12,
+      "development_group_counts": [
+        11,
+        11,
+        10,
+        18,
+        14,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        16
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 9216,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 6,
+      "development": 161,
+      "consumed": 68,
+      "children": 8,
+      "development_group_counts": [
+        12,
+        17,
+        20,
+        25,
+        23,
+        24,
+        40,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 6144,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 7,
+      "development": 74,
+      "consumed": 30,
+      "children": 6,
+      "development_group_counts": [
+        13,
+        13,
+        15,
+        19,
+        14,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 4608,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 8,
+      "development": 76,
+      "consumed": 38,
+      "children": 4,
+      "development_group_counts": [
+        23,
+        39,
+        14,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 9,
+      "development": 61,
+      "consumed": 29,
+      "children": 4,
+      "development_group_counts": [
+        19,
+        26,
+        16,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 10,
+      "development": 64,
+      "consumed": 63,
+      "children": 4,
+      "development_group_counts": [
+        14,
+        28,
+        22,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 11,
+      "development": 68,
+      "consumed": 42,
+      "children": 5,
+      "development_group_counts": [
+        16,
+        16,
+        21,
+        15,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 12,
+      "development": 44,
+      "consumed": 15,
+      "children": 4,
+      "development_group_counts": [
+        17,
+        24,
+        3,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 13,
+      "development": 113,
+      "consumed": 42,
+      "children": 10,
+      "development_group_counts": [
+        9,
+        8,
+        11,
+        14,
+        13,
+        11,
+        12,
+        14,
+        11,
+        10
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 14,
+      "development": 75,
+      "consumed": 32,
+      "children": 8,
+      "development_group_counts": [
+        7,
+        8,
+        10,
+        9,
+        8,
+        11,
+        13,
+        9
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 6144,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 15,
+      "development": 4,
+      "consumed": 3,
+      "children": 4,
+      "development_group_counts": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 16,
+      "development": 48,
+      "consumed": 21,
+      "children": 4,
+      "development_group_counts": [
+        48,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 17,
+      "development": 134,
+      "consumed": 49,
+      "children": 7,
+      "development_group_counts": [
+        17,
+        16,
+        20,
+        23,
+        24,
+        33,
+        1
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 18,
+      "development": 83,
+      "consumed": 43,
+      "children": 4,
+      "development_group_counts": [
+        41,
+        42,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 19,
+      "development": 59,
+      "consumed": 42,
+      "children": 5,
+      "development_group_counts": [
+        13,
+        15,
+        13,
+        18,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 20,
+      "development": 16,
+      "consumed": 5,
+      "children": 4,
+      "development_group_counts": [
+        16,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 21,
+      "development": 168,
+      "consumed": 74,
+      "children": 15,
+      "development_group_counts": [
+        6,
+        8,
+        8,
+        7,
+        8,
+        13,
+        13,
+        8,
+        12,
+        12,
+        11,
+        13,
+        13,
+        18,
+        18
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 11520,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 22,
+      "development": 40,
+      "consumed": 16,
+      "children": 4,
+      "development_group_counts": [
+        40,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 23,
+      "development": 104,
+      "consumed": 52,
+      "children": 5,
+      "development_group_counts": [
+        18,
+        31,
+        40,
+        15,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 24,
+      "development": 144,
+      "consumed": 66,
+      "children": 5,
+      "development_group_counts": [
+        19,
+        25,
+        47,
+        53,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 25,
+      "development": 260,
+      "consumed": 149,
+      "children": 4,
+      "development_group_counts": [
+        260,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 26,
+      "development": 122,
+      "consumed": 46,
+      "children": 7,
+      "development_group_counts": [
+        14,
+        17,
+        19,
+        22,
+        28,
+        22,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 27,
+      "development": 95,
+      "consumed": 61,
+      "children": 7,
+      "development_group_counts": [
+        8,
+        13,
+        13,
+        14,
+        19,
+        24,
+        4
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 28,
+      "development": 46,
+      "consumed": 22,
+      "children": 4,
+      "development_group_counts": [
+        20,
+        26,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 29,
+      "development": 59,
+      "consumed": 32,
+      "children": 4,
+      "development_group_counts": [
+        37,
+        22,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 30,
+      "development": 87,
+      "consumed": 54,
+      "children": 5,
+      "development_group_counts": [
+        12,
+        24,
+        27,
+        24,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 31,
+      "development": 55,
+      "consumed": 42,
+      "children": 4,
+      "development_group_counts": [
+        14,
+        13,
+        28,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 32,
+      "development": 102,
+      "consumed": 42,
+      "children": 4,
+      "development_group_counts": [
+        32,
+        69,
+        1,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 33,
+      "development": 183,
+      "consumed": 52,
+      "children": 5,
+      "development_group_counts": [
+        31,
+        35,
+        57,
+        50,
+        10
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 34,
+      "development": 200,
+      "consumed": 100,
+      "children": 4,
+      "development_group_counts": [
+        60,
+        67,
+        73,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 35,
+      "development": 98,
+      "consumed": 53,
+      "children": 9,
+      "development_group_counts": [
+        7,
+        7,
+        10,
+        15,
+        11,
+        10,
+        13,
+        16,
+        9
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 6912,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 36,
+      "development": 5,
+      "consumed": 3,
+      "children": 4,
+      "development_group_counts": [
+        5,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 37,
+      "development": 271,
+      "consumed": 122,
+      "children": 4,
+      "development_group_counts": [
+        271,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 38,
+      "development": 142,
+      "consumed": 80,
+      "children": 10,
+      "development_group_counts": [
+        8,
+        10,
+        14,
+        18,
+        17,
+        15,
+        17,
+        17,
+        18,
+        8
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 39,
+      "development": 18,
+      "consumed": 2,
+      "children": 4,
+      "development_group_counts": [
+        18,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 40,
+      "development": 183,
+      "consumed": 117,
+      "children": 12,
+      "development_group_counts": [
+        8,
+        10,
+        10,
+        14,
+        16,
+        14,
+        16,
+        16,
+        17,
+        21,
+        19,
+        22
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 9216,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 41,
+      "development": 116,
+      "consumed": 74,
+      "children": 15,
+      "development_group_counts": [
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        8,
+        9,
+        11,
+        8,
+        7,
+        8,
+        13,
+        14,
+        3
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 11520,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 42,
+      "development": 53,
+      "consumed": 39,
+      "children": 4,
+      "development_group_counts": [
+        12,
+        20,
+        21,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 43,
+      "development": 70,
+      "consumed": 17,
+      "children": 5,
+      "development_group_counts": [
+        15,
+        22,
+        25,
+        8,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 44,
+      "development": 21,
+      "consumed": 10,
+      "children": 4,
+      "development_group_counts": [
+        13,
+        8,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 45,
+      "development": 28,
+      "consumed": 8,
+      "children": 4,
+      "development_group_counts": [
+        22,
+        6,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 46,
+      "development": 44,
+      "consumed": 25,
+      "children": 4,
+      "development_group_counts": [
+        18,
+        26,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 47,
+      "development": 108,
+      "consumed": 53,
+      "children": 8,
+      "development_group_counts": [
+        8,
+        9,
+        15,
+        15,
+        16,
+        22,
+        23,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 6144,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 48,
+      "development": 89,
+      "consumed": 44,
+      "children": 4,
+      "development_group_counts": [
+        21,
+        28,
+        40,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 49,
+      "development": 123,
+      "consumed": 68,
+      "children": 14,
+      "development_group_counts": [
+        6,
+        8,
+        8,
+        7,
+        7,
+        9,
+        9,
+        8,
+        10,
+        10,
+        11,
+        12,
+        14,
+        4
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 10752,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 50,
+      "development": 106,
+      "consumed": 45,
+      "children": 7,
+      "development_group_counts": [
+        15,
+        16,
+        16,
+        20,
+        21,
+        18,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 51,
+      "development": 75,
+      "consumed": 47,
+      "children": 4,
+      "development_group_counts": [
+        20,
+        35,
+        20,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 52,
+      "development": 19,
+      "consumed": 20,
+      "children": 4,
+      "development_group_counts": [
+        19,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 53,
+      "development": 60,
+      "consumed": 23,
+      "children": 4,
+      "development_group_counts": [
+        49,
+        11,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 54,
+      "development": 76,
+      "consumed": 30,
+      "children": 5,
+      "development_group_counts": [
+        19,
+        18,
+        23,
+        16,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 55,
+      "development": 122,
+      "consumed": 65,
+      "children": 7,
+      "development_group_counts": [
+        14,
+        15,
+        17,
+        19,
+        24,
+        31,
+        2
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 56,
+      "development": 149,
+      "consumed": 59,
+      "children": 6,
+      "development_group_counts": [
+        25,
+        23,
+        33,
+        38,
+        30,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 4608,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 57,
+      "development": 16,
+      "consumed": 11,
+      "children": 4,
+      "development_group_counts": [
+        16,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 58,
+      "development": 152,
+      "consumed": 69,
+      "children": 14,
+      "development_group_counts": [
+        8,
+        10,
+        9,
+        12,
+        11,
+        10,
+        11,
+        9,
+        10,
+        10,
+        13,
+        10,
+        14,
+        15
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 10752,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 59,
+      "development": 17,
+      "consumed": 10,
+      "children": 4,
+      "development_group_counts": [
+        17,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 60,
+      "development": 100,
+      "consumed": 57,
+      "children": 5,
+      "development_group_counts": [
+        20,
+        24,
+        27,
+        29,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 61,
+      "development": 104,
+      "consumed": 39,
+      "children": 9,
+      "development_group_counts": [
+        8,
+        10,
+        10,
+        11,
+        13,
+        13,
+        13,
+        16,
+        10
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 6912,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 62,
+      "development": 60,
+      "consumed": 25,
+      "children": 5,
+      "development_group_counts": [
+        14,
+        14,
+        16,
+        16,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 63,
+      "development": 27,
+      "consumed": 10,
+      "children": 4,
+      "development_group_counts": [
+        27,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 64,
+      "development": 34,
+      "consumed": 12,
+      "children": 4,
+      "development_group_counts": [
+        34,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 65,
+      "development": 116,
+      "consumed": 73,
+      "children": 13,
+      "development_group_counts": [
+        9,
+        10,
+        9,
+        7,
+        9,
+        8,
+        10,
+        9,
+        10,
+        10,
+        11,
+        14,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 9984,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 66,
+      "development": 38,
+      "consumed": 29,
+      "children": 4,
+      "development_group_counts": [
+        38,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 67,
+      "development": 165,
+      "consumed": 107,
+      "children": 10,
+      "development_group_counts": [
+        14,
+        15,
+        15,
+        14,
+        19,
+        16,
+        18,
+        23,
+        31,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 68,
+      "development": 98,
+      "consumed": 44,
+      "children": 11,
+      "development_group_counts": [
+        6,
+        5,
+        6,
+        7,
+        8,
+        8,
+        12,
+        8,
+        12,
+        13,
+        13
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 8448,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 69,
+      "development": 12,
+      "consumed": 9,
+      "children": 4,
+      "development_group_counts": [
+        12,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 70,
+      "development": 53,
+      "consumed": 31,
+      "children": 4,
+      "development_group_counts": [
+        21,
+        32,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 71,
+      "development": 147,
+      "consumed": 57,
+      "children": 10,
+      "development_group_counts": [
+        10,
+        12,
+        12,
+        11,
+        15,
+        16,
+        14,
+        17,
+        21,
+        19
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 72,
+      "development": 119,
+      "consumed": 41,
+      "children": 6,
+      "development_group_counts": [
+        11,
+        25,
+        27,
+        34,
+        22,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 4608,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 73,
+      "development": 16,
+      "consumed": 3,
+      "children": 4,
+      "development_group_counts": [
+        16,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 74,
+      "development": 124,
+      "consumed": 54,
+      "children": 7,
+      "development_group_counts": [
+        11,
+        20,
+        16,
+        22,
+        33,
+        22,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 75,
+      "development": 124,
+      "consumed": 48,
+      "children": 5,
+      "development_group_counts": [
+        29,
+        34,
+        51,
+        10,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 76,
+      "development": 115,
+      "consumed": 56,
+      "children": 6,
+      "development_group_counts": [
+        16,
+        21,
+        24,
+        30,
+        24,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 4608,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 77,
+      "development": 110,
+      "consumed": 46,
+      "children": 4,
+      "development_group_counts": [
+        31,
+        52,
+        27,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 78,
+      "development": 213,
+      "consumed": 110,
+      "children": 9,
+      "development_group_counts": [
+        15,
+        19,
+        19,
+        26,
+        22,
+        27,
+        36,
+        45,
+        4
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 6912,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 79,
+      "development": 53,
+      "consumed": 41,
+      "children": 4,
+      "development_group_counts": [
+        9,
+        17,
+        21,
+        6
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 80,
+      "development": 56,
+      "consumed": 22,
+      "children": 4,
+      "development_group_counts": [
+        36,
+        20,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 81,
+      "development": 113,
+      "consumed": 67,
+      "children": 7,
+      "development_group_counts": [
+        16,
+        17,
+        15,
+        17,
+        16,
+        25,
+        7
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 82,
+      "development": 144,
+      "consumed": 58,
+      "children": 10,
+      "development_group_counts": [
+        7,
+        15,
+        14,
+        14,
+        13,
+        15,
+        14,
+        23,
+        19,
+        10
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 83,
+      "development": 70,
+      "consumed": 18,
+      "children": 4,
+      "development_group_counts": [
+        31,
+        39,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 84,
+      "development": 308,
+      "consumed": 190,
+      "children": 15,
+      "development_group_counts": [
+        13,
+        10,
+        19,
+        13,
+        17,
+        20,
+        24,
+        17,
+        24,
+        23,
+        23,
+        29,
+        32,
+        28,
+        16
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 11520,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 85,
+      "development": 51,
+      "consumed": 18,
+      "children": 6,
+      "development_group_counts": [
+        7,
+        11,
+        9,
+        11,
+        12,
+        1
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 4608,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 86,
+      "development": 40,
+      "consumed": 24,
+      "children": 4,
+      "development_group_counts": [
+        14,
+        20,
+        6,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 87,
+      "development": 134,
+      "consumed": 56,
+      "children": 8,
+      "development_group_counts": [
+        13,
+        13,
+        19,
+        21,
+        18,
+        19,
+        19,
+        12
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 6144,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 88,
+      "development": 131,
+      "consumed": 77,
+      "children": 4,
+      "development_group_counts": [
+        31,
+        61,
+        39,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 89,
+      "development": 86,
+      "consumed": 52,
+      "children": 9,
+      "development_group_counts": [
+        6,
+        9,
+        8,
+        12,
+        10,
+        9,
+        9,
+        16,
+        7
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 6912,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 90,
+      "development": 30,
+      "consumed": 19,
+      "children": 4,
+      "development_group_counts": [
+        30,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 91,
+      "development": 78,
+      "consumed": 32,
+      "children": 5,
+      "development_group_counts": [
+        11,
+        18,
+        16,
+        22,
+        11
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 92,
+      "development": 78,
+      "consumed": 42,
+      "children": 4,
+      "development_group_counts": [
+        23,
+        33,
+        22,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 93,
+      "development": 67,
+      "consumed": 56,
+      "children": 5,
+      "development_group_counts": [
+        15,
+        17,
+        21,
+        14,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 94,
+      "development": 84,
+      "consumed": 27,
+      "children": 4,
+      "development_group_counts": [
+        29,
+        39,
+        16,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 95,
+      "development": 108,
+      "consumed": 51,
+      "children": 6,
+      "development_group_counts": [
+        14,
+        19,
+        22,
+        25,
+        28,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 4608,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 96,
+      "development": 61,
+      "consumed": 42,
+      "children": 4,
+      "development_group_counts": [
+        24,
+        37,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 97,
+      "development": 103,
+      "consumed": 70,
+      "children": 6,
+      "development_group_counts": [
+        14,
+        16,
+        19,
+        24,
+        30,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 4608,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 98,
+      "development": 92,
+      "consumed": 66,
+      "children": 5,
+      "development_group_counts": [
+        17,
+        19,
+        28,
+        28,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 99,
+      "development": 238,
+      "consumed": 77,
+      "children": 11,
+      "development_group_counts": [
+        11,
+        14,
+        16,
+        18,
+        17,
+        22,
+        20,
+        31,
+        33,
+        38,
+        18
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 8448,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 100,
+      "development": 65,
+      "consumed": 52,
+      "children": 7,
+      "development_group_counts": [
+        6,
+        9,
+        7,
+        9,
+        13,
+        13,
+        8
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 101,
+      "development": 39,
+      "consumed": 33,
+      "children": 4,
+      "development_group_counts": [
+        14,
+        22,
+        3,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 102,
+      "development": 51,
+      "consumed": 27,
+      "children": 4,
+      "development_group_counts": [
+        24,
+        27,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 103,
+      "development": 121,
+      "consumed": 32,
+      "children": 10,
+      "development_group_counts": [
+        15,
+        10,
+        9,
+        11,
+        13,
+        17,
+        15,
+        17,
+        14,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 104,
+      "development": 87,
+      "consumed": 69,
+      "children": 4,
+      "development_group_counts": [
+        18,
+        27,
+        31,
+        11
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 105,
+      "development": 113,
+      "consumed": 49,
+      "children": 4,
+      "development_group_counts": [
+        21,
+        31,
+        61,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 106,
+      "development": 52,
+      "consumed": 18,
+      "children": 4,
+      "development_group_counts": [
+        20,
+        27,
+        5,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 107,
+      "development": 180,
+      "consumed": 45,
+      "children": 10,
+      "development_group_counts": [
+        10,
+        18,
+        19,
+        23,
+        18,
+        20,
+        22,
+        25,
+        25,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 108,
+      "development": 39,
+      "consumed": 8,
+      "children": 4,
+      "development_group_counts": [
+        39,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 109,
+      "development": 99,
+      "consumed": 63,
+      "children": 5,
+      "development_group_counts": [
+        18,
+        22,
+        39,
+        20,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 110,
+      "development": 55,
+      "consumed": 37,
+      "children": 4,
+      "development_group_counts": [
+        11,
+        22,
+        22,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 111,
+      "development": 127,
+      "consumed": 76,
+      "children": 7,
+      "development_group_counts": [
+        12,
+        14,
+        12,
+        19,
+        23,
+        31,
+        16
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 5376,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 112,
+      "development": 121,
+      "consumed": 52,
+      "children": 4,
+      "development_group_counts": [
+        27,
+        40,
+        45,
+        9
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 113,
+      "development": 133,
+      "consumed": 57,
+      "children": 14,
+      "development_group_counts": [
+        10,
+        8,
+        11,
+        8,
+        11,
+        8,
+        11,
+        9,
+        11,
+        10,
+        10,
+        12,
+        9,
+        5
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 10752,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 114,
+      "development": 168,
+      "consumed": 94,
+      "children": 11,
+      "development_group_counts": [
+        13,
+        10,
+        15,
+        13,
+        12,
+        18,
+        14,
+        18,
+        29,
+        23,
+        3
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 8448,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 115,
+      "development": 12,
+      "consumed": 2,
+      "children": 4,
+      "development_group_counts": [
+        12,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 116,
+      "development": 34,
+      "consumed": 25,
+      "children": 4,
+      "development_group_counts": [
+        31,
+        3,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 117,
+      "development": 116,
+      "consumed": 40,
+      "children": 5,
+      "development_group_counts": [
+        25,
+        27,
+        34,
+        30,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 118,
+      "development": 139,
+      "consumed": 56,
+      "children": 12,
+      "development_group_counts": [
+        9,
+        9,
+        11,
+        7,
+        13,
+        8,
+        12,
+        12,
+        14,
+        16,
+        16,
+        12
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 9216,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 119,
+      "development": 125,
+      "consumed": 41,
+      "children": 9,
+      "development_group_counts": [
+        14,
+        10,
+        13,
+        15,
+        17,
+        18,
+        18,
+        20,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 6912,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 120,
+      "development": 63,
+      "consumed": 30,
+      "children": 4,
+      "development_group_counts": [
+        28,
+        35,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 2,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 121,
+      "development": 22,
+      "consumed": 11,
+      "children": 4,
+      "development_group_counts": [
+        22,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 122,
+      "development": 39,
+      "consumed": 30,
+      "children": 4,
+      "development_group_counts": [
+        14,
+        22,
+        3,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 123,
+      "development": 102,
+      "consumed": 73,
+      "children": 10,
+      "development_group_counts": [
+        7,
+        7,
+        8,
+        10,
+        10,
+        10,
+        11,
+        13,
+        14,
+        12
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 7680,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 124,
+      "development": 7,
+      "consumed": 5,
+      "children": 4,
+      "development_group_counts": [
+        7,
+        0,
+        0,
+        0
+      ],
+      "unsupported_selector_children": 3,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 125,
+      "development": 63,
+      "consumed": 35,
+      "children": 4,
+      "development_group_counts": [
+        18,
+        17,
+        24,
+        4
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 126,
+      "development": 82,
+      "consumed": 46,
+      "children": 4,
+      "development_group_counts": [
+        25,
+        43,
+        14,
+        0
+      ],
+      "unsupported_selector_children": 1,
+      "selector_MULs": 3072,
+      "active_width_ceiling": 1536
+    },
+    {
+      "expert": 127,
+      "development": 102,
+      "consumed": 51,
+      "children": 5,
+      "development_group_counts": [
+        13,
+        19,
+        25,
+        44,
+        1
+      ],
+      "unsupported_selector_children": 0,
+      "selector_MULs": 3840,
+      "active_width_ceiling": 1536
+    }
+  ],
+  "views": {
+    "development": {
+      "routed": {
+        "RMS": 0.0026150681403477346,
+        "error_energy": 186630546.45861822,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.15994614569059734,
+        "max_UID_RMS": 0.6631844595214603,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.0,
+        "error_energy": 0.0,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.0,
+        "max_UID_RMS": 0.0,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 11721.0,
+      "routed_complete_support_count": 10089,
+      "any_child_complete_support_count": 11721
+    },
+    "development_source_p": {
+      "routed": {
+        "RMS": 0.003629676471544288,
+        "error_energy": 35734895.582687736,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.15994614569059734,
+        "max_UID_RMS": 0.6631844595214603,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.0,
+        "error_energy": 0.0,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.0,
+        "max_UID_RMS": 0.0,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 1850.3580510328693,
+      "routed_complete_support_count": 10089,
+      "any_child_complete_support_count": 11721
+    },
+    "consumed": {
+      "routed": {
+        "RMS": 0.012454846363248818,
+        "error_energy": 2042817136.8798437,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.4726092128612462,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.010470306157158252,
+        "error_energy": 1443681877.4787116,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.3959607554762972,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 5819.0,
+      "routed_complete_support_count": 261,
+      "any_child_complete_support_count": 262
+    },
+    "consumed_source_p": {
+      "routed": {
+        "RMS": 0.024639447161676136,
+        "error_energy": 786322328.3187673,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.4726092128612462,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.020314288073198815,
+        "error_energy": 534492853.8382422,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.3959607554762972,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 959.9641362901605,
+      "routed_complete_support_count": 261,
+      "any_child_complete_support_count": 262
+    },
+    "natural_consumed": {
+      "routed": {
+        "RMS": 0.009245111042060179,
+        "error_energy": 1124541514.3389797,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.47736777120510837,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.007710896621170124,
+        "error_energy": 782277772.5436182,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.3994120476457898,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 3065.0,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259
+    },
+    "natural_consumed_source_p": {
+      "routed": {
+        "RMS": 0.018635025501196147,
+        "error_energy": 448740181.4569745,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.47736777120510837,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.015319851778606786,
+        "error_energy": 303280231.7966322,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.3994120476457898,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 535.8416493128393,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259
+    },
+    "teacher_consumed": {
+      "routed": {
+        "RMS": 0.00955954549100269,
+        "error_energy": 1202459219.6650248,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.46657434872449616,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.008011308666881904,
+        "error_energy": 844506113.8963546,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.38972686776107307,
+        "max_UID_RMS": 0.6124235347359551,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 3584.0,
+      "routed_complete_support_count": 258,
+      "any_child_complete_support_count": 259
+    },
+    "teacher_consumed_source_p": {
+      "routed": {
+        "RMS": 0.01901790728951739,
+        "error_energy": 467395958.5608542,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.46657434872449616,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.015518020314589289,
+        "error_energy": 311194657.92859066,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.38972686776107307,
+        "max_UID_RMS": 0.6124235347359551,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 574.5130006745965,
+      "routed_complete_support_count": 258,
+      "any_child_complete_support_count": 259
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "routed": {
+        "RMS": 0.18515939476398174,
+        "error_energy": 70885.43104767243,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.36667249371031596,
+        "max_UID_RMS": 0.38593679980620693,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.18515939476398174,
+        "error_energy": 70885.43104767243,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.36667249371031596,
+        "max_UID_RMS": 0.38593679980620693,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3,
+      "weight_sum": 3.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 0
+    },
+    "dev_count5_15": {
+      "routed": {
+        "RMS": 0.26241454436359957,
+        "error_energy": 878341.776422732,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.7233764826371603,
+        "max_UID_RMS": 0.8650655143778052,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.24655329819702954,
+        "error_energy": 775370.6688057206,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.47749883226694445,
+        "max_UID_RMS": 0.4911078139788348,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 19,
+      "weight_sum": 19.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 0
+    }
+  },
+  "eligibility": {
+    "oracle_all_consumed_RMS_le_2pct": true,
+    "oracle_natural_consumed_source_p_RMS_le_2pct": true,
+    "oracle_natural_consumed_p95_UID_RMS_le_5pct": false,
+    "routed_all_consumed_RMS_le_2pct": true,
+    "routed_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_p95_UID_RMS_le_5pct": false
+  },
+  "decision": "RECONSIDER_REPRESENTATION_OR_SUPPORT_DOMAIN",
+  "partial_source_outputs": 127570,
+  "complete_support_child_cases": 11994,
+  "unsupported_selector_children": 146,
+  "new_source_WI_or_full_F_rows": 0,
+  "model_native_GPU_calls": 0,
+  "gradient_updates": 0,
+  "scope": "Fixed parent ID/p, ONE bank and original finite domain. New partial functions only. No fresh/composed/head/physical/rate/LUT/useful-n/family or goal promotion.",
+  "end_utc": "2026-10-06T13:06:04.842563+00:00",
+  "resource": {
+    "wall_seconds": 62.21799999999348,
+    "parent_peak_bytes": 826671104,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 8456565284,
+    "wall_limit_seconds": 180,
+    "combined_host_limit_bytes": 2147483648
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e001.npy",
+      "bytes": 36992,
+      "sha256": "0838f7dd0b42d08294868a9a91c53cfba95cf424605d44d9ed6bb077fe509dbf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e002.npy",
+      "bytes": 6663296,
+      "sha256": "6bcce2014616f9c41453b8c9cf55bda45e8210ad4662de220c6aca30ae6a44fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e003.npy",
+      "bytes": 2537600,
+      "sha256": "259dfeb65201a24569e414c1af934ceb8a6ac809ec4bafd1d8ab8d36e16f093e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e004.npy",
+      "bytes": 4322432,
+      "sha256": "f65138491433e8682e828c90095bc83ddb37d77e0da1a460d8983fa7698fc2f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e005.npy",
+      "bytes": 10248320,
+      "sha256": "2e003ef61c1aa3d57daa5a352c12edcb6c35354db4fff36f4adf602db0aaec5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e006.npy",
+      "bytes": 5628032,
+      "sha256": "bcfecc76f20441456f049e0748322a1833b84afff18ba9825bffacb2e6a029b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e007.npy",
+      "bytes": 1917056,
+      "sha256": "807d69408a65cf9a91f9d18985f5adcf30d317ef2082530a62d7c9a0b3157839"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e008.npy",
+      "bytes": 1400960,
+      "sha256": "18016ed46d72db048503d1c95dc8e672823cdf8cfab4aabed55e9b43bac62bdf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e009.npy",
+      "bytes": 1106048,
+      "sha256": "63a40ef096dc0bfc9fef485feee61325e5b7b2d7d19d8db03f11747634d2e447"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e010.npy",
+      "bytes": 1560704,
+      "sha256": "58998362b73aabd85b5a4f9a733c52e84e954eda3af34556fff7163690b759bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e011.npy",
+      "bytes": 1689728,
+      "sha256": "2127a208d8cb08b8f779b4070d79cf09543fcbe73a4a716b91c636d00c3da6be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e012.npy",
+      "bytes": 725120,
+      "sha256": "979d7c0f564f0230ff587a0b331497f76f866738ad09db643dbe9a6c7feb75b0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e013.npy",
+      "bytes": 4761728,
+      "sha256": "a1ffe197f5e629ffc2b92f112d3f854822dd4815d8a5edd1e7c5532fdc55bfa6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e014.npy",
+      "bytes": 2629760,
+      "sha256": "ae34970051857511a538e3237b216539baf93bb0260333d92fdaec7bdf5f1e14"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e015.npy",
+      "bytes": 86144,
+      "sha256": "ab2bc324c70ac216f161fac4b92ce544770b1c744f4b3be9340111ca6678da49"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e016.npy",
+      "bytes": 848000,
+      "sha256": "cde0f6cc30ec848bfd90049f7dca300d4280372bd86852e4540c0fdfb2d68254"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e017.npy",
+      "bytes": 3935360,
+      "sha256": "90ff46e04748cf5c4ceaa1889dc7054b6741ea6c637e7497b8c4ea869d3ee968"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e018.npy",
+      "bytes": 1548416,
+      "sha256": "c0bc37431785e1e19193693e83f75cfd54c7da06242bfd4c2ea37736cf9b1bc9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e019.npy",
+      "bytes": 1551488,
+      "sha256": "4ec4dcdf41271394a4fa29500809c71d46a4a7eb19cad56c8e6d8cd651943ad9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e020.npy",
+      "bytes": 258176,
+      "sha256": "6cf57e8dc72351904fcee6bfc99827fad1ccfb336cddf0273e525d019707b2c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e021.npy",
+      "bytes": 11151488,
+      "sha256": "3eb2a9bc0d658ae2f677b01fbc34f0da9580c36a891b4dd37f71c3d723a119a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e022.npy",
+      "bytes": 688256,
+      "sha256": "5d1ec158c295964a02b5edbcef5136e6c9006cd6ee1e4a7cd48887aed9216609"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e023.npy",
+      "bytes": 2396288,
+      "sha256": "1877d6dfd0a4ee947e3209d79240f91a5f7af25527e51afbe20e593cfe534acb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e024.npy",
+      "bytes": 3225728,
+      "sha256": "ceb663e29235365395bf614d9cad3b84605ff59c5048ba6f22fc428d2b016287"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e025.npy",
+      "bytes": 5025920,
+      "sha256": "6f2765e6076fd19c7d7db4de05385ad92e16c04671dd4febfeb622bfed72fbd1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e026.npy",
+      "bytes": 3612800,
+      "sha256": "6d19df251c8ccaef101f944a260f6b9d4ef7a25d2c62b0456b023fa9451a32db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e027.npy",
+      "bytes": 3354752,
+      "sha256": "671d559cf1b4891cc08307ec9a44fd6f06a2de31a8658c4bada0d391f94fe227"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e028.npy",
+      "bytes": 835712,
+      "sha256": "8b561f38007c3a45473474598518dcef329122fba97357eefb45e4ca63a2bf05"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e029.npy",
+      "bytes": 1118336,
+      "sha256": "93036da1531ebfd5c3e1202be2512c2d6dc98525946bf27ab6934b48be3f4e87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e030.npy",
+      "bytes": 2165888,
+      "sha256": "5e41a5c1ec07ffdacd85cf9f3da1b6d0d224269dbc41d89e5e0ed2ab78096685"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e031.npy",
+      "bytes": 1192064,
+      "sha256": "3eae0c860d3553373ca078513199b8c5d64dd2beee0d3749df11d108183ef4cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e032.npy",
+      "bytes": 1769600,
+      "sha256": "bf60dafd1e237d8422d4239c346cc337737849b157d6ca25197d3a2e78e8bced"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e033.npy",
+      "bytes": 3609728,
+      "sha256": "d8d1280c40d47a70e66d1bee7c1ffff8480e5c28940dacf8c4c0566659b99710"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e034.npy",
+      "bytes": 3686528,
+      "sha256": "c5fcabe6cea9d40700321e533e63f3b54a68fcb47821a68b35c88cdeafdf24fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e035.npy",
+      "bytes": 4174976,
+      "sha256": "47493ae1e0e29483e2b032bcc905b89fcb4f640612a15205b4382d897bf8e3fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e036.npy",
+      "bytes": 98432,
+      "sha256": "7c5c5cce52a9635da5b61b0711aca7cce9200a9a2ea5cacafa33820aefd28d1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e037.npy",
+      "bytes": 4829312,
+      "sha256": "d2acef220fa55325a8f9f9f4ce08e579ebcde3c4ae1e263040027c00324291aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e038.npy",
+      "bytes": 6819968,
+      "sha256": "9ea2947b6c7a7779e8403eed7a049a14c2472afd12e2a59a426b3a64562e2665"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e039.npy",
+      "bytes": 245888,
+      "sha256": "7bdc05144155799fd6a43c42b18cb8369f241fc9975c5f083f78fefd3a394f97"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e040.npy",
+      "bytes": 11059328,
+      "sha256": "45702dc306de40f83b89debf4ba881e864ae070b8dba8c57bdb547f0e405e636"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e041.npy",
+      "bytes": 8755328,
+      "sha256": "e57adf0d71664e739bf18e3ff6153c06e989e8a13a3965e901e8ed8549d24134"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e042.npy",
+      "bytes": 1130624,
+      "sha256": "72be75e6573ed8b5da62d5e26ca303105e3232f3f27329c46eeb6989054f8f4b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e043.npy",
+      "bytes": 1336448,
+      "sha256": "7fec32608136361a9d9ecb37fa91b41e122fdcc10cf6b8d3f926cfb428b5e995"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e044.npy",
+      "bytes": 381056,
+      "sha256": "54f586aef2f2960fec7853ac4c20bb4788e74f55ee5ce7a9b2ae80c1619955d8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e045.npy",
+      "bytes": 442496,
+      "sha256": "2690239705c90960c416b6b85c09ba78ad55212d9effd0876bb8fa692fd39134"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e046.npy",
+      "bytes": 848000,
+      "sha256": "c347ddcda7532ae79eaadfa58c3950cb83dea6910b1a3d150676b8eefeb2f78d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e047.npy",
+      "bytes": 3956864,
+      "sha256": "d53fa3ac8d6c7c7e09dd3abcea6bbaf8bddb4cd30ea1fe7666117b6a51c489bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e048.npy",
+      "bytes": 1634432,
+      "sha256": "05416a487607bb9c3be845e7c491b4ae07a7d819bfc24bbed264bded2ad25ead"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e049.npy",
+      "bytes": 8214656,
+      "sha256": "c4b2064e366249d5d0a3f67411f6f15a2aa34b00317e1e330cf1838097f7b7b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e050.npy",
+      "bytes": 3247232,
+      "sha256": "c6c508f0a43737403d6658114cacef8045fdfd037e7ffe40fbd7a86794df3d51"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e051.npy",
+      "bytes": 1499264,
+      "sha256": "447aaa97ec03998d0ba99d4ef16289497379dca4acaf728482ed2e2fbf89413b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e052.npy",
+      "bytes": 479360,
+      "sha256": "baa7653aec4df6964536b831835adb3ac1ec1f15332b6ed0b72b653477197c56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e053.npy",
+      "bytes": 1020032,
+      "sha256": "ad8ab1e64f93c41c701b46b2c63b9f97194dae1c32e5a35738ef1d46964bf0c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e054.npy",
+      "bytes": 1628288,
+      "sha256": "3c77704cbf26b0c0ad7360f2637e03fc4814641bd519aa283884ac0d91c94ae7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e055.npy",
+      "bytes": 4021376,
+      "sha256": "f1ba2b8d258af3eeb79c3d29ca8fad31ba910d5fa40043869c817f3ab00cfb1b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e056.npy",
+      "bytes": 3833984,
+      "sha256": "e0f4dd6d6f6959f9ad26c49f5cc5ec307594c4363d7cd7e07472964057958b76"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e057.npy",
+      "bytes": 331904,
+      "sha256": "1541b60f7de191149fe6a8aa6da3fa65bdde84ceab292481ea5dbbbeecbbdc42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e058.npy",
+      "bytes": 9504896,
+      "sha256": "cb1ea59ff3e79b23425d71a9787fcd087e6d1c244d61575d630bbaf59797165c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e059.npy",
+      "bytes": 331904,
+      "sha256": "e0b79f9df7a38101690d1a5db77ca3e539da4c32e7e19f90d819f121b424e95e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e060.npy",
+      "bytes": 2411648,
+      "sha256": "d9bde85be5afd164a127cbb86b61d6b7a35a1e29a2ac7719870f241f346b06eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e061.npy",
+      "bytes": 3953792,
+      "sha256": "e4ca4009e87be29ecdf658592293537ee84afb6f919cf06b6a5398cb825efbd6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e062.npy",
+      "bytes": 1305728,
+      "sha256": "3bb81f4c167b45f59d9b9d6c052c199b4dc99850bfb066e8eea454284ca717ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e063.npy",
+      "bytes": 454784,
+      "sha256": "66442eaec363079d4cb897960fd495f9bd5c23ea1b3c295b72df7d0998b14aa4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e064.npy",
+      "bytes": 565376,
+      "sha256": "7d31a13bf77b99b67b6b215489d99bbab5991a12e35169926b0b4cc10ccaac38"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e065.npy",
+      "bytes": 7548032,
+      "sha256": "a0c938914c41889441e11fe2fab6018b0841f09faaaea51c2635d98a5c613108"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e066.npy",
+      "bytes": 823424,
+      "sha256": "0ca8bb1e6c711cc7847c57b2e60fdd4e46902b9b48241019c1fc14cdfc9f0a58"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e067.npy",
+      "bytes": 8355968,
+      "sha256": "bb035303a21054e567fd47b3ee7ad9120783e5c481a74bea07dd1395b22704be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e068.npy",
+      "bytes": 4798592,
+      "sha256": "a3e4078d77aaa26d2708781493991501c1f9e73dd09c7da1d82b7e539fdf06ba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e069.npy",
+      "bytes": 258176,
+      "sha256": "def850b2b95beb12db14737137ee9efd92e8243945448fa737976742533c3c5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e070.npy",
+      "bytes": 1032320,
+      "sha256": "e9899f653aad2018007d48366c8643748d6b446fc7069d82f06c4aaa04712d70"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e071.npy",
+      "bytes": 6267008,
+      "sha256": "f2c540ca1488547c6582a24b3f1619404e03854d5a39c996598797d3b2e3117b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e072.npy",
+      "bytes": 2949248,
+      "sha256": "631b3978ab82fb76aa124fbb347d713d6194e381d661bebc2b586616499cabe8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e073.npy",
+      "bytes": 233600,
+      "sha256": "5aedf233b35d9549a4c7a75c4dcd9f135f8b1959edc021a0d7b2818d74fcb52a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e074.npy",
+      "bytes": 3827840,
+      "sha256": "de1e6d5652326ed35a0ac31abfa05b060e2720fe774f4223f79c3b0f44fc3068"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e075.npy",
+      "bytes": 2642048,
+      "sha256": "c5af637aa18753d273d6ccbec7b794b0dddaea8d3f0d7389cbe32446f525fa54"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e076.npy",
+      "bytes": 3152000,
+      "sha256": "52aa427c093e600c43325bbb53a325b602cb73427e0959350a8783e412b4d358"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e077.npy",
+      "bytes": 1917056,
+      "sha256": "388e26f2432db3f8bea555a7ee469635d5a7d04a8bc3cbbe3af7db72e3d90427"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e078.npy",
+      "bytes": 8930432,
+      "sha256": "a8680e2c935f6f6ddc06b0292dd87574a7adddd73404679bd052ede8d9a831e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e079.npy",
+      "bytes": 1155200,
+      "sha256": "e9f2b8e06a092b71023f6b61258e0c647e67afd3bcde07698d632d14bcacb7b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e080.npy",
+      "bytes": 958592,
+      "sha256": "06c5c4ae5ded2673ee2ac8a9d8d76bbc483ba6854e2ef153d5a3fe8c9b325177"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e081.npy",
+      "bytes": 3870848,
+      "sha256": "9525d4850e6a5ce1ce1da9019f023ead050a6f2bb9bd05547bf805149c7544bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e082.npy",
+      "bytes": 6205568,
+      "sha256": "1eda4744fbd7f0dbb1cce1f590e51d01dc0519509cb2635519216274b6955bcd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e083.npy",
+      "bytes": 1081472,
+      "sha256": "51bdc1767016ee73848327dd175dbf44bc10d89716877a7237a965f13c19d6dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e084.npy",
+      "bytes": 22947968,
+      "sha256": "b5b2b753c7b470c58477751a50948f160ce70e644b09a4665fe9fecc7c5b7d9c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e085.npy",
+      "bytes": 1271936,
+      "sha256": "42e0dcb5c33faeecd3a81106c22a37dfaa9d368c39f99056bf68e470f2961e23"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e086.npy",
+      "bytes": 786560,
+      "sha256": "9e36823118f6a63b6f5d25702ca863130b3232562fcbbac7c5c9f7aa26803251"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e087.npy",
+      "bytes": 4669568,
+      "sha256": "86f72424ddb7ea5c8e496a92b4700215f9364977efabc23b4bdbcbdaf59d914e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e088.npy",
+      "bytes": 2556032,
+      "sha256": "1a1aa8cde95c014f8306a2a284bb09ff79a909b085be8e6ea44b450c04f9bb72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e089.npy",
+      "bytes": 3815552,
+      "sha256": "a1070cbffaefe30831f34503761afb347e911410b326562752ee9865f196f9db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e090.npy",
+      "bytes": 602240,
+      "sha256": "5c95f2abd5cd515f3ebea27d7cc3ffec992a608e0170eaf062e37342008c3c66"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e091.npy",
+      "bytes": 1689728,
+      "sha256": "1e562989241bcb6eaa0e9fb7c31a46a765c86f65b82f72d56d90c49f4c1829cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e092.npy",
+      "bytes": 1474688,
+      "sha256": "66348644a6239782ac7e9e9e689e0ce64072298c82748175471e415da4a641ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e093.npy",
+      "bytes": 1889408,
+      "sha256": "cad2c6e57cd7076772b1c8fb8f5db52e44b0923a3164c3d184db1f2ab4f6f120"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e094.npy",
+      "bytes": 1364096,
+      "sha256": "c008d8f4d2ebc3f6dde8f4dfb0f7631a3b9ceedb71bafdd7eeb85b618f0975cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e095.npy",
+      "bytes": 2930816,
+      "sha256": "5cd3462277961fbd6875f5985c9414a69dbe9dc6d96b4b6eec24b0e2f5d0b597"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e096.npy",
+      "bytes": 1265792,
+      "sha256": "d1f44a6e5d9549918433302043bdb7a2ea11421ca25b64acf245719bc004a0ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e097.npy",
+      "bytes": 3188864,
+      "sha256": "3278c0ebf3778c54d20f196ec2d5b3b7c36aa92f5ae04caa510d8247e382386e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e098.npy",
+      "bytes": 2427008,
+      "sha256": "85d09c8f5ff6a22c7a2200b7fad5bd5cdbfa1a050f16685a56fc79c6b20a78c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e099.npy",
+      "bytes": 10644608,
+      "sha256": "80964b823433f37e73d52ed034763443a31e493316b6d91d480881492e499e81"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e100.npy",
+      "bytes": 2516096,
+      "sha256": "abae958e7adb105029a7117cc30f397a94531cd06fdc466a6fb321db5d58ccdb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e101.npy",
+      "bytes": 884864,
+      "sha256": "f524648a2a166cfb82df9482f9269ed70041c5fe629c3e70fd8da04e18df6c93"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e102.npy",
+      "bytes": 958592,
+      "sha256": "f1affc91c62b03c56674c0d2c1850b350b708e9da507632a4cfc4ea3aa6dff96"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e103.npy",
+      "bytes": 4700288,
+      "sha256": "0c84d20cdceafafea26744c41ee57e9399fa1abbdddbb1006e3bc380261a89d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e104.npy",
+      "bytes": 1917056,
+      "sha256": "1364f3af07ed1080df29a317f54ee2c6fef8e6af1b22fbc3c3de0e0ec24daa3d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e105.npy",
+      "bytes": 1990784,
+      "sha256": "5fce295c59340ea9fbe66ab69791db5def7ba8909945382cafea59c6586586a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e106.npy",
+      "bytes": 860288,
+      "sha256": "9d528fb77bdc72426e050283d83cd2d8a6f52de20ede7002a9481b145f511c70"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e107.npy",
+      "bytes": 6912128,
+      "sha256": "21a60f28045490fb2fa79e85d20017766f7d9a13dd8565d3b4e0adbdee073226"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e108.npy",
+      "bytes": 577664,
+      "sha256": "327f3fe9c204590069393fc32e5c3fdd01fd32e4c26b0dfd245cafa4d2a18c7d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e109.npy",
+      "bytes": 2488448,
+      "sha256": "e23b5bd0b2bffc1bfbbf44d5cadfb72c89561f6b20f64bef32a5ca297819edd7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e110.npy",
+      "bytes": 1130624,
+      "sha256": "5b714ba4bdac580c6aa103fe74466938073c4e734ce12c89825b4b015447f366"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e111.npy",
+      "bytes": 4365440,
+      "sha256": "9c26c9260a14c81469f1be85ab9f6478f25f4a500be4c1033be47ce84914149e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e112.npy",
+      "bytes": 2125952,
+      "sha256": "fcad8077d203fbdb311a95d48908b700b81754c030fc6fcdbbd574cf3aaddf27"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e113.npy",
+      "bytes": 8171648,
+      "sha256": "421771d6d1ec0daf268a9e1edb8faf229d1223fad738c88fd4641fc3e32dcd15"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e114.npy",
+      "bytes": 8853632,
+      "sha256": "860667cb02886d1b22618d83040114c734be8575d5b9ebc2e8c991c3a7afc971"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e115.npy",
+      "bytes": 172160,
+      "sha256": "d2d4f998cdb194049556b4d81439baf5e5cc44f5c7914685d6b4c190bb93a998"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e116.npy",
+      "bytes": 725120,
+      "sha256": "f19bb9af60ac8747dc3db8a44d4e67dd5dc30bae2d8a1ded379b616cec67143f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e117.npy",
+      "bytes": 2396288,
+      "sha256": "99343302d924d2d6461275cfbab27419b54009b5713444c6dc945ff19e091f6e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e118.npy",
+      "bytes": 7188608,
+      "sha256": "f9781cfb51fcdb1244657112e86e0d2e7f07ecb30c12c00171a7aab8b491ca21"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e119.npy",
+      "bytes": 4589696,
+      "sha256": "fe72926b0104b53939741679d38a93bcd236e18ef11fa24dbb453f115f82d2d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e120.npy",
+      "bytes": 1142912,
+      "sha256": "0532db8594e119ed6f8f9282395c2606c4a60307e8f2f3569a300da36c6ecf03"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e121.npy",
+      "bytes": 405632,
+      "sha256": "d26e19473b813b2b18a13637540bc98d3fee1939b8aab15ddc5cb45da330c02e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e122.npy",
+      "bytes": 848000,
+      "sha256": "dfc209cce89cde50dd0ad3932dfb497a0bb4957848652402ebe3b99bda39f426"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e123.npy",
+      "bytes": 5376128,
+      "sha256": "4b1e7b48f1a63ecae4d86a0b0fb1572b42643b713275f0c8ffd5cecbf6191081"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e124.npy",
+      "bytes": 147584,
+      "sha256": "7a7ee8b2b2b4614e81bac3320fc2db2996cf3ef3a390a52660b0f22462657fe8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e125.npy",
+      "bytes": 1204352,
+      "sha256": "058911060553a5a00ad59f81df7d6666b4e0eb0090d3ca374c30cbfe48e6e947"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e126.npy",
+      "bytes": 1572992,
+      "sha256": "b97c0fdca17905d27dad4d41530dd9d71e171b534fb9413b2bf613a74cb24a0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\actual_e127.npy",
+      "bytes": 2350208,
+      "sha256": "8a29dac384ff7a72649b20069ec5eec78fe073201e6e412721c5833b794ead9d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e001.npy",
+      "bytes": 24704,
+      "sha256": "cb90ec387134838b96f413d5850278411c080308154b9e52eb8dbf286da5b724"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e002.npy",
+      "bytes": 55424,
+      "sha256": "f16e239b140dbbe6753e788dfdf0d0f933642df1ae1dd180f07b056ce314852b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e003.npy",
+      "bytes": 43136,
+      "sha256": "9f6886201a7698d6444b038b9c625fc5ffa967ba3451083ba2fbb779f3871baa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e004.npy",
+      "bytes": 43136,
+      "sha256": "d445cc44b59d7d02af7fa25669d93fc9741664fc3c4e0c3312a9c03001078af7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e005.npy",
+      "bytes": 73856,
+      "sha256": "3e2a975463ceececf7b8a7f74bd1afc56aad7f341c7e914df1fcb54f413d171d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e006.npy",
+      "bytes": 49280,
+      "sha256": "080d7bb9466c35650609936bf8a99a97f0386a4cc9a17e25c258b96b411c8669"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e007.npy",
+      "bytes": 36992,
+      "sha256": "731d024c51ae91969af6e6039ba82a9eecc8aa37889cddba3cc414e65d28b91d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e008.npy",
+      "bytes": 24704,
+      "sha256": "f045e58ec31fc80eb71036f2c2afff58b65e5dded6c93c752e605fdc28ef1f35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e009.npy",
+      "bytes": 24704,
+      "sha256": "9ce9f1b333d976c87567f930533747f44587f8bba053019d345bc0b0f8c73250"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e010.npy",
+      "bytes": 24704,
+      "sha256": "8cc899c8f647ac73519dbf5d394aa3826046f8a154143602a50bdd5bae7ee136"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e011.npy",
+      "bytes": 30848,
+      "sha256": "b4b7c602f846866c054b7c304d0ed7ec552a15aa9c932dff603e1c579527de0f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e012.npy",
+      "bytes": 24704,
+      "sha256": "b0bfa5655bd0c4e29e6dda70714b2c4f32d82effffbb3e3411852f01847dd6c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e013.npy",
+      "bytes": 61568,
+      "sha256": "10bd96c44a4968798c1f8bb6d7df8b5d4a58e99f2b2b2fa9419e6d02b78f61c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e014.npy",
+      "bytes": 49280,
+      "sha256": "b8f6e0332c8ed40838fe22c415f646848c2ac87b4edc91d562aa4b5b30524cea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e015.npy",
+      "bytes": 24704,
+      "sha256": "d2133a2dfa841cf1b5f9dd68794888e913060fbe12d56c974c7a23878b9d04e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e016.npy",
+      "bytes": 24704,
+      "sha256": "552ee8e3143fc264eed77244cebe168cbab5c6bf1fafc02500b6be735d9eb79f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e017.npy",
+      "bytes": 43136,
+      "sha256": "fcabf5a36474582eb12156a280657b8f968e6ca335c7dd0de5e50e57421d7320"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e018.npy",
+      "bytes": 24704,
+      "sha256": "0c81c67e1fc9879a160571cae2400a9b5c8a8418472e29e5d431cb6fb5920f59"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e019.npy",
+      "bytes": 30848,
+      "sha256": "4a236dfe429bed48df49722e808a583bb898b071cdb5a8aefde53cc0310c9373"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e020.npy",
+      "bytes": 24704,
+      "sha256": "7a1d1140a2b3dfd067fecf8e40511803957fb2b8f67c0d70f52a9144810fe0a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e021.npy",
+      "bytes": 92288,
+      "sha256": "3f1a1c1b3c7ddb4bc7bf4c5cda04a93f65057eb074c7f1ad789abbc6c0c0c42d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e022.npy",
+      "bytes": 24704,
+      "sha256": "340fcfdfa8d76f8aac7a8ed711682e873d2a4600d630a533ab11198c5a2085b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e023.npy",
+      "bytes": 30848,
+      "sha256": "74dfed57342f8b3cb14b50d212ca11d800351279a575b39a62b6aff91f95a646"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e024.npy",
+      "bytes": 30848,
+      "sha256": "07362c07ba7d162037ed2fb13de9c5dc86665c665b0b05d4b29256cfd645ed47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e025.npy",
+      "bytes": 24704,
+      "sha256": "1e75451fb5c87fe93843a1a9a9999df6c502f165bae257f837aad31f468bcddf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e026.npy",
+      "bytes": 43136,
+      "sha256": "d2300b6fce0eb14275314d1b6cb5357929bbb8cba803f25fe96d6fbb2c6148b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e027.npy",
+      "bytes": 43136,
+      "sha256": "3e735fe46b6a13aa19cb6424d9cd6d2761468591eb39e2623970d1d140b9f020"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e028.npy",
+      "bytes": 24704,
+      "sha256": "3a1436936239ec4dbfc29b0c9359c04f9893821d7a96a31f69975899c097b737"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e029.npy",
+      "bytes": 24704,
+      "sha256": "e284a357e8be3f825674299985a6085f59d3cfcb7484a790c91f5d84546989eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e030.npy",
+      "bytes": 30848,
+      "sha256": "511f836afd9a6ec8cd871c22db779d6d9fa1363fdbba3ef661fd93f8d80cedf6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e031.npy",
+      "bytes": 24704,
+      "sha256": "29a40f709b5e9464be7dd03a3e1944e063a147cc50e9c711c4de4b17279437df"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e032.npy",
+      "bytes": 24704,
+      "sha256": "7c1af422abdc47ddaf2af3348d93121866f71e35396bce8583c2cced1072faf8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e033.npy",
+      "bytes": 30848,
+      "sha256": "c49395ec2b95431d0eb0086958ed4772786e3bc1ae1ef6f2236f3c8b0ca62497"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e034.npy",
+      "bytes": 24704,
+      "sha256": "e5c0e5b88e8d3f6ebb266ddd3bae0070d9a366f869b3e3f2d7557425cbd8779d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e035.npy",
+      "bytes": 55424,
+      "sha256": "e11e0c969aa01cd9fe0bb98a2de95351745d538f0eeb3c232b848f16a31aae72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e036.npy",
+      "bytes": 24704,
+      "sha256": "f178a8d0d826f536feeb781341c10962f23520035dedf6a1876cd0c5c869316e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e037.npy",
+      "bytes": 24704,
+      "sha256": "00a5b13e27f908364c8f13d5ddfb29768a17357ae1a8f0b78bed30afab75f325"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e038.npy",
+      "bytes": 61568,
+      "sha256": "ba3214c80820aabb232d648d4bd9075384f8d5e51b8ee4e91008164083f90ce7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e039.npy",
+      "bytes": 24704,
+      "sha256": "bce9d93f35c3b812bc2b71c5cb689a575d5e22183ad01703653376f905bef3fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e040.npy",
+      "bytes": 73856,
+      "sha256": "bda61bd3adb3d4d6d23ff500b89281c01b43c619eabb699ec869351da662a3db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e041.npy",
+      "bytes": 92288,
+      "sha256": "fb3cfa51399c4005514840769d7ac7c96fbd4eaa66ac08a4466027c3970a0490"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e042.npy",
+      "bytes": 24704,
+      "sha256": "f4fda4211b7493f0359194ae22089d49950d498e864ea5d241b37f86ea70503c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e043.npy",
+      "bytes": 30848,
+      "sha256": "d6f05524480b6fd4a974c9f2a51ea3eed3dd341f38cdd991c5944740d53590f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e044.npy",
+      "bytes": 24704,
+      "sha256": "7c88388369933f65d8d7402abbfb9629b076ece6ec9d84296c16ed94358ff04a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e045.npy",
+      "bytes": 24704,
+      "sha256": "15b7e9dfdf20557c4a1124d487832f178eb4a47c363968c1f5c752e121dcab80"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e046.npy",
+      "bytes": 24704,
+      "sha256": "2407d12f09408b60c8ca1a8c2b101985e78bc11274acd26fe51bcf83673e580d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e047.npy",
+      "bytes": 49280,
+      "sha256": "28de98226c61ae610760687a4c1642027cc45627e4156edd3cb6c286e10840a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e048.npy",
+      "bytes": 24704,
+      "sha256": "0ae6388472c0ad242e6acb33f8d80171562ed043ed66a2af667b9613849cf055"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e049.npy",
+      "bytes": 86144,
+      "sha256": "ccba2ca81e8c2fec33a8af5056ce31e0ac52584d3fd74666b2cd0c11c97672c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e050.npy",
+      "bytes": 43136,
+      "sha256": "59868806795ea57c643ee0bb3b201034f01c9378f4d652a57d2431ccebc88491"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e051.npy",
+      "bytes": 24704,
+      "sha256": "93e6ee560fe7a23c2acb3d1e9be2db99f84f84445bb413ffe14710eec8fc3ff1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e052.npy",
+      "bytes": 24704,
+      "sha256": "2b3fe25c3e10e3fd67701ab6603aab0b778d371b29808139424a97b971901654"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e053.npy",
+      "bytes": 24704,
+      "sha256": "566dafb514439ef42adf29fa3cb935cd9bf7247a19da8050e8963819dd57fb62"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e054.npy",
+      "bytes": 30848,
+      "sha256": "0a1b39e13a347a2507be174beea078f7f8b7de7c9bd47bad03d3340614746ab9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e055.npy",
+      "bytes": 43136,
+      "sha256": "0f37e8119d33a0bc91d498faa3822ebc6c8caeb87c671e2c009f90491aa0afd4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e056.npy",
+      "bytes": 36992,
+      "sha256": "41fa6dfb077b0a8ea2c190313adafc1d43abc6f746cf860a16c0d294c6d7ec29"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e057.npy",
+      "bytes": 24704,
+      "sha256": "a130effe5e33f32d8ffe0fcf117497cdf66b97d139e08e77632312ffac4c5357"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e058.npy",
+      "bytes": 86144,
+      "sha256": "ed71c0e1bf60ae0766c3d07db5dabb3a0270843bed6aca0f36df9e1b967195c0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e059.npy",
+      "bytes": 24704,
+      "sha256": "cfa21a134656314b6b54d4edb738f23e3908960099552a9d8e1506eb28d6d092"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e060.npy",
+      "bytes": 30848,
+      "sha256": "389bac1e1b425ea3b1685aa5403f9f3dadd384fc88e05114ae9867b754ba2958"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e061.npy",
+      "bytes": 55424,
+      "sha256": "5f9b1066f0d73b78209a06765f9ca1099b635075c2134f00c1f8dfdfaf19526a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e062.npy",
+      "bytes": 30848,
+      "sha256": "747b2c9d01f6c0d13b356e2748285d43986031888f41311d4d0686e3590090b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e063.npy",
+      "bytes": 24704,
+      "sha256": "2e9d880f4348fc6259f43b40206e356c968bc54cb7b518ca273a8e746dd404d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e064.npy",
+      "bytes": 24704,
+      "sha256": "06edd702078f50049760f5edb132ad2a2a04180d8c95299c3b03d1d4acbb74c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e065.npy",
+      "bytes": 80000,
+      "sha256": "132e855f08a1cfcabb66143c7ea2d531e36a96ffb9f5bc64f9c4146a28e2ac21"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e066.npy",
+      "bytes": 24704,
+      "sha256": "8aeed7ce7d60c222a94c8f519befa1488e32dd9dc68a3dfaffb62e78d44b7e1d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e067.npy",
+      "bytes": 61568,
+      "sha256": "9652213dee60290794b72962a24dc0f1044217d9baaff82ff9da830aaf1f2e8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e068.npy",
+      "bytes": 67712,
+      "sha256": "c03fdc09042b200bfd98be7e2fb276360e64dad55d5ca477e31dde4b72eaef53"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e069.npy",
+      "bytes": 24704,
+      "sha256": "33ced2f51b6a25733edb1f62564220600a0154b8d0871b83011d5e6a7bba8902"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e070.npy",
+      "bytes": 24704,
+      "sha256": "2a29281e6105df1ab1056600a15a624e74c69bae7b323458c85ca1db0613daa1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e071.npy",
+      "bytes": 61568,
+      "sha256": "8a59a0e0a6d2c7fa16788a9153d9547b0d26ed023ce7618eecdd72a10d788890"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e072.npy",
+      "bytes": 36992,
+      "sha256": "8cb60cd3ec8574738210db3db21de9dce4a8b219b88bd7c12e4974dd8ce2b9e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e073.npy",
+      "bytes": 24704,
+      "sha256": "f2974dfbb5e0076300acc3fe421850fc2e6781c25139a100c5de7d5150f5f170"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e074.npy",
+      "bytes": 43136,
+      "sha256": "7ab491b9caad35addcb367b50e67ac464c2060668f1fa84661abf79316757f47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e075.npy",
+      "bytes": 30848,
+      "sha256": "65d249177b5b07de9ba99add168bec05b45ee026e3d2a5d4b9137262a815c2be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e076.npy",
+      "bytes": 36992,
+      "sha256": "a9d8c8bad91f6c8f131966f321eadaa8723461fbea200b5d6dd25b0a28824210"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e077.npy",
+      "bytes": 24704,
+      "sha256": "61ef11c3ae42172e1e6af5d17c8f8afa38da727ffb842ee8fbfceabe65685ff9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e078.npy",
+      "bytes": 55424,
+      "sha256": "88d941099dcf65297be61b9ffb5038ed7b96f8880545a3c390bbf2f142668ee7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e079.npy",
+      "bytes": 24704,
+      "sha256": "5052ab5020d425e55d8f9adc3d3996b5f04a2c71f0f4d0bace2bf8a056bf7370"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e080.npy",
+      "bytes": 24704,
+      "sha256": "127a1a37a0f4ead7e1bee9d807c7fb718e0910dd8d158ea14c878da4e8139f2b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e081.npy",
+      "bytes": 43136,
+      "sha256": "6f6ff021f02a82fd2415a6893e64a5c35d29f9f584a07202601d72e9edddc828"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e082.npy",
+      "bytes": 61568,
+      "sha256": "95f0d3a0ba95b8d4c6c84296cfef6f98f28240219489fa360129117f8078639c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e083.npy",
+      "bytes": 24704,
+      "sha256": "90552715b1499244961da2cfeadcd69f4e20c64b9fb3aaa12fb323ec555451dd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e084.npy",
+      "bytes": 92288,
+      "sha256": "a3fde351393639e86d41fffd632271371723c59bef6f949082416c4276ea4119"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e085.npy",
+      "bytes": 36992,
+      "sha256": "11494b735d64fd0bfc1b08391405fa008258e82280cd7e08981c3d0db142d6fd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e086.npy",
+      "bytes": 24704,
+      "sha256": "8db0347cdb44cfdd5e96a3aafe320d77ba1e1b73dc981aeaf8cb143bd4406760"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e087.npy",
+      "bytes": 49280,
+      "sha256": "75a0eeb0e736f0523fd3939a16aee55544d056f3c9b054146c6eed121f452a04"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e088.npy",
+      "bytes": 24704,
+      "sha256": "bda6f6036ec96326f4eb4524f5107fb941433a2fa2eef6db4ec66b77b02838de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e089.npy",
+      "bytes": 55424,
+      "sha256": "ea1110508a965fe78456603a777c8cf9f26e1e8f260cbc3342dec0d459a478c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e090.npy",
+      "bytes": 24704,
+      "sha256": "7327f7d70868b8911d146c7d667fa2fd81ade42cdbf0c36c00420338ee2efa35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e091.npy",
+      "bytes": 30848,
+      "sha256": "d28f8fb08028ab175f88a18df14f3e797e83d6fa31edf8b11301980e6bdb6bd7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e092.npy",
+      "bytes": 24704,
+      "sha256": "5a51a6522488c010d1939b5f17ce58b9997eb11f2d50cfd4f8552f051232acd6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e093.npy",
+      "bytes": 30848,
+      "sha256": "76ab00926a85e657a4c7e48f0664d1c1b5936bf95ddef386b0e9fd102f974d8d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e094.npy",
+      "bytes": 24704,
+      "sha256": "4978f729d36001700b9f5037d0bf2d70afedd06b7ed6239633953ebe43b1df1c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e095.npy",
+      "bytes": 36992,
+      "sha256": "7f1e887c983a42bdc30e76880444fa91fda16396d240ab5739c4c68c7fb18d7e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e096.npy",
+      "bytes": 24704,
+      "sha256": "6bd0085e0fac4354f52af71c4a9b8e9d7dde7d329cfbfb9edc6e9612a302071b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e097.npy",
+      "bytes": 36992,
+      "sha256": "72fbfd0164b39119afa2ffe4a48a19282bfdf018d9f7b5164d24fefe692b4bd5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e098.npy",
+      "bytes": 30848,
+      "sha256": "36197b9a0a32676644f1f234d6d276a2c3fe4ec7233c8e3b0f8df602bf638104"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e099.npy",
+      "bytes": 67712,
+      "sha256": "04d3621a1d3ee3a8702d282c54af7c6cb27ee1d60b312458030938e724a66023"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e100.npy",
+      "bytes": 43136,
+      "sha256": "0467cfc64dea0f9009ffea2438da01e84819a836c5a5e3abd7a7657b3d79a1f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e101.npy",
+      "bytes": 24704,
+      "sha256": "753d53ea0322335e3c397d9c7fe46ccaae5502a9d167ac2ebae04469d72cbaad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e102.npy",
+      "bytes": 24704,
+      "sha256": "f3150df0599eb93bb852ff8d1779e2edd4f20dd07d15cdec4cc3f2229103a2e8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e103.npy",
+      "bytes": 61568,
+      "sha256": "2dd18c39b973efccc042456c6d7c3a332526eb83f83cb39a6af6717dce0e7b48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e104.npy",
+      "bytes": 24704,
+      "sha256": "b2566df0e311bc68660905ad645714e5d7834ba68784fbc2b41ea690f0aeeb41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e105.npy",
+      "bytes": 24704,
+      "sha256": "c2534c151d7b5480b84227f9a083f777f131ce8d6cea25e1424e2bc077d66f99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e106.npy",
+      "bytes": 24704,
+      "sha256": "f46a64f6a61af88bcbe1ab53fdff7e64f4f085ab290ab7a091391de8481b0d0e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e107.npy",
+      "bytes": 61568,
+      "sha256": "3c191c221ab34230543a2c993b88ab028f6431b2cfe1901b2e336c02a4b431fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e108.npy",
+      "bytes": 24704,
+      "sha256": "0030ed1514440f9439daf0f75f65478e4a827b77eec1e751db18e6b76fa333cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e109.npy",
+      "bytes": 30848,
+      "sha256": "fea7ed3a454ccc475228c4ddf5bde0af66cae2546f99acfe02f8c89988787b48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e110.npy",
+      "bytes": 24704,
+      "sha256": "de48524944ed082d76a665b765d05b187f493b34e65acb1cd5a0465b238c792c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e111.npy",
+      "bytes": 43136,
+      "sha256": "60b039aa5258428d9b77cc8bc43dd93864e54882cc9b1648728fcce0af0e8d34"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e112.npy",
+      "bytes": 24704,
+      "sha256": "8af6fd2c4d6e685dd05852bbbc8a2b04dc06c1a085cd19d27be287a15da7abb8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e113.npy",
+      "bytes": 86144,
+      "sha256": "cc7b1b73fbe7d324231cfe81accafa01ed7cf3144eed2ed91d884a9c70c163e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e114.npy",
+      "bytes": 67712,
+      "sha256": "4859568b044b6b5a7ad3728b89626e77810ba6ea0f378ea8ac08f3c78512aac7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e115.npy",
+      "bytes": 24704,
+      "sha256": "314750153230006f3aa210df9ac5c0306b3d40bcbd9a49bc9e240192d254e677"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e116.npy",
+      "bytes": 24704,
+      "sha256": "027aae17f8f0ac7829f5e88cc3b335a640d8451e771b05a09dae373a31b3a2f8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e117.npy",
+      "bytes": 30848,
+      "sha256": "4d987794eadb681b42b2ddc3a3d47f2c347cbadfaa972c760224a2706fca67bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e118.npy",
+      "bytes": 73856,
+      "sha256": "a47f22e100ffb6e50413e3684ad2ff5726764577d65ad8e44ad9148d5cae5857"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e119.npy",
+      "bytes": 55424,
+      "sha256": "7de2b0906a9a4656bf64a027232bb67a0fa73aafc96b26d06ca9f55094898980"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e120.npy",
+      "bytes": 24704,
+      "sha256": "eb107e414506cc4132aeb0bfa2a58a1b3f7a61b88a0fbc025446391f11153725"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e121.npy",
+      "bytes": 24704,
+      "sha256": "ba2f16e5220a6948646e22f73d85a71a97bb55d22f31464c78295c3c47a70414"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e122.npy",
+      "bytes": 24704,
+      "sha256": "5797c602ce46bb2be2f78beb13b58107f36f23744b6d3befdabb6db8486a3c6f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e123.npy",
+      "bytes": 61568,
+      "sha256": "667236528f50878bb78eada2be0acfab3079a023862c1995e55094164e054cd9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e124.npy",
+      "bytes": 24704,
+      "sha256": "22e317b37bb26ccadda2389299e9c72ed637b5ac2737dc817fd31b41a1989057"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e125.npy",
+      "bytes": 24704,
+      "sha256": "1ea9ffad44c96bd4d15ba527f610e483bf5d3b92114121c9d59aae48704fab58"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e126.npy",
+      "bytes": 24704,
+      "sha256": "9520e1871882b5156f429442219921e85d5f447362d7e6a4b5939d550975bdb2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\centres_e127.npy",
+      "bytes": 30848,
+      "sha256": "420ae5b6c725608bb5ed30e15dcf71ab04384964bb6c500c6485b86da474915f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\controls.json",
+      "bytes": 127,
+      "sha256": "2b29132457aa836a26aaba8fd8a0b3a71293f4890d55c4310654d3f7f56c7910"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e001.npy",
+      "bytes": 224,
+      "sha256": "73793856467527f5154470bde45e77982a8c698501970152eb7aca54996a01d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e002.npy",
+      "bytes": 17480,
+      "sha256": "ad98790b7135100363274471991e780f20bfddd7f7f29f01ab0d056b914fb011"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e003.npy",
+      "bytes": 6736,
+      "sha256": "0e3ece57f1b081753af9def0fee544785ae67f917e2c8c25f158b0be244fcad0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e004.npy",
+      "bytes": 11384,
+      "sha256": "8676dae8ce947bb3a2f029d9488195394a094ddb0b6f1d11881e3c34476bc025"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e005.npy",
+      "bytes": 26816,
+      "sha256": "5430fbbc44ed0ff268beb8a60d483e9b04a937c09ae21ed9503a4de92d54a824"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e006.npy",
+      "bytes": 14784,
+      "sha256": "e0c2961c6824d99359797a913e09cab86d978f99165bbdd23a70f0780e07f3b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e007.npy",
+      "bytes": 5120,
+      "sha256": "43ce2a26896440b593e83b907e66d7ad3d10e0f1921a167f54544d443ed48923"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e008.npy",
+      "bytes": 3776,
+      "sha256": "b4c1c5a4c2de92b1f7459bf99ddd08f5a370d793dc23a22d5b210f3b7fe66856"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e009.npy",
+      "bytes": 3008,
+      "sha256": "0f65386d426bb0b88b3c403f64ab9d119d87c5dca76fd498a7e6c3bd1859f120"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e010.npy",
+      "bytes": 4192,
+      "sha256": "fed51ad1082d52e39f71fcaabc8fc4aa388409bb05ab992886223fe44bca76c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e011.npy",
+      "bytes": 4528,
+      "sha256": "b0ab878f2cdedabf051ddf45028e065c4f160d766bfd1e6f0629ddaa8f021427"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e012.npy",
+      "bytes": 2016,
+      "sha256": "008ef696c880c9559960e849964eeacb1a7c3f7a8f9ce25e75e45bbb64025656"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e013.npy",
+      "bytes": 12528,
+      "sha256": "1c4d272722804c3c453d480ea0e641d525bb0ce77537e65e02396fc50a7adb68"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e014.npy",
+      "bytes": 6976,
+      "sha256": "96de456864aed52af37141bfb2abd1df69c36b9af61f512d357df404cd9c3404"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e015.npy",
+      "bytes": 352,
+      "sha256": "c46342c9099a0565dda8c850dc9cea4f60481b0b08f38ae789af5827f94fea95"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e016.npy",
+      "bytes": 2336,
+      "sha256": "6332d452b68837c566a99a15e510adb5b89c89e285cf602f926d162d86309734"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e017.npy",
+      "bytes": 10376,
+      "sha256": "50ba2729e3216897d906b65027d23e1a873680f045917e5d7f072c7fa7c0b2ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e018.npy",
+      "bytes": 4160,
+      "sha256": "160d7abbe88248d4ef81146a3469ebc8c9a31f3998492a82c4dd12491fce7036"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e019.npy",
+      "bytes": 4168,
+      "sha256": "25b33e387ab9e9d9b1be03a6bbbf50316ceae6c3633accbb692b952aa520673d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e020.npy",
+      "bytes": 800,
+      "sha256": "b06833a85755e5afdc3b7c328295e7a2c870399dd3cd5a65bb365a368629cc0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e021.npy",
+      "bytes": 29168,
+      "sha256": "24215cfb0fa9883a3d17c7cadaf937bb3836c6482ccf8c616685e3c3101b10c0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e022.npy",
+      "bytes": 1920,
+      "sha256": "2ec4e69a74020daca7b7ef6dd82dabb947220e4782824162ca0fb9830d61a7a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e023.npy",
+      "bytes": 6368,
+      "sha256": "52f27ebcaff209d35ac18906a795be02d980e286d536bc46b63f031842a05fed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e024.npy",
+      "bytes": 8528,
+      "sha256": "25cf8caa46d9e3717f60cb87886371f5ffc379dafb3d571515e30637a30bb847"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e025.npy",
+      "bytes": 13216,
+      "sha256": "2b598d4a943fedac88392574d75787c3e247436e49b5f6279298c53141e3dff4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e026.npy",
+      "bytes": 9536,
+      "sha256": "c5133c7df1774a380bbb0f93406ccca95d0ec6dc68fac56c449e24b64ff31139"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e027.npy",
+      "bytes": 8864,
+      "sha256": "a78eae42cc13f24905c68a0f61972bc5f4866e970c3235e1276eec867bb4edae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e028.npy",
+      "bytes": 2304,
+      "sha256": "c047cae1e2d590bca9d65e5b0113b16349816746566d09d8637db13377143d4f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e029.npy",
+      "bytes": 3040,
+      "sha256": "ff6cbcd00eeae9b5051386bb712ff616f08d41d33e7e7f2027b3053cf7d390db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e030.npy",
+      "bytes": 5768,
+      "sha256": "6d257d4fd9367c70dc23a96c63bf475a6a2c37f9db60790d0053efeb9c4663ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e031.npy",
+      "bytes": 3232,
+      "sha256": "5f95b76d6e05aec38919ba680fe9ee22e24b3e933d5bc9a9fe0f8df23045a648"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e032.npy",
+      "bytes": 4736,
+      "sha256": "e94055afabdbaaaa431e70b7828a65a8732140b0a0153e6b735af3592bf09057"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e033.npy",
+      "bytes": 9528,
+      "sha256": "92d8387bb8afe2660b0f616e1d679a7e0f65203eca2cc692b9a234902eb650f5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e034.npy",
+      "bytes": 9728,
+      "sha256": "6e72a62eb667e0a932b32a88ef25d4f4ae31ef9fe4b6cf19febda6d966fe9f26"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e035.npy",
+      "bytes": 11000,
+      "sha256": "6d61275d8a633b85a0f9be9585ccdcb15dc2181f8e630d3eff946a53326bddf5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e036.npy",
+      "bytes": 384,
+      "sha256": "af623bd9e2b3977a072eec196f79482f6a98b7fe7a886d8bab2638d803b4d007"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e037.npy",
+      "bytes": 12704,
+      "sha256": "14157efdac6a5a9a976d79d354f677f0f96338c5f0523bf20f97c1d56725c930"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e038.npy",
+      "bytes": 17888,
+      "sha256": "d429e2f496e77a2891e33bcdea50582585d95770e8a33f9150f408721f948d72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e039.npy",
+      "bytes": 768,
+      "sha256": "59fe218faa257b9d72e3151aff23dc6d9aebcb8a7a75bd7cb420a2c5b1e3648a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e040.npy",
+      "bytes": 28928,
+      "sha256": "ddbf626c46bf538daca9679760ffa1ea218ea1b612ef33be453d8a2b4de888ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e041.npy",
+      "bytes": 22928,
+      "sha256": "fb716488d7aa9f3f687172de6fce2de40eeedda47039dbc67cce4b2651b933cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e042.npy",
+      "bytes": 3072,
+      "sha256": "e7470496b6cc6786c753ffd30d28262f702d53b3079c63ae61a0394c50589791"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e043.npy",
+      "bytes": 3608,
+      "sha256": "47ca782dc9834a63a6b832b37b0efd93a0fa169c8782300bf1d412603df4f48a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e044.npy",
+      "bytes": 1120,
+      "sha256": "1e2777c113556dd49286345e6b718e49936f24de0ccf0a565b36af23126251c4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e045.npy",
+      "bytes": 1280,
+      "sha256": "d74fe95a8fc50dc4d12c6b295fdd3b404b7e89066307b4e5f343b3d4294833a6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e046.npy",
+      "bytes": 2336,
+      "sha256": "19aa548c4941b19e9a316ffc69c69c56107f02cd2a770f0c3c241b1418429bcd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e047.npy",
+      "bytes": 10432,
+      "sha256": "32848ab0369b49f8ec7439b62318301613479eb0d1fbb7ce627dbc87e73f77fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e048.npy",
+      "bytes": 4384,
+      "sha256": "5ced4421d4fb6ed6878f670c1c236f6e816e0b0ff59affb11b1bf0514a76007e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e049.npy",
+      "bytes": 21520,
+      "sha256": "04db942bfcfe7f88a7f93f0a80577b5a26acfc4c800ff7d9a8277de14fcb52c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e050.npy",
+      "bytes": 8584,
+      "sha256": "c14b40e8e29c7a743c455ce7d4fdb8e175fcffba46c68a17730c569cea381762"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e051.npy",
+      "bytes": 4032,
+      "sha256": "d95f3a4a578cd7b1cfe2906914b39f6b7e2b974eec05fac7aa3c5831059645bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e052.npy",
+      "bytes": 1376,
+      "sha256": "91e7ea34902caa377934dfe520a5eca51f069be74b2c01ea3853b652eaac976c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e053.npy",
+      "bytes": 2784,
+      "sha256": "00002bd6196cdc889037ddd4ee91c9482a1510e2fd06f4ef27536e024b2110a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e054.npy",
+      "bytes": 4368,
+      "sha256": "ba4b453090b3d56d505a7d8511c488ab87324c645062ab57f0a18694ddfa8196"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e055.npy",
+      "bytes": 10600,
+      "sha256": "5b58fd38247134e8b4cab6b32bd4b093cebb45a221961673d21b3368850c49e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e056.npy",
+      "bytes": 10112,
+      "sha256": "5b624c6c7aaae779f3bfa9205061a896d602274166499888e02282775980387a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e057.npy",
+      "bytes": 992,
+      "sha256": "9b87d7322c4fd3b8c273db1fe3362f0fa4f2f48c774afff1f7538223c15c2e9b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e058.npy",
+      "bytes": 24880,
+      "sha256": "48f0dcbe7b2d6b67a096575d5e2093f668fe4e998d5f6b4619f6ac943f3b1994"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e059.npy",
+      "bytes": 992,
+      "sha256": "06e1dfc6e22ecd829e0fb6020b74bc5fb26913a4a1887123bca710dcd69352e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e060.npy",
+      "bytes": 6408,
+      "sha256": "7caf4df35ad1b117b62ab27cb75926f814d842090cfcdcf66433ba670d843ecf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e061.npy",
+      "bytes": 10424,
+      "sha256": "ac21d8849321fc2cc33bafafcfa53272d7e88b4050cf9075ad506effafc62fb5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e062.npy",
+      "bytes": 3528,
+      "sha256": "b77fb0e9bfc6fff69bac4c7b7e946d05c3141dcc403b29bff6418d8c2740fd70"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e063.npy",
+      "bytes": 1312,
+      "sha256": "4ea62947f9eae5a51ac2512391bd10f6eee3128d33883a8ad240f91e0c31c517"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e064.npy",
+      "bytes": 1600,
+      "sha256": "93bb78183c4be42257166a0125379d986a1b730c9ffa850bc5e513d8f718cf1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e065.npy",
+      "bytes": 19784,
+      "sha256": "1a89c4a65840f2f2bddffe46f55f03a175cd5bbfeadcd31ed9107bc1b70e3191"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e066.npy",
+      "bytes": 2272,
+      "sha256": "43943a984b3e5d62ed189ed7c5ec717fb0d9466b74c1188414f670516d0efa68"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e067.npy",
+      "bytes": 21888,
+      "sha256": "2fff3cfc4918ab6e81bc24293bab17ec5b0e7e42eb3f43e5b5029705c7140dce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e068.npy",
+      "bytes": 12624,
+      "sha256": "1ee01c4245fd4d867667dd3d0885886ee7b7814c795a832ad2189d6ec95048b3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e069.npy",
+      "bytes": 800,
+      "sha256": "3a2de274cc9ee086e989e98113cdad609a81c2926beaea1013df5d0c643b9754"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e070.npy",
+      "bytes": 2816,
+      "sha256": "584352a2519dc59a3ec5e3cd1cf2c34fcc5ee4ff5d1ca90771c37348a06afd56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e071.npy",
+      "bytes": 16448,
+      "sha256": "64d1d16fb83b52690145f3a6d5e13a92238f55328cdb9e5f43065a7ed44ab712"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e072.npy",
+      "bytes": 7808,
+      "sha256": "2a836af7bf970ac2ba995f3b336d6be8eec84b5682f56d615558422f1f469979"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e073.npy",
+      "bytes": 736,
+      "sha256": "6776ba3e8e4396180d45e5bb33589192055f4375848c68920e1bcfa9abf1d1d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e074.npy",
+      "bytes": 10096,
+      "sha256": "fc9a21ba7a25764f42e21c4be28706ad2c2320c99b0d8d11d6a5b32be233db06"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e075.npy",
+      "bytes": 7008,
+      "sha256": "15eb067761dee8872633e4a4889c2e3a37f82da7133c7c6b7357430dd17db808"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e076.npy",
+      "bytes": 8336,
+      "sha256": "bd0b7fe6179ebe7d99d2ca4a44dd5c4ad4a4fdcf077ea88c160fb2a0db407c02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e077.npy",
+      "bytes": 5120,
+      "sha256": "067d690eae7a1ac98d09ab8a771a5855fb7354669c01579af936a043bd684ddd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e078.npy",
+      "bytes": 23384,
+      "sha256": "324fb02c60159989e5dd9b0ad48403ece7a4738fbe1243cbf2eaacd49fd2a718"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e079.npy",
+      "bytes": 3136,
+      "sha256": "2decb26501972f9a202a5ad40085b7869d632e86f49971f967594cea5eb55952"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e080.npy",
+      "bytes": 2624,
+      "sha256": "df870158b862e8a93b570aa08a10cf37ccbe89b10f74b7f8b77f4c67770d67a7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e081.npy",
+      "bytes": 10208,
+      "sha256": "14208bcfc67b6f598c722b08c97a395f21026918e869a74929e6cbba1afca1e8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e082.npy",
+      "bytes": 16288,
+      "sha256": "cb941a69a87e31b0c417cea5a22104d0becfafe5b3da42dca308444c2b3e7992"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e083.npy",
+      "bytes": 2944,
+      "sha256": "cc922756d6b700a8491205d2cce1aa6ac5de3ff7b82347a7789d7f14775b2200"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e084.npy",
+      "bytes": 59888,
+      "sha256": "3faea7417c92b2b0bb5f47fb0335155591a680a962f87eb7188bd86e4a4d9617"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e085.npy",
+      "bytes": 3440,
+      "sha256": "e22d07509002417d7654334a0217cf3668156a29fc04ad0c689cfabc08817d4e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e086.npy",
+      "bytes": 2176,
+      "sha256": "ebe1d85be274c3bc16c8f00cb880b9678c7bb4d7d396715e9ff0595636a7d885"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e087.npy",
+      "bytes": 12288,
+      "sha256": "33038c6e0c134871d0c23989bc1f3bbf08e3084df55417e32b193e647799258d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e088.npy",
+      "bytes": 6784,
+      "sha256": "bf68db35df39f33bdcd3c2890a3b5233498717f3ea53c07efea47f4c5483b306"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e089.npy",
+      "bytes": 10064,
+      "sha256": "cdf465f73fbeeb16a15f13c51c4b7c76c4338e457f35cac8b64c1ca1f80e6e2f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e090.npy",
+      "bytes": 1696,
+      "sha256": "a8fe28500e5467ccbc7cc8291821a965274317cd8ea0d323c1ff06ddb7308b71"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e091.npy",
+      "bytes": 4528,
+      "sha256": "815ce230a22b018d0bec925a1f38d9fd35377613b0d17b37192c35cb8d66799d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e092.npy",
+      "bytes": 3968,
+      "sha256": "34d00b3da8cc9770522cdd92142a92d9d7c6a077f858af6feb7777fc1daa172a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e093.npy",
+      "bytes": 5048,
+      "sha256": "258effbdbc2d517bc7d7c6293a899dfdd349fcf3a11abf2c03fbdfccc38e3485"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e094.npy",
+      "bytes": 3680,
+      "sha256": "2ae6d2dad5a616fbf156fd5808f118cd1219071f282f421979ef13c0d44329ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e095.npy",
+      "bytes": 7760,
+      "sha256": "a646528b1368a7ce296a9f14a01f73aae788a8c0ed208f3ab87d5c62e9cfe5e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e096.npy",
+      "bytes": 3424,
+      "sha256": "9cf1d66f3c8fa1fcc803f17572a5d09812d369b0c481ee8654f2f86a34bac4e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e097.npy",
+      "bytes": 8432,
+      "sha256": "5e3fdd028fd4455aecf957a93bfad9e3b4f85058ff99c01e6c72e568b76bc392"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e098.npy",
+      "bytes": 6448,
+      "sha256": "0354a5667e69edda565152512ca0e0fb91905015d6ce793b3ecfa1e85b03edc0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e099.npy",
+      "bytes": 27848,
+      "sha256": "efb7872a6b9089b8c66d20fb04819e472607ba6831092d0ee480c7f409f9c18b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e100.npy",
+      "bytes": 6680,
+      "sha256": "094eea577760035f57ba4b3e159aced77923f17d67776582c2d8dd0a4991cf46"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e101.npy",
+      "bytes": 2432,
+      "sha256": "a49242be3c0c370ba9120450c8e88241348738c0e4f8a5e712af2ff4778e6fd2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e102.npy",
+      "bytes": 2624,
+      "sha256": "c4e7979347170f2d3617e7d9fb4b2cabcb2328bc512968f01ae08d7afff631de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e103.npy",
+      "bytes": 12368,
+      "sha256": "5592c9fd841278e06738ccf5fa1afe9b652cad31813cab7674daf5fdb2fa122f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e104.npy",
+      "bytes": 5120,
+      "sha256": "44e5ec51919d093c388fc65975fd6cff5e358a42cb201402352f52fd4692892b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e105.npy",
+      "bytes": 5312,
+      "sha256": "f37473a0dde7492c7a128efb811ba92779085312593cbc2871203d6a84293d66"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e106.npy",
+      "bytes": 2368,
+      "sha256": "0a87a38f3ea7b9392d3d3ae7c9e8eb5c22643c9814fb0c437dd00325e2fe3479"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e107.npy",
+      "bytes": 18128,
+      "sha256": "e0548e523ccd9d3e87ce9a4a58659c90efcd8a5a88a923ec3590842ffbef2a37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e108.npy",
+      "bytes": 1632,
+      "sha256": "1fc52990c47158bc34cc8f4ef3647c7cbab732e58e421b67aff4213f399583a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e109.npy",
+      "bytes": 6608,
+      "sha256": "ddbe397bbe64656a183d3220b485e75a952bfe5e49f0a624577d6ad5c0f6decb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e110.npy",
+      "bytes": 3072,
+      "sha256": "6d1584db6477b88f0ace60d1b22ce51883159ff70d9a4b5f4543fa1adf2f2904"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e111.npy",
+      "bytes": 11496,
+      "sha256": "e98710f4a5e1649959be5c431787426569dcb73ee8e4ff1c34fb01aef6dbf44c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e112.npy",
+      "bytes": 5664,
+      "sha256": "e26ffbfed0454a21f32ba0dcc32f01c32a130e365898cfc292c8135272f84e34"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e113.npy",
+      "bytes": 21408,
+      "sha256": "c61429feb3aee878eb2dff424f80981ae08bf621e3df7d6542033243b8608e64"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e114.npy",
+      "bytes": 23184,
+      "sha256": "ac043595519b7cde98cb519278176f60e44aec1c64a05ad8825d04524679e6a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e115.npy",
+      "bytes": 576,
+      "sha256": "0b26b9d2371e5f9789afae8b1941b8731e1420723a111302cdf03b3d5f9b1f21"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e116.npy",
+      "bytes": 2016,
+      "sha256": "d63dff4895c62c3ada5701c48ab2947af96e38244f6e7ee167eb1a507bdb2050"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e117.npy",
+      "bytes": 6368,
+      "sha256": "fa2eb8ce664165825837867aac281ce958abd7c9138a2f11236487748ecebad8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e118.npy",
+      "bytes": 18848,
+      "sha256": "dfe7dbb7c05748f299a65ad4b48ac6644ef66ef0981bca17a62619005fcc038b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e119.npy",
+      "bytes": 12080,
+      "sha256": "eeac490ac48dda97e0ff0731eaca5698fc75cf6e7e151020a81802306ced2e04"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e120.npy",
+      "bytes": 3104,
+      "sha256": "99458d80e148a3711b2884ecad410fc2a7ad61e1a0cd07bc1cf74075f7344eda"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e121.npy",
+      "bytes": 1184,
+      "sha256": "4c720fcf28b56a61a61298dcba241852b170c4396bc1a376a9e48baba66d586c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e122.npy",
+      "bytes": 2336,
+      "sha256": "136e7d76fa835e21ad370276e2fbb1c4299f2cefd121d6a8393971cb8ef6c481"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e123.npy",
+      "bytes": 14128,
+      "sha256": "ce420f81f692b3db010e8e67abaec9186d5b42daa96d5b439012b1d662e40008"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e124.npy",
+      "bytes": 512,
+      "sha256": "642a967f07c8178db555a18cf4cd6826d9d035c24c4be02167547a6bf800f3a6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e125.npy",
+      "bytes": 3264,
+      "sha256": "6d1dbe658149aaaab66dd793606b3898d65477c5689923cde7c40cbc333a8047"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e126.npy",
+      "bytes": 4224,
+      "sha256": "f956999a748f48345cb60be9799a33a7be368d5e6b4f4e3a5e2481ad6e617659"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\errors_e127.npy",
+      "bytes": 6248,
+      "sha256": "c89e316d1a6d71c606ee412e6a5b434da21be18a97ad83bf480ddc1516ea1d4d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\metrics.npy",
+      "bytes": 649236,
+      "sha256": "e769c3de134201d5523880f9068b8464fbc0f80b9155f7c6267379b86bf26f57"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_functions\\progress.jsonl",
+      "bytes": 18056,
+      "sha256": "3b437cb9ccbb9e81d8d3ed21264e09b8afdfc557e4f5916685693cb2c081fe5b"
+    }
+  ]
+}
