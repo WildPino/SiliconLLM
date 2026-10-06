@@ -1,0 +1,112 @@
+{
+  "experiment": "METH488-R1 independent retained controls and complete case prefix; no rate promotion",
+  "start_utc": "2026-10-06T03:25:17.053656+00:00",
+  "process_instance": {
+    "pid": 26472,
+    "create_time_unix": 1791257116.809256
+  },
+  "commands": [],
+  "gates": {
+    "first_actual_audit_failure_and_windows_preserved": true,
+    "frozen_sources_runtime_full_payload_and_reference_digests": true,
+    "actual_terminal_windows_instance_without_application_fault": true,
+    "ALL_command_partials_and_output_files_retained": true,
+    "failure_preserved_without_candidate_replay": true,
+    "main_stop_is_temporal_within_memory_bounds": true,
+    "independent_ALL11_control_digits_partial_integer_and_float_bytes": true,
+    "ALL174_complete_cases_3132_outputs_exact_source_ownstate_and_counters": true,
+    "unadmitted_bootstrap_seed_discrepancy_retained": true
+  },
+  "isolation_wait_observations": [],
+  "preserved_daemons": [],
+  "isolation_wait_seconds": 0.09399999999732245,
+  "extension_binding_sha256": "0cfc1c03711e221c29239d97554dede0b83292c0a3579f04200dbff1bf4ded47",
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth488_shared_integer_backend_result.failure.json",
+    "sha256": "8934a334aaae465aa8c690221900c5c113d72edc43d170af7a5fc64283fb05ad",
+    "bytes": 28260957
+  },
+  "main_completed": false,
+  "main_windows": {
+    "sha256": "7f32014e34fc603baf94c2ab18d67587d3a5863a0dfc7d9c3e13d58ef4889639",
+    "actual_PID_creation_and_ISO_bounds": true
+  },
+  "retained_files": 5232,
+  "retained_bytes": 10318508656,
+  "main_failure": {
+    "stage": "whole_ownstate_teacher_and_generation",
+    "exception": "AssertionError('main45min_host24GiB_parent1GiB')",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth488_shared_integer_inquiry.py\", line 167, in main\n    tr,cmd=run(argv,label,source['affinity'],env);assert len(tr)==1 and tr[0]['repetition']==0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth488_shared_integer_inquiry.py\", line 90, in run\n    m=guard(child,started);observed=max(observed,m['peak_working_set_bytes'])\n      ^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth488_shared_integer_inquiry.py\", line 52, in guard\n    assert time.monotonic()-began<=2700 and peak+child_peak<=24<<30 and peak<=1<<30,'main45min_host24GiB_parent1GiB'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: main45min_host24GiB_parent1GiB\n"
+  },
+  "partial_control_bytes": 40902259,
+  "decision": "Independently admit ALL11 actual arithmetic controls and exact completed174-case prefix only. Preserve main time stop and original audit isolation failure. No complete192/3456 or >=50 qualification. Full goal active/incomplete.",
+  "controls": [
+    {
+      "case": 0,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 1,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 2,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 3,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 4,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 5,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 6,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 7,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 8,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 9,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    },
+    {
+      "case": 10,
+      "all_partial_reconstruction_and_output_bytes_exact": true
+    }
+  ],
+  "sources": {
+    "128": {
+      "complete_cases": 96,
+      "whole_output_files_byte_exact": 1728,
+      "teacher_NLL_argmax_rederived": true,
+      "ALL_state_route_head_bytes_and_ownstate_ID_acceptance_counters_verified": true,
+      "donor_scope": "All96 source128 cases inherit the qualified ALL18 donor comparison through exact output identity. Source256 only the first78 case outputs; no new aggregate ALL18 subset claim."
+    },
+    "256": {
+      "complete_cases": 78,
+      "whole_output_files_byte_exact": 1404,
+      "teacher_NLL_argmax_rederived": true,
+      "ALL_state_route_head_bytes_and_ownstate_ID_acceptance_counters_verified": true,
+      "donor_scope": "All96 source128 cases inherit the qualified ALL18 donor comparison through exact output identity. Source256 only the first78 case outputs; no new aggregate ALL18 subset claim."
+    }
+  },
+  "performance_scope": "NO rate, bootstrap, decomposition or BOTH-source performance admission. Original ALL192 cohort incomplete; precomputed source128 summaries use486486 contrary to protocol485485. Later metadata correction must use485485 without model replay.",
+  "end_utc": "2026-10-06T03:26:10.151679+00:00",
+  "resource": {
+    "wall_seconds": 53.11000000000058,
+    "peak_working_set_bytes": 402386944,
+    "bytes_hashed": 38191219317
+  }
+}
