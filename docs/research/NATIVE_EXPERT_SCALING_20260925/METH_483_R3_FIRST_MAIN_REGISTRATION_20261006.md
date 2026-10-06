@@ -1,4 +1,11 @@
-# Current conditional transfer resumption
+# METH483-R3 sole first recovery registration
+
+Complete3file freezeb151ac6 plus immutable R1 helper, before imports.
+
+benchmarks/native_expert_scaling/meth483_r3_constraint_root.py: 8614dea01257b5b7b511db9adccac809473fb7c91a2082613ee170339a23d428
+benchmarks/native_expert_scaling/meth483_r3_windows_terminal.ps1: f1eb0fc629926148a678ac0fe3396cf34b64b4e540bf940f58185b9259846660
+docs/research/NATIVE_EXPERT_SCALING_20260925/METH_483_R3_CONSTRAINT_ROOT_PROTOCOL_20261006.md: e1c269988f181af0c607e68a6ef390a67b752bc1a76075094a19c8c367d8e197
+benchmarks/native_expert_scaling/meth483_r1_constraint_geometry.py: 1a33ebd9e7572faf53027e578eaa4c47ca3f325134247dd5d26c80fa528aff94
 
 ## Current resumption:483 retained partials; R3 sole first recovery
 
