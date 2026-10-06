@@ -1,0 +1,84 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_operations.py",
+    "old_sha256": "007f3ead7c4811b1f5a61124f33a9403e29f62c21301acf87649466856cb2d40",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r8_operations.py",
+    "new_sha256": "199e7fd78ce035c5b27bc9ad70902253a23c6a6f0005e110b5401755443f37e1",
+    "replacements": [
+      {
+        "before": "meth511_r7_binding.json",
+        "after": "meth511_r8_binding.json",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r7_'+kind)",
+        "after": "('meth511_r8_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "'meth511_r7_'",
+        "after": "'meth511_r8_'",
+        "occurrences": 2
+      },
+      {
+        "before": "'donor':(3600,24<<30,3<<30)",
+        "after": "'donor':(3540,24<<30,3<<30)",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r3_' if kind=='cohort' else 'meth511_r8_')",
+        "after": "('meth511_r3_' if kind=='cohort' else 'meth511_r7_' if kind=='native' else 'meth511_r8_')",
+        "occurrences": 1
+      },
+      {
+        "before": "(self.binding['retained_cohort']['binding_sha256'] if kind=='cohort' else self.r['binding_sha256'])",
+        "after": "(self.binding['retained_cohort']['binding_sha256'] if kind=='cohort' else self.binding['retained_completed_native']['binding_sha256'] if kind=='native' else self.r['binding_sha256'])",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_donor.py",
+    "old_sha256": "a30f801349674f52b0a793d7b355f09cd47ee0048c401a85224003928e4956b9",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r8_donor.py",
+    "new_sha256": "1ed5950fbe2b0d76b1001e22320dd88685883616c5d1d3136af98ba8c167b3c6",
+    "replacements": [
+      {
+        "before": "import meth511_r7_operations as O",
+        "after": "import meth511_r8_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_retention_audit.py",
+    "old_sha256": "695b65601d68b254eed3cf48d4da84c234bab15014bc536cb479bda82cc89d59",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r8_retention_audit.py",
+    "new_sha256": "999718d589d6dfe408eee986d1306896f559fa247efcc49069fed99435182ed8",
+    "replacements": [
+      {
+        "before": "import meth511_r7_operations as O",
+        "after": "import meth511_r8_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_windows_terminal.ps1",
+    "old_sha256": "423d9daabd2a63ae26e15cdbee05612e65949152c1f170981f5491dde7c0d3ee",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r8_windows_terminal.ps1",
+    "new_sha256": "67dedf009a2ddfc8cd916ed5b095094e308d889f9893d23f0ddb62e9de62b1ca",
+    "replacements": [
+      {
+        "before": "meth511_r7_windows_terminal.json",
+        "after": "meth511_r8_windows_terminal.json",
+        "occurrences": 1
+      },
+      {
+        "before": "$prefix=if ($kind -eq 'cohort') {'meth511_r3_'} else {'meth511_r7_'}",
+        "after": "$prefix=if ($kind -eq 'cohort') {'meth511_r3_'} elseif ($kind -eq 'native') {'meth511_r7_'} else {'meth511_r8_'}",
+        "occurrences": 1
+      }
+    ]
+  }
+]

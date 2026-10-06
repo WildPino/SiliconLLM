@@ -112,7 +112,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption:511 retains553 native calls;23 remain before donor/audit
+## Current resumption:511 all576 C calls closed; donor import repair before inference
 
 [506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
 artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
@@ -159,13 +159,17 @@ C calls once:ALL exit0 with constant sampled idle CPU;92 complete cases saved.
 Call554 preflight stopped before creation when service CPU advanced0.015625s.
 RAW SHA1384c005../1290.281s; original global stage is interrupted.
 
-**First action:** [R7 retained-call continuation](METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md)
-binds exact closed553 calls and current quiet identities, then executes only23
-unbegun calls. Report both timing intervals and the untimed tick; retain original
-fault.384 original F32 donor bridges and independent audit have never begun.
-SAME510 binary/506 artifact, unchanged gates and R3 cohort, own histories.
-No completed-call replay, k tuning or inherited quality/rate claim. Original+
-remaining native budget remains<2400s. Whole quality/rate is still unmeasured.
+[R7 continuation](METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md) completed only23 new
+calls, retaining553:ALL576 exit0/96 cases, all native controlsPASS.14 cross-arm
+different generations,10,752 changed teacher head cells. RAW SHA278df0c1../
+54.828s/159,424,512B peak; combined1345.109s<2400. Both intervals/tick retained.
+
+**First action:** [R8 actual Torch import admission](METH_511_R8_TORCH_IMPORT_ADMISSION_20261007.md)
+binds105 existing testing sources omitted by the broad directory filter. R7
+donor stopped51.203s before model/tensor load or inference, zero numerical calls;
+fault preserved. Reuse completed R7 native and exact R3 cohort; then first384
+original F32 donor bridges, independent audit and UTC/closure admission.
+SAME artifacts/gates; no C/corpus replay. Whole quality/rate still unmeasured.
 [Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
 and256 expansion deferred until this discrepancy is understood.
 

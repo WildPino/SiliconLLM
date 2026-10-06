@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:511 retains553 native calls; whole qualification pending
+## Current resumption:511 all576 native calls closed; donor qualification pending
 
 [506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
 7,541,946,880B conditional artifact with reusable exact column primitive/engine
@@ -83,9 +83,14 @@ independent checker are available. [R6 operational record](METH_511_R6_DYNAMIC_I
 preserves setup/reader/idle-identity faults. After model closure, R6 completed553
 native calls once,ALL exit0 with constant sampled idle counters; service CPU
 advanced0.015625s in call554 preflight before creation, stopping the global stage.
-[R7 continuation](METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md) freshly binds retained
-outputs and executes only23 unbegun calls in a separate quiet interval, preserving
-the first fault and total native budget. Donor384 bridges and audit remain unbegun.
+[R7 continuation](METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md) completed only23 new
+calls:ALL576 closed/96 cases, native controlsPASS;14 cross-arm different
+generations,10,752 changed teacher head cells. Combined1345.109s<2400, both
+measurement intervals/original tick explicit. Native RAW SHA278df0c1.. .
+R7 donor imports then stopped before tensor load/inference because existing
+torch/testing/_utils.py was unbound. [R8 admission repair](METH_511_R8_TORCH_IMPORT_ADMISSION_20261007.md)
+adds105 original testing source files, changes no Torch operator, reuses complete
+native/cohort and starts the first384 donor bridges. Audit remains unbegun.
 Whole donor-relative quality AND SAMEartifact>=50 rate remain
 unmeasured under unchanged506 gates; no copied local recovery or old rate.
 Source-derived upstream correction remains conditional; exact I8 acceleration

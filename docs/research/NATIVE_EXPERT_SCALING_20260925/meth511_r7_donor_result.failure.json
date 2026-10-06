@@ -1,0 +1,344 @@
+{
+  "experiment": "METH511 fresh whole fixed8 source readout",
+  "kind": "donor",
+  "argv": [
+    "benchmarks/native_expert_scaling/meth511_r7_donor.py",
+    "--binding-sha",
+    "60992c060ce91a34f0dff6d5dbe2c69633102358c5f69ff1c465f046be4e8a00",
+    "--native-sha",
+    "278df0c17a7a07000c1bda446f6b090d1f2f27dad8d853464a9ccbf9f6ca681f"
+  ],
+  "started_utc": "2026-10-06T23:08:29.895995+00:00",
+  "process_instance": {
+    "pid": 32400,
+    "create_time_unix": 1791328109.1914468
+  },
+  "affinity": [
+    10
+  ],
+  "commands": [],
+  "gates": {
+    "bound_runtime_full_payload_donor_corpus_and_committed_sources": true
+  },
+  "native_calls": 0,
+  "model_calls": 0,
+  "binding_sha256": "60992c060ce91a34f0dff6d5dbe2c69633102358c5f69ff1c465f046be4e8a00",
+  "source_freeze": "f6d9d513ae5a7065266ba86a6b6cb0d931c8cabc",
+  "execution_head": "0f41d1672dc3c3e3ad46b95fc0fbc8c1533e1b97",
+  "input_admission_scope": "Fresh full SHA of runtime/source/candidate/corpus/ledgers; original donor ZIP whole SHA retained from acquisition with current stat/write-deny binding. All3320 loaded original F32 tensors receive fresh canonical SHA before first donor inference. Small scientific source is freshly SHA checked.",
+  "loaded_python_files": [
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_bz2.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_ctypes.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_hashlib.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_lzma.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\_socket.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\dlls\\select.pyd",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_collections_abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_compression.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_sitebuiltins.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\_weakrefset.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\argparse.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ast.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\base64.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\bisect.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\bz2.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\calendar.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\codecs.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\collections\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\collections\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\contextlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\copyreg.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\csv.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ctypes\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ctypes\\_endian.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ctypes\\wintypes.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\datetime.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\dis.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\_encoded_words.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\_parseaddr.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\_policybase.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\base64mime.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\charset.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\encoders.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\errors.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\feedparser.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\header.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\iterators.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\message.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\parser.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\quoprimime.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\email\\utils.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\aliases.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\utf_8.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\encodings\\utf_8_sig.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\enum.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\fnmatch.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\functools.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\genericpath.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\gettext.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\hashlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\_abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\_bootstrap.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\_bootstrap_external.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\machinery.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_adapters.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_collections.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_functools.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_itertools.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_meta.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\metadata\\_text.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\_adapters.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\_common.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\_legacy.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\resources\\abc.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\importlib\\util.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\inspect.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\io.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ipaddress.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\decoder.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\encoder.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\json\\scanner.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\keyword.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\linecache.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\locale.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\lzma.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\ntpath.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\opcode.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\operator.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\os.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\pathlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\posixpath.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\quopri.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\random.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_casefix.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_compiler.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_constants.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\re\\_parser.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\reprlib.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\selectors.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\shutil.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\signal.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\site.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\socket.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\stat.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\string.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\struct.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\subprocess.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\tempfile.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\textwrap.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\threading.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\token.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\tokenize.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\traceback.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\types.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\typing.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\urllib\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\urllib\\parse.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\warnings.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\weakref.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipfile\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipfile\\_path\\__init__.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipfile\\_path\\glob.py",
+    "c:\\users\\giosa\\appdata\\local\\programs\\python\\python312\\lib\\zipimport.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\_distutils_hack\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\__init__.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_common.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_ntuples.py",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_psutil_windows.pyd",
+    "d:\\_things\\progetti\\siliconllm\\.venv\\lib\\site-packages\\psutil\\_pswindows.py",
+    "d:\\_things\\progetti\\siliconllm\\benchmarks\\native_expert_scaling\\meth511_r7_donor.py",
+    "d:\\_things\\progetti\\siliconllm\\benchmarks\\native_expert_scaling\\meth511_r7_operations.py"
+  ],
+  "loaded_images": [
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python3.dll",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libcrypto-3.dll",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_lzma.pyd",
+      "system_windows_image": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_socket.pyd",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_bz2.pyd",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_hashlib.pyd",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_ctypes.pyd",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\vcruntime140.dll",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\select.pyd",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libffi-8.dll",
+      "system_windows_image": false
+    },
+    {
+      "path": "C:\\Windows\\System32\\pdh.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\version.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\wtsapi32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\IPHLPAPI.DLL",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\kernel.appcore.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\sspicli.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\umpdc.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\powrprof.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\bcrypt.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\gdi32full.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\KernelBase.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\win32u.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcp_win.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\bcryptprimitives.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\crypt32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ucrtbase.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\kernel32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\psapi.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ws2_32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\combase.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\advapi32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\oleaut32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\gdi32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\imm32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcrt.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\sechost.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\shell32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\user32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\rpcrt4.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ole32.dll",
+      "system_windows_image": true
+    },
+    {
+      "path": "C:\\Windows\\System32\\ntdll.dll",
+      "system_windows_image": true
+    }
+  ],
+  "native_sha256": "278df0c17a7a07000c1bda446f6b090d1f2f27dad8d853464a9ccbf9f6ca681f",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_donor.py\", line 30, in main\n    np.seterr(over='raise',invalid='raise',divide='raise',under='ignore');ctx.modules()\n                                                                          ^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r7_operations.py\", line 123, in modules\n    key=str(Path(p).resolve()).lower();assert key in self.catalog,('unbound_Python_module',key);files.add(key)\n                                              ^^^^^^^^^^^^^^^^^^^\nAssertionError: ('unbound_Python_module', 'd:\\\\_things\\\\progetti\\\\siliconllm\\\\.venv\\\\lib\\\\site-packages\\\\torch\\\\testing\\\\_utils.py')\n",
+  "seconds": 51.203000000008615,
+  "OS_peak_bytes": 544870400,
+  "native_OS_peak_bytes": 0
+}
