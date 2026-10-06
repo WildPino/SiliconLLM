@@ -1,0 +1,4279 @@
+{
+  "experiment": "METH501 ONE exact development support-cover witness",
+  "start_utc": "2026-10-06T12:33:08.566881+00:00",
+  "process_instance": {
+    "pid": 24896,
+    "create_time_unix": 1791289988.20357
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth501_support_cover.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth501_support_cover_result.json",
+    "--binding-sha",
+    "c1c32b5c30329ae0e8f535ffde4ccbc6eee06a1f9a5975b8b698e99a290bc405"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_data_runtime_scientific_SHA_before_NumPy": true,
+    "NEW_constructive_tie_first_failure_duplicate_capacity_controls": true,
+    "ALL128_fixed_development_only_pack_first_failure_and_unprocessed_UIDs_retained": true,
+    "ALL_positive_development_subset_width_global_union_and_copy_budget_witnesses": true,
+    "fixed_positive_masks_consumed_support_diagnostics_original_ALL_denominators": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "c1c32b5c30329ae0e8f535ffde4ccbc6eee06a1f9a5975b8b698e99a290bc405",
+  "source_freeze": "67ca99006540c0f34a3ff38c48b08aa053b999ac",
+  "execution_head": "aabe5feafda63a9e8e57b38636658a587e83b254",
+  "experts": [
+    {
+      "expert": 0,
+      "development": 0,
+      "consumed": 0,
+      "status": "EMPTY_NO_EXPOSURE_UNPROMOTED"
+    },
+    {
+      "expert": 1,
+      "development": 3,
+      "consumed": 0,
+      "source_development_union": 101,
+      "old_selected_region_union_sizes": [
+        26,
+        33,
+        55,
+        0
+      ],
+      "base_child_sizes": [
+        101,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 3,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 101,
+        "base_union": 101,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 101,
+        "base_union": 101,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2971,
+        "available_slots": 6043,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 2,
+      "development": 160,
+      "consumed": 81,
+      "source_development_union": 2653,
+      "old_selected_region_union_sizes": [
+        2384,
+        1896,
+        1106,
+        1368
+      ],
+      "base_child_sizes": [
+        1533,
+        1526,
+        1529,
+        1490
+      ],
+      "assigned_development": 53,
+      "unprocessed_or_unplaced": 107,
+      "first_unplaced_UID": 3324,
+      "packing_counts": {
+        "base_slots": 6078,
+        "base_union": 2368,
+        "duplicate_slots": 3710
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 3,
+      "development": 73,
+      "consumed": 45,
+      "source_development_union": 2545,
+      "old_selected_region_union_sizes": [
+        1229,
+        1979,
+        1751,
+        1232
+      ],
+      "base_child_sizes": [
+        1514,
+        1532,
+        1524,
+        1536
+      ],
+      "assigned_development": 44,
+      "unprocessed_or_unplaced": 29,
+      "first_unplaced_UID": 2611,
+      "packing_counts": {
+        "base_slots": 6106,
+        "base_union": 2367,
+        "duplicate_slots": 3739
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 4,
+      "development": 135,
+      "consumed": 66,
+      "source_development_union": 2523,
+      "old_selected_region_union_sizes": [
+        1850,
+        1551,
+        1844,
+        968
+      ],
+      "base_child_sizes": [
+        1532,
+        1535,
+        1536,
+        1535
+      ],
+      "assigned_development": 71,
+      "unprocessed_or_unplaced": 64,
+      "first_unplaced_UID": 388,
+      "packing_counts": {
+        "base_slots": 6138,
+        "base_union": 2364,
+        "duplicate_slots": 3774
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 5,
+      "development": 188,
+      "consumed": 90,
+      "source_development_union": 2879,
+      "old_selected_region_union_sizes": [
+        2252,
+        292,
+        1125,
+        2659
+      ],
+      "base_child_sizes": [
+        1518,
+        1518,
+        1535,
+        1484
+      ],
+      "assigned_development": 44,
+      "unprocessed_or_unplaced": 144,
+      "first_unplaced_UID": 3561,
+      "packing_counts": {
+        "base_slots": 6055,
+        "base_union": 2416,
+        "duplicate_slots": 3639
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 6,
+      "development": 161,
+      "consumed": 68,
+      "source_development_union": 2596,
+      "old_selected_region_union_sizes": [
+        2207,
+        1508,
+        1319,
+        1787
+      ],
+      "base_child_sizes": [
+        1533,
+        1534,
+        1530,
+        1509
+      ],
+      "assigned_development": 72,
+      "unprocessed_or_unplaced": 89,
+      "first_unplaced_UID": 14102,
+      "packing_counts": {
+        "base_slots": 6106,
+        "base_union": 2366,
+        "duplicate_slots": 3740
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 7,
+      "development": 74,
+      "consumed": 30,
+      "source_development_union": 2422,
+      "old_selected_region_union_sizes": [
+        1755,
+        1657,
+        862,
+        1290
+      ],
+      "base_child_sizes": [
+        1523,
+        1535,
+        1536,
+        1521
+      ],
+      "assigned_development": 58,
+      "unprocessed_or_unplaced": 16,
+      "first_unplaced_UID": 5123,
+      "packing_counts": {
+        "base_slots": 6115,
+        "base_union": 2360,
+        "duplicate_slots": 3755
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 8,
+      "development": 76,
+      "consumed": 38,
+      "source_development_union": 1987,
+      "old_selected_region_union_sizes": [
+        1340,
+        629,
+        1468,
+        742
+      ],
+      "base_child_sizes": [
+        1535,
+        1535,
+        781,
+        0
+      ],
+      "assigned_development": 76,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3851,
+        "base_union": 1987,
+        "duplicate_slots": 1864
+      },
+      "fill_counts": {
+        "base_slots": 3851,
+        "base_union": 1987,
+        "duplicate_slots": 1864,
+        "missing_source_leaves": 1085,
+        "available_slots": 2293,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 9,
+      "development": 61,
+      "consumed": 29,
+      "source_development_union": 2039,
+      "old_selected_region_union_sizes": [
+        416,
+        1295,
+        1063,
+        1482
+      ],
+      "base_child_sizes": [
+        1530,
+        1534,
+        1071,
+        0
+      ],
+      "assigned_development": 61,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4135,
+        "base_union": 2039,
+        "duplicate_slots": 2096
+      },
+      "fill_counts": {
+        "base_slots": 4135,
+        "base_union": 2039,
+        "duplicate_slots": 2096,
+        "missing_source_leaves": 1033,
+        "available_slots": 2009,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 10,
+      "development": 64,
+      "consumed": 63,
+      "source_development_union": 2251,
+      "old_selected_region_union_sizes": [
+        1700,
+        995,
+        709,
+        955
+      ],
+      "base_child_sizes": [
+        1536,
+        1533,
+        1315,
+        0
+      ],
+      "assigned_development": 64,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4384,
+        "base_union": 2251,
+        "duplicate_slots": 2133
+      },
+      "fill_counts": {
+        "base_slots": 4384,
+        "base_union": 2251,
+        "duplicate_slots": 2133,
+        "missing_source_leaves": 821,
+        "available_slots": 1760,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 11,
+      "development": 68,
+      "consumed": 42,
+      "source_development_union": 2483,
+      "old_selected_region_union_sizes": [
+        1738,
+        959,
+        1690,
+        657
+      ],
+      "base_child_sizes": [
+        1534,
+        1536,
+        1536,
+        1247
+      ],
+      "assigned_development": 68,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5853,
+        "base_union": 2483,
+        "duplicate_slots": 3370
+      },
+      "fill_counts": {
+        "base_slots": 5853,
+        "base_union": 2483,
+        "duplicate_slots": 3370,
+        "missing_source_leaves": 589,
+        "available_slots": 291,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 12,
+      "development": 44,
+      "consumed": 15,
+      "source_development_union": 2122,
+      "old_selected_region_union_sizes": [
+        1439,
+        516,
+        1087,
+        148
+      ],
+      "base_child_sizes": [
+        1534,
+        1533,
+        200,
+        0
+      ],
+      "assigned_development": 44,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3267,
+        "base_union": 2122,
+        "duplicate_slots": 1145
+      },
+      "fill_counts": {
+        "base_slots": 3267,
+        "base_union": 2122,
+        "duplicate_slots": 1145,
+        "missing_source_leaves": 950,
+        "available_slots": 2877,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 13,
+      "development": 113,
+      "consumed": 42,
+      "source_development_union": 2835,
+      "old_selected_region_union_sizes": [
+        1867,
+        1833,
+        1804,
+        2448
+      ],
+      "base_child_sizes": [
+        1488,
+        1532,
+        1524,
+        1489
+      ],
+      "assigned_development": 38,
+      "unprocessed_or_unplaced": 75,
+      "first_unplaced_UID": 15884,
+      "packing_counts": {
+        "base_slots": 6033,
+        "base_union": 2448,
+        "duplicate_slots": 3585
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 14,
+      "development": 75,
+      "consumed": 32,
+      "source_development_union": 2922,
+      "old_selected_region_union_sizes": [
+        1812,
+        1994,
+        1450,
+        2208
+      ],
+      "base_child_sizes": [
+        1511,
+        1503,
+        1421,
+        1532
+      ],
+      "assigned_development": 32,
+      "unprocessed_or_unplaced": 43,
+      "first_unplaced_UID": 16067,
+      "packing_counts": {
+        "base_slots": 5967,
+        "base_union": 2617,
+        "duplicate_slots": 3350
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 15,
+      "development": 4,
+      "consumed": 3,
+      "source_development_union": 59,
+      "old_selected_region_union_sizes": [
+        27,
+        34,
+        12,
+        40
+      ],
+      "base_child_sizes": [
+        59,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 4,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 59,
+        "base_union": 59,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 59,
+        "base_union": 59,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 3013,
+        "available_slots": 6085,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 16,
+      "development": 48,
+      "consumed": 21,
+      "source_development_union": 1328,
+      "old_selected_region_union_sizes": [
+        791,
+        922,
+        173,
+        566
+      ],
+      "base_child_sizes": [
+        1328,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 48,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1328,
+        "base_union": 1328,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1328,
+        "base_union": 1328,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1744,
+        "available_slots": 4816,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 17,
+      "development": 134,
+      "consumed": 49,
+      "source_development_union": 2668,
+      "old_selected_region_union_sizes": [
+        1602,
+        1495,
+        700,
+        2046
+      ],
+      "base_child_sizes": [
+        1523,
+        1536,
+        1536,
+        1529
+      ],
+      "assigned_development": 74,
+      "unprocessed_or_unplaced": 60,
+      "first_unplaced_UID": 12458,
+      "packing_counts": {
+        "base_slots": 6124,
+        "base_union": 2500,
+        "duplicate_slots": 3624
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 18,
+      "development": 83,
+      "consumed": 43,
+      "source_development_union": 1752,
+      "old_selected_region_union_sizes": [
+        1332,
+        886,
+        185,
+        1181
+      ],
+      "base_child_sizes": [
+        1536,
+        1245,
+        0,
+        0
+      ],
+      "assigned_development": 83,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2781,
+        "base_union": 1752,
+        "duplicate_slots": 1029
+      },
+      "fill_counts": {
+        "base_slots": 2781,
+        "base_union": 1752,
+        "duplicate_slots": 1029,
+        "missing_source_leaves": 1320,
+        "available_slots": 3363,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 19,
+      "development": 59,
+      "consumed": 42,
+      "source_development_union": 2442,
+      "old_selected_region_union_sizes": [
+        1839,
+        1598,
+        826,
+        998
+      ],
+      "base_child_sizes": [
+        1526,
+        1529,
+        1522,
+        1397
+      ],
+      "assigned_development": 59,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5974,
+        "base_union": 2442,
+        "duplicate_slots": 3532
+      },
+      "fill_counts": {
+        "base_slots": 5974,
+        "base_union": 2442,
+        "duplicate_slots": 3532,
+        "missing_source_leaves": 630,
+        "available_slots": 170,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 20,
+      "development": 16,
+      "consumed": 5,
+      "source_development_union": 1372,
+      "old_selected_region_union_sizes": [
+        1154,
+        178,
+        234,
+        152
+      ],
+      "base_child_sizes": [
+        1372,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 16,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1372,
+        "base_union": 1372,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1372,
+        "base_union": 1372,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1700,
+        "available_slots": 4772,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 21,
+      "development": 168,
+      "consumed": 74,
+      "source_development_union": 2880,
+      "old_selected_region_union_sizes": [
+        1780,
+        2360,
+        2503,
+        1523
+      ],
+      "base_child_sizes": [
+        1526,
+        1489,
+        1502,
+        1449
+      ],
+      "assigned_development": 26,
+      "unprocessed_or_unplaced": 142,
+      "first_unplaced_UID": 5841,
+      "packing_counts": {
+        "base_slots": 5966,
+        "base_union": 2430,
+        "duplicate_slots": 3536
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 22,
+      "development": 40,
+      "consumed": 16,
+      "source_development_union": 1303,
+      "old_selected_region_union_sizes": [
+        973,
+        585,
+        148,
+        420
+      ],
+      "base_child_sizes": [
+        1303,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 40,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1303,
+        "base_union": 1303,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1303,
+        "base_union": 1303,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1769,
+        "available_slots": 4841,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 23,
+      "development": 104,
+      "consumed": 52,
+      "source_development_union": 2153,
+      "old_selected_region_union_sizes": [
+        1239,
+        1220,
+        1616,
+        1118
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        1535,
+        779
+      ],
+      "assigned_development": 104,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5386,
+        "base_union": 2153,
+        "duplicate_slots": 3233
+      },
+      "fill_counts": {
+        "base_slots": 5386,
+        "base_union": 2153,
+        "duplicate_slots": 3233,
+        "missing_source_leaves": 919,
+        "available_slots": 758,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 24,
+      "development": 144,
+      "consumed": 66,
+      "source_development_union": 2205,
+      "old_selected_region_union_sizes": [
+        1809,
+        325,
+        337,
+        1797
+      ],
+      "base_child_sizes": [
+        1536,
+        1535,
+        1536,
+        1472
+      ],
+      "assigned_development": 144,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 6079,
+        "base_union": 2205,
+        "duplicate_slots": 3874
+      },
+      "fill_counts": {
+        "base_slots": 6079,
+        "base_union": 2205,
+        "duplicate_slots": 3874,
+        "missing_source_leaves": 867,
+        "available_slots": 65,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 25,
+      "development": 260,
+      "consumed": 149,
+      "source_development_union": 1178,
+      "old_selected_region_union_sizes": [
+        82,
+        482,
+        301,
+        829
+      ],
+      "base_child_sizes": [
+        1178,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 260,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1178,
+        "base_union": 1178,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1178,
+        "base_union": 1178,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1894,
+        "available_slots": 4966,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 26,
+      "development": 122,
+      "consumed": 46,
+      "source_development_union": 2499,
+      "old_selected_region_union_sizes": [
+        1609,
+        820,
+        1860,
+        1231
+      ],
+      "base_child_sizes": [
+        1524,
+        1530,
+        1534,
+        1536
+      ],
+      "assigned_development": 70,
+      "unprocessed_or_unplaced": 52,
+      "first_unplaced_UID": 4935,
+      "packing_counts": {
+        "base_slots": 6124,
+        "base_union": 2409,
+        "duplicate_slots": 3715
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 27,
+      "development": 95,
+      "consumed": 61,
+      "source_development_union": 2841,
+      "old_selected_region_union_sizes": [
+        2094,
+        1291,
+        2269,
+        1083
+      ],
+      "base_child_sizes": [
+        1526,
+        1533,
+        1508,
+        1525
+      ],
+      "assigned_development": 47,
+      "unprocessed_or_unplaced": 48,
+      "first_unplaced_UID": 5718,
+      "packing_counts": {
+        "base_slots": 6092,
+        "base_union": 2610,
+        "duplicate_slots": 3482
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 28,
+      "development": 46,
+      "consumed": 22,
+      "source_development_union": 1959,
+      "old_selected_region_union_sizes": [
+        1265,
+        1322,
+        562,
+        195
+      ],
+      "base_child_sizes": [
+        1534,
+        1394,
+        0,
+        0
+      ],
+      "assigned_development": 46,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2928,
+        "base_union": 1959,
+        "duplicate_slots": 969
+      },
+      "fill_counts": {
+        "base_slots": 2928,
+        "base_union": 1959,
+        "duplicate_slots": 969,
+        "missing_source_leaves": 1113,
+        "available_slots": 3216,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 29,
+      "development": 59,
+      "consumed": 32,
+      "source_development_union": 1738,
+      "old_selected_region_union_sizes": [
+        921,
+        852,
+        676,
+        572
+      ],
+      "base_child_sizes": [
+        1535,
+        785,
+        0,
+        0
+      ],
+      "assigned_development": 59,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2320,
+        "base_union": 1738,
+        "duplicate_slots": 582
+      },
+      "fill_counts": {
+        "base_slots": 2320,
+        "base_union": 1738,
+        "duplicate_slots": 582,
+        "missing_source_leaves": 1334,
+        "available_slots": 3824,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 30,
+      "development": 87,
+      "consumed": 54,
+      "source_development_union": 2291,
+      "old_selected_region_union_sizes": [
+        1595,
+        1374,
+        845,
+        1416
+      ],
+      "base_child_sizes": [
+        1527,
+        1532,
+        1536,
+        1277
+      ],
+      "assigned_development": 87,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5872,
+        "base_union": 2291,
+        "duplicate_slots": 3581
+      },
+      "fill_counts": {
+        "base_slots": 5872,
+        "base_union": 2291,
+        "duplicate_slots": 3581,
+        "missing_source_leaves": 781,
+        "available_slots": 272,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 31,
+      "development": 55,
+      "consumed": 42,
+      "source_development_union": 2143,
+      "old_selected_region_union_sizes": [
+        1064,
+        1080,
+        1137,
+        1665
+      ],
+      "base_child_sizes": [
+        1525,
+        1536,
+        1517,
+        0
+      ],
+      "assigned_development": 55,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4578,
+        "base_union": 2143,
+        "duplicate_slots": 2435
+      },
+      "fill_counts": {
+        "base_slots": 4578,
+        "base_union": 2143,
+        "duplicate_slots": 2435,
+        "missing_source_leaves": 929,
+        "available_slots": 1566,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 32,
+      "development": 102,
+      "consumed": 42,
+      "source_development_union": 1899,
+      "old_selected_region_union_sizes": [
+        1388,
+        1267,
+        1041,
+        598
+      ],
+      "base_child_sizes": [
+        1536,
+        1535,
+        86,
+        0
+      ],
+      "assigned_development": 102,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3157,
+        "base_union": 1899,
+        "duplicate_slots": 1258
+      },
+      "fill_counts": {
+        "base_slots": 3157,
+        "base_union": 1899,
+        "duplicate_slots": 1258,
+        "missing_source_leaves": 1173,
+        "available_slots": 2987,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 33,
+      "development": 183,
+      "consumed": 52,
+      "source_development_union": 2295,
+      "old_selected_region_union_sizes": [
+        1720,
+        64,
+        1564,
+        1584
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        1536,
+        1535
+      ],
+      "assigned_development": 172,
+      "unprocessed_or_unplaced": 11,
+      "first_unplaced_UID": 16695,
+      "packing_counts": {
+        "base_slots": 6143,
+        "base_union": 2263,
+        "duplicate_slots": 3880
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 34,
+      "development": 200,
+      "consumed": 100,
+      "source_development_union": 2121,
+      "old_selected_region_union_sizes": [
+        1675,
+        711,
+        879,
+        1192
+      ],
+      "base_child_sizes": [
+        1536,
+        1535,
+        1441,
+        0
+      ],
+      "assigned_development": 200,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4512,
+        "base_union": 2121,
+        "duplicate_slots": 2391
+      },
+      "fill_counts": {
+        "base_slots": 4512,
+        "base_union": 2121,
+        "duplicate_slots": 2391,
+        "missing_source_leaves": 951,
+        "available_slots": 1632,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 35,
+      "development": 98,
+      "consumed": 53,
+      "source_development_union": 2807,
+      "old_selected_region_union_sizes": [
+        2487,
+        1466,
+        1669,
+        1713
+      ],
+      "base_child_sizes": [
+        1536,
+        1497,
+        1533,
+        1473
+      ],
+      "assigned_development": 34,
+      "unprocessed_or_unplaced": 64,
+      "first_unplaced_UID": 247,
+      "packing_counts": {
+        "base_slots": 6039,
+        "base_union": 2387,
+        "duplicate_slots": 3652
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 36,
+      "development": 5,
+      "consumed": 3,
+      "source_development_union": 118,
+      "old_selected_region_union_sizes": [
+        15,
+        41,
+        67,
+        25
+      ],
+      "base_child_sizes": [
+        118,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 5,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 118,
+        "base_union": 118,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 118,
+        "base_union": 118,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2954,
+        "available_slots": 6026,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 37,
+      "development": 271,
+      "consumed": 122,
+      "source_development_union": 778,
+      "old_selected_region_union_sizes": [
+        765,
+        707,
+        699,
+        700
+      ],
+      "base_child_sizes": [
+        778,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 271,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 778,
+        "base_union": 778,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 778,
+        "base_union": 778,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2294,
+        "available_slots": 5366,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 38,
+      "development": 142,
+      "consumed": 80,
+      "source_development_union": 2756,
+      "old_selected_region_union_sizes": [
+        2350,
+        1689,
+        1744,
+        1483
+      ],
+      "base_child_sizes": [
+        1531,
+        1521,
+        1516,
+        1494
+      ],
+      "assigned_development": 44,
+      "unprocessed_or_unplaced": 98,
+      "first_unplaced_UID": 14456,
+      "packing_counts": {
+        "base_slots": 6062,
+        "base_union": 2424,
+        "duplicate_slots": 3638
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 39,
+      "development": 18,
+      "consumed": 2,
+      "source_development_union": 188,
+      "old_selected_region_union_sizes": [
+        86,
+        81,
+        40,
+        61
+      ],
+      "base_child_sizes": [
+        188,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 18,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 188,
+        "base_union": 188,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 188,
+        "base_union": 188,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2884,
+        "available_slots": 5956,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 40,
+      "development": 183,
+      "consumed": 117,
+      "source_development_union": 2897,
+      "old_selected_region_union_sizes": [
+        2315,
+        2455,
+        2262,
+        189
+      ],
+      "base_child_sizes": [
+        1536,
+        1511,
+        1522,
+        1516
+      ],
+      "assigned_development": 39,
+      "unprocessed_or_unplaced": 144,
+      "first_unplaced_UID": 16166,
+      "packing_counts": {
+        "base_slots": 6085,
+        "base_union": 2456,
+        "duplicate_slots": 3629
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 41,
+      "development": 116,
+      "consumed": 74,
+      "source_development_union": 3056,
+      "old_selected_region_union_sizes": [
+        2763,
+        2233,
+        2403,
+        2461
+      ],
+      "base_child_sizes": [
+        1507,
+        1528,
+        1428,
+        1536
+      ],
+      "assigned_development": 22,
+      "unprocessed_or_unplaced": 94,
+      "first_unplaced_UID": 67,
+      "packing_counts": {
+        "base_slots": 5999,
+        "base_union": 2750,
+        "duplicate_slots": 3249
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 42,
+      "development": 53,
+      "consumed": 39,
+      "source_development_union": 2131,
+      "old_selected_region_union_sizes": [
+        1754,
+        931,
+        859,
+        1026
+      ],
+      "base_child_sizes": [
+        1531,
+        1533,
+        1423,
+        0
+      ],
+      "assigned_development": 53,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4487,
+        "base_union": 2131,
+        "duplicate_slots": 2356
+      },
+      "fill_counts": {
+        "base_slots": 4487,
+        "base_union": 2131,
+        "duplicate_slots": 2356,
+        "missing_source_leaves": 941,
+        "available_slots": 1657,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 43,
+      "development": 70,
+      "consumed": 17,
+      "source_development_union": 2135,
+      "old_selected_region_union_sizes": [
+        1726,
+        1279,
+        1262,
+        775
+      ],
+      "base_child_sizes": [
+        1535,
+        1535,
+        1528,
+        888
+      ],
+      "assigned_development": 70,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5486,
+        "base_union": 2135,
+        "duplicate_slots": 3351
+      },
+      "fill_counts": {
+        "base_slots": 5486,
+        "base_union": 2135,
+        "duplicate_slots": 3351,
+        "missing_source_leaves": 937,
+        "available_slots": 658,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 44,
+      "development": 21,
+      "consumed": 10,
+      "source_development_union": 1754,
+      "old_selected_region_union_sizes": [
+        628,
+        1036,
+        377,
+        796
+      ],
+      "base_child_sizes": [
+        1529,
+        729,
+        0,
+        0
+      ],
+      "assigned_development": 21,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2258,
+        "base_union": 1754,
+        "duplicate_slots": 504
+      },
+      "fill_counts": {
+        "base_slots": 2258,
+        "base_union": 1754,
+        "duplicate_slots": 504,
+        "missing_source_leaves": 1318,
+        "available_slots": 3886,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 45,
+      "development": 28,
+      "consumed": 8,
+      "source_development_union": 1669,
+      "old_selected_region_union_sizes": [
+        934,
+        626,
+        742,
+        259
+      ],
+      "base_child_sizes": [
+        1530,
+        530,
+        0,
+        0
+      ],
+      "assigned_development": 28,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2060,
+        "base_union": 1669,
+        "duplicate_slots": 391
+      },
+      "fill_counts": {
+        "base_slots": 2060,
+        "base_union": 1669,
+        "duplicate_slots": 391,
+        "missing_source_leaves": 1403,
+        "available_slots": 4084,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 46,
+      "development": 44,
+      "consumed": 25,
+      "source_development_union": 1978,
+      "old_selected_region_union_sizes": [
+        565,
+        964,
+        685,
+        1363
+      ],
+      "base_child_sizes": [
+        1531,
+        1383,
+        0,
+        0
+      ],
+      "assigned_development": 44,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2914,
+        "base_union": 1978,
+        "duplicate_slots": 936
+      },
+      "fill_counts": {
+        "base_slots": 2914,
+        "base_union": 1978,
+        "duplicate_slots": 936,
+        "missing_source_leaves": 1094,
+        "available_slots": 3230,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 47,
+      "development": 108,
+      "consumed": 53,
+      "source_development_union": 2801,
+      "old_selected_region_union_sizes": [
+        1772,
+        1762,
+        2311,
+        1322
+      ],
+      "base_child_sizes": [
+        1517,
+        1501,
+        1534,
+        1489
+      ],
+      "assigned_development": 44,
+      "unprocessed_or_unplaced": 64,
+      "first_unplaced_UID": 534,
+      "packing_counts": {
+        "base_slots": 6041,
+        "base_union": 2543,
+        "duplicate_slots": 3498
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 48,
+      "development": 89,
+      "consumed": 44,
+      "source_development_union": 2196,
+      "old_selected_region_union_sizes": [
+        1588,
+        1208,
+        1483,
+        199
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        1508,
+        0
+      ],
+      "assigned_development": 89,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4580,
+        "base_union": 2196,
+        "duplicate_slots": 2384
+      },
+      "fill_counts": {
+        "base_slots": 4580,
+        "base_union": 2196,
+        "duplicate_slots": 2384,
+        "missing_source_leaves": 876,
+        "available_slots": 1564,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 49,
+      "development": 123,
+      "consumed": 68,
+      "source_development_union": 3051,
+      "old_selected_region_union_sizes": [
+        2890,
+        2402,
+        1294,
+        2283
+      ],
+      "base_child_sizes": [
+        1532,
+        1526,
+        1517,
+        1528
+      ],
+      "assigned_development": 29,
+      "unprocessed_or_unplaced": 94,
+      "first_unplaced_UID": 759,
+      "packing_counts": {
+        "base_slots": 6103,
+        "base_union": 2692,
+        "duplicate_slots": 3411
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 50,
+      "development": 106,
+      "consumed": 45,
+      "source_development_union": 2561,
+      "old_selected_region_union_sizes": [
+        860,
+        846,
+        1771,
+        2254
+      ],
+      "base_child_sizes": [
+        1533,
+        1527,
+        1534,
+        1508
+      ],
+      "assigned_development": 65,
+      "unprocessed_or_unplaced": 41,
+      "first_unplaced_UID": 13660,
+      "packing_counts": {
+        "base_slots": 6102,
+        "base_union": 2344,
+        "duplicate_slots": 3758
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 51,
+      "development": 75,
+      "consumed": 47,
+      "source_development_union": 2145,
+      "old_selected_region_union_sizes": [
+        1557,
+        557,
+        1213,
+        620
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        857,
+        0
+      ],
+      "assigned_development": 75,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3929,
+        "base_union": 2145,
+        "duplicate_slots": 1784
+      },
+      "fill_counts": {
+        "base_slots": 3929,
+        "base_union": 2145,
+        "duplicate_slots": 1784,
+        "missing_source_leaves": 927,
+        "available_slots": 2215,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 52,
+      "development": 19,
+      "consumed": 20,
+      "source_development_union": 1420,
+      "old_selected_region_union_sizes": [
+        1129,
+        329,
+        247,
+        187
+      ],
+      "base_child_sizes": [
+        1420,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 19,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1420,
+        "base_union": 1420,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1420,
+        "base_union": 1420,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1652,
+        "available_slots": 4724,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 53,
+      "development": 60,
+      "consumed": 23,
+      "source_development_union": 1614,
+      "old_selected_region_union_sizes": [
+        249,
+        1003,
+        793,
+        949
+      ],
+      "base_child_sizes": [
+        1535,
+        574,
+        0,
+        0
+      ],
+      "assigned_development": 60,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2109,
+        "base_union": 1614,
+        "duplicate_slots": 495
+      },
+      "fill_counts": {
+        "base_slots": 2109,
+        "base_union": 1614,
+        "duplicate_slots": 495,
+        "missing_source_leaves": 1458,
+        "available_slots": 4035,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 54,
+      "development": 76,
+      "consumed": 30,
+      "source_development_union": 2365,
+      "old_selected_region_union_sizes": [
+        938,
+        1359,
+        1544,
+        1321
+      ],
+      "base_child_sizes": [
+        1533,
+        1532,
+        1526,
+        954
+      ],
+      "assigned_development": 76,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5545,
+        "base_union": 2365,
+        "duplicate_slots": 3180
+      },
+      "fill_counts": {
+        "base_slots": 5545,
+        "base_union": 2365,
+        "duplicate_slots": 3180,
+        "missing_source_leaves": 707,
+        "available_slots": 599,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 55,
+      "development": 122,
+      "consumed": 65,
+      "source_development_union": 2491,
+      "old_selected_region_union_sizes": [
+        2391,
+        666,
+        637,
+        476
+      ],
+      "base_child_sizes": [
+        1536,
+        1531,
+        1525,
+        1514
+      ],
+      "assigned_development": 61,
+      "unprocessed_or_unplaced": 61,
+      "first_unplaced_UID": 1496,
+      "packing_counts": {
+        "base_slots": 6106,
+        "base_union": 2269,
+        "duplicate_slots": 3837
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 56,
+      "development": 149,
+      "consumed": 59,
+      "source_development_union": 2152,
+      "old_selected_region_union_sizes": [
+        1694,
+        1610,
+        1081,
+        1592
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        1534,
+        1528
+      ],
+      "assigned_development": 113,
+      "unprocessed_or_unplaced": 36,
+      "first_unplaced_UID": 12586,
+      "packing_counts": {
+        "base_slots": 6134,
+        "base_union": 2089,
+        "duplicate_slots": 4045
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 57,
+      "development": 16,
+      "consumed": 11,
+      "source_development_union": 1427,
+      "old_selected_region_union_sizes": [
+        718,
+        361,
+        564,
+        239
+      ],
+      "base_child_sizes": [
+        1427,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 16,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1427,
+        "base_union": 1427,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1427,
+        "base_union": 1427,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1645,
+        "available_slots": 4717,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 58,
+      "development": 152,
+      "consumed": 69,
+      "source_development_union": 2989,
+      "old_selected_region_union_sizes": [
+        2755,
+        1866,
+        1512,
+        1893
+      ],
+      "base_child_sizes": [
+        1515,
+        1523,
+        1487,
+        1495
+      ],
+      "assigned_development": 37,
+      "unprocessed_or_unplaced": 115,
+      "first_unplaced_UID": 4486,
+      "packing_counts": {
+        "base_slots": 6020,
+        "base_union": 2390,
+        "duplicate_slots": 3630
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 59,
+      "development": 17,
+      "consumed": 10,
+      "source_development_union": 1474,
+      "old_selected_region_union_sizes": [
+        230,
+        816,
+        184,
+        770
+      ],
+      "base_child_sizes": [
+        1474,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 17,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1474,
+        "base_union": 1474,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1474,
+        "base_union": 1474,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1598,
+        "available_slots": 4670,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 60,
+      "development": 100,
+      "consumed": 57,
+      "source_development_union": 2325,
+      "old_selected_region_union_sizes": [
+        1594,
+        1146,
+        1552,
+        971
+      ],
+      "base_child_sizes": [
+        1534,
+        1535,
+        1532,
+        1196
+      ],
+      "assigned_development": 100,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5797,
+        "base_union": 2325,
+        "duplicate_slots": 3472
+      },
+      "fill_counts": {
+        "base_slots": 5797,
+        "base_union": 2325,
+        "duplicate_slots": 3472,
+        "missing_source_leaves": 747,
+        "available_slots": 347,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 61,
+      "development": 104,
+      "consumed": 39,
+      "source_development_union": 2742,
+      "old_selected_region_union_sizes": [
+        1188,
+        2344,
+        889,
+        2224
+      ],
+      "base_child_sizes": [
+        1522,
+        1522,
+        1533,
+        1521
+      ],
+      "assigned_development": 39,
+      "unprocessed_or_unplaced": 65,
+      "first_unplaced_UID": 5511,
+      "packing_counts": {
+        "base_slots": 6098,
+        "base_union": 2423,
+        "duplicate_slots": 3675
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 62,
+      "development": 60,
+      "consumed": 25,
+      "source_development_union": 2444,
+      "old_selected_region_union_sizes": [
+        1964,
+        674,
+        1045,
+        1206
+      ],
+      "base_child_sizes": [
+        1529,
+        1531,
+        1520,
+        1253
+      ],
+      "assigned_development": 60,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5833,
+        "base_union": 2444,
+        "duplicate_slots": 3389
+      },
+      "fill_counts": {
+        "base_slots": 5833,
+        "base_union": 2444,
+        "duplicate_slots": 3389,
+        "missing_source_leaves": 628,
+        "available_slots": 311,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 63,
+      "development": 27,
+      "consumed": 10,
+      "source_development_union": 239,
+      "old_selected_region_union_sizes": [
+        27,
+        201,
+        38,
+        18
+      ],
+      "base_child_sizes": [
+        239,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 27,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 239,
+        "base_union": 239,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 239,
+        "base_union": 239,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2833,
+        "available_slots": 5905,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 64,
+      "development": 34,
+      "consumed": 12,
+      "source_development_union": 1329,
+      "old_selected_region_union_sizes": [
+        620,
+        778,
+        658,
+        175
+      ],
+      "base_child_sizes": [
+        1329,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 34,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1329,
+        "base_union": 1329,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1329,
+        "base_union": 1329,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1743,
+        "available_slots": 4815,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 65,
+      "development": 116,
+      "consumed": 73,
+      "source_development_union": 2842,
+      "old_selected_region_union_sizes": [
+        2222,
+        2308,
+        2111,
+        1836
+      ],
+      "base_child_sizes": [
+        1527,
+        1519,
+        1517,
+        1535
+      ],
+      "assigned_development": 35,
+      "unprocessed_or_unplaced": 81,
+      "first_unplaced_UID": 3691,
+      "packing_counts": {
+        "base_slots": 6098,
+        "base_union": 2387,
+        "duplicate_slots": 3711
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 66,
+      "development": 38,
+      "consumed": 29,
+      "source_development_union": 1478,
+      "old_selected_region_union_sizes": [
+        1273,
+        475,
+        106,
+        293
+      ],
+      "base_child_sizes": [
+        1478,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 38,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1478,
+        "base_union": 1478,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1478,
+        "base_union": 1478,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1594,
+        "available_slots": 4666,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 67,
+      "development": 165,
+      "consumed": 107,
+      "source_development_union": 2889,
+      "old_selected_region_union_sizes": [
+        2334,
+        1391,
+        2193,
+        831
+      ],
+      "base_child_sizes": [
+        1536,
+        1517,
+        1535,
+        1478
+      ],
+      "assigned_development": 54,
+      "unprocessed_or_unplaced": 111,
+      "first_unplaced_UID": 114,
+      "packing_counts": {
+        "base_slots": 6066,
+        "base_union": 2565,
+        "duplicate_slots": 3501
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 68,
+      "development": 98,
+      "consumed": 44,
+      "source_development_union": 2984,
+      "old_selected_region_union_sizes": [
+        1902,
+        2235,
+        2576,
+        1553
+      ],
+      "base_child_sizes": [
+        1494,
+        1503,
+        1494,
+        1459
+      ],
+      "assigned_development": 22,
+      "unprocessed_or_unplaced": 76,
+      "first_unplaced_UID": 857,
+      "packing_counts": {
+        "base_slots": 5950,
+        "base_union": 2580,
+        "duplicate_slots": 3370
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 69,
+      "development": 12,
+      "consumed": 9,
+      "source_development_union": 155,
+      "old_selected_region_union_sizes": [
+        95,
+        39,
+        28,
+        51
+      ],
+      "base_child_sizes": [
+        155,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 12,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 155,
+        "base_union": 155,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 155,
+        "base_union": 155,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2917,
+        "available_slots": 5989,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 70,
+      "development": 53,
+      "consumed": 31,
+      "source_development_union": 1971,
+      "old_selected_region_union_sizes": [
+        1078,
+        713,
+        1148,
+        667
+      ],
+      "base_child_sizes": [
+        1530,
+        1408,
+        0,
+        0
+      ],
+      "assigned_development": 53,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2938,
+        "base_union": 1971,
+        "duplicate_slots": 967
+      },
+      "fill_counts": {
+        "base_slots": 2938,
+        "base_union": 1971,
+        "duplicate_slots": 967,
+        "missing_source_leaves": 1101,
+        "available_slots": 3206,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 71,
+      "development": 147,
+      "consumed": 57,
+      "source_development_union": 2890,
+      "old_selected_region_union_sizes": [
+        2285,
+        2493,
+        1763,
+        1037
+      ],
+      "base_child_sizes": [
+        1509,
+        1515,
+        1519,
+        1519
+      ],
+      "assigned_development": 43,
+      "unprocessed_or_unplaced": 104,
+      "first_unplaced_UID": 15184,
+      "packing_counts": {
+        "base_slots": 6062,
+        "base_union": 2573,
+        "duplicate_slots": 3489
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 72,
+      "development": 119,
+      "consumed": 41,
+      "source_development_union": 2489,
+      "old_selected_region_union_sizes": [
+        1904,
+        854,
+        1304,
+        1526
+      ],
+      "base_child_sizes": [
+        1518,
+        1536,
+        1535,
+        1536
+      ],
+      "assigned_development": 97,
+      "unprocessed_or_unplaced": 22,
+      "first_unplaced_UID": 2357,
+      "packing_counts": {
+        "base_slots": 6125,
+        "base_union": 2453,
+        "duplicate_slots": 3672
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 73,
+      "development": 16,
+      "consumed": 3,
+      "source_development_union": 192,
+      "old_selected_region_union_sizes": [
+        157,
+        4,
+        51,
+        21
+      ],
+      "base_child_sizes": [
+        192,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 16,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 192,
+        "base_union": 192,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 192,
+        "base_union": 192,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2880,
+        "available_slots": 5952,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 74,
+      "development": 124,
+      "consumed": 54,
+      "source_development_union": 2608,
+      "old_selected_region_union_sizes": [
+        2134,
+        816,
+        332,
+        2114
+      ],
+      "base_child_sizes": [
+        1533,
+        1530,
+        1535,
+        1531
+      ],
+      "assigned_development": 66,
+      "unprocessed_or_unplaced": 58,
+      "first_unplaced_UID": 2660,
+      "packing_counts": {
+        "base_slots": 6129,
+        "base_union": 2429,
+        "duplicate_slots": 3700
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 75,
+      "development": 124,
+      "consumed": 48,
+      "source_development_union": 2030,
+      "old_selected_region_union_sizes": [
+        1630,
+        454,
+        1272,
+        1207
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        1536,
+        717
+      ],
+      "assigned_development": 124,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5325,
+        "base_union": 2030,
+        "duplicate_slots": 3295
+      },
+      "fill_counts": {
+        "base_slots": 5325,
+        "base_union": 2030,
+        "duplicate_slots": 3295,
+        "missing_source_leaves": 1042,
+        "available_slots": 819,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 76,
+      "development": 115,
+      "consumed": 56,
+      "source_development_union": 2431,
+      "old_selected_region_union_sizes": [
+        1668,
+        1137,
+        1291,
+        1821
+      ],
+      "base_child_sizes": [
+        1536,
+        1530,
+        1536,
+        1508
+      ],
+      "assigned_development": 88,
+      "unprocessed_or_unplaced": 27,
+      "first_unplaced_UID": 1672,
+      "packing_counts": {
+        "base_slots": 6110,
+        "base_union": 2369,
+        "duplicate_slots": 3741
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 77,
+      "development": 110,
+      "consumed": 46,
+      "source_development_union": 1978,
+      "old_selected_region_union_sizes": [
+        1509,
+        388,
+        1156,
+        1181
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        1105,
+        0
+      ],
+      "assigned_development": 110,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4177,
+        "base_union": 1978,
+        "duplicate_slots": 2199
+      },
+      "fill_counts": {
+        "base_slots": 4177,
+        "base_union": 1978,
+        "duplicate_slots": 2199,
+        "missing_source_leaves": 1094,
+        "available_slots": 1967,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 78,
+      "development": 213,
+      "consumed": 110,
+      "source_development_union": 2442,
+      "old_selected_region_union_sizes": [
+        2123,
+        1637,
+        783,
+        1542
+      ],
+      "base_child_sizes": [
+        1534,
+        1524,
+        1535,
+        1525
+      ],
+      "assigned_development": 75,
+      "unprocessed_or_unplaced": 138,
+      "first_unplaced_UID": 1918,
+      "packing_counts": {
+        "base_slots": 6118,
+        "base_union": 2208,
+        "duplicate_slots": 3910
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 79,
+      "development": 53,
+      "consumed": 41,
+      "source_development_union": 2506,
+      "old_selected_region_union_sizes": [
+        1845,
+        1161,
+        841,
+        876
+      ],
+      "base_child_sizes": [
+        1525,
+        1533,
+        1522,
+        479
+      ],
+      "assigned_development": 53,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5059,
+        "base_union": 2506,
+        "duplicate_slots": 2553
+      },
+      "fill_counts": {
+        "base_slots": 5059,
+        "base_union": 2506,
+        "duplicate_slots": 2553,
+        "missing_source_leaves": 566,
+        "available_slots": 1085,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 80,
+      "development": 56,
+      "consumed": 22,
+      "source_development_union": 1767,
+      "old_selected_region_union_sizes": [
+        1233,
+        551,
+        922,
+        799
+      ],
+      "base_child_sizes": [
+        1531,
+        1092,
+        0,
+        0
+      ],
+      "assigned_development": 56,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2623,
+        "base_union": 1767,
+        "duplicate_slots": 856
+      },
+      "fill_counts": {
+        "base_slots": 2623,
+        "base_union": 1767,
+        "duplicate_slots": 856,
+        "missing_source_leaves": 1305,
+        "available_slots": 3521,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 81,
+      "development": 113,
+      "consumed": 67,
+      "source_development_union": 2646,
+      "old_selected_region_union_sizes": [
+        2067,
+        1104,
+        1787,
+        1460
+      ],
+      "base_child_sizes": [
+        1535,
+        1535,
+        1525,
+        1491
+      ],
+      "assigned_development": 62,
+      "unprocessed_or_unplaced": 51,
+      "first_unplaced_UID": 1491,
+      "packing_counts": {
+        "base_slots": 6086,
+        "base_union": 2395,
+        "duplicate_slots": 3691
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 82,
+      "development": 144,
+      "consumed": 58,
+      "source_development_union": 2916,
+      "old_selected_region_union_sizes": [
+        2360,
+        2030,
+        1675,
+        1306
+      ],
+      "base_child_sizes": [
+        1453,
+        1533,
+        1528,
+        1479
+      ],
+      "assigned_development": 46,
+      "unprocessed_or_unplaced": 98,
+      "first_unplaced_UID": 16478,
+      "packing_counts": {
+        "base_slots": 5993,
+        "base_union": 2627,
+        "duplicate_slots": 3366
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 83,
+      "development": 70,
+      "consumed": 18,
+      "source_development_union": 1830,
+      "old_selected_region_union_sizes": [
+        994,
+        1193,
+        939,
+        932
+      ],
+      "base_child_sizes": [
+        1536,
+        1457,
+        0,
+        0
+      ],
+      "assigned_development": 70,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2993,
+        "base_union": 1830,
+        "duplicate_slots": 1163
+      },
+      "fill_counts": {
+        "base_slots": 2993,
+        "base_union": 1830,
+        "duplicate_slots": 1163,
+        "missing_source_leaves": 1242,
+        "available_slots": 3151,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 84,
+      "development": 308,
+      "consumed": 190,
+      "source_development_union": 2907,
+      "old_selected_region_union_sizes": [
+        2358,
+        2248,
+        2175,
+        2172
+      ],
+      "base_child_sizes": [
+        1530,
+        1535,
+        1527,
+        1535
+      ],
+      "assigned_development": 52,
+      "unprocessed_or_unplaced": 256,
+      "first_unplaced_UID": 12102,
+      "packing_counts": {
+        "base_slots": 6127,
+        "base_union": 2486,
+        "duplicate_slots": 3641
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 85,
+      "development": 51,
+      "consumed": 18,
+      "source_development_union": 2641,
+      "old_selected_region_union_sizes": [
+        2071,
+        1299,
+        1168,
+        1586
+      ],
+      "base_child_sizes": [
+        1526,
+        1507,
+        1498,
+        1524
+      ],
+      "assigned_development": 35,
+      "unprocessed_or_unplaced": 16,
+      "first_unplaced_UID": 14079,
+      "packing_counts": {
+        "base_slots": 6055,
+        "base_union": 2533,
+        "duplicate_slots": 3522
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 86,
+      "development": 40,
+      "consumed": 24,
+      "source_development_union": 2138,
+      "old_selected_region_union_sizes": [
+        714,
+        1235,
+        701,
+        1338
+      ],
+      "base_child_sizes": [
+        1531,
+        1535,
+        567,
+        0
+      ],
+      "assigned_development": 40,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3633,
+        "base_union": 2138,
+        "duplicate_slots": 1495
+      },
+      "fill_counts": {
+        "base_slots": 3633,
+        "base_union": 2138,
+        "duplicate_slots": 1495,
+        "missing_source_leaves": 934,
+        "available_slots": 2511,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 87,
+      "development": 134,
+      "consumed": 56,
+      "source_development_union": 2683,
+      "old_selected_region_union_sizes": [
+        1235,
+        2055,
+        1975,
+        1631
+      ],
+      "base_child_sizes": [
+        1535,
+        1531,
+        1528,
+        1434
+      ],
+      "assigned_development": 57,
+      "unprocessed_or_unplaced": 77,
+      "first_unplaced_UID": 4743,
+      "packing_counts": {
+        "base_slots": 6028,
+        "base_union": 2346,
+        "duplicate_slots": 3682
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 88,
+      "development": 131,
+      "consumed": 77,
+      "source_development_union": 1992,
+      "old_selected_region_union_sizes": [
+        1101,
+        1516,
+        634,
+        1094
+      ],
+      "base_child_sizes": [
+        1535,
+        1536,
+        896,
+        0
+      ],
+      "assigned_development": 131,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3967,
+        "base_union": 1992,
+        "duplicate_slots": 1975
+      },
+      "fill_counts": {
+        "base_slots": 3967,
+        "base_union": 1992,
+        "duplicate_slots": 1975,
+        "missing_source_leaves": 1080,
+        "available_slots": 2177,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 89,
+      "development": 86,
+      "consumed": 52,
+      "source_development_union": 2712,
+      "old_selected_region_union_sizes": [
+        2341,
+        1480,
+        1425,
+        1691
+      ],
+      "base_child_sizes": [
+        1533,
+        1523,
+        1511,
+        1482
+      ],
+      "assigned_development": 30,
+      "unprocessed_or_unplaced": 56,
+      "first_unplaced_UID": 12833,
+      "packing_counts": {
+        "base_slots": 6049,
+        "base_union": 2376,
+        "duplicate_slots": 3673
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 90,
+      "development": 30,
+      "consumed": 19,
+      "source_development_union": 1001,
+      "old_selected_region_union_sizes": [
+        146,
+        503,
+        685,
+        530
+      ],
+      "base_child_sizes": [
+        1001,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 30,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1001,
+        "base_union": 1001,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1001,
+        "base_union": 1001,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2071,
+        "available_slots": 5143,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 91,
+      "development": 78,
+      "consumed": 32,
+      "source_development_union": 2529,
+      "old_selected_region_union_sizes": [
+        2085,
+        394,
+        991,
+        1618
+      ],
+      "base_child_sizes": [
+        1528,
+        1533,
+        1530,
+        1531
+      ],
+      "assigned_development": 66,
+      "unprocessed_or_unplaced": 12,
+      "first_unplaced_UID": 4864,
+      "packing_counts": {
+        "base_slots": 6122,
+        "base_union": 2467,
+        "duplicate_slots": 3655
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 92,
+      "development": 78,
+      "consumed": 42,
+      "source_development_union": 2102,
+      "old_selected_region_union_sizes": [
+        1294,
+        954,
+        1043,
+        1219
+      ],
+      "base_child_sizes": [
+        1535,
+        1534,
+        1031,
+        0
+      ],
+      "assigned_development": 78,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4100,
+        "base_union": 2102,
+        "duplicate_slots": 1998
+      },
+      "fill_counts": {
+        "base_slots": 4100,
+        "base_union": 2102,
+        "duplicate_slots": 1998,
+        "missing_source_leaves": 970,
+        "available_slots": 2044,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 93,
+      "development": 67,
+      "consumed": 56,
+      "source_development_union": 2367,
+      "old_selected_region_union_sizes": [
+        1464,
+        712,
+        1568,
+        1429
+      ],
+      "base_child_sizes": [
+        1535,
+        1526,
+        1530,
+        983
+      ],
+      "assigned_development": 67,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5574,
+        "base_union": 2367,
+        "duplicate_slots": 3207
+      },
+      "fill_counts": {
+        "base_slots": 5574,
+        "base_union": 2367,
+        "duplicate_slots": 3207,
+        "missing_source_leaves": 705,
+        "available_slots": 570,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 94,
+      "development": 84,
+      "consumed": 27,
+      "source_development_union": 2110,
+      "old_selected_region_union_sizes": [
+        1234,
+        1417,
+        706,
+        662
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        820,
+        0
+      ],
+      "assigned_development": 84,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3892,
+        "base_union": 2110,
+        "duplicate_slots": 1782
+      },
+      "fill_counts": {
+        "base_slots": 3892,
+        "base_union": 2110,
+        "duplicate_slots": 1782,
+        "missing_source_leaves": 962,
+        "available_slots": 2252,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 95,
+      "development": 108,
+      "consumed": 51,
+      "source_development_union": 2653,
+      "old_selected_region_union_sizes": [
+        1409,
+        1613,
+        1992,
+        1252
+      ],
+      "base_child_sizes": [
+        1531,
+        1534,
+        1535,
+        1518
+      ],
+      "assigned_development": 78,
+      "unprocessed_or_unplaced": 30,
+      "first_unplaced_UID": 13939,
+      "packing_counts": {
+        "base_slots": 6118,
+        "base_union": 2577,
+        "duplicate_slots": 3541
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 96,
+      "development": 61,
+      "consumed": 42,
+      "source_development_union": 1989,
+      "old_selected_region_union_sizes": [
+        1401,
+        1224,
+        472,
+        595
+      ],
+      "base_child_sizes": [
+        1533,
+        1471,
+        0,
+        0
+      ],
+      "assigned_development": 61,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3004,
+        "base_union": 1989,
+        "duplicate_slots": 1015
+      },
+      "fill_counts": {
+        "base_slots": 3004,
+        "base_union": 1989,
+        "duplicate_slots": 1015,
+        "missing_source_leaves": 1083,
+        "available_slots": 3140,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 97,
+      "development": 103,
+      "consumed": 70,
+      "source_development_union": 2419,
+      "old_selected_region_union_sizes": [
+        2283,
+        772,
+        525,
+        990
+      ],
+      "base_child_sizes": [
+        1526,
+        1524,
+        1533,
+        1514
+      ],
+      "assigned_development": 70,
+      "unprocessed_or_unplaced": 33,
+      "first_unplaced_UID": 4596,
+      "packing_counts": {
+        "base_slots": 6097,
+        "base_union": 2319,
+        "duplicate_slots": 3778
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 98,
+      "development": 92,
+      "consumed": 66,
+      "source_development_union": 2409,
+      "old_selected_region_union_sizes": [
+        1791,
+        1202,
+        1046,
+        1456
+      ],
+      "base_child_sizes": [
+        1534,
+        1533,
+        1535,
+        1337
+      ],
+      "assigned_development": 92,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5939,
+        "base_union": 2409,
+        "duplicate_slots": 3530
+      },
+      "fill_counts": {
+        "base_slots": 5939,
+        "base_union": 2409,
+        "duplicate_slots": 3530,
+        "missing_source_leaves": 663,
+        "available_slots": 205,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 99,
+      "development": 238,
+      "consumed": 77,
+      "source_development_union": 2756,
+      "old_selected_region_union_sizes": [
+        2245,
+        2314,
+        585,
+        1431
+      ],
+      "base_child_sizes": [
+        1532,
+        1534,
+        1533,
+        1515
+      ],
+      "assigned_development": 54,
+      "unprocessed_or_unplaced": 184,
+      "first_unplaced_UID": 16510,
+      "packing_counts": {
+        "base_slots": 6114,
+        "base_union": 2392,
+        "duplicate_slots": 3722
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 100,
+      "development": 65,
+      "consumed": 52,
+      "source_development_union": 2676,
+      "old_selected_region_union_sizes": [
+        1968,
+        1629,
+        2061,
+        1196
+      ],
+      "base_child_sizes": [
+        1535,
+        1523,
+        1531,
+        1485
+      ],
+      "assigned_development": 30,
+      "unprocessed_or_unplaced": 35,
+      "first_unplaced_UID": 17098,
+      "packing_counts": {
+        "base_slots": 6074,
+        "base_union": 2441,
+        "duplicate_slots": 3633
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 101,
+      "development": 39,
+      "consumed": 33,
+      "source_development_union": 1930,
+      "old_selected_region_union_sizes": [
+        1253,
+        1006,
+        825,
+        665
+      ],
+      "base_child_sizes": [
+        1534,
+        1533,
+        324,
+        0
+      ],
+      "assigned_development": 39,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3391,
+        "base_union": 1930,
+        "duplicate_slots": 1461
+      },
+      "fill_counts": {
+        "base_slots": 3391,
+        "base_union": 1930,
+        "duplicate_slots": 1461,
+        "missing_source_leaves": 1142,
+        "available_slots": 2753,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 102,
+      "development": 51,
+      "consumed": 27,
+      "source_development_union": 1927,
+      "old_selected_region_union_sizes": [
+        1051,
+        1261,
+        482,
+        802
+      ],
+      "base_child_sizes": [
+        1527,
+        1369,
+        0,
+        0
+      ],
+      "assigned_development": 51,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2896,
+        "base_union": 1927,
+        "duplicate_slots": 969
+      },
+      "fill_counts": {
+        "base_slots": 2896,
+        "base_union": 1927,
+        "duplicate_slots": 969,
+        "missing_source_leaves": 1145,
+        "available_slots": 3248,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 103,
+      "development": 121,
+      "consumed": 32,
+      "source_development_union": 2693,
+      "old_selected_region_union_sizes": [
+        1844,
+        2004,
+        2194,
+        1148
+      ],
+      "base_child_sizes": [
+        1529,
+        1528,
+        1502,
+        1521
+      ],
+      "assigned_development": 43,
+      "unprocessed_or_unplaced": 78,
+      "first_unplaced_UID": 3273,
+      "packing_counts": {
+        "base_slots": 6080,
+        "base_union": 2392,
+        "duplicate_slots": 3688
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 104,
+      "development": 87,
+      "consumed": 69,
+      "source_development_union": 2366,
+      "old_selected_region_union_sizes": [
+        1912,
+        747,
+        804,
+        876
+      ],
+      "base_child_sizes": [
+        1534,
+        1535,
+        1533,
+        578
+      ],
+      "assigned_development": 87,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5180,
+        "base_union": 2366,
+        "duplicate_slots": 2814
+      },
+      "fill_counts": {
+        "base_slots": 5180,
+        "base_union": 2366,
+        "duplicate_slots": 2814,
+        "missing_source_leaves": 706,
+        "available_slots": 964,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 105,
+      "development": 113,
+      "consumed": 49,
+      "source_development_union": 2264,
+      "old_selected_region_union_sizes": [
+        1176,
+        697,
+        1764,
+        869
+      ],
+      "base_child_sizes": [
+        1531,
+        1535,
+        1485,
+        0
+      ],
+      "assigned_development": 113,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4551,
+        "base_union": 2264,
+        "duplicate_slots": 2287
+      },
+      "fill_counts": {
+        "base_slots": 4551,
+        "base_union": 2264,
+        "duplicate_slots": 2287,
+        "missing_source_leaves": 808,
+        "available_slots": 1593,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 106,
+      "development": 52,
+      "consumed": 18,
+      "source_development_union": 2090,
+      "old_selected_region_union_sizes": [
+        1515,
+        337,
+        953,
+        1102
+      ],
+      "base_child_sizes": [
+        1535,
+        1519,
+        501,
+        0
+      ],
+      "assigned_development": 52,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3555,
+        "base_union": 2090,
+        "duplicate_slots": 1465
+      },
+      "fill_counts": {
+        "base_slots": 3555,
+        "base_union": 2090,
+        "duplicate_slots": 1465,
+        "missing_source_leaves": 982,
+        "available_slots": 2589,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 107,
+      "development": 180,
+      "consumed": 45,
+      "source_development_union": 2788,
+      "old_selected_region_union_sizes": [
+        1441,
+        661,
+        1320,
+        2625
+      ],
+      "base_child_sizes": [
+        1525,
+        1534,
+        1536,
+        1508
+      ],
+      "assigned_development": 69,
+      "unprocessed_or_unplaced": 111,
+      "first_unplaced_UID": 5222,
+      "packing_counts": {
+        "base_slots": 6103,
+        "base_union": 2415,
+        "duplicate_slots": 3688
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 108,
+      "development": 39,
+      "consumed": 8,
+      "source_development_union": 1173,
+      "old_selected_region_union_sizes": [
+        931,
+        444,
+        515,
+        142
+      ],
+      "base_child_sizes": [
+        1173,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 39,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1173,
+        "base_union": 1173,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1173,
+        "base_union": 1173,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1899,
+        "available_slots": 4971,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 109,
+      "development": 99,
+      "consumed": 63,
+      "source_development_union": 2312,
+      "old_selected_region_union_sizes": [
+        1745,
+        1256,
+        1055,
+        961
+      ],
+      "base_child_sizes": [
+        1533,
+        1532,
+        1536,
+        860
+      ],
+      "assigned_development": 99,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5461,
+        "base_union": 2312,
+        "duplicate_slots": 3149
+      },
+      "fill_counts": {
+        "base_slots": 5461,
+        "base_union": 2312,
+        "duplicate_slots": 3149,
+        "missing_source_leaves": 760,
+        "available_slots": 683,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 110,
+      "development": 55,
+      "consumed": 37,
+      "source_development_union": 2148,
+      "old_selected_region_union_sizes": [
+        1638,
+        1144,
+        912,
+        1037
+      ],
+      "base_child_sizes": [
+        1525,
+        1523,
+        1430,
+        0
+      ],
+      "assigned_development": 55,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4478,
+        "base_union": 2148,
+        "duplicate_slots": 2330
+      },
+      "fill_counts": {
+        "base_slots": 4478,
+        "base_union": 2148,
+        "duplicate_slots": 2330,
+        "missing_source_leaves": 924,
+        "available_slots": 1666,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 111,
+      "development": 127,
+      "consumed": 76,
+      "source_development_union": 2817,
+      "old_selected_region_union_sizes": [
+        2137,
+        1660,
+        1598,
+        1420
+      ],
+      "base_child_sizes": [
+        1536,
+        1532,
+        1511,
+        1498
+      ],
+      "assigned_development": 53,
+      "unprocessed_or_unplaced": 74,
+      "first_unplaced_UID": 3603,
+      "packing_counts": {
+        "base_slots": 6077,
+        "base_union": 2586,
+        "duplicate_slots": 3491
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 112,
+      "development": 121,
+      "consumed": 52,
+      "source_development_union": 2186,
+      "old_selected_region_union_sizes": [
+        1605,
+        961,
+        1127,
+        1277
+      ],
+      "base_child_sizes": [
+        1536,
+        1536,
+        1529,
+        628
+      ],
+      "assigned_development": 121,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5229,
+        "base_union": 2186,
+        "duplicate_slots": 3043
+      },
+      "fill_counts": {
+        "base_slots": 5229,
+        "base_union": 2186,
+        "duplicate_slots": 3043,
+        "missing_source_leaves": 886,
+        "available_slots": 915,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 113,
+      "development": 133,
+      "consumed": 57,
+      "source_development_union": 2838,
+      "old_selected_region_union_sizes": [
+        2531,
+        1914,
+        1664,
+        2337
+      ],
+      "base_child_sizes": [
+        1524,
+        1509,
+        1525,
+        1519
+      ],
+      "assigned_development": 35,
+      "unprocessed_or_unplaced": 98,
+      "first_unplaced_UID": 4220,
+      "packing_counts": {
+        "base_slots": 6077,
+        "base_union": 2356,
+        "duplicate_slots": 3721
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 114,
+      "development": 168,
+      "consumed": 94,
+      "source_development_union": 2752,
+      "old_selected_region_union_sizes": [
+        1959,
+        1838,
+        1917,
+        1983
+      ],
+      "base_child_sizes": [
+        1529,
+        1534,
+        1528,
+        1449
+      ],
+      "assigned_development": 46,
+      "unprocessed_or_unplaced": 122,
+      "first_unplaced_UID": 13398,
+      "packing_counts": {
+        "base_slots": 6040,
+        "base_union": 2354,
+        "duplicate_slots": 3686
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 115,
+      "development": 12,
+      "consumed": 2,
+      "source_development_union": 143,
+      "old_selected_region_union_sizes": [
+        56,
+        51,
+        49,
+        51
+      ],
+      "base_child_sizes": [
+        143,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 12,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 143,
+        "base_union": 143,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 143,
+        "base_union": 143,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2929,
+        "available_slots": 6001,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 116,
+      "development": 34,
+      "consumed": 25,
+      "source_development_union": 1605,
+      "old_selected_region_union_sizes": [
+        932,
+        497,
+        252,
+        861
+      ],
+      "base_child_sizes": [
+        1531,
+        291,
+        0,
+        0
+      ],
+      "assigned_development": 34,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1822,
+        "base_union": 1605,
+        "duplicate_slots": 217
+      },
+      "fill_counts": {
+        "base_slots": 1822,
+        "base_union": 1605,
+        "duplicate_slots": 217,
+        "missing_source_leaves": 1467,
+        "available_slots": 4322,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 117,
+      "development": 116,
+      "consumed": 40,
+      "source_development_union": 2097,
+      "old_selected_region_union_sizes": [
+        1665,
+        1297,
+        1081,
+        1120
+      ],
+      "base_child_sizes": [
+        1535,
+        1535,
+        1536,
+        1184
+      ],
+      "assigned_development": 116,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 5790,
+        "base_union": 2097,
+        "duplicate_slots": 3693
+      },
+      "fill_counts": {
+        "base_slots": 5790,
+        "base_union": 2097,
+        "duplicate_slots": 3693,
+        "missing_source_leaves": 975,
+        "available_slots": 354,
+        "filled": false
+      },
+      "status": "THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE"
+    },
+    {
+      "expert": 118,
+      "development": 139,
+      "consumed": 56,
+      "source_development_union": 2995,
+      "old_selected_region_union_sizes": [
+        2584,
+        1604,
+        2339,
+        2340
+      ],
+      "base_child_sizes": [
+        1534,
+        1516,
+        1535,
+        1442
+      ],
+      "assigned_development": 35,
+      "unprocessed_or_unplaced": 104,
+      "first_unplaced_UID": 16499,
+      "packing_counts": {
+        "base_slots": 6027,
+        "base_union": 2634,
+        "duplicate_slots": 3393
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 119,
+      "development": 125,
+      "consumed": 41,
+      "source_development_union": 2760,
+      "old_selected_region_union_sizes": [
+        2526,
+        1530,
+        1251,
+        1140
+      ],
+      "base_child_sizes": [
+        1521,
+        1528,
+        1530,
+        1522
+      ],
+      "assigned_development": 51,
+      "unprocessed_or_unplaced": 74,
+      "first_unplaced_UID": 14101,
+      "packing_counts": {
+        "base_slots": 6101,
+        "base_union": 2431,
+        "duplicate_slots": 3670
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 120,
+      "development": 63,
+      "consumed": 30,
+      "source_development_union": 1849,
+      "old_selected_region_union_sizes": [
+        559,
+        1301,
+        1177,
+        594
+      ],
+      "base_child_sizes": [
+        1536,
+        1414,
+        0,
+        0
+      ],
+      "assigned_development": 63,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 2950,
+        "base_union": 1849,
+        "duplicate_slots": 1101
+      },
+      "fill_counts": {
+        "base_slots": 2950,
+        "base_union": 1849,
+        "duplicate_slots": 1101,
+        "missing_source_leaves": 1223,
+        "available_slots": 3194,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 121,
+      "development": 22,
+      "consumed": 11,
+      "source_development_union": 1406,
+      "old_selected_region_union_sizes": [
+        975,
+        565,
+        197,
+        779
+      ],
+      "base_child_sizes": [
+        1406,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 22,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 1406,
+        "base_union": 1406,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 1406,
+        "base_union": 1406,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 1666,
+        "available_slots": 4738,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 122,
+      "development": 39,
+      "consumed": 30,
+      "source_development_union": 2072,
+      "old_selected_region_union_sizes": [
+        1138,
+        1016,
+        819,
+        1025
+      ],
+      "base_child_sizes": [
+        1518,
+        1533,
+        287,
+        0
+      ],
+      "assigned_development": 39,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3338,
+        "base_union": 2072,
+        "duplicate_slots": 1266
+      },
+      "fill_counts": {
+        "base_slots": 3338,
+        "base_union": 2072,
+        "duplicate_slots": 1266,
+        "missing_source_leaves": 1000,
+        "available_slots": 2806,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 123,
+      "development": 102,
+      "consumed": 73,
+      "source_development_union": 2933,
+      "old_selected_region_union_sizes": [
+        2646,
+        2039,
+        1762,
+        740
+      ],
+      "base_child_sizes": [
+        1518,
+        1536,
+        1497,
+        1477
+      ],
+      "assigned_development": 30,
+      "unprocessed_or_unplaced": 72,
+      "first_unplaced_UID": 16034,
+      "packing_counts": {
+        "base_slots": 6028,
+        "base_union": 2593,
+        "duplicate_slots": 3435
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    },
+    {
+      "expert": 124,
+      "development": 7,
+      "consumed": 5,
+      "source_development_union": 167,
+      "old_selected_region_union_sizes": [
+        93,
+        33,
+        43,
+        33
+      ],
+      "base_child_sizes": [
+        167,
+        0,
+        0,
+        0
+      ],
+      "assigned_development": 7,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 167,
+        "base_union": 167,
+        "duplicate_slots": 0
+      },
+      "fill_counts": {
+        "base_slots": 167,
+        "base_union": 167,
+        "duplicate_slots": 0,
+        "missing_source_leaves": 2905,
+        "available_slots": 5977,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 125,
+      "development": 63,
+      "consumed": 35,
+      "source_development_union": 2281,
+      "old_selected_region_union_sizes": [
+        1654,
+        944,
+        743,
+        1436
+      ],
+      "base_child_sizes": [
+        1535,
+        1533,
+        1532,
+        388
+      ],
+      "assigned_development": 63,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 4988,
+        "base_union": 2281,
+        "duplicate_slots": 2707
+      },
+      "fill_counts": {
+        "base_slots": 4988,
+        "base_union": 2281,
+        "duplicate_slots": 2707,
+        "missing_source_leaves": 791,
+        "available_slots": 1156,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 126,
+      "development": 82,
+      "consumed": 46,
+      "source_development_union": 2110,
+      "old_selected_region_union_sizes": [
+        1813,
+        560,
+        662,
+        472
+      ],
+      "base_child_sizes": [
+        1536,
+        1534,
+        755,
+        0
+      ],
+      "assigned_development": 82,
+      "unprocessed_or_unplaced": 0,
+      "first_unplaced_UID": null,
+      "packing_counts": {
+        "base_slots": 3825,
+        "base_union": 2110,
+        "duplicate_slots": 1715
+      },
+      "fill_counts": {
+        "base_slots": 3825,
+        "base_union": 2110,
+        "duplicate_slots": 1715,
+        "missing_source_leaves": 962,
+        "available_slots": 2319,
+        "filled": true
+      },
+      "status": "EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS"
+    },
+    {
+      "expert": 127,
+      "development": 102,
+      "consumed": 51,
+      "source_development_union": 2386,
+      "old_selected_region_union_sizes": [
+        868,
+        1797,
+        1736,
+        1196
+      ],
+      "base_child_sizes": [
+        1536,
+        1523,
+        1531,
+        1526
+      ],
+      "assigned_development": 101,
+      "unprocessed_or_unplaced": 1,
+      "first_unplaced_UID": 5533,
+      "packing_counts": {
+        "base_slots": 6116,
+        "base_union": 2379,
+        "duplicate_slots": 3737
+      },
+      "status": "GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE"
+    }
+  ],
+  "summary": {
+    "nonempty_experts": 127,
+    "positive_witness_experts": [
+      1,
+      8,
+      9,
+      10,
+      12,
+      15,
+      16,
+      18,
+      20,
+      22,
+      25,
+      28,
+      29,
+      31,
+      32,
+      34,
+      36,
+      37,
+      39,
+      42,
+      44,
+      45,
+      46,
+      48,
+      51,
+      52,
+      53,
+      57,
+      59,
+      63,
+      64,
+      66,
+      69,
+      70,
+      73,
+      77,
+      79,
+      80,
+      83,
+      86,
+      88,
+      90,
+      92,
+      94,
+      96,
+      101,
+      102,
+      104,
+      105,
+      106,
+      108,
+      110,
+      112,
+      115,
+      116,
+      120,
+      121,
+      122,
+      124,
+      125,
+      126
+    ],
+    "inconclusive_experts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      11,
+      13,
+      14,
+      17,
+      19,
+      21,
+      23,
+      24,
+      26,
+      27,
+      30,
+      33,
+      35,
+      38,
+      40,
+      41,
+      43,
+      47,
+      49,
+      50,
+      54,
+      55,
+      56,
+      58,
+      60,
+      61,
+      62,
+      65,
+      67,
+      68,
+      71,
+      72,
+      74,
+      75,
+      76,
+      78,
+      81,
+      82,
+      84,
+      85,
+      87,
+      89,
+      91,
+      93,
+      95,
+      97,
+      98,
+      99,
+      100,
+      103,
+      107,
+      109,
+      111,
+      113,
+      114,
+      117,
+      118,
+      119,
+      123,
+      127
+    ],
+    "positive_witness_count": 61,
+    "inconclusive_count": 66,
+    "full_development_UIDs": 11721,
+    "full_consumed_UIDs": 5819,
+    "positive_development_UIDs": 3649,
+    "positive_consumed_UIDs": 1913,
+    "positive_consumed_any_child_exact_support_UIDs": 261,
+    "positive_consumed_old_selector_exact_support_UIDs": 168,
+    "full_consumed_any_child_exact_support_UIDs": 261,
+    "old_nonempty_selected_regions_union_above1536": 165,
+    "source_development_union_above1536_experts": 105,
+    "scope": "Complete original cohort reported; coverage on positive-mask subset is not complete-cohort eligibility."
+  },
+  "eligibility": {
+    "ALL127_complete_development_cover": false
+  },
+  "decision": "UNRESOLVED_SUPPORT_PACKING_OR_DOMAIN_GEOMETRY",
+  "source_model_native_GPU_gradient_calls": 0,
+  "scope": "Exact finite development support-cover eligibility only. Greedy failure is not nonexistence. No new F/own-state/head/fresh/physical-cost/rate/capacity or goal promotion.",
+  "end_utc": "2026-10-06T12:33:15.132575+00:00",
+  "resource": {
+    "wall_seconds": 6.562999999994645,
+    "parent_peak_bytes": 206319616,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 164070003,
+    "wall_limit_seconds": 120,
+    "combined_host_limit_bytes": 536870912
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\base_unions.npy",
+      "bytes": 1572992,
+      "sha256": "f0fd2501cb3175cdc6474fee4e025350a11a3c7744a0456d71cea5643446d48b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\complete_support_coverage.npy",
+      "bytes": 70288,
+      "sha256": "9dd7b27f53b8b51f679e65969ffa95b6b62ac9114a37286e71e36846a0151f32"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\controls.json",
+      "bytes": 151,
+      "sha256": "e812e8e5f7d95ba2b42194c90306e5932564310f391531ff77d30171e462538c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\development_assignment.npy",
+      "bytes": 70288,
+      "sha256": "0f9d21743db68fa18882da472205ecb1ab59fa6181a7857bd156734dc6a86cc5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\development_order.bin",
+      "bytes": 46908,
+      "sha256": "eb304bdc61491e01654494eae6190ace573d5f871852a68c51b6ee764f51e174"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\final_masks.npy",
+      "bytes": 1572992,
+      "sha256": "fc43a01a4c37a955931d931529d650bdc57fa65f35d692a71ebf1ceae0c73ff8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\old_region_unions.npy",
+      "bytes": 1572992,
+      "sha256": "9cca81419c621ecf8bd5b3e57c132d02f54302dad65607e38f8a363e253d0b38"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\packing_trace.jsonl",
+      "bytes": 783709,
+      "sha256": "1e7e14423cb082c891e684bf8c5ab4b3bb6ded4f0a1254f9cf7aa88deec2d8d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth501_support_cover\\progress.jsonl",
+      "bytes": 1377,
+      "sha256": "cf55c2a7ad28cac0e41777412234305bbd9c800d8caf6648f3b3803526c6fe44"
+    }
+  ]
+}
