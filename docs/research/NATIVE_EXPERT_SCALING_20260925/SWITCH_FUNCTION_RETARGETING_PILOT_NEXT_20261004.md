@@ -1,35 +1,34 @@
 # Current conditional transfer resumption
 
-## Current resumption: 497 exact finite geometry; minimum-source-prior interpolant next
+## Current resumption: 498 interpolant admitted FAIL; explicit variable mass next
 
-Goal ACTIVE/INCOMPLETE. [497 result](METH_497_EXACT_FEATURE_RANK_RESULT_20261006.md)
-admits ALL128expert/256case/17540UID/19962occurrence/1040count-group/384source-
-exposure domains. All5main/5audit/5admission gates PASS. Exact dyadic maps and
-nonzero minors in one admissible prime field certify full real row rank for
-all127nonempty development and ALL cases. All5819 consumed feature directions
-extend development spans independently. Exact total null dimensions53943
-development/48124ALL; empty expert0 explicit, no usefulness claim.
-This fixed unconstrained real readout can interpolate finite development
-targets;495/496 training residual is not a finite-sample representation floor.
-Source information/prior, conditioning, encodability and fresh quality remain.
+Goal ACTIVE/INCOMPLETE. [498 result](METH_498_MINIMUM_PRIOR_RESULT_20261006.md)
+admits ALL128 coefficient cases/127 development-only solves/17540UID/19962
+occurrences/1040 metric groups/384 exposures. All9 main/6 audit/5 admission
+gates PASS; all five local quality outcomes FAIL. Same A/L/width/source prior/
+metric/calibration/current495 keys/I8 codec. Fixed minimum-prior QR interpolation
+fits development F64 to RMS3.52e-15; consumed9.5188% remains above1%.
+F32 serialization ratio~3.3e-7, I8 parameter error~11.2%, arithmetic~4.9e-8.
+Physical oracle11.4353%/14.7598%; coupled79.1234%/98.6794%; ID56.0362%/22.7015%.
+Thus neither numerical convergence nor precision alone supplies useful transfer.
 
-Main17.641s/177123328B; audit7.656s/175005696B parent peaks, actual exits0;
-both Windows queries available/zero events. Original metadata builder failed
-on a61-character historical digest before any scientific observation; retained
-before repair1. Science unchanged, each main/audit runs once. Finalizer actual
-tool49aebe exits0. No readout/optimizer/source/native/model invocation, new
-resource, candidate export or whole quality/rate/useful-n/goal promotion.
-Engine/foreign hashes preserve; completed495/496/497 numerical namespaces terminal.
+Main36.953s/combined peaks900481024B; independent audit19.859s/841637888B;
+actual exits0, both Windows queries available/zero events. Finalizer9f7c4c
+actual exit0. No numerical fault or namespace replay; one changed-bank native
+prediction, no source FFN/model/GPU/new resource. Large conversion artifacts
+remain local/hash-qualified; physical bank127232136B. Engine/foreign hashes
+preserve. Completed495/496/497/498 scientific namespaces are terminal.
 
-[Whole algebra and next](METH_497_WHOLE_ALGEBRA_AND_NEXT_20261006.md) selects498:
-ONE equality-constrained readout closest to the existing source prior in its
-positive Kreg metric, development-only targets. Freeze A/L/width/prior/amplitude,
-current keys and I8 codec; retain empty expert prior. Exact real row rank makes
-the development kernel positive definite, without a numerical conditioning
-guarantee. New exact fixtures, solve/equality/serialization/full native ALL-
-domain gates, independent audit and actual resource/fault/decision contract
-must be frozen before observations. No ridge/cutoff fallback or lambda/width/
-checkpoint/ID sweep. Reuse qualified native binary on changed candidate in
-new498 namespace; no completed controls or Adam replay. Unchanged failed
-routing remains separate. All composed/fresh quality/SAME>=50/useful-n/DRAM/
-family requirements remain open.
+[Whole algebra/next](METH_498_WHOLE_ALGEBRA_AND_NEXT_20261006.md) selects499:
+explicit p(x)*Fhat_e(x), with unweighted494 L0/C0 priors, existing472/493 actual
+F/p/UID provenance, unchanged A/r512/Kreg/keys/I8, SAME fixed nearest-prior
+development-only learner. Original saved F must be joined directly, never
+recovered by dividing rounded pF. Reuse497 exact rank; no new teacher capture.
+Separate unweighted and source-mass oracle function quality from native
+candidate winner/mass/coupled error on all original domains. This new geometry
+must implement/freeze native wire/arithmetic/fixtures/binding/resource/fault/
+independent-audit protocol BEFORE any499 control/vector/solve/native observation.
+No499 code or science exists yet; no width/lambda/prior/precision/ID sweep.
+Source p is an oracle diagnostic, not an inexpensive runtime. Normalization,
+useful n/RAM, bounded active width, CPU LUT/physicalDRAM and all composed/own-
+state/fresh quality/SAME>=50/family/scale gates remain open.

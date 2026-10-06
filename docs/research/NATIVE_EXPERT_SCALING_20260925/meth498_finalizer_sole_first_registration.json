@@ -1,0 +1,16 @@
+{
+  "experiment": "METH498 sole metadata finalizer execution registration",
+  "attempt": 1,
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth498_finalize_admission.py",
+  "actual_exit_code": 0,
+  "admission_sha256": "bff9a2ed8533bc28a0fc1892151cbedd7fb1274da62103bddea09cc4f032bac6",
+  "actual_tool_result": {
+    "chunk_id": "9f7c4c",
+    "wall_time_seconds": 0.3124676,
+    "exit_code": 0,
+    "original_token_count": 143,
+    "output": "{\"admission\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\ADMISSION_498_20261006.json\", \"sha256\": \"bff9a2ed8533bc28a0fc1892151cbedd7fb1274da62103bddea09cc4f032bac6\", \"gates\": {\"sole_first_actual_main_audit_and_terminal_resources\": true, \"ALL_independent_full_domain_gates\": true, \"BOTH_actual_Windows_parent_and_child_process_instances_without_fault\": true, \"source_raw_retention_scope_digest_link\": true, \"local_candidate_only_no_model_quality_rate_useful_n_or_goal_promotion\": true}, \"decision\": \"NEXT_SOURCE_PRIOR_TRANSPORT\"}\r\n"
+  },
+  "process_instance": "Not emitted by this metadata finalizer; no PID invented.",
+  "scope": "All five qualification gates admit local candidate evidence only. Recipe outcomes remain FAIL; goal ACTIVE/INCOMPLETE."
+}
