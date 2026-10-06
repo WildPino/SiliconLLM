@@ -1,41 +1,61 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:491 admitted mass bounds; selected-function transfer next
+## Current resumption:492 constant amplitude excluded; weighted-function transfer next
 
-Goal ACTIVE/INCOMPLETE. [491 result](METH_491_MASS_INTERVAL_RESULT_20261006.md):
-sole main a50982/session76971/069042 exit0,38.938s/180375552B; independent
-verifier e723c8/session64074/3caea5 exit0,45.531s/154775552B. ALL5 main/ALL8
-verifier gates PASS; ALL12 outcomes/9228 exact signed residual coordinates
-admitted. Actual Windows both available/zero events; finalizer9e146c exit0/ALL5.
-Fresh binding/source commits b80b7b7/af71fae; completed namespaces immutable.
+Goal ACTIVE/INCOMPLETE. [492 result](METH_492_SELECTED_AMPLITUDE_RESULT_20261006.md):
+sole main3918c3/session95700/714362 exit0,27.313s/150077440B; independent
+verifier6e62fc/session72228/fa9e4a exit0,27.797s/120582144B. ALL5 main/ALL8
+verifier/ALL5 finalizer5cacff gates PASS,ALL1536cells/238872UID/387036occurrences
+and39/72/4608/9216/144reports admitted. Actual Windows both available/zero
+application events. First metadata/builder faults retained before origin-only
+R1; combined builders41.735s<=90. Completed numerical namespaces immutable.
 
-Four ideal affine root-mass bounds are positive; eight fixed witnesses remain
-INCONCLUSIVE. Every residual is NONZERO, so no unrestricted affine
-impossibility follows. [Same-witness post-hoc bias elimination](meth491_admitted_norm_algebra.json)
-92b63f exit0,.234s/56684544B gives necessary raw slope L1 floors:
-bank0 98901154,bank1 63828375,bank3 19233036,bank4 47917737. No new SVD/fit/native,
-physical impossibility, head, fresh quality or rate claim. Large coefficient
-norm alone does not prove minimum F32 error or instability on model states.
+Exact source extrema exclude uniform1% constant amplitude on1499 of1522
+nonempty development cells.23 eligible cells contain only1..4states/34devUID;
+27/30 consumedvalUID with a fixed scalar fail.14 development-empty slots
+remain unsupported,including4 validation-exposed. No function/task loss is
+inferred from amplitude alone; no budget/ID/scalar sweep or constant promotion.
 
-[Whole algebra/next](METH_491_WHOLE_ALGEBRA_AND_NEXT_20261006.md) returns to
-Y=p_e(x)F_e(x), choice/function/observable information and SAMEartifact cost.
-[492 eligibility](METH_492_SELECTED_AMPLITUDE_ELIGIBILITY_20261006.md) proposes
-ONE exact minimax-constant amplitude filter on each original expert's winner
-cell. Source F32 extrema decide ideal feasibility by the exact rational
-p_max/p_min<=10201/10000; fixed scalar chosen on development only. All IDs,
-roles/rare/empty/validation-only cases and occurrences remain counted.
+[Whole algebra/next](METH_492_WHOLE_ALGEBRA_AND_NEXT_20261006.md) selects direct
+weighted output Y=p_e F_e (with original acceptance/rounding contract).
+[493 eligibility](METH_493_WEIGHTED_FUNCTION_TRANSFER_ELIGIBILITY_20261006.md):
+complete bank11 pilot17540UID/11721dev/5819consumedval/19962occurrences/all128slots.
+[Source metadata](meth493_weighted_target_metadata.json),146ffb exit0,1.625s/
+25370624B,fresh SHA of472 query/reference arrays matches original records;
+no vector calculation. Those direct arrays must be added to493 binding:
+they were absent in492 catalog.472/476 source chains are reusable,old recipes
+remain rejected and old main/audits are not replayed.
 
-Next implement/freeze492 main, independent verifier and metadata apparatus;
-then sole fresh binding/commit, main180s256MiB, verifier300s256MiB,new32MiB.
-No492 scientific helper/binding/control/source extrema observation yet.
-No own live science process. No old main/audit/capture/control rerun.
+Next implement/freeze493 compiler pF, independent verifier, exact wire/control/
+rounding/provenance and resource inventory; sole fresh binding/commit/main
+180s256MiB/verifier300s256MiB/new128MiB.493 target compiler/numeric observation/
+fit/native remain unimplemented. Shared nonlinear features/conditional B and
+product-key are an untrained logical candidate,not quality/cost evidence.
+No own live scientific process. No new resources or old capture/replay.
 
-490's fixed recipe remains rejected236613/238872; its ideal failures match
-physical failures.489 CPU n128 warm prose54.8773/lower53.4759 remains positive;
-fixed GPU per-operator layout closed for speedFAIL. Full goal still requires
-convenient pretrained transfer,useful distinctn/RAM,CPU LUT winner AND
-amplitude or weighted function,physicalDRAM,fresh quality/SAME>=50 and
-multiple actual families/scales/100B.
+491's four necessary affine slope bounds19M..99M/eight inconclusive remain
+valid with nonzero residuals; no generic affine/C impossibility.489CPU n128
+warm prose54.8773/lower53.4759 remains positive on its original artifact.
+Full goal still requires convenient pretrained transfer,useful distinctn/RAM,
+CPU LUT,physicalDRAM,fresh quality/SAME>=50 and multiple actualfamilies/scales.
+
+## Implemented analysis: exact constant selected-amplitude exclusion
+
+492 exact-rational main/independent verifier and actual execution/Windows/
+terminal-resource admission are complete. ALL1536cell extrema/intervals/
+fixed-F32 candidates,238872UID and387036occurrence source joins/states plus
+all39/72/4608/9216/144reports admitted.1499 of1522 development-exposed cells
+exclude uniform1% constant amplitude;23eligible cells are rare and do not
+support complete preservation. This is a reproducible NEGATIVE class filter,
+not a new functional artifact. First patch/builder faults and origin-only R1
+retained. [492 result](METH_492_SELECTED_AMPLITUDE_RESULT_20261006.md).
+
+493 metadata-only helper freshly qualifies saved472 source query/reference
+headers and hashes after492;it calculates no vector/target. Complete bank11
+pF target compiler and independent verifier remain to implement/freeze,with
+17540UID/19962occurrence pilot and explicit472/476 source chains. Proposed
+shared nonlinear dictionary/conditional readout/product-key is UNTRAINED;
+no wholeart,quality/rate/LUT/DRAM or family promotion. [493 eligibility](METH_493_WEIGHTED_FUNCTION_TRANSFER_ELIGIBILITY_20261006.md).
 
 ## Available analysis: exact parametric affine root-mass bounds
 
@@ -88,7 +108,7 @@ learnability remains unresolved.490 separately fitted and physically qualified
 the fixed normalized root-mass recipe; source fidelity FAILS despite valid
 probabilities. No passing conditional-mass candidate is available.
 Wholeartifact/freshquality/SAME>=50/usefuln/CPU LUT/physicalDRAM/family transfer
-remain absent. [Current algebra/next](METH_491_WHOLE_ALGEBRA_AND_NEXT_20261006.md);
+remain absent. [Current algebra/next](METH_492_WHOLE_ALGEBRA_AND_NEXT_20261006.md);
 [prior481 algebra](METH_481_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
 
 ## Available transfer input: complete native routing supervision
@@ -486,7 +506,7 @@ generality and useful larger-n scaling remain research.** This file
 describes what can be reproduced now, what has failed, and what still needs an
 experiment. The target is one identifiable artifact derived from a pretrained
 LLM, retaining useful held-out, generative and task quality against that donor,
-running in the project C engine at ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥50 accepted batch-1 tokens/s on a declared
+running in the project C engine at ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥50 accepted batch-1 tokens/s on a declared
 CPU and context. The same artifact must pass quality and rate. A second donor
 family must still test which steps transfer beyond this same-family result. More stored parameters alone
 are not evidence of transferred capability.
@@ -979,7 +999,7 @@ is UNTRAINED:smaller attention,ten nonlinear128-wide children per source
 parent(select one),640 labels/layer retaining original9.437B routed coefficient
 capacity. [303 actual I8/full-Q6 native cost](METH_303_COMPACT_I8_PREFLIGHT_RESULT_20261003.md)
 passes7,176 exact integer/scaled rows,97,194 stored bank edges,real Q6 decoding
-and25-layer macro/child controls but FAILS14ms:31.268ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“31.936ms medians,
+and25-layer macro/child controls but FAILS14ms:31.268ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ31.936ms medians,
 repeatability1.0214/9.953GB peakRSS. No teacher collection/training for this
 unchanged implementation. Attribute unchanged math first, then select/freeze
 a changed cost path. Child exposure/utility and independent composed quality
@@ -987,13 +1007,13 @@ still require their own audit. No student/artifact/rate or useful new n yet.
 [304 unchanged-math attribution](METH_304_COMPACT_I8_PROFILE_RESULT_20261003.md)
 retains all30 exact303 outputs/routes and complete selftests. Profile-build
 projection20.308ms/90.478%,MLA8.531ms/head4.658ms are diagnostic only;its
-21.846ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“22.477ms medians still fail14ms and do not replace303's31ms. Different
+21.846ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22.477ms medians still fail14ms and do not replace303's31ms. Different
 compiled-run timing causes remain unisolated. [305 exact biased-byte/two-part I8](METH_305_BIASED_I8_PREFLIGHT_RESULT_20261003.md)
 now reproduces every303 output/control but FAILS14ms at22ms. [306 packedI4/
 tile4/serial tiny-query](METH_306_PACKED_I4_PREFLIGHT_RESULT_20261003.md) retains
 all coefficient capacity, changes precision/compute scheduling, and passes
 packed format/row/head/router controls;310.572MB scenario/5.127GB RSS but
-PASSIVE20ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
+PASSIVE20ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ22ms FAIL14ms. Those controls prove own arithmetic, not fidelity of
 a learned donor/student conversion atI4. No teacher weights exist yet.
 [307 unchanged-binary wait profile](METH_307_OPENMP_WAIT_POLICY_RESULT_20261003.md)
 retains all90 original306 outputs/selftests, but ACTIVE14.780/11.764/11.320ms
@@ -1054,7 +1074,7 @@ validated new router. Proposed640 storage24.84GB versus6400 storage241.31GB.
 [318/319 native full-geometry decoder](METH_319_FULL_WIDTH_ADDITIVE_CPU_RESULT_20261003.md)
 now passes all source/numeric/format/route/capacity controls on fully allocated
 3.187GB with actual source head/router/norm/embedding. All nine repetition
-medians38.124ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
+medians38.124ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ55.526ms exceed14ms; pooled ratio1.456 fails1.10. Unchanged
 full-width decoder is CLOSED before training/640-bank allocation.318 startup
 failure remains preserved, exact binary319 omits OMP_PROC_BIND to initialize.
 No unmeasured cache/DRAM explanation or accepted-rate claim from these fixtures.
