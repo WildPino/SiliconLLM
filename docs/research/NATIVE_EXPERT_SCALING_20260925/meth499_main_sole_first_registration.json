@@ -1,0 +1,42 @@
+{
+  "experiment": "METH499 sole first main execution registration",
+  "attempt": 1,
+  "process_instance": {
+    "pid": 15100,
+    "create_time_unix": 1791285378.1019871
+  },
+  "record_sha256": "1bf8785e5991ef8d629f419e17879bd011f95ec0175824308832654742300cde",
+  "actual_exit_code": 0,
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth499_factor_fit.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth499_factor_fit_result.json --binding-sha ce3cf895f4093d221a2d096b7b3246d599f04e4f84b5ce3e0f459b31697a1576",
+  "actual_tool_results": [
+    {
+      "chunk_id": "bb10f6",
+      "wall_time_seconds": 10.008162,
+      "session_id": 86808,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "0cdd92",
+      "wall_time_seconds": 30.0122091,
+      "session_id": 86808,
+      "original_token_count": 48,
+      "output": "{\"experts_fitted\": 1}\r\n{\"experts_fitted\": 17}\r\n{\"experts_fitted\": 33}\r\n{\"experts_fitted\": 49}\r\n{\"experts_fitted\": 65}\r\n{\"experts_fitted\": 81}\r\n{\"experts_fitted\": 97}\r\n{\"experts_fitted\": 113}\r\n"
+    },
+    {
+      "chunk_id": "f347c4",
+      "wall_time_seconds": 0.0000101,
+      "exit_code": 0,
+      "original_token_count": 335,
+      "output": "{\"gates\": {\"ALL_actual_references_priors_rank_compiler_runtime_and_scientific_SHA_before_NumPy\": true, \"NEW499_QR_I8_LUT_A16_full_integer_RNE_product_and_negative_wire_controls\": true, \"ALL17540_unweighted_F_19962_reference_hash_input_mass_control_role_joins_no_rounded_division\": true, \"ALL128_unweighted_L0_and_C0_prior_cases127_KKT_solves_C64_C32_same_A_keys\": true, \"NEW499_actual_compiler_native_modules_and_unchanged_ID_logit_probability_BYTE\": true, \"ALL17540_unweighted_F_source_mass_sameID_mass_choice_and_coupled_native_BYTE\": true, \"ALL17540_dual_function_error_levels_and_nonorthogonal_choice_mass_closure\": true, \"ALL1040_reports384_exposures_and_original_source_controls_ID_denominators\": true}, \"outcomes\": {\"unweighted_fit64_ALL_six_RMS_1pct\": false, \"unweighted_fit32_ALL_six_RMS_1pct\": false, \"unweighted_oracle_ALL_six_RMS_1pct\": false, \"weighted_fit64_ALL_six_RMS_1pct\": false, \"weighted_fit32_ALL_six_RMS_1pct\": false, \"weighted_oracle_ALL_six_RMS_1pct\": false, \"coupled_ALL_six_RMS_1pct\": false, \"ID_ALL_six_999permille\": false, \"mass_ALL_six_relative_RMS_1pct\": false}, \"decision\": \"NEXT_SOURCE_FEATURE_INFORMATION\", \"resource\": {\"wall_seconds\": 84.25, \"parent_peak_bytes\": 942465024, \"native_peak_bytes\": 131534848, \"bytes_hashed\": 2787633467, \"wall_limit_seconds\": 900, \"combined_host_limit_bytes\": 1610612736}}\r\n"
+    }
+  ],
+  "actual_Windows_tool_result": {
+    "chunk_id": "5f1b2d",
+    "wall_time_seconds": 1.1914771,
+    "exit_code": 0,
+    "original_token_count": 51,
+    "output": "{\r\n  \"query_start_utc\": \"2026-10-06T11:16:16.3366230+00:00\",\r\n  \"query_end_utc\": \"2026-10-06T11:18:30.1839181+00:00\",\r\n  \"query_available\": true,\r\n  \"returned_event_count\": 0,\r\n  \"query_error\": null\r\n}\r\n"
+  },
+  "scope": "Complete one-bank factorized fit and physical prediction. One compile, three new native controls/negative-wire/prediction calls, 127 development-only solves, no source/model calls. Independent audit pending. Scientific namespace terminal."
+}
