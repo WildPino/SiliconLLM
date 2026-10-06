@@ -14,7 +14,7 @@ performance promotion. The proposed argument below is preserved as history.
 |499 global compact feature fit|Encoding error small, consumed fitted functions/control fail|Source information outside development constraints|
 |500/502 redundant finite atom unions|Source FFN copying at1536 active ceiling|503 oracle natural p95 still39.941205%; selector alone insufficient|
 |504 source-derived exact input cones|637 sound masks; ALL1285 selected cases omitted integer signs/hidden contract verified|Only6.394780% natural coverage, full fallback overhead/storage|
-|453â€“456 approximate compact WI plus actual zero-only WO|Sparse WO exact at given hidden state;456 mean ratio.801649 fails<=.80|Approximate WI and representation/decode cost retained|
+|453–456 approximate compact WI plus actual zero-only WO|Sparse WO exact at given hidden state;456 mean ratio.801649 fails<=.80|Approximate WI and representation/decode cost retained|
 |489 original source I8/A16 whole model|Original128 warm prose54.8773/lower53.4759, exact original cohorts|Original active format; no convenient transformed capacity or fresh promotion|
 
 Shift conditional selection AFTER source WI/ReLU/A16. Compute original WI
@@ -24,7 +24,7 @@ WO consults only columns with code!=0. This avoids approximating the source
 function or predicting an unseen sign pattern before computing it.
 
 New candidate is original-I8 WI + original-I8 WO in COLUMN layout with exact
-zero-only reads. The compact/I4/rotated WI in453â€“456 is removed. Reuse qualified
+zero-only reads. The compact/I4/rotated WI in453–456 is removed. Reuse qualified
 unchanged source374 integer WI/A16 primitives and454 column accumulation as
 components, with fresh actual hash/extreme/format qualification. Do not replay
 those closed main/timing namespaces, tweak their tiles/LUT, or relax their gates.
