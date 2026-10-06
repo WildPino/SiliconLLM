@@ -1,0 +1,370 @@
+{
+  "experiment": "METH490 separate affine normalized conditional root mass",
+  "start_utc": "2026-10-06T04:58:43.702548+00:00",
+  "process_instance": {
+    "pid": 21696,
+    "create_time_unix": 1791262723.5007436
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth490_r1_root_mass.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth490_r1_root_mass_result.json",
+    "--binding-sha",
+    "f63189dd38d4690386eca97509301440bd150731ee47931a180dc7a4c58a5747"
+  ],
+  "commands": [
+    {
+      "label": "predict",
+      "argv": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_root_mass\\meth490_root_mass.exe",
+        "predict",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\heads.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth479_routing_supervision\\unique_inputs.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\predictions.bin"
+      ],
+      "start_utc": "2026-10-06T04:59:42.584811+00:00",
+      "descendant_process_peaks": [],
+      "process_instance": {
+        "pid": 15976,
+        "create_time_unix": 1791262782.5862236
+      },
+      "returncode": 0,
+      "end_utc": "2026-10-06T04:59:44.006165+00:00",
+      "observer_exit_races": 0,
+      "observed_modules": [
+        "C:\\Windows\\System32\\ntdll.dll",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_root_mass\\meth490_root_mass.exe"
+      ]
+    }
+  ],
+  "gates": {
+    "frozen_source_supervision_runtime_and_scientific_files": true,
+    "ALL_UID_roles_links_and_root_target_schema": true,
+    "original_compile_sigmoid_AVX_FPU_negative_controls_retained_pending_numerical_audit": true,
+    "ALL12_original_root_targets_and_development_only_384_updates": true,
+    "ALL_finite_C_dot_pair_and_complete_occurrence_book_ID_reports": true
+  },
+  "isolation_waits": [
+    {
+      "label": "optimizer_step_bank6",
+      "seconds": 1.125,
+      "observations": [
+        {
+          "utc": "2026-10-06T04:59:22.392068+00:00",
+          "foreign": [
+            {
+              "pid": 29684,
+              "name": "python.exe"
+            },
+            {
+              "pid": 30596,
+              "name": "python.exe"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "f63189dd38d4690386eca97509301440bd150731ee47931a180dc7a4c58a5747",
+  "source_freeze": "190c2257d9aad19b3619878a9bb3a46ff7e2d5e1",
+  "execution_head": "a3793d71f78813dc386f5c32dd0e8afe55cbbe2d",
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "version": "0.3.31.188.0",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "inherited_saved_updates": 64,
+  "new_optimizer_updates": 320,
+  "completed_roots": 12,
+  "models": [
+    {
+      "bank": 0,
+      "unique_inputs": 22272,
+      "development_inputs": 14848,
+      "consumed_validation_inputs": 7424,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_root_mass\\bank00_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0000000000000002,
+      "initial_loss": 0.6931471805599452,
+      "final_loss": 0.4197183990072528
+    },
+    {
+      "bank": 1,
+      "unique_inputs": 22272,
+      "development_inputs": 14848,
+      "consumed_validation_inputs": 7424,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_root_mass\\bank01_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0000000000000002,
+      "initial_loss": 0.6931471805599452,
+      "final_loss": 0.5045593637094323
+    },
+    {
+      "bank": 2,
+      "unique_inputs": 22272,
+      "development_inputs": 14848,
+      "consumed_validation_inputs": 7424,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank02_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0000000000000002,
+      "initial_loss": 0.6931471805599452,
+      "final_loss": 0.5502571589059791
+    },
+    {
+      "bank": 3,
+      "unique_inputs": 22272,
+      "development_inputs": 14848,
+      "consumed_validation_inputs": 7424,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank03_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0000000000000002,
+      "initial_loss": 0.6931471805599452,
+      "final_loss": 0.5722806754042211
+    },
+    {
+      "bank": 4,
+      "unique_inputs": 22272,
+      "development_inputs": 14848,
+      "consumed_validation_inputs": 7424,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank04_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0000000000000002,
+      "initial_loss": 0.6931471805599452,
+      "final_loss": 0.588695737599977
+    },
+    {
+      "bank": 5,
+      "unique_inputs": 22272,
+      "development_inputs": 14848,
+      "consumed_validation_inputs": 7424,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank05_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0000000000000002,
+      "initial_loss": 0.6931471805599452,
+      "final_loss": 0.47350761781047235
+    },
+    {
+      "bank": 6,
+      "unique_inputs": 17540,
+      "development_inputs": 11721,
+      "consumed_validation_inputs": 5819,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank06_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0,
+      "initial_loss": 0.6931471805599453,
+      "final_loss": 0.3988899515261414
+    },
+    {
+      "bank": 7,
+      "unique_inputs": 17540,
+      "development_inputs": 11721,
+      "consumed_validation_inputs": 5819,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank07_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0,
+      "initial_loss": 0.6931471805599453,
+      "final_loss": 0.4826280897624855
+    },
+    {
+      "bank": 8,
+      "unique_inputs": 17540,
+      "development_inputs": 11721,
+      "consumed_validation_inputs": 5819,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank08_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0,
+      "initial_loss": 0.6931471805599453,
+      "final_loss": 0.5125979547857484
+    },
+    {
+      "bank": 9,
+      "unique_inputs": 17540,
+      "development_inputs": 11721,
+      "consumed_validation_inputs": 5819,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank09_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0,
+      "initial_loss": 0.6931471805599453,
+      "final_loss": 0.4928760652224132
+    },
+    {
+      "bank": 10,
+      "unique_inputs": 17540,
+      "development_inputs": 11721,
+      "consumed_validation_inputs": 5819,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank10_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0,
+      "initial_loss": 0.6931471805599453,
+      "final_loss": 0.4930134781224109
+    },
+    {
+      "bank": 11,
+      "unique_inputs": 17540,
+      "development_inputs": 11721,
+      "consumed_validation_inputs": 5819,
+      "history_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank11_history.npz",
+      "steps": 32,
+      "training_weight_sum": 1.0,
+      "initial_loss": 0.6931471805599453,
+      "final_loss": 0.4801346925548939
+    }
+  ],
+  "unique_inputs": 238872,
+  "occurrences": 387036,
+  "optimizer_updates": 384,
+  "steps_per_root": 32,
+  "learning_rate": 0.03,
+  "log_error_budget": 0.001421475836166869,
+  "source_zero_root_child_mass_fields": 0,
+  "maximum_pair_sum_error": 2.9802322387695312e-08,
+  "validation_training_examples": 0,
+  "feasibility": {
+    "EVERY_development_selected_root_log_error_within_eta_over7": false,
+    "EVERY_consumed_validation_selected_root_log_error_within_eta_over7": false
+  },
+  "overall": [
+    {
+      "bank": -1,
+      "role": "ALL",
+      "count": 238872,
+      "over_log_budget": 236613,
+      "zero_candidate_selected": 0,
+      "max_log_error": 3.960829524930641,
+      "mean_log_error": 0.19512101278281369,
+      "max_relative_error": 13.591878785201708
+    },
+    {
+      "bank": -1,
+      "role": "development",
+      "count": 159414,
+      "over_log_budget": 157882,
+      "zero_candidate_selected": 0,
+      "max_log_error": 3.1743697337279824,
+      "mean_log_error": 0.18974421958057378,
+      "max_relative_error": 13.591878785201708
+    },
+    {
+      "bank": -1,
+      "role": "consumed_validation",
+      "count": 79458,
+      "over_log_budget": 78731,
+      "zero_candidate_selected": 0,
+      "max_log_error": 3.960829524930641,
+      "mean_log_error": 0.20590829803466848,
+      "max_relative_error": 11.291708987238058
+    }
+  ],
+  "decision": "FIXED_ROOT_MASS_RECIPE_FAIL_NOT_A_CLASS_IMPOSSIBILITY",
+  "scope": "No winner fitting, new capture, model inference, fresh held-out quality, LUT timing or DRAM claim.",
+  "end_utc": "2026-10-06T04:59:45.688208+00:00",
+  "resource": {
+    "wall_seconds": 61.98500000000058,
+    "parent_peak_bytes": 813608960,
+    "native_peak_bytes": 4382720,
+    "bytes_hashed": 9843961275,
+    "wall_limit_seconds": 600,
+    "combined_host_limit_bytes": 1073741824
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank02_history.npz",
+      "bytes": 1182090,
+      "sha256": "ce35473a85ee0c9f1f87a6cfe28779dff3a42f91499d4214b7aef3d75d8a8ca1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank03_history.npz",
+      "bytes": 1182090,
+      "sha256": "019e07937dad81eded19d519bc620b0498b01c781f675f4794ef75aa22276907"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank04_history.npz",
+      "bytes": 1182090,
+      "sha256": "9d10c157840a2311d4a879fd306cfd8d63515e9cac58acebb1333ea01ba21281"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank05_history.npz",
+      "bytes": 1182090,
+      "sha256": "5d3a48b7bbc828525e9d5047b2250a5045860cd3b9d0d813e2a4869d415601f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank06_history.npz",
+      "bytes": 1144566,
+      "sha256": "c7f45dfd1091863f40b253f1409707675c375a3de93d48406e79100a64ee257f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank07_history.npz",
+      "bytes": 1144566,
+      "sha256": "3489107062846823086fe53da1107ba468ca09b752f17af401bf8844a5d49b0d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank08_history.npz",
+      "bytes": 1144566,
+      "sha256": "d1f3cec5441029973ba9dd6253013d34764879425e616ea6886c6215f786ebcd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank09_history.npz",
+      "bytes": 1144566,
+      "sha256": "5449e5105fe8d2f3603971f03a8e49e40991126194c533585f98c7718a657429"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank10_history.npz",
+      "bytes": 1144566,
+      "sha256": "8123d2a8dbc03a7ec09490e37d38a4fdd86349ce903a0d6778d867096618991f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\bank11_history.npz",
+      "bytes": 1144566,
+      "sha256": "4ac4badb4d794ec32280f71dee59238914847c08db12ce6862de5a200e9ca012"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\complete_reports.json",
+      "bytes": 4320399,
+      "sha256": "db3c5498491e5f710a2ac68d15cce8759b45c227ec957cb16085959510981f3f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\diagnostics.bin",
+      "bytes": 11465880,
+      "sha256": "bf5dc7ecdb639e4a938e568a0f8673e8fd4929404246b70b9afbb76815f1702f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\heads.bin",
+      "bytes": 36936,
+      "sha256": "08c882a8f9110dcbf436a35603a0929bdaee8d3f96c68a535d944152579f2aec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\predict.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\predict.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\predictions.bin",
+      "bytes": 3821976,
+      "sha256": "8d31fa76e6411a239c6eea3ca82d5ccbd11a5237e61a84d6b846abbb94514e44"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth490_r1_root_mass\\progress.jsonl",
+      "bytes": 1789,
+      "sha256": "d1ee77f4037dd8f5562ceeab4275ea7d8b3dac8dfde4d7f163771ec6ef7341c6"
+    }
+  ]
+}
