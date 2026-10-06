@@ -1,0 +1,127 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_operations.py",
+    "old_sha256": "6f9cfb2ecfaf5e05e0afe349bb0aa09795082370139606fd6c28f0f0fd4ecc3a",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r3_operations.py",
+    "new_sha256": "2d1c295fe4ca00899fd49f7b002566afeadf97a09cd0e92d55f4766c6f28da4a",
+    "replacements": [
+      {
+        "before": "meth511_r2_binding.json",
+        "after": "meth511_r3_binding.json",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r2_'+kind)",
+        "after": "('meth511_r3_'+kind)",
+        "occurrences": 1
+      },
+      {
+        "before": "('meth511_r2_'+kind+'_result.json')",
+        "after": "('meth511_r3_'+kind+'_result.json')",
+        "occurrences": 2
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_cohort.py",
+    "old_sha256": "801dcc2529b24f26c325a246aa4324e99dee24e0267833161f134f9d508e239a",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r3_cohort.py",
+    "new_sha256": "0da7b27e1f5ec3ad48c03c7877c71fd07cf8382c921f48055bcae925fd8880ba",
+    "replacements": [
+      {
+        "before": "import meth511_r2_operations as O",
+        "after": "import meth511_r3_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "'memory_limit':'512MB'",
+        "after": "'memory_limit':'1536MiB'",
+        "occurrences": 1
+      },
+      {
+        "before": "        cursor=conn.execute('SELECT file_row_number,text FROM read_parquet(?,file_row_number=true) ORDER BY file_row_number',[b['corpus']['path']])",
+        "after": "        physical=conn.execute('SELECT count(*),min(file_row_number),max(file_row_number),count(DISTINCT file_row_number) FROM read_parquet(?,file_row_number=true)',[b['corpus']['path']]).fetchone()\n        assert physical==(1243,0,1242,1243)\n        selected_sql=','.join(str(row) for row in sorted(wanted));assert all(0<=row<1243 for row in wanted)\n        cursor=conn.execute('SELECT file_row_number,text FROM read_parquet(?,file_row_number=true) WHERE file_row_number IN ('+selected_sql+') ORDER BY file_row_number',[b['corpus']['path']])",
+        "occurrences": 1
+      },
+      {
+        "before": "                assert row==i;i+=1",
+        "after": "                assert row in wanted and row not in texts;i+=1",
+        "occurrences": 1
+      },
+      {
+        "before": "        assert i==1243",
+        "after": "        assert i==len(wanted) and set(texts)==wanted",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_native.py",
+    "old_sha256": "f1685df9dc174f146f93b60fa1af5a233a65a731ec80c4d4c1430f58a36e8a33",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r3_native.py",
+    "new_sha256": "e46c3108c2bd0a9af471021e1aeaf16f77947d670dca179cb01bb4c921684a73",
+    "replacements": [
+      {
+        "before": "import meth511_r2_operations as O",
+        "after": "import meth511_r3_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "results/native_expert_scaling/meth511_r2_cohort/cohort.json",
+        "after": "results/native_expert_scaling/meth511_r3_cohort/cohort.json",
+        "occurrences": 2
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_donor.py",
+    "old_sha256": "b66223edc0259c29ac9da8fccba34fa7e4f926ca2a6cd57016f34f02beafe12b",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r3_donor.py",
+    "new_sha256": "6dee352444ee3c40ba591765b2fae904ad822da406f73e20dccdbe898c0d74a4",
+    "replacements": [
+      {
+        "before": "import meth511_r2_operations as O",
+        "after": "import meth511_r3_operations as O",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r2_retention_audit.py",
+    "old_sha256": "576a464cef4cf49c40116eed802b4444a91b316060c8ce8fddf68e90cc9f2b00",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth511_r3_retention_audit.py",
+    "new_sha256": "bbc43f9c258d9fd9e4a83fab53b3e94cde5ab4fa2f637980b4e4176a37b3bd94",
+    "replacements": [
+      {
+        "before": "import meth511_r2_operations as O",
+        "after": "import meth511_r3_operations as O",
+        "occurrences": 1
+      },
+      {
+        "before": "results/native_expert_scaling/meth511_r2_cohort/cohort.json",
+        "after": "results/native_expert_scaling/meth511_r3_cohort/cohort.json",
+        "occurrences": 2
+      },
+      {
+        "before": "'memory_limit':'512MB'",
+        "after": "'memory_limit':'1536MiB'",
+        "occurrences": 1
+      },
+      {
+        "before": "        cursor=conn.execute('SELECT file_row_number,text FROM read_parquet(?,file_row_number=true) ORDER BY file_row_number',[b['corpus']['path']]);count=0",
+        "after": "        physical=conn.execute('SELECT count(*),min(file_row_number),max(file_row_number),count(DISTINCT file_row_number) FROM read_parquet(?,file_row_number=true)',[b['corpus']['path']]).fetchone();assert physical==(1243,0,1242,1243)\n        selected_sql=','.join(str(row) for row in sorted(wanted));assert all(0<=row<1243 for row in wanted)\n        cursor=conn.execute('SELECT file_row_number,text FROM read_parquet(?,file_row_number=true) WHERE file_row_number IN ('+selected_sql+') ORDER BY file_row_number',[b['corpus']['path']]);count=0",
+        "occurrences": 1
+      },
+      {
+        "before": "                assert row==count;count+=1",
+        "after": "                assert row in wanted and row not in texts;count+=1",
+        "occurrences": 1
+      },
+      {
+        "before": "        conn.close();assert count==1243;tok=",
+        "after": "        conn.close();assert count==len(wanted) and set(texts)==wanted;tok=",
+        "occurrences": 1
+      }
+    ]
+  }
+]
