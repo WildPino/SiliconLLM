@@ -1,0 +1,62 @@
+{
+  "experiment": "METH490 original fault plus completed R1 and admitted-output arithmetic",
+  "goal_status": "ACTIVE_INCOMPLETE",
+  "R1_binding_builder": {
+    "attempt": 1,
+    "initial_chunk_id": "613b2f",
+    "actual_session_id": 69615,
+    "terminal_chunk_id": "44df18",
+    "actual_exit_code": 0,
+    "source_freeze": "190c225",
+    "binding_sha256": "f63189dd38d4690386eca97509301440bd150731ee47931a180dc7a4c58a5747"
+  },
+  "R1_finalizer": {
+    "attempt": 1,
+    "initial_and_terminal_chunk_id": "0f76f6",
+    "actual_session_id": null,
+    "actual_exit_code": 0,
+    "admission_sha256": "693541acf5e6b075c9ed2ec38853a595e49c91a4677c840d176cfa56e8f53745"
+  },
+  "post_hoc_arithmetic": {
+    "classification": "POST_HOC_DESCRIPTIVE_ARITHMETIC_ON_INDEPENDENTLY_ADMITTED_OUTPUTS",
+    "attempt": 1,
+    "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth490_admitted_output_algebra.py",
+    "initial_and_terminal_chunk_id": "0a27ad",
+    "actual_session_id": null,
+    "actual_exit_code": 0,
+    "source_freeze": "c9b2ff6",
+    "helper_sha256": "fa966100827756d8b50cea5e97ba82affc76d577881a70d3c19385c83d755621",
+    "output_sha256": "e4b9edb9669ae8796cfe44d525ad88edfc1de8acf2fa3cee61d4bdf50eafc3b4",
+    "resource": {
+      "wall_seconds": 0.3279999999940628,
+      "peak_working_set_bytes": 87732224,
+      "wall_limit_seconds": 30,
+      "host_limit_bytes": 268435456
+    },
+    "no_new_native_model_fit_or_independent_repeat": true
+  },
+  "preserved": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+      "matches_original": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+      "matches_original": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "sha256": "639afab9f5330bb7170a2a8e6fad61759bb848839f0a86a6479ce688edd61f61",
+      "matches_original": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "sha256": "ea3b9f17e2664b8191397a6afa4fabe48af3f583d5dfaf1583a734ba115203db",
+      "matches_original": true
+    }
+  ],
+  "own_live_science_processes": 0,
+  "next": "Prepare491 directed interval/exact dyadic witness eligibility and verifier before numerical observation; prospective only."
+}

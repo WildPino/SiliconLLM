@@ -1,33 +1,33 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption:490 first memory fault admitted; R1 preserves64 updates
+## Current resumption:490 complete mass recipe rejected; interval feasibility next
 
-Goal ACTIVE/INCOMPLETE. [490 first fault](METH_490_FIRST_MEMORY_FAULT_RESULT_20261006.md):
-sole main46dd80/session7859/6e58c9 exit1 at30.484s after two saved roots/64updates.
-Conservative sum of parent/native peaks1,122,672,640B exceeds1GiB; failure remains.
-No full root-mass fidelity or quality result. Sole audit4aaeaf/session93318/52dbb5
-exit0/ALL2 metadata gates, zero numerical imports. BOTH actual Windows available/
-zero events. First finalizer34b531 ISO-string fault retained; numbered metadata
-finalizerc46c3aexit0/ALL5 admits only failure/partials, no numerical promotion.
+Goal ACTIVE/INCOMPLETE. [490 result](METH_490_ROOT_MASS_RESULT_20261006.md):
+R1 preserved two saved roots/64updates, completed only320 remaining updates and
+first ALL238872native predictions. Main736240/session17727/21aac2 exit0,61.985s,
+combined817991680B. Auditad57f7/session7699/565aef exit0,47.156s,369033216B,
+ALL8gates; ALL384updates/targets/exports/39/72/4608/9216views admitted.
+Actual Windows both available/zero events; finalizer0f76f6 exit0/ALL5.
+Original first memory/metadata faults and namespaces remain immutable.
 
-[490-R1 prospective](METH_490_R1_STREAMING_RESUMPTION_PROTOCOL_20261006.md): SAME
-loss/targets/32updates/root/precision/data/threshold. Reuse exact saved roots0/1,
-original compiled binary and completed controls; only320 remaining updates,
-then first ALL238872native predictions. In-place F64 normalization and2048query
-post-fit blocks reduce temporary storage. No completed fit/compile/control replay.
-New600s/combined1GiB main,300s/512MiB independent audit,COMBINED64MiB outputs.
-ALL384 saved updates and all views/physical predictions require numeric audit.
-R1 assembly3e6a72 metadata AST fault and corrected1ae64c retained; no fit observed.
+Fixed mass recipe FAILS236613/238872states,ALL12banks on BOTHroles.
+[Post-hoc admitted-output algebra](meth490_admitted_output_algebra.json): ideal
+function has SAME236613failures; total numerical drift<=2.83271e-7 versus median
+logerror.109139/budget.00142148. Average BCE improved; finite optimization has
+no optimum certificate. This closes the fixed recipe,leaves affine class open.
 
-R1 main/math/operations/auditor/Windows/builder/finalizer/protocol prepared,
-NOT executed. No own live science handle. Next freeze all R1 apparatus/derivation,
-prepare sole new binding, commit binding, sole R1 main with SHA. Preserve each
-first actual tool/session/terminal/exit/partial before any further numbered repair.
-Original490 namespaces and first data immutable. Source489CPU n128 warm prose
-54.8773/lower53.4759 remains positive; fixedGPU layout closed for speedFAIL.
+[Whole algebra/next](METH_490_WHOLE_ALGEBRA_AND_NEXT_20261006.md) and
+[491 eligibility](METH_491_ROOT_MASS_INTERVAL_ELIGIBILITY_20261006.md): prepare
+ONE mass-interval dual witness per root,SVD on770development states,integer
+weights/exact dyadic residuals,outward endpoints and parametric norm bounds.
+A subset certificate has the valid exclusion direction;primal feasibility
+requires ALLconstraints. Prepare verifier/eligibility/freeze before numerics.
+No own live science handle. No completed namespace replay.
 
-Full goal remains convenient pretrained transfer, useful distinctn/RAM,
-CPU LUT winner ANDmass, physicalDRAM, fresh quality/SAME>=50 and families/100B.
+489CPU n128 warm prose54.8773/lower53.4759 remains positive; fixedGPU layout
+closed for speedFAIL. Full goal remains convenient pretrained transfer,useful
+distinctn/RAM,CPU LUT winner ANDmass,physicalDRAM,fresh quality/SAME>=50 and
+multiple actual families/scales/100B.
 
 ## Available analysis: normalized root affine feasibility inquiry
 
@@ -58,10 +58,12 @@ retained; numerical repair code unchanged.
 481 source-only centered moment/margin tool and complete independent auditor
 are implemented/admitted. The full-score second-moment reference FAILS; plain
 PSD variance reduction of that target is unsupported. Direct affine decision
-learnability and normalized conditional mass remain hypotheses,not fitted or
-qualified physical candidates. Wholeartifact/freshquality/SAME>=50/usefuln/
-CPU LUT/physicalDRAM/family transfer remain absent.
-[Current algebra/next](METH_481_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
+learnability remains unresolved.490 separately fitted and physically qualified
+the fixed normalized root-mass recipe; source fidelity FAILS despite valid
+probabilities. No passing conditional-mass candidate is available.
+Wholeartifact/freshquality/SAME>=50/usefuln/CPU LUT/physicalDRAM/family transfer
+remain absent. [Current algebra/next](METH_490_WHOLE_ALGEBRA_AND_NEXT_20261006.md);
+[prior481 algebra](METH_481_ALGEBRA_REASSESSMENT_AND_NEXT_20261005.md).
 
 ## Available transfer input: complete native routing supervision
 
