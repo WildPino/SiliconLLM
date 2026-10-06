@@ -1,0 +1,7 @@
+{
+  "error": "[WinError 2] Impossibile trovare il file specificato: 'C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\DLLs\\\\_struct.pyd'",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth492_prepare_binding.py\", line 68, in <module>\n    arithmetic = [item(base/'Lib/fractions.py'), item(base/'Lib/struct.py'), item(base/'DLLs/_struct.pyd')]\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth492_prepare_binding.py\", line 26, in item\n    path = Path(path).resolve(); before = path.stat(); h = hashlib.sha256()\n                                          ^^^^^^^^^^^\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 840, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [WinError 2] Impossibile trovare il file specificato: 'C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\DLLs\\\\_struct.pyd'\n",
+  "seconds": 21.031000000002678,
+  "peak_bytes": 37916672,
+  "hashed_bytes": 9876471091
+}

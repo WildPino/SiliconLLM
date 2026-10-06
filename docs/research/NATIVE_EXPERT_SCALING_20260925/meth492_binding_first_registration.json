@@ -1,0 +1,20 @@
+{
+  "classification": "SOLE_FIRST_METADATA_BINDING_FAULT_BEFORE_ANY_SCIENCE",
+  "attempt": 1,
+  "initial_chunk_id": "95942f",
+  "actual_session_id": 53639,
+  "terminal_chunk_id": "c5b803",
+  "actual_exit_code": 1,
+  "source_freeze": "50941db",
+  "first_fault_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth492_binding.failure.json",
+  "first_fault_sha256": "b2cf5b434318a21c95583f1194cbacc9cdaf87bc348a7f0ddc88135110540155",
+  "reported_resources": {
+    "error": "[WinError 2] Impossibile trovare il file specificato: 'C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\DLLs\\\\_struct.pyd'",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth492_prepare_binding.py\", line 68, in <module>\n    arithmetic = [item(base/'Lib/fractions.py'), item(base/'Lib/struct.py'), item(base/'DLLs/_struct.pyd')]\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth492_prepare_binding.py\", line 26, in item\n    path = Path(path).resolve(); before = path.stat(); h = hashlib.sha256()\n                                          ^^^^^^^^^^^\n  File \"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 840, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [WinError 2] Impossibile trovare il file specificato: 'C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\DLLs\\\\_struct.pyd'\n",
+    "seconds": 21.031000000002678,
+    "peak_bytes": 37916672,
+    "hashed_bytes": 9876471091
+  },
+  "no_main_control_or_donor_extrema_started": true,
+  "observed_struct_origin": "built-in"
+}

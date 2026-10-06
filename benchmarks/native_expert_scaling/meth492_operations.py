@@ -3,7 +3,7 @@ import json
 import meth490_r1_operations as operations
 
 ROOT, DOC, write, stamp = operations.ROOT, operations.DOC, operations.write, operations.stamp
-operations.BIND = DOC / 'meth492_binding.json'
+operations.BIND = DOC / 'meth492_r1_binding.json'
 
 class Context(operations.Context):
     def __init__(self, out, raw, seconds, bytes_limit):
