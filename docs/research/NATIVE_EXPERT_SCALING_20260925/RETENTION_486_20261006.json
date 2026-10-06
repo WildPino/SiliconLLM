@@ -1,0 +1,41 @@
+{
+  "experiment": "METH486 independent complete retention admission",
+  "start_utc": "2026-10-06T02:19:00.459068+00:00",
+  "process_instance": {
+    "pid": 10868,
+    "create_time_unix": 1791253140.2419608
+  },
+  "commands": [],
+  "gates": {
+    "frozen_sources_runtime_full_payload_and_reference_digests": true,
+    "actual_terminal_windows_instance_without_application_fault": true,
+    "ALL_command_partials_and_output_files_retained": true,
+    "failure_preserved_without_candidate_replay": true
+  },
+  "preserved_daemons": [],
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth486_shared_integer_backend_result.failure.json",
+    "sha256": "edfbd35b84e50da81f9656d4071162bfd7c8c32941c6b77a0c36fc0cc054122a",
+    "bytes": 295507
+  },
+  "main_completed": false,
+  "main_windows": {
+    "sha256": "e7cc530e4f61a58187f40e52ae4b0485cf50876e28d0cf62204aa66759dc3294",
+    "actual_PID_creation_and_ISO_bounds": true
+  },
+  "retained_files": 1,
+  "retained_bytes": 1262080,
+  "main_failure": {
+    "stage": "one_frozen_compile",
+    "exception": "AssertionError(('foreign_science', 24072, 'python.exe'))",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth486_shared_integer_inquiry.py\", line 121, in main\n    compile_rows,compile_cmd=run(argv,'compile',list(range(psutil.cpu_count())),env)\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth486_shared_integer_inquiry.py\", line 68, in run\n    jobs();prefix=OUT/label;stdout=prefix.with_suffix('.stdout');stderr=prefix.with_suffix('.stderr')\n    ^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth486_shared_integer_inquiry.py\", line 32, in jobs\n    assert not(name.startswith(('python','clang')) or (name.startswith('meth') and name.endswith('.exe'))),('foreign_science',p.pid,name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('foreign_science', 24072, 'python.exe')\n"
+  },
+  "partial_control_bytes": 0,
+  "decision": "Retain sole first failure. No backend arithmetic, whole quality or speed promotion beyond completed gates.",
+  "end_utc": "2026-10-06T02:19:26.839983+00:00",
+  "resource": {
+    "wall_seconds": 26.39100000000326,
+    "peak_working_set_bytes": 48513024,
+    "bytes_hashed": 27815978557
+  }
+}
