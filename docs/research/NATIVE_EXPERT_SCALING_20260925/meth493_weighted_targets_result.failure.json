@@ -1,0 +1,59 @@
+{
+  "experiment": "METH493 complete bank11 selected weighted-function target compilation",
+  "start_utc": "2026-10-06T06:55:40.673336+00:00",
+  "process_instance": {
+    "pid": 31312,
+    "create_time_unix": 1791269740.4798543
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth493_weighted_targets.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/meth493_weighted_targets_result.json",
+    "--binding-sha",
+    "d3b7f101b86a8bfb25a12aaa4389da63e9ebb216a26f93b9b5e18d22c2f2e461"
+  ],
+  "commands": [],
+  "gates": {
+    "frozen_source_supervision_runtime_and_scientific_files": true,
+    "eleven_fixed_RNE_signed_zero_subnormal_boundary_and_rejection_controls": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "d3b7f101b86a8bfb25a12aaa4389da63e9ebb216a26f93b9b5e18d22c2f2e461",
+  "source_freeze": "f7f515e2584654bf6e96965e54846b8c20e7f0a4",
+  "execution_head": "35988c37f09d8d6b5fd64a5603d96cc31eda98b2",
+  "phase": "ALL19962_source_BYTE_joins_and_F32_targets",
+  "end_utc": "2026-10-06T06:57:16.368366+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth493_weighted_targets.py\", line 93, in main\n    assert tuple(map(int,link[[1,2,3,4,5,9,8,10]]))==(128,int(q['book']),int(q['case']),int(q['mode']),int(q['role']),int(q['expert']),int(q['index']),int(q['accepted']))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "resource": {
+    "wall_seconds": 95.70299999999406,
+    "parent_peak_bytes": 97697792,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 10143143157,
+    "wall_limit_seconds": 180,
+    "combined_host_limit_bytes": 268435456
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\fatal_native.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\occurrences.bin",
+      "bytes": 905784
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\progress.jsonl",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\rounding_controls.json",
+      "bytes": 1567
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\weighted_targets.bin",
+      "bytes": 53882904
+    }
+  ]
+}

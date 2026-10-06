@@ -1,0 +1,42 @@
+{
+  "attempt": 1,
+  "actual_tool_call": "629877",
+  "actual_session_id": 23769,
+  "actual_terminal_chunk": "2a5ebc",
+  "actual_exit_code": 1,
+  "record_sha256": "37a81a2d502c574ffbef9c5f3c1dfecfdfc6e142fb076806513e9c27813ca1d1",
+  "process_instance": {
+    "pid": 31312,
+    "create_time_unix": 1791269740.4798543
+  },
+  "partial_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\occurrences.bin",
+      "bytes": 906056,
+      "sha256": "9303cdd5ffb61d26397948708d7b31c1255b24bdf43eea138a45ca81b5485fc9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\progress.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\rounding_controls.json",
+      "bytes": 1567,
+      "sha256": "a4de78d3de053a9b3a004224177ddc07f0ee22e44be5aabbf9a04a15f1610e8f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth493_weighted_targets\\weighted_targets.bin",
+      "bytes": 53882904,
+      "sha256": "1b3a93b1709d0b4b4a2d30ea27b9c33880edacee564f4cfe599d56e9c8b379c3"
+    }
+  ],
+  "first_fault": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth493_weighted_targets.py\", line 93, in main\n    assert tuple(map(int,link[[1,2,3,4,5,9,8,10]]))==(128,int(q['book']),int(q['case']),int(q['mode']),int(q['role']),int(q['expert']),int(q['index']),int(q['accepted']))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "namespace_closed": true,
+  "no_partial_target_promotion": true
+}
