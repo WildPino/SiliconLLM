@@ -1,0 +1,296 @@
+{
+  "experiment": "METH503 ONE four overlapping half-width source experts",
+  "start_utc": "2026-10-06T13:06:33.838029+00:00",
+  "process_instance": {
+    "pid": 23328,
+    "create_time_unix": 1791291993.5754836
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth503_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_503_20261006.json",
+    "--binding-sha",
+    "f9a9efb5aafebf98284e9748e432eafb00f7ceb82792de2dea07a165da044076",
+    "--raw-sha",
+    "8dc0d06a19f4136985d07ae2521afc7c290522de2f95bd619dfbf7663af7168b"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_data_runtime_scientific_SHA_before_NumPy": true,
+    "sole_main_RAW_ALL_outputs_and_terminal_SHA": true,
+    "independent_integer_and_A16_controls": true,
+    "ALL_original_roles_parent_mass_and_retained_hidden_quantization_independent": true,
+    "ALL127570_outputs_and_energies_BYTE_quantizers_exact_support_identities_independent": true,
+    "ALL_input_only_dev_prototypes_supported_children_selected_and_oracle_independent": true,
+    "ALL_views_rare_denominators_oracle_tail_lower_bound_and_frozen_decisions_independent": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "f9a9efb5aafebf98284e9748e432eafb00f7ceb82792de2dea07a165da044076",
+  "source_freeze": "b9e0a2184b7bdfe29d75dc14bc47237c486420c3",
+  "execution_head": "b81ff30d2dfa6e93fbb71ada4705d722ee37d243",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth503_function_result.json",
+    "sha256": "8dc0d06a19f4136985d07ae2521afc7c290522de2f95bd619dfbf7663af7168b"
+  },
+  "unique_inputs_audited": 17540,
+  "partial_functions_audited": 127570,
+  "views": {
+    "development": {
+      "routed": {
+        "RMS": 0.0026150681403477346,
+        "error_energy": 186630546.45861822,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.15994614569059734,
+        "max_UID_RMS": 0.6631844595214603,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.0,
+        "error_energy": 0.0,
+        "reference_energy": 27290827749883.406,
+        "p95_UID_RMS": 0.0,
+        "max_UID_RMS": 0.0,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 11721.0,
+      "routed_complete_support_count": 10089,
+      "any_child_complete_support_count": 11721
+    },
+    "development_source_p": {
+      "routed": {
+        "RMS": 0.003629676471544288,
+        "error_energy": 35734895.582687736,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.15994614569059734,
+        "max_UID_RMS": 0.6631844595214603,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.0,
+        "error_energy": 0.0,
+        "reference_energy": 2712418419518.6836,
+        "p95_UID_RMS": 0.0,
+        "max_UID_RMS": 0.0,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 11721,
+      "weight_sum": 1850.3580510328693,
+      "routed_complete_support_count": 10089,
+      "any_child_complete_support_count": 11721
+    },
+    "consumed": {
+      "routed": {
+        "RMS": 0.012454846363248818,
+        "error_energy": 2042817136.8798437,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.4726092128612462,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.010470306157158252,
+        "error_energy": 1443681877.4787116,
+        "reference_energy": 13168998345260.99,
+        "p95_UID_RMS": 0.3959607554762972,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 5819.0,
+      "routed_complete_support_count": 261,
+      "any_child_complete_support_count": 262
+    },
+    "consumed_source_p": {
+      "routed": {
+        "RMS": 0.024639447161676136,
+        "error_energy": 786322328.3187673,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.4726092128612462,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.020314288073198815,
+        "error_energy": 534492853.8382422,
+        "reference_energy": 1295205528337.4722,
+        "p95_UID_RMS": 0.3959607554762972,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 5819,
+      "weight_sum": 959.9641362901605,
+      "routed_complete_support_count": 261,
+      "any_child_complete_support_count": 262
+    },
+    "natural_consumed": {
+      "routed": {
+        "RMS": 0.009245111042060179,
+        "error_energy": 1124541514.3389797,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.47736777120510837,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.007710896621170124,
+        "error_energy": 782277772.5436182,
+        "reference_energy": 13156828970163.186,
+        "p95_UID_RMS": 0.3994120476457898,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 3065.0,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259
+    },
+    "natural_consumed_source_p": {
+      "routed": {
+        "RMS": 0.018635025501196147,
+        "error_energy": 448740181.4569745,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.47736777120510837,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.015319851778606786,
+        "error_energy": 303280231.7966322,
+        "reference_energy": 1292215590338.461,
+        "p95_UID_RMS": 0.3994120476457898,
+        "max_UID_RMS": 0.6545404434514153,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3065,
+      "weight_sum": 535.8416493128393,
+      "routed_complete_support_count": 259,
+      "any_child_complete_support_count": 259
+    },
+    "teacher_consumed": {
+      "routed": {
+        "RMS": 0.00955954549100269,
+        "error_energy": 1202459219.6650248,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.46657434872449616,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.008011308666881904,
+        "error_energy": 844506113.8963546,
+        "reference_energy": 13158181364261.762,
+        "p95_UID_RMS": 0.38972686776107307,
+        "max_UID_RMS": 0.6124235347359551,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 3584.0,
+      "routed_complete_support_count": 258,
+      "any_child_complete_support_count": 259
+    },
+    "teacher_consumed_source_p": {
+      "routed": {
+        "RMS": 0.01901790728951739,
+        "error_energy": 467395958.5608542,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.46657434872449616,
+        "max_UID_RMS": 0.9309298205512517,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.015518020314589289,
+        "error_energy": 311194657.92859066,
+        "reference_energy": 1292288563751.3105,
+        "p95_UID_RMS": 0.38972686776107307,
+        "max_UID_RMS": 0.6124235347359551,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3584,
+      "weight_sum": 574.5130006745965,
+      "routed_complete_support_count": 258,
+      "any_child_complete_support_count": 259
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "routed": {
+        "RMS": 0.18515939476398174,
+        "error_energy": 70885.43104767243,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.36667249371031596,
+        "max_UID_RMS": 0.38593679980620693,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.18515939476398174,
+        "error_energy": 70885.43104767243,
+        "reference_energy": 2067595.030032163,
+        "p95_UID_RMS": 0.36667249371031596,
+        "max_UID_RMS": 0.38593679980620693,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 3,
+      "weight_sum": 3.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 0
+    },
+    "dev_count5_15": {
+      "routed": {
+        "RMS": 0.26241454436359957,
+        "error_energy": 878341.776422732,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.7233764826371603,
+        "max_UID_RMS": 0.8650655143778052,
+        "zero_ref_nonzero_error": 0
+      },
+      "oracle": {
+        "RMS": 0.24655329819702954,
+        "error_energy": 775370.6688057206,
+        "reference_energy": 12755213.58142451,
+        "p95_UID_RMS": 0.47749883226694445,
+        "max_UID_RMS": 0.4911078139788348,
+        "zero_ref_nonzero_error": 0
+      },
+      "UIDs": 19,
+      "weight_sum": 19.0,
+      "routed_complete_support_count": 0,
+      "any_child_complete_support_count": 0
+    }
+  },
+  "eligibility": {
+    "oracle_all_consumed_RMS_le_2pct": true,
+    "oracle_natural_consumed_source_p_RMS_le_2pct": true,
+    "oracle_natural_consumed_p95_UID_RMS_le_5pct": false,
+    "routed_all_consumed_RMS_le_2pct": true,
+    "routed_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_p95_UID_RMS_le_5pct": false
+  },
+  "decision": "RECONSIDER_REPRESENTATION_OR_SUPPORT_DOMAIN",
+  "new_source_WI_or_full_F_rows": 0,
+  "scope": "Independent new partial functions and finite original-domain selection, no full source replay or fresh/physical promotion.",
+  "end_utc": "2026-10-06T13:07:00.560714+00:00",
+  "resource": {
+    "wall_seconds": 26.719000000011874,
+    "parent_peak_bytes": 830164992,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 8456731527,
+    "wall_limit_seconds": 180,
+    "combined_host_limit_bytes": 2147483648
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth503_retention\\progress.jsonl",
+      "bytes": 19019,
+      "sha256": "5a197efffceec58811788408d6e1ac3038a98afe7d41901aac66c6386a6108d3"
+    }
+  ]
+}
