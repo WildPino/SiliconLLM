@@ -56,41 +56,38 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption:483 retained partials; R3 sole first recovery
+## Current resumption:483 complete main; sole first independent audit
 
-482 all12budget-inconclusive outcomes admittedb9e993a. Original48357root+4control
-LPs retained273a11d after warning fault. R1attempt217bea failed BEFORE numerics
-on output-vs-HEAD admission; retained6f05410. R2session25404exit1/108.031s/2.145GB
-completed sole NEW tiny-warning control; process gate then detected other-worktree
-Kaggle-fetchPython3644. ALL8records retaineddbdbeb8. ZERO new source LPs; no global
-certificate/reports/admission. No process killed/exemption changed/chat messaged.
-[R2 first fault](METH_483_R2_FIRST_FAULT_20261006.md).
+Current turn PROGRESS: original483 partial warning fault retained273a11d,
+R1pre-numeric admission fault6f05410 and R2foreign-process faultdbdbeb8 retained;
+sole R3session83060 ACTUAL exit0/328.906s/2.528GB/5gates. Original57root LPs reused,
+36NEW roots, total93;4original controls+1R2warning control retained, new R3controls0.
+ALL12global certificate/witnesses/complete views retained92a4e36, PROVISIONAL.
+[Actual main terminal](METH_483_R3_MAIN_TERMINAL_PENDING_20261006.md).
+All-root candidate physical flagfalse and dual uniform-exclusion flagfalse;
+no affine impossibility or sufficient head claimed. No longer equivalent LP.
 
-R3 complete3file freezeb151ac6 BEFORE imports; immutable R1 helper unchanged.
-Reuse SAVED R2 warning-control vectors/model-readback hashes/log/known optimum;
-ZERO new control LPs. Original56completed bank rounds/7witnesses reused BYTE,
-bank7savedround0/proposal resumed with reconstructed basis/prior time paid,
-8..11first. Complete source-wire/inquiry/cert/report suffix13690B BYTE unchanged
-versus R2 SHA4ee90f8bc9046548df829e0b1a06199c48ba323ca5c4503c56e9611a7b2d3919.
-Cumulative controls5, root57old+<=39new; CPU0/BLAS1/600s/8GiB/new64MiB/admission180s.
-[Complete R3 protocol](METH_483_R3_CONSTRAINT_ROOT_PROTOCOL_20261006.md).
+Complete independent audit3file freezee931c28 BEFORE first NumPy import:
+ALL93root+5control rounds, full source roles/UID/labels/norms/proposals/selection/
+primal-dual/interval/witness/interface record/report reconstruction, no solver/
+producer-helper/main/model/control replay. BYTE every interval/archived array;
+exact typed JSON. CPU0/BLAS1/600s/4GiB/new32MiB/admission180s. Old source allowances
+stay their own64MiB. [Audit protocol](METH_483_RETENTION_PROTOCOL_20261006.md).
 
-SOLE FIRST R3 MAIN, unexecuted at registration:
+SOLE FIRST AUDIT, unexecuted at registration:
 
 ```powershell
-.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_r3_constraint_root.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\meth483_r3_constraint_root_result.json
+.venv\Scripts\python.exe benchmarks\native_expert_scaling\meth483_retention_audit.py --out docs\research\NATIVE_EXPERT_SCALING_20260925\RETENTION_483_20261006.json
 ```
 
-Separate preflight: no competing science before launch. SAMEhandle live/small
-PowerShell/commentary only; actualterminal then ONE R3Windows query. Firstfault
-before repair. No previous namespace/control/source LP/main/native/audit replay.
-Complete independent audit required before interpreting original-input bounds.
-If unresolved, no equivalent longer LP; reassess function geometry/whole cost.
-
+Separate preflight before launch; SAMEhandle live/smallPowerShell/commentary only;
+actualterminal then ONE frozen auditWindows query. Firstfault before repair.
+Independent admission requires actualexit0/ALL5audit gates/Windows qualification.
+No completed source namespace reruns. Unresolved outcome returns to function/
+feature geometry and dominant core/head cost; mass and C qualification absent.
 Full goal ACTIVE/INCOMPLETE: useful distinctn/RAM/CPU LUT/winnerANDmass/physicalDRAM,
-donor-relative fresh ownstate prediction-generation-task quality ANDSAME>=50batch1
-accepted IDs/s on one complete artifact; actualfamilies/scales/~100B when feasible.
-Core/head/selected-function costs and causal usefulness remain in the decision.
+donor-relative fresh ownstate quality ANDSAME>=50batch1accepted IDs/s on one
+complete artifact; multiple actualfamilies/scales/~100B when feasible.
 
 ## Retained evidence and closures
 
