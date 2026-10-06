@@ -1,0 +1,141 @@
+{
+  "experiment": "METH504 source-derived exact integer input-cone regions",
+  "start_utc": "2026-10-06T13:31:01.341933+00:00",
+  "process_instance": {
+    "pid": 30596,
+    "create_time_unix": 1791293461.1546736
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth504_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_504_20261006.json",
+    "--binding-sha",
+    "840a23e80d7639f53a5696712caffaf3014a3bb7d5175a87f2c67711b31929c0",
+    "--raw-sha",
+    "2b017d297f4a21339cdd2498d5c26d5c601bf6bf4570f11c49d0532b0f90fb41"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_data_runtime_scientific_SHA_before_NumPy": true,
+    "sole_main_ALL_outputs_and_terminal_SHA": true,
+    "independent_Fraction_strict_boundary_orientation_and_tiny_sign_controls": true,
+    "ALL_original_roles_inputs_groups_and_I64_query_norms_independent": true,
+    "ALL637_NEW_negative_margins_Fraction_masks_and_input_only_seeds_independent": true,
+    "ALL_predicates_chosen_query_actual_omitted_source_integer_signs_hidden_zero_and_scale_BYTE": true,
+    "ALL_domain_views_rare_fallback_cost_104bit_budget_and_frozen_economy_independent": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "840a23e80d7639f53a5696712caffaf3014a3bb7d5175a87f2c67711b31929c0",
+  "source_freeze": "5e21815b4399d0424a665a652e7a73e4460df4a1",
+  "execution_head": "03dad7b37080977496b2072fc2845f43c8b3471e",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth504_region_result.json",
+    "sha256": "2b017d297f4a21339cdd2498d5c26d5c601bf6bf4570f11c49d0532b0f90fb41"
+  },
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "occurrences": 11721,
+      "certified": 1089,
+      "certified_fraction": 0.09291016124904018,
+      "fallback": 10632,
+      "mean_selected_width": 2929.289992321474,
+      "max_selected_width": 3072
+    },
+    "consumed": {
+      "UIDs": 5819,
+      "occurrences": 5819,
+      "certified": 196,
+      "certified_fraction": 0.0336827633614023,
+      "fallback": 5623,
+      "mean_selected_width": 3020.263275476886,
+      "max_selected_width": 3072
+    },
+    "natural_consumed": {
+      "UIDs": 3065,
+      "occurrences": 3065,
+      "certified": 196,
+      "certified_fraction": 0.06394779771615008,
+      "fallback": 2869,
+      "mean_selected_width": 2973.7761827079935,
+      "max_selected_width": 3072
+    },
+    "teacher_consumed": {
+      "UIDs": 3584,
+      "occurrences": 3584,
+      "certified": 196,
+      "certified_fraction": 0.0546875,
+      "fallback": 3388,
+      "mean_selected_width": 2988.0,
+      "max_selected_width": 3072
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "UIDs": 3,
+      "occurrences": 3,
+      "certified": 0,
+      "certified_fraction": 0.0,
+      "fallback": 3,
+      "mean_selected_width": 3072.0,
+      "max_selected_width": 3072
+    },
+    "dev_count5_15": {
+      "UIDs": 19,
+      "occurrences": 19,
+      "certified": 0,
+      "certified_fraction": 0.0,
+      "fallback": 19,
+      "mean_selected_width": 3072.0,
+      "max_selected_width": 3072
+    }
+  },
+  "logical_cost": {
+    "new_region_atom_copies": 978432,
+    "original_fallback_atom_copies_ALL128": 393216,
+    "total_atom_copies": 1371648,
+    "I8_coefficients": 2106851328,
+    "WI_F32_scales": 5486592,
+    "WO_F32_scales": 2350080,
+    "u16_region_indices": 1956864,
+    "centre_I16_codes": 978432,
+    "certificate_A_n_r_bytes": 15288,
+    "query_dot_products": 87215616,
+    "large_integer_predicates": 113562,
+    "source_WI_centre_rows": 1956864,
+    "source_WI_centre_products": 1502871552
+  },
+  "eligibility": {
+    "consumed_certified_ge_90pct": false,
+    "natural_consumed_certified_ge_90pct": false
+  },
+  "decision": "CLOSE_THIS_FINITE_ISOTROPIC_INPUT_CONE_RECIPE",
+  "unique_inputs_audited": 17540,
+  "certified_inputs_actual_omitted_signs_audited": 1285,
+  "new_full_F_or_WO_rows": 0,
+  "scope": "Independent angular-region geometry/cost only; failed economy cannot justify physical implementation.",
+  "end_utc": "2026-10-06T13:31:37.568424+00:00",
+  "resource": {
+    "wall_seconds": 36.234000000025844,
+    "parent_peak_bytes": 517107712,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 8023751286,
+    "wall_limit_seconds": 180,
+    "combined_host_limit_bytes": 2147483648
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth504_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth504_retention\\progress.jsonl",
+      "bytes": 72,
+      "sha256": "41b4e6983d83c7ff9149b66f6b0240e7eb7923ec90bc8d976959ae79e1bff63e"
+    }
+  ]
+}
