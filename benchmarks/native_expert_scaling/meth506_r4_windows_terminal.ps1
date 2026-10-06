@@ -1,7 +1,7 @@
 param([ValidateSet('main','audit')][string]$Stage='main')
 $ErrorActionPreference = 'Stop'
-$relativeRaw = if ($Stage -eq 'main') { 'docs/research/NATIVE_EXPERT_SCALING_20260925/meth506_r4_result.json' } else { 'docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_506_R4_20261006.json' }
-$relativeDestination = 'results/native_expert_scaling/meth506_r4_' + $Stage + '_windows_terminal.json'
+$relativeRaw = if ($Stage -eq 'main') { 'docs/research/NATIVE_EXPERT_SCALING_20260925/meth506_r4_2_result.json' } else { 'docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_506_R4_2_20261006.json' }
+$relativeDestination = 'results/native_expert_scaling/meth506_r4_2_' + $Stage + '_windows_terminal.json'
 $rawPath = Join-Path (Get-Location) $relativeRaw
 $destination = Join-Path (Get-Location) $relativeDestination
 if (Test-Path -LiteralPath $destination) { throw 'Exclusive event output already exists' }

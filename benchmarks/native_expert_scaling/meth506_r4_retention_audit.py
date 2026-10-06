@@ -8,7 +8,7 @@ import meth506_r4_operations as O
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--binding-sha',required=True);ap.add_argument('--raw-sha',required=True);args=ap.parse_args()
-    destination=O.DOC/'RETENTION_506_R4_20261006.json';ctx=O.Context(O.AUDIT,destination)
+    destination=O.DOC/'RETENTION_506_R4_2_20261006.json';ctx=O.Context(O.AUDIT,destination)
     try:
         b=ctx.admit(args.binding_sha);assert ctx.digest(O.RAW)==args.raw_sha;ctx.head(O.RAW);raw=json.loads(O.RAW.read_bytes());assert all(raw['gates'].values())
         prepfile=O.PREPRAW;assert ctx.digest(prepfile)==raw['preparation_sha256'];ctx.head(prepfile);prep=json.loads(prepfile.read_bytes())
