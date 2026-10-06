@@ -1,3 +1,8 @@
+> Implementation update:506 sources and [prospective protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
+> are now implemented, awaiting source/runtime and source-only artifact/cohort freezes.
+> The proposal below is historical; actual donor F32 and priced3600s/24GiB override its BF16/1800s proposals.
+> No export/compile/model/native observation at this update.
+
 # Selected506: whole conditional artifact feasibility
 
 6 October2026. PROPOSED, no506 source/protocol/binding/export/native observation.

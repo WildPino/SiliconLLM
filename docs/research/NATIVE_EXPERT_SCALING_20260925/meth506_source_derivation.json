@@ -1,0 +1,79 @@
+{
+  "experiment": "METH506 exact source derivation before compile/export",
+  "old_model": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth388_switch_three_workers.c",
+    "sha256": "aa01ce176ad54f1410a5d93eb628de8e887172225ae85a99f611168a9097fa48"
+  },
+  "new_model": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_model.c",
+    "sha256": "f60a7feb31b06e0bd9ec076992fd54a2280097bb937430c12325f002f933d4a1"
+  },
+  "model_replacements": [
+    {
+      "before": "uint32_t rows,cols;} Matrix;",
+      "after": "uint32_t rows,cols,column;} Matrix;",
+      "occurrences": 1
+    },
+    {
+      "before": "Attention self,cross;int sparse;} Block;",
+      "after": "Attention self,cross;int sparse,column_bank;} Block;",
+      "occurrences": 1
+    },
+    {
+      "before": "require(w.rows==(uint32_t)rows&&w.cols==(uint32_t)cols,\"matrix_dimensions\");",
+      "after": "require(!w.column&&w.rows==(uint32_t)rows&&w.cols==(uint32_t)cols,\"matrix_dimensions\");",
+      "occurrences": 1
+    },
+    {
+      "before": "require(w.q&&w.rows==",
+      "after": "require(w.q&&!w.column&&w.rows==",
+      "occurrences": 2
+    },
+    {
+      "before": "Matrix value={t->value,t->scales,t->codes,(uint32_t)rows,(uint32_t)cols};",
+      "after": "Matrix value={t->value,t->scales,t->codes,(uint32_t)rows,(uint32_t)cols,t->encoding==2};",
+      "occurrences": 1
+    },
+    {
+      "before": "if(b.sparse){b.expertwi=",
+      "after": "if(b.sparse){b.column_bank=(decoder?6:0)+index/2;b.expertwi=",
+      "occurrences": 1
+    },
+    {
+      "before": "require(fread(magic,1,8,f)==8&&!memcmp(magic,\"SWI8A001\",8),\"manifest_magic\");",
+      "after": "require(fread(magic,1,8,f)==8&&(!memcmp(magic,\"SWI8A001\",8)||!memcmp(magic,\"SWI8C001\",8)),\"manifest_magic\");int column_manifest=!memcmp(magic,\"SWI8C001\",8);",
+      "occurrences": 1
+    },
+    {
+      "before": "t->encoding<=1,\"tensor_record\"",
+      "after": "t->encoding<=2,\"tensor_record\"",
+      "occurrences": 1
+    },
+    {
+      "before": "uint64_t bytes=elements*(t->encoding?1:4);",
+      "after": "if(t->encoding==2){size_t length=strlen(t->name);require(column_manifest&&strstr(t->name,\".mlp.experts.expert_\")&&length>=10&&!strcmp(t->name+length-10,\".wo.weight\")&&t->shape[0]==768&&t->shape[1]==3072,\"column_WO_only\");}uint64_t bytes=elements*(t->encoding?1:4);",
+      "occurrences": 1
+    },
+    {
+      "before": "for(int l=0;l<c->enc;l++)m->enc[l]=block_weights(m,0,l);for(int l=0;l<c->dec;l++)m->dec[l]=block_weights(m,1,l);return m;",
+      "after": "for(int l=0;l<c->enc;l++)m->enc[l]=block_weights(m,0,l);for(int l=0;l<c->dec;l++)m->dec[l]=block_weights(m,1,l);\n    require(c->d==768&&c->ff==3072&&c->enc==12&&c->dec==12&&c->n==128,\"506_actual_source128_shape\");\n    int banks=0;for(int stack=0;stack<2;stack++)for(int l=0;l<12;l++){Block *b=(stack?m->dec:m->enc)+l;if(b->sparse){banks++;require(b->column_bank>=0&&b->column_bank<12,\"506_bank_index\");for(int e=0;e<c->n;e++)require(!b->expertwi[e].column&&b->expertwo[e].column==(uint32_t)column_manifest,\"506_ALL_banks_layout\");}}require(banks==12,\"506_twelve_banks\");return m;",
+      "occurrences": 1
+    },
+    {
+      "before": "static void feed(Config c,Block *b,float *hidden,int tokens){",
+      "after": "#include \"../phase60/exact_i8_columns.h\"\ntypedef struct {uint64_t calls,nonzero,maximum;} ColumnCounter506;\nstatic ColumnCounter506 column_counts506[12];\nstatic void column_mv506(Matrix w,const float *x,float *y,int bank){\n    require(w.q&&w.column&&w.rows==EXACT_COLUMN_D&&w.cols==EXACT_COLUMN_H&&bank>=0&&bank<12,\"506_column_dimensions\");\n    double before=cost_enabled&&cost_profile?cost_clock():0.;ExactColumnWork work;\n    float alpha=head_activation_codes(x,work.codes,EXACT_COLUMN_H);uint32_t active=exact_i8_columns(w.q,w.scales,alpha,y,&work);\n    if(cost_enabled){CostCounter *counter=&cost_counts[cost_phase][cost_kind];counter->calls++;counter->codes+=(uint64_t)EXACT_COLUMN_D*active;counter->scales+=EXACT_COLUMN_D*4;\n        ColumnCounter506 *cc=column_counts506+bank;cc->calls++;cc->nonzero+=active;if(active>cc->maximum)cc->maximum=active;\n        if(cost_profile)counter->matrix_seconds+=cost_clock()-before;}\n}\nstatic void feed(Config c,Block *b,float *hidden,int tokens){",
+      "occurrences": 1
+    },
+    {
+      "before": "mv(wo,up,down,c.d,c.ff);",
+      "after": "if(wo.column)column_mv506(wo,up,down,b->column_bank);else mv(wo,up,down,c.d,c.ff);",
+      "occurrences": 1
+    }
+  ],
+  "engine_old_sha256": "ea3b9f17e2664b8191397a6afa4fabe48af3f583d5dfaf1583a734ba115203db",
+  "engine_new_sha256": "d58e3c5fdbe789129c97e3d821b54eb3ffb53352de81a686f3fc186109823e93",
+  "old_engine_revision": "801ff64",
+  "engine_extension": "One explicit SILICON_SWITCH_EXACT_COLUMNS branch; every old branch/body BYTE after old first directive line.",
+  "kernel": "phase60/exact_i8_columns.h:505 unchanged scalar/block/vector/scaling algorithm, same768/3072 dimensions; explicit column metadata and all12 bank dispatch.",
+  "no_compile_export_native_or_model_observation": true
+}

@@ -26,7 +26,10 @@ First implement/price/freeze complete column-layout payload/manifest and reusabl
 C engine path;preserve full WI/shared/router/head bytes and inverse every WO.
 Resolve actual fresh asset exclusions and donor quality gates,SAMEartifact>=50
 accepted batch1 IDs/s,whole output/resource contract and observer on unused
-physical core. No506 sources/protocol/binding/export/native observations yet.
+physical core.506 sources and [prospective protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
+now implemented; no binding/export/compile/model/native observation yet. First
+freeze source and actual closure, then source-only artifact/cohort; freeze their
+actual SHA before the sole whole main/audit.
 No source489 rate inherited. No timing during external downloads;505-R2 exception
 allows metadata only and unconditionally forbids native children.
 

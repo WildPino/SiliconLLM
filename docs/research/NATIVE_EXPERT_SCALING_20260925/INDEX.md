@@ -102,8 +102,10 @@ path,ALL12 banks/source128/shared core/head/state/normalized parent control.
 New full-model3-worker scope is EXPLORATORY despite505 local cost failure;no
 inherited eligibility/rate claim and no kernel/width/tile or local mask refinement.
 Resolve excluded fresh assets/donor quality gates,full-artifact output/resource
-contract and observer on UNUSED physical core before numerical work. No506
-sources/protocol/binding/export/observations yet. Existing 505 C is reusable.
+contract and observer on UNUSED physical core before numerical work. 506 engine branch, reusable phase60 primitive, full writer/cohort/controller/independent
+audit and [frozen prospective protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
+implemented. Current step: source freeze -> actual binding -> source-only preparation
+freeze -> one complete main/audit. No506 export/compile/model/native observations yet.
 
 All-bank composition/fresh own-state generation/tasks/SAMEartifact>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual other families/scales remain open.

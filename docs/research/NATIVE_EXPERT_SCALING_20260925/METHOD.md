@@ -45,7 +45,12 @@ EXPLORATORY whole physical artifact despite505 local eligibility failure:new
 ALL12 banks/shared core/head/evolving states and source3-worker layout. Preserve
 scalar column kernel;no local grid/reopened505 gate. First implement/price/freeze
 full export/reusable engine path,actual runtime/manifest/source derivation,fresh
-excluded data/quality gates and observer placement. No506 observation/code yet.
+excluded data/quality gates and observer placement.506 now has an explicit engine
+branch, reusable phase60 exact column primitive, complete codec/source-only cohort,
+full controller and independent audit. [506 protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
+fixes all quality/economic criteria, actual F32 donor,3 workers0/2/4 and observer10,
+22,853,492,224B maximum new outputs under24GiB. No observations yet: source/runtime
+freeze, source-only full preparation/cohort freeze, then one full main/audit.
 Source-sized WI and unchanged normalized parent routing remain measured costs.
 Same-artifact fresh donor-relative quality AND>=50,then actual14.664B/multi-family/
 useful large n/mass LUT/physical DRAM still required. All495..505 terminal.
