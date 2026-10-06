@@ -26,13 +26,23 @@ Routine Graphify disabled. Donor-adaptation frozen, evidence reusable.
 
 ## Latest decisive evidence
 
+[497](METH_497_EXACT_FEATURE_RANK_RESULT_20261006.md): exact dyadic-field minor
+certificates independently admit full real row rank for all127exposed expert
+development and ALL feature matrices. All5819 consumed feature rows extend
+development spans independently; exact total null dimensions53943/48124.
+All5/5/5 gates PASS; first metadata digest fault retained before binding repair1,
+unchanged science runs once. [Whole algebra/next](METH_497_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
+selects498 minimum-source-prior-displacement interpolant, one full readout
+learner/physical evaluation with current keys/width/prior/codec preserved.
+No numerical rank cutoff, fitted candidate or quality/rate/useful-n promotion.
+
 [496](METH_496_READOUT_ERROR_RESULT_20261006.md): ALL17540UID/19962occurrences
 fixed-artifact decomposition independently admitted, all5/5/5 apparatus gates
 PASS. Fitted U RMS2.38%..6.98% on six groups already fails before quantization;
 coefficient error1.27%..1.32%, arithmetic ratio~4.5e-8. Canonical U2.4802%/
 8.8280%. [Whole algebra/next](METH_496_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
 derives at least53943 data-unidentified feature-coefficient directions and
-selects497 exact dyadic/modular row-rank certificates before changing the
+selected the now-completed497 exact dyadic/modular row-rank certificates before changing the
 learner. No new candidate/fit/source/native/model calls or goal promotion.
 
 [495](METH_495_WEIGHTED_HYBRID_FIT_RESULT_20261006.md): complete local learned
@@ -108,33 +118,39 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption: 496 complete error decomposition; exact feature-information geometry next
+## Current resumption: 497 exact finite geometry; minimum-source-prior interpolant next
 
-Goal ACTIVE/INCOMPLETE. [496 result](METH_496_READOUT_ERROR_RESULT_20261006.md)
-admits ALL17540UID/19962occurrences/128experts/1040metrics/384exposures;
-all5 main/5 audit/5 admission gates PASS. Same495 artifact, no new fit/candidate.
-Fitted U RMS2.38%..6.98% on all six groups, coefficient Q-U1.27%..1.32%,
-arithmetic P-Q ratio~4.5e-8. Canonical U2.4802% development/8.8280% consumed
-validation. Precision-only change cannot fix this saved fitted function.
-Main6.016s/477896704B, audit6.781s/479539200B; actual exits0, both Windows
-available/zero events. No numerical first fault/repair/rerun, source/native/
-model/optimizer/projection call or new resource. Engine/foreign hashes preserve.
+Goal ACTIVE/INCOMPLETE. [497 result](METH_497_EXACT_FEATURE_RANK_RESULT_20261006.md)
+admits ALL128expert/256case/17540UID/19962occurrence/1040count-group/384source-
+exposure domains. All5main/5audit/5admission gates PASS. Exact dyadic maps and
+nonzero minors in one admissible prime field certify full real row rank for
+all127nonempty development and ALL cases. All5819 consumed feature directions
+extend development spans independently. Exact total null dimensions53943
+development/48124ALL; empty expert0 explicit, no usefulness claim.
+This fixed unconstrained real readout can interpolate finite development
+targets;495/496 training residual is not a finite-sample representation floor.
+Source information/prior, conditioning, encodability and fresh quality remain.
 
-[Whole algebra and next](METH_496_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
-regularized fitting from representation and prior information. Every expert
-has at most308 development states for513 feature coefficients per output:
-at least53943 data-only null directions summed over128experts. This is an
-exact count/rank bound, not a floating SVD floor. Weighted pF also changes the
-ideal odd/even algebra; no empirical paired-state impossibility follows.
+Main17.641s/177123328B; audit7.656s/175005696B parent peaks, actual exits0;
+both Windows queries available/zero events. Original metadata builder failed
+on a61-character historical digest before any scientific observation; retained
+before repair1. Science unchanged, each main/audit runs once. Finalizer actual
+tool49aebe exits0. No readout/optimizer/source/native/model invocation, new
+resource, candidate export or whole quality/rate/useful-n/goal promotion.
+Engine/foreign hashes preserve; completed495/496/497 numerical namespaces terminal.
 
-Next497: freeze exact dyadic-feature modular row-rank certificates, ALLoriginal
-domains, new controls and independent minor verification. Nonzero modular
-minors certify real row rank; deficient modular rank is INCONCLUSIVE. No
-new fitted predictor, consumed-target learning, coefficient export or source/
-native/model replay. Full helpers/protocol freeze is required before execution.
-Then select one learner/information change. Routing remains separately open;
-all composed/fresh quality/SAME>=50/useful-n/DRAM/family gates remain open.
-Completed495/496 numerical namespaces are terminal.
+[Whole algebra and next](METH_497_WHOLE_ALGEBRA_AND_NEXT_20261006.md) selects498:
+ONE equality-constrained readout closest to the existing source prior in its
+positive Kreg metric, development-only targets. Freeze A/L/width/prior/amplitude,
+current keys and I8 codec; retain empty expert prior. Exact real row rank makes
+the development kernel positive definite, without a numerical conditioning
+guarantee. New exact fixtures, solve/equality/serialization/full native ALL-
+domain gates, independent audit and actual resource/fault/decision contract
+must be frozen before observations. No ridge/cutoff fallback or lambda/width/
+checkpoint/ID sweep. Reuse qualified native binary on changed candidate in
+new498 namespace; no completed controls or Adam replay. Unchanged failed
+routing remains separate. All composed/fresh quality/SAME>=50/useful-n/DRAM/
+family requirements remain open.
 
 ## Retained evidence and closures
 
