@@ -1,4 +1,6 @@
-#ifdef SILICON_SWITCH_EXACT_COLUMNS
+#ifdef SILICON_SWITCH_HYBRID_HEAD
+#include "../native_expert_scaling/meth510_entry.c"
+#elif defined(SILICON_SWITCH_EXACT_COLUMNS)
 #include "../native_expert_scaling/meth506_entry.c"
 #elif defined(SILICON_SWITCH_SHARED_INTEGER_GPU_R1)
 #include "../native_expert_scaling/meth486_shared_integer_entry.c"

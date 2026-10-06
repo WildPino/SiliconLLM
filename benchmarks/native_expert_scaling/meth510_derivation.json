@@ -1,0 +1,71 @@
+[
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_model.c",
+    "old_sha256": "f60a7feb31b06e0bd9ec076992fd54a2280097bb937430c12325f002f933d4a1",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_model.c",
+    "new_sha256": "39436b6b3405c34129b0706af48952c5e9dbd2db0fde5aa60c20ec8af20cd5b9",
+    "replacements": [
+      {
+        "before": "static void mv_batch(",
+        "after": "#include \"meth510_head.h\"\nstatic void mv_batch(",
+        "occurrences": 1
+      },
+      {
+        "before": "cost_kind=3;head_mv(m->head,x,logits,c.vocab,c.d);cost_kind=0;",
+        "after": "cost_kind=3;hybrid_head510(m->head,m->embed,x,logits,c.vocab,c.d);cost_kind=0;",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_cost_entry.c",
+    "old_sha256": "461aac6bef7321b21d1e0edc9fea23d2d45ed647e626a41ac32bd38da79736b1",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_cost_entry.c",
+    "new_sha256": "6766d54500bfbfaa6bd2450ce4be6adfb3642bc31d716762e6337adb1fd4481c",
+    "replacements": [
+      {
+        "before": "#include \"meth506_model.c\"",
+        "after": "#include \"meth510_model.c\"",
+        "occurrences": 1
+      },
+      {
+        "before": "memset(cost_counts,0,sizeof(cost_counts));",
+        "after": "memset(&hybrid_counts510,0,sizeof(hybrid_counts510));memset(cost_counts,0,sizeof(cost_counts));",
+        "occurrences": 1
+      },
+      {
+        "before": "}printf(\"]\");\n}\nint main",
+        "after": "}printf(\"]\");hybrid_json510();\n}\nint main",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "old": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_entry.c",
+    "old_sha256": "4c087d3282e2f0f1b40cb3cb3e77170df959e6cafec9bbad8d63d1adbae5a702",
+    "new": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_entry.c",
+    "new_sha256": "a7b92bfaab0f75713a005a53fc365651dc7845d499b79760193193a7e3f4914f",
+    "replacements": [
+      {
+        "before": "#include \"meth506_cost_entry.c\"",
+        "after": "#include \"meth510_cost_entry.c\"",
+        "occurrences": 1
+      },
+      {
+        "before": "#undef main",
+        "after": "#undef main\n#include \"meth510_control.h\"",
+        "occurrences": 1
+      },
+      {
+        "before": "int main(int argc,char **argv){",
+        "after": "int main(int argc,char **argv){\n    if(argc==3&&!strcmp(argv[1],\"--head-contract\"))return contract510(argv[2]);\n    if(argc==5&&!strcmp(argv[1],\"--retained-head\"))return retained_head510(argv[2],argv[3],argv[4]);",
+        "occurrences": 1
+      },
+      {
+        "before": "memset(cost_counts,0,sizeof(cost_counts));",
+        "after": "memset(&hybrid_counts510,0,sizeof(hybrid_counts510));memset(cost_counts,0,sizeof(cost_counts));",
+        "occurrences": 1
+      }
+    ]
+  }
+]
