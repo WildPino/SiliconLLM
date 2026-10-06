@@ -26,6 +26,15 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md): complete physical
+original-I8 WI/zero-only column-WO function qualified BYTE on ALL17540 states,
+ALL128 bank inverse;6/7/5 main/audit/admission PASS with explicit original
+primal OS-binding exception and metadata-only505-R2 recovery. Consumed mean
+ratio.569324,natural.591496;both mean/p95 and storage gatesPASS,ALL-book gate
+FAIL12/192,max1.351097. Five/six economicsPASS,THIS local cost recipe closed.
+Exact operator retained as component;no whole/fresh/rate/DRAM promotion.
+
+
 [504 result](METH_504_ANGULAR_REGION_RESULT_20261006.md): all6/7/5 apparatus/
 independent sign geometry/admission PASS.637 sound original-WI input cones,
 1285 selected cases' omitted integer dots/hidden scales verified. Economic
@@ -75,27 +84,29 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption: exact original WI and dynamic sparse WO505
+## Current resumption:505 complete;506 whole artifact feasibility
 
-504 terminal main49.937s/474574848B, independent audit36.344s/517107712B;
-actual exits0, Windows available/zero events, engine/foreign3 preserved.
-Initial main waited3.375s for transient Python processes; no process killed.
-All495..504 namespaces terminal, no surviving scientific job.
+Original505 compile/primal/bench called ONCE,all child exits0;caller exit1
+post-call missing primal-only apphelp.dll. R1 timeout BEFORE numerical import;
+R2 recovers immutable full outputs/times without native replay. Actual compiler/
+bench modules were prospectively bound;primal OS exception stays explicit.
+R2 recovery37.921s/1348239360B,audit33.406s/2104918016B,exits0;all Windows
+queries available/zero matching events,engine/foreign3 exact. Own scientific
+jobs terminal;identified external progressive-runtime Kaggle fetch preserved.
+Its creation was after original C cost terminal;metadata permission forbids C calls.
+All495..505 namespaces terminal,no economic-gate relaxation.
 
-**First action:** implement/price/freeze ONE physical original-I8 WI + exact
-zero-only column-WO inquiry. [505 next](METH_505_EXACT_ORIGINAL_WI_SPARSE_WO_NEXT_20261006.md)
-changes selection to AFTER original WI/ReLU/A16, retaining all source information.
-455 measured original WI120.175us versus compact188.943us, sparse WO36.664us
-versus dense106.031us; the unmeasured combination merits one actual test.
-Reuse unchanged source WI and qualified sparse accumulator components, no
-closed kernel/width/precision/centre grid. ALL17540 original states and complete
-128-ID physical bank, exact BYTE parity plus matched mean/p95/book cost gates.
-WI width3072 is charged; no1536 ceiling or storage-compression claim. No505
-code/protocol/binding/export/observations yet. Pass -> ALL-bank engine/head/fresh
-quality AND SAME>=50 immediately; no more local mask refinements first.
+**First action:** [506 next](METH_506_WHOLE_CONDITIONAL_ARTIFACT_NEXT_20261006.md)
+implements/prices/freezes the whole column-layout artifact and reusable C engine
+path,ALL12 banks/source128/shared core/head/state/normalized parent control.
+New full-model3-worker scope is EXPLORATORY despite505 local cost failure;no
+inherited eligibility/rate claim and no kernel/width/tile or local mask refinement.
+Resolve excluded fresh assets/donor quality gates,full-artifact output/resource
+contract and observer on UNUSED physical core before numerical work. No506
+sources/protocol/binding/export/observations yet. Existing 505 C is reusable.
 
-All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/
-RAM/LUT winner+mass/physical DRAM/actual additional families/scales remain open.
+All-bank composition/fresh own-state generation/tasks/SAMEartifact>=50/useful n/
+RAM/LUT winner+mass/physical DRAM/actual other families/scales remain open.
 
 ## Decisive retained evidence and closures
 
