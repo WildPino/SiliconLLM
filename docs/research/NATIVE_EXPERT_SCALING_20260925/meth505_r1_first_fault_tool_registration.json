@@ -1,0 +1,58 @@
+{
+  "stage": "metadata_recovery_pre_numerical_isolation_fault",
+  "initial_tool_result": {
+    "chunk_id": "186c78",
+    "wall_time_seconds": 10.0040316,
+    "session_id": 12013,
+    "original_token_count": 28,
+    "output": "{\"quiet\": \"initial\", \"foreign\": [{\"pid\": 9096, \"name\": \"python.exe\"}, {\"pid\": 23908, \"name\": \"python.exe\"}]}\r\n"
+  },
+  "wait_tool_results": [
+    {
+      "chunk_id": "96a648",
+      "wall_time_seconds": 5.014789,
+      "session_id": 12013,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "06a73d",
+      "wall_time_seconds": 5.006631,
+      "session_id": 12013,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "6aac9d",
+      "wall_time_seconds": 5.015817,
+      "session_id": 12013,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "8a5307",
+      "wall_time_seconds": 5.0095136,
+      "session_id": 12013,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "eecbb0",
+      "wall_time_seconds": 5.0130901,
+      "session_id": 12013,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "95dcea",
+      "wall_time_seconds": 0.0000093,
+      "exit_code": 1,
+      "original_token_count": 222,
+      "output": "Traceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_r1_recovery.py\", line 99, in <module>\r\n    if __name__=='__main__':main()\r\n                            ^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_r1_recovery.py\", line 12, in main\r\n    b=ctx.admit(a.binding_sha)\r\n      ^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_operations.py\", line 40, in admit\r\n    self.quiet('initial');assert self.digest(BIND)==sha;self.head(BIND)\r\n    ^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth490_r1_operations.py\", line 116, in quiet\r\n    self.guard();assert time.monotonic()-began<=240,'quiet240s'\r\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError: quiet240s\r\n"
+    }
+  ],
+  "actual_exit_code": 1,
+  "new_native_calls": 0,
+  "new_numerical_imports": 0,
+  "classification": "quiet240s before binding/data import; fixed known external Kaggle fetch is not a local scientific compute process. Preserve original timing before its creation."
+}

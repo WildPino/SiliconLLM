@@ -1,0 +1,40 @@
+{
+  "experiment": "METH505-R1 retained physical inquiry metadata recovery",
+  "start_utc": "2026-10-06T14:17:15.634239+00:00",
+  "process_instance": {
+    "pid": 9700,
+    "create_time_unix": 1791296235.3432455
+  },
+  "argv": [
+    "benchmarks\\native_expert_scaling\\meth505_r1_recovery.py",
+    "--out",
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth505_r1_result.json",
+    "--binding-sha",
+    "5ba79a659c6158112d08a3f8db695e40ad4f00021c6f344424d5a3b108367416"
+  ],
+  "commands": [],
+  "gates": {},
+  "isolation_waits": [],
+  "numerical_imports": false,
+  "phase": "binding",
+  "end_utc": "2026-10-06T14:21:15.974691+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_r1_recovery.py\", line 12, in main\n    b=ctx.admit(a.binding_sha)\n      ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth505_operations.py\", line 40, in admit\n    self.quiet('initial');assert self.digest(BIND)==sha;self.head(BIND)\n    ^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth490_r1_operations.py\", line 116, in quiet\n    self.guard();assert time.monotonic()-began<=240,'quiet240s'\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: quiet240s\n",
+  "resource": {
+    "wall_seconds": 240.34299999999348,
+    "parent_peak_bytes": 34754560,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 0,
+    "wall_limit_seconds": 900,
+    "combined_host_limit_bytes": 4294967296
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_r1_recovery\\fatal_native.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth505_r1_recovery\\progress.jsonl",
+      "bytes": 0
+    }
+  ]
+}
