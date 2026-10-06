@@ -1,0 +1,35 @@
+{
+  "experiment": "METH498 sole first independent audit execution registration",
+  "attempt": 1,
+  "process_instance": {
+    "pid": 27492,
+    "create_time_unix": 1791282973.3617656
+  },
+  "record_sha256": "e6e57f7f94b712512a782c98888eeb456f4f3e08bc58d78fd86e6cfd39970384",
+  "actual_exit_code": 0,
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth498_retention_audit.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_498_20261006.json --binding-sha b85fd8a136e546f7d940f518811081b2b9e993554f11c84adb6039990524bf37 --raw-sha da4f297a8370dddc7e34039d6c0e763750f24789b407f11bf0c7a6cd323ce957",
+  "actual_tool_results": [
+    {
+      "chunk_id": "66210d",
+      "wall_time_seconds": 10.0038033,
+      "session_id": 54656,
+      "original_token_count": 19,
+      "output": "{\"experts_audited\": 1}\r\n{\"experts_audited\": 17}\r\n{\"experts_audited\": 33}\r\n"
+    },
+    {
+      "chunk_id": "4ffd01",
+      "wall_time_seconds": 7.4430521,
+      "exit_code": 0,
+      "original_token_count": 262,
+      "output": "{\"experts_audited\": 49}\r\n{\"experts_audited\": 65}\r\n{\"experts_audited\": 81}\r\n{\"experts_audited\": 97}\r\n{\"experts_audited\": 113}\r\n{\"gates\": {\"ALL_actual_inputs_runtime_native_source_and497_exact_rank_qualified_before_NumPy\": true, \"main_complete_and_ALL_current_candidate_output_and_terminal_SHA\": true, \"NEW498_independent_Fraction_equality_metric_stationarity_and_I8_control\": true, \"ALL127_permuted_metric_KKT_128_exact_serialization_codec_and_fixed_bytes\": true, \"ALL17540_oracle_coupled_BYTE_20_energy_columns_cross_terms_and_closure\": true, \"ALL1040_reports_384_exposures_frozen_outcomes_decision_and_cost\": true}, \"outcomes\": {\"fit64_ALL_six_RMS_1pct\": false, \"fit32_ALL_six_RMS_1pct\": false, \"oracle_ALL_six_RMS_1pct\": false, \"coupled_ALL_six_RMS_1pct\": false, \"ID_ALL_six_999permille\": false}, \"decision\": \"NEXT_SOURCE_PRIOR_TRANSPORT\", \"resource\": {\"wall_seconds\": 19.859000000025844, \"parent_peak_bytes\": 841637888, \"native_peak_bytes\": 0, \"bytes_hashed\": 1616716541, \"wall_limit_seconds\": 900, \"combined_host_limit_bytes\": 1610612736}}\r\n"
+    }
+  ],
+  "actual_Windows_tool_result": {
+    "chunk_id": "a0548e",
+    "wall_time_seconds": 0.5323977,
+    "exit_code": 0,
+    "original_token_count": 51,
+    "output": "{\r\n  \"query_start_utc\": \"2026-10-06T10:36:11.5820390+00:00\",\r\n  \"query_end_utc\": \"2026-10-06T10:36:42.1848402+00:00\",\r\n  \"query_available\": true,\r\n  \"returned_event_count\": 0,\r\n  \"query_error\": null\r\n}\r\n"
+  },
+  "scope": "Independent complete KKT, serialization, codec, physical-byte and all-report audit. No coefficient refit, native replay or source/model calls. Audit namespace terminal."
+}

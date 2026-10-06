@@ -1,0 +1,147 @@
+{
+  "experiment": "METH498 minimum-source-prior-displacement readout and physical evaluation",
+  "start_utc": "2026-10-06T10:36:13.582039+00:00",
+  "process_instance": {
+    "pid": 27492,
+    "create_time_unix": 1791282973.3617656
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth498_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_498_20261006.json",
+    "--binding-sha",
+    "b85fd8a136e546f7d940f518811081b2b9e993554f11c84adb6039990524bf37",
+    "--raw-sha",
+    "da4f297a8370dddc7e34039d6c0e763750f24789b407f11bf0c7a6cd323ce957"
+  ],
+  "commands": [],
+  "gates": {
+    "ALL_actual_inputs_runtime_native_source_and497_exact_rank_qualified_before_NumPy": true,
+    "main_complete_and_ALL_current_candidate_output_and_terminal_SHA": true,
+    "NEW498_independent_Fraction_equality_metric_stationarity_and_I8_control": true,
+    "ALL127_permuted_metric_KKT_128_exact_serialization_codec_and_fixed_bytes": true,
+    "ALL17540_oracle_coupled_BYTE_20_energy_columns_cross_terms_and_closure": true,
+    "ALL1040_reports_384_exposures_frozen_outcomes_decision_and_cost": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "b85fd8a136e546f7d940f518811081b2b9e993554f11c84adb6039990524bf37",
+  "source_freeze": "a43a31848db56da6589eaf8e1918c9e4247f2425",
+  "execution_head": "3008d85a37f0e751f5f509e4d71211472fdb386e",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth498_minimum_prior_fit_result.json",
+    "sha256": "da4f297a8370dddc7e34039d6c0e763750f24789b407f11bf0c7a6cd323ce957"
+  },
+  "main_windows_sha256": "10ec267a857bc46290404dff0c11c7abc7a78f68173f10ffd54b79bc63d56410",
+  "retained_main_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\bank.bin",
+      "bytes": 127232136,
+      "sha256": "3d069c2aaccb18ef58e0675a5423f127133f7cd97b557c476645259ef9a73439"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\coefficients_F32.bin",
+      "bytes": 201719832,
+      "sha256": "60fc7f4e02d41ab4565df4487d904479283b47bc5e0fe0fc7e1aade78eb868a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\coefficients_F64.bin",
+      "bytes": 403439640,
+      "sha256": "15580737e9e4ab9f988af230406a4cc40af76012b3d589e64c5b30b93ae8f702"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\controls.json",
+      "bytes": 1040,
+      "sha256": "0477e6a48692868b0cf5ef36e8c8bb4d9f38d4f9b21f995c63002ce6ea62b64e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\energy_by_uid.bin",
+      "bytes": 2806424,
+      "sha256": "d1b9a3345aa8efcf4bc41ec0d9a688dcb1c63e3edb339bd6fc07d68a3074a908"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\new_candidate_predict.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\new_candidate_predict.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\predictions.bin",
+      "bytes": 109589944,
+      "sha256": "b7dee577041406cf744935dd2e530c516a7e7e1f879df52851e74cbeda0999ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\progress.jsonl",
+      "bytes": 1223,
+      "sha256": "dac2d8000e7091f612e4f4d37b944a4dba3df5ee29cde014280462b3c60c3fbf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_minimum_prior_fit\\terminal_resources.json",
+      "bytes": 552,
+      "sha256": "a10cb57026ddf82e310f9ab0dce24c1a52423cdd29e22fefa671f192d9091e16"
+    }
+  ],
+  "UIDs_audited": 17540,
+  "occurrences_audited": 19962,
+  "experts_audited": 128,
+  "readout_solves_audited": 127,
+  "metric_groups_audited": 1040,
+  "exposure_groups_audited": 384,
+  "outcomes": {
+    "fit64_ALL_six_RMS_1pct": false,
+    "fit32_ALL_six_RMS_1pct": false,
+    "oracle_ALL_six_RMS_1pct": false,
+    "coupled_ALL_six_RMS_1pct": false,
+    "ID_ALL_six_999permille": false
+  },
+  "decision": "NEXT_SOURCE_PRIOR_TRANSPORT",
+  "max_identity_envelope_ratio": 0.00013973882718101537,
+  "max_energy_closure_envelope_ratio": 2.336240741634195e-05,
+  "source_FFN_calls": 0,
+  "model_calls": 0,
+  "native_calls": 0,
+  "scope": "Independent whole one-bank changed-readout candidate audit only; no fresh quality, SAME rate/DRAM/useful n/family or goal promotion.",
+  "end_utc": "2026-10-06T10:36:33.431906+00:00",
+  "resource": {
+    "wall_seconds": 19.844000000011874,
+    "parent_peak_bytes": 841637888,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 1616709664,
+    "wall_limit_seconds": 900,
+    "combined_host_limit_bytes": 1610612736
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_retention\\independent_controls.json",
+      "bytes": 258,
+      "sha256": "0beed7a15fdaf2e01b0390487404f213c423b0cf41cc6c0ee2173b9dda57fea9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_retention\\independent_KKT_cases.json",
+      "bytes": 52381,
+      "sha256": "d95daf59553aef0fcb4ad5a908d603633ec3ae8816f885138d8923fc86882978"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_retention\\progress.jsonl",
+      "bytes": 1244,
+      "sha256": "600568574fad2e649b0ed37fdffbf5e2500b670a6b584d018a02cd46e34c31e9"
+    }
+  ],
+  "terminal_resource_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth498_retention\\terminal_resources.json"
+}
