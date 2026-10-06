@@ -1,0 +1,89 @@
+{
+  "experiment": "METH502 ONE exact development support-cover witness",
+  "start_utc": "2026-10-06T12:58:33.612276+00:00",
+  "process_instance": {
+    "pid": 28692,
+    "create_time_unix": 1791291513.3989427
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth502_retention_audit.py",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_502_20261006.json",
+    "--binding-sha",
+    "128e3d809055dec6746634a79a6fcb5dbb4f71224c70bbad7dae14f55d87f5d5",
+    "--raw-sha",
+    "7aa6503b09e3137cd72521668f0d2b616a550d052d9f911d37f0da3a1a72e61c"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_data_runtime_scientific_SHA_before_NumPy": true,
+    "sole_main_ALL_output_and_terminal_SHA": true,
+    "independent_Boolean_capacity_control": true,
+    "ALL_retained_prefixes_BYTE_baseline_new_tail_fill_and_exact_partition_copy_cost_independent": true,
+    "ALL127_development_subsets_global_union_width_and_logical_bytes_independent": true,
+    "ALL_consumed_diagnostics_complete_denominators_independent": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "preserved_daemons": [],
+  "binding_sha256": "128e3d809055dec6746634a79a6fcb5dbb4f71224c70bbad7dae14f55d87f5d5",
+  "source_freeze": "bdbcd849281e697a21572ae2ccecf4750539e735",
+  "execution_head": "13e9c9ffa13fda03caa36770e1effeec3f537412",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth502_variable_cover_result.json",
+    "sha256": "7aa6503b09e3137cd72521668f0d2b616a550d052d9f911d37f0da3a1a72e61c"
+  },
+  "summary": {
+    "nonempty_experts": 127,
+    "development_UIDs": 11721,
+    "consumed_UIDs": 5819,
+    "baseline_experts": 61,
+    "resumed_experts": 52,
+    "resumed_UIDs": 3955,
+    "children": 783,
+    "children_min": 4,
+    "children_max": 15,
+    "copies": 1147411,
+    "bank_copy_ratio": 2.9409935818569553,
+    "development_any_child_complete_support": 11721,
+    "consumed_any_child_complete_support": 262,
+    "consumed_old_selector_complete_support": 168,
+    "logical_bytes": {
+      "I8_coefficients": 1762423296,
+      "WI_F32_scales": 4589644,
+      "WO_F32_scales": 2405376,
+      "u16_indices": 2294822
+    },
+    "active_width_ceiling": 1536,
+    "empty_expert_0": "UNCOMPILED_UNPROMOTED"
+  },
+  "eligibility": {
+    "ALL127_finite_development_exact_support_cover": true
+  },
+  "decision": "NEXT_ACTUAL_FUNCTION_ORACLE_AND_INPUT_SELECTOR",
+  "unique_inputs_audited": 17540,
+  "source_model_native_GPU_gradient_calls": 0,
+  "scope": "Boolean continuation/copy certificates, no original-prefix pack replay or new functions.",
+  "end_utc": "2026-10-06T12:58:38.988727+00:00",
+  "resource": {
+    "wall_seconds": 5.375,
+    "parent_peak_bytes": 165502976,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 164746065,
+    "wall_limit_seconds": 120,
+    "combined_host_limit_bytes": 536870912
+  },
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth502_retention\\fatal_native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth502_retention\\progress.jsonl",
+      "bytes": 70,
+      "sha256": "cabfc158d81a7e323eda5a806c1239dc13f5397a3eb5540373255357cfb77d19"
+    }
+  ]
+}
