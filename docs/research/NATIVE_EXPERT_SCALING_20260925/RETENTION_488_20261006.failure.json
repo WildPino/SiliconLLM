@@ -1,0 +1,22 @@
+{
+  "experiment": "METH488 independent of unchanged C486 complete retention admission",
+  "start_utc": "2026-10-06T03:20:40.501871+00:00",
+  "process_instance": {
+    "pid": 11980,
+    "create_time_unix": 1791256840.221907
+  },
+  "commands": [],
+  "gates": {},
+  "preserved_daemons": [],
+  "failure": {
+    "stage": "binding",
+    "exception": "AssertionError(('foreign', 17672, 'python.exe'))",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth488_retention_audit.py\", line 64, in audit\n    assert not(name.startswith(('python','clang')) or (name.startswith('meth') and name.endswith('.exe'))),('foreign',p.pid,name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('foreign', 17672, 'python.exe')\n"
+  },
+  "end_utc": "2026-10-06T03:20:40.570465+00:00",
+  "resource": {
+    "wall_seconds": 0.06300000000919681,
+    "peak_working_set_bytes": 0,
+    "bytes_hashed": 0
+  }
+}
