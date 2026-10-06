@@ -26,11 +26,19 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[510 native readout](METH_510_NATIVE_HEAD_RESULT_20261006.md): complete C/audit,
+ALL996 full original/hybrid cells/IDs BYTE, same20/3/14 consumed outcomes.
+ALL2988 measured pairs mean increment0.148116ms/p95 0.619665ms, both frozen
+cost gates PASS; p99 1.719324ms/max30.504500ms retained. Head ratio1.1748545,
+not a whole speed result. First pre-timing isolation fault, exact no-replay R1
+and typed-UTC metadata repair retained; all owned instances closed.
+Selected [511 fresh whole quality/rate](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md).
+
 [509 top8 head](METH_509_SHORTLIST_HEAD_RESULT_20261006.md): sole numerical
 main/audit6/8 gates and BOTH local criteria PASS after retained pre-query
 dependency repair. ALL996 hybrid winners equal full source head;0 tail overtakes,
 source winner ranks972/22/2 at1/2/3. Recovered20/31, introduced3/965, remaining14.
-Selected510 one native head/control/cost inquiry; no fresh whole quality/rate.
+510 now qualifies native parity/cost; no fresh whole quality/rate from509/510.
 
 [508 readout decomposition](METH_508_SOURCE_HEAD_RESULT_20261006.md): source head
 reproducesALL996 donor-state choices/max relative L2 1.65375e-7, then candidate
@@ -104,7 +112,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption:509 complete;510 native top8 head and bounded cost
+## Current resumption:510 complete;511 fresh whole quality and same-artifact rate
 
 [506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
 artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
@@ -136,18 +144,24 @@ I8 head remains, extra logical F32 rows24,576B/position; not DRAM/speed proof.
 Original509 pre-query module-list fault preserved; R1 includes actual already-
 qualified508 .venv NumPy/psutil files, mathematical main/audit unchanged.
 
-**First action:** implement/price/freeze [510 native top8 operator/control/cost](METH_510_NATIVE_HYBRID_HEAD_NEXT_20261006.md)
-and independent checker BEFORE compile/native/timing. CPU3 same worker binding,
-actual source shared-row pointer and C F64/F32 parity to509 onALL996 states;
-unrefined tail preserved. Measure selection/refinement/I8 work and overhead.
-No k tuning to observed rank3. If qualified, then NEW whole original-donor
-quality/own-state generation AND SAMEartifact accepted-ID rate. Do not promote
-old53.1992 or fixed-state31->14 to final joint quality/speed. Source I8 equality
-proves exact acceleration alone cannot repair506's failed prose criterion.
+[510 complete](METH_510_NATIVE_HEAD_RESULT_20261006.md): C branch and independent
+finite arithmetic/output/counter/cost audit qualify ALL996 cells/IDs/tail BYTE;
+mean incremental0.148116ms/p95 0.619665ms, five local gates PASS. Keep original
+pre-timing fault, seven closed calls reused without execution, sole new paired
+head command, actual idle process identities/zero CPU and corrected UTC receipt.
+No new generation/quality/rate/n/RAM/DRAM/family claim.
+
+**First action:** implement/price/freeze [511 fresh whole inquiry](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md)
+and independent checker BEFORE new corpus/cohort/donor/native calls. SAME510
+binary/506 parameter artifact, actual original F32 donor, NEW excluded books and
+own generation histories, unchanged506 quality/economic criteria, strictly
+isolated direct>=50 accepted batch1 IDs/s. No k tuning, rate/fixed-state recovery
+inheritance or silent regression-gate relaxation. Source I8 equality alone
+cannot repair506's failed prose criterion.
 [Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
 and256 expansion deferred until this discrepancy is understood.
 
-All completed495..509 scientific namespaces terminal. Preserve first faults,
+All completed495..510 scientific namespaces terminal. Preserve first faults,
 unrelated work and known import/event exceptions. All operations before this
 update remain BYTE in [archived index](INDEX_THROUGH_506_OPERATIONS_20261006.md).
 

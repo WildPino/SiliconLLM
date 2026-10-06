@@ -1,5 +1,10 @@
 # Selected510: one native top8-source-row head branch and actual cost
 
+> Implementation/result update: [510 COMPLETE local result](METH_510_NATIVE_HEAD_RESULT_20261006.md)
+> now independently qualifies native BYTE parity and bounded head increment.
+> [511 fresh whole inquiry](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md) selected.
+> The proposal below is historical; no fresh whole quality/rate promotion.
+
 PROPOSED only; no510 source/control/native/compile call yet. Goal ACTIVE/INCOMPLETE.
 509 independently qualifies k8 source-head winner coverage AND full hybrid argmax
 on996 consumed positions. No unseen/general or fresh whole quality/rate claim.

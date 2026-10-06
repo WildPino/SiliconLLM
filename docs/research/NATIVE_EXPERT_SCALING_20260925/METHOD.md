@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:509 complete; native conditional readout qualification
+## Current resumption:510 complete; fresh whole hybrid-head qualification
 
 [506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
 7,541,946,880B conditional artifact with reusable exact column primitive/engine
@@ -69,15 +69,21 @@ R1 actual-runtime repair retained; no mathematical K/arithmetic/threshold change
 Source F32 rows already stored in shared embedding;24,576B logical extra reads
 plus old I8 head per position, no physical DRAM or speed claim.
 
-[Selected510](METH_510_NATIVE_HYBRID_HEAD_NEXT_20261006.md) is PROPOSED: one
-native C branch/control/cost, actual finite parity and overhead at same CPU3
-layout, then NEW own-state whole quality/generation and SAMEartifact rate.
-No k tuning after observed max rank3, no copied local recovery or old rate.
+[510 result](METH_510_NATIVE_HEAD_RESULT_20261006.md) now qualifies the real C
+branch: ALL996 original/hybrid full logits/selected IDs/rounded cells/tail BYTE;
+independent exact AVX F64/counter/cost reconstruction complete. ALL2988 measured
+pairs mean increment0.148116ms/p95 0.619665ms, local cost gates PASS; head
+ratio1.1748545/max30.504500ms retained. Original pre-timing fault and R1 preserve
+seven completed compile/control calls without execution; sole paired query.
+Actual idle identity/zero CPU/typed UTC checks complete, all owned processes closed.
+[Selected511](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md) is PROPOSED: NEW own-state
+whole quality/tasks versus actual original F32 donor AND SAMEartifact>=50 rate,
+unchanged506 quality/economic criteria. No copied local recovery or old rate.
 Source-derived upstream correction remains conditional; exact I8 acceleration
 keeps506's failed IDs/score, so adaptive WI/256 expansion remain deferred.
 
 505's exact one-bank component remains retained, with5/6 economic gates and
-12/192 regressions; all495..509 scientific calls terminal. Source-sized storage/
+12/192 regressions; all495..510 scientific calls terminal. Source-sized storage/
 WI does not supply a compact core, useful larger n/RAM/LUT/mass/DRAM or another
 actual family/scale. All remain goal requirements.
 

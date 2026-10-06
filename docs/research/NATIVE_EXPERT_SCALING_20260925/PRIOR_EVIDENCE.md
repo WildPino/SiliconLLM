@@ -1,5 +1,14 @@
 # Native expert-count scaling: prior evidence
 
+**6 October after510:** [native result](METH_510_NATIVE_HEAD_RESULT_20261006.md)
+qualifies full C original/hybrid cells/IDs/tail BYTE atALL996 consumed states,
+same20/3/14. ALL2988 paired costs mean increment0.148116ms/p95 0.619665ms,
+local gates PASS; maximum30.504500ms retained, no whole speed inheritance.
+Independent finite arithmetic/cost and actual closure/typed UTC admission complete.
+Pre-timing isolation fault and no-replay R1 preserve all completed calls.
+Selected [511 new whole](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md), not new
+quality/rate/n/RAM/DRAM/family promotion.
+
 **6 October after508/509:** [508](METH_508_SOURCE_HEAD_RESULT_20261006.md)
 qualifies actual source-head bridge at996 common states;20 original differences
 recovered/3 introduced,31->14. [509](METH_509_SHORTLIST_HEAD_RESULT_20261006.md)

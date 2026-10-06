@@ -1,0 +1,837 @@
+{
+  "experiment": "METH510 native conditional source readout complete",
+  "producer": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_finalize.py",
+    "bytes": 7696,
+    "sha256": "6755bb1b505fe721d81ecbc5992a152b706c3b87100c937d56e58af639acb00c"
+  },
+  "revision": "fe291afcaaf8c5f561324aa8f63386485a89a225",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_r1_binding.json",
+    "bytes": 614179,
+    "sha256": "8e95220db76cea3a47b008a470636d25bf171c4ee3bdaa0bff4d6c1abdc58685"
+  },
+  "main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_r1_main_result.json",
+    "bytes": 1423396,
+    "sha256": "56da38caba7ba6ba71e19d5b35a828b70595442468327cae9b011535968ec617"
+  },
+  "independent_audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_r1_audit_result.json",
+    "bytes": 37557,
+    "sha256": "3f5df20bb6472a56f3a958d249f1459bb1dfc7ac7f09a954a6300563641ec9bc"
+  },
+  "tool_receipts": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_tool_receipts.json",
+    "bytes": 22126,
+    "sha256": "7c946fc905218652dd2fc6b166532e192b05e3303c503a33d2711719cb6ab7eb"
+  },
+  "original_pre_timing_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_main_result.failure.json",
+    "bytes": 39950,
+    "sha256": "36f292b843302b2018d20af132636039e5a9c7fd4c493098e5c89620c34b753d"
+  },
+  "original_controls_reused": 7,
+  "new_compile_control_calls": 0,
+  "sole_new_paired_head_calls": 1,
+  "summary": {
+    "parity": {
+      "positions": 996,
+      "old_changed_cells": 0,
+      "hybrid_changed_cells": 0,
+      "selected_ID_mismatches": 0,
+      "unselected_tail_changed_cells": 0,
+      "hybrid_winner_mismatches": 0,
+      "recoveries": 20,
+      "introductions": 3,
+      "remaining_differences": 14
+    },
+    "cost": {
+      "paired_samples": 2988,
+      "mean_old_seconds": 0.0008470833333333334,
+      "mean_hybrid_seconds": 0.0009951996653279785,
+      "mean_extra_seconds": 0.00014811633199464527,
+      "p50_extra_seconds": 0.00013045,
+      "p95_extra_seconds": 0.0006196649999999999,
+      "p99_extra_seconds": 0.0017193240000000004,
+      "maximum_extra_seconds": 0.030504499999999997,
+      "mean_ratio": 1.1748544991574759,
+      "mean_scan_seconds": 0.00016561897590361446,
+      "mean_refine_seconds": 4.980756358768406e-06,
+      "books": [
+        {
+          "book": 0,
+          "samples": 90,
+          "mean_extra_seconds": 0.00012419
+        },
+        {
+          "book": 1,
+          "samples": 78,
+          "mean_extra_seconds": 0.0002023576923076923
+        },
+        {
+          "book": 2,
+          "samples": 96,
+          "mean_extra_seconds": 0.00012078854166666665
+        },
+        {
+          "book": 3,
+          "samples": 114,
+          "mean_extra_seconds": 9.589298245614034e-05
+        },
+        {
+          "book": 4,
+          "samples": 108,
+          "mean_extra_seconds": 0.00012043981481481481
+        },
+        {
+          "book": 5,
+          "samples": 150,
+          "mean_extra_seconds": 0.00016324866666666665
+        },
+        {
+          "book": 6,
+          "samples": 111,
+          "mean_extra_seconds": 0.00012168288288288286
+        },
+        {
+          "book": 7,
+          "samples": 129,
+          "mean_extra_seconds": 0.0001790441860465116
+        },
+        {
+          "book": 8,
+          "samples": 105,
+          "mean_extra_seconds": 0.00013961619047619047
+        },
+        {
+          "book": 9,
+          "samples": 144,
+          "mean_extra_seconds": 0.00013808958333333334
+        },
+        {
+          "book": 10,
+          "samples": 120,
+          "mean_extra_seconds": 0.00023263083333333336
+        },
+        {
+          "book": 11,
+          "samples": 126,
+          "mean_extra_seconds": 0.00013476984126984133
+        },
+        {
+          "book": 12,
+          "samples": 114,
+          "mean_extra_seconds": 0.0001637122807017544
+        },
+        {
+          "book": 13,
+          "samples": 138,
+          "mean_extra_seconds": 6.268333333333336e-05
+        },
+        {
+          "book": 14,
+          "samples": 147,
+          "mean_extra_seconds": 0.00021785578231292522
+        },
+        {
+          "book": 15,
+          "samples": 129,
+          "mean_extra_seconds": 0.00027386046511627905
+        },
+        {
+          "book": 16,
+          "samples": 141,
+          "mean_extra_seconds": 0.0001502936170212766
+        },
+        {
+          "book": 17,
+          "samples": 153,
+          "mean_extra_seconds": 0.0002845575163398693
+        },
+        {
+          "book": 18,
+          "samples": 117,
+          "mean_extra_seconds": 0.00010866410256410254
+        },
+        {
+          "book": 19,
+          "samples": 153,
+          "mean_extra_seconds": 0.00011408954248366016
+        },
+        {
+          "book": 20,
+          "samples": 141,
+          "mean_extra_seconds": 9.97836879432624e-05
+        },
+        {
+          "book": 21,
+          "samples": 132,
+          "mean_extra_seconds": 7.324545454545452e-05
+        },
+        {
+          "book": 22,
+          "samples": 144,
+          "mean_extra_seconds": 0.00012024861111111113
+        },
+        {
+          "book": 23,
+          "samples": 108,
+          "mean_extra_seconds": 8.264259259259259e-05
+        }
+      ]
+    },
+    "local_gates": {
+      "ALL996_original_I8_logits_BYTE": true,
+      "ALL996_hybrid_full_logits_selected_IDs_509_winners_BYTE": true,
+      "ALL996_unselected_tail_unchanged": true,
+      "mean_extra_le_1ms": true,
+      "p95_extra_le_2ms": true
+    },
+    "local_recipe_pass": true,
+    "goal_complete": false,
+    "scope": "Consumed-state native arithmetic and instrumented paired head cost only; no new quality, model rate, physical DRAM, useful n or family promotion."
+  },
+  "terminal_resource_receipts": {
+    "main": {
+      "scope": "Through result serialization, SHA and terminal guard; process exit follows. Native peak sampled via retained Win32 process handles including terminal query.",
+      "result_sha256": "56da38caba7ba6ba71e19d5b35a828b70595442468327cae9b011535968ec617",
+      "seconds": 56.860000000015134,
+      "OS_peak_bytes": 78471168,
+      "native_peak_bytes": 302731264,
+      "bytes_hashed": 879140853,
+      "process_instance": {
+        "pid": 27192,
+        "create_time_unix": 1791319138.4413848
+      },
+      "summary": {
+        "parity": {
+          "positions": 996,
+          "old_changed_cells": 0,
+          "hybrid_changed_cells": 0,
+          "selected_ID_mismatches": 0,
+          "unselected_tail_changed_cells": 0,
+          "hybrid_winner_mismatches": 0,
+          "recoveries": 20,
+          "introductions": 3,
+          "remaining_differences": 14
+        },
+        "cost": {
+          "paired_samples": 2988,
+          "mean_old_seconds": 0.0008470833333333334,
+          "mean_hybrid_seconds": 0.0009951996653279785,
+          "mean_extra_seconds": 0.00014811633199464527,
+          "p50_extra_seconds": 0.00013045,
+          "p95_extra_seconds": 0.0006196649999999999,
+          "p99_extra_seconds": 0.0017193240000000004,
+          "maximum_extra_seconds": 0.030504499999999997,
+          "mean_ratio": 1.1748544991574759,
+          "mean_scan_seconds": 0.00016561897590361446,
+          "mean_refine_seconds": 4.980756358768406e-06,
+          "books": [
+            {
+              "book": 0,
+              "samples": 90,
+              "mean_extra_seconds": 0.00012419
+            },
+            {
+              "book": 1,
+              "samples": 78,
+              "mean_extra_seconds": 0.0002023576923076923
+            },
+            {
+              "book": 2,
+              "samples": 96,
+              "mean_extra_seconds": 0.00012078854166666665
+            },
+            {
+              "book": 3,
+              "samples": 114,
+              "mean_extra_seconds": 9.589298245614034e-05
+            },
+            {
+              "book": 4,
+              "samples": 108,
+              "mean_extra_seconds": 0.00012043981481481481
+            },
+            {
+              "book": 5,
+              "samples": 150,
+              "mean_extra_seconds": 0.00016324866666666665
+            },
+            {
+              "book": 6,
+              "samples": 111,
+              "mean_extra_seconds": 0.00012168288288288286
+            },
+            {
+              "book": 7,
+              "samples": 129,
+              "mean_extra_seconds": 0.0001790441860465116
+            },
+            {
+              "book": 8,
+              "samples": 105,
+              "mean_extra_seconds": 0.00013961619047619047
+            },
+            {
+              "book": 9,
+              "samples": 144,
+              "mean_extra_seconds": 0.00013808958333333334
+            },
+            {
+              "book": 10,
+              "samples": 120,
+              "mean_extra_seconds": 0.00023263083333333336
+            },
+            {
+              "book": 11,
+              "samples": 126,
+              "mean_extra_seconds": 0.00013476984126984133
+            },
+            {
+              "book": 12,
+              "samples": 114,
+              "mean_extra_seconds": 0.0001637122807017544
+            },
+            {
+              "book": 13,
+              "samples": 138,
+              "mean_extra_seconds": 6.268333333333336e-05
+            },
+            {
+              "book": 14,
+              "samples": 147,
+              "mean_extra_seconds": 0.00021785578231292522
+            },
+            {
+              "book": 15,
+              "samples": 129,
+              "mean_extra_seconds": 0.00027386046511627905
+            },
+            {
+              "book": 16,
+              "samples": 141,
+              "mean_extra_seconds": 0.0001502936170212766
+            },
+            {
+              "book": 17,
+              "samples": 153,
+              "mean_extra_seconds": 0.0002845575163398693
+            },
+            {
+              "book": 18,
+              "samples": 117,
+              "mean_extra_seconds": 0.00010866410256410254
+            },
+            {
+              "book": 19,
+              "samples": 153,
+              "mean_extra_seconds": 0.00011408954248366016
+            },
+            {
+              "book": 20,
+              "samples": 141,
+              "mean_extra_seconds": 9.97836879432624e-05
+            },
+            {
+              "book": 21,
+              "samples": 132,
+              "mean_extra_seconds": 7.324545454545452e-05
+            },
+            {
+              "book": 22,
+              "samples": 144,
+              "mean_extra_seconds": 0.00012024861111111113
+            },
+            {
+              "book": 23,
+              "samples": 108,
+              "mean_extra_seconds": 8.264259259259259e-05
+            }
+          ]
+        },
+        "local_gates": {
+          "ALL996_original_I8_logits_BYTE": true,
+          "ALL996_hybrid_full_logits_selected_IDs_509_winners_BYTE": true,
+          "ALL996_unselected_tail_unchanged": true,
+          "mean_extra_le_1ms": true,
+          "p95_extra_le_2ms": true
+        },
+        "local_recipe_pass": true,
+        "goal_complete": false,
+        "scope": "Consumed-state native arithmetic and instrumented paired head cost only; no new quality, model rate, physical DRAM, useful n or family promotion."
+      },
+      "gates": {
+        "ALL_frozen_actual_runtime_compiler_wires_509_oracle_and_head_extents": true,
+        "actual_numpy_only_modules_and_images": true,
+        "native_integer_extremes_zero_even_ties_top8_tail_and_five_rejections": true,
+        "native_worker_layout_command_count_complete_paired_passes_and_counter_counts": true,
+        "terminal_empty_fatal_and_unchanged_inputs_foreign_bytes": true
+      }
+    },
+    "audit": {
+      "scope": "Through result serialization, SHA and terminal guard; process exit follows. Native peak sampled via retained Win32 process handles including terminal query.",
+      "result_sha256": "3f5df20bb6472a56f3a958d249f1459bb1dfc7ac7f09a954a6300563641ec9bc",
+      "seconds": 40.625,
+      "OS_peak_bytes": 79699968,
+      "native_peak_bytes": 0,
+      "bytes_hashed": 877056890,
+      "process_instance": {
+        "pid": 24744,
+        "create_time_unix": 1791319299.627397
+      },
+      "summary": {
+        "parity": {
+          "positions": 996,
+          "old_changed_cells": 0,
+          "hybrid_changed_cells": 0,
+          "selected_ID_mismatches": 0,
+          "unselected_tail_changed_cells": 0,
+          "hybrid_winner_mismatches": 0,
+          "recoveries": 20,
+          "introductions": 3,
+          "remaining_differences": 14
+        },
+        "cost": {
+          "paired_samples": 2988,
+          "mean_old_seconds": 0.0008470833333333334,
+          "mean_hybrid_seconds": 0.0009951996653279785,
+          "mean_extra_seconds": 0.00014811633199464527,
+          "p50_extra_seconds": 0.00013045,
+          "p95_extra_seconds": 0.0006196649999999999,
+          "p99_extra_seconds": 0.0017193240000000004,
+          "maximum_extra_seconds": 0.030504499999999997,
+          "mean_ratio": 1.1748544991574759,
+          "mean_scan_seconds": 0.00016561897590361446,
+          "mean_refine_seconds": 4.980756358768406e-06,
+          "books": [
+            {
+              "book": 0,
+              "samples": 90,
+              "mean_extra_seconds": 0.00012419
+            },
+            {
+              "book": 1,
+              "samples": 78,
+              "mean_extra_seconds": 0.0002023576923076923
+            },
+            {
+              "book": 2,
+              "samples": 96,
+              "mean_extra_seconds": 0.00012078854166666665
+            },
+            {
+              "book": 3,
+              "samples": 114,
+              "mean_extra_seconds": 9.589298245614034e-05
+            },
+            {
+              "book": 4,
+              "samples": 108,
+              "mean_extra_seconds": 0.00012043981481481481
+            },
+            {
+              "book": 5,
+              "samples": 150,
+              "mean_extra_seconds": 0.00016324866666666665
+            },
+            {
+              "book": 6,
+              "samples": 111,
+              "mean_extra_seconds": 0.00012168288288288286
+            },
+            {
+              "book": 7,
+              "samples": 129,
+              "mean_extra_seconds": 0.0001790441860465116
+            },
+            {
+              "book": 8,
+              "samples": 105,
+              "mean_extra_seconds": 0.00013961619047619047
+            },
+            {
+              "book": 9,
+              "samples": 144,
+              "mean_extra_seconds": 0.00013808958333333334
+            },
+            {
+              "book": 10,
+              "samples": 120,
+              "mean_extra_seconds": 0.00023263083333333336
+            },
+            {
+              "book": 11,
+              "samples": 126,
+              "mean_extra_seconds": 0.00013476984126984133
+            },
+            {
+              "book": 12,
+              "samples": 114,
+              "mean_extra_seconds": 0.0001637122807017544
+            },
+            {
+              "book": 13,
+              "samples": 138,
+              "mean_extra_seconds": 6.268333333333336e-05
+            },
+            {
+              "book": 14,
+              "samples": 147,
+              "mean_extra_seconds": 0.00021785578231292522
+            },
+            {
+              "book": 15,
+              "samples": 129,
+              "mean_extra_seconds": 0.00027386046511627905
+            },
+            {
+              "book": 16,
+              "samples": 141,
+              "mean_extra_seconds": 0.0001502936170212766
+            },
+            {
+              "book": 17,
+              "samples": 153,
+              "mean_extra_seconds": 0.0002845575163398693
+            },
+            {
+              "book": 18,
+              "samples": 117,
+              "mean_extra_seconds": 0.00010866410256410254
+            },
+            {
+              "book": 19,
+              "samples": 153,
+              "mean_extra_seconds": 0.00011408954248366016
+            },
+            {
+              "book": 20,
+              "samples": 141,
+              "mean_extra_seconds": 9.97836879432624e-05
+            },
+            {
+              "book": 21,
+              "samples": 132,
+              "mean_extra_seconds": 7.324545454545452e-05
+            },
+            {
+              "book": 22,
+              "samples": 144,
+              "mean_extra_seconds": 0.00012024861111111113
+            },
+            {
+              "book": 23,
+              "samples": 108,
+              "mean_extra_seconds": 8.264259259259259e-05
+            }
+          ]
+        },
+        "local_gates": {
+          "ALL996_original_I8_logits_BYTE": true,
+          "ALL996_hybrid_full_logits_selected_IDs_509_winners_BYTE": true,
+          "ALL996_unselected_tail_unchanged": true,
+          "mean_extra_le_1ms": true,
+          "p95_extra_le_2ms": true
+        },
+        "local_recipe_pass": true,
+        "goal_complete": false,
+        "scope": "Consumed-state native arithmetic and instrumented paired head cost only; no new quality, model rate, physical DRAM, useful n or family promotion."
+      },
+      "gates": {
+        "ALL_frozen_actual_runtime_compiler_wires_509_oracle_and_head_extents": true,
+        "actual_numpy_only_modules_and_images": true,
+        "ALL996_independent_original_snapshots_full_cells_AVX_F64_rounding_BYTE": true,
+        "ALL4980_paired_orders_scan_counts_aggregate_cost_and_decisions": true,
+        "native_controls_command_count_exit_and_PID_creation_closure": true,
+        "terminal_empty_fatal_and_unchanged_inputs_foreign_bytes": true
+      }
+    }
+  },
+  "output_inventory": {
+    "main": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\compile.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\compile.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\fatal.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\head_inputs.bin",
+        "bytes": 3067696,
+        "sha256": "31bd66ebde281ccc9d460b463aa9ba0900c46f2b21bf14d76ea02211865b5d25"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\head_outputs.bin",
+        "bytes": 256091544,
+        "sha256": "66ae1c4e8b6282fdbe7e45b63e5245db2f08e2e24abb6c117c65dc1247bdb9b9"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\libomp.dll",
+        "bytes": 1262080,
+        "sha256": "6fc163dd513538a92a187d987438bebc5509afd1f824b20a88dd51463b3d5698"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\meth510.exe",
+        "bytes": 315904,
+        "sha256": "b49c153cc4d1730c2bdbe5ba05f04f499d9a8706f6f63340b445086cd5ff424f"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_cols.stderr",
+        "bytes": 43,
+        "sha256": "210eb54d72f0ea5799fede0c798323c7e70ac1f726aa1cece5a220b534bbd7c2"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_cols.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_dtype.stderr",
+        "bytes": 43,
+        "sha256": "210eb54d72f0ea5799fede0c798323c7e70ac1f726aa1cece5a220b534bbd7c2"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_dtype.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_rounding.stderr",
+        "bytes": 43,
+        "sha256": "210eb54d72f0ea5799fede0c798323c7e70ac1f726aa1cece5a220b534bbd7c2"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_rounding.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_rows.stderr",
+        "bytes": 43,
+        "sha256": "210eb54d72f0ea5799fede0c798323c7e70ac1f726aa1cece5a220b534bbd7c2"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_rows.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_source.stderr",
+        "bytes": 43,
+        "sha256": "210eb54d72f0ea5799fede0c798323c7e70ac1f726aa1cece5a220b534bbd7c2"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\negative_source.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\paired_head.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\paired_head.stdout",
+        "bytes": 1297259,
+        "sha256": "05fd2f9ebd8e89e2945258023beaa8436b8965a2971ce8151e5c2f9e8644dfcd"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\positive.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\positive.stdout",
+        "bytes": 592,
+        "sha256": "49825597317aedc42a3a8f1e46815a5d63a4b9f82c4569f4b088e5ed04ef436c"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\progress.jsonl",
+        "bytes": 2186,
+        "sha256": "b45db900e1ffea57dd6bb9005230cdaed9c03c5f7a570b35654e494d3fbc98b0"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_main\\terminal_resource.json",
+        "bytes": 5174,
+        "sha256": "de0ad29fefc21c770fc73675a2f06c9d3835724a772c49b2da640d34673fe2dd"
+      }
+    ],
+    "audit": [
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_audit\\fatal.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_audit\\progress.jsonl",
+        "bytes": 1704,
+        "sha256": "f320fa5fb893f9a12076bdb686fc0c23761f88ee4d811ff7fd3d0971ee5ea964"
+      },
+      {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth510_r1_audit\\terminal_resource.json",
+        "bytes": 5214,
+        "sha256": "0eea01dae71ecff01b5e2cc3cc0f7c18635d60ffbc6f26d7ec9a732c4d0e2af0"
+      }
+    ]
+  },
+  "owned_process_closure": [
+    {
+      "label": "original_pre_timing_fault",
+      "original": {
+        "pid": 26152,
+        "create_time_unix": 1791318689.5634367
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "R1_main",
+      "original": {
+        "pid": 27192,
+        "create_time_unix": 1791319138.4413848
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "R1_audit",
+      "original": {
+        "pid": 24744,
+        "create_time_unix": 1791319299.627397
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "compile",
+      "original": {
+        "pid": 16536,
+        "create_time_unix": 1791318721.6873817
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "positive",
+      "original": {
+        "pid": 2292,
+        "create_time_unix": 1791318723.4982376
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "negative_rows",
+      "original": {
+        "pid": 2404,
+        "create_time_unix": 1791318724.5847416
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "negative_cols",
+      "original": {
+        "pid": 25888,
+        "create_time_unix": 1791318724.7999916
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "negative_dtype",
+      "original": {
+        "pid": 2976,
+        "create_time_unix": 1791318725.0148067
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "negative_source",
+      "original": {
+        "pid": 30120,
+        "create_time_unix": 1791318725.217764
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "negative_rounding",
+      "original": {
+        "pid": 29664,
+        "create_time_unix": 1791318725.4361
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    },
+    {
+      "label": "paired_head",
+      "original": {
+        "pid": 7192,
+        "create_time_unix": 1791319150.9837952
+      },
+      "owned_instance_alive": false,
+      "current_PID_creation_if_reused": null
+    }
+  ],
+  "Windows_event_receipt": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_r1_windows_terminal.json",
+    "bytes": 10359,
+    "sha256": "15461a24f64dc367d080dc6a663af3128d4d33d6a4f21d27fd43dbc7fffa7c20"
+  },
+  "Windows_event_tool": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_windows_r1_tool_receipt.json",
+    "bytes": 349,
+    "sha256": "6928ac3976fb20d58218e0534956adbf3d24cfd63c669df82ebd56c82ffc804b"
+  },
+  "retained_first_UTC_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth510_first_utc_fault.json",
+    "bytes": 672,
+    "sha256": "ec0a79b64fdd51fba4568c681c13d802157dc455ef4147e51a403f741c732163"
+  },
+  "actual_UTC_helper": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth510_terminal_utc_r1.ps1",
+    "bytes": 5665,
+    "sha256": "dedaf45c3fa84017378c0765c493b16d207de1ba0410977519dab85b2e81af4e"
+  },
+  "metadata_scope": "Standalone metadata FileTime epoch typed as DateTimeOffset before first query; first positive-control fault from DateTime-to-string Kind/fraction loss retained; corrected helper uses actual qualified506 Utc type handling. No numerical replay.",
+  "preserved_foreign": {
+    "benchmarks/donor_adaptation/configs/_manifest.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    "benchmarks/donor_adaptation/density/build_document_holdout.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    "docs/research/RESEARCH_INDEX.md": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  },
+  "engine": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "bytes": 137234,
+    "sha256": "7cfba6f75bb928d3d8fa1b14df3fb33e70c9515cd73cb00c9f32916836c89578"
+  },
+  "apparatus_complete": true,
+  "local_recipe_pass": true,
+  "goal_complete": false,
+  "scope": "Exact consumed native finite operator and instrumented paired head cost only; fresh quality, whole rate, useful n, compact core, real DRAM, additional families/scales remain required.",
+  "decision": "Select511 prospective new own-state whole teacher/generation/tasks against original F32 donor plus strictly isolated SAMEartifact accepted batch1 rate. Keep506 thresholds unchanged and all510 timing outliers."
+}
