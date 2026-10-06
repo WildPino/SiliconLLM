@@ -1,0 +1,57 @@
+{
+  "experiment": "METH506-R2 preparation fault before data selection",
+  "binding_sha256": "b0c829c1e288759f0b3c9716697e4ad3dce06f7b4ad78ebac399d4f3e2fffeed",
+  "tool_registrations": [
+    {
+      "key": "meth506_r2_binding_tool",
+      "result": {
+        "chunk_id": "2cc723",
+        "wall_time_seconds": 10.0011094,
+        "session_id": 5525,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r2_binding_poll1",
+      "result": {
+        "chunk_id": "c81c1e",
+        "wall_time_seconds": 16.0481947,
+        "exit_code": 0,
+        "original_token_count": 136,
+        "output": "{\"phase\": \"inherited_actual_catalog_terminal\", \"seconds\": 81.25, \"bytes_hashed\": 44848180913, \"files\": 25211}\r\n{\"binding\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth506_r2_binding.json\", \"bytes\": 14450543, \"sha256\": \"b0c829c1e288759f0b3c9716697e4ad3dce06f7b4ad78ebac399d4f3e2fffeed\"}, \"resource\": {\"seconds\": 82.95299999997951, \"peak_bytes\": 120770560, \"bytes_hashed\": 44977910135}, \"Defender_DLL_count\": 35, \"process_instance\": {\"pid\": 29204, \"create_time_unix\": 1791302012.2794144}}\r\n"
+      }
+    },
+    {
+      "key": "meth506_r2_prepare_tool",
+      "result": {
+        "chunk_id": "85f8a0",
+        "wall_time_seconds": 10.0092623,
+        "session_id": 86561,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r2_prepare_poll1",
+      "result": {
+        "chunk_id": "5f9181",
+        "wall_time_seconds": 30.0143145,
+        "session_id": 86561,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "key": "meth506_r2_prepare_poll2",
+      "result": {
+        "chunk_id": "88d907",
+        "wall_time_seconds": 0.0000136,
+        "exit_code": 1,
+        "original_token_count": 202,
+        "output": "Traceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_whole.py\", line 129, in <module>\r\n    if __name__=='__main__':main()\r\n                            ^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_whole.py\", line 46, in main\r\n    ctx.import_diagnostic();ctx.parent_modules()\r\n                            ^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_operations.py\", line 85, in parent_modules\r\n    assert key in self.module_catalog,('unbound_actual_parent_module',path)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError: ('unbound_actual_parent_module', 'C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\DLLs\\\\_asyncio.pyd')\r\n"
+      }
+    }
+  ],
+  "scope": "Exit1 after bounded PyArrow import-diagnostic admission, on unbound actual CPython DLLs/_asyncio.pyd. No cohort/export/compile/native/model call. Original source/scientific criteria remain unchanged."
+}

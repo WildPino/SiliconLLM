@@ -1,0 +1,114 @@
+{
+  "experiment": "METH506 whole original-I8 zero-only column-WO artifact",
+  "start_utc": "2026-10-06T15:55:24.403205+00:00",
+  "process_instance": {
+    "pid": 24804,
+    "create_time_unix": 1791302124.1875799
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth506_whole.py",
+    "--stage",
+    "prepare",
+    "--binding-sha",
+    "b0c829c1e288759f0b3c9716697e4ad3dce06f7b4ad78ebac399d4f3e2fffeed"
+  ],
+  "commands": [],
+  "gates": {
+    "actual_source_runtime_protocol_before_numerical_import": true
+  },
+  "isolation_waits": [],
+  "numerical_imports": true,
+  "observer_and_Python_affinity": [
+    10
+  ],
+  "preserved_daemons": [],
+  "binding_sha256": "b0c829c1e288759f0b3c9716697e4ad3dce06f7b4ad78ebac399d4f3e2fffeed",
+  "source_freeze": "618b8a708c4a833245ce6c909d98d6745719d65b",
+  "execution_head": "5c7d45e30fc25dd69da1b45dc79a65a4d26f559a",
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiomp5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libiomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+        "version": null
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "torch": "2.6.0+cu124",
+    "torch_num_threads": 1,
+    "torch_interop_threads": 1,
+    "GPU_initialized": false,
+    "environment": {
+      "OMP_WAIT_POLICY": "ACTIVE",
+      "KMP_AFFINITY": "none",
+      "KMP_BLOCKTIME": "infinite",
+      "OMP_DYNAMIC": "FALSE",
+      "OMP_MAX_ACTIVE_LEVELS": "1",
+      "OMP_NUM_THREADS": "3"
+    }
+  },
+  "import_diagnostic": {
+    "bytes": 9295,
+    "sha256": "d2c8cb61073f9f05f19f5193f57b9a2035e71b59ac8282bfa0168a66f39c1098",
+    "scope": "One handled first-chance access-violation diagnostic during PyArrow module import, before cohort/export/native/model; cause unidentified. Not a zero-exception claim."
+  },
+  "phase": "binding",
+  "end_utc": "2026-10-06T15:57:00.560729+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_whole.py\", line 46, in main\n    ctx.import_diagnostic();ctx.parent_modules()\n                            ^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth506_operations.py\", line 85, in parent_modules\n    assert key in self.module_catalog,('unbound_actual_parent_module',path)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('unbound_actual_parent_module', 'C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\DLLs\\\\_asyncio.pyd')\n",
+  "resource": {
+    "wall_seconds": 96.15700000000652,
+    "parent_peak_bytes": 1293705216,
+    "native_peak_bytes": 0,
+    "bytes_hashed": 44949053080,
+    "wall_limit_seconds": 3600,
+    "combined_host_limit_bytes": 25769803776
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth506_r2_artifact\\fatal_native.log",
+      "bytes": 9295
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth506_r2_artifact\\progress.jsonl",
+      "bytes": 0
+    }
+  ]
+}
