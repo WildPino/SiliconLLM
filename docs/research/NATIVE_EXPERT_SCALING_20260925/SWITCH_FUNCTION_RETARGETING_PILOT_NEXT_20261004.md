@@ -1,48 +1,43 @@
 # Current conditional transfer resumption
 
-6 October2026. Goal ACTIVE/INCOMPLETE. Current INDEX/METHOD supersede old NEXTs.
+6 October2026. Goal ACTIVE/INCOMPLETE. INDEX/METHOD supersede historical NEXTs.
 
-##505 complete: exact physical function, mixed cost
+##506 completed negative result
 
-[505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md): original full I8 WI,
-actual ReLU/A16 zeros gate original WO columns. ALL17540 finite states BYTE,
-ALL128 bank/source inverse. Source-sized605949952B,full3072 WI retained.
-Main/audit/admission6/7/5PASS with explicit primal OS dependency exception and
-metadata-only505-R2 recovery. Three original native calls ONCE,exit0;original
-caller/R1 faults retained,no replay. Consumed mean ratio.569324,natural.591496,
-p95/storagePASS;ALL-book meanFAIL12/192,max1.351097. Five/six economic gates
-PASS,local cost recipe closed. Exact operator retained,not whole/rate promotion.
-All Windows available/zero matching events;engine/foreign3 exact. Own jobs ended;
-external progressive-runtime fetch untouched and started after original C timing.
+[Result](METH_506_WHOLE_RESULT_20261006.md): complete exact column artifact,
+ALL-bank byte inverse,96 teacher/960 generation wires BYTE versus I8 source,
+578 C processes ONCE/exit0. Actual F32 original donor and official bridges on
+24 excluded books/96 cases:14/15 quality PASS, prose-edit upper95.10865265>.10
+FAIL.4/5 observed economics PASS;8/24 book regressions. Mean improvement5.5791%,
+observed prose53.1992/lower51.2006; strict rate isolation unverified.
 
-## Selected506: whole conditional artifact feasibility
+Independent audit calculations completed but serializer exit1; source/log
+metadata recovery retained, precise private resources unavailable. Actual UTC
+event query finds3 parent arrow.dll import events, no C child/audit events.
+Clean-event criterion FAIL; legacy shifted zero-event claims superseded.
+[Final evaluation](EVALUATION_506_20261006.json) preserves all negatives/limits.
 
-[506 concrete next](METH_506_WHOLE_CONDITIONAL_ARTIFACT_NEXT_20261006.md) changes
-scope to ALL12 source banks/shared core/head/evolving own states/normalized
-parent control/source3-worker layout. EXPLORATORY despite505 cost ineligibility;
-no inherited success,local threshold change or extra mask/kernel grid.
+## Selected507
 
-First implement/price/freeze complete column-layout payload/manifest and reusable
-C engine path;preserve full WI/shared/router/head bytes and inverse every WO.
-Resolve actual fresh asset exclusions and donor quality gates,SAMEartifact>=50
-accepted batch1 IDs/s,whole output/resource contract and observer on unused
-physical core.506 sources and [prospective protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
-now implemented; no binding/export/compile/model/native observation yet. First
-freeze source and actual closure, then source-only artifact/cohort; freeze their
-actual SHA before the sole whole main/audit.
-No source489 rate inherited. No timing during external downloads;505-R2 exception
-allows metadata only and unconditionally forbids native children.
+[Concrete next](METH_507_FIRST_DIVERGENCE_NEXT_20261006.md): implement and freeze
+a bounded retained-array first-divergence diagnosis and independent checker.
+All96 cases, common generated prefixes including first changed choice, logits
+margins/state evolution/normalized parent routes. No model/C/new corpus or source
+function calls. Bind actual used data and NumPy dependencies; no unused Torch/
+PyArrow/compiler/whole checkpoint closure for this calculation.
 
-## Remaining whole goal
+Any exact I8-source acceleration leaves these IDs and the failed prose score
+unchanged. Defer256 expansion and
+[adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md).
+Select a single precision/information intervention after localization; source
+quantization-residual rank-one correction is a hypothesis to qualify, not a result.
+Do not replay355 or assume its older upstream attribution holds in this cohort.
 
-A generic donor runtime or source-sized WI alone does not finish compact-core/
-conditional-capacity transfer. All-bank composition,fresh donor-relative generation/
-tasks,SAMEartifact>=50,useful much larger n/RAM,CPU LUT winner AND mass,actual
-DRAM and actual other families/scales/~10B/~100B still open. Positive whole
-feasibility must advance to actual14.664B and other families. Negative result
-must locate measured core/WI/control/DRAM cost and stop indefinite local tuning.
-Routine Graphify disabled;donor-adaptation operationally frozen,evidence reusable.
+## Remaining goal
 
-[503 masks](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md),[504 cones](METH_504_ANGULAR_REGION_RESULT_20261006.md)
-and fixed499 fitting remain closed under their stated scopes;not general
-refutations of all redundant geometry/source information methods.
+Compact reusable core, much larger useful n/RAM, CPU LUT winner AND normalized
+mass, physical DRAM and actual other families/scales/~10B/~100B remain open.
+SAMEartifact qualified fresh quality AND>=50 is still missing. Routine Graphify
+disabled; donor-adaptation frozen, evidence reusable. Foreign work preserved.
+All completed495..506 scientific namespaces terminal; metadata faults/exceptions
+remain part of their evidence.

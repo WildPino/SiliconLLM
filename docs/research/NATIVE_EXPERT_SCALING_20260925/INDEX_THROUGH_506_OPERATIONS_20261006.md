@@ -26,8 +26,6 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
-[506 whole result](METH_506_WHOLE_RESULT_20261006.md): full physical function/native states exact to I8 source;14/15 fresh F32 quality and4/5 observed economics. Prose-edit confidence and ALL-book criteria FAIL. Corrected OS events and auditor serializer exception retained. Goal still incomplete; current507 below.
-
 [505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md): complete physical
 original-I8 WI/zero-only column-WO function qualified BYTE on ALL17540 states,
 ALL128 bank inverse;6/7/5 main/audit/admission PASS with explicit original
@@ -86,34 +84,38 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption:506 complete negative evidence;507 first divergence
+## Current resumption:505 complete;506 whole artifact feasibility
 
-[506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
-artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
-BYTE,578 original C exits0 ONCE. Actual F32 original4.57.6 donor recovery and
-one independent numerical audit completed.14/15 quality criteria pass; prose-edit
-upper95.10865265>.10 FAIL.4/5 observed economics pass;8/24 book regressions,
-worst1.17875738. Mean ratio.94420877; observed prose53.1992/lower51.2006,
-strict timing isolation unverified. No final>=50 or complete-goal promotion.
+Original505 compile/primal/bench called ONCE,all child exits0;caller exit1
+post-call missing primal-only apphelp.dll. R1 timeout BEFORE numerical import;
+R2 recovers immutable full outputs/times without native replay. Actual compiler/
+bench modules were prospectively bound;primal OS exception stays explicit.
+R2 recovery37.921s/1348239360B,audit33.406s/2104918016B,exits0;all Windows
+queries available/zero matching events,engine/foreign3 exact. Own scientific
+jobs terminal;identified external progressive-runtime Kaggle fetch preserved.
+Its creation was after original C cost terminal;metadata permission forbids C calls.
+All495..505 namespaces terminal,no economic-gate relaxation.
 
-Independent audit terminal NumPy-bool serializer exit1 recovered by frozen
-source/log metadata, no replay; exact private peak/hash/creation unavailable.
-Corrected actual XML UTC event queries find three parent arrow.dll import events,
-no measured C child/audit event. Legacy shifted zero-event claims superseded;
-clean-event criterion FAIL. [Final evaluation](EVALUATION_506_20261006.json)
-is negative, not a manufactured all-pass admission.
+**First action:** [506 next](METH_506_WHOLE_CONDITIONAL_ARTIFACT_NEXT_20261006.md)
+implements/prices/freezes the whole column-layout artifact and reusable C engine
+path,ALL12 banks/source128/shared core/head/state/normalized parent control.
+New full-model3-worker scope is EXPLORATORY despite505 local cost failure;no
+inherited eligibility/rate claim and no kernel/width/tile or local mask refinement.
+Resolve excluded fresh assets/donor quality gates,full-artifact output/resource
+contract and observer on UNUSED physical core before numerical work. 506 engine branch, reusable phase60 primitive, full writer/cohort/controller/independent
+audit and [frozen prospective protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
+implemented. Current step: source freeze -> actual binding -> source-only preparation
+freeze -> one complete main/audit. First metadata binding hit600s at23,703,238,968B hashed/74,047,488B peak,
+exit1 retained392b1ff BEFORE imports/data selection/export/compile/model/native.
+Operational R1 raises ONLY metadata preparation to1800s; frozen scientific
+kernel/cohort/quality/economic/resource criteria unchanged. No scientific replay. R1 binding901ff9e complete; first prepare stopped after
+imports on unbound Defender MpOAV BEFORE cohort/export/model/native. Fault36c466c
+and PyArrow import diagnostic retained. [R2 repair](METH_506_R2_PREPARATION_REPAIR_20261006.md)
+prospectively pins Defender, uses fresh preparation namespace, bounds this known
+import diagnostic and forbids new later diagnostics; scientific criteria unchanged.
 
-**First action:** implement/price/freeze [507 retained-array diagnosis](METH_507_FIRST_DIVERGENCE_NEXT_20261006.md)
-on all96 cases. Find first differing generated choices while token histories
-remain identical, reconstruct margins/state/routes, then independent rederivation.
-No new model/C/corpus capture; only actual NumPy/data dependencies. Source I8
-equality proves an exact acceleration cannot repair this failed prose criterion.
-[Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
-and256 expansion deferred until this discrepancy is understood.
-
-All completed495..506 scientific namespaces terminal. Preserve first faults,
-unrelated work and known import/event exceptions. All operations before this
-update remain BYTE in [archived index](INDEX_THROUGH_506_OPERATIONS_20261006.md).
+All-bank composition/fresh own-state generation/tasks/SAMEartifact>=50/useful n/
+RAM/LUT winner+mass/physical DRAM/actual other families/scales remain open.
 
 ## Decisive retained evidence and closures
 
@@ -138,3 +140,18 @@ method/history BYTE; old resumptions are historical.
 results/faults. [Current NEXT](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
 and this index supersede older operational NEXTs. No completion percentage.
 
+Operational update: R2 preparation also stopped BEFORE selection/export on missing
+CPython _asyncio.pyd (old bootstrap had only7 host files), faultb96e912.
+[R3 closure](METH_506_R3_PYTHON_CLOSURE_REPAIR_20261006.md) prospectively
+binds actual complete Python stdlib/extensions, venv config/pth; fresh preparation
+namespace. Source/scientific criteria unchanged; no model/native calls yet.
+
+506 main completed ALL578 original processes exactly once, exits0, ALL96teacher
+and960 generation wires BYTE; first F32 capture stopped on old tuple API vs
+actual main Transformers5.13.1 Tensor API. Fault0c143fe retained, no donor score.
+[R4 donor-only recovery](METH_506_R4_REFERENCE_RECOVERY_PROTOCOL_20261006.md)
+uses existing original4.57.6 environment/code5acb, forbids native/compiler replay.
+Original two transient pre-call Python waits lack full identity/in-call monitoring;
+strict native rate provenance unverified, all measured costs retained, no gate/data
+discard. Freeze R4 runtime/native inputs -> original96 fresh donor references ->
+one independent audit. Numerical economics cannot promote this rate to final goal.

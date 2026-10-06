@@ -1,5 +1,7 @@
 # Native expert-count scaling: prior evidence
 
+**6 October after506:** [complete result](METH_506_WHOLE_RESULT_20261006.md) and [evaluation](EVALUATION_506_20261006.json) supersede old operational resumptions. Whole exact conditional artifact verified;14/15 F32 quality and4/5 observed economics, negative conjunctions; timing isolation/OS events/audit serializer limits explicit. Selected507 diagnoses common-prefix divergence before further exact acceleration or scale expansion.
+
 **6 October update after505:** [505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md)
 qualifies actual original-WI/zero-only column-WO ALL17540 states BYTE and ALL128
 physical bank inverse. Source-sized storage,consumed/natural mean ratios.569324/

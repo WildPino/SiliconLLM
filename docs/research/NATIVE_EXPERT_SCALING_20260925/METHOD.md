@@ -24,42 +24,42 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:505 admitted;506 whole artifact feasibility
+## Current resumption:506 complete; diagnose source-to-donor divergence
 
-[505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md) changes conditional
-selection AFTER original WI/ReLU/A16. Actual zero-only column WO retains ALL
-source information;ALL17540 hidden/codes/alpha/F BYTE,ALL128 actual bank inverse.
-Physical bank605949952B,source ratio1.000006760;full3072 WI charged. Six/seven/
-five main/independent/admission gatesPASS with retained primal-only apphelp OS
-exception,original caller exit1 and metadata-only505-R2 recovery. Native compile/
-primal/cost ran ONCE;no timing replay. Recovery37.921s/1348239360B,audit33.406s/
-2104918016B,exits0;Windows available/zero events,engine/foreign3 exact.
+[506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
+7,541,946,880B conditional artifact with reusable exact column primitive/engine
+branch. ALL1536 transposed WO tensors/other bytes inverted; ALL96 teacher and
+960 generation wires equal I8 source BYTE;578 C processes exit0 exactly ONCE.
+Original full WI,169 shared matrices,head and normalized128-parent router remain.
 
-Consumed mean ratio.569324,natural.591496,both p95PASS;ALL-book mean<=1FAIL
-12/192,max1.351097. Five/six economic gatesPASS,whole local cost recipeFAIL/
-closed. Exact physical function is a retained component,not a promoted whole
-artifact. Addressed natural weight bytes2548705 versus4733952,not actual DRAM.
+Actual F32 original4.57.6 donor:3320 canonical coefficients, official teacher and
+own-generate bridges for all96 fresh project-excluded cases.14/15 quality PASS;
+prose-edit upper95.10865265>.10 FAIL despite mean.08283730. All known-task/NLL/
+health criteria PASS. This is a negative conjunction, not a broad proof of lost
+semantic ability.4/5 observed economics PASS: mean ratio.94420877,8/24 book
+regressions/worst1.17875738. Observed prose53.1992/lower51.2006 is retained but
+strict original timing isolation remains unverified.
 
-[506 next](METH_506_WHOLE_CONDITIONAL_ARTIFACT_NEXT_20261006.md) selects an
-EXPLORATORY whole physical artifact despite505 local eligibility failure:new
-ALL12 banks/shared core/head/evolving states and source3-worker layout. Preserve
-scalar column kernel;no local grid/reopened505 gate. First implement/price/freeze
-full export/reusable engine path,actual runtime/manifest/source derivation,fresh
-excluded data/quality gates and observer placement.506 now has an explicit engine
-branch, reusable phase60 exact column primitive, complete codec/source-only cohort,
-full controller and independent audit. [506 protocol](METH_506_WHOLE_PROTOCOL_20261006.md)
-fixes all quality/economic criteria, actual F32 donor,3 workers0/2/4 and observer10,
-22,853,492,224B maximum new outputs under24GiB. No observations yet: source/runtime
-freeze, source-only full preparation/cohort freeze, then one full main/audit.
-Source-sized WI and unchanged normalized parent routing remain measured costs.
-Same-artifact fresh donor-relative quality AND>=50,then actual14.664B/multi-family/
-useful large n/mass LUT/physical DRAM still required. All495..505 terminal.
+Sole independent numerical audit completed all array/decision assertions then
+failed terminal NumPy-bool JSON serialization; frozen source/log recovery makes
+this exception explicit, with exact private resources unavailable. Corrected UTC
+Windows query finds3 parent arrow.dll import events and no C child/audit event;
+older shifted zero-event claims superseded. [Evaluation](EVALUATION_506_20261006.json)
+does not declare passing final admission or goal completion.
 
-Preceding [504](METH_504_ANGULAR_REGION_RESULT_20261006.md) sound cones cover
-only6.394780% natural inputs and require3.48828125 stored copies;closed economy.
-[503](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md) original finite masks'
-natural oracle p95 39.941205% cannot be repaired by selector alone. No universal
-nonexistence claim for redundant geometry or exact certification.
+[Selected507](METH_507_FIRST_DIVERGENCE_NEXT_20261006.md) is bounded diagnosis
+from retained arrays: first diverging choices on common token prefixes, head
+margins, encoder/decoder states and parent ID/accepted/mass. Only actual NumPy/
+data dependencies; no model/C/new cohort calls. Exact I8-source acceleration
+would retain this failed quality score, so adaptive WI certificates and256
+expansion are deferred. Source-derived quantization residual corrections are
+possible subsequent hypotheses, not observations. Old355 attribution remains
+prior evidence, not a substitute for current localization.
+
+505's exact one-bank component remains retained, with5/6 economic gates and
+12/192 regressions; all495..506 scientific calls terminal. Source-sized storage/
+WI does not supply a compact core, useful larger n/RAM/LUT/mass/DRAM or another
+actual family/scale. All remain goal requirements.
 
 ### Retained preceding500
 

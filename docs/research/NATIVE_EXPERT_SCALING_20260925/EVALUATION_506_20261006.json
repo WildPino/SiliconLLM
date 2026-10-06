@@ -1,0 +1,186 @@
+{
+  "experiment": "METH506 final evidence evaluation with complete negative outcomes and provenance exceptions",
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth506_r4_2_result.json",
+    "bytes": 10496872,
+    "sha256": "2bc2a9cfa9772fbc235f4c8e492e093be864784a023ed54cb711322f1c15d476"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth506_r4_2_binding.json",
+    "bytes": 17524894,
+    "sha256": "f9fa553e598070d68646694d52369faf91cadba584f9d4dd308f17db53ab8ab3"
+  },
+  "source_log_independent_retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_506_R4_4_20261006.json",
+    "bytes": 5327,
+    "sha256": "0ddd3582f7a56cd2d06594e8c924f207e46225c216512cf294d0540cf18c5524"
+  },
+  "corrected_actual_UTC_windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth506_r4_3_windows_terminal.json",
+    "bytes": 178109,
+    "sha256": "ffeac5e2d274322db7dfc8b90791d66727215a99c1e7e4f8bd521c0b55f4ffe4"
+  },
+  "evaluation_gates": {
+    "complete_physical_function_and_retained_numerical_assertion_path": true,
+    "all_frozen_quality_criteria": false,
+    "all_observed_economic_criteria": false,
+    "actual_UTC_zero_matching_event_criterion": false,
+    "strict_original_native_timing_isolation": false
+  },
+  "full_admission_pass": false,
+  "whole_recipe_eligible": false,
+  "goal_complete": false,
+  "quality_gates": {
+    "all_nll_upper_le.05": true,
+    "masked_nll_upper_le.05": true,
+    "teacher_masked_accuracy_lower_ge-.02": true,
+    "teacher_field_accuracy_lower_ge-.05": true,
+    "all_top1_ge.95": true,
+    "masked_top1_ge.95": true,
+    "donor_field_signal_ge.10": true,
+    "donor_health_ge.80": true,
+    "candidate_health_ge.80": true,
+    "generation_token_accuracy_lower_ge-.02": true,
+    "generation_field_accuracy_lower_ge-.05": true,
+    "generation_LCS_lower_ge-.02": true,
+    "generation_health_lower_ge-.05": true,
+    "generation_repeat_upper_le.05": true,
+    "prose_edit_upper_le.10": false
+  },
+  "observed_economic_gates": {
+    "whole_mean_ratio_le.95": true,
+    "whole_ratio_upper_le1": true,
+    "all_book_ratio_le1": false,
+    "candidate_ordinary_warm_and_lower_ge50": true,
+    "candidate_prose_warm_and_lower_ge50": true
+  },
+  "actual_matching_parent_import_events": [
+    {
+      "stage": "prepareR3",
+      "event": {
+        "time_utc": "2026-10-06T16:04:00.4444455+00:00",
+        "RecordId": 179869,
+        "pid": 30820,
+        "creation_unix": 1791302543.1101809,
+        "data": {
+          "ModulePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll",
+          "PackageRelativeAppId": null,
+          "AppName": "python.exe",
+          "ProcessId": "0x7864",
+          "FaultingOffset": "0000000000bc5431",
+          "IntegratorReportId": "53cca847-6f49-4ee1-9bdf-fa7bf37e6456",
+          "AppTimeStamp": "67f515a7",
+          "ModuleVersion": "0.0.0.0",
+          "ModuleName": "arrow.dll",
+          "ModuleTimeStamp": "69de57f9",
+          "PackageFullName": null,
+          "AppVersion": "3.12.10150.1013",
+          "ExceptionCode": "c0000005",
+          "ProcessCreationTime": "0x1dd55ac12eae170",
+          "AppPath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        },
+        "creation_utc": "2026-10-06T16:02:23.1101808+00:00",
+        "XML": "<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System><Provider Name='Application Error' Guid='{a0e9b465-b939-57d7-b27d-95d8e925ff57}'/><EventID>1000</EventID><Version>0</Version><Level>2</Level><Task>100</Task><Opcode>0</Opcode><Keywords>0x8000000000000000</Keywords><TimeCreated SystemTime='2026-10-06T16:04:00.4444455Z'/><EventRecordID>179869</EventRecordID><Correlation/><Execution ProcessID='23328' ThreadID='28876'/><Channel>Application</Channel><Computer>SirFissoWindows</Computer><Security UserID='S-1-5-21-4142847766-172438236-149005514-1001'/></System><EventData><Data Name='AppName'>python.exe</Data><Data Name='AppVersion'>3.12.10150.1013</Data><Data Name='AppTimeStamp'>67f515a7</Data><Data Name='ModuleName'>arrow.dll</Data><Data Name='ModuleVersion'>0.0.0.0</Data><Data Name='ModuleTimeStamp'>69de57f9</Data><Data Name='ExceptionCode'>c0000005</Data><Data Name='FaultingOffset'>0000000000bc5431</Data><Data Name='ProcessId'>0x7864</Data><Data Name='ProcessCreationTime'>0x1dd55ac12eae170</Data><Data Name='AppPath'>C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe</Data><Data Name='ModulePath'>D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll</Data><Data Name='IntegratorReportId'>53cca847-6f49-4ee1-9bdf-fa7bf37e6456</Data><Data Name='PackageFullName'></Data><Data Name='PackageRelativeAppId'></Data></EventData></Event>"
+      },
+      "instance": {
+        "pid": 30820,
+        "start_utc": "2026-10-06T16:02:21.3315330+00:00",
+        "label": "prepareR3",
+        "creation_interval_utc": null,
+        "create_time_unix": 1791302543.1101809,
+        "end_utc": "2026-10-06T16:11:02.9458010+00:00"
+      }
+    },
+    {
+      "stage": "originalMainAndAll578Commands",
+      "event": {
+        "time_utc": "2026-10-06T16:13:41.0574994+00:00",
+        "RecordId": 179906,
+        "pid": 7592,
+        "creation_unix": 1791303116.5694516,
+        "data": {
+          "ModulePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll",
+          "PackageRelativeAppId": null,
+          "AppName": "python.exe",
+          "ProcessId": "0x1da8",
+          "FaultingOffset": "0000000000bc5431",
+          "IntegratorReportId": "b3d54593-66dc-46d3-8d9e-4485a6dcc341",
+          "AppTimeStamp": "67f515a7",
+          "ModuleVersion": "0.0.0.0",
+          "ModuleName": "arrow.dll",
+          "ModuleTimeStamp": "69de57f9",
+          "PackageFullName": null,
+          "AppVersion": "3.12.10150.1013",
+          "ExceptionCode": "c0000005",
+          "ProcessCreationTime": "0x1dd55ad68b9d234",
+          "AppPath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        },
+        "creation_utc": "2026-10-06T16:11:56.5694516+00:00",
+        "XML": "<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System><Provider Name='Application Error' Guid='{a0e9b465-b939-57d7-b27d-95d8e925ff57}'/><EventID>1000</EventID><Version>0</Version><Level>2</Level><Task>100</Task><Opcode>0</Opcode><Keywords>0x8000000000000000</Keywords><TimeCreated SystemTime='2026-10-06T16:13:41.0574994Z'/><EventRecordID>179906</EventRecordID><Correlation/><Execution ProcessID='26908' ThreadID='10756'/><Channel>Application</Channel><Computer>SirFissoWindows</Computer><Security UserID='S-1-5-21-4142847766-172438236-149005514-1001'/></System><EventData><Data Name='AppName'>python.exe</Data><Data Name='AppVersion'>3.12.10150.1013</Data><Data Name='AppTimeStamp'>67f515a7</Data><Data Name='ModuleName'>arrow.dll</Data><Data Name='ModuleVersion'>0.0.0.0</Data><Data Name='ModuleTimeStamp'>69de57f9</Data><Data Name='ExceptionCode'>c0000005</Data><Data Name='FaultingOffset'>0000000000bc5431</Data><Data Name='ProcessId'>0x1da8</Data><Data Name='ProcessCreationTime'>0x1dd55ad68b9d234</Data><Data Name='AppPath'>C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe</Data><Data Name='ModulePath'>D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll</Data><Data Name='IntegratorReportId'>b3d54593-66dc-46d3-8d9e-4485a6dcc341</Data><Data Name='PackageFullName'></Data><Data Name='PackageRelativeAppId'></Data></EventData></Event>"
+      },
+      "instance": {
+        "pid": 7592,
+        "start_utc": "2026-10-06T16:11:54.7723020+00:00",
+        "label": "originalMainAndAll578Commands",
+        "creation_interval_utc": null,
+        "create_time_unix": 1791303116.5694516,
+        "end_utc": "2026-10-06T16:25:54.6536730+00:00"
+      }
+    },
+    {
+      "stage": "qualityR4p2",
+      "event": {
+        "time_utc": "2026-10-06T17:37:58.0142276+00:00",
+        "RecordId": 179951,
+        "pid": 31088,
+        "creation_unix": 1791307704.2472763,
+        "data": {
+          "ModulePath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll",
+          "PackageRelativeAppId": null,
+          "AppName": "python.exe",
+          "ProcessId": "0x7970",
+          "FaultingOffset": "0000000000bc5431",
+          "IntegratorReportId": "fd0d1637-79e6-4b3b-9a15-293d6d3c120a",
+          "AppTimeStamp": "67f515a7",
+          "ModuleVersion": "0.0.0.0",
+          "ModuleName": "arrow.dll",
+          "ModuleTimeStamp": "69de57f9",
+          "PackageFullName": null,
+          "AppVersion": "3.12.10150.1013",
+          "ExceptionCode": "c0000005",
+          "ProcessCreationTime": "0x1dd55b81731e73d",
+          "AppPath": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+        },
+        "creation_utc": "2026-10-06T17:28:24.2472765+00:00",
+        "XML": "<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System><Provider Name='Application Error' Guid='{a0e9b465-b939-57d7-b27d-95d8e925ff57}'/><EventID>1000</EventID><Version>0</Version><Level>2</Level><Task>100</Task><Opcode>0</Opcode><Keywords>0x8000000000000000</Keywords><TimeCreated SystemTime='2026-10-06T17:37:58.0142276Z'/><EventRecordID>179951</EventRecordID><Correlation/><Execution ProcessID='26752' ThreadID='24880'/><Channel>Application</Channel><Computer>SirFissoWindows</Computer><Security UserID='S-1-5-21-4142847766-172438236-149005514-1001'/></System><EventData><Data Name='AppName'>python.exe</Data><Data Name='AppVersion'>3.12.10150.1013</Data><Data Name='AppTimeStamp'>67f515a7</Data><Data Name='ModuleName'>arrow.dll</Data><Data Name='ModuleVersion'>0.0.0.0</Data><Data Name='ModuleTimeStamp'>69de57f9</Data><Data Name='ExceptionCode'>c0000005</Data><Data Name='FaultingOffset'>0000000000bc5431</Data><Data Name='ProcessId'>0x7970</Data><Data Name='ProcessCreationTime'>0x1dd55b81731e73d</Data><Data Name='AppPath'>C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe</Data><Data Name='ModulePath'>D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll</Data><Data Name='IntegratorReportId'>fd0d1637-79e6-4b3b-9a15-293d6d3c120a</Data><Data Name='PackageFullName'></Data><Data Name='PackageRelativeAppId'></Data></EventData></Event>"
+      },
+      "instance": {
+        "pid": 31088,
+        "start_utc": "2026-10-06T17:28:23.7032050+00:00",
+        "label": "qualityR4p2",
+        "creation_interval_utc": null,
+        "create_time_unix": 1791307704.2472763,
+        "end_utc": "2026-10-06T17:48:34.6594660+00:00"
+      }
+    }
+  ],
+  "audit_serializer_exception": {
+    "original_exit": 1,
+    "exact_peak_hash_creation_unavailable": true,
+    "resource": {
+      "wall_at_original_terminal_progress_seconds": 986.9679999999935,
+      "exact_parent_OS_peak_bytes": null,
+      "exact_hash_total_bytes": null,
+      "source_evaluated_bounds_completed": true,
+      "wall_limit_seconds": 3600,
+      "combined_host_limit_bytes": 25769803776
+    }
+  },
+  "known_import_diagnostic": {
+    "bytes": 9511,
+    "sha256": "1d9396af213a92e0d1ae38d9a2fa29459e2f5bca7920a1d5a3095374eec38828",
+    "scope": "One handled first-chance access-violation diagnostic during PyArrow module import, before cohort/export/native/model; cause unidentified. Not a zero-exception claim."
+  },
+  "total_new_outputs_before_evaluation": 12561424927,
+  "scope": "Full numerical function/quality/cost evidence retained.14/15 quality and4/5 observed economics; clean-event and strict-isolation criteria FAIL/unverified, no final admission or SAME>=50 goal promotion.Three actual parent arrow.dll startup events correspond in time/module to retained import diagnostics; cause unidentified. Sole independent audit completed computations but serializer exit1 recovered by source/log metadata, exact private resources unavailable. No scientific replay."
+}
