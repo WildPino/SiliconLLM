@@ -1,0 +1,59 @@
+{
+  "experiment": "METH495 full local fixed hybrid recipe admission",
+  "main_completed": true,
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth495_weighted_hybrid_fit_result.json",
+    "bytes": 624688,
+    "sha256": "6bb28ccf065afe0a132a0f9893a6d6e5f42395a7df3206ceea0cf9a473cd5a1b"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_495_20261006.json",
+    "bytes": 36823,
+    "sha256": "eb8523f9c86a7864fade4e49f1f56bc938d80795e0e0322925e65ab68874e342"
+  },
+  "registrations": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth495_main_sole_first_registration.json",
+      "bytes": 497,
+      "sha256": "97b0b5a017d50f3bd6f89efb7c5389e24cf770565644e95400659d5790080282"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth495_audit_sole_first_registration.json",
+      "bytes": 508,
+      "sha256": "67be239c4c7d3ce969ba7ccea9db55b72ca3a4a0ca6a31b44073c3d9fe4480c9"
+    }
+  ],
+  "Windows_events": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth495_windows_terminal.json",
+      "bytes": 1681,
+      "sha256": "d1e977e4fc28ec84d3beb280b11d6dbad8fad5ce65aea1d1de12b8d060e4b819"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth495_audit_windows_terminal.json",
+      "bytes": 579,
+      "sha256": "da23b9dfdfce74af2ca8d1d99cdfa4e803023067fbbe7a14f106b72c7fd499ca"
+    }
+  ],
+  "terminal_resources": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth495_weighted_hybrid_fit\\terminal_resources.json",
+      "bytes": 544,
+      "sha256": "5b825023b451fa1cde09c9f69ac3f4d739f27318dd332db2ba4f0317760cb54c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth495_retention\\terminal_resources.json",
+      "bytes": 535,
+      "sha256": "b4137bb32cc75d417cbbc5478490dbeef877d3b1fe9bc30b03eee70d4cef223c"
+    }
+  ],
+  "gates": {
+    "sole_first_actual_main_audit_and_terminal_resources": true,
+    "ALL_independent_full_domain_gates": true,
+    "BOTH_actual_Windows_parent_and_child_process_instances_without_fault": true,
+    "source_raw_retention_scope_digest_link": true,
+    "local_candidate_only_no_model_quality_rate_useful_n_or_goal_promotion": true
+  },
+  "decision": "FIXED_HYBRID_LOCAL_RECIPE_FAIL_INDEPENDENTLY_ADMITTED",
+  "scope": "One-bank consumed-domain candidate. Goal ACTIVE/INCOMPLETE."
+}

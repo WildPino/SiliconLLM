@@ -1,34 +1,57 @@
 # Pretrained-to-native conditional-capacity method (work in progress)
 
-## Current resumption: 494 hybrid donor prior admitted; one-bank learning next
+## Current resumption: 495 complete fixed hybrid fit admitted FAIL; isolate readout error next
 
-Goal ACTIVE/INCOMPLETE. [494 result](METH_494_HYBRID_DONOR_PRIOR_RESULT_20261006.md):
-all 7 compiler / 9 independent audit / 5 admission gates PASS. All 128 source
-IDs have weight-informed private linear/shared-even priors; the 512-row
-ternary dictionary and physical bank (127,232,136 B) are byte-qualified.
-Only 11,721 canonical development inputs determine geometry/calibration;
-expert 0 has no development input and retains its marked global-amplitude
-initialization. No target fit, local/model quality, native rate or useful-n
-result. Main 149.125 s / 249,159,680 B; audit 130.797 s / 271,634,432 B.
-Actual exits 0; both Windows queries available with no matching Event 1000.
+Goal ACTIVE/INCOMPLETE. [495 result](METH_495_WEIGHTED_HYBRID_FIT_RESULT_20261006.md):
+all 8 main / 8 independent audit / 5 admission gates PASS; both local recipe
+gates FAIL. Complete 127 readout solves/128 Adam updates and native group4
+LUT evaluator; all 17,540 UID physical bytes qualify, with all 19,962
+occurrences/1040 metrics/384 exposure groups independently recounted.
+Canonical development/consumed-validation oracle RMS 2.7986%/8.9192%; ID
+fidelity 56.0362%/22.7015%; coupled RMS 71.0824%/75.8041%. All six role/mode
+occurrence groups fail the frozen1%/99.9% recipe. ID0 has no observed UID;
+128 distinct byte blocks do not establish128 useful functions.
+Main252.125s/combined peaks1,022,603,264B; audit263.047s/1,150,582,784B.
+Actual exits0; Windows queries available/zero events. No source FFN/model/GPU
+or new resource, no first fault or namespace rerun. Engine/foreign hashes preserved.
 
-[Whole algebra and next](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
-full private linear capacity, Gaussian prior assumptions, unique regularized
-readouts, decision/function errors and n-dependent calibration. Logical
-12-bank weight reads 14,587,008 B/token exclude core/head/state and other
-traffic; they are not DRAM or speed. Growing the current four-rows-per-ID
-rule would increase active r, so no n=1280 eligibility follows.
+[Whole algebra and next](METH_495_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
+oracle function error, choice error/cross terms, regularized solve correctness
+and finite-optimizer uncertainty. The key gap expression31.31 does not prove
+near-optimality; no unrestricted function/key class is closed. THIS recipe
+is CLOSED, no width/update/prior/ID/checkpoint sweep.
 
-Next 495: implement/freeze the complete fixed one-bank B/c learner, two key
-heads, byte export, native physical evaluator and independent audit BEFORE
-learning. Reuse admitted 493 targets and 494 priors. No width/update/ID or
-checkpoint sweep. All 17,540 UIDs/19,962 occurrences and source views;
-consumed validation is diagnostic. Fixed local recipe gates: coupled weighted
-RMS <=1%, ID fidelity >=99.9% in each role/mode. Then composed 476 path,
-all banks/own states/fresh quality/SAME >=50/useful n/LUT/physical DRAM/actual
-families/scales. All 494 numerical namespaces terminal; no own live science.
-Engine and three foreign files preserved. Original 489 CPU128 warm 54.8773 /
-lower 53.4759 remains a separate positive result. Full goal remains open.
+Next496: freeze a complete unchanged-artifact decomposition U/Q/P separating
+unquantized fitted-function error, physical coefficient error and arithmetic
+rounding, with all UID/occurrence/rare views and independent audit. No fit,
+new candidate/export, C/source replay or optimizer update. Use actual saved
+coefficient/feature/prediction/bank/target/UID/occurrence/runtime dependencies;
+compiler snapshot is historical qualification because496 does not execute C.
+Then derive one changed variable from the measured component. Routing remains
+separately unresolved. Completed495 namespaces terminal; no own live science.
+Full goal remains open: composed/own-state/fresh quality, SAME>=50, useful n,
+CPU LUT/DRAM and actual additional families/scales.489CPU128 positive unchanged.
+
+## Implemented candidate transfer: fixed hybrid weighted function/control fit
+
+495 implements all 127 development readout solves and the 128-update key
+recipe from494, preserves the empty ID prior and exports the full physical
+bank. Its native group4 LUT/I8/A16 evaluator and Python/independent checks
+agree BYTE on every original UID; optimizer transitions/equations and all
+metric/exposure denominators are independently admitted.
+
+The candidate FAILS coupled weighted RMS1% and ID fidelity99.9% on every
+declared role/mode. Canonical correct-ID RMS2.7986% development/8.9192%
+consumed-validation and route fidelity56.0362%/22.7015% separate two observed
+obstacles. This frozen recipe is CLOSED. It is not an unrestricted class or
+conversion impossibility proof. Readout quantization effects remain to be
+separated; finite128 Adam is not a key optimum certificate.
+
+Source targets/priors/fit/export/native evaluator/audit are implemented;
+useful learned transfer remains unvalidated. No engine integration, composed
+476 recovery, own-state/fresh quality or whole SAME rate is qualified by this
+candidate. [495 result](METH_495_WEIGHTED_HYBRID_FIT_RESULT_20261006.md) and
+[whole algebra/next](METH_495_WHOLE_ALGEBRA_AND_NEXT_20261006.md).
 
 ## Implemented transfer initialization: hybrid donor Gaussian prior
 
@@ -49,9 +72,10 @@ CPU/RAM, schemas, controls and independent records are documented in
 
 Applicable decomposition: bias-free, non-gated two-matrix ReLU, demonstrated
 here with Switch source weights. Other activations/families need a separate
-derivation. Supervised function/key learning, native physical evaluation,
-composed/own-state/fresh quality, SAME rate and useful large-n transfer remain
-missing. The fixed next recipe is in the
+derivation. 495 subsequently implements supervised function/key learning and
+native physical evaluation, with local recipe failure. Composed/own-state/
+fresh quality, SAME rate and useful large-n transfer remain missing. The
+historical fixed recipe is in the
 [494 protocol](METH_494_HYBRID_DONOR_PRIOR_PROTOCOL_20261006.md), with its
 [whole-project algebra and limits](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md).
 
@@ -79,8 +103,8 @@ payloads only remain expected descriptors. [493 result](METH_493_WEIGHTED_TARGET
 
 This is a reproducible positive supervision step, not a functional student.
 494 subsequently supplies the physical prior/dictionary/initial keys and
-fixed subsequent learning recipe. All are still UNTRAINED against these
-targets. [493 whole algebra](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md) is the
+fixed subsequent learning recipe. 495 later fits it and records local failure.
+[493 whole algebra](METH_493_WHOLE_ALGEBRA_AND_NEXT_20261006.md) is the
 historical decision to require prior/cost before that fit. No whole quality/
 rate/LUT/DRAM/useful n/family promotion follows from source target qualification.
 

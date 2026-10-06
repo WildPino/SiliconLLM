@@ -26,6 +26,11 @@ Routine Graphify disabled. Donor-adaptation frozen, evidence reusable.
 
 ## Latest decisive evidence
 
+[495](METH_495_WEIGHTED_HYBRID_FIT_RESULT_20261006.md): complete local learned
+hybrid/C LUT artifact independently admitted, both recipe gates FAIL. Correct-ID
+function error and decision error both remain; [whole algebra/next](METH_495_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
+selects unchanged-readout physical error decomposition before another fit.
+
 [494](METH_494_HYBRID_DONOR_PRIOR_RESULT_20261006.md): all 128 hybrid source
 priors and the physical bank/logical cost contract independently admitted.
 Compiler 149.125 s, audit 130.797 s. [Whole algebra and next](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
@@ -94,35 +99,37 @@ changes despite2.83%FFN RMS, maskedteacher deltaNLL+.05974024/1002->977correct.
 Original477failed cardinality unchanged;472FAIL105/107 unchanged.
 [477-R1 result](METH_477_R1_HEAD_OBSERVABLE_RECOVERY_RESULT_20261005.md).
 
-## Current resumption: 494 hybrid donor prior admitted; one-bank learning next
+## Current resumption: 495 complete fixed hybrid fit admitted FAIL; isolate readout error next
 
-Goal ACTIVE/INCOMPLETE. [494 result](METH_494_HYBRID_DONOR_PRIOR_RESULT_20261006.md):
-all 7 compiler / 9 independent audit / 5 admission gates PASS. All 128 source
-IDs have weight-informed private linear/shared-even priors; the 512-row
-ternary dictionary and physical bank (127,232,136 B) are byte-qualified.
-Only 11,721 canonical development inputs determine geometry/calibration;
-expert 0 has no development input and retains its marked global-amplitude
-initialization. No target fit, local/model quality, native rate or useful-n
-result. Main 149.125 s / 249,159,680 B; audit 130.797 s / 271,634,432 B.
-Actual exits 0; both Windows queries available with no matching Event 1000.
+Goal ACTIVE/INCOMPLETE. [495 result](METH_495_WEIGHTED_HYBRID_FIT_RESULT_20261006.md):
+all 8 main / 8 independent audit / 5 admission gates PASS; both local recipe
+gates FAIL. Complete 127 readout solves/128 Adam updates and native group4
+LUT evaluator; all 17,540 UID physical bytes qualify, with all 19,962
+occurrences/1040 metrics/384 exposure groups independently recounted.
+Canonical development/consumed-validation oracle RMS 2.7986%/8.9192%; ID
+fidelity 56.0362%/22.7015%; coupled RMS 71.0824%/75.8041%. All six role/mode
+occurrence groups fail the frozen1%/99.9% recipe. ID0 has no observed UID;
+128 distinct byte blocks do not establish128 useful functions.
+Main252.125s/combined peaks1,022,603,264B; audit263.047s/1,150,582,784B.
+Actual exits0; Windows queries available/zero events. No source FFN/model/GPU
+or new resource, no first fault or namespace rerun. Engine/foreign hashes preserved.
 
-[Whole algebra and next](METH_494_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
-full private linear capacity, Gaussian prior assumptions, unique regularized
-readouts, decision/function errors and n-dependent calibration. Logical
-12-bank weight reads 14,587,008 B/token exclude core/head/state and other
-traffic; they are not DRAM or speed. Growing the current four-rows-per-ID
-rule would increase active r, so no n=1280 eligibility follows.
+[Whole algebra and next](METH_495_WHOLE_ALGEBRA_AND_NEXT_20261006.md) separates
+oracle function error, choice error/cross terms, regularized solve correctness
+and finite-optimizer uncertainty. The key gap expression31.31 does not prove
+near-optimality; no unrestricted function/key class is closed. THIS recipe
+is CLOSED, no width/update/prior/ID/checkpoint sweep.
 
-Next 495: implement/freeze the complete fixed one-bank B/c learner, two key
-heads, byte export, native physical evaluator and independent audit BEFORE
-learning. Reuse admitted 493 targets and 494 priors. No width/update/ID or
-checkpoint sweep. All 17,540 UIDs/19,962 occurrences and source views;
-consumed validation is diagnostic. Fixed local recipe gates: coupled weighted
-RMS <=1%, ID fidelity >=99.9% in each role/mode. Then composed 476 path,
-all banks/own states/fresh quality/SAME >=50/useful n/LUT/physical DRAM/actual
-families/scales. All 494 numerical namespaces terminal; no own live science.
-Engine and three foreign files preserved. Original 489 CPU128 warm 54.8773 /
-lower 53.4759 remains a separate positive result. Full goal remains open.
+Next496: freeze a complete unchanged-artifact decomposition U/Q/P separating
+unquantized fitted-function error, physical coefficient error and arithmetic
+rounding, with all UID/occurrence/rare views and independent audit. No fit,
+new candidate/export, C/source replay or optimizer update. Use actual saved
+coefficient/feature/prediction/bank/target/UID/occurrence/runtime dependencies;
+compiler snapshot is historical qualification because496 does not execute C.
+Then derive one changed variable from the measured component. Routing remains
+separately unresolved. Completed495 namespaces terminal; no own live science.
+Full goal remains open: composed/own-state/fresh quality, SAME>=50, useful n,
+CPU LUT/DRAM and actual additional families/scales.489CPU128 positive unchanged.
 
 ## Retained evidence and closures
 
