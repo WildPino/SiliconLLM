@@ -24,7 +24,7 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:499 admitted; new source-information eligibility500
+## Current resumption:499 admitted; overlapping source branches500
 
 [499 result](METH_499_FACTOR_RESULT_20261006.md): all8 main/7 independent audit/
 5 admission gates PASS; all9 ALL-six local outcomes FAIL. All128 original IDs,
@@ -43,18 +43,21 @@ exits0, both Windows queries available/zero events, finalizercafc96 exit0.
 One compile/three new native calls, no source/model/optimizer/GPU/new resource.
 Bank127232136B; large data local/hash-qualified; engine/foreign hashes unchanged.
 
-[Whole algebra and next](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md) selects500:
-determine pooled DEVELOPMENT feature rank and freeze complete geometry-selected
-source-query complements for all128 experts BEFORE any new donor response.
-53,943 data-unidentified directions remain; global development rank r_D is
-UNKNOWN. Query count128*r_D-11721 lies27703..53943; rank513 would permit complete
-readout identification from point responses, without a generalization theorem.
+[Whole499 algebra](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md) remains valid for
+its fixed feature class. Its unimplemented pooled-rank/label-acquisition next
+plan is deferred. [Redundancy decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
+selects a changed conditional representation following user steering:
+four overlapping half-width original source-atom branches per parent.
 
-First action: implement/price/freeze geometry selection, exact and numerical
-certificates, actual read dependency binding and independent audit/resource/
-first-fault protocol. No500 implementation/science exists yet. No consumed-row
-selection, width/precision/ID/lambda/optimizer sweep. Completed495..499 numerical
-namespaces remain terminal. Full return gates below remain open.
+[500 protocol](METH_500_OVERLAPPING_SOURCE_PROTOCOL_20261006.md) freezes ONE
+development-only mask/input-region recipe, mandatory global union, actual and
+source-scale partial outputs, best-child versus input-only selection and static
+same-width control. Twofold stored FFN copies/.5 selected FFN work are logical
+counts; preservation, native LUT/DRAM/rate remain unproved. All original128 IDs/
+17540 UIDs retained; new hidden-support information reconstructed and charged.
+Source parent ID/p fixed locally. No consumed selection/grid or old main replay.
+First action: freeze sources, bind actual dependencies, sole main and independent
+audit (each900s/2GiB). Completed495..499 remain terminal; full return gates open.
 
 ## 1. Identify a donor and its actual numerical contract
 
@@ -131,9 +134,10 @@ triangular solves/QR; no inverse/rank cutoff/fallback. Preserve the empty prior.
 consumed features add new directions: exact finite interpolation alone does
 not identify a predictor there.498/499 turn the interpolants into actual
 coefficients/banks, independently verify KKT and measure their local failure.
-The selected next mechanism adds SOURCE INFORMATION in missing directions,
-with query selection fixed before labels, instead of more optimization of
-the same uniquely defined equality problem.
+Adding SOURCE INFORMATION in missing directions remains one possible route,
+with query selection fixed before labels. Current500 first assesses whether
+source-anchored overlapping conditional representations avoid the fixed global
+feature class's limitation. The fixed499 equality problem is not reoptimized.
 
 Eligibility/capture/fit remain separate steps with separately charged costs.
 A full-span query plan, when established, is not a label acquisition or a

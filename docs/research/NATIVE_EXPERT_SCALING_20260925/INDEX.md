@@ -35,13 +35,13 @@ information/generalization problem. Current keys remain byte-identical:
 ID22.701495%, actual mass relative RMS64.792158%, coupled90.597547%.
 Rare failures remain explicit. No fresh/composed/rate/useful-n promotion.
 
-[Whole algebra and next](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md) derives
-53,943 development-data-unidentified directions and chooses a geometry-only
-development-side source-query plan500 before new labels. Global pooled
-development rank is UNKNOWN, with possible query count27,703..53,943.
-No500 implementation/science exists yet.
+[Whole algebra](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md) derives53,943
+development-data-unidentified directions in the fixed499 feature class.
+Its unimplemented pooled-rank/source-query next plan is deferred following user
+steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
+changes conditional representation before acquiring many new function labels.
 
-## Current resumption: source-information eligibility500
+## Current resumption: overlapping source branches500
 
 Completed499 scope:128 IDs/127 solves/17540UID/19962occurrences/1040groups/
 384exposures. Main84.250s/combined peaks1073999872B; independent audit39.688s/
@@ -50,20 +50,17 @@ Finalizercafc96 exit0. One compile/three new native calls; no source/model/
 optimizer/GPU/new resource. Bank127232136B; large outputs local/hash-qualified.
 All495..499 scientific namespaces terminal; engine/foreign hashes unchanged.
 
-**First action:** implement/price/freeze500 pooled DEVELOPMENT rank certificate
-and all128 deterministic whitened-innovation complement query sets, exact/
-numerical eligibility, actual read dependency binding, independent audit,
-resource/first-fault protocol. Then sole metadata binding and geometry main.
-Queries use only development INPUT geometry and are frozen before ANY donor
-response. Preserve empty ID0. No consumed-row selection, width/precision/ID/
-lambda/optimizer sweep or old native/source replay.
-
-Geometry eligibility changes the next decision: complete stable plan -> a
-separately priced source-response/fit/physical pipeline; inconclusive plan ->
-resolve information/dictionary/domain prerequisite.53,943 queries would
-cost254535008256 logical source MACs and165712896 F32 target bytes; no time
-estimate or successful predictor is inferred. Details and stops in
-[whole algebra/next](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md).
+**First action:** freeze new500 source/protocol, sole metadata binding, then
+ONE full overlap screen and independent audit. [500 protocol](METH_500_OVERLAPPING_SOURCE_PROTOCOL_20261006.md):
+four half-width original-atom branches, full global union, twofold FFN copies;
+development-only input regions/masks, all original128 IDs/17540 UID inputs.
+Separate best-child oracle, input-only selector, omitted vector information,
+child A16 maximum and static same-active-width control. Source parent ID/p fixed.
+Main/audit each900s/2GiB; no full-model/native/GPU/gradient/engine operation.
+New source hidden-support reconstruction is charged, without old main replay.
+Pass -> native/fresh eligibility inquiry; oracle failure -> mask geometry;
+oracle pass/selector failure -> input selector. One recipe cannot refute all
+redundancy. Full original-parent winner/mass remains open.
 
 All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual additional families/scales remain open.

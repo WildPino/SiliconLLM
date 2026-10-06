@@ -20,42 +20,34 @@ large data remain local. Source freeze4b04319/binding3b106d2; main ee9b402,
 audit ee4bdef+3e79e9c. Engine and all three foreign tracked hashes preserve.
 Completed495..499 source/control/main/native/audit/finalizer namespaces terminal.
 
-## Selected500: development-side source-information eligibility/query plan
+## Selected500: source-anchored overlapping half-width branches
 
-[Whole algebra and concrete next](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
-defines the uncertainty, inherited evidence, decisions, counts and proposed
-resource stops. No500 implementation or scientific observation exists yet.
+[Redundancy decision](REDUNDANT_EXPERT_COMPILATION_20261006.md) defers the prior
+unimplemented pooled-rank/source-query500 plan following user steering.
+Its historical algebra remains in [whole499](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md),
+without a claim that53,943 missing fixed-class directions limit a new geometry.
+[500 protocol](METH_500_OVERLAPPING_SOURCE_PROTOCOL_20261006.md) is prospective.
 
-1. Implement/price/freeze complete helpers/protocol/fixtures for pooled
-   DEVELOPMENT H=[qphi*alpha,1], exact dyadic/modular rank and independent
-   verification. Bind only dependencies actually read; no compiler/source call.
-2. Determine pooled real rank positively through nonzero minors; deficient
-   modular rank is INCONCLUSIVE. No old497 case or control replay.
-3. Select deterministic per-expert complement input rows from11,721 DEVELOPMENT
-   inputs, by fixed whitened innovation/UID tie rules BEFORE donor labels.
-   Preserve all128 IDs/empty0, exact original row constraints and provenance.
-   Verify exact independent minors and fixed numerical eligibility guards.
-4. Freeze the FULL pair manifest and per-expert remaining dimensions. No consumed
-   input/label selection, target-dependent queries or precision/width/lambda/ID
-   sweep. No500 coefficient fitting/export/native/model/capture at this stage.
-5. Admit complete stable in-budget plan before a separately priced new source
-   response/fit/physical candidate pipeline. Inconclusive geometry changes the
-   information/dictionary/domain decision, without another499 optimizer.
+1. Freeze complete new overlap helpers/protocol before observation; sole actual
+   dependency metadata binding, commit binding, then sole main.
+2. Reconstruct new original hidden supports on ALL17540 admitted UID inputs.
+   Source output bytes must equal saved original F; charge source work.
+3. Build four input regions/masks using11721 development UIDs only. Each child
+  1536 source atoms, full union3072, total6144 copies. Keep empty0 explicit.
+4. Compare actual child quantization with original-scale shadow, static same
+   active width, best-child oracle and input-only selector on original domains.
+5. Sole independent audit of source support/masks/selector/partial outputs/views.
+   Pass -> native/fresh inquiry; oracle fail -> geometry; selector-only fail ->
+   selector. No old scientific replay or width/precision/ID/optimizer sweep.
 
-Exact development-data null directions:53,943 (41,428,224 scalar output
-coefficients). Global r_D UNKNOWN,308<=r_D<=513. Additional independent pairs
-Q=128*r_D-11721:27,703..53,943; full coefficient identification only if r_D=513.
-These are data-only finite-class algebra, not a generalization theorem.
-At maximum Q:254535008256 source MACs/165712896 F32 target bytes; source
-acquisition AND independent reconstruction costs must both be priced/charged.
-New function labels at existing inputs are counterfactual expert responses,
-not fresh trajectories.
-
-Proposed geometry caps900s/1536MiB per main/audit, CPU0/BLAS1/new retained
-outputs<=128MiB, no source/model/native/GPU/new resource. Actual full protocol
-and buffer pricing must precede any observation. Preserve first faults/partials/
-actual exit/process/resource receipts before a numbered repair. No blanket
-unused SDK-history hashing or concurrent scientific timing.
+Selected FFN MACs2,359,296 vs original4,718,592; source format and parent p/ID
+remain fixed. Actual input selector3072 MACs plus other dispatch work. These
+counts do not establish original-parent routing/LUT/physical DRAM or rate.
+Main/audit each900s/2GiB, CPU0/BLAS1; main outputs<=1GiB, audit<=128MiB.
+No model/native/GPU/gradient/new resource. Preserve first faults/partials/actual
+exit/process/resource receipts before numbered repair. No unused SDK-history
+hashing, old main replay or concurrent scientific timing. Current resume is
+source/protocol freeze and sole metadata builder; no numerical500 run yet.
 
 ## Return gates
 
