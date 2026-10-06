@@ -1,0 +1,11 @@
+{
+  "scope": "Original509 abort in actual-import admission before any rank or selected-row source dot; preserve failed namespace",
+  "command": "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe -X utf8 benchmarks/native_expert_scaling/meth509_shortlist_head.py --binding-sha e67fa79fc1d6ce21cbf6203700e49ba5cefce4f9bb2e343ccac8578df66b78e8",
+  "tool": {
+    "chunk_id": "81c267",
+    "wall_time_seconds": 9.5264942,
+    "exit_code": 1,
+    "original_token_count": 218,
+    "output": "Traceback (most recent call last):\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth509_shortlist_head.py\", line 67, in <module>\r\n    if __name__=='__main__':main()\r\n                            ^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth509_shortlist_head.py\", line 15, in main\r\n    np.seterr(over='raise',invalid='raise',divide='raise',under='ignore');ctx.modules()\r\n                                                                          ^^^^^^^^^^^^^\r\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth507_operations.py\", line 118, in modules\r\n    assert path in self.catalog, ('unbound_Python_module', path)\r\n           ^^^^^^^^^^^^^^^^^^^^\r\nAssertionError: ('unbound_Python_module', 'd:\\\\_things\\\\progetti\\\\siliconllm\\\\.venv\\\\lib\\\\site-packages\\\\psutil\\\\_common.py')\r\n"
+  }
+}

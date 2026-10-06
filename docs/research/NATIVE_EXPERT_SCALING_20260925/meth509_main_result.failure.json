@@ -1,0 +1,28 @@
+{
+  "experiment": "METH509 ONE top8 I8/source-F32 hybrid head",
+  "kind": "main",
+  "argv": [
+    "benchmarks/native_expert_scaling/meth509_shortlist_head.py",
+    "--binding-sha",
+    "e67fa79fc1d6ce21cbf6203700e49ba5cefce4f9bb2e343ccac8578df66b78e8"
+  ],
+  "process_instance": {
+    "pid": 29480,
+    "create_time_unix": 1791315234.5597868
+  },
+  "started_utc": "2026-10-06T19:33:54.830450+00:00",
+  "whole_model_native_compiler_calls": 0,
+  "affinity": [
+    10
+  ],
+  "gates": {
+    "ALL_actual_used_wires_runtime_original_extent_AND_frozen508_oracle": true
+  },
+  "binding_sha256": "e67fa79fc1d6ce21cbf6203700e49ba5cefce4f9bb2e343ccac8578df66b78e8",
+  "source_freeze": "e6bb86d98705d9c44fd96874c827364cbaa4620d",
+  "execution_head": "3ad5179aaca583c85e3667334efd599b06f8e52d",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth509_shortlist_head.py\", line 15, in main\n    np.seterr(over='raise',invalid='raise',divide='raise',under='ignore');ctx.modules()\n                                                                          ^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth507_operations.py\", line 118, in modules\n    assert path in self.catalog, ('unbound_Python_module', path)\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('unbound_Python_module', 'd:\\\\_things\\\\progetti\\\\siliconllm\\\\.venv\\\\lib\\\\site-packages\\\\psutil\\\\_common.py')\n",
+  "seconds": 9.01600000000326,
+  "OS_peak_bytes": 46112768,
+  "bytes_hashed": 477138321
+}
