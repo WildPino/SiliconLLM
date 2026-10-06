@@ -1,7 +1,35 @@
 # Current conditional transfer resumption
 
 6 October 2026. Goal ACTIVE/INCOMPLETE. Authoritative current continuation
-after complete independently admitted500. Older NEXTs are historical.
+after complete independently admitted501. Older NEXTs are historical.
+
+##501 terminal: exact fixed-budget witnesses and conflicts
+
+[501 result](METH_501_SUPPORT_COVER_RESULT_20261006.md): all5/6/5 main/independent
+bitset audit/admission PASS.61/127 complete development cover witnesses;52 first
+packing conflicts,14 global-copy conflicts; empty0 unpromoted. Complete cohort
+ineligible; greedy failures INCONCLUSIVE about alternative partitions.
+Positive3649/11721 development UIDs; consumed any-child exact support261/1913
+positive subset,261/5819 full domain. No source F/fresh quality promotion.
+Main6.594s/206319616B; audit6.141s/200151040B, exits0; Windows available/zero faults.
+All495..501 scientific namespaces terminal. No surviving scientific process.
+
+## Selected502: data-driven storage under fixed active-width ceiling
+
+[502 concrete next](METH_502_VARIABLE_CHILD_RAM_CERTIFICATE_NEXT_20261006.md):
+carry61 positive masks BYTE; extend only52 retained incomplete prefixes; reuse
+14 complete partitions. Add children at a packing conflict, supply globally
+missing leaves from remaining slack/new storage. Max selected width1536; newly
+constructed widths may be smaller. Price actual source-atom copies/scale/index
+costs and child-count selector consequences. No C grid, completed-prefix replay,
+source/model/native/GPU/new labels or consumed mask selection.
+
+First action: implement/price/freeze complete helpers/protocol, independent
+source-prefix/bitset/subset/copy-cost certificates, then sole actual binding/
+main/audit. Proposed120s/512MiB each, outputs<=64MiB after full bound pricing.
+No502 implementation/results yet. Complete finite geometry -> ONE complete
+actual-function/input-selector/physical inquiry before more packing refinements.
+Constructive RAM upper bound is not optimal memory or fresh preservation.
 
 ##500 terminal: support data real, chosen masks fail
 
@@ -17,7 +45,7 @@ Main53.843s/1694863360B; audit49.891s/1690177536B, exits0; both Windows availabl
 zero faults. All495..500 namespaces terminal; no surviving scientific process.
 Large support/function arrays local/hash-qualified. Engine/foreign hashes intact.
 
-## Selected501: exact development support-cover eligibility
+## Historical501 prospective choice (completed;502 takes precedence)
 
 [501 concrete next](METH_501_SUPPORT_COVER_ELIGIBILITY_NEXT_20261006.md) keeps
 four masks/1536 atoms each/6144 total/full3072 union, and changes the construction
@@ -25,11 +53,9 @@ to cover actual development nonzero hidden-code supports. ONE deterministic
 packing attempt and complete independent witness checking. No retry/order/seed
 grid, consumed selection, original payload/source/model/native/GPU/new labels.
 
-First action: implement/price/freeze helper/main/independent checker/protocol,
-then sole metadata binding and execution. Proposed main/audit120s/512MiB each,
-new outputs<=16MiB. Positive cover is an observed development-domain native
-identity, before actual function/routing/fresh inquiry. Greedy failure is
-INCONCLUSIVE about other partitions/representations. No501 code/results yet.
+The helper/protocol/binding/main/audit sequence completed once. Positive cover
+is an observed development-domain native identity before function/routing/fresh
+inquiry. Greedy failure remains INCONCLUSIVE. This is not a rerun instruction.
 
 ## Retained preceding499
 
@@ -50,7 +76,7 @@ large data remain local. Source freeze4b04319/binding3b106d2; main ee9b402,
 audit ee4bdef+3e79e9c. Engine and all three foreign tracked hashes preserve.
 Completed495..499 source/control/main/native/audit/finalizer namespaces terminal.
 
-## Historical500 prospective choice (completed; current501 takes precedence)
+## Historical500 prospective choice (completed; current502 takes precedence)
 
 [Redundancy decision](REDUNDANT_EXPERT_COMPILATION_20261006.md) defers the prior
 unimplemented pooled-rank/source-query500 plan following user steering.
@@ -78,7 +104,7 @@ Main/audit each900s/2GiB, CPU0/BLAS1; main outputs<=1GiB, audit<=128MiB.
 No model/native/GPU/gradient/new resource. Preserve first faults/partials/actual
 exit/process/resource receipts before numbered repair. No unused SDK-history
 hashing, old main replay or concurrent scientific timing. Current resume is
-the501 source/protocol freeze above;500 is terminal.
+the502 source/protocol freeze above;500/501 are terminal.
 
 ## Return gates
 

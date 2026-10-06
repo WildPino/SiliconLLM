@@ -24,7 +24,32 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:500 admitted; exact support-cover eligibility501
+## Current resumption:501 admitted; data-driven child storage502
+
+[501 result](METH_501_SUPPORT_COVER_RESULT_20261006.md): all5 main/6 independent
+integer-bitset audit/5 admission gates PASS. Complete C4/B1536/6144 development
+support-cover witnesses61/127,52 first packing conflicts,14 global-copy budget
+conflicts. Complete cohort ineligible; other partitions' existence unresolved.
+Positive3649/11721 development inputs; consumed complete-support261/1913 on
+positive subset,261/5819 complete domain. No new source F or fresh quality claim.
+Main6.594s/206319616B, audit6.141s/200151040B, exits0, Windows available/zero
+faults; all495..501 namespaces terminal and no surviving scientific job.
+
+[502 next](METH_502_VARIABLE_CHILD_RAM_CERTIFICATE_NEXT_20261006.md) selects a
+monotone extension from retained501 witnesses/conflicts. Preserve61 positive
+masks BYTE; resume only52 incomplete prefixes; reuse14 complete partitions.
+Derive additional child count/storage at maximum selected width1536; newly
+constructed widths may be smaller without padding. No child-count grid/source/
+model/native/GPU/new labels or completed-prefix replay. First implement/price/
+freeze complete source-prefix/bitset/subset/copy-cost certificates and actual
+read binding; proposed120s/512MiB main/audit. No502 code/observations yet.
+
+Explicit development cover -> ONE complete actual-function/input-selection/
+physical inquiry before more finite packing refinements. A constructive RAM
+upper bound for fixed partitions is not globally optimal storage or fresh
+quality. All full return gates below remain open.
+
+### Retained preceding500
 
 [500 result](METH_500_OVERLAPPING_SOURCE_RESULT_20261006.md): ONE changed
 representation, four overlapping half-width source-atom branches per parent.
@@ -39,14 +64,9 @@ can repair this fixed recipe's tail. Main53.843s/1694863360B; audit49.891s/
 1690177536B, exits0, Windows queries available/zero faults; no live science job.
 All500 namespaces terminal; large support/function arrays local/hash-qualified.
 
-[501 next](METH_501_SUPPORT_COVER_ELIGIBILITY_NEXT_20261006.md) changes the
-development mask construction to exact nonzero-support cover geometry at the
-SAME4/1536/6144 budget. First action: implement/price/freeze a deterministic
-packing witness and independent subset/union/duplication checker, then sole
-actual read binding/main/audit. Reuse admitted500 codes, no source/model/native/
-GPU/new labels. Proposed120s/512MiB each; positive observed-domain cover does
-not establish fresh quality or cheap routing; greedy failure is INCONCLUSIVE.
-No501 implementation/observation yet. Full return gates below remain open.
+501's implemented exact support geometry is summarized above; its original
+[prospective next](METH_501_SUPPORT_COVER_ELIGIBILITY_NEXT_20261006.md) is historical.
+Positive observed-domain covers do not establish fresh quality or cheap routing.
 
 ### Retained preceding499 and representation decision
 
@@ -161,9 +181,9 @@ coefficients/banks, independently verify KKT and measure their local failure.
 Adding SOURCE INFORMATION in missing directions remains one possible route,
 with query selection fixed before labels.500 assessed a source-anchored
 overlapping conditional representation beyond the fixed global feature class.
-Its chosen masks fail their tail gate;501 asks for
-an explicit development support-cover witness. The fixed499 equality problem
-is not reoptimized.
+Its chosen masks fail their tail gate;501 implements finite development cover
+witnesses, and502 derives extra storage from retained conflicts. The fixed499
+equality problem is not reoptimized.
 
 Eligibility/capture/fit remain separate steps with separately charged costs.
 A full-span query plan, when established, is not a label acquisition or a

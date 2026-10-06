@@ -26,6 +26,13 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[501 result](METH_501_SUPPORT_COVER_RESULT_20261006.md): all5/6/5 apparatus/
+independent audit/admission PASS. Exact C4/B1536/6144 development support covers
+for61/127 exposed IDs;52 first packing conflicts,14 global-copy conflicts.
+Complete cohort ineligible; greedy failure is INCONCLUSIVE about other partitions.
+Positive3649/11721 development UIDs; consumed any-child complete support261/1913
+positive subset (261/5819 full domain). No new F/fresh/native/rate promotion.
+
 [500 result](METH_500_OVERLAPPING_SOURCE_RESULT_20261006.md): ONE four-half-width
 overlapping source-atom recipe independently admitted, all6/7/5 apparatus gates
 PASS. All17540 source supports and157860 partial functions qualified BYTE.
@@ -49,7 +56,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption: exact support-cover eligibility501
+## Current resumption: variable child storage at fixed active ceiling502
 
 Completed499 scope:128 IDs/127 solves/17540UID/19962occurrences/1040groups/
 384exposures. Main84.250s/combined peaks1073999872B; independent audit39.688s/
@@ -65,14 +72,20 @@ exposed IDs; selected coverage insufficient. Empty0 uncompiled, rare failures
 retained. Frozen coarse automatic selector label retained; admitted next
 decision follows the stronger oracle-tail bound. No old namespace replay.
 
-**First action:** implement/price/freeze ONE support-only501 packing witness
-and independent checker, then actual read binding/main/audit.
-[501 next](METH_501_SUPPORT_COVER_ELIGIBILITY_NEXT_20261006.md) keeps C4/B1536/
-6144 copies, replacing diagonal importance masks with development nonzero-support
-cover geometry. Reuse500's saved codes; no source/model/native/GPU/new labels.
-Positive complete cover -> actual function/selector eligibility; greedy failure
-INCONCLUSIVE about existence. Proposed120s/512MiB each, outputs<=16MiB.
-No501 implementation or observations yet. Full parent winner/mass remains open.
+501 complete main6.594s/206319616B, independent bitset audit6.141s/200151040B;
+exits0, both Windows available/zero events. All495..501 namespaces terminal.
+Fixed partitions reveal extra-memory uncertainty; no surviving scientific job.
+
+**First action:** implement/price/freeze ONE monotone502 extension and independent
+certificates, then sole actual read binding/main/audit.
+[502 next](METH_502_VARIABLE_CHILD_RAM_CERTIFICATE_NEXT_20261006.md) carries61
+positive masks BYTE, resumes only52 retained conflict prefixes, reuses14 complete
+partitions and adds storage as needed. Max selected width1536; new widths may be
+smaller to avoid gratuitous padding. No C grid/old prefix/source/model replay.
+Derive this construction's RAM upper witness, not an optimal-memory claim.
+Complete construction -> ONE actual-function/selector/physical eligibility
+inquiry before more packing refinements. Proposed120s/512MiB each; no502 code/
+observations yet. Full parent winner/mass and fresh quality remain open.
 
 All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual additional families/scales remain open.
