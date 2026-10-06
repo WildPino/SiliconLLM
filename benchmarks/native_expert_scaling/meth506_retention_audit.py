@@ -11,7 +11,7 @@ def main():
     destination=O.DOC/'RETENTION_506_20261006.json';ctx=O.Context(O.AUDIT,destination)
     try:
         b=ctx.admit(args.binding_sha);assert ctx.digest(O.RAW)==args.raw_sha;ctx.head(O.RAW);raw=json.loads(O.RAW.read_bytes());assert all(raw['gates'].values())
-        prepfile=O.DOC/'meth506_preparation_result.json';assert ctx.digest(prepfile)==raw['preparation_sha256'];ctx.head(prepfile);prep=json.loads(prepfile.read_bytes())
+        prepfile=O.PREPRAW;assert ctx.digest(prepfile)==raw['preparation_sha256'];ctx.head(prepfile);prep=json.loads(prepfile.read_bytes())
         for entry in prep['output_inventory']+raw['output_inventory']:ctx.exact(entry)
         for entry in b['exclusions']['ledgers']:ctx.exact(entry)
         import numpy as np
@@ -19,6 +19,7 @@ def main():
         from transformers import AutoTokenizer
         from threadpoolctl import threadpool_limits
         pools=threadpool_limits(limits=1);np.seterr(over='raise',invalid='raise',divide='raise',under='ignore');ctx.r['numerical_imports']=True
+        ctx.import_diagnostic();ctx.parent_modules()
         ctx.phase='independent-manifest-and-whole-inverse'
         def parse(path):
             content=Path(path).read_bytes();config=content[8:64];nf,nt=struct.unpack_from('<II',content,64);i=72

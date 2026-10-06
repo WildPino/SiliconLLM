@@ -108,7 +108,11 @@ implemented. Current step: source freeze -> actual binding -> source-only prepar
 freeze -> one complete main/audit. First metadata binding hit600s at23,703,238,968B hashed/74,047,488B peak,
 exit1 retained392b1ff BEFORE imports/data selection/export/compile/model/native.
 Operational R1 raises ONLY metadata preparation to1800s; frozen scientific
-kernel/cohort/quality/economic/resource criteria unchanged. No scientific replay.
+kernel/cohort/quality/economic/resource criteria unchanged. No scientific replay. R1 binding901ff9e complete; first prepare stopped after
+imports on unbound Defender MpOAV BEFORE cohort/export/model/native. Fault36c466c
+and PyArrow import diagnostic retained. [R2 repair](METH_506_R2_PREPARATION_REPAIR_20261006.md)
+prospectively pins Defender, uses fresh preparation namespace, bounds this known
+import diagnostic and forbids new later diagnostics; scientific criteria unchanged.
 
 All-bank composition/fresh own-state generation/tasks/SAMEartifact>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual other families/scales remain open.

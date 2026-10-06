@@ -24,7 +24,7 @@ def worker(row):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--stage',choices=['prepare','run'],required=True);ap.add_argument('--binding-sha',required=True);ap.add_argument('--preparation-sha');args=ap.parse_args()
-    prepraw=O.DOC/'meth506_preparation_result.json';ctx=O.Context(O.PREP if args.stage=='prepare' else O.OUT,prepraw if args.stage=='prepare' else O.RAW)
+    prepraw=O.PREPRAW;ctx=O.Context(O.PREP if args.stage=='prepare' else O.OUT,prepraw if args.stage=='prepare' else O.RAW)
     try:
         b=ctx.admit(args.binding_sha)
         if args.stage=='run':
@@ -43,7 +43,7 @@ def main():
         pool=threadpool_limits(limits=1);torch.set_num_threads(1);torch.set_num_interop_threads(1)
         assert torch.__version__=='2.6.0+cu124' and not torch.cuda.is_initialized()
         np.seterr(over='raise',invalid='raise',divide='raise',under='ignore');ctx.r['numerical_imports']=True;ctx.r['runtime']={'pools':threadpool_info(),'torch':torch.__version__,'torch_num_threads':torch.get_num_threads(),'torch_interop_threads':torch.get_num_interop_threads(),'GPU_initialized':torch.cuda.is_initialized(),'environment':b['runtime_environment']}
-        ctx.parent_modules()
+        ctx.import_diagnostic();ctx.parent_modules()
         if args.stage=='prepare':
             ctx.phase='source-only-excluded-cohort';cohort=C.build(ctx,b);O.write(ctx.out/'cohort.json',cohort);ctx.log(selected_rows=[v['corpus_row'] for v in cohort['items']],excluded_rows=len(cohort['excluded_rows']))
             ctx.parent_modules()

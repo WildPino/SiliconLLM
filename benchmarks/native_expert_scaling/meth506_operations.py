@@ -9,9 +9,10 @@ import psutil
 import meth490_r1_operations as base
 
 ROOT,DOC,write,stamp=base.ROOT,base.DOC,base.write,base.stamp
-BIND=DOC/'meth506_r1_binding.json'
+BIND=DOC/'meth506_r2_binding.json'
 OUT=ROOT/'results/native_expert_scaling/meth506_whole'
-PREP=ROOT/'results/native_expert_scaling/meth506_artifact'
+PREP=ROOT/'results/native_expert_scaling/meth506_r2_artifact'
+PREPRAW=DOC/'meth506_r2_preparation_result.json'
 AUDIT=ROOT/'results/native_expert_scaling/meth506_retention'
 RAW=DOC/'meth506_whole_result.json'
 
@@ -35,7 +36,7 @@ class Context(base.Context):
         assert time.monotonic()-self.start<=self.seconds,('wall_bound',self.phase)
         now=time.monotonic()
         if now-self.last_size>=1:
-            size=sum(p.stat().st_size for d in [PREP,OUT,AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
+            size=sum(p.stat().st_size for d in [ROOT/'results/native_expert_scaling/meth506_artifact',PREP,OUT,AUDIT] if d.exists() for p in d.iterdir() if p.is_file())
             size+=sum(p.stat().st_size for p in DOC.glob('meth506*.json'))
             assert size<=24<<30,('all_new_outputs',size)
             self.last_size=now
@@ -84,7 +85,20 @@ class Context(base.Context):
             assert key in self.module_catalog,('unbound_actual_parent_module',path)
             self.exact(self.module_catalog[key])
         self.r['actual_parent_modules']=modules
+    def import_diagnostic(self):
+        data=(self.out/'fatal_native.log').read_bytes()
+        if data:
+            text=data.decode('utf8');assert text.count('Windows fatal exception: access violation')==1
+            current=text.split('Current thread ',1)[1]
+            assert 'line 1293 in create_module' in '\n'.join(current.splitlines()[:4])
+            assert 'site-packages\\pyarrow\\__init__.py", line 71 in <module>' in current
+            self.r['import_diagnostic']={'bytes':len(data),'sha256':self.digest(self.out/'fatal_native.log'),'scope':'One handled first-chance access-violation diagnostic during PyArrow module import, before cohort/export/native/model; cause unidentified. Not a zero-exception claim.'}
+        else:self.r['import_diagnostic']={'bytes':0,'scope':'No faulthandler import diagnostic.'}
+        self.import_fatal_bytes=data
+    def unchanged_import_diagnostic(self):
+        assert (self.out/'fatal_native.log').read_bytes()==self.import_fatal_bytes,'new_fatal_diagnostic_after_import'
     def finish(self,value):
+        self.unchanged_import_diagnostic()
         r=super().finish(value)
         write(self.out/'terminal_resources.json',{'raw_sha256':self.digest(self.raw),'resource':self.resources(),'scope':'After full RAW serialization.'})
         self.guard();return r
