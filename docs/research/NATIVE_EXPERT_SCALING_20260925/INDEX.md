@@ -26,6 +26,14 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[500 result](METH_500_OVERLAPPING_SOURCE_RESULT_20261006.md): ONE four-half-width
+overlapping source-atom recipe independently admitted, all6/7/5 apparatus gates
+PASS. All17540 source supports and157860 partial functions qualified BYTE.
+Four/five eligibility gates PASS, recipe FAIL: consumed selected RMS1.229025%,
+natural p95 selected47.782644%/best-child41.929679% against<=5%. Oracle tail is
+a pointwise lower bound: changing only the selector cannot qualify these masks.
+Mean alone hides large errors; no native/fresh/rate/useful-n promotion.
+
 [499 result](METH_499_FACTOR_RESULT_20261006.md): new unweighted functions with
 explicit variable mass independently admitted; ALL8/7/5 qualification gates
 PASS, all9 frozen ALL-six local outcomes FAIL. Canonical consumed weighted
@@ -41,7 +49,7 @@ Its unimplemented pooled-rank/source-query next plan is deferred following user
 steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
 changes conditional representation before acquiring many new function labels.
 
-## Current resumption: overlapping source branches500
+## Current resumption: exact support-cover eligibility501
 
 Completed499 scope:128 IDs/127 solves/17540UID/19962occurrences/1040groups/
 384exposures. Main84.250s/combined peaks1073999872B; independent audit39.688s/
@@ -50,17 +58,21 @@ Finalizercafc96 exit0. One compile/three new native calls; no source/model/
 optimizer/GPU/new resource. Bank127232136B; large outputs local/hash-qualified.
 All495..499 scientific namespaces terminal; engine/foreign hashes unchanged.
 
-**First action:** freeze new500 source/protocol, sole metadata binding, then
-ONE full overlap screen and independent audit. [500 protocol](METH_500_OVERLAPPING_SOURCE_PROTOCOL_20261006.md):
-four half-width original-atom branches, full global union, twofold FFN copies;
-development-only input regions/masks, all original128 IDs/17540 UID inputs.
-Separate best-child oracle, input-only selector, omitted vector information,
-child A16 maximum and static same-active-width control. Source parent ID/p fixed.
-Main/audit each900s/2GiB; no full-model/native/GPU/gradient/engine operation.
-New source hidden-support reconstruction is charged, without old main replay.
-Pass -> native/fresh eligibility inquiry; oracle failure -> mask geometry;
-oracle pass/selector failure -> input selector. One recipe cannot refute all
-redundancy. Full original-parent winner/mass remains open.
+500 completed: main53.843s/1694863360B, audit49.891s/1690177536B; exits0,
+both Windows queries available/zero faults. No surviving scientific job.
+Four half-width masks preserve all source atoms in their global union for127
+exposed IDs; selected coverage insufficient. Empty0 uncompiled, rare failures
+retained. Frozen coarse automatic selector label retained; admitted next
+decision follows the stronger oracle-tail bound. No old namespace replay.
+
+**First action:** implement/price/freeze ONE support-only501 packing witness
+and independent checker, then actual read binding/main/audit.
+[501 next](METH_501_SUPPORT_COVER_ELIGIBILITY_NEXT_20261006.md) keeps C4/B1536/
+6144 copies, replacing diagonal importance masks with development nonzero-support
+cover geometry. Reuse500's saved codes; no source/model/native/GPU/new labels.
+Positive complete cover -> actual function/selector eligibility; greedy failure
+INCONCLUSIVE about existence. Proposed120s/512MiB each, outputs<=16MiB.
+No501 implementation or observations yet. Full parent winner/mass remains open.
 
 All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/
 RAM/LUT winner+mass/physical DRAM/actual additional families/scales remain open.

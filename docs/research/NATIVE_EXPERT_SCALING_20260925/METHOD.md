@@ -24,7 +24,31 @@ rate; useful much larger expert pools after that transfer; physical memory and
 multi-family/large-scale applicability. Source replay/headers/synthetic costs/
 finite interpolation do not substitute for these results.
 
-## Current resumption:499 admitted; overlapping source branches500
+## Current resumption:500 admitted; exact support-cover eligibility501
+
+[500 result](METH_500_OVERLAPPING_SOURCE_RESULT_20261006.md): ONE changed
+representation, four overlapping half-width source-atom branches per parent.
+All6 main/7 independent audit/5 admission gates PASS; four/five local screening
+gates PASS, recipe FAIL. ALL17540 original hidden supports and157860 new partial
+functions independently qualified; source parent ID/p fixed locally.
+
+Consumed selected function RMS1.229025%; natural p95 selected47.782644% and
+best-child41.929679% against<=5%. At every input any single selection among
+these four child functions has error >=best-child error, so no better selector
+can repair this fixed recipe's tail. Main53.843s/1694863360B; audit49.891s/
+1690177536B, exits0, Windows queries available/zero faults; no live science job.
+All500 namespaces terminal; large support/function arrays local/hash-qualified.
+
+[501 next](METH_501_SUPPORT_COVER_ELIGIBILITY_NEXT_20261006.md) changes the
+development mask construction to exact nonzero-support cover geometry at the
+SAME4/1536/6144 budget. First action: implement/price/freeze a deterministic
+packing witness and independent subset/union/duplication checker, then sole
+actual read binding/main/audit. Reuse admitted500 codes, no source/model/native/
+GPU/new labels. Proposed120s/512MiB each; positive observed-domain cover does
+not establish fresh quality or cheap routing; greedy failure is INCONCLUSIVE.
+No501 implementation/observation yet. Full return gates below remain open.
+
+### Retained preceding499 and representation decision
 
 [499 result](METH_499_FACTOR_RESULT_20261006.md): all8 main/7 independent audit/
 5 admission gates PASS; all9 ALL-six local outcomes FAIL. All128 original IDs,
@@ -56,8 +80,8 @@ same-width control. Twofold stored FFN copies/.5 selected FFN work are logical
 counts; preservation, native LUT/DRAM/rate remain unproved. All original128 IDs/
 17540 UIDs retained; new hidden-support information reconstructed and charged.
 Source parent ID/p fixed locally. No consumed selection/grid or old main replay.
-First action: freeze sources, bind actual dependencies, sole main and independent
-audit (each900s/2GiB). Completed495..499 remain terminal; full return gates open.
+500 has now completed as summarized above. Completed495..500 remain terminal;
+the fixed-class499 source-query strategy is deferred, not refuted.
 
 ## 1. Identify a donor and its actual numerical contract
 
@@ -135,9 +159,11 @@ consumed features add new directions: exact finite interpolation alone does
 not identify a predictor there.498/499 turn the interpolants into actual
 coefficients/banks, independently verify KKT and measure their local failure.
 Adding SOURCE INFORMATION in missing directions remains one possible route,
-with query selection fixed before labels. Current500 first assesses whether
-source-anchored overlapping conditional representations avoid the fixed global
-feature class's limitation. The fixed499 equality problem is not reoptimized.
+with query selection fixed before labels.500 assessed a source-anchored
+overlapping conditional representation beyond the fixed global feature class.
+Its chosen masks fail their tail gate;501 asks for
+an explicit development support-cover witness. The fixed499 equality problem
+is not reoptimized.
 
 Eligibility/capture/fit remain separate steps with separately charged costs.
 A full-span query plan, when established, is not a label acquisition or a

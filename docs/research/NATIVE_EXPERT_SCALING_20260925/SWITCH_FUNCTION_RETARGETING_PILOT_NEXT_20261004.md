@@ -1,7 +1,37 @@
 # Current conditional transfer resumption
 
 6 October 2026. Goal ACTIVE/INCOMPLETE. Authoritative current continuation
-after complete independently admitted499. Older NEXTs are historical.
+after complete independently admitted500. Older NEXTs are historical.
+
+##500 terminal: support data real, chosen masks fail
+
+[500 result](METH_500_OVERLAPPING_SOURCE_RESULT_20261006.md): all6/7/5 apparatus/
+audit/admission PASS, four/five eligibility PASS, recipe FAIL.17540 original
+source supports/157860 partial functions independently qualified BYTE.
+Selected consumed RMS1.229025%; natural p95 selected47.782644%, oracle41.929679%
+against<=5%. Any single selector's error is pointwise >=oracle error, so improving
+selection alone cannot pass this fixed mask construction. Empty0 and rare
+cases remain explicit. No native/fresh/whole quality/rate promotion.
+
+Main53.843s/1694863360B; audit49.891s/1690177536B, exits0; both Windows available/
+zero faults. All495..500 namespaces terminal; no surviving scientific process.
+Large support/function arrays local/hash-qualified. Engine/foreign hashes intact.
+
+## Selected501: exact development support-cover eligibility
+
+[501 concrete next](METH_501_SUPPORT_COVER_ELIGIBILITY_NEXT_20261006.md) keeps
+four masks/1536 atoms each/6144 total/full3072 union, and changes the construction
+to cover actual development nonzero hidden-code supports. ONE deterministic
+packing attempt and complete independent witness checking. No retry/order/seed
+grid, consumed selection, original payload/source/model/native/GPU/new labels.
+
+First action: implement/price/freeze helper/main/independent checker/protocol,
+then sole metadata binding and execution. Proposed main/audit120s/512MiB each,
+new outputs<=16MiB. Positive cover is an observed development-domain native
+identity, before actual function/routing/fresh inquiry. Greedy failure is
+INCONCLUSIVE about other partitions/representations. No501 code/results yet.
+
+## Retained preceding499
 
 ##499 terminal and independently qualified
 
@@ -20,13 +50,14 @@ large data remain local. Source freeze4b04319/binding3b106d2; main ee9b402,
 audit ee4bdef+3e79e9c. Engine and all three foreign tracked hashes preserve.
 Completed495..499 source/control/main/native/audit/finalizer namespaces terminal.
 
-## Selected500: source-anchored overlapping half-width branches
+## Historical500 prospective choice (completed; current501 takes precedence)
 
 [Redundancy decision](REDUNDANT_EXPERT_COMPILATION_20261006.md) defers the prior
 unimplemented pooled-rank/source-query500 plan following user steering.
 Its historical algebra remains in [whole499](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md),
 without a claim that53,943 missing fixed-class directions limit a new geometry.
-[500 protocol](METH_500_OVERLAPPING_SOURCE_PROTOCOL_20261006.md) is prospective.
+[500 protocol](METH_500_OVERLAPPING_SOURCE_PROTOCOL_20261006.md) preceded its
+sole completed observation. This historical sequence is not a rerun instruction.
 
 1. Freeze complete new overlap helpers/protocol before observation; sole actual
    dependency metadata binding, commit binding, then sole main.
@@ -47,7 +78,7 @@ Main/audit each900s/2GiB, CPU0/BLAS1; main outputs<=1GiB, audit<=128MiB.
 No model/native/GPU/gradient/new resource. Preserve first faults/partials/actual
 exit/process/resource receipts before numbered repair. No unused SDK-history
 hashing, old main replay or concurrent scientific timing. Current resume is
-source/protocol freeze and sole metadata builder; no numerical500 run yet.
+the501 source/protocol freeze above;500 is terminal.
 
 ## Return gates
 

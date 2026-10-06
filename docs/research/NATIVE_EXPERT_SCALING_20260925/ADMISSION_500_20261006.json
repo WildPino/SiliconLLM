@@ -1,0 +1,66 @@
+{
+  "experiment": "METH500 complete independently admitted ONE overlap recipe",
+  "main_completed": true,
+  "gates": {
+    "main_all_six_apparatus": true,
+    "audit_all_seven_apparatus": true,
+    "ALL17540_source_support_and157860_partial_functions": true,
+    "unchanged_ALL_five_eligibility_outcomes": true,
+    "actual_main_audit_exit0_Windows_available_no_matching_fault_and_preserved_files": true
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth500_overlap_result.json",
+    "bytes": 97287,
+    "sha256": "ed36f270cb793f42043f1afdb2a1ba5e4c055dd607f4ea4a2a068a4c44cf74db"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_500_20261006.json",
+    "bytes": 7341,
+    "sha256": "200bd7b28045e9d45a7d63df54b11dcf0bca72d2250853849e76f6675c9aa2a0"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth500_binding.json",
+    "bytes": 229135,
+    "sha256": "75dc2f29546e162e63673492331a1331057509828769b8716c34782c36c29eaf"
+  },
+  "windows": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_windows_terminal.json",
+      "bytes": 578,
+      "sha256": "0bda5db529a3060fd857bd2fe115c8ab44f873c4da11c560ab17d8c66f7af3ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth500_audit_windows_terminal.json",
+      "bytes": 579,
+      "sha256": "314d1b7bfa2bc8ebca89e1a1b18e98f3fd7001727e4611f00852b2b770bc78a6"
+    }
+  ],
+  "eligibility": {
+    "oracle_all_consumed_RMS_le_2pct": true,
+    "routed_all_consumed_RMS_le_2pct": true,
+    "oracle_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_source_p_RMS_le_2pct": true,
+    "routed_natural_consumed_p95_UID_RMS_le_5pct": false
+  },
+  "recipe_eligible": false,
+  "frozen_automatic_decision": "RECONSIDER_INPUT_SELECTOR",
+  "decision": "NEXT_SOURCE_SUPPORT_COVER_GEOMETRY_BEFORE_SELECTOR",
+  "deduction": {
+    "best_actual_child_natural_consumed_p95_UID_RMS": 0.4192967936686886,
+    "threshold": 0.05,
+    "reason": "At every input any single choice among these fixed four children has relative error >= the best-child error; quantiles are monotone. Oracle tail already fails, so changing only selector cannot satisfy the frozen tail gate.",
+    "scope": "This four-mask construction, not all overlap/expanded representations. The frozen automatic label branches on aggregate RMS only and is retained verbatim."
+  },
+  "counts": {
+    "source_FFN_rows_main": 17540,
+    "source_FFN_rows_independent_audit": 17540,
+    "partial_functions_main": 157860,
+    "partial_functions_independent_audit": 157860,
+    "model_native_GPU_calls": 0,
+    "gradient_updates": 0
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth500_finalize_admission.py"
+  ],
+  "scope": "Local original-domain mask/selector screening FAIL; no head/composed/fresh/DRAM/LUT/rate/useful-n/family-scale or goal-completion promotion."
+}
