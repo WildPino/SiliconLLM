@@ -1,0 +1,42 @@
+{
+  "experiment": "METH499 sole first independent audit execution registration",
+  "attempt": 1,
+  "process_instance": {
+    "pid": 28904,
+    "create_time_unix": 1791285768.774137
+  },
+  "record_sha256": "48d27fdf39413b5912c60f6e37a3b80e54fa575a62c6162777044204432a1411",
+  "actual_exit_code": 0,
+  "command": ".venv/Scripts/python.exe benchmarks/native_expert_scaling/meth499_retention_audit.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_499_20261006.json --binding-sha ce3cf895f4093d221a2d096b7b3246d599f04e4f84b5ce3e0f459b31697a1576 --raw-sha 1bf8785e5991ef8d629f419e17879bd011f95ec0175824308832654742300cde",
+  "actual_tool_results": [
+    {
+      "chunk_id": "ce7614",
+      "wall_time_seconds": 10.0097812,
+      "session_id": 59676,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "f14289",
+      "wall_time_seconds": 5.0013164,
+      "session_id": 59676,
+      "original_token_count": 19,
+      "output": "{\"experts_audited\": 1}\r\n{\"experts_audited\": 17}\r\n{\"experts_audited\": 33}\r\n"
+    },
+    {
+      "chunk_id": "e66c5e",
+      "wall_time_seconds": 0.0000084,
+      "exit_code": 0,
+      "original_token_count": 342,
+      "output": "{\"experts_audited\": 49}\r\n{\"experts_audited\": 65}\r\n{\"experts_audited\": 81}\r\n{\"experts_audited\": 97}\r\n{\"experts_audited\": 113}\r\n{\"gates\": {\"ALL_actual_references_priors_rank_compiler_runtime_and_scientific_SHA_before_NumPy\": true, \"complete_main_and_ALL_current_output_terminal_SHA\": true, \"NEW499_independent_Fraction_KKT_RNE_products_integer_LUT_and_negative_control\": true, \"ALL17540_F_source_and19962_complete_independent_reference_mass_control_joins\": true, \"ALL128_unweighted_source_prior_encodings_serialization_and127_permuted_metric_KKT\": true, \"ALL17540_native_five_vectors_dual_error_levels_choice_mass_47_columns_and_closure\": true, \"ALL1040_reports384_exposures_frozen_outcomes_decision_actual_commands_and_cost\": true}, \"outcomes\": {\"unweighted_fit64_ALL_six_RMS_1pct\": false, \"unweighted_fit32_ALL_six_RMS_1pct\": false, \"unweighted_oracle_ALL_six_RMS_1pct\": false, \"weighted_fit64_ALL_six_RMS_1pct\": false, \"weighted_fit32_ALL_six_RMS_1pct\": false, \"weighted_oracle_ALL_six_RMS_1pct\": false, \"coupled_ALL_six_RMS_1pct\": false, \"ID_ALL_six_999permille\": false, \"mass_ALL_six_relative_RMS_1pct\": false}, \"decision\": \"NEXT_SOURCE_FEATURE_INFORMATION\", \"resource\": {\"wall_seconds\": 39.687999999994645, \"parent_peak_bytes\": 895311872, \"native_peak_bytes\": 0, \"bytes_hashed\": 2787701667, \"wall_limit_seconds\": 900, \"combined_host_limit_bytes\": 1610612736}}\r\n"
+    }
+  ],
+  "actual_Windows_tool_result": {
+    "chunk_id": "f9e33d",
+    "wall_time_seconds": 0.5168816,
+    "exit_code": 0,
+    "original_token_count": 51,
+    "output": "{\r\n  \"query_start_utc\": \"2026-10-06T11:22:46.9979280+00:00\",\r\n  \"query_end_utc\": \"2026-10-06T11:23:50.2231228+00:00\",\r\n  \"query_available\": true,\r\n  \"returned_event_count\": 0,\r\n  \"query_error\": null\r\n}\r\n"
+  },
+  "scope": "Independent complete source F/mass/reference provenance, permuted-metric KKT, serialization, codec, five native byte vectors, 47-column error closure and full-report audit. No coefficient refit or native/source/model replay. Audit namespace terminal."
+}
