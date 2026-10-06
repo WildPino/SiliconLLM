@@ -1,0 +1,150 @@
+{
+  "experiment": "METH498 goal-turn completion receipt",
+  "goal_status": "ACTIVE/INCOMPLETE",
+  "goal_turn_outcome": "PROGRESS",
+  "completion_date": "2026-10-06",
+  "qualified_record_head": "e989cd638377ad3cd731439b51252505ed6dbbc9",
+  "source_freeze": "a43a31848db56da6589eaf8e1918c9e4247f2425",
+  "binding_head": "1939927d94d6f4a8082ccaf9b6dbed32187004fa",
+  "main_record_commit": "3008d85",
+  "audit_record_commit": "6ff4c3c",
+  "anchors": {
+    "binding": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/meth498_binding.json",
+      "sha256": "b85fd8a136e546f7d940f518811081b2b9e993554f11c84adb6039990524bf37"
+    },
+    "raw": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/meth498_minimum_prior_fit_result.json",
+      "sha256": "da4f297a8370dddc7e34039d6c0e763750f24789b407f11bf0c7a6cd323ce957"
+    },
+    "retention": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/RETENTION_498_20261006.json",
+      "sha256": "e6e57f7f94b712512a782c98888eeb456f4f3e08bc58d78fd86e6cfd39970384"
+    },
+    "admission": {
+      "path": "docs/research/NATIVE_EXPERT_SCALING_20260925/ADMISSION_498_20261006.json",
+      "sha256": "bff9a2ed8533bc28a0fc1892151cbedd7fb1274da62103bddea09cc4f032bac6"
+    }
+  },
+  "qualification_gates": {
+    "main": 9,
+    "independent_audit": 6,
+    "final_admission": 5,
+    "all_pass": true
+  },
+  "local_outcomes": {
+    "fit64_ALL_six_RMS_1pct": false,
+    "fit32_ALL_six_RMS_1pct": false,
+    "oracle_ALL_six_RMS_1pct": false,
+    "coupled_ALL_six_RMS_1pct": false,
+    "ID_ALL_six_999permille": false
+  },
+  "decision": "NEXT_SOURCE_PRIOR_TRANSPORT",
+  "executions": {
+    "builder": {
+      "actual_tool_chunk": "b68507",
+      "actual_exit_code": 0,
+      "seconds": 5.562,
+      "peak_bytes": 55291904,
+      "process_instance": {
+        "pid": 13536,
+        "create_time_unix": 1791282862.1579733
+      }
+    },
+    "main": {
+      "initial_chunk": "326641",
+      "session_id": 93177,
+      "terminal_chunk": "637ea8",
+      "actual_exit_code": 0,
+      "process_instance": {
+        "pid": 27200,
+        "create_time_unix": 1791282887.4474812
+      },
+      "wall_seconds": 36.953,
+      "parent_peak_bytes": 768958464,
+      "native_peak_bytes": 131522560
+    },
+    "native": {
+      "calls": 1,
+      "label": "new_candidate_predict",
+      "actual_exit_code": 0,
+      "process_instance": {
+        "pid": 19208,
+        "create_time_unix": 1791282910.9312344
+      },
+      "observed_module_exit_races": 1,
+      "wall_seconds": 5.608813
+    },
+    "audit": {
+      "initial_chunk": "66210d",
+      "session_id": 54656,
+      "terminal_chunk": "4ffd01",
+      "actual_exit_code": 0,
+      "process_instance": {
+        "pid": 27492,
+        "create_time_unix": 1791282973.3617656
+      },
+      "wall_seconds": 19.859,
+      "parent_peak_bytes": 841637888,
+      "native_calls": 0
+    },
+    "Windows": {
+      "main_chunk": "1d15dc",
+      "audit_chunk": "a0548e",
+      "both_available": true,
+      "matching_events": 0
+    },
+    "finalizer": {
+      "chunk": "9f7c4c",
+      "actual_exit_code": 0
+    }
+  },
+  "scope": {
+    "UIDs": 17540,
+    "occurrences": 19962,
+    "development_UIDs": 11721,
+    "consumed_validation_UIDs": 5819,
+    "coefficient_cases": 128,
+    "readout_solves": 127,
+    "metric_groups": 1040,
+    "exposure_groups": 384,
+    "optimizer_updates": 0,
+    "source_FFN_calls": 0,
+    "model_calls": 0,
+    "new_resources": 0,
+    "whole_quality_promotion": false,
+    "SAME_rate_promotion": false,
+    "useful_n_promotion": false,
+    "family_scale_promotion": false,
+    "goal_complete": false
+  },
+  "canonical_RMS": {
+    "development_fit64": 3.524057238569274e-15,
+    "consumed_validation_fit64": 0.09518807643656009,
+    "development_oracle": 0.11435345183422176,
+    "consumed_validation_oracle": 0.14759821866960998
+  },
+  "scientific_namespace_status": "Original builder/main/new-controls/native/audit/finalizer terminal; no numerical faults or reruns. Preserve all immutable artifacts.",
+  "large_assets": "844787976 core evidence bytes remain local, qualified by RAW/RET digests; physical deployment bank127232136B.",
+  "preserved_hashes": {
+    "benchmarks/donor_adaptation/configs/_manifest.json": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+    "benchmarks/donor_adaptation/density/build_document_holdout.py": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+    "docs/research/RESEARCH_INDEX.md": "639afab9f5330bb7170a2a8e6fad61759bb848839f0a86a6479ce688edd61f61",
+    "benchmarks/phase60/engine.c": "ea3b9f17e2664b8191397a6afa4fabe48af3f583d5dfaf1583a734ba115203db"
+  },
+  "resumption": {
+    "selected_next": "METH499 explicit variable-mass multiplication of unweighted donor-informed functions",
+    "plan": "docs/research/NATIVE_EXPERT_SCALING_20260925/METH_498_WHOLE_ALGEBRA_AND_NEXT_20261006.md",
+    "implemented": false,
+    "scientific_invocations": 0,
+    "first_action": "Implement/price/freeze complete source-F join, unweighted L0/C0 QR learner, new native wire/multiplication fixtures, actual dependencies and independent audit protocol; bind before any observation.",
+    "unchanged": "A/r512/Kreg/current495 keys/I8 codec/original domains; no lambda/width/prior/ID/checkpoint sweep.",
+    "open_final_gates": "All banks/composed contexts/own-state fresh generation/tasks/SAME>=50/useful n/RAM/CPU LUT winner+mass/physical DRAM/actual additional families and scales."
+  },
+  "final_readonly_snapshot": {
+    "actual_chunk": "8590b5",
+    "tracked_changes": "Only the three exact preserved foreign files.",
+    "scientific_processes": "No python* or meth*.exe entries returned.",
+    "staged_diff_empty": true
+  }
+}
