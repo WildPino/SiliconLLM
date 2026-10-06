@@ -1,4 +1,11 @@
-# Current conditional transfer resumption
+# METH483-R2 sole first recovery registration
+
+Complete admission freeze77f6e94; numerical suffix/helper unchanged.
+
+benchmarks/native_expert_scaling/meth483_r2_constraint_root.py: 2425058d64a627445d91f02b1032d96f0e92dff65c3bd423f0c7901640641c48
+benchmarks/native_expert_scaling/meth483_r2_windows_terminal.ps1: d7a0452da7a210e4544203027f54b76f65795747a0fb8956546dc9e0ce8afd4b
+docs/research/NATIVE_EXPERT_SCALING_20260925/METH_483_R2_CONSTRAINT_ROOT_PROTOCOL_20261006.md: ac91223d1d0a60fa997cf4ff830aa2d16741e1c505a54944eadf899c095ded7b
+benchmarks/native_expert_scaling/meth483_r1_constraint_geometry.py: 1a33ebd9e7572faf53027e578eaa4c47ca3f325134247dd5d26c80fa528aff94
 
 ## Current resumption:483 partials retained; R2 sole first recovery
 
