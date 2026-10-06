@@ -145,3 +145,13 @@ CPython _asyncio.pyd (old bootstrap had only7 host files), faultb96e912.
 [R3 closure](METH_506_R3_PYTHON_CLOSURE_REPAIR_20261006.md) prospectively
 binds actual complete Python stdlib/extensions, venv config/pth; fresh preparation
 namespace. Source/scientific criteria unchanged; no model/native calls yet.
+
+506 main completed ALL578 original processes exactly once, exits0, ALL96teacher
+and960 generation wires BYTE; first F32 capture stopped on old tuple API vs
+actual main Transformers5.13.1 Tensor API. Fault0c143fe retained, no donor score.
+[R4 donor-only recovery](METH_506_R4_REFERENCE_RECOVERY_PROTOCOL_20261006.md)
+uses existing original4.57.6 environment/code5acb, forbids native/compiler replay.
+Original two transient pre-call Python waits lack full identity/in-call monitoring;
+strict native rate provenance unverified, all measured costs retained, no gate/data
+discard. Freeze R4 runtime/native inputs -> original96 fresh donor references ->
+one independent audit. Numerical economics cannot promote this rate to final goal.
