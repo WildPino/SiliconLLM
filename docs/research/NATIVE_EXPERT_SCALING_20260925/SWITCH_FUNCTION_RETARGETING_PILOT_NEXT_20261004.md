@@ -1,34 +1,71 @@
 # Current conditional transfer resumption
 
-## Current resumption: 498 interpolant admitted FAIL; explicit variable mass next
+6 October 2026. Goal ACTIVE/INCOMPLETE. Authoritative current continuation
+after complete independently admitted499. Older NEXTs are historical.
 
-Goal ACTIVE/INCOMPLETE. [498 result](METH_498_MINIMUM_PRIOR_RESULT_20261006.md)
-admits ALL128 coefficient cases/127 development-only solves/17540UID/19962
-occurrences/1040 metric groups/384 exposures. All9 main/6 audit/5 admission
-gates PASS; all five local quality outcomes FAIL. Same A/L/width/source prior/
-metric/calibration/current495 keys/I8 codec. Fixed minimum-prior QR interpolation
-fits development F64 to RMS3.52e-15; consumed9.5188% remains above1%.
-F32 serialization ratio~3.3e-7, I8 parameter error~11.2%, arithmetic~4.9e-8.
-Physical oracle11.4353%/14.7598%; coupled79.1234%/98.6794%; ID56.0362%/22.7015%.
-Thus neither numerical convergence nor precision alone supplies useful transfer.
+##499 terminal and independently qualified
 
-Main36.953s/combined peaks900481024B; independent audit19.859s/841637888B;
-actual exits0, both Windows queries available/zero events. Finalizer9f7c4c
-actual exit0. No numerical fault or namespace replay; one changed-bank native
-prediction, no source FFN/model/GPU/new resource. Large conversion artifacts
-remain local/hash-qualified; physical bank127232136B. Engine/foreign hashes
-preserve. Completed495/496/497/498 scientific namespaces are terminal.
+[Result](METH_499_FACTOR_RESULT_20261006.md): all8 main/7 independent audit/
+5 admission gates PASS, all9 ALL-six local outcomesFAIL.
+Canonical consumed F64 weighted9.718714%, native oracle9.724962%, I8 parameter
+0.287945%; unweighted F64/native6.135395%/6.140890%. Encoding improves strongly
+over498 while fitted generalization remains poor. Actual current-key ID22.701495%,
+winner mass relative RMS64.792158%, coupled90.597547% remain separate failures.
 
-[Whole algebra/next](METH_498_WHOLE_ALGEBRA_AND_NEXT_20261006.md) selects499:
-explicit p(x)*Fhat_e(x), with unweighted494 L0/C0 priors, existing472/493 actual
-F/p/UID provenance, unchanged A/r512/Kreg/keys/I8, SAME fixed nearest-prior
-development-only learner. Original saved F must be joined directly, never
-recovered by dividing rounded pF. Reuse497 exact rank; no new teacher capture.
-Separate unweighted and source-mass oracle function quality from native
-candidate winner/mass/coupled error on all original domains. This new geometry
-must implement/freeze native wire/arithmetic/fixtures/binding/resource/fault/
-independent-audit protocol BEFORE any499 control/vector/solve/native observation.
-No499 code or science exists yet; no width/lambda/prior/precision/ID sweep.
-Source p is an oracle diagnostic, not an inexpensive runtime. Normalization,
-useful n/RAM, bounded active width, CPU LUT/physicalDRAM and all composed/own-
-state/fresh quality/SAME>=50/family/scale gates remain open.
+All128 IDs/127development-only solves/17540UID/19962occurrences/1040groups/
+384exposures. Main84.250s/1073999872B combined peaks; audit39.688s/895311872B;
+actual exits0, Windows available/zero events, finalizercafc96 exit0.
+No source/model/optimizer/GPU/new resources. Bank127232136B and hash-qualified
+large data remain local. Source freeze4b04319/binding3b106d2; main ee9b402,
+audit ee4bdef+3e79e9c. Engine and all three foreign tracked hashes preserve.
+Completed495..499 source/control/main/native/audit/finalizer namespaces terminal.
+
+## Selected500: development-side source-information eligibility/query plan
+
+[Whole algebra and concrete next](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md)
+defines the uncertainty, inherited evidence, decisions, counts and proposed
+resource stops. No500 implementation or scientific observation exists yet.
+
+1. Implement/price/freeze complete helpers/protocol/fixtures for pooled
+   DEVELOPMENT H=[qphi*alpha,1], exact dyadic/modular rank and independent
+   verification. Bind only dependencies actually read; no compiler/source call.
+2. Determine pooled real rank positively through nonzero minors; deficient
+   modular rank is INCONCLUSIVE. No old497 case or control replay.
+3. Select deterministic per-expert complement input rows from11,721 DEVELOPMENT
+   inputs, by fixed whitened innovation/UID tie rules BEFORE donor labels.
+   Preserve all128 IDs/empty0, exact original row constraints and provenance.
+   Verify exact independent minors and fixed numerical eligibility guards.
+4. Freeze the FULL pair manifest and per-expert remaining dimensions. No consumed
+   input/label selection, target-dependent queries or precision/width/lambda/ID
+   sweep. No500 coefficient fitting/export/native/model/capture at this stage.
+5. Admit complete stable in-budget plan before a separately priced new source
+   response/fit/physical candidate pipeline. Inconclusive geometry changes the
+   information/dictionary/domain decision, without another499 optimizer.
+
+Exact development-data null directions:53,943 (41,428,224 scalar output
+coefficients). Global r_D UNKNOWN,308<=r_D<=513. Additional independent pairs
+Q=128*r_D-11721:27,703..53,943; full coefficient identification only if r_D=513.
+These are data-only finite-class algebra, not a generalization theorem.
+At maximum Q:254535008256 source MACs/165712896 F32 target bytes; source
+acquisition AND independent reconstruction costs must both be priced/charged.
+New function labels at existing inputs are counterfactual expert responses,
+not fresh trajectories.
+
+Proposed geometry caps900s/1536MiB per main/audit, CPU0/BLAS1/new retained
+outputs<=128MiB, no source/model/native/GPU/new resource. Actual full protocol
+and buffer pricing must precede any observation. Preserve first faults/partials/
+actual exit/process/resource receipts before a numbered repair. No blanket
+unused SDK-history hashing or concurrent scientific timing.
+
+## Return gates
+
+Eligible LOCAL functions AND winner/mass ->476 composed contexts/allbanks ->
+evolving own-state donor-relative fresh generation/tasks ->whole engine
+SAMEartifact>=50 accepted batch1, cold/first-request/realDRAM/control costs ->
+useful larger n with bounded active width/distinct useful functions ->
+actual other families/scales/~10B/~100B as resources permit.
+
+Shared r=4n cannot be extended as RAM-only scaling. More RAM supplies storage;
+source knowledge, normalized routing and useful quality need independent
+evidence. Routine Graphify disabled, donor-adaptation operationally frozen.
+Goal ACTIVE/INCOMPLETE.
