@@ -1,0 +1,11 @@
+{
+  "experiment": "METH485 metadata binding preparation, before CUDA/main/compile",
+  "chunk_id": "79a4b5",
+  "actual_exit_code": 1,
+  "original_freeze": "672a52f",
+  "original_builder_sha256": "9e27b4291b76ac03065a0acedcef55069706563d5f1ee7e42c28928baefcd3b3",
+  "fault": "Python rejects assignment expression inside a comprehension iterable; parse-only AST inspection missed this compile-time constraint.",
+  "side_effects": "No binding created, no imports/run body executed, no compiler/CUDA/numerical controls/model execution.",
+  "numbered_preparation_repair": "meth485_prepare_binding_r1.py uses an explicit metadata loop; original helper retained byte-exact. Frozen C/main/audit/control/protocol unchanged.",
+  "numerical_attempts": 0
+}
