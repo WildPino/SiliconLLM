@@ -1,0 +1,52 @@
+{
+  "experiment": "METH508 original one-shot tool receipts",
+  "commands": {
+    "binding": "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe -X utf8 benchmarks/native_expert_scaling/meth508_prepare_binding.py",
+    "main": "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe -X utf8 benchmarks/native_expert_scaling/meth508_source_head.py --binding-sha 906499fd54f132c045d2f27bb84f188b9548fa93af51781e8097499734a92e39",
+    "audit": "results/native_expert_scaling/meth324_switch_reference/venv/Scripts/python.exe -X utf8 benchmarks/native_expert_scaling/meth508_retention_audit.py --binding-sha 906499fd54f132c045d2f27bb84f188b9548fa93af51781e8097499734a92e39 --raw-sha cf7badf270be0fce0334e4e20f3355a122d05938deb2ccab42fa079e1a1bf241"
+  },
+  "tools": {
+    "meth508_binding_tool": {
+      "chunk_id": "afc28b",
+      "wall_time_seconds": 10.001348,
+      "session_id": 59906,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth508_binding_poll1": {
+      "chunk_id": "a72f23",
+      "wall_time_seconds": 0.0000081,
+      "exit_code": 0,
+      "original_token_count": 273,
+      "output": "{\"binding\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth508_binding.json\", \"bytes\": 643470, \"sha256\": \"906499fd54f132c045d2f27bb84f188b9548fa93af51781e8097499734a92e39\"}, \"price\": {\"selected_array_bytes\": 1313899344, \"source_head_extent_bytes\": 98697216, \"catalog_bytes\": 1455063068, \"catalog_files\": 2520, \"source_head_F64_bytes\": 197394432, \"maximum_comparable_steps_per_case\": 15, \"two_source_head_MACs\": 49151213568, \"maximum_retained_decisions\": 996, \"first_pair_decompositions\": 31, \"main_audit_each_limits\": {\"seconds\": 180, \"OS_peak_bytes\": 2147483648, \"output_bytes\": 33554432}, \"whole_model_native_compiler_calls\": 0, \"new_cohorts\": 0}, \"post_merge\": {\"revision\": \"e3441d5\", \"changed_tracked_paths\": 620, \"only_research_documentation\": true, \"engine_and_506_507_scientific_files_changed\": false, \"preserved_RESEARCH_INDEX_working_SHA256\": \"99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273\"}, \"resource_after_serialization\": {\"seconds\": 10.437000000005355, \"OS_peak_bytes\": 82333696, \"bytes_hashed\": 1554403754}}\r\n"
+    },
+    "meth508_main_tool": {
+      "chunk_id": "74a4d5",
+      "wall_time_seconds": 10.0049605,
+      "session_id": 27564,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth508_main_poll1": {
+      "chunk_id": "ef2eac",
+      "wall_time_seconds": 0.0000092,
+      "exit_code": 0,
+      "original_token_count": 698,
+      "output": "{\"result\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth508_main_result.json\", \"sha256\": \"cf7badf270be0fce0334e4e20f3355a122d05938deb2ccab42fa079e1a1bf241\", \"gates\": {\"ALL_frozen_selected_data_runtime_AND_actual_F32_source_extent_before_evaluation\": true, \"actual_numpy_only_modules_and_images\": true, \"actual_source_shared_tied_head_extent_SHA_and_full_vocabulary_finite\": true, \"ALL96_996_common_history_positions_and_original31_differences\": true, \"ALL31_exact_computed_rational_pair_decompositions\": true, \"ALL965_matching_positions_checked_for_new_disagreements\": true, \"no_whole_model_native_compiler_calls_and_empty_fatal_log\": true}, \"terminal_resource\": {\"scope\": \"OS peak and elapsed through main/audit result serialization, SHA, terminal guard and final input-stat check; process exit follows.\", \"result_sha256\": \"cf7badf270be0fce0334e4e20f3355a122d05938deb2ccab42fa079e1a1bf241\", \"seconds\": 19.67200000002049, \"OS_peak_bytes\": 360923136, \"bytes_hashed\": 1555319826, \"limits\": {\"seconds\": 180, \"OS_peak_bytes\": 2147483648, \"output_bytes\": 33554432}, \"process_instance\": {\"pid\": 28276, \"create_time_unix\": 1791314497.4171824}, \"gates\": {\"ALL_frozen_selected_data_runtime_AND_actual_F32_source_extent_before_evaluation\": true, \"actual_numpy_only_modules_and_images\": true, \"actual_source_shared_tied_head_extent_SHA_and_full_vocabulary_finite\": true, \"ALL96_996_common_history_positions_and_original31_differences\": true, \"ALL31_exact_computed_rational_pair_decompositions\": true, \"ALL965_matching_positions_checked_for_new_disagreements\": true, \"no_whole_model_native_compiler_calls_and_empty_fatal_log\": true}, \"summary\": {\"all_common_positions\": {\"positions\": 996, \"original_differences\": 31, \"recovered\": 20, \"introduced\": 3, \"remaining_differences\": 14, \"original_state_bridge_bad_positions\": 0}, \"first_divergences\": {\"cases\": 31, \"recovered\": 20, \"unchanged\": 10, \"changed_to_third_ID\": 1}, \"source_state_bridge_maximum_relative_l2\": 1.653749426906298e-07, \"source_state_bridge_qualified\": true, \"eligible_fixed_state_interpretation\": true, \"scope\": \"Consumed fixed states, F64 source dots after F32 tied scale; no new generation/quality/rate/DRAM/useful-n claim.\"}}, \"summary\": {\"all_common_positions\": {\"positions\": 996, \"original_differences\": 31, \"recovered\": 20, \"introduced\": 3, \"remaining_differences\": 14, \"original_state_bridge_bad_positions\": 0}, \"first_divergences\": {\"cases\": 31, \"recovered\": 20, \"unchanged\": 10, \"changed_to_third_ID\": 1}, \"source_state_bridge_maximum_relative_l2\": 1.653749426906298e-07, \"source_state_bridge_qualified\": true, \"eligible_fixed_state_interpretation\": true, \"scope\": \"Consumed fixed states, F64 source dots after F32 tied scale; no new generation/quality/rate/DRAM/useful-n claim.\"}}\r\n"
+    },
+    "meth508_audit_tool": {
+      "chunk_id": "29e400",
+      "wall_time_seconds": 10.0039251,
+      "session_id": 23510,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "meth508_audit_poll1": {
+      "chunk_id": "96f1bb",
+      "wall_time_seconds": 4.7459031,
+      "exit_code": 0,
+      "original_token_count": 731,
+      "output": "{\"result\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\meth508_audit_result.json\", \"sha256\": \"e67f3cc1a5bb65ee39cf9364d68e33c9e2a4ce6c2a391c7d1ff02cfd8968e831\", \"gates\": {\"ALL_frozen_selected_data_runtime_AND_actual_F32_source_extent_before_evaluation\": true, \"actual_numpy_only_modules_and_images\": true, \"independent_source_extent_manifest_full_vocabulary_finite\": true, \"independent_ALL96_996_histories_and_source_state_bridge\": true, \"independent_ALL_winners_ties_recoveries_AND_introductions\": true, \"independent_ALL31_source_dot_cells_and_exact_recorded_rational_decompositions\": true, \"independent_ALL24_books_and_terminal_summary\": true, \"no_whole_model_native_compiler_calls_and_empty_fatal_log\": true}, \"terminal_resource\": {\"scope\": \"OS peak and elapsed through main/audit result serialization, SHA, terminal guard and final input-stat check; process exit follows.\", \"result_sha256\": \"e67f3cc1a5bb65ee39cf9364d68e33c9e2a4ce6c2a391c7d1ff02cfd8968e831\", \"seconds\": 20.530999999988126, \"OS_peak_bytes\": 376012800, \"bytes_hashed\": 1555351387, \"limits\": {\"seconds\": 180, \"OS_peak_bytes\": 2147483648, \"output_bytes\": 33554432}, \"process_instance\": {\"pid\": 27656, \"create_time_unix\": 1791314583.822612}, \"gates\": {\"ALL_frozen_selected_data_runtime_AND_actual_F32_source_extent_before_evaluation\": true, \"actual_numpy_only_modules_and_images\": true, \"independent_source_extent_manifest_full_vocabulary_finite\": true, \"independent_ALL96_996_histories_and_source_state_bridge\": true, \"independent_ALL_winners_ties_recoveries_AND_introductions\": true, \"independent_ALL31_source_dot_cells_and_exact_recorded_rational_decompositions\": true, \"independent_ALL24_books_and_terminal_summary\": true, \"no_whole_model_native_compiler_calls_and_empty_fatal_log\": true}, \"summary\": {\"all_common_positions\": {\"positions\": 996, \"original_differences\": 31, \"recovered\": 20, \"introduced\": 3, \"remaining_differences\": 14, \"original_state_bridge_bad_positions\": 0}, \"first_divergences\": {\"cases\": 31, \"recovered\": 20, \"unchanged\": 10, \"changed_to_third_ID\": 1}, \"source_state_bridge_maximum_relative_l2\": 1.653749426906298e-07, \"source_state_bridge_qualified\": true, \"eligible_fixed_state_interpretation\": true, \"scope\": \"Consumed fixed states, F64 source dots after F32 tied scale; no new generation/quality/rate/DRAM/useful-n claim.\"}}, \"summary\": {\"all_common_positions\": {\"positions\": 996, \"original_differences\": 31, \"recovered\": 20, \"introduced\": 3, \"remaining_differences\": 14, \"original_state_bridge_bad_positions\": 0}, \"first_divergences\": {\"cases\": 31, \"recovered\": 20, \"unchanged\": 10, \"changed_to_third_ID\": 1}, \"source_state_bridge_maximum_relative_l2\": 1.653749426906298e-07, \"source_state_bridge_qualified\": true, \"eligible_fixed_state_interpretation\": true, \"scope\": \"Consumed fixed states, F64 source dots after F32 tied scale; no new generation/quality/rate/DRAM/useful-n claim.\"}}\r\n"
+    }
+  }
+}
