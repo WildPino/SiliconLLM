@@ -1,0 +1,70 @@
+{
+  "experiment": "METH501 goal turn completion",
+  "previous_goal_turn": "PROGRESS (METH500 new qualified supports/partial functions and oracle-tail decision)",
+  "this_goal_turn": "PROGRESS",
+  "goal_status": "active",
+  "goal_complete": false,
+  "source_freeze": "67ca99006540c0f34a3ff38c48b08aa053b999ac",
+  "binding_sha256": "c1c32b5c30329ae0e8f535ffde4ccbc6eee06a1f9a5975b8b698e99a290bc405",
+  "main_sha256": "5fd65fd17201801058cf4692b4b291febac7e4e4c305533fdb03d749bf6a873f",
+  "audit_sha256": "5001a163515c1fd690c4c175645a2e02d9e984c0b9be742acfeb5a9b99ea79b3",
+  "admission_sha256": "cd8cc8f6800c1e59f4b2a0fecdf43b2c763868542e9b37479b7439af8ed6e931",
+  "main_actual_tool_results": [
+    {
+      "chunk_id": "68e077",
+      "wall_time_seconds": 7.5643402,
+      "exit_code": 0,
+      "original_token_count": 549,
+      "output": "{\"expert\": 15, \"positive_witnesses\": 6}\r\n{\"expert\": 31, \"positive_witnesses\": 14}\r\n{\"expert\": 47, \"positive_witnesses\": 23}\r\n{\"expert\": 63, \"positive_witnesses\": 30}\r\n{\"expert\": 79, \"positive_witnesses\": 37}\r\n{\"expert\": 95, \"positive_witnesses\": 44}\r\n{\"expert\": 111, \"positive_witnesses\": 52}\r\n{\"expert\": 127, \"positive_witnesses\": 61}\r\n{\"gates\": {\"actual_source_data_runtime_scientific_SHA_before_NumPy\": true, \"NEW_constructive_tie_first_failure_duplicate_capacity_controls\": true, \"ALL128_fixed_development_only_pack_first_failure_and_unprocessed_UIDs_retained\": true, \"ALL_positive_development_subset_width_global_union_and_copy_budget_witnesses\": true, \"fixed_positive_masks_consumed_support_diagnostics_original_ALL_denominators\": true}, \"summary\": {\"nonempty_experts\": 127, \"positive_witness_experts\": [1, 8, 9, 10, 12, 15, 16, 18, 20, 22, 25, 28, 29, 31, 32, 34, 36, 37, 39, 42, 44, 45, 46, 48, 51, 52, 53, 57, 59, 63, 64, 66, 69, 70, 73, 77, 79, 80, 83, 86, 88, 90, 92, 94, 96, 101, 102, 104, 105, 106, 108, 110, 112, 115, 116, 120, 121, 122, 124, 125, 126], \"inconclusive_experts\": [2, 3, 4, 5, 6, 7, 11, 13, 14, 17, 19, 21, 23, 24, 26, 27, 30, 33, 35, 38, 40, 41, 43, 47, 49, 50, 54, 55, 56, 58, 60, 61, 62, 65, 67, 68, 71, 72, 74, 75, 76, 78, 81, 82, 84, 85, 87, 89, 91, 93, 95, 97, 98, 99, 100, 103, 107, 109, 111, 113, 114, 117, 118, 119, 123, 127], \"positive_witness_count\": 61, \"inconclusive_count\": 66, \"full_development_UIDs\": 11721, \"full_consumed_UIDs\": 5819, \"positive_development_UIDs\": 3649, \"positive_consumed_UIDs\": 1913, \"positive_consumed_any_child_exact_support_UIDs\": 261, \"positive_consumed_old_selector_exact_support_UIDs\": 168, \"full_consumed_any_child_exact_support_UIDs\": 261, \"old_nonempty_selected_regions_union_above1536\": 165, \"source_development_union_above1536_experts\": 105, \"scope\": \"Complete original cohort reported; coverage on positive-mask subset is not complete-cohort eligibility.\"}, \"decision\": \"UNRESOLVED_SUPPORT_PACKING_OR_DOMAIN_GEOMETRY\", \"resource\": {\"wall_seconds\": 6.5939999999827705, \"parent_peak_bytes\": 206319616, \"native_peak_bytes\": 0, \"bytes_hashed\": 164173460, \"wall_limit_seconds\": 120, \"combined_host_limit_bytes\": 536870912}}\r\n"
+    }
+  ],
+  "audit_actual_tool_results": [
+    {
+      "chunk_id": "309d07",
+      "wall_time_seconds": 7.0336941,
+      "exit_code": 0,
+      "original_token_count": 484,
+      "output": "{\"gates\": {\"actual_source_data_runtime_scientific_SHA_before_NumPy\": true, \"sole_complete_main_RAW_ALL_output_and_terminal_SHA\": true, \"independent_integer_bitset_cardinality_and_duplicate_capacity_control\": true, \"ALL_original_UID_order_first_conflict_partial_and_positive_geometry_independent\": true, \"ALL_positive_mask_development_exact_subset_global_union_and_copy_budget_independent\": true, \"ALL_consumed_fixed_mask_subset_diagnostics_original_denominators_and_eligibility\": true}, \"summary\": {\"nonempty_experts\": 127, \"positive_witness_experts\": [1, 8, 9, 10, 12, 15, 16, 18, 20, 22, 25, 28, 29, 31, 32, 34, 36, 37, 39, 42, 44, 45, 46, 48, 51, 52, 53, 57, 59, 63, 64, 66, 69, 70, 73, 77, 79, 80, 83, 86, 88, 90, 92, 94, 96, 101, 102, 104, 105, 106, 108, 110, 112, 115, 116, 120, 121, 122, 124, 125, 126], \"inconclusive_experts\": [2, 3, 4, 5, 6, 7, 11, 13, 14, 17, 19, 21, 23, 24, 26, 27, 30, 33, 35, 38, 40, 41, 43, 47, 49, 50, 54, 55, 56, 58, 60, 61, 62, 65, 67, 68, 71, 72, 74, 75, 76, 78, 81, 82, 84, 85, 87, 89, 91, 93, 95, 97, 98, 99, 100, 103, 107, 109, 111, 113, 114, 117, 118, 119, 123, 127], \"positive_witness_count\": 61, \"inconclusive_count\": 66, \"full_development_UIDs\": 11721, \"full_consumed_UIDs\": 5819, \"positive_development_UIDs\": 3649, \"positive_consumed_UIDs\": 1913, \"positive_consumed_any_child_exact_support_UIDs\": 261, \"positive_consumed_old_selector_exact_support_UIDs\": 168, \"full_consumed_any_child_exact_support_UIDs\": 261, \"old_nonempty_selected_regions_union_above1536\": 165, \"source_development_union_above1536_experts\": 105, \"scope\": \"Complete original cohort reported; coverage on positive-mask subset is not complete-cohort eligibility.\"}, \"decision\": \"UNRESOLVED_SUPPORT_PACKING_OR_DOMAIN_GEOMETRY\", \"resource\": {\"wall_seconds\": 6.14100000000326, \"parent_peak_bytes\": 200151040, \"native_peak_bytes\": 0, \"bytes_hashed\": 164178566, \"wall_limit_seconds\": 120, \"combined_host_limit_bytes\": 536870912}}\r\n"
+    }
+  ],
+  "main_actual_windows_tool_result": {
+    "chunk_id": "18f9bc",
+    "wall_time_seconds": 0.7155521,
+    "exit_code": 0,
+    "original_token_count": 757,
+    "output": "{\r\n  \"query_start_utc\": \"2026-10-06T12:33:06.5668810+00:00\",\r\n  \"query_end_utc\": \"2026-10-06T12:33:53.7658582+00:00\",\r\n  \"query_available\": true,\r\n  \"returned_event_count\": 0,\r\n  \"query_error\": null\r\n}\r\n5fd65fd17201801058cf4692b4b291febac7e4e4c305533fdb03d749bf6a873f\r\n[\r\n  {\r\n    \"Name\": \"EMPTY_NO_EXPOSURE_UNPROMOTED\",\r\n    \"Count\": 1\r\n  },\r\n  {\r\n    \"Name\": \"EXACT_DEVELOPMENT_SUPPORT_COVER_WITNESS\",\r\n    \"Count\": 61\r\n  },\r\n  {\r\n    \"Name\": \"GREEDY_FIRST_NO_FEASIBLE_CHILD_INCONCLUSIVE\",\r\n    \"Count\": 52\r\n  },\r\n  {\r\n    \"Name\": \"THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE\",\r\n    \"Count\": 14\r\n  }\r\n]\r\n[\r\n  {\r\n    \"expert\": 11,\r\n    \"development\": 68,\r\n    \"consumed\": 42,\r\n    \"source_development_union\": 2483,\r\n    \"old_selected_region_union_sizes\": [\r\n      1738,\r\n      959,\r\n      1690,\r\n      657\r\n    ],\r\n    \"base_child_sizes\": [\r\n      1534,\r\n      1536,\r\n      1536,\r\n      1247\r\n    ],\r\n    \"assigned_development\": 68,\r\n    \"unprocessed_or_unplaced\": 0,\r\n    \"first_unplaced_UID\": null,\r\n    \"packing_counts\": {\r\n      \"base_slots\": 5853,\r\n      \"base_union\": 2483,\r\n      \"duplicate_slots\": 3370\r\n    },\r\n    \"fill_counts\": {\r\n      \"base_slots\": 5853,\r\n      \"base_union\": 2483,\r\n      \"duplicate_slots\": 3370,\r\n      \"missing_source_leaves\": 589,\r\n      \"available_slots\": 291,\r\n      \"filled\": false\r\n    },\r\n    \"status\": \"THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE\"\r\n  },\r\n  {\r\n    \"expert\": 19,\r\n    \"development\": 59,\r\n    \"consumed\": 42,\r\n    \"source_development_union\": 2442,\r\n    \"old_selected_region_union_sizes\": [\r\n      1839,\r\n      1598,\r\n      826,\r\n      998\r\n    ],\r\n    \"base_child_sizes\": [\r\n      1526,\r\n      1529,\r\n      1522,\r\n      1397\r\n    ],\r\n    \"assigned_development\": 59,\r\n    \"unprocessed_or_unplaced\": 0,\r\n    \"first_unplaced_UID\": null,\r\n    \"packing_counts\": {\r\n      \"base_slots\": 5974,\r\n      \"base_union\": 2442,\r\n      \"duplicate_slots\": 3532\r\n    },\r\n    \"fill_counts\": {\r\n      \"base_slots\": 5974,\r\n      \"base_union\": 2442,\r\n      \"duplicate_slots\": 3532,\r\n      \"missing_source_leaves\": 630,\r\n      \"available_slots\": 170,\r\n      \"filled\": false\r\n    },\r\n    \"status\": \"THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE\"\r\n  },\r\n  {\r\n    \"expert\": 23,\r\n    \"development\": 104,\r\n    \"consumed\": 52,\r\n    \"source_development_union\": 2153,\r\n    \"old_selected_region_union_sizes\": [\r\n      1239,\r\n      1220,\r\n      1616,\r\n      1118\r\n    ],\r\n    \"base_child_sizes\": [\r\n      1536,\r\n      1536,\r\n      1535,\r\n      779\r\n    ],\r\n    \"assigned_development\": 104,\r\n    \"unprocessed_or_unplaced\": 0,\r\n    \"first_unplaced_UID\": null,\r\n    \"packing_counts\": {\r\n      \"base_slots\": 5386,\r\n      \"base_union\": 2153,\r\n      \"duplicate_slots\": 3233\r\n    },\r\n    \"fill_counts\": {\r\n      \"base_slots\": 5386,\r\n      \"base_union\": 2153,\r\n      \"duplicate_slots\": 3233,\r\n      \"missing_source_leaves\": 919,\r\n      \"available_slots\": 758,\r\n      \"filled\": false\r\n    },\r\n    \"status\": \"THIS_PARTITION_GLOBAL_UNION_COPY_BUDGET_FAIL_INCONCLUSIVE\"\r\n  }\r\n]\r\n"
+  },
+  "audit_actual_windows_tool_result": {
+    "chunk_id": "6536dd",
+    "wall_time_seconds": 0.67662,
+    "exit_code": 0,
+    "original_token_count": 293,
+    "output": "{\r\n  \"query_start_utc\": \"2026-10-06T12:35:59.1425980+00:00\",\r\n  \"query_end_utc\": \"2026-10-06T12:38:25.7578829+00:00\",\r\n  \"query_available\": true,\r\n  \"returned_event_count\": 0,\r\n  \"query_error\": null\r\n}\r\n5001a163515c1fd690c4c175645a2e02d9e984c0b9be742acfeb5a9b99ea79b3\r\n{\r\n  \"process_instance\": {\r\n    \"pid\": 24896,\r\n    \"create_time_unix\": 1791289988.20357\r\n  },\r\n  \"source_freeze\": \"67ca99006540c0f34a3ff38c48b08aa053b999ac\",\r\n  \"execution_head\": \"aabe5feafda63a9e8e57b38636658a587e83b254\",\r\n  \"resource\": {\r\n    \"wall_seconds\": 6.562999999994645,\r\n    \"parent_peak_bytes\": 206319616,\r\n    \"native_peak_bytes\": 0,\r\n    \"bytes_hashed\": 164070003,\r\n    \"wall_limit_seconds\": 120,\r\n    \"combined_host_limit_bytes\": 536870912\r\n  }\r\n}\r\n{\r\n  \"process_instance\": {\r\n    \"pid\": 11516,\r\n    \"create_time_unix\": 1791290160.8159716\r\n  },\r\n  \"execution_head\": \"8241ced1362ff5c848dca95f56d5a9be22baa706\",\r\n  \"resource\": {\r\n    \"wall_seconds\": 5.01600000000326,\r\n    \"parent_peak_bytes\": 200151040,\r\n    \"native_peak_bytes\": 0,\r\n    \"bytes_hashed\": 164173517,\r\n    \"wall_limit_seconds\": 120,\r\n    \"combined_host_limit_bytes\": 536870912\r\n  }\r\n}\r\n\r\n       Sum\r\n       ---\r\n5691697,00\r\n\r\n"
+  },
+  "final_admission_actual_tool_result": {
+    "chunk_id": "274cbb",
+    "wall_time_seconds": 0.4064893,
+    "exit_code": 0,
+    "original_token_count": 153,
+    "output": "{\"admission\": {\"path\": \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\docs\\\\research\\\\NATIVE_EXPERT_SCALING_20260925\\\\ADMISSION_501_20261006.json\", \"bytes\": 4889, \"sha256\": \"cd8cc8f6800c1e59f4b2a0fecdf43b2c763868542e9b37479b7439af8ed6e931\"}, \"gates\": {\"all_five_main_apparatus\": true, \"all_six_independent_bitset_apparatus\": true, \"ALL128_UID_domain_and_complete_summary_eligibility_unchanged\": true, \"actual_main_audit_exit0_Windows_available_zero_matching_faults\": true, \"engine_foreign_files_preserved\": true}, \"decision\": \"NEXT_VARIABLE_CHILD_RAM_CERTIFICATE_AT_FIXED_ACTIVE_WIDTH\", \"complete_cohort_eligible\": false}\r\n"
+  },
+  "qualification": {
+    "main": "5/5 apparatus PASS",
+    "audit": "6/6 apparatus PASS",
+    "admission": "5/5 PASS",
+    "cohort_eligibility": "FAIL",
+    "positive_witnesses": 61,
+    "packing_conflicts": 52,
+    "global_copy_conflicts": 14,
+    "empty_unpromoted": 1
+  },
+  "new_information": "Independently checked development support covers and two distinct fixed-budget conflicts. Greedy failures remain inconclusive about other partitions; consumed sufficient identity coverage reported with complete denominators.",
+  "no_source_model_native_GPU_gradient_calls": true,
+  "no_scientific_process_survives": true,
+  "preservation_check_chunk": "4a956d",
+  "preserved_engine_and_three_foreign_hashes_unchanged": true,
+  "exact_resumption": "Implement/price/freeze ONE monotone METH502 extra-storage extension at selected-width ceiling1536: carry61 positive masks BYTE, resume only52 retained conflict prefixes, reuse14 complete partitions; derive copy/scale/index RAM certificate and independent checks; then sole actual binding/main/audit.",
+  "no_502_implementation_or_observations": true,
+  "no_completed_prefix_replay": true,
+  "return_requirement": "Complete finite geometry must lead to ONE complete actual-function/input-selector/physical eligibility inquiry before more packing refinements. All-bank/head/composition/own-state fresh quality/SAME>=50/useful-n/LUT/DRAM/family-scale gates remain open."
+}
