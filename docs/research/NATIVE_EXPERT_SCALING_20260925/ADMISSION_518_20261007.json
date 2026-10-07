@@ -1,0 +1,240 @@
+{
+  "experiment": "METH518",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all5_main_exact_energy_capacity_controls": true,
+    "all5_independent_integer_order_count_cost_controls": true,
+    "actual_exit0_three_instances_closed_and_typed_UTC_zero_faults": true,
+    "foreign_source_stat_empty_cache_and_resource_limits_preserved": true,
+    "ALL_domain_economy_decision_unchanged": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth518_binding.json",
+    "bytes": 475439,
+    "sha256": "5f843f92ce0918a6227458ad2fa510bcce3c4de4161a3ba30df0c54be24b025d"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth518_main_result.json",
+    "bytes": 51830,
+    "sha256": "29ccebac7d8a6dc584a2ef9e37308afcebbc129be84bb6caba674661636c05db"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth518_audit_result.json",
+    "bytes": 32559,
+    "sha256": "009118f40f2b1370876e3ffaef5b083a9ff148847c8913b82b55e0ca9e168d5d"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_518_20261007.json",
+    "bytes": 3951,
+    "sha256": "a488c889ae75eff3287e830e5066a609a910478c63f45119364b86af25b6ba0d"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth518_windows_terminal.json",
+    "bytes": 4459,
+    "sha256": "974301db05830e3b1a71068eead79d177fb8f1450fddbfdd88c55da2a679bf60"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 30256,
+        "create_time_unix": 1791340634.5325751
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 30840,
+        "create_time_unix": 1791340647.889968
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 7176,
+        "create_time_unix": 1791340780.7865653
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "tool_chunk_id": "898e97",
+      "exit_code": 0
+    },
+    {
+      "kind": "main",
+      "tool_chunk_id": "a96539",
+      "exit_code": 0
+    },
+    {
+      "kind": "audit",
+      "tool_chunk_id": "4e0155",
+      "exit_code": 0
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth518_binding_resource.json",
+        "bytes": 379,
+        "sha256": "1a91b89f0d2d8607f534a53b9a761850f9fdace85d75940f989aed740328e543"
+      },
+      "resource": {
+        "binding_sha256": "5f843f92ce0918a6227458ad2fa510bcce3c4de4161a3ba30df0c54be24b025d",
+        "process_instance": {
+          "pid": 30256,
+          "create_time_unix": 1791340634.5325751
+        },
+        "seconds": 1.4059999999881256,
+        "OS_peak_bytes": 47906816,
+        "bytes_hashed": 131811769,
+        "limits": [
+          60,
+          134217728
+        ],
+        "ended_utc": "2026-10-07T02:37:16.443672+00:00"
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth518_index\\terminal_resource.json",
+        "bytes": 421,
+        "sha256": "265c084fc6a7a443662f67f8aedc698317e4ef01c42697ea6be3e282115e0887"
+      },
+      "resource": {
+        "result_sha256": "29ccebac7d8a6dc584a2ef9e37308afcebbc129be84bb6caba674661636c05db",
+        "process_instance": {
+          "pid": 30840,
+          "create_time_unix": 1791340647.889968
+        },
+        "ended_utc": "2026-10-07T02:37:34.745748+00:00",
+        "seconds": 6.327999999979511,
+        "OS_peak_bytes": 119345152,
+        "bytes_hashed": 141642185,
+        "limits": [
+          60,
+          536870912
+        ],
+        "output_bytes_before_terminal": 9577736
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth518_audit\\terminal_resource.json",
+        "bytes": 414,
+        "sha256": "0f5ba56f205ef6b77f912d2c343fe86e7a3b37a841922712eb1ef9f76c97fbef"
+      },
+      "resource": {
+        "result_sha256": "009118f40f2b1370876e3ffaef5b083a9ff148847c8913b82b55e0ca9e168d5d",
+        "process_instance": {
+          "pid": 7176,
+          "create_time_unix": 1791340780.7865653
+        },
+        "ended_utc": "2026-10-07T02:39:48.432166+00:00",
+        "seconds": 7.10999999998603,
+        "OS_peak_bytes": 128643072,
+        "bytes_hashed": 141674744,
+        "limits": [
+          60,
+          536870912
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "occurrences": 11721,
+      "mean_minimum_byte_ratio": 1.2129758302871019,
+      "p95_minimum_byte_ratio": 1.2133915560233162,
+      "mean_optimistic_remaining_rows": 3070.72289053835,
+      "maximum_possible_rows_per_query": 71,
+      "possible_row_occurrences": 14969,
+      "energy_impossible_row_occurrences": 35991943,
+      "zero_possible_occurrences": 11234
+    },
+    "consumed": {
+      "UIDs": 5819,
+      "occurrences": 5819,
+      "mean_minimum_byte_ratio": 1.2130279952919476,
+      "p95_minimum_byte_ratio": 1.2133915560233162,
+      "mean_optimistic_remaining_rows": 3070.883141433236,
+      "maximum_possible_rows_per_query": 71,
+      "possible_row_occurrences": 6499,
+      "energy_impossible_row_occurrences": 17869469,
+      "zero_possible_occurrences": 5588
+    },
+    "natural_consumed": {
+      "UIDs": 3065,
+      "occurrences": 3065,
+      "mean_minimum_byte_ratio": 1.212701536821304,
+      "p95_minimum_byte_ratio": 1.2133915560233162,
+      "mean_optimistic_remaining_rows": 3069.8802610114194,
+      "maximum_possible_rows_per_query": 71,
+      "possible_row_occurrences": 6497,
+      "energy_impossible_row_occurrences": 9409183,
+      "zero_possible_occurrences": 2836
+    },
+    "teacher_consumed": {
+      "UIDs": 3584,
+      "occurrences": 3584,
+      "mean_minimum_byte_ratio": 1.2128012770345233,
+      "p95_minimum_byte_ratio": 1.2133915560233162,
+      "mean_optimistic_remaining_rows": 3070.1866629464284,
+      "maximum_possible_rows_per_query": 71,
+      "possible_row_occurrences": 6499,
+      "energy_impossible_row_occurrences": 11003549,
+      "zero_possible_occurrences": 3353
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "UIDs": 3,
+      "occurrences": 3,
+      "mean_minimum_byte_ratio": 1.2133915560233162,
+      "p95_minimum_byte_ratio": 1.2133915560233162,
+      "mean_optimistic_remaining_rows": 3072.0,
+      "maximum_possible_rows_per_query": 0,
+      "possible_row_occurrences": 0,
+      "energy_impossible_row_occurrences": 9216,
+      "zero_possible_occurrences": 3
+    },
+    "dev_count5_15": {
+      "UIDs": 19,
+      "occurrences": 19,
+      "mean_minimum_byte_ratio": 1.2133915560233164,
+      "p95_minimum_byte_ratio": 1.2133915560233162,
+      "mean_optimistic_remaining_rows": 3072.0,
+      "maximum_possible_rows_per_query": 0,
+      "possible_row_occurrences": 0,
+      "energy_impossible_row_occurrences": 58368,
+      "zero_possible_occurrences": 19
+    }
+  },
+  "eligibility": {
+    "consumed_minimum_mean_byte_ratio_le.75": false,
+    "natural_minimum_mean_byte_ratio_le.75": false,
+    "natural_minimum_p95_byte_ratio_le1": false,
+    "all_consumed_book_minimum_mean_byte_ratio_le1": false,
+    "original_fallback_plus517_index_ratio_le1.20": true
+  },
+  "economic_recipe_eligible": false,
+  "decision": "FIXED517_RADII_INFORMATION_BLOCKS_SELECTOR_ONLY_REPAIR",
+  "new_model_native_capture_calls": 0,
+  "mathematical_main_and_independent_audit_runs": [
+    1,
+    1
+  ],
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Exact necessary energy capacity upper count and fixed517 byte lower bound on ALL17540 retained single-bank queries. Main5/audit5 apparatus and terminal admission PASS; one of five optimistic byte gates PASS. Not sound activation masks, fresh quality, C latency, all-bank/256/large n or goal completion."
+}

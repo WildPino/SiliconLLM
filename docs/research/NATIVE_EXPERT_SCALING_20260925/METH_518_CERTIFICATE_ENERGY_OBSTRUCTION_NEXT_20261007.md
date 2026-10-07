@@ -1,6 +1,10 @@
 # Selected518: exact energy obstruction before more certificate variants
 
-7 October2026. PROPOSED; no518 source/binding/numeric observation/job.
+7 October2026. HISTORICAL prospective selection,now implemented/admitted:
+[518 result](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md). Exact
+energy-capacity census/lower-cost bound fail4/5 optimistic gates,proving fixed517
+radii/price cannot be repaired by selector-only changes. Current resumption
+[519 matched local geometry](METH_519_MATCHED_LOCAL_ENERGY_NEXT_20261007.md).
 Goal ACTIVE/INCOMPLETE. [517](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md)
 stored shared rank32/S256 source-derived index is exact but certifies ZERO of
 53,882,880 row/query cells; all logical ratios1.213391556. Natural encoded query

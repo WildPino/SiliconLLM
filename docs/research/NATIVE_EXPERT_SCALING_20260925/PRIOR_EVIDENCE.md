@@ -1,5 +1,16 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after518:** [exact energy obstruction](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md)
+verifies ALL393216 physical Fraction thresholds/17540 independent query-search
+boundaries. Main5/audit5/admission5 PASS. Natural ideal possible ceiling.069002%
+(mean2.119739 rows,max71),byte lower bound1.212702/p95 1.213392/all64 books FAIL.
+1/5 optimistic gates PASS;angle/sign selection alone cannot repair fixed517
+radii/price. Main6.328s/119.3MB,audit7.110s/128.6MB,no faults/projection/model/
+native replay,all3 instances closed. Select [519 matched local WI/query energy
+geometry](METH_519_MATCHED_LOCAL_ENERGY_NEXT_20261007.md),no code/export/
+observations. One fixed32 per-parent basis/two-sided normalized-moment objective
+must first be priced and tested by ideal capacity;goal incomplete.
+
 **7 October after517:** [shared rank32 integer subspace](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md)
 is implemented with exact projected original WI/queries and stored Gram-defect/
 radius certificates. ALL128 physical inverse/53,882,880 independent I64 prefix

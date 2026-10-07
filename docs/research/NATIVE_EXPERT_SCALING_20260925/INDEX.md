@@ -58,7 +58,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:517 exact/price closed;518 certificate energy obstruction
+## Current resumption:518 energy obstruction admitted;519 matched local geometry
 
 [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
 14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
@@ -102,18 +102,26 @@ all3072 rows,logical mean/p95 1.213392,all64 books FAIL;1/5 economics PASS.
 THIS recipe CLOSED before C. Index58.25MB,main12.313s/592.2MB,audit71.266s/
 660.3MB; all3 instances terminal,no faults/replays/new model/native calls.
 
-**First action518:** [exact energy obstruction](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_NEXT_20261007.md):
-retrieve517 physical norms/radii/work and freeze exact Fraction thresholds from
-the NECESSARY condition (1-rho)*(weight-energy+query-energy)>=1. Count maximum
-certifiable rows/lower-bound logical costs on ALL17540 without new projections;
-independent audit. Separates representation information from projected angle.
-No518 code/binding/observation/job; no automatic more-rank/basis/selector trial.
+[518 result](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md): exact
+NECESSARY energy census on ALL393216 physical threshold entries/17540 query
+boundaries. Main5/audit5/admission5 PASS. Natural ideal ceiling6497/9415680
+(0.069002%),mean only2.119739 potentially omitted rows,max71/query;byte floor
+1.212702,p95 1.213392,all64 books FAIL;1/5 optimistic gates PASS. Fixed517 radii/
+price cannot be repaired by angle/sign selection alone. Main6.328s/119.3MB,
+audit7.110s/128.6MB,no faults/replays/new projections/model/native calls,all3 closed.
+
+**First action519:** [matched local weight/query geometry](METH_519_MATCHED_LOCAL_ENERGY_NEXT_20261007.md):
+recover original QUERY/native WI contracts,price ONE dev-only parent-local rank32
+basis from equally weighted normalized WI+query moments. Freeze physical local
+headers/Gram/projection/radii and exact ideal capacity/full cost gates first.
+Changed conditional geometry and two-sided information objective,no rank grid or
+cherry-picked parent subset. No519 code/export/binding/observations/job.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through517 terminal; three foreign tracked
+All completed scientific namespaces through518 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures

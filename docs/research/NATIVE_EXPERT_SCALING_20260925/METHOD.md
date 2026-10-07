@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 admitted,517 exact/price closed;518 energy obstruction
+## Current resumption:511 admitted,518 obstruction;519 matched local geometry
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -105,14 +105,23 @@ candidates/skips. All logical means/p95 1.213392/full3072 rows,all64 books FAIL;
 audit71.266s/660.3MB,no faults/replays/new model/native calls. Stored mathematical
 source projections are real work, not new capacity or full old-model evaluation.
 
-[Selected518](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_NEXT_20261007.md) bounds
-certifiable capacity using the NECESSARY energy condition independently of
-actual projected angle/sign. Reuse physical517 norm/radius/query records to count
-ideal possible rows/lower-bound costs via exact Fraction ordering, before more
-representation variants. No518 code/binding/observation. It cannot certify a
-sound skip alone or refute all bases/conditional/approximate methods. Compact
-core/useful larger n,whole quality+rate,CPU LUT winner AND mass,real DRAM and
-actual families/~100B remain required.
+[518 result](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md) makes
+the NECESSARY energy-capacity proof/count executable with Fraction/U128 threshold
+ordering and independent all-query boundaries. Main5/audit5/admission5 pass.
+Natural ideal omitted mean2.119739/max71,0.069002% possible pairs;minimum byte
+ratio1.212702,p95 1.213392/all64 books fail. Selector-only tuning cannot repair
+fixed517 radii/price even at ideal angle. Main6.328s/119.3MB,audit7.110s/128.6MB,
+no faults or old projection/source/model replay. Necessary capacity is not a
+sound mask or a general theorem against other conditional/approximate methods.
+
+[Selected519](METH_519_MATCHED_LOCAL_ENERGY_NEXT_20261007.md) changes conditioning
+and objective: ONE parent-local rank32 basis from normalized source WI and
+development query moments,1:1 weighting. It explicitly targets both energies in
+the identified necessity. First price/freeze the physical local basis/Gram/radius
+format and ALL-domain ideal capacity/cost screen;no519 code/export/binding/results.
+Optimistic success would still require actual exact masks/operator cost/whole
+composition. Compact core/useful larger n,whole quality+rate,CPU LUT winner AND
+mass,real DRAM and actual families/~100B remain required.
 
 ### Retained preceding500
 
