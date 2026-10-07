@@ -18,6 +18,7 @@ def main(args):
     b=json.loads(args.prior.read_bytes());adopt=json.loads(args.adoption.read_bytes())
     assert adopt['schema']=='QWEN_ORIGINAL_FORWARD_PREFIX_ADOPTION_V1' and adopt['all_saved_frame_bytes_and_alignment_qualified']
     assert adopt['missing_case_ids'] and adopt['new_source_forwards']==adopt['new_source_responses']==0
+    assert sha(adopt['source_report'])==adopt['source_report_SHA256']
     allowed={str(ROOT/p) for p in ('benchmarks/native_expert_scaling/chatbot_source_capture.py','benchmarks/native_expert_scaling/chatbot_capture_launch.py')}
     changes=[]
     for i,item in enumerate(b['inputs']):
