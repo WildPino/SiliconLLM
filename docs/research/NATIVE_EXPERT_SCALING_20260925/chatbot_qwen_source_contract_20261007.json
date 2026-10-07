@@ -1,0 +1,258 @@
+{
+  "scope": "METADATA_ONLY_NOT_CONVERSION_OR_CHAT_QUALITY",
+  "started_utc": "2026-10-07T10:40:16.728281+00:00",
+  "process_instance": {
+    "pid": 21408,
+    "create_time_unix": 1791369616.4518359
+  },
+  "new_tensor_value_bytes_read": 0,
+  "new_model_native_calls": 0,
+  "source_weight_values_freshly_verified": false,
+  "pipeline_complete": false,
+  "source_commit": "ba407d15b53015c7b948d79c54d2955fb5948528",
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "declared_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "revision_remote_verified": false,
+  "config": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "attention_dropout": 0.0,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "hidden_act": "silu",
+    "hidden_size": 896,
+    "initializer_range": 0.02,
+    "intermediate_size": 4864,
+    "max_position_embeddings": 32768,
+    "max_window_layers": 21,
+    "model_type": "qwen2",
+    "num_attention_heads": 14,
+    "num_hidden_layers": 24,
+    "num_key_value_heads": 2,
+    "rms_norm_eps": 1e-06,
+    "rope_theta": 1000000.0,
+    "sliding_window": 32768,
+    "tie_word_embeddings": true,
+    "torch_dtype": "bfloat16",
+    "transformers_version": "4.43.1",
+    "use_cache": true,
+    "use_sliding_window": false,
+    "vocab_size": 151936
+  },
+  "family": {
+    "classification": "CAUSAL_DENSE_SWIGLU_GQA",
+    "original_channel": "d_j * SiLU(g_j dot x + gate_bias_j) * (u_j dot x + up_bias_j)",
+    "required_core": [
+      "causal GQA",
+      "QKV biases",
+      "RoPE",
+      "RMSNorm",
+      "KV cache",
+      "tied or untied full head"
+    ],
+    "source_router": "none; added expert router requires a separately learned/qualified conversion",
+    "ReLU_omitted_zero_halfspace_rule_applies": false
+  },
+  "tensor_inventory": {
+    "files": [
+      {
+        "file": "model.safetensors",
+        "tensors": 290,
+        "named_parameter_elements": 494032768,
+        "layers_at_or_beyond_base_depth_elements": 0
+      }
+    ],
+    "tensor_names": 290,
+    "value_bytes_by_dtype": {
+      "BF16": 988065536
+    },
+    "named_parameter_elements": 494032768,
+    "layers_at_or_beyond_base_depth_elements": 0,
+    "value_uniqueness_and_aliases_verified": false,
+    "tensor_values_read_or_hashed": false
+  },
+  "chat_contract": {
+    "HF_template_present": true,
+    "HF_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+    "HF_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- messages[0]['content'] }}\n    {%- else %}\n        {{- 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.' }}\n    {%- endif %}\n    {{- \"\\n\\n# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0]['content'] + '<|im_end|>\\n' }}\n    {%- else %}\n        {{- '<|im_start|>system\\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- for message in messages %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) or (message.role == \"assistant\" and not message.tool_calls) %}\n        {{- '<|im_start|>' + message.role + '\\n' + message.content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {{- '<|im_start|>' + message.role }}\n        {%- if message.content %}\n            {{- '\\n' + message.content }}\n        {%- endif %}\n        {%- for tool_call in message.tool_calls %}\n            {%- if tool_call.function is defined %}\n                {%- set tool_call = tool_call.function %}\n            {%- endif %}\n            {{- '\\n<tool_call>\\n{\"name\": \"' }}\n            {{- tool_call.name }}\n            {{- '\", \"arguments\": ' }}\n            {{- tool_call.arguments | tojson }}\n            {{- '}\\n</tool_call>' }}\n        {%- endfor %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if (loop.index0 == 0) or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- message.content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}\n",
+    "producer_GGUF_candidate": null,
+    "producer_template_present": false,
+    "producer_template_sha256": null,
+    "rendered_messages_or_token_ID_parity_verified": false,
+    "generation_config_file_present": true,
+    "generation_config": {
+      "bos_token_id": 151643,
+      "pad_token_id": 151643,
+      "do_sample": true,
+      "eos_token_id": [
+        151645,
+        151643
+      ],
+      "repetition_penalty": 1.1,
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "transformers_version": "4.37.0"
+    },
+    "effective_declared_EOS_IDs": [
+      151645,
+      151643
+    ],
+    "EOS_source": "generation_config.json",
+    "native_stop_policy_equivalence_verified": false
+  },
+  "decision": "SOURCE_CONTRACT_INSPECTED_PIPELINE_NOT_QUALIFIED",
+  "missing_pipeline_gates": [
+    "qualified chat serialization/token IDs/stops",
+    "fresh donor reference in dialogue domain",
+    "family-specific compact transformation",
+    "complete exported native artifact",
+    "fresh own-history chat/task quality",
+    "SAME-artifact accepted>=50 end-to-end",
+    "useful larger n/LUT winner and mass/physical DRAM",
+    "actual additional families/scales"
+  ],
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_donor_preflight.py",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_donor_preflight.py",
+      "offset": 0,
+      "bytes": 17402,
+      "file_bytes": 17402,
+      "file_mtime_ns": 1791369573232797700,
+      "sha256": "af98204356c427bbad5b3e73b98233c3f1975211176973d4d992c77d01673c5c",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md",
+      "offset": 0,
+      "bytes": 5329,
+      "file_bytes": 5329,
+      "file_mtime_ns": 1791369573235798600,
+      "sha256": "d2e8abcb93cd5cd3ff94dfa4395bc5a0cbf5b86154ba4934bca016049f2c50d8",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "offset": 0,
+      "bytes": 9948,
+      "file_bytes": 9948,
+      "file_mtime_ns": 1791102415181866500,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "offset": 0,
+      "bytes": 39074,
+      "file_bytes": 39074,
+      "file_mtime_ns": 1789844945515389900,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "offset": 0,
+      "bytes": 51403,
+      "file_bytes": 51403,
+      "file_mtime_ns": 1791313177457318200,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\config.json",
+      "resolved_path": "E:\\AI_Cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\blobs\\0dbb161213629a23f0fc00ef286e6b1e366d180f",
+      "offset": 0,
+      "bytes": 659,
+      "file_bytes": 659,
+      "file_mtime_ns": 1788796847880462900,
+      "sha256": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\tokenizer_config.json",
+      "resolved_path": "E:\\AI_Cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\blobs\\07bfe0640cb5a0037f9322287fbfc682806cf672",
+      "offset": 0,
+      "bytes": 7305,
+      "file_bytes": 7305,
+      "file_mtime_ns": 1788796848364609300,
+      "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\tokenizer.json",
+      "resolved_path": "E:\\AI_Cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\blobs\\443909a61d429dff23010e5bddd28ff530edda00",
+      "offset": 0,
+      "bytes": 7031645,
+      "file_bytes": 7031645,
+      "file_mtime_ns": 1788796850937266400,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\generation_config.json",
+      "resolved_path": "E:\\AI_Cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\blobs\\dfc11073787daf1b0f9c0f1499487ab5f4c93738",
+      "offset": 0,
+      "bytes": 242,
+      "file_bytes": 242,
+      "file_mtime_ns": 1790581568159009000,
+      "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775\\model.safetensors",
+      "resolved_path": "E:\\AI_Cache\\huggingface\\hub\\models--Qwen--Qwen2.5-0.5B-Instruct\\blobs\\fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+      "offset": 0,
+      "bytes": 32288,
+      "file_bytes": 988097824,
+      "file_mtime_ns": 1790463407604604700,
+      "sha256": "a1ad4b586dee7de313404262f716dee70a0a3c75cdcef6bd7860fd955b117e14",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "offset": 0,
+      "bytes": 9948,
+      "file_bytes": 9948,
+      "file_mtime_ns": 1791102415181866500,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "offset": 0,
+      "bytes": 39074,
+      "file_bytes": 39074,
+      "file_mtime_ns": 1789844945515389900,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "offset": 0,
+      "bytes": 51403,
+      "file_bytes": 51403,
+      "file_mtime_ns": 1791313177457318200,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273",
+      "whole_file_SHA_verified": true
+    }
+  ],
+  "resource": {
+    "seconds": 0.5,
+    "OS_peak_bytes": 34254848,
+    "bytes_read": 7295720,
+    "limits_seconds_peak_bytes": [
+      60,
+      268435456
+    ]
+  },
+  "ended_utc": "2026-10-07T10:40:17.222870+00:00"
+}

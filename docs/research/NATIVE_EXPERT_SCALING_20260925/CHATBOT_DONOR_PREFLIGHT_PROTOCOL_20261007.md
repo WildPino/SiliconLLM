@@ -26,6 +26,12 @@ Metadata/header reads bounded64MiB each. No overlapping model/scientific jobs.
 Preserve three original foreign SHA, all old outputs and empty isolated cache.
 Retain failure report/actual executor exit before any numbered repair.
 Inspection exit0 means apparatus completion, never a quality/conversion PASS.
+The byte counter sums retained hashed input extents, not every physical read:
+GGUF's separate metadata parse pass and Git pipe reads are additional I/O.
+Total elapsed/OS peak includes those operations. Original two reports at
+`ba407d1` use the misleading key `bytes_read` for this same extent sum; retain
+their bytes and document the limitation. Later source renames the key without
+replaying completed inspections or changing their hashes/decisions.
 
 ## Operations and decisions
 

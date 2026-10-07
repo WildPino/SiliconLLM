@@ -1,0 +1,379 @@
+{
+  "scope": "METADATA_ONLY_NOT_CONVERSION_OR_CHAT_QUALITY",
+  "started_utc": "2026-10-07T10:40:27.700768+00:00",
+  "process_instance": {
+    "pid": 29664,
+    "create_time_unix": 1791369627.4306371
+  },
+  "new_tensor_value_bytes_read": 0,
+  "new_model_native_calls": 0,
+  "source_weight_values_freshly_verified": false,
+  "pipeline_complete": false,
+  "source_commit": "ba407d15b53015c7b948d79c54d2955fb5948528",
+  "model_id": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+  "declared_revision": "189fff27a1dee68473960c3d5bca53e0e07a3191",
+  "revision_remote_verified": false,
+  "config": {
+    "vocab_size": 128256,
+    "max_position_embeddings": 262144,
+    "hidden_size": 1536,
+    "intermediate_size": 8960,
+    "moe_intermediate_size": 1280,
+    "num_hidden_layers": 26,
+    "num_nextn_predict_layers": 1,
+    "num_attention_heads": 32,
+    "n_shared_experts": 1,
+    "n_routed_experts": 64,
+    "ep_size": 1,
+    "routed_scaling_factor": 1,
+    "kv_lora_rank": 512,
+    "q_lora_rank": null,
+    "qk_rope_head_dim": 64,
+    "v_head_dim": 192,
+    "qk_nope_head_dim": 128,
+    "topk_method": "noaux_tc",
+    "n_group": 1,
+    "topk_group": 1,
+    "num_experts_per_tok": 4,
+    "moe_layer_freq": 1,
+    "first_k_dense_replace": 1,
+    "norm_topk_prob": true,
+    "scoring_func": "sigmoid",
+    "num_key_value_heads": 32,
+    "hidden_act": "silu",
+    "initializer_range": 0.006,
+    "rms_norm_eps": 1e-06,
+    "use_cache": true,
+    "rope_theta": 100000,
+    "rope_scaling": {
+      "beta_fast": 32.0,
+      "beta_slow": 1.0,
+      "factor": 64.0,
+      "mscale": 1.0,
+      "mscale_all_dim": 1.0,
+      "original_max_position_embeddings": 4096,
+      "rope_type": "yarn"
+    },
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "tie_word_embeddings": false,
+    "architectures": [
+      "DeepseekV3ForCausalLM"
+    ],
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "transformers_version": "4.57.3",
+    "model_type": "deepseek_v3",
+    "dtype": "bfloat16"
+  },
+  "family": {
+    "classification": "CAUSAL_MOE_SWIGLU_MLA",
+    "original_channel": "d_j * SiLU(g_j dot x) * (u_j dot x)",
+    "required_core": [
+      "MLA",
+      "partial RoPE/YaRN",
+      "compressed KV cache",
+      "RMSNorm",
+      "shared expert",
+      "untied full head"
+    ],
+    "source_router": {
+      "scoring_func": "sigmoid",
+      "topk_method": "noaux_tc",
+      "norm_topk_prob": true,
+      "routed_scaling_factor": 1,
+      "n_group": 1,
+      "topk_group": 1,
+      "num_experts_per_tok": 4
+    },
+    "ReLU_omitted_zero_halfspace_rule_applies": false
+  },
+  "tensor_inventory": {
+    "files": [
+      {
+        "file": "model-00000-of-00005.safetensors",
+        "tensors": 835,
+        "named_parameter_elements": 2492980992,
+        "layers_at_or_beyond_base_depth_elements": 807215168
+      },
+      {
+        "file": "model-00001-of-00005.safetensors",
+        "tensors": 1020,
+        "named_parameter_elements": 2042447680,
+        "layers_at_or_beyond_base_depth_elements": 0
+      },
+      {
+        "file": "model-00002-of-00005.safetensors",
+        "tensors": 1020,
+        "named_parameter_elements": 2042447680,
+        "layers_at_or_beyond_base_depth_elements": 0
+      },
+      {
+        "file": "model-00003-of-00005.safetensors",
+        "tensors": 1020,
+        "named_parameter_elements": 2042447680,
+        "layers_at_or_beyond_base_depth_elements": 0
+      },
+      {
+        "file": "model-00004-of-00005.safetensors",
+        "tensors": 1020,
+        "named_parameter_elements": 2042447680,
+        "layers_at_or_beyond_base_depth_elements": 0
+      },
+      {
+        "file": "model-00005-of-00005.safetensors",
+        "tensors": 408,
+        "named_parameter_elements": 816979072,
+        "layers_at_or_beyond_base_depth_elements": 0
+      }
+    ],
+    "tensor_names": 5323,
+    "value_bytes_by_dtype": {
+      "BF16": 22959501568
+    },
+    "named_parameter_elements": 11479750784,
+    "layers_at_or_beyond_base_depth_elements": 807215168,
+    "value_uniqueness_and_aliases_verified": false,
+    "tensor_values_read_or_hashed": false
+  },
+  "chat_contract": {
+    "HF_template_present": false,
+    "HF_template_sha256": null,
+    "HF_template": null,
+    "producer_GGUF_candidate": {
+      "metadata": {
+        "general.architecture": "deepseek2",
+        "general.finetune": "10b_bf16",
+        "tokenizer.ggml.bos_token_id": 1,
+        "tokenizer.ggml.eos_token_id": 2,
+        "tokenizer.chat_template": "{#--------TOOL RENDERING FUNCTIONS---------#}\n\n{#---------------------------------------------------------------\n  Converts JSON Schema (dict) to a TypeScript type definition\n----------------------------------------------------------------#}\n{%- macro json_schema_to_typescript(schema, indent=\"\") -%}\n\t{%- set ADDITIONAL_JSON_KEYS = ['format', 'maxItems', 'maximum', 'minItems', 'minimum', 'pattern'] -%}\n\t{%- set ty = schema.get(\"type\") -%}\n\n\t{# ---------------- OBJECT ---------------- #}\n\t{%- if ty == \"object\" -%}\n\t\t{{- \"{\\n\" -}}\n\n\t\t{# Start building property list #}\n\t\t{%- set props = schema.get(\"properties\", {}) -%}\n\t\t{%- set required = schema.get(\"required\", []) -%}\n\t\t{%- set has_additional_props = schema.get(\"additionalProperties\") is defined -%}\n\t\t{%- set additional_props_type = none -%}\n\t\t{%- if has_additional_props -%}\n\t\t\t{%- if schema.additionalProperties == true -%}\n\t\t\t\t{%- set additional_props_type = {'type': 'any'} -%}\n\t\t\t{%- elif schema.additionalProperties is mapping -%}\n\t\t\t\t{%- set additional_props_type = schema.additionalProperties -%}\n\t\t\t{%- endif -%}\n\t\t{%- endif -%}\n\n\t\t{%- for key, val in props.items() -%}\n\t\t\t{# ---------- Description Comments ---------- #}\n\t\t\t{%- if \"description\" in val -%}\n\t\t\t\t{%- for line in val['description'].split('\\n') -%}\n\t\t\t\t\t{%- if line.strip() -%}\n\t\t\t\t\t\t{{- indent + '// ' + line + '\\n' -}}\n\t\t\t\t\t{%- endif -%}\n\t\t\t\t{%- endfor -%}\n\t\t\t{%- endif -%}\n\n\t\t\t{# ---------- Additional JSON Keys ---------- #}\n\t\t\t{%- for add_key, add_val in val.items() -%}\n\t\t\t\t{%- if add_key in ADDITIONAL_JSON_KEYS -%}\n\t\t\t\t\t{%- if add_val is string -%}\n\t\t\t\t\t\t{{- indent + '// ' + add_key + ': \"' + add_val + '\"' + '\\n'  -}}\n\t\t\t\t\t{%- else -%}\n\t\t\t\t\t\t{{- indent + '// ' + add_key + ': ' ~ add_val ~ '\\n' -}}\n\t\t\t\t\t{%- endif -%}\n\t\t\t\t{%- endif -%}\n\t\t\t{%- endfor -%}\n\n\t\t\t{# ---------- Property Definition ---------- #}\n            {%- set type_str = json_schema_to_typescript(\n                val, \n                indent + \"  \"\n            ) -%}\n\n\t\t\t{{- indent + key + ('' if key in required else '?') + ': ' + type_str + ',' -}}\n\n\t\t\t{%- if \"default\" in val or \"defalut_value\" in val -%}\n\t\t\t\t{%- set default = val.get(\"default\", val.get(\"defalut_value\")) -%}\n\t\t\t\t{%- if default is string -%}\n\t\t\t\t\t{{- ' // default: \"' + default + '\"' -}}\n\t\t\t\t{%- else -%}\n\t\t\t\t\t{{- ' // default: ' ~ default -}}\n\t\t\t\t{%- endif -%}\n\t\t\t{%- endif -%}\n\n\t\t\t{{- \"\\n\" -}}\n\t\t{%- endfor -%}\n\n\t\t{# Handle additionalProperties as index signature #}\n\t\t{%- if has_additional_props and additional_props_type is not none -%}\n\t\t\t{%- set additional_type_str = json_schema_to_typescript(\n\t\t\t\tadditional_props_type,\n\t\t\t\tindent + \"  \"\n\t\t\t) -%}\n\t\t\t{{- indent + '[key: string]: ' + additional_type_str + '\\n' -}}\n\t\t{%- endif -%}\n\n\t\t{{- indent[: (indent|length - \"  \"|length) ] + '}' -}}\n\n\t{# ---------------- STRING ---------------- #}\n\t{%- elif ty == \"string\" -%}\n\t\t{%- if schema.get(\"enum\") -%}\n            {%- set ns = namespace(enum = []) -%}\n            {%- for en in schema['enum'] -%}\n                {%- set ns.enum = ns.enum + ['\"' ~ en ~ '\"'] -%}\n            {%- endfor -%}\n\t\t\t{{- ns.enum | join(' | ') -}}\n\t\t{%- elif schema.get(\"format\", \"none\") in ['date-time', 'date'] -%}\n\t\t\t{{- 'Date' -}}\n\t\t{%- else -%}\n\t\t\t{{- 'string' -}}\n\t\t{%- endif -%}\n\n\t{# ---------------- NUMBER / INTEGER ---------------- #}\n\t{%- elif ty in [\"number\", \"integer\"] -%}\n\t\t{%- if schema.get(\"enum\") -%}\n\t\t\t{{- schema.enum | join(' | ') -}}\n\t\t{%- else -%}\n\t\t\t{{- 'number' -}}\n\t\t{%- endif -%}\n\n\t{# ---------------- BOOLEAN ---------------- #}\n\t{%- elif ty == \"boolean\" -%}\n\t\t{{- 'boolean' -}}\n\n\t{# ---------------- ARRAY ---------------- #}\n\t{%- elif ty == \"array\" -%}\n\t\t{%- if \"items\" in schema -%}\n\t\t\t{{- json_schema_to_typescript(schema['items'], indent) + '[]' -}}\n\t\t{%- else -%}\n\t\t\t{{- 'Array<any>' -}}\n\t\t{%- endif -%}\n\n\t{# ---------------- FALLBACK ---------------- #}\n\t{%- else -%}\n\t\t{{- 'any' -}}\n\t{%- endif -%}\n{%- endmacro -%}\n\n{#---------------------------------------------------------------\n  Renders a namespace and its tool definitions in TypeScript style\n----------------------------------------------------------------#}\n\n{%- macro render_tool_namespace(namespace_name, tools) -%}\n\t{%- set ns = namespace(sections = ['namespace ' ~ namespace_name ~ ' {']) -%}\n\n\t{%- for tool in tools -%}\n\t\t{%- if tool.function -%}\n\t\t\t{%- set tool = tool.function -%}\n\t\t{%- endif -%}\n\n\t\t{%- set ns_tool = namespace(content_lines=[]) -%}\n\n\t\t{# ---------- TOOL DESCRIPTION ---------- #}\n\t\t{%- if tool.get('description') -%}\n\t\t\t{%- for line in tool['description'].split('\\n') -%}\n\t\t\t\t{%- if line.strip() -%}\n\t\t\t\t\t{%- set ns_tool.content_lines = ns_tool.content_lines + ['// ' ~ line] -%}\n\t\t\t\t{%- endif -%}\n\t\t\t{%- endfor -%}\n\t\t{%- endif -%}\n\n\t\t{# ---------- TOOL SIGNATURE ---------- #}\n\t\t{%- set main_body = \"\" -%}\n\t\t{%- set params = tool.get(\"parameters\") -%}\n\t\t{%- if params and params.get(\"properties\") -%}\n\t\t\t{%- set param_type = json_schema_to_typescript(params, \"  \") -%}\n\t\t\t{%- set main_body = 'type ' ~ tool.name ~ ' = (_: ' ~ param_type ~ ') => ' -%}\n\t\t{%- else -%}\n\t\t\t{%- set main_body = 'type ' ~ tool.name ~ ' = () => ' -%}\n\t\t{%- endif -%}\n\n\t\t{# ---------- RETURN TYPE ---------- #}\n\t\t{%- set return_params = tool.get(\"return_parameters\") -%}\n\t\t{%- if return_params and return_params.get(\"properties\") -%}\n\t\t\t{%- set return_type = json_schema_to_typescript(return_params, \"  \") -%}\n\t\t\t{%- set main_body = main_body ~ return_type -%}\n\t\t{%- else -%}\n\t\t\t{%- set main_body = main_body ~ 'any' -%}\n\t\t{%- endif -%}\n\n\t\t{%- set main_body = main_body ~ ';\\n' -%}\n\n\t\t{%- set ns_tool.content_lines = ns_tool.content_lines + [main_body] -%}\n\n\t\t{# ---------- ADD TOOL TO SECTIONS ---------- #}\n\t\t{%- set ns.sections = ns.sections + [ns_tool.content_lines | join('\\n')] -%}\n\t{%- endfor -%}\n\n\t{%- set ns.sections = ns.sections + ['} // namespace ' ~ namespace_name] -%}\n\n\t{{- ns.sections | join('\\n') -}}\n{%- endmacro -%}\n\n\n{# ----------- MESSAGE RENDERING HELPER FUNCTIONS ------------ #}\n\n{%- macro render_function_call(call) -%}\n    {%- if call.function -%}\n        {%- set call = call.function -%}\n    {%- endif -%}\n\n    {%- set arguments = call['arguments'] -%}\n\t{%- if arguments is not string -%}\n\t\t{%- set arguments = arguments| tojson(ensure_ascii=False) -%}\n\t{%- endif -%}\n\n    {{- '{\"name\": \"' ~ call['name'] ~ '\", \"arguments\": ' ~ arguments ~ '}' -}}\n{%- endmacro -%}\n\n\n{%- macro render_role_message(message, role=None) -%}\n    {%- if not role -%}\n        {%- set role = message[\"role\"] -%}\n    {%- endif -%}\n\n    {%- set message_content = message['content'] or '' -%}\n    {%- if message_content is not string -%}\n        {%- set message_content = message_content | tojson(ensure_ascii=False) -%}\n    {%- endif -%}\n\n    {{- role + add_tokens.role_sep + message_content -}}\n\n    {%- if message.tool_calls is defined and message.tool_calls -%}\n        {{- add_tokens.function_call + render_function_call(message.tool_calls[0]) -}}\n    {%- endif -%}\n\n    {{- add_tokens.message_sep -}}\n\n{%- endmacro -%}\n\n\n\n{# ----- SPECIAL TOKENS ----- #}\n\n{%- set add_tokens = namespace(\n    role_sep=\"<|role_sep|>\\n\", \n    message_sep=\"<|message_sep|>\\n\\n\",\n    function_call=\"<|function_call|>\"\n) -%}\n\n{# ----- DEFAULT DEVSYSTEM ----- #}\n\n{%- set DEVSYSTEM -%}\n<role_description>\n\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0445 \u0432 \u0434\u0438\u0430\u043b\u043e\u0433\u0435 \u0440\u043e\u043b\u0435\u0439.\n\n`developer system`\n\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435, \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u043d\u043e\u0435 \u0421\u0431\u0435\u0440\u043e\u043c \u0434\u043e \u043e\u0441\u043d\u043e\u0432\u043d\u043e\u0433\u043e \u0434\u0438\u0430\u043b\u043e\u0433\u0430. \u0418\u043c\u0435\u0435\u0442 \u0441\u0430\u043c\u044b\u0439 \u0432\u044b\u0441\u043e\u043a\u0438\u0439 \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0435\u0442 \u0438 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u044f\u0435\u0442 \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0435, \u043d\u0435\u043e\u0442\u043c\u0435\u043d\u044f\u0435\u043c\u044b\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f (\u043d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, \u043f\u0440\u0430\u0432\u0438\u043b\u0430 \u0432\u0435\u0434\u0435\u043d\u0438\u044f \u0434\u0438\u0430\u043b\u043e\u0433\u0430, \u043f\u043e\u043b\u0438\u0442\u0438\u043a\u0443 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438, \u043e\u0431\u0449\u0438\u0439 \u0441\u0442\u0438\u043b\u044c \u043e\u0442\u0432\u0435\u0442\u043e\u0432 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442\u0430 \u0438 \u043f\u0440.).\n\n`system`\n\u0421\u0438\u0441\u0442\u0435\u043c\u043d\u0430\u044f \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f, \u0434\u043e\u0431\u0430\u0432\u043b\u044f\u0435\u043c\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u0430\u043c\u0438 \u0438\u043b\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u043c, \u043d\u043e \u0441 \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0435\u0442\u043e\u043c \u043d\u0438\u0436\u0435, \u0447\u0435\u043c `developer system`. \u041e\u0431\u044b\u0447\u043d\u043e \u043e\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u0442 \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442\u0430, \u043a\u043e\u043d\u043a\u0440\u0435\u0442\u043d\u044b\u0439 \u0441\u0442\u0438\u043b\u044c \u043e\u0442\u0432\u0435\u0442\u0430 \u0438 \u0434\u0440\u0443\u0433\u0438\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f \u0434\u043b\u044f \u0434\u0430\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u043d\u043a\u0440\u0435\u0442\u043d\u043e\u0433\u043e \u0434\u0438\u0430\u043b\u043e\u0433\u0430.\n\n`user`\n\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435 \u0438\u043b\u0438 \u0437\u0430\u043f\u0440\u043e\u0441 \u043e\u0442 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f. \u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u0435\u043c\u0443, \u0435\u0441\u043b\u0438 \u044d\u0442\u043e \u043d\u0435 \u043f\u0440\u043e\u0442\u0438\u0432\u043e\u0440\u0435\u0447\u0438\u0442 \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f\u043c \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0441\u043e\u043a\u043e\u0433\u043e \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0435\u0442\u0430 (\u0441\u043c. <instruction_priority>).\n\n`user memory`\n\u041f\u043e\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u044c \u043d\u0430\u0438\u0431\u043e\u043b\u0435\u0435 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u043e\u043b\u0433\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0445 \u0444\u0430\u043a\u0442\u043e\u0432 \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u043d\u0430 \u043c\u043e\u043c\u0435\u043d\u0442 \u0435\u0433\u043e \u0437\u0430\u043f\u0440\u043e\u0441\u0430, \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u043d\u0430\u044f \u0432 \u0432\u0438\u0434\u0435 JSON\u2011\u0441\u043f\u0438\u0441\u043a\u0430 \u0441\u0442\u0440\u043e\u043a. \u0424\u0430\u043a\u0442\u044b \u0432 \u043d\u0435\u0439 \u043f\u0435\u0440\u0435\u0447\u0438\u0441\u043b\u0435\u043d\u044b \u0432 \u0445\u0440\u043e\u043d\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u043e\u043c \u043f\u043e\u0440\u044f\u0434\u043a\u0435, \u0442\u043e \u0435\u0441\u0442\u044c \u0431\u043e\u043b\u0435\u0435 \u043d\u043e\u0432\u044b\u0435 \u0444\u0430\u043a\u0442\u044b \u0434\u043e\u043f\u0438\u0441\u044b\u0432\u0430\u044e\u0442\u0441\u044f \u0432 \u043a\u043e\u043d\u0435\u0446 \u043f\u043e\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438. \u041f\u0440\u0438 \u044d\u0442\u043e\u043c \u043f\u0440\u0438 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0438 \u0438\u043b\u0438 \u0443\u0434\u0430\u043b\u0435\u043d\u0438\u0438 \u0444\u0430\u043a\u0442\u043e\u0432 \u0437\u0430\u043f\u0438\u0441\u0438 \u043e \u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0445 \u0444\u0430\u043a\u0442\u0430\u0445 \u043e\u0441\u0442\u0430\u044e\u0442\u0441\u044f \u0432 \u043f\u043e\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438. \u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0435\u0442 \u0444\u0430\u043a\u0442\u044b \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0438 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442 \u0438\u0445 \u0432 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 \u0443\u043a\u0430\u0437\u0430\u043d\u0438\u044f\u043c\u0438 \u0438\u0437 \u0431\u043b\u043e\u043a\u0430 <memory_guidelines> \u043d\u0438\u0436\u0435.\n\n`added files`\n\u041c\u0435\u0442\u0430\u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u0444\u0430\u0439\u043b\u0430\u0445, \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0445 \u0434\u043b\u044f \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0432 \u0434\u0438\u0430\u043b\u043e\u0433\u0435, \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u043d\u0430\u044f \u0432 \u0444\u043e\u0440\u043c\u0430\u0442\u0435 JSON. \u0421\u043e\u0434\u0435\u0440\u0436\u0438\u0442 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u043a\u043b\u044e\u0447\u0438: id (\u0443\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439 \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440 \u0444\u0430\u0439\u043b\u0430), name (\u0438\u043c\u044f \u0444\u0430\u0439\u043b\u0430), type (\u0442\u0438\u043f \u0444\u0430\u0439\u043b\u0430).\n\n`assistant`\n\u041e\u0442\u0432\u0435\u0442 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442\u0430 \u043d\u0430 \u0437\u0430\u043f\u0440\u043e\u0441 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f. \u0415\u0441\u043b\u0438 \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u0430\u044f \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f \u0438\u043b\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043d\u0435 \u0437\u0430\u0434\u0430\u0451\u0442 \u0434\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0445 \u043f\u0440\u0430\u0432\u0438\u043b \u0434\u043b\u044f `assistant`, \u0442\u043e \u0442\u0430\u043a\u0430\u044f \u0440\u0435\u043f\u043b\u0438\u043a\u0430 \u0434\u043e\u043b\u0436\u043d\u0430 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0443\u043a\u0430\u0437\u0430\u043d\u0438\u044f\u043c \u0438\u0437 \u0431\u043b\u043e\u043a\u0430 <assistant_guidelines> \u043d\u0438\u0436\u0435. \u0421\u043f\u0438\u0441\u043e\u043a \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0445 \u0434\u043b\u044f \u0432\u044b\u0437\u043e\u0432\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u0442\u0441\u044f \u0432 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0439 \u0440\u0435\u043f\u043b\u0438\u043a\u0435 \u0440\u043e\u043b\u0438 `available functions`. \u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0439 \u0434\u043b\u044f \u0432\u044b\u0437\u043e\u0432\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0438 \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u044b \u0431\u0443\u0434\u0443\u0442 \u0441\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u044b \u043f\u043e\u0441\u043b\u0435 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0442\u043e\u043a\u0435\u043d\u0430 \u0432\u044b\u0437\u043e\u0432\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u0438. \u0412 \u0441\u0432\u043e\u0438\u0445 \u0440\u0435\u043f\u043b\u0438\u043a\u0430\u0445 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f\u043c \u0432 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 <instruction_priority>.\n\u0412\u044b\u0437\u043e\u0432 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043e\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0432 \u0441\u0442\u0440\u043e\u0433\u043e\u043c \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0435\u0439 \u0438\u0437 \u0431\u043b\u043e\u043a\u0430 <function_usage>.\n\n`function descriptions`\n\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u0432 \u0444\u043e\u0440\u043c\u0430\u0442\u0435 TypeScript. \u0424\u0443\u043d\u043a\u0446\u0438\u044f \u2014 \u044d\u0442\u043e \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u0439 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 (\u0438\u043b\u0438 \u043d\u0430\u0431\u043e\u0440 \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0439), \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 \u043c\u043e\u0436\u0435\u0442 \u0432\u044b\u0437\u0432\u0430\u0442\u044c \u0434\u043b\u044f \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f \u043a\u043e\u043d\u043a\u0440\u0435\u0442\u043d\u044b\u0445 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439, \u0432\u044b\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0439 \u0438\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0434\u0430\u043d\u043d\u044b\u0445, \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0445 \u0434\u043b\u044f \u0440\u0435\u0448\u0435\u043d\u0438\u044f \u0437\u0430\u0434\u0430\u0447\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f. \u041a\u0430\u0436\u0434\u043e\u0435 \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u0442 \u0431\u043b\u043e\u043a\u0438 \u0441 \u0438\u043c\u0435\u043d\u0435\u043c, \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435\u043c, \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u0430\u043c\u0438. \u0418\u043d\u043e\u0433\u0434\u0430 \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u0442 \u043e\u0442\u0434\u0435\u043b\u044c\u043d\u044b\u0435 \u0431\u043b\u043e\u043a\u0438 \u0441 \u0432\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u043c\u044b\u043c\u0438 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430\u043c\u0438 \u0438 \u043f\u0440\u0438\u043c\u0435\u0440\u0430\u043c\u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u044f, \u0438\u043b\u043b\u044e\u0441\u0442\u0440\u0438\u0440\u0443\u044e\u0449\u0438\u043c\u0438 \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u0432\u044b\u0437\u043e\u0432 \u0438 \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u044b.\n\n`available functions`\n\u0421\u043f\u0438\u0441\u043e\u043a, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u0442 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u0439, \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0445 \u0434\u043b\u044f \u0432\u044b\u0437\u043e\u0432\u0430. \u0415\u0441\u043b\u0438 \u0441\u043f\u0438\u0441\u043e\u043a \u043d\u0435 \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u0442 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u043e\u0432, \u0442\u043e \u0432 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0435\u043c \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0438 \u0444\u0443\u043d\u043a\u0446\u0438\u0438, \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0435 \u0434\u043b\u044f \u0432\u044b\u0437\u043e\u0432\u0430, \u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u044e\u0442.\n\n`function result`\n\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0433\u043e \u0432\u044b\u0437\u043e\u0432\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u0438.\n</role_description>\n\n\n<available_modalities>\n\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 \u0443\u043c\u0435\u0435\u0442 \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0441\u043e \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u043c\u0438 \u043c\u043e\u0434\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044f\u043c\u0438: \u0442\u0435\u043a\u0441\u0442, \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438.\n</available_modalities>\n\n\n<instruction_priority>\n\u0412 \u0441\u043b\u0443\u0447\u0430\u0435 \u043f\u0440\u043e\u0442\u0438\u0432\u043e\u0440\u0435\u0447\u0438\u044f \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0439 \u0440\u0430\u0437\u043d\u044b\u0445 \u0440\u043e\u043b\u0435\u0439 \u0432 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0435 \u0434\u0438\u0430\u043b\u043e\u0433\u0430 \u0441\u043e\u0431\u043b\u044e\u0434\u0430\u0439 \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0435\u0442\u044b:\n`developer system` > `system` > `user` > `function descriptions` > `function result` > `user memory`\n</instruction_priority>\n\n\n<function_usage>\n\u0411\u0430\u0437\u043e\u0432\u044b\u0435 \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u0434\u043b\u044f \u0440\u0430\u0431\u043e\u0442\u044b \u0441 \u0444\u0443\u043d\u043a\u0446\u0438\u044f\u043c\u0438.\n\n\u041c\u043e\u0436\u043d\u043e \u0432\u044b\u0437\u044b\u0432\u0430\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u0442\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0438\u0441\u0445\u043e\u0434\u044f \u0438\u0437 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0433\u043e \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f `available functions`.\n\n\u0412\u044b\u0437\u044b\u0432\u0430\u0439 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0432 \u0441\u043b\u0443\u0447\u0430\u0435, \u0435\u0441\u043b\u0438 \u0441\u043e\u0433\u043b\u0430\u0441\u043d\u043e \u0438\u0445 \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u044e \u0442\u0430\u043a\u043e\u0439 \u0432\u044b\u0437\u043e\u0432 \u043f\u043e\u043c\u043e\u0436\u0435\u0442 \u0434\u0430\u0442\u044c \u0431\u043e\u043b\u0435\u0435 \u043f\u043e\u043b\u043d\u044b\u0439 \u0438/\u0438\u043b\u0438 \u0442\u043e\u0447\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442 \u043d\u0430 \u0437\u0430\u043f\u0440\u043e\u0441 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f. \u0417\u0430\u043f\u043e\u043b\u043d\u044f\u0439 \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u044b \u0444\u0443\u043d\u043a\u0446\u0438\u0439, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044f \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044e \u0438\u0437 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0430 \u0434\u0438\u0430\u043b\u043e\u0433\u0430. \u0415\u0441\u043b\u0438 \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u043c\u043e\u0447\u044c \u043e\u0442\u0432\u0435\u0442\u0438\u0442\u044c \u043d\u0430 \u0437\u0430\u043f\u0440\u043e\u0441, \u043d\u043e \u0434\u043b\u044f \u0435\u0451 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0433\u043e \u0430\u0440\u0433\u0443\u043c\u0435\u043d\u0442\u0430 \u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u0432 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0435, \u0443\u0442\u043e\u0447\u043d\u0438 \u0443 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043d\u0435\u0434\u043e\u0441\u0442\u0430\u044e\u0449\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u043f\u0435\u0440\u0435\u0434 \u0432\u044b\u0437\u043e\u0432\u043e\u043c \u0444\u0443\u043d\u043a\u0446\u0438\u0438. \u041f\u0440\u0438 \u043d\u0435\u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e\u0441\u0442\u0438 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0439 \u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u0438\u043b\u0438 \u043e\u0448\u0438\u0431\u043a\u0435 \u2014 \u043a\u0440\u0430\u0442\u043a\u043e \u0441\u043e\u043e\u0431\u0449\u0438 \u043e\u0431 \u044d\u0442\u043e\u043c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044e \u0438 \u043f\u043e \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0438 \u0430\u043b\u044c\u0442\u0435\u0440\u043d\u0430\u0442\u0438\u0432\u0443.\n</function_usage>\n\n\n<memory_guidelines>\n\u041f\u0440\u0430\u0432\u0438\u043b\u0430 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0444\u0430\u043a\u0442\u043e\u0432 \u0432 \u0434\u043e\u043b\u0433\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0439 \u043f\u0430\u043c\u044f\u0442\u0438:\n\n\u0415\u0441\u043b\u0438 \u0432 \u0434\u0438\u0430\u043b\u043e\u0433\u0435 \u043d\u0435\u0442 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f \u043f\u043e\u0434 \u0440\u043e\u043b\u044c\u044e `user memory`, \u0442\u043e \u044d\u0442\u043e \u0440\u0430\u0432\u043d\u043e\u0441\u0438\u043b\u044c\u043d\u043e \u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u044e \u0434\u043e\u043b\u0433\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0445 \u0444\u0430\u043a\u0442\u043e\u0432 \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u0432 \u043f\u0430\u043c\u044f\u0442\u0438. \u0412 \u0442\u0430\u043a\u043e\u043c \u0441\u043b\u0443\u0447\u0430\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u0430 \u0442\u0435\u043a\u0443\u0449\u0438\u043c \u0434\u0438\u0430\u043b\u043e\u0433\u043e\u043c, \u0438 \u043d\u043e\u0432\u044b\u0435 \u0444\u0430\u043a\u0442\u044b \u043d\u0435 \u0434\u043e\u043b\u0436\u043d\u044b \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0442\u044c\u0441\u044f.\n</memory_guidelines>\n\n\n<assistant_guidelines>\nGigaChat \u2014 \u043d\u0435\u0439\u0440\u043e\u0441\u0435\u0442\u0435\u0432\u0430\u044f \u043c\u043e\u0434\u0435\u043b\u044c \u0438\u0441\u043a\u0443\u0441\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u0438\u043d\u0442\u0435\u043b\u043b\u0435\u043a\u0442\u0430, \u0441\u043e\u0437\u0434\u0430\u043d\u043d\u0430\u044f \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0435\u0439 \u0421\u0431\u0435\u0440 \u0432 \u0420\u043e\u0441\u0441\u0438\u0438.\n\nGigaChat \u0441\u0442\u0430\u0440\u0430\u0435\u0442\u0441\u044f \u043e\u0442\u0432\u0435\u0447\u0430\u0442\u044c \u043d\u0430 \u044f\u0437\u044b\u043a\u0435, \u043d\u0430 \u043a\u043e\u0442\u043e\u0440\u043e\u043c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u0437\u0430\u0434\u0430\u043b \u0437\u0430\u043f\u0440\u043e\u0441. \u0415\u0441\u043b\u0438 \u0438\u0437 \u0437\u0430\u043f\u0440\u043e\u0441\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u0438 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0430 \u0434\u0438\u0430\u043b\u043e\u0433\u0430 \u044f\u0437\u044b\u043a \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e, GigaChat \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442 \u0440\u0443\u0441\u0441\u043a\u0438\u0439.\nGigaChat \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u043f\u043e\u0434\u0440\u043e\u0431\u043d\u044b\u0435 \u043e\u0442\u0432\u0435\u0442\u044b \u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0441\u043b\u043e\u0436\u043d\u044b\u0435 \u0438 \u043e\u0442\u043a\u0440\u044b\u0442\u044b\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b.\nGigaChat \u0432 \u043e\u0442\u0432\u0435\u0442\u0435 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0445 \u0444\u0443\u043d\u043a\u0446\u0438\u0439.\nGigaChat \u043e\u0442\u0432\u0435\u0447\u0430\u0435\u0442 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e, \u0432 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u043c \u0437\u0430\u043a\u043e\u043d\u043e\u0434\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e\u043c \u0420\u043e\u0441\u0441\u0438\u0439\u0441\u043a\u043e\u0439 \u0424\u0435\u0434\u0435\u0440\u0430\u0446\u0438\u0438, \u0441\u0442\u0430\u0440\u0430\u044f\u0441\u044c \u043f\u043e\u043c\u043e\u0447\u044c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044e \u0440\u0435\u0448\u0438\u0442\u044c \u0437\u0430\u0434\u0430\u0447\u0443 \u0438\u043b\u0438 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0430\u0442\u044c \u0431\u0435\u0441\u0435\u0434\u0443.\n\n\u0422\u044b \u2014 GigaChat.\n</assistant_guidelines>\n\n\n\u041d\u0438\u0436\u0435 \u0431\u0443\u0434\u0435\u0442 \u043f\u0440\u0438\u0432\u0435\u0434\u0451\u043d \u0434\u0438\u0430\u043b\u043e\u0433.\n\u0412 \u0434\u0438\u0430\u043b\u043e\u0433\u0435 \u043c\u043e\u0433\u0443\u0442 \u0431\u044b\u0442\u044c \u0440\u0430\u0437\u043d\u043e\u043e\u0431\u0440\u0430\u0437\u043d\u044b\u0435 \u0440\u043e\u043b\u0438, \u043e\u043f\u0438\u0441\u0430\u043d\u043d\u044b\u0435 \u0432 \u0431\u043b\u043e\u043a\u0435 <role_description>.\n\u041a\u0430\u0436\u0434\u0430\u044f \u0440\u0435\u043f\u043b\u0438\u043a\u0430 \u043d\u0430\u0447\u0438\u043d\u0430\u0435\u0442\u0441\u044f \u0441 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u044f \u0440\u043e\u043b\u0438 \u0438 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0442\u043e\u043a\u0435\u043d\u0430, \u043e\u0431\u043e\u0437\u043d\u0430\u0447\u0430\u044e\u0449\u0435\u0433\u043e \u043a\u043e\u043d\u0435\u0446 \u043f\u043e\u043b\u043d\u043e\u0433\u043e \u043d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u044f \u0440\u043e\u043b\u0438, \u0430 \u0437\u0430\u043a\u0430\u043d\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u043c \u0442\u043e\u043a\u0435\u043d\u043e\u043c \u043a\u043e\u043d\u0446\u0430 \u0440\u0435\u043f\u043b\u0438\u043a\u0438.\n\u0422\u0432\u043e\u044f \u0437\u0430\u0434\u0430\u0447\u0430 \u2014 \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c \u0434\u0438\u0430\u043b\u043e\u0433 \u043e\u0442 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0439 \u0443\u043a\u0430\u0437\u0430\u043d\u043d\u043e\u0439 \u0440\u043e\u043b\u0438 \u0432 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u043e\u043c \u0434\u0438\u0430\u043b\u043e\u0433\u0430.\n{%- endset -%}\n\n\n{#- ---------------------- RENDERING STARTS HERE ---------------------- -#}\n\n\n{# ----- RENDER BOS TOKEN ----- #}\n{{- bos_token -}}\n\n\n{# ----- RENDER DEVSYSTEM ----- #}\n{{- render_role_message({\"role\": \"developer system\", \"content\": DEVSYSTEM}) -}}\n\n{# ----- RENDER SYSTEM IF PRESENT ----- #}\n{%- if messages and messages[0]['role'] == 'system' -%}\n    {{- render_role_message(messages[0]) -}}\n    {%- set messages = messages[1:] -%}\n{%- else -%}\n    {{- render_role_message({\"role\": \"system\", \"content\": \"\"}) -}}\n{%- endif -%}\n\n{# ----- RENDER TOOLS ----- #}\n{%- if tools -%}\n    {%- set tools_content = (\n        render_tool_namespace('functions', tools) \n        + \"\\n\\n\"\n    ) -%}\n    {{- render_role_message({'role': 'function descriptions', 'content': tools_content}) -}}\n{%- endif -%}\n\n{# ----- MAIN MESSAGE LOOP ----- #}\n{%- for message in messages -%}\n\n    {# ----- TOOL MESSAGE -------#}\n    {%- if message['role'] == 'tool' -%}\n        {{- render_role_message(message, 'function result') -}}\n        \n    {# ----- OTHER MESSAGES ----- #}\n    {%- else -%}\n        {{- render_role_message(message) -}}\n    {%- endif -%}\n\n    {# ----- ADDING GENERATION PROMPT ----- #}\n\n    {%- if loop.last and add_generation_prompt and message['role'] != 'assistant' -%}\n        {{- 'assistant' + add_tokens.role_sep -}}\n    {%- endif -%}\n\n{%- endfor -%}"
+      },
+      "metadata_extent_bytes": 6076027,
+      "tensor_values_or_tensor_descriptors_read": false,
+      "HF_GGUF_weight_or_ID_equivalence_newly_verified": false
+    },
+    "producer_template_present": true,
+    "producer_template_sha256": "e0b8ec1e172a124fe688e705a6e48fc30c575c23dae7388e43007f150d8343a3",
+    "rendered_messages_or_token_ID_parity_verified": false,
+    "generation_config_file_present": false,
+    "generation_config": null,
+    "effective_declared_EOS_IDs": [
+      2
+    ],
+    "EOS_source": "config.json",
+    "native_stop_policy_equivalence_verified": false
+  },
+  "decision": "SOURCE_CONTRACT_INSPECTED_PIPELINE_NOT_QUALIFIED",
+  "missing_pipeline_gates": [
+    "qualified chat serialization/token IDs/stops",
+    "fresh donor reference in dialogue domain",
+    "family-specific compact transformation",
+    "complete exported native artifact",
+    "fresh own-history chat/task quality",
+    "SAME-artifact accepted>=50 end-to-end",
+    "useful larger n/LUT winner and mass/physical DRAM",
+    "actual additional families/scales"
+  ],
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_donor_preflight.py",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_donor_preflight.py",
+      "offset": 0,
+      "bytes": 17402,
+      "file_bytes": 17402,
+      "file_mtime_ns": 1791369573232797700,
+      "sha256": "af98204356c427bbad5b3e73b98233c3f1975211176973d4d992c77d01673c5c",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md",
+      "offset": 0,
+      "bytes": 5329,
+      "file_bytes": 5329,
+      "file_mtime_ns": 1791369573235798600,
+      "sha256": "d2e8abcb93cd5cd3ff94dfa4395bc5a0cbf5b86154ba4934bca016049f2c50d8",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "offset": 0,
+      "bytes": 9948,
+      "file_bytes": 9948,
+      "file_mtime_ns": 1791102415181866500,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "offset": 0,
+      "bytes": 39074,
+      "file_bytes": 39074,
+      "file_mtime_ns": 1789844945515389900,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "offset": 0,
+      "bytes": 51403,
+      "file_bytes": 51403,
+      "file_mtime_ns": 1791313177457318200,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\config.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\config.json",
+      "offset": 0,
+      "bytes": 1286,
+      "file_bytes": 1286,
+      "file_mtime_ns": 1789840651957238600,
+      "sha256": "6a6b8260f08791c4968f70934903e9aa892a53ee3f2e2e05b61a68ea1ff33503",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\tokenizer_config.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\tokenizer_config.json",
+      "offset": 0,
+      "bytes": 2932,
+      "file_bytes": 2932,
+      "file_mtime_ns": 1789841035591589100,
+      "sha256": "ded167f2cd1a755cebfce85d678e94bf8197114b0e8eaf89265fbd9b3d9f3150",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\tokenizer.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\tokenizer.json",
+      "offset": 0,
+      "bytes": 10680800,
+      "file_bytes": 10680800,
+      "file_mtime_ns": 1789841033893363700,
+      "sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+      "offset": 0,
+      "bytes": 6076027,
+      "file_bytes": 6474702976,
+      "file_mtime_ns": 1789742123424138600,
+      "sha256": "f67bf7b63fff69651a2caeb1862856cebea6eb6247a9c9fb6df1d7d625bf14e9",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model.safetensors.index.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model.safetensors.index.json",
+      "offset": 0,
+      "bytes": 477479,
+      "file_bytes": 477479,
+      "file_mtime_ns": 1789841030533176500,
+      "sha256": "1f08c4954c2e8319ad6abe35f9874cd28c4e74bb8cc589984e31bf9f0267c1fa",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00000-of-00005.safetensors",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00000-of-00005.safetensors",
+      "offset": 0,
+      "bytes": 103408,
+      "file_bytes": 4986065392,
+      "file_mtime_ns": 1789840927258791300,
+      "sha256": "e970752e3764fc1be2a71b800c96e7d580f2b5763ae772eb453b9b2b386cd67b",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00001-of-00005.safetensors",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00001-of-00005.safetensors",
+      "offset": 0,
+      "bytes": 125864,
+      "file_bytes": 4085021224,
+      "file_mtime_ns": 1789840904601723800,
+      "sha256": "b3c506570154cb9c8e278ddea831e2d27787ee404e8075ba20859aaf41c7e96d",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00002-of-00005.safetensors",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00002-of-00005.safetensors",
+      "offset": 0,
+      "bytes": 126680,
+      "file_bytes": 4085022040,
+      "file_mtime_ns": 1789840902223566400,
+      "sha256": "145529cc55c91bc121f428c2e980057f3d425171f52972e68544d2cab4e607cf",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00003-of-00005.safetensors",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00003-of-00005.safetensors",
+      "offset": 0,
+      "bytes": 126880,
+      "file_bytes": 4085022240,
+      "file_mtime_ns": 1789841081175981100,
+      "sha256": "c6b79873cce967f4ac55de80676387a233207994f10e37e12d35100dc722ac9f",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00004-of-00005.safetensors",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00004-of-00005.safetensors",
+      "offset": 0,
+      "bytes": 126880,
+      "file_bytes": 4085022240,
+      "file_mtime_ns": 1789841086310010200,
+      "sha256": "97266a4c8f6b5875ac7b204789397c3fa19a2fe451df5ee07d8d4c2a50ed82fb",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00005-of-00005.safetensors",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\model-00005-of-00005.safetensors",
+      "offset": 0,
+      "bytes": 50416,
+      "file_bytes": 1634008560,
+      "file_mtime_ns": 1789841029031017400,
+      "sha256": "c7685577e114a2ac7d40565935fee733cb6c05d8b3e9a39c96feb0c94cf50d17",
+      "whole_file_SHA_verified": false
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "offset": 0,
+      "bytes": 9948,
+      "file_bytes": 9948,
+      "file_mtime_ns": 1791102415181866500,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "offset": 0,
+      "bytes": 39074,
+      "file_bytes": 39074,
+      "file_mtime_ns": 1789844945515389900,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+      "whole_file_SHA_verified": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "resolved_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "offset": 0,
+      "bytes": 51403,
+      "file_bytes": 51403,
+      "file_mtime_ns": 1791313177457318200,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273",
+      "whole_file_SHA_verified": true
+    }
+  ],
+  "resource": {
+    "seconds": 1.5780000000086147,
+    "OS_peak_bytes": 37691392,
+    "bytes_read": 18122233,
+    "limits_seconds_peak_bytes": [
+      60,
+      268435456
+    ]
+  },
+  "ended_utc": "2026-10-07T10:40:29.291978+00:00"
+}

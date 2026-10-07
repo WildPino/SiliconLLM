@@ -74,7 +74,9 @@ class Inspection:
     def resources(self):
         return {'seconds': time.monotonic() - self.started,
                 'OS_peak_bytes': self.proc.memory_info().peak_wset,
-                'bytes_read': self.bytes_read, 'limits_seconds_peak_bytes': [60, 256 << 20]}
+                'hashed_input_extent_bytes': self.bytes_read,
+                'counter_scope': 'Sum of retained hashed extents; excludes extra GGUF parse-pass and Git pipe reads.',
+                'limits_seconds_peak_bytes': [60, 256 << 20]}
 
     def guard(self):
         assert time.monotonic() - self.started <= 60
