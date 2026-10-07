@@ -96,7 +96,7 @@ def main(args):
         adopted=json.loads(Path(b['adoption_path']).read_bytes())
         assert adopted['schema']=='QWEN_ORIGINAL_FORWARD_PREFIX_ADOPTION_V1' and adopted['all_saved_frame_bytes_and_alignment_qualified']
         assert sha(b['adoption_path'])==b['adoption_SHA256']
-        r['conversations']=adopted['cases']
+        r['conversations']=list(adopted['cases']) # independent append list; adopted count is immutable
         seen={case['id'] for case in adopted['cases']}
         selected=[case for case in spec['cases'] if case['id'] not in seen][:8]
         assert selected,'No missing case may be replayed'

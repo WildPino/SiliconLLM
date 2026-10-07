@@ -1,0 +1,20 @@
+{"stage": "imports", "phase": "before_numpy_torch_HF_imports"}
+{"stage": "imports", "phase": "runtime_and_GPU_ready"}
+{"stage": "original_model_load", "phase": "before_source_decode"}
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 7892.16it/s]
+{"stage": "capture", "phase": "before_first_source_forward"}
+{"id": "code_debug_2", "split": "development", "captured_rows": 143, "resource": {"elapsed_seconds": 21.26500000001397, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1018122752, "GPU_peak_reserved": 1069547520}}
+{"id": "data_0", "split": "fit", "captured_rows": 80, "resource": {"elapsed_seconds": 23.5, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1019499008, "GPU_peak_reserved": 1071644672}}
+{"id": "data_1", "split": "fit", "captured_rows": 151, "resource": {"elapsed_seconds": 30.594000000011874, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1020285440, "GPU_peak_reserved": 1071644672}}
+{"id": "data_2", "split": "development", "captured_rows": 115, "resource": {"elapsed_seconds": 35.359000000025844, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "instructions_0", "split": "fit", "captured_rows": 63, "resource": {"elapsed_seconds": 37.062000000005355, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "instructions_1", "split": "fit", "captured_rows": 89, "resource": {"elapsed_seconds": 40.89000000001397, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "instructions_2", "split": "development", "captured_rows": 71, "resource": {"elapsed_seconds": 43.0, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "italian_0", "split": "fit", "captured_rows": 146, "resource": {"elapsed_seconds": 50.328000000008615, "OS_peak_snapshot": 1682980864, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_capture.py", line 215, in <module>
+    main(parser.parse_args())
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_capture.py", line 191, in main
+    assert len(r['conversations'])==len(adopted['cases'])+len(selected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
