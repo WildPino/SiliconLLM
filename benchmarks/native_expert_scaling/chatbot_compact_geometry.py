@@ -113,9 +113,13 @@ def build_block(spec, children, projection, parent_centers, child_centers):
             self.shared_g = nn.Parameter(torch.zeros(h0,d,device=projection.device))
             self.shared_u = nn.Parameter(torch.zeros(h0,d,device=projection.device))
             self.shared_b = nn.Parameter(torch.zeros(d,h0,device=projection.device))
-            self.leaf_g = nn.Parameter(torch.zeros(p*children,h1,d,device=projection.device))
-            self.leaf_u = nn.Parameter(torch.zeros(p*children,h1,d,device=projection.device))
-            self.leaf_b = nn.Parameter(torch.zeros(p*children,d,h1,device=projection.device))
+            # Separate Parameters make an unselected leaf genuinely absent from
+            # autograd/optimizer work. Indexing one giant Parameter would scatter
+            # a dense E*H*D gradient on every selected-leaf call. The mathematical
+            # functions and eventual contiguous export order are unchanged.
+            self.leaf_g = nn.ParameterList([nn.Parameter(torch.zeros(h1,d,device=projection.device)) for _ in range(p*children)])
+            self.leaf_u = nn.ParameterList([nn.Parameter(torch.zeros(h1,d,device=projection.device)) for _ in range(p*children)])
+            self.leaf_b = nn.ParameterList([nn.Parameter(torch.zeros(d,h1,device=projection.device)) for _ in range(p*children)])
             self.initialized = False
 
         @torch.no_grad()
@@ -130,8 +134,9 @@ def build_block(spec, children, projection, parent_centers, child_centers):
             assert all(torch.unique(row).numel() == h1 for row in leaf_indices)
             assert not torch.isin(leaf_indices,shared_indices).any()
             self.shared_g.copy_(gate[shared_indices]); self.shared_u.copy_(up[shared_indices]); self.shared_b.copy_(down[:,shared_indices])
-            self.leaf_g.copy_(gate[leaf_indices]); self.leaf_u.copy_(up[leaf_indices])
-            self.leaf_b.copy_(down.T[leaf_indices].transpose(1,2).contiguous())
+            for leaf,indices in enumerate(leaf_indices):
+                self.leaf_g[leaf].copy_(gate[indices]); self.leaf_u[leaf].copy_(up[indices])
+                self.leaf_b[leaf].copy_(down[:,indices])
             self.initialized = True
 
         def routes(self,x):
@@ -152,10 +157,19 @@ def build_block(spec, children, projection, parent_centers, child_centers):
             assert self.initialized, 'Source-informed initializer must run before evaluating/fitting the zero constructor'
             assert x.ndim == 2 and x.shape[1] == d and x.dtype == torch.float32 and x.is_contiguous()
             ids,mass = self.routes(x)
+            return self.evaluate_selected(x,ids,mass)
+
+        def evaluate_selected(self,x,ids,mass):
+            """Evaluate fixed choices; also enables a declared within-parent intervention."""
+            assert self.initialized and x.ndim == 2 and x.shape[1] == d
+            assert x.dtype == torch.float32 and x.is_contiguous() and x.device == self.projection.device
+            assert ids.shape == mass.shape == (len(x),k) and ids.dtype == torch.int64 and mass.dtype == torch.float32
+            assert ids.device == mass.device == x.device
+            assert bool(((ids >= 0)&(ids < p*children)).all()) and bool(torch.isfinite(mass).all())
             result = F.linear(F.silu(F.linear(x,self.shared_g))*F.linear(x,self.shared_u),self.shared_b)
             # Only the selected nonlinear functions are evaluated. Grouping avoids
             # expanding a distinct DxH coefficient tensor for every token.
-            for leaf in torch.unique(ids,sorted=True):
+            for leaf in torch.unique(ids,sorted=True).tolist():
                 locations = (ids == leaf).nonzero(as_tuple=False)
                 tokens,slots = locations[:,0],locations[:,1]
                 part = x.index_select(0,tokens)
