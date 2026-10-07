@@ -1,0 +1,62 @@
+{
+  "kind": "prefix_compiler_diag",
+  "started_utc": "2026-10-07T11:30:11.134885+00:00",
+  "process_instance": {
+    "pid": 19492,
+    "create_time_unix": 1791372610.648832
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_prefix_compiler_diag.py"
+  ],
+  "gates": {},
+  "new_model_native_capture_calls": 0,
+  "scope": "ONE metadata-only compiler driver plan. No object, controls, response, energy or model call. Observed descendant handles retained; unobserved transients cannot be excluded.",
+  "root": {
+    "pid": 21312,
+    "create_time_unix": 1791372614.9052856,
+    "argv": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+      "--sysroot=C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\x86_64-w64-mingw32",
+      "-target",
+      "x86_64-w64-windows-gnu",
+      "-fintegrated-cc1",
+      "-###",
+      "-std=c11",
+      "-O2",
+      "-ffp-contract=off",
+      "-fno-fast-math",
+      "-c",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_verifier.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_compiler_diag\\NOT_CREATED.o"
+    ],
+    "exit_code": 0,
+    "OS_peak_bytes": 20819968
+  },
+  "observed_descendants": [
+    {
+      "pid": 19384,
+      "create_time_unix": 1791372614.9506328,
+      "name": "conhost.exe",
+      "argv": [
+        "\\??\\C:\\WINDOWS\\system32\\conhost.exe",
+        "0xffffffff",
+        "-ForceV1"
+      ],
+      "parent_pid": 21312,
+      "OS_peak_bytes": 8716288
+    }
+  ],
+  "complete_descendant_capture_guaranteed": false,
+  "resource": {
+    "seconds": 3.922000000020489,
+    "OS_peak_bytes": 54927360,
+    "compiler_family_peak_bytes": 29536256,
+    "parent_plus_compiler_peak_bound": 84463616,
+    "bytes_hashed": 410096813,
+    "limits": [
+      30,
+      536870912
+    ]
+  }
+}
