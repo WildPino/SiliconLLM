@@ -1,0 +1,60 @@
+{
+  "created_utc": "2026-10-07T01:31:59.372526+00:00",
+  "instances": [
+    {
+      "pid": 11152,
+      "name": "ollama app.exe",
+      "create_time_unix": 1791325511.8147411,
+      "children": [
+        {
+          "pid": 18740,
+          "name": "ollama.exe",
+          "create_time_unix": 1791325512.9254997
+        },
+        {
+          "pid": 27692,
+          "name": "conhost.exe",
+          "create_time_unix": 1791325512.9319308
+        }
+      ]
+    },
+    {
+      "pid": 18740,
+      "name": "ollama.exe",
+      "create_time_unix": 1791325512.9254997,
+      "children": [
+        {
+          "pid": 27692,
+          "name": "conhost.exe",
+          "create_time_unix": 1791325512.9319308
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "seconds": 2,
+      "CPU_seconds_delta": {
+        "11152": 0.0,
+        "18740": 0.0
+      }
+    },
+    {
+      "seconds": 2,
+      "CPU_seconds_delta": {
+        "11152": 0.0,
+        "18740": 0.0
+      }
+    },
+    {
+      "seconds": 2,
+      "CPU_seconds_delta": {
+        "11152": 0.0,
+        "18740": 0.0
+      }
+    }
+  ],
+  "no_live_inference_child": false,
+  "all_observed_CPU_deltas_zero": true,
+  "scope": "Untimed read-only daemon observations before native compile/cost; preserved processes, not killed. Idle daemon is not a live scientific job."
+}
