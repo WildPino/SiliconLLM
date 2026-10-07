@@ -93,6 +93,15 @@ Compact converter/fresh whole chat quality+rate remain MISSING. METH125 contains
 256 states per layer on augmented-model trajectories; these are not6144 states
 per layer or broad original-donor fitting support. Closed231 derivatives and
 214 saved compact ranking cannot be silently reused as qualified candidates.
+Finite [geometry/block budget](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md) is
+now AVAILABLE: shared512/leaf128/top4/16 parents/query32/E16 versus160, full x,
+joint trainable shared/leaf G/U/B, explicit stable projected-distance routing
+and selected-parent mass. Complete necessary3/5 gates pass at246.94/246.97M
+products and494.02/494.08MB logical coefficients. No actual fitted parameters,
+capacity/native/DRAM/rate admission. [Original-source capture](CHATBOT_SOURCE_CAPTURE_PROTOCOL_20261007.md)
+is implemented,48 prewritten32-fit/16-development conversations; first execution
+requires prospective runtime/input/whole-weight freeze, through-exit monitor and
+retained faults. Subsequent finite fit criteria/exposure must freeze separately.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault

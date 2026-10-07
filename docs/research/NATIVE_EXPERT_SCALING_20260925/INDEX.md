@@ -58,6 +58,15 @@ symlink-length/API-container faults retained and numbered repairs disclosed.
 Seven instances closed/no OS faults. Plain-text input stage AVAILABLE; tools/
 native integration/model quality/rate/compact conversion remain unqualified.
 
+[Finite joint geometry](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md): actual Torch
+block and spec freeze shared512/leaf128/top4/16 parents/query32, E16 versus160.
+New complete arithmetic passes fixed3/5 necessary cost gates:246.94/246.97M
+matrix terms/token,494.02/494.08MB logical coefficients; stored proposal.692/
+3.071GB. Full head/attention retained. Weights/quality/rate/DRAM UNMEASURED.
+Original-source [capture prerequisite](CHATBOT_SOURCE_CAPTURE_PROTOCOL_20261007.md)
+implemented,48 prewritten conversations/32 fit/16 reserved development; awaiting
+runtime/weight/input freeze and first actual execution, no fitting yet.
+
 ## Latest decisive evidence
 
 [528 necessary rejection](METH_528_NECESSARY_GATE_RESULT_20261007.md): FIRST scalar
@@ -117,8 +126,11 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 **First action:** [canonical interaction then compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
-reuse their adapter/IDs without replay. Choose ONE finite whole shared+conditional nonlinear SwiGLU converter
-trial replacing the active source FFN; price head/attention/router/cache jointly.
+reuse their adapter/IDs without replay. Finite joint512/128/top4 E16/E160 geometry
+is selected/implemented and complete necessary dimension budget PASS; no fitting.
+Freeze/execute pure original-donor capture48 conversations before its finite
+source-informed joint fit. Capture/fitting/native stage must keep head/attention/
+router/cache priced jointly; don't infer throughput from dimension reductions.
 Census and canonical fixtures are implemented/executed. Compact conversion
 remains missing. Original METH125 has only256 states/layer, not6144 per layer,
 on augmented trajectories; require adequate original-donor exposure for fitting.

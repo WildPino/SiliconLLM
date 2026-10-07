@@ -30,8 +30,15 @@ trainable; fixed projected nearest-region routing, explicit selected-parent
 softmax and stable ties. BF16 coefficient/F32 centroid norms; complete source
 head/attention retained initially. Actual block and necessary complete cost tool
 are implemented, not yet trained or native-qualified. Freeze/run NEW finite
-geometry arithmetic, then implement/freeze pure ORIGINAL-donor calibration
-capture with disjoint conversation development partition and through-exit monitor.
+geometry arithmetic now actually PASS ([result](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md)).
+Pure [ORIGINAL-donor capture](CHATBOT_SOURCE_CAPTURE_PROTOCOL_20261007.md) is
+implemented:48 literal self-authored conversations/32 fit/16 reserved development,
+exact24-layer BF16 original normalized x/complete y and own-history frame maps,
+through-exit launcher. FIRST ACTION: seal full local runtime/source weight/logical
+paths/input SHA with chatbot_capture_binding.py, freeze all code/protocol/binding,
+then execute ONCE against300s worker/1200s family/12GiB OS/9GiB allocated GPU/
+10GiB reserved/2GiB payload limits. Preserve first faults/prefixes, never replay
+completed forwards. No native calls/fitting or final fresh-quality claim.
 METH125 supplies only256 states/layer on augmented trajectories, not broad
 original-donor support. Fitting/exposure thresholds and finite updates still
 require a separate prospective protocol before any fit.

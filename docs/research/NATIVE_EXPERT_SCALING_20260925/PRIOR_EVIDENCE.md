@@ -1,5 +1,14 @@
 # Native expert-count scaling: prior evidence
 
+**7 October finite compact joint geometry:** [budget](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md).
+Frozen1e4b2b5 actual block/spec, shared512/leaf128/top4/query32/E16 versusE160,
+full-input source-initialized joint G/U/B. New dimension arithmetic9948a6 exit0
+passes fixed3/5 complete-matrix/logical-byte necessary gates:246.94/246.97M,
+494.02/494.08MB; stored proposal.692/3.071GB. No values/Torch/model/census replay
+or physical DRAM/rate/distinct trained capacity. Source-capture48 fixed self-
+authored32-fit/16-development conversations implemented, awaiting freeze/first
+execution; finite fit/exposure criteria still unfrozen. Whole goal incomplete.
+
 **7 October canonical Qwen chatbot input stage:** [result](CHATBOT_INTERACTION_RESULT_20261007.md).
 Eight prewritten role/history/continuation/Unicode text goldens and exact IDs
 PASS canonical HF/source Rust JSON/independent Python BPE; both EOS151645/151643,
