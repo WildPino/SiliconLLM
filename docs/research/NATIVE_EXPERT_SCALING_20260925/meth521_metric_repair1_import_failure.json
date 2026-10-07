@@ -1,0 +1,18 @@
+{
+  "kind": "metric_repair1_pre_Meter_import_failure",
+  "tool_chunk_id": "8debb0",
+  "exit_code": 1,
+  "source_freeze": "e1a0d45",
+  "entrypoint": "benchmarks/native_expert_scaling/meth521_metric_repair1_operations.py",
+  "error": "ModuleNotFoundError: No module named 'meth521_operations'",
+  "cause": "Python -I excludes the script directory; sibling path insertion was missing in the binder entrypoint.",
+  "literal_repair": "Insert Path(__file__).resolve().parent into sys.path before sibling import.",
+  "process_instance": null,
+  "instance_scope": "Failure before Meter construction, so no PID/create-time instrumentation. Actual tool exit1 retained; do not claim exact-instance event audit for this pre-Meter process.",
+  "source_functions": 0,
+  "coefficient_solves": 0,
+  "metric_arrays_constructed": 0,
+  "native_calls": 0,
+  "compiler_calls": 0,
+  "numerical_replay": false
+}

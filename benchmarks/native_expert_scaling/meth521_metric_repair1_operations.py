@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from meth521_operations import DOC, ROOT, Meter, Context as Original, output_bytes, utc, write
 
 BIND = DOC / 'meth521_metric_repair1_binding_result.json'
@@ -51,6 +52,7 @@ def bind():
         oldref = item(DOC / 'meth521_binding.json', ORIGINAL_BINDING_SHA); old = json.loads(Path(oldref['path']).read_bytes())
         rawref = item(DOC / 'meth521_main_result.json', MAIN_SHA); raw = json.loads(Path(rawref['path']).read_bytes())
         faultref = item(DOC / 'meth521_audit_result.failure.json', FAULT_SHA); fault = json.loads(Path(faultref['path']).read_bytes())
+        item(DOC / 'meth521_metric_repair1_import_failure.json')
         assert all(raw['gates'].values()) and all(fault['gates'].values())
         assert fault['gates']['ALL53943_independent_exact_integer_F64_BLAS_source_WI_ReLU_hidden_codes_scales_and_WO_BYTES']
         assert 'line 203, in main' in fault['traceback'] and 'np.allclose(values[:, :14], retained[:, :14]' in fault['traceback']

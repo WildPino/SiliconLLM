@@ -3,6 +3,11 @@
 7 October2026. Freeze BEFORE metric continuation; no new numerical observation
 of failed metric cells has been made. Original source/protocol files unchanged.
 
+Binder entrypoint first attempt e1a0d45/tool8debb0 exits1 before Meter/imported
+numerics because isolated Python lacks sibling path. Literal path-insertion fix
+only; import failure receipt retained, no process identity fabricated and no
+exact-instance event claim for this pre-Meter process. Zero functions/fits/metrics.
+
 Original independent audit exited1 at line203 of frozen `meth521_transfer_audit.py`:
 the blanket `allclose(3e-8 relative,1e-7 absolute)` test on energy columns0..13
 failed. Raw fault SHA ba79eee3693ed3feb9203a733d2f3776b01515ac27cd876622139eb0a1d4f218,
