@@ -139,7 +139,7 @@ def main(args):
         for case in spec['cases']:
             rendered=serialize(tokenizer,case['messages'],case['mode'])
             assert rendered==case['expected_text'],('render golden mismatch',case['name'])
-            canonical=tokenizer.apply_chat_template(case['messages'],tokenize=True,
+            canonical=tokenizer.apply_chat_template(case['messages'],tokenize=True,return_dict=False,
                 add_generation_prompt=case['mode']=='generate',continue_final_message=case['mode']=='continue')
             encoded=tokenizer.encode(rendered,add_special_tokens=False)
             original=raw.encode(rendered,add_special_tokens=False).ids
@@ -151,6 +151,7 @@ def main(args):
                 source_Rust_pre_tokenizer=json.loads(raw.pre_tokenizer.__getstate__()),
                 canonical_matches_encoded=canonical==encoded,canonical_matches_source=canonical==original,
                 source_matches_independent=original==independent)
+            assert type(canonical) is list and all(type(t) is int for t in canonical),'canonical ID container'
             assert canonical==encoded==original==independent,('token-ID mismatch',case['name'])
             assert all(0<=t<151936 for t in canonical) and canonical[0]==151644
             decoded=tokenizer.decode(canonical,skip_special_tokens=False,clean_up_tokenization_spaces=False)
