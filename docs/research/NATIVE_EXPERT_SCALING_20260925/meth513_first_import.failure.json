@@ -1,0 +1,39 @@
+{
+  "original_tool_chunk": "dc2e28",
+  "tool_wall_seconds_including_commit": 2.5328629,
+  "exit_code": 1,
+  "fault": "ModuleNotFoundError: meth513_operations under Python -I before context/NumPy/numerical work",
+  "exact_PID_peak_seconds": "unavailable before apparatus construction",
+  "numerical_model_native_source_calls": 0,
+  "outputs_before_fault": 0,
+  "derivations": [
+    {
+      "source": "benchmarks\\native_expert_scaling\\meth513_operations.py",
+      "source_sha256": "57a4d603bf7a6acfe2fe397e2eb6ef50e6c7d4dd092c0de399ab669b1fd1af31",
+      "destination": "benchmarks\\native_expert_scaling\\meth513_r1_operations.py",
+      "destination_sha256": "3cafc03825e680cbd427ff29b4ee0d7dc8ff2798945b77dda7d34e7574315641",
+      "scope": "local import path/name/binding and conservative remaining177s only; all index/certificate/criteria mathematics byte-preserved"
+    },
+    {
+      "source": "benchmarks\\native_expert_scaling\\meth513_prepare_binding.py",
+      "source_sha256": "48cfb86cc4e99475719a3b4a3ef67396ea098c3e3f9ad04bbc292a31046cfa2b",
+      "destination": "benchmarks\\native_expert_scaling\\meth513_r1_prepare_binding.py",
+      "destination_sha256": "04ed6191aa3ae19adc76566287f93444f9c515cdec1b8f5fe86e8ee524f812a2",
+      "scope": "local import path/name/binding and conservative remaining177s only; all index/certificate/criteria mathematics byte-preserved"
+    },
+    {
+      "source": "benchmarks\\native_expert_scaling\\meth513_index_main.py",
+      "source_sha256": "ce0c82bc58a4b34834567d8967066a28d29d7f39294600014eaa970bd2a7fc33",
+      "destination": "benchmarks\\native_expert_scaling\\meth513_r1_index_main.py",
+      "destination_sha256": "5fe95bc55197f7bffeaca3efb36582a5aa637c5124286fd60141cba15e947213",
+      "scope": "local import path/name/binding and conservative remaining177s only; all index/certificate/criteria mathematics byte-preserved"
+    },
+    {
+      "source": "benchmarks\\native_expert_scaling\\meth513_index_audit.py",
+      "source_sha256": "c656f8d6c1b81ae43a356ccaff4c06791a6eb7436db63de4bcf3eb6c0448cf31",
+      "destination": "benchmarks\\native_expert_scaling\\meth513_r1_index_audit.py",
+      "destination_sha256": "d8d6ad39100b84b32ef78238e78ee2d931c03db5fb3e19f57aeb8fead38a4a9a",
+      "scope": "local import path/name/binding and conservative remaining177s only; all index/certificate/criteria mathematics byte-preserved"
+    }
+  ]
+}
