@@ -1,0 +1,30 @@
+{"stage": "imports", "phase": "before_numpy_torch_HF_imports"}
+{"stage": "imports", "phase": "runtime_and_GPU_ready"}
+{"stage": "original_model_load", "phase": "before_source_decode"}
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 7905.76it/s]
+{"stage": "capture", "phase": "before_first_source_forward"}
+{"id": "arithmetic_0", "split": "fit", "captured_rows": 141, "resource": {"elapsed_seconds": 31.04700000002049, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1017582080, "GPU_peak_reserved": 1069547520}}
+{"id": "arithmetic_1", "split": "fit", "captured_rows": 147, "resource": {"elapsed_seconds": 51.90600000001723, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "arithmetic_2", "split": "development", "captured_rows": 140, "resource": {"elapsed_seconds": 68.85900000002584, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "algebra_0", "split": "fit", "captured_rows": 141, "resource": {"elapsed_seconds": 88.01500000001397, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "algebra_1", "split": "fit", "captured_rows": 147, "resource": {"elapsed_seconds": 106.14000000001397, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "algebra_2", "split": "development", "captured_rows": 142, "resource": {"elapsed_seconds": 124.17200000002049, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "geometry_0", "split": "fit", "captured_rows": 143, "resource": {"elapsed_seconds": 143.14000000001397, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "geometry_1", "split": "fit", "captured_rows": 141, "resource": {"elapsed_seconds": 158.98400000002584, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "geometry_2", "split": "development", "captured_rows": 142, "resource": {"elapsed_seconds": 176.875, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1019204096, "GPU_peak_reserved": 1071644672}}
+{"id": "logic_0", "split": "fit", "captured_rows": 137, "resource": {"elapsed_seconds": 191.7970000000205, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "logic_1", "split": "fit", "captured_rows": 152, "resource": {"elapsed_seconds": 210.18700000000536, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "logic_2", "split": "development", "captured_rows": 143, "resource": {"elapsed_seconds": 226.57800000000861, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "python_0", "split": "fit", "captured_rows": 143, "resource": {"elapsed_seconds": 244.03100000001723, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "python_1", "split": "fit", "captured_rows": 140, "resource": {"elapsed_seconds": 262.5, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "python_2", "split": "development", "captured_rows": 146, "resource": {"elapsed_seconds": 279.48400000002584, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+{"id": "code_debug_0", "split": "fit", "captured_rows": 143, "resource": {"elapsed_seconds": 297.53100000001723, "OS_peak_snapshot": 1680101376, "GPU_peak_allocated": 1020826112, "GPU_peak_reserved": 1071644672}}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_capture.py", line 200, in <module>
+    main(parser.parse_args())
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_capture.py", line 164, in main
+    guard()
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_capture.py", line 52, in guard
+    assert z['elapsed_seconds']<=300 and z['OS_peak_snapshot']<=12<<30,'worker deadline/RSS budget'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: worker deadline/RSS budget

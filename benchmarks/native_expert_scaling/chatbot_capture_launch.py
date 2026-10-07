@@ -105,7 +105,7 @@ def main(args):
         guard();assert p.returncode==0,log.read_text(errors='replace')
         raw=json.loads(args.out.read_bytes())
         assert raw['process_instance']['pid']==p.pid and abs(raw['process_instance']['create_time_unix']-r['worker_instance']['create_time_unix'])<.002
-        assert raw['decision']=='ORIGINAL_SOURCE_CALIBRATION_AVAILABLE_NOT_CONVERTER_QUALIFIED' and all(raw['gates'].values())
+        assert raw['decision']=='ORIGINAL_SOURCE_CALIBRATION_BATCH_AVAILABLE_NOT_CONVERTER_QUALIFIED' and all(raw['gates'].values())
         for case in raw['conversations']:
             assert sha(case['binary_path'])==case['binary_SHA256'] and sha(case['journal_path'])==case['journal_SHA256']
         binding_check(b);preserved();guard()

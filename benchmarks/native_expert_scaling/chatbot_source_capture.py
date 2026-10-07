@@ -93,6 +93,15 @@ def main(args):
         source=Path(b['source_directory'])
         print(json.dumps(dict(stage=stage,phase='runtime_and_GPU_ready')),flush=True)
         spec=manifest();r['manifest']=spec
+        adopted=json.loads(Path(b['adoption_path']).read_bytes())
+        assert adopted['schema']=='QWEN_ORIGINAL_FORWARD_PREFIX_ADOPTION_V1' and adopted['all_saved_frame_bytes_and_alignment_qualified']
+        assert sha(b['adoption_path'])==b['adoption_SHA256']
+        r['conversations']=adopted['cases']
+        seen={case['id'] for case in adopted['cases']}
+        selected=[case for case in spec['cases'] if case['id'] not in seen][:8]
+        assert selected,'No missing case may be replayed'
+        r['selected_new_case_ids']=[case['id'] for case in selected]
+        r['gates']['retained_source_prefix_byte_adoption']=True
         tokenizer=AutoTokenizer.from_pretrained(source,local_files_only=True,trust_remote_code=False)
         stage='original_model_load'
         print(json.dumps(dict(stage=stage,phase='before_source_decode')),flush=True)
@@ -121,8 +130,9 @@ def main(args):
         guard();stage='capture'
         print(json.dumps(dict(stage=stage,phase='before_first_source_forward')),flush=True)
         total_bytes=0
+        retained_payload_bytes=sum(case['binary_bytes']-24 for case in adopted['cases'])
         with torch.inference_mode():
-            for case in spec['cases']:
+            for case in selected:
                 current=dict(id=case['id'],split=case['split'],category=case['category'],mode=case['mode'],
                     messages=case['messages'],frames=[],generated_ids=[])
                 r['pending_conversation']=current
@@ -151,11 +161,13 @@ def main(args):
                         assert bits.dtype==np.dtype('<u2') and bits.flags.c_contiguous and bits.shape==(len(input_ids),24,2,896)
                         assert not ((bits & 0x7fff)>=0x7f80).any(),'nonfinite captured original operand'
                         raw=bits.tobytes(order='C')
-                        assert total_bytes+len(raw)<=2<<30,'capture output cap'
+                        assert retained_payload_bytes+total_bytes+len(raw)<=2<<30,'aggregate calibration payload cap'
                         row=dict(step=step,input_ids=input_ids,shape=list(bits.shape),dtype='<u2 BF16 bits',order='C',
                             offset=stream.tell(),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),next_id=next_id)
-                        stream.write(raw);stream.flush();os.fsync(stream.fileno())
-                        log.write((json.dumps(row,separators=(',',':'))+'\n').encode('utf8'));log.flush();os.fsync(log.fileno())
+                        stream.write(raw);stream.flush()
+                        log.write((json.dumps(row,separators=(',',':'))+'\n').encode('utf8'));log.flush()
+                        if (step+1)%16==0:
+                            os.fsync(stream.fileno());os.fsync(log.fileno())
                         total_bytes+=len(raw);current['frames'].append(row);current['generated_ids'].append(next_id)
                         stopped=terminate_generated(current['generated_ids'],spec['EOS'],spec['max_new_tokens'])
                         cache=result.past_key_values
@@ -164,6 +176,7 @@ def main(args):
                         guard()
                         if stopped['termination'] in ('eos','length'):break
                         input_ids=[next_id]
+                    os.fsync(stream.fileno());os.fsync(log.fileno())
                 current.update(binary_path=str(binary),binary_SHA256=sha(binary),binary_bytes=binary.stat().st_size,
                     journal_path=str(journal),journal_SHA256=sha(journal),
                     accepted_generated_ids=stopped['accepted_ids'],termination=stopped['termination'],
@@ -175,10 +188,12 @@ def main(args):
                 print(json.dumps(dict(id=case['id'],split=case['split'],captured_rows=current['captured_rows'],resource=resource())),flush=True)
                 del cache;current=None
         for hook in hooks:hook.remove()
-        assert len(r['conversations'])==48 and sum(c['split']=='fit' for c in r['conversations'])==32
-        assert sum(c['split']=='development' for c in r['conversations'])==16
-        r['gates']['all_frozen_original_conversations_captured']=True
-        r.update(capture_payload_bytes=total_bytes,decision='ORIGINAL_SOURCE_CALIBRATION_AVAILABLE_NOT_CONVERTER_QUALIFIED',
+        assert len(r['conversations'])==len(adopted['cases'])+len(selected)
+        assert all(identifier in {c['id'] for c in r['conversations']} for identifier in r['selected_new_case_ids'])
+        r['gates']['all_selected_PREVIOUSLY_UNENTERED_cases_captured']=True
+        r.update(capture_payload_bytes_new_batch=total_bytes,capture_payload_bytes_total=retained_payload_bytes+total_bytes,
+            decision='ORIGINAL_SOURCE_CALIBRATION_BATCH_AVAILABLE_NOT_CONVERTER_QUALIFIED',
+            original_ALL48_300s_producer_qualified=False,calibration_case_coverage=len(r['conversations']),
             resource_before_final_serialization=resource(),ended_compute_utc=dt.datetime.now(dt.timezone.utc).isoformat(),
             runtime=dict(torch=torch.__version__,transformers=transformers.__version__,tokenizers=tokenizers.__version__,numpy=np.__version__,
                 dtype='BF16 source eager attention; capture exact original operand bits',TF32=False,gpu=torch.cuda.get_device_name()))
