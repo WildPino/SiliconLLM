@@ -1,0 +1,31 @@
+{
+  "kind": "rare_gate",
+  "started_utc": "2026-10-07T11:48:25.867136+00:00",
+  "process_instance": {
+    "pid": 31496,
+    "create_time_unix": 1791373705.3501828
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_rare_gate.py",
+    "--manifest-sha",
+    "7bb1ae1403eefc72c54288603776a7920bf9821832769c634bb7f1d2a60328d2",
+    "--freeze",
+    "7f426321cb62e7fcfe5fae13b6563211195ff56f"
+  ],
+  "gates": {},
+  "new_model_native_capture_calls": 0,
+  "scope": "Retained single-bank logical screen, not latency, DRAM or fresh quality.",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_io_repair4.py\", line 34, in __init__\n    assert Path(v['path']).stat().st_size == v['bytes'] and self.digest(v['path']) == v['sha256'], v['path']\n                                                            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_operations.py\", line 136, in digest\n    self.guard()\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_rare_gate.py\", line 18, in guard\n    super().guard()\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_io_repair4.py\", line 49, in guard\n    assert self.peak + self.compiler_peak <= self.memory and time.monotonic() - self.start <= self.seconds\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "resource": {
+    "seconds": 120.03099999998813,
+    "OS_peak_bytes": 61046784,
+    "compiler_family_peak_bytes": 0,
+    "parent_plus_compiler_peak_bound": 61046784,
+    "bytes_hashed": 235885406,
+    "limits": [
+      120,
+      536870912
+    ]
+  },
+  "partial_outputs": []
+}
