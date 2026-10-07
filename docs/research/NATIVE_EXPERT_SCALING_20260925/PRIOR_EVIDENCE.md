@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**7 October entire chatbot operator census:** [result](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md).
+Actual Qwen/Giga source name/shape/dtype/offset and independent byte/MAC
+conservation; all725 existing Qwen archive fields match frozen C catalog.
+Qwen matrix terms493.96M source ->508.09M current; logical coefficient budget
+988.1->709.5MB, ALL4864 features/full BF16 head still active. Giga main1.628B
+matrix terms,650M attention/779M FFNs; main10.673B named elements/MTP.807B.
+Local MLA backend caches EXPANDED K/V; latent cache is unimplemented here.
+Original source/protocol/binding frozena23514a before new counts; Qwen exit0,
+first Giga cap fault exit1/lost counts+actor, compact repair53ed04b exit0.
+Failed Giga metadata repeated explicitly; completed Qwen/native/model science
+not replayed. Zero tensor values/model/C calls. Final whole-job OS peaks remain
+UNKNOWN, raw pre-serialization snapshots28.6/34.6MB; no resource retro-admission.
+Known two actors closed/typed UTC zero faults; first failed actor UNKNOWN.
+Current next [canonical interaction then finite compact converter](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md)
+supersedes previous census proposal. Joint nonlinear full-input shared+conditional
+SwiGLU family remains UNTRAINED; old310/311/316 fixed spaces/297/528 stay closed.
+No compact whole chat quality+accepted50, larger useful n or physical DRAM proof.
+
 **7 October necessary528 closure:** [result](METH_528_NECESSARY_GATE_RESULT_20261007.md).
 FIRST scalar C1674 prefix responses/I64/A16 BYTE, exact ALL35080 source energies
 and prefix errors independently audited. Lower-bound inquiry inconclusive.

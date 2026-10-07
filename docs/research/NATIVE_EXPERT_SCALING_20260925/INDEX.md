@@ -40,6 +40,15 @@ template absent, producer GGUF candidate present. No rendering/ID parity yet.
 Both use SwiGLU; recent ReLU omission/fold results do not automatically transfer.
 The tool exposes missing stages and always reports pipeline NOT QUALIFIED.
 
+New [whole operator census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md) binds
+ALL actual source names/shapes/bytes and725 existing Qwen C descriptors. Qwen
+matrix terms493.96M source ->508.09M current archive despite lower coefficient
+byte budget; ALL4864 FFN features/full BF16 head remain active. Giga main1.628B
+matrix terms includes650M attention/779M FFNs, plus context attention. Local
+MLA code caches EXPANDED K/V, not latent KV. First Giga output-cap fault retained;
+compact repair succeeds, zero values/inference. Final whole-job OS peaks UNKNOWN
+(raw snapshots before serialization). No quality/rate/compact admission.
+
 ## Latest decisive evidence
 
 [528 necessary rejection](METH_528_NECESSARY_GATE_RESULT_20261007.md): FIRST scalar
@@ -97,15 +106,15 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [chatbot SwiGLU/operator contract](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md).
-Implement/freeze NEW static full core/head/router/cache/active-cost census and
-source->existing276/284 artifact/operator mapping for actual Qwen/Giga. Reuse
-retained preflight/header evidence; no completed source/inference/metric replay.
-Choose a priced family-specific compact transformation, bind canonical role/
-history/tokenizer/BOTH Qwen EOS fixtures before NEW whole dialogue/task quality.
-No census/fixtures/new conversion code or observations yet.528 necessary failure
-is certified: stop its full numerical continuation. No further geometry
-precision ladder or unchanged297 promotion.
+**First action:** [canonical interaction then compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md).
+Implement/freeze offline Qwen canonical role/history/assistant-continuation/
+token-ID/BOTH EOS fixtures, source-qualified renderer/tokenizer, no model calls.
+Then choose ONE finite whole shared+conditional nonlinear SwiGLU converter
+trial replacing the active source FFN; price head/attention/router/cache jointly.
+Census is implemented/executed; reuse its ledgers without replay. Fixtures and
+compact conversion remain missing. Preserve closed310/311/316 independent
+output-space fields,297 semantics and528 single-anchor failure; no precision
+ladder, revived donor-port NEXT or inference to fill metadata resource gaps.
 Original528 main failure FALSE; consumed cohort not fresh chat quality.18 geometry
 queries deferred; no failed524 export/fallback or revived donor-port NEXT.
 
@@ -129,5 +138,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
-[SwiGLU/operator NEXT](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md)
+[canonical compact NEXT](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md)
 supersede all older operational NEXTs.

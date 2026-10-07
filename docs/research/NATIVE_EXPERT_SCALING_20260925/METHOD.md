@@ -61,12 +61,28 @@ prefix itself inconclusive. C hidden-buffer layout corrected by view ONLY,
 no response/control/source replay. Other528 metrics UNKNOWN, resource FALSE.
 The available necessary-rejection method does not constitute a CHATBOT converter.
 
-Next [SwiGLU/operator contract](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md):
-NEW static full core/head/router/cache cost census, actual source->Qwen276/284
-artifact mapping and priced family-specific transformation. Reuse retained
-preflight/header evidence, bind role/history/token IDs/BOTH Qwen EOS before
-NEW whole native dialogue/task quality. No census/fixtures/converter implemented
-yet. Every Python->C output must be explicitly C-contiguous as well as inputs.
+Reusable [operator census](../../../benchmarks/native_expert_scaling/chatbot_operator_census.py)
+and [result/protocol](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md) are AVAILABLE:
+bound actual Qwen/Giga source headers and complete725-field Qwen archive/C
+mapping, exact names/shapes/dtypes/bytes and independent MAC conservation.
+No tensor values/inference. Matrix terms493.96M source Qwen ->508.09M current
+archive, coefficient budget988.1->709.5MB. Giga main1.628B terms includes650M
+attention/779M FFNs, plus context attention. The local MLA implementation caches
+expanded K/V; compressed latent cache is an unimplemented backend alternative.
+Source cache dtype remains unobserved, C Qwen is actual float32 storage.
+Named elements include buffers/copies; logical bytes are not physical DRAM.
+First Giga report-cap fault retained; compact serialization repair completes
+accounting. Final whole-process OS peaks UNKNOWN; raw snapshots precede final
+serialization. No retrospective complete resource/pipeline admission.
+
+Next [canonical interaction and compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md):
+bind actual offline role/history/assistant continuation/token IDs/BOTH Qwen EOS
+fixtures, then select ONE finite jointly learned shared+conditional SwiGLU
+converter replacing the active source FFN. Price complete head/attention/router/
+cache, retain full x initially as conditional function input. Old independent
+PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
+Fixtures/compact converter/fresh whole chat quality+rate remain MISSING.
+Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault
 
@@ -484,7 +500,8 @@ fault/partials before a numbered repair.
 
 After LOCAL function AND control eligibility:
 
-1. Recover476 composed last-layer behavior and all actual banks.
+1. Build/export the first complete compact Qwen artifact with canonical chat
+   contract, new bound native profile and source-relative operator checks.
 2. Evaluate evolving own-state prediction, fresh excluded generation/tasks
    against the donor;477-R1 shows local FFN RMS can still change head argmax.
 3. Integrate the eligible whole candidate into the engine; verify full state/
@@ -495,8 +512,8 @@ After LOCAL function AND control eligibility:
    removal/permutation interventions and preserved fresh quality.
 6. Demonstrate actual other family/scale variants and resource prerequisites.
 
-These stages are missing for the current transformed candidate.489's original
-warm CPU128 positive rate belongs to its source artifact; synthetic/sandbox/
+These stages are missing for a compact CHATBOT candidate.511's bounded infilling
+quality/warm50 and489's original source rate retain their scopes. Synthetic/
 component rates and header-only large models do not qualify this return path.
 
 ## Resources, continuity and records
