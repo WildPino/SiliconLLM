@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;519 closed;520 source-information eligibility
+## Current resumption:511 baseline;520 plan eligible;521 new source information
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -123,15 +123,22 @@ Index65.54MB,main29.359s/301.1MB,audit26.735s/288.3MB; all3 instances closed,
 no faults/replays/full source-function/model/native calls. Exact physical inverse
 and capacity are qualified; possible counts are not sound masks.
 
-[Selected520](METH_520_SOURCE_INFORMATION_ELIGIBILITY_NEXT_20261007.md) returns to
-499's deferred source-information question at fixed r512 active geometry. First
-recover/price/freeze a complete DEVELOPMENT-only pooled-rank/complement manifest,
-positive exact rank certificates and numerical stability audit. No new source
-response until eligible; no520 code/binding/results.475's progressive4bit filter
-is already closed.519's local-basis failure does not resolve499's missing readout
-directions or refute approximate transfer. Known routing/mass failures remain.
-Compact core/useful larger n,whole quality+rate,CPU LUT winner AND mass,real DRAM
-and actual families/~100B remain required.
+[520 result](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md) implements
+the fixed DEVELOPMENT-only complement plan: pooled real rank513,ALL128 augmented
+positive minors,53943 ordered counterfactual source pairs. Main5/audit6/admission5
+and ALL4 rank/stability gates PASS; global condition306.954,worst34140.063,
+minimum new relative innovation.034157. Main187.250s/363.7MB,audit78.157s/473MB,
+all3 terminal,no faults/replays/source-response/readout/model/native calls.
+Query independence/stability is qualified; function preservation is not.
+
+[Selected521](METH_521_SOURCE_RESPONSES_AND_FIXED_CLASS_NEXT_20261007.md) will first
+recover/price the complete original native response/augmented readout/I8/C/
+independent reconstruction pipeline,then freeze before any new label. Change
+source information at fixed r512/A/L0/quantizers/Kreg/codec; no consumed fitting
+or manifest reselection. No521 code/binding/response/fit. Current495 routing/mass
+failure remains separate; source-mass oracle alone cannot promote the candidate.
+475's progressive4bit filter stays closed. Compact core/useful larger n,whole
+quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 
 ### Retained preceding500
 

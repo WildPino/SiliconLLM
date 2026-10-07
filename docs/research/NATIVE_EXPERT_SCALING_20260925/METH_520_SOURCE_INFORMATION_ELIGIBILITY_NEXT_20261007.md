@@ -1,8 +1,9 @@
 # Selected520: source-information eligibility at fixed active geometry
 
-7 October2026. PROPOSED, no520 source/protocol/binding/numerical observation or
-response query.519 completed main5/audit6/admission5 PASS but1/5 economics;
-fixed local matched32 recipe closed. Goal ACTIVE/INCOMPLETE.
+7 October2026. HISTORICAL proposal, completed and superseded by
+[520 result](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md) and
+[selected521](METH_521_SOURCE_RESPONSES_AND_FIXED_CLASS_NEXT_20261007.md).
+The remaining text describes the original pre-execution proposal. Goal incomplete.
 
 ## Why change the next question
 

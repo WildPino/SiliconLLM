@@ -58,7 +58,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:519 local geometry closed;520 source-information eligibility
+## Current resumption:520 complement plan eligible;521 new source responses/fit
 
 [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
 14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
@@ -118,19 +118,27 @@ recipe CLOSED before actual-angle/C work. Rare3/19 queries have zero potential.
 Index65,538,080B,main29.359s/301.1MB,audit26.735s/288.3MB; no faults/replays/
 full source/model/native calls; all3 instances terminal, foreign bytes preserved.
 
-**First action520:** [source-information eligibility](METH_520_SOURCE_INFORMATION_ELIGIBILITY_NEXT_20261007.md):
-return to499's UNEXECUTED dev-only complement-query plan. Recover fixed r512
-feature/dyadic/modular interfaces; price/freeze complete pooled-rank/complement
-manifest and independent stability/positive-certificate audit before numerics.
-Pooled dev rank is unmeasured;27703..53943 additional source pairs are conditional
-counts, not acquired labels. No520 code/binding/observations/job.475 already
-closed progressive4bit sign refinement; no rerun. Routing/mass remain unresolved.
+[520 result](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md): dev pooled
+real rank EXACT513; ALL128 augmented positive minors and53943 dev-only new
+input/expert pairs independently verified. Main5/audit6/admission5 and ALL4
+rank/stability gates PASS. Global condition306.954,worst parent34140.063,
+minimum new relative innovation.034157. Main187.250s/363.7MB,audit78.157s/473MB,
+combined7.08MB; all3 terminal,no faults/replays/source-response/readout/model/C
+calls. This is query-plan eligibility, not fitted functions or quality/rate.
+
+**First action521:** [source responses and fixed-class test](METH_521_SOURCE_RESPONSES_AND_FIXED_CLASS_NEXT_20261007.md):
+recover original qualified native WI/WO/C pair-input and499 fit/export contracts;
+price ALL53943 new responses/full augmented fit/I8/native evaluation/independent
+reconstruction buffers and output/child costs. Freeze ONE complete protocol
+before acquiring any label.520 manifest immutable, r512 active geometry fixed,
+no consumed fit/query reselection. No521 code/binding/response/fit. Routing/mass,
+all-bank/fresh whole quality AND50/s/useful-n/LUT/DRAM remain unresolved.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through519 terminal; three foreign tracked
+All completed scientific namespaces through520 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures

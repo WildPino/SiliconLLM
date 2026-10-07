@@ -1,5 +1,15 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after520:** [source-information eligibility](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md)
+certifies dev pooled real rank513 and ALL128 augmented minors with53943 ordered
+new counterfactual dev pairs. Main5/audit6/admission5 and ALL4 rank/stability
+gates PASS; global condition306.954,worst34140.063,min relative innovation.034157.
+Main187.250s/363.7MB,audit78.157s/473MB,all3 closed,no faults/replays/source-
+response/readout/model/native calls. Plan does not prove function quality.
+Select [521 new source responses and fixed-class test](METH_521_SOURCE_RESPONSES_AND_FIXED_CLASS_NEXT_20261007.md):
+recover/price full original function/fit/I8/native/audit contracts before one
+protocol and first label. No521 implementation/response/fit; goal incomplete.
+
 **7 October after519:** [local matched geometry](METH_519_MATCHED_LOCAL_ENERGY_RESULT_20261007.md)
 implements ALL128 dev-only rank32/S256 normalized WI/query dictionaries and
 exact necessary capacity. Main5/audit6/admission5 PASS; natural ideal possible

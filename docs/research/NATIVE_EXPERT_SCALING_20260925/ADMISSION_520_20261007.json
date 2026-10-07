@@ -1,0 +1,183 @@
+{
+  "experiment": "METH520",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all5_main_development_geometry_full_manifest_controls": true,
+    "all6_independent_Fraction_minor_QR_tail_query_plan_controls": true,
+    "actual_exit0_three_instances_closed_and_typed_UTC_zero_faults": true,
+    "foreign_dictionary_stat_empty_cache_and_resource_limits_preserved": true,
+    "ALL_development_rank_stability_eligibility_decision_unchanged": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth520_binding.json",
+    "bytes": 412574,
+    "sha256": "abcabcd44e8adc2e8dce79300663fccbbe1ca3aadfd70e3a1bfa41ff1a2e128a"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth520_main_result.json",
+    "bytes": 1586463,
+    "sha256": "5803e189f57d90e3c78695cdbdede9a3ea25ed18a5cbfa48e83bbdc558f4f43b"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth520_audit_result.json",
+    "bytes": 3560,
+    "sha256": "8c67ded99b65ff1f9e4b48be1e93c3edcfe7326f4aa6a60968928184b07ed5fb"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_520_20261007.json",
+    "bytes": 6694,
+    "sha256": "a99d304f35d053a63601b50570e69757ea7fcfc42e93cbbda9058ac8ac0a2a21"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth520_windows_terminal.json",
+    "bytes": 4460,
+    "sha256": "201c8752921716380a94ad626db5985e30393a7ac2fa0669db906f12d956427e"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 29636,
+        "create_time_unix": 1791343211.8388035
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 30964,
+        "create_time_unix": 1791343226.7063255
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 29160,
+        "create_time_unix": 1791343435.937142
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "tool_chunk_id": "288802",
+      "exit_code": 0
+    },
+    {
+      "kind": "main",
+      "tool_chunk_id": "333dc6",
+      "exit_code": 0
+    },
+    {
+      "kind": "audit",
+      "tool_chunk_id": "2c0755",
+      "exit_code": 0
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth520_binding_resource.json",
+        "bytes": 380,
+        "sha256": "33964e8dfb2941e1a6cd938c8eac883cfa86945b0dec0af97cf19a699bd0d1fb"
+      },
+      "resource": {
+        "binding_sha256": "abcabcd44e8adc2e8dce79300663fccbbe1ca3aadfd70e3a1bfa41ff1a2e128a",
+        "process_instance": {
+          "pid": 29636,
+          "create_time_unix": 1791343211.8388035
+        },
+        "seconds": 3.5309999999881256,
+        "OS_peak_bytes": 56737792,
+        "bytes_hashed": 210955840,
+        "limits": [
+          180,
+          536870912
+        ],
+        "ended_utc": "2026-10-07T03:20:15.862022+00:00"
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth520_geometry\\terminal_resource.json",
+        "bytes": 413,
+        "sha256": "fe488f8d9c8e88f02d3e1f13927730529a99f7583d7ccaf5ee24c5f2262fe9cb"
+      },
+      "resource": {
+        "result_sha256": "5803e189f57d90e3c78695cdbdede9a3ea25ed18a5cbfa48e83bbdc558f4f43b",
+        "process_instance": {
+          "pid": 30964,
+          "create_time_unix": 1791343226.7063255
+        },
+        "ended_utc": "2026-10-07T03:23:34.474241+00:00",
+        "seconds": 187.25,
+        "OS_peak_bytes": 363728896,
+        "bytes_hashed": 217797772,
+        "limits": [
+          900,
+          1610612736
+        ],
+        "output_bytes_before_terminal": 5054619
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth520_audit\\terminal_resource.json",
+        "bytes": 417,
+        "sha256": "a7ce31a81ba0f20d4b897b6c3f8fd93cf773620c69759fc9b681c9145bc03397"
+      },
+      "resource": {
+        "result_sha256": "8c67ded99b65ff1f9e4b48be1e93c3edcfe7326f4aa6a60968928184b07ed5fb",
+        "process_instance": {
+          "pid": 29160,
+          "create_time_unix": 1791343435.937142
+        },
+        "ended_utc": "2026-10-07T03:25:14.650584+00:00",
+        "seconds": 78.15700000000652,
+        "OS_peak_bytes": 473014272,
+        "bytes_hashed": 217801332,
+        "limits": [
+          900,
+          1610612736
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "pooled_real_rank_lower_bound": 513,
+      "pooled_real_rank_upper_bound": 513,
+      "new_pairs_in_manifest": 53943,
+      "parents": 128
+    },
+    "stability": {
+      "global_condition2": 306.9541472749178,
+      "maximum_parent_condition2": 34140.06286516181,
+      "minimum_new_relative_innovation": 0.03415697542602188
+    }
+  },
+  "eligibility": {
+    "pooled_full513_real_rank_positive_certificate": true,
+    "ALL128_augmented_full513_real_rank_positive_certificates": true,
+    "global_AND_ALL128_condition2_le1e6": true,
+    "global_AND_ALL128_new_relative_innovation_ge1e-6": true
+  },
+  "source_response_plan_eligible": true,
+  "decision": "ELIGIBLE_FOR_SEPARATELY_FROZEN_SOURCE_RESPONSES",
+  "new_model_native_capture_calls": 0,
+  "mathematical_main_and_independent_audit_runs": [
+    1,
+    1
+  ],
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Dev-only pooled rank513 and ALL128 stable complement query manifests. Main5/audit6 and terminal admission PASS; four frozen rank/stability gates retained. No source-response function calls, readout fits, native/model calls, quality/rate, DRAM, all-bank/large n or goal completion."
+}
