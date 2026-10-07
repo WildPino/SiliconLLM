@@ -58,7 +58,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:515 exact/gap closed;516 current-query WI certificate
+## Current resumption:516 exact/price closed;517 shared-subspace algebra/price
 
 [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
 14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
@@ -86,18 +86,25 @@ Main25.047s/1.390GB conservative parent+child peak; completed audit15.593s/44MB,
 31.186s including pre-math fault. Cold full-payload binding/receipt-label faults
 retained and explicitly repaired, no native/main replay. All10 instances closed.
 
-**First action516:** [64-coordinate WI certificate](METH_516_DIRECTIONAL_WI_NEXT_20261007.md):
-recover actual504 M499INP1 original A16 QUERY inputs and source380 bank11 WI
-extents/roles;513's codes are OUTPUT codes. Verify original128 single-bank
-contracts, then freeze one exact partial current-query dot/residual-energy row
-filter, ALL17540 UIDs and logical gates, independent physical/byte audit. No
-centres, K grid or fitted partial-function variant. No516 code/observations/job.
+[516 result](METH_516_DIRECTIONAL_WI_RESULT_20261007.md): original QUERY input
+roles/source380 bank11 fixed64 dictionaries are implemented; ALL17540 hidden/
+max/scale/A16 bytes exact. All5 main/6 independent I64 physical audit/5 admission
+controls PASS. Natural mean logical ratio1.047572,p95 1.094199, ALL64 book means
+>1;1/5 economic gates PASS, fixed recipe CLOSED before C. Only parents25/37
+certify rows; natural mean remaining2928.76/3072. Index28,327,960B. Main5.656s/
+501.7MB, audit22.500s/543.5MB; all3 instances terminal, no faults/replays.
+
+**First action517:** [shared rank32 query subspace](METH_517_SHARED_QUERY_SUBSPACE_NEXT_20261007.md):
+derive/price ONE sound physical coefficient/radius/roundoff format, including
+actual stored basis Gram defect and query transform. Then freeze a dev-only
+shared-basis screen on ALL17540 if admissible. Changed directional information,
+not another coordinate k grid. No517 source/export/binding/observation/job.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through515 terminal; three foreign tracked
+All completed scientific namespaces through516 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures

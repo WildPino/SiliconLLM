@@ -1,5 +1,16 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after516:** [fixed64 current-query filter](METH_516_DIRECTIONAL_WI_RESULT_20261007.md)
+implements physical original bank11 dictionaries and exact U64 certificates;
+ALL17540 hidden/max/scale/A16 bytes preserved. Main5/audit6/admission5 PASS,
+ALL128 physical inverse and53,882,880 independent I64 prefix cells verified.
+Natural logical mean1.047572,p95 1.094199, ALL64 book means>1;1/5 economics
+PASS, THIS fixed64 recipe CLOSED before C. Main5.656s/501.7MB,audit22.500s/
+543.5MB,all3 instances terminal,no faults/replays. Select [517 shared-input
+subspace algebra/price](METH_517_SHARED_QUERY_SUBSPACE_NEXT_20261007.md), no
+implementation/observation. Actual stored Gram/arithmetic error and transform
+cost must be resolved before one dev-only rank32 screen. Goal incomplete.
+
 **7 October after515:** [encoder reuse](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md)
 implements literal365 missing batches on374 physical6 workers; ALL18 two-case
 full wires exact363. Independent source/byte/clock and terminal controls PASS.

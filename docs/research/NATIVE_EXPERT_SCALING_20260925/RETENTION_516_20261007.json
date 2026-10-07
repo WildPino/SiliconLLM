@@ -1,0 +1,109 @@
+{
+  "experiment": "METH516",
+  "input_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth516_binding.json",
+    "bytes": 753963,
+    "sha256": "fa3e2be61e9434895ff21a50e47738169dc24a55e6ae90c5f4124b8121c339a9"
+  },
+  "mathematical_main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth516_main_result.json",
+    "bytes": 89344,
+    "sha256": "85b6331703c4cc9162e9635a6c4c0ff7597cd80384f8cce5e5472d82d1203450"
+  },
+  "independent_audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth516_audit_result.json",
+    "bytes": 56781,
+    "sha256": "643ec0a2551e169b63f3b95c5695e14a034474eaf84e68330b18315bbcae5f6e"
+  },
+  "large_local_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth516_index\\omitted_masks.npy",
+      "bytes": 6735488,
+      "sha256": "06b90a1bb1e5b55c383275c924bba660e0e627adda3863c1ecc3f777442a448c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth516_index\\prefix_index.bin",
+      "bytes": 28327960,
+      "sha256": "3a3f2e27bf863a6dc67108cb043b54d77e6367d69b9a7fd2ae72d14674a3546d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth516_index\\work.npy",
+      "bytes": 280832,
+      "sha256": "b923d6f3c021f2689aca3e4b816ef00e66bc4cd6c02a36ad094de02fb753bd5f"
+    }
+  ],
+  "terminal_resource_receipts": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth516_binding_resource.json",
+        "bytes": 381,
+        "sha256": "a2d848330ddb70328fbaeafd919a70e4085a5a165a4d05d011977d900d4efd65"
+      },
+      "resource": {
+        "binding_sha256": "fa3e2be61e9434895ff21a50e47738169dc24a55e6ae90c5f4124b8121c339a9",
+        "process_instance": {
+          "pid": 10536,
+          "create_time_unix": 1791338760.0374463
+        },
+        "seconds": 10.187000000005355,
+        "OS_peak_bytes": 51433472,
+        "bytes_hashed": 1086703948,
+        "limits": [
+          180,
+          536870912
+        ],
+        "ended_utc": "2026-10-07T02:06:10.737075+00:00"
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth516_index\\terminal_resource.json",
+        "bytes": 426,
+        "sha256": "9f25b3bbe99b080fbfb063e2f600fd8d82f56957b8046b77ff97b0aa8d67bb16"
+      },
+      "resource": {
+        "result_sha256": "85b6331703c4cc9162e9635a6c4c0ff7597cd80384f8cce5e5472d82d1203450",
+        "process_instance": {
+          "pid": 17124,
+          "create_time_unix": 1791338784.0005713
+        },
+        "ended_utc": "2026-10-07T02:06:30.182979+00:00",
+        "seconds": 5.655999999988126,
+        "OS_peak_bytes": 501669888,
+        "bytes_hashed": 1122338422,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 35344280
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth516_audit\\terminal_resource.json",
+        "bytes": 405,
+        "sha256": "424adbba62a9ae39e8a486e3f7359de3f06954d564654fd41b2d712aacbb62f9"
+      },
+      "resource": {
+        "result_sha256": "643ec0a2551e169b63f3b95c5695e14a034474eaf84e68330b18315bbcae5f6e",
+        "process_instance": {
+          "pid": 31948,
+          "create_time_unix": 1791338803.511448
+        },
+        "ended_utc": "2026-10-07T02:07:06.530342+00:00",
+        "seconds": 22.5,
+        "OS_peak_bytes": 543531008,
+        "bytes_hashed": 1122395203,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "reproducibility_scope": "Exclusive original namespaces executed once; source/protocol/data SHA retained. Large outputs local, not committed binaries."
+}

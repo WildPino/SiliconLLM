@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 admitted,515 exact/gap closed;516 source WI filter
+## Current resumption:511 admitted,516 exact/price closed;517 subspace price
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -85,15 +85,24 @@ payload freshly qualified; pre-math I/O/receipt faults preserved with explicit
 binding-label correction and no C/main replay. Default engine remains preserved;
 standalone included-backend operator is a reproducible exact component.
 
-[Selected516](METH_516_DIRECTIONAL_WI_NEXT_20261007.md) returns to source-derived
-active WI geometry: a fixed64-coordinate dot of the current original A16 query
-plus exact residual-energy certificate can reject only provably nonpositive
-rows, retaining original fallback/hidden maximum/codes/mass. Recover499/504 input
-queries and actual source380 WI extents/roles before freezing. Single actual128
-decoder bank11/17540 retained UIDs, not all banks/actual256/fresh quality. No516
-code/observations; logical cost and all byte identities/physical audit must pass
-before C. Compact core/useful larger n, whole quality+rate, CPU LUT winner AND
-mass, real DRAM and actual families/~100B remain required.
+[516 result](METH_516_DIRECTIONAL_WI_RESULT_20261007.md) implements exact current
+QUERY partial64 WI/residual-energy certificates. ALL17540 original hidden/max/
+scale/A16 bytes survive; independent ALL128 physical inverse/full complementary
+norms/53,882,880 I64 prefix cells/decisions and terminal controls pass. Source
+bank11 only, fixed128 original parents/p, full fallback retained. Natural mean
+logical ratio1.047572,p95 1.094199,ALL64 consumed book means>1;1/5 economic
+gates PASS, fixed64 recipe CLOSED before C. Only parents25/37 certify rows;
+mean natural remaining2928.76/3072. Index28.33MB,main5.656s/501.7MB,audit22.500s/
+543.5MB; no faults or completed phase replay. No new model/native/corpus calls.
+
+[Selected517](METH_517_SHARED_QUERY_SUBSPACE_NEXT_20261007.md) changes directional
+information via ONE dev-derived shared rank32 input basis. First derive/price
+the actual encoded basis/projections, Gram defect and arithmetic error certificate,
+then freeze one finite screen if admissible. No517 basis/export/binding/result.
+It is an exact-fallback INPUT certificate, not the closed474 private output rank
+class or an assumed low-rank source reconstruction. Compact core/useful larger n,
+whole quality+rate, CPU LUT winner AND mass, real DRAM and actual families/~100B
+remain required.
 
 ### Retained preceding500
 

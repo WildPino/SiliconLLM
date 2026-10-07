@@ -1,6 +1,9 @@
 # Selected516: current-query64-coordinate exact WI row certificate
 
-7 October2026. PROPOSED, no516 source/binding/numeric job/observations.
+7 October2026. HISTORICAL prospective selection, now implemented/admitted:
+[516 result](METH_516_DIRECTIONAL_WI_RESULT_20261007.md). Exactness passes;
+four of five economic gates fail. This fixed64 recipe is closed before C.
+Current resumption is [517](METH_517_SHARED_QUERY_SUBSPACE_NEXT_20261007.md).
 Goal ACTIVE/INCOMPLETE.515 implements exact execution reuse, but its cost gap/
 repeat conjunction fails. Return to a changed source-derived active geometry.
 
