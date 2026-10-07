@@ -1,0 +1,1904 @@
+{
+  "experiment": "METH528_FIRST_FAULT_SEAL",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth528_binding.json",
+    "offset": 0,
+    "bytes": 4508769,
+    "sha256": "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2"
+  },
+  "original_failure": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth528_main_result.failure.json",
+    "offset": 0,
+    "bytes": 45572,
+    "sha256": "ffd1a55a824aa319b2a3ec63fad5a92dc7bd4425ed707a85e8c8a0634c9e3e42"
+  },
+  "original_main_completed": false,
+  "original_main_resource_gate": false,
+  "original_executor_exits": [
+    {
+      "kind": "binding",
+      "tool": "exec_command/write_stdin",
+      "session_id": 25967,
+      "exit_code": 0,
+      "chunk_ids": [
+        "9d27e1",
+        "a265eb"
+      ]
+    },
+    {
+      "kind": "main",
+      "tool": "exec_command/write_stdin",
+      "session_id": 61902,
+      "exit_code": 1,
+      "chunk_ids": [
+        "105129",
+        "53143d",
+        "4df291"
+      ]
+    }
+  ],
+  "original_partial_output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\continuous.npy",
+      "offset": 0,
+      "bytes": 107765888,
+      "sha256": "118934c5ea7c13bd2e357afb905541943552c4c3185ce44c1ec852a7dcf26f3b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\controls.json",
+      "offset": 0,
+      "bytes": 1576,
+      "sha256": "beab5296d566f31f64349e22f3669624070c8e44de3f8164d1255eea4e6b6d12"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\development_mask_freeze.json",
+      "offset": 0,
+      "bytes": 31128,
+      "sha256": "aa6fe6706d12d255b6b8e48cb5d28ec656bbe7095d1c08ebe7fc672db11511da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a0.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "0684ef82da6c86b2ef0cff7d1d91070998fa6c51b2d829d27822076caad2e41e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 3212,
+      "sha256": "47662d580219ce41e5ffba39d510f5b961a56a14568b9b9dbd23e2732d9a67c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a1.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "8ff5eb4b3df0ebf10ccbb2e2b30880c10695c79b82ca4fb92e84d5097e1b6476"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 3212,
+      "sha256": "09d19448e610411eabf5484095df298126d7ce71d3754c82c30626880ede4ad1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "036806af6ede2cc11c5d315758546d85630cc493f9a642e155bf8baa33d91135"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 246912,
+      "sha256": "e4481181f8817aac7feab1b07769904b8161e4b25f62f89323e5707a441994b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "b03323678a41dcab0ab737811ca1085332036c322ea7b9e38d00fe6dacc51b4e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 246912,
+      "sha256": "356489586442784773adff6b3957c57b3d9e373257b4cdcb19cdad159f745808"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a0.bin",
+      "offset": 0,
+      "bytes": 800318,
+      "sha256": "6f7233f618c79e93183e4e8bf821195dc7ca45acb5a2d8bb29dac68e79015c57"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 122140,
+      "sha256": "18aaa4f63b326416e79dc6d2ee787b02be42d33dbb6f7f3ade77267892f3ce8f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a1.bin",
+      "offset": 0,
+      "bytes": 800318,
+      "sha256": "614d88d2179aa3bc37c6df3a3335ef4eb61959ef97d693edf9ce38ba02b219a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 122140,
+      "sha256": "14e6ce96910fa4fed844ca271a66127396725e5adf571093793754a2087cea3f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "6791938fef42d8030c34e682c607514e70e0e4b905590581655c256378c97dc6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 207560,
+      "sha256": "5e60b2c98904f0e6c812f6a18db7577e2a011f5d4ab87e87ef674af7977ea371"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "3c92e8c137065a0eaeb9e4545a4b24aef0cf006e3d649bb390a8bbfb5f706642"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 207560,
+      "sha256": "8d1649d69ecbc27a7cec5663b50b1ea9056b866c93c4d2900cbd86514948e78c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5ec6d7fc7f177f5e69e7b421a1d0351ae8ccf5437ea966f22e3986afaca8c30d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 284800,
+      "sha256": "9481bebdd75b7d38990b313f841721820873a7dce23c1b293c3f5eb2a581c246"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "38e3110ca6fdc1bcef3f41fca656494b694092cec41dc0b3122669d17742831f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 284800,
+      "sha256": "64f69779515d8e0f9601dc7139ae8a945eaa9322a2fd92232b7854905da857e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "6c2e7f5083c37e2bdc693a633ccde42eb1dbd757220497d8725b0459534ec748"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 234624,
+      "sha256": "76b94e8b0c694fd53ffaa9de6b5f0557e77400076299f77d24ebffad489aabe9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ac3576564be5287e61bbb5683a286021edcd6594b4285662a2c0f207f9e5bd65"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 234624,
+      "sha256": "f2c543e01787144d2a2cd44d2644132d20a05a4e18c476c13bc2479e56dd658e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a0.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "fa4a7782bcfac3ffdc47bcb9b1898c62cbc10d78fac78dc0c7899fe236c4a2bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 107248,
+      "sha256": "596fc99f750bfc483c057fa2793ef10ac107ebebb18d7e4ac73c9a4d43956ceb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a1.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "3f4fd5ad58beab1729b8bb2cbbc2361493e0899f82579973581448c837dbe06b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 107248,
+      "sha256": "6d3f77517b15b8095503932deb9599042c4aee3552cdfcd7b867716cd19c6b00"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "c1ec3b4d1a23acadb29a5f63bd6310ea917201b5f9e33dd91783026a498a486e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 116864,
+      "sha256": "4418f6d38f48d082e1afa2f14dbd72960d5f9c11d42d1357acaaeedf75e7eddd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "e19c34e7a208a83fe57de45147d01e53eb3f81a9e0c0128ad738cae1a2177d53"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 116864,
+      "sha256": "5a0f4dbd2b67602da16f6d6257f47a41d754beffd39af427e1e6c8ef06d3d6d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "5e75721059059932a954c493c7d0d644a6df95dabd6a7d84f8c17efb2e2135bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 92468,
+      "sha256": "f29195df44a9f100602d59de60e3ce91243e8e55885a581e1d5c9f794499c567"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "9a7ff88798c206aa64276e348d230e723cf1cc9219cab8ef8affe2b396cbb0e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 92468,
+      "sha256": "98d933ee87b7e79ae5a9f2e11bce1c4d59388a2687d3ac212db3475accddfd1b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "4f444367469dec53c11a5ead03a5c8d2b5d3e4bff11068ab77ca6c0cd3072184"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 130176,
+      "sha256": "61ad898d991a241ee6736f5b5bae87c443b2055d3b0d5c0c6a7a764e2a90cc48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "b8174192b225bfcb51d568e4e85fa9c8d392f262f56a6dacfc29bdb85e063011"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 130176,
+      "sha256": "3463c82f2ac6b148c55eac801f204c072157869aa685ade594c0440f753b0436"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "e674cdddefe56add86ee68a19272732b03c682bbb0a48ec0e1e676a41a642e24"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 112768,
+      "sha256": "342f50be5a42987f2a38f7c272bccd0382fecf1b898a6584a08b5c0ce8189e8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ae092fa486c2f7efe3e8e6fa906d49516887961cfc41038db2ff163120fa8a12"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 112768,
+      "sha256": "8093974eb29c5150116c21bcece3411ce19194598703514fea7f72235bcebd2d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "75acf351ac92f702b856ec92e95ab6ec1bf0a7b09307f52499dbd451a301fba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 60544,
+      "sha256": "8b9e30a02410da05a64e26e0db8d9a95f89230b6cb95cdef47a08751931172a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "dadee13dc960576fc85c8ca671596f5440fce9f51eb41be396235cfd96b70e23"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 60544,
+      "sha256": "2db32c46bd0e409d7cb0b26cf967564c932dcc618f000575f77f1b301fea1148"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "b051d0939adaee8c84c8408e365b1ad144d0b838734d03927c572a39002fdfc1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a0_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 159158,
+      "sha256": "93ad0ed62eaee5d3081d6d37a12772783b1a74468215d50dc3add753af796b13"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "08671ecbb190b723ced2c6ff0cd2b53168c8612ec174ce307bfd6636973e2f59"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a1_hidden_codes.npy",
+      "offset": 0,
+      "bytes": 159158,
+      "sha256": "b14eb2b17cc1535811711dca9b94dc0e4fc583d43795f8e5a425c8d55a8c2c00"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e014_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "e99f6268c529c7eb79191c84e05ebab2fbd78adad95151326741db5ecb0d2d10"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e014_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "c6674d16be4e286f9194f75733780649808c1bd9ddb2d5091839ad706eb73379"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e015_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "7e5428b30f47efb5b31722af477022ac9a04bf67407a1fa46b63b3e67b672f3f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e015_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "10dfea32ca50e19dcd4248ef26bea0dada00c1289b43ec0c6fd7a12f8ac7d77a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e016_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "fa5cb2f3d4fa13e9c998a396bac76bfc5847aae1183068a6208b91145cfd198c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e016_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "22c774ea30b5c2c0f7eacb81ee2821700fcfce3d8926b5fc69e99beec8beba1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e017_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "668df4bd8d831464cb61a9ce85c25ab219148d2986446e65a6df0961461f4198"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e017_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "86b8046ee399012d2fd892bda7c98a9a7839e9f0fcf5abc3530a896afe638656"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e018_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "e9913fc8a55968620a04d36786f9b005fdfb76d03ffe2a874b122fe166eab76b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e018_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ff3e166a55fa7864c430a29ce725bb85633eeae51e27b92d2f05ffdc36f4b123"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e019_a0.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "310cdeb1eccac16b7161efa0f604874c27622bfd09ea556dc7477ae52c70fb41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e019_a1.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "5c4ee1d790dc722009c3ee3ff15f3442dd4648201b659bd93a31dcd1f2b8e8b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e020_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "0801e7e9799125599c4c8c8ef7561a974af5c7032a0297ca060c2bd5b55ba580"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e020_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "d62f0c459f98823438bf05a3824e5fc5e54ffff58504ce320b8cf5b2f64da174"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e021_a0.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "5facc4d2d8fb160f8a354f181e8fde33860268ef9f71d9fdf29961f191271b25"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e021_a1.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "f240ddf999fe98b60a50ee8aff6f9cd1faeb1801ef5a81ba24c5145e9efa08ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e022_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "23f8bda9d614545e498de78eb591fd795142ba2b5c08ee6c90a040bfa6bf309c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e022_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "68b5cf2ec75f8bb389f2029a8fb5c3c050a9cf64cad6cb1e6cd4267a9ba2a43d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e023_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "92af18f8183d223dcce28fc2fba73a5a95cc59d8c62d5c5d518bbc29c95d1c36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e023_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "cf55c52e1e45bf8cf0efc37396adce916e54bb95ac3710cc44f02b8d81e4e06c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e024_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "27b115bf0336584c0624eef5be12bc4891e3503626815e1f3dd4e4ffb649ecfc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e024_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "634c9c793885353d3cfd37395f857216b12abd9d8d07dbbe94d9322b9e4ed484"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e025_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "01317052550cf765b32749f4e3bcc241800d03b11902b60b6c7d0d458cea59e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e025_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "09943999e481cdd4d18c8bfe4765b1787ea692f40952159b0465911b540695dd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e026_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "14691becad809ae9777f5972fea772788fe46147e36ed4a2e893e4e71844e3f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e026_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "3bb4948418a477d9f451d20d84ce582212834a2634a7dde2b05e395d7f0125b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e027_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "e6cddc54b4607d7d303cedc6af79b52a17c75731efb59b586ebc8596d1167adb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e027_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "d65c344821689f57a1a238077d3d599752e8ffd2e7bba02004ad0efaf6d09b5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e028_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "47ce62de04f60b8cedb372f9499ac534aa2a2d86058258b9bc0d64b51f6cc7b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e028_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "ac031e5b85a25356a61b52e9e72bffe12f278ca9f0408d2ccf8d312a7c41ae26"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e029_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "e5d89e1b25d95838bf0377ea430aebfc2e9f76d0c11ba168a90ab65dfaef68d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e029_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "cbbc9fe25b782a9669e6e3d7593c84bd9e47dce9d04505d5ff4c93418c1c66d9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e030_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "8ef5ec7a9c7cb6532ecfa3492a117e66714493c6acece2e0f5a2aa0e137088e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e030_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "d3bb66d526b5af870196145f1626a124694e709dc200e5ade51e18156c3cd3e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e031_a0.bin",
+      "offset": 0,
+      "bytes": 800318,
+      "sha256": "965480c173e105ef71bb626a538c77aa1709ac676b392fe0ece0ba9e88b60f9b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e031_a1.bin",
+      "offset": 0,
+      "bytes": 800318,
+      "sha256": "144cbf2eb64a13cabceeac3e5ce221a0bcf54e3daecc5794c10354f8cfdfa9d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e032_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5add0691af3a0752386e7003d15a7481a3cca9999a8aac120769a3e03ba56ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e032_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "53671a76b1f4c0257c1dc002c44b47c96cfc915ae822bc1a264e3cf0dfc8ab07"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e033_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "298b27ba8c0cc3df33a8e19f39fc0f278a2a8d2df7eb0eff731d4b81ed87b4b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e033_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ed6975354a19b2def74245adc1f4d45f343464fef45b587d71f9b53e527c03c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e034_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "96cff15aeb3f80ab5ce1033fddf2f764a9c0e6043179698d3f7e05cf45001586"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e034_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "82dbf0c2aab29e17b80b90bc2b1289b1096b12cb256946005218682dc13d2dd4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e035_a0.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "cad1e2b5d76d1b13d7e44848271b7acbacf50d1305b0d30151727842dd5a15ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e035_a1.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "59c81f6c6bdf43b176c9e22c410578a26bf305876dc7a1d5ff91cfc16d9102f2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e036_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "44bb750c9263f6f9cea084736405e8237797114e8d31ec5ba0f75657b74cf2d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e036_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "64f0bc20134115c29475a8063a1e36ce98dfede75b5bcbc1add03426d2d64ccf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e037_a0.bin",
+      "offset": 0,
+      "bytes": 1691594,
+      "sha256": "98e4cf88583165a43faeb49bdf77280bf725f3158b6d6c17a89fe70acb17f95c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e037_a1.bin",
+      "offset": 0,
+      "bytes": 1691594,
+      "sha256": "62672d4f4d687653f5740616b663085c288445c762271f51660ef1a65758a2cb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e038_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "e97779cfb5056b55b769be60dbb99a1a1e92a68b562b4c9b3edb06efc8d396fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e038_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "96cdf6bbee4d65429648dabaed9ed2695ea3800f64aab19a54d8aa721dc73b82"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e039_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ea7889445308525362cd8656be759be621a88c7d56d0e455df0fc93a0a4e4fa0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e039_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "f9c6d165ae73d1bef08bb2b0fb833cd5f431414eaa19dac6f0348e762e758b41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e040_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "1884d23ab82d3101e975704131f594bee1f41b992e6b26dc2fbabcd47b9d6ee7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e040_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "3f3810eaa802697b2b7dfa989543444135df5b0fd624654bbceb8c5ffd1b4706"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e041_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "17d0b75fe2e16aeffc280b3a5468304821b269443e336c33c8275fa08531d36b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e041_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "aa77ac1e763e1c7c9525e2b4d96ac9f9ed5c9be009e86269360ca5f48d9eed52"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e042_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ceb08a33dad0a655e5ec942c145f58aca8fa6b4b40ffec783e13f9754d476911"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e042_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "a04ba877c3ceaf6875900b82583ac3daab3ed7a0d716de52e93fb85e88389f5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e043_a0.bin",
+      "offset": 0,
+      "bytes": 809570,
+      "sha256": "b60aef32d1b8a5bf3c7e87caa55ba8673710084420ec42d633f8020cb7e25134"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e043_a1.bin",
+      "offset": 0,
+      "bytes": 809570,
+      "sha256": "c24790df15ba54e7167dfeee432a08668f07aa018884ed4e13f3430be07de3b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e044_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "38a366f709806c68b02c4ef220edbc17f007853ccf982c6789f323cf6116c3dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e044_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "3479f65c99a234fa797e20985244fb246e5f7d558fe9df01c7c98e676ac34336"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e045_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "06ee1acb75ab8c78572dceba6072efdeeb00020b31b4bc3e89d7d05a5c20f8a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e045_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5c8d82beb358b67c0cd4c92f9cf1c935734b6b8a9b094ecf2c1d42f53ffa3381"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e046_a0.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "bfff743047055e6a2103b2ab6cc3464fbaacc85e2488e5039d47883a706910e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e046_a1.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "63363cef2474b547ba2b407e05f30f279bf059306d7234feb2e3230b29465e87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e047_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "e743317739f0d76720de66c951eb4f0dc50a98a067db26e8fcdeb3955dbceff5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e047_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "abeff668b321de14e92926046c00a438d48378293e77d58ef566951eba414f27"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e048_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "0cc9534285d0d2d52e6559e6e847217c941ae668d3e9f183e3820e9e68426435"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e048_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "f0403e90d406d25cad08839a2c962285f50d097d4dcb3300574454a09269391d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e049_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "fb95a7b134cb3eac49a78a73b67a03740ddc100d5cb60501d30125e0b5b6b81a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e049_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "f6dd76e5145fe16679bfa8a6c563cfca3c928b3a728cb4e12d9a3917d3439f64"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e050_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "b1e0a307e7fb936f246bb36605639e08e0745358c43e79e2599c4835ae2c5ceb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e050_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "c1aa42e3dbed24bcf78b5cada0b8defdd69430f4da5ab3410ed96a89edd6807a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e051_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "3971b6ab1c948744184842d2bd5e223c0a7f134a7a14b8d5d605de948d3883b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e051_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "bf2f892c2d39ad692f132a9e5f81d0b7cf5719aa33eb2c43dab963ffb507262d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e052_a0.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "060d9609e1f6fd5299cbbb5da3c17c14d8dac47e1be7abc4016c785aa5804dca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e052_a1.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "319f5703e45f9a1b8f743461e07dc031b12ec63aec3534c64b47024dbcc30552"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e053_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "7d01e7b0fe33e69ecca315c228c66f01c57368beb48ab3de49f25227bfe2e148"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e053_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "94eb63598129cdb773c8b24ee4dd221221e0c9ba53b7afc7ee3d2e9d63400f98"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e054_a0.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "bf571634429d654e7f7f2e6bdbabea3bba107157404e95339e994d3e02fc490f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e054_a1.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "a77ab7d33b37dfb731239eac11e2fddd8d175599dc20a22c3041588d48cbb20e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e055_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "a00b5dac0b154d4a7d0b9f714e7fe9aac30fb96927f62950ab008f8045a508db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e055_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "36a3bc6c1974c8adc031449af78322fead8124dcd3fb7ed572137c34247c49d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e056_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "c45d4947ab10f30575e73724c62f8853aec0dc30d63b57d90176d5694201319f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e056_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "7f3f1cdced241090146b21bdd160d1833afd05714d1ec7c8a36a0435589b84bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e057_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "fee1913967df48e8c4cbede05e52be0b9ec8216fda192d7d29d485875d6319d6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e057_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "6126a0d7e7098c004fc6f46b23b8ec538562e7d9e5dff31d65bd0ca6d29901e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e058_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "55493c3f0a1312005edc547e6caaf86b1a39044e2823a64ab4623251d3e171a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e058_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "6c2088b29e1d6a9fc40a3c692efa5adc6806b0530ff42cedbbacc63ea5b5a29a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e059_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "6d951ea517a5d9c85e7f327133c0032fd5f12c5e822fbc8620e8b575ecdb52c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e059_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "743bbda4345f13ab6c1e8563269b2b4a91e2f17d75c1333277f33334b439a6bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e060_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ee243144b51ad5a57b985478772301ad8538d54580a8fbede3ad811d56e01675"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e060_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "8cf78b28e0d16646cf9ec5088478aa035ce6e431dd7be19c4f7a53bebcd47efc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e061_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "ccb546d0078225affd597a31cea3ebf683a66797967b2efe1744220d4883e96c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e061_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "4a162e9232c6ad9d91ce5f13177055e8306078006d4d62262527d308762e440e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e062_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "6eb237647d489ff43534a1ab2e80fc0b1e47ca3afec5974858be6e88a02291e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e062_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "1d6423a6c622ad0fdc2c82284109092538954e9682af960b7660b50d8d2f9e84"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e063_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "87cba8f2f381e4c71e972e032bc35e35effd1bf743c7f484fa5bb67440291b4a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e063_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5854f230ac1eb07ad5618cd7d76c9c39056fd417e463f5f08b2b8e3cc0f301e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e064_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "4efdb32cc79968aa10e20a6f5975f1d73453e944bddc9e790af3e62dcf7b252e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e064_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "6e7a53e9781658437aa8777f553a3fc61af23a2d3b8330abd559f41ff2c67a16"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e065_a0.bin",
+      "offset": 0,
+      "bytes": 812654,
+      "sha256": "e4e7e0070482ba9e0ab38d27fa6a8f9d06ecf2162dd5b53fd34322acb77fa08f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e065_a1.bin",
+      "offset": 0,
+      "bytes": 812654,
+      "sha256": "e3d975f0a696474ff113f571c646a73675501f2b7cfe127f750c4e08711aefc7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e066_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "a698b3112db939458cf5d16d99afeb837b85d33006199899175632994f800745"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e066_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "f6b781019f2b6bae6730c5ab8cc7d76c7783bfbdd860e0cfc0a395bdcf32c5e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e067_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "94e3893039e7464bc8cb8ed03352446d4f17f93afdb8e89bfd41f3b664e051cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e067_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "58d034cdd0ceb596109f54e865c518095bcc53ecf2c7b70c79f7732b29a18997"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e068_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "0fd0374e1e4d762e0018647c1deffdf627b26d88e434c76c1e11b74b785acc38"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e068_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "d94dab9685d1f147b170ca16bb1a8d127d397c8a879a92e520f7c8bb174f823b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e069_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "81269ce869e8c8186b68f0bb33619c080169e5e81e15e71360efaa3c78d3b919"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e069_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "69b144bdca1c771504888b4fe949b178d948d4d1e60dde5f14287f5630c871a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e070_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "2cb1313518db97fa56a3f2fd6ce56ba30a99e4f6a92b2f194a7bbe2a8a6b539c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e070_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "16c711147d466f2372d43a3ce1db9f2a70eea38fcdc8e9d8a35f164ebea95b00"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e071_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ff30e7627a31da9072d3ef2318205e3c36fc36560b96d63004f6661d8c60660e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e071_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "bac44bc943f816b41dd5353675c9c13b1c736503f0b7b98e924ccff82ef6544d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e072_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "a6d6009afcc2d536d3af4f3802348a5e5539b79a32de62fa373bb534dd7daab1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e072_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "bc8fff50ca2abb1f8da9503d2548ed0269c7887222d3b2ab4112fe1643fd1fbc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e073_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "8cc6f0b78a0d6baf44110079791eac4bd8069361f601fd49cd3afab1a71aab7a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e073_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "b19a5774817c4390d1cb735f492eaddf5e4fdb0f228557ee2909b624663235de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e074_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "a1ce21c53d5ea03acaf04024b7081cfe91c3ff996ce1c675638d966be5a39117"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e074_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "8f573d2eede328c3adefd4a239e001a3e3555647bbb787c0ef399998bb6a85e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e075_a0.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "db8f87c3b1181fa715abaccee43dd6fb49695cb4d121604f45db6a98f122c385"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e075_a1.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "dd6a2be1adc554e1f326ba94a2dd59be5a3b615144631b5253ddf32a77ba57e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e076_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "ef64efd78a11f7400509cf69935e280715babb3dbfe4e17eae39bacb037b8c99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e076_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "a3d3780448e76136ef200c8f00764b2f84572abf99f256691c13e9ef5ee58b8b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e077_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "d914a48b0a11ec1c0beb8a555c35a36e1ed7b1a3abdd560b5ff4c723c5c86055"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e077_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "f114cacc5450e50151b1fe897f297c23025465086d5bc2d29636df7bb207c102"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e078_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "fae212b638b8d3ed07fc42ae894fd25f45622ccf62279832c6056d2d70347759"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e078_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "972d93aa491906ea0c330e290fd86698ed7429f29c2e9ecc1f73d18e43772a30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e079_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "bdc6fb425193b0de23f4c913a34b1b0273502d7e28cba216e532486c2db10ac4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e079_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "03b36fa8a4766e93f881d8f4978aa06803f8331e7550f6a11e37a045d756bd15"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e080_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "bf1849225991aaa6dd9efcc56c6fb7af7ecbd2efe7aab523a573b82958141e33"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e080_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "d663afa356c126ed5aa7fae77e7b0b04f60d849e0c4ebd889385b1e65a15159c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e081_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "da2a4ab519bad83f78a8fa9363d8d056bfdcba7daf34e92894fe2f6449cdb94c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e081_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "813601891136decf5cf3a69a68144f527b4fc0117e46d3e3d7a81aa8856eb0f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e082_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "6ca72449211f1d457bcfafbab768957531fda5816827a470c46007fdb8776936"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e082_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "078dfb97cac61e6b248cbc2e9ee3500ac0800bf85493176def63d5483038e58d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e083_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "3eaf12f51ef626535b94a34aa29fd9cc5644332009733dda41634ee37db26809"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e083_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "1bc22e7f08cbdd017971f2807933df215b6e811ef9850270bbdad63f59b14fc3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e084_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "6e397bdbc688280ccbc19eb63c7e3c180bcc927408fdff2c9e22737b97c7bf85"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e084_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "2b07230f4274c41c94a1800af24fe0faa7a9f86ab28e17c8b75840c8d3c4aa3a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e085_a0.bin",
+      "offset": 0,
+      "bytes": 806486,
+      "sha256": "091ea5d8086a84c0315eb1babf06ccc98ccbe8ae2d7f8b189cacd3f56bb624ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e085_a1.bin",
+      "offset": 0,
+      "bytes": 806486,
+      "sha256": "9a415436b0d4adb02bd2d8403df8758f7b85148e0abd33d129b7897d33fa6cf4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e086_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "05031ecbef716e643b2c1f3453ffa1189b71da1e54f9a75a7985b1ea2fd20609"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e086_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "f5010169168ec4dde2a8440f979c753bf2c7821c13667bc3a26746ee07a85798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e087_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "582a44efd50fbc62bd3034dc79f7bd43bf5a84996c5207152c4a1468d5c056d6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e087_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "d1aa35356b5454ef58d67223f231e8fac39d276e0d141282c7e248681d0d088e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e088_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "2b9b9bd9ec970540b607190ebac80a3a4b4eb47b5511f7849731a4419c796944"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e088_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "cf3ea380cc5726d382b7c27f7fe6fbc0c9d743091c103b29653ec3848927fd41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e089_a0.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "d5994ed62b25c0ed36ad1d71b4054687121975c3424111fc7708b03a68566f31"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e089_a1.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "1c381962c468f3cb4fab11095f0eaf3524e8586040c7bf3004fadfb691d53af1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e090_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "734059c4bb2c651ebbfd185254a192397600a455718bbad627e386d319bd48ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e090_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "30eea93a0a167e078afaa593a8fc37b065e92639b75cc956bc4599c3ad555d7c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e091_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "21477efdf3217ae12d885acfc09d5974a7f93ce7edf7cc9fe22e86d86d63c085"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e091_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "8828fbba195d90af93ec38b2b9fcc1e7cc4688c4501923feaf46a43db412d1a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e092_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "0677687a280ffea04fb92d17302b878f8b9560a878fc1136028a0eba3b0a9b4b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e092_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "901fe7874229cd479d3393e0d879853d7d1311af5d99b2ae028983e4fa593e5c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e093_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "82268c5ddca96e8d4599fee468ec6b499595b1b6714b49af36bccc05b5400906"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e093_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "d7b64543b287a50ac8a3d1ab60ea16d41d13e50293d8970e8ee88cf56e8d5ae3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e094_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "a45dfbf9469fcfb76fa0bb68f2777bf1612850be427549ce18d087bb51a5acbd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e094_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "68601d9336a0ba2fa4761ea272ccc7e6e353e108505a8e1717fbb30dde1d7678"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e095_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "fe9573b5b0ea1a29da8ccbacdf5084270374e59ea8963719923f7592287faf0b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e095_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "06cfeb4cf3e80f3383ad661cf13eef6fb4786b55a2c99055058d96b6e4c04ad1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e096_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5f1cdd4d11dcb1af983d15633624cd8b339eacf5764803843fe64469b3fe4ac9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e096_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "e2674bea695d7412cadbf07cbebfa319d2ac9999f088543d92b6c04c61a7576c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e097_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "25afbe4f6392c528add0661100b537290eaee4b00c9e6ffba06ec3294a3b8879"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e097_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "2aaa5ab19e0f05f9d873cdff95b4b2a1e83b2d619d140843393215c904ae05de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e098_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "4a1ff615bf54f97366cb8ab47835f16b8a8f7e225f3d9fd0432cc56df893088e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e098_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "35f1ef7ab4411cd6aa39c80f4bcbbaaa129c740c2c031bdf71a579c4329743d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e099_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "aae17227ce86503cba53fe613626e06593464d473f06644441327fff020796d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e099_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "2de82c81d9e619a86e8ae1c6e8cb26faccdbf6ed13ec801877db96ddd87f3548"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e100_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "3c38cd6e0d9b4262f8bf9a4297fffac0fd5ec29ba6a30ce3d49aecbbcfd76a3c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e100_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "07e038ca0c148323e8fb1c98209cb696dd516fedf262aca2aefeb72ef644f077"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e101_a0.bin",
+      "offset": 0,
+      "bytes": 803402,
+      "sha256": "18d39c524be4562a74ceb300384290d82fda1b6aa479ac59757e474155c5d717"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e101_a1.bin",
+      "offset": 0,
+      "bytes": 803402,
+      "sha256": "5d780b154cc5c9926fe0740aa7be435662fce09c2b62fb28f592d91ffd04eb38"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e102_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "c0e960a4bc7e19ac013177b3906e0a92ccf964a2f19612bbbbec738119ea7f07"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e102_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "9650b77048c21e72d6604421b1735c4ee79d76f27d7a204de91e0f86113ba0f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e103_a0.bin",
+      "offset": 0,
+      "bytes": 803402,
+      "sha256": "bfaa5ed5da07c1feae5edf63fb1aa9fcf7b38565c89c6e40534f6bb76cc7e58c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e103_a1.bin",
+      "offset": 0,
+      "bytes": 803402,
+      "sha256": "d3640e1fbcf3e861a1a93b18133a90857bc04c19198af7632085e167cf1bd758"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e104_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "11719e0aeff53e1298bc3d70094cf7c1e60bb77d3d8d89481f2b825e88c812c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e104_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5db0e766f3c1c1469882285c7bd7849b86d795889e47646c37a605e043bd114a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e105_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "feebe838f870018fa8b6315e0f6ce4d0cba478339d5d76b92027637ec517ee42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e105_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "efbf29b6e24b6942c3c7c5c245373f6c0b769e8e1c9c12ef42cd2ca0ca706386"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e106_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "1afa8c027dc648e2c9872507178e1fb9927215cade52f771e433087ac3b8973f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e106_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "f5600f248dcadb7cb3fdef7e53c549dd27a5842d0dfdcb1afceb4fbbdfed2383"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e107_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "f06e5a0486b8de28307c7bdf632c8c1c81d65c43eeaf2c0f768f723120a868f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e107_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "391ff2cb95f3064fea7b3025b15d900c2becf8d63ee28dfca5e41ce44a0b219d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e108_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "8c71824a3c975c87c5269ed187f45a93b1bf7b00c7cec326ec16b38c239fffc8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e108_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "341284fff8a60ebec6e57c3696e6ee7541330b81aace00068d01c3bab913b8b0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e109_a0.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "c3f65e6262b214ba1296e50187ea62fd2dac1a6a068b1d5ad205cb1f9a076be9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e109_a1.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "1a01a91d69984e9e1eb40d7afaf7672f9cbc535a8d55ed386c7e2bc89477477e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e110_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "b7f89773fdd21b42b632e09ce19b08f8712a0b1ccd88115eb9ae0cc39237f994"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e110_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "1731ac10a60b82b33b88e99f6690f7887615fc2eb63d474d67d41d27ab4504d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e111_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "2d7b889371d16a2ca6465443eb6840745e00f6ad92450355c1d119ca0f69e049"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e111_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "6ce69a9f750e8f4eb10d02c76fd0fb94fcd7ce855a3e7ea13843a426612e6dbd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e112_a0.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "9e1ddbdb23a0ed9d6df7aa4849b5a43ccc96e9348b2b9d0b87fbf868595b9b3d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e112_a1.bin",
+      "offset": 0,
+      "bytes": 794150,
+      "sha256": "1b0015865eff4f30680f91ea350bb4913dab47bbdca86bfea2868ffe72caf3e5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e113_a0.bin",
+      "offset": 0,
+      "bytes": 814196,
+      "sha256": "2785045d19750de43e71e388143e4429dbf125dd8e16cc0f5392aeaf29b5168d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e113_a1.bin",
+      "offset": 0,
+      "bytes": 814196,
+      "sha256": "f9ff99951cce161660884665ce70f9074b123887739e78ca02d4851673027a1e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e114_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "acd3dfa4c743676061f4e558fefc243b9a7fad1149eb51d81ec8b00e8b9a4d88"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e114_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "eb040942d8ef1b041056e3b1a5313874a0b0a153a92d4f85f2809f39aedef62d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e115_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "a2341d2ed23476051de01b47b3cfb38ccee232eec4ed7afc3a7f1d12eed286b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e115_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5b7f166bf381271040af14018f5d8c6d6897e415475bdb55a531be05b4873c79"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e116_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "1f20baf3ab3e3e7d45d93f58335dd42453811fb19e427205c6b0b881b70cbfd7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e116_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ea040d92a283280a89f024786a02212c812044965d4d6c443ccfbf40afa69095"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e117_a0.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "0fe82a4fd41ab21850ef37a09bd6f8633f91585f5d6861bcb1eff59ad0a38edb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e117_a1.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "ef159ca20e98456023571ef983adc5e19a092f86778b796ccbd2c3b9c7547c9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e118_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "d7535feb5541698f82ad4b8e15ae171286b566c684c5e8d5ff553694f1ce64d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e118_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "010b0298db49aff09ea8e2ca3c29d17ef2522f838718c9724e4d2df256a08bae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e119_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ce0257f74b301a81365b7dfd167a78bc082bcd580e98a333ffc5ffd2153aa187"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e119_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "5da7d0cce081c976eea7260db403161406f4c8844841d5ada0751a859b473505"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e120_a0.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "2fb4de9857e38d1807106302736c3ffe6e61e2fbf7ee81488292a79e29021802"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e120_a1.bin",
+      "offset": 0,
+      "bytes": 797234,
+      "sha256": "dcc7bb9747a16b4ba2877417b88def391c6c324ee234cc9796b4356dfe5e6740"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e121_a0.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "97c375654a6c8ff71ab16e0c87507c2843fcf572ea3897564c332f62edb16ec9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e121_a1.bin",
+      "offset": 0,
+      "bytes": 798776,
+      "sha256": "11c685994ae30cec6b418c7eb66f7f6fae0f2ee79e989d35ff481795a102f152"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e122_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "2b2b7244fb1b6862b5ccf280df8354a5e57e371b9381df9a83e3e3dfb78656aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e122_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "43c1315f7095591845fcccc02ab5490b48fd6f44b7be799db8d9fb9e7258335d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e123_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "3100cb43460c997da61fe54fd51924a407d24bdeef74df2650291457828e2afd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e123_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "b256b5cdfa08f5af5131accfcfb99e815a56d34968d413f98014816a60dae1bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e124_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "a5086611a2d6563b8278cb1d22babf4b92920db969fb27e0508325e93abd2803"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e124_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "ab1d2f0451421f74a76f4147f0f4decd51503d5a6b794fb91a02adb2ab7755a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e125_a0.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "61132c9ef14d96cd2f37eb7ed3525e92a4668fcf517093096c3f167a3cfc82ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e125_a1.bin",
+      "offset": 0,
+      "bytes": 795692,
+      "sha256": "5e2f2824a2308430f06866edbe9743282f5ba3459d3643bd37d6bc32f286db27"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e126_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "8c916120ddf5859176c9a635b412f7d59cdbdbf67e28a44dc653c3dc709a3162"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e126_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "49c001fec62785e86aa67ca891988395ecf66e101435695203df223d00464e8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e127_a0.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "fc78f175ebe5209afd6a8134221c6d5f10b9bd85bf65de2a20ea3361813e4a00"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e127_a1.bin",
+      "offset": 0,
+      "bytes": 792608,
+      "sha256": "55c7c9bb8039647527f4be9018a68c021a1838c81a126f19aa1488f446efc6e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\hidden_alpha.npy",
+      "offset": 0,
+      "bytes": 140448,
+      "sha256": "8f54299ca6cd637fc9e7649a39331711ce998e89ee0c3b28ee46594287862eec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\integer_WO.npy",
+      "offset": 0,
+      "bytes": 215531648,
+      "sha256": "380acffa2c77559e26fed4410c8520a5a2a96b2ca79fde4f091634d48c7d6a0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\metrics.npy",
+      "offset": 0,
+      "bytes": 3367808,
+      "sha256": "7334653ffed1bb5714236dafc9f920cbf1f788d42159fb796f287e5446901aa0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\negative_fold.npy",
+      "offset": 0,
+      "bytes": 107765888,
+      "sha256": "0585b565e208482cfcb4e3b30bdc49d2819be6767b6b6c4af73a4b46fbe5fc6b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\physical.npy",
+      "offset": 0,
+      "bytes": 107765888,
+      "sha256": "d58b076b4d67b74688e39e5a2ac728fcb1900a39433e764b0b39661db5d0d845"
+    }
+  ],
+  "original_legacy_output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\anchors.npy",
+      "offset": 0,
+      "bytes": 640,
+      "sha256": "a26fb88c79555042d6d1a50b3d2d63188a1dbbed8263afae920302fa3fe2867c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\controls.json",
+      "offset": 0,
+      "bytes": 927,
+      "sha256": "d10892d8d1286fdf5eed5b9c6764ab477bc2c19787c358d48a1f69cbefd863f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\development_freeze.json",
+      "offset": 0,
+      "bytes": 58923,
+      "sha256": "adaaf1a51c0f4ec765abc060a2392e0a3824f500a0cb89999a9e0bf02a761a0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\fold64.npy",
+      "offset": 0,
+      "bytes": 603979904,
+      "sha256": "ff2fd464ab99d7500618389a40896ab76589600ec486b7677fbabb6190f96f33"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\fold_codes.npy",
+      "offset": 0,
+      "bytes": 150995072,
+      "sha256": "9a60d08a67ad3c6390b9bdcb96b08e1527bda88ef0762eb098d41356ec49c19c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\fold_scales.npy",
+      "offset": 0,
+      "bytes": 393344,
+      "sha256": "d6e5a8b3d46924070bbdc71179cf9c6762a41a8178626de86d8563a63825151e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\hinges.npy",
+      "offset": 0,
+      "bytes": 131200,
+      "sha256": "b0aa80f1b72b73535b4b735706d8bb2276648fbf7dc51a2f751fe6fcc9abe65f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\metrics.npy",
+      "offset": 0,
+      "bytes": 5051648,
+      "sha256": "cfcf7f4d80eace2d0ec2543ba749cb279a6e2ad600a2f57df323eedc45df67b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\predictions.npy",
+      "offset": 0,
+      "bytes": 538828928,
+      "sha256": "dae1baa4d27f5f31d8fcb0e533df34f4c540ac73295293e4641bd54155089f20"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\scores.npy",
+      "offset": 0,
+      "bytes": 3145856,
+      "sha256": "b37f7600e2fe6108071d0da40fe6a5463fe0a296638600519ee0617c8442175a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\signed_dots.npy",
+      "offset": 0,
+      "bytes": 431063168,
+      "sha256": "ca395efffef73235d14413f08afc5c4a8330d4e6c226a0cc0537257d144b7376"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\signs.npy",
+      "offset": 0,
+      "bytes": 393344,
+      "sha256": "467c7589037ffed5bee6686e33395244a0f06d48e43ec635edd188e29715dfd5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\wi_codes.npy",
+      "offset": 0,
+      "bytes": 50331776,
+      "sha256": "fabdf881ae1c689c9ee3b8b9370002ce0497162f92f87b416a94a5d65b07e60a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\wi_scales.npy",
+      "offset": 0,
+      "bytes": 262272,
+      "sha256": "e868ced810eaa222c636c1def4bcd9c277c75d69a705b61fa0a6b31083e3707a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\wo_codes.npy",
+      "offset": 0,
+      "bytes": 50331776,
+      "sha256": "4e1b2fb15e61cc6e2f25ee7dcde3f119fe3c2d60e8c63b89ec6d3fe80e14bdec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth523_fold\\wo_scales.npy",
+      "offset": 0,
+      "bytes": 393344,
+      "sha256": "e7eefec68879a165983db223e60c05e8f0fd94d32d3dbdde0cbd4ef2215c814b"
+    }
+  ],
+  "code_order_guaranteed_completed_parent_prefix": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "frontier_expert": 13,
+  "frontier_status": "UNRESOLVED_COMPLETE_OR_PARTIAL_NO_DURABLE_ROW_CHECKPOINT; codes persist, original arrays unqualified until independent audit",
+  "ALL127_candidate_rotation_banks_present": true,
+  "full_scope_quality_or_eligibility": null,
+  "new_source_function_model_native_calls": 0,
+  "no_original_scientific_replay": true,
+  "empty_cache_and_foreign_preserved": true,
+  "metadata_process_instance": {
+    "pid": 14900,
+    "create_time_unix": 1791367542.2573693
+  },
+  "metadata_ended_utc": "2026-10-07T10:06:23.387906+00:00",
+  "metadata_resource": {
+    "seconds": 40.453999999997905,
+    "OS_peak_bytes": 55013376,
+    "bytes_hashed": 3191003780,
+    "limits": [
+      60,
+      134217728
+    ]
+  },
+  "scope": "Metadata hashes only, no NumPy/source response/metric reduction/C compilation. Preserve all original bytes BEFORE numbered repair. Bank-only prefix and1..12 code-order evidence do not admit whole original main."
+}
