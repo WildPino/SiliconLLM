@@ -1,5 +1,21 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after528 first fault:** [variable source atoms](METH_528_VARIABLE_ATOM_FIRST_FAULT_RESULT_20261007.md)
+code/protocol frozen; ALL127 development candidate/rotation banks built BEFORE
+outputs, widths512..1095,candidate101823884B. Own selected-hidden A16 removes
+dense fold; signed cross can cancel, so quality cannot be inferred from algebra.
+Original main240.343s/158.9MB hard deadline, actual exit1,4/7 prefix gates only;
+ALL288 partials/749.77MB SHA-sealed before numerical repair.1..12 completed by
+code order;13 unresolved without row checkpoint. No full quality/eligibility,
+independent numerical audit or C compile yet. Original resource gate FALSE.
+Metadata seal40.454s/55.0MB; incorrect first Windows main reference retained,
+numbered metadata repair checks actual528, zero relevant events. Select
+[numerical repair1 continuation](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md):
+freeze prefix adoption/independent missing-field qualification, FIRST C audit
+1..13, then checkpoint unfinished14..127 and independently finish original
+ALL656/fixed six criteria. No repair code/protocol/numerics yet. All originals
+immutable; no completed science/source replay, changed threshold or whole promotion.
+
 **7 October after527:** [retained scalar bound refinement](METH_527_RETAINED_BOUND_RESULT_20261007.md)
 main7/independent audit8/admission5 and ALL4 eligibility gates PASS. ALL127
 unchanged nearest orders certified,18 newly resolved;390144 original-G/WI exact

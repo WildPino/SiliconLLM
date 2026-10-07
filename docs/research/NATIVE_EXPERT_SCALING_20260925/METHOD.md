@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;527 bound certificate;528 variable source atoms
+## Current resumption:511 baseline;527 bounds;528 first fault and prefix recovery
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -210,22 +210,32 @@ Zero new query/label or old projection/geometry replay. The18 queries remain
 unconstructed/unqualified; relative target displacement48.1%..51.4% does not
 establish natural-domain coverage.525's original closure remains explicit.
 
-[Selected528](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md) is PROPOSED only:
-replace523's dense L=sum(anchor-positive omitted O_j I_j) with the same original
-ReLU atoms. V=frozen512 hinges union all other positive-anchor rows; allow
-different source-informed width per parent. Dense rank<=number of these extra
-rows. In real algebra Rfold=P+M becomes RAtoms=P, with M the negative-fold term;
-signed output cancellations prevent assuming lower error. Keep original scales,
-OWN selected-hidden max/A16 and source WO, preserving omitted-zero domain BYTE
-semantics where independently verified. Price scales/IDs/source fallback/core.
-Derive actual packed wire/runtime/data inventory and independent full I64/F32
-verifier before code/protocol freeze, then use retained523 signed dots/source
-references for ONE new candidate/rotation comparison. No528 observed widths,
-code/protocol/numerics, fitted weights or quality/cost benefit. Original consumed
-cohort is diagnostic, not fresh quality; all six/rare1% and .75 byte gates stay.
-Natural coverage, distinct useful n, prospective fallback and physical DRAM are
-separate.18 deep geometry checks deferred; no automatic failed524 bank export,
-old source responses/prefix replay or revived53943-label fixed A/L0 fit.
+[528 first fault](METH_528_VARIABLE_ATOM_FIRST_FAULT_RESULT_20261007.md) implements
+the original-source atom compiler, packed IDs/I8/scales, own selected-hidden
+A16 and matched rotation, plus a frozen unexecuted independent scalar C verifier.
+V=frozen512 hinges UNION ALL other positive-anchor rows replaces523's dense
+L=sum_F O_j I_j. Exact algebra Rfold=P+M becomes RAtoms=P; signed P/M cancellation
+prevents assuming smaller error. ALL127 paired banks are frozen BEFORE responses:
+widths512..1095,candidate101823884B. No full-source WI/FFN/native/model replay.
+
+Original main240.343s/158924800B breaches240s, actual exit1, four prefix gates
+complete. ALL288 partials/749774988B SHA-sealed;1..12 completed by code order,
+13 complete-or-partial unresolved without durable row checkpoint. No full
+fidelity/eligibility, numerical audit or C compilation has occurred. Original
+main resource gate remains FALSE; frozen code is not a validated full procedure.
+Incorrect first Windows query used527 main; original retained, numbered metadata
+repair checks actual528 instances. No source/response replay or bytes changed.
+
+[Numerical repair1 proposal](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md)
+first freezes prefix-adoption/independent recovery predicates, then performs
+the FIRST C audit for1..13, resolves13 and checkpoints missing14..127 responses
+with per-phase costs. Reuse banks/controls; retain all completed arithmetic;
+serialize complete scope before independent remaining audit/ALL656 domains and
+unchanged six/rare1%/.75byte decisions. No repair code/protocol/job yet. Memmap
+flush cost is only a hypothesis until profiling an unfinished parent. Original
+consumed cohort is diagnostic, not fresh quality. Natural coverage, useful
+distinct n, prospective fallback and DRAM remain separate.18 geometry checks
+deferred; no automatic failed524 export or revived fixed A/L0 fit.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 

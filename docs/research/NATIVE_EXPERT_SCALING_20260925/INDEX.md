@@ -26,6 +26,15 @@ donor-adaptation operationally frozen, evidence reusable.
 
 ## Latest decisive evidence
 
+[528 first fault](METH_528_VARIABLE_ATOM_FIRST_FAULT_RESULT_20261007.md): source/
+protocol frozen; ALL127 candidate/rotation banks built, widths512..1095,
+candidate101.82MB. Original main240.343s/158.9MB hits deadline, actual exit1;
+4/7 prefix gates only. ALL288 partials/749.77MB SHA-sealed;1..12 completed by
+code order,13 unresolved without row checkpoint. No full quality/eligibility
+or numerical audit/C compile yet. Original resource gate FALSE. Incorrect first
+Windows main reference retained; numbered metadata repair verifies actual528.
+Bank width alone does not establish fidelity, useful n, whole quality or rate.
+
 [527 retained bounds](METH_527_RETAINED_BOUND_RESULT_20261007.md): main7/audit8/
 admission5 and ALL4 eligibility gates PASS. ALL127 unchanged nearest orders now
 certified (18 newly resolved); ALL390144 exact row energies and325120 outward
@@ -70,19 +79,18 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action528:** [variable-width source atoms](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md).
-Replace523's dense positive-reference fold with original ReLU atoms: V=512
-frozen hinges UNION ALL remaining anchor-positive source rows. Keep exact source
-weights, allow width growth. Algebra removes negative-fold residual but signed
-output cancellations forbid assuming better quality. Derive packed/quantizer
-contract and resource inventory, then freeze one candidate/rotation comparison
-using retained523 signed dots/source references. No source/prefix replay.
-Keep all six/rare1% fidelity and .75 active-byte gates; consumed data is diagnostic,
-not fresh quality. No528 code/protocol/numerics/benefit yet. Pending18 geometry
-checks remain eligible but deferred; no automatic failed524 export or fallback.
+**First action528 numerical repair1:** [checkpointed continuation proposal](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md).
+Derive/freeze prefix-adoption protocol and independent certification for missing
+fields, then FIRST scalar C prefix audit for1..13; no C execution has occurred.
+Reuse frozen banks/controls and preserve original partials. Resolve13 before
+finishing14..127 with durable parent checkpoints/phase costs. Compile verifier
+once; no repeated completed main/C/source calls. Independently check ALL656
+domains and unchanged six/rare1%/.75byte criteria. No repair code/protocol/job yet.
+Original main failure remains FALSE; original consumed cohort is not fresh quality.
+Pending18 geometry checks deferred; no automatic failed524 export/fallback.
 
-All scientific namespaces through527 terminal; source523 time and525 criterion
-failures explicit. Three foreign tracked SHA preserved. Compact active core,
+All original scientific namespaces through528 terminal; original523/528 time
+and525 criterion failures explicit. Three foreign tracked SHA preserved. Compact active core,
 useful larger n/RAM, physical memory, fresh whole quality+rate and actual other
 families/~100B remain open. No percentage or goal completion claim.
 
@@ -100,5 +108,5 @@ families/~100B remain open. No percentage or goal completion claim.
 [Index through525](INDEX_THROUGH525_20261007.md) preserves the previous long index
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
-This index and [selected528](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md)
+This index and [528 continuation](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md)
 supersede all older operational NEXTs.

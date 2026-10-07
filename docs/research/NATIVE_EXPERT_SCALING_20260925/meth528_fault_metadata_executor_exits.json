@@ -1,0 +1,36 @@
+{
+  "scope": "Retained actual metadata executor observations; no numerical main/audit/C replay.",
+  "stages": [
+    {
+      "kind": "first_fault_SHA_seal",
+      "tool": "exec_command/write_stdin",
+      "session_id": 24196,
+      "chunk_ids": ["dc782c", "a8136b"],
+      "exit_code": 0,
+      "result": "RETENTION_528_FIRST_FAULT_20261007.json",
+      "sha256": "411dd6a3cd875b94d8c5fefa61028f755643c4d223439e10ab4716382a282fd7"
+    },
+    {
+      "kind": "first_terminal_metadata_WRONG_main_reference",
+      "tool": "exec_command",
+      "chunk_ids": ["02ca93"],
+      "exit_code": 0,
+      "result": "meth528_fault_windows_terminal.json",
+      "sha256": "f86b7dedf0c7fe29186b92c225789289e4b112f74158b5b116fb8677cfa5e9f7",
+      "actual_main_raw": "meth527_main_result.json",
+      "qualifies_original528_main_events": false
+    },
+    {
+      "kind": "terminal_metadata_repair1_correct_original528_reference",
+      "tool": "exec_command",
+      "chunk_ids": ["45a349"],
+      "exit_code": 0,
+      "executor_wall_seconds": 0.8643415,
+      "result": "meth528_fault_windows_terminal_repair1.json",
+      "sha256": "13ed2fcd624c99982c39eac8fd764fce555c1a7babcc28ae06de32be15d9b5f5",
+      "qualifies_original528_main_events": true,
+      "changes_original_main_failed_resource_gate": false
+    }
+  ],
+  "new_numerical_function_model_C_calls": 0
+}
