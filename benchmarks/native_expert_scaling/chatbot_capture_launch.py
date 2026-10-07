@@ -43,7 +43,10 @@ def main(args):
             assert str(Path(entry['path']).resolve())==entry['resolved_path'],'logical source/input mapping changed'
             assert Path(entry['path']).stat().st_size==entry['bytes'] and sha(entry['path'])==entry['sha256'],entry['path']
             guard()
-        t=b['runtime_tree'];assert tree(t['path'])==(t['tree_sha256'],t['files'],t['bytes'])
+        for t in b['capture_runtime_roots']:
+            assert tree(t['path'])==(t['tree_sha256'],t['files'],t['bytes'])
+            assert (ROOT/'results/native_expert_scaling/chatbot_source_runtime/site'/t['view_name']).samefile(t['path'])
+            guard()
         for v in b['interaction_view']:
             assert (ROOT/'results/native_expert_scaling/chatbot_interaction_runtime/site'/v['view_name']).samefile(v['path'])
         guard()

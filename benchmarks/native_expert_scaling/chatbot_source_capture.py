@@ -16,7 +16,7 @@ import time
 import traceback
 
 ROOT=Path(__file__).resolve().parents[2]
-sys.path.insert(0,str(ROOT/'.venv/Lib/site-packages'))
+sys.path.insert(0,str(ROOT/'results/native_expert_scaling/chatbot_source_runtime/site'))
 sys.path.insert(0,str(ROOT/'benchmarks/native_expert_scaling'))
 
 
@@ -81,6 +81,9 @@ def main(args):
         from chatbot_interaction import serialize,terminate_generated
         from chatbot_capture_cases import manifest
         import transformers,tokenizers
+        import importlib.util
+        assert importlib.util.find_spec('pyarrow') is None and importlib.util.find_spec('datasets') is None
+        assert not any(name=='pyarrow' or name.startswith('pyarrow.') for name in sys.modules)
         assert torch.__version__=='2.6.0+cu124' and transformers.__version__=='5.13.1' and tokenizers.__version__=='0.22.2' and np.__version__=='2.4.6'
         assert torch.cuda.device_count()==1 and torch.cuda.get_device_name(0)=='NVIDIA GeForce RTX 3060'
         device=torch.device('cuda:0');torch.cuda.set_device(device)
@@ -114,6 +117,7 @@ def main(args):
                 captured[layer_id]=(x.detach(),output.detach())
             hooks.append(layer.mlp.register_forward_hook(hook))
         r['gates']['pure_original_source_and_tied_head']=True
+        r['gates']['unrelated_Arrow_dataset_packages_absent']=True
         guard();stage='capture'
         print(json.dumps(dict(stage=stage,phase='before_first_source_forward')),flush=True)
         total_bytes=0
