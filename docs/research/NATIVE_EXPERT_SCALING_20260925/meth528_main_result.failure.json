@@ -1,0 +1,1208 @@
+{
+  "kind": "main",
+  "started_utc": "2026-10-07T09:42:01.522422+00:00",
+  "process_instance": {
+    "pid": 30552,
+    "create_time_unix": 1791366120.9098904
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_atoms_main.py",
+    "--binding-sha",
+    "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2"
+  ],
+  "gates": {
+    "fresh_used_input_anchors_source_extents_runtime_and_frozen_science_SHA": true,
+    "NEW_piecewise_atom_fold_P_M_and_own_A16_tie_zero_wide_WO_controls": true,
+    "ALL_original_UID_parent_mass_occurrence_and_consumed_diagnostic_domains": true,
+    "ALL127_dev_ONLY_variable_masks_original_I8_scales_packed_banks_frozen_BEFORE_new_outputs": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "Retained single-bank logical screen, not latency, DRAM or fresh quality.",
+  "binding_sha256": "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2",
+  "source_freeze": "c6d06489c12557789782bfdc7effd358cae09d5d",
+  "execution_head": "54a35de1d5f7a23b0cab3f65900c4603ffe24fc5",
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\continuous.npy",
+      "bytes": 107765888
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\controls.json",
+      "bytes": 1576
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\development_mask_freeze.json",
+      "bytes": 31128
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a0.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a0_hidden_codes.npy",
+      "bytes": 3212
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a1.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e001_a1_hidden_codes.npy",
+      "bytes": 3212
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a0_hidden_codes.npy",
+      "bytes": 246912
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e002_a1_hidden_codes.npy",
+      "bytes": 246912
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a0.bin",
+      "bytes": 800318
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a0_hidden_codes.npy",
+      "bytes": 122140
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a1.bin",
+      "bytes": 800318
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e003_a1_hidden_codes.npy",
+      "bytes": 122140
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a0_hidden_codes.npy",
+      "bytes": 207560
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e004_a1_hidden_codes.npy",
+      "bytes": 207560
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a0_hidden_codes.npy",
+      "bytes": 284800
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e005_a1_hidden_codes.npy",
+      "bytes": 284800
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a0_hidden_codes.npy",
+      "bytes": 234624
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e006_a1_hidden_codes.npy",
+      "bytes": 234624
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a0.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a0_hidden_codes.npy",
+      "bytes": 107248
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a1.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e007_a1_hidden_codes.npy",
+      "bytes": 107248
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a0_hidden_codes.npy",
+      "bytes": 116864
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e008_a1_hidden_codes.npy",
+      "bytes": 116864
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a0_hidden_codes.npy",
+      "bytes": 92468
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e009_a1_hidden_codes.npy",
+      "bytes": 92468
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a0_hidden_codes.npy",
+      "bytes": 130176
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e010_a1_hidden_codes.npy",
+      "bytes": 130176
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a0_hidden_codes.npy",
+      "bytes": 112768
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e011_a1_hidden_codes.npy",
+      "bytes": 112768
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a0_hidden_codes.npy",
+      "bytes": 60544
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e012_a1_hidden_codes.npy",
+      "bytes": 60544
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a0_hidden_codes.npy",
+      "bytes": 159158
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e013_a1_hidden_codes.npy",
+      "bytes": 159158
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e014_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e014_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e015_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e015_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e016_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e016_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e017_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e017_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e018_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e018_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e019_a0.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e019_a1.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e020_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e020_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e021_a0.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e021_a1.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e022_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e022_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e023_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e023_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e024_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e024_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e025_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e025_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e026_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e026_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e027_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e027_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e028_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e028_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e029_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e029_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e030_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e030_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e031_a0.bin",
+      "bytes": 800318
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e031_a1.bin",
+      "bytes": 800318
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e032_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e032_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e033_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e033_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e034_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e034_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e035_a0.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e035_a1.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e036_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e036_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e037_a0.bin",
+      "bytes": 1691594
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e037_a1.bin",
+      "bytes": 1691594
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e038_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e038_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e039_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e039_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e040_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e040_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e041_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e041_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e042_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e042_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e043_a0.bin",
+      "bytes": 809570
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e043_a1.bin",
+      "bytes": 809570
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e044_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e044_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e045_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e045_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e046_a0.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e046_a1.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e047_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e047_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e048_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e048_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e049_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e049_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e050_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e050_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e051_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e051_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e052_a0.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e052_a1.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e053_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e053_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e054_a0.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e054_a1.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e055_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e055_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e056_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e056_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e057_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e057_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e058_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e058_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e059_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e059_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e060_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e060_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e061_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e061_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e062_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e062_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e063_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e063_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e064_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e064_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e065_a0.bin",
+      "bytes": 812654
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e065_a1.bin",
+      "bytes": 812654
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e066_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e066_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e067_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e067_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e068_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e068_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e069_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e069_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e070_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e070_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e071_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e071_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e072_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e072_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e073_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e073_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e074_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e074_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e075_a0.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e075_a1.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e076_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e076_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e077_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e077_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e078_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e078_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e079_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e079_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e080_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e080_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e081_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e081_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e082_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e082_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e083_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e083_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e084_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e084_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e085_a0.bin",
+      "bytes": 806486
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e085_a1.bin",
+      "bytes": 806486
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e086_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e086_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e087_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e087_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e088_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e088_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e089_a0.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e089_a1.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e090_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e090_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e091_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e091_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e092_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e092_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e093_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e093_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e094_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e094_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e095_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e095_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e096_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e096_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e097_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e097_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e098_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e098_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e099_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e099_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e100_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e100_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e101_a0.bin",
+      "bytes": 803402
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e101_a1.bin",
+      "bytes": 803402
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e102_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e102_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e103_a0.bin",
+      "bytes": 803402
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e103_a1.bin",
+      "bytes": 803402
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e104_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e104_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e105_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e105_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e106_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e106_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e107_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e107_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e108_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e108_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e109_a0.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e109_a1.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e110_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e110_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e111_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e111_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e112_a0.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e112_a1.bin",
+      "bytes": 794150
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e113_a0.bin",
+      "bytes": 814196
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e113_a1.bin",
+      "bytes": 814196
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e114_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e114_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e115_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e115_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e116_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e116_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e117_a0.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e117_a1.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e118_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e118_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e119_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e119_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e120_a0.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e120_a1.bin",
+      "bytes": 797234
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e121_a0.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e121_a1.bin",
+      "bytes": 798776
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e122_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e122_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e123_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e123_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e124_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e124_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e125_a0.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e125_a1.bin",
+      "bytes": 795692
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e126_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e126_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e127_a0.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\e127_a1.bin",
+      "bytes": 792608
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\hidden_alpha.npy",
+      "bytes": 140448
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\integer_WO.npy",
+      "bytes": 215531648
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\metrics.npy",
+      "bytes": 3367808
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\negative_fold.npy",
+      "bytes": 107765888
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_atoms\\physical.npy",
+      "bytes": 107765888
+    }
+  ],
+  "fault": "hard deadline",
+  "resource": {
+    "seconds": 240.34299999999348,
+    "OS_peak_bytes": 158924800,
+    "compiler_family_peak_bytes": 0,
+    "parent_plus_compiler_peak_bound": 158924800,
+    "bytes_hashed": 3446195010,
+    "limits": [
+      240,
+      536870912
+    ]
+  }
+}
