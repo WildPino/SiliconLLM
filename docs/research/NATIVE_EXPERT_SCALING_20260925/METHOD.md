@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 admitted,513/514 screened;515 shared-prefill price
+## Current resumption:511 admitted,515 exact/gap closed;516 source WI filter
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -73,18 +73,27 @@ errors, so larger K is not a remedy. Independent ALL2014 full vocabulary vectors
 337.7MB, audit28.485s/340.1MB; pre-numeric actual-manifest-header fault retained.
 No new source/model/C/corpus query or numerical main/audit replay.
 
-[Selected515](METH_515_SHARED_PREFILL_REUSE_NEXT_20261007.md) prices literal365
-encoder O/dense-FF/router batches on374's six physical workers.341 QKV/cross-KV
-is already present;366 unchanged CPU1 cost promotion stays closed. Reuse qualified
-365 controls, inspect the SAME-scope eligible cost subset, then freeze the specific
-integration and audit if its bound/remaining timing uncertainty justifies it.
-This changes active matrix reuse and worker execution; exact row arithmetic and
-parent winner/mass must be preserved. Original head retained initially. No515
-implementation or evidence yet. On489's same490 prose IDs,50 requires28.05% less
-whole time, or55.38% less encoder if cross-KV/decode unchanged. These are budgets,
-not forecasts. No automatic15GB export/hourlong whole trial. Later fresh whole
-quality+rate, compact core/useful larger n, CPU LUT winner AND mass, real DRAM
-and actual families/~100B remain required.
+[515 result](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md) implements literal365
+encoder O/dense-FF/router batches on374's six physical workers. Existing QKV/
+cross-KV and decoder/head/parent/mass stay exact. ALL18 full wires of two fixed
+consumed probes match363; independent source/byte/clock audit and terminal pass.
+Observed encoder ratio.889871 does not supply the required489.446216 ratio;
+repeat gates fail even on source controls. Close this unchanged sole path before
+a large whole trial; no intrinsic global saving or cause of variance is proven.
+Main25.047s/1.390GB conservative peak; completed audit15.593s/44MB. Full source
+payload freshly qualified; pre-math I/O/receipt faults preserved with explicit
+binding-label correction and no C/main replay. Default engine remains preserved;
+standalone included-backend operator is a reproducible exact component.
+
+[Selected516](METH_516_DIRECTIONAL_WI_NEXT_20261007.md) returns to source-derived
+active WI geometry: a fixed64-coordinate dot of the current original A16 query
+plus exact residual-energy certificate can reject only provably nonpositive
+rows, retaining original fallback/hidden maximum/codes/mass. Recover499/504 input
+queries and actual source380 WI extents/roles before freezing. Single actual128
+decoder bank11/17540 retained UIDs, not all banks/actual256/fresh quality. No516
+code/observations; logical cost and all byte identities/physical audit must pass
+before C. Compact core/useful larger n, whole quality+rate, CPU LUT winner AND
+mass, real DRAM and actual families/~100B remain required.
 
 ### Retained preceding500
 

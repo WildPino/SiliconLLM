@@ -1,6 +1,9 @@
 # Selected515: price the missing365 encoder batches on the374 six-worker path
 
-7 October2026. PROPOSED; no515 implementation, binding, measurements or job.
+7 October2026. HISTORICAL selection, superseded by the completed
+[515 result](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md) and current
+[516 plan](METH_516_DIRECTIONAL_WI_NEXT_20261007.md). Original prospective status
+below is historical; all515 jobs are terminal.
 Goal ACTIVE/INCOMPLETE.514's full-source/fixed8 arithmetic transfers, but its
 zero-new-error gate fails2 introductions. Increasing K does not address changed
 upstream states. Do not inherit128 quality/speed or automatically export15GB.

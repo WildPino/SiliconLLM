@@ -58,7 +58,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:514 audited;515 shared-prefill reuse price
+## Current resumption:515 exact/gap closed;516 current-query WI certificate
 
 [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
 14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
@@ -77,21 +77,27 @@ fsum-checked, all64,705,792 full-vocabulary cells checked. Main13.641s/337.7MB,
 audit28.485s/340.1MB, no new model/C/corpus calls. Header fault before NumPy
 retained; actual256 SWI8A001 literal repair. All owned instances terminal.
 
-**First action515:** [shared-prefill reuse plan](METH_515_SHARED_PREFILL_REUSE_NEXT_20261007.md):
-inspect365/374/488 contracts and SAME-scope458 cost subset.341 QKV/cross-KV is
-already present;365 encoder O/dense-FF/router batches are missing on374's six
-physical workers. Reuse365's exact operator/controls;366 CPU1 cost failure stays
-closed. Price this specific integration before code or another whole trial.
-489 fixed numerator needs55.38% less encoder time if cross-KV/decode unchanged;
-this is not a forecast and the eligible subset clock is not separately measured.
-No515 implementation/binding/observations/job. Original head retained initially;
-larger K cannot repair514's changed upstream states.
+[515 result](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md): actual365 missing
+O/dense-FF/router batch integration on374's6 workers is built; ALL18 complete
+teacher/natural wires exact363 on two fixed cases. Main/audit/admission5/5/5
+PASS. Observed encoder ratio.889871 vs required.446216 FAIL, repeat ratios up to
+1.543954>1.10 FAIL;1/3 feasibility pass. No unchanged large whole promotion.
+Main25.047s/1.390GB conservative parent+child peak; completed audit15.593s/44MB,
+31.186s including pre-math fault. Cold full-payload binding/receipt-label faults
+retained and explicitly repaired, no native/main replay. All10 instances closed.
+
+**First action516:** [64-coordinate WI certificate](METH_516_DIRECTIONAL_WI_NEXT_20261007.md):
+recover actual504 M499INP1 original A16 QUERY inputs and source380 bank11 WI
+extents/roles;513's codes are OUTPUT codes. Verify original128 single-bank
+contracts, then freeze one exact partial current-query dot/residual-energy row
+filter, ALL17540 UIDs and logical gates, independent physical/byte audit. No
+centres, K grid or fitted partial-function variant. No516 code/observations/job.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through514 terminal; three foreign tracked
+All completed scientific namespaces through515 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures

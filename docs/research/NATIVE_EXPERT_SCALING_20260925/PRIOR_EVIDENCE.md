@@ -1,5 +1,14 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after515:** [encoder reuse](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md)
+implements literal365 missing batches on374 physical6 workers; ALL18 two-case
+full wires exact363. Independent source/byte/clock and terminal controls PASS.
+Pilot encoder.889871 vs.446216 and repeat max1.543954 fail; fixed sole cost
+promotion CLOSED. Main25.047s/1.390GB, completed audit15.593s/44MB; pre-math
+I/O/receipt faults preserved, no C/main replay. Select [516 current-query64 WI
+certificate](METH_516_DIRECTIONAL_WI_NEXT_20261007.md), original128-bank retained
+inputs/source coefficients; not implemented/observed. Goal incomplete.
+
 **7 October after514:** [actual256 head](METH_514_ACTUAL256_HEAD_RESULT_20261007.md)
 applies fixed8 to ALL1065 native states with exact full-source winner decisions,
 949 donor-state bridges, independent64,705,792 cells/8520 fsum rows.24 aligned

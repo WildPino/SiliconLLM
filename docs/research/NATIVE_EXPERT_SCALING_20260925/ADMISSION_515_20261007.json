@@ -1,0 +1,228 @@
+{
+  "experiment": "METH515 exact implementation, terminal provenance/resource and failed pilot-gap admission",
+  "created_utc": "2026-10-07T01:46:06.942426+00:00",
+  "main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_main_result.json",
+    "bytes": 109752,
+    "sha256": "917bd5d7bbe377c50d79b05f8f1d5bb88d76842d20abf661ae789ebc5aa33fe0"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_r2_audit_result.json",
+    "bytes": 2510,
+    "sha256": "1754c71b963c27ce21ce5f1d36f4a0ccd6ce28db46519aae73982fa20f41eef7"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_r1_binding.json",
+    "bytes": 202290,
+    "sha256": "a3bc704f4bd2fdfb6ae9db2e75523a3cb91cf0dfab77f1986a233f8c1bb6c0c3"
+  },
+  "repair_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_audit_repair_binding.json",
+    "bytes": 1413,
+    "sha256": "bf68980714a18a2089ec13ab84d592ae80b8bd7e625407d097de0eb2c9cf167d"
+  },
+  "actual_main_binding_sha256": "a3bc704f4bd2fdfb6ae9db2e75523a3cb91cf0dfab77f1986a233f8c1bb6c0c3",
+  "original_main_report_binding_field": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273",
+  "binding_label_correction": "Frozen R1 sha loop variable shadows only serialized binding field. Actual initial SHA admission/argv and independent R2 verification establish correct binding; original raw retained BYTE.",
+  "resources": {
+    "main": {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth515_main\\terminal_resource.json",
+        "bytes": 448,
+        "sha256": "5d3442e732e3a1202a33533835d9795d8c19141b604cb239fcb85bbb9a5ab423"
+      },
+      "terminal": {
+        "result_sha256": "917bd5d7bbe377c50d79b05f8f1d5bb88d76842d20abf661ae789ebc5aa33fe0",
+        "seconds": 25.04700000002049,
+        "controller_OS_peak_bytes": 44187648,
+        "conservative_controller_plus_child_peak_bytes": 1390112768,
+        "bytes_hashed": 14998499055,
+        "limits": [
+          300,
+          2147483648,
+          67108864
+        ],
+        "process_instance": {
+          "pid": 11016,
+          "create_time_unix": 1791337002.5071173
+        },
+        "output_bytes": 57837366
+      }
+    },
+    "r2_audit": {
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth515_r2_audit\\terminal_resource.json",
+        "bytes": 442,
+        "sha256": "19e457bed4cb5ac3683148b2081757b408a8a710b1e7b664b58100b32d598ce2"
+      },
+      "terminal": {
+        "result_sha256": "1754c71b963c27ce21ce5f1d36f4a0ccd6ce28db46519aae73982fa20f41eef7",
+        "seconds": 15.59299999999348,
+        "controller_OS_peak_bytes": 44040192,
+        "conservative_controller_plus_child_peak_bytes": 44040192,
+        "bytes_hashed": 14941210315,
+        "limits": [
+          284,
+          2147483648,
+          67108864
+        ],
+        "process_instance": {
+          "pid": 26488,
+          "create_time_unix": 1791337323.1758504
+        },
+        "output_bytes": 2510
+      }
+    }
+  },
+  "initial_audit_fault_seconds": 15.59299999999348,
+  "combined_audit_seconds": 31.18599999998696,
+  "all_owned_process_instances_closed": [
+    {
+      "process_instance": {
+        "pid": 11016,
+        "create_time_unix": 1791337002.5071173
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 26488,
+        "create_time_unix": 1791337323.1758504
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 5992,
+        "create_time_unix": 1791337043.7914703
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 19084,
+        "create_time_unix": 1791337018.5738497
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 13360,
+        "create_time_unix": 1791337020.6002324
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 24796,
+        "create_time_unix": 1791337021.689798
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 25588,
+        "create_time_unix": 1791337022.8910053
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 29296,
+        "create_time_unix": 1791337024.0850084
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 7264,
+        "create_time_unix": 1791337024.760915
+      },
+      "closed": true
+    },
+    {
+      "process_instance": {
+        "pid": 28180,
+        "create_time_unix": 1791337025.9546137
+      },
+      "closed": true
+    }
+  ],
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_windows_terminal.json",
+    "bytes": 8014,
+    "sha256": "3f8e464ae78355ffaf220a0a5e9575b109a6b5208544ddde51bdc88f0670cce4"
+  },
+  "inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_binding.failure.json",
+      "bytes": 685,
+      "sha256": "1e80dd47805bb23f24fe0f5cfa84909953d2aec38ae9bba8a040842d4af81df8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_daemon_preflight.json",
+      "bytes": 1378,
+      "sha256": "a2f6e7bd8f1fb3b7ff2f0d9cd2b414e80b4d28ddef4c89877acc6b6d3d8c09ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_daemon_preflight_interpretation.json",
+      "bytes": 507,
+      "sha256": "90e4a31f21d1332685d8d98a32db7b9210b8ceb74ef9f4c5daeb46e822a9d989"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_r1_binding.json",
+      "bytes": 202290,
+      "sha256": "a3bc704f4bd2fdfb6ae9db2e75523a3cb91cf0dfab77f1986a233f8c1bb6c0c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_main_result.json",
+      "bytes": 109752,
+      "sha256": "917bd5d7bbe377c50d79b05f8f1d5bb88d76842d20abf661ae789ebc5aa33fe0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_audit_result.failure.json",
+      "bytes": 1251,
+      "sha256": "253d61ff14d900df393becf8b30fd779d1a6a09e921b08797218449ba0af9eb1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_audit_repair_binding.json",
+      "bytes": 1413,
+      "sha256": "bf68980714a18a2089ec13ab84d592ae80b8bd7e625407d097de0eb2c9cf167d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_r2_audit_result.json",
+      "bytes": 2510,
+      "sha256": "1754c71b963c27ce21ce5f1d36f4a0ccd6ce28db46519aae73982fa20f41eef7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth515_windows_terminal.json",
+      "bytes": 8014,
+      "sha256": "3f8e464ae78355ffaf220a0a5e9575b109a6b5208544ddde51bdc88f0670cce4"
+    }
+  ],
+  "combined_output_bytes_before_admission": 58055414,
+  "gates": {
+    "all_frozen_inputs_FULL_payload_and_literal_source_oracles_verified": true,
+    "ALL18_original_full_wires_and_parent_mass_bytes_independently_exact": true,
+    "all_terminal_limits_exact_instance_closure_positive_controlled_events": true,
+    "all_preserved_foreign_SHA_source_stats_and_empty_cache": true,
+    "all_frozen_clock_and_ineligibility_decisions_independently_exact": true
+  },
+  "feasibility": {
+    "pilot_encoder_ratio_supplies_retained489_necessary_gap": false,
+    "ALL2_candidate_whole_mean_not_slower": true,
+    "ALL4_three_repeat_whole_ratio_le1p10": false
+  },
+  "eligible_larger_same_recipe_cost_stage": false,
+  "decision": "Fixed integration preserved exact original function, pilot saving is insufficient and repeat gate fails. No unchanged large whole/rate promotion.",
+  "preserved": {
+    "benchmarks/donor_adaptation/configs/_manifest.json": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d",
+    "benchmarks/donor_adaptation/density/build_document_holdout.py": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9",
+    "docs/research/RESEARCH_INDEX.md": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+  },
+  "new_original_model_calls": 0,
+  "native_calls": 6,
+  "compiler_calls": 1,
+  "goal_complete": false,
+  "scope": "Two consumed probes and exact source-derived execution. No useful large-n, DRAM, accepted-rate or fresh whole quality promotion."
+}
