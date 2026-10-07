@@ -1,0 +1,89 @@
+{
+  "kind": "audit",
+  "started_utc": "2026-10-07T03:23:56.482736+00:00",
+  "process_instance": {
+    "pid": 29160,
+    "create_time_unix": 1791343435.937142
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth520_geometry_audit.py",
+    "--binding-sha",
+    "abcabcd44e8adc2e8dce79300663fccbbe1ca3aadfd70e3a1bfa41ff1a2e128a",
+    "--main-sha",
+    "5803e189f57d90e3c78695cdbdede9a3ea25ed18a5cbfa48e83bbdc558f4f43b"
+  ],
+  "gates": {
+    "fresh_used_geometry_features_runtime_science_and_fixed_dictionary_prefix_SHA": true,
+    "dev_only_wire_roles_NEW_Fraction_controls_and_independent_forward_whitening": true,
+    "ALL129_independent_last_pivot_Fraction_positive_or_inconclusive_full_minor_checks": true,
+    "ALL_global_and_parent_full_QR_tail_max_innovation_and_R_spectra_checks": true,
+    "ALL53943_counterfactual_dev_query_pairs_original_rows_and_input_hash_provenance": true,
+    "ALL_rank_stability_frozen_decisions_and_zero_source_response_calls": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "Independent development geometry/full minors/tail-innovation stability/complete query manifest; numerical agreement within frozen envelopes, no functions, quality/rate or goal completion.",
+  "binding_sha256": "abcabcd44e8adc2e8dce79300663fccbbe1ca3aadfd70e3a1bfa41ff1a2e128a",
+  "source_freeze": "4368ef77a753c8373d7a8e6bc108db9cd5f39082",
+  "execution_head": "e92c06832af9a608338f164cb9b4b2a97e13a7f0",
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "pooled_real_rank_lower_bound": 513,
+      "pooled_real_rank_upper_bound": 513,
+      "new_pairs_in_manifest": 53943,
+      "parents": 128
+    },
+    "stability": {
+      "global_condition2": 306.9541472749178,
+      "maximum_parent_condition2": 34140.06286516181,
+      "minimum_new_relative_innovation": 0.03415697542602188
+    }
+  },
+  "independent_numeric_views": {
+    "global_condition2": 306.95414727492147,
+    "maximum_parent_condition2": 34140.062865162196,
+    "minimum_relative_innovation": 0.03415697542602241
+  },
+  "eligibility": {
+    "pooled_full513_real_rank_positive_certificate": true,
+    "ALL128_augmented_full513_real_rank_positive_certificates": true,
+    "global_AND_ALL128_condition2_le1e6": true,
+    "global_AND_ALL128_new_relative_innovation_ge1e-6": true
+  },
+  "decision": "ELIGIBLE_FOR_SEPARATELY_FROZEN_SOURCE_RESPONSES",
+  "main_sha256": "5803e189f57d90e3c78695cdbdede9a3ea25ed18a5cbfa48e83bbdc558f4f43b",
+  "full_minors_checked": 129,
+  "selected_query_pairs_audited": 53943,
+  "source_response_function_calls": 0,
+  "readout_coefficient_solves": 0,
+  "physical_DRAM_verified": false,
+  "output_inventory": [],
+  "ended_compute_utc": "2026-10-07T03:25:14.640460+00:00",
+  "resource_before_serialization": {
+    "seconds": 78.15700000000652,
+    "OS_peak_bytes": 473014272,
+    "bytes_hashed": 217797772,
+    "limits": [
+      900,
+      1610612736
+    ]
+  }
+}
