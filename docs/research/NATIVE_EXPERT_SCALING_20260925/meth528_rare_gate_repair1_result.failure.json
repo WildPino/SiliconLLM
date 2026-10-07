@@ -1,0 +1,99 @@
+{
+  "kind": "rare_gate_repair1",
+  "started_utc": "2026-10-07T11:52:13.951202+00:00",
+  "process_instance": {
+    "pid": 28716,
+    "create_time_unix": 1791373933.4447436
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_rare_gate_repair1.py",
+    "--manifest-sha",
+    "cc433a78d00a006020fdcd6222eb96cc9840c54fbf2c229f76a46f975c7c8e7a",
+    "--freeze",
+    "ca03208c8037752ebf2932024c3a63f1b3f6ed24"
+  ],
+  "gates": {
+    "fresh_frozen_used_inputs_runtime_compiler_partial_and_foreign_SHA": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "Necessary original fixed full-domain rejection from independently verified original prefix; no full528 pass, source response replay or chatbot qualification.",
+  "source_freeze": "ca03208c8037752ebf2932024c3a63f1b3f6ed24",
+  "manifest_sha256": "cc433a78d00a006020fdcd6222eb96cc9840c54fbf2c229f76a46f975c7c8e7a",
+  "original_binding_sha256": "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2",
+  "original528_resource_gate": false,
+  "prefix_parents": [],
+  "excluded_frontier_parent": 13,
+  "source_response_function_calls": 0,
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "new_candidate_parents": [
+    15,
+    36,
+    69,
+    115,
+    124
+  ],
+  "new_C_response_calls_entered": 1,
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_rare_gate_repair1.py\", line 71, in main\n    for a,b in ((out,co),(integer,ci),(codes,cq),(alpha,ca)):assert a.tobytes()==b.tobytes()\n                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "resource": {
+    "seconds": 10.469000000011874,
+    "OS_peak_bytes": 68972544,
+    "compiler_family_peak_bytes": 0,
+    "parent_plus_compiler_peak_bound": 68972544,
+    "bytes_hashed": 1543371769,
+    "limits": [
+      120,
+      536870912
+    ]
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_C_alpha.npy",
+      "bytes": 140
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_C_codes.npy",
+      "bytes": 3224
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_C_integer.npy",
+      "bytes": 18560
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_C_physical.npy",
+      "bytes": 9344
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_main_alpha.npy",
+      "bytes": 140
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_main_codes.npy",
+      "bytes": 3224
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_main_integer.npy",
+      "bytes": 18560
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_gate_repair1\\e015_main_physical.npy",
+      "bytes": 9344
+    }
+  ]
+}
