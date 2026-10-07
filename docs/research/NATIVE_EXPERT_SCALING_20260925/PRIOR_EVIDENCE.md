@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after521:** [full source-information result](METH_521_SOURCE_INFORMATION_TRANSFER_RESULT_20261007.md)
+acquires53943 immutable development counterfactual responses once, independently
+reconstructs ALL source bytes once,128 unique full-rank augmented fits and one
+native17540-UID candidate. Main8/metric-repair4/admission5 PASS. Consumed fitted
+unweighted RMS28.6383% vs4996.1354%, weighted40.5641% vs9.7187%; native40.5951%.
+ALL9 outcomes FAIL; THIS fixed full-information interpolant CLOSED. Main80.890s/
+1.568GB combined; original audit57.969s/1.327GB then metric repair36.109s/793.7MB,
+original cancellation and pre-Meter binder import faults retained. No source/
+fit/native replay;10 instrumented instances closed,1.539GB combined outputs.
+Select [522 redundancy support/copy lower bound](METH_522_REDUNDANCY_LOWER_BOUND_NEXT_20261007.md),
+before new narrow masks/functions/routing. No522 implementation/numerics; no
+whole quality/rate, useful large n/DRAM or goal promotion.
+
 **7 October after520:** [source-information eligibility](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md)
 certifies dev pooled real rank513 and ALL128 augmented minors with53943 ordered
 new counterfactual dev pairs. Main5/audit6/admission5 and ALL4 rank/stability

@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;520 plan eligible;521 new source information
+## Current resumption:511 baseline;521 closed;522 redundancy obstruction
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -131,12 +131,25 @@ minimum new relative innovation.034157. Main187.250s/363.7MB,audit78.157s/473MB,
 all3 terminal,no faults/replays/source-response/readout/model/native calls.
 Query independence/stability is qualified; function preservation is not.
 
-[Selected521](METH_521_SOURCE_RESPONSES_AND_FIXED_CLASS_NEXT_20261007.md) will first
-recover/price the complete original native response/augmented readout/I8/C/
-independent reconstruction pipeline,then freeze before any new label. Change
-source information at fixed r512/A/L0/quantizers/Kreg/codec; no consumed fitting
-or manifest reselection. 521 source/audit/protocol implemented before binding/responses; [protocol](METH_521_SOURCE_INFORMATION_TRANSFER_PROTOCOL_20261007.md) fixes CPU900s/2GiB per phase and combined output2GiB. No521 binding/response/fit yet. Current495 routing/mass
-failure remains separate; source-mass oracle alone cannot promote the candidate.
+[521 result](METH_521_SOURCE_INFORMATION_TRANSFER_RESULT_20261007.md) implements
+ONE complete accepted53943-pair source acquisition and128 unique full-rank
+augmented fits at fixed r512/A/L0/quantizers/Kreg/codec. All source code/alpha/F
+bytes independently reconstructed once. Main8/remaining-metric4/admission5 PASS;
+first cancellation comparison fault and isolated binder import fault retained.
+No source/fit/native replay. Canonical consumed unweighted F64 RMS28.6383% vs
+4996.1354%, weighted40.5641% vs9.7187%, native40.5951%. ALL9 outcomes fail;
+THIS fixed full-constraint interpolant closed, not all dictionaries/readouts.
+Counterfactual anchors may lie outside a requested expert's routed domain;
+full coefficient identification is not function preservation. Current495
+routing/mass remains separately failed; source-mass oracle cannot promote.
+
+[Selected522](METH_522_REDUNDANCY_LOWER_BOUND_NEXT_20261007.md) first derives
+mask-independent necessary support/copy bounds for512-atom redundant branches
+at exploratory rho2, using already qualified500 support arrays. One deterministic
+incompatibility clique yields a certified branch/copy lower witness. M is logical
+atom incidence; dense independent branch coefficient storage and shared gathered
+weights require separate physical cost interpretations. No522 code/protocol/
+binding/numerics yet, no automatic repeat of500..503 packing/functions/selectors.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 

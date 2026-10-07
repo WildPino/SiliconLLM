@@ -58,7 +58,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:520 complement plan eligible;521 new source responses/fit
+## Current resumption:521 fixed interpolant closed;522 redundancy lower bound
 
 [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
 14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
@@ -126,19 +126,28 @@ minimum new relative innovation.034157. Main187.250s/363.7MB,audit78.157s/473MB,
 combined7.08MB; all3 terminal,no faults/replays/source-response/readout/model/C
 calls. This is query-plan eligibility, not fitted functions or quality/rate.
 
-**First action521:** [source responses and fixed-class test](METH_521_SOURCE_RESPONSES_AND_FIXED_CLASS_NEXT_20261007.md):
-recover original qualified native WI/WO/C pair-input and499 fit/export contracts;
-price ALL53943 new responses/full augmented fit/I8/native evaluation/independent
-reconstruction buffers and output/child costs. Freeze ONE complete protocol
-before acquiring any label.520 manifest immutable, r512 active geometry fixed,
-no consumed fit/query reselection. 521 complete source/audit/protocol now implemented; binding/response/fit not yet executed. See [521 protocol](METH_521_SOURCE_INFORMATION_TRANSFER_PROTOCOL_20261007.md). Routing/mass,
-all-bank/fresh whole quality AND50/s/useful-n/LUT/DRAM remain unresolved.
+[521 result](METH_521_SOURCE_INFORMATION_TRANSFER_RESULT_20261007.md): all53943
+new source responses independently BYTE-qualified; all128 unique augmented
+readouts, fixed A/r512/L0/codec/keys and one native17540-UID candidate. Main8/
+metric-continuation4/admission5 PASS. Consumed unweighted F64 RMS6.1354%->28.6383%,
+weighted9.7187%->40.5641%; native40.5951%. ALL9 outcomes FAIL, THIS full-information
+interpolant CLOSED. Source/equation/physical audit prefix retained; first energy
+comparison fault/isolated binder import fault preserved, metric propagation
+repair only, no source/fit/native replay. All10 instrumented instances terminal,
+1.539GB outputs; no whole quality/rate/useful n/DRAM promotion.
+
+**First action522:** [redundancy lower bound](METH_522_REDUNDANCY_LOWER_BOUND_NEXT_20261007.md):
+recover admitted500/501 original support/metric contracts and price a mask-
+independent incompatibility-clique/copy bound for512-atom branches/rho2. Freeze
+ONE protocol before new support observations. No new packing/selector/function
+or old source replay. This is a necessary bound, not a universal impossibility
+or a fresh-quality result; larger RAM/shared-weight layouts remain separate.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through520 terminal; three foreign tracked
+All completed scientific namespaces through521 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures
