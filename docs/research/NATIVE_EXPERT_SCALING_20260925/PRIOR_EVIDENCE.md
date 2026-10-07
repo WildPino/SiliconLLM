@@ -1,5 +1,14 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after514:** [actual256 head](METH_514_ACTUAL256_HEAD_RESULT_20261007.md)
+applies fixed8 to ALL1065 native states with exact full-source winner decisions,
+949 donor-state bridges, independent64,705,792 cells/8520 fsum rows.24 aligned
+errors ->20 via6 recoveries/2 introductions. Zero-new-error gate FAIL, no whole
+promotion; larger K cannot repair full-source head errors from upstream drift.
+Main13.641s/337.7MB, audit28.485s/340.1MB, all controls/terminal admission pass.
+No model/C/corpus queries. Select [515 shared-prefill reuse price](METH_515_SHARED_PREFILL_REUSE_NEXT_20261007.md)
+as a changed active operator; no implementation/observations yet. Goal incomplete.
+
 **7 October after513:** [adaptive index](METH_513_ADAPTIVE_CERTIFICATE_RESULT_20261007.md)
 is exact on17540 original UIDs, all32477 physical checkpoints independent,
 main/audit/admission5/6/5 PASS. Index40.91MB; consumed/natural mean logical bytes

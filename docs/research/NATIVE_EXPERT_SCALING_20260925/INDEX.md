@@ -58,7 +58,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:514 actual source256 retained-state applicability
+## Current resumption:514 audited;515 shared-prefill reuse price
 
 [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
 14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
@@ -68,19 +68,30 @@ path.489 CPU0 prose35.9764/lower33.7592 means about28.05% less time is needed
 at its retained490 accepted-prose numerator.511's smaller saving cannot supply
 that claim. Exact original parent winner AND mass remain charged at256.
 
-**First action:** inventory/hash small original256 metadata and retained363/458/
-489 teacher/own-history/reference wire collections; verify normalized decoder
-head input and source F32 shared-head extent/aliases. Freeze ONE source-head/
-fixed-eight feasibility screen on those retained states, with independent audit,
-no k grid, no C/model/corpus query. Proposed300s/2GiB each main/audit/256MiB output;
-actual contracts/inputs/maxima/criteria must be frozen first. No514 code,
-binding, observations or live job. Use508/509/510 only after actual contract check.
+[514 result](METH_514_ACTUAL256_HEAD_RESULT_20261007.md): source256 fixed8 matches
+full original head on ALL1065 native states; all949 original donor-state bridges
+pass. On common histories24 old errors,6 recovered/2 introduced,20 remain.
+Zero-new-error prospective gate FAIL; no automatic whole/export promotion.
+All main5/audit6/admission5 controls PASS, all8520 selected dots independently
+fsum-checked, all64,705,792 full-vocabulary cells checked. Main13.641s/337.7MB,
+audit28.485s/340.1MB, no new model/C/corpus calls. Header fault before NumPy
+retained; actual256 SWI8A001 literal repair. All owned instances terminal.
+
+**First action515:** [shared-prefill reuse plan](METH_515_SHARED_PREFILL_REUSE_NEXT_20261007.md):
+inspect365/374/488 contracts and SAME-scope458 cost subset.341 QKV/cross-KV is
+already present;365 encoder O/dense-FF/router batches are missing on374's six
+physical workers. Reuse365's exact operator/controls;366 CPU1 cost failure stays
+closed. Price this specific integration before code or another whole trial.
+489 fixed numerator needs55.38% less encoder time if cross-KV/decode unchanged;
+this is not a forecast and the eligible subset clock is not separately measured.
+No515 implementation/binding/observations/job. Original head retained initially;
+larger K cannot repair514's changed upstream states.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through513 terminal; three foreign tracked
+All completed scientific namespaces through514 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures

@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 admitted,513 closed;514 actual256 applicability
+## Current resumption:511 admitted,513/514 screened;515 shared-prefill price
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -63,19 +63,28 @@ Close THIS fixed-centre index before native work. Exactness holds; conservative
 source cones do not omit enough WI work. Main42.921s/405.7MB, audit33.031s/419.7MB;
 first isolated-import/typed-UTC XML/date faults retained without numerical replay.
 
-[Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md) returns to the already
-qualified actual14.664B/256 original source/artifact. First inspect the actual
-retained head-input/reference wire collections and shared F32 extent, then freeze
-one source-head/fixed-eight feasibility screen with independent auditor. Same
-D/H does not permit copying another backbone's functions or inheriting128
-quality/rate. Old actual256 CPU0 prose35.9764/lower33.7592 needs about28.05% less
-elapsed time at its retained numerator to reach50; new conditional/readout path
-must show a credible additional cost/acceptance mechanism before a large whole
-trial. No514 implementation/observations yet; no source reacquisition is needed.
-Proposed retained-state phases300s/2GiB each; exact contracts/inputs/output bounds
-must be frozen. Later real256 column export/inverse and native complete-cost/
-fresh original F32 comparisons remain new work. Compact core/useful larger n,
-CPU LUT winner AND mass, real DRAM and actual families/~100B remain required.
+[514 result](METH_514_ACTUAL256_HEAD_RESULT_20261007.md) makes the original14.664B
+source-head/fixed8 screen real. ALL1065 native full-source/hybrid winners match;
+ALL949 aligned original F32-state head bridges pass.24 original errors ->20:
+6 recovered/2 introduced. The prospective zero-new-error gate fails; actual256
+whole hybrid quality remains unmeasured. Full-head decisions introduce the same
+errors, so larger K is not a remedy. Independent ALL2014 full vocabulary vectors,
+8520 fsum rows,24 rational decompositions and terminal controls pass. Main13.641s/
+337.7MB, audit28.485s/340.1MB; pre-numeric actual-manifest-header fault retained.
+No new source/model/C/corpus query or numerical main/audit replay.
+
+[Selected515](METH_515_SHARED_PREFILL_REUSE_NEXT_20261007.md) prices literal365
+encoder O/dense-FF/router batches on374's six physical workers.341 QKV/cross-KV
+is already present;366 unchanged CPU1 cost promotion stays closed. Reuse qualified
+365 controls, inspect the SAME-scope eligible cost subset, then freeze the specific
+integration and audit if its bound/remaining timing uncertainty justifies it.
+This changes active matrix reuse and worker execution; exact row arithmetic and
+parent winner/mass must be preserved. Original head retained initially. No515
+implementation or evidence yet. On489's same490 prose IDs,50 requires28.05% less
+whole time, or55.38% less encoder if cross-KV/decode unchanged. These are budgets,
+not forecasts. No automatic15GB export/hourlong whole trial. Later fresh whole
+quality+rate, compact core/useful larger n, CPU LUT winner AND mass, real DRAM
+and actual families/~100B remain required.
 
 ### Retained preceding500
 

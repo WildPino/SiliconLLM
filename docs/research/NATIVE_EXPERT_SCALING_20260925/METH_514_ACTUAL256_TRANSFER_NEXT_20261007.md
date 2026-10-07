@@ -1,6 +1,9 @@
 # Selected514: transfer the conditional/readout path to actual source256
 
-7 October2026. PROPOSED, no514 numerical job/source/binding yet.
+7 October2026. HISTORICAL selection, superseded by the completed
+[514 result](METH_514_ACTUAL256_HEAD_RESULT_20261007.md) and current
+[515 plan](METH_515_SHARED_PREFILL_REUSE_NEXT_20261007.md). The text below records
+the prospective514 selection; its original proposed status is historical.
 Goal ACTIVE/INCOMPLETE.513 closes its fixed exact row-certificate union on logical
 economy, with exact original function preserved. Return to the actual larger
 source already in the project before another unchanged128 local geometry trial.
