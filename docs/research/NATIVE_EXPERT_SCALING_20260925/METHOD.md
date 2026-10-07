@@ -53,13 +53,20 @@ stops cannot be removed using favorable donor-only counts. Qwen/Giga SwiGLU
 needs its own atom/folding/coverage/core-cost contract; ReLU sign-zero and linear
 fold identities do not directly define a compact gated-SiLU implementation.
 
-Next [necessary528 certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md)
-first freezes independent C verification of completed1..12 and exact dyadic
-full-reference energies/prefix error LOWER bounds. A strict full-domain1% failure
-can close this recipe without the rest of its responses; inconclusive requires
-original full continuation, never prefix promotion. No certificate code/protocol/
-C/energy observations yet. Then prioritize family-specific chatbot conversion
-and complete fresh native dialogues/tasks, with explicit role/history/EOS fixtures.
+[528 necessary certificate result](METH_528_NECESSARY_GATE_RESULT_20261007.md)
+now closes its single-anchor recipe: complete original rare1..4 ALL3 UID gives
+29.222693%/weighted29.067133% physical RMS, fixed1%, exact guarded proof verified.
+First C prefix1674 BYTE and ALL35080 exact source energy audit are reusable;
+prefix itself inconclusive. C hidden-buffer layout corrected by view ONLY,
+no response/control/source replay. Other528 metrics UNKNOWN, resource FALSE.
+The available necessary-rejection method does not constitute a CHATBOT converter.
+
+Next [SwiGLU/operator contract](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md):
+NEW static full core/head/router/cache cost census, actual source->Qwen276/284
+artifact mapping and priced family-specific transformation. Reuse retained
+preflight/header evidence, bind role/history/token IDs/BOTH Qwen EOS before
+NEW whole native dialogue/task quality. No census/fixtures/converter implemented
+yet. Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault
 
@@ -257,13 +264,15 @@ widths512..1095,candidate101823884B. No full-source WI/FFN/native/model replay.
 Original main240.343s/158924800B breaches240s, actual exit1, four prefix gates
 complete. ALL288 partials/749774988B SHA-sealed;1..12 completed by code order,
 13 complete-or-partial unresolved without durable row checkpoint. No full
-fidelity/eligibility, numerical audit or C compilation has occurred. Original
+fidelity/eligibility was established in that original attempt. Later FIRST C
+prefix and necessary rare-gate rejection are recorded above. Original
 main resource gate remains FALSE; frozen code is not a validated full procedure.
 Incorrect first Windows query used527 main; original retained, numbered metadata
 repair checks actual528 instances. No source/response replay or bytes changed.
 
 [Numerical repair1 proposal](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md)
-is conditional after the necessary-certificate inquiry. It freezes
+is now an inactive historical proposal: the necessary original rare-gate FAIL
+closes this recipe. It proposed
 prefix-adoption/independent recovery predicates, then performs
 the FIRST C audit for1..13, resolves13 and checkpoints missing14..127 responses
 with per-phase costs. Reuse banks/controls; retain all completed arithmetic;

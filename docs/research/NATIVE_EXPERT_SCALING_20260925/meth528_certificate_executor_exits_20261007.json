@@ -1,0 +1,21 @@
+{
+  "scope": "Actual tool executor receipts; no inferred exit0 from JSON presence; original faults remain failed.",
+  "stages": [
+    {"name":"prefix original", "session_id":99381, "chunks":["3f1bfd","83f1ed"], "exit_code":1},
+    {"name":"prefix repair1", "session_id":60741, "chunks":["0bf5b7","bcde34"], "exit_code":1},
+    {"name":"compiler diagnostic", "chunks":["279a89"], "exit_code":0},
+    {"name":"prefix repair2", "session_id":33369, "chunks":["3da6ef","1a0ad9"], "exit_code":1},
+    {"name":"prefix repair3", "session_id":45451, "chunks":["e24767","53bc01"], "exit_code":1},
+    {"name":"prefix repair4 main", "session_id":9520, "chunks":["ddd0c8","0822b3"], "exit_code":0, "result_sha256":"81d5454195ce1ac9dae9bf791b31bd3edd13dc5fa4c77d6e1679e7d645a06f03"},
+    {"name":"prefix repair4 independent audit", "session_id":10447, "chunks":["5f8e58","2996ff"], "exit_code":0, "result_sha256":"8872d2df4c0d2b9d28804f586cd8857723cac5cc1cdf74166c0bf6642cb2ed6b"},
+    {"name":"original rare gate hash fault", "session_id":32075, "chunks":["30006e","a54751","bea67a"], "exit_code":1},
+    {"name":"rare repair1 layout fault", "session_id":98570, "chunks":["689c00","63e4f8"], "exit_code":1},
+    {"name":"rare buffer metadata correction and FIRST necessary proof", "chunks":["66f692"], "exit_code":0, "result_sha256":"3859ac1a4a1a6ab76edb909b73ecb45385bcca020566acba0554804dd95635a4"},
+    {"name":"first terminal script PARSER fault", "chunks":["8285c9"], "shell_command_exit_code":0, "script_executed":false, "terminal_query_gate":false},
+    {"name":"terminal metadata source repair1", "chunks":["cc5f2d"], "exit_code":0, "result_sha256":"c5dd380a44e1f82f64e330080099c1a908667ed14ac5d8ceeae5c485edf9a5ef"},
+    {"name":"final metadata retention", "chunks":["c510ac"], "exit_code":0, "result_sha256":"8c2e5c58388d7b66cad56b012a85672ebbbcda1f2db8bcc253e244d1738f9430"}
+  ],
+  "original528_main_resource_gate":false,
+  "first_two_compiler_descendant_accounting":"UNKNOWN and unqualified; preserved first faults",
+  "whole_chatbot_admission":false
+}

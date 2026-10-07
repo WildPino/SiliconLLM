@@ -42,14 +42,16 @@ The tool exposes missing stages and always reports pipeline NOT QUALIFIED.
 
 ## Latest decisive evidence
 
-[528 first fault](METH_528_VARIABLE_ATOM_FIRST_FAULT_RESULT_20261007.md): source/
-protocol frozen; ALL127 candidate/rotation banks built, widths512..1095,
-candidate101.82MB. Original main240.343s/158.9MB hits deadline, actual exit1;
-4/7 prefix gates only. ALL288 partials/749.77MB SHA-sealed;1..12 completed by
-code order,13 unresolved without row checkpoint. No full quality/eligibility
-or numerical audit/C compile yet. Original resource gate FALSE. Incorrect first
-Windows main reference retained; numbered metadata repair verifies actual528.
-Bank width alone does not establish fidelity, useful n, whole quality or rate.
+[528 necessary rejection](METH_528_NECESSARY_GATE_RESULT_20261007.md): FIRST scalar
+C verifies1674 retained prefix responses BYTE; exact source/prefix energy audit
+confirms prefix bound inconclusive. Then COMPLETE original rare1..4 domain,
+ALL3 parent15 UID: physical RMS29.222693%/weighted29.067133% versus fixed1%.
+Exact guarded integer comparisons independently certified; single-anchor528
+recipe CLOSED. Stop full continuation; other domains/parent13 UNKNOWN.
+Prefix main30.406s/290.3MB,audit12.593s/301.5MB; final proof1.969s/66.2MB.
+All first operational/layout faults retained, C buffer corrected by view ONLY,
+zero response/control replay. Original528240s resource FALSE, no full admission
+or fresh chatbot claim.22 known owned instances closed; foreign SHA preserved.
 
 [527 retained bounds](METH_527_RETAINED_BOUND_RESULT_20261007.md): main7/audit8/
 admission5 and ALL4 eligibility gates PASS. ALL127 unchanged nearest orders now
@@ -95,19 +97,15 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [528 necessary full-domain failure certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md).
-Freeze FIRST independent C verification of completed1..12 and exact integer
-source/full-domain denominator versus prefix-error LOWER bounds. A certified
-strict1% crossing with outward guards for original F64 reductions/sqrt proves
-failure of an unchanged full-domain criterion, saving unnecessary completion. No prefix
-denominator, threshold change or scope-only failure. Inconclusive is not a pass.
-No prefix code/protocol/energy/C observations yet;13 stays unresolved.
-
-If inconclusive, [checkpointed continuation](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md)
-remains conditional, reusing first C prefix calls/banks/controls. After this ONE
-decisive comparison, prioritize SwiGLU chatbot transformation/full core costs
-and fresh actual native dialogue/task validation with canonical role/stop
-fixtures. No further geometry precision ladder or unchanged297 promotion.
+**First action:** [chatbot SwiGLU/operator contract](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md).
+Implement/freeze NEW static full core/head/router/cache/active-cost census and
+source->existing276/284 artifact/operator mapping for actual Qwen/Giga. Reuse
+retained preflight/header evidence; no completed source/inference/metric replay.
+Choose a priced family-specific compact transformation, bind canonical role/
+history/tokenizer/BOTH Qwen EOS fixtures before NEW whole dialogue/task quality.
+No census/fixtures/new conversion code or observations yet.528 necessary failure
+is certified: stop its full numerical continuation. No further geometry
+precision ladder or unchanged297 promotion.
 Original528 main failure FALSE; consumed cohort not fresh chat quality.18 geometry
 queries deferred; no failed524 export/fallback or revived donor-port NEXT.
 
@@ -131,5 +129,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
-[528 necessary certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md)
+[SwiGLU/operator NEXT](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md)
 supersede all older operational NEXTs.

@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**7 October necessary528 closure:** [result](METH_528_NECESSARY_GATE_RESULT_20261007.md).
+FIRST scalar C1674 prefix responses/I64/A16 BYTE, exact ALL35080 source energies
+and prefix errors independently audited. Lower-bound inquiry inconclusive.
+Complete ORIGINAL rare1..4 consumed domain ALL3 parent15 UID gives physical
+29.222693%/weighted29.067133% RMS against fixed1%; strict guarded integer proof
+independently verified. Single-anchor528 recipe CLOSED, full continuation stops;
+other rare/full values and13 UNKNOWN, original resource FALSE. ALL first compiler/
+resource/layout faults retained. F-contiguous hidden C buffer reinterpreted
+without response/quantizer/control/source replay.22 known owned instances closed.
+This local consumed diagnostic is not chatbot/multiregion impossibility. Next
+[SwiGLU/operator contract](CHATBOT_SWIGLU_OPERATOR_CONTRACT_NEXT_20261007.md): NEW
+whole core/head/router/cache pricing/source->existing Qwen artifact mapping and
+canonical role/history/EOS fixtures before new complete conversion/quality/rate.
+The following dated528 proposals describe earlier states, not current NEXT.
+
 **7 October chatbot reassessment:** human restates final CHATBOT-to-engine
 pipeline. [Macro review](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) distinguishes
 511 Switch infilling warm-quality/50 from actual Qwen Instruct direct artifact/

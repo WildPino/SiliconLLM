@@ -1,0 +1,109 @@
+{
+  "kind": "rare_metadata_proof",
+  "started_utc": "2026-10-07T11:59:59.832931+00:00",
+  "process_instance": {
+    "pid": 16676,
+    "create_time_unix": 1791374399.3603148
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_rare_metadata_proof.py",
+    "--manifest-sha",
+    "055d55f985bbd4f228570c9d4bead5072fdf43ffaad82a3967cb7f26aaff710d",
+    "--freeze",
+    "27cd1fd966f77812e5f8da96c042ab3f4672f067"
+  ],
+  "gates": {
+    "fresh_frozen_used_inputs_runtime_compiler_partial_and_foreign_SHA": true,
+    "retained_physical_I64_alpha_and_correctly_reinterpreted_C_hidden_codes_BYTE": true,
+    "FIRST_4608_error_scalar_terms_independently_C_integer_BYTE_and_F32_weighting": true,
+    "original_FULL_three_UID_rare_domain_and_two_guarded_decisions_independently_verified": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "One unchanged original complete scarce domain, not a subset criterion; only C buffer representation corrected, no response/quantizer/source/model/native engine replay; IEEE prerequisites as frozen proof.",
+  "source_freeze": "27cd1fd966f77812e5f8da96c042ab3f4672f067",
+  "manifest_sha256": "055d55f985bbd4f228570c9d4bead5072fdf43ffaad82a3967cb7f26aaff710d",
+  "original_binding_sha256": "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2",
+  "original528_resource_gate": false,
+  "prefix_parents": [],
+  "excluded_frontier_parent": 13,
+  "source_response_function_calls": 0,
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "reused_rare_parent": 15,
+  "new_C_response_calls": 0,
+  "new_numpy_candidate_calls": 0,
+  "retained_first_C_response_calls": 1,
+  "decision": "NECESSARY_FIXED_DOMAIN_FIDELITY_FAILURE_CERTIFIED",
+  "view": {
+    "kind": "rare",
+    "development_class": "1..4",
+    "split": "consumed_validation",
+    "count": 3,
+    "UIDs": [
+      6534,
+      7780,
+      10785
+    ],
+    "unweighted": {
+      "full_source_denominator_integer": "1052941365166474516129210381073274809908375609669567021176409615389448467598543747428342036430848",
+      "full_error_numerator_integer": "89917592575833517514375532872346441545298447764228438137721478730490319690238852776554819223552",
+      "guarded_cross_left": "161812599044585187949983816984251011002444901274630529365066564099479065164401911671740370387255304373630566562577738121106486904682793358819748766889407464741681844574240144410645646961159348303737057332969937911329248425498203411536839645161903947570479104",
+      "guarded_cross_right": "189483697303703918839087961526337422313588018412791477670256975703530286411560801463116264187957829361199533784900686484583209306309873645006559090462346612574743158449652345665138461412416892242369623569368540850625640271309407153551561199661126936166400",
+      "strict_original_gate_failure": true,
+      "full_domain_real_RMS_display": 0.29222693407228517
+    },
+    "weighted": {
+      "full_source_denominator_integer": "5021846448634601278743335121856131103779562122857005075976377162670171164457784343145155133440",
+      "full_error_numerator_integer": "424294911689699917280013014226883248858379398683225089657045858466043361241841935239063011328",
+      "guarded_cross_left": "763546492461980420793799334416017946447864319199459860459571314631673920460972261297482547477119915478065264043809309624825280393222451158254851359829139074709267342304163812100691995720174931906098898578211279889689437319611472997556158241093499440070656",
+      "guarded_cross_right": "903714170473598897339356206072857240665385973449242898442639446264612512334547644653247924085690450603109554567630437434120192701162649554526822886858653299652812863284070606416972145029704604580927284604253848844623017647202962276229429238685499392000",
+      "strict_original_gate_failure": true,
+      "full_domain_real_RMS_display": 0.2906713295586618
+    }
+  },
+  "new_C_error_energy_calls": 2,
+  "new_C_weighting_calls": 1,
+  "repeated_source_energy_reductions": 0,
+  "independent_algorithms_same_process": true,
+  "other_rare_and_full_metrics": "UNKNOWN",
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_metadata_proof\\corrected_C_codes.npy",
+      "bytes": 3224,
+      "sha256": "711e98bcbec163919b320dfed18db394d11ba74d4cf5611b427195f49718a4d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_rare_metadata_proof\\error_U640.npy",
+      "bytes": 608,
+      "sha256": "0440c62c8559c86757e687464d9bf1b764dbdb86e673aa04f0a55a1d6754511b"
+    }
+  ],
+  "ended_compute_utc": "2026-10-07T12:00:01.791077+00:00",
+  "resource_before_serialization": {
+    "seconds": 1.9690000000118744,
+    "OS_peak_bytes": 66220032,
+    "compiler_family_peak_bytes": 0,
+    "parent_plus_compiler_peak_bound": 66220032,
+    "bytes_hashed": 203524773,
+    "limits": [
+      120,
+      536870912
+    ]
+  }
+}
