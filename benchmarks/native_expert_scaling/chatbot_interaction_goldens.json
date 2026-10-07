@@ -1,0 +1,19 @@
+{
+  "schema":"QWEN_PLAIN_CHAT_GOLDENS_V1",
+  "cases":[
+    {"name":"default_system_generation","mode":"generate","messages":[{"role":"user","content":"a"}],"expected_text":"<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\na<|im_end|>\n<|im_start|>assistant\n"},
+    {"name":"explicit_system_sealed_history","mode":"sealed","messages":[{"role":"system","content":"S"},{"role":"user","content":"A"},{"role":"assistant","content":"B"}],"expected_text":"<|im_start|>system\nS<|im_end|>\n<|im_start|>user\nA<|im_end|>\n<|im_start|>assistant\nB<|im_end|>\n"},
+    {"name":"multiple_turns_generation","mode":"generate","messages":[{"role":"system","content":"S"},{"role":"user","content":"A"},{"role":"assistant","content":"B"},{"role":"user","content":"C"}],"expected_text":"<|im_start|>system\nS<|im_end|>\n<|im_start|>user\nA<|im_end|>\n<|im_start|>assistant\nB<|im_end|>\n<|im_start|>user\nC<|im_end|>\n<|im_start|>assistant\n"},
+    {"name":"assistant_continuation_trailing_space","mode":"continue","messages":[{"role":"user","content":"Echo"},{"role":"assistant","content":"Parziale: "}],"expected_text":"<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nEcho<|im_end|>\n<|im_start|>assistant\nParziale: "},
+    {"name":"unicode_NFC_and_multiline","mode":"generate","messages":[{"role":"system","content":"S"},{"role":"user","content":"Italia: caffè, e\u0301. 漢字🙂\n riga 2"}],"expected_text":"<|im_start|>system\nS<|im_end|>\n<|im_start|>user\nItalia: caffè, e\u0301. 漢字🙂\n riga 2<|im_end|>\n<|im_start|>assistant\n"},
+    {"name":"later_system_message","mode":"generate","messages":[{"role":"system","content":"S"},{"role":"user","content":"a"},{"role":"assistant","content":"b"},{"role":"system","content":"S2"},{"role":"user","content":"c"}],"expected_text":"<|im_start|>system\nS<|im_end|>\n<|im_start|>user\na<|im_end|>\n<|im_start|>assistant\nb<|im_end|>\n<|im_start|>system\nS2<|im_end|>\n<|im_start|>user\nc<|im_end|>\n<|im_start|>assistant\n"},
+    {"name":"literal_spaces_CRLF_no_generation","mode":"sealed","messages":[{"role":"user","content":" a  \r\nb\n"}],"expected_text":"<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n a  \r\nb\n<|im_end|>\n"},
+    {"name":"default_sealed_assistant","mode":"sealed","messages":[{"role":"user","content":"u"},{"role":"assistant","content":"v"}],"expected_text":"<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nu<|im_end|>\n<|im_start|>assistant\nv<|im_end|>\n"}
+  ],
+  "stop_cases":[
+    {"name":"im_end_stops_new_IDs","new_ids":[42,151645,43],"max_new_tokens":4,"expected":{"accepted_ids":[42,151645],"termination":"eos","stop_id":151645}},
+    {"name":"endoftext_also_stops","new_ids":[151643,43],"max_new_tokens":4,"expected":{"accepted_ids":[151643],"termination":"eos","stop_id":151643}},
+    {"name":"length_limit","new_ids":[42,43,44],"max_new_tokens":2,"expected":{"accepted_ids":[42,43],"termination":"length","stop_id":null}},
+    {"name":"insufficient_generated_input","new_ids":[42],"max_new_tokens":4,"expected":{"accepted_ids":[42],"termination":"input_exhausted","stop_id":null}}
+  ]
+}
