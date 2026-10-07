@@ -10,7 +10,9 @@ if((Test-Path -LiteralPath $taskRuntime) -or (Test-Path -LiteralPath $taskOutput
 [void](New-Item -ItemType Directory -Path $taskSite)
 function Entry([string]$path) {
     $taskItem=Get-Item -LiteralPath $path
-    return @{path=$taskItem.FullName;bytes=$taskItem.Length;sha256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()}
+    $taskStream=[IO.File]::OpenRead($taskItem.FullName)
+    try {$taskBytes=$taskStream.Length} finally {$taskStream.Dispose()}
+    return @{path=$taskItem.FullName;bytes=$taskBytes;sha256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()}
 }
 function Tree([string]$path) {
     $taskItem=Get-Item -LiteralPath $path
