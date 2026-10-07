@@ -19,92 +19,53 @@ Implemented and qualified: source/native contracts, captures, source/function/
 control supervision, donor-informed prior, local learning, export, byte-defined
 C evaluator and independent numerical/provenance verification.
 
-Missing: a convenient transformed whole model preserving required quality and
-rate; useful much larger expert pools after that transfer; physical memory and
-multi-family/large-scale applicability. Source replay/headers/synthetic costs/
-finite interpolation do not substitute for these results.
+511 now qualifies fresh whole quality AND warm accepted prose>=50 on its SAME
+source-sized conditional artifact within bounded infilling. Its all-book cost
+criterion fails; first-request prose is27.14/s. Missing: compact convenient
+active geometry, useful much larger expert pools, physical memory evidence and
+multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 native/donor complete; numerical admission pending
+## Current resumption:511 admitted,512 diagnosed;513 selected
 
-[506 complete result](METH_506_WHOLE_RESULT_20261006.md) now provides one full
-7,541,946,880B conditional artifact with reusable exact column primitive/engine
-branch. ALL1536 transposed WO tensors/other bytes inverted; ALL96 teacher and
-960 generation wires equal I8 source BYTE;578 C processes exit0 exactly ONCE.
-Original full WI,169 shared matrices,head and normalized128-parent router remain.
+[511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
+artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
+accepted prose52.55861/lower95 50.46847, ordinary89.98790/lower86.50956. First
+request with load/warmup charged gives prose27.13819. Fixed economics4/5 pass:
+mean elapsed ratio.947115/upper95.991669, ALL-book fails6/24,worst1.258699.
+[EVALUATION511](EVALUATION_511_20261007.json) is not goal completion or recipe
+eligibility. Bounded infilling/project-heldout is the declared quality scope.
 
-Actual F32 original4.57.6 donor:3320 canonical coefficients, official teacher and
-own-generate bridges for all96 fresh project-excluded cases.14/15 quality PASS;
-prose-edit upper95.10865265>.10 FAIL despite mean.08283730. All known-task/NLL/
-health criteria PASS. This is a negative conjunction, not a broad proof of lost
-semantic ability.4/5 observed economics PASS: mean ratio.94420877,8/24 book
-regressions/worst1.17875738. Observed prose53.1992/lower51.2006 is retained but
-strict original timing isolation remains unverified.
+Exact 506 conditional WO plus qualified510 fixed-eight original-F32-row readout
+forms this baseline. All original full WI, shared core and128-parent normalized
+router remain. Source payload7,541,946,880B and original distinct7,415,217,408
+parameters do not constitute a compact transferred core. ALL576 C calls occur
+once (553 retained+23 continuation);384 actual donor/API bridges and3320 original
+canonical tensor hashes occur once. All4983 head states/full160,093,824 cells,
+zero tail overtakes and all quality/cost decisions independently reconstruct.
+Two quiet intervals/untimed idle CPU tick, import/count/metadata repairs remain
+explicit. Typed UTC query/positive controls and closure complete; all jobs terminal.
+Physical DRAM is unverified. Existing511 runtime/input/source receipts are reusable.
 
-Sole independent numerical audit completed all array/decision assertions then
-failed terminal NumPy-bool JSON serialization; frozen source/log recovery makes
-this exception explicit, with exact private resources unavailable. Corrected UTC
-Windows query finds3 parent arrow.dll import events and no C child/audit event;
-older shifted zero-event claims superseded. [Evaluation](EVALUATION_506_20261006.json)
-does not declare passing final admission or goal completion.
+[512 diagnosis](METH_512_RETAINED_DIAGNOSIS_RESULT_20261007.md) uses only retained
+JSON,0.171s/55,128,064B. Same-cohort original/candidate exact donor generations
+74->84/96, eleven recovered/one introduced; mean edit.07088707->.03436673.
+82 identical native trajectories account for total observed warm saving; two
+regressing books have no changed output IDs. Separate component clocks and
+within-case variability do not identify intrinsic kernel/DRAM causation. The
+candidate has5.23% encoder/4.41% decoder hidden activity after full3072-row WI.
 
-[507 result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md) is independently
-verified retained-state diagnosis, all96 cases/996 aligned steps and31 exact
-rational rank flips.65 identical trajectories;31 divergent. Initial encoder
-state discrepancy follows dense block0 before first router. Five divergent cases
-have unchanged expert IDs but changed selected mass;62 identical trajectories
-have changed IDs. ID change alone is neither necessary nor sufficient here.
-No whole-model inference/capture/quality/performance replay or promotion.
-
-[508 result](METH_508_SOURCE_HEAD_RESULT_20261006.md) now qualifies source readout
-onALL996 original states (max relative L2 1.65375e-7, exact choices), reduces
-current candidate-state disagreements31->14 (20 recovered/3 introduced).
-All31 pair terms independently close; readout/upstream both contribute. This is
-not new generation or source-head performance. Old355 is a different cohort/
-body precision; current evidence selects readout fidelity before body correction.
-
-[509 result](METH_509_SHORTLIST_HEAD_RESULT_20261006.md) qualifies ONE top8
-hybrid source-F32-row refinement:ALL996 full hybrid winners match508 source
-head, no unrefined tail win, same20/3 outcomes. Pre-query dependency fault and
-R1 actual-runtime repair retained; no mathematical K/arithmetic/threshold change.
-Source F32 rows already stored in shared embedding;24,576B logical extra reads
-plus old I8 head per position, no physical DRAM or speed claim.
-
-[510 result](METH_510_NATIVE_HEAD_RESULT_20261006.md) now qualifies the real C
-branch: ALL996 original/hybrid full logits/selected IDs/rounded cells/tail BYTE;
-independent exact AVX F64/counter/cost reconstruction complete. ALL2988 measured
-pairs mean increment0.148116ms/p95 0.619665ms, local cost gates PASS; head
-ratio1.1748545/max30.504500ms retained. Original pre-timing fault and R1 preserve
-seven completed compile/control calls without execution; sole paired query.
-Actual idle identity/zero CPU/typed UTC checks complete, all owned processes closed.
-[Selected511](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md) is implemented/frozen,
-with ONE completed R3 source-only project-excluded24-book/96-case cohort and
-both text/tokenizer controls BYTE. Sources/criteria/runtime/input receipts and
-independent checker are available. [R6 operational record](METH_511_R6_DYNAMIC_IDLE_BINDING_20261007.md)
-preserves setup/reader/idle-identity faults. After model closure, R6 completed553
-native calls once,ALL exit0 with constant sampled idle counters; service CPU
-advanced0.015625s in call554 preflight before creation, stopping the global stage.
-[R7 continuation](METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md) completed only23 new
-calls:ALL576 closed/96 cases, native controlsPASS;14 cross-arm different
-generations,10,752 changed teacher head cells. Combined1345.109s<2400, both
-measurement intervals/original tick explicit. Native RAW SHA278df0c1.. .
-R7 donor imports then stopped before tensor load/inference because existing
-torch/testing/_utils.py was unbound. [R8 admission repair](METH_511_R8_TORCH_IMPORT_ADMISSION_20261007.md)
-added105 original testing sources with no Torch operator change; all3320 original
-canonical tensors/384 donor bridges then completed once. All15 fresh quality
-criteriaPASS; SAMEcandidate warm accepted prose52.5586/lower95 50.4685, ordinary
-89.9879/lower86.5096. Mean cost ratio.947115/upper.991669, but ALL-bookFAIL6/24,
-worst1.258699; whole recipe eligibilityFALSE. First-request load+warmup charged
-prose27.1382 is distinct. Numerical audit/final admission still pending:
-[R9 count repair](METH_511_R9_AUDIT_CALL_COUNT_20261007.md) preserves an old-count
-pre-numerical audit fault and starts the FIRST numerical checker; no C/donor
-replay or copied local recovery/rate. Scope remains source-sized fixed128 infilling.
-Source-derived upstream correction remains conditional; exact I8 acceleration
-keeps506's failed IDs/score, so adaptive WI/256 expansion remain deferred.
-
-505's exact one-bank component remains retained, with5/6 economic gates and
-12/192 regressions; all495..510 scientific calls terminal. Source-sized storage/
-WI does not supply a compact core, useful larger n/RAM/LUT/mass/DRAM or another
-actual family/scale. All remain goal requirements.
+[Selected513](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md) implements/fixes the
+next uncertainty: sound per-row original-WI certificates combined across existing
+637 centres, compiled as exact suffix-mask geometry.504 required one complete
+fixed-width region; unioning individually sound omissions is the changed variable.
+Complete source fallback, centre/index query work and redundant storage are charged.
+Parent winner/mass stays original. No513 code/observations exist yet; first build
+binder/physical index/main/independent auditor and freeze actual dependency/output
+maxima. Main/auditor180s/2GiB each,128MiB combined outputs; no model/C/weight replay.
+Logical failure closes this finite recipe; pass selects separate native cost/parity.
+Neither redundant masks nor a local cost pass supply useful larger n. Compact
+core, CPU LUT winner AND mass scaling, real DRAM and actual additional~10B/~100B
+families/scales remain required. Former operational NEXTs are historical.
 
 ### Retained preceding500
 

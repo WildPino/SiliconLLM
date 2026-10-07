@@ -22,168 +22,60 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 | Question | Established | Still open |
 | --- | --- | --- |
 | Useful conditional target |123/183 small donor useful128->1280;369 source identity utility;373 bounded64->256 full cost |Useful much larger n at bounded active width/count, CPU LUT/mass and real DRAM |
-| Pretrained-to-target transfer |Qualified original Switch C scales; source targets/prior; complete local495/498/499 learners/physical audits |Convenient transformed whole artifact with fresh own-state quality AND SAME>=50; actual family/scale variants |
+| Pretrained-to-target transfer |Qualified original Switch C scales; local learners;511 fresh whole quality AND warm50 in declared scope |Compact convenient transfer, useful larger pools, physical memory and actual family/scale variants |
 
 ## Latest decisive evidence
 
-[510 native readout](METH_510_NATIVE_HEAD_RESULT_20261006.md): complete C/audit,
-ALL996 full original/hybrid cells/IDs BYTE, same20/3/14 consumed outcomes.
-ALL2988 measured pairs mean increment0.148116ms/p95 0.619665ms, both frozen
-cost gates PASS; p99 1.719324ms/max30.504500ms retained. Head ratio1.1748545,
-not a whole speed result. First pre-timing isolation fault, exact no-replay R1
-and typed-UTC metadata repair retained; all owned instances closed.
-Selected [511 fresh whole quality/rate](METH_511_WHOLE_HYBRID_HEAD_NEXT_20261006.md).
+[511 whole result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) and
+[evaluation](EVALUATION_511_20261007.json): independent audit passes all8 controls,
+ALL4983 full head states/160,093,824 cells, no tail overtake. All15 fresh quality
+criteria PASS; SAME candidate accepted prose52.55861/s, lower95 50.46847/s,
+ordinary89.98790/lower86.50956. First request with load/warmup prose27.13819/s.
+4/5 economics PASS; ALL-book FAIL6/24,worst1.258699. Fixed recipe ineligible,
+goal incomplete. Full WI/fixed128 original parents/source-sized storage remain.
 
-[509 top8 head](METH_509_SHORTLIST_HEAD_RESULT_20261006.md): sole numerical
-main/audit6/8 gates and BOTH local criteria PASS after retained pre-query
-dependency repair. ALL996 hybrid winners equal full source head;0 tail overtakes,
-source winner ranks972/22/2 at1/2/3. Recovered20/31, introduced3/965, remaining14.
-510 now qualifies native parity/cost; no fresh whole quality/rate from509/510.
+ONE fresh24-book/96-case project-excluded cohort,383 prior rows excluded.
+ALL576 C calls once:553 retained after an untimed idle CPU preflight tick,23
+remaining in a separately bound quiet interval; all exit0. ALL3320 original F32
+tensor hashes/384 donor bridges once. Sole independent numerical audit complete.
+Typed UTC positive controls pass/zero relevant Event1000; all owned instances
+closed. Pre-query/import/count/metadata faults retained, no numerical replay.
+Full resource, input/runtime/artefact/command identities are in the result.
 
-[508 readout decomposition](METH_508_SOURCE_HEAD_RESULT_20261006.md): source head
-reproducesALL996 donor-state choices/max relative L2 1.65375e-7, then candidate
-state changes31->14 choices (20 recovered/3 introduced). Actual source extent;
-independent audit complete. Fixed-state effect, not generation/capacity proof.
+[512 retained diagnosis](METH_512_RETAINED_DIAGNOSIS_RESULT_20261007.md): same-cohort
+readout recovers11 exact donor generations, introduces1; exact matches74->84/96,
+mean prose edit.07088707->.03436673.82 identical native trajectories account for
+observed total saving; two regressing books have no changed IDs. Encoder/decoder
+elapsed tails and within-case variability remain; no unique kernel/DRAM cause
+inferred. Original WI still visits3072 rows before5.23%/4.41% hidden activity.
+Sole diagnosis0.171s/55,128,064B, zero inference/C/source-function calls.
 
-[507 diagnosis](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md): main/audit6/8 gates,
-ALL96 cases/996 common-history steps independently verified;31 divergent65
-identical trajectories. Initial state error after dense block0 precedes first
-router. Five diverge with identical expert IDs but different masses;62 identical
-trajectories contain changed expert IDs. No simple ID-only causal explanation.
-Selected508 source-head/state decomposition; no quality/rate promotion.
+## Current resumption:513 implementation and freeze pending
 
-[506 whole result](METH_506_WHOLE_RESULT_20261006.md): full physical function/native states exact to I8 source;14/15 fresh F32 quality and4/5 observed economics. Prose-edit confidence and ALL-book criteria FAIL. Corrected OS events and auditor serializer exception retained. Goal still incomplete.
+[Selected513](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md) resumes the
+[deferred exact per-row certificate union](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md).
+New variable: combine individual sound original-WI omissions across existing637
+centres, instead of504's one complete fixed1536-width mask. Keep parent winner
+and normalized mass, original fallback and all data domains. Stored redundancy
+adds no donor knowledge. Main/auditor <=180s/2GiB each, output<=128MiB combined;
+actual encoding/input/runtime/output maxima must be frozen before observation.
 
-[505 result](METH_505_EXACT_SPARSE_RESULT_20261006.md): complete physical
-original-I8 WI/zero-only column-WO function qualified BYTE on ALL17540 states,
-ALL128 bank inverse;6/7/5 main/audit/admission PASS with explicit original
-primal OS-binding exception and metadata-only505-R2 recovery. Consumed mean
-ratio.569324,natural.591496;both mean/p95 and storage gatesPASS,ALL-book gate
-FAIL12/192,max1.351097. Five/six economicsPASS,THIS local cost recipe closed.
-Exact operator retained as component;no whole/fresh/rate/DRAM promotion.
+**First action:** implement513 binder/physical suffix-mask index/main/independent
+auditor with actual isolated511 runtime and ONLY used retained504/500 geometry.
+No payload/function/model/C replay. Freeze unchanged proposed logical gates and
+full centre/index/fallback cost. No513 code, binding, observations or live job yet.
+Economic failure closes this finite index before C; success only selects actual
+native parity/cost qualification. Useful much larger n/LUT winner+mass, compact
+core, physical DRAM and actual additional families/scales remain open.
 
-
-[504 result](METH_504_ANGULAR_REGION_RESULT_20261006.md): all6/7/5 apparatus/
-independent sign geometry/admission PASS.637 sound original-WI input cones,
-1285 selected cases' omitted integer dots/hidden scales verified. Economic
-coverage3.368276% consumed/6.394780% natural versus>=90%; bothFAIL. Natural
-mean selected width2973.776/3072, lookup overhead and3.48828125 stored copies.
-Close THIS finite isotropic input-cone recipe; no native promotion.
-
-[503 result](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md): all6/7/5 apparatus/
-independent function/admission PASS. ALL127570 new functions BYTE checked on
-ALL17540 original UIDs. Development oracle0%; natural oracle p95 39.941205%,
-selected47.736777%, against<=5%. Four/six local gates PASS, recipeFAIL. No
-selector among these masks can repair the oracle tail. Extra finite development
-coverage does not provide fresh support-domain control.
-
-[502 result](METH_502_VARIABLE_COVER_RESULT_20261006.md): all5/6/5 PASS. Retained
-prefix continuation produces783 children/127 exposed IDs, max active1536,
-copy ratio2.940994. Complete development support11721/11721, consumed262/5819.
-No optimal-memory/physical/fresh claim. Empty0 remains uncompiled/unpromoted.
-
-[501 result](METH_501_SUPPORT_COVER_RESULT_20261006.md): all5/6/5 apparatus/
-independent audit/admission PASS. Exact C4/B1536/6144 development support covers
-for61/127 exposed IDs;52 first packing conflicts,14 global-copy conflicts.
-Complete cohort ineligible; greedy failure is INCONCLUSIVE about other partitions.
-Positive3649/11721 development UIDs; consumed any-child complete support261/1913
-positive subset (261/5819 full domain). No new F/fresh/native/rate promotion.
-
-[500 result](METH_500_OVERLAPPING_SOURCE_RESULT_20261006.md): ONE four-half-width
-overlapping source-atom recipe independently admitted, all6/7/5 apparatus gates
-PASS. All17540 source supports and157860 partial functions qualified BYTE.
-Four/five eligibility gates PASS, recipe FAIL: consumed selected RMS1.229025%,
-natural p95 selected47.782644%/best-child41.929679% against<=5%. Oracle tail is
-a pointwise lower bound: changing only the selector cannot qualify these masks.
-Mean alone hides large errors; no native/fresh/rate/useful-n promotion.
-
-[499 result](METH_499_FACTOR_RESULT_20261006.md): new unweighted functions with
-explicit variable mass independently admitted; ALL8/7/5 qualification gates
-PASS, all9 frozen ALL-six local outcomes FAIL. Canonical consumed weighted
-F64 fit9.718714%; I8 parameter error0.287945% versus49811.210455%; native
-oracle9.724962%. Unweighted F646.135395%. Improved encoding leaves a source
-information/generalization problem. Current keys remain byte-identical:
-ID22.701495%, actual mass relative RMS64.792158%, coupled90.597547%.
-Rare failures remain explicit. No fresh/composed/rate/useful-n promotion.
-
-[Whole algebra](METH_499_WHOLE_ALGEBRA_AND_NEXT_20261006.md) derives53,943
-development-data-unidentified directions in the fixed499 feature class.
-Its unimplemented pooled-rank/source-query next plan is deferred following user
-steering. [Redundant compilation decision](REDUNDANT_EXPERT_COMPILATION_20261006.md)
-changes conditional representation before acquiring many new function labels.
-
-## Current resumption:511 native/donor complete; first numerical audit pending
-
-[506 result](METH_506_WHOLE_RESULT_20261006.md) builds the full7.54GB exact column
-artifact and engine integration: ALL1536 inverse,96 teacher/960 generation wires
-BYTE,578 original C exits0 ONCE. Actual F32 original4.57.6 donor recovery and
-one independent numerical audit completed.14/15 quality criteria pass; prose-edit
-upper95.10865265>.10 FAIL.4/5 observed economics pass;8/24 book regressions,
-worst1.17875738. Mean ratio.94420877; observed prose53.1992/lower51.2006,
-strict timing isolation unverified. No final>=50 or complete-goal promotion.
-
-Independent audit terminal NumPy-bool serializer exit1 recovered by frozen
-source/log metadata, no replay; exact private peak/hash/creation unavailable.
-Corrected actual XML UTC event queries find three parent arrow.dll import events,
-no measured C child/audit event. Legacy shifted zero-event claims superseded;
-clean-event criterion FAIL. [Final evaluation](EVALUATION_506_20261006.json)
-is negative, not a manufactured all-pass admission.
-
-[507 result](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md) closes all96 retained
-joins/states/routes and31 exact rational rank flips; original main/audit exit0
-ONCE,13.234/15.843s pre-serialization receipts. Final lifetime peaks not persisted,
-terminal bounds pass. All507 source/RAW files frozen before first observation.
-No model/C/corpus/source-function calls. Common histories include first divergence.
-
-[508](METH_508_SOURCE_HEAD_RESULT_20261006.md) completes source-head decomposition:
-20 original differences recovered,3 introduced,31->14. Its ALL996 original-state
-head bridge passes; source rows already exist in the exact shared F32 extent.
-[509](METH_509_SHORTLIST_HEAD_RESULT_20261006.md) preserves these source-head
-winners with ONE top8 hybrid atALL996 positions, no tail overtakes. Actual old
-I8 head remains, extra logical F32 rows24,576B/position; not DRAM/speed proof.
-Original509 pre-query module-list fault preserved; R1 includes actual already-
-qualified508 .venv NumPy/psutil files, mathematical main/audit unchanged.
-
-[510 complete](METH_510_NATIVE_HEAD_RESULT_20261006.md): C branch and independent
-finite arithmetic/output/counter/cost audit qualify ALL996 cells/IDs/tail BYTE;
-mean incremental0.148116ms/p95 0.619665ms, five local gates PASS. Keep original
-pre-timing fault, seven closed calls reused without execution, sole new paired
-head command, actual idle process identities/zero CPU and corrected UTC receipt.
-No new generation/quality/rate/n/RAM/DRAM/family claim.
-
-511 sources, checker, runtime and bounds are frozen. ONE R3 fresh24-book/96-case
-cohort passed,383 excluded rows and both tokenizer controls BYTE;8.547s/
-735,428,608B peak/RAW SHA90b790c2.. . [R6 operational record](METH_511_R6_DYNAMIC_IDLE_BINDING_20261007.md)
-retains setup/reader/pre-timing faults. After external model closure, R6 ran553
-C calls once:ALL exit0 with constant sampled idle CPU;92 complete cases saved.
-Call554 preflight stopped before creation when service CPU advanced0.015625s.
-RAW SHA1384c005../1290.281s; original global stage is interrupted.
-
-[R7 continuation](METH_511_R7_RETAIN_CLOSED_CALLS_20261007.md) completed only23 new
-calls, retaining553:ALL576 exit0/96 cases, all native controlsPASS.14 cross-arm
-different generations,10,752 changed teacher head cells. RAW SHA278df0c1../
-54.828s/159,424,512B peak; combined1345.109s<2400. Both intervals/tick retained.
-
-[R8 actual Torch admission](METH_511_R8_TORCH_IMPORT_ADMISSION_20261007.md) completed
-all3320 canonical F32 tensor hashes/384 donor bridges once. All15 qualityPASS;
-candidate warm accepted prose52.5586/lower95 50.4685, ordinary89.9879/lower86.5096.
-4/5 economicsPASS; ALL-bookFAIL6/24,worst1.258699. First-request load+warmup
-charged prose27.1382 differs from warm. RAW SHA4b731686../1027.328s/5.846GB peak.
-
-**First action:** [R9 auditor count repair](METH_511_R9_AUDIT_CALL_COUNT_20261007.md)
-fixes an old576-new-call assertion before numerical checks (23 new+553 retained).
-R8 first audit fault9.203s,zero numeric/model/C calls, preserved. Reuse all
-completed input/native/donor outputs, start FIRST independent numerical audit,
-then UTC/closure admission. No C/donor/corpus replay. Whole recipe eligibility
-FALSE; quality/rate claims await audit, useful-n/DRAM/family goal remains open.
-[Adaptive neuron certificates](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md)
-and256 expansion deferred until this discrepancy is understood.
-
-All completed495..510 scientific namespaces terminal. Preserve first faults,
-unrelated work and known import/event exceptions. All operations before this
-update remain BYTE in [archived index](INDEX_THROUGH_506_OPERATIONS_20261006.md).
+All completed scientific namespaces through512 are terminal. Preserve three
+foreign tracked hashes, unrelated work, first faults and original admissions.
+No external publisher/service was killed. Routine Graphify remains disabled.
 
 ## Decisive retained evidence and closures
+
+- [500 overlapping atoms](METH_500_OVERLAPPING_SOURCE_RESULT_20261006.md)/[501 covers](METH_501_SUPPORT_COVER_RESULT_20261006.md)/[502 variable covers](METH_502_VARIABLE_COVER_RESULT_20261006.md)/[503 oracle](METH_503_VARIABLE_FUNCTION_RESULT_20261006.md): finite masks fail natural function tails; selector-only tuning cannot repair their oracle.
+- [504 cones](METH_504_ANGULAR_REGION_RESULT_20261006.md): sound but6.39% natural complete-mask coverage; THIS isotropic recipe closed. [505 exact sparse WO](METH_505_EXACT_SPARSE_RESULT_20261006.md) remains a component. [506 whole](METH_506_WHOLE_RESULT_20261006.md) fails quality/cost conjunction with explicit OS/audit exceptions. [507](METH_507_FIRST_DIVERGENCE_RESULT_20261006.md)/[508](METH_508_SOURCE_HEAD_RESULT_20261006.md)/[509](METH_509_SHORTLIST_HEAD_RESULT_20261006.md)/[510](METH_510_NATIVE_HEAD_RESULT_20261006.md) isolate and qualify the refined head before511.
 
 - [497 exact rank](METH_497_EXACT_FEATURE_RANK_RESULT_20261006.md): all127 exposed development/ALL finite feature matrices full row rank; all5819 consumed rows add independent directions. Exact finite interpolation is feasible, without a generalization/encoding guarantee.
 - [498 minimum prior](METH_498_MINIMUM_PRIOR_RESULT_20261006.md): development fit near zero, consumed9.518808%, I8~11.2%; full local recipeFAIL. [496](METH_496_READOUT_ERROR_RESULT_20261006.md) separates fitted/codec/arithmetic; [495](METH_495_WEIGHTED_HYBRID_FIT_RESULT_20261006.md) complete earlier weighted fitFAIL.
@@ -203,6 +95,6 @@ method/history BYTE; old resumptions are historical.
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) is the original native inventory.
 [Strategic review](STRATEGIC_REVIEW_20261004.md), [through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),
 [432..453](RESEARCH_RECORDS_432_453_20261005.md), and individual records retain
-results/faults. [Current NEXT](SWITCH_FUNCTION_RETARGETING_PILOT_NEXT_20261004.md)
+results/faults. [Selected513](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md)
 and this index supersede older operational NEXTs. No completion percentage.
 

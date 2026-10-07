@@ -1,5 +1,17 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after511/512:** [511 whole result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md)
+qualifies fresh quality AND SAME-artifact warm accepted prose52.55861/lower95
+50.46847 in bounded infilling. All15 quality and4/5 economics pass; ALL-book
+fails6/24,worst1.258699. First request prose27.13819. Independent4983-state audit,
+actual UTC positive-control/event/closure checks complete; scientific calls once,
+interruptions/import/count/metadata faults explicit. Goal incomplete.
+[512 same-cohort diagnosis](METH_512_RETAINED_DIAGNOSIS_RESULT_20261007.md) recovers11
+exact donor generations/introduces1, matches74->84/96, mean edit.070887->.034367;
+zero new model/C/source calls. Select [513 per-row certificate union](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md)
+for original full-WI cost. Still proposed/unimplemented, no observations; useful
+large n/LUT mass/compact core/DRAM/actual family-scale generality remain open.
+
 **6 October after510:** [native result](METH_510_NATIVE_HEAD_RESULT_20261006.md)
 qualifies full C original/hybrid cells/IDs/tail BYTE atALL996 consumed states,
 same20/3/14. ALL2988 paired costs mean increment0.148116ms/p95 0.619665ms,
