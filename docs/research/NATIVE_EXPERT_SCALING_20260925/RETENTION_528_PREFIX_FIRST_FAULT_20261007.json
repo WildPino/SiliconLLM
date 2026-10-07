@@ -1,0 +1,34 @@
+{
+  "source_freeze": "58f08be0f0031f955eee5b99de957b197041784a",
+  "first_fault_sha256": "d33e082af7ca64f9ef94411a5de6cd1afcc5349df1d06cd5c35ae090add14d00",
+  "first_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "first_log_bytes": 0,
+  "executor": {
+    "session_id": 99381,
+    "exit_code": 1,
+    "terminal_chunk": "83f1ed",
+    "initial_chunk": "3f1bfd"
+  },
+  "first_fault_process": {
+    "pid": 19840,
+    "create_time_unix": 1791372168.8376937
+  },
+  "resource_report": {
+    "seconds": 9.921999999991385,
+    "OS_peak_bytes": 64126976,
+    "compiler_family_peak_bytes": 3186688,
+    "parent_plus_compiler_peak_bound": 67313664,
+    "bytes_hashed": 1509686842,
+    "limits": [
+      180,
+      536870912
+    ]
+  },
+  "resource_gate": false,
+  "resource_qualification": "Compiler descendant identity/OS peak/exit were not retained when no-child assertion fired. Reported compiler peak is incomplete and cannot qualify the compiler-family bound.",
+  "new_C_response_calls": 0,
+  "new_source_or_prefix_energy_computations": 0,
+  "partial_scope": "Empty frontend log only; no C object/DLL, controls, response or energy completed",
+  "observed_live_python_clang_ld_meth_instances": 0,
+  "decision": "FIRST_COMPILER_TOPOLOGY_FAULT_RETAINED; numbered direct-cc1 repair may execute first scientific observations"
+}

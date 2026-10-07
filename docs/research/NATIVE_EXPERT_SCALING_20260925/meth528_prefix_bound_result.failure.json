@@ -1,0 +1,76 @@
+{
+  "kind": "prefix_bound",
+  "started_utc": "2026-10-07T11:22:49.359810+00:00",
+  "process_instance": {
+    "pid": 19840,
+    "create_time_unix": 1791372168.8376937
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_prefix_bound.py",
+    "--manifest-sha",
+    "dac98325381646c5150aa9ab6a6b37af494c5e3a34cc1be81a5359f985cfeefa",
+    "--freeze",
+    "58f08be0f0031f955eee5b99de957b197041784a"
+  ],
+  "gates": {
+    "fresh_frozen_used_inputs_runtime_compiler_partial_and_foreign_SHA": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "Necessary original fixed full-domain rejection from independently verified original prefix; no full528 pass, source response replay or chatbot qualification.",
+  "source_freeze": "58f08be0f0031f955eee5b99de957b197041784a",
+  "manifest_sha256": "dac98325381646c5150aa9ab6a6b37af494c5e3a34cc1be81a5359f985cfeefa",
+  "original_binding_sha256": "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2",
+  "original528_resource_gate": false,
+  "prefix_parents": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "excluded_frontier_parent": 13,
+  "source_response_function_calls": 0,
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_bound.py\", line 68, in main\n    dll, dll_sha = build(ctx, ROOT / 'benchmarks/native_expert_scaling/meth528_verifier.c', 'first_prefix_scalar')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_io.py\", line 106, in build\n    ctx.compile([*base, '-std=c11', '-O2', '-ffp-contract=off', '-fno-fast-math', '-c', str(source), '-o', str(obj)], stem + '_frontend')\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_operations.py\", line 101, in compile\n    try: assert not psutil.Process(p.pid).children(recursive=True), 'Use direct integrated frontend/LLD, no subprocess tree'\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Use direct integrated frontend/LLD, no subprocess tree\n",
+  "resource": {
+    "seconds": 9.921999999991385,
+    "OS_peak_bytes": 64126976,
+    "compiler_family_peak_bytes": 3186688,
+    "parent_plus_compiler_peak_bound": 67313664,
+    "bytes_hashed": 1509686842,
+    "limits": [
+      180,
+      536870912
+    ]
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound\\first_prefix_scalar_frontend.log",
+      "bytes": 0
+    }
+  ]
+}
