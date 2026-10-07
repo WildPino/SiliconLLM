@@ -1,0 +1,61 @@
+{
+  "kind": "r2_audit",
+  "started_utc": "2026-10-07T01:42:03.562382+00:00",
+  "argv": [
+    "benchmarks/native_expert_scaling/meth515_r2_probe_audit.py",
+    "--binding-sha",
+    "a3bc704f4bd2fdfb6ae9db2e75523a3cb91cf0dfab77f1986a233f8c1bb6c0c3",
+    "--main-sha",
+    "917bd5d7bbe377c50d79b05f8f1d5bb88d76842d20abf661ae789ebc5aa33fe0",
+    "--repair-sha",
+    "bf68980714a18a2089ec13ab84d592ae80b8bd7e625407d097de0eb2c9cf167d"
+  ],
+  "process_instance": {
+    "pid": 26488,
+    "create_time_unix": 1791337323.1758504
+  },
+  "commands": [],
+  "gates": {
+    "all_fresh_used_runtime_source_compiler_reference_AND_full_payload_SHA": true,
+    "literal365_functions_and_exact374_inclusions_and_entries": true,
+    "ALL18_complete_wires_original363_byte_identical": true,
+    "ALL7_closed_children_terminal_peaks_AND_affinities": true,
+    "ALL_timing_counter_arithmetic_AND_prospective_decision_exact": true
+  },
+  "new_original_donor_calls": 0,
+  "binding_sha256": "a3bc704f4bd2fdfb6ae9db2e75523a3cb91cf0dfab77f1986a233f8c1bb6c0c3",
+  "source_freeze": "d84711243747f12168853a73c7ee9a0eeae5cc0c",
+  "execution_head": "aa3f822e0c98ba1a491685d57f278e8d76cf52e3",
+  "binding_metadata_correction": {
+    "original_report_field": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273",
+    "actual_admitted_binding": "a3bc704f4bd2fdfb6ae9db2e75523a3cb91cf0dfab77f1986a233f8c1bb6c0c3",
+    "repair_sha256": "bf68980714a18a2089ec13ab84d592ae80b8bd7e625407d097de0eb2c9cf167d"
+  },
+  "main_sha256": "917bd5d7bbe377c50d79b05f8f1d5bb88d76842d20abf661ae789ebc5aa33fe0",
+  "summary": {
+    "encoder_mean_ratio": 0.8898709362553754,
+    "feasibility": {
+      "pilot_encoder_ratio_supplies_retained489_necessary_gap": false,
+      "ALL2_candidate_whole_mean_not_slower": true,
+      "ALL4_three_repeat_whole_ratio_le1p10": false
+    },
+    "eligible_larger_same_recipe_cost_stage": false,
+    "full_wires_audited": 18,
+    "new_native_calls": 0,
+    "scope": "Independent literal-source/full-byte and retained clock audit; no C or original model replay."
+  },
+  "goal_complete": false,
+  "output_inventory": [],
+  "resource_before_serialization": {
+    "seconds": 15.577999999979511,
+    "controller_OS_peak_bytes": 44040192,
+    "conservative_controller_plus_child_peak_bytes": 44040192,
+    "bytes_hashed": 14941207805,
+    "limits": [
+      284,
+      2147483648,
+      67108864
+    ]
+  },
+  "ended_compute_utc": "2026-10-07T01:42:19.136984+00:00"
+}
