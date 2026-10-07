@@ -1,0 +1,26 @@
+{
+  "kind": "audit",
+  "started_utc": "2026-10-07T01:37:24.110551+00:00",
+  "argv": [
+    "benchmarks/native_expert_scaling/meth515_r1_probe_audit.py",
+    "--binding-sha",
+    "a3bc704f4bd2fdfb6ae9db2e75523a3cb91cf0dfab77f1986a233f8c1bb6c0c3",
+    "--main-sha",
+    "917bd5d7bbe377c50d79b05f8f1d5bb88d76842d20abf661ae789ebc5aa33fe0"
+  ],
+  "process_instance": {
+    "pid": 5992,
+    "create_time_unix": 1791337043.7914703
+  },
+  "commands": [],
+  "gates": {
+    "all_fresh_used_runtime_source_compiler_reference_AND_full_payload_SHA": true
+  },
+  "new_original_donor_calls": 0,
+  "binding_sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273",
+  "source_freeze": "d84711243747f12168853a73c7ee9a0eeae5cc0c",
+  "execution_head": "5639bc3af984bdad006fd01e5b915f38a9ca84a2",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth515_r1_probe_audit.py\", line 33, in main\n    assert all(raw['gates'].values()) and raw['binding_sha256'] == args.binding_sha\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 15.59299999999348,
+  "bytes_hashed": 14883043827
+}
