@@ -1,0 +1,178 @@
+{
+  "experiment": "METH525",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all7_main_rank_geometry_route_and_sign_controls": true,
+    "all8_independent_rank_geometry_physical_route_and_sign_controls": true,
+    "three_actual_exit0_instances_closed_typed_UTC_zero_faults": true,
+    "foreign_empty_cache_and_resources_preserved": true,
+    "unchanged_frozen_router_neutral_geometry_decisions_retained": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth525_binding.json",
+    "bytes": 672594,
+    "sha256": "5394f5977116297c9599cc693729bad7e8b71e320a0c80dac98d49a092c7b749"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth525_main_result.json",
+    "bytes": 262681,
+    "sha256": "171af522bb131a772a4b7ad68ce266ce977a2c695375b3513fe37b8852c7a306"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth525_audit_result.json",
+    "bytes": 199013,
+    "sha256": "3526ffc458608d7c5424780afbc71220ac0c74432b5e47d473409ebe3929033a"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_525_20261007.json",
+    "bytes": 67899,
+    "sha256": "9bbd493c66cebcd3475ac35dfb91f67795492b17f95b5027f649ef31b603f9c8"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth525_windows_terminal.json",
+    "bytes": 4458,
+    "sha256": "999c22e5ecd558c58732560f26d152b5e5d06fef4ab3e10dcf4d0ec9d4007d1c"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 27148,
+        "create_time_unix": 1791356870.240471
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 18204,
+        "create_time_unix": 1791356939.3311017
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 8840,
+        "create_time_unix": 1791356990.815696
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "session_id": 8863,
+      "exit_code": 0,
+      "completion_tool_chunk": "fd3301"
+    },
+    {
+      "kind": "main",
+      "session_id": 61191,
+      "exit_code": 0,
+      "completion_tool_chunk": "887665"
+    },
+    {
+      "kind": "audit",
+      "session_id": 56977,
+      "exit_code": 0,
+      "completion_tool_chunk": "b62b6c"
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_binding_resource.json",
+        "bytes": 316,
+        "sha256": "2129db330ebd9cc414f8167d670f03e099e8a461389c1da1e52df47318527c84"
+      },
+      "resource": {
+        "binding_sha256": "5394f5977116297c9599cc693729bad7e8b71e320a0c80dac98d49a092c7b749",
+        "process_instance": {
+          "pid": 27148,
+          "create_time_unix": 1791356870.240471
+        },
+        "seconds": 31.375,
+        "OS_peak_bytes": 59981824,
+        "bytes_hashed": 1353556683,
+        "limits": [
+          180,
+          536870912
+        ]
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\terminal_resource.json",
+        "bytes": 426,
+        "sha256": "ca190aed03eb174be24871265549520f8ad9b621bfbaee8250b2f63c898e4e38"
+      },
+      "resource": {
+        "result_sha256": "171af522bb131a772a4b7ad68ce266ce977a2c695375b3513fe37b8852c7a306",
+        "process_instance": {
+          "pid": 18204,
+          "create_time_unix": 1791356939.3311017
+        },
+        "ended_utc": "2026-10-07T07:09:32.974525+00:00",
+        "seconds": 33.094000000011874,
+        "OS_peak_bytes": 242122752,
+        "bytes_hashed": 1680633468,
+        "limits": [
+          180,
+          536870912
+        ],
+        "output_bytes_before_terminal": 25025798
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_audit\\terminal_resource.json",
+        "bytes": 418,
+        "sha256": "cc838dcf427a4bd47835e7ee6c4b647446f3424a822fff8c7b2ab7d3a4cbebb0"
+      },
+      "resource": {
+        "result_sha256": "3526ffc458608d7c5424780afbc71220ac0c74432b5e47d473409ebe3929033a",
+        "process_instance": {
+          "pid": 8840,
+          "create_time_unix": 1791356990.815696
+        },
+        "ended_utc": "2026-10-07T07:10:54.256313+00:00",
+        "seconds": 62.85899999999674,
+        "OS_peak_bytes": 254992384,
+        "bytes_hashed": 1680832825,
+        "limits": [
+          240,
+          536870912
+        ],
+        "output_bytes_before_terminal": 344
+      }
+    }
+  ],
+  "views": [],
+  "eligibility": {
+    "invertible_actual_norm_and_certified_router_rank_projection": true,
+    "ALL127_have_resolved_certified_new_geometry": false,
+    "ALL_constructed_keep_physical_original_parent": false,
+    "ALL_constructed_cross_omitted_source_WI_code_sign": false,
+    "ALL_constructed_physical_norm_relative_error_le_1e_minus6": false
+  },
+  "decision": "ROUTER_NEUTRAL_HALF_ENDPOINT_GEOMETRY_CRITERION_CLOSED",
+  "selected_source_integer_dot_checks": 109,
+  "constructed_queries": 109,
+  "verified_source_planes": 390144,
+  "maximum_panel_bound_ratio": 1.1313207880477636e-11,
+  "source_response_function_calls": 0,
+  "native_calls": 0,
+  "model_calls": 0,
+  "readout_fits": 0,
+  "full_source_WI_projection_rows": 0,
+  "old_native_router_queries_replayed": 0,
+  "consumed_rows_for_selection": 0,
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Finite router-neutral norm-slice geometry and new physical-arithmetic router/sign references only. No source labels, actual C/DRAM, useful n, fresh whole quality/rate or family/goal claim."
+}

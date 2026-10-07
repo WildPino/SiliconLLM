@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;524 residual blind spot;525 source-domain geometry
+## Current resumption:511 baseline;525 source crossings;526 exact certificates
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -178,14 +178,28 @@ post-hoc diagnosis0.391s identifies nearzero dev omitted-sign residual for37/39/
 Dev-zero residual cannot certify source-domain coverage; lowering threshold would
 select rounding, and declaring these parents adequate would leave known errors.
 
-[Selected525](METH_525_ROUTER_NEUTRAL_SOURCE_COVERAGE_NEXT_20261007.md) proposes
-original router-null norm-slice geometry: source signs may change while ALL ideal
-parent scores/mass stay fixed. Recover actual router/norm/input codecs and price
-rank/projection/crossing bounds before one prospective geometry protocol. Only
-then physically qualify parent/mass and possibly acquire new bounded source
-queries, without old53943 labels or fixed A/L0 fits. Actual reachability/fresh
-quality, useful n, real fallback and physical DRAM remain separate. No525 code/
-protocol/geometry/query or automatic failed524 bank export.
+[525 result](METH_525_ROUTER_NEUTRAL_GEOMETRY_RESULT_20261007.md) implements
+original F32 router/G-norm contracts and a bounded same-score sphere-slice
+construction. Exact rank128/null640; ALL127x2560 omitted source planes have
+certified opposite signs.109 new physical reference queries retain original
+parent and cross chosen Q16-WI sign; max relative norm2.21e-8/p6.36e-7. ALL
+390144 planes/109 physical vectors independently qualified; main7/audit8/
+admission5 PASS.18 nearest-target orders unresolved, so fixed ALL127 criterion
+FAIL/CLOSED, no source labels or region-bank export. Main33.094s/242MB,
+audit62.859s/255MB,26.24MB outputs,3 closed/no faults. Geometric WI projections
+are real charged work; zero full-source-query projection is not zero geometry.
+Continuous metric-shell reachability is not exact F32-normalizer membership or
+natural decoder reachability. No C/DRAM/function/whole-quality/useful-n promotion.
+
+[Selected526](METH_526_EXACT_PROJECTOR_CERTIFICATE_NEXT_20261007.md) proposes
+exact dyadic Gram and rowspace residual certificates on SAME retained Q/C, reusing
+the qualified source singular lower bound. Price exact integer widths/wire and
+independent verification before a protocol. Refine candidate bounds without
+replaying525 or changing its targets/decision; preserve109 query bytes. No526
+code/protocol/certificate/numerics or new labels. Only a subsequently admitted
+geometry plan supports new source responses; no old53943 labels/fixed A/L0 fit.
+Natural coverage, function quality, useful n, real fallback and physical DRAM
+remain separate; no automatic failed524 bank export.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 

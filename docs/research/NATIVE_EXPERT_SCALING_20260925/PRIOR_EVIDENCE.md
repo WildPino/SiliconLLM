@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after525:** [router-neutral geometry](METH_525_ROUTER_NEUTRAL_GEOMETRY_RESULT_20261007.md)
+main7/independent audit8/admission5 PASS. Actual rank128/null640, all127x2560
+omitted source planes straddle0 on the same-score metric-norm slice.109 new
+physical reference queries BYTE-qualified,all109 same parent/opposite Q16-WI
+sign; max relative norm2.21e-8/p6.36e-7.18 nearest orders unresolved, fixed ALL127
+criterion FAIL/CLOSED.390144 planes audited,33.094s/242MB main,62.859s/255MB
+audit,26.24MB outputs,3 closed/no faults/labels/function/model/native replay.
+Geometric WI projections are actual charged work; continuous slice is not natural
+decoder reachability or exact F32-normalizer image. Select [526 exact projector
+certificate](METH_526_EXACT_PROJECTOR_CERTIFICATE_NEXT_20261007.md), same stored
+Q/C dyadic integer Gram/residual, before numerical bound refinement. Preserve109
+physical records; no525 replay, new labels, changed criterion or empirical bound
+shrinkage. No526 implementation/protocol/numerics; goal remains open.
+
 **7 October after524:** [source-tree information](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md)
 main6/independent audit7/admission5 PASS,333 panels/1022976 gains,47776 selected
 source integer checks/all17540 routes/p bits verified.117/121 nonfallback roots

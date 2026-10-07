@@ -26,6 +26,15 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[525 geometry](METH_525_ROUTER_NEUTRAL_GEOMETRY_RESULT_20261007.md): main7/audit8/
+admission5 PASS. Actual router rank128/null640; ALL127x2560 omitted planes have
+certified opposite signs on the same-score norm slice.109/127 new queries are
+independently BYTE-qualified;109/109 keep parent and cross selected Q16-WI sign.
+Max relative norm2.21e-8/p6.36e-7.18 nearest-target orders unresolved; fixed ALL127
+criterion CLOSED.390144 planes audited,33.094s/242MB main,62.859s/255MB audit,
+26.24MB outputs,3 closed instances,no faults or labels. This is continuous
+source-domain geometry, not natural reachability/function quality/useful n.
+
 [524 source-tree result](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md): main6/
 independent audit7/admission5 PASS,333 panels/1022976 gains qualified,47776
 selected source integer tests/all17540 routes/p bits exact. Five of six eligibility
@@ -80,7 +89,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:524 dev residual blind spot;525 router-neutral source coverage
+## Current resumption:525 source crossings;526 exact projector certificate
 
 Actual14.664B/256 source and14.818GB native artifact are local/qualified.
 489 accepted prose35.9764/lower33.7592 falls short of50. Exact source winner AND
@@ -127,19 +136,19 @@ ALL apparatus PASS, ALL price/ordering gates PASS; root information absent for
 four parents. JSON-only post-hoc extraction0.391s/36.8MB preserves original
 decision; no arrays/functions/metrics replay. No bank export from failed criteria.
 
-**First action525:** [router-neutral source-boundary geometry](METH_525_ROUTER_NEUTRAL_SOURCE_COVERAGE_NEXT_20261007.md):
-recover actual original router/norm/input codecs and price ONE dev-anchor geometry
-inquiry before a protocol. Source WI signs can vary within a router-null norm
-slice while ideal scores/mass stay fixed; this exposes information dev residuals
-cannot supply. Rank/metric/codec prerequisites and physical route/mass require
-verification. No525 code/protocol/geometry/labels. No threshold/fallback tuning
-from consumed errors, no old counterfactual/readout replay.
+**First action526:** [exact certificate of retained Q](METH_526_EXACT_PROJECTOR_CERTIFICATE_NEXT_20261007.md):
+recover/price exact dyadic Gram and C-CQQ.T integer arithmetic/wire before one
+protocol. Separate representation error from conservative floating bounds;
+observed QR proximity does not certify it. Keep525 CLOSED and preserve109 new
+query records. No525 panel/physical/audit replay, new labels or changed selection.
+No526 code/protocol/certificate/numerics yet. Refine bounds before any18-query
+continuation; actual natural reachability/function coverage remains open.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All scientific namespaces through524 terminal, with523's original time fault retained; three foreign tracked
+All scientific namespaces through525 terminal, with523's original time fault retained; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures
@@ -165,6 +174,6 @@ method/history BYTE; old resumptions are historical.
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) is the original native inventory.
 [Strategic review](STRATEGIC_REVIEW_20261004.md), [through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),
 [432..453](RESEARCH_RECORDS_432_453_20261005.md), and individual records retain
-results/faults. [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md)
+results/faults. [Selected526](METH_526_EXACT_PROJECTOR_CERTIFICATE_NEXT_20261007.md)
 and this index supersede older operational NEXTs. No completion percentage.
 

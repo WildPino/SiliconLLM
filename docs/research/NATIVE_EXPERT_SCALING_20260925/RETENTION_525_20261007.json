@@ -1,0 +1,1433 @@
+{
+  "experiment": "METH525",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth525_binding.json",
+    "bytes": 672594,
+    "sha256": "5394f5977116297c9599cc693729bad7e8b71e320a0c80dac98d49a092c7b749"
+  },
+  "main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth525_main_result.json",
+    "bytes": 262681,
+    "sha256": "171af522bb131a772a4b7ad68ce266ce977a2c695375b3513fe37b8852c7a306"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth525_audit_result.json",
+    "bytes": 199013,
+    "sha256": "3526ffc458608d7c5424780afbc71220ac0c74432b5e47d473409ebe3929033a"
+  },
+  "local_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\basis.npy",
+      "bytes": 786560,
+      "sha256": "dcbd8c3141417b248d6a831ec75d042557eac61603c19ab0b2a18cfe89736106"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\controls.json",
+      "bytes": 343,
+      "sha256": "513a01b01e2e6abe4f75f0d125ba3a9a5937fc1a6c9e6d2ec6e713ed1460ffbc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e001_panel.npy",
+      "bytes": 172160,
+      "sha256": "1c9db3604a1acad73fe07f6859899328170f2a9d3e91838577dc8c08e79083f2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e001_status.npy",
+      "bytes": 3200,
+      "sha256": "8d0accd4b9c7519e6db0030bf0f9d597742b8e6fda81e7f26354fb38cee632a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e002_panel.npy",
+      "bytes": 172160,
+      "sha256": "fe283ac575beab4c8c35ccb16eb8e3eb2eb3ee64d517b17146c08406d9dfbe42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e002_status.npy",
+      "bytes": 3200,
+      "sha256": "c31119bd71863fe40f7d9ddfbd1c295724999fa9f02dfb1935b4923224d02eaf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e003_panel.npy",
+      "bytes": 172160,
+      "sha256": "a6ab5808466db18495be89f084058578921da4c69b4c241f1c6608a58cd2c634"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e003_status.npy",
+      "bytes": 3200,
+      "sha256": "7584ced5bfdfa956b5c6a597ffe157fa93657464e9fcf6715a2708360cec674a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e004_panel.npy",
+      "bytes": 172160,
+      "sha256": "e3f3ba3349abf3045c042e205da5efbf444bdc7b9c2e07a8a1b46a0db7865750"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e004_status.npy",
+      "bytes": 3200,
+      "sha256": "6454929a6718de71cb5a36dd7bdf468328533662049d11e305c1367fb41077ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e005_panel.npy",
+      "bytes": 172160,
+      "sha256": "e3e9d22adc5848dd9453307f548f7d978101d0f659f8648cb250a5f20cb461cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e005_status.npy",
+      "bytes": 3200,
+      "sha256": "11d2bf59a76631631f935e28885435f4b4bfb1f2c5dbb9920913e13a9c8050a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e006_panel.npy",
+      "bytes": 172160,
+      "sha256": "0cf6764eb612099969e3e43c24339c6402397b92544b1466a1991413c6556ed6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e006_status.npy",
+      "bytes": 3200,
+      "sha256": "df59f2ca74d6494225c85eac3d0415ffa30202558945b92dc242cc4bfd6adc81"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e007_panel.npy",
+      "bytes": 172160,
+      "sha256": "a6854872e3c5476670808a9a958db3673753a2f2e4c16ca8438b5fbca90f6334"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e007_status.npy",
+      "bytes": 3200,
+      "sha256": "2d9dda2a5ab43a117da05359cd3c2ebc60e36baf7f3717b20279a178d1c0587f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e008_panel.npy",
+      "bytes": 172160,
+      "sha256": "1eb95680eea8cb5896352ef58fcb0846428d71b2e32eade9cd10eb6f78ca0cea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e008_status.npy",
+      "bytes": 3200,
+      "sha256": "1db6d29d392f146676d995f6fd1268dac9a1d06f5e4fdd255d6a58c4737af764"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e009_panel.npy",
+      "bytes": 172160,
+      "sha256": "3dfb06137b3aaac5c0ccd6fd8ad70c2230f6d9566aa1e4b358d135dd1c2dbe94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e009_status.npy",
+      "bytes": 3200,
+      "sha256": "0daf1f1cb4ad27c414dc9b45ec6752bf8769685441a7ac4070a5e978450ec8b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e010_panel.npy",
+      "bytes": 172160,
+      "sha256": "68e2f15ba187e171b0d5053d99921e74d76c29d93f7393df4439f42abac4c6b4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e010_status.npy",
+      "bytes": 3200,
+      "sha256": "4e49d7c42e82911175fab671a21872482cf9bd6910409053f1d713fd3d1f2d12"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e011_panel.npy",
+      "bytes": 172160,
+      "sha256": "9f6bbc3b43feaa43f3da66ba41397cc4f19bbb1c0f5c7dc1053099f4798b250b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e011_status.npy",
+      "bytes": 3200,
+      "sha256": "b93517bee862388e1f6d0705906cb7ca010ef0d2602a772547a3cfde69c0e9eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e012_panel.npy",
+      "bytes": 172160,
+      "sha256": "74ff42b6a7d202af304dcc309708dad3fe4747a557d6fdaec670a2d553c3da92"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e012_status.npy",
+      "bytes": 3200,
+      "sha256": "a851fcc34dfc8cab9c74ee7b06a51b85a04967ad0a68eb133379f88fb057682c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e013_panel.npy",
+      "bytes": 172160,
+      "sha256": "dd5d34c574b7e5db48f8fa09787813ee379fed4ee1abdbf0f9aeb6b035265a11"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e013_status.npy",
+      "bytes": 3200,
+      "sha256": "3fb5a99d3dce8128564284d5fa3557d962db9cdb4bbd480c2b36ae39d7bad95f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e014_panel.npy",
+      "bytes": 172160,
+      "sha256": "37c1f0c70e9b1fb6b698183fde81e0684d64d597532a565f6c6f1e9a2d2a980d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e014_status.npy",
+      "bytes": 3200,
+      "sha256": "47efa8415b59a3faba880078e997816b33955822f6ba6e17aeef9089cdcc6810"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e015_panel.npy",
+      "bytes": 172160,
+      "sha256": "bf8d46121ed56cfc13b8f856fe290dc587fcc38c9ec2f67e9bc2050799f85603"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e015_status.npy",
+      "bytes": 3200,
+      "sha256": "9f930a7e075a4d25f219152518c8d639481f9ecf916dd46e2e5898cd495f0a6e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e016_panel.npy",
+      "bytes": 172160,
+      "sha256": "3bf34671389d38cc9ff410113f6bc037198629dccf9b72bd0b40d9853edc8b7b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e016_status.npy",
+      "bytes": 3200,
+      "sha256": "f58e133d5828ab2fa6336362a9a4b49f1f564de97639a1ea998cb6a283c67ae1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e017_panel.npy",
+      "bytes": 172160,
+      "sha256": "f9c76fa940fa5915e16023556de1486ad63619ff604f06fba526447bac3e0828"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e017_status.npy",
+      "bytes": 3200,
+      "sha256": "4b288502619076bd1320b9bd6312db40a774f63f3906e346c30d3bcf02ab5a8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e018_panel.npy",
+      "bytes": 172160,
+      "sha256": "7288c9dead25f32609732196f4deea426187e9c85b1a66747412eded5f4bcb5f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e018_status.npy",
+      "bytes": 3200,
+      "sha256": "efc30c2e89a9f4e0e2cf3dde4fb417ca502470b526e919371b60954dfe1b808c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e019_panel.npy",
+      "bytes": 172160,
+      "sha256": "f4a0efaa0bc0dd51bc9cdee530480f653935fde27e62ac101cc2368e259a79e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e019_status.npy",
+      "bytes": 3200,
+      "sha256": "70cce045b322d3bab9588ef0f6ee8c0769488bb7b32b01084c7b0335b0e5c44b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e020_panel.npy",
+      "bytes": 172160,
+      "sha256": "3236e3d08f4a0edbde588ffdaca73dd3dd507f97641f27423f71eb32b4b926ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e020_status.npy",
+      "bytes": 3200,
+      "sha256": "188a609f135cd1c4f51711d4c12a18a9eb59389d35825c010253e9b277fda9e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e021_panel.npy",
+      "bytes": 172160,
+      "sha256": "a4970dd650e1263d74d75cf85ffbad210bbc6925c4cd6d3d91dd681657459c02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e021_status.npy",
+      "bytes": 3200,
+      "sha256": "f65ee3daa8c192a7253ab89dc5f3c00ae4d9b20eafdd1bc2ebdef748561a93d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e022_panel.npy",
+      "bytes": 172160,
+      "sha256": "f32dfd0383e0d329d51ed9c309cd17a457564a78ca3de3cc33c3fa189a7b09b4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e022_status.npy",
+      "bytes": 3200,
+      "sha256": "12b3c371bfe10e52ade16b35a56afb8c7af79fca3db0ae4622e62adf8756fa1c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e023_panel.npy",
+      "bytes": 172160,
+      "sha256": "8e6307f04bcfdf836937caa110fd8a0ad1af5b188ad55e2913f19a55632ffc4d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e023_status.npy",
+      "bytes": 3200,
+      "sha256": "bab290377d42d853c895f9ea09dd12b4a0d55974f222cddfc8856c27fe887fa2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e024_panel.npy",
+      "bytes": 172160,
+      "sha256": "c16e51076952a6c767f2622ade265cb8066c84bfd4392484d0936c51b159b4e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e024_status.npy",
+      "bytes": 3200,
+      "sha256": "bf38afad1e3f957b7e519dafcf9f04ec6f658eb3a56a8d7785c871d080285155"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e025_panel.npy",
+      "bytes": 172160,
+      "sha256": "d33b66893e6ed3fcf99ca2b6711d9a83d37f97971a0e99123b211eb541163c52"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e025_status.npy",
+      "bytes": 3200,
+      "sha256": "c3d907260c09c7446f731da6dbc9cd057c9001a0a8458e9d492789b4faaf9b2c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e026_panel.npy",
+      "bytes": 172160,
+      "sha256": "c492ace1ff24443d4bff6d01f35ed8a81473675b80d84ab140cd4d6f050b6df4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e026_status.npy",
+      "bytes": 3200,
+      "sha256": "ebdf720f4934ec5c5607d520620bdc846730e7dc61469571ec50b7832f584e8c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e027_panel.npy",
+      "bytes": 172160,
+      "sha256": "67fbc0332f882ade0b214d6b3c4a9714a4d0089fbb16a2d015142936a131f67a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e027_status.npy",
+      "bytes": 3200,
+      "sha256": "8f3a853fc4144cb325f3ff40ee65968576900b77a705d72936be3ceb31312ad1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e028_panel.npy",
+      "bytes": 172160,
+      "sha256": "0811af54d7d1e9a03f927936b8a6151ca83bfa53770a58d47f1a67462414637a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e028_status.npy",
+      "bytes": 3200,
+      "sha256": "12a93208b0c09e6feb8c1323146d15d4541175b6c432fe0f3dedf27bd93b1002"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e029_panel.npy",
+      "bytes": 172160,
+      "sha256": "f0e698e49065f5fb8aac0c442c24a3d994505ed8ee8689f1e94d9da27e254ee5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e029_status.npy",
+      "bytes": 3200,
+      "sha256": "721d3c5f17a877cfcbf9e281b63e711f9c3602ffd9ab0fcf470a9832a47f4a75"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e030_panel.npy",
+      "bytes": 172160,
+      "sha256": "85513cc6e016cf7f0c79407b05c7ffbffd1d0296c1fa88aa84f47834fecbc867"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e030_status.npy",
+      "bytes": 3200,
+      "sha256": "b4b4cc5f4a6bbba1f669455ba335be08ea2713613f7a99ed2fc5e81729adc87f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e031_panel.npy",
+      "bytes": 172160,
+      "sha256": "a440f8e7d41d6790fbd7447330872774a07d8fe632596628e0b88428dbe2cae8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e031_status.npy",
+      "bytes": 3200,
+      "sha256": "b19376cafad49d79627ebcaa78986faa6d8425e2d78cea5cfbc3c5c6b110c076"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e032_panel.npy",
+      "bytes": 172160,
+      "sha256": "e260ed2b219467405bc9878cd737dd813241945baa8b0bcfb0d247d802e01d51"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e032_status.npy",
+      "bytes": 3200,
+      "sha256": "196ddb551eefb6123b56fc01c1c0a6fb34019d23a3dbd73638f56add8b655e8c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e033_panel.npy",
+      "bytes": 172160,
+      "sha256": "c8b4e6710bd4126bd28324c92d2de0e1ab5a90e85ade96b0790c8974fc6134d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e033_status.npy",
+      "bytes": 3200,
+      "sha256": "ad871eee94f08fde53598e4392db94b194e30a3a213d8299c01435e410352417"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e034_panel.npy",
+      "bytes": 172160,
+      "sha256": "d1cce31a15aef96f63339d960fb087f966fda6bbfcd8206b4784d49726320ce8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e034_status.npy",
+      "bytes": 3200,
+      "sha256": "8cc1e080bcee7b5c10e0bf6a030d195e237936f78fc3502d8d19dc146015a5ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e035_panel.npy",
+      "bytes": 172160,
+      "sha256": "da1d2a32c15eead2b3b402787150eee28571dc8e6cc6728b4e9a5fd09fc54992"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e035_status.npy",
+      "bytes": 3200,
+      "sha256": "7c1adb5b133c271d7c9382f589c26da897210cdae388dad1c881c00249042f87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e036_panel.npy",
+      "bytes": 172160,
+      "sha256": "170d78c08fc883b1b0a2952d5899e2c5db95fdf643417bacc96a2397abc5c4b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e036_status.npy",
+      "bytes": 3200,
+      "sha256": "1b6f86d8d9639ca99c04304266873440eeca60fd82d838801c156923f1b2058b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e037_panel.npy",
+      "bytes": 172160,
+      "sha256": "8ca796128871ce658a8995de47c5c91a3cee9bea4cdf14a1372070ab101d041a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e037_status.npy",
+      "bytes": 3200,
+      "sha256": "67b7ededc82f5d5192938829fa87054a6c22fc28604429ff94626e7a9fa9a27e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e038_panel.npy",
+      "bytes": 172160,
+      "sha256": "4904d5f282b1e3e62de343d9bc155e95c0b3d73be4fce03eb37b863fed568538"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e038_status.npy",
+      "bytes": 3200,
+      "sha256": "1dbfbe1b2a22197c7cfe5e7d1016c13b264b360a34d381a94a99468cbadc254d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e039_panel.npy",
+      "bytes": 172160,
+      "sha256": "d2c15fa7a4ce43f33705f678b2937fbb6b2e6f344ef91b3deaacf1dae79f89ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e039_status.npy",
+      "bytes": 3200,
+      "sha256": "c839018a2415a5d5927cf9f50ad2fc53fe390fa8b8ebce8989a51b77b4d405c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e040_panel.npy",
+      "bytes": 172160,
+      "sha256": "e8a689bb71df9080a3d0a5f40ad57934c87be24272ebb1ee7c5f3e508a1cd0e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e040_status.npy",
+      "bytes": 3200,
+      "sha256": "f4af2f7c9fbe63536874eb16b1caa9331994e2f91940d697e38fe8fcb8fd74c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e041_panel.npy",
+      "bytes": 172160,
+      "sha256": "9a436fcb6ea01ff63bcbb29ed65322ab912bde6217873c49a0383f3339859d52"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e041_status.npy",
+      "bytes": 3200,
+      "sha256": "253028b285cce0a2aab75d813f98b8d81110925f06c7391181ef09d3604f6c8b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e042_panel.npy",
+      "bytes": 172160,
+      "sha256": "ed15aa80ca6309071e84fd793912680e3fb71e189de74eddd2d2e7aae8c52752"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e042_status.npy",
+      "bytes": 3200,
+      "sha256": "6f372bc4ddd924c721986dda25115b5fd74a39a5e626647e07d6176fcd3427dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e043_panel.npy",
+      "bytes": 172160,
+      "sha256": "efbe3416dc554201ce80e1a995a920073ada4014742ee445949c0663ee12f33b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e043_status.npy",
+      "bytes": 3200,
+      "sha256": "10b511433193a849ab39281a8de464e3e47e87de801a08e724627635f081d652"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e044_panel.npy",
+      "bytes": 172160,
+      "sha256": "c417046bc38faa3eee60d660a5dbaa5e52c4f16d157e750f787e7a895ba3d8e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e044_status.npy",
+      "bytes": 3200,
+      "sha256": "fed6e112e387d0aa63366cc771a645b681b37f360f4d5346b8fbd02ad1b342b9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e045_panel.npy",
+      "bytes": 172160,
+      "sha256": "21bb6f49d2a6e16a86551c9e8d38fe56e9996bec52a8ba5b3caa5e946407d733"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e045_status.npy",
+      "bytes": 3200,
+      "sha256": "4840d56ba9b8bfc5ad24bdf64c839cd6625d0d17103c5014c6a6ff654fd0861a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e046_panel.npy",
+      "bytes": 172160,
+      "sha256": "bca74dff649b78333bbdf9a7ee01de028d21b069d2b61483a9e433f132bd3a38"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e046_status.npy",
+      "bytes": 3200,
+      "sha256": "3bb6a1e7da8e872a812fdd7412b081fac32b8d624b780c18090c03f6aaa67f5c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e047_panel.npy",
+      "bytes": 172160,
+      "sha256": "bc00744419f1602a497d6a37589244a5d0a965d5db375786f62df766d50be9fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e047_status.npy",
+      "bytes": 3200,
+      "sha256": "9a32eea9cea2d75552de5a71b85881d846c6e01249a9eba8fc5d6c5310af0ef6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e048_panel.npy",
+      "bytes": 172160,
+      "sha256": "7b17fd4a1cf77024c7a578cfe219b05d4ad66533bb35ee017ac3a68eb1bac60d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e048_status.npy",
+      "bytes": 3200,
+      "sha256": "e546dc1bccca717cd8b3c3f84293786e3080b3f2d11c8d6f6eea4fb93bbd2b99"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e049_panel.npy",
+      "bytes": 172160,
+      "sha256": "176691da9570a0ba40a52c0daabe0fb9a5ea3529b00d0b10b99b833cc1e3464c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e049_status.npy",
+      "bytes": 3200,
+      "sha256": "26169e7a305656f7f4ec6de7244c8e83e07940712f25b411eca2de04a1ba09a7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e050_panel.npy",
+      "bytes": 172160,
+      "sha256": "5d4e96720677c11ebd015f0c9f0b8552c2057b3bdae400270161e611328e3978"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e050_status.npy",
+      "bytes": 3200,
+      "sha256": "0504621d99815b7b67f7dd22376eadd2682cc5379ecbbce3ead05d320bacb553"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e051_panel.npy",
+      "bytes": 172160,
+      "sha256": "3c61105f254f3d0d1ba18ca30d1e09342fd01064e6199ab32c8c291dffc360ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e051_status.npy",
+      "bytes": 3200,
+      "sha256": "70e781a63fab21af78e79366472799833012f9638959a37b878f2c20677c4fd1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e052_panel.npy",
+      "bytes": 172160,
+      "sha256": "6c5459326643c3c875df3ceb33d81d75e472eb18f209ccc9ef85d914e57338e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e052_status.npy",
+      "bytes": 3200,
+      "sha256": "9adbb3f5519eab3bffbe31d2db0da4bbead881684e486821626c4685ef53c62d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e053_panel.npy",
+      "bytes": 172160,
+      "sha256": "5f023a47b6f379d5655cf5380fd4bb20f1244d96e7dbcda8bf741b49ae8f1d20"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e053_status.npy",
+      "bytes": 3200,
+      "sha256": "38c3e2062d0943eb81742a18210cfbb65874ba370427708fae0ff8c36593ca48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e054_panel.npy",
+      "bytes": 172160,
+      "sha256": "f94a2248feb7ed1dffd91cf160207cdacd22be9dc4bb670d3b889a9112b1560a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e054_status.npy",
+      "bytes": 3200,
+      "sha256": "acfdc61c657296a4b9bc06db23a764b5108f580bbf407d4b765703174affb9de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e055_panel.npy",
+      "bytes": 172160,
+      "sha256": "120ebf64612e944ff78774dc115602c490a47929623a664c5fe9aef37b464210"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e055_status.npy",
+      "bytes": 3200,
+      "sha256": "59e9cfab5de9970180369f764f7558a0ab5bd0d3e9414cee3e5f025236da075b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e056_panel.npy",
+      "bytes": 172160,
+      "sha256": "f7d79385d5c8fa4ed73bcf23da1fb0776b6133e99c0764cc49fe89f878c5d209"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e056_status.npy",
+      "bytes": 3200,
+      "sha256": "4118ae11913c54dad4a09d45793d35a19b9c9d097b07654846c449be578a3852"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e057_panel.npy",
+      "bytes": 172160,
+      "sha256": "3e2e5471ed984301bf8dc6e46b86dd5348799b3bff016a4dd0d5b46fbd1208ef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e057_status.npy",
+      "bytes": 3200,
+      "sha256": "d4348d3290d8b50dd93ec22dcfd9ef85863518e4c476fe50f2d8c09ef97d7bd1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e058_panel.npy",
+      "bytes": 172160,
+      "sha256": "1f374ce18a9f620192165515846108393b7635d5ad592cde600154c3d48fc93e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e058_status.npy",
+      "bytes": 3200,
+      "sha256": "bd732a7c37018f7e6da58d7e9e4e68852a866f5d6c170b9a2376e6bac9f64d73"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e059_panel.npy",
+      "bytes": 172160,
+      "sha256": "b0ceb1d89794157546b322de8300332362b0507879537d00a2c6fcc5eb099e2e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e059_status.npy",
+      "bytes": 3200,
+      "sha256": "70c807f2bb0a0401dd2df6b1e3f45e6282a61e2aa030f63bfa919f7b23d8af53"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e060_panel.npy",
+      "bytes": 172160,
+      "sha256": "d6f92f992b9dcb98a8a22bad963981267b2aef32e90cb6cdd1d1c131eb86cfe7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e060_status.npy",
+      "bytes": 3200,
+      "sha256": "8b0b6311f8406dbc9d98452183b4690c4ba9d17a759161ca0ad7ac455be62f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e061_panel.npy",
+      "bytes": 172160,
+      "sha256": "f9f549e55430d3bb67e8726a605c79e74567042d5d22802a2048c21ab72c65fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e061_status.npy",
+      "bytes": 3200,
+      "sha256": "271de3497d37b34abf8ef68f0f89fcd8c1473c2363eeafb1f85ff59d25eb4be3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e062_panel.npy",
+      "bytes": 172160,
+      "sha256": "b0f0b55e716a90f4ab569e2432bea95654776a6ac7aece4ec546094435f333c4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e062_status.npy",
+      "bytes": 3200,
+      "sha256": "65efe7ff4eef10cb234f6fe6cf7c41ecb0eaf566ae1c4a941a3549f48df03244"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e063_panel.npy",
+      "bytes": 172160,
+      "sha256": "e5abaeb7f0d9d88f55dfc1c19db98a9403ea2ec5ad483228452793a483def3c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e063_status.npy",
+      "bytes": 3200,
+      "sha256": "53633b0a9feae87addecb41fd92e3eca7164b9644cf4d57142d08a1c75b74fdc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e064_panel.npy",
+      "bytes": 172160,
+      "sha256": "ac6758dffab8c9253070bb633e438cc6c6d294b79d579592ef52ac7aa3ac3a96"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e064_status.npy",
+      "bytes": 3200,
+      "sha256": "8028d2846b2b2c15a83efa1be4330abcab101e41fafb09e2182c4c8492ad2660"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e065_panel.npy",
+      "bytes": 172160,
+      "sha256": "308a577684f9f1342a559f467653b633467916fc579f67728ae399d2ad6993ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e065_status.npy",
+      "bytes": 3200,
+      "sha256": "4c33a544dfece558c0be248b22bbc38f0b0ad7a302a73c1f695ddb2b0f5a9f22"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e066_panel.npy",
+      "bytes": 172160,
+      "sha256": "b1c801e2f3e9717a8cf4ade82ac94626d90ae3ca67c7e4cfe37e06f23366877e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e066_status.npy",
+      "bytes": 3200,
+      "sha256": "a86c2db64b687a31a2ba8573d7f6d5661092a90f570ee7082e829a42815961be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e067_panel.npy",
+      "bytes": 172160,
+      "sha256": "b1ba8f9ba1d55f4b8a16b28af88b2f4f753d8590dadd1f732065cae3f02a706b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e067_status.npy",
+      "bytes": 3200,
+      "sha256": "2997e3c892654f8f06f0b7caa749436a7bc687e76295da0051f1be21c8c1e1a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e068_panel.npy",
+      "bytes": 172160,
+      "sha256": "5a83e04d676894717b9e1bc1cd09a2e54351eb2d9730db320a71eb678ae4efb3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e068_status.npy",
+      "bytes": 3200,
+      "sha256": "dc47fd9f02002b54e0fc98f23431f629367a0dbe22b944db353e7fcc718af4c8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e069_panel.npy",
+      "bytes": 172160,
+      "sha256": "18d8005c69892bca1620704391d45c4b06d89cdb59613e8b179ffe5f1df0fca3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e069_status.npy",
+      "bytes": 3200,
+      "sha256": "bda66ce72c79fc6a3c81c3a9677f4073ee65091e3be1207401bab42210160c9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e070_panel.npy",
+      "bytes": 172160,
+      "sha256": "3b198875147d8f233dde7dad6e6435c5ae570718e72a72f436390ea4c2b693c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e070_status.npy",
+      "bytes": 3200,
+      "sha256": "380bf61eafd39f0c32b25e1738807bbf729963be8fd1e173f2e8582f3fd0e7c4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e071_panel.npy",
+      "bytes": 172160,
+      "sha256": "318cfafdd957a56e94e7b80e6f594694dd079152bc8ae737ac8f27726b5ade36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e071_status.npy",
+      "bytes": 3200,
+      "sha256": "5aab512eec0c95145100542832d9738a6f5b467091e5406c2ff19dcb54f0f1fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e072_panel.npy",
+      "bytes": 172160,
+      "sha256": "423559b8a310785f7bd2c3b15d2be5844c625e058334ce75865169bc17f1a6fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e072_status.npy",
+      "bytes": 3200,
+      "sha256": "ebcc16a9bb23c998b9482b97838f597af6e7a366c4fd531a9529bf63809a60d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e073_panel.npy",
+      "bytes": 172160,
+      "sha256": "2e0e6183a0c2b9303b88646c97d424754cbe54dae9668dbfdb0d884567fd12fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e073_status.npy",
+      "bytes": 3200,
+      "sha256": "35840edbe764ad62c230dec5e63820da41106ded9f97761ade40251bc6ac87e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e074_panel.npy",
+      "bytes": 172160,
+      "sha256": "e3e5e6fc386f229c314de761243110c2441804ee1796d9160ec0a2e5d58502eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e074_status.npy",
+      "bytes": 3200,
+      "sha256": "fa16495ad208f4f9d1dc9a88bf8a1a586aa1117ade4ecb89a0c768daa4e30a13"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e075_panel.npy",
+      "bytes": 172160,
+      "sha256": "efe37ae65504d59d808f989af6d4f4715fd3d4aa2e0e92ac177e453bceef08ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e075_status.npy",
+      "bytes": 3200,
+      "sha256": "1994b07377c021dda1a2c1b67d99fd9722805cfb95a8f4919f6c40b18ab9f66f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e076_panel.npy",
+      "bytes": 172160,
+      "sha256": "e9644a466db8a41900a1f0331ddbf103144c5c63000cda1e3049e4c77403ba29"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e076_status.npy",
+      "bytes": 3200,
+      "sha256": "0c5d59c95134cf153060e006b7354e72f709772d7fd11e266e83d31b5e9ece5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e077_panel.npy",
+      "bytes": 172160,
+      "sha256": "2d2a316046d93f0f57179696fffbc68e64ec0c67009e246987658f85faa3543d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e077_status.npy",
+      "bytes": 3200,
+      "sha256": "4c7b2c3d2aa06d5505463e3755d0ed1c87e1d2f2389894b561a3fd81b2cae846"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e078_panel.npy",
+      "bytes": 172160,
+      "sha256": "ac38690adfeb1ee9b47da17263c0532ce0cc997856192972e22742b3202f64f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e078_status.npy",
+      "bytes": 3200,
+      "sha256": "73e845af1f119fc8b23aea42d3887b1ee5aa059dc4acc649235b166c12952d77"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e079_panel.npy",
+      "bytes": 172160,
+      "sha256": "0b87ffa30e6f3c0b738f77971f0aae6a84123339b6d1899ffe7c3917876b0427"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e079_status.npy",
+      "bytes": 3200,
+      "sha256": "941754fd62e3457d2080cc5bffac6f5077f4aaf3d296e260bcc5ac4e64322c79"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e080_panel.npy",
+      "bytes": 172160,
+      "sha256": "1693e65c179f55e9d9701b4aca15023971d0941df8b1b4b7fccb977e5fe9f304"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e080_status.npy",
+      "bytes": 3200,
+      "sha256": "030e346127ff29845b011fbaffb7ebc3cf71f94e711edaed5fd49d5feb78031c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e081_panel.npy",
+      "bytes": 172160,
+      "sha256": "fb78020ebc72f7f9f1eae3c9c677c0512a741e6492ba01a2690b30ff0084cdd0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e081_status.npy",
+      "bytes": 3200,
+      "sha256": "8efff2de8ac09330e07bbfcda4222b592b13172260c7cd6b9a07c528616b6d9b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e082_panel.npy",
+      "bytes": 172160,
+      "sha256": "aa2ce1453621c12f02ee735e2a54f8a0b3acc0e3e74696f604059f3073fe689f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e082_status.npy",
+      "bytes": 3200,
+      "sha256": "ab98b86bfbe7757d1728b3906bedd7d7dd67cc43611d349d68d3d08b353d0c2c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e083_panel.npy",
+      "bytes": 172160,
+      "sha256": "e6b7b0d898d51dbdbbf2989a3dd93f8c05c8e06f46a8f5c516d64a95bb3bd75e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e083_status.npy",
+      "bytes": 3200,
+      "sha256": "9ce5f99bbf7899e8f8119edc921137d62d1fa0d9296d17f2ea6bc9267fc73e15"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e084_panel.npy",
+      "bytes": 172160,
+      "sha256": "762b06706109321db83f3b0f5abc6a25fbecca941697bf4f59dbc15260662409"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e084_status.npy",
+      "bytes": 3200,
+      "sha256": "f4ce49e153ad1ddf02e48899bfb116f90a6713c8b30051ad9af098b376043cf6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e085_panel.npy",
+      "bytes": 172160,
+      "sha256": "2b12e8174739789b77ba7c01e37a1502da22ebc5d52aa5f7e67bc33da7cbadd7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e085_status.npy",
+      "bytes": 3200,
+      "sha256": "affa8941d8277c39db6630299300edd07692f1a2a619d2c713f9ad554c550687"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e086_panel.npy",
+      "bytes": 172160,
+      "sha256": "1575a43168b3bb68de29149c9bf3966e5b240c453feade8e879531e3cb184d8f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e086_status.npy",
+      "bytes": 3200,
+      "sha256": "c0a7810fccd8d63afc1cd5f764816fadc5e83c0964533f39c944f69fcfc12c39"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e087_panel.npy",
+      "bytes": 172160,
+      "sha256": "07d580e3b77d02d8ad9c5240b2e9b7a6eb9a4a8c24ef78f440b4a4d18fced8b0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e087_status.npy",
+      "bytes": 3200,
+      "sha256": "c2c4180ab24ead1dd7943cbae13153a84e857b8882834a7f484659ae13911b11"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e088_panel.npy",
+      "bytes": 172160,
+      "sha256": "347860dfff8e1e8aaee6ee551a52cade2073808f31da79d577595831c8e17b1e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e088_status.npy",
+      "bytes": 3200,
+      "sha256": "e6999a6f05df85095fb0cfe79a35f2ef702182ad5607f5ecc26d7a7ece6f05e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e089_panel.npy",
+      "bytes": 172160,
+      "sha256": "47fba0fbbb04f2cbbf781ee30a8ec12329f7d7d93b9d1411e93ee0296d8101c6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e089_status.npy",
+      "bytes": 3200,
+      "sha256": "dff904fd851a0d2e5e58f69b5bfb450daace973c2bb89b1a49c7960fe2da62fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e090_panel.npy",
+      "bytes": 172160,
+      "sha256": "10195e84188956c2770b5ef812d1a5a4b3ab683bb88a6437602f80db7b213b3a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e090_status.npy",
+      "bytes": 3200,
+      "sha256": "e882f02b66d215a65619ed16759bb3b5ebafb14edb389c4807bfab6574aecd2e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e091_panel.npy",
+      "bytes": 172160,
+      "sha256": "28ec57cfdf9df8b9bbc2c6d435543773994f3d6be88ee218237758c84fe5ae79"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e091_status.npy",
+      "bytes": 3200,
+      "sha256": "e5fc262ecdd32a62883645b589573d1ae1be2d662baa4b95b259dc96c97366ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e092_panel.npy",
+      "bytes": 172160,
+      "sha256": "d5def352082184a29618579a3026ad3982b4512fffc51fcc5f8bc3eca507141e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e092_status.npy",
+      "bytes": 3200,
+      "sha256": "54a3bbc6da706816c8a819de1c94cd5df2f50f69c2b7c1daf873aa840a612962"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e093_panel.npy",
+      "bytes": 172160,
+      "sha256": "9b07f5540cd742a5b18900f63498f2761093b93b126793ff86242968264870f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e093_status.npy",
+      "bytes": 3200,
+      "sha256": "360322e627fae09c86399dde0220cdaf39f8a65ae2ca46120bf6fccb21adaf7b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e094_panel.npy",
+      "bytes": 172160,
+      "sha256": "15a9481f2ac78b451ad98ac92b87a6e4ede00ee68ec3722e91fd6ef9be03374e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e094_status.npy",
+      "bytes": 3200,
+      "sha256": "95e3bad9b542ef4f82d5a0575fbb39e02fc3e612cc7b0216bb2578eb79f3facb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e095_panel.npy",
+      "bytes": 172160,
+      "sha256": "e19189e49f731377e9cdc85589bb5c33eeddd3e48ba24edf03604ab5ddb44ef7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e095_status.npy",
+      "bytes": 3200,
+      "sha256": "ef0a97e30b68b17619e90e1254dd9b46b077fa35f250613529d94ede10d131a7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e096_panel.npy",
+      "bytes": 172160,
+      "sha256": "23cf64d022abd5e3c5fc2c109f1d7ef36dbbbdfe9376ad7f68d831dc1e44188e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e096_status.npy",
+      "bytes": 3200,
+      "sha256": "72446e537d8e4ec90395c4d5e37f37cb52f34fd537504cec9fb832b8e6cc2dd0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e097_panel.npy",
+      "bytes": 172160,
+      "sha256": "ba8c83c36f3a83bd9a5e348f625510423a250c2746314a0563ebe8d2e0cb15de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e097_status.npy",
+      "bytes": 3200,
+      "sha256": "e08f76ad09b6d9a5c29cd6ccfc3890dc5c4b9c9a37bcc0103235287e28f69c00"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e098_panel.npy",
+      "bytes": 172160,
+      "sha256": "4f2b328d5828578ae4315aa520c8f596cca501ca845c79d0d013426addd4b897"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e098_status.npy",
+      "bytes": 3200,
+      "sha256": "4314118e4d621c5432cebb2e16a5ab227b3eb6cc015a6917de36b4d74d0593c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e099_panel.npy",
+      "bytes": 172160,
+      "sha256": "e1965ec7020cb174fb7f86b601d0e706d554db83d35853a4fdef6f14275796ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e099_status.npy",
+      "bytes": 3200,
+      "sha256": "94dddfab3098e2ea76f88f705fa762dc75c7ae1334dad58d78acf227116cd93b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e100_panel.npy",
+      "bytes": 172160,
+      "sha256": "a8af14d9f85271ab858169af00d050b3a1097da89fe026cc317b04294aab44fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e100_status.npy",
+      "bytes": 3200,
+      "sha256": "418322e6ce1dd45e38cf074c8d9a36abf9fa44ac0a1e5d86f434aef431cb20ab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e101_panel.npy",
+      "bytes": 172160,
+      "sha256": "636b1836382551afa7fbb78a67dcccf1ef8d487bea7dd970ecec209edc0ee8e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e101_status.npy",
+      "bytes": 3200,
+      "sha256": "fdb1b5907bf425bafaab4b790d14e3bc840a972a063ebfbfcbdf7a26cf22e12a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e102_panel.npy",
+      "bytes": 172160,
+      "sha256": "2882397bf498123ded32c9d129711ce5543350de3da6aa17c9e5891f28c1ac63"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e102_status.npy",
+      "bytes": 3200,
+      "sha256": "02c5e2629bcc7b4d301b96c450daa4272bf8a8a56fe35ed94f3759355e20fd2b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e103_panel.npy",
+      "bytes": 172160,
+      "sha256": "7e320ba246668dd986c2901e0d5878d8e7aa7837d57f41633bc6637a1238a4b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e103_status.npy",
+      "bytes": 3200,
+      "sha256": "246028ad4ca167c26974fde6a621bb57712a4ac7cc3d5938d4bd8f6ec764b602"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e104_panel.npy",
+      "bytes": 172160,
+      "sha256": "e6e32bc97fe5cb80653c7da6b9c826b30d04f34343238ca22848c47b8541b87c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e104_status.npy",
+      "bytes": 3200,
+      "sha256": "cede97aabf18a3c8657b8547f5043a7be6dbd6593d6b2faba07bc91f539ce554"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e105_panel.npy",
+      "bytes": 172160,
+      "sha256": "f2ced3eba76dca4b2fb67bd40bba1b3a86560dcc970779dd8586cefb1ea1218a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e105_status.npy",
+      "bytes": 3200,
+      "sha256": "4dafd3695011cc0efc6820fa441ae5e67bbae09a82e0247ef68d98bb69ee7dd9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e106_panel.npy",
+      "bytes": 172160,
+      "sha256": "caf24f0b956243f384dbfd4188d6d87624ee23854dd624ac155c4696efd16e3e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e106_status.npy",
+      "bytes": 3200,
+      "sha256": "98a5ec142c89228f6ea016a17f7161da7d10f825ab172c594f1fee462f035e71"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e107_panel.npy",
+      "bytes": 172160,
+      "sha256": "a38bc08e472842546d41b31cd43bd554fd1d621fd21d778ffd1340f4c451da5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e107_status.npy",
+      "bytes": 3200,
+      "sha256": "35a9f341bfd3cab9dfec461359b6882c7d7e48bff0f946f2072a2871d349449e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e108_panel.npy",
+      "bytes": 172160,
+      "sha256": "7c43c88914074624384280408df9b83b9be3e08c6faaddc12cfc2d09745fbf41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e108_status.npy",
+      "bytes": 3200,
+      "sha256": "f01e81e4185143e2244ef8df6ac5a48bf6ac1ab69b4cee3117132ca2a72cc33c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e109_panel.npy",
+      "bytes": 172160,
+      "sha256": "f6e7df9e2652e088869787ba423ee4ee03474d697b625e50295137c85ceccfbf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e109_status.npy",
+      "bytes": 3200,
+      "sha256": "53b51b7c85ed66b982a1f3a2920c0221f0972f515967e1a6ff4efbf564b1cd4a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e110_panel.npy",
+      "bytes": 172160,
+      "sha256": "db52544ce6c3b1940526c89942b5ef0eb7d5d89216430304de49ed28552291c0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e110_status.npy",
+      "bytes": 3200,
+      "sha256": "f1a0329d03b594e26cfe09fb8a2362ec414059e5fe412484fd90da73ea8834a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e111_panel.npy",
+      "bytes": 172160,
+      "sha256": "0a6ea701870e48ba55ca7a529dad6da3bcc982a5daf4bc5440e6ad948b23533f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e111_status.npy",
+      "bytes": 3200,
+      "sha256": "b7d8b5e8ed2951499bee29da8219b368cfc4e4912bbf59ba364a6278129360fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e112_panel.npy",
+      "bytes": 172160,
+      "sha256": "f0aa6970dda0f7916c9235ae39270436e0d06c001c21c90e03a26d07a64606b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e112_status.npy",
+      "bytes": 3200,
+      "sha256": "9310457eb8807081c8ad66dc0da01199ffdeb228c8e65571c6ea23255ed6588f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e113_panel.npy",
+      "bytes": 172160,
+      "sha256": "eae8e7ff4f8a895791e1b139293aef3c4c65953c48b64bcb531d0ff2336683e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e113_status.npy",
+      "bytes": 3200,
+      "sha256": "9f92cefdb252921be901c19bde6e2153edeb6ccf03c43656962e1fd82f92ff9b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e114_panel.npy",
+      "bytes": 172160,
+      "sha256": "e532f2e8322e5b2d0d363c41c2fb06e55c4ce2f2b7c139808a7c2b12d6d8011b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e114_status.npy",
+      "bytes": 3200,
+      "sha256": "0e98a90652d0a75fea7bacf71adaf5e36205e52086056627927b54aaeb3a4a41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e115_panel.npy",
+      "bytes": 172160,
+      "sha256": "e8d4efad4e76b7039f73a3a646209dc56a5e22365c9d02b2da23a89dd44f88ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e115_status.npy",
+      "bytes": 3200,
+      "sha256": "c74876ae2b001a95e46fafdfe69779cee024b17772656baeab1dbecbe39df0ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e116_panel.npy",
+      "bytes": 172160,
+      "sha256": "40584dcf29abe9cda107f3a30b7a4c57f1f51335bf821433c09250f2d16b040f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e116_status.npy",
+      "bytes": 3200,
+      "sha256": "a92720c5132ceece4fbd2665b1b99f5fb62929f41e8e5ec349334b13c1fa8f07"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e117_panel.npy",
+      "bytes": 172160,
+      "sha256": "48a87757614d9f552fb66ef900c6904176e460a76fb6ec5655e80e1c2f42965d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e117_status.npy",
+      "bytes": 3200,
+      "sha256": "93f193de3cb3a9f5c39b03a24fb5a92e60bb5b0361c670a3d6e6f6af5f59f563"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e118_panel.npy",
+      "bytes": 172160,
+      "sha256": "9cef00f959e78ae5db37ecb53df303e8738895e1711e3a42d1561e77c76b70a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e118_status.npy",
+      "bytes": 3200,
+      "sha256": "30120b9b45fd01474978f8f64c1582e6bea0f2fee345f79af90037b1d8ed3117"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e119_panel.npy",
+      "bytes": 172160,
+      "sha256": "dc570225cada5521a5a6ce0151407b0a7353ff16c9d74b9726d733030dc73a5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e119_status.npy",
+      "bytes": 3200,
+      "sha256": "036beabb178d76aaff0e2d1a1b03f1bda147c4b640d816a49d691e62b08e078b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e120_panel.npy",
+      "bytes": 172160,
+      "sha256": "9ff9d1e14f701c57a2208a0720b1bbba2b570fad1a690a536b94ce787ddc84fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e120_status.npy",
+      "bytes": 3200,
+      "sha256": "23af90fdae7e9d53458585b4a967132bad3425ad239ab80e166f315e1946f9bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e121_panel.npy",
+      "bytes": 172160,
+      "sha256": "f28af2add04d61d1dca46e82f04470cfc3ec37bc50f0393f1e15983ffb0f0840"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e121_status.npy",
+      "bytes": 3200,
+      "sha256": "a33a7c7ca0ee9a1269336505a2a0348fbef3ddbe9e952f42622205297433521e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e122_panel.npy",
+      "bytes": 172160,
+      "sha256": "e02ccd7546ac667eb231e0cffd6aabc1a576b2ffe0e1bfc8413726c1f17bd5bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e122_status.npy",
+      "bytes": 3200,
+      "sha256": "b8c27749d743adddb459d08cf95225517cbe9c265a264dbc8941013ed4eb7cae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e123_panel.npy",
+      "bytes": 172160,
+      "sha256": "1c84e4681a28892931894bb5d020543e9a8aecd03552fc58f2024da63032dab2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e123_status.npy",
+      "bytes": 3200,
+      "sha256": "a01cb0015513113a330c59e7f1ab99213d9c1b891b3988f7680c784204fdfe7e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e124_panel.npy",
+      "bytes": 172160,
+      "sha256": "8041c272a501be08084209db5ff027265ad6d6d7b282c16e70aa7e08263547c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e124_status.npy",
+      "bytes": 3200,
+      "sha256": "e5ad71b9ef94532a806ee9c2020935371cdb6db768d377b54b693877c170010d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e125_panel.npy",
+      "bytes": 172160,
+      "sha256": "07a12485372947a1f73441409c05725eb8972b8a943e9fb9035b00f4956adb8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e125_status.npy",
+      "bytes": 3200,
+      "sha256": "d0262fa473ebbfe20d4c13a527c6b1efbf443d9a899e6f09f82b3a9418811aec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e126_panel.npy",
+      "bytes": 172160,
+      "sha256": "5ba219dd0cf14dd56836c13570622f08d7afe68ca62dd19484c7cb3e21ab3d3f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e126_status.npy",
+      "bytes": 3200,
+      "sha256": "c2cca81dad545235c7060c32a105acc148d740f731fb2967d4b58091b51f818b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e127_panel.npy",
+      "bytes": 172160,
+      "sha256": "cd99ccce88f928f66968ecb7f0bef1d0402d1548a3f554e11ccab75660c35218"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\e127_status.npy",
+      "bytes": 3200,
+      "sha256": "e2e989d67157f7025d41c8995bc48f39be96ba3adec0288eb5ca21293a4fd165"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\metric_points.npy",
+      "bytes": 786560,
+      "sha256": "0098d4c1f6ab673157f437f82461403034af864197213e1c82071bd134760cda"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\new_parent_probabilities.npy",
+      "bytes": 640,
+      "sha256": "47627780f15c04d4759dcde2cf1f631b6f1a8341bde7c9c477aa9f838469b084"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\new_router_exponents.npy",
+      "bytes": 65664,
+      "sha256": "b62aac404c91fa2502212b8ba91fce07819827a69aa4eae2315aaa4ea37ae6d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\new_router_score_bounds.npy",
+      "bytes": 131200,
+      "sha256": "5a735be75fdac4f37e6b27a960a2b405b9d3f8178e5a17b3992341c8be4ffcd2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\new_router_scores.npy",
+      "bytes": 65664,
+      "sha256": "0367d2c4be3fc94cf9f0eb5ddf446ce7f677235a4e1eb86027991af93fca9d9a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\physical_alpha.npy",
+      "bytes": 640,
+      "sha256": "add851dfcd52e6f2c8ec080f671299d4ce90b5d19c16f501c5c3e986f55fa80b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\physical_codes.npy",
+      "bytes": 196736,
+      "sha256": "87840a83248abb7db253aa08e2d50f7968d7b82c43ceb7f4d817a060aa620bdd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\physical_inputs.npy",
+      "bytes": 393344,
+      "sha256": "4ed98e07bdd22c4178295c28a706ed3abda932fe1f0c67736eef0b3cd34f904c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\query_geometry_freeze.json",
+      "bytes": 195375,
+      "sha256": "398c9434f4d70e18b862ca8c90d63c1ce05d191c568eb70d8853a66a3f9b8112"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\right_vectors.npy",
+      "bytes": 131200,
+      "sha256": "904bbbf84ba74a7ad411a8aea8e13a32e00ce42f47470412fb890bbe40f5b078"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\singular.npy",
+      "bytes": 1152,
+      "sha256": "7eb901fb3075aaee040236fb26df1e732b6db5aabfa24160e2461bf3e3a12990"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_audit\\verified_geometry.json",
+      "bytes": 344,
+      "sha256": "e733a857b349630cac98aacfc80529c3e8bdde779716c2a22b991e70c5eac06e"
+    }
+  ],
+  "terminal_resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_binding_resource.json",
+        "bytes": 316,
+        "sha256": "2129db330ebd9cc414f8167d670f03e099e8a461389c1da1e52df47318527c84"
+      },
+      "resource": {
+        "binding_sha256": "5394f5977116297c9599cc693729bad7e8b71e320a0c80dac98d49a092c7b749",
+        "process_instance": {
+          "pid": 27148,
+          "create_time_unix": 1791356870.240471
+        },
+        "seconds": 31.375,
+        "OS_peak_bytes": 59981824,
+        "bytes_hashed": 1353556683,
+        "limits": [
+          180,
+          536870912
+        ]
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_geometry\\terminal_resource.json",
+        "bytes": 426,
+        "sha256": "ca190aed03eb174be24871265549520f8ad9b621bfbaee8250b2f63c898e4e38"
+      },
+      "resource": {
+        "result_sha256": "171af522bb131a772a4b7ad68ce266ce977a2c695375b3513fe37b8852c7a306",
+        "process_instance": {
+          "pid": 18204,
+          "create_time_unix": 1791356939.3311017
+        },
+        "ended_utc": "2026-10-07T07:09:32.974525+00:00",
+        "seconds": 33.094000000011874,
+        "OS_peak_bytes": 242122752,
+        "bytes_hashed": 1680633468,
+        "limits": [
+          180,
+          536870912
+        ],
+        "output_bytes_before_terminal": 25025798
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth525_audit\\terminal_resource.json",
+        "bytes": 418,
+        "sha256": "cc838dcf427a4bd47835e7ee6c4b647446f3424a822fff8c7b2ab7d3a4cbebb0"
+      },
+      "resource": {
+        "result_sha256": "3526ffc458608d7c5424780afbc71220ac0c74432b5e47d473409ebe3929033a",
+        "process_instance": {
+          "pid": 8840,
+          "create_time_unix": 1791356990.815696
+        },
+        "ended_utc": "2026-10-07T07:10:54.256313+00:00",
+        "seconds": 62.85899999999674,
+        "OS_peak_bytes": 254992384,
+        "bytes_hashed": 1680832825,
+        "limits": [
+          240,
+          536870912
+        ],
+        "output_bytes_before_terminal": 344
+      }
+    }
+  ],
+  "scope": "One original geometry/main and one independent audit; no source labels, old router replay or functions. Original523 time failure remains explicit upstream."
+}
