@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;522 closed;523 source folding
+## Current resumption:511 baseline;523 sign residual;524 source-hyperplane trees
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -153,14 +153,26 @@ all3 terminal,no source/function/fit/native calls. M is logical atom incidence,
 not universal physical RAM. Oversized support cannot be fixed by more RAM alone
 at this width. Approximate/folded functions and arbitrary RAM remain open.
 
-[Selected523](METH_523_SOURCE_FOLDING_HINGES_NEXT_20261007.md) proposes
-Lx+O_U ReLU(I_U x), folding source contributions outside512 explicit original
-hinges. Real-arithmetic identity holds where omitted signs stay fixed; native
-global hidden quantization and folded codec require separate errors. This changes
-499/521 features and500..503 omitted-zero functions. I16 active coefficient/MAC
-ratios5/12 and7/24 are deductions only. Recover exact signs/codec/price before a
-protocol; one-function fidelity before matched increased count. No523 numerical
-result/export, no automatic repeat of old masks/cones/affine tangent recipes.
+[523 result](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md) implements ONE
+Lx+O_U ReLU(I_U x) per127 exposed parents, U512, I16 L. ALL7 numerical-prefix/
+7 independent audit controls PASS;17540 physical-reference outputs BYTE equal.
+Consumed continuous2.682700%/physical2.682699%, source-p weighted4.932822%; ALL
+fidelity gates FAIL, coefficient-price gate PASS. Codec4.48ppm/arithmetic2.09ppm
+versus omitted-sign2.682699%: more bits cannot repair this residual. Rare classes
+40.85%/31.11% remain included. This fixed single-reference recipe closes.
+Original900s gate fails during hashing AFTER full numerical completion; exit1
+and900.015s/742MB retained. Metadata-only sealing4.328s, independent audit87.047s/
+746MB,1.847GB outputs, all4 closed. Overall original resource gate stays false;
+numerical prefix is verified, not a successful protocol or actual C/timing/DRAM.
+
+[Selected524](METH_524_SOURCE_HYPERPLANE_TREE_NEXT_20261007.md) first screens
+ONE depth2 tree of original WI sign predicates using saved dev angular residual
+information. Selected path signs are true source constraints; leaf functions can
+fold their contribution and reserve512 hinges for other nonlinear rows. Tree
+route cost grows with depth and one-hot subdivision preserves original parent
+mass by identity, but cheap routing/mass for larger original parent sets remains
+open. Price a SAME rare-source fallback for matched count controls; no row
+exclusion or free donor oracle. No524 protocol/gains/functions/C yet.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 

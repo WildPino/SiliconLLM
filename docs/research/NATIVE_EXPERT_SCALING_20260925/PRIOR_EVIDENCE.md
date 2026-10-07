@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after523:** [source fold/hinges](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md)
+has an independently audited COMPLETE numerical prefix: main7/audit7 controls
+PASS,ALL17540 physical output vectors BYTE equal. Consumed continuous2.682700%,
+physical2.682699%, weighted4.932822%, rare40.85%/31.11%:1% fidelity FAIL. Omitted
+sign residual dominates; codec/physical additions are4.48/2.09ppm. Single-reference
+512/I16 recipe CLOSED. Original main900.015s/742MB exits1 during terminal hashing,
+after full math; metadata sealing4.328s has zero new numerical calls. Original
+resource gate remains FALSE, not an overall successful protocol. Audit87.047s/
+746MB;1.847GB outputs;4 owned instances terminal, no scientific/native replay.
+Select [524 source-hyperplane tree eligibility](METH_524_SOURCE_HYPERPLANE_TREE_NEXT_20261007.md),
+dev-only bounded-depth angular residual information and hard source sign bits,
+with original parent mass conserved by one-hot subdivision. Rare fallback must
+be real, priced and matched in both count arms. No524 code/protocol/numerics.
+
 **7 October after522:** [exact-support redundancy obstruction](METH_522_REDUNDANCY_LOWER_BOUND_RESULT_20261007.md)
 is admitted: main5/independent Boolean audit6/admission5 PASS, both B512/rho2
 dev eligibility gates FAIL.10/127 parents have supports>512;19 additional

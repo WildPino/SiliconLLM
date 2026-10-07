@@ -26,6 +26,13 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[523 source-fold result](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md): ALL7
+numerical-prefix/7 independent audit controls PASS, ALL17540 physical F32 vectors
+BYTE equal. Consumed continuous/physical RMS2.682700%/2.682699%, weighted4.932822%:
+1% fidelity FAIL, rare40.85%/31.11%. Omitted signs dominate; codec/arithmetic only
+few ppm. Original900s gate FAIL during terminal hashing after numerical completion;
+metadata-only sealing preserves exit1/time failure, no scientific replay.
+
 [522 support/copy result](METH_522_REDUNDANCY_LOWER_BOUND_RESULT_20261007.md)
 closes exact-support B512/rho2 on development:10 parents exceed width,19 more
 require copies>2x. This is a mathematical obstruction for that recipe, not a
@@ -64,7 +71,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:522 exact-support obstruction;523 source folding
+## Current resumption:523 sign residual;524 source-hyperplane tree eligibility
 
 Actual14.664B/256 source and14.818GB native artifact are local/qualified.
 489 accepted prose35.9764/lower33.7592 falls short of50. Exact source winner AND
@@ -100,19 +107,24 @@ clique pairs independently verified. Main2.015s/161MB,audit2.782s/317MB,1.99MB
 outputs; all3 instances terminal,no fault/source/function/native replay. Logical
 copies are not physical RAM; other representations/arbitrary RAM remain open.
 
-**First action523:** [source folding with explicit ReLU hinges](METH_523_SOURCE_FOLDING_HINGES_NEXT_20261007.md):
-recover/price actual source integer signs, folded-matrix codec and independent
-error decomposition before one protocol. Fold stable source contributions into
-L and retain512 private original nonlinear rows. Unlike atom-only masks, positive
-source atoms outside512 can contribute through L. I16 hybrid coefficient/MAC
-ratios5/12 and7/24 are deductions, not measured speed/DRAM. Single-function
-fidelity first; matched count/routing later. No523 code/binding/observations yet.
+[523](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md) closes the SINGLE-reference
+512/I16 recipe, not multiple regions. Main peak742MB/audit87.047s/746MB;1.847GB
+outputs. Original900.015s exit1 retained; separate sealing4.328s has zero numerical
+calls. Four instances terminal; overall original protocol resource gate remains
+FALSE in admission. Parent ID/p control, no C/timing/DRAM/whole promotion.
+
+**First action524:** [source-hyperplane tree eligibility](METH_524_SOURCE_HYPERPLANE_TREE_NEXT_20261007.md):
+recover/price saved signed dots and angular residual gains, then freeze ONE depth2
+balanced source-WI tree inquiry. Predicate bits constrain real source ReLU signs;
+active route work grows with depth. One-hot child mass preserves original parent
+normalization, whose full cost remains charged. Rare parents require an explicitly
+priced SAME fallback in both later count controls. No524 code/protocol/gains yet.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through522 terminal; three foreign tracked
+All scientific namespaces through523 terminal, with its original time fault retained; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures
