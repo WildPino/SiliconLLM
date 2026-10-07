@@ -1,0 +1,12 @@
+{
+  "tool_chunk": "ccb54f",
+  "tool_wall_seconds_including_audit_commit": 2.5611714,
+  "exit_code": 1,
+  "source_sha256": "77027a5fa0a883f79ef4ab2b66f4457d54e954d3fd5bfcdb28fa127a2d84b6d0",
+  "repair_sha256": "4b5d765cf2a5717789e14db107b4bcd54624c2cf25fc33a2256274bb3c7fa4cf",
+  "fault": "Null named XML Data from unrelated informational Event1000; first helper stopped before writing receipt. Investigation shows DateTime converted to locale-dependent string by Parse, widening query to July10 instead of October7.",
+  "repair": "Explicit typed DateTime/DateTimeOffset UTC conversion and invariant string fallback; named XML namespace nodes; retained positive pair and within-interval check.",
+  "exact_first_helper_PID_peak": "unavailable",
+  "new_numerical_model_C_calls": 0,
+  "main_and_audit_not_replayed": true
+}
