@@ -1,0 +1,396 @@
+{
+  "kind": "prefix_energy_audit_repair4",
+  "started_utc": "2026-10-07T11:41:04.795867+00:00",
+  "process_instance": {
+    "pid": 10216,
+    "create_time_unix": 1791373264.2895224
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_prefix_energy_audit_repair4.py",
+    "--manifest-sha",
+    "4b0bda15d49581f853ac75bdf4c2da803f5db4586a2cb79acb438d7c9e7ae104",
+    "--freeze",
+    "b5306f6c1f05503511f8eb0e5f6bee57fc24e889",
+    "--main-sha",
+    "81d5454195ce1ac9dae9bf791b31bd3edd13dc5fa4c77d6e1679e7d645a06f03"
+  ],
+  "gates": {
+    "fresh_frozen_used_inputs_runtime_compiler_partial_and_foreign_SHA": true,
+    "independent_integer_extreme_subnormal_signed_zero_cancellation_and_nonfinite_controls": true,
+    "ALL35080_full_source_and_ALL_prefix_exact_U640_energies_BYTE_and_C_F32_weighting": true,
+    "ALL16_original_full_domain_guarded_rejections_independently_joined_and_certified": true,
+    "zero_repeated_C_response_calls_and_original528_failure_preserved": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "Necessary original fixed full-domain rejection from independently verified original prefix; no full528 pass, source response replay or chatbot qualification.",
+  "source_freeze": "b5306f6c1f05503511f8eb0e5f6bee57fc24e889",
+  "manifest_sha256": "4b0bda15d49581f853ac75bdf4c2da803f5db4586a2cb79acb438d7c9e7ae104",
+  "original_binding_sha256": "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2",
+  "original528_resource_gate": false,
+  "prefix_parents": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "excluded_frontier_parent": 13,
+  "source_response_function_calls": 0,
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "compiler": {
+    "commands": [
+      {
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "--sysroot=C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64",
+          "-target",
+          "x86_64-w64-windows-gnu",
+          "-fintegrated-cc1",
+          "-fuse-ld=lld",
+          "--rtlib=compiler-rt",
+          "--unwindlib=libunwind",
+          "-###",
+          "-std=c11",
+          "-O2",
+          "-ffp-contract=off",
+          "-fno-fast-math",
+          "-c",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_energy.c",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.o"
+        ],
+        "instance": {
+          "pid": 22124,
+          "create_time_unix": 1791373274.98523,
+          "label": "independent_integer_frontend_plan",
+          "OS_peak_bytes": 20889600
+        },
+        "log": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_frontend_plan.log",
+        "creationflags": 8,
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin/clang-21.exe",
+          "-cc1",
+          "-triple",
+          "x86_64-w64-windows-gnu",
+          "-O2",
+          "-emit-obj",
+          "-disable-free",
+          "-clear-ast-before-backend",
+          "-disable-llvm-verifier",
+          "-discard-value-names",
+          "-main-file-name",
+          "meth528_prefix_energy.c",
+          "-mrelocation-model",
+          "pic",
+          "-pic-level",
+          "2",
+          "-mframe-pointer=none",
+          "-fmath-errno",
+          "-ffp-contract=off",
+          "-fno-rounding-math",
+          "-mconstructor-aliases",
+          "-mms-bitfields",
+          "-funwind-tables=2",
+          "-fno-sized-deallocation",
+          "-fno-use-init-array",
+          "-target-cpu",
+          "x86-64",
+          "-tune-cpu",
+          "generic",
+          "-debugger-tuning=gdb",
+          "-fdebug-compilation-dir=D:/_THINGS/Progetti/SiliconLLM",
+          "-fcoverage-compilation-dir=D:/_THINGS/Progetti/SiliconLLM",
+          "-resource-dir",
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/lib/clang/21",
+          "-isysroot",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64",
+          "-internal-isystem",
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/lib/clang/21/include",
+          "-internal-isystem",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/include",
+          "-internal-isystem",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/usr/include",
+          "-internal-isystem",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/include",
+          "-std=c11",
+          "-ferror-limit",
+          "19",
+          "-fno-use-cxa-atexit",
+          "-fgnuc-version=4.2.1",
+          "-fskip-odr-check-in-gmf",
+          "-exception-model=seh",
+          "-vectorize-loops",
+          "-vectorize-slp",
+          "-faddrsig",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.o",
+          "-x",
+          "c",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_energy.c"
+        ],
+        "instance": {
+          "pid": 8444,
+          "create_time_unix": 1791373275.11539,
+          "label": "independent_integer_direct_cc1",
+          "OS_peak_bytes": 44371968
+        },
+        "log": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_direct_cc1.log",
+        "creationflags": 8,
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "--sysroot=C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64",
+          "-target",
+          "x86_64-w64-windows-gnu",
+          "-fintegrated-cc1",
+          "-fuse-ld=lld",
+          "--rtlib=compiler-rt",
+          "--unwindlib=libunwind",
+          "-###",
+          "-shared",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.o",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.dll",
+          "-lm"
+        ],
+        "instance": {
+          "pid": 2064,
+          "create_time_unix": 1791373275.2525265,
+          "label": "independent_integer_link_plan",
+          "OS_peak_bytes": 20750336
+        },
+        "log": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_link_plan.log",
+        "creationflags": 8,
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\ld.lld.exe",
+          "--sysroot=C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64",
+          "-m",
+          "i386pep",
+          "--shared",
+          "-Bdynamic",
+          "-e",
+          "DllMainCRTStartup",
+          "--enable-auto-image-base",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.dll",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/lib/dllcrt2.o",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtbegin.o",
+          "-LC:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/lib",
+          "-LC:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/mingw/lib",
+          "-LC:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/lib",
+          "-LC:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/lib/clang/21/lib/windows",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.o",
+          "-lm",
+          "-lmingw32",
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/lib/clang/21/lib/windows/libclang_rt.builtins-x86_64.a",
+          "-lunwind",
+          "-lmoldname",
+          "-lmingwex",
+          "-lmsvcrt",
+          "-ladvapi32",
+          "-lshell32",
+          "-luser32",
+          "-lkernel32",
+          "-lmingw32",
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/lib/clang/21/lib/windows/libclang_rt.builtins-x86_64.a",
+          "-lunwind",
+          "-lmoldname",
+          "-lmingwex",
+          "-lmsvcrt",
+          "-lkernel32",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/lib/crtend.o"
+        ],
+        "instance": {
+          "pid": 16764,
+          "create_time_unix": 1791373275.4361076,
+          "label": "independent_integer_linker",
+          "OS_peak_bytes": 20701184
+        },
+        "log": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_linker.log",
+        "creationflags": 8,
+        "exit_code": 0
+      }
+    ],
+    "observed_instances": [
+      {
+        "pid": 22124,
+        "create_time_unix": 1791373274.98523,
+        "label": "independent_integer_frontend_plan",
+        "OS_peak_bytes": 20889600
+      },
+      {
+        "pid": 8444,
+        "create_time_unix": 1791373275.11539,
+        "label": "independent_integer_direct_cc1",
+        "OS_peak_bytes": 44371968
+      },
+      {
+        "pid": 2064,
+        "create_time_unix": 1791373275.2525265,
+        "label": "independent_integer_link_plan",
+        "OS_peak_bytes": 20750336
+      },
+      {
+        "pid": 16764,
+        "create_time_unix": 1791373275.4361076,
+        "label": "independent_integer_linker",
+        "OS_peak_bytes": 20701184
+      }
+    ],
+    "conservative_family_peak_bytes": 44371968
+  },
+  "decision": "INCONCLUSIVE_PREFIX_BOUND",
+  "independently_energy_audited": true,
+  "main_sha256": "81d5454195ce1ac9dae9bf791b31bd3edd13dc5fa4c77d6e1679e7d645a06f03",
+  "energy_verifier_sha256": "040960dbc12f8580036c7e46cd977082c4866bbc89eea92ed9162001822a38a2",
+  "new_C_energy_weight_control_calls": {
+    "energy": 6,
+    "weighting": 2,
+    "negative_controls": 4
+  },
+  "new_C_response_calls": 0,
+  "confirmations": [
+    {
+      "kind": "rare",
+      "development_class": "1..4",
+      "split": "consumed_validation",
+      "certified_failure_arms": []
+    },
+    {
+      "kind": "rare",
+      "development_class": "5..15",
+      "split": "consumed_validation",
+      "certified_failure_arms": []
+    },
+    {
+      "kind": "role",
+      "role": 0,
+      "mode": 0,
+      "certified_failure_arms": []
+    },
+    {
+      "kind": "role",
+      "role": 0,
+      "mode": 1,
+      "certified_failure_arms": []
+    },
+    {
+      "kind": "role",
+      "role": 1,
+      "mode": 0,
+      "certified_failure_arms": []
+    },
+    {
+      "kind": "role",
+      "role": 1,
+      "mode": 1,
+      "certified_failure_arms": []
+    },
+    {
+      "kind": "role",
+      "role": 2,
+      "mode": 0,
+      "certified_failure_arms": []
+    },
+    {
+      "kind": "role",
+      "role": 2,
+      "mode": 1,
+      "certified_failure_arms": []
+    }
+  ],
+  "prefix_UID_count": 1674,
+  "full528_eligibility": "UNKNOWN; necessary criteria rejected where certified, original main resource FALSE",
+  "no_completed_source_model_native_replay": true,
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.dll",
+      "bytes": 75264,
+      "sha256": "040960dbc12f8580036c7e46cd977082c4866bbc89eea92ed9162001822a38a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer.o",
+      "bytes": 3338,
+      "sha256": "0f70445776356ed63c1133bae833ce6c3ac5a24466c028862a6bd3c37ce10bd0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_direct_cc1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_frontend_plan.log",
+      "bytes": 3202,
+      "sha256": "301b587cdc5a2360a7a195fe2473e3068a5205def6a389392ec413e1014496d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_link_plan.log",
+      "bytes": 3242,
+      "sha256": "12612a2e004e3d983742b0ccbe5fde59602f56b88016d420c9997dd7bb5db13b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_integer_linker.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\independent_proof.json",
+      "bytes": 1732,
+      "sha256": "159d7b9c7f8d4ed437ccd23f8d225c61a825b4f27371dec192a5ac067c4a1bd3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\prefix_error_U640.npy",
+      "bytes": 2806528,
+      "sha256": "db6f0d2bfc3140d30e10a9e36fa8218eade1d4f21984463873a3e4f47ffd739e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_energy_audit_repair4\\source_U640.npy",
+      "bytes": 2806528,
+      "sha256": "38d62fb04e0fc87bef7499d6ddbacc351048e33339d9902e6f9d877982f88fad"
+    }
+  ],
+  "ended_compute_utc": "2026-10-07T11:41:17.335740+00:00",
+  "resource_before_serialization": {
+    "seconds": 12.530999999988126,
+    "OS_peak_bytes": 301461504,
+    "compiler_family_peak_bytes": 44371968,
+    "parent_plus_compiler_peak_bound": 345833472,
+    "bytes_hashed": 1605678335,
+    "limits": [
+      120,
+      536870912
+    ]
+  }
+}
