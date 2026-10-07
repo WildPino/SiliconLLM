@@ -1,0 +1,14 @@
+{"stage": "imports", "phase": "before_numpy_torch_HF_imports"}
+{"stage": "imports", "phase": "runtime_and_GPU_ready"}
+{"stage": "original_model_load", "phase": "before_source_decode"}
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 7982.13it/s]
+{"stage": "capture", "phase": "before_first_source_forward"}
+{"id": "italian_1", "split": "fit", "captured_rows": 76, "resource": {"elapsed_seconds": 16.234000000025844, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1021907456, "GPU_peak_reserved": 1073741824}}
+{"id": "italian_2", "split": "development", "captured_rows": 120, "resource": {"elapsed_seconds": 20.89000000001397, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
+{"id": "translation_0", "split": "fit", "captured_rows": 63, "resource": {"elapsed_seconds": 22.17200000002049, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
+{"id": "translation_1", "split": "fit", "captured_rows": 64, "resource": {"elapsed_seconds": 23.89000000001397, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
+{"id": "translation_2", "split": "development", "captured_rows": 59, "resource": {"elapsed_seconds": 24.875, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
+{"id": "explanation_0", "split": "fit", "captured_rows": 140, "resource": {"elapsed_seconds": 31.969000000011874, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
+{"id": "explanation_1", "split": "fit", "captured_rows": 140, "resource": {"elapsed_seconds": 39.312000000005355, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
+{"id": "explanation_2", "split": "development", "captured_rows": 138, "resource": {"elapsed_seconds": 46.312000000005355, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
+{"decision": "ORIGINAL_SOURCE_CALIBRATION_BATCH_AVAILABLE_NOT_CONVERTER_QUALIFIED", "conversations": 33, "resource": {"elapsed_seconds": 46.359000000025844, "OS_peak_snapshot": 1680519168, "GPU_peak_allocated": 1026233344, "GPU_peak_reserved": 1075838976}}
