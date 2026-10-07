@@ -1,0 +1,2407 @@
+{
+  "kind": "main",
+  "started_utc": "2026-10-07T00:46:53.099020+00:00",
+  "process_instance": {
+    "pid": 31252,
+    "create_time_unix": 1791334012.7589476
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth513_r1_index_main.py",
+    "--binding-sha",
+    "e149336d994ab20bdf667154c97132be975eac07cbd27268f21e50464afd3c7b"
+  ],
+  "gates": {
+    "fresh_actual_used_input_runtime_source_SHA_before_NumPy": true,
+    "original_UID_roles_occurrence_join_and_tiny_strict_integer_controls": true,
+    "all637_development_only_physical_fixed64_indices": true,
+    "all17540_union_masks_original_hidden_and_codes_zero_max_preserved": true,
+    "complete_fallback_all128_and_ALL_views_logical_cost": true
+  },
+  "native_model_source_function_calls": 0,
+  "scope": "Finite retained-data geometry/logical work; no native timing/DRAM/fresh quality promotion.",
+  "binding_sha256": "e149336d994ab20bdf667154c97132be975eac07cbd27268f21e50464afd3c7b",
+  "execution_head": "d4e4fc9c7a95eece49fcd0ffb1762e2371322ab8",
+  "source_freeze": "83d5297dff6a39e29aac3712544647faec39a943",
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "centres": 637,
+  "index_bytes": 40910148,
+  "original_fallback_bank_bytes": 605945856,
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "occurrences": 11721,
+      "mean_byte_ratio": 0.9218130342060106,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2814.8547905468818,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 10421,
+      "binary_search_comparisons": 836704,
+      "explicit_boundary_records": 16672,
+      "bitmap_union_words": 625008,
+      "centre_dot_I16_products": 58356480,
+      "query_norm_I16_products": 9001728
+    },
+    "consumed": {
+      "UIDs": 5819,
+      "occurrences": 5819,
+      "mean_byte_ratio": 0.9770020911080346,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2984.501976284585,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 5623,
+      "binary_search_comparisons": 413302,
+      "explicit_boundary_records": 4827,
+      "bitmap_union_words": 288720,
+      "centre_dot_I16_products": 28859136,
+      "query_norm_I16_products": 4468992
+    },
+    "natural_consumed": {
+      "UIDs": 3065,
+      "occurrences": 3065,
+      "mean_byte_ratio": 0.9511893172420844,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2905.8822185970635,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 2869,
+      "binary_search_comparisons": 206980,
+      "explicit_boundary_records": 4827,
+      "bitmap_union_words": 156528,
+      "centre_dot_I16_products": 14450688,
+      "query_norm_I16_products": 2353920
+    },
+    "teacher_consumed": {
+      "UIDs": 3584,
+      "occurrences": 3584,
+      "mean_byte_ratio": 0.9592007284778565,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2929.9377790178573,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 3388,
+      "binary_search_comparisons": 252081,
+      "explicit_boundary_records": 4827,
+      "bitmap_union_words": 181440,
+      "centre_dot_I16_products": 17598720,
+      "query_norm_I16_products": 2752512
+    }
+  },
+  "consumed_books": [
+    {
+      "book": 64,
+      "UIDs": 90,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9374354259190724,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2861.390476190476,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 8256,
+      "explicit_boundary_records": 218,
+      "bitmap_union_words": 5424,
+      "centre_dot_I16_products": 576000,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 65,
+      "UIDs": 90,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9737689963452999,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2974.2285714285713,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 101,
+      "binary_search_comparisons": 7634,
+      "explicit_boundary_records": 102,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 532992,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 66,
+      "UIDs": 96,
+      "occurrences": 107,
+      "mean_byte_ratio": 0.9758741710575962,
+      "p95_byte_ratio": 1.011628261954879,
+      "mean_remaining_rows": 2980.785046728972,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 103,
+      "binary_search_comparisons": 7719,
+      "explicit_boundary_records": 108,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 539904,
+      "query_norm_I16_products": 82176
+    },
+    {
+      "book": 67,
+      "UIDs": 88,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9411429580197797,
+      "p95_byte_ratio": 1.0114751996977547,
+      "mean_remaining_rows": 2873.942857142857,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 7642,
+      "explicit_boundary_records": 212,
+      "bitmap_union_words": 5424,
+      "centre_dot_I16_products": 533760,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 68,
+      "UIDs": 89,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9761215355164627,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2984.0392156862745,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 98,
+      "binary_search_comparisons": 6105,
+      "explicit_boundary_records": 120,
+      "bitmap_union_words": 5088,
+      "centre_dot_I16_products": 426240,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 69,
+      "UIDs": 95,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9543204404223677,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2915.5339805825242,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6943,
+      "explicit_boundary_records": 150,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 484608,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 70,
+      "UIDs": 91,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9543376916019001,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2915.106796116505,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 7198,
+      "explicit_boundary_records": 66,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 502272,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 71,
+      "UIDs": 90,
+      "occurrences": 100,
+      "mean_byte_ratio": 0.956548096124784,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2922.88,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 94,
+      "binary_search_comparisons": 6494,
+      "explicit_boundary_records": 130,
+      "bitmap_union_words": 5088,
+      "centre_dot_I16_products": 453120,
+      "query_norm_I16_products": 76800
+    },
+    {
+      "book": 72,
+      "UIDs": 93,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9734672327547709,
+      "p95_byte_ratio": 1.0109116522965242,
+      "mean_remaining_rows": 2975.372549019608,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 98,
+      "binary_search_comparisons": 6365,
+      "explicit_boundary_records": 76,
+      "bitmap_union_words": 5088,
+      "centre_dot_I16_products": 444672,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 73,
+      "UIDs": 94,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9583076817218129,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2927.7087378640776,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6989,
+      "explicit_boundary_records": 80,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 487680,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 74,
+      "UIDs": 101,
+      "occurrences": 110,
+      "mean_byte_ratio": 0.9410200409208668,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2872.0363636363636,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 102,
+      "binary_search_comparisons": 8848,
+      "explicit_boundary_records": 228,
+      "bitmap_union_words": 5664,
+      "centre_dot_I16_products": 617472,
+      "query_norm_I16_products": 84480
+    },
+    {
+      "book": 75,
+      "UIDs": 91,
+      "occurrences": 99,
+      "mean_byte_ratio": 0.9343202729066354,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2853.878787878788,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 91,
+      "binary_search_comparisons": 6773,
+      "explicit_boundary_records": 210,
+      "bitmap_union_words": 5136,
+      "centre_dot_I16_products": 472320,
+      "query_norm_I16_products": 76032
+    },
+    {
+      "book": 76,
+      "UIDs": 94,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9358116190466363,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2854.6666666666665,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 94,
+      "binary_search_comparisons": 8887,
+      "explicit_boundary_records": 272,
+      "bitmap_union_words": 5280,
+      "centre_dot_I16_products": 620544,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 77,
+      "UIDs": 95,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9767376831427694,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2984.1346153846152,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 7150,
+      "explicit_boundary_records": 158,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 499200,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 78,
+      "UIDs": 93,
+      "occurrences": 107,
+      "mean_byte_ratio": 0.9637179359378282,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2946.07476635514,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 101,
+      "binary_search_comparisons": 6327,
+      "explicit_boundary_records": 132,
+      "bitmap_union_words": 5424,
+      "centre_dot_I16_products": 441600,
+      "query_norm_I16_products": 82176
+    },
+    {
+      "book": 79,
+      "UIDs": 96,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9592776007612672,
+      "p95_byte_ratio": 1.0114893674438687,
+      "mean_remaining_rows": 2930.2285714285713,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 99,
+      "binary_search_comparisons": 7359,
+      "explicit_boundary_records": 104,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 513792,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 80,
+      "UIDs": 96,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.976800171169504,
+      "p95_byte_ratio": 1.008028389464594,
+      "mean_remaining_rows": 2986.8761904761905,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 101,
+      "binary_search_comparisons": 5896,
+      "explicit_boundary_records": 86,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 411648,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 81,
+      "UIDs": 86,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.98712581568951,
+      "p95_byte_ratio": 1.0109078151986182,
+      "mean_remaining_rows": 3016.4,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 103,
+      "binary_search_comparisons": 7049,
+      "explicit_boundary_records": 36,
+      "bitmap_union_words": 5136,
+      "centre_dot_I16_products": 492288,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 82,
+      "UIDs": 87,
+      "occurrences": 108,
+      "mean_byte_ratio": 0.9738539805119778,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2976.0925925925926,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 104,
+      "binary_search_comparisons": 6998,
+      "explicit_boundary_records": 66,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 488448,
+      "query_norm_I16_products": 82944
+    },
+    {
+      "book": 83,
+      "UIDs": 86,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9737139170081459,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2972.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 8626,
+      "explicit_boundary_records": 108,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 602112,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 84,
+      "UIDs": 84,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9730924887851653,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2972.096153846154,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 7584,
+      "explicit_boundary_records": 98,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 529920,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 85,
+      "UIDs": 86,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9398711131959263,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2869.607843137255,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 94,
+      "binary_search_comparisons": 7652,
+      "explicit_boundary_records": 60,
+      "bitmap_union_words": 5280,
+      "centre_dot_I16_products": 534528,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 86,
+      "UIDs": 86,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.973379849468995,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2973.8846153846152,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 7116,
+      "explicit_boundary_records": 40,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 497664,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 87,
+      "UIDs": 87,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9486350854433958,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2898.704761904762,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6733,
+      "explicit_boundary_records": 236,
+      "bitmap_union_words": 5424,
+      "centre_dot_I16_products": 470016,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 88,
+      "UIDs": 91,
+      "occurrences": 108,
+      "mean_byte_ratio": 0.9396206486029153,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2868.277777777778,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 8404,
+      "explicit_boundary_records": 106,
+      "bitmap_union_words": 5568,
+      "centre_dot_I16_products": 586752,
+      "query_norm_I16_products": 82944
+    },
+    {
+      "book": 89,
+      "UIDs": 92,
+      "occurrences": 101,
+      "mean_byte_ratio": 0.9721785978994597,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2970.138613861386,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6928,
+      "explicit_boundary_records": 252,
+      "bitmap_union_words": 5040,
+      "centre_dot_I16_products": 483840,
+      "query_norm_I16_products": 77568
+    },
+    {
+      "book": 90,
+      "UIDs": 98,
+      "occurrences": 106,
+      "mean_byte_ratio": 0.9407855041426337,
+      "p95_byte_ratio": 1.0105520192411486,
+      "mean_remaining_rows": 2875.2075471698113,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 98,
+      "binary_search_comparisons": 6472,
+      "explicit_boundary_records": 276,
+      "bitmap_union_words": 5472,
+      "centre_dot_I16_products": 451584,
+      "query_norm_I16_products": 81408
+    },
+    {
+      "book": 91,
+      "UIDs": 97,
+      "occurrences": 106,
+      "mean_byte_ratio": 0.9338059161350899,
+      "p95_byte_ratio": 1.0114223236452937,
+      "mean_remaining_rows": 2851.8490566037735,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 98,
+      "binary_search_comparisons": 7490,
+      "explicit_boundary_records": 128,
+      "bitmap_union_words": 5472,
+      "centre_dot_I16_products": 523008,
+      "query_norm_I16_products": 81408
+    },
+    {
+      "book": 92,
+      "UIDs": 95,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9580375906395151,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2928.330097087379,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6241,
+      "explicit_boundary_records": 144,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 435456,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 93,
+      "UIDs": 97,
+      "occurrences": 107,
+      "mean_byte_ratio": 0.9521938821061934,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2908.9906542056074,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 101,
+      "binary_search_comparisons": 7218,
+      "explicit_boundary_records": 164,
+      "bitmap_union_words": 5424,
+      "centre_dot_I16_products": 503808,
+      "query_norm_I16_products": 82176
+    },
+    {
+      "book": 94,
+      "UIDs": 85,
+      "occurrences": 101,
+      "mean_byte_ratio": 0.9386120528442904,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2865.841584158416,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 93,
+      "binary_search_comparisons": 7517,
+      "explicit_boundary_records": 238,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 524544,
+      "query_norm_I16_products": 77568
+    },
+    {
+      "book": 95,
+      "UIDs": 94,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9544570412091868,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2918.019047619048,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 99,
+      "binary_search_comparisons": 6010,
+      "explicit_boundary_records": 74,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 419328,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 96,
+      "UIDs": 96,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9408311475173748,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2872.423076923077,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 7869,
+      "explicit_boundary_records": 172,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 549120,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 97,
+      "UIDs": 93,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9429167652191491,
+      "p95_byte_ratio": 1.011508595099309,
+      "mean_remaining_rows": 2881.176470588235,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 94,
+      "binary_search_comparisons": 6524,
+      "explicit_boundary_records": 192,
+      "bitmap_union_words": 5280,
+      "centre_dot_I16_products": 455424,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 98,
+      "UIDs": 84,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9399999472721423,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2870.233009708738,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 95,
+      "binary_search_comparisons": 7603,
+      "explicit_boundary_records": 198,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 530688,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 99,
+      "UIDs": 93,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9485369110006059,
+      "p95_byte_ratio": 1.0115254192978196,
+      "mean_remaining_rows": 2896.653846153846,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 7562,
+      "explicit_boundary_records": 276,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 528384,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 100,
+      "UIDs": 93,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9546114487596635,
+      "p95_byte_ratio": 1.01062412294905,
+      "mean_remaining_rows": 2917.942857142857,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 99,
+      "binary_search_comparisons": 6283,
+      "explicit_boundary_records": 210,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 438528,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 101,
+      "UIDs": 87,
+      "occurrences": 108,
+      "mean_byte_ratio": 0.939286616502351,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2868.296296296296,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 7836,
+      "explicit_boundary_records": 232,
+      "bitmap_union_words": 5568,
+      "centre_dot_I16_products": 546816,
+      "query_norm_I16_products": 82944
+    },
+    {
+      "book": 102,
+      "UIDs": 90,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.959865329308537,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2935.542857142857,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 99,
+      "binary_search_comparisons": 5522,
+      "explicit_boundary_records": 186,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 385536,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 103,
+      "UIDs": 88,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9522423599999154,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2907.607843137255,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 7662,
+      "explicit_boundary_records": 130,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 534528,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 104,
+      "UIDs": 92,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9740674105215276,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2976.8571428571427,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 101,
+      "binary_search_comparisons": 6745,
+      "explicit_boundary_records": 82,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 470784,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 105,
+      "UIDs": 86,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.944912832033845,
+      "p95_byte_ratio": 1.0115254192978196,
+      "mean_remaining_rows": 2885.3076923076924,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 7676,
+      "explicit_boundary_records": 272,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 536064,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 106,
+      "UIDs": 89,
+      "occurrences": 99,
+      "mean_byte_ratio": 0.9675444893805281,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2953.656565656566,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 95,
+      "binary_search_comparisons": 7907,
+      "explicit_boundary_records": 112,
+      "bitmap_union_words": 4944,
+      "centre_dot_I16_products": 552192,
+      "query_norm_I16_products": 76032
+    },
+    {
+      "book": 107,
+      "UIDs": 90,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9343840121526047,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2852.8653846153848,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 7731,
+      "explicit_boundary_records": 222,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 539904,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 108,
+      "UIDs": 94,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9411501703984703,
+      "p95_byte_ratio": 1.0116300329231434,
+      "mean_remaining_rows": 2874.4380952380952,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 7400,
+      "explicit_boundary_records": 160,
+      "bitmap_union_words": 5424,
+      "centre_dot_I16_products": 516864,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 109,
+      "UIDs": 95,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9595355356628836,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2932.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 99,
+      "binary_search_comparisons": 6844,
+      "explicit_boundary_records": 174,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 477696,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 110,
+      "UIDs": 83,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.974032199977897,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2975.695238095238,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 101,
+      "binary_search_comparisons": 7295,
+      "explicit_boundary_records": 76,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 509184,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 111,
+      "UIDs": 83,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.940908513855329,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2871.8653846153848,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 8260,
+      "explicit_boundary_records": 230,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 577536,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 112,
+      "UIDs": 81,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.950108715293652,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2899.921568627451,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 8232,
+      "explicit_boundary_records": 146,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 574464,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 113,
+      "UIDs": 82,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9584653693967342,
+      "p95_byte_ratio": 1.0115103660675733,
+      "mean_remaining_rows": 2928.6153846153848,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 98,
+      "binary_search_comparisons": 6829,
+      "explicit_boundary_records": 130,
+      "bitmap_union_words": 5280,
+      "centre_dot_I16_products": 476928,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 114,
+      "UIDs": 91,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9623664003811603,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2940.368932038835,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6875,
+      "explicit_boundary_records": 216,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 480000,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 115,
+      "UIDs": 93,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.95180251485278,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2906.3653846153848,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 98,
+      "binary_search_comparisons": 7748,
+      "explicit_boundary_records": 204,
+      "bitmap_union_words": 5280,
+      "centre_dot_I16_products": 540672,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 116,
+      "UIDs": 90,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9716177895800845,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2971.6893203883496,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 99,
+      "binary_search_comparisons": 5416,
+      "explicit_boundary_records": 40,
+      "bitmap_union_words": 5136,
+      "centre_dot_I16_products": 377856,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 117,
+      "UIDs": 97,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9564208161135785,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2920.8952380952383,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 99,
+      "binary_search_comparisons": 7644,
+      "explicit_boundary_records": 156,
+      "bitmap_union_words": 5328,
+      "centre_dot_I16_products": 533760,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 118,
+      "UIDs": 97,
+      "occurrences": 105,
+      "mean_byte_ratio": 0.9364620680283123,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2862.019047619048,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6375,
+      "explicit_boundary_records": 152,
+      "bitmap_union_words": 5424,
+      "centre_dot_I16_products": 444672,
+      "query_norm_I16_products": 80640
+    },
+    {
+      "book": 119,
+      "UIDs": 86,
+      "occurrences": 100,
+      "mean_byte_ratio": 0.9586886570325998,
+      "p95_byte_ratio": 1.0095425673305267,
+      "mean_remaining_rows": 2928.04,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 94,
+      "binary_search_comparisons": 7192,
+      "explicit_boundary_records": 126,
+      "bitmap_union_words": 5088,
+      "centre_dot_I16_products": 502272,
+      "query_norm_I16_products": 76800
+    },
+    {
+      "book": 120,
+      "UIDs": 92,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9437196664922947,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2879.2884615384614,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 8884,
+      "explicit_boundary_records": 226,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 621312,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 121,
+      "UIDs": 83,
+      "occurrences": 103,
+      "mean_byte_ratio": 0.9541384310626164,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2915.5339805825242,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 97,
+      "binary_search_comparisons": 6657,
+      "explicit_boundary_records": 150,
+      "bitmap_union_words": 5232,
+      "centre_dot_I16_products": 464640,
+      "query_norm_I16_products": 79104
+    },
+    {
+      "book": 122,
+      "UIDs": 94,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9507197902909005,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2906.450980392157,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 5876,
+      "explicit_boundary_records": 120,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 410112,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 123,
+      "UIDs": 91,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9498187626464663,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2901.1372549019607,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 7178,
+      "explicit_boundary_records": 22,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 500736,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 124,
+      "UIDs": 96,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.942297977930492,
+      "p95_byte_ratio": 1.0115254192978196,
+      "mean_remaining_rows": 2877.7884615384614,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 96,
+      "binary_search_comparisons": 7416,
+      "explicit_boundary_records": 254,
+      "bitmap_union_words": 5376,
+      "centre_dot_I16_products": 517632,
+      "query_norm_I16_products": 79872
+    },
+    {
+      "book": 125,
+      "UIDs": 90,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9874302675045084,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 3018.5882352941176,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 6215,
+      "explicit_boundary_records": 30,
+      "bitmap_union_words": 4992,
+      "centre_dot_I16_products": 433920,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 126,
+      "UIDs": 93,
+      "occurrences": 102,
+      "mean_byte_ratio": 0.9408166300104347,
+      "p95_byte_ratio": 1.0094704636226253,
+      "mean_remaining_rows": 2875.4117647058824,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 94,
+      "binary_search_comparisons": 6173,
+      "explicit_boundary_records": 236,
+      "bitmap_union_words": 5280,
+      "centre_dot_I16_products": 430848,
+      "query_norm_I16_products": 78336
+    },
+    {
+      "book": 127,
+      "UIDs": 94,
+      "occurrences": 104,
+      "mean_byte_ratio": 0.9748946517147645,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2978.769230769231,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 100,
+      "binary_search_comparisons": 7009,
+      "explicit_boundary_records": 44,
+      "bitmap_union_words": 5184,
+      "centre_dot_I16_products": 489216,
+      "query_norm_I16_products": 79872
+    }
+  ],
+  "rare_consumed": {
+    "dev_count1_4": {
+      "UIDs": 3,
+      "occurrences": 3,
+      "mean_byte_ratio": 1.0015390557534543,
+      "p95_byte_ratio": 1.0015390557534543,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 3,
+      "binary_search_comparisons": 33,
+      "explicit_boundary_records": 0,
+      "bitmap_union_words": 144,
+      "centre_dot_I16_products": 2304,
+      "query_norm_I16_products": 2304
+    },
+    "dev_count5_15": {
+      "UIDs": 19,
+      "occurrences": 19,
+      "mean_byte_ratio": 1.0015390557534543,
+      "p95_byte_ratio": 1.0015390557534543,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 19,
+      "binary_search_comparisons": 209,
+      "explicit_boundary_records": 0,
+      "bitmap_union_words": 912,
+      "centre_dot_I16_products": 14592,
+      "query_norm_I16_products": 14592
+    }
+  },
+  "eligibility": {
+    "consumed_mean_byte_ratio_le.75": false,
+    "natural_mean_byte_ratio_le.75": false,
+    "natural_p95_byte_ratio_le1": false,
+    "all_consumed_book_mean_byte_ratio_le1": true,
+    "complete_fallback_bank_plus_index_ratio_le1.20": true
+  },
+  "decision": "CLOSE_THIS_ADAPTIVE_UNION_INDEX",
+  "logical_work_scope": "Prospective indexed query reads from encoded lists: bank header/zero mask, one I16 query norm read, all centre headers+I16 codes,14B/search/boundary record,384B/nonempty suffix checkpoint, remaining original WI code+scale. Bitmap union words/dot/norm/products charged separately; not Python or physical DRAM bytes.",
+  "output_inventory": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\controls.json",
+      "bytes": 89,
+      "sha256": "4e2c057c02ffdf7234f7050b742b8228d97e45b0e2ef38ce7ce195cb78f5fb45"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e000.index.bin",
+      "bytes": 404,
+      "sha256": "bc775658321bc6de8e3c55a25db8740b0e603a7b1f0b94667aa830e9a0f2a543"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e001.cuts.npy",
+      "bytes": 134,
+      "sha256": "190de501c5467daf149019b5cf5b10c572ccae1aabb747d0b4e478f8f99df428"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e001.index.bin",
+      "bytes": 64552,
+      "sha256": "16b7832f0c9d6098bd26d20a7d0d502e16f35347cadae3f20ec18096faa48159"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e002.cuts.npy",
+      "bytes": 3984,
+      "sha256": "3d2807ee67a4db6d4cb1db9ddb6932ec0ae55884ac9364d0e351ca9dc47ea213"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e002.index.bin",
+      "bytes": 513588,
+      "sha256": "e0457f20377c5cf1fb68d76c001ec0af605da674d66ed8a7b8c5726428deab81"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e003.cuts.npy",
+      "bytes": 1780,
+      "sha256": "93b50243c27754c85ba8f5a472c8fd5be03c39e66414ea8b23e9f59d8abcd60c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e003.index.bin",
+      "bytes": 449440,
+      "sha256": "fd4226937435abddc8d6f236554fc519d2e1eea8379899f9d8ec19bc14880355"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e004.cuts.npy",
+      "bytes": 2942,
+      "sha256": "58137379fd254e2c57e378b6375934639f124a880e42937721f635995b6684a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e004.index.bin",
+      "bytes": 449440,
+      "sha256": "fc0d5bfaea4bb0f55d184c3692d9bde1980592a83f2fac8441957933444b7223"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e005.cuts.npy",
+      "bytes": 6800,
+      "sha256": "f2a46d85b70adcd36a7fe4629911bc51bde723b390c71bb709edb3e49a485154"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e005.index.bin",
+      "bytes": 770180,
+      "sha256": "534f39984ea7bc7d3a6ce7242af11746c39c78a44b3442ac7d372de9053007af"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e006.cuts.npy",
+      "bytes": 3334,
+      "sha256": "eb25e06633e47f5efa9c84dab933ecc891b55a4e119e3cbf72dbf1fb27284902"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e006.index.bin",
+      "bytes": 449440,
+      "sha256": "a9b0b1552d7948b2224724bb690f35f9507f2ed122e4ad887d1d10bf04732a49"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e007.cuts.npy",
+      "bytes": 1168,
+      "sha256": "5a872a74592a9a11ca199cde69e44d1ae905a7a463e756fb7d7e621bcf7d962a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e007.index.bin",
+      "bytes": 321144,
+      "sha256": "d0d51b05460330b8b8a0bcf31b32825c57e867a5201fe183e817ef05f9f20ff1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e008.cuts.npy",
+      "bytes": 812,
+      "sha256": "d860a84d0c97fa60aadcdeffda0d4abc15d1e75411197581ad74ba25df876e03"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e008.index.bin",
+      "bytes": 192848,
+      "sha256": "02b6441a62d74553f407f89d0d0e710896904a9fc3e1c5bec975f82d7229d2b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e009.cuts.npy",
+      "bytes": 668,
+      "sha256": "108012494dae610cded65d06eaecd4e48504ae3e8eb0574c20a75fb40035e4f4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e009.index.bin",
+      "bytes": 192848,
+      "sha256": "f0ef396c95ee6f06708fa0b1ff936fe0872cbbef61b7069fea4aa5a47fd7453b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e010.cuts.npy",
+      "bytes": 890,
+      "sha256": "53087a797e075b0f42ab5a6c9e16012eb4ab5cea41c56cd28e319b2744cd3f2a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e010.index.bin",
+      "bytes": 192848,
+      "sha256": "d1432c36495ba94a6996fd31cb54832908151fdbaa3aa4d0c46593d3f4b84f74"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e011.cuts.npy",
+      "bytes": 1008,
+      "sha256": "4c4d9f865227f2588ec6a4199333845dedb0849605c875c66720552b13e7c4e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e011.index.bin",
+      "bytes": 256996,
+      "sha256": "ea1105d76bb8e226d3d4ab63038a6375d05302c679272eca989496efb0e05550"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e012.cuts.npy",
+      "bytes": 482,
+      "sha256": "17442b6f50a44c8d4eb932535d604ef9606cf0512cf27239d6eaf55f907fdefd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e012.index.bin",
+      "bytes": 192848,
+      "sha256": "298629ca22a8b45a14657ecb1a6399b2e6db90da0fc7d012791f700b2f02c75a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e013.cuts.npy",
+      "bytes": 3228,
+      "sha256": "be7bf5f1e6dcf32722a97ace2af9ae05383ad5328125e5668e08cd973b1f3501"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e013.index.bin",
+      "bytes": 641500,
+      "sha256": "fc5ac5b4c303489b8a6e1f2809f24eaade4cee25c1ffbdaadc302f48af4dddff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e014.cuts.npy",
+      "bytes": 1840,
+      "sha256": "518f3254c292cd480270e2f1ced8456294bea18d539f084d112dd3dad956ee87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e014.index.bin",
+      "bytes": 513588,
+      "sha256": "3d52e48d8da7d598f0ef00312b1ec63f8c674f75a80c728ef765c32aac1a35b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e015.cuts.npy",
+      "bytes": 142,
+      "sha256": "66d886efdef667ac65b4126c6bdc0c75f6538b6d29af41944af0db3e4ddbd03e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e015.index.bin",
+      "bytes": 64552,
+      "sha256": "168d653eff84dc6630a99383e9747bd3c4e101acc58454c77e32ba18ff23a958"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e016.cuts.npy",
+      "bytes": 266,
+      "sha256": "be501887cbb464595d4ebfad2e880e54adf7fe78c1548c559caebcf6bd13b744"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e016.index.bin",
+      "bytes": 64552,
+      "sha256": "5c23b402d21c3c5ba38d762e467fa71ca91c59a1625deff04ce003b900f12cba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e017.cuts.npy",
+      "bytes": 2690,
+      "sha256": "cd30229f2459067de81b4f0983bb29c1a2b8f58d33b82ca01f614f3d87891f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e017.index.bin",
+      "bytes": 449440,
+      "sha256": "0287719b6be985061c5099ab9965220d10e1f3a031a167919cc4a30a821c3a48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e018.cuts.npy",
+      "bytes": 632,
+      "sha256": "ce94376a3d124540661139e9248bcefc9e9ed982e79ee348f3cca4a13b197d5f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e018.index.bin",
+      "bytes": 128700,
+      "sha256": "6af60a19df472e6557294c1977295f7512d1a40130834649e487c38a2392c905"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e019.cuts.npy",
+      "bytes": 936,
+      "sha256": "16fe6b990eac701db8d7c829f2639d949ed25c51d500c9f48de2c6bfe5495acf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e019.index.bin",
+      "bytes": 256612,
+      "sha256": "92cbc9e6648cb94636ab41207b468493ca461758fc866fe29ddc01a07d1debd7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e020.cuts.npy",
+      "bytes": 170,
+      "sha256": "3deda17d9a392f38cbd30c4e5ee686a3f6aa075a9834a4a9204a360e0ed8c53d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e020.index.bin",
+      "bytes": 64552,
+      "sha256": "64e3e0b438298d9d9a4f2ca8e17a5c9689a6254d8e2b3ac3da9e9f5aa212e7ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e021.cuts.npy",
+      "bytes": 7388,
+      "sha256": "41ad92a9f20d87f4a098f37f11974bd84e5039844ec35c692c0152c42e7706e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e021.index.bin",
+      "bytes": 962624,
+      "sha256": "696d1daa220cd24f20dedd821700f7a61654ba448178c098f8e272545f19eb4b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e022.cuts.npy",
+      "bytes": 240,
+      "sha256": "dda6dbadbe3044e03be58930a175a78746c5cbbf71ced3a4589437b76341ffea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e022.index.bin",
+      "bytes": 64552,
+      "sha256": "86ebb286ff3cb406f63a0d950516f835326ec89915c2aa5b4d4c69f88ad73ffc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e023.cuts.npy",
+      "bytes": 1376,
+      "sha256": "9faddd000412f86bad6549ab19300b2dd47fb651f39ad12520cd16ae6236c2a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e023.index.bin",
+      "bytes": 256996,
+      "sha256": "95acb55d5e6afe42146fca0d2e75c896fcc9c9fe4eb481c524e9efcda0bd1713"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e024.cuts.npy",
+      "bytes": 1808,
+      "sha256": "41f3d890a563ae49ffd416ddfa26239c9061b5c036b9f0dd92625a7979521b41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e024.index.bin",
+      "bytes": 256996,
+      "sha256": "5e7f50c2d0fe91cc38ccb4b26da6234f77dc4a820adaea11a338e35223facf4b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e025.cuts.npy",
+      "bytes": 946,
+      "sha256": "4bab39de20888126386fe3ee728aa0183d664aed1bca785582892a4cb9104e3f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e025.index.bin",
+      "bytes": 64552,
+      "sha256": "9b6856cb08ff5533d7195773726692aa0c8ea7355e2601b177d807969b486a22"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e026.cuts.npy",
+      "bytes": 2144,
+      "sha256": "b28adc1d436633ab579695b0e79dbca1eb005d7f983b5278c32ed44c45e0865e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e026.index.bin",
+      "bytes": 385292,
+      "sha256": "702c82e0c4d1d9b8d3a1a53b93102bc0e8b60a6f0b906fcc64d0499580caf20c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e027.cuts.npy",
+      "bytes": 2312,
+      "sha256": "ad276bf0bf15b1418f3f37ca316c64fb48f0fc9e30382f27688e12006a5d72d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e027.index.bin",
+      "bytes": 449440,
+      "sha256": "ccce34847f5a77cdfa9881d555bf278723b7ec664299218205d843703cd7561a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e028.cuts.npy",
+      "bytes": 400,
+      "sha256": "214113d62ede8c54ac369156aa05f033606f4a2d333af9e52c94ae5847c1acba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e028.index.bin",
+      "bytes": 128700,
+      "sha256": "0f275e310f2173baf1512384a188439c4b3057bb38cac6afc0f77621abc675cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e029.cuts.npy",
+      "bytes": 492,
+      "sha256": "57d3ba0f6b7f4973e6905176732c9bf39e38e85c8b438e5e48b99784ac8f8cdc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e029.index.bin",
+      "bytes": 128700,
+      "sha256": "437c0e9efdd98ca08d53c717ac06b295faf5eb2d1c268969fdbf83da44bb43f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e030.cuts.npy",
+      "bytes": 1256,
+      "sha256": "abe23747f97d12d62bcce72582936f45b67ee9183f2abeb0b79eab665a6ed525"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e030.index.bin",
+      "bytes": 256996,
+      "sha256": "386a09e114f56e60d7076994057d81e2a1d4f0588e49798eb85433bcc201b2b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e031.cuts.npy",
+      "bytes": 710,
+      "sha256": "290c9bad5d6704e01f2cfe2ba96a51448a1610bfb762b2dbedcbccadf82d0a39"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e031.index.bin",
+      "bytes": 192848,
+      "sha256": "69ac38528b3b7f96129eee11ddd2eb42b751c246870e410cf9f698e91b38ee0b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e032.cuts.npy",
+      "bytes": 992,
+      "sha256": "21c5d40cc48a32f92703254d44a36cc9ef4c28ad3bc0d4c895385411c9818912"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e032.index.bin",
+      "bytes": 192848,
+      "sha256": "54516a1394e9be17f06d700909dfad2d95ccf69f44ed313cfbc52285c1edb969"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e033.cuts.npy",
+      "bytes": 2478,
+      "sha256": "75d8bb563543c0079e4e1ce83cd438f1dc4d48d46e626d3d9d4d9734f868f3fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e033.index.bin",
+      "bytes": 321144,
+      "sha256": "71edb5aab4acad0886cfb484ece8bc965840efad3a1d9338a75577c9ac24579c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e034.cuts.npy",
+      "bytes": 1928,
+      "sha256": "b8cfe3e575d22894f2528da2aa01b8f423b5e29220d6d47405542978f1f5c4eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e034.index.bin",
+      "bytes": 192848,
+      "sha256": "c0d9a507714509771e10060b1e50596f8ce12f936da1aad831a541a7794bac5b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e035.cuts.npy",
+      "bytes": 2846,
+      "sha256": "f9e9ff055926891403e12d282722736d9f272edca7eed5337ad2cc8ce9c9212d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e035.index.bin",
+      "bytes": 577736,
+      "sha256": "0113b31e70d251b3e921c3b8ab227a3d5382d221d2f6f64ce0ed7cdf03078b9a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e036.cuts.npy",
+      "bytes": 144,
+      "sha256": "4b70f659a55d4824a5e891062b260ee016a00bd0a8c7f5de6d682c4dba97b752"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e036.index.bin",
+      "bytes": 64552,
+      "sha256": "89e3035537790c1d9b7986660ad2a22f5ad95fb6cdb38e68900ce497533aa7d9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e037.cuts.npy",
+      "bytes": 914,
+      "sha256": "61c8a43db4207a1e8c1011611df0a85888326d34300a66279b4db2825f7a2059"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e037.index.bin",
+      "bytes": 64552,
+      "sha256": "a9908aaaa76b3ba3a5b5aea7fc238aea72f297d062cf9258af739589768b88b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e038.cuts.npy",
+      "bytes": 4568,
+      "sha256": "6236294e4d9a90155acb682848e993bcd420743078a1b68d18b0b8aed8e959dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e038.index.bin",
+      "bytes": 641884,
+      "sha256": "6edcd295d0ddc02b4ab5e19d42dacc8b0c55e5fac079b5d1ca09065a44b4bfb5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e039.cuts.npy",
+      "bytes": 168,
+      "sha256": "22860f5a8f1cb12b74f2d4ca642bb4c56c18551786635804228d23b2bb9388a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e039.index.bin",
+      "bytes": 64552,
+      "sha256": "eb303140a740d3f65cbdba364a63c47fafd5fd7b99ef53ed99e2e490315a8003"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e040.cuts.npy",
+      "bytes": 7328,
+      "sha256": "143b6b99994890d3b6ff9a912eb074358938fa0018057a91e28faeb72f3287ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e040.index.bin",
+      "bytes": 770180,
+      "sha256": "407350f608ef398ffc635c919b6e8bafdf14ee574f2546f5147af445b5c26d94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e041.cuts.npy",
+      "bytes": 5828,
+      "sha256": "c75eaaf82b7e8ff1ec7d24da12cae3aeab98aa261c6ddd15c0bb8a2a020d2451"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e041.index.bin",
+      "bytes": 962624,
+      "sha256": "a16ac28a6f01bd09b169e0c5f3523983d33057b842ef69c7db04750881672329"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e042.cuts.npy",
+      "bytes": 680,
+      "sha256": "1f5b2aab95894e4d21b18384d45094679c416d030d89e7e352779349aaad196f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e042.index.bin",
+      "bytes": 192848,
+      "sha256": "6c32f8d6712b46c6722bf116b85423955e86e2bfd4454c1f7ffd041f5003af0b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e043.cuts.npy",
+      "bytes": 824,
+      "sha256": "129c1201b354d14166c4c55371fcd1308bb5bd8793151228fed8fb0bf4b70207"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e043.index.bin",
+      "bytes": 256996,
+      "sha256": "a3b26bbdbaab787d76dcefff6c5703a09f3b0a92d65aad251e73edbccee5bd6a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e044.cuts.npy",
+      "bytes": 252,
+      "sha256": "bc26ed68087ec5e2dc60133132447a35204794d1649629f64a30b8e9fbcabc19"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e044.index.bin",
+      "bytes": 128700,
+      "sha256": "f73fea8ac0203f203fac2147ac4055059caf9033e0429729483105235010df5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e045.cuts.npy",
+      "bytes": 272,
+      "sha256": "2ad1b5cb7bd2332ab0609b5bfcbeb0abb76862cceee3a69bdc327a00f3cd1e02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e045.index.bin",
+      "bytes": 128700,
+      "sha256": "c0d724b3ef08f80de520289659e309ebd222bc751b7bed6727c04f8ed63b1043"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e046.cuts.npy",
+      "bytes": 404,
+      "sha256": "feef69f36f9e9eb6207c2b4aaa1b01ca63ffb71660361e1a451870ebea586547"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e046.index.bin",
+      "bytes": 128700,
+      "sha256": "658a3827a9dde53c74e450fde96199ee05b94776e5b7af44ce9b53690a054829"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e047.cuts.npy",
+      "bytes": 2382,
+      "sha256": "830c5ff6bd952d38de9fff64d0a7628b660e8053e4418b46d9c6613f1d023a5f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e047.index.bin",
+      "bytes": 449440,
+      "sha256": "bfd35e7b126a1c7d5716cf643fa4b5876e6ff8ef94c53039501cddb5672a32ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e048.cuts.npy",
+      "bytes": 926,
+      "sha256": "d3b517a70a71229abd295e6e58acf3d4b65586e7eea7aac05712993de2feb359"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e048.index.bin",
+      "bytes": 192848,
+      "sha256": "44ef058096bd6b1ce9b156496af92116d47213e95be2eab4a49540cb8b223887"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e049.cuts.npy",
+      "bytes": 5476,
+      "sha256": "75f7d5efcf7d5a723ef7aa288b7b3c2deabce9d1f3c6466f65289857ef94f76e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e049.index.bin",
+      "bytes": 898092,
+      "sha256": "ce0bcd2727bcd5a198db82eec395195d221776d01a799700f2ea06016d6e9400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e050.cuts.npy",
+      "bytes": 1940,
+      "sha256": "fb10417c2f8848cb78adbd4a0b0c1fd44c98834d01dd7bbf8043bd73ce85434a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e050.index.bin",
+      "bytes": 385292,
+      "sha256": "b62cca5788925ac451dbdc96cda4101940c68fcbdd43897411bf6da969468117"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e051.cuts.npy",
+      "bytes": 860,
+      "sha256": "9fd632efb4d5cbd7979796ede8e86a594bab2b69baaee37b0c95a0e318095813"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e051.index.bin",
+      "bytes": 192848,
+      "sha256": "83ef6a8f5e8e027f10fe396b1e336078e28e13f518c97399e4a0693740b192d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e052.cuts.npy",
+      "bytes": 206,
+      "sha256": "903515acf0b4e47bb3a965ff86d9eebe89de21d080d5013106643f54bcee1a16"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e052.index.bin",
+      "bytes": 64552,
+      "sha256": "3f9d331cf2b1f8cbe2cb43b235866e56ae9faf175dbd366725d3f22605dee919"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e053.cuts.npy",
+      "bytes": 460,
+      "sha256": "fd80f1c97578f605a442157812f7ae2c6ad7734156e33a5bb5fe64bbe3c8f3c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e053.index.bin",
+      "bytes": 128700,
+      "sha256": "cc3a7edca19323a7c1c595d55e2c96af2e46b8fda5c8774cc6eff7c44b90f218"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e054.cuts.npy",
+      "bytes": 976,
+      "sha256": "570c9f66259775a7466e7f40c8584daaddcba0ce7e3ccaff04c234d290c221dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e054.index.bin",
+      "bytes": 256996,
+      "sha256": "ad5c89c35f6b5a9bcea1dc52c9b8e85b6dcf8839cedee338a22e49ed97160faf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e055.cuts.npy",
+      "bytes": 2746,
+      "sha256": "3b9d4748f0fcd7cd4ef808d93f54b9d04cfcca905552aff9750cecda52d26cf0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e055.index.bin",
+      "bytes": 449440,
+      "sha256": "aa17b81e694d4516834649744f0b2882d4c576fccda9d368a33c651233b19e72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e056.cuts.npy",
+      "bytes": 2208,
+      "sha256": "67cb61569a5d3b27f421f0f474a82097ebc826a24e35a0248c9abbc64c293af5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e056.index.bin",
+      "bytes": 321144,
+      "sha256": "39bac828a387962e9a6360175b7037dc5f10dd8385b19c4caef1127b472b8fee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e057.cuts.npy",
+      "bytes": 182,
+      "sha256": "ff9523496113eb77eda477f4aa74b02492359fe95a5974d48a6eb76eab6b1766"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e057.index.bin",
+      "bytes": 64552,
+      "sha256": "5c166ed50dd198ad1e1b8c9ff910761ad65e9d44ca9b75c1213093212b2cfff4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e058.cuts.npy",
+      "bytes": 6316,
+      "sha256": "72a43944dde31a425fd9ec90c75b08759efd3e03d9b57a5a55cc406e4860affd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e058.index.bin",
+      "bytes": 898476,
+      "sha256": "7f22027a9fe38eea3a5a9254a8d87df9570e0b85cf6c8070941b920e18e12c9c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e059.cuts.npy",
+      "bytes": 182,
+      "sha256": "98aba2e04036681ec07b0a284fdd95a82023f1efbdbf0a131360f25d6f01802d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e059.index.bin",
+      "bytes": 64552,
+      "sha256": "bd0161b63a8af1e971c8324f1ed45d0f2f5f20ff2e42828856cf4d54b79e543a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e060.cuts.npy",
+      "bytes": 1384,
+      "sha256": "e0cf0371683e9e126f4f46939678463e54d138f3bf0490a89687f17c311cb47e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e060.index.bin",
+      "bytes": 256996,
+      "sha256": "9ded3c925243f58482d7fc0142f0f4c6f17c6b9a78b2b486f8136bb83ccbb3ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e061.cuts.npy",
+      "bytes": 2702,
+      "sha256": "80af55ae25f5803f284e01331c183f77c7a3ced95b2514d864ace9a343b7ca28"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e061.index.bin",
+      "bytes": 577352,
+      "sha256": "00cb5b34f98abdc2461d2afb4bfbc388391bf31e59e18849f15ccc82f62779f4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e062.cuts.npy",
+      "bytes": 808,
+      "sha256": "b58bdd4753617e5f4f4b76890f43684e0cd53be5bb3efe719fc8d9707f5ae8cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e062.index.bin",
+      "bytes": 256996,
+      "sha256": "e92a420a3008c0e16e061dbe9b24074cbe3104a5ed78ae2f7546fe910407a178"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e063.cuts.npy",
+      "bytes": 202,
+      "sha256": "fa0133434cbf5740c5d3db138f9e164af21f1c03ca23501dfff534e6bc8cde8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e063.index.bin",
+      "bytes": 64552,
+      "sha256": "cc1ac3d334cfd6185e1037b693a5aecec77a1246d9c1ff24ab4dcf84c7289efd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e064.cuts.npy",
+      "bytes": 220,
+      "sha256": "e5f0cc35e352768b05b462dc90717fb8ab55f6d511a728d6bc6115335c1dee0a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e064.index.bin",
+      "bytes": 64552,
+      "sha256": "a23acee7910cc85b76197d21d8a065b00e79ebbe8ad4daf3a508e8dd54e96c1d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e065.cuts.npy",
+      "bytes": 4664,
+      "sha256": "3db274f03797447cadec070f09997ad878594999578a932d37fdaccc10ec94d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e065.index.bin",
+      "bytes": 770180,
+      "sha256": "aeaf9119f095c04830c18eeaf2b275d8e2a74cdff5fd8ebb4c9cf6205263173f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e066.cuts.npy",
+      "bytes": 262,
+      "sha256": "314829eba25022d671e75630bf75316a365028ad26d65a95bf66f5759ccea655"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e066.index.bin",
+      "bytes": 64552,
+      "sha256": "7c6179dd1bb0ceffa5cec26c6e9f040424780f55e60b6d53d062428aa69a45fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e067.cuts.npy",
+      "bytes": 5024,
+      "sha256": "38879a1982e034ccc8b61f672a9532a94806d134367ab5c3e7666176c32715b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e067.index.bin",
+      "bytes": 577736,
+      "sha256": "62f559ffe716ca9ac7d78258d41f7036de71919a49831a486830e3e1b5ebf236"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e068.cuts.npy",
+      "bytes": 3252,
+      "sha256": "9663c515b86f7a0af11890468727d3c1fbfc09e0b3056503b9accb8af05961bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e068.index.bin",
+      "bytes": 706032,
+      "sha256": "dd77230b4330eb8c45334ca7e9f2b371e0f701c5bd592111392aad23848b7d4b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e069.cuts.npy",
+      "bytes": 170,
+      "sha256": "c3c8df18e9f690d834c9b7b4978c884b73747c4bcb45b2a1235f1e434ccfbf7d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e069.index.bin",
+      "bytes": 64552,
+      "sha256": "2fbd3fd2c698f00943dbdf2c631ba1c1b9864cce61f47feafbe8b50857d39b54"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e070.cuts.npy",
+      "bytes": 464,
+      "sha256": "abbe13e84dc65bc0e3eb58760d600e7e400e5f5976241ee3d333e1e12cc1d6f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e070.index.bin",
+      "bytes": 128700,
+      "sha256": "3805284392ec0b730602d2a8c5f60c0e9a9f12bc7e4641d617a6ea12f0a3bc47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e071.cuts.npy",
+      "bytes": 4208,
+      "sha256": "9b4a06a62a1dcf2467956dcb9559dbe51c0038ca67070c4d52fc431ca3a4e205"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e071.index.bin",
+      "bytes": 641884,
+      "sha256": "834cd6dda2df41d070ca90555b6f8ecb557cb789705a590638b5156c31c9239c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e072.cuts.npy",
+      "bytes": 1728,
+      "sha256": "b679332a94ff6aeedd28f023e0e86c593473dfcb6746fb6299af3724d310b5f8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e072.index.bin",
+      "bytes": 321144,
+      "sha256": "d2da46c0e96143d6f2aca75471c2efb78e276b6863523c116d90af70d20dc516"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e073.cuts.npy",
+      "bytes": 166,
+      "sha256": "2486c2073b642876a928f5300dce37b41cf2311b67a9bb04a3025c633d9326c6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e073.index.bin",
+      "bytes": 64552,
+      "sha256": "d36348c5c5aa2ac22b64611094869292cf9a5ab2368142904fce92e96747ae04"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e074.cuts.npy",
+      "bytes": 2264,
+      "sha256": "f8cd4fff61e46616464f44af73746ae67f526ea46c90299a270d6aafc6322400"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e074.index.bin",
+      "bytes": 385292,
+      "sha256": "d590c734309f7ffe8ef4feb568929f4e9da50716a0e23266b464f16260365e08"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e075.cuts.npy",
+      "bytes": 1504,
+      "sha256": "ce14fbdfdb37e4d214847d3069b1aa759ce36cee129ba7efbd3ad6b9de8ef77e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e075.index.bin",
+      "bytes": 256996,
+      "sha256": "9f21dc6348dfc4b8efcf1dbba24ee9de96707187c0a1541ab281cfe892bfaf53"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e076.cuts.npy",
+      "bytes": 1838,
+      "sha256": "1a8ee7980db9ad99f050666f6bfe2bc208a6e73195667c33b8716f2f81ab90b9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e076.index.bin",
+      "bytes": 321144,
+      "sha256": "5ed68a9a6811388b75ac4cb2d122bc895aff9615b7eb6c06dd9e2d8a2817894a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e077.cuts.npy",
+      "bytes": 1064,
+      "sha256": "44dd6a60e1d056f9516f88010570bace908612130566c1ed7cb608007b1b88c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e077.index.bin",
+      "bytes": 192848,
+      "sha256": "b2035b16cd4959ea1d0b2e3b0a050cb78ed583aa5622070c9f43c53c2c460e4f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e078.cuts.npy",
+      "bytes": 5942,
+      "sha256": "f10cd0101a04739838f861346b82c73c63b13dfd49b1cf4083c50f8cf81cf505"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e078.index.bin",
+      "bytes": 577736,
+      "sha256": "415fab2a96ddc07a9d417583255ec2729c188112a01224bf618c6dbabb0c2cfd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e079.cuts.npy",
+      "bytes": 880,
+      "sha256": "9bba41ca711344b9c212bb8fcb1926a9cd88539d6ef837cae5c5a0e1d9bc0c86"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e079.index.bin",
+      "bytes": 256612,
+      "sha256": "08b8d641542acec5d93dc63e954fff858baf5b4c76762c5d7397b7a1f4ab807b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e080.cuts.npy",
+      "bytes": 440,
+      "sha256": "1cd7e36877720a228fe99a2aaddf0d5c19c864e933d7f9abfe445054ff2c4549"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e080.index.bin",
+      "bytes": 128700,
+      "sha256": "f10798e23977ec3ef62f87ffb84437fa959ff9a7923bd8ac31a451f03b5dd5b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e081.cuts.npy",
+      "bytes": 2648,
+      "sha256": "47d5b07c2bec154a522542a2d20a1945ef36052570e7803f55d65257e474965d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e081.index.bin",
+      "bytes": 449440,
+      "sha256": "f0e1515ac3d0affd0132303485852910f6932b58da52f9c80b03e18200697818"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e082.cuts.npy",
+      "bytes": 4168,
+      "sha256": "ae058ae07e8b93388956213e3d8742046a776fbfba265c1511337bcf2bc815af"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e082.index.bin",
+      "bytes": 641884,
+      "sha256": "48348959c06f3a883c68669f63dd73ef4e2e6ee47140f77783037cfe26ed27d8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e083.cuts.npy",
+      "bytes": 480,
+      "sha256": "2301946925de503ce4267c5d5e0b4d6c020780cf7d467f465e651a23c3f92b63"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e083.index.bin",
+      "bytes": 128700,
+      "sha256": "a15396c22ea1947ca94e7567befafcd5a6ea569dc5577bf85856b97693043afb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e084.cuts.npy",
+      "bytes": 15068,
+      "sha256": "d79fff9b2dd29294d366a13ce3bb369d713c9ca092afc13b9af700033f42d8f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e084.index.bin",
+      "bytes": 962240,
+      "sha256": "72c8669510c42e1cfe7d8c3ce85248ac6b079bc807356222c6fb77a24c4c1681"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e085.cuts.npy",
+      "bytes": 956,
+      "sha256": "b916f868756e89288cf0754a1a243c2b8e1c6ecfe69e99cac87490ca4e9e414b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e085.index.bin",
+      "bytes": 385292,
+      "sha256": "d73e1046d51d3a3ab05b4412b1f07f07e32f939c015c305aa2cb391dc8a66661"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e086.cuts.npy",
+      "bytes": 512,
+      "sha256": "b2a4a9f4f6054e2bf877dd14064416054d877df24fd5eedcc9ceeaedd4d06202"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e086.index.bin",
+      "bytes": 192848,
+      "sha256": "b9dfc74a3426ed2bdd4d45995a120a4dcd3e3253f2f65ce16e502af91470d480"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e087.cuts.npy",
+      "bytes": 3168,
+      "sha256": "7871276d452d3f2d0971ed529274b5359aef7f00077b2b4924b68d334feb56a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e087.index.bin",
+      "bytes": 513588,
+      "sha256": "e2e62a9a126ea34c752cab6ba45b888b11ca9b3e8e7d6b03aea73db025ac6eb6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e088.cuts.npy",
+      "bytes": 1376,
+      "sha256": "c829ffa7dde53e717630ca0744840da5948d04dec15b3463afba2a1adb27f6be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e088.index.bin",
+      "bytes": 192848,
+      "sha256": "bf23c83cdd3642cc42a92d125330ae5a8a7135c08c3b3b7c75e7bb7007e83af2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e089.cuts.npy",
+      "bytes": 2612,
+      "sha256": "58f4b7d7b9b7aba13f44a01424834623de7fd0ed3c3b03b36555c208151242a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e089.index.bin",
+      "bytes": 577736,
+      "sha256": "fc172dcfbd6d9a45a228eee489f0ab2247713cce71db440e869d6038e54ad130"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e090.cuts.npy",
+      "bytes": 226,
+      "sha256": "e2995e0351a5e9dbf06a68f4072f731a8f8f1113791a6ce5e06792fbbf70221e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e090.index.bin",
+      "bytes": 64552,
+      "sha256": "e883e806baa5bce65b09e711723611defefba22f3d1bb7518e1676845debbbd1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e091.cuts.npy",
+      "bytes": 1228,
+      "sha256": "3989803bd564343914b0d563a47f24a88d7d22a9df670d825b55e17154125495"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e091.index.bin",
+      "bytes": 321144,
+      "sha256": "37fce7eb2055474e22d9900557ce48e230a3e40d0e5a5b87d21724eb88841436"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e092.cuts.npy",
+      "bytes": 848,
+      "sha256": "840b6362048fe0c8a07f204695834ce0be468584fe45a4532e14a1802647d869"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e092.index.bin",
+      "bytes": 192848,
+      "sha256": "a3c1dca280c136eefcc0456ac491df0fcade4b1ad21b99c454c9ef4dd44df1af"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e093.cuts.npy",
+      "bytes": 1112,
+      "sha256": "93e653a2bdedbf3c1f4777958684ac71c2f4a998b8a22b2ea8cf2566b24647cb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e093.index.bin",
+      "bytes": 256996,
+      "sha256": "07cc38400abac9f9eef898743ce0437ea2f201fd81b1aee067c524097861aa54"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e094.cuts.npy",
+      "bytes": 794,
+      "sha256": "6107db97f8cd8e170b2f4cee5f7eb2baf2d845e3f29e2d9a2c8b6547089aa2da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e094.index.bin",
+      "bytes": 192848,
+      "sha256": "b18f6e8bf75aec8937f784506c28854ad341d8d2c5c9b60a5d6f0168f14930f2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e095.cuts.npy",
+      "bytes": 1718,
+      "sha256": "6352d3141efa06c216dfc951b371b1e2d9725773a01f975a64127ef2b8e6a3f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e095.index.bin",
+      "bytes": 321144,
+      "sha256": "8b88a51e622e24058be9c5f499998ea2ead1b8b2db015207b600497d4a099b07"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e096.cuts.npy",
+      "bytes": 540,
+      "sha256": "6e9ac19789b97ad771b46aed5f71b59dd916440dd9a3ea7d3970612ddcdde159"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e096.index.bin",
+      "bytes": 128700,
+      "sha256": "17f504b4fb3c88220a78fcc561c6182908127b0897284b2c9133f9527a176ec5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e097.cuts.npy",
+      "bytes": 1858,
+      "sha256": "a6517d86cb38b582234ac4790f9124eca6237a71345d719fea91a14daa7474c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e097.index.bin",
+      "bytes": 321144,
+      "sha256": "87d6663006ef74df02d6a4cd048906ef58ef8b2adfeb635e679642606b5c1e8f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e098.cuts.npy",
+      "bytes": 1392,
+      "sha256": "582e01a659462453148cd0963faf15dc6d0dacf74d2a10fde086919dc6934092"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e098.index.bin",
+      "bytes": 256996,
+      "sha256": "0b9152ae10c1422f41118804e5da3b6d4f07180f6fd8b1153c572f7c3db3d71c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e099.cuts.npy",
+      "bytes": 7058,
+      "sha256": "d8032054791f4ce3cba2a3d58ecbc6168f443626e8a322354615329d55d5ffed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e099.index.bin",
+      "bytes": 705648,
+      "sha256": "cb6ffa2ca3f6d395842ba3916698c2212820146f127cbe094d4b9ab6377c348f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e100.cuts.npy",
+      "bytes": 1766,
+      "sha256": "7aec8e71a51b75b8c9173cede50bf5594e696793644f062908f1a2aca97b4e04"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e100.index.bin",
+      "bytes": 449440,
+      "sha256": "45f3f15e0c9f747045c5d8b506d0922a366c35399e08c3cea3b879f4b94c7314"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e101.cuts.npy",
+      "bytes": 560,
+      "sha256": "b1d3692afa0f3dc33c363b20346c6b3ef958a74fd6265ce9dd01b78f7e374826"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e101.index.bin",
+      "bytes": 192848,
+      "sha256": "a6c05111498122e8a5cec4d6fdc15a1544bfe6781ebba4b90dc87d9a56fed124"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e102.cuts.npy",
+      "bytes": 440,
+      "sha256": "9256ac5bca04c65b4e6833e76eaefcecaa4c92c1f051f9c30df25141122a74a7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e102.index.bin",
+      "bytes": 128700,
+      "sha256": "2a2ddcb2e9e48a858848d802316f1d627bb7388cd050d4c503b5f3eb4ced6896"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e103.cuts.npy",
+      "bytes": 2882,
+      "sha256": "8f12c9eef11e1c42d4d97742baa3dc6d614db8d5e1b461b16528d1b0595c2238"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e103.index.bin",
+      "bytes": 577352,
+      "sha256": "7a0924d282d3c8e2eecc7ede1ce88ff5fd7cc807c01eb35b9e2aab244c697341"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e104.cuts.npy",
+      "bytes": 1376,
+      "sha256": "aa461a74f1fee2c0f20d0169823db60607b35407cbaf2d9e5a7e64765911a685"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e104.index.bin",
+      "bytes": 256996,
+      "sha256": "eb8597d0e208bd262dbd16427276ac09f3dd0e573b88cba42d62b7f9cbd50560"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e105.cuts.npy",
+      "bytes": 1100,
+      "sha256": "dcee00a0cefb5d66352601756e17ae9dc3decf37d37873a7c819cee71b5e1a0f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e105.index.bin",
+      "bytes": 192848,
+      "sha256": "965c2de0bb44ea3799a4d539e6a585968d36ee9ae572f98397dbbaab41897d70"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e106.cuts.npy",
+      "bytes": 548,
+      "sha256": "6a599b21d71624f542b76eede679fc72bee5382a5a303b3e8157b2af98e18305"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e106.index.bin",
+      "bytes": 192848,
+      "sha256": "51b4905ec9877dc1ef646863646df920148230140dd1efc5d7a13dfe08724495"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e107.cuts.npy",
+      "bytes": 4178,
+      "sha256": "5de08594c0b295d0b1862989e14d626dbf3a9dd2e61cc7d17750f55d51bdd627"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e107.index.bin",
+      "bytes": 577736,
+      "sha256": "e9a7fb3182808d06986b3b3738a98ee269fa2ad0b3da87df23e11d602e11a50f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e108.cuts.npy",
+      "bytes": 222,
+      "sha256": "05b081b1d0f2e93065de863316b0d2b99bd4491d21f93ffcd566a0abf8554be2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e108.index.bin",
+      "bytes": 64552,
+      "sha256": "eee3694426adb1648113a12e8a611ea7c488c5a3a990e2b0b9e2bd74f43afe73"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e109.cuts.npy",
+      "bytes": 1424,
+      "sha256": "6d9dbf9e1736afb3318bc873e863e8195d82c88e39c44660e84a652c2a374db0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e109.index.bin",
+      "bytes": 256996,
+      "sha256": "7ed8c98ca4dafd0940c16ef02b65728a2435d4ae7e3c859d292c9ea3cddb923a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e110.cuts.npy",
+      "bytes": 680,
+      "sha256": "c041fc387a9c01387eae2b7e24e50565ca144a848b8546025d4b1a17c28c7b6d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e110.index.bin",
+      "bytes": 192848,
+      "sha256": "94afc647ce18a28e0e08e202a92bac706763d30efcd6d7fc2917aa2cb6d08b0a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e111.cuts.npy",
+      "bytes": 2970,
+      "sha256": "9a215479c6f537065f5093cafad6119f03f55764342636c710ca8863a456ea13"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e111.index.bin",
+      "bytes": 449056,
+      "sha256": "7b7ec9dd5f8c763b6369579201186d99808681d9df33735797af9a25d884f253"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e112.cuts.npy",
+      "bytes": 1512,
+      "sha256": "32b4c7168aa898c5ab066eccf6a4b42ec9f720049001fbf03c3540fb3bfa7314"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e112.index.bin",
+      "bytes": 256996,
+      "sha256": "2d31b7b9e8eab0feaac010b25951359618369ea53d648547f88c39d34af9c8b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e113.cuts.npy",
+      "bytes": 5448,
+      "sha256": "8a43b5da4bb50dc9639d7c7e12b4b989b88fe3d8b2c04debb05701996228ddaa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e113.index.bin",
+      "bytes": 898476,
+      "sha256": "173f150abe01c0e34f798e236e37271960e923b133f52c41e2b574caf541bed1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e114.cuts.npy",
+      "bytes": 5892,
+      "sha256": "0ecbc5492bec9f250dbf290463ccd9eb60ac9e5af1a48ccca1a0e66d37b615a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e114.index.bin",
+      "bytes": 706032,
+      "sha256": "2d16d42646f69f74c578f5ff873d19961b4ff683b5e1f05360af3d1c541458bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e115.cuts.npy",
+      "bytes": 156,
+      "sha256": "f5cfd5739ae06ca767130333098adb67563542617131dd7150f542c6354e106b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e115.index.bin",
+      "bytes": 64552,
+      "sha256": "a544dbb34a5da26fd6c69ad1b8434c20e398d31455c3f985b2d66fd2c8e710c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e116.cuts.npy",
+      "bytes": 364,
+      "sha256": "346a1fca5e5d1a5bae2e9a17d81eada56762f90212450e4fb1d3f884df68f95e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e116.index.bin",
+      "bytes": 128700,
+      "sha256": "1e13ee01bfa8bb9c39dcecc31be39573c30f4cdd5ba79c88eca1dbcd5d8a8e48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e117.cuts.npy",
+      "bytes": 1376,
+      "sha256": "cdd7cb6059b44a19797a308783663bc157b03df3e64ea205d322112eb11755fd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e117.index.bin",
+      "bytes": 256996,
+      "sha256": "d21a05724c4aa36e316822310657f71666b8ab8b3f9baf99100a7872c9912ec5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e118.cuts.npy",
+      "bytes": 4808,
+      "sha256": "e5cec51f472aa99833f61ece188a10571cb990e272e77d627fedd7bb8a182fae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e118.index.bin",
+      "bytes": 770180,
+      "sha256": "4dfc2d30e3841506dda28f77eb28fda60ebe4a28254e11e38cacddbb5c28d6fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e119.cuts.npy",
+      "bytes": 2784,
+      "sha256": "074531269ede86fbeada77aac6b24f97bcde35c1ecae528fc6da3135bf9049a6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e119.index.bin",
+      "bytes": 513204,
+      "sha256": "2a92fd466d6c17581ee55f2226d26d7e1ba30ddac7382ca26e81cb7c6b6384e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e120.cuts.npy",
+      "bytes": 500,
+      "sha256": "137568ab38ba39e847d2aa5f055f15a367d6c7f303a28d8137f8ec7cf65ec373"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e120.index.bin",
+      "bytes": 128700,
+      "sha256": "50c6894c5d42650578cae4951d4841022098851479c0f8d892752dd22c4beed6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e121.cuts.npy",
+      "bytes": 194,
+      "sha256": "291e41be187f8091099673e80b258c535dde7e36e1f170392782f1701486e781"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e121.index.bin",
+      "bytes": 64552,
+      "sha256": "b792fc653993f897a17ebe9b1073ea15cb3dc9a4cd5c281e0381c61da0c7eb3b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e122.cuts.npy",
+      "bytes": 542,
+      "sha256": "17d103df5a34a32c8816ffc12ba4314a5290a6dec2119f585d8288e097b5124e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e122.index.bin",
+      "bytes": 192848,
+      "sha256": "88e2899d907a16ad32d0bf01eb9b9dc52b96e62cad765f1833bcfa4506c020ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e123.cuts.npy",
+      "bytes": 3628,
+      "sha256": "883e60f1933b8557aba8744a9ad649dd7bd5539878e51f8917bfc0ea7fd564f4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e123.index.bin",
+      "bytes": 641884,
+      "sha256": "cff87cd09e5fb4fcb5f620111a93442168546d37297ebc001a3de8505f2bf876"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e124.cuts.npy",
+      "bytes": 152,
+      "sha256": "b8ed5e3e8b921fc978c88fe6c27d2a8eab78629d2dff0bbc4db92d3de7f89ad5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e124.index.bin",
+      "bytes": 64552,
+      "sha256": "12493a06c9c4a4dbc6a48bf47e2a70e2fbb799d06181ac9d68d591eb29db162a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e125.cuts.npy",
+      "bytes": 912,
+      "sha256": "76c3e3afee7f79e0b47ed88cb4f2d34304af3643a12497c7740f60c4aa6b8fd8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e125.index.bin",
+      "bytes": 256996,
+      "sha256": "d80079dd13e7b3877facb2abf37f87e1ec912fe10d411484ddb6752158c6e7d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e126.cuts.npy",
+      "bytes": 896,
+      "sha256": "40f6d3d44e2e35b412f8839694e229837b61e88db5e97ba6acb74713ae997ab4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e126.index.bin",
+      "bytes": 192848,
+      "sha256": "5892ab3a780b5b121bcaddd6cef78fb41ba80be877879e33a95782cd779fb7a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e127.cuts.npy",
+      "bytes": 1658,
+      "sha256": "0d183090a094a93fbc6d3a711b1aa8fa980dd1d53a6d2f7a10dbcf1d270c6a2f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\e127.index.bin",
+      "bytes": 321144,
+      "sha256": "a7b70a25301341a125ea317baee854b6a9b04008a7888f5fd43f2d75e131ae26"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\omitted_masks.npy",
+      "bytes": 6735488,
+      "sha256": "07a425fbeacfe50639993471fcd26038ec2225190955c9417a428fd44ae96601"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\work.npy",
+      "bytes": 280896,
+      "sha256": "1bb42e1c44527b7d16007f5373315b5a4c1d1e94d362ba94ad718b4d2abce0a0"
+    }
+  ],
+  "ended_compute_utc": "2026-10-07T00:47:36.006184+00:00",
+  "resource_before_serialization": {
+    "seconds": 42.905999999988126,
+    "OS_peak_bytes": 405692416,
+    "bytes_hashed": 469221299,
+    "limits": [
+      177,
+      2147483648
+    ]
+  }
+}
