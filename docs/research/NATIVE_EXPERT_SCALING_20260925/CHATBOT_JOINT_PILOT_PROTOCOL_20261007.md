@@ -48,7 +48,8 @@ runtime projection, development input or y enters geometry. Query=q=P*x;
 center distances cancel a common translated mean algebraically. The radius
 normalization is fixed before observations and avoids arbitrary score units.
 
-Farthest-first initialization: first FIT query nearest its mean, then maximize
+Unique FIT rows use NumPy's lexicographic BF16-bit row order, with retained first
+occurrence indices. Farthest-first initialization: first FIT query nearest its mean, then maximize
 nearest-center squared distance; first/lower input index breaks ties. Exactly
 20 Lloyd updates, squared Euclidean/F64 means, preserve an empty center (report
 empties). Build16 parents from all unique FIT queries. Freeze parent centers
@@ -69,8 +70,9 @@ threshold guarantees learnability or that unseen regions are impossible.
 ## Original-weight initializer and exact finite fit
 
 Read only the actual layer12 gate/up/down from the SHA-bound source safetensors,
-BF16 -> exact F32 coefficient conversion. On unique FIT x compute NEW source
-SwiGLU activations in F32, TF32 disabled, for initialization ONLY. These are new
+BF16 -> exact F32 coefficient conversion. On unique FIT x compute ONCE NEW source
+SwiGLU activations in F32, TF32 disabled, for initialization ONLY; reuse that
+same feature-energy matrix and shared initializer in BOTH arms. These are new
 source-informed initializer observables; never replace/replay captured original
 BF16 full-response targets or claim this is a source/control qualification.
 Global channel score=mean(a_j^2)*||down_column_j||^2. Select highest512 for shared,
@@ -97,6 +99,11 @@ displacement and exact serialized BF16 hashes. Final epoch only. Save actual
 F32 tensors and proposed BF16 rounding (back to F32) separately, so fit versus
 coefficient encoding error remains visible. The BF16-roundtrip diagnostic is
 F32 arithmetic with BF16-rounded weights; it is NOT native BF16 reduction parity.
+Router projection/centers are also BF16-rounded; stored F32 norms derive from
+those actual rounded centers. Recompute their actual winner/mass and include
+this encoding effect in the same diagnostics. Whole-output errors conditioned
+on selected leaf are reported as overlapping conditional cohorts, not additive
+attribution of error to an individual leaf.
 
 ## Fixed eligibility gates and interventions
 
@@ -125,7 +132,9 @@ does not refute all jointly learned representations or arbitrary redundancy.
 ## Bounded resources and actual next pipeline stage
 
 One local RTX306012GB, no downloads/T4/dependency installation. Worker900s total,
-each arm240s from its construction through final diagnostic/export, supervising
+each arm240s from its own row initialization through final diagnostic/export,
+with shared construction/geometry/exposure/feature acquisition charged to the
+worker900s total; supervising
 family1200s including input/runtime hashing; summed OS peaks12GiB,
 GPU allocated9GiB/reserved10GiB, outputs1GiB/log2MiB. Charge source-weight read,
 data/geometry/initialization/optimization/export/diagnostics and retain actual
