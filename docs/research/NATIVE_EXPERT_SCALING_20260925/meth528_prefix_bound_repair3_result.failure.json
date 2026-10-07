@@ -1,0 +1,242 @@
+{
+  "kind": "prefix_bound_repair3",
+  "started_utc": "2026-10-07T11:36:01.383038+00:00",
+  "process_instance": {
+    "pid": 26672,
+    "create_time_unix": 1791372960.87187
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth528_prefix_bound_repair3.py",
+    "--manifest-sha",
+    "518d95370c0b9d0aee8bd18d0f1b0aa1816eb4214f8eb2a373d2674091a8f7ee",
+    "--freeze",
+    "7e0abad4229e65ab11ddcaeac4eaedf48038a3e5"
+  ],
+  "gates": {
+    "fresh_frozen_used_inputs_runtime_compiler_partial_and_foreign_SHA": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "Necessary original fixed full-domain rejection from independently verified original prefix; no full528 pass, source response replay or chatbot qualification.",
+  "source_freeze": "7e0abad4229e65ab11ddcaeac4eaedf48038a3e5",
+  "manifest_sha256": "518d95370c0b9d0aee8bd18d0f1b0aa1816eb4214f8eb2a373d2674091a8f7ee",
+  "original_binding_sha256": "9de128cb77373c0e5c35cb24d398b1269d68b79f54fc2e943c2a845236ec49c2",
+  "original528_resource_gate": false,
+  "prefix_parents": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "excluded_frontier_parent": 13,
+  "source_response_function_calls": 0,
+  "runtime": {
+    "pools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "affinity": [
+      10
+    ],
+    "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "compiler": {
+    "commands": [
+      {
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "--sysroot=C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64",
+          "-target",
+          "x86_64-w64-windows-gnu",
+          "-fintegrated-cc1",
+          "-fuse-ld=lld",
+          "--rtlib=compiler-rt",
+          "--unwindlib=libunwind",
+          "-###",
+          "-std=c11",
+          "-O2",
+          "-ffp-contract=off",
+          "-fno-fast-math",
+          "-c",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_verifier.c",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar.o"
+        ],
+        "instance": {
+          "pid": 22404,
+          "create_time_unix": 1791372970.914018,
+          "label": "first_prefix_scalar_frontend_plan",
+          "OS_peak_bytes": 20897792
+        },
+        "log": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar_frontend_plan.log",
+        "creationflags": 8,
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin/clang-21.exe",
+          "-cc1",
+          "-triple",
+          "x86_64-w64-windows-gnu",
+          "-O2",
+          "-emit-obj",
+          "-disable-free",
+          "-clear-ast-before-backend",
+          "-disable-llvm-verifier",
+          "-discard-value-names",
+          "-main-file-name",
+          "meth528_verifier.c",
+          "-mrelocation-model",
+          "pic",
+          "-pic-level",
+          "2",
+          "-mframe-pointer=none",
+          "-fmath-errno",
+          "-ffp-contract=off",
+          "-fno-rounding-math",
+          "-mconstructor-aliases",
+          "-mms-bitfields",
+          "-funwind-tables=2",
+          "-fno-sized-deallocation",
+          "-fno-use-init-array",
+          "-target-cpu",
+          "x86-64",
+          "-tune-cpu",
+          "generic",
+          "-debugger-tuning=gdb",
+          "-fdebug-compilation-dir=D:/_THINGS/Progetti/SiliconLLM",
+          "-fcoverage-compilation-dir=D:/_THINGS/Progetti/SiliconLLM",
+          "-resource-dir",
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/lib/clang/21",
+          "-isysroot",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64",
+          "-internal-isystem",
+          "C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/lib/clang/21/include",
+          "-internal-isystem",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/include",
+          "-internal-isystem",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/x86_64-w64-mingw32/usr/include",
+          "-internal-isystem",
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64/include",
+          "-std=c11",
+          "-ferror-limit",
+          "19",
+          "-fno-use-cxa-atexit",
+          "-fgnuc-version=4.2.1",
+          "-fskip-odr-check-in-gmf",
+          "-exception-model=seh",
+          "-vectorize-loops",
+          "-vectorize-slp",
+          "-faddrsig",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar.o",
+          "-x",
+          "c",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_verifier.c"
+        ],
+        "instance": {
+          "pid": 10288,
+          "create_time_unix": 1791372971.036324,
+          "label": "first_prefix_scalar_direct_cc1",
+          "OS_peak_bytes": 44089344
+        },
+        "log": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar_direct_cc1.log",
+        "creationflags": 8,
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+          "--sysroot=C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64",
+          "-target",
+          "x86_64-w64-windows-gnu",
+          "-fintegrated-cc1",
+          "-fuse-ld=lld",
+          "--rtlib=compiler-rt",
+          "--unwindlib=libunwind",
+          "-###",
+          "-shared",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar.o",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar.dll",
+          "-lm"
+        ],
+        "instance": {
+          "pid": 6292,
+          "create_time_unix": 1791372971.2219796,
+          "label": "first_prefix_scalar_link_plan",
+          "OS_peak_bytes": 20733952
+        },
+        "log": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar_link_plan.log",
+        "creationflags": 8,
+        "exit_code": 0
+      }
+    ],
+    "observed_instances": [
+      {
+        "pid": 22404,
+        "create_time_unix": 1791372970.914018,
+        "label": "first_prefix_scalar_frontend_plan",
+        "OS_peak_bytes": 20897792
+      },
+      {
+        "pid": 10288,
+        "create_time_unix": 1791372971.036324,
+        "label": "first_prefix_scalar_direct_cc1",
+        "OS_peak_bytes": 44089344
+      },
+      {
+        "pid": 6292,
+        "create_time_unix": 1791372971.2219796,
+        "label": "first_prefix_scalar_link_plan",
+        "OS_peak_bytes": 20733952
+      }
+    ],
+    "conservative_family_peak_bytes": 44089344
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_bound_repair2.py\", line 68, in main\n    dll, dll_sha = build(ctx, ROOT / 'benchmarks/native_expert_scaling/meth528_verifier.c', 'first_prefix_scalar')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth528_prefix_io_repair3.py\", line 152, in build\n    assert len(commands) == 1 and Path(commands[0][0]).resolve() == Path(compiler['path']).parent / 'ld.lld.exe'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "resource": {
+    "seconds": 9.98399999999674,
+    "OS_peak_bytes": 61632512,
+    "compiler_family_peak_bytes": 44089344,
+    "parent_plus_compiler_peak_bound": 105721856,
+    "bytes_hashed": 1509740763,
+    "limits": [
+      180,
+      536870912
+    ]
+  },
+  "partial_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar.o",
+      "bytes": 3055
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar_direct_cc1.log",
+      "bytes": 0
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar_frontend_plan.log",
+      "bytes": 3185
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth528_prefix_bound_repair3\\first_prefix_scalar_link_plan.log",
+      "bytes": 3228
+    }
+  ]
+}
