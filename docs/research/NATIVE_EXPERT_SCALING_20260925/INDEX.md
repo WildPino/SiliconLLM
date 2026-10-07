@@ -26,6 +26,15 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[524 source-tree result](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md): main6/
+independent audit7/admission5 PASS,333 panels/1022976 gains qualified,47776
+selected source integer tests/all17540 routes/p bits exact. Five of six eligibility
+gates PASS, but117/121 nonfallback roots split;37/39/63/73 have dev gains~1e-33.
+Criterion CLOSED. Prior523 dev physical error tiny/zero while39/63/73 consumed
+24.07%/11.11%/26.87%: residual-zero hides missing source-domain coverage.
+445 proposed occupied leaves are NOT compiled/useful functions. Main62.907s/
+246MB,audit68.094s/278MB,46.49MB outputs. No new functions or scientific replay.
+
 [523 source-fold result](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md): ALL7
 numerical-prefix/7 independent audit controls PASS, ALL17540 physical F32 vectors
 BYTE equal. Consumed continuous/physical RMS2.682700%/2.682699%, weighted4.932822%:
@@ -71,7 +80,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:523 sign residual;524 source-hyperplane tree eligibility
+## Current resumption:524 dev residual blind spot;525 router-neutral source coverage
 
 Actual14.664B/256 source and14.818GB native artifact are local/qualified.
 489 accepted prose35.9764/lower33.7592 falls short of50. Exact source winner AND
@@ -113,18 +122,24 @@ outputs. Original900.015s exit1 retained; separate sealing4.328s has zero numeri
 calls. Four instances terminal; overall original protocol resource gate remains
 FALSE in admission. Parent ID/p control, no C/timing/DRAM/whole promotion.
 
-**First action524:** [source-hyperplane tree eligibility](METH_524_SOURCE_HYPERPLANE_TREE_NEXT_20261007.md):
-recover/price saved signed dots and angular residual gains, then freeze ONE depth2
-balanced source-WI tree inquiry. Predicate bits constrain real source ReLU signs;
-active route work grows with depth. One-hot child mass preserves original parent
-normalization, whose full cost remains charged. Rare parents require an explicitly
-priced SAME fallback in both later count controls. No524 code/protocol/gains yet.
+[524](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md) fixed depth2 inquiry closes:
+ALL apparatus PASS, ALL price/ordering gates PASS; root information absent for
+four parents. JSON-only post-hoc extraction0.391s/36.8MB preserves original
+decision; no arrays/functions/metrics replay. No bank export from failed criteria.
+
+**First action525:** [router-neutral source-boundary geometry](METH_525_ROUTER_NEUTRAL_SOURCE_COVERAGE_NEXT_20261007.md):
+recover actual original router/norm/input codecs and price ONE dev-anchor geometry
+inquiry before a protocol. Source WI signs can vary within a router-null norm
+slice while ideal scores/mass stay fixed; this exposes information dev residuals
+cannot supply. Rank/metric/codec prerequisites and physical route/mass require
+verification. No525 code/protocol/geometry/labels. No threshold/fallback tuning
+from consumed errors, no old counterfactual/readout replay.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All scientific namespaces through523 terminal, with its original time fault retained; three foreign tracked
+All scientific namespaces through524 terminal, with523's original time fault retained; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures

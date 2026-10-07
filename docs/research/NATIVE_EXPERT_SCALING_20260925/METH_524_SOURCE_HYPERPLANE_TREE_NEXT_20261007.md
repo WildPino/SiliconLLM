@@ -1,6 +1,8 @@
 # Selected next524: source-hyperplane routing before another function bank
 
-7 October2026. PROPOSED; no524 code/protocol/binding/observations/process.
+7 October2026. Historical proposal, now implemented and audited:
+[524 result](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md). Fixed eligibility
+criterion CLOSED; current resumption is525 in INDEX. Original proposal follows.
 [523](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md) numerical prefix is
 independently verified; original time gate remains failed. Goal ACTIVE/INCOMPLETE.
 

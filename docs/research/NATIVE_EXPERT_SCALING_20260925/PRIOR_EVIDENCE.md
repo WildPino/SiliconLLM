@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after524:** [source-tree information](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md)
+main6/independent audit7/admission5 PASS,333 panels/1022976 gains,47776 selected
+source integer checks/all17540 routes/p bits verified.117/121 nonfallback roots
+split, all orders resolved; fixed ALL-root criterion FAIL/CLOSED, other5 criteria
+PASS.445 proposed occupied leaves and907.67MB bank are not new useful functions.
+All6 role logical bytes~.42source with6 full-source scarce fallbacks. Main62.907s/
+246MB,audit68.094s/278MB,46.49MB outputs,3 scientific processes closed/no faults
+or function/metric/native/model replay. JSON-only post-hoc diagnosis0.391s/36.8MB:
+37/39/63/73 dev omitted-sign energy is rounding, yet three prior523 consumed
+physical errors are24.07%/11.11%/26.87%. Absent dev residual is not domain coverage.
+Select [525 router-neutral source coverage](METH_525_ROUTER_NEUTRAL_SOURCE_COVERAGE_NEXT_20261007.md):
+recover actual router/norm/codecs, price null-space norm-slice crossing bounds
+before one geometry protocol. No525 code/geometry/queries, no changed524 decision
+or lowered threshold/count tuning. Goal/useful large n/compact whole path open.
+
 **7 October after523:** [source fold/hinges](METH_523_SOURCE_FOLDING_HINGES_RESULT_20261007.md)
 has an independently audited COMPLETE numerical prefix: main7/audit7 controls
 PASS,ALL17540 physical output vectors BYTE equal. Consumed continuous2.682700%,

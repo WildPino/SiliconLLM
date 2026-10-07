@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;523 sign residual;524 source-hyperplane trees
+## Current resumption:511 baseline;524 residual blind spot;525 source-domain geometry
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -165,14 +165,27 @@ and900.015s/742MB retained. Metadata-only sealing4.328s, independent audit87.047
 746MB,1.847GB outputs, all4 closed. Overall original resource gate stays false;
 numerical prefix is verified, not a successful protocol or actual C/timing/DRAM.
 
-[Selected524](METH_524_SOURCE_HYPERPLANE_TREE_NEXT_20261007.md) first screens
-ONE depth2 tree of original WI sign predicates using saved dev angular residual
-information. Selected path signs are true source constraints; leaf functions can
-fold their contribution and reserve512 hinges for other nonlinear rows. Tree
-route cost grows with depth and one-hot subdivision preserves original parent
-mass by identity, but cheap routing/mass for larger original parent sets remains
-open. Price a SAME rare-source fallback for matched count controls; no row
-exclusion or free donor oracle. No524 protocol/gains/functions/C yet.
+[524 result](METH_524_SOURCE_HYPERPLANE_TREE_RESULT_20261007.md) implements ONE
+depth2 source-WI tree inquiry, main6/audit7/admission5 PASS.333 panels/1022976
+gains independently qualified;47776 selected integer source tests/all17540 routes/
+p bits exact.117/121 nonfallback roots split; all gain orders resolved. Price
+gates PASS, all six active-byte means~.42source including6 full-source scarce
+fallback parents;445 proposed leaves/907667792B bank are NOT compiled/useful.
+Fixed all-parent root criterion FAIL/CLOSED. Main62.907s/246MB,audit68.094s/278MB,
+46.49MB outputs,3 scientific instances closed, no functions/replay. JSON-only
+post-hoc diagnosis0.391s identifies nearzero dev omitted-sign residual for37/39/
+63/73, while three already have523 consumed physical errors24.07%/11.11%/26.87%.
+Dev-zero residual cannot certify source-domain coverage; lowering threshold would
+select rounding, and declaring these parents adequate would leave known errors.
+
+[Selected525](METH_525_ROUTER_NEUTRAL_SOURCE_COVERAGE_NEXT_20261007.md) proposes
+original router-null norm-slice geometry: source signs may change while ALL ideal
+parent scores/mass stay fixed. Recover actual router/norm/input codecs and price
+rank/projection/crossing bounds before one prospective geometry protocol. Only
+then physically qualify parent/mass and possibly acquire new bounded source
+queries, without old53943 labels or fixed A/L0 fits. Actual reachability/fresh
+quality, useful n, real fallback and physical DRAM remain separate. No525 code/
+protocol/geometry/query or automatic failed524 bank export.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 
