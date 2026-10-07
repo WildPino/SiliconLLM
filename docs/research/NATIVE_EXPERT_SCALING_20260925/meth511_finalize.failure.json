@@ -1,0 +1,15 @@
+{
+  "kind": "metadata-only first finalization fault",
+  "source": "benchmarks\\native_expert_scaling\\meth511_finalize.py",
+  "source_sha256": "f8e766aea1b5d3b5a6db3c0ec8c2f237582fbde12854c6fd81810c147a33df46",
+  "tool_chunk_id": "5f84d1",
+  "tool_wall_seconds_including_source_commit": 2.2818719,
+  "exit_code": 1,
+  "fault": "AssertionError at known_record_ids ordered equality; observed [179810,179791], both positive controls present",
+  "exact_process_instance_and_peak": "unavailable; not persisted by first finalizer",
+  "before_evaluation_write": true,
+  "new_C_model_numerical_calls": 0,
+  "repair_source": "benchmarks\\native_expert_scaling\\meth511_finalize_r1.py",
+  "repair_sha256": "baa49490bd0565544c9d7d585ab8350f95ad19c6e15f393951ce555812e9ae09",
+  "literal_change": "one ordered list assertion to exact set equality; all scientific criteria/results unchanged"
+}
