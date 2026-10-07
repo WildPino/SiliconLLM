@@ -1,0 +1,15 @@
+{
+  "kind": "metadata-only second finalization fault",
+  "tool_chunk_id": "165282",
+  "tool_wall_seconds_including_repair_commit": 2.6996318,
+  "exit_code": 1,
+  "source": "benchmarks\\native_expert_scaling\\meth511_finalize_r1.py",
+  "source_sha256": "baa49490bd0565544c9d7d585ab8350f95ad19c6e15f393951ce555812e9ae09",
+  "fault": "Git diff normalizes foreign manifest line endings and lists only two preserved paths, while git status lists three; all three actual file SHA256 still match frozen binding",
+  "exact_process_instance_and_peak": "unavailable; not persisted",
+  "before_evaluation_write": true,
+  "new_C_model_numerical_calls": 0,
+  "repair_source": "benchmarks\\native_expert_scaling\\meth511_finalize_r2.py",
+  "repair_sha256": "49d7cc99a81e7036e9c7e7b4db417e7802b7ff0f63c5378a294a79d1c81245b4",
+  "literal_change": "Require no unpreserved tracked diff; retain exact SHA checks of all three preserved files. No scientific change."
+}
