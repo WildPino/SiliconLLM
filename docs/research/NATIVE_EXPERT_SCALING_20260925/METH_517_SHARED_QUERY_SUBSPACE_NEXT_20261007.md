@@ -1,6 +1,9 @@
 # Selected517: shared directional subspace, algebra and physical price first
 
-7 October2026. PROPOSED; no517 source/export/binding/numerical observation/job.
+7 October2026. HISTORICAL prospective selection, now implemented/admitted:
+[517 result](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md). All exactness
+controls pass,zero candidates/skips,four economic gates fail. THIS rank32/S256
+recipe is closed before C. Current resumption [518](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_NEXT_20261007.md).
 Goal ACTIVE/INCOMPLETE. [516](METH_516_DIRECTIONAL_WI_RESULT_20261007.md) is exact
 but fails4/5 economics, leaving2928.76/3072 natural rows. The source has many
 true zeros, but fixed coordinate64 conveys too little complementary direction.

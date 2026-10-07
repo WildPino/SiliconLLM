@@ -1,0 +1,129 @@
+{
+  "experiment": "METH517",
+  "input_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth517_binding.json",
+    "bytes": 754214,
+    "sha256": "12ae8508c305704f9ce0494c68fc8adf1e2bc4236c222a42f816f7a408528f8a"
+  },
+  "mathematical_main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth517_main_result.json",
+    "bytes": 72590,
+    "sha256": "421f06d4c02d06bd0b505f12e70e3fb34a5a34b8203c52f15f7d47f4167c004b"
+  },
+  "independent_audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth517_audit_result.json",
+    "bytes": 57070,
+    "sha256": "bc06efc9af02081d9844ea03319f3ffc6d66dde24f1ec07f70fd354263c7ec88"
+  },
+  "large_local_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\basis_stage.json",
+      "bytes": 446,
+      "sha256": "633f639ff59bfc6b4acd6dfeead779c7f7492c7b84b2f102d557d5d5cf76a1c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\development_eigenvalues.npy",
+      "bytes": 6272,
+      "sha256": "779cb6430d59660bad5ac2a9184668e06e27ec57634b82ddfc708ffef6ddd0ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\development_eigenvectors.npy",
+      "bytes": 4718720,
+      "sha256": "0a2c5cecacc82cf7677f28fe6e8a5c74172ec05716c10df6f9798179123f309a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\development_second_moment.npy",
+      "bytes": 4718720,
+      "sha256": "daec6234fdd12cf4a10db2df78a871c43bfb13458f62b39c59af3de45f22f706"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\omitted_masks.npy",
+      "bytes": 6735488,
+      "sha256": "fad29ba618274a61e422cc03a2f9d7b41788392b3f04e826b2a35dd32464a41b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\prefix_index.bin",
+      "bytes": 58253352,
+      "sha256": "a3aa0407864a47fbb6610d733187936d5af11ffcf2604c08c29b465507a78705"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\work.npy",
+      "bytes": 491376,
+      "sha256": "1d8e05f35c8d2503a314f23307279583c68e6b51bb00cf2f042b4366d7d07aea"
+    }
+  ],
+  "terminal_resource_receipts": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_binding_resource.json",
+        "bytes": 379,
+        "sha256": "2edff1189ca5019693dfb89476422d167073317b019e9160db90a40718802bef"
+      },
+      "resource": {
+        "binding_sha256": "12ae8508c305704f9ce0494c68fc8adf1e2bc4236c222a42f816f7a408528f8a",
+        "process_instance": {
+          "pid": 29032,
+          "create_time_unix": 1791339786.557372
+        },
+        "seconds": 2.687999999994645,
+        "OS_peak_bytes": 51802112,
+        "bytes_hashed": 1086800723,
+        "limits": [
+          180,
+          536870912
+        ],
+        "ended_utc": "2026-10-07T02:23:09.769297+00:00"
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\terminal_resource.json",
+        "bytes": 425,
+        "sha256": "326a4d7a3c4e479b463214e3b3051fa27e073a05f1ea36d16b9a9f48867a9bef"
+      },
+      "resource": {
+        "result_sha256": "421f06d4c02d06bd0b505f12e70e3fb34a5a34b8203c52f15f7d47f4167c004b",
+        "process_instance": {
+          "pid": 5284,
+          "create_time_unix": 1791339802.388383
+        },
+        "ended_utc": "2026-10-07T02:23:35.246429+00:00",
+        "seconds": 12.312999999994645,
+        "OS_peak_bytes": 592199680,
+        "bytes_hashed": 1161998537,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 74924374
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_audit\\terminal_resource.json",
+        "bytes": 419,
+        "sha256": "efc8f08bad1b4c88d9fe083d2cef3714eef62a412a2bc8689e13dcc04d8ae736"
+      },
+      "resource": {
+        "result_sha256": "bc06efc9af02081d9844ea03319f3ffc6d66dde24f1ec07f70fd354263c7ec88",
+        "process_instance": {
+          "pid": 18004,
+          "create_time_unix": 1791339885.4313958
+        },
+        "ended_utc": "2026-10-07T02:25:57.211515+00:00",
+        "seconds": 71.26600000000326,
+        "OS_peak_bytes": 660271104,
+        "bytes_hashed": 1162055607,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "reproducibility_scope": "Exclusive original namespaces executed once; source/protocol/data SHA retained. Large outputs local, not committed binaries."
+}

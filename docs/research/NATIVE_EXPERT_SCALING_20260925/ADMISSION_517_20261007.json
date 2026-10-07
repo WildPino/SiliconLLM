@@ -1,0 +1,294 @@
+{
+  "experiment": "METH517",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all6_main_contract_physical_exactness_controls": true,
+    "all7_independent_integer_physical_byte_and_decision_controls": true,
+    "actual_exit0_three_instances_closed_and_typed_UTC_zero_faults": true,
+    "foreign_source_stat_empty_cache_and_resource_limits_preserved": true,
+    "ALL_domain_economy_decision_unchanged": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth517_binding.json",
+    "bytes": 754214,
+    "sha256": "12ae8508c305704f9ce0494c68fc8adf1e2bc4236c222a42f816f7a408528f8a"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth517_main_result.json",
+    "bytes": 72590,
+    "sha256": "421f06d4c02d06bd0b505f12e70e3fb34a5a34b8203c52f15f7d47f4167c004b"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth517_audit_result.json",
+    "bytes": 57070,
+    "sha256": "bc06efc9af02081d9844ea03319f3ffc6d66dde24f1ec07f70fd354263c7ec88"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_517_20261007.json",
+    "bytes": 5185,
+    "sha256": "a71ab0c034f4356a4a50f5dcaf1d85d33f907afd5d8d15a21e0108070aa8afdf"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth517_windows_terminal.json",
+    "bytes": 4458,
+    "sha256": "dde6f86474d066a01fb38e66920ef8ff8224e0e9a6a6483d7a5ef48891f84238"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 29032,
+        "create_time_unix": 1791339786.557372
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 5284,
+        "create_time_unix": 1791339802.388383
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 18004,
+        "create_time_unix": 1791339885.4313958
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "tool_chunk_id": "bd5588",
+      "exit_code": 0
+    },
+    {
+      "kind": "main",
+      "tool_chunk_id": "1b0b62",
+      "exit_code": 0
+    },
+    {
+      "kind": "audit",
+      "tool_chunk_id": "750b8f",
+      "exit_code": 0
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_binding_resource.json",
+        "bytes": 379,
+        "sha256": "2edff1189ca5019693dfb89476422d167073317b019e9160db90a40718802bef"
+      },
+      "resource": {
+        "binding_sha256": "12ae8508c305704f9ce0494c68fc8adf1e2bc4236c222a42f816f7a408528f8a",
+        "process_instance": {
+          "pid": 29032,
+          "create_time_unix": 1791339786.557372
+        },
+        "seconds": 2.687999999994645,
+        "OS_peak_bytes": 51802112,
+        "bytes_hashed": 1086800723,
+        "limits": [
+          180,
+          536870912
+        ],
+        "ended_utc": "2026-10-07T02:23:09.769297+00:00"
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_index\\terminal_resource.json",
+        "bytes": 425,
+        "sha256": "326a4d7a3c4e479b463214e3b3051fa27e073a05f1ea36d16b9a9f48867a9bef"
+      },
+      "resource": {
+        "result_sha256": "421f06d4c02d06bd0b505f12e70e3fb34a5a34b8203c52f15f7d47f4167c004b",
+        "process_instance": {
+          "pid": 5284,
+          "create_time_unix": 1791339802.388383
+        },
+        "ended_utc": "2026-10-07T02:23:35.246429+00:00",
+        "seconds": 12.312999999994645,
+        "OS_peak_bytes": 592199680,
+        "bytes_hashed": 1161998537,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 74924374
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth517_audit\\terminal_resource.json",
+        "bytes": 419,
+        "sha256": "efc8f08bad1b4c88d9fe083d2cef3714eef62a412a2bc8689e13dcc04d8ae736"
+      },
+      "resource": {
+        "result_sha256": "bc06efc9af02081d9844ea03319f3ffc6d66dde24f1ec07f70fd354263c7ec88",
+        "process_instance": {
+          "pid": 18004,
+          "create_time_unix": 1791339885.4313958
+        },
+        "ended_utc": "2026-10-07T02:25:57.211515+00:00",
+        "seconds": 71.26600000000326,
+        "OS_peak_bytes": 660271104,
+        "bytes_hashed": 1162055607,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "occurrences": 11721,
+      "mean_byte_ratio": 1.2133915560233162,
+      "p95_byte_ratio": 1.2133915560233162,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 11721,
+      "certified_row_occurrences": 0,
+      "mean_basis_query_energy_ratio": 0.42724796677572274,
+      "prefix_integer_MACs": 1152221184,
+      "fallback_integer_MACs": 27653308416,
+      "query_energy_integer_products": 9376800,
+      "row_floor_root_U64_products": 36006912,
+      "query_transform_integer_MACs": 288055296,
+      "bitmap_words": 562608,
+      "exact_U128_ceil_sqrts": 0,
+      "introduced_logical_bytes": 5931716796,
+      "fallback_logical_bytes": 27797336064
+    },
+    "consumed": {
+      "UIDs": 5819,
+      "occurrences": 5819,
+      "mean_byte_ratio": 1.2133915560233162,
+      "p95_byte_ratio": 1.2133915560233162,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 5819,
+      "certified_row_occurrences": 0,
+      "mean_basis_query_energy_ratio": 0.3976920702947375,
+      "prefix_integer_MACs": 572030976,
+      "fallback_integer_MACs": 13728743424,
+      "query_energy_integer_products": 4655200,
+      "row_floor_root_U64_products": 17875968,
+      "query_transform_integer_MACs": 143007744,
+      "bitmap_words": 279312,
+      "exact_U128_ceil_sqrts": 0,
+      "introduced_logical_bytes": 2944856244,
+      "fallback_logical_bytes": 13800247296
+    },
+    "natural_consumed": {
+      "UIDs": 3065,
+      "occurrences": 3065,
+      "mean_byte_ratio": 1.2133915560233162,
+      "p95_byte_ratio": 1.2133915560233162,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 3065,
+      "certified_row_occurrences": 0,
+      "mean_basis_query_energy_ratio": 0.39656343883671447,
+      "prefix_integer_MACs": 301301760,
+      "fallback_integer_MACs": 7231242240,
+      "query_energy_integer_products": 2452000,
+      "row_floor_root_U64_products": 9415680,
+      "query_transform_integer_MACs": 75325440,
+      "bitmap_words": 147120,
+      "exact_U128_ceil_sqrts": 0,
+      "introduced_logical_bytes": 1551122940,
+      "fallback_logical_bytes": 7268904960
+    },
+    "teacher_consumed": {
+      "UIDs": 3584,
+      "occurrences": 3584,
+      "mean_byte_ratio": 1.2133915560233162,
+      "p95_byte_ratio": 1.2133915560233162,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 3584,
+      "certified_row_occurrences": 0,
+      "mean_basis_query_energy_ratio": 0.4143286301967787,
+      "prefix_integer_MACs": 352321536,
+      "fallback_integer_MACs": 8455716864,
+      "query_energy_integer_products": 2867200,
+      "row_floor_root_U64_products": 11010048,
+      "query_transform_integer_MACs": 88080384,
+      "bitmap_words": 172032,
+      "exact_U128_ceil_sqrts": 0,
+      "introduced_logical_bytes": 1813776384,
+      "fallback_logical_bytes": 8499757056
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "UIDs": 3,
+      "occurrences": 3,
+      "mean_byte_ratio": 1.2133915560233162,
+      "p95_byte_ratio": 1.2133915560233162,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 3,
+      "certified_row_occurrences": 0,
+      "mean_basis_query_energy_ratio": 0.3822276620054818,
+      "prefix_integer_MACs": 294912,
+      "fallback_integer_MACs": 7077888,
+      "query_energy_integer_products": 2400,
+      "row_floor_root_U64_products": 9216,
+      "query_transform_integer_MACs": 73728,
+      "bitmap_words": 144,
+      "exact_U128_ceil_sqrts": 0,
+      "introduced_logical_bytes": 1518228,
+      "fallback_logical_bytes": 7114752
+    },
+    "dev_count5_15": {
+      "UIDs": 19,
+      "occurrences": 19,
+      "mean_byte_ratio": 1.2133915560233164,
+      "p95_byte_ratio": 1.2133915560233162,
+      "mean_remaining_rows": 3072.0,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 19,
+      "certified_row_occurrences": 0,
+      "mean_basis_query_energy_ratio": 0.4236244597366704,
+      "prefix_integer_MACs": 1867776,
+      "fallback_integer_MACs": 44826624,
+      "query_energy_integer_products": 15200,
+      "row_floor_root_U64_products": 58368,
+      "query_transform_integer_MACs": 466944,
+      "bitmap_words": 912,
+      "exact_U128_ceil_sqrts": 0,
+      "introduced_logical_bytes": 9615444,
+      "fallback_logical_bytes": 45060096
+    }
+  },
+  "eligibility": {
+    "consumed_mean_byte_ratio_le.75": false,
+    "natural_mean_byte_ratio_le.75": false,
+    "natural_p95_byte_ratio_le1": false,
+    "all_consumed_book_mean_byte_ratio_le1": false,
+    "complete_fallback_bank_plus_index_ratio_le1.20": true
+  },
+  "economic_recipe_eligible": false,
+  "decision": "CLOSE_THIS_SHARED_RANK32_INTEGER_CERTIFICATE",
+  "new_model_native_capture_calls": 0,
+  "mathematical_main_and_independent_audit_runs": [
+    1,
+    1
+  ],
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Exact original function on ALL17540 retained single-bank queries. Six main/seven audit apparatus gates PASS, one of five logical economy gates PASS. No fresh quality, C latency, all-bank/256/general large n or goal completion."
+}

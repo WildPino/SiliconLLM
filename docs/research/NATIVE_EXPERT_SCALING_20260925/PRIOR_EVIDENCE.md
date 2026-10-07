@@ -1,5 +1,16 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after517:** [shared rank32 integer subspace](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md)
+is implemented with exact projected original WI/queries and stored Gram-defect/
+radius certificates. ALL128 physical inverse/53,882,880 independent I64 prefix
+cells/17540 original output bytes pass;main6/audit7/admission5 PASS. Natural
+encoded energy.396563,zero candidates/skips;logical1.213392/full3072 rows/all64
+books FAIL.1/5 economics PASS,THIS fixed recipe CLOSED before C. Main12.313s/
+592.2MB,audit71.266s/660.3MB,all3 terminal,no faults/replays. Select [518 exact
+energy obstruction](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_NEXT_20261007.md)
+to separate insufficient norm information from actual angle, using retained
+integer thresholds only. No518 implementation/observations;goal incomplete.
+
 **7 October after516:** [fixed64 current-query filter](METH_516_DIRECTIONAL_WI_RESULT_20261007.md)
 implements physical original bank11 dictionaries and exact U64 certificates;
 ALL17540 hidden/max/scale/A16 bytes preserved. Main5/audit6/admission5 PASS,

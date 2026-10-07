@@ -58,7 +58,7 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:516 exact/price closed;517 shared-subspace algebra/price
+## Current resumption:517 exact/price closed;518 certificate energy obstruction
 
 [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
 14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
@@ -94,17 +94,26 @@ controls PASS. Natural mean logical ratio1.047572,p95 1.094199, ALL64 book means
 certify rows; natural mean remaining2928.76/3072. Index28,327,960B. Main5.656s/
 501.7MB, audit22.500s/543.5MB; all3 instances terminal, no faults/replays.
 
-**First action517:** [shared rank32 query subspace](METH_517_SHARED_QUERY_SUBSPACE_NEXT_20261007.md):
-derive/price ONE sound physical coefficient/radius/roundoff format, including
-actual stored basis Gram defect and query transform. Then freeze a dev-only
-shared-basis screen on ALL17540 if admissible. Changed directional information,
-not another coordinate k grid. No517 source/export/binding/observation/job.
+[517 result](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md): dev-only shared
+rank32/S256 integer basis and Gram-defect/radius certificate implemented. Main6/
+independent I64 audit7/admission5 PASS, all128 projections and53,882,880 prefix
+cells verified. Natural encoded energy ratio.396563, but ZERO candidates/skips:
+all3072 rows,logical mean/p95 1.213392,all64 books FAIL;1/5 economics PASS.
+THIS recipe CLOSED before C. Index58.25MB,main12.313s/592.2MB,audit71.266s/
+660.3MB; all3 instances terminal,no faults/replays/new model/native calls.
+
+**First action518:** [exact energy obstruction](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_NEXT_20261007.md):
+retrieve517 physical norms/radii/work and freeze exact Fraction thresholds from
+the NECESSARY condition (1-rho)*(weight-energy+query-energy)>=1. Count maximum
+certifiable rows/lower-bound logical costs on ALL17540 without new projections;
+independent audit. Separates representation information from projected angle.
+No518 code/binding/observation/job; no automatic more-rank/basis/selector trial.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through516 terminal; three foreign tracked
+All completed scientific namespaces through517 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures

@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 admitted,516 exact/price closed;517 subspace price
+## Current resumption:511 admitted,517 exact/price closed;518 energy obstruction
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -95,14 +95,24 @@ gates PASS, fixed64 recipe CLOSED before C. Only parents25/37 certify rows;
 mean natural remaining2928.76/3072. Index28.33MB,main5.656s/501.7MB,audit22.500s/
 543.5MB; no faults or completed phase replay. No new model/native/corpus calls.
 
-[Selected517](METH_517_SHARED_QUERY_SUBSPACE_NEXT_20261007.md) changes directional
-information via ONE dev-derived shared rank32 input basis. First derive/price
-the actual encoded basis/projections, Gram defect and arithmetic error certificate,
-then freeze one finite screen if admissible. No517 basis/export/binding/result.
-It is an exact-fallback INPUT certificate, not the closed474 private output rank
-class or an assumed low-rank source reconstruction. Compact core/useful larger n,
-whole quality+rate, CPU LUT winner AND mass, real DRAM and actual families/~100B
-remain required.
+[517 result](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md) implements ONE
+dev-derived shared rank32 input basis in I16/S256,exact I32 WI projections and
+explicit integer Gram-defect/residual ceil-root certificate. ALL128 dictionaries/
+53,882,880 I64 prefix cells and all17540 hidden/max/scale/A16/p bytes verified.
+Main6/audit7/admission5 PASS; natural encoded query energy ratio.396563, but zero
+candidates/skips. All logical means/p95 1.213392/full3072 rows,all64 books FAIL;
+1/5 economics PASS,recipe CLOSED before C. Index58.25MB,main12.313s/592.2MB,
+audit71.266s/660.3MB,no faults/replays/new model/native calls. Stored mathematical
+source projections are real work, not new capacity or full old-model evaluation.
+
+[Selected518](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_NEXT_20261007.md) bounds
+certifiable capacity using the NECESSARY energy condition independently of
+actual projected angle/sign. Reuse physical517 norm/radius/query records to count
+ideal possible rows/lower-bound costs via exact Fraction ordering, before more
+representation variants. No518 code/binding/observation. It cannot certify a
+sound skip alone or refute all bases/conditional/approximate methods. Compact
+core/useful larger n,whole quality+rate,CPU LUT winner AND mass,real DRAM and
+actual families/~100B remain required.
 
 ### Retained preceding500
 
