@@ -1,0 +1,53 @@
+{
+  "kind": "main_metadata_repair1",
+  "started_utc": "2026-10-07T05:25:16.457945+00:00",
+  "process_instance": {
+    "pid": 30340,
+    "create_time_unix": 1791350715.9640872
+  },
+  "argv": [
+    "benchmarks/native_expert_scaling/meth523_main_metadata_repair1.py"
+  ],
+  "gates": {
+    "original_complete7_scientific_prefix_and_exact_hashing_time_fault_retained": true,
+    "original_ALL_inputs_source_runtime_and_ALL16_output_SHA_sealed_without_numerical_calls": true,
+    "canonical_copy_explicitly_retains_original_exit1_and_failed_900s_gate": true
+  },
+  "new_model_native_capture_calls": 0,
+  "scope": "Retained single-bank logical screen, not latency, DRAM or fresh quality.",
+  "original_failure": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth523_main_result.failure.json",
+    "bytes": 1386889,
+    "sha256": "e8f24213b092c7bf31d3b4203a6d28f853733b72fc7d6927a3c64a6d5ddb84c5"
+  },
+  "binding_sha256": "7cced083d598522bef6b9c382b96b5761e4c26f37130e814241572c5d9603b0e",
+  "canonical_main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth523_main_result.json",
+    "bytes": 1387781,
+    "sha256": "0688e17034df2ae58e88dc76eba06b39509ad705cdc7fca77e62d3d0d4c71cd2"
+  },
+  "new_numerical_calls": 0,
+  "metadata_science": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth523_main_metadata_repair1.py",
+      "bytes": 4537,
+      "sha256": "72de7783b24caa3aa2dbf1a02341e161d8ace1f6577712d436d03fb8f3244bfa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\METH_523_MAIN_METADATA_REPAIR1_PROTOCOL_20261007.md",
+      "bytes": 1749,
+      "sha256": "803ca8c51a7ba1e8205ebfbbfd8f7d89fc588bf4eefcdd3b6e67dae7e7b74b75"
+    }
+  ],
+  "repair_freeze_head": "d4e451c13a981560626de27eaf3ab074a9342d10",
+  "original_resource_gate_passed": false,
+  "resource": {
+    "seconds": 4.328000000008615,
+    "OS_peak_bytes": 51253248,
+    "bytes_hashed": 3037191342,
+    "limits": [
+      180,
+      134217728
+    ]
+  }
+}
