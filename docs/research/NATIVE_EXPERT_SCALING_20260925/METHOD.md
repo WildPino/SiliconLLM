@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;525 source crossings;526 exact certificates
+## Current resumption:511 baseline;526 exact certificate;527 original-bound refinement
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -191,13 +191,23 @@ are real charged work; zero full-source-query projection is not zero geometry.
 Continuous metric-shell reachability is not exact F32-normalizer membership or
 natural decoder reachability. No C/DRAM/function/whole-quality/useful-n promotion.
 
-[Selected526](METH_526_EXACT_PROJECTOR_CERTIFICATE_NEXT_20261007.md) proposes
-exact dyadic Gram and rowspace residual certificates on SAME retained Q/C, reusing
-the qualified source singular lower bound. Price exact integer widths/wire and
-independent verification before a protocol. Refine candidate bounds without
-replaying525 or changing its targets/decision; preserve109 query bytes. No526
-code/protocol/certificate/numerics or new labels. Only a subsequently admitted
-geometry plan supports new source responses; no old53943 labels/fixed A/L0 fit.
+[526 result](METH_526_EXACT_PROJECTOR_RESULT_20261007.md) implements exact dyadic
+Gram/CQ/residual identities on SAME Q/C,327680 signed-I512 cells independently
+verified,37748736 core integer terms/pass. Main7/audit8/admission5 and all3
+eligibility gates PASS. Rigorous projector upper5.60e-7->8.87e-10; exact Gram
+defect2.11e-14/residue1.50e-13, source lower reused. Main5.985s/75.7MB,
+audit8.453s/102.5MB,21.57MB outputs,3 closed/no faults,109 old queries SHA-preserved.
+No new plane/order/query/label or rank/SVD/geometry replay. Bound eligibility
+does not admit525 or establish function/natural/whole/DRAM/useful-n quality.
+
+[Selected527](METH_527_RETAINED_DISTANCE_BOUND_REFINEMENT_NEXT_20261007.md) proposes
+error-bound refinement on ORIGINAL saved coordinates, preserving all old floating
+reductions. Scalar norm inequalities and possibly NEW exact source-WI row energies
+must be priced/derived before a protocol. No527 code/protocol/energies/refined
+bounds/numerics or new labels. Do one bounded refinement; if still unresolved,
+reassess a distinct feasible-point selector, not an indefinite precision ladder.
+Only an admitted immutable geometry plan supports new source responses; no
+old53943 labels/fixed A/L0 fit.
 Natural coverage, function quality, useful n, real fallback and physical DRAM
 remain separate; no automatic failed524 bank export.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole

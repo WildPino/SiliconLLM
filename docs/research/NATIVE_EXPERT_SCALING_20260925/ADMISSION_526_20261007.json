@@ -1,0 +1,185 @@
+{
+  "experiment": "METH526",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all7_main_exact_encoding_matrix_and_bound_controls": true,
+    "all8_independent_exact_integer_and_rational_controls": true,
+    "three_actual_exit0_instances_closed_typed_UTC_zero_faults": true,
+    "foreign_empty_cache_and_resources_preserved": true,
+    "unchanged_frozen_exact_projector_certificate_decisions_retained": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth526_binding.json",
+    "bytes": 551770,
+    "sha256": "f86df8a84087fe423a4eed7c0567bfe9ebf87cb3852983a2bea1d4d12f8d500a"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth526_main_result.json",
+    "bytes": 13646,
+    "sha256": "919dfa1e4d72658e3b7577f8b7994371f8f1c4663d17034993470bbc052849a9"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth526_audit_result.json",
+    "bytes": 12499,
+    "sha256": "e79b857c905dd1436cfefcbd79c2276effbe4e8bef3564b1c10d66ffa1191eec"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_526_20261007.json",
+    "bytes": 5417,
+    "sha256": "7110d4826cc74019350fcbc541ac895b5a628b09a16a4f087664ca17fe109158"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth526_windows_terminal.json",
+    "bytes": 4459,
+    "sha256": "06c7fa723de90d274082c020d4c33d8c2d63d579670fe5bc3e41f44551458cec"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 27640,
+        "create_time_unix": 1791358406.305998
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 1820,
+        "create_time_unix": 1791358420.9465692
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 27352,
+        "create_time_unix": 1791358441.5407813
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "exit_code": 0,
+      "completion_tool_chunk": "3fe7d9"
+    },
+    {
+      "kind": "main",
+      "exit_code": 0,
+      "completion_tool_chunk": "5fb314"
+    },
+    {
+      "kind": "audit",
+      "session_id": 29794,
+      "exit_code": 0,
+      "completion_tool_chunk": "6abb47"
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth526_binding_resource.json",
+        "bytes": 326,
+        "sha256": "40da905ff87c8d258325dba89a25922e551abc140e4c75b681c52b0cd2be224e"
+      },
+      "resource": {
+        "binding_sha256": "f86df8a84087fe423a4eed7c0567bfe9ebf87cb3852983a2bea1d4d12f8d500a",
+        "process_instance": {
+          "pid": 27640,
+          "create_time_unix": 1791358406.305998
+        },
+        "seconds": 2.3589999999967404,
+        "OS_peak_bytes": 47685632,
+        "bytes_hashed": 92884614,
+        "limits": [
+          180,
+          536870912
+        ]
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth526_exact_projector\\terminal_resource.json",
+        "bytes": 422,
+        "sha256": "0caa3a55ee35d8cb68cabf19bee7c9c2d4ddfbc6f01cec761e8a5b780d5a3bb1"
+      },
+      "resource": {
+        "result_sha256": "919dfa1e4d72658e3b7577f8b7994371f8f1c4663d17034993470bbc052849a9",
+        "process_instance": {
+          "pid": 1820,
+          "create_time_unix": 1791358420.9465692
+        },
+        "ended_utc": "2026-10-07T07:33:47.474820+00:00",
+        "seconds": 5.985000000015134,
+        "OS_peak_bytes": 75730944,
+        "bytes_hashed": 114469610,
+        "limits": [
+          180,
+          536870912
+        ],
+        "output_bytes_before_terminal": 20974212
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth526_audit\\terminal_resource.json",
+        "bytes": 419,
+        "sha256": "b52d43ac28d070922b9eaae6b0637b1b83b3870f53e218914d71ddc0a06c9939"
+      },
+      "resource": {
+        "result_sha256": "e79b857c905dd1436cfefcbd79c2276effbe4e8bef3564b1c10d66ffa1191eec",
+        "process_instance": {
+          "pid": 27352,
+          "create_time_unix": 1791358441.5407813
+        },
+        "ended_utc": "2026-10-07T07:34:10.681207+00:00",
+        "seconds": 8.452999999979511,
+        "OS_peak_bytes": 102469632,
+        "bytes_hashed": 114482879,
+        "limits": [
+          240,
+          536870912
+        ],
+        "output_bytes_before_terminal": 770
+      }
+    }
+  ],
+  "views": [],
+  "eligibility": {
+    "exact_finite_dyadic_encoding_and_ALL_integer_identities_verified": true,
+    "original_positive_singular_lower_and_orthogonality_upper_lt_1": true,
+    "SAME_representation_projector_bound_strictly_below_legacy": true
+  },
+  "decision": "EXACT_PROJECTOR_CERTIFICATE_ELIGIBLE_FOR_BOUND_REFINEMENT_NOT_QUERY_PROMOTION",
+  "selected_source_integer_dot_checks": 0,
+  "constructed_queries": 0,
+  "exact_integer_product_terms": 37748736,
+  "exact_certificate": {
+    "orthogonality_upper": 2.1056764438862648e-14,
+    "rowspace_residual_upper": 1.4993803651386747e-13,
+    "source_Frobenius_upper": 89.77694272676695,
+    "reused_source_singular_lower": 0.00919757405700082,
+    "projector_upper_rational": [
+      "321606053015185742038533275989060940499998995800779592008239351064492996035643197899162679591703287037195",
+      "362402869985735817401176424724053090613584174199636292902954509365568975526877961294966158870535940200357060149248"
+    ],
+    "projector_error_bound": 8.874268932468559e-10
+  },
+  "source_response_function_calls": 0,
+  "native_calls": 0,
+  "model_calls": 0,
+  "readout_fits": 0,
+  "full_source_WI_projection_rows": 0,
+  "old_native_router_queries_replayed": 0,
+  "consumed_rows_for_selection": 0,
+  "old525_geometry_or_queries_recomputed": 0,
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Finite exact represented-projector certificate only. No source labels, actual C/DRAM, useful n, fresh whole quality/rate or family/goal claim."
+}

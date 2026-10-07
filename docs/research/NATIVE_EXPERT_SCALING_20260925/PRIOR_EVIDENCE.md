@@ -1,5 +1,17 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after526:** [exact represented-projector certificate](METH_526_EXACT_PROJECTOR_RESULT_20261007.md)
+main7/independent audit8/admission5 and all3 eligibility gates PASS. SAME Q/C
+integer identities327680 cells/37748736 product terms per pass, exact square
+sums/roots/Fraction bounds; projector upper5.60e-7->8.87e-10. Gram2.11e-14,
+rowspace residual1.50e-13, source singular lower unchanged. Main5.985s/75.7MB,
+audit8.453s/102.5MB,21.57MB outputs,3 closed/no faults.109 original queries
+SHA-preserved; zero new query/label or rank/SVD/plane/physical replay.525 remains
+CLOSED. Select [527 ORIGINAL distance bound refinement](METH_527_RETAINED_DISTANCE_BOUND_REFINEMENT_NEXT_20261007.md):
+derive scalar error terms/price possibly NEW exact WI row energies before one
+protocol, including old reductions. No527 implementation/observations. One bounded
+refinement then reassess feasible selection if needed; whole useful-n goal open.
+
 **7 October after525:** [router-neutral geometry](METH_525_ROUTER_NEUTRAL_GEOMETRY_RESULT_20261007.md)
 main7/independent audit8/admission5 PASS. Actual rank128/null640, all127x2560
 omitted source planes straddle0 on the same-score metric-norm slice.109 new
