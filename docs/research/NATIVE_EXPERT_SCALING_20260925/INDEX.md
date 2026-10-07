@@ -36,7 +36,7 @@ chat. No admitted compact chatbot quality+rate artifact exists.
 New [offline source preflight](CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md) is
 implemented and executed once on local Qwen/Giga, no tensor values/inference:
 .500s/34.3MB and1.578s/37.7MB. Qwen EOS[151645,151643]; Giga's local HF chat
-template absent, producer GGUF candidate present. No rendering/ID parity yet.
+template absent, producer GGUF candidate present. Giga ID parity remains missing.
 Both use SwiGLU; recent ReLU omission/fold results do not automatically transfer.
 The tool exposes missing stages and always reports pipeline NOT QUALIFIED.
 
@@ -48,6 +48,15 @@ matrix terms includes650M attention/779M FFNs, plus context attention. Local
 MLA code caches EXPANDED K/V, not latent KV. First Giga output-cap fault retained;
 compact repair succeeds, zero values/inference. Final whole-job OS peaks UNKNOWN
 (raw snapshots before serialization). No quality/rate/compact admission.
+
+New [canonical Qwen interaction](CHATBOT_INTERACTION_RESULT_20261007.md) is
+IMPLEMENTED/EXECUTED: all8 literal conversation and four generated-only stop
+goldens PASS. HF canonical IDs equal original Rust JSON and independent Python
+BPE, both EOS/no BOS/Unicode/continuation qualified. Actual exit0,14.093s,
+worker OS peak256540672B THROUGH EXIT; conservative family287444992B. First
+symlink-length/API-container faults retained and numbered repairs disclosed.
+Seven instances closed/no OS faults. Plain-text input stage AVAILABLE; tools/
+native integration/model quality/rate/compact conversion remain unqualified.
 
 ## Latest decisive evidence
 
@@ -107,12 +116,13 @@ sole reuse does not supply required speedup. No larger whole promotion.
 ## Exact point of resumption
 
 **First action:** [canonical interaction then compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md).
-Implement/freeze offline Qwen canonical role/history/assistant-continuation/
-token-ID/BOTH EOS fixtures, source-qualified renderer/tokenizer, no model calls.
-Then choose ONE finite whole shared+conditional nonlinear SwiGLU converter
+Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
+reuse their adapter/IDs without replay. Choose ONE finite whole shared+conditional nonlinear SwiGLU converter
 trial replacing the active source FFN; price head/attention/router/cache jointly.
-Census is implemented/executed; reuse its ledgers without replay. Fixtures and
-compact conversion remain missing. Preserve closed310/311/316 independent
+Census and canonical fixtures are implemented/executed. Compact conversion
+remains missing. Original METH125 has only256 states/layer, not6144 per layer,
+on augmented trajectories; require adequate original-donor exposure for fitting.
+Preserve closed METH214 ranking/METH231 derivative prior and310/311/316 independent
 output-space fields,297 semantics and528 single-anchor failure; no precision
 ladder, revived donor-port NEXT or inference to fill metadata resource gaps.
 Original528 main failure FALSE; consumed cohort not fresh chat quality.18 geometry

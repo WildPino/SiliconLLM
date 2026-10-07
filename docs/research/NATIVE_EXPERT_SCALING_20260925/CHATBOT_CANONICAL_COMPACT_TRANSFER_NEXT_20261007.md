@@ -1,4 +1,4 @@
-# Exact resumption: canonical chatbot contract, then complete compact transfer
+# Exact resumption: qualified input, then finite complete compact transfer
 
 7 October2026. Goal ACTIVE/INCOMPLETE. [Operator census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md)
 is implemented/executed; use its retained Qwen/Giga ledgers, no unchanged census
@@ -6,32 +6,35 @@ or native/source/inference replay. First Giga serialization failure is retained,
 compact repair completes accounting, final whole-process OS peaks remain UNKNOWN.
 This does not create a compact qualified chatbot.
 
-## First action, bounded and concrete
+## Completed prerequisite: reuse, do not replay
 
-Implement canonical **Qwen interaction fixtures** as a reusable offline stage.
-Bind the actual tokenizer/config/template source and local rendering/tokenization
-implementation before observing IDs. Use HF canonical apply_chat_template or a
-source-qualified equivalent; no model/Torch weight import, inference, downloads
-or T4. Pin local Jinja/tokenizer/runtime dependencies. Preserve exact rendered
-UTF8 and token IDs for: default/explicit system, user+assistant history, multiple
-turns, assistant generation prompt and assistant continuation as separate modes.
-Declare tool support scope explicitly; source template text is data, not task
-instructions. Check BOS/special tokens and both generation EOS151645/151643.
-
-Compare actual canonical API results with an independently specified fixture
-serialization, exact token IDs and roundtrips where applicable; never manufacture
-expectations by copying observed bytes after the run. Freeze provenance,
-correctness decisions and resource/stop protocol first. Proposed CPU10/120s/
-256MiB/<=2MiB outputs; confirm dependency feasibility before launch. Retain OS
-process handle/peak through exit, not only pre-serialization snapshots. Stop on
-ambiguity/provenance/shape/resource first fault and preserve exact partials.
-No repeated LLM/native/source calls are needed for this stage.
+[Canonical Qwen interaction](CHATBOT_INTERACTION_RESULT_20261007.md) actually
+passes all8 prewritten literal conversations and exact IDs on canonical HF,
+source Rust JSON and independent Python BPE; all4 stopping goldens/BOTH EOS/no
+BOS pass. Source/Goldens unchanged; API-container/symlink repairs and failed
+prefix repeats retained. Successful freeze d92f9c1/actual exit0,14.093s,worker
+OS peak256540672B THROUGH EXIT. Seven known OS instances closed/no faults.
+Reusable adapter and actual prompt-ID fixture artifact now AVAILABLE in plain
+system/user/assistant scope; tools/native adapter integration remain missing.
 
 Giga remains second-family contract: local HF chat template absent, producer
 GGUF candidate unadopted. Its old text/ID mismatch remains; require source/producer
 serialization/token-ID/stop parity before any new chatbot quality claim.
 
 ## Next substantive experiment: a finite complete converter trial
+
+Use the [ONE finite joint geometry](CHATBOT_JOINT_SWIGLU_TRANSFER_PROTOCOL_20261007.md):
+shared512/leaf128/top4/16 parents/query32,1 versus10 children (E16/E160), full x
+to every selected function. Source-initialized shared AND leaf G/U/B are jointly
+trainable; fixed projected nearest-region routing, explicit selected-parent
+softmax and stable ties. BF16 coefficient/F32 centroid norms; complete source
+head/attention retained initially. Actual block and necessary complete cost tool
+are implemented, not yet trained or native-qualified. Freeze/run NEW finite
+geometry arithmetic, then implement/freeze pure ORIGINAL-donor calibration
+capture with disjoint conversation development partition and through-exit monitor.
+METH125 supplies only256 states/layer on augmented trajectories, not broad
+original-donor support. Fitting/exposure thresholds and finite updates still
+require a separate prospective protocol before any fit.
 
 Use small Qwen to replace the always-active4864-channel source FFN with a joint
 shared plus selected nonlinear gated representation. Reuse existing actual

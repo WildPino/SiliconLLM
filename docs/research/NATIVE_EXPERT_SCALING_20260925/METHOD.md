@@ -75,13 +75,24 @@ First Giga report-cap fault retained; compact serialization repair completes
 accounting. Final whole-process OS peaks UNKNOWN; raw snapshots precede final
 serialization. No retrospective complete resource/pipeline admission.
 
-Next [canonical interaction and compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md):
-bind actual offline role/history/assistant continuation/token IDs/BOTH Qwen EOS
-fixtures, then select ONE finite jointly learned shared+conditional SwiGLU
+[Canonical interaction result](CHATBOT_INTERACTION_RESULT_20261007.md) is AVAILABLE:
+actual local HF API plus source Rust JSON plus independent Python BPE qualify
+all8 prewritten role/history/continuation/Unicode literal and ID fixtures,
+no automatic BOS and BOTH source EOS. All four generated-only stop tests PASS.
+Actual exit0,14.093s,worker peak256540672B THROUGH EXIT/family287444992B;
+seven OS instances closed/no relevant faults. Restrict scope to plain text;
+tools and native adapter integration remain missing. Keep failed container/
+symlink faults and repaired prefixes, no completed fixture replay.
+
+Next [compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md):
+select ONE finite jointly learned shared+conditional SwiGLU
 converter replacing the active source FFN. Price complete head/attention/router/
 cache, retain full x initially as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
-Fixtures/compact converter/fresh whole chat quality+rate remain MISSING.
+Compact converter/fresh whole chat quality+rate remain MISSING. METH125 contains
+256 states per layer on augmented-model trajectories; these are not6144 states
+per layer or broad original-donor fitting support. Closed231 derivatives and
+214 saved compact ranking cannot be silently reused as qualified candidates.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault

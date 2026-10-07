@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**7 October canonical Qwen chatbot input stage:** [result](CHATBOT_INTERACTION_RESULT_20261007.md).
+Eight prewritten role/history/continuation/Unicode text goldens and exact IDs
+PASS canonical HF/source Rust JSON/independent Python BPE; both EOS151645/151643,
+no BOS and four generated-only stopping probes PASS. Successful freeze d92f9c1,
+executor018b6c exit0,14.093s,worker OS peak256540672B through actual exit,
+family287444992B within prospective120s/512MiB. Administrative setup58.944s,
+its OS peak UNKNOWN/separate. All symlink/API-container first faults retained;
+failed first fixture repeats disclosed, old apparent ID mismatches INVALID as
+ID-difference evidence. Seven known OS instances closed/UTC Event1000 zero
+faults with positive controls. Reusable adapter/actual prompt IDs AVAILABLE,
+no model/native calls, weights or new quality/rate. Tools/native integration
+and finite compact converter missing. Reuse existing census and fixture results.
+METH125 has256 states/layer on augmented trajectories; METH214 fresh ranking
+and METH231 source-derivative nonlinear fixed recipe remain closed.
+
 **7 October entire chatbot operator census:** [result](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md).
 Actual Qwen/Giga source name/shape/dtype/offset and independent byte/MAC
 conservation; all725 existing Qwen archive fields match frozen C catalog.
