@@ -13,6 +13,7 @@ from pathlib import Path
 import struct
 import sys
 import time
+import traceback
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'.venv/Lib/site-packages'))
@@ -61,7 +62,18 @@ def main(args):
             guard()
         args.directory.mkdir() # caller must select a fresh namespace
         r['gates']['frozen_input_files']=True
+        # Identify and prevent Python subprocesses BEFORE creation. The capture
+        # contract has no subprocess work; retain argv/stack, never environment.
+        def reject_subprocess(event,arguments):
+            if event=='subprocess.Popen':
+                attempted=dict(executable=str(arguments[0]),argv=str(arguments[1]),stage=stage,
+                    stack=traceback.format_stack(limit=12))
+                r.setdefault('blocked_subprocess_attempts',[]).append(attempted)
+                print(json.dumps(dict(blocked_subprocess_attempt=attempted)),flush=True)
+                raise RuntimeError('Subprocess forbidden by original single-process capture contract')
+        sys.addaudithook(reject_subprocess)
         stage='imports'
+        print(json.dumps(dict(stage=stage,phase='before_numpy_torch_HF_imports')),flush=True)
         import numpy as np
         import torch as torch_module
         torch=torch_module
@@ -76,9 +88,11 @@ def main(args):
         torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
         torch.set_float32_matmul_precision('highest');torch.cuda.reset_peak_memory_stats()
         source=Path(b['source_directory'])
+        print(json.dumps(dict(stage=stage,phase='runtime_and_GPU_ready')),flush=True)
         spec=manifest();r['manifest']=spec
         tokenizer=AutoTokenizer.from_pretrained(source,local_files_only=True,trust_remote_code=False)
         stage='original_model_load'
+        print(json.dumps(dict(stage=stage,phase='before_source_decode')),flush=True)
         model=AutoModelForCausalLM.from_pretrained(source,local_files_only=True,trust_remote_code=False,
             dtype=torch.bfloat16,attn_implementation='eager').to(device).eval()
         for value in model.parameters():value.requires_grad_(False)
@@ -101,6 +115,7 @@ def main(args):
             hooks.append(layer.mlp.register_forward_hook(hook))
         r['gates']['pure_original_source_and_tied_head']=True
         guard();stage='capture'
+        print(json.dumps(dict(stage=stage,phase='before_first_source_forward')),flush=True)
         total_bytes=0
         with torch.inference_mode():
             for case in spec['cases']:

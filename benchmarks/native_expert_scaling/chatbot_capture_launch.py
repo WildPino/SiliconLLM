@@ -78,7 +78,17 @@ def main(args):
             log_position=0
             while p.poll() is None:
                 memory();guard()
-                try:assert not psutil.Process(p.pid).children(recursive=True),'unexpected worker descendant'
+                try:
+                    descendants=psutil.Process(p.pid).children(recursive=True)
+                    if descendants:
+                        details=[]
+                        for child in descendants:
+                            try:
+                                details.append(child.as_dict(attrs=['pid','create_time','name','exe','cmdline','ppid']))
+                            except psutil.NoSuchProcess:
+                                details.append(dict(pid=child.pid,instance='exited before detail read'))
+                        r['unexpected_descendants']=details
+                        raise AssertionError('unexpected worker descendant; identities retained')
                 except psutil.NoSuchProcess:pass
                 # Forward complete progress lines; no repeated application reads.
                 with log.open('rb') as progress:
