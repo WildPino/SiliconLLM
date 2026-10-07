@@ -63,9 +63,21 @@ block and spec freeze shared512/leaf128/top4/16 parents/query32, E16 versus160.
 New complete arithmetic passes fixed3/5 necessary cost gates:246.94/246.97M
 matrix terms/token,494.02/494.08MB logical coefficients; stored proposal.692/
 3.071GB. Full head/attention retained. Weights/quality/rate/DRAM UNMEASURED.
-Original-source [capture prerequisite](CHATBOT_SOURCE_CAPTURE_PROTOCOL_20261007.md)
-implemented,48 prewritten conversations/32 fit/16 reserved development; awaiting
-runtime/weight/input freeze and first actual execution, no fitting yet.
+Original-source [capture result](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md)
+is AVAILABLE: ALL48 cases/32 fit/16 reserved development,5709 positions PER
+LAYER (3845/1864), original BF16 normalized x/complete y.47 full generations
+plus one original300s timed-out saved prefix; original resource FAIL explicit.
+Arrow startup/count apparatus faults retained, no completed response replay;
+three final batches actual exit0, worker OS peaks through exit~1.68GB. Ten new
+instances closed/no OS faults. Calibration data is not fresh whole quality.
+[Finite joint layer12 pilot](CHATBOT_JOINT_PILOT_PROTOCOL_20261007.md) now fixes
+FIT-only geometry/source initialization/joint updates/novel development/count-
+utility/encoding/intervention gates before first values. Actual
+[exposure result](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md) closes uniformE160:
+28 leaves unsupported, minima1 unique FIT/1 conversation/0 novel dev; zero fit.
+E16 support passes59/24/29 minima. Separate
+[E16 first-fit baseline](CHATBOT_JOINT_BASELINE_PROTOCOL_20261007.md) reuses saved
+geometry/parent control; it cannot repair/admit the closed count comparison.
 
 ## Latest decisive evidence
 
@@ -127,9 +139,12 @@ sole reuse does not supply required speedup. No larger whole promotion.
 **First action:** [canonical interaction then compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse their adapter/IDs without replay. Finite joint512/128/top4 E16/E160 geometry
-is selected/implemented and complete necessary dimension budget PASS; no fitting.
-Freeze/execute pure original-donor capture48 conversations before its finite
-source-informed joint fit. Capture/fitting/native stage must keep head/attention/
+is selected/implemented and complete necessary dimension budget PASS. Original
+source operands48 cases now byte-qualified under explicit calibration eligibility;
+reuse source data/canonical/census, no replay. Execute/adopt the ONE frozen
+layer12 E16 baseline; original E160 exposure CLOSED, response/utility UNKNOWN.
+Stop on response/resource failure before further conversion. E16 fidelity alone
+does not establish count utility/ALL24 admission. Keep head/attention/
 router/cache priced jointly; don't infer throughput from dimension reductions.
 Census and canonical fixtures are implemented/executed. Compact conversion
 remains missing. Original METH125 has only256 states/layer, not6144 per layer,

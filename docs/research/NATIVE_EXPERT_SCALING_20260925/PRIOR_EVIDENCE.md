@@ -1,13 +1,30 @@
 # Native expert-count scaling: prior evidence
 
+**7 October original CHATBOT operands AVAILABLE:**
+[capture result](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md)/[final byte adoption](chatbot_source_adoption_final_20261007.json):
+ALL48 case IDs/32 FIT/16 DEVELOPMENT,5709 positions PER LAYER3845/1864, actual
+original BF16 pre-MLP x/complete y.47 completed generations plus one original300s
+timed-out prefix; original ALL48/300s/resource result remains FALSE. Arrow import
+and batch1 list-alias apparatus faults retained; saved responses never replayed.
+Final three unentered batches exit0/through-exit worker OS~1.68GB; all10 new
+instances closed/no matching OS faults. Calibration case coverage complete,
+not final fresh whole quality. Finite joint layer12
+[pilot](CHATBOT_JOINT_PILOT_PROTOCOL_20261007.md) freezes support/initialization/
+joint updates/novel error/encoding/utility/intervention before first values;
+actual exposure closes E16028 unsupported leaves, no initializer/fit/response
+error entered; E16 support PASS. Separate prewritten E16 first-fit baseline
+reuses saved geometry/parent control and unchanged finite optimization contract.
+No repaired count comparison or whole admission. Compact conversion/native/rate missing.
+
 **7 October finite compact joint geometry:** [budget](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md).
 Frozen1e4b2b5 actual block/spec, shared512/leaf128/top4/query32/E16 versusE160,
 full-input source-initialized joint G/U/B. New dimension arithmetic9948a6 exit0
 passes fixed3/5 complete-matrix/logical-byte necessary gates:246.94/246.97M,
 494.02/494.08MB; stored proposal.692/3.071GB. No values/Torch/model/census replay
 or physical DRAM/rate/distinct trained capacity. Source-capture48 fixed self-
-authored32-fit/16-development conversations implemented, awaiting freeze/first
-execution; finite fit/exposure criteria still unfrozen. Whole goal incomplete.
+authored32-fit/16-development conversations now acquired as documented above;
+the separately frozen joint pilot closes E160 on exposure; E16 first-fit question
+is separately prewritten. Whole goal incomplete.
 
 **7 October canonical Qwen chatbot input stage:** [result](CHATBOT_INTERACTION_RESULT_20261007.md).
 Eight prewritten role/history/continuation/Unicode text goldens and exact IDs

@@ -1,4 +1,33 @@
-# Exact resumption: qualified input, then finite complete compact transfer
+# Exact resumption: qualified input and original operands, then finite joint pilot
+
+## Current actual resumption, superseding the capture proposal below
+
+Original [capture](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md) now supplies
+ALL48 case IDs/32 FIT/16 reserved DEVELOPMENT,5709 positions PER LAYER3845/1864.
+47 complete generations and ONE original300s timed-out forward prefix; original
+full-generation/resource failure remains FALSE. All saved original bits/IDs/
+journals byte-qualified; no completed source response replay. Reuse canonical
+input/census/data. Final unentered batches2/3/4 actual exit0, through-exit peak
+~1.68GB; all10 new instances closed/no OS faults. Calibration is not fresh chat.
+
+Original [joint layer12 exposure](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md)
+actually closes uniformE16028 unsupported leaves/zero fit, source/code/runtime/
+input frozen78062dc. E16 support passes59 unique FIT/24 FIT conversations/29
+novel dev minima. FIRST ACTION: execute/adopt the separately frozen
+[E16 first-fit baseline](CHATBOT_JOINT_BASELINE_PROTOCOL_20261007.md), reusing
+saved geometry/parent choice/mass and unchanged initializer/24 epochs. It cannot
+repair the original E160 exposure trial or admit count/ALL24/whole conversion.
+Preserve all outputs/faults. The original comparison fixes
+E16/E160 equal24 epochs/full-input shared512+leaf128, FIT-only geometry/initializer,
+distinct leaf exposure, novel DEVELOPMENT excluding exact FIT x, F32/BF16-rounded
+errors, child-cycle intervention and useful-count criteria. A local failure
+closes that finite recipe, not all joint nonlinear conversion. No width/update/
+regularizer ladder or completed fit/response replay. Only ALL eligibility gates
+permit a separately frozen24-layer converter/export/new phase60 C profile.
+Fresh whole own-history/chat/task quality AND SAME-artifact accepted50 remain
+the pipeline decision. Larger n/DRAM/LUT winner+mass/other families still open.
+
+The following original capture instructions are historical and superseded here.
 
 7 October2026. Goal ACTIVE/INCOMPLETE. [Operator census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md)
 is implemented/executed; use its retained Qwen/Giga ledgers, no unchanged census

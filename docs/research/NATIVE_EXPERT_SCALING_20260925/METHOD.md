@@ -98,10 +98,21 @@ now AVAILABLE: shared512/leaf128/top4/16 parents/query32/E16 versus160, full x,
 joint trainable shared/leaf G/U/B, explicit stable projected-distance routing
 and selected-parent mass. Complete necessary3/5 gates pass at246.94/246.97M
 products and494.02/494.08MB logical coefficients. No actual fitted parameters,
-capacity/native/DRAM/rate admission. [Original-source capture](CHATBOT_SOURCE_CAPTURE_PROTOCOL_20261007.md)
-is implemented,48 prewritten32-fit/16-development conversations; first execution
-requires prospective runtime/input/whole-weight freeze, through-exit monitor and
-retained faults. Subsequent finite fit criteria/exposure must freeze separately.
+capacity/native/DRAM/rate admission. [Original-source capture](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md)
+is AVAILABLE: ALL48 case operands,32 fit/16 development,5709 positions PER LAYER,
+3845/1864. Original300s failure/one partial generation and Arrow/count apparatus
+faults retained; no completed response replay. Final byte adoption qualifies
+47 complete generations plus one complete saved forward prefix as CALIBRATION.
+This does not pass the original ALL48/300s producer or fresh whole quality.
+[Finite layer12 joint pilot](CHATBOT_JOINT_PILOT_PROTOCOL_20261007.md) is frozen:
+unique-direction/exact cross-partition duplicate exposure, FIT-only PCA/clusters,
+source-row initialization, joint shared/leaf G/U/B, E16/E160 equal24 epochs,
+novel development/encoding/child-choice usefulness and finite resource gates.
+Actual [exposure](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md) closes uniformE160
+with28 unsupported leaves, zero initializer/fit/response errors. E16 support
+passes, so a separate [first E16 fit](CHATBOT_JOINT_BASELINE_PROTOCOL_20261007.md)
+reuses saved geometry/control and unchanged prewritten24-epoch fit; it cannot
+repair count utility or by itself permit ALL24/whole promotion.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault
