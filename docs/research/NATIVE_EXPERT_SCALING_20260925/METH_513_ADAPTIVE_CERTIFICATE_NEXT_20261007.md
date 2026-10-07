@@ -1,6 +1,8 @@
 # Selected513: exact adaptive original-WI row certificates
 
-7 October 2026. SELECTED/PROPOSED, not implemented or numerically observed.
+7 October2026. Historical selected plan. Implemented513 is now CLOSED on logical
+economy; see [result](METH_513_ADAPTIVE_CERTIFICATE_RESULT_20261007.md).
+The proposal text below describes the state before the sole numerical execution.
 Goal ACTIVE/INCOMPLETE. 511 admits fresh quality AND warm>=50 in its declared
 scope, but full WI/source-sized storage/original128 parents remain.512 isolates
 same-cohort readout recovery and shows5.23%/4.41% hidden density after full WI.

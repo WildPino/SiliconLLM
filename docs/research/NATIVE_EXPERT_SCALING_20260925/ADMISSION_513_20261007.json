@@ -1,0 +1,155 @@
+{
+  "experiment": "METH513 independently admitted exact adaptive row-union index; logical economy fails",
+  "main_completed": true,
+  "audit_completed": true,
+  "gates": {
+    "main_all5": true,
+    "audit_all6": true,
+    "original17540_hidden_scales_codes_BYTE_and_physical_checkpoints": true,
+    "typed_UTC_positive_control_available_zero_relevant_events": true,
+    "owned_instances_closed_resources_foreign_SHA_preserved": true
+  },
+  "receipts": {
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_main_result.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_main_result.json",
+      "bytes": 99166,
+      "sha256": "0093e3f65c4f9fe9d85157ba285a7f37e94545f42325c8ccb79c6f5808d93f38"
+    },
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_audit_result.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_audit_result.json",
+      "bytes": 38234,
+      "sha256": "764036e47c892e87fbdd1a986511a70594135cf8c9bb463af1a5566127c1574b"
+    },
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_windows_terminal.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_windows_terminal.json",
+      "bytes": 3974,
+      "sha256": "373dd589e036859f2357d990dc2a21f7890cfc0a3a63edfb7bac843ac4090e2f"
+    },
+    "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_r1_binding.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth513_r1_binding.json",
+      "bytes": 672980,
+      "sha256": "e149336d994ab20bdf667154c97132be975eac07cbd27268f21e50464afd3c7b"
+    },
+    "results\\native_expert_scaling\\meth513_index\\terminal_resource.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_index\\terminal_resource.json",
+      "bytes": 406,
+      "sha256": "95dfcd1da848d7611af285571de1f9fc5dc6f115b9bf46ed1375ade1d61940a0"
+    },
+    "results\\native_expert_scaling\\meth513_audit\\terminal_resource.json": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth513_audit\\terminal_resource.json",
+      "bytes": 399,
+      "sha256": "51c2aad59a64b50e62e602c65fec6d9f9bcd18c9f8c47dde50a14e0a495ab560"
+    }
+  },
+  "terminal_resources": {
+    "main": {
+      "result_sha256": "0093e3f65c4f9fe9d85157ba285a7f37e94545f42325c8ccb79c6f5808d93f38",
+      "process_instance": {
+        "pid": 31252,
+        "create_time_unix": 1791334012.7589476
+      },
+      "seconds": 42.921000000002095,
+      "OS_peak_bytes": 405692416,
+      "bytes_hashed": 469320465,
+      "limits": [
+        177,
+        2147483648
+      ],
+      "output_bytes": 48170001,
+      "new_native_model_source_function_calls": 0
+    },
+    "audit": {
+      "result_sha256": "764036e47c892e87fbdd1a986511a70594135cf8c9bb463af1a5566127c1574b",
+      "process_instance": {
+        "pid": 25788,
+        "create_time_unix": 1791334141.1488636
+      },
+      "seconds": 33.030999999988126,
+      "OS_peak_bytes": 419696640,
+      "bytes_hashed": 469358699,
+      "limits": [
+        177,
+        2147483648
+      ],
+      "output_bytes": 0,
+      "new_native_model_source_function_calls": 0
+    }
+  },
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "occurrences": 11721,
+      "mean_byte_ratio": 0.9218130342060106,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2814.8547905468818,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 10421,
+      "binary_search_comparisons": 836704,
+      "explicit_boundary_records": 16672,
+      "bitmap_union_words": 625008,
+      "centre_dot_I16_products": 58356480,
+      "query_norm_I16_products": 9001728
+    },
+    "consumed": {
+      "UIDs": 5819,
+      "occurrences": 5819,
+      "mean_byte_ratio": 0.9770020911080346,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2984.501976284585,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 5623,
+      "binary_search_comparisons": 413302,
+      "explicit_boundary_records": 4827,
+      "bitmap_union_words": 288720,
+      "centre_dot_I16_products": 28859136,
+      "query_norm_I16_products": 4468992
+    },
+    "natural_consumed": {
+      "UIDs": 3065,
+      "occurrences": 3065,
+      "mean_byte_ratio": 0.9511893172420844,
+      "p95_byte_ratio": 1.0109125377806563,
+      "mean_remaining_rows": 2905.8822185970635,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 2869,
+      "binary_search_comparisons": 206980,
+      "explicit_boundary_records": 4827,
+      "bitmap_union_words": 156528,
+      "centre_dot_I16_products": 14450688,
+      "query_norm_I16_products": 2353920
+    },
+    "teacher_consumed": {
+      "UIDs": 3584,
+      "occurrences": 3584,
+      "mean_byte_ratio": 0.9592007284778565,
+      "p95_byte_ratio": 1.0116335748596719,
+      "mean_remaining_rows": 2929.9377790178573,
+      "maximum_remaining_rows": 3072,
+      "unchanged_full_width_occurrences": 3388,
+      "binary_search_comparisons": 252081,
+      "explicit_boundary_records": 4827,
+      "bitmap_union_words": 181440,
+      "centre_dot_I16_products": 17598720,
+      "query_norm_I16_products": 2752512
+    }
+  },
+  "eligibility": {
+    "consumed_mean_byte_ratio_le.75": false,
+    "natural_mean_byte_ratio_le.75": false,
+    "natural_p95_byte_ratio_le1": false,
+    "all_consumed_book_mean_byte_ratio_le1": true,
+    "complete_fallback_bank_plus_index_ratio_le1.20": true
+  },
+  "index_bytes": 40910148,
+  "original_fallback_bank_bytes": 605945856,
+  "physical_checkpoints_audited": 32477,
+  "economic_recipe_eligible": false,
+  "decision": "CLOSE_THIS_ADAPTIVE_UNION_INDEX",
+  "goal_complete": false,
+  "limits": [
+    "Finite retained bank11/637 development centres only; no source function/weight/corpus/model/C replay.",
+    "Logical indexed access ratios are not native timing or DRAM.",
+    "Original isolated-import and metadata XML/date faults retained; mathematical main/audit ran once.",
+    "Exact first failed import/helper process resource unavailable; tool upper-bound scope retained."
+  ]
+}

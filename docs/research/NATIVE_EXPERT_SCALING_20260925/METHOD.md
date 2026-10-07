@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 admitted,512 diagnosed;513 selected
+## Current resumption:511 admitted,513 closed;514 actual256 applicability
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -54,18 +54,28 @@ regressing books have no changed output IDs. Separate component clocks and
 within-case variability do not identify intrinsic kernel/DRAM causation. The
 candidate has5.23% encoder/4.41% decoder hidden activity after full3072-row WI.
 
-[Selected513](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md) implements/fixes the
-next uncertainty: sound per-row original-WI certificates combined across existing
-637 centres, compiled as exact suffix-mask geometry.504 required one complete
-fixed-width region; unioning individually sound omissions is the changed variable.
-Complete source fallback, centre/index query work and redundant storage are charged.
-Parent winner/mass stays original. No513 code/observations exist yet; first build
-binder/physical index/main/independent auditor and freeze actual dependency/output
-maxima. Main/auditor180s/2GiB each,128MiB combined outputs; no model/C/weight replay.
-Logical failure closes this finite recipe; pass selects separate native cost/parity.
-Neither redundant masks nor a local cost pass supply useful larger n. Compact
-core, CPU LUT winner AND mass scaling, real DRAM and actual additional~10B/~100B
-families/scales remain required. Former operational NEXTs are historical.
+[513 result](METH_513_ADAPTIVE_CERTIFICATE_RESULT_20261007.md) compiles637 original
+centres as sound adaptive per-row WI certificate unions,40,910,148B physical
+index. ALL17540 original hidden/scale/A16 bytes and32477 checkpoint bytes are
+independently verified. Main/audit/admission5/6/5 pass; economic2/5 pass:
+consumed mean.977002/natural.951189>.75 and natural p95 1.010913>1 fail.
+Close THIS fixed-centre index before native work. Exactness holds; conservative
+source cones do not omit enough WI work. Main42.921s/405.7MB, audit33.031s/419.7MB;
+first isolated-import/typed-UTC XML/date faults retained without numerical replay.
+
+[Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md) returns to the already
+qualified actual14.664B/256 original source/artifact. First inspect the actual
+retained head-input/reference wire collections and shared F32 extent, then freeze
+one source-head/fixed-eight feasibility screen with independent auditor. Same
+D/H does not permit copying another backbone's functions or inheriting128
+quality/rate. Old actual256 CPU0 prose35.9764/lower33.7592 needs about28.05% less
+elapsed time at its retained numerator to reach50; new conditional/readout path
+must show a credible additional cost/acceptance mechanism before a large whole
+trial. No514 implementation/observations yet; no source reacquisition is needed.
+Proposed retained-state phases300s/2GiB each; exact contracts/inputs/output bounds
+must be frozen. Later real256 column export/inverse and native complete-cost/
+fresh original F32 comparisons remain new work. Compact core/useful larger n,
+CPU LUT winner AND mass, real DRAM and actual families/~100B remain required.
 
 ### Retained preceding500
 

@@ -50,27 +50,38 @@ elapsed tails and within-case variability remain; no unique kernel/DRAM cause
 inferred. Original WI still visits3072 rows before5.23%/4.41% hidden activity.
 Sole diagnosis0.171s/55,128,064B, zero inference/C/source-function calls.
 
-## Current resumption:513 implementation and freeze pending
+[513 exact adaptive union](METH_513_ADAPTIVE_CERTIFICATE_RESULT_20261007.md): all5
+main/6 independent audit/5 admission controls PASS; ALL17540 hidden/scale/A16
+bytes preserved, ALL32477 physical suffix checkpoints independently verified.
+Index40,910,148B. Logical consumed mean.977002/natural.951189 vs<=.75 FAIL;
+natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before C.
+Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
+import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-[Selected513](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md) resumes the
-[deferred exact per-row certificate union](ADAPTIVE_NEURON_CERTIFICATES_DEFERRED_20261006.md).
-New variable: combine individual sound original-WI omissions across existing637
-centres, instead of504's one complete fixed1536-width mask. Keep parent winner
-and normalized mass, original fallback and all data domains. Stored redundancy
-adds no donor knowledge. Main/auditor <=180s/2GiB each, output<=128MiB combined;
-actual encoding/input/runtime/output maxima must be frozen before observation.
+## Current resumption:514 actual source256 retained-state applicability
 
-**First action:** implement513 binder/physical suffix-mask index/main/independent
-auditor with actual isolated511 runtime and ONLY used retained504/500 geometry.
-No payload/function/model/C replay. Freeze unchanged proposed logical gates and
-full centre/index/fallback cost. No513 code, binding, observations or live job yet.
-Economic failure closes this finite index before C; success only selects actual
-native parity/cost qualification. Useful much larger n/LUT winner+mass, compact
-core, physical DRAM and actual additional families/scales remain open.
+[Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
+14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
+Same D768/H3072, independently trained core. Existing363 whole quality/376
+ordinary rate do not establish strict prose50 or the new conditional/readout
+path.489 CPU0 prose35.9764/lower33.7592 means about28.05% less time is needed
+at its retained490 accepted-prose numerator.511's smaller saving cannot supply
+that claim. Exact original parent winner AND mass remain charged at256.
 
-All completed scientific namespaces through512 are terminal. Preserve three
-foreign tracked hashes, unrelated work, first faults and original admissions.
-No external publisher/service was killed. Routine Graphify remains disabled.
+**First action:** inventory/hash small original256 metadata and retained363/458/
+489 teacher/own-history/reference wire collections; verify normalized decoder
+head input and source F32 shared-head extent/aliases. Freeze ONE source-head/
+fixed-eight feasibility screen on those retained states, with independent audit,
+no k grid, no C/model/corpus query. Proposed300s/2GiB each main/audit/256MiB output;
+actual contracts/inputs/maxima/criteria must be frozen first. No514 code,
+binding, observations or live job. Use508/509/510 only after actual contract check.
+
+Later all-bank column export/new whole donor quality+strict warm50 needs an
+explicit feasible cost path; existing source256 already falls short on prose.
+Compact active representation, useful much larger n/LUT winner+mass, physical
+DRAM and actual additional families/~100B remain open. No generic-port completion.
+All completed scientific namespaces through513 terminal; three foreign tracked
+SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures
 
@@ -95,6 +106,6 @@ method/history BYTE; old resumptions are historical.
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) is the original native inventory.
 [Strategic review](STRATEGIC_REVIEW_20261004.md), [through431](RESEARCH_RECORDS_THROUGH_431_20261004.md),
 [432..453](RESEARCH_RECORDS_432_453_20261005.md), and individual records retain
-results/faults. [Selected513](METH_513_ADAPTIVE_CERTIFICATE_NEXT_20261007.md)
+results/faults. [Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md)
 and this index supersede older operational NEXTs. No completion percentage.
 

@@ -1,5 +1,13 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after513:** [adaptive index](METH_513_ADAPTIVE_CERTIFICATE_RESULT_20261007.md)
+is exact on17540 original UIDs, all32477 physical checkpoints independent,
+main/audit/admission5/6/5 PASS. Index40.91MB; consumed/natural mean logical bytes
+.977002/.951189 exceed.75 and natural p95>1, so2/5 economics PASS and fixed
+union index CLOSED before C. Source geometry/function preserved, no new capacity
+or latency claim. Select [514 actual256 readout transfer](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md)
+on existing qualified14.664B sources; no acquisition/old numerical replay.
+
 **7 October after511/512:** [511 whole result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md)
 qualifies fresh quality AND SAME-artifact warm accepted prose52.55861/lower95
 50.46847 in bounded infilling. All15 quality and4/5 economics pass; ALL-book
