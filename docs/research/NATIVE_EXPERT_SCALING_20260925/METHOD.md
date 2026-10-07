@@ -135,7 +135,7 @@ Query independence/stability is qualified; function preservation is not.
 recover/price the complete original native response/augmented readout/I8/C/
 independent reconstruction pipeline,then freeze before any new label. Change
 source information at fixed r512/A/L0/quantizers/Kreg/codec; no consumed fitting
-or manifest reselection. No521 code/binding/response/fit. Current495 routing/mass
+or manifest reselection. 521 source/audit/protocol implemented before binding/responses; [protocol](METH_521_SOURCE_INFORMATION_TRANSFER_PROTOCOL_20261007.md) fixes CPU900s/2GiB per phase and combined output2GiB. No521 binding/response/fit yet. Current495 routing/mass
 failure remains separate; source-mass oracle alone cannot promote the candidate.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.

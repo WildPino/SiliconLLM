@@ -131,7 +131,7 @@ recover original qualified native WI/WO/C pair-input and499 fit/export contracts
 price ALL53943 new responses/full augmented fit/I8/native evaluation/independent
 reconstruction buffers and output/child costs. Freeze ONE complete protocol
 before acquiring any label.520 manifest immutable, r512 active geometry fixed,
-no consumed fit/query reselection. No521 code/binding/response/fit. Routing/mass,
+no consumed fit/query reselection. 521 complete source/audit/protocol now implemented; binding/response/fit not yet executed. See [521 protocol](METH_521_SOURCE_INFORMATION_TRANSFER_PROTOCOL_20261007.md). Routing/mass,
 all-bank/fresh whole quality AND50/s/useful-n/LUT/DRAM remain unresolved.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
