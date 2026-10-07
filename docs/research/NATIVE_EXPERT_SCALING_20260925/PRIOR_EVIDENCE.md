@@ -1,5 +1,15 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after519:** [local matched geometry](METH_519_MATCHED_LOCAL_ENERGY_RESULT_20261007.md)
+implements ALL128 dev-only rank32/S256 normalized WI/query dictionaries and
+exact necessary capacity. Main5/audit6/admission5 PASS; natural ideal possible
+8.448216%,but byte floor1.128913/p95 1.213395/ALL64 books FAIL;1/5 economic
+gates PASS. Fixed recipe CLOSED before actual-angle/C/whole work. Index65.54MB,
+main29.359s/301.1MB,audit26.735s/288.3MB,no faults/replays/model/native calls,
+all3 closed. Select [520 source-information eligibility](METH_520_SOURCE_INFORMATION_ELIGIBILITY_NEXT_20261007.md),
+the deferred499 dev-only complement plan; pooled rank/stability must first be
+priced and certified. No520 code/numerics/source responses; goal incomplete.
+
 **7 October after518:** [exact energy obstruction](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md)
 verifies ALL393216 physical Fraction thresholds/17540 independent query-search
 boundaries. Main5/audit5/admission5 PASS. Natural ideal possible ceiling.069002%

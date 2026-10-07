@@ -1,0 +1,240 @@
+{
+  "experiment": "METH519",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all5_main_matched_local_geometry_capacity_controls": true,
+    "all6_independent_weighted_moment_integer_capacity_cost_controls": true,
+    "actual_exit0_three_instances_closed_and_typed_UTC_zero_faults": true,
+    "foreign_source_stat_empty_cache_and_resource_limits_preserved": true,
+    "ALL_domain_economy_decision_unchanged": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth519_binding.json",
+    "bytes": 752774,
+    "sha256": "759330331caca87bd6c358ae1f7fd00bc31896ab64ed117569141d1caaa899b0"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth519_main_result.json",
+    "bytes": 132387,
+    "sha256": "714bf731db9c6791e005cac41821cfd43e2254cb0f86ab5cb44510cf6b19e690"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth519_audit_result.json",
+    "bytes": 33007,
+    "sha256": "245bd4c30a240e59663f9cfe6e47375349e9f8660a60e816854837f1239a08cf"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_519_20261007.json",
+    "bytes": 4700,
+    "sha256": "ef509a8a2a4a835b7c8690e483624afc45d1e2653a76b91047b7e40648c078fe"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth519_windows_terminal.json",
+    "bytes": 4461,
+    "sha256": "5a08cc643391d1bb9347c9c1c5b59d93828ef5310f58c983dee260d11c383bdd"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 25536,
+        "create_time_unix": 1791342043.1941245
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 23856,
+        "create_time_unix": 1791342054.9729803
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 20620,
+        "create_time_unix": 1791342114.0451963
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "tool_chunk_id": "e2e541",
+      "exit_code": 0
+    },
+    {
+      "kind": "main",
+      "tool_chunk_id": "b6b720",
+      "exit_code": 0
+    },
+    {
+      "kind": "audit",
+      "tool_chunk_id": "97f4f2",
+      "exit_code": 0
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_binding_resource.json",
+        "bytes": 380,
+        "sha256": "58320ae01d2c459965ff178ffd00f0e160ba9419d931800d1b71239fbdc5b83e"
+      },
+      "resource": {
+        "binding_sha256": "759330331caca87bd6c358ae1f7fd00bc31896ab64ed117569141d1caaa899b0",
+        "process_instance": {
+          "pid": 25536,
+          "create_time_unix": 1791342043.1941245
+        },
+        "seconds": 2.2809999999881256,
+        "OS_peak_bytes": 51871744,
+        "bytes_hashed": 763427210,
+        "limits": [
+          180,
+          536870912
+        ],
+        "ended_utc": "2026-10-07T03:00:46.047123+00:00"
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_index\\terminal_resource.json",
+        "bytes": 425,
+        "sha256": "e6c09861575c2a4c051ee11a8e1f1d3a8ffea89f6bdb58a06c418c1b72e248d9"
+      },
+      "resource": {
+        "result_sha256": "714bf731db9c6791e005cac41821cfd43e2254cb0f86ab5cb44510cf6b19e690",
+        "process_instance": {
+          "pid": 23856,
+          "create_time_unix": 1791342054.9729803
+        },
+        "ended_utc": "2026-10-07T03:01:24.868889+00:00",
+        "seconds": 29.35899999999674,
+        "OS_peak_bytes": 301105152,
+        "bytes_hashed": 921288347,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 91989820
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_audit\\terminal_resource.json",
+        "bytes": 419,
+        "sha256": "ca0f6963d9005d277f0b93c9e58fe5149fa19ec605cd337e31bed1fab385823b"
+      },
+      "resource": {
+        "result_sha256": "245bd4c30a240e59663f9cfe6e47375349e9f8660a60e816854837f1239a08cf",
+        "process_instance": {
+          "pid": 20620,
+          "create_time_unix": 1791342114.0451963
+        },
+        "ended_utc": "2026-10-07T03:02:21.351366+00:00",
+        "seconds": 26.735000000015134,
+        "OS_peak_bytes": 288256000,
+        "bytes_hashed": 921321354,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "occurrences": 11721,
+      "mean_minimum_byte_ratio": 0.977923056562432,
+      "p95_minimum_byte_ratio": 1.2133949292962003,
+      "mean_optimistic_remaining_rows": 2348.630406961863,
+      "maximum_possible_rows_per_query": 3072,
+      "possible_row_occurrences": 8478615,
+      "energy_impossible_row_occurrences": 27528297,
+      "zero_possible_occurrences": 1464
+    },
+    "consumed": {
+      "UIDs": 5819,
+      "occurrences": 5819,
+      "mean_minimum_byte_ratio": 1.168260758100548,
+      "p95_minimum_byte_ratio": 1.2133949292962003,
+      "mean_optimistic_remaining_rows": 2933.3478260869565,
+      "maximum_possible_rows_per_query": 3072,
+      "possible_row_occurrences": 806817,
+      "energy_impossible_row_occurrences": 17069151,
+      "zero_possible_occurrences": 5010
+    },
+    "natural_consumed": {
+      "UIDs": 3065,
+      "occurrences": 3065,
+      "mean_minimum_byte_ratio": 1.1289127676254553,
+      "p95_minimum_byte_ratio": 1.2133949292962003,
+      "mean_optimistic_remaining_rows": 2812.4707993474713,
+      "maximum_possible_rows_per_query": 3072,
+      "possible_row_occurrences": 795457,
+      "energy_impossible_row_occurrences": 8620223,
+      "zero_possible_occurrences": 2554
+    },
+    "teacher_consumed": {
+      "UIDs": 3584,
+      "occurrences": 3584,
+      "mean_minimum_byte_ratio": 1.140832847822986,
+      "p95_minimum_byte_ratio": 1.2133949292962003,
+      "mean_optimistic_remaining_rows": 2849.089285714286,
+      "maximum_possible_rows_per_query": 3072,
+      "possible_row_occurrences": 798912,
+      "energy_impossible_row_occurrences": 10211136,
+      "zero_possible_occurrences": 2993
+    }
+  },
+  "rare_consumed": {
+    "dev_count1_4": {
+      "UIDs": 3,
+      "occurrences": 3,
+      "mean_minimum_byte_ratio": 1.2133949292962003,
+      "p95_minimum_byte_ratio": 1.2133949292962003,
+      "mean_optimistic_remaining_rows": 3072.0,
+      "maximum_possible_rows_per_query": 0,
+      "possible_row_occurrences": 0,
+      "energy_impossible_row_occurrences": 9216,
+      "zero_possible_occurrences": 3
+    },
+    "dev_count5_15": {
+      "UIDs": 19,
+      "occurrences": 19,
+      "mean_minimum_byte_ratio": 1.2133949292962003,
+      "p95_minimum_byte_ratio": 1.2133949292962003,
+      "mean_optimistic_remaining_rows": 3072.0,
+      "maximum_possible_rows_per_query": 0,
+      "possible_row_occurrences": 0,
+      "energy_impossible_row_occurrences": 58368,
+      "zero_possible_occurrences": 19
+    }
+  },
+  "eligibility": {
+    "consumed_minimum_mean_byte_ratio_le.75": false,
+    "natural_minimum_mean_byte_ratio_le.75": false,
+    "natural_minimum_p95_byte_ratio_le1": false,
+    "all_consumed_book_minimum_mean_byte_ratio_le1": false,
+    "original_fallback_plus519_index_ratio_le1.20": true
+  },
+  "economic_recipe_eligible": false,
+  "decision": "CLOSE_THIS_LOCAL_MATCHED_RANK32_ENERGY_RECIPE",
+  "new_model_native_capture_calls": 0,
+  "mathematical_main_and_independent_audit_runs": [
+    1,
+    1
+  ],
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Source-derived dev-only local matched rank32 dictionaries and exact necessary capacity/lower byte floors on ALL17540 retained bank11 queries. Main5/audit6 apparatus and terminal admission PASS; economic eligibility separately retained. Possible rows are not sound activation masks; no fresh quality, C latency, DRAM, all-bank/256/large n or goal completion."
+}

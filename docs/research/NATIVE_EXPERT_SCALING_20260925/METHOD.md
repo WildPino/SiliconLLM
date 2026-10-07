@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 admitted,518 obstruction;519 matched local geometry
+## Current resumption:511 baseline;519 closed;520 source-information eligibility
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -114,14 +114,24 @@ fixed517 radii/price even at ideal angle. Main6.328s/119.3MB,audit7.110s/128.6MB
 no faults or old projection/source/model replay. Necessary capacity is not a
 sound mask or a general theorem against other conditional/approximate methods.
 
-[Selected519](METH_519_MATCHED_LOCAL_ENERGY_NEXT_20261007.md) changes conditioning
-and objective: ONE parent-local rank32 basis from normalized source WI and
-development query moments,1:1 weighting. It explicitly targets both energies in
-the identified necessity. First price/freeze the physical local basis/Gram/radius
-format and ALL-domain ideal capacity/cost screen;no519 code/export/binding/results.
-Optimistic success would still require actual exact masks/operator cost/whole
-composition. Compact core/useful larger n,whole quality+rate,CPU LUT winner AND
-mass,real DRAM and actual families/~100B remain required.
+[519 result](METH_519_MATCHED_LOCAL_ENERGY_RESULT_20261007.md) implements ALL128
+dev-only local matched rank32/S256 dictionaries and the exact necessary capacity
+census. Main5/audit6/admission5 pass; natural ideal possible8.448216% improves the
+old global basis but minimum byte ratio1.128913/p95 1.213395/ALL64 books FAIL.
+1/5 economics PASS,THIS fixed recipe CLOSED before actual-angle/C/whole work.
+Index65.54MB,main29.359s/301.1MB,audit26.735s/288.3MB; all3 instances closed,
+no faults/replays/full source-function/model/native calls. Exact physical inverse
+and capacity are qualified; possible counts are not sound masks.
+
+[Selected520](METH_520_SOURCE_INFORMATION_ELIGIBILITY_NEXT_20261007.md) returns to
+499's deferred source-information question at fixed r512 active geometry. First
+recover/price/freeze a complete DEVELOPMENT-only pooled-rank/complement manifest,
+positive exact rank certificates and numerical stability audit. No new source
+response until eligible; no520 code/binding/results.475's progressive4bit filter
+is already closed.519's local-basis failure does not resolve499's missing readout
+directions or refute approximate transfer. Known routing/mass failures remain.
+Compact core/useful larger n,whole quality+rate,CPU LUT winner AND mass,real DRAM
+and actual families/~100B remain required.
 
 ### Retained preceding500
 

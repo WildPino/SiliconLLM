@@ -1,0 +1,119 @@
+{
+  "experiment": "METH519",
+  "input_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth519_binding.json",
+    "bytes": 752774,
+    "sha256": "759330331caca87bd6c358ae1f7fd00bc31896ab64ed117569141d1caaa899b0"
+  },
+  "mathematical_main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth519_main_result.json",
+    "bytes": 132387,
+    "sha256": "714bf731db9c6791e005cac41821cfd43e2254cb0f86ab5cb44510cf6b19e690"
+  },
+  "independent_audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth519_audit_result.json",
+    "bytes": 33007,
+    "sha256": "245bd4c30a240e59663f9cfe6e47375349e9f8660a60e816854837f1239a08cf"
+  },
+  "large_local_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_index\\basis_freeze.json",
+      "bytes": 78012,
+      "sha256": "384e4325d9d8280ab5556c112f452aad91dd6212838db4a792ea11ddcf5b0026"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_index\\ideal_capacity.npy",
+      "bytes": 421216,
+      "sha256": "78c4e136511b67d6c4a06fd3680a3c62fd2480386de818eda6b4e2910dbc1592"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_index\\local_index.bin",
+      "bytes": 65538080,
+      "sha256": "1b0173b2f7e95beb32f8d94ad356a793ec262c307735676a2d0ebf99d01e742b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_index\\selected_solver_vectors.npy",
+      "bytes": 25165952,
+      "sha256": "ce4240527011fa8ef43d8f4a09c56b73c0b79e83a554688e7d86ddcf06d8b892"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_index\\solver_eigenvalues.npy",
+      "bytes": 786560,
+      "sha256": "b77bf5efc94f19ce1b40251c8ccf6e814a08d473b2db5658658ef90ea34aedfe"
+    }
+  ],
+  "terminal_resource_receipts": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_binding_resource.json",
+        "bytes": 380,
+        "sha256": "58320ae01d2c459965ff178ffd00f0e160ba9419d931800d1b71239fbdc5b83e"
+      },
+      "resource": {
+        "binding_sha256": "759330331caca87bd6c358ae1f7fd00bc31896ab64ed117569141d1caaa899b0",
+        "process_instance": {
+          "pid": 25536,
+          "create_time_unix": 1791342043.1941245
+        },
+        "seconds": 2.2809999999881256,
+        "OS_peak_bytes": 51871744,
+        "bytes_hashed": 763427210,
+        "limits": [
+          180,
+          536870912
+        ],
+        "ended_utc": "2026-10-07T03:00:46.047123+00:00"
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_index\\terminal_resource.json",
+        "bytes": 425,
+        "sha256": "e6c09861575c2a4c051ee11a8e1f1d3a8ffea89f6bdb58a06c418c1b72e248d9"
+      },
+      "resource": {
+        "result_sha256": "714bf731db9c6791e005cac41821cfd43e2254cb0f86ab5cb44510cf6b19e690",
+        "process_instance": {
+          "pid": 23856,
+          "create_time_unix": 1791342054.9729803
+        },
+        "ended_utc": "2026-10-07T03:01:24.868889+00:00",
+        "seconds": 29.35899999999674,
+        "OS_peak_bytes": 301105152,
+        "bytes_hashed": 921288347,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 91989820
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth519_audit\\terminal_resource.json",
+        "bytes": 419,
+        "sha256": "ca0f6963d9005d277f0b93c9e58fe5149fa19ec605cd337e31bed1fab385823b"
+      },
+      "resource": {
+        "result_sha256": "245bd4c30a240e59663f9cfe6e47375349e9f8660a60e816854837f1239a08cf",
+        "process_instance": {
+          "pid": 20620,
+          "create_time_unix": 1791342114.0451963
+        },
+        "ended_utc": "2026-10-07T03:02:21.351366+00:00",
+        "seconds": 26.735000000015134,
+        "OS_peak_bytes": 288256000,
+        "bytes_hashed": 921321354,
+        "limits": [
+          300,
+          2147483648
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "reproducibility_scope": "Exclusive original namespaces executed once; source/protocol/data SHA retained. Large outputs local, not committed binaries."
+}

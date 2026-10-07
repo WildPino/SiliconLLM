@@ -1,6 +1,9 @@
 # Selected519: local subspaces matched to both source weights and dev queries
 
-7 October2026. PROPOSED;no519 code/export/binding/numerical observation/job.
+7 October2026. HISTORICAL proposal, now completed and superseded by
+[519 result](METH_519_MATCHED_LOCAL_ENERGY_RESULT_20261007.md) and
+[selected520](METH_520_SOURCE_INFORMATION_ELIGIBILITY_NEXT_20261007.md).
+The following describes the original pre-execution proposal, not current state.
 Goal ACTIVE/INCOMPLETE. [518](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md)
 proves fixed517 radii/price fail even with ideal projected angles. Natural
 possible ceiling0.069002%,mean only2.119739 rows/3072. Selector-only repair is
