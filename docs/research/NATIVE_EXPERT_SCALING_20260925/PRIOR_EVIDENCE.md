@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after522:** [exact-support redundancy obstruction](METH_522_REDUNDANCY_LOWER_BOUND_RESULT_20261007.md)
+is admitted: main5/independent Boolean audit6/admission5 PASS, both B512/rho2
+dev eligibility gates FAIL.10/127 parents have supports>512;19 additional
+width-feasible parents have certified incidence copies>6144. Parent113 requires
+>=87 branches/M32159/rho10.468424.98 necessary passes are inconclusive, not covers.
+ALL63262 clique pairs/all17540 support counts/all19962 joins independently
+verified. Main2.015s/161MB,audit2.782s/317MB,1.99MB combined outputs,3 terminal
+instances,no faults or new source/model/fit/C calls. Logical incidence and real
+RAM differ; neither arbitrary redundancy nor other coordinates are refuted.
+Select [523 folded source with private ReLU hinges](METH_523_SOURCE_FOLDING_HINGES_NEXT_20261007.md):
+price exact signs, matrix codec and three error terms before a protocol. No523
+implementation/numerics; whole compact transfer/useful large n/DRAM remain open.
+Older next-step statements below are historical; current INDEX takes precedence.
+
 **7 October after521:** [full source-information result](METH_521_SOURCE_INFORMATION_TRANSFER_RESULT_20261007.md)
 acquires53943 immutable development counterfactual responses once, independently
 reconstructs ALL source bytes once,128 unique full-rank augmented fits and one

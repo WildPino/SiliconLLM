@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;521 closed;522 redundancy obstruction
+## Current resumption:511 baseline;522 closed;523 source folding
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -143,13 +143,24 @@ Counterfactual anchors may lie outside a requested expert's routed domain;
 full coefficient identification is not function preservation. Current495
 routing/mass remains separately failed; source-mass oracle cannot promote.
 
-[Selected522](METH_522_REDUNDANCY_LOWER_BOUND_NEXT_20261007.md) first derives
-mask-independent necessary support/copy bounds for512-atom redundant branches
-at exploratory rho2, using already qualified500 support arrays. One deterministic
-incompatibility clique yields a certified branch/copy lower witness. M is logical
-atom incidence; dense independent branch coefficient storage and shared gathered
-weights require separate physical cost interpretations. No522 code/protocol/
-binding/numerics yet, no automatic repeat of500..503 packing/functions/selectors.
+[522 result](METH_522_REDUNDANCY_LOWER_BOUND_RESULT_20261007.md) implements the
+mask-independent necessary support/copy bound. Main5/audit6/admission5 PASS;
+both exact-support B512/rho2 dev gates FAIL:10 parents contain supports>512,
+19 more individually width-feasible parents require copies>2x. Parent113 lower
+M32159/rho10.468424,>=87 distinct branches.98 necessary passes remain inconclusive.
+ALL63262 clique pairs independently verified; main2.015s/161MB,audit2.782s/317MB,
+all3 terminal,no source/function/fit/native calls. M is logical atom incidence,
+not universal physical RAM. Oversized support cannot be fixed by more RAM alone
+at this width. Approximate/folded functions and arbitrary RAM remain open.
+
+[Selected523](METH_523_SOURCE_FOLDING_HINGES_NEXT_20261007.md) proposes
+Lx+O_U ReLU(I_U x), folding source contributions outside512 explicit original
+hinges. Real-arithmetic identity holds where omitted signs stay fixed; native
+global hidden quantization and folded codec require separate errors. This changes
+499/521 features and500..503 omitted-zero functions. I16 active coefficient/MAC
+ratios5/12 and7/24 are deductions only. Recover exact signs/codec/price before a
+protocol; one-function fidelity before matched increased count. No523 numerical
+result/export, no automatic repeat of old masks/cones/affine tangent recipes.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 

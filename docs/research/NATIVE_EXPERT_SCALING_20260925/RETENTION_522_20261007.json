@@ -1,0 +1,128 @@
+{
+  "experiment": "METH522",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth522_binding.json",
+    "bytes": 414892,
+    "sha256": "ebf00672875e55023961dec49e30e1c2476dca8ea421b167a5776ba4652ffaa4"
+  },
+  "main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth522_main_result.json",
+    "bytes": 269652,
+    "sha256": "6c795de6286c8034a62cf7b271f627d13d452070a37280bacd930e8e02030af3"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth522_audit_result.json",
+    "bytes": 154607,
+    "sha256": "395024cf14a413b631b074537ed7a33d4520564aaf5f0737c6247a50f2f7a5ad"
+  },
+  "local_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\clique_trace.npy",
+      "bytes": 234740,
+      "sha256": "b1127d41cb8afba7635f7aa00552a96ca1b29ff7b06a075ffc8a1dc4cd2a5ec8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\clique_UIDs.npy",
+      "bytes": 157824,
+      "sha256": "e243d0930e2a0ba1cf48abee6f1bc742f38a57fdddb355be9f777a4741d7cd3d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\clique_union.npy",
+      "bytes": 393344,
+      "sha256": "a4c166ef9845a16bd6fc4cb6800c95c7b21bc500721f03d9635a3bb86f6e2d49"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\controls.json",
+      "bytes": 819,
+      "sha256": "f063579a407432e1c59e15dd2f2850a84c8f162340d7aebe09a685050f7e1016"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\development_order.npy",
+      "bytes": 47012,
+      "sha256": "fe497c3211f7639caf6bd5fe9a5e4da2bfd3b329433a52c60d2d9182913ab427"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\development_witness_freeze.json",
+      "bytes": 113549,
+      "sha256": "c536be3ce18a16aaf74ccc63151e15c3a88363076f9ef490a5b7a4a2626499fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\support_cardinality.npy",
+      "bytes": 35208,
+      "sha256": "cd58ce213f9bdb0d8144208c84e40048f6a79d6a5c53ed73c5f35df8ef089d39"
+    }
+  ],
+  "terminal_resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_binding_resource.json",
+        "bytes": 314,
+        "sha256": "8ed124cfe53d5c23ef4c75bbdd4938a3f70280dd35285ea136dfd335a04e9606"
+      },
+      "resource": {
+        "binding_sha256": "ebf00672875e55023961dec49e30e1c2476dca8ea421b167a5776ba4652ffaa4",
+        "process_instance": {
+          "pid": 27788,
+          "create_time_unix": 1791347614.1428888
+        },
+        "seconds": 2.125,
+        "OS_peak_bytes": 57769984,
+        "bytes_hashed": 193183530,
+        "limits": [
+          60,
+          134217728
+        ]
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\terminal_resource.json",
+        "bytes": 420,
+        "sha256": "e277f7a554f9a7c4b89becbe9d6dcfbfd36cab0f810987eacf22bf0869421c5d"
+      },
+      "resource": {
+        "result_sha256": "6c795de6286c8034a62cf7b271f627d13d452070a37280bacd930e8e02030af3",
+        "process_instance": {
+          "pid": 17996,
+          "create_time_unix": 1791347652.2940423
+        },
+        "ended_utc": "2026-10-07T04:34:14.907007+00:00",
+        "seconds": 2.01500000001397,
+        "OS_peak_bytes": 161038336,
+        "bytes_hashed": 194636528,
+        "limits": [
+          60,
+          536870912
+        ],
+        "output_bytes_before_terminal": 982496
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_audit\\terminal_resource.json",
+        "bytes": 417,
+        "sha256": "ff59cdbd273489c7eb4113b1a5f92f502228c388fa3c1e37e0af7a7b695e0d8c"
+      },
+      "resource": {
+        "result_sha256": "395024cf14a413b631b074537ed7a33d4520564aaf5f0737c6247a50f2f7a5ad",
+        "process_instance": {
+          "pid": 27776,
+          "create_time_unix": 1791347693.7936733
+        },
+        "ended_utc": "2026-10-07T04:34:57.099811+00:00",
+        "seconds": 2.7820000000065193,
+        "OS_peak_bytes": 317235200,
+        "bytes_hashed": 194791135,
+        "limits": [
+          60,
+          536870912
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "scope": "One original main and one independent Boolean audit; complete trace/set/source provenance. No source/packing/function replay."
+}

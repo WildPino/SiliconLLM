@@ -1,0 +1,5817 @@
+{
+  "experiment": "METH522",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all5_main_support_clique_copy_report_controls": true,
+    "all6_independent_Boolean_support_pair_trace_copy_and_report_controls": true,
+    "three_actual_exit0_instances_closed_and_typed_UTC_zero_faults": true,
+    "foreign_empty_cache_runtime_and_resources_preserved": true,
+    "unchanged_B512_rho2_necessary_bound_decisions_retained": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth522_binding.json",
+    "bytes": 414892,
+    "sha256": "ebf00672875e55023961dec49e30e1c2476dca8ea421b167a5776ba4652ffaa4"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth522_main_result.json",
+    "bytes": 269652,
+    "sha256": "6c795de6286c8034a62cf7b271f627d13d452070a37280bacd930e8e02030af3"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth522_audit_result.json",
+    "bytes": 154607,
+    "sha256": "395024cf14a413b631b074537ed7a33d4520564aaf5f0737c6247a50f2f7a5ad"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_522_20261007.json",
+    "bytes": 5038,
+    "sha256": "f35ad373951aed4f7125ae9f07276dad187797ad30239b612d83127321af9883"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth522_windows_terminal.json",
+    "bytes": 4461,
+    "sha256": "94663ab81bac336b4deb6ee94db7dc3319cdd2a84c896b82c390fb3d7878fe37"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 27788,
+        "create_time_unix": 1791347614.1428888
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 17996,
+        "create_time_unix": 1791347652.2940423
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 27776,
+        "create_time_unix": 1791347693.7936733
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "tool_chunk_id": "7cc9de",
+      "exit_code": 0
+    },
+    {
+      "kind": "main",
+      "tool_chunk_id": "17259f",
+      "exit_code": 0
+    },
+    {
+      "kind": "audit",
+      "tool_chunk_id": "b6f9f5",
+      "exit_code": 0
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_binding_resource.json",
+        "bytes": 314,
+        "sha256": "8ed124cfe53d5c23ef4c75bbdd4938a3f70280dd35285ea136dfd335a04e9606"
+      },
+      "resource": {
+        "binding_sha256": "ebf00672875e55023961dec49e30e1c2476dca8ea421b167a5776ba4652ffaa4",
+        "process_instance": {
+          "pid": 27788,
+          "create_time_unix": 1791347614.1428888
+        },
+        "seconds": 2.125,
+        "OS_peak_bytes": 57769984,
+        "bytes_hashed": 193183530,
+        "limits": [
+          60,
+          134217728
+        ]
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_bound\\terminal_resource.json",
+        "bytes": 420,
+        "sha256": "e277f7a554f9a7c4b89becbe9d6dcfbfd36cab0f810987eacf22bf0869421c5d"
+      },
+      "resource": {
+        "result_sha256": "6c795de6286c8034a62cf7b271f627d13d452070a37280bacd930e8e02030af3",
+        "process_instance": {
+          "pid": 17996,
+          "create_time_unix": 1791347652.2940423
+        },
+        "ended_utc": "2026-10-07T04:34:14.907007+00:00",
+        "seconds": 2.01500000001397,
+        "OS_peak_bytes": 161038336,
+        "bytes_hashed": 194636528,
+        "limits": [
+          60,
+          536870912
+        ],
+        "output_bytes_before_terminal": 982496
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth522_audit\\terminal_resource.json",
+        "bytes": 417,
+        "sha256": "ff59cdbd273489c7eb4113b1a5f92f502228c388fa3c1e37e0af7a7b695e0d8c"
+      },
+      "resource": {
+        "result_sha256": "395024cf14a413b631b074537ed7a33d4520564aaf5f0737c6247a50f2f7a5ad",
+        "process_instance": {
+          "pid": 27776,
+          "create_time_unix": 1791347693.7936733
+        },
+        "ended_utc": "2026-10-07T04:34:57.099811+00:00",
+        "seconds": 2.7820000000065193,
+        "OS_peak_bytes": 317235200,
+        "bytes_hashed": 194791135,
+        "limits": [
+          60,
+          536870912
+        ],
+        "output_bytes_before_terminal": 0
+      }
+    }
+  ],
+  "views": {
+    "development": {
+      "UIDs": 11721,
+      "exposed_parents": 127,
+      "width_obstructed_parents": 10,
+      "copy_bound_obstructed_parents": 29,
+      "necessary_bounds_fit_parents": 98,
+      "maximum_clique_size": 271,
+      "maximum_incidence_copy_lower_bound": 195799
+    },
+    "source_support_domains": {
+      "uid_roles": [
+        {
+          "split": "development",
+          "count": 11721,
+          "sum_source_support": 2553840,
+          "max_source_support": 764,
+          "source_support_above512": 288
+        },
+        {
+          "split": "consumed_validation",
+          "count": 5819,
+          "sum_source_support": 1268793,
+          "max_source_support": 764,
+          "source_support_above512": 132
+        }
+      ],
+      "rare": [
+        {
+          "development_class": "0",
+          "split": "development",
+          "count": 0,
+          "sum_source_support": 0,
+          "max_source_support": 0,
+          "source_support_above512": 0
+        },
+        {
+          "development_class": "0",
+          "split": "consumed_validation",
+          "count": 0,
+          "sum_source_support": 0,
+          "max_source_support": 0,
+          "source_support_above512": 0
+        },
+        {
+          "development_class": "1..4",
+          "split": "development",
+          "count": 7,
+          "sum_source_support": 227,
+          "max_source_support": 55,
+          "source_support_above512": 0
+        },
+        {
+          "development_class": "1..4",
+          "split": "consumed_validation",
+          "count": 3,
+          "sum_source_support": 75,
+          "max_source_support": 34,
+          "source_support_above512": 0
+        },
+        {
+          "development_class": "5..15",
+          "split": "development",
+          "count": 36,
+          "sum_source_support": 964,
+          "max_source_support": 57,
+          "source_support_above512": 0
+        },
+        {
+          "development_class": "5..15",
+          "split": "consumed_validation",
+          "count": 19,
+          "sum_source_support": 535,
+          "max_source_support": 58,
+          "source_support_above512": 0
+        },
+        {
+          "development_class": ">=16",
+          "split": "development",
+          "count": 11678,
+          "sum_source_support": 2552649,
+          "max_source_support": 764,
+          "source_support_above512": 288
+        },
+        {
+          "development_class": ">=16",
+          "split": "consumed_validation",
+          "count": 5797,
+          "sum_source_support": 1268183,
+          "max_source_support": 764,
+          "source_support_above512": 132
+        }
+      ],
+      "cells": [
+        {
+          "expert": 0,
+          "split": "development",
+          "count": 0,
+          "sum_source_support": 0,
+          "max_source_support": 0,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 0,
+          "split": "consumed_validation",
+          "count": 0,
+          "sum_source_support": 0,
+          "max_source_support": 0,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 1,
+          "split": "development",
+          "count": 3,
+          "sum_source_support": 114,
+          "max_source_support": 55,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 1,
+          "split": "consumed_validation",
+          "count": 0,
+          "sum_source_support": 0,
+          "max_source_support": 0,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 2,
+          "split": "development",
+          "count": 160,
+          "sum_source_support": 28458,
+          "max_source_support": 440,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 2,
+          "split": "consumed_validation",
+          "count": 81,
+          "sum_source_support": 13788,
+          "max_source_support": 383,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 3,
+          "split": "development",
+          "count": 73,
+          "sum_source_support": 23762,
+          "max_source_support": 454,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 3,
+          "split": "consumed_validation",
+          "count": 45,
+          "sum_source_support": 13685,
+          "max_source_support": 471,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 4,
+          "split": "development",
+          "count": 135,
+          "sum_source_support": 33122,
+          "max_source_support": 461,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 4,
+          "split": "consumed_validation",
+          "count": 66,
+          "sum_source_support": 16289,
+          "max_source_support": 439,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 5,
+          "split": "development",
+          "count": 188,
+          "sum_source_support": 41086,
+          "max_source_support": 518,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 5,
+          "split": "consumed_validation",
+          "count": 90,
+          "sum_source_support": 19571,
+          "max_source_support": 428,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 6,
+          "split": "development",
+          "count": 161,
+          "sum_source_support": 28419,
+          "max_source_support": 420,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 6,
+          "split": "consumed_validation",
+          "count": 68,
+          "sum_source_support": 11371,
+          "max_source_support": 328,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 7,
+          "split": "development",
+          "count": 74,
+          "sum_source_support": 19441,
+          "max_source_support": 356,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 7,
+          "split": "consumed_validation",
+          "count": 30,
+          "sum_source_support": 8229,
+          "max_source_support": 397,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 8,
+          "split": "development",
+          "count": 76,
+          "sum_source_support": 12531,
+          "max_source_support": 352,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 8,
+          "split": "consumed_validation",
+          "count": 38,
+          "sum_source_support": 6160,
+          "max_source_support": 279,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 9,
+          "split": "development",
+          "count": 61,
+          "sum_source_support": 12416,
+          "max_source_support": 334,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 9,
+          "split": "consumed_validation",
+          "count": 29,
+          "sum_source_support": 5645,
+          "max_source_support": 263,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 10,
+          "split": "development",
+          "count": 64,
+          "sum_source_support": 11595,
+          "max_source_support": 337,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 10,
+          "split": "consumed_validation",
+          "count": 63,
+          "sum_source_support": 11795,
+          "max_source_support": 310,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 11,
+          "split": "development",
+          "count": 68,
+          "sum_source_support": 15016,
+          "max_source_support": 419,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 11,
+          "split": "consumed_validation",
+          "count": 42,
+          "sum_source_support": 9087,
+          "max_source_support": 361,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 12,
+          "split": "development",
+          "count": 44,
+          "sum_source_support": 7563,
+          "max_source_support": 258,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 12,
+          "split": "consumed_validation",
+          "count": 15,
+          "sum_source_support": 2444,
+          "max_source_support": 250,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 13,
+          "split": "development",
+          "count": 113,
+          "sum_source_support": 34478,
+          "max_source_support": 469,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 13,
+          "split": "consumed_validation",
+          "count": 42,
+          "sum_source_support": 12656,
+          "max_source_support": 481,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 14,
+          "split": "development",
+          "count": 75,
+          "sum_source_support": 23014,
+          "max_source_support": 479,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 14,
+          "split": "consumed_validation",
+          "count": 32,
+          "sum_source_support": 10304,
+          "max_source_support": 457,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 15,
+          "split": "development",
+          "count": 4,
+          "sum_source_support": 113,
+          "max_source_support": 40,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 15,
+          "split": "consumed_validation",
+          "count": 3,
+          "sum_source_support": 75,
+          "max_source_support": 34,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 16,
+          "split": "development",
+          "count": 48,
+          "sum_source_support": 5165,
+          "max_source_support": 209,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 16,
+          "split": "consumed_validation",
+          "count": 21,
+          "sum_source_support": 1828,
+          "max_source_support": 163,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 17,
+          "split": "development",
+          "count": 134,
+          "sum_source_support": 21392,
+          "max_source_support": 281,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 17,
+          "split": "consumed_validation",
+          "count": 49,
+          "sum_source_support": 7873,
+          "max_source_support": 299,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 18,
+          "split": "development",
+          "count": 83,
+          "sum_source_support": 9985,
+          "max_source_support": 319,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 18,
+          "split": "consumed_validation",
+          "count": 43,
+          "sum_source_support": 5358,
+          "max_source_support": 281,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 19,
+          "split": "development",
+          "count": 59,
+          "sum_source_support": 14186,
+          "max_source_support": 421,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 19,
+          "split": "consumed_validation",
+          "count": 42,
+          "sum_source_support": 9369,
+          "max_source_support": 325,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 20,
+          "split": "development",
+          "count": 16,
+          "sum_source_support": 3283,
+          "max_source_support": 301,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 20,
+          "split": "consumed_validation",
+          "count": 5,
+          "sum_source_support": 1112,
+          "max_source_support": 308,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 21,
+          "split": "development",
+          "count": 168,
+          "sum_source_support": 51516,
+          "max_source_support": 667,
+          "source_support_above512": 3
+        },
+        {
+          "expert": 21,
+          "split": "consumed_validation",
+          "count": 74,
+          "sum_source_support": 22321,
+          "max_source_support": 490,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 22,
+          "split": "development",
+          "count": 40,
+          "sum_source_support": 5066,
+          "max_source_support": 207,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 22,
+          "split": "consumed_validation",
+          "count": 16,
+          "sum_source_support": 2437,
+          "max_source_support": 194,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 23,
+          "split": "development",
+          "count": 104,
+          "sum_source_support": 15706,
+          "max_source_support": 331,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 23,
+          "split": "consumed_validation",
+          "count": 52,
+          "sum_source_support": 7585,
+          "max_source_support": 293,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 24,
+          "split": "development",
+          "count": 144,
+          "sum_source_support": 22407,
+          "max_source_support": 339,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 24,
+          "split": "consumed_validation",
+          "count": 66,
+          "sum_source_support": 10281,
+          "max_source_support": 301,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 25,
+          "split": "development",
+          "count": 260,
+          "sum_source_support": 14331,
+          "max_source_support": 225,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 25,
+          "split": "consumed_validation",
+          "count": 149,
+          "sum_source_support": 8631,
+          "max_source_support": 266,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 26,
+          "split": "development",
+          "count": 122,
+          "sum_source_support": 25235,
+          "max_source_support": 441,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 26,
+          "split": "consumed_validation",
+          "count": 46,
+          "sum_source_support": 9113,
+          "max_source_support": 281,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 27,
+          "split": "development",
+          "count": 95,
+          "sum_source_support": 19773,
+          "max_source_support": 391,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 27,
+          "split": "consumed_validation",
+          "count": 61,
+          "sum_source_support": 12263,
+          "max_source_support": 341,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 28,
+          "split": "development",
+          "count": 46,
+          "sum_source_support": 8502,
+          "max_source_support": 274,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 28,
+          "split": "consumed_validation",
+          "count": 22,
+          "sum_source_support": 4095,
+          "max_source_support": 314,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 29,
+          "split": "development",
+          "count": 59,
+          "sum_source_support": 5846,
+          "max_source_support": 187,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 29,
+          "split": "consumed_validation",
+          "count": 32,
+          "sum_source_support": 3417,
+          "max_source_support": 193,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 30,
+          "split": "development",
+          "count": 87,
+          "sum_source_support": 18453,
+          "max_source_support": 389,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 30,
+          "split": "consumed_validation",
+          "count": 54,
+          "sum_source_support": 12042,
+          "max_source_support": 361,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 31,
+          "split": "development",
+          "count": 55,
+          "sum_source_support": 13564,
+          "max_source_support": 386,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 31,
+          "split": "consumed_validation",
+          "count": 42,
+          "sum_source_support": 10436,
+          "max_source_support": 334,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 32,
+          "split": "development",
+          "count": 102,
+          "sum_source_support": 16611,
+          "max_source_support": 338,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 32,
+          "split": "consumed_validation",
+          "count": 42,
+          "sum_source_support": 7276,
+          "max_source_support": 344,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 33,
+          "split": "development",
+          "count": 183,
+          "sum_source_support": 28603,
+          "max_source_support": 335,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 33,
+          "split": "consumed_validation",
+          "count": 52,
+          "sum_source_support": 8266,
+          "max_source_support": 292,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 34,
+          "split": "development",
+          "count": 200,
+          "sum_source_support": 28965,
+          "max_source_support": 300,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 34,
+          "split": "consumed_validation",
+          "count": 100,
+          "sum_source_support": 15578,
+          "max_source_support": 301,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 35,
+          "split": "development",
+          "count": 98,
+          "sum_source_support": 30273,
+          "max_source_support": 522,
+          "source_support_above512": 2
+        },
+        {
+          "expert": 35,
+          "split": "consumed_validation",
+          "count": 53,
+          "sum_source_support": 17394,
+          "max_source_support": 481,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 36,
+          "split": "development",
+          "count": 5,
+          "sum_source_support": 158,
+          "max_source_support": 57,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 36,
+          "split": "consumed_validation",
+          "count": 3,
+          "sum_source_support": 73,
+          "max_source_support": 33,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 37,
+          "split": "development",
+          "count": 271,
+          "sum_source_support": 193505,
+          "max_source_support": 764,
+          "source_support_above512": 271
+        },
+        {
+          "expert": 37,
+          "split": "consumed_validation",
+          "count": 122,
+          "sum_source_support": 87339,
+          "max_source_support": 764,
+          "source_support_above512": 122
+        },
+        {
+          "expert": 38,
+          "split": "development",
+          "count": 142,
+          "sum_source_support": 40802,
+          "max_source_support": 458,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 38,
+          "split": "consumed_validation",
+          "count": 80,
+          "sum_source_support": 23486,
+          "max_source_support": 421,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 39,
+          "split": "development",
+          "count": 18,
+          "sum_source_support": 362,
+          "max_source_support": 48,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 39,
+          "split": "consumed_validation",
+          "count": 2,
+          "sum_source_support": 44,
+          "max_source_support": 25,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 40,
+          "split": "development",
+          "count": 183,
+          "sum_source_support": 41950,
+          "max_source_support": 485,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 40,
+          "split": "consumed_validation",
+          "count": 117,
+          "sum_source_support": 26254,
+          "max_source_support": 453,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 41,
+          "split": "development",
+          "count": 116,
+          "sum_source_support": 38391,
+          "max_source_support": 519,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 41,
+          "split": "consumed_validation",
+          "count": 74,
+          "sum_source_support": 24110,
+          "max_source_support": 632,
+          "source_support_above512": 3
+        },
+        {
+          "expert": 42,
+          "split": "development",
+          "count": 53,
+          "sum_source_support": 11531,
+          "max_source_support": 328,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 42,
+          "split": "consumed_validation",
+          "count": 39,
+          "sum_source_support": 7955,
+          "max_source_support": 344,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 43,
+          "split": "development",
+          "count": 70,
+          "sum_source_support": 18296,
+          "max_source_support": 397,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 43,
+          "split": "consumed_validation",
+          "count": 17,
+          "sum_source_support": 4622,
+          "max_source_support": 402,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 44,
+          "split": "development",
+          "count": 21,
+          "sum_source_support": 4614,
+          "max_source_support": 377,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 44,
+          "split": "consumed_validation",
+          "count": 10,
+          "sum_source_support": 2076,
+          "max_source_support": 268,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 45,
+          "split": "development",
+          "count": 28,
+          "sum_source_support": 4972,
+          "max_source_support": 218,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 45,
+          "split": "consumed_validation",
+          "count": 8,
+          "sum_source_support": 1470,
+          "max_source_support": 215,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 46,
+          "split": "development",
+          "count": 44,
+          "sum_source_support": 8265,
+          "max_source_support": 304,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 46,
+          "split": "consumed_validation",
+          "count": 25,
+          "sum_source_support": 4918,
+          "max_source_support": 285,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 47,
+          "split": "development",
+          "count": 108,
+          "sum_source_support": 26094,
+          "max_source_support": 492,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 47,
+          "split": "consumed_validation",
+          "count": 53,
+          "sum_source_support": 13020,
+          "max_source_support": 364,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 48,
+          "split": "development",
+          "count": 89,
+          "sum_source_support": 14343,
+          "max_source_support": 304,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 48,
+          "split": "consumed_validation",
+          "count": 44,
+          "sum_source_support": 6699,
+          "max_source_support": 264,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 49,
+          "split": "development",
+          "count": 123,
+          "sum_source_support": 35735,
+          "max_source_support": 489,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 49,
+          "split": "consumed_validation",
+          "count": 68,
+          "sum_source_support": 20872,
+          "max_source_support": 735,
+          "source_support_above512": 2
+        },
+        {
+          "expert": 50,
+          "split": "development",
+          "count": 106,
+          "sum_source_support": 25900,
+          "max_source_support": 449,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 50,
+          "split": "consumed_validation",
+          "count": 45,
+          "sum_source_support": 10884,
+          "max_source_support": 395,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 51,
+          "split": "development",
+          "count": 75,
+          "sum_source_support": 10311,
+          "max_source_support": 256,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 51,
+          "split": "consumed_validation",
+          "count": 47,
+          "sum_source_support": 6211,
+          "max_source_support": 312,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 52,
+          "split": "development",
+          "count": 19,
+          "sum_source_support": 4287,
+          "max_source_support": 349,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 52,
+          "split": "consumed_validation",
+          "count": 20,
+          "sum_source_support": 3923,
+          "max_source_support": 280,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 53,
+          "split": "development",
+          "count": 60,
+          "sum_source_support": 7894,
+          "max_source_support": 211,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 53,
+          "split": "consumed_validation",
+          "count": 23,
+          "sum_source_support": 3331,
+          "max_source_support": 201,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 54,
+          "split": "development",
+          "count": 76,
+          "sum_source_support": 14807,
+          "max_source_support": 311,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 54,
+          "split": "consumed_validation",
+          "count": 30,
+          "sum_source_support": 5848,
+          "max_source_support": 286,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 55,
+          "split": "development",
+          "count": 122,
+          "sum_source_support": 26658,
+          "max_source_support": 444,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 55,
+          "split": "consumed_validation",
+          "count": 65,
+          "sum_source_support": 13251,
+          "max_source_support": 448,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 56,
+          "split": "development",
+          "count": 149,
+          "sum_source_support": 32724,
+          "max_source_support": 343,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 56,
+          "split": "consumed_validation",
+          "count": 59,
+          "sum_source_support": 13304,
+          "max_source_support": 396,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 57,
+          "split": "development",
+          "count": 16,
+          "sum_source_support": 2894,
+          "max_source_support": 299,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 57,
+          "split": "consumed_validation",
+          "count": 11,
+          "sum_source_support": 1974,
+          "max_source_support": 252,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 58,
+          "split": "development",
+          "count": 152,
+          "sum_source_support": 45236,
+          "max_source_support": 573,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 58,
+          "split": "consumed_validation",
+          "count": 69,
+          "sum_source_support": 21129,
+          "max_source_support": 524,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 59,
+          "split": "development",
+          "count": 17,
+          "sum_source_support": 3127,
+          "max_source_support": 294,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 59,
+          "split": "consumed_validation",
+          "count": 10,
+          "sum_source_support": 1706,
+          "max_source_support": 234,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 60,
+          "split": "development",
+          "count": 100,
+          "sum_source_support": 16242,
+          "max_source_support": 329,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 60,
+          "split": "consumed_validation",
+          "count": 57,
+          "sum_source_support": 9256,
+          "max_source_support": 311,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 61,
+          "split": "development",
+          "count": 104,
+          "sum_source_support": 30667,
+          "max_source_support": 451,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 61,
+          "split": "consumed_validation",
+          "count": 39,
+          "sum_source_support": 12454,
+          "max_source_support": 523,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 62,
+          "split": "development",
+          "count": 60,
+          "sum_source_support": 13434,
+          "max_source_support": 404,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 62,
+          "split": "consumed_validation",
+          "count": 25,
+          "sum_source_support": 5516,
+          "max_source_support": 276,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 63,
+          "split": "development",
+          "count": 27,
+          "sum_source_support": 666,
+          "max_source_support": 69,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 63,
+          "split": "consumed_validation",
+          "count": 10,
+          "sum_source_support": 256,
+          "max_source_support": 40,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 64,
+          "split": "development",
+          "count": 34,
+          "sum_source_support": 5166,
+          "max_source_support": 197,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 64,
+          "split": "consumed_validation",
+          "count": 12,
+          "sum_source_support": 2336,
+          "max_source_support": 270,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 65,
+          "split": "development",
+          "count": 116,
+          "sum_source_support": 40387,
+          "max_source_support": 499,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 65,
+          "split": "consumed_validation",
+          "count": 73,
+          "sum_source_support": 24119,
+          "max_source_support": 470,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 66,
+          "split": "development",
+          "count": 38,
+          "sum_source_support": 4692,
+          "max_source_support": 219,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 66,
+          "split": "consumed_validation",
+          "count": 29,
+          "sum_source_support": 3950,
+          "max_source_support": 227,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 67,
+          "split": "development",
+          "count": 165,
+          "sum_source_support": 33181,
+          "max_source_support": 330,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 67,
+          "split": "consumed_validation",
+          "count": 107,
+          "sum_source_support": 21852,
+          "max_source_support": 357,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 68,
+          "split": "development",
+          "count": 98,
+          "sum_source_support": 31658,
+          "max_source_support": 663,
+          "source_support_above512": 5
+        },
+        {
+          "expert": 68,
+          "split": "consumed_validation",
+          "count": 44,
+          "sum_source_support": 13406,
+          "max_source_support": 600,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 69,
+          "split": "development",
+          "count": 12,
+          "sum_source_support": 299,
+          "max_source_support": 46,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 69,
+          "split": "consumed_validation",
+          "count": 9,
+          "sum_source_support": 269,
+          "max_source_support": 58,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 70,
+          "split": "development",
+          "count": 53,
+          "sum_source_support": 7840,
+          "max_source_support": 286,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 70,
+          "split": "consumed_validation",
+          "count": 31,
+          "sum_source_support": 4470,
+          "max_source_support": 236,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 71,
+          "split": "development",
+          "count": 147,
+          "sum_source_support": 31334,
+          "max_source_support": 399,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 71,
+          "split": "consumed_validation",
+          "count": 57,
+          "sum_source_support": 12411,
+          "max_source_support": 391,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 72,
+          "split": "development",
+          "count": 119,
+          "sum_source_support": 19477,
+          "max_source_support": 401,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 72,
+          "split": "consumed_validation",
+          "count": 41,
+          "sum_source_support": 6313,
+          "max_source_support": 269,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 73,
+          "split": "development",
+          "count": 16,
+          "sum_source_support": 478,
+          "max_source_support": 71,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 73,
+          "split": "consumed_validation",
+          "count": 3,
+          "sum_source_support": 111,
+          "max_source_support": 51,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 74,
+          "split": "development",
+          "count": 124,
+          "sum_source_support": 23329,
+          "max_source_support": 386,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 74,
+          "split": "consumed_validation",
+          "count": 54,
+          "sum_source_support": 11258,
+          "max_source_support": 426,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 75,
+          "split": "development",
+          "count": 124,
+          "sum_source_support": 22586,
+          "max_source_support": 305,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 75,
+          "split": "consumed_validation",
+          "count": 48,
+          "sum_source_support": 9079,
+          "max_source_support": 362,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 76,
+          "split": "development",
+          "count": 115,
+          "sum_source_support": 17692,
+          "max_source_support": 282,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 76,
+          "split": "consumed_validation",
+          "count": 56,
+          "sum_source_support": 8248,
+          "max_source_support": 255,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 77,
+          "split": "development",
+          "count": 110,
+          "sum_source_support": 17022,
+          "max_source_support": 475,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 77,
+          "split": "consumed_validation",
+          "count": 46,
+          "sum_source_support": 7558,
+          "max_source_support": 271,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 78,
+          "split": "development",
+          "count": 213,
+          "sum_source_support": 44148,
+          "max_source_support": 327,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 78,
+          "split": "consumed_validation",
+          "count": 110,
+          "sum_source_support": 23065,
+          "max_source_support": 408,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 79,
+          "split": "development",
+          "count": 53,
+          "sum_source_support": 10090,
+          "max_source_support": 409,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 79,
+          "split": "consumed_validation",
+          "count": 41,
+          "sum_source_support": 7436,
+          "max_source_support": 292,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 80,
+          "split": "development",
+          "count": 56,
+          "sum_source_support": 8859,
+          "max_source_support": 256,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 80,
+          "split": "consumed_validation",
+          "count": 22,
+          "sum_source_support": 3563,
+          "max_source_support": 236,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 81,
+          "split": "development",
+          "count": 113,
+          "sum_source_support": 26562,
+          "max_source_support": 353,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 81,
+          "split": "consumed_validation",
+          "count": 67,
+          "sum_source_support": 15517,
+          "max_source_support": 336,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 82,
+          "split": "development",
+          "count": 144,
+          "sum_source_support": 34600,
+          "max_source_support": 552,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 82,
+          "split": "consumed_validation",
+          "count": 58,
+          "sum_source_support": 15258,
+          "max_source_support": 516,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 83,
+          "split": "development",
+          "count": 70,
+          "sum_source_support": 11480,
+          "max_source_support": 307,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 83,
+          "split": "consumed_validation",
+          "count": 18,
+          "sum_source_support": 2706,
+          "max_source_support": 229,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 84,
+          "split": "development",
+          "count": 308,
+          "sum_source_support": 59860,
+          "max_source_support": 342,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 84,
+          "split": "consumed_validation",
+          "count": 190,
+          "sum_source_support": 38848,
+          "max_source_support": 361,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 85,
+          "split": "development",
+          "count": 51,
+          "sum_source_support": 19771,
+          "max_source_support": 565,
+          "source_support_above512": 2
+        },
+        {
+          "expert": 85,
+          "split": "consumed_validation",
+          "count": 18,
+          "sum_source_support": 7110,
+          "max_source_support": 526,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 86,
+          "split": "development",
+          "count": 40,
+          "sum_source_support": 7203,
+          "max_source_support": 279,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 86,
+          "split": "consumed_validation",
+          "count": 24,
+          "sum_source_support": 4317,
+          "max_source_support": 315,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 87,
+          "split": "development",
+          "count": 134,
+          "sum_source_support": 32313,
+          "max_source_support": 330,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 87,
+          "split": "consumed_validation",
+          "count": 56,
+          "sum_source_support": 13235,
+          "max_source_support": 306,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 88,
+          "split": "development",
+          "count": 131,
+          "sum_source_support": 15320,
+          "max_source_support": 282,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 88,
+          "split": "consumed_validation",
+          "count": 77,
+          "sum_source_support": 8733,
+          "max_source_support": 374,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 89,
+          "split": "development",
+          "count": 86,
+          "sum_source_support": 28061,
+          "max_source_support": 523,
+          "source_support_above512": 1
+        },
+        {
+          "expert": 89,
+          "split": "consumed_validation",
+          "count": 52,
+          "sum_source_support": 17085,
+          "max_source_support": 453,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 90,
+          "split": "development",
+          "count": 30,
+          "sum_source_support": 3503,
+          "max_source_support": 249,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 90,
+          "split": "consumed_validation",
+          "count": 19,
+          "sum_source_support": 1899,
+          "max_source_support": 152,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 91,
+          "split": "development",
+          "count": 78,
+          "sum_source_support": 15087,
+          "max_source_support": 319,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 91,
+          "split": "consumed_validation",
+          "count": 32,
+          "sum_source_support": 6565,
+          "max_source_support": 339,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 92,
+          "split": "development",
+          "count": 78,
+          "sum_source_support": 12294,
+          "max_source_support": 320,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 92,
+          "split": "consumed_validation",
+          "count": 42,
+          "sum_source_support": 6820,
+          "max_source_support": 256,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 93,
+          "split": "development",
+          "count": 67,
+          "sum_source_support": 13722,
+          "max_source_support": 427,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 93,
+          "split": "consumed_validation",
+          "count": 56,
+          "sum_source_support": 11383,
+          "max_source_support": 316,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 94,
+          "split": "development",
+          "count": 84,
+          "sum_source_support": 11874,
+          "max_source_support": 254,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 94,
+          "split": "consumed_validation",
+          "count": 27,
+          "sum_source_support": 4163,
+          "max_source_support": 264,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 95,
+          "split": "development",
+          "count": 108,
+          "sum_source_support": 15823,
+          "max_source_support": 335,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 95,
+          "split": "consumed_validation",
+          "count": 51,
+          "sum_source_support": 7509,
+          "max_source_support": 244,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 96,
+          "split": "development",
+          "count": 61,
+          "sum_source_support": 8513,
+          "max_source_support": 253,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 96,
+          "split": "consumed_validation",
+          "count": 42,
+          "sum_source_support": 6001,
+          "max_source_support": 218,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 97,
+          "split": "development",
+          "count": 103,
+          "sum_source_support": 19426,
+          "max_source_support": 411,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 97,
+          "split": "consumed_validation",
+          "count": 70,
+          "sum_source_support": 12639,
+          "max_source_support": 356,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 98,
+          "split": "development",
+          "count": 92,
+          "sum_source_support": 15677,
+          "max_source_support": 336,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 98,
+          "split": "consumed_validation",
+          "count": 66,
+          "sum_source_support": 10444,
+          "max_source_support": 296,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 99,
+          "split": "development",
+          "count": 238,
+          "sum_source_support": 47580,
+          "max_source_support": 391,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 99,
+          "split": "consumed_validation",
+          "count": 77,
+          "sum_source_support": 14851,
+          "max_source_support": 355,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 100,
+          "split": "development",
+          "count": 65,
+          "sum_source_support": 21151,
+          "max_source_support": 497,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 100,
+          "split": "consumed_validation",
+          "count": 52,
+          "sum_source_support": 16574,
+          "max_source_support": 410,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 101,
+          "split": "development",
+          "count": 39,
+          "sum_source_support": 9554,
+          "max_source_support": 350,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 101,
+          "split": "consumed_validation",
+          "count": 33,
+          "sum_source_support": 8110,
+          "max_source_support": 310,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 102,
+          "split": "development",
+          "count": 51,
+          "sum_source_support": 8067,
+          "max_source_support": 241,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 102,
+          "split": "consumed_validation",
+          "count": 27,
+          "sum_source_support": 4549,
+          "max_source_support": 272,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 103,
+          "split": "development",
+          "count": 121,
+          "sum_source_support": 38567,
+          "max_source_support": 434,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 103,
+          "split": "consumed_validation",
+          "count": 32,
+          "sum_source_support": 10637,
+          "max_source_support": 453,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 104,
+          "split": "development",
+          "count": 87,
+          "sum_source_support": 13487,
+          "max_source_support": 273,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 104,
+          "split": "consumed_validation",
+          "count": 69,
+          "sum_source_support": 11402,
+          "max_source_support": 351,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 105,
+          "split": "development",
+          "count": 113,
+          "sum_source_support": 13152,
+          "max_source_support": 276,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 105,
+          "split": "consumed_validation",
+          "count": 49,
+          "sum_source_support": 5731,
+          "max_source_support": 257,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 106,
+          "split": "development",
+          "count": 52,
+          "sum_source_support": 10359,
+          "max_source_support": 276,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 106,
+          "split": "consumed_validation",
+          "count": 18,
+          "sum_source_support": 3743,
+          "max_source_support": 298,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 107,
+          "split": "development",
+          "count": 180,
+          "sum_source_support": 35020,
+          "max_source_support": 452,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 107,
+          "split": "consumed_validation",
+          "count": 45,
+          "sum_source_support": 8399,
+          "max_source_support": 320,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 108,
+          "split": "development",
+          "count": 39,
+          "sum_source_support": 6638,
+          "max_source_support": 252,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 108,
+          "split": "consumed_validation",
+          "count": 8,
+          "sum_source_support": 1273,
+          "max_source_support": 204,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 109,
+          "split": "development",
+          "count": 99,
+          "sum_source_support": 17372,
+          "max_source_support": 354,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 109,
+          "split": "consumed_validation",
+          "count": 63,
+          "sum_source_support": 9955,
+          "max_source_support": 302,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 110,
+          "split": "development",
+          "count": 55,
+          "sum_source_support": 14183,
+          "max_source_support": 425,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 110,
+          "split": "consumed_validation",
+          "count": 37,
+          "sum_source_support": 9970,
+          "max_source_support": 399,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 111,
+          "split": "development",
+          "count": 127,
+          "sum_source_support": 22903,
+          "max_source_support": 376,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 111,
+          "split": "consumed_validation",
+          "count": 76,
+          "sum_source_support": 14788,
+          "max_source_support": 376,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 112,
+          "split": "development",
+          "count": 121,
+          "sum_source_support": 23069,
+          "max_source_support": 284,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 112,
+          "split": "consumed_validation",
+          "count": 52,
+          "sum_source_support": 10475,
+          "max_source_support": 375,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 113,
+          "split": "development",
+          "count": 133,
+          "sum_source_support": 47222,
+          "max_source_support": 483,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 113,
+          "split": "consumed_validation",
+          "count": 57,
+          "sum_source_support": 20116,
+          "max_source_support": 458,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 114,
+          "split": "development",
+          "count": 168,
+          "sum_source_support": 44589,
+          "max_source_support": 446,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 114,
+          "split": "consumed_validation",
+          "count": 94,
+          "sum_source_support": 25109,
+          "max_source_support": 424,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 115,
+          "split": "development",
+          "count": 12,
+          "sum_source_support": 287,
+          "max_source_support": 38,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 115,
+          "split": "consumed_validation",
+          "count": 2,
+          "sum_source_support": 52,
+          "max_source_support": 27,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 116,
+          "split": "development",
+          "count": 34,
+          "sum_source_support": 5798,
+          "max_source_support": 240,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 116,
+          "split": "consumed_validation",
+          "count": 25,
+          "sum_source_support": 4127,
+          "max_source_support": 270,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 117,
+          "split": "development",
+          "count": 116,
+          "sum_source_support": 23388,
+          "max_source_support": 324,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 117,
+          "split": "consumed_validation",
+          "count": 40,
+          "sum_source_support": 7963,
+          "max_source_support": 287,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 118,
+          "split": "development",
+          "count": 139,
+          "sum_source_support": 35533,
+          "max_source_support": 449,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 118,
+          "split": "consumed_validation",
+          "count": 56,
+          "sum_source_support": 14292,
+          "max_source_support": 396,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 119,
+          "split": "development",
+          "count": 125,
+          "sum_source_support": 29622,
+          "max_source_support": 384,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 119,
+          "split": "consumed_validation",
+          "count": 41,
+          "sum_source_support": 10188,
+          "max_source_support": 430,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 120,
+          "split": "development",
+          "count": 63,
+          "sum_source_support": 11670,
+          "max_source_support": 253,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 120,
+          "split": "consumed_validation",
+          "count": 30,
+          "sum_source_support": 6078,
+          "max_source_support": 307,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 121,
+          "split": "development",
+          "count": 22,
+          "sum_source_support": 4631,
+          "max_source_support": 322,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 121,
+          "split": "consumed_validation",
+          "count": 11,
+          "sum_source_support": 1938,
+          "max_source_support": 229,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 122,
+          "split": "development",
+          "count": 39,
+          "sum_source_support": 8159,
+          "max_source_support": 328,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 122,
+          "split": "consumed_validation",
+          "count": 30,
+          "sum_source_support": 5905,
+          "max_source_support": 300,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 123,
+          "split": "development",
+          "count": 102,
+          "sum_source_support": 28910,
+          "max_source_support": 478,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 123,
+          "split": "consumed_validation",
+          "count": 73,
+          "sum_source_support": 21118,
+          "max_source_support": 478,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 124,
+          "split": "development",
+          "count": 7,
+          "sum_source_support": 220,
+          "max_source_support": 55,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 124,
+          "split": "consumed_validation",
+          "count": 5,
+          "sum_source_support": 141,
+          "max_source_support": 56,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 125,
+          "split": "development",
+          "count": 63,
+          "sum_source_support": 13630,
+          "max_source_support": 296,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 125,
+          "split": "consumed_validation",
+          "count": 35,
+          "sum_source_support": 7477,
+          "max_source_support": 342,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 126,
+          "split": "development",
+          "count": 82,
+          "sum_source_support": 10289,
+          "max_source_support": 249,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 126,
+          "split": "consumed_validation",
+          "count": 46,
+          "sum_source_support": 6828,
+          "max_source_support": 366,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 127,
+          "split": "development",
+          "count": 102,
+          "sum_source_support": 15608,
+          "max_source_support": 455,
+          "source_support_above512": 0
+        },
+        {
+          "expert": 127,
+          "split": "consumed_validation",
+          "count": 51,
+          "sum_source_support": 7573,
+          "max_source_support": 316,
+          "source_support_above512": 0
+        }
+      ],
+      "book_mode": [
+        {
+          "book": 0,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12172,
+          "max_source_support": 761,
+          "source_support_above512": 2
+        },
+        {
+          "book": 0,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11066,
+          "max_source_support": 761,
+          "source_support_above512": 2
+        },
+        {
+          "book": 1,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11763,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 1,
+          "role": 0,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10076,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 2,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13038,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 2,
+          "role": 0,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10781,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 3,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12600,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 3,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11544,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 4,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11814,
+          "max_source_support": 697,
+          "source_support_above512": 1
+        },
+        {
+          "book": 4,
+          "role": 0,
+          "mode": 1,
+          "count": 44,
+          "sum_source_support": 10187,
+          "max_source_support": 697,
+          "source_support_above512": 1
+        },
+        {
+          "book": 5,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 16782,
+          "max_source_support": 762,
+          "source_support_above512": 5
+        },
+        {
+          "book": 5,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 15069,
+          "max_source_support": 762,
+          "source_support_above512": 5
+        },
+        {
+          "book": 6,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11765,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 6,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10262,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 7,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14488,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 7,
+          "role": 0,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 12682,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 8,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13196,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 8,
+          "role": 0,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 10562,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 9,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11262,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 9,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9947,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 10,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14107,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 10,
+          "role": 0,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 11468,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 11,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11467,
+          "max_source_support": 386,
+          "source_support_above512": 0
+        },
+        {
+          "book": 11,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10137,
+          "max_source_support": 351,
+          "source_support_above512": 0
+        },
+        {
+          "book": 12,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12030,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 12,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11347,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 13,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 9238,
+          "max_source_support": 331,
+          "source_support_above512": 0
+        },
+        {
+          "book": 13,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 8513,
+          "max_source_support": 328,
+          "source_support_above512": 0
+        },
+        {
+          "book": 14,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11485,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 14,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 10605,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 15,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11784,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 15,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10699,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 16,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10528,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 16,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 9358,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 17,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14068,
+          "max_source_support": 702,
+          "source_support_above512": 4
+        },
+        {
+          "book": 17,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11318,
+          "max_source_support": 702,
+          "source_support_above512": 4
+        },
+        {
+          "book": 18,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 15080,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 18,
+          "role": 0,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 14143,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 19,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13053,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 19,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11733,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 20,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11522,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 20,
+          "role": 0,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10314,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 21,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12482,
+          "max_source_support": 701,
+          "source_support_above512": 3
+        },
+        {
+          "book": 21,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10856,
+          "max_source_support": 701,
+          "source_support_above512": 3
+        },
+        {
+          "book": 22,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13337,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 22,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11192,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 23,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12095,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 23,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10386,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 24,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13524,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 24,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12191,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 25,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11503,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 25,
+          "role": 0,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 10418,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 26,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10365,
+          "max_source_support": 407,
+          "source_support_above512": 0
+        },
+        {
+          "book": 26,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 9476,
+          "max_source_support": 441,
+          "source_support_above512": 0
+        },
+        {
+          "book": 27,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13768,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 27,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12343,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 28,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11995,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 28,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10936,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 29,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12016,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 29,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10936,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 30,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14401,
+          "max_source_support": 701,
+          "source_support_above512": 3
+        },
+        {
+          "book": 30,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 13943,
+          "max_source_support": 701,
+          "source_support_above512": 4
+        },
+        {
+          "book": 31,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11681,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 31,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 10930,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 32,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11511,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 32,
+          "role": 0,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 10884,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 33,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12264,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 33,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11332,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 34,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13460,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 34,
+          "role": 0,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 10801,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 35,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12130,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 35,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11641,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 36,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13113,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 36,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11474,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 37,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11326,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 37,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10252,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 38,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11398,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 38,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10194,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 39,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11389,
+          "max_source_support": 423,
+          "source_support_above512": 0
+        },
+        {
+          "book": 39,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 9489,
+          "max_source_support": 423,
+          "source_support_above512": 0
+        },
+        {
+          "book": 40,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12074,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 40,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 9479,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 41,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11949,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 41,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 10971,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 42,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11385,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 42,
+          "role": 0,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9047,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 43,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12383,
+          "max_source_support": 700,
+          "source_support_above512": 4
+        },
+        {
+          "book": 43,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11530,
+          "max_source_support": 700,
+          "source_support_above512": 4
+        },
+        {
+          "book": 44,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13284,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 44,
+          "role": 0,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 11428,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 45,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10320,
+          "max_source_support": 386,
+          "source_support_above512": 0
+        },
+        {
+          "book": 45,
+          "role": 0,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 9578,
+          "max_source_support": 454,
+          "source_support_above512": 0
+        },
+        {
+          "book": 46,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11621,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 46,
+          "role": 0,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10209,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 47,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11821,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 47,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11028,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 48,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13035,
+          "max_source_support": 761,
+          "source_support_above512": 3
+        },
+        {
+          "book": 48,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11611,
+          "max_source_support": 761,
+          "source_support_above512": 3
+        },
+        {
+          "book": 49,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13172,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 49,
+          "role": 0,
+          "mode": 1,
+          "count": 44,
+          "sum_source_support": 9873,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 50,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10880,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 50,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9676,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 51,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13333,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 51,
+          "role": 0,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 12186,
+          "max_source_support": 763,
+          "source_support_above512": 5
+        },
+        {
+          "book": 52,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12805,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 52,
+          "role": 0,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 11564,
+          "max_source_support": 762,
+          "source_support_above512": 4
+        },
+        {
+          "book": 53,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13704,
+          "max_source_support": 762,
+          "source_support_above512": 5
+        },
+        {
+          "book": 53,
+          "role": 0,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 11561,
+          "max_source_support": 762,
+          "source_support_above512": 4
+        },
+        {
+          "book": 54,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12783,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 54,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 12057,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 55,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11205,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 55,
+          "role": 0,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 9525,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 56,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13823,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 56,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12069,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 57,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12075,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 57,
+          "role": 0,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10011,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 58,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13626,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 58,
+          "role": 0,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 12761,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 59,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10275,
+          "max_source_support": 697,
+          "source_support_above512": 1
+        },
+        {
+          "book": 59,
+          "role": 0,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 9276,
+          "max_source_support": 697,
+          "source_support_above512": 1
+        },
+        {
+          "book": 60,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12846,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 60,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11837,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 61,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12241,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 61,
+          "role": 0,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11568,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 62,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13028,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 62,
+          "role": 0,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10960,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 63,
+          "role": 0,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13897,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 63,
+          "role": 0,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12158,
+          "max_source_support": 699,
+          "source_support_above512": 3
+        },
+        {
+          "book": 64,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13503,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 64,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11605,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 65,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14081,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 65,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12246,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 66,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13687,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 66,
+          "role": 1,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 12738,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 67,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12243,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 67,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11951,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 68,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10758,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 68,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9337,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 69,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12404,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 69,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10012,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 70,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12250,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 70,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10147,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 71,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12157,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 71,
+          "role": 1,
+          "mode": 1,
+          "count": 44,
+          "sum_source_support": 9395,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 72,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11918,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 72,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9926,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 73,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11389,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 73,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10086,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 74,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12815,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 74,
+          "role": 1,
+          "mode": 1,
+          "count": 54,
+          "sum_source_support": 13043,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 75,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12099,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 75,
+          "role": 1,
+          "mode": 1,
+          "count": 43,
+          "sum_source_support": 9786,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 76,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14054,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 76,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 12288,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 77,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12491,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 77,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10844,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 78,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12714,
+          "max_source_support": 760,
+          "source_support_above512": 4
+        },
+        {
+          "book": 78,
+          "role": 1,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 11894,
+          "max_source_support": 760,
+          "source_support_above512": 4
+        },
+        {
+          "book": 79,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12639,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 79,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12082,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 80,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14622,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 80,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12684,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 81,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13368,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 81,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11964,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 82,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12907,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 82,
+          "role": 1,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 11669,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 83,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13588,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 83,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11419,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 84,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11007,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 84,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10272,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 85,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12543,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 85,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10571,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 86,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12231,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 86,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11121,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 87,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13365,
+          "max_source_support": 700,
+          "source_support_above512": 4
+        },
+        {
+          "book": 87,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 12792,
+          "max_source_support": 700,
+          "source_support_above512": 4
+        },
+        {
+          "book": 88,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12829,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 88,
+          "role": 1,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 12271,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 89,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12321,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 89,
+          "role": 1,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 9915,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 90,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12685,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 90,
+          "role": 1,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11821,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 91,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11595,
+          "max_source_support": 419,
+          "source_support_above512": 0
+        },
+        {
+          "book": 91,
+          "role": 1,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 10796,
+          "max_source_support": 419,
+          "source_support_above512": 0
+        },
+        {
+          "book": 92,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12719,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 92,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 11298,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 93,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12204,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 93,
+          "role": 1,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 10803,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 94,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13863,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 94,
+          "role": 1,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 11265,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 95,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11488,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 95,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9721,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 96,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13439,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 96,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11914,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 97,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13428,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 97,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 11137,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 98,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12073,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 98,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10766,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 99,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14481,
+          "max_source_support": 700,
+          "source_support_above512": 4
+        },
+        {
+          "book": 99,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 12325,
+          "max_source_support": 700,
+          "source_support_above512": 4
+        },
+        {
+          "book": 100,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11500,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 100,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9772,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 101,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11502,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 101,
+          "role": 1,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 10323,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 102,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11635,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 102,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9947,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 103,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11454,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 103,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10044,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 104,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12486,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 104,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10803,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 105,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14467,
+          "max_source_support": 735,
+          "source_support_above512": 4
+        },
+        {
+          "book": 105,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 12972,
+          "max_source_support": 735,
+          "source_support_above512": 4
+        },
+        {
+          "book": 106,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13361,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 106,
+          "role": 1,
+          "mode": 1,
+          "count": 43,
+          "sum_source_support": 10501,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 107,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11831,
+          "max_source_support": 403,
+          "source_support_above512": 0
+        },
+        {
+          "book": 107,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10273,
+          "max_source_support": 441,
+          "source_support_above512": 0
+        },
+        {
+          "book": 108,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11499,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 108,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10854,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 109,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13071,
+          "max_source_support": 701,
+          "source_support_above512": 3
+        },
+        {
+          "book": 109,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11305,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 110,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11574,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 110,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9701,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 111,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13005,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 111,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11510,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 112,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11782,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 112,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9884,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 113,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12250,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 113,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10780,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 114,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12137,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 114,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10424,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 115,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11594,
+          "max_source_support": 524,
+          "source_support_above512": 1
+        },
+        {
+          "book": 115,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 9668,
+          "max_source_support": 448,
+          "source_support_above512": 0
+        },
+        {
+          "book": 116,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10321,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 116,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 9211,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 117,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10835,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 117,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9877,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 118,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10622,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 118,
+          "role": 1,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9797,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 119,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14127,
+          "max_source_support": 764,
+          "source_support_above512": 3
+        },
+        {
+          "book": 119,
+          "role": 1,
+          "mode": 1,
+          "count": 44,
+          "sum_source_support": 11329,
+          "max_source_support": 764,
+          "source_support_above512": 3
+        },
+        {
+          "book": 120,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13308,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 120,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11430,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 121,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13061,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 121,
+          "role": 1,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 11315,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 122,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11007,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 122,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9398,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 123,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10771,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 123,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 8799,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 124,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12713,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 124,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10705,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 125,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10972,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 125,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9331,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 126,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11715,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 126,
+          "role": 1,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9744,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 127,
+          "role": 1,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12958,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 127,
+          "role": 1,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11010,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 128,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12657,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 128,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10914,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 129,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12707,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 129,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10020,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 130,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12558,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 130,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 10690,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 131,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13275,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 131,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11979,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 132,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10493,
+          "max_source_support": 499,
+          "source_support_above512": 0
+        },
+        {
+          "book": 132,
+          "role": 2,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 9480,
+          "max_source_support": 499,
+          "source_support_above512": 0
+        },
+        {
+          "book": 133,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11775,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 133,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10065,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 134,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11848,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 134,
+          "role": 2,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11628,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 135,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11228,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 135,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 9373,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 136,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12286,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 136,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 9920,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 137,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12712,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 137,
+          "role": 2,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 11482,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 138,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11719,
+          "max_source_support": 762,
+          "source_support_above512": 4
+        },
+        {
+          "book": 138,
+          "role": 2,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 11500,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 139,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11997,
+          "max_source_support": 697,
+          "source_support_above512": 1
+        },
+        {
+          "book": 139,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11209,
+          "max_source_support": 697,
+          "source_support_above512": 1
+        },
+        {
+          "book": 140,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13371,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 140,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11927,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 141,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11464,
+          "max_source_support": 434,
+          "source_support_above512": 0
+        },
+        {
+          "book": 141,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10303,
+          "max_source_support": 431,
+          "source_support_above512": 0
+        },
+        {
+          "book": 142,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11559,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 142,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 9740,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 143,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13011,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 143,
+          "role": 2,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11934,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 144,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12107,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 144,
+          "role": 2,
+          "mode": 1,
+          "count": 51,
+          "sum_source_support": 11137,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 145,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13579,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 145,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 10865,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 146,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12698,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 146,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 11847,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 147,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14473,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 147,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 12296,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 148,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11516,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 148,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9999,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 149,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11568,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 149,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10972,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 150,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12819,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 150,
+          "role": 2,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 12689,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 151,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13239,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 151,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 11498,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 152,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12101,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 152,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 10270,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 153,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12243,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 153,
+          "role": 2,
+          "mode": 1,
+          "count": 44,
+          "sum_source_support": 10396,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 154,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11676,
+          "max_source_support": 469,
+          "source_support_above512": 0
+        },
+        {
+          "book": 154,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 9800,
+          "max_source_support": 417,
+          "source_support_above512": 0
+        },
+        {
+          "book": 155,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 14321,
+          "max_source_support": 701,
+          "source_support_above512": 3
+        },
+        {
+          "book": 155,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 11447,
+          "max_source_support": 701,
+          "source_support_above512": 3
+        },
+        {
+          "book": 156,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10997,
+          "max_source_support": 405,
+          "source_support_above512": 0
+        },
+        {
+          "book": 156,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 9721,
+          "max_source_support": 378,
+          "source_support_above512": 0
+        },
+        {
+          "book": 157,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12490,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 157,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10490,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 158,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12758,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 158,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10880,
+          "max_source_support": 763,
+          "source_support_above512": 3
+        },
+        {
+          "book": 159,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12949,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 159,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 11558,
+          "max_source_support": 698,
+          "source_support_above512": 2
+        },
+        {
+          "book": 160,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12196,
+          "max_source_support": 702,
+          "source_support_above512": 3
+        },
+        {
+          "book": 160,
+          "role": 2,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11472,
+          "max_source_support": 702,
+          "source_support_above512": 3
+        },
+        {
+          "book": 161,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11113,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 161,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 9108,
+          "max_source_support": 700,
+          "source_support_above512": 1
+        },
+        {
+          "book": 162,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13526,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 162,
+          "role": 2,
+          "mode": 1,
+          "count": 43,
+          "sum_source_support": 10355,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 163,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11746,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 163,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 10913,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 164,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12447,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 164,
+          "role": 2,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 11317,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 165,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13907,
+          "max_source_support": 701,
+          "source_support_above512": 2
+        },
+        {
+          "book": 165,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 12393,
+          "max_source_support": 701,
+          "source_support_above512": 3
+        },
+        {
+          "book": 166,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11894,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 166,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11177,
+          "max_source_support": 700,
+          "source_support_above512": 3
+        },
+        {
+          "book": 167,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12030,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 167,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10896,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 168,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12598,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 168,
+          "role": 2,
+          "mode": 1,
+          "count": 48,
+          "sum_source_support": 11587,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 169,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12378,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 169,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11037,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 170,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12948,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 170,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11531,
+          "max_source_support": 763,
+          "source_support_above512": 4
+        },
+        {
+          "book": 171,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13254,
+          "max_source_support": 761,
+          "source_support_above512": 2
+        },
+        {
+          "book": 171,
+          "role": 2,
+          "mode": 1,
+          "count": 44,
+          "sum_source_support": 10756,
+          "max_source_support": 761,
+          "source_support_above512": 2
+        },
+        {
+          "book": 172,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13230,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 172,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11901,
+          "max_source_support": 699,
+          "source_support_above512": 4
+        },
+        {
+          "book": 173,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12531,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 173,
+          "role": 2,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 10574,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 174,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13938,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 174,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 12655,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 175,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11099,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 175,
+          "role": 2,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 11044,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 176,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12602,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 176,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 10616,
+          "max_source_support": 699,
+          "source_support_above512": 1
+        },
+        {
+          "book": 177,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12623,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 177,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 10587,
+          "max_source_support": 762,
+          "source_support_above512": 2
+        },
+        {
+          "book": 178,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12455,
+          "max_source_support": 762,
+          "source_support_above512": 4
+        },
+        {
+          "book": 178,
+          "role": 2,
+          "mode": 1,
+          "count": 53,
+          "sum_source_support": 12087,
+          "max_source_support": 762,
+          "source_support_above512": 4
+        },
+        {
+          "book": 179,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12445,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 179,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 11000,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 180,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13688,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 180,
+          "role": 2,
+          "mode": 1,
+          "count": 43,
+          "sum_source_support": 10193,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 181,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12816,
+          "max_source_support": 763,
+          "source_support_above512": 2
+        },
+        {
+          "book": 181,
+          "role": 2,
+          "mode": 1,
+          "count": 44,
+          "sum_source_support": 10238,
+          "max_source_support": 763,
+          "source_support_above512": 1
+        },
+        {
+          "book": 182,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13875,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 182,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 11073,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 183,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12155,
+          "max_source_support": 764,
+          "source_support_above512": 2
+        },
+        {
+          "book": 183,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10147,
+          "max_source_support": 764,
+          "source_support_above512": 2
+        },
+        {
+          "book": 184,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11485,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 184,
+          "role": 2,
+          "mode": 1,
+          "count": 50,
+          "sum_source_support": 10349,
+          "max_source_support": 698,
+          "source_support_above512": 1
+        },
+        {
+          "book": 185,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11627,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 185,
+          "role": 2,
+          "mode": 1,
+          "count": 45,
+          "sum_source_support": 9568,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 186,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12162,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 186,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10400,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 187,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12418,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 187,
+          "role": 2,
+          "mode": 1,
+          "count": 47,
+          "sum_source_support": 10108,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 188,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 12444,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 188,
+          "role": 2,
+          "mode": 1,
+          "count": 46,
+          "sum_source_support": 10921,
+          "max_source_support": 699,
+          "source_support_above512": 2
+        },
+        {
+          "book": 189,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 10729,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 189,
+          "role": 2,
+          "mode": 1,
+          "count": 52,
+          "sum_source_support": 10739,
+          "max_source_support": 762,
+          "source_support_above512": 1
+        },
+        {
+          "book": 190,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 11519,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 190,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 10020,
+          "max_source_support": 700,
+          "source_support_above512": 2
+        },
+        {
+          "book": 191,
+          "role": 2,
+          "mode": 0,
+          "count": 56,
+          "sum_source_support": 13503,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        },
+        {
+          "book": 191,
+          "role": 2,
+          "mode": 1,
+          "count": 49,
+          "sum_source_support": 11797,
+          "max_source_support": 762,
+          "source_support_above512": 3
+        }
+      ],
+      "role_mode": [
+        {
+          "role": 0,
+          "mode": 0,
+          "count": 3584,
+          "sum_source_support": 794565,
+          "max_source_support": 763,
+          "source_support_above512": 149
+        },
+        {
+          "role": 0,
+          "mode": 1,
+          "count": 3091,
+          "sum_source_support": 703448,
+          "max_source_support": 763,
+          "source_support_above512": 152
+        },
+        {
+          "role": 1,
+          "mode": 0,
+          "count": 3584,
+          "sum_source_support": 795516,
+          "max_source_support": 764,
+          "source_support_above512": 131
+        },
+        {
+          "role": 1,
+          "mode": 1,
+          "count": 3065,
+          "sum_source_support": 694611,
+          "max_source_support": 764,
+          "source_support_above512": 125
+        },
+        {
+          "role": 2,
+          "mode": 0,
+          "count": 3584,
+          "sum_source_support": 795575,
+          "max_source_support": 764,
+          "source_support_above512": 131
+        },
+        {
+          "role": 2,
+          "mode": 1,
+          "count": 3054,
+          "sum_source_support": 696588,
+          "max_source_support": 764,
+          "source_support_above512": 129
+        }
+      ]
+    }
+  },
+  "eligibility": {
+    "ALL127_development_supports_fit512": false,
+    "ALL127_clique_copy_lower_bounds_le6144": false
+  },
+  "decision": "EXACT_SUPPORT_B512_RHO2_OBSTRUCTED_ON_DEVELOPMENT",
+  "source_response_function_calls": 0,
+  "native_calls": 0,
+  "model_calls": 0,
+  "readout_fits": 0,
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Exact finite development support/copy necessary bound. Incidence copies are not physical RAM without specified layout. No general redundant-function impossibility, cover, selector, whole quality/rate/n/family or goal completion."
+}

@@ -26,6 +26,12 @@ Routine Graphify disabled; donor-adaptation operationally frozen, evidence reusa
 
 ## Latest decisive evidence
 
+[522 support/copy result](METH_522_REDUNDANCY_LOWER_BOUND_RESULT_20261007.md)
+closes exact-support B512/rho2 on development:10 parents exceed width,19 more
+require copies>2x. This is a mathematical obstruction for that recipe, not a
+general redundant-function impossibility. Main/audit/admission pass; no new
+source functions. Next523 changes coordinates to folded source plus hinges.
+
 [511 whole result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) and
 [evaluation](EVALUATION_511_20261007.json): independent audit passes all8 controls,
 ALL4983 full head states/160,093,824 cells, no tail overtake. All15 fresh quality
@@ -58,73 +64,22 @@ natural p95 1.010913>1 FAIL.2/5 economic gates PASS; finite index closed before 
 Main42.921s/405,692,416B; audit33.031s/419,696,640B; mathematical phases once,
 import and typed-UTC metadata first faults preserved. No source/model/native replay.
 
-## Current resumption:521 fixed interpolant closed;522 redundancy lower bound
+## Current resumption:522 exact-support obstruction;523 source folding
 
-[Selected514](METH_514_ACTUAL256_TRANSFER_NEXT_20261007.md): original actual
-14.664B/12x256 source and14.818GB native artifact are ALREADY local/qualified.
-Same D768/H3072, independently trained core. Existing363 whole quality/376
-ordinary rate do not establish strict prose50 or the new conditional/readout
-path.489 CPU0 prose35.9764/lower33.7592 means about28.05% less time is needed
-at its retained490 accepted-prose numerator.511's smaller saving cannot supply
-that claim. Exact original parent winner AND mass remain charged at256.
+Actual14.664B/256 source and14.818GB native artifact are local/qualified.
+489 accepted prose35.9764/lower33.7592 falls short of50. Exact source winner AND
+mass remain charged;511's smaller-source saving cannot supply the larger claim.
+Completed component screens, with complete receipts/faults in linked results:
 
-[514 result](METH_514_ACTUAL256_HEAD_RESULT_20261007.md): source256 fixed8 matches
-full original head on ALL1065 native states; all949 original donor-state bridges
-pass. On common histories24 old errors,6 recovered/2 introduced,20 remain.
-Zero-new-error prospective gate FAIL; no automatic whole/export promotion.
-All main5/audit6/admission5 controls PASS, all8520 selected dots independently
-fsum-checked, all64,705,792 full-vocabulary cells checked. Main13.641s/337.7MB,
-audit28.485s/340.1MB, no new model/C/corpus calls. Header fault before NumPy
-retained; actual256 SWI8A001 literal repair. All owned instances terminal.
+- [514 head](METH_514_ACTUAL256_HEAD_RESULT_20261007.md): all1065/949 native/source controls pass;6 old errors recovered,2 introduced. Zero-new-error gate FAIL.
+- [515 encoder](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md): all18 wires exact; ratio.889871 vs required.446216 and repeat gates FAIL. No larger whole promotion.
+- [516 query filter](METH_516_DIRECTIONAL_WI_RESULT_20261007.md): all17540 hidden bytes exact; natural logical1.047572, all-book cost FAIL. Fixed recipe closed.
+- [517 subspace](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md)/[518 bound](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md): zero actual skips; optimistic possible.069002%, byte floor1.212702. Fixed radius/price closed.
+- [519 matched basis](METH_519_MATCHED_LOCAL_ENERGY_RESULT_20261007.md): possible8.448216%, optimistic byte floor1.128913/all-book FAIL. Fixed recipe closed.
+- [520 information plan](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md): real rank513,all128 minors/53943 immutable pairs pass. Plan eligibility only;521 acquired the responses.
 
-[515 result](METH_515_ENCODER_REUSE_PROBE_RESULT_20261007.md): actual365 missing
-O/dense-FF/router batch integration on374's6 workers is built; ALL18 complete
-teacher/natural wires exact363 on two fixed cases. Main/audit/admission5/5/5
-PASS. Observed encoder ratio.889871 vs required.446216 FAIL, repeat ratios up to
-1.543954>1.10 FAIL;1/3 feasibility pass. No unchanged large whole promotion.
-Main25.047s/1.390GB conservative parent+child peak; completed audit15.593s/44MB,
-31.186s including pre-math fault. Cold full-payload binding/receipt-label faults
-retained and explicitly repaired, no native/main replay. All10 instances closed.
-
-[516 result](METH_516_DIRECTIONAL_WI_RESULT_20261007.md): original QUERY input
-roles/source380 bank11 fixed64 dictionaries are implemented; ALL17540 hidden/
-max/scale/A16 bytes exact. All5 main/6 independent I64 physical audit/5 admission
-controls PASS. Natural mean logical ratio1.047572,p95 1.094199, ALL64 book means
->1;1/5 economic gates PASS, fixed recipe CLOSED before C. Only parents25/37
-certify rows; natural mean remaining2928.76/3072. Index28,327,960B. Main5.656s/
-501.7MB, audit22.500s/543.5MB; all3 instances terminal, no faults/replays.
-
-[517 result](METH_517_SHARED_QUERY_SUBSPACE_RESULT_20261007.md): dev-only shared
-rank32/S256 integer basis and Gram-defect/radius certificate implemented. Main6/
-independent I64 audit7/admission5 PASS, all128 projections and53,882,880 prefix
-cells verified. Natural encoded energy ratio.396563, but ZERO candidates/skips:
-all3072 rows,logical mean/p95 1.213392,all64 books FAIL;1/5 economics PASS.
-THIS recipe CLOSED before C. Index58.25MB,main12.313s/592.2MB,audit71.266s/
-660.3MB; all3 instances terminal,no faults/replays/new model/native calls.
-
-[518 result](METH_518_CERTIFICATE_ENERGY_OBSTRUCTION_RESULT_20261007.md): exact
-NECESSARY energy census on ALL393216 physical threshold entries/17540 query
-boundaries. Main5/audit5/admission5 PASS. Natural ideal ceiling6497/9415680
-(0.069002%),mean only2.119739 potentially omitted rows,max71/query;byte floor
-1.212702,p95 1.213392,all64 books FAIL;1/5 optimistic gates PASS. Fixed517 radii/
-price cannot be repaired by angle/sign selection alone. Main6.328s/119.3MB,
-audit7.110s/128.6MB,no faults/replays/new projections/model/native calls,all3 closed.
-
-[519 result](METH_519_MATCHED_LOCAL_ENERGY_RESULT_20261007.md): ALL128 dev-only
-local rank32/S256 matched WI/query bases and exact ideal capacity implemented.
-Main5/audit6/admission5 PASS. Natural possible ceiling8.448216%, but minimum
-byte ratio1.128913,p95 1.213395,ALL64 book means>1;1/5 economics PASS. THIS fixed
-recipe CLOSED before actual-angle/C work. Rare3/19 queries have zero potential.
-Index65,538,080B,main29.359s/301.1MB,audit26.735s/288.3MB; no faults/replays/
-full source/model/native calls; all3 instances terminal, foreign bytes preserved.
-
-[520 result](METH_520_SOURCE_INFORMATION_ELIGIBILITY_RESULT_20261007.md): dev pooled
-real rank EXACT513; ALL128 augmented positive minors and53943 dev-only new
-input/expert pairs independently verified. Main5/audit6/admission5 and ALL4
-rank/stability gates PASS. Global condition306.954,worst parent34140.063,
-minimum new relative innovation.034157. Main187.250s/363.7MB,audit78.157s/473MB,
-combined7.08MB; all3 terminal,no faults/replays/source-response/readout/model/C
-calls. This is query-plan eligibility, not fitted functions or quality/rate.
+All these main/independent audit/admission apparatus gates pass. Their scientific
+failures, first faults and finite scopes remain explicit; no completed replay.
 
 [521 result](METH_521_SOURCE_INFORMATION_TRANSFER_RESULT_20261007.md): all53943
 new source responses independently BYTE-qualified; all128 unique augmented
@@ -136,18 +91,28 @@ comparison fault/isolated binder import fault preserved, metric propagation
 repair only, no source/fit/native replay. All10 instrumented instances terminal,
 1.539GB outputs; no whole quality/rate/useful n/DRAM promotion.
 
-**First action522:** [redundancy lower bound](METH_522_REDUNDANCY_LOWER_BOUND_NEXT_20261007.md):
-recover admitted500/501 original support/metric contracts and price a mask-
-independent incompatibility-clique/copy bound for512-atom branches/rho2. Freeze
-ONE protocol before new support observations. No new packing/selector/function
-or old source replay. This is a necessary bound, not a universal impossibility
-or a fresh-quality result; larger RAM/shared-weight layouts remain separate.
+[522 result](METH_522_REDUNDANCY_LOWER_BOUND_RESULT_20261007.md): main5/audit6/
+admission5 PASS; exact-support B512/rho2 development eligibility FAIL. Ten parents
+have supports>512;19 additional width-feasible parents have certified copies>2x.
+Parent113 requires>=87 branches/M32159/rho10.468424 under the stated incidence
+assumptions.98 parents pass necessary bounds only, without cover proof. ALL63262
+clique pairs independently verified. Main2.015s/161MB,audit2.782s/317MB,1.99MB
+outputs; all3 instances terminal,no fault/source/function/native replay. Logical
+copies are not physical RAM; other representations/arbitrary RAM remain open.
+
+**First action523:** [source folding with explicit ReLU hinges](METH_523_SOURCE_FOLDING_HINGES_NEXT_20261007.md):
+recover/price actual source integer signs, folded-matrix codec and independent
+error decomposition before one protocol. Fold stable source contributions into
+L and retain512 private original nonlinear rows. Unlike atom-only masks, positive
+source atoms outside512 can contribute through L. I16 hybrid coefficient/MAC
+ratios5/12 and7/24 are deductions, not measured speed/DRAM. Single-function
+fidelity first; matched count/routing later. No523 code/binding/observations yet.
 
 Later all-bank column export/new whole donor quality+strict warm50 needs an
 explicit feasible cost path; existing source256 already falls short on prose.
 Compact active representation, useful much larger n/LUT winner+mass, physical
 DRAM and actual additional families/~100B remain open. No generic-port completion.
-All completed scientific namespaces through521 terminal; three foreign tracked
+All completed scientific namespaces through522 terminal; three foreign tracked
 SHA bytes preserved. Routine Graphify disabled; prior operational NEXTs historical.
 
 ## Decisive retained evidence and closures
