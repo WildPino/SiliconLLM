@@ -26,6 +26,14 @@ donor-adaptation operationally frozen, evidence reusable.
 
 ## Latest decisive evidence
 
+[527 retained bounds](METH_527_RETAINED_BOUND_RESULT_20261007.md): main7/audit8/
+admission5 and ALL4 eligibility gates PASS. ALL127 unchanged nearest orders now
+certified (18 newly resolved); ALL390144 exact row energies and325120 outward
+scalar bounds independently verified. Main10.016s/101.9MB,audit105.610s/66.1MB,
+23.63MB outputs,3 closed/no faults. No new query/label/old geometry replay.
+Targets' relative displacement48.1%..51.4% does not establish typical activation
+reachability.18 physical checks deferred; prioritize compact source-atom functions.
+
 [526 exact projector](METH_526_EXACT_PROJECTOR_RESULT_20261007.md): main7/audit8/
 admission5 and all3 eligibility gates PASS. SAME Q/C integer identities327680
 cells/37748736 core product terms per pass; projector upper5.60e-7->8.87e-10.
@@ -62,17 +70,18 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action527:** [ORIGINAL distance bound refinement](METH_527_RETAINED_DISTANCE_BOUND_REFINEMENT_NEXT_20261007.md).
-Derive scalar forward bounds covering saved525 coordinates and all old floating
-reductions; price possibly NEW exact source-WI row energies before one protocol.
-No scaling old bars by631, repeated hQ geometry or109 physical query replay.
-All old source/target/alias/tie identities remain fixed. No527 code/protocol/
-energies/refined bounds/numerics yet. One bounded refinement; if still ambiguous,
-reassess a distinct certified feasible selector instead of a precision ladder.
-Only a qualified immutable plan allows new18-point construction, then source
-responses/region comparison. No source labels or automatic failed524 export.
+**First action528:** [variable-width source atoms](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md).
+Replace523's dense positive-reference fold with original ReLU atoms: V=512
+frozen hinges UNION ALL remaining anchor-positive source rows. Keep exact source
+weights, allow width growth. Algebra removes negative-fold residual but signed
+output cancellations forbid assuming better quality. Derive packed/quantizer
+contract and resource inventory, then freeze one candidate/rotation comparison
+using retained523 signed dots/source references. No source/prefix replay.
+Keep all six/rare1% fidelity and .75 active-byte gates; consumed data is diagnostic,
+not fresh quality. No528 code/protocol/numerics/benefit yet. Pending18 geometry
+checks remain eligible but deferred; no automatic failed524 export or fallback.
 
-All scientific namespaces through526 terminal; source523 time and525 criterion
+All scientific namespaces through527 terminal; source523 time and525 criterion
 failures explicit. Three foreign tracked SHA preserved. Compact active core,
 useful larger n/RAM, physical memory, fresh whole quality+rate and actual other
 families/~100B remain open. No percentage or goal completion claim.
@@ -91,5 +100,5 @@ families/~100B remain open. No percentage or goal completion claim.
 [Index through525](INDEX_THROUGH525_20261007.md) preserves the previous long index
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
-This index and [selected527](METH_527_RETAINED_DISTANCE_BOUND_REFINEMENT_NEXT_20261007.md)
+This index and [selected528](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md)
 supersede all older operational NEXTs.

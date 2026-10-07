@@ -1,5 +1,17 @@
 # Native expert-count scaling: prior evidence
 
+**7 October after527:** [retained scalar bound refinement](METH_527_RETAINED_BOUND_RESULT_20261007.md)
+main7/independent audit8/admission5 and ALL4 eligibility gates PASS. ALL127
+unchanged nearest orders certified,18 newly resolved;390144 original-G/WI exact
+U128 energies and325120 outward scalar bounds independently verified. Old109
+queries preserved; zero new query/label/old geometry replay. Main10.016s/101.9MB,
+audit105.610s/66.1MB,23.63MB outputs,3 closed/no faults. Target relative distances
+48.1%..51.4% do not establish natural activations or useful functions. Defer18
+physical checks and select [528 variable-width source atoms](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md):
+replace dense positive sign fold with original ReLU rows, allow extra width,
+test retained-source fidelity/cost plus signed residual/cross mechanism and
+matched rotation. No528 implementation/numerics/benefit or whole promotion.
+
 **7 October after526:** [exact represented-projector certificate](METH_526_EXACT_PROJECTOR_RESULT_20261007.md)
 main7/independent audit8/admission5 and all3 eligibility gates PASS. SAME Q/C
 integer identities327680 cells/37748736 product terms per pass, exact square

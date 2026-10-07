@@ -25,7 +25,7 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;526 exact certificate;527 original-bound refinement
+## Current resumption:511 baseline;527 bound certificate;528 variable source atoms
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -200,16 +200,32 @@ audit8.453s/102.5MB,21.57MB outputs,3 closed/no faults,109 old queries SHA-prese
 No new plane/order/query/label or rank/SVD/geometry replay. Bound eligibility
 does not admit525 or establish function/natural/whole/DRAM/useful-n quality.
 
-[Selected527](METH_527_RETAINED_DISTANCE_BOUND_REFINEMENT_NEXT_20261007.md) proposes
-error-bound refinement on ORIGINAL saved coordinates, preserving all old floating
-reductions. Scalar norm inequalities and possibly NEW exact source-WI row energies
-must be priced/derived before a protocol. No527 code/protocol/energies/refined
-bounds/numerics or new labels. Do one bounded refinement; if still unresolved,
-reassess a distinct feasible-point selector, not an indefinite precision ladder.
-Only an admitted immutable geometry plan supports new source responses; no
-old53943 labels/fixed A/L0 fit.
-Natural coverage, function quality, useful n, real fallback and physical DRAM
-remain separate; no automatic failed524 bank export.
+[527 result](METH_527_RETAINED_BOUND_RESULT_20261007.md) implements exact original-G/
+WI row energies and complete outward scalar forward bounds on SAME525 central
+distances. ALL390144 U128 energies and325120 bounds independently verified;
+main7/audit8/admission5 and ALL4 eligibility gates PASS. ALL127 nearest orders
+certified,18 newly resolved;109 original physical queries BYTE-preserved.
+Main10.016s/101.9MB,audit105.610s/66.1MB,23.63MB outputs,3 closed/no faults.
+Zero new query/label or old projection/geometry replay. The18 queries remain
+unconstructed/unqualified; relative target displacement48.1%..51.4% does not
+establish natural-domain coverage.525's original closure remains explicit.
+
+[Selected528](METH_528_VARIABLE_SOURCE_ATOMS_NEXT_20261007.md) is PROPOSED only:
+replace523's dense L=sum(anchor-positive omitted O_j I_j) with the same original
+ReLU atoms. V=frozen512 hinges union all other positive-anchor rows; allow
+different source-informed width per parent. Dense rank<=number of these extra
+rows. In real algebra Rfold=P+M becomes RAtoms=P, with M the negative-fold term;
+signed output cancellations prevent assuming lower error. Keep original scales,
+OWN selected-hidden max/A16 and source WO, preserving omitted-zero domain BYTE
+semantics where independently verified. Price scales/IDs/source fallback/core.
+Derive actual packed wire/runtime/data inventory and independent full I64/F32
+verifier before code/protocol freeze, then use retained523 signed dots/source
+references for ONE new candidate/rotation comparison. No528 observed widths,
+code/protocol/numerics, fitted weights or quality/cost benefit. Original consumed
+cohort is diagnostic, not fresh quality; all six/rare1% and .75 byte gates stay.
+Natural coverage, distinct useful n, prospective fallback and physical DRAM are
+separate.18 deep geometry checks deferred; no automatic failed524 bank export,
+old source responses/prefix replay or revived53943-label fixed A/L0 fit.
 475's progressive4bit filter stays closed. Compact core/useful larger n,whole
 quality+rate,CPU LUT winner AND mass,real DRAM and actual families/~100B remain.
 

@@ -1,0 +1,191 @@
+{
+  "experiment": "METH527",
+  "main_completed": true,
+  "independent_audit_completed": true,
+  "gates": {
+    "all7_main_exact_energy_and_outward_scalar_bound_controls": true,
+    "all8_independent_original_bits_integer_and_scalar_controls": true,
+    "three_actual_exit0_instances_closed_typed_UTC_zero_faults": true,
+    "foreign_empty_cache_and_resources_preserved": true,
+    "unchanged_frozen_order_eligibility_and_nonselecting_diagnostics_retained": true
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth527_binding.json",
+    "bytes": 950086,
+    "sha256": "81d0dacb06d7fdd99943291aba1b6a271b7702284fba2941a73a975c33e9b8f6"
+  },
+  "raw": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth527_main_result.json",
+    "bytes": 86184,
+    "sha256": "11ba776a1a16407b152df748c3fbd83c56c582fcd576e059abee45092317f6d1"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth527_audit_result.json",
+    "bytes": 84549,
+    "sha256": "5cd7cee7ab95c405bd6d45e3743f240c20cdf989e35b763d4ad7c76e2ce12c7b"
+  },
+  "retention": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\RETENTION_527_20261007.json",
+    "bytes": 5951,
+    "sha256": "9e671735b8f183200d1c5eee1113e684aed7516482839ca06bc3f07004dcafec"
+  },
+  "windows": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth527_windows_terminal.json",
+    "bytes": 4460,
+    "sha256": "e14f7076eef3659c9d98aecfd8f9fbf794111103a6e2c3581054795108709df8"
+  },
+  "closed_instances": [
+    {
+      "kind": "binding",
+      "instance": {
+        "pid": 15376,
+        "create_time_unix": 1791363010.1356623
+      },
+      "closed": true
+    },
+    {
+      "kind": "main",
+      "instance": {
+        "pid": 26444,
+        "create_time_unix": 1791363028.9171755
+      },
+      "closed": true
+    },
+    {
+      "kind": "audit",
+      "instance": {
+        "pid": 24364,
+        "create_time_unix": 1791363062.676812
+      },
+      "closed": true
+    }
+  ],
+  "executor_exit_receipts": [
+    {
+      "kind": "binding",
+      "tool": "exec_command",
+      "exit_code": 0,
+      "chunk_ids": [
+        "3c5150"
+      ]
+    },
+    {
+      "kind": "main",
+      "tool": "exec_command/write_stdin",
+      "session_id": 52675,
+      "exit_code": 0,
+      "chunk_ids": [
+        "c80bb1",
+        "818511"
+      ]
+    },
+    {
+      "kind": "audit",
+      "tool": "exec_command/write_stdin",
+      "session_id": 14798,
+      "exit_code": 0,
+      "chunk_ids": [
+        "dd84cf",
+        "28341d",
+        "419c7a"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_binding_resource.json",
+        "bytes": 327,
+        "sha256": "8277334c551f7e48a2256da0ccaf119832dff55d51307b4daaf34a99aafbd5c1"
+      },
+      "resource": {
+        "binding_sha256": "81d0dacb06d7fdd99943291aba1b6a271b7702284fba2941a73a975c33e9b8f6",
+        "process_instance": {
+          "pid": 15376,
+          "create_time_unix": 1791363010.1356623
+        },
+        "seconds": 2.515999999974156,
+        "OS_peak_bytes": 48390144,
+        "bytes_hashed": 414155732,
+        "limits": [
+          180,
+          536870912
+        ]
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\terminal_resource.json",
+        "bytes": 424,
+        "sha256": "2ebc0a07e02403ad9ca32e51156eafe69a825325ee59a41acc323b0ebf49176f"
+      },
+      "resource": {
+        "result_sha256": "11ba776a1a16407b152df748c3fbd83c56c582fcd576e059abee45092317f6d1",
+        "process_instance": {
+          "pid": 26444,
+          "create_time_unix": 1791363028.9171755
+        },
+        "ended_utc": "2026-10-07T08:50:39.521444+00:00",
+        "seconds": 10.01600000000326,
+        "OS_peak_bytes": 101912576,
+        "bytes_hashed": 736571377,
+        "limits": [
+          180,
+          536870912
+        ],
+        "output_bytes_before_terminal": 22494947
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_audit\\terminal_resource.json",
+        "bytes": 418,
+        "sha256": "9feb1710ba3f6d68aefdc70849e1e11aa3c4cead0930029f7b363a41d2d2a662"
+      },
+      "resource": {
+        "result_sha256": "5cd7cee7ab95c405bd6d45e3743f240c20cdf989e35b763d4ad7c76e2ce12c7b",
+        "process_instance": {
+          "pid": 24364,
+          "create_time_unix": 1791363062.676812
+        },
+        "ended_utc": "2026-10-07T08:52:48.892906+00:00",
+        "seconds": 105.60999999998603,
+        "OS_peak_bytes": 66146304,
+        "bytes_hashed": 736656178,
+        "limits": [
+          240,
+          536870912
+        ],
+        "output_bytes_before_terminal": 252
+      }
+    }
+  ],
+  "views": [],
+  "eligibility": {
+    "exact_original_G_ALL_source_row_energy_and_outward_bound_contract": true,
+    "ALL_original_nominal_neuron_and_distance_identities_unchanged": true,
+    "ALL109_original_resolved_nearest_orders_preserved": true,
+    "ALL127_retained_nearest_target_orders_resolved": true
+  },
+  "decision": "ELIGIBLE_ALL127_RETAINED_ORDERS_FOR_NEW18_PHYSICAL_QUERY_CHECKS",
+  "selected_source_integer_dot_checks": 0,
+  "constructed_queries": 0,
+  "resolved_orders": 127,
+  "newly_resolved_orders": 18,
+  "coefficient_energy_rows": 390144,
+  "verified_scalar_rows": 325120,
+  "source_response_function_calls": 0,
+  "native_calls": 0,
+  "model_calls": 0,
+  "readout_fits": 0,
+  "full_source_WI_projection_rows": 0,
+  "old_native_router_queries_replayed": 0,
+  "consumed_rows_for_selection": 0,
+  "old525_geometry_or_queries_recomputed": 0,
+  "first_faults_or_repairs": [],
+  "physical_DRAM_verified": false,
+  "scope": "Bound refinement on unchanged saved geometry only; no query qualification, source-function quality, actual C/DRAM, useful n, fresh whole quality/rate or family/goal claim."
+}

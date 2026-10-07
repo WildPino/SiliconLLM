@@ -1,0 +1,143 @@
+{
+  "experiment": "METH527",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth527_binding.json",
+    "bytes": 950086,
+    "sha256": "81d0dacb06d7fdd99943291aba1b6a271b7702284fba2941a73a975c33e9b8f6"
+  },
+  "main": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth527_main_result.json",
+    "bytes": 86184,
+    "sha256": "11ba776a1a16407b152df748c3fbd83c56c582fcd576e059abee45092317f6d1"
+  },
+  "audit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth527_audit_result.json",
+    "bytes": 84549,
+    "sha256": "5cd7cee7ab95c405bd6d45e3743f240c20cdf989e35b763d4ad7c76e2ce12c7b"
+  },
+  "local_outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\bound_status.npy",
+      "bytes": 393344,
+      "sha256": "1324056a1a31105c9a716330f3f8bbd0eebba7505cdf067bf6db0e604e93756d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\controls.json",
+      "bytes": 305,
+      "sha256": "617cc8f8183beed266e05014db5b0ec7ed71506fcff869a1c6291b63de8a254f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\energy_numerators.bin",
+      "bytes": 6291488,
+      "sha256": "d4c1caff1d574ee787b72d54a4fc076486bb9fdff45916cdd9bb0c1eebb981cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\intersection_distance_bounds.npy",
+      "bytes": 3145856,
+      "sha256": "d25870ae69093da35ebfe76ab7ef9952c845af64bf9eaf76830bd389b324207e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\new_distance_bounds.npy",
+      "bytes": 3145856,
+      "sha256": "d25870ae69093da35ebfe76ab7ef9952c845af64bf9eaf76830bd389b324207e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\radicand_lower.npy",
+      "bytes": 3145856,
+      "sha256": "c4abddcd77f0ee9821367bce4535b3414ab4a8721b63e1f5678c486bce4afb5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\retained_order_freeze.json",
+      "bytes": 80530,
+      "sha256": "fdb42458075dd49027a6fb4b95812a5da96db0f687b51ecc7cfd6d88891d6a15"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\root_lower.npy",
+      "bytes": 3145856,
+      "sha256": "b6bbd41cb9b92ab599acde2d84165cc6add9454d39f40ab0a57bb26d6685205c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\row_norm_upper.npy",
+      "bytes": 3145856,
+      "sha256": "f280938f77cda5b2713730ed0d913b7634336be6c77a8d3c9b8ec039f6020703"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_audit\\verified_retained_bounds.json",
+      "bytes": 252,
+      "sha256": "54334468f6fee1378109069a9b600c5de6f06abe3e6688a18178d2d0cd7a8528"
+    }
+  ],
+  "terminal_resources": [
+    {
+      "kind": "binding",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_binding_resource.json",
+        "bytes": 327,
+        "sha256": "8277334c551f7e48a2256da0ccaf119832dff55d51307b4daaf34a99aafbd5c1"
+      },
+      "resource": {
+        "binding_sha256": "81d0dacb06d7fdd99943291aba1b6a271b7702284fba2941a73a975c33e9b8f6",
+        "process_instance": {
+          "pid": 15376,
+          "create_time_unix": 1791363010.1356623
+        },
+        "seconds": 2.515999999974156,
+        "OS_peak_bytes": 48390144,
+        "bytes_hashed": 414155732,
+        "limits": [
+          180,
+          536870912
+        ]
+      }
+    },
+    {
+      "kind": "main",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_bound_refinement\\terminal_resource.json",
+        "bytes": 424,
+        "sha256": "2ebc0a07e02403ad9ca32e51156eafe69a825325ee59a41acc323b0ebf49176f"
+      },
+      "resource": {
+        "result_sha256": "11ba776a1a16407b152df748c3fbd83c56c582fcd576e059abee45092317f6d1",
+        "process_instance": {
+          "pid": 26444,
+          "create_time_unix": 1791363028.9171755
+        },
+        "ended_utc": "2026-10-07T08:50:39.521444+00:00",
+        "seconds": 10.01600000000326,
+        "OS_peak_bytes": 101912576,
+        "bytes_hashed": 736571377,
+        "limits": [
+          180,
+          536870912
+        ],
+        "output_bytes_before_terminal": 22494947
+      }
+    },
+    {
+      "kind": "audit",
+      "receipt": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth527_audit\\terminal_resource.json",
+        "bytes": 418,
+        "sha256": "9feb1710ba3f6d68aefdc70849e1e11aa3c4cead0930029f7b363a41d2d2a662"
+      },
+      "resource": {
+        "result_sha256": "5cd7cee7ab95c405bd6d45e3743f240c20cdf989e35b763d4ad7c76e2ce12c7b",
+        "process_instance": {
+          "pid": 24364,
+          "create_time_unix": 1791363062.676812
+        },
+        "ended_utc": "2026-10-07T08:52:48.892906+00:00",
+        "seconds": 105.60999999998603,
+        "OS_peak_bytes": 66146304,
+        "bytes_hashed": 736656178,
+        "limits": [
+          240,
+          536870912
+        ],
+        "output_bytes_before_terminal": 252
+      }
+    }
+  ],
+  "scope": "One new row-energy/scalar-bound main and one independent audit. All525/526 outputs unchanged. Original523 time failure and525 scientific closure remain explicit."
+}
