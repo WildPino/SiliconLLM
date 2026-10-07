@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md):
+Next [source directional information](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md):
 select ONE finite jointly learned shared+conditional SwiGLU
 converter replacing the active source FFN. Price complete head/attention/router/
 cache, retain full x initially as conditional function input. Old independent
@@ -111,8 +111,17 @@ novel development/encoding/child-choice usefulness and finite resource gates.
 Actual [exposure](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md) closes uniformE160
 with28 unsupported leaves, zero initializer/fit/response errors. E16 support
 passes, so a separate [first E16 fit](CHATBOT_JOINT_BASELINE_PROTOCOL_20261007.md)
-reuses saved geometry/control and unchanged prewritten24-epoch fit; it cannot
-repair count utility or by itself permit ALL24/whole promotion.
+reuses saved geometry/control and unchanged prewritten24-epoch fit. Actual
+[result](CHATBOT_JOINT_BASELINE_RESULT_20261007.md):744 updates, FIT21.6779% RMS/
+novel61.3921%; rounded61.3923%, ALL16 categories FAIL. Finite recipe CLOSED,
+no E160 response/utility or ALL24/whole promotion. Independent stdlib saved-byte
+audit verifies ALL exposure/control/error fields and BOTH exact integer failure
+witnesses; actual resources pass/six instances closed/no OS faults.
+The selected NEW uncertainty is source/retained-student directional structure,
+including selector-nullspace variation and selected-mass derivative inside a
+fixed routing cell. Collector/objective remain unimplemented; freeze exact
+anchors/code/resource/criteria before new values. Old231 fixed-G/U Jacobian prior
+stays closed; no epoch/width/precision ladder or completed function/control replay.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault

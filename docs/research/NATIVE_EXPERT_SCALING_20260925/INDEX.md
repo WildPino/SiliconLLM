@@ -76,8 +76,15 @@ utility/encoding/intervention gates before first values. Actual
 [exposure result](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md) closes uniformE160:
 28 leaves unsupported, minima1 unique FIT/1 conversation/0 novel dev; zero fit.
 E16 support passes59/24/29 minima. Separate
-[E16 first-fit baseline](CHATBOT_JOINT_BASELINE_PROTOCOL_20261007.md) reuses saved
-geometry/parent control; it cannot repair/admit the closed count comparison.
+[E16 first-fit result](CHATBOT_JOINT_BASELINE_RESULT_20261007.md) reuses saved
+geometry/parent control, completes24 epochs/744 updates: FIT21.6779% RMS,
+novel DEVELOPMENT61.3921%; BF16-rounded61.3923%, ALL16 categories FAIL3%.
+Original finite initializer/objective fit CLOSED; no E160 response/utility.
+Baseline75.312s worker/100.610s family/1.722GB through-exit peak. Independent
+saved-byte audit12.984s/461.2MB verifies ALL control/exposure/error fields and
+BOTH exact integer1%-RMS failure witnesses. Six instances closed/no OS faults.
+New [source-information NEXT](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md)
+selects directional source structure before more functions/ALL24 conversion.
 
 ## Latest decisive evidence
 
@@ -136,15 +143,18 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [canonical interaction then compact transfer](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md).
+**First action:** [new source directional information](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse their adapter/IDs without replay. Finite joint512/128/top4 E16/E160 geometry
 is selected/implemented and complete necessary dimension budget PASS. Original
 source operands48 cases now byte-qualified under explicit calibration eligibility;
-reuse source data/canonical/census, no replay. Execute/adopt the ONE frozen
-layer12 E16 baseline; original E160 exposure CLOSED, response/utility UNKNOWN.
-Stop on response/resource failure before further conversion. E16 fidelity alone
-does not establish count utility/ALL24 admission. Keep head/attention/
+reuse source data/canonical/census, no replay. Uniform E160 exposure CLOSED;
+FIRST E16 joint fit CLOSED at61.39% novel response RMS, independently verified.
+Original finite fit/source information insufficient in this observed recipe;
+capacity/optimizer optimum not proved. Implement/freeze the NEW bounded source-
+versus-retained-student directional diagnostic before its values, then decide
+source-structural/joint value+derivative constraints. No width/update/precision
+ladder or unchanged geometry/fit/control/source-output replay. Keep head/attention/
 router/cache priced jointly; don't infer throughput from dimension reductions.
 Census and canonical fixtures are implemented/executed. Compact conversion
 remains missing. Original METH125 has only256 states/layer, not6144 per layer,
@@ -175,5 +185,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
-[canonical compact NEXT](CHATBOT_CANONICAL_COMPACT_TRANSFER_NEXT_20261007.md)
+[source-information NEXT](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md)
 supersede all older operational NEXTs.

@@ -1,5 +1,12 @@
 # Exact resumption: qualified input and original operands, then finite joint pilot
 
+**SUPERSEDED OPERATIONAL NEXT:** both original E160 exposure and separate FIRST
+E16 fit are complete. E16028 leaves unsupported; E16 final novel61.39% RMS
+fails, independently verified with exact integer witnesses. Do not execute the
+capture/pilot/first-fit instructions below. Current actual resumption is
+[source directional information](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md),
+with [complete retained result](CHATBOT_JOINT_BASELINE_RESULT_20261007.md).
+
 ## Current actual resumption, superseding the capture proposal below
 
 Original [capture](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md) now supplies
