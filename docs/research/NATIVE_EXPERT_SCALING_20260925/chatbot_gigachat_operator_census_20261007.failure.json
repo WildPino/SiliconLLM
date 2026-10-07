@@ -1,0 +1,21 @@
+{
+  "scope": "FIRST_STATIC_CENSUS_SERIALIZATION_FAULT_RETAINED_FROM_EXECUTOR",
+  "source_commit": "a23514a45b1698063ce567b5057410b38ab0d83b",
+  "binding_sha256": "c95a0bb61c3642a37840e8540f325680ada7987d02e9607da8fd388aecbe3d0e",
+  "executor_chunk_id": "70948d",
+  "actual_exit_code": 1,
+  "executor_wall_seconds": 0.8896455,
+  "fault": "AssertionError: output cap",
+  "fault_location": "write_once(args.out, job.r), chatbot_operator_census.py line443; first output JSON serialization exceeded2MiB before opening output file",
+  "failure_serializer_fault": "The exception handler also called the same over-cap pretty serializer, so no automatic failure report was written. This administrative record preserves the actual executor evidence.",
+  "counts_computed_in_first_process": true,
+  "counts_retained": false,
+  "numeric_results_published": false,
+  "completed_stage_admitted": false,
+  "process_instance": null,
+  "OS_peak_bytes": null,
+  "resource_gates": "UNKNOWN; lost with first in-memory report, executor elapsed is not a job resource measurement",
+  "new_tensor_value_reads_or_model_or_C_calls": 0,
+  "repair_scope": "Compact JSON representation only; same operator body. First in-memory counts were lost, so the failed Giga metadata accounting must be computed again and this repetition is disclosed. Qwen completed counts will not be replayed.",
+  "stderr": "Traceback (most recent call last):\n  File chatbot_operator_census.py, line459, in <module>\n    run(job)\n  File chatbot_operator_census.py, line443, in run\n    write_once(args.out,job.r)\n  File chatbot_operator_census.py, line35, in write_once\n    assert len(raw) <= 2 << 20, 'output cap'\nAssertionError: output cap\n\nDuring handling of the above exception, another exception occurred:\nTraceback (most recent call last):\n  File chatbot_operator_census.py, line464, in <module>\n    write_once(args.out.with_suffix('.failure.json'),job.r)\n  File chatbot_operator_census.py, line35, in write_once\n    assert len(raw) <= 2 << 20, 'output cap'\nAssertionError: output cap\n"
+}
