@@ -144,6 +144,13 @@ def main(args):
             encoded=tokenizer.encode(rendered,add_special_tokens=False)
             original=raw.encode(rendered,add_special_tokens=False).ids
             independent=reference.encode(case['expected_text'])
+            # Preserve observed vectors BEFORE validation, including a failed first case.
+            r['pending_case']=dict(name=case['name'],mode=case['mode'],rendered_text=rendered,
+                canonical_ids=canonical,encoded_ids=encoded,source_Rust_ids=original,independent_BPE_ids=independent,
+                HF_pre_tokenizer=json.loads(tokenizer.backend_tokenizer.pre_tokenizer.__getstate__()),
+                source_Rust_pre_tokenizer=json.loads(raw.pre_tokenizer.__getstate__()),
+                canonical_matches_encoded=canonical==encoded,canonical_matches_source=canonical==original,
+                source_matches_independent=original==independent)
             assert canonical==encoded==original==independent,('token-ID mismatch',case['name'])
             assert all(0<=t<151936 for t in canonical) and canonical[0]==151644
             decoded=tokenizer.decode(canonical,skip_special_tokens=False,clean_up_tokenization_spaces=False)
