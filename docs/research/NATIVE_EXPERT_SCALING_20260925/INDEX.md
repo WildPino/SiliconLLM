@@ -5,8 +5,9 @@
 ## Goal and operating constraints
 
 Reproducible pretrained knowledge/capacity transfer into a compact reusable core
-and useful selectively consulted functions in `engine.c`; fresh donor-relative
-prediction/generation/task quality AND>=50 accepted batch1 IDs/s on the SAME
+and useful selectively consulted functions in `engine.c`, starting from a
+pretrained CHATBOT. Preserve its interaction contract and fresh donor-relative
+dialogue/prediction/generation/task quality AND>=50 accepted batch1 IDs/s on the SAME
 artifact (100 stretch). Useful larger n/RAM, CPU LUT winner AND normalized mass,
 physical DRAM and actual multiple families/scales/~10B/~100B remain joint gates.
 Distinct stored functions, active parameters/work and useful capacity are separate.
@@ -23,6 +24,21 @@ donor-adaptation operationally frozen, evidence reusable.
 | --- | --- | --- |
 | Useful conditional target |123/183 small donor128->1280 utility;369 source identity utility;373 bounded64->256 cost|Useful much larger n, bounded active work/traffic, LUT winner+mass and real DRAM|
 | Pretrained transfer |Qualified original Switch C scales; source-informed local transforms;511 fresh whole quality AND warm50 in declared scope|Compact convenient geometry, reliable domain coverage and actual family/scale variants|
+
+## Chatbot pipeline priority
+
+[Macro reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) restores the full
+chatbot pipeline as the decision surface. Qwen Instruct already has complete
+archive/direct phase60 loading295/296; fixed native semantics297 FAILS and
+whole accepted50 is unqualified.511's quality/warm50 is Switch INFILLING, not
+chat. No admitted compact chatbot quality+rate artifact exists.
+
+New [offline source preflight](CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md) is
+implemented and executed once on local Qwen/Giga, no tensor values/inference:
+.500s/34.3MB and1.578s/37.7MB. Qwen EOS[151645,151643]; Giga's local HF chat
+template absent, producer GGUF candidate present. No rendering/ID parity yet.
+Both use SwiGLU; recent ReLU omission/fold results do not automatically transfer.
+The tool exposes missing stages and always reports pipeline NOT QUALIFIED.
 
 ## Latest decisive evidence
 
@@ -79,15 +95,21 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action528 numerical repair1:** [checkpointed continuation proposal](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md).
-Derive/freeze prefix-adoption protocol and independent certification for missing
-fields, then FIRST scalar C prefix audit for1..13; no C execution has occurred.
-Reuse frozen banks/controls and preserve original partials. Resolve13 before
-finishing14..127 with durable parent checkpoints/phase costs. Compile verifier
-once; no repeated completed main/C/source calls. Independently check ALL656
-domains and unchanged six/rare1%/.75byte criteria. No repair code/protocol/job yet.
-Original main failure remains FALSE; original consumed cohort is not fresh quality.
-Pending18 geometry checks deferred; no automatic failed524 export/fallback.
+**First action:** [528 necessary full-domain failure certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md).
+Freeze FIRST independent C verification of completed1..12 and exact integer
+source/full-domain denominator versus prefix-error LOWER bounds. A certified
+strict1% crossing with outward guards for original F64 reductions/sqrt proves
+failure of an unchanged full-domain criterion, saving unnecessary completion. No prefix
+denominator, threshold change or scope-only failure. Inconclusive is not a pass.
+No prefix code/protocol/energy/C observations yet;13 stays unresolved.
+
+If inconclusive, [checkpointed continuation](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md)
+remains conditional, reusing first C prefix calls/banks/controls. After this ONE
+decisive comparison, prioritize SwiGLU chatbot transformation/full core costs
+and fresh actual native dialogue/task validation with canonical role/stop
+fixtures. No further geometry precision ladder or unchanged297 promotion.
+Original528 main failure FALSE; consumed cohort not fresh chat quality.18 geometry
+queries deferred; no failed524 export/fallback or revived donor-port NEXT.
 
 All original scientific namespaces through528 terminal; original523/528 time
 and525 criterion failures explicit. Three foreign tracked SHA preserved. Compact active core,
@@ -108,5 +130,6 @@ families/~100B remain open. No percentage or goal completion claim.
 [Index through525](INDEX_THROUGH525_20261007.md) preserves the previous long index
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
-This index and [528 continuation](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md)
+This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
+[528 necessary certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md)
 supersede all older operational NEXTs.

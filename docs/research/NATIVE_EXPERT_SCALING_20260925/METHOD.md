@@ -9,8 +9,10 @@ historical. [INDEX](INDEX.md) and the current resumption below take precedence.
 ## Goal, demonstrated scope and missing result
 
 Transfer pretrained knowledge/capacity into a compact reusable core and many
-useful selectively consulted functions in `benchmarks/phase60/engine.c`.
-Require donor-relative fresh prediction/generation/task quality AND>=50 accepted
+useful selectively consulted functions in `benchmarks/phase60/engine.c`, starting
+from an instruction/chat pretrained LLM. Preserve tokenizer/chat roles/history/
+stopping and require fresh donor-relative DIALOGUE/prediction/generation/task
+quality AND>=50 accepted
 batch1 IDs/s on the SAME artifact.100/s is a stretch. Verify useful n/RAM scaling,
 CPU LUT winner AND mass, physical DRAM and actual additional families/scales,
 including~10B and~100B as resources permit.
@@ -25,7 +27,41 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current resumption:511 baseline;527 bounds;528 first fault and prefix recovery
+## Current priority: the complete chatbot pipeline
+
+[7 October macro reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) follows
+the human's explicit CHATBOT reminder. Required stages: source/interaction
+contract -> family analysis/compact transformation -> complete export -> actual
+C own-history dialogue/task quality -> SAME-artifact total cost/useful-n/scales.
+No admitted compact chatbot satisfies the full chain.511 is infilling only.
+
+Reusable [offline source-contract tool](../../../benchmarks/native_expert_scaling/chatbot_donor_preflight.py)
+and [protocol](CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md) now inspect actual
+local Qwen2.5-0.5B-Instruct/GigaChat3.1 HF headers/tokenizer/config and optional
+producer GGUF metadata. Frozen before both runs, .500s/34.3MB and1.578s/37.7MB,
+exit0, no tensor values/model/C/old numeric replay. Qwen generation EOS includes
+151645 AND151643; prior native assay used its own narrower greedy stop policy.
+Giga local HF template absent; producer template extracted but not adopted or
+ID/rendering qualified. Report revisions are declared, header hashes are not
+full source-value hashes. Tool is an AVAILABLE pipeline stage, not a converter.
+
+Qwen's complete276 archive/direct native loading284/prediction295/generation296
+are reusable implementations.297's strict semantic comparison fails41>40
+unsupported claims against BF16 E1280; unchanged recipe CLOSED and no accepted
+whole-rate qualification. All dense4864 FFN features remain active. Original
+stops cannot be removed using favorable donor-only counts. Qwen/Giga SwiGLU
+needs its own atom/folding/coverage/core-cost contract; ReLU sign-zero and linear
+fold identities do not directly define a compact gated-SiLU implementation.
+
+Next [necessary528 certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md)
+first freezes independent C verification of completed1..12 and exact dyadic
+full-reference energies/prefix error LOWER bounds. A strict full-domain1% failure
+can close this recipe without the rest of its responses; inconclusive requires
+original full continuation, never prefix promotion. No certificate code/protocol/
+C/energy observations yet. Then prioritize family-specific chatbot conversion
+and complete fresh native dialogues/tasks, with explicit role/history/EOS fixtures.
+
+## Retained experimental path:511 baseline;527 bounds;528 first fault
 
 [511 result](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) closes the fresh whole
 artifact test. All15 donor-relative quality criteria pass; SAME candidate warm
@@ -227,7 +263,8 @@ Incorrect first Windows query used527 main; original retained, numbered metadata
 repair checks actual528 instances. No source/response replay or bytes changed.
 
 [Numerical repair1 proposal](METH_528_REPAIR1_CHECKPOINTED_CONTINUATION_NEXT_20261007.md)
-first freezes prefix-adoption/independent recovery predicates, then performs
+is conditional after the necessary-certificate inquiry. It freezes
+prefix-adoption/independent recovery predicates, then performs
 the FIRST C audit for1..13, resolves13 and checkpoints missing14..127 responses
 with per-phase costs. Reuse banks/controls; retain all completed arithmetic;
 serialize complete scope before independent remaining audit/ALL656 domains and

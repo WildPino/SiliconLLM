@@ -1,5 +1,22 @@
 # Native expert-count scaling: prior evidence
 
+**7 October chatbot reassessment:** human restates final CHATBOT-to-engine
+pipeline. [Macro review](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) distinguishes
+511 Switch infilling warm-quality/50 from actual Qwen Instruct direct artifact/
+native295/296 and297's unchanged semantic FAIL. No admitted compact whole chatbot
+quality+rate. New reusable offline preflight, source/protocol frozenba407d1,
+two completed local source inspections(.500s/34.3MB,1.578s/37.7MB),exit0. No
+tensor values/model/C/numeric replay. Qwen two declared EOS IDs; Giga local HF
+template absent, producer GGUF template present but not rendered/ID-qualified.
+Actual SwiGLU families require a different gated-atom/folding/core-cost contract
+than Switch ReLU; metadata inspection itself reports pipeline NOT QUALIFIED.
+Select [necessary full-domain528 certificate](METH_528_PREFIX_NECESSARY_FAILURE_NEXT_20261007.md)
+before costly full repair: FIRST audit completed1..12, exact full-reference
+energy versus prefix error LOWER bound; strict inequality proves unchanged
+whole1% criterion failure. Inconclusive cannot promote; full continuation stays
+conditional. No certificate code/protocol/C/energy observations. Then return
+to chatbot family transformation and complete native dialogue/task/cost chain.
+
 **7 October after528 first fault:** [variable source atoms](METH_528_VARIABLE_ATOM_FIRST_FAULT_RESULT_20261007.md)
 code/protocol frozen; ALL127 development candidate/rotation banks built BEFORE
 outputs, widths512..1095,candidate101823884B. Own selected-hidden A16 removes

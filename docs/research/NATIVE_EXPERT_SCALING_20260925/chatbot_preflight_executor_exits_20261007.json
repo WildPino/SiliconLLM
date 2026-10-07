@@ -1,0 +1,36 @@
+{
+  "scope": "Actual offline metadata executor observations; not a conversion or quality admission.",
+  "source_freeze_commit": "ba407d15b53015c7b948d79c54d2955fb5948528",
+  "executions": [
+    {
+      "kind": "qwen_source_contract",
+      "tool": "exec_command",
+      "chunk_id": "ce53b4",
+      "exit_code": 0,
+      "executor_wall_seconds": 1.3582659,
+      "result": "chatbot_qwen_source_contract_20261007.json",
+      "sha256": "258313ec5e4800615d30e44ed61fd9e90086a295205fb3322054117a3c3fc225"
+    },
+    {
+      "kind": "gigachat_source_contract",
+      "tool": "exec_command",
+      "chunk_id": "1cc1dd",
+      "exit_code": 0,
+      "executor_wall_seconds": 2.4318395,
+      "result": "chatbot_gigachat_source_contract_20261007.json",
+      "sha256": "88f25eb6055c0b4e7b06c5c755d1c3aded3ab1ac05574febac29eee6d2aabc81"
+    },
+    {
+      "kind": "typed_UTC_terminal_metadata",
+      "tool": "exec_command",
+      "chunk_id": "67c209",
+      "exit_code": 0,
+      "executor_wall_seconds": 0.6702361,
+      "result": "chatbot_preflight_windows_terminal_20261007.json",
+      "sha256": "0ba158d05d8a24c786cf31bd09b676f486def3a519dde2397f2667638e59287c"
+    }
+  ],
+  "counter_note": "Original bytes_read fields are sums of hashed input extents, excluding the additional GGUF parse-pass and Git pipe reads; retained immutable, current source labels their scope explicitly.",
+  "new_model_native_tensor_value_calls_or_reads": 0,
+  "pipeline_complete": false
+}
