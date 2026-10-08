@@ -84,10 +84,11 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [source-structural joint transfer](CHATBOT_STRUCTURAL_TRANSFER_NEXT_20261008.md):
-select ONE finite jointly learned shared+conditional SwiGLU
-converter replacing the active source FFN. Price complete head/attention/router/
-cache, retain full x initially as conditional function input. Old independent
+Next [coupled-jet representation prerequisite](CHATBOT_COUPLED_JET_NEXT_20261008.md):
+the first finite joint shared+conditional SwiGLU converter now has measured
+value-only and value+full-J failures. Change its private function representation
+as described below. Keep complete head/attention/router/cache priced and full x
+as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
 Compact converter/fresh whole chat quality+rate remain MISSING. METH125 contains
 256 states per layer on augmented-model trajectories; these are not6144 states
@@ -133,10 +134,29 @@ These are derivatives of smooth exact-coefficient formulas evaluated in F64,
 not rounded native inference; equal-anchor isotropic full-space energy is not
 activation covariance/semantic loss. All four prospective diagnostic gates pass:
 NEW joint value+full-derivative objective at SAME active geometry is justified.
-Current NEXT fixes a proposed finite learner, but actual learner/binding/fit
-remain MISSING; promotion still requires novel1%/ALL-category3% and then whole
-chat quality AND accepted50 SAME artifact. Old231 fixed-G/U Jacobian prior stays
-closed; no epoch/width/precision ladder or completed function/control replay.
+The changed joint value+FULL-J learner is now AVAILABLE as an implemented and
+independently validated finite failure: [result](CHATBOT_STRUCTURAL_FIT_RESULT_20261008.md),
+source531fb90,24 epochs/744 updates/16 FIT J targets, actual prior final warm
+weights/original reference/router/cost preserved. New FIT23.6954%/novel60.1892%
+response RMS versus21.6779%/61.3921%; FIT/novel J52.9936%/68.7877% versus82.74%.
+Both derivative gains pass10%, but response benefit/FIT-regression and absolute
+1%/3% gates fail. THIS fixed structural objective recipe CLOSED, no coefficient/
+epoch/width ladder; no representational impossibility or optimizer-optimum claim.
+Fit68.484s/worker94.078s/family118.047s/1.776GB through exit; independent retained
+audit8.438s/533.5MB, all response/decision/J/probe/router-byte/hash/update-order
+fields in declared scope verified, new necessary integer prefix failure proof
+reuses original exact source denominator. All4 instances closed/no OS faults.
+
+New NEXT changes private functions to full-input affine maps with the latest
+fixed512 nonlinear shared core. Joint value/J interpolation eliminates null-
+direction coefficients by a16x16 mass solve, leaving a528x528 chart-jet system
+for896 outputs. This is a derived PROPOSAL, not an implemented solver or fidelity
+result. First freeze/execute whole budget and numerical W/K rank/conditioning
+prerequisites ONLY, before source/core responses or field bank construction.
+Old227 common-free independent nearest tangents remain CLOSED; shared nonlinear
+core and top4 coupled jets are explicitly new degrees of freedom, no success
+assumed. Promotion still requires novel1%/ALL-category3% and then fresh whole
+chat quality AND accepted50 SAME artifact. Old231 fixed-G/U prior stays closed.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault

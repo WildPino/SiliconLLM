@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**8 October first actual joint VALUE+FULL-J converter recipe CLOSED:**
+[result](CHATBOT_STRUCTURAL_FIT_RESULT_20261008.md), source531fb90,24 epochs/744
+updates/16 FIT source-J targets, same shared512/leaf128/top4/query32 active cost/
+router; prior final warm start/original row-reference weights. NEW response
+RMS23.6954% FIT/60.1892% novel; NEW J52.9936%/68.7877% versus82.74%. Derivative
+improvements pass10%, but novel response benefit/FIT-regression and fixed1%/3%
+fidelity FAIL. No optimum/class-impossibility claim or lambda/epoch/width retry.
+Source information reused, zero original model/J/feature/geometry/control
+re-acquisition. Fit68.484s/worker94.078s/family118.047s/1.776GB through exit,
+341.4MB outputs. Independent saved scalar/NumPy/storage-byte audit8.438s/533.5MB
+checks all frozen decisions/new derivative probes/744 identities and original
+router buffer equality. New exact prefix error69399609... against reused FULL
+qualified source integer proves strict1%-RMS failure. Four instances closed/no
+OS faults/foreign SHA preserved. [NEW coupled-jet NEXT](CHATBOT_COUPLED_JET_NEXT_20261008.md)
+selects shared nonlinearity+joint full-input affine fields, first whole budget
+and16-mass/528-jet design conditioning. Solver/fields NOT implemented/qualified;
+old227 separate nearest tangents stay closed. Full CHATBOT pipeline goal intact.
+
 **8 October source-directional structure ACQUIRED/INDEPENDENTLY VERIFIED:**
 [result](CHATBOT_DIRECTIONAL_RESULT_20261008.md),32 original exact-distinct anchors
 fixed before derivatives,16 FIT/16 novel dev, full source/student896x896 F64 J
