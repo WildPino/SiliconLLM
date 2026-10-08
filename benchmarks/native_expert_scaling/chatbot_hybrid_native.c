@@ -17,7 +17,6 @@
 #define L 12
 #define V 65537
 #define E 72
-#define K 8
 #define H 128
 #define DN 768
 #define N 256
@@ -30,6 +29,7 @@
 #define AQ 63
 #define OMP_PFOR
 #include "chatbot_hybrid_original_kernels.h"
+#define K 8
 
 static void fail(const char *s){fprintf(stderr,"%s\n",s);exit(2);}
 static void read_exact(FILE*f,void*p,size_t n){if(fread(p,1,n,f)!=n)fail("short input");}
