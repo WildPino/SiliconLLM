@@ -1,0 +1,23 @@
+{
+  "schema":"FALCON_USABILITY_CASES_V1",
+  "purpose":"prospective absolute teacher usefulness screen, not training or broad chat qualification",
+  "max_new_tokens":64,
+  "cases":[
+    {"id":"arithmetic_add","category":"arithmetic","prompt":"What is 7 plus 5? Answer with the number only.","expected":"12"},
+    {"id":"arithmetic_sub","category":"arithmetic","prompt":"What is 15 minus 6? Answer with the number only.","expected":"9"},
+    {"id":"arithmetic_mul","category":"arithmetic","prompt":"What is 3 times 4? Answer with the number only.","expected":"12"},
+    {"id":"arithmetic_div","category":"arithmetic","prompt":"What is 20 divided by 5? Answer with the number only.","expected":"4"},
+    {"id":"extract_color","category":"extraction","prompt":"Record: name=Alice; color=blue; city=Rome. What is the color? Answer with the value only.","expected":"blue"},
+    {"id":"extract_city","category":"extraction","prompt":"Record: name=Bob; color=red; city=Paris. What is the city? Answer with the value only.","expected":"Paris"},
+    {"id":"extract_name","category":"extraction","prompt":"Record: name=Clara; animal=cat; age=8. What is the name? Answer with the value only.","expected":"Clara"},
+    {"id":"extract_animal","category":"extraction","prompt":"Record: name=David; animal=dog; age=5. What is the animal? Answer with the value only.","expected":"dog"},
+    {"id":"follow_literal","category":"instruction","prompt":"Reply with exactly this word: hello","expected":"hello"},
+    {"id":"follow_upper","category":"instruction","prompt":"Write the word cat in uppercase. Return only the result.","expected":"CAT"},
+    {"id":"follow_lower","category":"instruction","prompt":"Write the word DOG in lowercase. Return only the result.","expected":"dog"},
+    {"id":"follow_reverse","category":"instruction","prompt":"Reverse the letters in abc. Return only the result.","expected":"cba"},
+    {"id":"history_pet","category":"history","history":[{"role":"user","content":"My pet is named Milo."},{"role":"assistant","content":"Your pet is named Milo."}],"prompt":"What is my pet's name? Answer with the name only.","expected":"Milo"},
+    {"id":"history_color","category":"history","history":[{"role":"user","content":"My favorite color is green."},{"role":"assistant","content":"Your favorite color is green."}],"prompt":"What is my favorite color? Answer with the color only.","expected":"green"},
+    {"id":"history_city","category":"history","history":[{"role":"user","content":"I live in Berlin."},{"role":"assistant","content":"You live in Berlin."}],"prompt":"Where do I live? Answer with the city only.","expected":"Berlin"},
+    {"id":"history_inventory","category":"history","history":[{"role":"user","content":"I have three apples."},{"role":"assistant","content":"You have three apples."}],"prompt":"How many apples do I have? Answer with the number only.","expected":"3"}
+  ]
+}
