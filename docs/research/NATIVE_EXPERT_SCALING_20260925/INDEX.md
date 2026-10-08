@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-7 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+8 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 
 ## Goal and operating constraints
 
@@ -25,68 +25,34 @@ donor-adaptation operationally frozen, evidence reusable.
 | Useful conditional target |123/183 small donor128->1280 utility;369 source identity utility;373 bounded64->256 cost|Useful much larger n, bounded active work/traffic, LUT winner+mass and real DRAM|
 | Pretrained transfer |Qualified original Switch C scales; source-informed local transforms;511 fresh whole quality AND warm50 in declared scope|Compact convenient geometry, reliable domain coverage and actual family/scale variants|
 
-## Chatbot pipeline priority
+## Chatbot pipeline: current connection and latest decisive evidence
 
-[Macro reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) restores the full
-chatbot pipeline as the decision surface. Qwen Instruct already has complete
-archive/direct phase60 loading295/296; fixed native semantics297 FAILS and
-whole accepted50 is unqualified.511's quality/warm50 is Switch INFILLING, not
-chat. No admitted compact chatbot quality+rate artifact exists.
+[Macro reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md): full pretrained
+CHATBOT->compact conditional functions->C->fresh quality AND accepted50 SAME
+artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 
-New [offline source preflight](CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md) is
-implemented and executed once on local Qwen/Giga, no tensor values/inference:
-.500s/34.3MB and1.578s/37.7MB. Qwen EOS[151645,151643]; Giga's local HF chat
-template absent, producer GGUF candidate present. Giga ID parity remains missing.
-Both use SwiGLU; recent ReLU omission/fold results do not automatically transfer.
-The tool exposes missing stages and always reports pipeline NOT QUALIFIED.
+| Pipeline part | Actual state and reusable evidence |
+|---|---|
+| Source/family contract |[preflight](CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md)/[census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md): Qwen/Giga SwiGLU; Qwen current archive508M vs source494M MAC, all4864 FFN active; Giga expanded MLA cache, template/ID parity open |
+| Canonical input |[interaction](CHATBOT_INTERACTION_RESULT_20261007.md): Qwen roles/history/continuation/BOTH EOS/IDs qualified, plain text; native integration/tools open |
+| Original information |[capture](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md):48 cases/5709 positions PER LAYER,47 complete generations+one retained partial; original300s gate FAIL, calibration usable |
+| Necessary target cost |[geometry](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md): shared512+4*128/query32/E16 or160; complete246.94/246.97M MAC and494MB logical coefficients pass3/5 dimension gates; no physical rate/DRAM |
+| Actual local transfer |[exposure](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md): uniformE16028 unsupported leaves CLOSED. [first E16 fit](CHATBOT_JOINT_BASELINE_RESULT_20261007.md):24 epochs/744 updates,21.68% FIT/61.39% novel response RMS; numerical+integer audit FAIL, recipe CLOSED |
+| New source structure |[directional result](CHATBOT_DIRECTIONAL_RESULT_20261008.md): ALL32 full source/student J and320 directional checks; novel82.737% J RMS/null83.234%,94.436% source-null energy. Exact rank32/null864, independent audit agrees |
+| Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No eligible NEW compact ALL24/export/chat/accepted50/useful-n artifact |
 
-New [whole operator census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md) binds
-ALL actual source names/shapes/bytes and725 existing Qwen C descriptors. Qwen
-matrix terms493.96M source ->508.09M current archive despite lower coefficient
-byte budget; ALL4864 FFN features/full BF16 head remain active. Giga main1.628B
-matrix terms includes650M attention/779M FFNs, plus context attention. Local
-MLA code caches EXPANDED K/V, not latent KV. First Giga output-cap fault retained;
-compact repair succeeds, zero values/inference. Final whole-job OS peaks UNKNOWN
-(raw snapshots before serialization). No quality/rate/compact admission.
+New diagnosis: directional errors persist equally in representative FIT and
+novel states; all four prewritten diagnostic gates PASS. These smooth F64/full-
+space observables are not a semantic bound or rounded inference derivative.
+First plan's revision-label fault retained/corrected by exact committed bytes,
+no anchor replay. Acquisition31.156s/family126.188s/worker859.7MB through exit;
+independent NumPy audit3.219s/507.5MB, all6 instances closed/no OS faults.
+Next [source-structural joint learner](CHATBOT_STRUCTURAL_TRANSFER_NEXT_20261008.md)
+is specified but NOT implemented/fitted. Keep same geometry/active cost; add
+complete FIT derivative constraints, test novel response benefit and unchanged
+absolute fidelity before ALL24/native promotion. No ladder or guaranteed success.
 
-New [canonical Qwen interaction](CHATBOT_INTERACTION_RESULT_20261007.md) is
-IMPLEMENTED/EXECUTED: all8 literal conversation and four generated-only stop
-goldens PASS. HF canonical IDs equal original Rust JSON and independent Python
-BPE, both EOS/no BOS/Unicode/continuation qualified. Actual exit0,14.093s,
-worker OS peak256540672B THROUGH EXIT; conservative family287444992B. First
-symlink-length/API-container faults retained and numbered repairs disclosed.
-Seven instances closed/no OS faults. Plain-text input stage AVAILABLE; tools/
-native integration/model quality/rate/compact conversion remain unqualified.
-
-[Finite joint geometry](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md): actual Torch
-block and spec freeze shared512/leaf128/top4/16 parents/query32, E16 versus160.
-New complete arithmetic passes fixed3/5 necessary cost gates:246.94/246.97M
-matrix terms/token,494.02/494.08MB logical coefficients; stored proposal.692/
-3.071GB. Full head/attention retained. Weights/quality/rate/DRAM UNMEASURED.
-Original-source [capture result](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md)
-is AVAILABLE: ALL48 cases/32 fit/16 reserved development,5709 positions PER
-LAYER (3845/1864), original BF16 normalized x/complete y.47 full generations
-plus one original300s timed-out saved prefix; original resource FAIL explicit.
-Arrow startup/count apparatus faults retained, no completed response replay;
-three final batches actual exit0, worker OS peaks through exit~1.68GB. Ten new
-instances closed/no OS faults. Calibration data is not fresh whole quality.
-[Finite joint layer12 pilot](CHATBOT_JOINT_PILOT_PROTOCOL_20261007.md) now fixes
-FIT-only geometry/source initialization/joint updates/novel development/count-
-utility/encoding/intervention gates before first values. Actual
-[exposure result](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md) closes uniformE160:
-28 leaves unsupported, minima1 unique FIT/1 conversation/0 novel dev; zero fit.
-E16 support passes59/24/29 minima. Separate
-[E16 first-fit result](CHATBOT_JOINT_BASELINE_RESULT_20261007.md) reuses saved
-geometry/parent control, completes24 epochs/744 updates: FIT21.6779% RMS,
-novel DEVELOPMENT61.3921%; BF16-rounded61.3923%, ALL16 categories FAIL3%.
-Original finite initializer/objective fit CLOSED; no E160 response/utility.
-Baseline75.312s worker/100.610s family/1.722GB through-exit peak. Independent
-saved-byte audit12.984s/461.2MB verifies ALL control/exposure/error fields and
-BOTH exact integer1%-RMS failure witnesses. Six instances closed/no OS faults.
-New [source-information NEXT](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md)
-selects directional source structure before more functions/ALL24 conversion.
-
-## Latest decisive evidence
+## Retained necessary closures
 
 [528 necessary rejection](METH_528_NECESSARY_GATE_RESULT_20261007.md): FIRST scalar
 C verifies1674 retained prefix responses BYTE; exact source/prefix energy audit
@@ -143,7 +109,7 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [new source directional information](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md).
+**First action:** [implement one joint value+derivative converter](CHATBOT_STRUCTURAL_TRANSFER_NEXT_20261008.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse their adapter/IDs without replay. Finite joint512/128/top4 E16/E160 geometry
 is selected/implemented and complete necessary dimension budget PASS. Original
@@ -151,10 +117,12 @@ source operands48 cases now byte-qualified under explicit calibration eligibilit
 reuse source data/canonical/census, no replay. Uniform E160 exposure CLOSED;
 FIRST E16 joint fit CLOSED at61.39% novel response RMS, independently verified.
 Original finite fit/source information insufficient in this observed recipe;
-capacity/optimizer optimum not proved. Implement/freeze the NEW bounded source-
-versus-retained-student directional diagnostic before its values, then decide
-source-structural/joint value+derivative constraints. No width/update/precision
-ladder or unchanged geometry/fit/control/source-output replay. Keep head/attention/
+capacity/optimizer optimum not proved. NEW full directional collector/audit
+COMPLETE; reuse32 source J/perturbation bytes, not original model re-acquisition.
+Implement/freeze the SAME-cost joint G/U/B learner with FIT-only full-J constraints;
+prospective loss/decisions/resources in current NEXT, no actual new fit yet.
+No width/update/precision ladder or unchanged geometry/fit/control/source-output
+replay. Keep head/attention/
 router/cache priced jointly; don't infer throughput from dimension reductions.
 Census and canonical fixtures are implemented/executed. Compact conversion
 remains missing. Original METH125 has only256 states/layer, not6144 per layer,
@@ -185,5 +153,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
-[source-information NEXT](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md)
+[source-structural NEXT](CHATBOT_STRUCTURAL_TRANSFER_NEXT_20261008.md)
 supersede all older operational NEXTs.

@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**8 October source-directional structure ACQUIRED/INDEPENDENTLY VERIFIED:**
+[result](CHATBOT_DIRECTIONAL_RESULT_20261008.md),32 original exact-distinct anchors
+fixed before derivatives,16 FIT/16 novel dev, full source/student896x896 F64 J
+and ALL320 independent directional pairs. Exact P rank32/null864 via nonzero
+integer-scaled modular minor; QR and NumPy saved-matrix/probe reconstruction
+agree. Novel J RMS82.7371%/null83.2339%, source-null energy94.4356%; FIT82.7387%.
+All four prospective diagnostic predicates PASS, no semantic/rounded-inference/
+whole admission. Full-space energy is not reachable-state prevalence/covariance.
+Sourcec0aba67,worker31.156s/family126.188s/859.7MB through exit; audit1c2fdb3,
+3.219s/507.5MB. Original plan revision-label FIELD invalid, immutable raw retained/
+actualec197f9 committed-byte proof pinned before J; zero anchor replay. All6
+instances closed/no typedUTC OS faults/foreign SHA preserved. New information
+only, no original BF16 forwards/geometry/source-a²/optimizer/old prediction replay.
+[NEW structural-transfer NEXT](CHATBOT_STRUCTURAL_TRANSFER_NEXT_20261008.md)
+supersedes the earlier collector proposal: SAME-cost full joint G/U/B value+J
+learner plan, actual learner/fit still missing. Original1%/3% and full CHATBOT
+quality AND accepted50/useful-n/DRAM/scales remain; old231/finite E16/E160 closed.
+
 **7 October first actual joint compact fit CLOSED:**
 [result](CHATBOT_JOINT_BASELINE_RESULT_20261007.md), sourcef719fab, actual exit0,
 24 epochs/744 updates, shared/leaf G/U/B all changed/distinct. E16 FIT21.6779%

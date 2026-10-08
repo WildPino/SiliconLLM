@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method
 
-7 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+8 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 This is the procedure/status document. Individual records retain experiments.
 The former extended method/history is preserved BYTE in
 [METHOD through498](METHOD_THROUGH_498_20261006.md); its old resumptions are
@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [source directional information](CHATBOT_SOURCE_INFORMATION_NEXT_20261007.md):
+Next [source-structural joint transfer](CHATBOT_STRUCTURAL_TRANSFER_NEXT_20261008.md):
 select ONE finite jointly learned shared+conditional SwiGLU
 converter replacing the active source FFN. Price complete head/attention/router/
 cache, retain full x initially as conditional function input. Old independent
@@ -97,8 +97,8 @@ Finite [geometry/block budget](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md) is
 now AVAILABLE: shared512/leaf128/top4/16 parents/query32/E16 versus160, full x,
 joint trainable shared/leaf G/U/B, explicit stable projected-distance routing
 and selected-parent mass. Complete necessary3/5 gates pass at246.94/246.97M
-products and494.02/494.08MB logical coefficients. No actual fitted parameters,
-capacity/native/DRAM/rate admission. [Original-source capture](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md)
+products and494.02/494.08MB logical coefficients. That dimension budget did not
+measure fitted weights/capacity/native/DRAM/rate. [Original-source capture](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md)
 is AVAILABLE: ALL48 case operands,32 fit/16 development,5709 positions PER LAYER,
 3845/1864. Original300s failure/one partial generation and Arrow/count apparatus
 faults retained; no completed response replay. Final byte adoption qualifies
@@ -117,11 +117,26 @@ novel61.3921%; rounded61.3923%, ALL16 categories FAIL. Finite recipe CLOSED,
 no E160 response/utility or ALL24/whole promotion. Independent stdlib saved-byte
 audit verifies ALL exposure/control/error fields and BOTH exact integer failure
 witnesses; actual resources pass/six instances closed/no OS faults.
-The selected NEW uncertainty is source/retained-student directional structure,
-including selector-nullspace variation and selected-mass derivative inside a
-fixed routing cell. Collector/objective remain unimplemented; freeze exact
-anchors/code/resource/criteria before new values. Old231 fixed-G/U Jacobian prior
-stays closed; no epoch/width/precision ladder or completed function/control replay.
+The source/retained-student directional collector is now AVAILABLE:
+[result](CHATBOT_DIRECTIONAL_RESULT_20261008.md),32 exact-distinct original anchors
+fixed before values,16 FIT/16 novel development, full896x896 source/student F64 J,
+selected-mass derivative included. Exact F32 P rank32/null864 by nonzero modular
+minor; numerical QR and ALL320 source/student finite-difference pairs pass.
+Novel pooled full-J RMS82.7371%/null83.2339%; source-null energy94.4356%; all16
+novel anchors exceed10%. Independent NumPy saved-J/probe/binary/integer audit
+agrees with ALL source/error/decision fields. Source values/geometry/optimizer
+not replayed. Acquisition31.156s/family126.188s/859.7MB through worker exit;
+audit3.219s/507.5MB. Plan wrong revision FIELD retained, commit reconstructed by
+bound bytes before acquisition, no anchor replay; all6 instances closed/no faults.
+
+These are derivatives of smooth exact-coefficient formulas evaluated in F64,
+not rounded native inference; equal-anchor isotropic full-space energy is not
+activation covariance/semantic loss. All four prospective diagnostic gates pass:
+NEW joint value+full-derivative objective at SAME active geometry is justified.
+Current NEXT fixes a proposed finite learner, but actual learner/binding/fit
+remain MISSING; promotion still requires novel1%/ALL-category3% and then whole
+chat quality AND accepted50 SAME artifact. Old231 fixed-G/U Jacobian prior stays
+closed; no epoch/width/precision ladder or completed function/control replay.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault
