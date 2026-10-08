@@ -35,7 +35,11 @@ adaptation is permitted but useful transfer must be demonstrated.
 **[Balanced whole recovery LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md):**
 implementation/protocol frozen1f2a30a,180-input bindingSHAed9299ff. Session76414,
 launcher20000/worker33244 verified; actual model+Adam restored (254.93M/2.039GB
-moments/step8). ALL160 NEW initial observations in progress. Fixed512 balanced
+moments/step8). ALL160 NEW initial observations COMPLETE by445.5s;FIT/DEV
+caseKL24.0623/24.7119,ID disagreement99.806%/99.819%. At snapshot16 complete
+updates,first all12 core/bank/norm gradients positive finite;first steps10–12s
+with CPU snapshots. This rate threatens3600s completion;cap fixed,not extended.
+Prepared saved-only partial/full auditor UNEXECUTED. Fixed512 balanced
 updates,training-only normalized AQ dither.025,inference original AQ63,60s
 recovery reserve inside3600s family/16GiB OS/11GiB GPU/12GiB output. No final
 recovery/quality/native admission; preserve old failures. Poll same live handle.
@@ -118,7 +122,8 @@ Source861.782s, below original900s cap. No source/capture restart/replay.
 
 Frozen4 balanced epochs/512 updates,case-mean KL,temp1,lr5e-5/clip1/STE,
 training-only dither.025,RNG-preserving checkpointing and explicit recovery gates.
-Final update512 selected,not DEV-best. Actual initial/final NEW full logits retained.
+Final update512 selected,not DEV-best. Actual initial NEW full logits retained;
+final observations remain pending.
 First short/long backward must establish resources. On closure inspect actual
 terminal/fault/checkpoint/metrics and saved-only audit before NEW native export.
 Old nativeFAIL retained; NEW trained/native check before long

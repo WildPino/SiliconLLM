@@ -15,7 +15,9 @@ PASS.137 EOS stops/23 length96 truncations; no answer-truth admission.
 
 Observe SAME session76414 or authoritative launcher20000/worker33244. Do not
 restart an expired observation. Actual final learner/optimizer is restored;
-ALL160 NEW initial evaluations are in progress. Reuse adopted corpus; no
+ALL160 NEW initial evaluations COMPLETE,at least16 updates durable at recorded
+snapshot. Actual first steps10–12s including complete CPU state copy;3600s
+completion uncertain,cap unchanged. Reuse adopted corpus; no
 completed source/capture/adopter/core/bank evaluation replay. Saved source JSON tokenizer and bit/ID/EOS/position
 transport is qualified with a shared Rust dependency, not independent BPE.
 64 RESERVED texts stay unqueried.23 partial answers supply prefix labels but not
@@ -69,6 +71,11 @@ is bounded: common-input RMS cannot establish that missing global assumption.
    before promotion. Then freeze NEW export/C-prefix protocol against saved
    learner logits;old13/32PASS/19FAIL retained. Frozen strict native criterion,
    plus source-relative outputs on actual C artifact before long adaptation.
+
+The [saved-only auditor](CHATBOT_HYBRID_RECOVERY_AUDIT_PROTOCOL_20261009.md)
+is prepared/UNEXECUTED,including partial-state adoption. Compile/review and
+extend launcher schema only AFTER actual original exit. Archived original
+launcher bytes match its original bound SHA; new launcher binds separately.
 
 Frozen local cap<=3600s family/16GiB OS/11GiB allocated GPU/12GiB reserved/
 12GiB output. Initial+final logits3,012,604,816B plus~3.06GB final/~3.06GB

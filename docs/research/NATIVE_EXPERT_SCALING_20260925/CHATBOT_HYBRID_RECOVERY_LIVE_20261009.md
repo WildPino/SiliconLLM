@@ -18,7 +18,25 @@ Longest FIT input selected before values:fit_reading_08.
 Original naive eager SSD fallback is expected; optional kernels are absent.
 No donor loaded, no T4 or concurrent model job.
 
-This snapshot does not prove any completed update. Observe the SAME session/
+ALL160 initial observations COMPLETE by445.5s;5746 F32 full-vocabulary rows
+retained. FIT caseKL24.0622717738/labelKL25.7844728281,4634/4643 differing IDs
+(99.8062%). DEV caseKL24.7118660808/labelKL26.0431082653,1101/1103
+(99.8187%). These are NEW baseline values,not quality or training recovery.
+At a later actual snapshot16 complete updates were durable; first update
+fit_explanation_15 has all12 positive finite core/bank/norm gradient groups.
+First four full updates12.359/10.265/11.531/11.875s including CPU model/moment
+snapshot. At this observed rate512 within3600s is unlikely,but final time is
+not yet known and the cap remains fixed. Worker OS peak snapshot8,316,919,808B,
+not through-exit measurement. Both exact PIDs still live at this observation.
+
+Prepared [saved-only auditor](CHATBOT_HYBRID_RECOVERY_AUDIT_PROTOCOL_20261009.md)
+and code are UNEXECUTED. First compile/review and extend launcher schema AFTER
+original exit; never edit original bound launcher during this run. Its exact
+bytes are retained in chatbot_hybrid_recovery_launcher_frozen_20261009.py.txt,
+SHA65f8bf570191515ddea770e4ec5e153cd71949729dfa57d9865527a98fa93672.
+The audit can adopt retained partial state without inventing final outputs.
+
+Observe the SAME session/
 log/result/terminal and current process before deciding status; never relaunch
 because observation timed out. Completed initial rows are saved individually.
 Full initial160 -> fixed512 balanced updates -> full final160 and actual
