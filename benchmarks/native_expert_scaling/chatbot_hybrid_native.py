@@ -18,12 +18,29 @@ sys.path.insert(0,str(SITE))
 
 
 def bind(a):
-    pilot=DOC/'chatbot_hybrid_pilot_result_repair1_20261008.json'
+    pilot=a.learner_result or DOC/'chatbot_hybrid_pilot_result_repair1_20261008.json'
     result=json.loads(pilot.read_bytes())
-    assert result['decision']=='PILOT_RECOVERY_PASS'
+    cohort=result['schema']=='HYBRID_RECOVERY_RESULT_V1'
+    assert result['decision']==('BALANCED_RECOVERY_ELIGIBLE' if cohort else 'PILOT_RECOVERY_PASS')
+    protocol=DOC/('CHATBOT_HYBRID_NATIVE_COHORT_PROTOCOL_20261009.md' if cohort else 'CHATBOT_HYBRID_NATIVE_PROTOCOL_20261008.md')
     files=[pilot,pilot.with_suffix('.terminal.json'),Path(result['checkpoint']['path']),B/'chatbot_hybrid_native.py',
         B/'chatbot_hybrid_native.c',B/'chatbot_falcon_usability.py',B/'chatbot_falcon_usability_launch.py',
-        ROOT/'benchmarks/phase60/engine.c',DOC/'CHATBOT_HYBRID_NATIVE_PROTOCOL_20261008.md',Path(sys.executable)]
+        ROOT/'benchmarks/phase60/engine.c',protocol,Path(sys.executable)]
+    if cohort:
+        assert a.corpus and a.learner_audit
+        corpus=json.loads(a.corpus.read_bytes())
+        audited=json.loads(a.learner_audit.read_bytes())
+        assert audited['decision']=='SAVED_RECOVERY_AUDIT_PASS' and audited['full_primary'] and audited['checkpoint_boundary']==512
+        assert all(audited['reproduced_recovery_gates'].values())
+        assert len(corpus['records'])==160 and len(result['after']['cases'])==160 and result['new_updates']==512
+        assert audited['primary_result_sha256']==sha(pilot)
+        assert audited['checkpoint']['sha256']==result['checkpoint']['sha256']
+        assert audited['corpus']['sha256']==sha(a.corpus)
+        audit_terminal=json.loads(a.learner_audit.with_suffix('.terminal.json').read_bytes())
+        assert audit_terminal['exit_code']==0 and audit_terminal['result_sha256']==sha(a.learner_audit)
+        files += [a.corpus,a.learner_audit,a.learner_audit.with_suffix('.terminal.json')]
+        if a.phase=='native':
+            files += [Path(r['logits']['path']) for r in corpus['records']]
     if a.phase=='native':
         assert a.export_result
         exported=json.loads(a.export_result.read_bytes())
@@ -47,8 +64,15 @@ def bind(a):
     assert next(v['sha256'] for v in inputs if v['path']==result['checkpoint']['path'])==result['checkpoint']['sha256']
     limits=dict(seconds=600,OS_bytes=(8 if a.phase=='export' else 2)<<30,
                 output_bytes=(1<<30) if a.phase=='export' else (256<<20),GPU_allocated_bytes=512<<20,GPU_reserved_bytes=1<<30)
+    if cohort and a.phase=='native':
+        limits.update(OS_bytes=4<<30,output_bytes=6<<30)
+        rows=sum(len(r['output_ids']) for r in corpus['records'])
+        inputs_count=sum(len(r['student_input_ids']) for r in corpus['records'])
+        projected_output=16+rows*65537*4+inputs_count*12*12640+len(corpus['records'])*9117696+(16<<20)
+        assert projected_output<=limits['output_bytes'],'priced native output cap'
     b=dict(schema='HYBRID_NATIVE_BINDING_V1',phase=a.phase,python=str(Path(sys.executable).resolve()),
         worker_path=str(Path(__file__).resolve()),pilot_path=str(pilot.resolve()),
+        corpus_path=str(a.corpus.resolve()) if cohort else None,cohort=cohort,
         compiler=str(a.compiler.resolve()) if a.compiler else None,export_result=str(a.export_result.resolve()) if a.export_result else None,
         resume_directory=str(a.resume.resolve()) if a.resume else None,limits=limits,inputs=inputs,
         allowed_worker_children=['clang.exe','clang-21.exe','ld.lld.exe','lld.exe','ld.exe','hybrid_native.exe','conhost.exe'] if a.phase=='native' else [],
@@ -90,6 +114,8 @@ def worker(a):
         with p.open('xb') as f:
             f.write(data);f.flush();os.fsync(f.fileno())
     result=json.loads(Path(b['pilot_path']).read_bytes())
+    if b.get('cohort'):
+        result['supervision_records']=json.loads(Path(b['corpus_path']).read_bytes())['records']
     try:
         if b['phase']=='export':
             import struct
@@ -215,59 +241,117 @@ def worker(a):
             compile_record=run([b['compiler'],'-O3','-mavx2','-mfma','-ffp-contract=off',str(B/'chatbot_hybrid_native.c'),
                               '-I',str(a.directory.resolve()),'-o',str(exe.resolve()),'-lm'],'compile')
             event('compiled',exe_sha256=sha(exe))
-            queries=a.directory/'queries.bin';metadata=[];parts=[struct.pack('<4I',0x31514853,6,32,65537)]
+            case_count=len(result['supervision_records'])
+            total_rows=sum(len(r['output_ids']) for r in result['supervision_records'])
+            assert 1<=case_count<=1024 and case_count<=total_rows<=case_count*512
+            queries=a.directory/'queries.bin';metadata=[];parts=[struct.pack('<4I',0x31514853,case_count,total_rows,65537)]
             for r in result['supervision_records']:
                 ids=r['input_ids']+r['output_ids'][:-1];positions=list(range(len(r['input_ids'])-1,len(ids)))
+                assert 1<=len(ids)<=512 and 1<=len(positions)<=len(ids) and all(0<=i<65537 for i in ids)
+                if b.get('cohort'):
+                    assert ids==r['student_input_ids'] and positions==r['positions']
                 parts += [struct.pack('<2I',len(ids),len(positions)),struct.pack('<'+str(len(ids))+'I',*ids),struct.pack('<'+str(len(positions))+'I',*positions)]
-                metadata.append(dict(id=r['id'],split=r['split'],input_ids=ids,positions=positions))
+                metadata.append(dict(id=r['id'],split=r['split'],input_ids=ids,positions=positions,domain=r.get('domain')))
+            total_inputs=sum(len(r['input_ids']) for r in metadata)
             save_raw(queries,b''.join(parts));write(a.directory/'queries.json',metadata)
             native_paths=[a.directory/p for p in ('logits.bin','trace.bin','states.bin','native.json')]
             exported=json.loads(Path(b['export_result']).read_bytes())
             native_record=run([str(exe.resolve()),exported['model']['path'],str(queries.resolve()),
                             *[str(p.resolve()) for p in native_paths]],'native')
             event('native_complete',child_seconds=native_record['seconds'])
-            raw=native_paths[0].read_bytes();assert struct.unpack_from('<4I',raw)==(0x314c4853,6,32,65537)
-            logits=np.frombuffer(raw,offset=16,dtype='<f4').reshape(32,65537);assert np.isfinite(logits).all()
-            rows=[];offset=0
+            with native_paths[0].open('rb') as f:
+                assert struct.unpack('<4I',f.read(16))==(0x314c4853,case_count,total_rows,65537)
+            assert native_paths[0].stat().st_size==16+total_rows*65537*4
+            rows=[];offset=0;source_rows=[]
             for case in metadata:
                 reference=next(v for v in result['after']['cases'] if v['id']==case['id'])
                 assert sha(reference['logits']['path'])==reference['logits']['sha256']
                 ref=np.fromfile(reference['logits']['path'],dtype='<f4').reshape(reference['logits']['shape'])
-                actual=logits[offset:offset+len(ref)];delta=actual.astype(np.float64)-ref
-                rms=np.sqrt((delta*delta).sum(-1)/np.square(ref.astype(np.float64)).sum(-1))
+                assert ref.shape==(len(case['positions']),65537) and np.isfinite(ref).all()
+                with native_paths[0].open('rb') as f:
+                    f.seek(16+offset*65537*4)
+                    actual=np.fromfile(f,dtype='<f4',count=ref.size).reshape(ref.shape)
+                assert np.isfinite(actual).all()
+                delta=actual.astype(np.float64)-ref
+                error=(delta*delta).sum(-1);energy=np.square(ref.astype(np.float64)).sum(-1)
+                rms=np.sqrt(np.divide(error,energy,out=np.full_like(error,np.inf),where=energy>0))
+                rms[(energy==0)&(error==0)]=0
                 winners=actual.argmax(-1);expected=ref.argmax(-1)
                 for j in range(len(ref)):
                     rows.append(dict(id=case['id'],position=case['positions'][j],relative_logit_RMS=float(rms[j]),
                         C_ID=int(winners[j]),learner_ID=int(expected[j]),winner_equal=bool(winners[j]==expected[j]),
                         RMS_gate=bool(rms[j]<=1e-4)))
+                if b.get('cohort'):
+                    source=next(v for v in result['supervision_records'] if v['id']==case['id'])
+                    bits=np.fromfile(source['logits']['path'],dtype='<u2').astype('<u4');bits<<=16
+                    teacher=bits.view('<f4').reshape(ref.shape).astype(np.float64)
+                    def log_probability(x):
+                        shifted=x-x.max(-1,keepdims=True)
+                        return shifted-np.log(np.exp(shifted).sum(-1,keepdims=True))
+                    lp=log_probability(teacher);lq=log_probability(actual.astype(np.float64))
+                    label_KL=(np.exp(lp)*(lp-lq)).sum(-1)
+                    assert np.isfinite(label_KL).all() and label_KL.min()>=-1e-10
+                    source_rows.append(dict(id=case['id'],split=case['split'],domain=case['domain'],labels=len(ref),
+                        KL=float(label_KL.mean()),label_KL=label_KL.tolist(),
+                        disagreements=sum(int(i)!=j for i,j in zip(winners,source['output_ids'],strict=True))))
                 offset+=len(ref)
-            assert offset==32
+                guard()
+            assert offset==total_rows
             dtype=np.dtype([(n,'<f4',512) for n in ('input','core_input','core_output','ff_input')]+[
                 ('scores','<f4',72),('ids','<u4',8),('mass','<f4',8),('ff_output','<f4',512),('output','<f4',512)])
-            trace=np.fromfile(native_paths[1],dtype=dtype);assert dtype.itemsize==12640 and len(trace)==261*12
-            for name in dtype.names:
-                assert np.isfinite(trace[name]).all()
-            selected=np.argsort(-trace['scores'],axis=-1,kind='stable')[:,:8].astype(np.uint32)
-            assert np.array_equal(selected,trace['ids'])
-            chosen=np.take_along_axis(trace['scores'].astype(np.float64),selected.astype(np.int64),-1)
-            mass=np.exp(chosen-chosen.max(-1,keepdims=True));mass/=mass.sum(-1,keepdims=True)
-            mass_error=float(np.abs(mass-trace['mass']).max());assert mass_error<=1e-6
-            final=np.fromfile(native_paths[2],dtype='<f4');assert final.size==6*9117696//4 and np.isfinite(final).all()
+            assert dtype.itemsize==12640 and native_paths[1].stat().st_size==total_inputs*12*dtype.itemsize
+            trace_count=0;mass_error=0.0
+            with native_paths[1].open('rb') as f:
+                while True:
+                    trace=np.fromfile(f,dtype=dtype,count=1024)
+                    if not len(trace):break
+                    for name in dtype.names:assert np.isfinite(trace[name]).all()
+                    selected=np.argsort(-trace['scores'],axis=-1,kind='stable')[:,:8].astype(np.uint32)
+                    assert np.array_equal(selected,trace['ids'])
+                    chosen=np.take_along_axis(trace['scores'].astype(np.float64),selected.astype(np.int64),-1)
+                    mass=np.exp(chosen-chosen.max(-1,keepdims=True));mass/=mass.sum(-1,keepdims=True)
+                    mass_error=max(mass_error,float(np.abs(mass-trace['mass']).max()));assert mass_error<=1e-6
+                    trace_count+=len(trace);guard()
+            assert trace_count==total_inputs*12
+            assert native_paths[2].stat().st_size==case_count*9117696
+            with native_paths[2].open('rb') as f:
+                while True:
+                    final=np.fromfile(f,dtype='<f4',count=1<<18)
+                    if not len(final):break
+                    assert np.isfinite(final).all();guard()
             stats=json.loads(native_paths[3].read_bytes())
+            assert stats['schema']=='HYBRID_NATIVE_C_V2' and stats['case_count']==case_count
+            assert stats['rows']==total_rows and stats['input_ids']==total_inputs
             assert stats['expert_master_or_unpacked_bytes']==0 and stats['coefficient_payload_bytes']==425188608
             gates=dict(all32_full_logit_RMS=all(r['RMS_gate'] for r in rows),all32_winners=all(r['winner_equal'] for r in rows),
                        packed_only=True,original_kernel_fixtures=stats['original_kernel_fixtures'],flat_router_ID_mass=True)
+            if b.get('cohort'):
+                gates['all_full_logit_RMS']=gates.pop('all32_full_logit_RMS')
+                gates['all_winners_equal']=gates.pop('all32_winners')
+                def summary(chosen):
+                    n=sum(r['labels'] for r in chosen)
+                    return dict(cases=len(chosen),labels=n,case_KL=sum(r['KL'] for r in chosen)/len(chosen),
+                        label_KL=sum(sum(r['label_KL']) for r in chosen)/n,
+                        disagreements=sum(r['disagreements'] for r in chosen),
+                        label_disagreement=sum(r['disagreements'] for r in chosen)/n)
+                source_summary={s:summary([r for r in source_rows if r['split']==s]) for s in ('FIT','DEV')}
+                source_summary['domains']={d:{s:summary([r for r in source_rows if r['split']==s and r['domain']==d]) for s in ('FIT','DEV')} for d in sorted({r['domain'] for r in source_rows})}
+                write(a.directory/'source_relative_prefix.json',dict(cases=source_rows,**source_summary))
+            else:
+                source_summary=None
             guard()
             report=dict(schema='HYBRID_NATIVE_RESULT_V1',freeze=a.freeze,binding_sha256=a.binding_sha,
                 process_instance=dict(pid=proc.pid,create_time_unix=proc.create_time()),
                 decision='NATIVE_PREFIX_PARITY_PASS' if all(gates.values()) else 'NATIVE_PREFIX_PARITY_FAIL',gates=gates,
                 rows=rows,max_relative_logit_RMS=max(r['relative_logit_RMS'] for r in rows),
-                winners_equal=sum(r['winner_equal'] for r in rows),router_records=len(trace),max_router_mass_abs_error=mass_error,
+                case_count=case_count,full_vocabulary_rows=total_rows,input_ids=total_inputs,
+                winners_equal=sum(r['winner_equal'] for r in rows),router_records=trace_count,max_router_mass_abs_error=mass_error,
+                source_relative_prefix=source_summary,
                 native_stats=stats,compile_process=compile_record,native_process=native_record,
                 model=exported['model'],exe=extent(exe),queries=extent(queries),native_outputs=[extent(p) for p in native_paths],
                 worker_OS_peak_snapshot=proc.memory_info().peak_wset,children_OS_peaks=child_peaks,
                 model_python_forwards=0,source_generations=0,training_updates=0,
-                quality_speed_scope='Fixed source-owned prefixes against saved learner. No fresh own-history quality, accepted50, window eviction or large-n routing qualification.',
+                quality_speed_scope='Fixed teacher-owned calibration prefixes. C-to-learner parity and optional direct donor-relative prefix metrics; no fresh own-history quality, accepted50 or large-n routing. Window eviction exercised only if an actual case exceeds128, not a long-context preservation proof.',
                 elapsed_seconds=time.monotonic()-start)
         write(a.out,report);event('complete',decision=report['decision'])
     except BaseException as error:
@@ -281,6 +365,9 @@ if __name__=='__main__':
     p.add_argument('--phase',choices=('export','native'))
     p.add_argument('--compiler',type=Path)
     p.add_argument('--export-result',type=Path)
+    p.add_argument('--learner-result',type=Path)
+    p.add_argument('--learner-audit',type=Path)
+    p.add_argument('--corpus',type=Path)
     p.add_argument('--resume',type=Path)
     p.add_argument('--binding',type=Path)
     p.add_argument('--binding-sha')

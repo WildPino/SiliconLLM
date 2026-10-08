@@ -196,13 +196,13 @@ int main(int argc,char**argv){
     if(fesetround(FE_TONEAREST))fail("round mode");_MM_SET_FLUSH_ZERO_MODE(_MM_FLUSH_ZERO_OFF);_MM_SET_DENORMALS_ZERO_MODE(_MM_DENORMALS_ZERO_OFF);
     double start=now_s();fixtures();load_model(argv[1]);
     FILE*in=fopen(argv[2],"rb");if(!in)fail("queries open");uint32_t h[4];read_exact(in,h,16);
-    if(h[0]!=0x31514853||h[1]!=6||h[2]!=32||h[3]!=V)fail("query header");
+    if(h[0]!=0x31514853||h[1]<1||h[1]>1024||h[2]<h[1]||h[2]>h[1]*512||h[3]!=V)fail("query header");
     FILE*out=exclusive(argv[3]),*trace=exclusive(argv[4]),*states=exclusive(argv[5]);
-    uint32_t oh[4]={0x314c4853,6,32,V};write_exact(out,oh,16);
+    uint32_t oh[4]={0x314c4853,h[1],h[2],V};write_exact(out,oh,16);
     float*logits=malloc(V*4);if(!logits)fail("logits OOM");Timings tm={0};int total_ids=0,rows=0;
-    for(int c=0;c<6;c++){
-        uint32_t sizes[2],ids[128],positions[8];read_exact(in,sizes,8);
-        if(sizes[0]>128||sizes[0]<1||sizes[1]>8||sizes[1]<1)fail("query dimensions");
+    for(uint32_t c=0;c<h[1];c++){
+        uint32_t sizes[2],ids[512],positions[512];read_exact(in,sizes,8);
+        if(sizes[0]>512||sizes[0]<1||sizes[1]>sizes[0]||sizes[1]<1)fail("query dimensions");
         read_exact(in,ids,sizes[0]*4);read_exact(in,positions,sizes[1]*4);
         for(uint32_t j=0;j<sizes[1];j++)if(positions[j]>=sizes[0]||(j&&positions[j]<=positions[j-1]))fail("query position");
         reset();uint32_t next=0;double t0=now_s();
@@ -212,15 +212,15 @@ int main(int argc,char**argv){
         }
         for(int l=0;l<L;l++){Layer*s=layers+l;if(s->state){write_exact(states,s->state,DN*N*4);write_exact(states,s->conv,CD*CONV*4);}
             else{write_exact(states,s->keys,WIN*D*4);write_exact(states,s->vals,WIN*D*4);}}
-        printf("case=%d ids=%u rows=%u seconds=%.6f\n",c,sizes[0],sizes[1],now_s()-t0);fflush(stdout);
+        printf("case=%u ids=%u rows=%u seconds=%.6f\n",c,sizes[0],sizes[1],now_s()-t0);fflush(stdout);
     }
-    if(fgetc(in)!=EOF||rows!=32||total_ids!=261)fail("query extent");fclose(in);
+    if(fgetc(in)!=EOF||(uint32_t)rows!=h[2])fail("query extent");fclose(in);
     if(fclose(out)||fclose(trace)||fclose(states))fail("close outputs");
-    FILE*r=exclusive(argv[6]);fprintf(r,"{\"schema\":\"HYBRID_NATIVE_C_V1\",\"case_count\":6,\"rows\":%d,\"input_ids\":%d,"
+    FILE*r=exclusive(argv[6]);fprintf(r,"{\"schema\":\"HYBRID_NATIVE_C_V2\",\"case_count\":%u,\"rows\":%d,\"input_ids\":%d,"
         "\"model_file_bytes\":%llu,\"model_heap_bytes\":%llu,\"coefficient_payload_bytes\":%llu,\"expert_code_bytes\":%llu,"
         "\"expert_master_or_unpacked_bytes\":0,\"state_bytes\":%llu,\"state_heap_bytes\":%llu,\"derived_A_bytes\":%u,"
         "\"original_kernel_fixtures\":true,\"threads\":1,\"core_seconds\":%.9f,\"mlp_seconds\":%.9f,\"head_seconds\":%.9f,"
-        "\"forward_seconds\":%.9f,\"process_seconds\":%.9f}\n",rows,total_ids,
+        "\"forward_seconds\":%.9f,\"process_seconds\":%.9f}\n",h[1],rows,total_ids,
         (unsigned long long)blob_bytes,(unsigned long long)_msize(blob),(unsigned long long)payload_bytes,(unsigned long long)code_bytes,
         (unsigned long long)state_bytes,(unsigned long long)heap_state_bytes,10*NH*4,tm.core,tm.mlp,tm.head,tm.total,now_s()-start);
     if(fclose(r))fail("report close");return 0;

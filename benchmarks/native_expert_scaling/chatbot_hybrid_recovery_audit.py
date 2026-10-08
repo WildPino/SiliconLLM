@@ -215,6 +215,9 @@ def worker(a):
         guard()
         result=dict(schema='HYBRID_RECOVERY_AUDIT_RESULT_V1',decision='SAVED_RECOVERY_AUDIT_PASS',
              freeze=a.freeze,binding_sha256=a.binding_sha,process_instance=dict(pid=proc.pid,create_time_unix=proc.create_time()),
+             primary_result_sha256=sha(b['original_result']) if b['full_primary'] else None,
+             checkpoint=dict(path=b['state'],bytes=Path(b['state']).stat().st_size,sha256=sha(b['state'])),
+             corpus=dict(path=original['corpus'],sha256=sha(original['corpus'])),
              full_primary=b['full_primary'],checkpoint_boundary=boundary,logged_updates=len(updates),
              observations=observations,maximum_label_KL_F64_difference=maximum_label_KL_delta,
              model_elements=elements,changed_tensors=len(changed),changed_tensor_names=changed,
