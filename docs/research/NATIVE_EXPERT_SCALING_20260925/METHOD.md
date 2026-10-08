@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [source-derived ALL24 initialization](CHATBOT_WHOLE_INITIALIZER_NEXT_20261008.md):
+Next [whole transfer training/development cohort](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -110,10 +110,15 @@ BF16 quantizer derivative or actual ALL24 installation. Persistent resident
 design lower bounds are E16 3993823744B (peak UNMEASURED), E160 scenario
 23019642880B (FAIL12GiB resident design only); activations/workspaces remain
 additional. F32 router explicitly adds native coefficient/storage costs.
-Actual ALL24 initialization/installation/optimizer allocation/global training
-and native canonical chat remain missing. Reuse original layer12 source-row
-initial state; initialize23 new layers from their actual source weights and
-FIT operands, then FIRST provenance/support audit before assembly.
+[Actual ALL24 source initializer/FIRST audit](CHATBOT_WHOLE_INITIALIZER_RESULT_20261008.md)
+now AVAILABLE; layer0 completes1752-atom/2560-slot initialization, ALL6881280
+source promotions independently exact. Layer1/parent3 FIT32/9 cases but novel
+DEV3<4 closes this complete calibration recipe before its source features.
+Only0/12 initialized,1 routing available,21 layers unentered. Actual ALL24
+installation/optimizer allocation/global training/native canonical chat remain
+missing. The support stop is not a response/capacity impossibility. Next NEW
+named whole-transfer cohort supplies coverage and complete final donor logits;
+reuse0/1/12 geometry and0/12 initial state as explicit warm inputs, no old replay.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
@@ -607,10 +612,12 @@ representation diagnostic. [Current source-factor result](CHATBOT_SOURCE_QUADRAT
 and [ONE complete-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
 connect these statuses to the full pipeline. FIT-only source factor extraction,
 NEW quadratic feature/kernel/compiler and FIRST audits now AVAILABLE, with a
-CLOSED candidate outcome. [New operational NEXT](CHATBOT_WHOLE_INITIALIZER_NEXT_20261008.md)
-implements source-derived ALL24 initialization and actual assembly, BEFORE
-whole fitting/new labels. The whole adapter/replacement/output KL/resident Adam
-API and first one-block mechanics are AVAILABLE; successful ALL24 installation,
+CLOSED candidate outcome. [New operational NEXT](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md)
+prepares a NEW transfer cohort for ALL24 coverage and complete final-output
+teacher supervision. Source initializer/FIRST prefix audit are AVAILABLE but
+the original48-case complete recipe stops at layer1 support3<4;0/12 initialized.
+The whole adapter/replacement/output KL/resident Adam API and first one-block
+mechanics are AVAILABLE; successful ALL24 installation,
 optimizer allocation and finite global learner have NOT executed. No single executable currently
 converts a pretrained chatbot into an admitted compact native artifact.
 
@@ -695,10 +702,12 @@ fault/partials before a numbered repair.
 
 ## 7. Required return to the full goal
 
-Current [whole initializer route](CHATBOT_WHOLE_INITIALIZER_NEXT_20261008.md)
-follows the completed whole inventory and first interface qualification.
-Source-derived ALL24 initialization, FIRST saved-input/index/source-byte/support
-audit and actual BF16-core installation/resident optimizer peak are next.
+Current [whole cohort route](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md)
+follows completed inventory/interface and real source initializer/FIRST audit.
+NEW named data must supply ALL24 support and complete final donor distributions,
+with fresh own-history/dialogue/task cases excluded from calibration/training.
+Further initialization/new-data FIRST byte/support audit, actual BF16-core
+installation/resident optimizer peak and one finite whole fit are next.
 API availability and a memory lower bound are not an eligible ALL24 checkpoint.
 Existing local1%/3% recipe failures stay CLOSED;
 a genuinely new joint whole objective requires its own prewritten fresh

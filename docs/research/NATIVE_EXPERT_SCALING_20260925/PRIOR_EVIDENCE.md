@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual ALL24 initializer implemented; support prefix independently verified:**
+[result](CHATBOT_WHOLE_INITIALIZER_RESULT_20261008.md): layer0 source-derived
+shared/private1752-atom union/2560 stored slots,16 distinct leaf hashes,
+ALL6881280 G/U/D promotions independently exact;3082 unique FIT feature calls.
+Layer1/parent3 has32 distinct FIT/9 cases but3 novel DEV versus>=4; fixed
+original48-case complete recipe CLOSED before layer1 source features.
+Only0/12 initialized,1 routing available,21 layers unentered. Not a response
+or capacity impossibility; no original full/source y/old geometry-feature-field/
+optimizer replay. FIRST scalar-offset/byte-dictionary maps/saved support/order/
+source-copy audit PASS. Primary9.547s/1.398GB/GPU313MB,audit7.390s/479MB through
+exit,29.17MB outputs;all4 instances closed/no faults/foreignSHA intact.
+[Current NEXT](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md) prepares a NEW named
+whole-transfer training/development cohort, supplying coverage AND complete
+final-output teacher distributions; final fresh dialogues/tasks excluded.
+Old0/1/12 geometry and0/12 initial weights are explicit warm inputs, not replay.
+Whole assembly/optimizer/fit/export/C/chat/fresh quality AND accepted50 SAME
+artifact/useful-n/families remain missing. Current INDEX governs resumption.
+
 **8 October whole nonlinear connection prerequisites implemented/qualified:**
 [result](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md): actual E16 BF16/F32 adapter,
 ALL24 core-preserving replacement API, masked output KL and resident Adam code
