@@ -1,0 +1,30 @@
+{
+  "freeze": "c4776086b19a70b03eb9d85d182b34ffa61bda40",
+  "binding_sha256": "b16f305e82ad3952507d8b31b5c28f6fb9d9f0d37e5b9ffabcfe140618201b47",
+  "launcher_pid": 19652,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_binding_repair2_20261008.json",
+    "--binding-sha",
+    "b16f305e82ad3952507d8b31b5c28f6fb9d9f0d37e5b9ffabcfe140618201b47",
+    "--freeze",
+    "c4776086b19a70b03eb9d85d182b34ffa61bda40",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_usability_repair2_20261008",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_result_repair2_20261008.json"
+  ],
+  "worker_pid": 20936,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 805199872,
+  "launcher_OS_peak_snapshot": 27324416,
+  "fault": "AssertionError('[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d\\n\\nLoading weights:   0%|          | 0/386 [00:00<?, ?it/s]\\nLoading weights: 100%|██████████| 386/386 [00:00<00:00, 5844.73it/s]\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 206, in <module>\\n    main(p.parse_args())\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 134, in main\\n    assert text == serialize(messages), (\\'template\\', case[\\'id\\'])\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: (\\'template\\', \\'arithmetic_add\\')\\n')",
+  "elapsed_seconds": 10.34399999998277
+}

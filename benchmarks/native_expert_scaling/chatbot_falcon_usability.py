@@ -113,7 +113,9 @@ def main(args):
         special = dict(zip(tokenizer.all_special_tokens, tokenizer.all_special_ids))
         # Canonical serialization also includes the assistant-history newline.
         def serialize(messages):
-            s = ''
+            # The producer Jinja template emits this initial newline even in the
+            # no-system/no-tools branch with HF's trim_blocks/lstrip_blocks flags.
+            s = '\n'
             for m in messages:
                 content = m['content'] + ('\n' if m['role'] == 'assistant' and m['content'] else '')
                 s += '<|im_start|>' + m['role'] + '\n' + content + '<|im_end|>\n'

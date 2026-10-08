@@ -89,3 +89,11 @@ No source forward/case completed. Repair2 represents nonfinite config bounds
 as explicit strings in JSON, leaving model arithmetic untouched. Serialization
 is completed before exclusive file creation. Both first faults and partial source
 contract remain preserved; new repair2 binding/namespace, same16 fixed cases.
+
+Repair2's canonical text assertion stopped before the first source forward.
+Producer Jinja/HF trim_blocks+lstrip_blocks emits an initial newline without
+system/tools; independent serializer had omitted it. Repair3 retains that
+newline in the independent check and keeps the untouched producer serialization
+as model input. Evidence: direct Jinja text for first plain and history shapes;
+no output observed and no prompt/criterion change. Original failure namespaces
+and completed source contracts retained; new repair3 binding/directory/result.
