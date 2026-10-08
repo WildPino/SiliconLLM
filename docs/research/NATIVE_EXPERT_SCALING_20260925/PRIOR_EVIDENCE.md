@@ -4,8 +4,11 @@
 [Protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md),freeze1f2a30a,
 180-input bindinged9299ff; [live instance](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md)
 session76414/launcher20000/worker33244 verified. Actual254,932,736-parameter
-model/2,039,461,888B Adam moments restored atstep8; NEW initial160 observations
-in progress. Fixed512 balanced connected updates,training-only AQ dither.025,
+model/2,039,461,888B Adam moments restored atstep8; NEW initial160 COMPLETE,
+FIT/DEV caseKL24.0623/24.7119,99.806%/99.819% differing IDs. At snapshot30
+update records;first AND first-longest183-input backward all12 positive finite
+core/bank/norm groups. First steps10–12s,OS peak snapshot8.331GB,not through exit.
+Fixed512 balanced connected updates,training-only AQ dither.025,
 original inference LUT/ternary/core formulas. Family3600s/16GiB OS/11GiB allocated
 GPU/12GiB output. No final quality/native/rate admission,T4 or source replay.
 Poll samehandle; previous historical completed-job statements below stay scoped.

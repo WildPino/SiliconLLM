@@ -15,8 +15,9 @@ PASS.137 EOS stops/23 length96 truncations; no answer-truth admission.
 
 Observe SAME session76414 or authoritative launcher20000/worker33244. Do not
 restart an expired observation. Actual final learner/optimizer is restored;
-ALL160 NEW initial evaluations COMPLETE,at least16 updates durable at recorded
-snapshot. Actual first steps10–12s including complete CPU state copy;3600s
+ALL160 NEW initial evaluations COMPLETE,at least30 update records durable at
+recorded snapshot;first-longest183-input backward ALL12 finite positive groups.
+Actual first steps10–12s including complete CPU state copy;3600s
 completion uncertain,cap unchanged. Reuse adopted corpus; no
 completed source/capture/adopter/core/bank evaluation replay. Saved source JSON tokenizer and bit/ID/EOS/position
 transport is qualified with a shared Rust dependency, not independent BPE.

@@ -92,8 +92,12 @@ Partial replies are prefix supervision, not full-answer quality. ONE NEW
 frozen1f2a30a and [LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md),session76414.
 Actual prior model+Adam restored;512 fixed case/domain-balanced updates,training-only
 AQ normalized dither.025,no changed inference formula,all160 NEW initial/final
-observations retained. Local3600s/16GiB OS/11GiB allocated GPU/12GiB output;
-actual long backward/resources/final recovery are not yet established.
+observations retained. ALL160 NEW initial complete,FIT/DEV caseKL24.0623/24.7119,
+99.806%/99.819% differing IDs. At snapshot30 updates;first and first-longest
+183-input backward has all12 finite positive core/bank/norm gradient groups.
+First updates10–12s,OS peak snapshot8.331GB,through-exit/final coverage pending.
+Local3600s/16GiB OS/11GiB allocated GPU/12GiB output;
+complete budget feasibility/final recovery are not yet established.
 Broad preservation/own-prefix recovery remain missing. Qwen200-case tensors
 belong to another donor. Pilot/screen/calibration stay excluded from fresh tests.
 
