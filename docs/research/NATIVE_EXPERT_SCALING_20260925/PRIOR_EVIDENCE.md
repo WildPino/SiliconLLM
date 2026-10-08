@@ -1,5 +1,27 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual ALL-FIT convex converter CLOSED, numerical minimum verified:**
+[result](CHATBOT_KERNEL_RESULT_20261008.md), ALL3845 FIT occurrences/3166 exact x,
+weighted full-input3845-square kernel, one positive alpha fixed from x/mass,
+shared512/BF16+top4/full896 affine bank. Necessary whole290975744MAC/583842816
+logicalB passes dimensions only. Actual kernel and explicit-Phi first audit
+PASS; one saved-factor compiler satisfies dual/folded/primal residuals
+1.27e-14/9.63e-15/1.43e-14. F64/encoded FIT1.5450%/1.5485%; FIRST64 novel
+70.4496%/70.4495%, not FULL novel RMS. Both exact prefix/FULL-source1% failures
+independently verified; remaining novel/ALL24/export/native STOP. THIS fixed
+zero-prior positive-ridge objective CLOSED, not the full affine class or a
+global capacity proof. Kernel7.750s/737MB,fit23.266s/1.043GB through exit;
+independent audits16.954s/1.053GB and22.844s/972MB, all8 instances closed/no
+OS faults/foreign SHA preserved. No source/J/old bank/optimizer replay.
+ALL3845 FIT and64-prefix shared-only F64/batched-F32 values now cached.
+[NEW source-null-J prior NEXT](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md) combines
+ALL-FIT values with reused source/core null-J priors, exact real projector from
+actual P via small solves; FIRST covariance kernel prerequisite. New kernel/
+compiler NOT implemented. Full compact CHATBOT/fresh quality AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale remain open.
+Older entries' NEXT/status fields describe their original record dates;
+current INDEX/METHOD/new NEXT govern resumption.
+
 **8 October actual joint full-input affine compiler CLOSED, extension failure:**
 [result](CHATBOT_COUPLED_RESULT_20261008.md), original16FIT jets/shared512/top4,
 new W16/K528 design full numerical rank/condition40.37/23608.70, necessary
@@ -12,10 +34,9 @@ is not an independently audited norm ratio or general precision statement.
 Finite16-jet construction CLOSED; not all affine classes or a capacity bound.
 Compiler12.625s/1.184GB through exit; independent saved-bank audit6.437s/.872GB;
 new unrounded probe2.515s/.178GB/exact ratio audit1.078s/.031GB. All12 instances
-closed/no OS faults/foreign SHA preserved. [NEW full-FIT kernel route](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md)
-changes constraints to ALL3845 original FIT responses; weighted Gram/one convex
-coefficient objective derived, first kernel/Cholesky prerequisite. New fitter
-NOT implemented. Full compact CHATBOT pipeline/fresh quality AND accepted50
+closed/no OS faults/foreign SHA preserved. [Full-FIT kernel route](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md)
+changed constraints to ALL3845 original FIT responses; its kernel/compiler now
+implemented and independently CLOSED as recorded above. Full compact CHATBOT pipeline/fresh quality AND accepted50
 SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale gates remain open.
 
 **8 October first actual joint VALUE+FULL-J converter recipe CLOSED:**

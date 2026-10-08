@@ -84,11 +84,13 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [full-FIT kernel prerequisite](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md):
+Next [source-null-J prior covariance prerequisite](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
-exists and fails outside its16 anchors; change the source constraint distribution
-as described below. Keep complete head/attention/router/cache priced and full x
+exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
+compiler also exists, with a numerical optimum certificate and novel failure;
+the new variable is source-J information in its coefficient prior, as below.
+Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
 Compact converter/fresh whole chat quality+rate remain MISSING. METH125 contains
@@ -161,17 +163,42 @@ Compiler12.625s/worker1.184GB through exit; first audit6.437s/.872GB; unrounded
 probe2.515s/.178GB/independent exact audit1.078s/.031GB. All12 instances closed/
 zero OS faults. Remaining novel/ALL24/export/native stopped; this recipe CLOSED.
 
-NEW [full-FIT kernel proposal](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md) retains
-that active geometry but replaces16 exact jets by ALL3845 original FIT response
-constraints and a single convex coefficient objective. Weighted full-input
-feature Gram3845x3845, algebraic PSD/conditioning-controlled alpha and one
-shared Cholesky avoid14352-square coefficient normals. This new kernel/fitter
-is NOT implemented/qualified. FIRST implement/freeze kernel/factor prerequisites
-without new core/labels/error; only then one separately frozen coefficient fit,
-reusing original16 shared-only core outputs wherever x is identical.
-Old227, this joint16-jet construction and231 fixed-G/U prior remain CLOSED;
-no full affine-class impossibility. Promotion still requires novel1%/ALL-category
-3% and fresh whole chat quality AND accepted50 SAME artifact, useful n/DRAM/LUT.
+[ALL-FIT kernel and convex compiler](CHATBOT_KERNEL_RESULT_20261008.md) are now
+AVAILABLE as an independently verified finite failure. ALL3845 original FIT
+occurrences/3166 exact x, actual F32 mass, one alpha=.8153432850804172 from x
+only, saved3845-square Cholesky and fixed128-panel triangular solves. All896
+outputs share the factor; no14352-square coefficient normal/inverse/optimizer.
+Kernel reconstruction1.385e-16; explicit-Phi independent audit agrees5.572e-16.
+Dual/folded/primal stationarity residuals1.27e-14/9.63e-15/1.43e-14 qualify
+the numerical minimizer of THAT positive-ridge zero-prior objective.
+F64/encoded FIT1.5450%/1.5485%, FIRST64 novel70.4496%/70.4495%. Both exact
+necessary FULL1%-RMS failures independently verified; FULL source denominators
+reused. THIS recipe CLOSED before remaining novel/ALL24/native, not the complete
+affine class. Actual kernel7.750s/737MB,fit23.266s/1.043GB; first audits16.954s/
+1.053GB and22.844s/972MB through worker exit, all8 instances closed/no OS faults.
+Original16 shared-F64 FIT values reused, FIRST3150 other distinct values cached;
+ALL3845 FIT and64-prefix shared-only F64/batched-F32 now reusable. No donor/J
+or old bank/optimizer replay. Numerical qualification is not native parity.
+
+NEW [source-null-J prior proposal](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md)
+retains active geometry and ALL-FIT value equations, adds a soft prior from
+original16 source/core Js in selector-null directions. Coefficient nullity
+>=10507 per output follows from the3845x14352 feature dimensions; it is not a
+semantic-information or representational-capacity percentage. New projector
+is P^T solve(P P^T,P) from ACTUAL stored selector bytes/exact rank32, rather
+than treating rounded Q Q^T as exactly idempotent. One fixed energy-scale ratio
+and old alpha define a new positive quadratic objective;16/32-square operator
+solves and one3845-square covariance kernel avoid large coefficient normals.
+FIRST implement/freeze ONLY that kernel/operator prerequisite without source/
+core y/J matrices, prior coefficients/errors or development x. First independent
+assembly audit/terminal closure precedes ONE separate compiler if eligible.
+New covariance kernel/compiler NOT implemented. Full derivation and stops are
+in NEXT; no alpha/lambda/precision/anchor ladder. Old227, joint16-jet,zero-prior
+ALL-FIT and231 fixed-G/U prior remain CLOSED; no full affine-class impossibility.
+Promotion still requires novel1%/ALL-category3% and actual complete export/native
+composition, then fresh whole chat quality AND accepted50 SAME artifact,
+useful n/DRAM/LUT/family/scales. Consumed development can reject a candidate,
+not establish fresh chatbot preservation. The complete pipeline remains missing.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault
@@ -506,6 +533,14 @@ Price private/shared/core/head/state/router bytes and their n-dependent slopes.
 A physical cost failure closes its defined recipe, without a universal claim.
 
 ## 4. Compile source knowledge and learn on development only
+
+For the current CHATBOT path, FIT/development partitions and canonical history
+are qualified; source operands, local source Js and shared-only outputs are
+cached. Actual joint neural,16-jet and ALL-FIT convex converters are reusable
+implemented tools with CLOSED candidate outcomes. The source-null-J covariance
+kernel/compiler is PROPOSED, not an available conversion stage. [Current result](CHATBOT_KERNEL_RESULT_20261008.md)
+connects these statuses to the full pipeline. No single executable currently
+converts a pretrained chatbot into an admitted compact native artifact.
 
 493 independently joins saved F,p,expert,UID/occurrences and rounded pF
 supervision.494 supplies unweighted L0/C0/Kreg priors. Source pF products
