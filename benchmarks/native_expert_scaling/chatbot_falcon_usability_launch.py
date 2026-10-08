@@ -27,7 +27,7 @@ def main(args):
     proc.cpu_affinity([11])
     assert sha(args.binding) == args.binding_sha
     b = json.loads(args.binding.read_bytes())
-    assert b['schema'] == 'FALCON_USABILITY_BINDING_V1'
+    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1')
     assert Path(sys.executable).resolve() == Path(b['python']).resolve()
     assert not args.directory.exists()
     log = args.out.with_suffix('.worker.log')
@@ -101,7 +101,10 @@ def main(args):
         assert p.returncode == 0, log.read_text(errors='replace')
         check_inputs()
         result = json.loads(args.out.read_bytes())
-        assert result['schema'] == 'FALCON_USABILITY_RESULT_V1' and result['total'] == 16
+        if b['schema'] == 'FALCON_USABILITY_BINDING_V1':
+            assert result['schema'] == 'FALCON_USABILITY_RESULT_V1' and result['total'] == 16
+        else:
+            assert result['schema'] == 'FALCON_SCAN_CAPTURE_RESULT_V1' and result['packet_count'] == 12
         assert result['process_instance']['pid'] == p.pid
         record.update(elapsed_seconds=time.monotonic()-start, result_sha256=sha(args.out),
                 decision=result['decision'], resource_gates=True,
