@@ -32,13 +32,14 @@ def bind(a):
         for row in result['after']['cases']:
             files.append(Path(row['logits']['path']))
         files.append(a.compiler)
+        files += [a.compiler.parent/n for n in ('clang-21.exe','ld.lld.exe','lld.exe','libclang-cpp.dll','libLLVM.dll') if (a.compiler.parent/n).exists()]
     foreign={'benchmarks/donor_adaptation/configs/_manifest.json':'fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d',
         'benchmarks/donor_adaptation/density/build_document_holdout.py':'c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9',
         'docs/research/RESEARCH_INDEX.md':'99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273'}
     assert all(sha(ROOT/p)==s for p,s in foreign.items())
     files += [ROOT/p for p in foreign]
     if a.resume:
-        assert (a.resume/'first_failure.json').exists()
+        assert (a.resume/'first_failure.json').exists() or (a.resume/'external_failure.json').exists()
         files += [p for p in a.resume.iterdir() if p.is_file()]
     files=list(dict.fromkeys(p.resolve() for p in files))
     inputs=[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in files]
@@ -49,7 +50,7 @@ def bind(a):
         worker_path=str(Path(__file__).resolve()),pilot_path=str(pilot.resolve()),
         compiler=str(a.compiler.resolve()) if a.compiler else None,export_result=str(a.export_result.resolve()) if a.export_result else None,
         resume_directory=str(a.resume.resolve()) if a.resume else None,limits=limits,inputs=inputs,
-        allowed_worker_children=['clang.exe','ld.lld.exe','lld.exe','ld.exe','hybrid_native.exe'] if a.phase=='native' else [],
+        allowed_worker_children=['clang.exe','clang-21.exe','ld.lld.exe','lld.exe','ld.exe','hybrid_native.exe'] if a.phase=='native' else [],
         runtime_binding_scope='Actual checkpoint/export/cases and selected code/compiler/Python extents; isolated versions/paths. Not a complete DLL or compiler-library tree hash.')
     write(a.out,b)
     print(json.dumps(dict(binding=str(a.out),sha256=sha(a.out),inputs=len(inputs))),flush=True)
