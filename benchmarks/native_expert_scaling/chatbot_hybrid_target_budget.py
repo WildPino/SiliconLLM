@@ -15,7 +15,8 @@ def main(a):
     assert source['D']==2048 and source['L']==24 and source['ffn_h']==4608 and source['N']==256
     targets=[]
     for layers,swa,bank in ((12,2,36),(12,2,72),(6,1,72),(6,1,144)):
-        d,m,n,head,h,k,q,window,conv=512,768,256,64,128,8,32,128,4
+        # Preserve all source A/delta/D head indices; reduce channels in each head.
+        d,m,n,head,h,k,q,window,conv=512,768,256,16,128,8,32,128,4
         ssm=layers-swa
         heads=m//head
         conv_dim=m+2*n
@@ -45,6 +46,8 @@ def main(a):
         logical_decode=4*(core_matrix+ssm_scalars+norms+head_elements+tree_params+active_scales)+active_codes+2*physical_state
         record=dict(D=d,L=layers,SSM_layers=ssm,SWA_layers=swa,SWA_window=window,
            SSM_D=m,N=n,SSM_head_dim=head,SSM_heads=heads,gated_RMS=True,V=source['V'],expert_h=h,k=k,n_per_layer=bank,
+           source_decay_head_indices_retained=heads==source['heads'],
+           decay_preservation_scope='A/delta/D head slots and initial A spectrum retained; projected input changes delta values and learned dynamics',
            source_row_slots_preserved_count_only=layers*bank*h==source['L']*source['ffn_h'],
            row_slot_meaning='Same aggregate feature slot count does NOT mean preserved functions or knowledge',
            core_matrix_products=core_matrix,full_head_products=head_elements,selected_expert_products=selected,
@@ -71,7 +74,8 @@ def main(a):
       exponential_note='Source A/delta constant within head: one exp(delta*A) per head versus original per-state exp. Hoisting is algebraically exact; float/C timing not yet qualified',
       tree_note='New prospective fanout32/beam8 count only; CPU LUT IDs plus normalized masses and useful-n remain unimplemented/unproven',
       selected_first_candidate_index=1,
-      decision='D512/L12/SSM10/SWA2/n72/k8/h128 retains source aggregate FFN slot count and costs bounded active geometry; actual memory/quality need a pilot',
+      decision='D512/L12/SSM10/48heads*16/SWA2/n72/k8/h128 retains source decay-head indices and aggregate FFN slot count; actual memory/quality need a pilot',
+      previous_variant='Head64/12heads counts retained in first budget. NEW head16/48heads preserves all source A head indices, increases naive SSD workspace by4 at same chunk length.',
       elapsed_seconds=time.monotonic()-start)
     with a.out.open('x',encoding='utf8') as f:
         json.dump(result,f,indent=2);f.write('\n')
