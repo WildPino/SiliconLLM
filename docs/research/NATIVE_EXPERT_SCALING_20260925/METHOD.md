@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [FIT-balanced keys for whole transfer](CHATBOT_BALANCED_KEYS_NEXT_20261008.md):
+Next [actual whole assembly](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -125,12 +125,17 @@ All6 instances closed/no OS faults.64 endpoint texts remain unqueried.
 [Actual NEW support/FIRST audit](CHATBOT_NEW_COHORT_INITIALIZER_RESULT_20261008.md)
 now rejects layer1:parents3/4 zero FIT/DEV,6 DEV2,7 FIT6/DEV1; layer0 passes.
 Warm-key NEW cohort recipe CLOSED before source features; initialized0/12 prior
-inputs remain available, no NEW geometry/features/copies/whole learner executed.
+inputs remained available; this inherited-key stage executed no NEW geometry/features/copies.
 Main11.984s/1.019GB/GPU113MB,audit10.016s/474MB through exit;all4 closed/no faults.
-FIT-only fixed20 balanced-centroid helper AVAILABLE UNEXECUTED; same inference
-arithmetic/width, quota assignments NOT actual top4 support. Integrate ALL24
-construction/FIRST auditor before further observables; warm G/U/D reuse must
-not overwrite new buffers. Source/capture/local failures unchanged, no replay.
+[ALL24 balanced initialization/FIRST audit](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md)
+now AVAILABLE: all384 leaves pass actual top4 support,minFIT377/40cases/
+novelDEV89;480 construction steps independently F64-bit exact and151388160
+NEW source-copy elements exact. Same inference arithmetic/width; quota labels
+NOT actual routes. Warm G/U/D0/12 reuse must not overwrite NEW buffers.
+Producer141.078s/GPU487MB,683.68MB outputs; FIRST audit104.922s/605MB through
+exit,all4 instances closed/no faults. Hydration API AVAILABLE but actual whole
+installation/resident Adam peak and finite learner remain unexecuted.
+Source/capture/local failures unchanged, no replay.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
@@ -624,14 +629,15 @@ representation diagnostic. [Current source-factor result](CHATBOT_SOURCE_QUADRAT
 and [ONE complete-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
 connect these statuses to the full pipeline. FIT-only source factor extraction,
 NEW quadratic feature/kernel/compiler and FIRST audits now AVAILABLE, with a
-CLOSED candidate outcome. [New operational NEXT](CHATBOT_BALANCED_KEYS_NEXT_20261008.md)
-integrates FIT-balanced keys on the acquired/FIRST audited NEW cohort for ALL24 coverage and complete
+CLOSED candidate outcome. [New operational NEXT](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md)
+assembles qualified ALL24 balanced blocks on the pinned BF16 core; acquired/FIRST audited NEW cohort supplies
 final-output teacher supervision. NEW x-only wire stride43008B/layer1792B
 must not use old x/y86016B/layer3584B offsets. Old0/1/12 geometry and0/12
 source-derived initial state are warm BYTE inputs; inherited-key NEW layer1
 support now rejects3/4/6/7, FIRST verified. Its source-row denominator is0 at3/4.
-Balanced construction is implemented but unexecuted; source G/U/D0/12 can be
-warm priors with explicit new-buffer composition, not purported new-key-optimal selections.
+[Balanced construction/source initialization](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md)
+is complete/FIRST verified forALL24; source G/U/D0/12 are warm priors with
+explicit NEW-buffer composition, not purported new-key-optimal selections.
 Source initializer/FIRST prefix audit are AVAILABLE but
 the original48-case complete recipe stops at layer1 support3<4;0/12 initialized.
 The whole adapter/replacement/output KL/resident Adam API and first one-block
@@ -720,17 +726,18 @@ fault/partials before a numbered repair.
 
 ## 7. Required return to the full goal
 
-Current [balanced-key route](CHATBOT_BALANCED_KEYS_NEXT_20261008.md)
+Current [whole assembly route](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md)
 follows completed inventory/interface/source initializer and actual NEW cohort
 acquisition/FIRST repair1 adoption. ALL200 new cases/12833 x rows PER LAYER/
 3050 full-vocabulary labels are qualified; inherited-key layer1 support fails
-at four parents, stopping before all NEW source features. Quota construction
-assignments do not prove actual top4 support or whole quality; freeze its new
-complete stage/FIRST audit before execution, keep both warm-key recipes CLOSED.
+at four parents, stopping before all NEW source features. Subsequent ALL24
+balanced-key initialization/FIRST construction/source-byte audit succeeds;
+actual top4 support minFIT377/40cases/novelDEV89. Quota construction assignments
+do not prove whole quality; keep both inherited-key recipes CLOSED.
 64 endpoint texts remain unqueried; development is consumed calibration.
-New initialization/FIRST byte/support audit, actual BF16-core
-installation/resident optimizer peak and one finite whole fit are next.
-API availability and a memory lower bound are not an eligible ALL24 checkpoint.
+Actual BF16-core installation/resident optimizer peak and one finite whole fit
+are next. Qualified ALL24 initial blocks are not a whole chatbot; actual
+trajectory composition, adaptation resources and quality remain unobserved.
 Existing local1%/3% recipe failures stay CLOSED;
 a genuinely new joint whole objective requires its own prewritten fresh
 behavior/operator/resource admission contract, never favorable regrading.

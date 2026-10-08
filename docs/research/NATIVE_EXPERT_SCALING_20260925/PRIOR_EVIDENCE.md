@@ -1,5 +1,21 @@
 # Native expert-count scaling: prior evidence
 
+**8 October ALL24 balanced source initialization/FIRST audit COMPLETE:**
+[result](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md):all384 leaves pass
+actual top4 support,minFIT377/40cases/novelDEV89; same16/4 inference and fixed
+support gates. ALL480 quota construction steps independently F64-bit exact,
+query rounding envelope verified,ALL151388160 NEW source G/U/D promotions exact.
+22 NEW source-selected layers/124549 unique FIT feature operands; warm G/U/D0/12
+referenced with NEW routing-buffer precedence. Covariance/energy/actual routing
+arithmetic not independently rerun; construction labels/copies not whole quality.
+Producer141.078s/1.545GB/GPU487MB,audit104.922s/605MB through exit,683.68MB
+outputs;4 instances closed/no faults/foreignSHA intact. Hydration API AVAILABLE;
+actual whole assembly/resident optimizer peak unexecuted. [Current NEXT](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md)
+then ONE finite final-output learner/export/C/canonical chat/fresh quality AND
+accepted50 SAME artifact/useful n/LUT mass/DRAM/actual families/scales.
+Both inherited-key support recipes and all local loss failures stay CLOSED;
+no completed original source/geometry/features/response/native/audit replay.
+
 **8 October NEW corpus inherited-key support recipe CLOSED; FIRST verified:**
 [result](CHATBOT_NEW_COHORT_INITIALIZER_RESULT_20261008.md): layer0 minFIT55/
 44cases/novelDEV13 PASS; layer1 parents3/4 zero FIT/DEV selections,6 FIT9/

@@ -47,19 +47,18 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | New representation diagnostic |[curvature result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md): FIRST128 source+128 core H/four null directions/ALL256 checks independently verified; novel residual/source H RMS96.686%,chi1.13847,16/16 anchors. Supports ONE private-curvature investigation, not response/fresh quality |
 | Actual source-conditioned factors |[factor result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md): eight source/core atoms per FIT parent/two forms each, R/T BF16 exact source rows; ALL128 choices/688128 scores independently verified.16 distinct bases/72 atoms; scalar source-D curvature projection residual92.1%..95.5% |
 | Actual augmented quadratic converter |[kernel](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md)/[fit result](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md): ALL256 NEW features/augmented Gram and ONE fixed convex response fit independently verified. Encoded FIT2.50175%,FIRST64 novel70.68293%; BOTH exact necessary FULL1% failures. THIS recipe CLOSED |
-| Whole nonlinear connection |[components](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md): adapter/ALL24 replacement/output KL/resident Adam AVAILABLE. [NEW support](CHATBOT_NEW_COHORT_INITIALIZER_RESULT_20261008.md): layer0 passes; layer1 four unsupported parents, FIRST verified; assembly/fit missing |
+| Whole nonlinear connection |[components](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md): adapter/ALL24 replacement/output KL/resident Adam AVAILABLE. [Balanced initialization](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md): ALL24 source-initialized/384 leaves supported, FIRST construction/copy audit PASS; actual assembly/fit missing |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No eligible NEW compact ALL24/export/chat/accepted50/useful-n artifact |
 
-Latest decisive evidence: [NEW whole-cohort support/FIRST audit](CHATBOT_NEW_COHORT_INITIALIZER_RESULT_20261008.md).
-Layer0 min55 distinct FIT/44 cases/13 novel DEV PASS. Layer1 inherited keys:
-parents3/4 zero FIT/DEV selections;6 FIT9/5cases/DEV2,7 FIT6/6cases/DEV1.
-Same >=8/>=2/>=4 gates reject four parents; source-row denominator exactly0
-for3/4. Fixed warm-key/NEW cohort recipe CLOSED BEFORE source features; only
-0 NEW-supported,0/12 source priors available,2..23 unentered. FIRST independent
-scalar offsets/maps/saved support/warm buffer BYTES/stop PASS; NEW geometry/
-feature/source-copy branches unentered, NOT numerically validated. Main11.984s/
-1.019GB/GPU113MB,audit10.016s/474MB through exit,2.15MB prefix outputs;
-all4 instances closed/no faults/foreignSHA preserved. Not capacity impossibility.
+Latest decisive evidence: [ALL24 balanced initialization/FIRST audit](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md).
+All384 leaves pass actual top4 support: global minFIT377/40 cases/novelDEV89.
+480 quota construction steps independently F64-bit exact; query dot envelope
+and151388160 NEW source-copy elements verified. Warm G/U/D0/12 composed with
+NEW routing witnesses only; actual whole hydration still unexecuted. Producer
+141.078s/1.545GB/GPU487MB,audit104.922s/605MB through exit,683.68MB retained;
+all4 instances closed/no faults/foreignSHA intact. Construction labels are not
+inference routes; coverage/copies do not prove whole quality. Both old
+inherited-key support recipes stay CLOSED; no old scientific replay.
 
 [Qualified200-case corpus](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md) supplies
 ALL24 operands and3050 full-vocabulary labels;43 EOS/157 length16 prefixes,
@@ -128,18 +127,18 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [FIT-balanced parent-key integration/FIRST audit](CHATBOT_BALANCED_KEYS_NEXT_20261008.md).
-Builder is code only, UNEXECUTED; integrate ALL24 new balanced keys with BYTE
-warm0/1/12 projections/starting centers and0/12 G/U/D priors. New geometry must
-not be overwritten by old coefficient-file buffers. No DEV optimization,
-resampling/threshold lowering/construction-count substitution. Freeze actual
-construction audit/protocol/inputs/runtime/resources before NEW observables.
+**First action:** [actual ALL24 assembly/resident allocation](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md).
+Hydration API AVAILABLE; actual24 installation/optimizer peak unexecuted. Freeze
+new worker/FIRST byte/count auditor/protocol/inputs/runtime/resources, load
+pinned original BF16 core once without forward, hydrate qualified G/U/D and
+NEW buffers, replace ALL24 MLPs and allocate dense gradients/Adam moments.
+No dense-FFN fallback; warm0/12 coefficient buffers must never override NEW keys.
 Reuse qualified12833 x rows PER LAYER/3050 teacher vectors;64 endpoint texts
 unqueried. NEW x-only stride43008B/layer1792B differs from old x/y offsets.
 Keep source/canonical/J/H/old source features/copies/local1%/3% rejections BYTE;
 old48 and NEW200 warm-key recipes CLOSED. No completed scientific replay.
-If actual ALL24 support/source-copy/FIRST admission succeeds: real BF16 core
-assembly/optimizer peak, ONE frozen whole-output learner, export/new C/chat,
+After actual BF16 core assembly/optimizer-peak admission: ONE frozen
+whole-output learner, export/new C/chat,
 fresh own-history/tasks AND accepted50 SAME artifact/useful n/LUT mass/DRAM/
 actual other family/scales. Bound arrays are not peak, quotas are not routes,
 local quality is not fresh whole behavior.18 geometry queries remain deferred;
@@ -165,5 +164,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [current chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261008.md) and
-[balanced parent-key NEXT](CHATBOT_BALANCED_KEYS_NEXT_20261008.md)
+[whole assembly NEXT](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md)
 supersede all older operational NEXTs.
