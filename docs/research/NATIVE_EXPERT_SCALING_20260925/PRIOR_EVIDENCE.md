@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual useful larger hybrid teacher and compact target budget:**
+[Result](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md): pinned Falcon1.5B original
+3.11GB/1.555B coefficients SHA/header complete; unchanged16 teacher screen14/16
+ALL absolute/stop gates PASS. GPU4.45GB/OS3.74GB through exit/26.922s family,
+no training/T4/whole native. New source-compatible D512/L12/SSM768/N256/SWA2/
+n72/k8/48heads*16 proposal69.44M matrix products/424.4MB packed/4.076GB Adam before buffers.
+Head16 keeps all48 source decay-head indices within chosen blocks; naive SSD
+workspace4 times prior12head geometry requires measured pilot/checkpointing.
+Source actual1.420B products; full-source dense Adam24.878GB. Row count retained
+does not prove capacity; per-head exp hoisting algebra only. Next complete
+ternary/SwiGLU/SSM target learner and measured resource/recovery pilot, then
+fresh whole quality+accepted50/useful-n/LUT mass/DRAM/family scales. All jobs closed.
+
 **8 October actual original-engine scan bridge PASS; Tiny teacher FAIL:**
 [Result](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md): pinned182.3MB weights,
 producer SHA verified, original template/IDs/head/multipliers/bothEOS retained.

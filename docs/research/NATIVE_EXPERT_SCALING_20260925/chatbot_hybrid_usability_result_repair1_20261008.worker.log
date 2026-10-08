@@ -1,0 +1,20 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 7744.23it/s]
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{"case": "arithmetic_add", "answer": "12", "correct": true, "completed": 1, "seconds": 10.28200000000652}
+{"case": "arithmetic_sub", "answer": "9", "correct": true, "completed": 2, "seconds": 10.938000000023749}
+{"case": "arithmetic_mul", "answer": "12", "correct": true, "completed": 3, "seconds": 11.65700000000652}
+{"case": "arithmetic_div", "answer": "2", "correct": false, "completed": 4, "seconds": 12.26600000000326}
+{"case": "extract_color", "answer": "blue", "correct": true, "completed": 5, "seconds": 12.89100000000326}
+{"case": "extract_city", "answer": "Paris", "correct": true, "completed": 6, "seconds": 13.59399999998277}
+{"case": "extract_name", "answer": "Clara", "correct": true, "completed": 7, "seconds": 14.313000000023749}
+{"case": "extract_animal", "answer": "dog", "correct": true, "completed": 8, "seconds": 14.938000000023749}
+{"case": "follow_literal", "answer": "hello", "correct": true, "completed": 9, "seconds": 15.547000000020489}
+{"case": "follow_upper", "answer": "CAT", "correct": true, "completed": 10, "seconds": 16.25}
+{"case": "follow_lower", "answer": "dog", "correct": true, "completed": 11, "seconds": 16.89100000000326}
+{"case": "follow_reverse", "answer": "cba", "correct": true, "completed": 12, "seconds": 17.57799999997951}
+{"case": "history_pet", "answer": "Milo", "correct": true, "completed": 13, "seconds": 18.34399999998277}
+{"case": "history_color", "answer": "Green", "correct": false, "completed": 14, "seconds": 18.98499999998603}
+{"case": "history_city", "answer": "Berlin", "correct": true, "completed": 15, "seconds": 19.71899999998277}
+{"case": "history_inventory", "answer": "3", "correct": true, "completed": 16, "seconds": 20.32799999997951}
+{"decision": "TEACHER_SCREEN_PASS", "correct": 14, "categories": {"arithmetic": 3, "extraction": 4, "history": 3, "instruction": 4}}

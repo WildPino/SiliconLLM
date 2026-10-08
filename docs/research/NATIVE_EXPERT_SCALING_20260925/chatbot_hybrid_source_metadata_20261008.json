@@ -1,0 +1,91 @@
+{
+  "schema": "HYBRID_SOURCE_METADATA_V1",
+  "model": "tiiuae/Falcon-H1-1.5B-Instruct",
+  "revision": "80ebc50d7799a440b96c93bb6686a3924a09b0cb",
+  "freeze": "8ae1e1aac8bdc533e8986ac7b83ba07361a3d2bf",
+  "api": {
+    "name": "producer_api.json",
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_metadata_20261008\\producer_api.json",
+    "bytes": 4131,
+    "sha256": "fb582fb0e5efbe7f41f2083c77c12b00b73a589721832bf6abbb657da49cb2f1",
+    "url": "https://huggingface.co/api/models/tiiuae/Falcon-H1-1.5B-Instruct?blobs=true"
+  },
+  "files": [
+    {
+      "name": "config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_metadata_20261008\\config.json",
+      "bytes": 1599,
+      "sha256": "2473f5e02854a2833df973277e6f109d94344e7860fbc78d5ff8b31d08dddaeb",
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Instruct/resolve/80ebc50d7799a440b96c93bb6686a3924a09b0cb/config.json"
+    },
+    {
+      "name": "generation_config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_metadata_20261008\\generation_config.json",
+      "bytes": 145,
+      "sha256": "b8e5d79b888141de7ee81a8c86f39164ccb840951b1691b83a6e0c8b96ce0fed",
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Instruct/resolve/80ebc50d7799a440b96c93bb6686a3924a09b0cb/generation_config.json"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_metadata_20261008\\tokenizer_config.json",
+      "bytes": 99905,
+      "sha256": "284b7aad5c1dab1777e020c25719eaae1793bb538cf5158ba5173b7adfaea9a4",
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Instruct/resolve/80ebc50d7799a440b96c93bb6686a3924a09b0cb/tokenizer_config.json"
+    },
+    {
+      "name": "special_tokens_map.json",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_metadata_20261008\\special_tokens_map.json",
+      "bytes": 7693,
+      "sha256": "d1ab5d294abec0a58924f96e33d88030da87018c02012d6c797426dbd5e4ea0d",
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Instruct/resolve/80ebc50d7799a440b96c93bb6686a3924a09b0cb/special_tokens_map.json"
+    },
+    {
+      "name": "chat_template.jinja",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_metadata_20261008\\chat_template.jinja",
+      "bytes": 1151,
+      "sha256": "b4bb2b3167994b1bfae42fb74d7166f94340bbea2d9dba3f2591e3261adcfb4e",
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Instruct/resolve/80ebc50d7799a440b96c93bb6686a3924a09b0cb/chat_template.jinja"
+    }
+  ],
+  "download_files": [
+    {
+      "name": "tokenizer.json",
+      "bytes": 5062983,
+      "producer_lfs_sha256": null,
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Instruct/resolve/80ebc50d7799a440b96c93bb6686a3924a09b0cb/tokenizer.json"
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 3109773032,
+      "producer_lfs_sha256": "1fb788513f2c58e3abb91af8730afe19e247bce7a7f01a46e452a084e98b2abd",
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Instruct/resolve/80ebc50d7799a440b96c93bb6686a3924a09b0cb/model.safetensors"
+    }
+  ],
+  "config_shape": {
+    "D": 2048,
+    "L": 24,
+    "V": 65537,
+    "ffn_h": 4608,
+    "ssm_D": 3072,
+    "N": 256,
+    "groups": 1,
+    "heads": 48,
+    "head_dim": 64,
+    "gated_rms": true,
+    "norm_before_gate": false
+  },
+  "matrix_products_per_decode": {
+    "head": 134219776,
+    "ffn": 679477248,
+    "ssm_projection": 480509952,
+    "attention": 125829120
+  },
+  "total_matrix_products": 1420036096,
+  "BF16_weight_file_bytes": 3109773032,
+  "dense_F32_Adam_matrix_lower_bound_bytes": 22720577536,
+  "recurrent_elements": 18874368,
+  "conv_elements": 344064,
+  "cached_kv_elements_per_context_token": 12288,
+  "scope": "Pinned public metadata/operator counts, no weight values/header completeness/quality/rate",
+  "elapsed_seconds": 4.157000000006519
+}

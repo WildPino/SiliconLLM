@@ -47,10 +47,17 @@ Tiny source acquired182.3MB; teacher5/16 FAIL. NEW4 source forwards give12
 real packets/layers0/12/23,ALL state/output1% gates PASS; maxima.275675%/.406017%.
 Per-call native initialization from actual source cache does not prove accumulated
 drift/whole chat. Keep original scan operator. Tiny is not chosen for full learning.
-Next stronger hybrid candidate Falcon-H1-1.5B-Instruct needs pinned actual source/
-usefulness/whole active and training accounting; producer quality is not ours.
-Do not carry Tiny D512/V32768/no-gated-RMS into that variant implicitly.
-Source-compatible projection/conv C adapter and target core budget remain missing.
+Next stronger hybrid is now [actually acquired/qualified and target budgeted](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md):
+Falcon1.5B pinned original3.11GB/1.555B coefficients,16-case absolute14/16 PASS.
+Actual GPU4.45GB/OS3.74GB/26.922s family. Source1.420B products/token.
+Source-compatible D512/L12/SSM768/48heads*16/N256/SWA2/n72/k8 proposal69.44M products,
+424.4MB packed/4.076GB Adam BEFORE omitted buffers; same feature-slot COUNT only.
+All48 source decay-head indices preserved in retained blocks; naive SSD
+workspace grows4 times versus12heads at same chunk, so pilot/checkpointing needed.
+Source width/composition/attention/ternary differences require learned recovery.
+Next ONE full target learner and resource/recovery pilot with separate broad
+calibration and fresh own-history criteria. Source-compatible C projection/conv/
+gated RMS/ternary SwiGLU scalar/LUT/32-bit IDs still missing, no training/T4.
 Do not replay triage or completed Falcon calls/native packets.
 Deployment needs structured
 routing with IDs AND mass and packed-only expert storage; original full E scan

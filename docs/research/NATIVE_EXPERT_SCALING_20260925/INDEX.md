@@ -54,6 +54,19 @@ Source projection/conv adapter, useful stronger hybrid teacher and costed target
 come next. Do not silently carry Tiny width/vocabulary/RMS assumptions forward.
 All jobs terminal; full goal/family/scales unchanged.
 
+**Useful larger hybrid donor acquired/screened:** [actual result/budget](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md).
+Pinned Falcon-H1-1.5B original3.11GB/1.555B coefficients; unchanged16-case screen
+14/16 PASS (all categories), GPU4.45GB/OS3.74GB/26.922s family.
+Source1.420B matrix products/token is not a deployment target. New D512/L12/
+SSM768-state256/48heads*16/SWA2/n72/k8 proposal counts69.44M products,
+424.4MB packed,4.076GB Adam+3.11GB teacher BEFORE activation/workspace.
+All48 source decay-head indices retained within chosen blocks; naive SSD
+workspace grows4 times versus12heads at fixed chunk, actual pilot required.
+Ternary SwiGLU scalar/gated RMS/projection/conv/32-bit IDs require real support;
+source-row slot conservation is only a count. Next ONE whole target learner/
+memory and recovery pilot with separate calibration/fresh own-history criteria.
+No fit, whole native/rate, useful-n admission or T4 job yet.
+
 ## Two research questions
 
 | Question | Established | Open |
@@ -163,15 +176,15 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** qualify a useful stronger hybrid teacher's actual source and
-whole active/training budget, then freeze one compact original-engine-target
-adaptation pilot. Candidate Falcon-H1-1.5B-Instruct, producer card only; no values
-or local quality acquired. [Completed source/scan result and continuation](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md)
-governs. Original scan bridge12/12 PASS; Tiny90M5/16 teacher screen FAIL.
-Source-compatible projection/conv, other variant gated RMS and C free-running
-state still missing. Target may require different width/vocabulary/core costs.
-[Target triage](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md) and completed
-Falcon acquisition/screen/capture/C are terminal; reuse bytes, no replay.
+**First action:** implement/freeze ONE complete source-compatible compact target
+learner and its real memory/finite-gradient/output recovery pilot; prepare broad
+calibration separately from fresh excluded own-history/task criteria before fit.
+[Actual larger donor/budget/continuation](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md)
+governs: Falcon1.5B pinned/acquired/original14/16 screen PASS, new target priced.
+Do not replay acquisition/16 completed cases/metadata/Tiny source+C packets.
+Source-compatible projection/conv/gated RMS, ternary SwiGLU LUT scalar variant,
+32-bit IDs and accumulated C state remain missing. Proposed widths/depth/routes
+require joint learning, not exact source loading. No training or T4 job active.
 
 [Order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md) is
 DEFERRED. Original fit/FIRST/drift jobs are terminal and recipe CLOSED. Existing
