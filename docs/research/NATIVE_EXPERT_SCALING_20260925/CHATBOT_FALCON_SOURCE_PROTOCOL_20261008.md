@@ -45,3 +45,32 @@ scan transitions compared against mapped original-engine F32 scan, reset and
 continuation/prefill. Separate operator protocol, tolerances and real operand
 binding must precede those observations. Fresh excluded own-history task cohort,
 target-core budget, whole learning/ternary/LUT export remain subsequent work.
+
+## Executable teacher screen freeze
+
+The source acquirer completed once at dd0fd617, 23.093s, 182304120B weights;
+producer LFS SHA verified. It did not execute the model. The now implemented
+`chatbot_falcon_usability.py`, launcher and binder need their own commit before
+launch. Binding covers all seven source files/receipt/header, cases, worker,
+launcher/binder/protocol, Python executable, ten selected Transformers files
+and the three foreign tracked files. Exact runtime versions/import paths are
+recorded in the isolated safe view; full native DLL trees are not rehashed.
+The scope is explicit and is not a claim of independent runtime certification.
+
+Offline local BF16 source class, eager attention, no optional hub/SSM kernels;
+Torch fallback is required and recorded, TF32 disabled. Retain original head tie,
+embedding/head multipliers and BOTH producer EOS 228/11. Independent canonical
+plain-role serialization includes the assistant-history newline; exact source
+template and tokenizer IDs checked before each new case. The worker uses actual
+source generate/greedy/cache, retains every step's full F32 generation scores
+and complete IDs/text in exclusive per-case files. Scores are generation outputs,
+not independently reconstructed raw logits or training labels. Fixed scoring
+from above is unchanged. Source cache shapes/dtypes are recorded.
+
+Launcher uses a held Windows process handle to read the OS peak after worker exit,
+enforces 600s/4GiB family OS/256MiB output/4MiB log, checks no competing jobs or
+worker descendants and source/selected-runtime/foreign input hashes before/after.
+Worker checks 6GiB allocated/7GiB reserved GPU peaks. A quality FAIL is a completed
+negative result, not a launcher fault. Any first fault is retained, and missing
+cases alone may be continued using a newly frozen repair. No old source case
+replay. No speed qualification, fitting, T4, own-history endpoint or C artifact.
