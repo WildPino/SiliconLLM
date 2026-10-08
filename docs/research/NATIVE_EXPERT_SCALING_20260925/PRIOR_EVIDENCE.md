@@ -1,5 +1,22 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual ALL24 whole installation/allocation/FIRST audit COMPLETE:**
+[result](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md):218BF16 core objects/tied
+head preserved,24 dense MLPs/72parameters collected,no fallback/live teacher.
+1224F32 trainable objects/165150720elements and ALLdense gradients/Adam moments
+allocated,zero bits/nonalias checked. Unique GPU arrays3005758464B,current
+3.041GB/peak3.723GB/reserved4.266GB; actual training activations/backward unknown.
+FIRST218core/ALLGUD/120NEW routing digests match source/qualified files;
+device zeros/pointers/liveness/checkpoint/peaks actual producer observations.
+RoPE derived values not independently recomputed. Main47.360s/OS1.905GB,
+audit9.407s/441MB through exit;4closed/no faults/foreignSHA intact. No full
+source/student forward/backward/update/endpoint. [Current NEXT](CHATBOT_WHOLE_OUTPUT_LEARNER_NEXT_20261008.md):
+implement/freeze ONE finite output learner and first actual full objective/
+gradient/update gate, fresh behavioral criteria, then export/C/chat/fresh quality
+AND accepted50 SAME artifact/useful n/LUT mass/DRAM/actual families/scales.
+Former NEXT unexecuted statuses below are historical; all local/inherited-key
+candidate failures remain CLOSED, no old scientific replay.
+
 **8 October ALL24 balanced source initialization/FIRST audit COMPLETE:**
 [result](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md):all384 leaves pass
 actual top4 support,minFIT377/40cases/novelDEV89; same16/4 inference and fixed

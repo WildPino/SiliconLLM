@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [actual whole assembly](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md):
+Next [ONE actual whole-output learner](CHATBOT_WHOLE_OUTPUT_LEARNER_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -133,8 +133,14 @@ novelDEV89;480 construction steps independently F64-bit exact and151388160
 NEW source-copy elements exact. Same inference arithmetic/width; quota labels
 NOT actual routes. Warm G/U/D0/12 reuse must not overwrite NEW buffers.
 Producer141.078s/GPU487MB,683.68MB outputs; FIRST audit104.922s/605MB through
-exit,all4 instances closed/no faults. Hydration API AVAILABLE but actual whole
-installation/resident Adam peak and finite learner remain unexecuted.
+exit,all4 instances closed/no faults. Subsequent [actual whole assembly/FIRST](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md)
+PASS: ALL24 installed,218 core objects/tied head preserved,no dense fallback;
+1224 parameter objects/165150720F32elements andALLdense gradients/Adam moments
+allocated. Unique GPU arrays3005758464B,current3.041GB/peak3.723GB/reserved4.266GB.
+Installed core/GUD/NEW router digests independently exact; device zeros/liveness/
+peaks actual producer observations, not independently reread CUDA. Main47.360s/
+OS1.905GB,audit9.407s/441MB through exit;4closed/no faults. Fullmodel forward/
+backward/update and finite whole learner remain unexecuted.
 Source/capture/local failures unchanged, no replay.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
@@ -629,8 +635,9 @@ representation diagnostic. [Current source-factor result](CHATBOT_SOURCE_QUADRAT
 and [ONE complete-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
 connect these statuses to the full pipeline. FIT-only source factor extraction,
 NEW quadratic feature/kernel/compiler and FIRST audits now AVAILABLE, with a
-CLOSED candidate outcome. [New operational NEXT](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md)
-assembles qualified ALL24 balanced blocks on the pinned BF16 core; acquired/FIRST audited NEW cohort supplies
+CLOSED candidate outcome. [New operational NEXT](CHATBOT_WHOLE_OUTPUT_LEARNER_NEXT_20261008.md)
+fits the actually assembled ALL24 student with a complete-output objective;
+acquired/FIRST audited NEW cohort supplies
 final-output teacher supervision. NEW x-only wire stride43008B/layer1792B
 must not use old x/y86016B/layer3584B offsets. Old0/1/12 geometry and0/12
 source-derived initial state are warm BYTE inputs; inherited-key NEW layer1
@@ -641,8 +648,9 @@ explicit NEW-buffer composition, not purported new-key-optimal selections.
 Source initializer/FIRST prefix audit are AVAILABLE but
 the original48-case complete recipe stops at layer1 support3<4;0/12 initialized.
 The whole adapter/replacement/output KL/resident Adam API and first one-block
-mechanics are AVAILABLE; successful ALL24 installation,
-optimizer allocation and finite global learner have NOT executed. No single executable currently
+mechanics are AVAILABLE; subsequent actual ALL24 installation/optimizer
+allocation and FIRST installed-byte/count audit PASS. Finite global learner
+and actual full student forward/backward/update have NOT executed. No single executable currently
 converts a pretrained chatbot into an admitted compact native artifact.
 
 493 independently joins saved F,p,expert,UID/occurrences and rounded pF
@@ -726,7 +734,7 @@ fault/partials before a numbered repair.
 
 ## 7. Required return to the full goal
 
-Current [whole assembly route](CHATBOT_WHOLE_ASSEMBLY_NEXT_20261008.md)
+Current [whole-output learner route](CHATBOT_WHOLE_OUTPUT_LEARNER_NEXT_20261008.md)
 follows completed inventory/interface/source initializer and actual NEW cohort
 acquisition/FIRST repair1 adoption. ALL200 new cases/12833 x rows PER LAYER/
 3050 full-vocabulary labels are qualified; inherited-key layer1 support fails
@@ -735,9 +743,9 @@ balanced-key initialization/FIRST construction/source-byte audit succeeds;
 actual top4 support minFIT377/40cases/novelDEV89. Quota construction assignments
 do not prove whole quality; keep both inherited-key recipes CLOSED.
 64 endpoint texts remain unqueried; development is consumed calibration.
-Actual BF16-core installation/resident optimizer peak and one finite whole fit
-are next. Qualified ALL24 initial blocks are not a whole chatbot; actual
-trajectory composition, adaptation resources and quality remain unobserved.
+Actual BF16-core installation/resident optimizer allocation/FIRST bytes now
+PASS. One finite whole fit is next; full forward/backward/update, actual
+student-trajectory composition, training resources and quality remain unobserved.
 Existing local1%/3% recipe failures stay CLOSED;
 a genuinely new joint whole objective requires its own prewritten fresh
 behavior/operator/resource admission contract, never favorable regrading.
