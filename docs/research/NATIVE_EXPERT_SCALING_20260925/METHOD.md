@@ -84,9 +84,10 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [coupled-jet representation prerequisite](CHATBOT_COUPLED_JET_NEXT_20261008.md):
+Next [full-FIT kernel prerequisite](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
-value-only and value+full-J failures. Change its private function representation
+value-only and value+full-J failures. The changed coupled-affine compiler also
+exists and fails outside its16 anchors; change the source constraint distribution
 as described below. Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
@@ -147,16 +148,30 @@ audit8.438s/533.5MB, all response/decision/J/probe/router-byte/hash/update-order
 fields in declared scope verified, new necessary integer prefix failure proof
 reuses original exact source denominator. All4 instances closed/no OS faults.
 
-New NEXT changes private functions to full-input affine maps with the latest
-fixed512 nonlinear shared core. Joint value/J interpolation eliminates null-
-direction coefficients by a16x16 mass solve, leaving a528x528 chart-jet system
-for896 outputs. This is a derived PROPOSAL, not an implemented solver or fidelity
-result. First freeze/execute whole budget and numerical W/K rank/conditioning
-prerequisites ONLY, before source/core responses or field bank construction.
-Old227 common-free independent nearest tangents remain CLOSED; shared nonlinear
-core and top4 coupled jets are explicitly new degrees of freedom, no success
-assumed. Promotion still requires novel1%/ALL-category3% and then fresh whole
-chat quality AND accepted50 SAME artifact. Old231 fixed-G/U prior stays closed.
+[Coupled-affine compiler](CHATBOT_COUPLED_RESULT_20261008.md) is AVAILABLE as a
+FAILED finite transfer: shared512 nonlinear/BF16, full896x896 affine/BF16 with
+F32 biases/router. Whole290975744 matrix MAC/583842816 logicalB pass3/5;
+W16/K528 numerical rank/conditioning pass, first independent scalar assembly
+audit agrees. Direct source-derived solves fit ALL16 construction value/J jets
+to1.69e-14/6.09e-15 RMS. Encoding FIT value2.925%/smooth J.870%; FIRST64 novel
+encoded AND unrounded values1497% RMS. Exact necessary full1% failures both
+independently verified, no FULL source sum replay. Unrounded diagnostic encoded
+gap only.158% of field error norm on that prefix, no universal codec conclusion.
+Compiler12.625s/worker1.184GB through exit; first audit6.437s/.872GB; unrounded
+probe2.515s/.178GB/independent exact audit1.078s/.031GB. All12 instances closed/
+zero OS faults. Remaining novel/ALL24/export/native stopped; this recipe CLOSED.
+
+NEW [full-FIT kernel proposal](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md) retains
+that active geometry but replaces16 exact jets by ALL3845 original FIT response
+constraints and a single convex coefficient objective. Weighted full-input
+feature Gram3845x3845, algebraic PSD/conditioning-controlled alpha and one
+shared Cholesky avoid14352-square coefficient normals. This new kernel/fitter
+is NOT implemented/qualified. FIRST implement/freeze kernel/factor prerequisites
+without new core/labels/error; only then one separately frozen coefficient fit,
+reusing original16 shared-only core outputs wherever x is identical.
+Old227, this joint16-jet construction and231 fixed-G/U prior remain CLOSED;
+no full affine-class impossibility. Promotion still requires novel1%/ALL-category
+3% and fresh whole chat quality AND accepted50 SAME artifact, useful n/DRAM/LUT.
 Every Python->C output must be explicitly C-contiguous as well as inputs.
 
 ## Retained experimental path:511 baseline;527 bounds;528 first fault

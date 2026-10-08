@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual joint full-input affine compiler CLOSED, extension failure:**
+[result](CHATBOT_COUPLED_RESULT_20261008.md), original16FIT jets/shared512/top4,
+new W16/K528 design full numerical rank/condition40.37/23608.70, necessary
+whole~59% cost PASS. Actual direct source-derived compiler exists: F64 FIT
+value/J RMS1.69e-14/6.09e-15, encoded FIT2.925%/.870%; FIRST64 novel encoded
+AND new unrounded values~1497% RMS. Both exact prefix/FULL-denominator1%
+failures independently verified, zero FULL source-energy/model/J/control replay.
+Unrounded diagnostic encoded gap.158% of field error norm on that prefix; this
+is not an independently audited norm ratio or general precision statement.
+Finite16-jet construction CLOSED; not all affine classes or a capacity bound.
+Compiler12.625s/1.184GB through exit; independent saved-bank audit6.437s/.872GB;
+new unrounded probe2.515s/.178GB/exact ratio audit1.078s/.031GB. All12 instances
+closed/no OS faults/foreign SHA preserved. [NEW full-FIT kernel route](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md)
+changes constraints to ALL3845 original FIT responses; weighted Gram/one convex
+coefficient objective derived, first kernel/Cholesky prerequisite. New fitter
+NOT implemented. Full compact CHATBOT pipeline/fresh quality AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale gates remain open.
+
 **8 October first actual joint VALUE+FULL-J converter recipe CLOSED:**
 [result](CHATBOT_STRUCTURAL_FIT_RESULT_20261008.md), source531fb90,24 epochs/744
 updates/16 FIT source-J targets, same shared512/leaf128/top4/query32 active cost/

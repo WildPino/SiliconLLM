@@ -40,6 +40,7 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | Actual local transfer |[exposure](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md): uniformE16028 unsupported leaves CLOSED. [first E16 fit](CHATBOT_JOINT_BASELINE_RESULT_20261007.md):24 epochs/744 updates,21.68% FIT/61.39% novel response RMS; numerical+integer audit FAIL, recipe CLOSED |
 | New source structure |[directional result](CHATBOT_DIRECTIONAL_RESULT_20261008.md): ALL32 full source/student J and320 directional checks; novel82.737% J RMS/null83.234%,94.436% source-null energy. Exact rank32/null864, independent audit agrees |
 | Actual structural learner |[value+full-J result](CHATBOT_STRUCTURAL_FIT_RESULT_20261008.md):744 updates, FIT23.695%/novel60.189% response RMS; J improves to52.994%/68.788%. Response/mechanism and absolute fidelity FAIL; one recipe CLOSED, independently verified |
+| Actual algebraic converter |[coupled affine result](CHATBOT_COUPLED_RESULT_20261008.md): full-input joint16-jet solve exists, FIT roundoff; novel64 RMS1497% both encoded AND unrounded. Exact necessary1% failure independently verified; this construction CLOSED |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No eligible NEW compact ALL24/export/chat/accepted50/useful-n artifact |
 
 New diagnosis: directional errors persist equally in representative FIT and
@@ -54,11 +55,14 @@ gain does not recover novel response fidelity; no promotion or lambda/epoch ladd
 Fit68.484s/worker94.078s/family118.047s/1.776GB through exit; saved-only independent
 audit8.438s/533.5MB checks all decisions/router bytes/hash rounding and new exact
 necessary failure witness. All4 instances closed/no OS faults.
-Next [coupled full-input affine jet design](CHATBOT_COUPLED_JET_NEXT_20261008.md)
-changes private functions while retaining shared nonlinearity. First whole budget
-and16-mass/528-jet rank/conditioning prerequisite before any coefficient bank.
-This representation/compiler is a PROPOSAL, not implemented/qualified. Old227
-nearest independent tangents remain closed; no affine success implied.
+[Coupled full-input compiler](CHATBOT_COUPLED_RESULT_20261008.md) now EXISTS:
+cost~59% source, W/K full numerical rank, exact16 FIT value/J; novel64 extension
+fails before ALL24/native. Unrounded exact failure also verified, encoded gap
+only0.158% of unrounded error norm on that prefix. All12 instances closed/no
+OS faults. Next [full-FIT kernel route](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md)
+uses all original3845 FIT responses, not16-point interpolation; first kernel/
+Cholesky prerequisite BEFORE new core/response fit. New fitter NOT implemented.
+Old227 and the fixed joint16-jet recipe remain closed, affine class not refuted.
 
 ## Retained necessary closures
 
@@ -117,7 +121,7 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [whole budget and coupled-jet design prerequisite](CHATBOT_COUPLED_JET_NEXT_20261008.md).
+**First action:** [all-original-FIT kernel prerequisite](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse their adapter/IDs without replay. Finite joint512/128/top4 E16/E160 geometry
 is selected/implemented and complete necessary dimension budget PASS. Original
@@ -127,11 +131,13 @@ FIRST E16 joint fit CLOSED at61.39% novel response RMS, independently verified.
 Original finite fit/source information insufficient in this observed recipe;
 capacity/optimizer optimum not proved. NEW full directional collector/audit AND
 joint value+full-J learner/audit COMPLETE; new learner recipe CLOSED at60.19%
-novel response despite derivative gain. Reuse original source J/operands and all
-qualified output bytes, no original model or fit re-acquisition. Implement/freeze
-ONLY changed-representation necessary budget and W/K design first, then a
-separately gated coupled coefficient compiler if eligible. Actual new design/
-compiler/affine fields are not implemented or measured yet.
+novel response despite derivative gain. NEW coupled-affine design/compiler and
+first audits now COMPLETE; exact16 FIT jets but encoded/unrounded novel64 FAIL,
+no remaining novel/ALL24/native promotion. Reuse original source J/operands and
+qualified outputs, no original model/fit/control re-acquisition. Implement/freeze
+ONLY new3845-row full-input weighted kernel/Cholesky prerequisite first, then
+separate full-FIT convex coefficient compiler if eligible. New kernel/fitter are
+NOT implemented. Prospective source constraint change is explicit, no codec retry.
 No width/update/precision ladder or unchanged geometry/fit/control/source-output
 replay. Keep head/attention/
 router/cache priced jointly; don't infer throughput from dimension reductions.
@@ -164,5 +170,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
-[coupled-jet NEXT](CHATBOT_COUPLED_JET_NEXT_20261008.md)
+[full-FIT kernel NEXT](CHATBOT_FULL_FIT_KERNEL_NEXT_20261008.md)
 supersede all older operational NEXTs.
