@@ -47,7 +47,7 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | New representation diagnostic |[curvature result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md): FIRST128 source+128 core H/four null directions/ALL256 checks independently verified; novel residual/source H RMS96.686%,chi1.13847,16/16 anchors. Supports ONE private-curvature investigation, not response/fresh quality |
 | Actual source-conditioned factors |[factor result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md): eight source/core atoms per FIT parent/two forms each, R/T BF16 exact source rows; ALL128 choices/688128 scores independently verified.16 distinct bases/72 atoms; scalar source-D curvature projection residual92.1%..95.5% |
 | Actual augmented quadratic converter |[kernel](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md)/[fit result](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md): ALL256 NEW features/augmented Gram and ONE fixed convex response fit independently verified. Encoded FIT2.50175%,FIRST64 novel70.68293%; BOTH exact necessary FULL1% failures. THIS recipe CLOSED |
-| Whole nonlinear connection |[Balanced initialization](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md):ALL24/384 leaves supported,FIRST PASS. [Actual assembly](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md):ALL24 installed/core+tied head preserved/dense gradients+Adam allocated,FIRST byte/count PASS; actual forward/fit missing |
+| Whole nonlinear connection |[Balanced initialization](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md):ALL24/384 leaves supported,FIRST PASS. [Actual assembly](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md):ALL24 installed/core+tied head preserved/dense gradients+Adam allocated,FIRST byte/count PASS. [Whole output protocol](CHATBOT_WHOLE_OUTPUT_PROTOCOL_20261008.md):one fixed1280-update fit LIVE; actual full forward/backward/update observed, final transfer gates pending |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No qualified whole-output/native compact chat/accepted50/useful-n artifact |
 
 Latest decisive evidence: [actual ALL24 installation/allocation/FIRST audit](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md).
@@ -57,8 +57,14 @@ actually resident. Unique GPU arrays3005758464B,current allocated3.041GB/
 peak3.723GB/reserved4.266GB. FIRST218core/ALLGUD/120NEW routing digests exact;
 device zeros/liveness/allocator peaks remain producer observations. Main47.360s/
 OS1.905GB,audit9.407s/441MB through exit;4closed/no faults/foreignSHA intact.
-No full-model forward/backward/update/endpoint yet. Qualified balanced support
-is on donor trajectories; composition on student trajectories remains unknown.
+Assembly itself executed no full-model forward/backward/update/endpoint.
+The subsequent whole-output fit is LIVE under freeze
+`91baa570e88a9b0b4240720a3ea6c1a9a8051959`, binding SHA
+`e351c828346fb9ab2d473ac777a708f3aed87e4dd02a93a799f1c217b41b6463`.
+Actual full student forward/backward/FIRST update observed; all24 layer gradient
+norms positive. Initial DEV KL5.57413448548/disagreement79.44535%;4/8 epochs
+complete,720/1280 updates at the latest recorded progress. These are producer
+observations, not final independent/transfer admission. Endpoint texts unqueried.
 
 [Qualified200-case corpus](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md) supplies
 ALL24 operands and3050 full-vocabulary labels;43 EOS/157 length16 prefixes,
@@ -66,8 +72,8 @@ limited domains.64 endpoint texts unqueried. Reuse BYTE, no source acquisition r
 [Balanced key builder/result](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md)
 is complete/FIRST verified: fixed20 FIT-only quota iterations,actual top4 support
 minFIT377/40cases/novelDEV89. Quotas are NOT inference routes. Whole24 assembly/
-resident allocation is now actual/FIRST verified; full forward/global fit missing.
-Measured assembly peak3.723GB excludes actual training activations/backward.
+resident allocation is actual/FIRST verified. Finite global fit LIVE, observed
+training GPU peak3.171GB/reserved3.653GB; final through-exit resources pending.
 
 ## Retained necessary closures
 
@@ -126,16 +132,23 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [implement/freeze ONE whole-output learner](CHATBOT_WHOLE_OUTPUT_LEARNER_NEXT_20261008.md).
-Actual24 installation/resident allocation/FIRST bytes PASS; reuse components.
-Freeze actual student forward/backward/update gate, complete-output KL masks,
-finite schedule/resources and fresh behavior criteria before new student outputs.
-Cached teacher logits, student recomputes ALL24 hidden states/routes; never
-substitute saved donor x. No dense fallback; warm0/12 old buffers must not win.
+**First action:** resume LIVE unified exec session **77989**, never relaunch the
+fit. WorkerPID32212/launcherPID9080; exact inputs/runtime507files/72roots are
+frozen. See [whole output protocol](CHATBOT_WHOLE_OUTPUT_PROTOCOL_20261008.md).
+Raw target `chatbot_whole_output_fit_20261008.json`; working directory
+`results/native_expert_scaling/chatbot_whole_output_fit_20261008`.
+Fixed8epochs/1280updates; cached teacher logits, student recomputes ALL24 hidden
+states/routes. Initial/FIRST/epoch observations are retained; final1280-step
+checkpoint and FIRST independent audit are still pending. On terminal, freeze
+the saved-output audit binding before its first execution. No dense fallback;
+warm0/12 old buffers must not win. No fit replay or simultaneous numerical job.
 Reuse qualified12833 x rows PER LAYER/3050 teacher vectors;64 endpoint texts
 unqueried. NEW x-only stride43008B/layer1792B differs from old x/y offsets.
 Keep source/canonical/J/H/old source features/copies/local1%/3% rejections BYTE;
 old48 and NEW200 warm-key recipes CLOSED. No completed scientific replay.
+Export/new C code is being prepared while the fit runs; it is UNEXECUTED and
+cannot qualify the current candidate. [Native integration plan](CHATBOT_COMPACT_NATIVE_NEXT_20261008.md)
+separates conversion codec, encoded reference, C arithmetic and fresh behavior.
 After finite whole-output transfer admission: export/new C/chat,
 fresh own-history/tasks AND accepted50 SAME artifact/useful n/LUT mass/DRAM/
 actual other family/scales. Bound arrays are not peak, quotas are not routes,

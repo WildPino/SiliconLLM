@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**8 October complete-output adaptation LIVE, no final quality admission:**
+[protocol](CHATBOT_WHOLE_OUTPUT_PROTOCOL_20261008.md), freeze
+`91baa570e88a9b0b4240720a3ea6c1a9a8051959`, actual507-input/72-runtime-root binding
+SHA `e351c828346fb9ab2d473ac777a708f3aed87e4dd02a93a799f1c217b41b6463`.
+Session77989, worker32212/launcher9080; never restart. Initial200 student
+evaluations complete; DEV meanKL5.57413448548, disagreement79.44535%.
+Actual FIRST backward/update/all24 positive gradient norms,4/8 epochs complete,
+720/1280 updates at this record. Training GPU peak3.171GB/reserved3.653GB.
+Final checkpoint/through-exit resources/transfer gates and independent FIRST
+saved-output/gradient/update audit pending. No new source forward or fresh
+endpoint answer. [Prepared native connection](CHATBOT_COMPACT_NATIVE_NEXT_20261008.md)
+is UNEXECUTED; teacher-forced development does not admit own-history/C/50tokens/s.
+Previous "full forward/update missing" statements below retain their historical
+scope; current operational resume is in INDEX.
+
 **8 October actual ALL24 whole installation/allocation/FIRST audit COMPLETE:**
 [result](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md):218BF16 core objects/tied
 head preserved,24 dense MLPs/72parameters collected,no fallback/live teacher.

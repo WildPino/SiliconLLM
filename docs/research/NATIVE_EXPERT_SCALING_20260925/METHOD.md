@@ -649,8 +649,15 @@ Source initializer/FIRST prefix audit are AVAILABLE but
 the original48-case complete recipe stops at layer1 support3<4;0/12 initialized.
 The whole adapter/replacement/output KL/resident Adam API and first one-block
 mechanics are AVAILABLE; subsequent actual ALL24 installation/optimizer
-allocation and FIRST installed-byte/count audit PASS. Finite global learner
-and actual full student forward/backward/update have NOT executed. No single executable currently
+allocation and FIRST installed-byte/count audit PASS. The fixed whole-output
+learner is now LIVE:8epochs/1280updates, cached original full-vocabulary teacher
+distributions, complete student hidden-state/routing composition. Actual full
+forward/backward/FIRST update observed with all24 positive layer gradient norms;
+final transfer criteria and independent saved-output/update audit pending.
+[Frozen protocol](CHATBOT_WHOLE_OUTPUT_PROTOCOL_20261008.md),
+[fresh behavior contract](CHATBOT_FRESH_BEHAVIOR_CONTRACT_20261008.md) and
+[new native integration plan](CHATBOT_COMPACT_NATIVE_NEXT_20261008.md) define the
+next connections. No single executable currently
 converts a pretrained chatbot into an admitted compact native artifact.
 
 493 independently joins saved F,p,expert,UID/occurrences and rounded pF
@@ -744,11 +751,14 @@ actual top4 support minFIT377/40cases/novelDEV89. Quota construction assignments
 do not prove whole quality; keep both inherited-key recipes CLOSED.
 64 endpoint texts remain unqueried; development is consumed calibration.
 Actual BF16-core installation/resident optimizer allocation/FIRST bytes now
-PASS. One finite whole fit is next; full forward/backward/update, actual
-student-trajectory composition, training resources and quality remain unobserved.
+PASS. One finite whole fit is LIVE under the frozen output/fresh contracts;
+full forward/backward/update and student-trajectory composition are now producer
+observations. Final training resources/quality and FIRST audit remain pending.
 Existing local1%/3% recipe failures stay CLOSED;
-a genuinely new joint whole objective requires its own prewritten fresh
-behavior/operator/resource admission contract, never favorable regrading.
+The whole objective has its own prewritten fresh behavior/resource contract;
+new encoded/native operator observables need a separate bound protocol before
+execution. Prepared export and complete native profile are UNEXECUTED, not an
+admitted converter/runtime. Retain every actual first failure and fixed gates.
 The local-screen sequence below remains the route for local-transfer recipes.
 
 After LOCAL function AND control eligibility:
