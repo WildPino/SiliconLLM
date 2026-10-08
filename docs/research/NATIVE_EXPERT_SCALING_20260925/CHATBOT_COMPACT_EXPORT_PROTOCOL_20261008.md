@@ -1,7 +1,9 @@
 # Compact chatbot export: prospective fixed procedure
 
 8 October2026. UNEXECUTED. Code/protocol available; no actual export binding,
-blob/catalog or export observation exists. Do not execute while fit77989 is live.
+blob/catalog or export observation exists. Original fit77989/FIRST are complete
+and reject the checkpoint, so this export cannot promote it. A separately
+qualified future candidate and its actual binding are required.
 
 ## Uncertainty, adoption and decision
 
@@ -65,6 +67,6 @@ no-model/no-optimizer/no-compiler/no-endpoint constraints and first-fault retent
 Freeze actual export binding generated with fit/audit final SHA arguments, commit
 it, then execute the existing directional launcher with full actual freeze,
 binding SHA, fresh export directory/RAW paths. No export command is instantiated
-here because the actual fit/audit receipts do not yet exist. After successful
+here because the current actual fit/audit receipts reject the candidate. After successful
 FIRST codec adoption follow [native integration](CHATBOT_COMPACT_NATIVE_NEXT_20261008.md)
 and unchanged [fresh behavior gates](CHATBOT_FRESH_BEHAVIOR_CONTRACT_20261008.md).

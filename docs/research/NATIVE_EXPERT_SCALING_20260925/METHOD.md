@@ -84,7 +84,8 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [ONE actual whole-output learner](CHATBOT_WHOLE_OUTPUT_LEARNER_NEXT_20261008.md):
+Current [actual whole-output result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md) and
+[ONE order-stability control NEXT](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -650,10 +651,11 @@ the original48-case complete recipe stops at layer1 support3<4;0/12 initialized.
 The whole adapter/replacement/output KL/resident Adam API and first one-block
 mechanics are AVAILABLE; subsequent actual ALL24 installation/optimizer
 allocation and FIRST installed-byte/count audit PASS. The fixed whole-output
-learner is now LIVE:8epochs/1280updates, cached original full-vocabulary teacher
-distributions, complete student hidden-state/routing composition. Actual full
-forward/backward/FIRST update observed with all24 positive layer gradient norms;
-final transfer criteria and independent saved-output/update audit pending.
+learner and FIRST saved-output/update audit are COMPLETE:8epochs/1280updates,
+1680 full student forwards,all24 positive FIRST layer gradient norms. Final
+FIT/DEV KL.431674/.554575,greedy disagreement15.88%/18.43%;2 relative gates
+pass,6 absolute/category gates fail,THIS fixed recipe CLOSED. Actual GPU peak
+3.171GB,fit3789.015s/FIRST59.563s,through-exit resources pass.
 [Frozen protocol](CHATBOT_WHOLE_OUTPUT_PROTOCOL_20261008.md),
 [fresh behavior contract](CHATBOT_FRESH_BEHAVIOR_CONTRACT_20261008.md) and
 [new native integration plan](CHATBOT_COMPACT_NATIVE_NEXT_20261008.md) define the
@@ -751,9 +753,13 @@ actual top4 support minFIT377/40cases/novelDEV89. Quota construction assignments
 do not prove whole quality; keep both inherited-key recipes CLOSED.
 64 endpoint texts remain unqueried; development is consumed calibration.
 Actual BF16-core installation/resident optimizer allocation/FIRST bytes now
-PASS. One finite whole fit is LIVE under the frozen output/fresh contracts;
-full forward/backward/update and student-trajectory composition are now producer
-observations. Final training resources/quality and FIRST audit remain pending.
+PASS. One finite whole fit/FIRST is COMPLETE under frozen output/fresh contracts;
+full forward/backward/update and student-trajectory composition observed.
+Independently verified final output criteria CLOSE this recipe. A new saved-only
+diagnosis shows final FIT caseKL.42633 versus online.21277,7/8 domain means
+worsen afterward,last domain improves;update order and category are confounded.
+Six final leaves lose all FIT/DEV occurrences. [Next order control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md)
+is PROPOSED,not executed;it holds active cost/data/update budget/gates fixed.
 Existing local1%/3% recipe failures stay CLOSED;
 The whole objective has its own prewritten fresh behavior/resource contract;
 new encoded/native operator observables need a separate bound protocol before

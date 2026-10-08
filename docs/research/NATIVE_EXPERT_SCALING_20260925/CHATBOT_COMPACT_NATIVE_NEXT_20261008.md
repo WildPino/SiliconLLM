@@ -1,8 +1,10 @@
 # Compact chatbot: connection from fitted weights to engine.c
 
-8 October2026. Prepared implementation, UNEXECUTED. The one fixed whole-output
-fit is still LIVE in session77989; do not overlap numerical/export/build/native
-work with it. No native model artifact has been produced or admitted here.
+8 October2026. Prepared implementation, UNEXECUTED. The original fixed whole
+fit/FIRST are complete and reject the candidate;77989/68777 are terminal.
+Do not resume them or export that checkpoint for promotion. No native model
+artifact has been produced or admitted here. Current conversion resumption is
+[one order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md).
 
 ## Decision and evidence used
 
@@ -91,8 +93,8 @@ do not prove Torch/C arithmetic parity.
 
 ## Sequential next executions, conditional on eligibility
 
-1. Finish session77989. Preserve its first terminal/complete or partial outputs.
-   Freeze and execute the first saved-output/update auditor once; retain faults.
+1. Complete a separately frozen converter and its first saved-output/update
+   auditor. Original77989/FIRST results are retained and CLOSED, not rerun.
 2. If all8 fixed transfer gates are independently true, freeze an export worker,
    protocol, actual input/runtime binding and resource limits BEFORE export.
    Charge source/final24 reads, codec/hash/catalog writes and complete exit.

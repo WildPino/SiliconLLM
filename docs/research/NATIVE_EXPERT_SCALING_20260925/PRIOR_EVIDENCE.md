@@ -1,5 +1,21 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual whole-output fit/FIRST COMPLETE; fixed recipe CLOSED:**
+[result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md):8epochs/1280 updates/1680
+full student forwards,all24 positive FIRST gradient norms. Independently verified
+FIT/DEV KL.431674/.554575 versus initial5.66692/5.57413;ID disagreement
+15.88%/18.43%.2 relative KL gates pass,6 absolute/category gates fail. No fresh
+endpoint/source acquisition/C execution. Actual fit3789.015s/GPU peak3.171GB/
+OS3.035GB through exit,FIRST59.563s/668MB,all original resource gates pass.
+New saved-only diagnosis.532s/32MB:final FIT caseKL.42633 vs online.21277,
+7/8 domain means worsen,last history improves;category/order are confounded.
+Initial384 leaves have FIT/DEV support,final6 have0 occurrences;upper-layer
+aggregate occurrence TV reaches.33. First decision dis19/40 DEV;not own-history
+quality or useful capacity. All6 instances closed/no matched faults;foreign
+SHA intact. [Next single order control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md)
+PROPOSED;native export/client/reference/C code AVAILABLE,UNEXECUTED. Current
+INDEX supersedes all historical LIVE/missing-forward NEXT statements below.
+
 **8 October complete-output adaptation LIVE, no final quality admission:**
 [protocol](CHATBOT_WHOLE_OUTPUT_PROTOCOL_20261008.md), freeze
 `91baa570e88a9b0b4240720a3ea6c1a9a8051959`, actual507-input/72-runtime-root binding
