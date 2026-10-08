@@ -97,3 +97,9 @@ newline in the independent check and keeps the untouched producer serialization
 as model input. Evidence: direct Jinja text for first plain and history shapes;
 no output observed and no prompt/criterion change. Original failure namespaces
 and completed source contracts retained; new repair3 binding/directory/result.
+
+Repair3 passed text parity but stopped at the ID container assertion before any
+source forward. Local Transformers5.13.1 apply_chat_template defaults return_dict
+True; explicit return_dict=False returns the intended input-ID list. Repair4
+changes the return container only, no bytes/IDs/prompts/source arithmetic or
+criteria. Prior fault preserved; all16 original source cases still unobserved.

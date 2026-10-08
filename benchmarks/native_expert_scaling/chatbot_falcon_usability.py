@@ -134,7 +134,7 @@ def main(args):
                 messages = case.get('history', []) + [dict(role='user', content=case['prompt'])]
                 text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
                 assert text == serialize(messages), ('template', case['id'])
-                ids = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True)
+                ids = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_dict=False)
                 assert ids == tokenizer.encode(text, add_special_tokens=False), ('tokenizer', case['id'])
                 assert len(ids) + 64 <= 256, ('context cap', case['id'])
                 inputs = torch.tensor([ids], device='cuda', dtype=torch.long)

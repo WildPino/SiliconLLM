@@ -1,0 +1,30 @@
+{
+  "freeze": "ce1b11b9a5c94882aded7607cdc13aee7e3c2c78",
+  "binding_sha256": "2d0b4911adb6e34858bbbe78ef2fe7744d1c424e6df6b6a8f50077dd6a6244db",
+  "launcher_pid": 29532,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_binding_repair3_20261008.json",
+    "--binding-sha",
+    "2d0b4911adb6e34858bbbe78ef2fe7744d1c424e6df6b6a8f50077dd6a6244db",
+    "--freeze",
+    "ce1b11b9a5c94882aded7607cdc13aee7e3c2c78",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_usability_repair3_20261008",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_result_repair3_20261008.json"
+  ],
+  "worker_pid": 26060,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 804507648,
+  "launcher_OS_peak_snapshot": 27238400,
+  "fault": "AssertionError('[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d\\n\\nLoading weights:   0%|          | 0/386 [00:00<?, ?it/s]\\nLoading weights: 100%|██████████| 386/386 [00:00<00:00, 5945.11it/s]\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 208, in <module>\\n    main(p.parse_args())\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 138, in main\\n    assert ids == tokenizer.encode(text, add_special_tokens=False), (\\'tokenizer\\', case[\\'id\\'])\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: (\\'tokenizer\\', \\'arithmetic_add\\')\\n')",
+  "elapsed_seconds": 11.28200000000652
+}
