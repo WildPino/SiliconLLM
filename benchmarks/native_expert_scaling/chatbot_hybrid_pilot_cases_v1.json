@@ -1,0 +1,14 @@
+{
+  "schema": "HYBRID_PILOT_CALIBRATION_V1",
+  "max_new_tokens": 8,
+  "context_limit": 128,
+  "cases": [
+    {"id": "fit_explain", "split": "FIT", "prompt": "Explain in one short sentence why a metal spoon feels colder than a wooden spoon in the same room."},
+    {"id": "fit_arithmetic", "split": "FIT", "prompt": "A box has 9 red balls and 6 blue balls. Three red balls are removed. How many balls remain? Answer with the number only."},
+    {"id": "fit_reading", "split": "FIT", "prompt": "Read: Mira left her notebook at home, so Dan lent her his. Whose notebook did Mira use? Answer in a short sentence."},
+    {"id": "fit_code", "split": "FIT", "prompt": "What does this Python expression return: len(set([2, 2, 5, 7, 5]))? Answer with the integer only."},
+    {"id": "dev_rewrite", "split": "DEV", "prompt": "Rewrite this request more politely in one sentence: Send me the schedule now."},
+    {"id": "dev_history", "split": "DEV", "history": [{"role": "user", "content": "My bicycle is called Maple. Remember its name."}, {"role": "assistant", "content": "Your bicycle is called Maple."}], "prompt": "What is my bicycle called? Answer with its name only."}
+  ],
+  "scope": "Six short calibration cases, not broad chat validation. These and the previous sixteen donor selection cases are excluded from future fresh quality gates. DEV is observed but not optimized."
+}

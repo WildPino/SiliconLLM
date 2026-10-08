@@ -27,8 +27,10 @@ def main(args):
     proc.cpu_affinity([11])
     assert sha(args.binding) == args.binding_sha
     b = json.loads(args.binding.read_bytes())
-    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1')
+    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1')
     OS_cap=b.get('limits',{}).get('OS_bytes',4<<30)
+    seconds_cap=b.get('limits',{}).get('seconds',600)
+    output_cap=b.get('limits',{}).get('output_bytes',256<<20)
     assert Path(sys.executable).resolve() == Path(b['python']).resolve()
     assert not args.directory.exists()
     log = args.out.with_suffix('.worker.log')
@@ -52,11 +54,11 @@ def main(args):
         for item in b['inputs']:
             assert Path(item['path']).stat().st_size == item['bytes'] and sha(item['path']) == item['sha256'], item['path']
     def guard():
-        assert time.monotonic() - start <= 600, 'family deadline'
+        assert time.monotonic() - start <= seconds_cap, 'family deadline'
         assert peak + proc.memory_info().peak_wset <= OS_cap, 'family OS cap'
         assert log.stat().st_size <= 4 << 20, 'log cap'
         if args.directory.exists():
-            assert sum(v.stat().st_size for v in args.directory.iterdir() if v.is_file()) <= 256 << 20, 'output cap'
+            assert sum(v.stat().st_size for v in args.directory.iterdir() if v.is_file()) <= output_cap, 'output cap'
     try:
         own = {proc.pid, *(v.pid for v in proc.parents())}
         for other in psutil.process_iter(['name', 'cmdline']):
@@ -106,6 +108,8 @@ def main(args):
             assert result['schema'] == 'FALCON_USABILITY_RESULT_V1' and result['total'] == 16
         elif b['schema'] == 'HYBRID_USABILITY_BINDING_V1':
             assert result['schema'] == 'HYBRID_USABILITY_RESULT_V1' and result['total'] == 16
+        elif b['schema'] == 'HYBRID_PILOT_BINDING_V1':
+            assert result['schema'] == 'HYBRID_PILOT_RESULT_V1' and result['complete_learner_available']
         else:
             assert result['schema'] == 'FALCON_SCAN_CAPTURE_RESULT_V1' and result['packet_count'] == 12
         assert result['process_instance']['pid'] == p.pid
