@@ -32,17 +32,19 @@ def main(a):
        'docs/research/RESEARCH_INDEX.md':'99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273'}
     files += [ROOT/v for v in foreign]
     assert all(sha(ROOT/v)==want for v,want in foreign.items())
-    assert all(sha(v['path'])==v['sha256'] for v in package['files'])
     if a.resume:
         assert (a.resume/'first_failure.json').exists()
         files += sorted(v for v in a.resume.iterdir() if v.is_file())
+    inputs=[dict(path=str(p.resolve()),bytes=p.stat().st_size,sha256=sha(p)) for p in files]
+    by_path={v['path']:v['sha256'] for v in inputs}
+    assert all(by_path[str(Path(v['path']).resolve())]==v['sha256'] for v in package['files'])
     result=dict(schema='HYBRID_PILOT_BINDING_V1',python=str(Path(sys.executable).resolve()),
        source_directory=str(source),source_revision=package['revision'],source_named_elements=package['total_named_elements'],
        cases_path=str((B/'chatbot_hybrid_pilot_cases_v1.json').resolve()),worker_path=str((B/'chatbot_hybrid_pilot.py').resolve()),
        resume_directory=str(a.resume.resolve()) if a.resume else None,
        limits=dict(seconds=1800,OS_bytes=16<<30,GPU_allocated_bytes=11<<30,GPU_reserved_bytes=12_348_030_976,output_bytes=5<<30),
        runtime_binding_scope='Selected Transformers/Torch Python files and Python executable hashed; exact package versions/paths in isolated view; full native DLL/runtime trees NOT rehashed',
-       inputs=[dict(path=str(p.resolve()),bytes=p.stat().st_size,sha256=sha(p)) for p in files])
+       inputs=inputs)
     write(a.out,result)
     print(json.dumps(dict(binding=str(a.out),sha256=sha(a.out),inputs=len(files))),flush=True)
 

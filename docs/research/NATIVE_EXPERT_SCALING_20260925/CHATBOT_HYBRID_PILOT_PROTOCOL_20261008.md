@@ -78,7 +78,8 @@ fixed FIT order repeated twice, batch1, global gradient clip1. Each update check
 finite output/loss/ALL gradients/parameters, positive per-layer core/bank/norm
 gradients, actual readout change and actual full Adam moment bytes. Save immutable
 step metrics and keep a CPU snapshot at each completed boundary for fault recovery.
-Final evaluation ALL6; retain initial component checkpoints and final full learner
+Final evaluation ALL6; retain ALL initial/final complete F32 logit vectors for
+an independent saved-only F64 KL/ID audit. Retain initial component checkpoints and final full learner
 plus optimizer. Initial projection checkpoints and supervision are reusable.
 
 Numerical gate: complete finite8 updates, ALL12 active gradient groups and actual

@@ -177,14 +177,22 @@ def main(a):
             packets.append(dict(id=r['id'], split=r['split'], ids=torch.tensor([ids], device='cuda'),
                    positions=torch.arange(len(r['output_ids']), device='cuda')+len(r['input_ids'])-1,
                    logp=logp, prob=logp.exp(), winner=logits.argmax(-1)))
-        def observe(packet, grad=False):
+        def observe(packet, grad=False, retain=None):
             logits = target(packet['ids'], packet['positions']).squeeze(0)
             assert logits.shape == packet['logp'].shape and torch.isfinite(logits).all(), 'student logits'
             logq = torch.log_softmax(logits, -1)
             kl = (packet['prob'] * (packet['logp']-logq)).sum(-1).mean()
             assert torch.isfinite(kl), 'loss'
-            return kl, dict(id=packet['id'], split=packet['split'], positions=logits.shape[0],
+            row = dict(id=packet['id'], split=packet['split'], positions=logits.shape[0],
                        KL=kl.detach().item(), disagreements=(logits.argmax(-1)!=packet['winner']).sum().item())
+            if retain:
+                raw = a.directory/(retain+'.'+packet['id']+'.logits.f32')
+                with raw.open('xb') as f:
+                    f.write(logits.detach().cpu().numpy().astype('<f4', copy=False).tobytes())
+                    f.flush()
+                    os.fsync(f.fileno())
+                row['logits'] = dict(path=str(raw.resolve()), shape=list(logits.shape), bytes=raw.stat().st_size, sha256=sha(raw))
+            return kl, row
         def evaluate(label):
             existing = cached(label+'.json')
             if existing.exists():
@@ -193,7 +201,7 @@ def main(a):
             rows = []
             with torch.no_grad():
                 for packet in packets:
-                    _, row = observe(packet)
+                    _, row = observe(packet, retain=label)
                     rows.append(row)
                     event(label, **row)
             summary = dict(cases=rows)
