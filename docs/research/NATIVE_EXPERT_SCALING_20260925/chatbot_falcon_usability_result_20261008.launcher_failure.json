@@ -1,0 +1,30 @@
+{
+  "freeze": "c9bfb6528f391f58b97f5d77e65d321ae13ce5fe",
+  "binding_sha256": "8b3145523bc6a01eae9745c011fa32b1c815320449387a60a2f72987cb17f33e",
+  "launcher_pid": 20824,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_binding_20261008.json",
+    "--binding-sha",
+    "8b3145523bc6a01eae9745c011fa32b1c815320449387a60a2f72987cb17f33e",
+    "--freeze",
+    "c9bfb6528f391f58b97f5d77e65d321ae13ce5fe",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_usability_20261008",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_result_20261008.json"
+  ],
+  "worker_pid": 24124,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 511168512,
+  "launcher_OS_peak_snapshot": 26951680,
+  "fault": "AssertionError('Traceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 194, in <module>\\n    main(p.parse_args())\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 79, in main\\n    runtime.update(optional_kernels=optional, fast_ssm_path=source_code.is_fast_path_available,\\n                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAttributeError: module \\'transformers.models.falcon_h1.modeling_falcon_h1\\' has no attribute \\'is_fast_path_available\\'\\n')",
+  "elapsed_seconds": 28.40600000001723
+}

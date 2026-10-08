@@ -76,9 +76,8 @@ def main(args):
         proc = psutil.Process()
         proc.cpu_affinity([0, 1, 2, 3, 4, 5])
         runtime = {v.__name__: dict(version=v.__version__, path=v.__file__) for v in (torch, transformers, tokenizers, np, psutil)}
-        runtime.update(optional_kernels=optional, fast_ssm_path=source_code.is_fast_path_available,
+        runtime.update(optional_kernels=optional,
                        device=torch.cuda.get_device_name(), attention='eager', source_code=source_code.__file__)
-        assert not source_code.is_fast_path_available
         def guard():
             assert time.monotonic() - start <= 600, 'worker deadline'
             assert proc.memory_info().peak_wset <= 4 << 30, 'OS cap'
@@ -92,6 +91,8 @@ def main(args):
         tokenizer = AutoTokenizer.from_pretrained(source, local_files_only=True, trust_remote_code=False)
         model = FalconH1ForCausalLM.from_pretrained(source, local_files_only=True,
                    trust_remote_code=False, dtype=torch.bfloat16, attn_implementation='eager').to('cuda').eval()
+        runtime['fast_ssm_path'] = source_code.is_fast_path_available
+        assert not source_code.is_fast_path_available
         assert model.lm_head.weight.data_ptr() == model.model.embed_tokens.weight.data_ptr()
         assert model.config.embedding_multiplier == .11083984375 and model.config.lm_head_multiplier == .078125
         assert len(model.model.layers) == 24

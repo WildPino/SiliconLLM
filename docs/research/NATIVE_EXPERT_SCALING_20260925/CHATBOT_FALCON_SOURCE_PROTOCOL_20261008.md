@@ -74,3 +74,11 @@ Worker checks 6GiB allocated/7GiB reserved GPU peaks. A quality FAIL is a comple
 negative result, not a launcher fault. Any first fault is retained, and missing
 cases alone may be continued using a newly frozen repair. No old source case
 replay. No speed qualification, fitting, T4, own-history endpoint or C artifact.
+
+First launch c9bfb652 failed before tokenizer/model construction or any source
+forward: the optional-fast-path flag is created by the source SSM constructor,
+not at module import. Retained first_failure and launcher_failure (28.406s,
+511168512B worker OS through exit). Repair1 only moves flag observation/assertion
+after model construction; optional packages are still rejected before loading.
+No completed source cases exist, all16 remain unobserved. New repair1 binding,
+directory and result are required; original fault namespace remains immutable.
