@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual original-engine scan bridge PASS; Tiny teacher FAIL:**
+[Result](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md): pinned182.3MB weights,
+producer SHA verified, original template/IDs/head/multipliers/bothEOS retained.
+Fixed16 teacher screen5/16 FAIL; no whole adaptation investment selected.
+NEW24-ID prefill+3 cached forwards,source layers0/12/23,12 real packets:
+original exact-exp F32 scan state/gated output max RMS.275675%/.406017%,
+ALL24 fixed1% gates PASS. Per-call source-state initialization excludes accumulated
+C drift, full projection/conv/whole chat/rate/ternary/LUT/useful-n claims.
+Screen44.0s family/OS1.501GB/GPU380MB; capture13.860s/OS1.463GB/GPU380MB;
+native compile/comparison4.125s/all exit0, native OS through-exit not measured.
+All four pre-forward wrapper faults preserved. Next useful stronger hybrid donor/
+actual contract+whole budget, then compact target pilot; no T4/jobs active.
+
 **8 October target-aware donor triage actual:**
 [Result](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md): five sources/40 budgets,
 freeze03d65fa,exit0,.047s/25.8MB,seven independent integer terms pass.

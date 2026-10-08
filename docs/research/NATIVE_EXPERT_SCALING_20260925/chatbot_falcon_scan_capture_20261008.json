@@ -1,0 +1,318 @@
+{
+  "schema": "FALCON_SCAN_CAPTURE_RESULT_V1",
+  "freeze": "2547c449cddc07a71bc7034dcb7a6764dca4113f",
+  "binding_sha256": "f4b68b8d63ec84be5e751c4458316e7d1a874dc0fdb465df0fac04911754f44c",
+  "process_instance": {
+    "pid": 14836,
+    "create_time_unix": 1791486658.0584671
+  },
+  "decision": "REAL_SCAN_OPERANDS_CAPTURED",
+  "packet_count": 12,
+  "packets": [
+    {
+      "name": "call0_layer0",
+      "layer": 0,
+      "call": 0,
+      "tokens": 24,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer0.input.f32",
+        "bytes": 629776,
+        "sha256": "ba7d7a002f52983bfcf01e788b0f2fffeb3b86a8cfc9cc16e5c7bf9c866f1ecb"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer0.oracle.f32",
+        "bytes": 270336,
+        "sha256": "22ec0edc2e3a123880a3c529bf624e5498f6ab91696bdecf951a008a185f6907"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "reset zero",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call0_layer12",
+      "layer": 12,
+      "call": 0,
+      "tokens": 24,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer12.input.f32",
+        "bytes": 629776,
+        "sha256": "d49d4fec56f3993887e1e9ffd35470ccb1fe6201b1a9b35a28fad7bdbfa5fd74"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer12.oracle.f32",
+        "bytes": 270336,
+        "sha256": "c1ef762b8d23a4225d2830fe98b315f3035888b71ccb502033f1dc8648bc6bdf"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "reset zero",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call0_layer23",
+      "layer": 23,
+      "call": 0,
+      "tokens": 24,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer23.input.f32",
+        "bytes": 629776,
+        "sha256": "0996734c6b4cc70b5165f11b272ec71f8e8cc9ee14316776df717077810b931b"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer23.oracle.f32",
+        "bytes": 270336,
+        "sha256": "732931d816bbb1f2081e8ab5d9452e00e6e24e2b7c5fc6dc9bafaa71d4889f69"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "reset zero",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call1_layer0",
+      "layer": 0,
+      "call": 1,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer0.input.f32",
+        "bytes": 406032,
+        "sha256": "00f05977741b306b7adefae490396c1aa6a3fb45440ef16ac1f593f59f5d9fcf"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer0.oracle.f32",
+        "bytes": 199680,
+        "sha256": "25cb9865369fc2c0db761a8878e9dc18e496ebe3c87bf9999fde574488684826"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call1_layer12",
+      "layer": 12,
+      "call": 1,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer12.input.f32",
+        "bytes": 406032,
+        "sha256": "dfbc9e6274bca591ac468a5b7603c7b2090900d4390abd4d6db232670b831267"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer12.oracle.f32",
+        "bytes": 199680,
+        "sha256": "9168c268ad84a9457abdea4732d6ad0333aa4678ba0dff648d292e6f5c7ae1c5"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call1_layer23",
+      "layer": 23,
+      "call": 1,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer23.input.f32",
+        "bytes": 406032,
+        "sha256": "4faece3063bfd794e09cccd70a2515b61dc28f31c93fdbe60947972bb55b5f16"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer23.oracle.f32",
+        "bytes": 199680,
+        "sha256": "af1b4a0cb24b048ff7760b278656221c7353ad462b220506925b9d80ae151f11"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call2_layer0",
+      "layer": 0,
+      "call": 2,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer0.input.f32",
+        "bytes": 406032,
+        "sha256": "234e09843fee05f6a9c731912495c1e9c32597ba42dc4eee01ec9ea41bfbfd9a"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer0.oracle.f32",
+        "bytes": 199680,
+        "sha256": "5b63a9d3870ae41735a5dd0e4a5a6281014c686fa0e73bf4b4f18b01e1c98f9a"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call2_layer12",
+      "layer": 12,
+      "call": 2,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer12.input.f32",
+        "bytes": 406032,
+        "sha256": "4433e6093f16af6c20b759f0d8a6e1983e9c393670927609c1caf4900b844e6b"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer12.oracle.f32",
+        "bytes": 199680,
+        "sha256": "8f0ff47ecff39cda33aa8c76420fb72e397e701344de116e96df2aa03cadc64a"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call2_layer23",
+      "layer": 23,
+      "call": 2,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer23.input.f32",
+        "bytes": 406032,
+        "sha256": "25334f5b929eadc8cffdd7d60b3b049e0708f477ce6e939964ccefa5ed6693fe"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer23.oracle.f32",
+        "bytes": 199680,
+        "sha256": "23d48ebc76b6db685dd1f234e0217d984bc386e8264d9f90a987887fa5d391b7"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call3_layer0",
+      "layer": 0,
+      "call": 3,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer0.input.f32",
+        "bytes": 406032,
+        "sha256": "3f1d82bd8c55b554eecbd3a5f51bd0d2ae5af021f5360bedd61558fe8768dcaf"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer0.oracle.f32",
+        "bytes": 199680,
+        "sha256": "bbf502c7ae4c08ca3bd370a9bcb4c5624604f18dedbbf6598f6c3c0816b79427"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call3_layer12",
+      "layer": 12,
+      "call": 3,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer12.input.f32",
+        "bytes": 406032,
+        "sha256": "146c2158f9f59e4c2038ac971d8da43ee9fcd2f6e9508049e7c2bef457867b06"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer12.oracle.f32",
+        "bytes": 199680,
+        "sha256": "7b9c3f61b4c0babddd17cb68b1fb8885bed965649c59baf8be67818900580b9d"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    },
+    {
+      "name": "call3_layer23",
+      "layer": 23,
+      "call": 3,
+      "tokens": 1,
+      "input": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer23.input.f32",
+        "bytes": 406032,
+        "sha256": "8705b901b85783616e983fb5fe078358d5866ad9b6a62932237178f90ef9b521"
+      },
+      "oracle": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer23.oracle.f32",
+        "bytes": 199680,
+        "sha256": "7e9656a301fb48433158ecaf9235b99f2588e13835a708b0ed3b803269efcc20"
+      },
+      "source_state_dtype": "torch.bfloat16",
+      "source_previous_dtype": "torch.bfloat16",
+      "source_projection_dtype": "torch.bfloat16",
+      "source_convolution_dtype": "torch.bfloat16",
+      "source_dt_dtype": "torch.bfloat16",
+      "source_gate_out": "BF16 out_proj input promoted to F32"
+    }
+  ],
+  "prompt": "What is 8 plus 6? Explain the calculation briefly.",
+  "serialized": "\n<|im_start|>user\nWhat is 8 plus 6? Explain the calculation briefly.<|im_end|>\n<|im_start|>assistant\n",
+  "input_ids": [
+    709,
+    227,
+    2101,
+    709,
+    4662,
+    860,
+    731,
+    547,
+    10268,
+    731,
+    545,
+    554,
+    1790,
+    11024,
+    784,
+    10359,
+    28106,
+    537,
+    228,
+    709,
+    227,
+    963,
+    10259,
+    709
+  ],
+  "next_ids": [
+    547,
+    10268,
+    731,
+    545
+  ],
+  "new_source_forwards": 4,
+  "source_training_updates": 0,
+  "source_forward_path": "BF16 eager attention, Torch naive SSD prefill/cached step",
+  "elapsed_seconds": 12.375,
+  "GPU_allocated_peak": 379546112,
+  "GPU_reserved_peak": 398458880,
+  "worker_OS_peak_snapshot": 1463025664
+}

@@ -1,0 +1,375 @@
+{
+  "schema": "FALCON_ORIGINAL_SCAN_COMPARISON_V1",
+  "freeze": "2547c449cddc07a71bc7034dcb7a6764dca4113f",
+  "binding_sha256": "f4b68b8d63ec84be5e751c4458316e7d1a874dc0fdb465df0fac04911754f44c",
+  "capture_sha256": "f243d10a2ea2664c14e7da37297c2e24952306dd6e44636281250432763b748e",
+  "exe_sha256": "1874578399bf70b687e537095ab371b8e97ad99d1eea677a35f6801c2a2f1563",
+  "comparisons": [
+    {
+      "name": "call0_layer0",
+      "call": 0,
+      "layer": 0,
+      "tokens": 24,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer0.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call0_layer0.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=24\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.0015828616865761343,
+        "squared_error": 2.1123310194338214e-05,
+        "source_energy": 8.430940853556535,
+        "max_abs": 0.0009588301181793213,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.002866873856721245,
+        "squared_error": 0.0004930869787580551,
+        "source_energy": 59.99379923644341,
+        "max_abs": 0.011878728866577148,
+        "pass_1percent": true
+      },
+      "output_sha256": "5fa575aa67def4ac80a7174867646219cc0df459f4282b6532745af8b8132de3",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call0_layer12",
+      "call": 0,
+      "layer": 12,
+      "tokens": 24,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer12.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call0_layer12.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=24\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.0015698611021303435,
+        "squared_error": 0.011790648977417608,
+        "source_energy": 4784.265281057484,
+        "max_abs": 0.030740737915039062,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.0024693601530186107,
+        "squared_error": 0.3541382987558217,
+        "source_energy": 58076.97999602313,
+        "max_abs": 0.31378173828125,
+        "pass_1percent": true
+      },
+      "output_sha256": "5abfc968c859efc1210b0769f7335e1104847054f9b2e1281bfc143fcf5c73b6",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call0_layer23",
+      "call": 0,
+      "layer": 23,
+      "tokens": 24,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call0_layer23.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call0_layer23.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=24\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.0015545181628822166,
+        "squared_error": 0.010843760930891984,
+        "source_energy": 4487.333347833931,
+        "max_abs": 0.02756500244140625,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.0016654856762632392,
+        "squared_error": 211.9103588935253,
+        "source_energy": 76395958.31517239,
+        "max_abs": 5.519287109375,
+        "pass_1percent": true
+      },
+      "output_sha256": "5dd532d0fa35e491e45c5d28e0f08f1710056343c8344f4a14e2b60a04c942cd",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call1_layer0",
+      "call": 1,
+      "layer": 0,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer0.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call1_layer0.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.0027567522921691763,
+        "squared_error": 0.0001373145707759587,
+        "source_energy": 18.068459849628013,
+        "max_abs": 0.005044341087341309,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.0032840465382261413,
+        "squared_error": 1.7427470193121266e-05,
+        "source_energy": 1.615904695266375,
+        "max_abs": 0.0019076168537139893,
+        "pass_1percent": true
+      },
+      "output_sha256": "781aad36ca120d6eb67309d7e04923039adf933ff79e625e3b29c5d27a4090c6",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call1_layer12",
+      "call": 1,
+      "layer": 12,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer12.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call1_layer12.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.002010816182692373,
+        "squared_error": 0.01698178214636023,
+        "source_energy": 4199.895859432901,
+        "max_abs": 0.025275230407714844,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.003397883252661086,
+        "squared_error": 0.019246296937776144,
+        "source_energy": 1666.9795653699548,
+        "max_abs": 0.079864501953125,
+        "pass_1percent": true
+      },
+      "output_sha256": "0df66fb5a23ace41819dfac171c0f48a6afc42a5f40845b396870b003b8a37d6",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call1_layer23",
+      "call": 1,
+      "layer": 23,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call1_layer23.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call1_layer23.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.00209529390605083,
+        "squared_error": 0.021427138713818294,
+        "source_energy": 4880.611977100962,
+        "max_abs": 0.04197883605957031,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.003041520702913647,
+        "squared_error": 0.058000155655925464,
+        "source_energy": 6269.712191593354,
+        "max_abs": 0.11067390441894531,
+        "pass_1percent": true
+      },
+      "output_sha256": "a1eb0e1c6eb69d87cc4d81f3a6a659e710f85b1675edf8d39fb9cd1f1d119900",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call2_layer0",
+      "call": 2,
+      "layer": 0,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer0.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call2_layer0.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.0023908537989936495,
+        "squared_error": 5.5253739116017746e-05,
+        "source_energy": 9.66619680707548,
+        "max_abs": 0.0017059743404388428,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.003706785605999028,
+        "squared_error": 2.127144091285746e-05,
+        "source_energy": 1.548110562846903,
+        "max_abs": 0.003999948501586914,
+        "pass_1percent": true
+      },
+      "output_sha256": "0665d15fe33c52a5dd22c65b4e4393a5a99e283ae0815345a951bb18428a5ada",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call2_layer12",
+      "call": 2,
+      "layer": 12,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer12.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call2_layer12.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.002315923602743726,
+        "squared_error": 0.04256688133610353,
+        "source_energy": 7936.396830773311,
+        "max_abs": 0.06427574157714844,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.0033385376322450488,
+        "squared_error": 0.027608973271921817,
+        "source_energy": 2477.0667189343435,
+        "max_abs": 0.07817649841308594,
+        "pass_1percent": true
+      },
+      "output_sha256": "245f63709eed1a08e0c6943e8c9d2b282d32ff52a369bb8dc094ed4f80ae7007",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call2_layer23",
+      "call": 2,
+      "layer": 23,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call2_layer23.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call2_layer23.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.002139265269482473,
+        "squared_error": 0.05459438332678718,
+        "source_energy": 11929.40227125123,
+        "max_abs": 0.09696578979492188,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.004060168034744626,
+        "squared_error": 0.08392069045378103,
+        "source_energy": 5090.74136038693,
+        "max_abs": 0.1632976531982422,
+        "pass_1percent": true
+      },
+      "output_sha256": "47f63a61f5bca8e21929d4215057e98736151cc0d4277746283e5217b8cab0eb",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call3_layer0",
+      "call": 3,
+      "layer": 0,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer0.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call3_layer0.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.002405018074151196,
+        "squared_error": 7.146150782070875e-05,
+        "source_energy": 12.354793371763162,
+        "max_abs": 0.0018104314804077148,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.003117563380538832,
+        "squared_error": 1.6242363807519014e-05,
+        "source_energy": 1.6711623811584033,
+        "max_abs": 0.002333700656890869,
+        "pass_1percent": true
+      },
+      "output_sha256": "09309952cd0408163341e8e99f77709fb218b7b37fc5389a48c3d49682031131",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call3_layer12",
+      "call": 3,
+      "layer": 12,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer12.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call3_layer12.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.0018584269299760552,
+        "squared_error": 0.16699735380794803,
+        "source_energy": 48352.46389649644,
+        "max_abs": 0.19744873046875,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.002676601157065153,
+        "squared_error": 0.022299170537616656,
+        "source_energy": 3112.5861895008748,
+        "max_abs": 0.07770156860351562,
+        "pass_1percent": true
+      },
+      "output_sha256": "f470294e495f0e1b90d29777b2ba5d2ced4e1ae5999cc4069f7ddeca75a5ef64",
+      "source_state_dtype": "torch.bfloat16"
+    },
+    {
+      "name": "call3_layer23",
+      "call": 3,
+      "layer": 23,
+      "tokens": 1,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\original_scan.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_scan_capture_20261008\\call3_layer23.input.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_original_scan_20261008\\call3_layer23.native.f32"
+      ],
+      "exit_code": 0,
+      "stdout": "original_exact_scan DN=768 N=64 T=1\n",
+      "stderr": "",
+      "state": {
+        "relative_RMS": 0.0019452984945199044,
+        "squared_error": 0.021157503451926303,
+        "source_energy": 5591.031241709098,
+        "max_abs": 0.04932975769042969,
+        "pass_1percent": true
+      },
+      "gated_output": {
+        "relative_RMS": 0.0023847090053167705,
+        "squared_error": 0.14498422042820464,
+        "source_energy": 25494.702838752848,
+        "max_abs": 0.2625923156738281,
+        "pass_1percent": true
+      },
+      "output_sha256": "30d10fb7f28769164d62e9871f3c8c81e15d9521edf12cca8347ea419125dc0b",
+      "source_state_dtype": "torch.bfloat16"
+    }
+  ],
+  "decision": "ORIGINAL_SCAN_BRIDGE_PASS",
+  "original_exact_update_and_gate_verified": true,
+  "elapsed_seconds": 4.125,
+  "scope": "Supplied real source delta/X/B/C/gate, each packet starts at its own actual source state; not free-running whole model, repeated C prefill or native accepted rate",
+  "native_OS_through_exit_peak": "not measured; no rate/resource admission",
+  "new_source_forwards": 0
+}

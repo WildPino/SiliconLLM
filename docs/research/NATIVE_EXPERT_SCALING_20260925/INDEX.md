@@ -44,12 +44,15 @@ costed56.31M products/260.0MB packed coefficients/2.097GB chosen Adam arrays.
 Physical rate/DRAM/useful capacity unmeasured.100B inference~52GB packed versus
 ~553GB old copies and~1.61TB dense Adam in the declared D256 case.
 
-**Next:** [real Falcon source/scan bridge](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md).
-Source recurrence algebra matches the original scan after head/channel mapping,
-but projection/conv layout and finite precision differ. Acquire/qualify pinned
-source/interaction and actual usability, then real operands/state/C comparison.
-Keep source width512 for the first proposed whole learner; source-compatible
-core needs its own budget before training. Goal/family/scales unchanged; no jobs.
+**Actual original-scan bridge PASS:** [source/screen/scan result](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md).
+Acquired pinned182.3MB source; original interaction/head/EOS retained.
+Tiny teacher5/16 FAIL fixed usefulness screen; not selected for whole adaptation.
+NEW4 source forwards/layers0/12/23 give12 real packets: original exact-exp C scan
+max state RMS.275675%/gated output.406017%,ALL24 fixed1% gates PASS.
+Each call begins at its own source state; long-run C drift/whole chat unverified.
+Source projection/conv adapter, useful stronger hybrid teacher and costed target
+come next. Do not silently carry Tiny width/vocabulary/RMS assumptions forward.
+All jobs terminal; full goal/family/scales unchanged.
 
 ## Two research questions
 
@@ -160,14 +163,15 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** implement/freeze bounded source acquisition/interaction and
-real-state [Falcon-to-original-scan bridge](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md).
-[Target triage](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md) is COMPLETE;
-do not rerun its source/cost accounting. Reuse pinned metadata and output bytes.
-First bridge donor is FalconTiny; establish teacher usefulness before investing
-in whole adaptation, then retain width512/source vocabulary while testing
-recurrent/ternary/conditional recovery. A larger hybrid teacher remains an option
-if actual usefulness is insufficient. No model-card quality/compatibility inference.
+**First action:** qualify a useful stronger hybrid teacher's actual source and
+whole active/training budget, then freeze one compact original-engine-target
+adaptation pilot. Candidate Falcon-H1-1.5B-Instruct, producer card only; no values
+or local quality acquired. [Completed source/scan result and continuation](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md)
+governs. Original scan bridge12/12 PASS; Tiny90M5/16 teacher screen FAIL.
+Source-compatible projection/conv, other variant gated RMS and C free-running
+state still missing. Target may require different width/vocabulary/core costs.
+[Target triage](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md) and completed
+Falcon acquisition/screen/capture/C are terminal; reuse bytes, no replay.
 
 [Order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md) is
 DEFERRED. Original fit/FIRST/drift jobs are terminal and recipe CLOSED. Existing

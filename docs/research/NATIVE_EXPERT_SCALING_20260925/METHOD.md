@@ -41,10 +41,17 @@ is AVAILABLE/executed: five donors,40 budgets, original counts reused/new family
 operator counts, seven hand-checked integer terms,0 model calls. Source affinity
 does not remove Granite/BitNet large active work. First real bridge donor is
 FalconTiny: its per-head recurrence maps algebraically to the original scan,
-with different projection/conv and source casts. [Next source/scan bridge](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md)
-requires bounded actual weights/interaction, usability and real-state operator
-parity before whole learning. Keep width512/source vocabulary initially;
-source-compatible core variant needs its own budget. Do not replay triage.
+with different projection/conv and source casts. [Actual source/scan result](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md)
+now makes acquisition/interaction/usefulness/capture/original-scan C executable.
+Tiny source acquired182.3MB; teacher5/16 FAIL. NEW4 source forwards give12
+real packets/layers0/12/23,ALL state/output1% gates PASS; maxima.275675%/.406017%.
+Per-call native initialization from actual source cache does not prove accumulated
+drift/whole chat. Keep original scan operator. Tiny is not chosen for full learning.
+Next stronger hybrid candidate Falcon-H1-1.5B-Instruct needs pinned actual source/
+usefulness/whole active and training accounting; producer quality is not ours.
+Do not carry Tiny D512/V32768/no-gated-RMS into that variant implicitly.
+Source-compatible projection/conv C adapter and target core budget remain missing.
+Do not replay triage or completed Falcon calls/native packets.
 Deployment needs structured
 routing with IDs AND mass and packed-only expert storage; original full E scan
 and simultaneous F32/int8/code arrays do not become free as n grows.

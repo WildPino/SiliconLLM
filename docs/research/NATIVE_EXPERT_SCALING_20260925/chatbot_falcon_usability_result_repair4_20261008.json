@@ -1,0 +1,449 @@
+{
+  "schema": "FALCON_USABILITY_RESULT_V1",
+  "freeze": "58f897bcfb2fea1bd35a7e3c305d270267a4e758",
+  "binding_sha256": "b35956f7ede8aa210dcf0572207aee8f70f6730b88a31438be12f888b1f03501",
+  "process_instance": {
+    "pid": 16536,
+    "create_time_unix": 1791486302.9636524
+  },
+  "runtime": {
+    "torch": {
+      "version": "2.6.0+cu124",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\torch\\__init__.py"
+    },
+    "transformers": {
+      "version": "5.13.1",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\transformers\\__init__.py"
+    },
+    "tokenizers": {
+      "version": "0.22.2",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\tokenizers\\__init__.py"
+    },
+    "numpy": {
+      "version": "2.4.6",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\numpy\\__init__.py"
+    },
+    "psutil": {
+      "version": "7.2.2",
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\psutil\\__init__.py"
+    },
+    "optional_kernels": {
+      "kernels": false,
+      "mamba_ssm": false,
+      "causal_conv1d": false
+    },
+    "device": "NVIDIA GeForce RTX 3060",
+    "attention": "eager",
+    "source_code": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+    "fast_ssm_path": false
+  },
+  "decision": "TEACHER_SCREEN_FAIL",
+  "quality_gates": {
+    "at_least_12": false,
+    "every_category_at_least_2": false,
+    "blank_at_most_1": true,
+    "no_special_leak": true,
+    "stop_policy": true
+  },
+  "category_correct": {
+    "arithmetic": 0,
+    "extraction": 1,
+    "history": 2,
+    "instruction": 2
+  },
+  "correct": 5,
+  "total": 16,
+  "supplied_history_scope": "Not model-own-history or broad/final chatbot quality",
+  "cache_layout": [
+    {
+      "index": 0,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 1,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 2,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 3,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 4,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 5,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 6,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 7,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 8,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 9,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 10,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 11,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 12,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 13,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 14,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 15,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 16,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 17,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 18,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 19,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 20,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 21,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 22,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    },
+    {
+      "index": 23,
+      "conv_shape": [
+        1,
+        896,
+        4
+      ],
+      "conv_dtype": "torch.bfloat16",
+      "recurrent_shape": [
+        1,
+        24,
+        32,
+        64
+      ],
+      "recurrent_dtype": "torch.bfloat16"
+    }
+  ],
+  "elapsed_seconds": 42.06300000002375,
+  "GPU_allocated_peak": 379982848,
+  "GPU_reserved_peak": 402653184,
+  "worker_OS_peak_snapshot": 1501491200,
+  "new_source_generations": 16,
+  "source_training_updates": 0
+}

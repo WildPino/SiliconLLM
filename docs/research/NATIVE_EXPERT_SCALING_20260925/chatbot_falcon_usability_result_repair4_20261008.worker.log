@@ -1,0 +1,20 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/386 [00:00<?, ?it/s]Loading weights: 100%|██████████| 386/386 [00:00<00:00, 5952.60it/s]
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{"case": "arithmetic_add", "answer": "7 + 5 = 12.", "correct": false, "completed": 1, "seconds": 12.01600000000326}
+{"case": "arithmetic_sub", "answer": "To find the difference between 15 and 6, you subtract 6 from 15.\n\n15 - 6 = 9\n\nSo, the answer is 9.", "correct": false, "completed": 2, "seconds": 16.92200000002049}
+{"case": "arithmetic_mul", "answer": "3 times 4 is 12. So, 3 times 4 is 12.", "correct": false, "completed": 3, "seconds": 19.82800000003772}
+{"case": "arithmetic_div", "answer": "To solve the problem of dividing 20 by 5, you can perform the division as follows:\n\n\\[ 20 \\div 5 = 4 \\]\n\nSo, the answer is 4.\n\n\\boxed{4}", "correct": false, "completed": 4, "seconds": 25.844000000040978}
+{"case": "extract_color", "answer": "The color is blue.\n\nAnswer: blue", "correct": false, "completed": 5, "seconds": 27.04700000002049}
+{"case": "extract_city", "answer": "Paris.", "correct": true, "completed": 6, "seconds": 27.67200000002049}
+{"case": "extract_name", "answer": "Answer: cat", "correct": false, "completed": 7, "seconds": 28.26600000000326}
+{"case": "extract_animal", "answer": "The animal is a dog.\n\nAnswer: dog", "correct": false, "completed": 8, "seconds": 29.625}
+{"case": "follow_literal", "answer": "Hello.", "correct": false, "completed": 9, "seconds": 30.10899999999674}
+{"case": "follow_upper", "answer": "CAT", "correct": true, "completed": 10, "seconds": 30.625}
+{"case": "follow_lower", "answer": "dog", "correct": true, "completed": 11, "seconds": 31.04700000002049}
+{"case": "follow_reverse", "answer": "To reverse the letters in \"abc\", we can follow these steps:\n\n1. Identify the positions of each letter in \"abc\".\n2. Reverse each of these positions.\n\nHere's how you can do it:\n\n1. **Identify the positions:**\n   - 'a", "correct": false, "completed": 12, "seconds": 39.67200000002049}
+{"case": "history_pet", "answer": "Milo", "correct": true, "completed": 13, "seconds": 40.125}
+{"case": "history_color", "answer": "Green", "correct": false, "completed": 14, "seconds": 40.45300000003772}
+{"case": "history_city", "answer": "Berlin", "correct": true, "completed": 15, "seconds": 41.03100000001723}
+{"case": "history_inventory", "answer": "You have 3 apples.", "correct": false, "completed": 16, "seconds": 42.03100000001723}
+{"decision": "TEACHER_SCREEN_FAIL", "correct": 5, "categories": {"arithmetic": 0, "extraction": 1, "history": 2, "instruction": 2}}

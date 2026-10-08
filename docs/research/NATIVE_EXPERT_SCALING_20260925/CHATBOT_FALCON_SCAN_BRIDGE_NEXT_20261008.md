@@ -1,5 +1,11 @@
 # Selected next: real pretrained SSM-to-original-scan bridge
 
+**Superseded after actual execution:** [source/scan result](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md).
+Acquisition/interaction/screen/capture/original C comparisons completed.
+Tiny teacher5/16 FAIL; original scan12/12 PASS (state.275675%,gate.406017% max).
+Current continuation is a useful stronger hybrid teacher/actual budget then
+target adaptation, not replay of the historical proposal below.
+
 8 October2026. PROPOSAL, implementation/execution missing. Selected after
 [actual target screening](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md).
 The full pretrained chatbot/useful n/quality+accepted50/family-scale goal remains.
