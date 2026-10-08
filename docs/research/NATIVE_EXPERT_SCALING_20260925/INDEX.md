@@ -42,25 +42,25 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | Actual structural learner |[value+full-J result](CHATBOT_STRUCTURAL_FIT_RESULT_20261008.md):744 updates, FIT23.695%/novel60.189% response RMS; J improves to52.994%/68.788%. Response/mechanism and absolute fidelity FAIL; one recipe CLOSED, independently verified |
 | Actual algebraic converter |[coupled affine result](CHATBOT_COUPLED_RESULT_20261008.md): full-input joint16-jet solve exists, FIT roundoff; novel64 RMS1497% both encoded AND unrounded. Exact necessary1% failure independently verified; this construction CLOSED |
 | Actual ALL-FIT convex converter |[kernel/compiler result](CHATBOT_KERNEL_RESULT_20261008.md): ALL3845 FIT rows, one positive-ridge full-input affine minimum numerically certified; encoded FIT1.5485%, FIRST64 novel70.4495%. Exact necessary FULL1% failure independently verified; zero-prior objective CLOSED |
+| Actual ALL-FIT/source-null-J converter |[prior result](CHATBOT_NULL_PRIOR_RESULT_20261008.md): new covariance kernel/unique fixed quadratic fit/first audits COMPLETE; encoded FIT15.9122%,FIRST64 novel80.9040%. Both exact necessary FULL1% failures independently verified; this prior objective CLOSED |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No eligible NEW compact ALL24/export/chat/accepted50/useful-n artifact |
 
-Latest decisive result: actual full-FIT kernel/factor AND convex compiler exist;
-first independent audits verify ALL feature/byte identities, primal/dual optimum
-residuals and BOTH encoded/unrounded exact necessary novel failures. Small FIT
-error does not preserve the observed novel response. THIS positive-alpha,
-zero-prior objective CLOSED, not all affine classes/global capacity. Numerical
-optimization uncertainty is resolved within this fixed objective's scope.
-Whole proposal290975744 MAC/583842816 logicalB passes dimension gates only;
-native composition/DRAM/rate remain missing. Kernel7.750s/737MB,fit23.266s/1.043GB
-through exit; independent audits16.954s/1.053GB and22.844s/972MB. All8 instances
-closed/no OS faults/foreign SHA preserved. No original source/J/old bank replay.
+Latest decisive result: ALL-FIT plus source-null-J prior is implemented,with
+new kernel/coefficients and FIRST independent audits. Actual minimum certified
+at~1e-13 residual; response fidelity fails,FIT15.9122%/novel-prefix80.9040%.
+THIS fixed positive quadratic objective CLOSED; not all affine classes or
+global capacity. Original source/core/old bank observations reused. Whole
+290975744MAC/583842816 logicalB proposal passes dimensions only; no native/
+DRAM/rate. Kernel6.359s/676MB,fit23.328s/1.963GB; audits9.500s/1.043GB and
+25.922s/2.118GB through exit. All8 instances closed/no faults/foreign SHA intact.
 
-[NEW source-null-J prior route](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md) combines
-ALL-FIT responses with already captured source derivatives in the864 selector-
-null directions. First new covariance kernel/operator prerequisite only,
-actual stored P row space via32-square solves, fixed energy scales. New kernel/
-compiler NOT implemented. Existing full FIT/prefix shared-only values now all
-cached for reuse. The complete CHATBOT pipeline remains the admission target.
+[NEW selector-null curvature investigation](CHATBOT_NULL_CURVATURE_NEXT_20261008.md)
+isolates a representation restriction: at fixed P/shared,the affine private
+sum has zero curvature along ker(P),regardless of n. This real identity is not
+a1% response impossibility or rounded-inference derivative claim. FIRST new
+source/core second-order contractions/qualification,using original32 anchors
+and four fixed null directions; no new fit. Collector/audit NOT implemented.
+Full CHATBOT pipeline remains the admission target; no scale/precision ladder.
 
 ## Retained necessary closures
 
@@ -119,20 +119,22 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [source-null-J prior covariance prerequisite](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md).
+**First action:** [source-null curvature collector](CHATBOT_NULL_CURVATURE_NEXT_20261008.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse adapter/IDs/census/original48-case calibration bytes without replay.
-All existing finite joint fits,16-jet and zero-prior ALL-FIT convex constructions
-remain CLOSED; their implementations and first audits are complete. E16028-leaf
+All finite joint fits,16-jet,zero-prior ALL-FIT AND source-null-J prior objectives
+remain CLOSED; implementations and first audits complete. E16028-leaf
 exposure failure stays closed. Source full Js and fixed BF16 shared-core Js are
 saved; ALL3845 FIT and64-prefix shared-only F64/batched-F32 values are now cached.
-FIRST implement/freeze new S=P P^T,H_leaf,K_H and chol(I+K_H), using only saved
-FIT geometry/original selector/smooth anchor masses/reused energy scales.
-No new source/core labels/J, bank coefficients/errors or development x in that
-prerequisite. Actual code/binding BEFORE observables and first independent
-operator/kernel audit/terminal closure BEFORE ONE separate compiler.
-New covariance kernel/compiler are NOT implemented. No alpha/lambda/width/
-precision/anchor ladder or completed source/fit/control/audit replay.
+New prior S/H_leaf/K_H/factor/compiler and all first audits COMPLETE; exact
+necessary encoded/unrounded FULL1% failure verified. FIRST implement/freeze
+NEW contracted source/core curvature collector from actual BF16 coefficient
+slices,original32 anchors and fixed four null directions. New analytic second-
+order vectors and gradient contractions at new±h states,not an original source
+forward/J/FD/feature experiment replay. No cubic Hessian or new fitter.
+Actual code/input/runtime binding BEFORE observables,first independent audit/
+terminal closure BEFORE choosing a changed representation. New collector/audit
+NOT implemented. No alpha/lambda/width/precision/h/direction/anchor ladder.
 Keep full head/attention/router/cache priced; local fidelity only permits the
 next ALL24/export/native composition step, never a fresh chat/accepted50 claim.
 Use newly excluded whole dialogue/task cases when an eligible artifact exists.
@@ -161,5 +163,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
-[source-null-J prior NEXT](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md)
+[selector-null curvature NEXT](CHATBOT_NULL_CURVATURE_NEXT_20261008.md)
 supersede all older operational NEXTs.

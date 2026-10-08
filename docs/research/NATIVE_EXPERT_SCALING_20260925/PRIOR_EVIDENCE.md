@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual ALL-FIT/source-null-J convex compiler CLOSED:**
+[result](CHATBOT_NULL_PRIOR_RESULT_20261008.md),new actual finite-P projector/
+16-leaf precision/covariance,first independent explicit14864-feature audit
+agrees6.295e-16. ALL3845 original FIT responses plus16 original source/core Js,
+fixed energy-scale lambda93.60981/alpha.8153433,positive quadratic minimum
+numerically certified<=1.59e-13. Encoded FIT15.9122%,FIRST64 novel80.9040%,not
+FULL novel RMS. BOTH exact necessary FULL1% failures independently verified;
+remaining novel/ALL24/export/native STOP. ONE objective CLOSED,not all affine
+priors/global capacity. Kernel6.359s/676MB,fit23.328s/1.963GB; first audits
+9.500s/1.043GB and25.922s/2.118GB through exit,all8 known instances closed/no
+faults/foreign SHA intact. All source/core values/Js reused,0 new original
+model/core/J/optimizer observation. [NEW curvature NEXT](CHATBOT_NULL_CURVATURE_NEXT_20261008.md)
+isolates real selector-null curvature invariant independent of affine n,
+FIRST second-order source/core contractions and new±h directional gradients.
+Collector/audit NOT implemented; no exact/global1% impossibility inference or
+lambda/h/precision ladder. Full compact CHATBOT/fresh quality AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale remain open.
+
 **8 October actual ALL-FIT convex converter CLOSED, numerical minimum verified:**
 [result](CHATBOT_KERNEL_RESULT_20261008.md), ALL3845 FIT occurrences/3166 exact x,
 weighted full-input3845-square kernel, one positive alpha fixed from x/mass,
@@ -14,10 +32,10 @@ global capacity proof. Kernel7.750s/737MB,fit23.266s/1.043GB through exit;
 independent audits16.954s/1.053GB and22.844s/972MB, all8 instances closed/no
 OS faults/foreign SHA preserved. No source/J/old bank/optimizer replay.
 ALL3845 FIT and64-prefix shared-only F64/batched-F32 values now cached.
-[NEW source-null-J prior NEXT](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md) combines
+[Source-null-J prior NEXT](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md) combined
 ALL-FIT values with reused source/core null-J priors, exact real projector from
-actual P via small solves; FIRST covariance kernel prerequisite. New kernel/
-compiler NOT implemented. Full compact CHATBOT/fresh quality AND accepted50
+actual P via small solves; its covariance/compiler and FIRST audits now
+COMPLETE/CLOSED as recorded above. Full compact CHATBOT/fresh quality AND accepted50
 SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale remain open.
 Older entries' NEXT/status fields describe their original record dates;
 current INDEX/METHOD/new NEXT govern resumption.

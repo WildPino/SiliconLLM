@@ -84,12 +84,13 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [source-null-J prior covariance prerequisite](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md):
+Next [source-null curvature investigation](CHATBOT_NULL_CURVATURE_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
 compiler also exists, with a numerical optimum certificate and novel failure;
-the new variable is source-J information in its coefficient prior, as below.
+the source-null-J prior compiler also exists and fails at its qualified
+minimum. The new uncertainty is source curvature along selector-null inputs.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
@@ -180,7 +181,7 @@ Original16 shared-F64 FIT values reused, FIRST3150 other distinct values cached;
 ALL3845 FIT and64-prefix shared-only F64/batched-F32 now reusable. No donor/J
 or old bank/optimizer replay. Numerical qualification is not native parity.
 
-NEW [source-null-J prior proposal](CHATBOT_NULL_JET_PRIOR_NEXT_20261008.md)
+The [source-null-J prior construction](CHATBOT_NULL_PRIOR_RESULT_20261008.md)
 retains active geometry and ALL-FIT value equations, adds a soft prior from
 original16 source/core Js in selector-null directions. Coefficient nullity
 >=10507 per output follows from the3845x14352 feature dimensions; it is not a
@@ -189,12 +190,25 @@ is P^T solve(P P^T,P) from ACTUAL stored selector bytes/exact rank32, rather
 than treating rounded Q Q^T as exactly idempotent. One fixed energy-scale ratio
 and old alpha define a new positive quadratic objective;16/32-square operator
 solves and one3845-square covariance kernel avoid large coefficient normals.
-FIRST implement/freeze ONLY that kernel/operator prerequisite without source/
-core y/J matrices, prior coefficients/errors or development x. First independent
-assembly audit/terminal closure precedes ONE separate compiler if eligible.
-New covariance kernel/compiler NOT implemented. Full derivation and stops are
-in NEXT; no alpha/lambda/precision/anchor ladder. Old227, joint16-jet,zero-prior
-ALL-FIT and231 fixed-G/U prior remain CLOSED; no full affine-class impossibility.
+Covariance/kernel/compiler and FIRST audits now AVAILABLE as a finite failure.
+Independent explicit14864-feature covariance agrees6.295e-16; prior/dual/
+folded/primal residuals<=1.59e-13. New encoded FIT15.9122%/FIRST64 novel80.9040%;
+BOTH exact necessary FULL1% failures independently verified. THIS objective
+CLOSED. Kernel6.359s/676MB,fit23.328s/1.963GB; audits9.500s/1.043GB and25.922s/
+2.118GB through exit,all8 instances closed/no faults. ALL source/core labels/
+shared values reused,0 new donor/core response/J/optimizer. Old227,joint16-jet,
+zero-prior ALL-FIT/source-null-prior and231 remain CLOSED; no all-class impossibility.
+
+NEW [selector-null curvature proposal](CHATBOT_NULL_CURVATURE_NEXT_20261008.md)
+follows the exact real identity D_v^2 sum_e w_e(Px)(A_e x+b_e)=0 for v in ker(P),
+independent of n at fixed P/shared. New source-minus-fixed-core contracted
+Hessian vectors can diagnose this restriction; they are not a finite1% response
+or semantic bound. FIRST implement/freeze source-specific second-order
+collector,original32 anchors/four fixed null directions and qualification by
+NEW directional gradients at±h inputs. No cubic Hessian,new fit or original
+source/J/FD/feature experiment replay. Collector/audit NOT implemented. Require
+all new numerical/resource/provenance gates/first independent audit before
+choosing/pricing one changed representation. No h/codec/anchor/direction ladder.
 Promotion still requires novel1%/ALL-category3% and actual complete export/native
 composition, then fresh whole chat quality AND accepted50 SAME artifact,
 useful n/DRAM/LUT/family/scales. Consumed development can reject a candidate,
@@ -538,7 +552,8 @@ For the current CHATBOT path, FIT/development partitions and canonical history
 are qualified; source operands, local source Js and shared-only outputs are
 cached. Actual joint neural,16-jet and ALL-FIT convex converters are reusable
 implemented tools with CLOSED candidate outcomes. The source-null-J covariance
-kernel/compiler is PROPOSED, not an available conversion stage. [Current result](CHATBOT_KERNEL_RESULT_20261008.md)
+kernel/compiler also exists with an independently CLOSED candidate. Source-null
+curvature collection is PROPOSED,not available. [Current result](CHATBOT_NULL_PRIOR_RESULT_20261008.md)
 connects these statuses to the full pipeline. No single executable currently
 converts a pretrained chatbot into an admitted compact native artifact.
 
