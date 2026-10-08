@@ -51,6 +51,13 @@ compute/transport/end-to-end times and cold first response. Visible IDs are
 unscored until behavioral scoring; invalid answers contribute time and zero
 accepted useful IDs. Caller must bind provenance, watchdog and owned processes.
 
+`chatbot_compact_model.py` supplies a decoded Torch-reference loader conditional
+on successful paired export/FIRST codec receipts. It creates only source-shaped
+meta FFNs, loads218 core tensors from the deployed archive, replaces all24 FFNs
+with decoded BF16-to-F32 compact coefficients and exact routing/RoPE, then removes
+all meta tensors before any forward. It neither reads nor allocates original dense
+FFN values. The loader is UNEXECUTED; reference behavior needs its own binding.
+
 ### Native diagnostic wire, not a rate assay
 
 `probe` mode accepts `QWCP0001`, little-endian U32 input-count/position-count,
