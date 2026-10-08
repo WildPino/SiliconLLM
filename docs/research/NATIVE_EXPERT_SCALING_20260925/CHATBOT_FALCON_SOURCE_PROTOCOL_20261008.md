@@ -82,3 +82,10 @@ not at module import. Retained first_failure and launcher_failure (28.406s,
 after model construction; optional packages are still rejected before loading.
 No completed source cases exist, all16 remain unobserved. New repair1 binding,
 directory and result are required; original fault namespace remains immutable.
+
+Repair1 loaded all386 source objects and verified the head/multipliers/EOS but
+failed serializing the source config's legitimate infinite delta upper clamp.
+No source forward/case completed. Repair2 represents nonfinite config bounds
+as explicit strings in JSON, leaving model arithmetic untouched. Serialization
+is completed before exclusive file creation. Both first faults and partial source
+contract remain preserved; new repair2 binding/namespace, same16 fixed cases.

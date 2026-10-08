@@ -1,0 +1,30 @@
+{
+  "freeze": "24e0b34e35f0d40ebab776ab3f08197658f0cc06",
+  "binding_sha256": "c6c8cc89cf51d55bb1c14209aa762068eb22848995eeafd4ee03276b439c8d41",
+  "launcher_pid": 25648,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_binding_repair1_20261008.json",
+    "--binding-sha",
+    "c6c8cc89cf51d55bb1c14209aa762068eb22848995eeafd4ee03276b439c8d41",
+    "--freeze",
+    "24e0b34e35f0d40ebab776ab3f08197658f0cc06",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_usability_repair1_20261008",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_usability_result_repair1_20261008.json"
+  ],
+  "worker_pid": 13812,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 804626432,
+  "launcher_OS_peak_snapshot": 27545600,
+  "fault": "AssertionError('[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d\\n\\nLoading weights:   0%|          | 0/386 [00:00<?, ?it/s]\\nLoading weights: 100%|██████████| 386/386 [00:00<00:00, 5810.06it/s]\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 195, in <module>\\n    main(p.parse_args())\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 115, in main\\n    write(args.directory / \\'source_contract.json\\', contract)\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 26, in write\\n    json.dump(value, f, ensure_ascii=False, allow_nan=False, indent=2)\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\__init__.py\", line 179, in dump\\n    for chunk in iterable:\\n                 ^^^^^^^^\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 432, in _iterencode\\n    yield from _iterencode_dict(o, _current_indent_level)\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 406, in _iterencode_dict\\n    yield from chunks\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 406, in _iterencode_dict\\n    yield from chunks\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 317, in _iterencode_list\\n    yield buf + _floatstr(value)\\n                ^^^^^^^^^^^^^^^^\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 240, in floatstr\\n    raise ValueError(\\nValueError: Out of range float values are not JSON compliant: inf\\n')",
+  "elapsed_seconds": 10.812999999965541
+}

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
 import sys
@@ -22,9 +23,19 @@ def sha(path):
 
 
 def write(path, value):
+    # Source configuration legitimately contains an unbounded delta clamp.
+    # Keep it explicit without invalid JSON Infinity or changing source arithmetic.
+    def json_safe(v):
+        if isinstance(v, float) and not math.isfinite(v):
+            return repr(v)
+        if isinstance(v, dict):
+            return {k: json_safe(x) for k, x in v.items()}
+        if isinstance(v, (list, tuple)):
+            return [json_safe(x) for x in v]
+        return v
+    raw = json.dumps(json_safe(value), ensure_ascii=False, allow_nan=False, indent=2) + '\n'
     with Path(path).open('x', encoding='utf8') as f:
-        json.dump(value, f, ensure_ascii=False, allow_nan=False, indent=2)
-        f.write('\n')
+        f.write(raw)
         f.flush()
         os.fsync(f.fileno())
 
