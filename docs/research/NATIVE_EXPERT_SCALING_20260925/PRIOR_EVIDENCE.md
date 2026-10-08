@@ -1,5 +1,22 @@
 # Native expert-count scaling: prior evidence
 
+**8 October NEW whole chatbot transfer cohort acquired and FIRST adopted:**
+[result](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md):200 new cases160 FIT/40 DEV,
+10263/2570 x rows PER LAYER and2437/613 full151936-vocabulary teacher logits.
+ALL24 operands/ALL3050 argmax winners/ALL200 canonical prompt IDs independently
+byte/grammar/source-JSON BPE qualified.43 EOS/157 length16 stops, limited partly
+templated corpus; not complete answers, leaf support or fresh-quality evidence.
+64 endpoint texts remain unqueried. One original BF16 source pass, no old
+capture/model/field/optimizer replay. Original FIRST audit cursor fault retained
+(exit1/zero case adoptions); repair1 ONLY seeks24B, unchanged data/criteria.
+Source555.781s/1.982GB/GPU1.037GB; successful audit21.484s/113.6MB through exit,
+1.4787GB tensors/1.4814GB total801 files. All6 instances closed/no OS faults/
+foreignSHA intact. [Current NEXT](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
+freezes NEW support/source initialization/FIRST audit using warm0/1/12 routing
+and0/12 source weights BYTE; then actual24 assembly/optimizer peak/global fit.
+Whole compact CHATBOT/export/native/fresh quality AND accepted50 SAME artifact/
+useful n/families/scales remain missing. Older NEXT statuses below are historical.
+
 **8 October actual ALL24 initializer implemented; support prefix independently verified:**
 [result](CHATBOT_WHOLE_INITIALIZER_RESULT_20261008.md): layer0 source-derived
 shared/private1752-atom union/2560 stored slots,16 distinct leaf hashes,
@@ -11,7 +28,7 @@ or capacity impossibility; no original full/source y/old geometry-feature-field/
 optimizer replay. FIRST scalar-offset/byte-dictionary maps/saved support/order/
 source-copy audit PASS. Primary9.547s/1.398GB/GPU313MB,audit7.390s/479MB through
 exit,29.17MB outputs;all4 instances closed/no faults/foreignSHA intact.
-[Current NEXT](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md) prepares a NEW named
+[Historical acquisition NEXT](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md) prepared a NEW named
 whole-transfer training/development cohort, supplying coverage AND complete
 final-output teacher distributions; final fresh dialogues/tasks excluded.
 Old0/1/12 geometry and0/12 initial weights are explicit warm inputs, not replay.

@@ -36,6 +36,7 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | Source/family contract |[preflight](CHATBOT_DONOR_PREFLIGHT_PROTOCOL_20261007.md)/[census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md): Qwen/Giga SwiGLU; Qwen current archive508M vs source494M MAC, all4864 FFN active; Giga expanded MLA cache, template/ID parity open |
 | Canonical input |[interaction](CHATBOT_INTERACTION_RESULT_20261007.md): Qwen roles/history/continuation/BOTH EOS/IDs qualified, plain text; native integration/tools open |
 | Original information |[capture](CHATBOT_SOURCE_CAPTURE_RESULT_20261007.md):48 cases/5709 positions PER LAYER,47 complete generations+one retained partial; original300s gate FAIL, calibration usable |
+| Whole transfer supervision |[NEW cohort](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md):200 cases/12833 x rows PER LAYER/3050 full-vocabulary BF16 labels, FIRST repair1 byte/ID/winner adoption PASS; no compact quality claim |
 | Necessary target cost |[geometry](CHATBOT_COMPACT_GEOMETRY_RESULT_20261007.md): shared512+4*128/query32/E16 or160; complete246.94/246.97M MAC and494MB logical coefficients pass3/5 dimension gates; no physical rate/DRAM |
 | Actual local transfer |[exposure](CHATBOT_JOINT_EXPOSURE_RESULT_20261007.md): uniformE16028 unsupported leaves CLOSED. [first E16 fit](CHATBOT_JOINT_BASELINE_RESULT_20261007.md):24 epochs/744 updates,21.68% FIT/61.39% novel response RMS; numerical+integer audit FAIL, recipe CLOSED |
 | New source structure |[directional result](CHATBOT_DIRECTIONAL_RESULT_20261008.md): ALL32 full source/student J and320 directional checks; novel82.737% J RMS/null83.234%,94.436% source-null energy. Exact rank32/null864, independent audit agrees |
@@ -49,7 +50,18 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | Whole nonlinear connection |[implemented prerequisites](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md): E16 adapter/ALL24 replacement API/output KL/resident Adam code available; FIRST one-block BF16/autograd/output-gradient mechanics PASS. [ALL24 initializer](CHATBOT_WHOLE_INITIALIZER_RESULT_20261008.md) implemented/FIRST audited; actual0/12 initialized, layer1 support stop, complete installation/fit missing |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No eligible NEW compact ALL24/export/chat/accepted50/useful-n artifact |
 
-Latest decisive result: [actual source-derived ALL24 initializer/FIRST audit](CHATBOT_WHOLE_INITIALIZER_RESULT_20261008.md).
+Latest actual progress: [complete NEW whole transfer cohort](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md).
+160 FIT/40 DEV,10263/2570 x rows PER LAYER,2437/613 complete151936-vocabulary
+teacher labels; ALL24 operands/ALL3050 winners/ALL200 canonical NEW prompt IDs
+independently qualified.43 EOS/157 length16 stops: bounded prefixes, not200
+naturally completed answers or broad knowledge coverage.64 endpoint texts remain
+unqueried.1.4787GB tensor payload/1.4814GB total801 files; source555.781s/
+1.982GB/GPU1.037GB, repair1 audit21.484s/113.6MB through exit. Original FIRST
+reader cursor fault retained; only24B seek repaired, original data/checks unchanged.
+All6 instances closed/no OS faults/foreignSHA intact. Next fixed new-cohort
+support/source initialization, actual ALL24 assembly/optimizer peak/global fit.
+
+Retained preceding decision: [actual source-derived ALL24 initializer/FIRST audit](CHATBOT_WHOLE_INITIALIZER_RESULT_20261008.md).
 Layer0 initialized from3082 unique FIT states:1752 source atoms in2560 slots,
 16 distinct leaf hashes, ALL6881280 G/U/D source promotions independently exact.
 Layer1/parent3 has32 distinct FIT/9 cases but3 novel DEV versus>=4; fixed original
@@ -72,8 +84,8 @@ persistent bytes E16 3993823744 (peak UNMEASURED), E160 scenario23019642880
 (FAIL12GiB resident Adam only). Proposed F32-router native logical495.42/495.55MB,
 not physical DRAM. Inventory .219s/28.1MB; mechanics5.688s/503.8MB through exit;
 all4 instances closed/no faults. ALL24 initializer/FIRST audit are now real,
-but that calibration recipe stops as above. [New operational NEXT](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md)
-prepares NEW named whole-transfer data for layer coverage AND final donor logits,
+but that calibration recipe stops as above. [New operational NEXT](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
+uses newly qualified whole-transfer data for layer coverage AND final donor logits,
 then complete initialization/assembly/global fit. No successful ALL24 installation,
 full optimizer allocation, global fit or admitted artifact yet.
 
@@ -134,7 +146,7 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [NEW whole transfer cohort](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md).
+**First action:** [NEW cohort all-layer initializer](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse adapter/IDs/census/original48-case calibration bytes without replay.
 All finite joint fits,16-jet,zero-prior ALL-FIT AND source-null-J prior objectives
@@ -145,17 +157,17 @@ Source-null prior/curvature/factor extraction, NEW quadratic features/kernel/
 factor/compiler and FIRST audits now COMPLETE. ONE quadratic response recipe
 joins prior local rejections; no eligible compact candidate. Reuse BYTE all
 source/core/J/H/canonical/capture/operator evidence, no old scientific replay.
-Whole inventory/interface/ALL24 initializer/FIRST prefix audit are COMPLETE;
-original48-case complete initializer recipe CLOSED on layer1 support3<4.
+Whole inventory/interface/ALL24 initializer/FIRST prefix audit and NEW whole
+cohort acquisition/FIRST repair1 wire-ID adoption are COMPLETE; original48-case
+complete initializer recipe CLOSED on layer1 support3<4.
 Keep old0/1/12 geometry and0/12 source-derived initial states BYTE as warm
-inputs; no recomputation or trained-block replication. Write exact NEW named
-training/development manifest and bounded one-pass original-source collector
-for ALL24 x and complete-vocabulary generated-position teacher logits BEFORE
-NEW source forwards. Exclude original cases and separately reserved fresh
-whole dialogue/tasks; no parent3-targeted sampling or threshold lowering.
-Proposed160 FIT/40 DEV/prompt128/context256/16 generated IDs; collector worker900s/
-family1500s/OS16GiB/GPU8/9GiB/output3GiB, not launched/frozen yet. Directional
-launcher zero-full-forward contract needs explicit new collector adapter.
+inputs; no recomputation or trained-block replication. Reuse ALL200 new cases'
+qualified12833 x rows/layer and3050 full-vocabulary labels without source replay;
+64 distinct endpoint texts remain unqueried. FIRST cursor failure retained;
+numbered unchanged-science repair1 qualifies all bytes/IDs/winners, not quality.
+Implement/freeze NEW all-layer support/remaining geometry/source initialization
+and FIRST auditor before NEW observables; new x-only stride43008B differs from
+old x/y86016B. No parent-targeted sampling or threshold lowering.
 Then new-data support/source-copy FIRST audit, actual ALL24 BF16-core assembly
 and measured optimizer allocation, ONE finite output-loss fit/export/C/chat.
 E16 lower-bound screen is not peak admission; E160 resident design alone excluded.
@@ -187,5 +199,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [current chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261008.md) and
-[complete transfer NEXT](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md)
+[NEW cohort initializer NEXT](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
 supersede all older operational NEXTs.

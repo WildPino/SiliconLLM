@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [whole transfer training/development cohort](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md):
+Next [initialization on the whole transfer cohort](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -116,8 +116,13 @@ source promotions independently exact. Layer1/parent3 FIT32/9 cases but novel
 DEV3<4 closes this complete calibration recipe before its source features.
 Only0/12 initialized,1 routing available,21 layers unentered. Actual ALL24
 installation/optimizer allocation/global training/native canonical chat remain
-missing. The support stop is not a response/capacity impossibility. Next NEW
-named whole-transfer cohort supplies coverage and complete final donor logits;
+missing. The support stop is not a response/capacity impossibility. The NEW
+[whole-transfer cohort](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md) now supplies
+ALL200 cases/12833 x rows PER LAYER/3050 full-vocabulary teacher labels;
+FIRST unchanged-science repair1 byte/ID/winner audit PASS after retained24B
+reader cursor fault.43 EOS/157 length16 prefixes; no quality/support claim.
+All6 instances closed/no OS faults.64 endpoint texts remain unqueried.
+Freeze new-cohort support/remaining geometry/source initialization/FIRST audit;
 reuse0/1/12 geometry and0/12 initial state as explicit warm inputs, no old replay.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
@@ -612,9 +617,12 @@ representation diagnostic. [Current source-factor result](CHATBOT_SOURCE_QUADRAT
 and [ONE complete-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
 connect these statuses to the full pipeline. FIT-only source factor extraction,
 NEW quadratic feature/kernel/compiler and FIRST audits now AVAILABLE, with a
-CLOSED candidate outcome. [New operational NEXT](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md)
-prepares a NEW transfer cohort for ALL24 coverage and complete final-output
-teacher supervision. Source initializer/FIRST prefix audit are AVAILABLE but
+CLOSED candidate outcome. [New operational NEXT](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
+uses the acquired/FIRST audited NEW cohort for ALL24 coverage and complete
+final-output teacher supervision. NEW x-only wire stride43008B/layer1792B
+must not use old x/y86016B/layer3584B offsets. Old0/1/12 geometry and0/12
+source-derived initial state are warm BYTE inputs; new support remains unobserved.
+Source initializer/FIRST prefix audit are AVAILABLE but
 the original48-case complete recipe stops at layer1 support3<4;0/12 initialized.
 The whole adapter/replacement/output KL/resident Adam API and first one-block
 mechanics are AVAILABLE; successful ALL24 installation,
@@ -702,11 +710,12 @@ fault/partials before a numbered repair.
 
 ## 7. Required return to the full goal
 
-Current [whole cohort route](CHATBOT_GLOBAL_COHORT_NEXT_20261008.md)
-follows completed inventory/interface and real source initializer/FIRST audit.
-NEW named data must supply ALL24 support and complete final donor distributions,
-with fresh own-history/dialogue/task cases excluded from calibration/training.
-Further initialization/new-data FIRST byte/support audit, actual BF16-core
+Current [new-cohort initializer route](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
+follows completed inventory/interface/source initializer and actual NEW cohort
+acquisition/FIRST repair1 adoption. ALL200 new cases/12833 x rows PER LAYER/
+3050 full-vocabulary labels are qualified; ALL24 leaf support is unobserved.
+64 endpoint texts remain unqueried; development is consumed calibration.
+New initialization/FIRST byte/support audit, actual BF16-core
 installation/resident optimizer peak and one finite whole fit are next.
 API availability and a memory lower bound are not an eligible ALL24 checkpoint.
 Existing local1%/3% recipe failures stay CLOSED;
