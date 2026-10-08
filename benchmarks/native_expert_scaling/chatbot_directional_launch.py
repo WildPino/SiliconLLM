@@ -50,6 +50,7 @@ def main(args):
         for view in binding['interaction_view']:
             assert (ROOT/'results/native_expert_scaling/chatbot_interaction_runtime/site'/view['view_name']).samefile(view['path'])
     try:
+        assert len(args.freeze)==40 and all(v in '0123456789abcdef' for v in args.freeze),'full immutable Git revision required'
         assert sys.version_info[:3]==(3,12,10) and psutil.__version__=='7.2.2'
         assert sha(args.binding)==args.binding_sha
         binding=json.loads(args.binding.read_bytes());assert binding['schema']=='QWEN_DIRECTIONAL_BINDING_V1'

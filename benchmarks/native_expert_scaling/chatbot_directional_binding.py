@@ -45,6 +45,10 @@ def main(args):
         plan=json.loads(args.plan.read_bytes());assert plan['decision']=='ANCHORS_FROZEN_FOR_FIRST_DIRECTIONAL_VALUES' and all(plan['procedure_gates'].values())
         plan_terminal=args.plan.with_suffix('.terminal.json');plan_receipt=json.loads(plan_terminal.read_bytes())
         assert plan_receipt['actual_worker_exit_code']==0 and plan_receipt['result_sha256']==args.plan_sha
+        correction_path=doc/'chatbot_directional_plan_provenance_20261008.json'
+        correction=json.loads(correction_path.read_bytes())
+        assert correction['result_sha256']==args.plan_sha and correction['terminal_sha256']==sha(plan_terminal)
+        assert correction['actual_source_freeze']=='ec197f9efdf1b38dfdc6f8a958e2203a354ee6c8' and correction['new_plan_values']==0
         baseline_path=doc/'chatbot_joint_baseline_20261007.json';baseline_terminal=baseline_path.with_suffix('.terminal.json')
         result=json.loads(baseline_path.read_bytes());baseline_receipt=json.loads(baseline_terminal.read_bytes())
         assert baseline_receipt['actual_worker_exit_code']==0 and sha(baseline_path)==baseline_receipt['result_sha256']
@@ -52,7 +56,8 @@ def main(args):
         source=next(v for v in prior['inputs'] if Path(v['path'])==Path(prior['source_weights']))
         assert sha(prior['source_weights'])==source['sha256'] and Path(prior['source_weights']).stat().st_size==source['bytes']
         worker=code/'chatbot_directional_jacobian.py'
-        base_paths.extend([args.plan,plan_terminal,code/'chatbot_directional_plan.py',baseline_path,baseline_terminal,student,prior['source_weights'],worker])
+        base_paths.extend([args.plan,plan_terminal,correction_path,code/'chatbot_directional_provenance.py',code/'chatbot_directional_plan.py',
+            doc/'CHATBOT_DIRECTIONAL_IMPLEMENTATION_20261008.md',baseline_path,baseline_terminal,student,prior['source_weights'],worker])
         runtime=prior['capture_runtime_roots'];view=prior['interaction_view']
         binding.update(plan_path=str(args.plan.resolve()),plan_sha256=args.plan_sha,source_weights=prior['source_weights'],student_checkpoint=str(student),
             arithmetic='Smooth real-coefficient formula evaluated in F64; NOT rounded-inference-program derivative')
