@@ -1,5 +1,15 @@
 # Native expert-count scaling: prior evidence
 
+**9 October balanced whole recovery IMPLEMENTED/FROZEN/LIVE:**
+[Protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md),freeze1f2a30a,
+180-input bindinged9299ff; [live instance](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md)
+session76414/launcher20000/worker33244 verified. Actual254,932,736-parameter
+model/2,039,461,888B Adam moments restored atstep8; NEW initial160 observations
+in progress. Fixed512 balanced connected updates,training-only AQ dither.025,
+original inference LUT/ternary/core formulas. Family3600s/16GiB OS/11GiB allocated
+GPU/12GiB output. No final quality/native/rate admission,T4 or source replay.
+Poll samehandle; previous historical completed-job statements below stay scoped.
+
 **9 October actual balanced Falcon original supervision/adoption COMPLETE:**
 [Result](CHATBOT_HYBRID_TRANSFER_CAPTURE_RESULT_20261009.md):128 FIT/32 DEV,
 eight authored template domains,4643/1103 full-vocabulary labels,

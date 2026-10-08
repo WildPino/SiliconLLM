@@ -1,0 +1,47 @@
+# Balanced whole recovery: verified live instance
+
+9 October2026. LIVE, no final recovery/native/chatbot admission.
+Implementation and [protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md)
+frozen at1f2a30a20418d749c716b81a7610aadf612540d4.
+[Binding](chatbot_hybrid_recovery_binding_20261009.json) SHA
+ed9299ffd4eceb846f0b15518436df8c49af565a0755c49c5ee183cac00e9065,
+180 checkpoint/corpus/packet/code/runtime/foreign inputs.
+
+## Authoritative process and available observation
+
+Unified exec session76414; launcher PID20000, worker PID33244/parent20000,
+both confirmed through Win32_Process with exact bound commands.
+The launcher holds the actual Windows worker handle through exit.
+Worker event at12.766s: complete254,932,736-parameter target loaded,
+2,039,461,888B Adam moments restored,all initial optimizer steps8.
+Longest FIT input selected before values:fit_reading_08.
+Original naive eager SSD fallback is expected; optional kernels are absent.
+No donor loaded, no T4 or concurrent model job.
+
+This snapshot does not prove any completed update. Observe the SAME session/
+log/result/terminal and current process before deciding status; never relaunch
+because observation timed out. Completed initial rows are saved individually.
+Full initial160 -> fixed512 balanced updates -> full final160 and actual
+checkpoint. Caps3600s family/16GiB OS/11GiB allocated GPU/12GiB reserved/12GiB
+output. Worker guard reserve60s for recovery.
+
+## Exact command and outputs
+
+Isolated Python3.12.10 `-I -S -B -X utf8`; shared launcher loaded via
+`runpy.run_path` with safe runtime site first. Bound arguments:
+
+```
+--binding docs/research/NATIVE_EXPERT_SCALING_20260925/chatbot_hybrid_recovery_binding_20261009.json
+--binding-sha ed9299ffd4eceb846f0b15518436df8c49af565a0755c49c5ee183cac00e9065
+--freeze 1f2a30a20418d749c716b81a7610aadf612540d4
+--directory results/native_expert_scaling/chatbot_hybrid_recovery_20261009
+--out docs/research/NATIVE_EXPERT_SCALING_20260925/chatbot_hybrid_recovery_result_20261009.json
+```
+
+`.worker.log` is the live event stream; `.terminal.json` or
+`.launcher_failure.json` records actual exit/through-exit cost. Directory
+contains immutable completed observations/updates and final or recovery state.
+Only a terminal receipt plus output inspection can establish closure. All old
+native19/32FAIL,poor quality,useful-n/structured LUT mass/DRAM/family gates remain.
+First action on resumption:poll76414 or authoritative processes,then adopt
+actual output; no new training namespace or replay.

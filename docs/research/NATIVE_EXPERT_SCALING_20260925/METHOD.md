@@ -87,8 +87,14 @@ labels/753.15MB BF16 packets.137 EOS/23 length96 partials/context512;64 RESERVED
 unqueried. ALL saved source-JSON-tokenizer/bit/argmax/EOS/position transport PASS,
 376,575,602 coordinates; shared Rust tokenizer, not independent BPE. Source
 861.782s/GPU5.715GB/OS3.742GB, adopter8.016s/109.9MB through exit/all caps PASS.
-Partial replies are prefix supervision, not full-answer quality. Broad preservation/
-own-prefix recovery/finite staged distillation-QAT remain missing. Qwen200-case tensors
+Partial replies are prefix supervision, not full-answer quality. ONE NEW
+[balanced whole recovery](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md) is implemented/
+frozen1f2a30a and [LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md),session76414.
+Actual prior model+Adam restored;512 fixed case/domain-balanced updates,training-only
+AQ normalized dither.025,no changed inference formula,all160 NEW initial/final
+observations retained. Local3600s/16GiB OS/11GiB allocated GPU/12GiB output;
+actual long backward/resources/final recovery are not yet established.
+Broad preservation/own-prefix recovery remain missing. Qwen200-case tensors
 belong to another donor. Pilot/screen/calibration stay excluded from fresh tests.
 
 ## 4. Export and run the actual packed candidate in C

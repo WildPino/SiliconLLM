@@ -15,7 +15,7 @@ Ryzen53600X/80GiB/RTX306012GB. Freeze before observations; retain first faults
 and numbered repairs; reuse completed scientific/capture/native/audit bytes.
 No timing overlap. Preserve foreign work/publisher. Routine Graphify disabled.
 Donor-adaptation operationally frozen, evidence reusable. T4 requires communicated
-reason/budget/stops first. All owned workers terminal; no training/T4.
+reason/budget/stops first. ONE local recovery worker LIVE; no T4.
 
 ## Current direction and two research questions
 
@@ -31,6 +31,14 @@ adaptation is permitted but useful transfer must be demonstrated.
 | Transfer into that target |Source/interaction tools; screened Falcon1.5B; source-informed whole ternary learner with8 real updates and actual export/C|Broad donor-relative recovery, qualified native numerical forward, own-history/chat client, family/scale variants|
 
 ## Latest decisive evidence
+
+**[Balanced whole recovery LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md):**
+implementation/protocol frozen1f2a30a,180-input bindingSHAed9299ff. Session76414,
+launcher20000/worker33244 verified; actual model+Adam restored (254.93M/2.039GB
+moments/step8). ALL160 NEW initial observations in progress. Fixed512 balanced
+updates,training-only normalized AQ dither.025,inference original AQ63,60s
+recovery reserve inside3600s family/16GiB OS/11GiB GPU/12GiB output. No final
+recovery/quality/native admission; preserve old failures. Poll same live handle.
 
 **[Actual packed target/C result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md):**
 D512/L12/SSM10/SWA2/E72/k8/h128/V65537, original matrix/LUT/AQ63 bodies reused.
@@ -97,19 +105,23 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** implement/freeze ONE finite balanced whole recovery/robust-QAT
-learner under [current NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md).
+**First action:** observe SAME session76414/launcher20000/worker33244 under
+[LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md) and
+[frozen protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md).
+Implementation1f2a30a/bindinged9299ff; never restart because observation expires.
 Reuse actual final model/optimizer and adopted
 results/native_expert_scaling/chatbot_hybrid_transfer_capture_20261009/corpus.json,
 4643 FIT/1103 DEV labels and source-role/EOS/position mapping. Source capture and
-adopter COMPLETE/exit0, exact commands/freeze/bindings in result receipts; no
-remaining worker/session. Source861.782s, below original900s cap. No restart/replay.
+adopter COMPLETE/exit0, exact commands/freeze/bindings in result receipts.
+Source861.782s, below original900s cap. No source/capture restart/replay.
 23 partial replies remain prefix supervision only;64 RESERVED unqueried.
 
-Fix training-only dither/margin objective, case/domain weighting, data order,
-steps/learning rate/STE/RNG/gradient checks/resources and whole recovery gates
-BEFORE values. Provisional4 balanced epochs/512 updates/local3600s is a proposal,
-not a launched/frozen fit. Old nativeFAIL retained; NEW trained/native check before long
+Frozen4 balanced epochs/512 updates,case-mean KL,temp1,lr5e-5/clip1/STE,
+training-only dither.025,RNG-preserving checkpointing and explicit recovery gates.
+Final update512 selected,not DEV-best. Actual initial/final NEW full logits retained.
+First short/long backward must establish resources. On closure inspect actual
+terminal/fault/checkpoint/metrics and saved-only audit before NEW native export.
+Old nativeFAIL retained; NEW trained/native check before long
 adaptation. Examine information loss and dense-sum versus normalized-mixture
 initialization before committing long compute; do not assume multiplying scales
 by E preserves quality. All6 pilot/16 screening cases stay excluded from fresh

@@ -1,0 +1,1452 @@
+{
+  "schema": "HYBRID_RECOVERY_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_recovery.py",
+  "corpus": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\corpus.json",
+  "checkpoint": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\learner.pt",
+  "seed": 20261009,
+  "epochs": 4,
+  "orders": [
+    [
+      "fit_explanation_15",
+      "fit_code_02",
+      "fit_arithmetic_04",
+      "fit_rewrite_13",
+      "fit_reading_15",
+      "fit_history_14",
+      "fit_instruction_07",
+      "fit_planning_09",
+      "fit_explanation_04",
+      "fit_history_05",
+      "fit_rewrite_04",
+      "fit_reading_13",
+      "fit_planning_02",
+      "fit_instruction_15",
+      "fit_arithmetic_11",
+      "fit_code_14",
+      "fit_explanation_02",
+      "fit_code_12",
+      "fit_arithmetic_12",
+      "fit_instruction_03",
+      "fit_planning_11",
+      "fit_reading_07",
+      "fit_rewrite_03",
+      "fit_history_02",
+      "fit_instruction_02",
+      "fit_rewrite_09",
+      "fit_explanation_09",
+      "fit_code_13",
+      "fit_reading_08",
+      "fit_planning_15",
+      "fit_history_07",
+      "fit_arithmetic_09",
+      "fit_instruction_11",
+      "fit_explanation_01",
+      "fit_rewrite_10",
+      "fit_arithmetic_00",
+      "fit_reading_11",
+      "fit_planning_13",
+      "fit_history_03",
+      "fit_code_10",
+      "fit_rewrite_08",
+      "fit_arithmetic_10",
+      "fit_reading_02",
+      "fit_code_01",
+      "fit_planning_07",
+      "fit_instruction_06",
+      "fit_explanation_00",
+      "fit_history_00",
+      "fit_arithmetic_15",
+      "fit_explanation_14",
+      "fit_code_03",
+      "fit_planning_14",
+      "fit_reading_10",
+      "fit_rewrite_12",
+      "fit_instruction_12",
+      "fit_history_04",
+      "fit_reading_14",
+      "fit_rewrite_14",
+      "fit_history_12",
+      "fit_code_09",
+      "fit_planning_04",
+      "fit_arithmetic_14",
+      "fit_instruction_04",
+      "fit_explanation_06",
+      "fit_explanation_12",
+      "fit_rewrite_05",
+      "fit_instruction_01",
+      "fit_reading_09",
+      "fit_arithmetic_08",
+      "fit_code_00",
+      "fit_history_09",
+      "fit_planning_03",
+      "fit_instruction_13",
+      "fit_planning_01",
+      "fit_history_11",
+      "fit_arithmetic_03",
+      "fit_code_07",
+      "fit_rewrite_00",
+      "fit_explanation_03",
+      "fit_reading_04",
+      "fit_code_11",
+      "fit_explanation_11",
+      "fit_instruction_09",
+      "fit_planning_10",
+      "fit_rewrite_02",
+      "fit_reading_06",
+      "fit_arithmetic_01",
+      "fit_history_15",
+      "fit_arithmetic_05",
+      "fit_instruction_14",
+      "fit_planning_08",
+      "fit_history_01",
+      "fit_reading_01",
+      "fit_rewrite_01",
+      "fit_explanation_05",
+      "fit_code_06",
+      "fit_history_10",
+      "fit_planning_05",
+      "fit_reading_00",
+      "fit_rewrite_11",
+      "fit_instruction_10",
+      "fit_arithmetic_02",
+      "fit_explanation_07",
+      "fit_code_15",
+      "fit_reading_05",
+      "fit_planning_12",
+      "fit_arithmetic_07",
+      "fit_code_04",
+      "fit_rewrite_06",
+      "fit_instruction_05",
+      "fit_explanation_08",
+      "fit_history_06",
+      "fit_history_08",
+      "fit_arithmetic_13",
+      "fit_explanation_13",
+      "fit_reading_03",
+      "fit_planning_06",
+      "fit_rewrite_15",
+      "fit_instruction_08",
+      "fit_code_05",
+      "fit_history_13",
+      "fit_rewrite_07",
+      "fit_reading_12",
+      "fit_instruction_00",
+      "fit_planning_00",
+      "fit_explanation_10",
+      "fit_code_08",
+      "fit_arithmetic_06"
+    ],
+    [
+      "fit_history_02",
+      "fit_planning_14",
+      "fit_instruction_13",
+      "fit_reading_03",
+      "fit_explanation_14",
+      "fit_rewrite_09",
+      "fit_arithmetic_10",
+      "fit_code_15",
+      "fit_explanation_09",
+      "fit_reading_07",
+      "fit_arithmetic_12",
+      "fit_history_12",
+      "fit_planning_01",
+      "fit_rewrite_04",
+      "fit_code_05",
+      "fit_instruction_01",
+      "fit_code_10",
+      "fit_arithmetic_15",
+      "fit_history_01",
+      "fit_planning_12",
+      "fit_instruction_12",
+      "fit_explanation_11",
+      "fit_reading_12",
+      "fit_rewrite_05",
+      "fit_history_03",
+      "fit_instruction_11",
+      "fit_explanation_08",
+      "fit_rewrite_00",
+      "fit_code_06",
+      "fit_arithmetic_04",
+      "fit_reading_04",
+      "fit_planning_11",
+      "fit_planning_10",
+      "fit_rewrite_02",
+      "fit_reading_05",
+      "fit_instruction_10",
+      "fit_code_02",
+      "fit_explanation_13",
+      "fit_arithmetic_13",
+      "fit_history_14",
+      "fit_rewrite_10",
+      "fit_planning_07",
+      "fit_history_08",
+      "fit_reading_06",
+      "fit_instruction_00",
+      "fit_explanation_02",
+      "fit_arithmetic_08",
+      "fit_code_08",
+      "fit_planning_15",
+      "fit_explanation_00",
+      "fit_rewrite_08",
+      "fit_instruction_06",
+      "fit_history_06",
+      "fit_code_14",
+      "fit_arithmetic_03",
+      "fit_reading_02",
+      "fit_code_04",
+      "fit_reading_01",
+      "fit_history_00",
+      "fit_explanation_05",
+      "fit_rewrite_03",
+      "fit_arithmetic_05",
+      "fit_instruction_07",
+      "fit_planning_04",
+      "fit_instruction_04",
+      "fit_reading_10",
+      "fit_history_13",
+      "fit_explanation_06",
+      "fit_arithmetic_02",
+      "fit_rewrite_14",
+      "fit_planning_09",
+      "fit_code_00",
+      "fit_explanation_03",
+      "fit_planning_03",
+      "fit_code_03",
+      "fit_arithmetic_06",
+      "fit_instruction_02",
+      "fit_rewrite_12",
+      "fit_history_11",
+      "fit_reading_09",
+      "fit_reading_14",
+      "fit_instruction_03",
+      "fit_arithmetic_00",
+      "fit_explanation_15",
+      "fit_planning_06",
+      "fit_code_11",
+      "fit_history_07",
+      "fit_rewrite_11",
+      "fit_planning_02",
+      "fit_arithmetic_11",
+      "fit_code_13",
+      "fit_instruction_15",
+      "fit_rewrite_07",
+      "fit_history_15",
+      "fit_reading_11",
+      "fit_explanation_07",
+      "fit_arithmetic_07",
+      "fit_explanation_04",
+      "fit_instruction_09",
+      "fit_code_07",
+      "fit_planning_08",
+      "fit_rewrite_06",
+      "fit_reading_13",
+      "fit_history_09",
+      "fit_code_09",
+      "fit_history_05",
+      "fit_arithmetic_01",
+      "fit_explanation_10",
+      "fit_rewrite_01",
+      "fit_planning_00",
+      "fit_reading_15",
+      "fit_instruction_05",
+      "fit_arithmetic_09",
+      "fit_history_10",
+      "fit_reading_08",
+      "fit_explanation_12",
+      "fit_instruction_08",
+      "fit_code_12",
+      "fit_planning_05",
+      "fit_rewrite_15",
+      "fit_arithmetic_14",
+      "fit_instruction_14",
+      "fit_reading_00",
+      "fit_history_04",
+      "fit_rewrite_13",
+      "fit_planning_13",
+      "fit_explanation_01",
+      "fit_code_01"
+    ],
+    [
+      "fit_arithmetic_00",
+      "fit_reading_03",
+      "fit_code_02",
+      "fit_history_02",
+      "fit_explanation_07",
+      "fit_instruction_06",
+      "fit_planning_03",
+      "fit_rewrite_09",
+      "fit_code_05",
+      "fit_rewrite_14",
+      "fit_history_14",
+      "fit_reading_07",
+      "fit_explanation_09",
+      "fit_planning_14",
+      "fit_arithmetic_14",
+      "fit_instruction_13",
+      "fit_planning_07",
+      "fit_arithmetic_05",
+      "fit_history_10",
+      "fit_explanation_04",
+      "fit_code_15",
+      "fit_rewrite_07",
+      "fit_instruction_14",
+      "fit_reading_12",
+      "fit_code_01",
+      "fit_explanation_13",
+      "fit_history_00",
+      "fit_reading_01",
+      "fit_arithmetic_12",
+      "fit_instruction_04",
+      "fit_rewrite_08",
+      "fit_planning_04",
+      "fit_rewrite_06",
+      "fit_arithmetic_08",
+      "fit_explanation_11",
+      "fit_reading_09",
+      "fit_instruction_05",
+      "fit_history_07",
+      "fit_planning_15",
+      "fit_code_13",
+      "fit_rewrite_10",
+      "fit_explanation_10",
+      "fit_instruction_01",
+      "fit_planning_02",
+      "fit_reading_06",
+      "fit_code_11",
+      "fit_arithmetic_10",
+      "fit_history_15",
+      "fit_rewrite_05",
+      "fit_history_05",
+      "fit_instruction_11",
+      "fit_reading_02",
+      "fit_code_12",
+      "fit_planning_06",
+      "fit_arithmetic_06",
+      "fit_explanation_03",
+      "fit_planning_05",
+      "fit_rewrite_11",
+      "fit_explanation_06",
+      "fit_code_03",
+      "fit_history_06",
+      "fit_arithmetic_15",
+      "fit_instruction_07",
+      "fit_reading_13",
+      "fit_rewrite_12",
+      "fit_code_00",
+      "fit_history_04",
+      "fit_explanation_01",
+      "fit_reading_14",
+      "fit_instruction_09",
+      "fit_arithmetic_01",
+      "fit_planning_11",
+      "fit_explanation_05",
+      "fit_rewrite_04",
+      "fit_planning_10",
+      "fit_reading_08",
+      "fit_code_08",
+      "fit_arithmetic_03",
+      "fit_history_08",
+      "fit_instruction_00",
+      "fit_planning_09",
+      "fit_reading_11",
+      "fit_arithmetic_09",
+      "fit_code_04",
+      "fit_rewrite_03",
+      "fit_instruction_10",
+      "fit_explanation_12",
+      "fit_history_01",
+      "fit_explanation_00",
+      "fit_reading_05",
+      "fit_history_11",
+      "fit_arithmetic_04",
+      "fit_code_06",
+      "fit_rewrite_02",
+      "fit_instruction_12",
+      "fit_planning_08",
+      "fit_code_07",
+      "fit_rewrite_15",
+      "fit_reading_10",
+      "fit_explanation_15",
+      "fit_arithmetic_11",
+      "fit_planning_00",
+      "fit_instruction_08",
+      "fit_history_09",
+      "fit_history_13",
+      "fit_reading_15",
+      "fit_planning_01",
+      "fit_code_10",
+      "fit_arithmetic_13",
+      "fit_explanation_02",
+      "fit_rewrite_01",
+      "fit_instruction_02",
+      "fit_instruction_15",
+      "fit_explanation_14",
+      "fit_code_14",
+      "fit_arithmetic_02",
+      "fit_reading_00",
+      "fit_history_12",
+      "fit_rewrite_13",
+      "fit_planning_12",
+      "fit_rewrite_00",
+      "fit_instruction_03",
+      "fit_explanation_08",
+      "fit_arithmetic_07",
+      "fit_code_09",
+      "fit_reading_04",
+      "fit_history_03",
+      "fit_planning_13"
+    ],
+    [
+      "fit_code_11",
+      "fit_instruction_01",
+      "fit_rewrite_13",
+      "fit_history_02",
+      "fit_planning_03",
+      "fit_reading_01",
+      "fit_arithmetic_03",
+      "fit_explanation_08",
+      "fit_explanation_14",
+      "fit_planning_11",
+      "fit_reading_03",
+      "fit_instruction_08",
+      "fit_code_15",
+      "fit_rewrite_01",
+      "fit_arithmetic_08",
+      "fit_history_04",
+      "fit_reading_13",
+      "fit_arithmetic_07",
+      "fit_history_13",
+      "fit_rewrite_03",
+      "fit_planning_08",
+      "fit_explanation_03",
+      "fit_code_14",
+      "fit_instruction_07",
+      "fit_arithmetic_01",
+      "fit_rewrite_08",
+      "fit_explanation_10",
+      "fit_planning_12",
+      "fit_reading_09",
+      "fit_instruction_11",
+      "fit_history_03",
+      "fit_code_06",
+      "fit_explanation_06",
+      "fit_code_05",
+      "fit_history_12",
+      "fit_reading_06",
+      "fit_arithmetic_00",
+      "fit_planning_15",
+      "fit_instruction_13",
+      "fit_rewrite_05",
+      "fit_code_12",
+      "fit_planning_02",
+      "fit_explanation_05",
+      "fit_reading_15",
+      "fit_instruction_09",
+      "fit_history_00",
+      "fit_rewrite_09",
+      "fit_arithmetic_12",
+      "fit_explanation_04",
+      "fit_planning_07",
+      "fit_instruction_10",
+      "fit_code_02",
+      "fit_reading_04",
+      "fit_history_07",
+      "fit_arithmetic_05",
+      "fit_rewrite_04",
+      "fit_planning_09",
+      "fit_explanation_15",
+      "fit_rewrite_02",
+      "fit_reading_02",
+      "fit_history_06",
+      "fit_arithmetic_06",
+      "fit_instruction_02",
+      "fit_code_13",
+      "fit_planning_13",
+      "fit_history_11",
+      "fit_explanation_13",
+      "fit_instruction_05",
+      "fit_code_08",
+      "fit_arithmetic_14",
+      "fit_rewrite_15",
+      "fit_reading_07",
+      "fit_rewrite_12",
+      "fit_arithmetic_04",
+      "fit_instruction_03",
+      "fit_explanation_02",
+      "fit_reading_00",
+      "fit_code_07",
+      "fit_planning_04",
+      "fit_history_08",
+      "fit_arithmetic_10",
+      "fit_rewrite_11",
+      "fit_reading_05",
+      "fit_instruction_14",
+      "fit_history_09",
+      "fit_code_09",
+      "fit_explanation_07",
+      "fit_planning_05",
+      "fit_code_03",
+      "fit_explanation_00",
+      "fit_instruction_00",
+      "fit_reading_08",
+      "fit_arithmetic_15",
+      "fit_rewrite_07",
+      "fit_history_14",
+      "fit_planning_01",
+      "fit_reading_14",
+      "fit_instruction_12",
+      "fit_arithmetic_11",
+      "fit_planning_06",
+      "fit_code_04",
+      "fit_explanation_11",
+      "fit_history_10",
+      "fit_rewrite_00",
+      "fit_code_01",
+      "fit_rewrite_06",
+      "fit_reading_10",
+      "fit_planning_14",
+      "fit_history_01",
+      "fit_arithmetic_13",
+      "fit_explanation_01",
+      "fit_instruction_15",
+      "fit_code_10",
+      "fit_rewrite_14",
+      "fit_arithmetic_02",
+      "fit_reading_12",
+      "fit_explanation_12",
+      "fit_history_05",
+      "fit_planning_00",
+      "fit_instruction_06",
+      "fit_reading_11",
+      "fit_planning_10",
+      "fit_arithmetic_09",
+      "fit_history_15",
+      "fit_instruction_04",
+      "fit_code_00",
+      "fit_rewrite_10",
+      "fit_explanation_09"
+    ]
+  ],
+  "normalized_AQ_dither": 0.025,
+  "learning_rate": 5e-05,
+  "clip_norm": 1.0,
+  "limits": {
+    "seconds": 3600,
+    "OS_bytes": 17179869184,
+    "GPU_allocated_bytes": 11811160064,
+    "GPU_reserved_bytes": 12884901888,
+    "output_bytes": 12884901888
+  },
+  "criteria": {
+    "FIT_KL_ratio_max": 0.5,
+    "DEV_KL_ratio_max": 0.75,
+    "DEV_case_KL_max": 1.0,
+    "DEV_label_disagreement_max": 0.2,
+    "domain_DEV_case_KL_max": 2.0,
+    "domain_DEV_label_disagreement_max": 0.35
+  },
+  "runtime_binding_scope": "Checkpoint/adopted full-vocabulary packets/order/code/Python and selected runtime files; exact isolated package versions. Not a full DLL-tree certificate.",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_recovery.py",
+      "bytes": 23286,
+      "sha256": "a60fb8ad9d956bf940db4573f8c82157d02ba9e7e59699e4c4d1261e1b64d927"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_target.py",
+      "bytes": 10059,
+      "sha256": "7f58cb9a8bd7a995e6688de8620723eb3ba7695033387d537be5f6fb8525489b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 9191,
+      "sha256": "65f8bf570191515ddea770e4ec5e153cd71949729dfa57d9865527a98fa93672"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\corpus.json",
+      "bytes": 846562,
+      "sha256": "692b4bdf901840ae86c337fd5839753335c9e219939bdf862f5bc94f04642fc7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\learner.pt",
+      "bytes": 3059440986,
+      "sha256": "75b2317efe99fe66fc16f2b0e6df1f5001ef8b9c243c150b87b24e1f433793d9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_transfer_adoption_result_20261009.json",
+      "bytes": 33920,
+      "sha256": "268fe2bef96d2cbd13c32125cd734099e968351bf375cd27da7a6dd13651b6e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_transfer_adoption_result_20261009.terminal.json",
+      "bytes": 1605,
+      "sha256": "559ecbdc974531ab7a8fb4fcec83dd219a12ccf91bde116c4c7330629ab382e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md",
+      "bytes": 8882,
+      "sha256": "252a7ffdd902d2767b7b3a58c10c13feaba1551bd28fc08e0d03227f540cc767"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_00.logits.bf16",
+      "bytes": 262148,
+      "sha256": "c6c5584ba20a494df83e8c0f8a21e07f26fcdf56f642ac13df3a85a33d958899"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_00.logits.bf16",
+      "bytes": 655370,
+      "sha256": "5d5f7113c929ac910d401e29a131d48568238c26d9e5d85c4dca8d9800d04f4c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_00.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "67db67c3fd5a213756eb0de67172354517ac9aba6446c57d188afa58f0be176f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_00.logits.bf16",
+      "bytes": 262148,
+      "sha256": "e2a7af5951f44e769117fbb013846a3fbc63ae328cc1c0f4b6291e37897289ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_00.logits.bf16",
+      "bytes": 917518,
+      "sha256": "c4011794bbb55f8061f7595e4dd59e95a35386f1cb808fccac740abbd6adc24a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_00.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "4c102e3198441eafa0419ee9ccf76b517e9a92cec44c99868d48a766152843a6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_00.logits.bf16",
+      "bytes": 4849738,
+      "sha256": "ab63375774ab4baeaf39e2c38100489eaef29600e024722097b192e565c577b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_00.logits.bf16",
+      "bytes": 1310740,
+      "sha256": "b28b754b959c3ae9eb6df960ed36ea4e10151fb5cd983e053ca7fa9ce0da7644"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_01.logits.bf16",
+      "bytes": 262148,
+      "sha256": "76c23028b1282a00521bfe89e35670190341da2b3ec93170472397bcd6336118"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_01.logits.bf16",
+      "bytes": 1572888,
+      "sha256": "281b03608cc0d970336a6fc0bceab33ffbcc36d9c6246b5a61d3b6d6017a2b9c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_01.logits.bf16",
+      "bytes": 6029404,
+      "sha256": "0d2184184b0a827d841d7e72b34d1d85746516e113700406edb96ee8990d317f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_01.logits.bf16",
+      "bytes": 655370,
+      "sha256": "8dc0005162372f41e90798488051de900d6afe57c04f06833a1c1fc47cb880ab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_01.logits.bf16",
+      "bytes": 7995514,
+      "sha256": "344893cac77122a22cf96a8020c0c336c8c4647efab8f4bb9421bdb4c20f73f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_01.logits.bf16",
+      "bytes": 10092698,
+      "sha256": "cfb47a1a8c622f1a6fdf1f5b5ca7a079db1acee5634b4e2618dd322952c8434d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_01.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "87618c166354986a3d95a5587c968e71c9d3588294c460e684af073cf923fad7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_01.logits.bf16",
+      "bytes": 3670072,
+      "sha256": "eb028d580ec5872a7f1793b6817e1d0fbdc625d9f20de903f455acc8ac883521"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_02.logits.bf16",
+      "bytes": 262148,
+      "sha256": "3a35d34a1e787007937f354379b9ea9b4fb7c4c84727e576bcdca36fc9a5d27f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_02.logits.bf16",
+      "bytes": 786444,
+      "sha256": "f3cef858d43fb2d3e005016395c0112c1733bff6aab97812211658482c2b105d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_02.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "f618f7b771eb9f93d70a0faa6b440545acd75c2cf515f039a3d86c7d1879fdc1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_02.logits.bf16",
+      "bytes": 524296,
+      "sha256": "2f25c2a20ddec2a405934d258bb3d43657902db26599ff280414a4cd3c7676c6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_02.logits.bf16",
+      "bytes": 7077996,
+      "sha256": "883230bf9c1465c69a37a0b1baf103737e61193c4fb815ab70af419120085eac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_02.logits.bf16",
+      "bytes": 2490406,
+      "sha256": "412b29fa7e4e895922cf992167a62e3f63ce437585318623ffec0f784704c469"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_02.logits.bf16",
+      "bytes": 786444,
+      "sha256": "18f080f5d3cf21d925c717f4d1b3f5996ecbb7b06f64cbe3a15430b97bc62533"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_02.logits.bf16",
+      "bytes": 10485920,
+      "sha256": "804f0bba6c49015afd81a065d1058250fa915688c5c45b4a1898896a3cf677ab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_03.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "f877c3a25cf11c2c0b4fb3699a02a25f7806753263ec2105b2951f0586dd9e37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_03.logits.bf16",
+      "bytes": 2883628,
+      "sha256": "e523ea0d1b09dd471fc66003e0a3477712be82548147094d4eef453e494c21f8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_03.logits.bf16",
+      "bytes": 2752554,
+      "sha256": "57734e9ea13a67bc3bfacae45d54d4ef2ca1c4e1c59b0f1fba998d1340a8425a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_03.logits.bf16",
+      "bytes": 524296,
+      "sha256": "55c29737271e8393f0074b5fc286b3ea13f26d16f396872e1c0a1d338e819a97"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_03.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "b7c17c92e70fd5fec31b652c0562d75db01021a326290fe5fb9e231e4dae4cd3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_03.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "143621bfd1b077fb3b6fa8299ef70665f466781fac4b38193d2fa012be337490"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_03.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "5f4741b813dd7d17467c85bf7af1285ff13f627b2f64484b52c2e76ec62a0fc1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_03.logits.bf16",
+      "bytes": 6160478,
+      "sha256": "d6b048344cf1f00e6ca75fb1032202a36cc06918f605a52d3e56f8347d2e1154"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_04.logits.bf16",
+      "bytes": 524296,
+      "sha256": "e7ab12d5078987d7f80e9fbd6928f240f6141a8ed79f887c8a365e36f128e554"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_04.logits.bf16",
+      "bytes": 4980812,
+      "sha256": "76fd40feac009e9c49ca5ff7fbb53210c8d20e5ae9aa4a15e46f42a6ae84fca6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_04.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "f6a1ad7442c607e6f4c302b41516d93c22c276e9923caa988eada4cf57781e6a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_04.logits.bf16",
+      "bytes": 1310740,
+      "sha256": "673d8e75f4f39be77295b2bb5cdd1c5a21525965d73b0b7c75b4916996eace58"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_04.logits.bf16",
+      "bytes": 786444,
+      "sha256": "bd71a5551ca08c5d66063187517c1130dc99e559f399a9b94f24e90c9bb3aef3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_04.logits.bf16",
+      "bytes": 393222,
+      "sha256": "ba581b6c619a640efc16752bfcc27b56f75c5e2ebd2df6473e0df33080ce9e64"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_04.logits.bf16",
+      "bytes": 1572888,
+      "sha256": "dd50eb7152b98d51ad959210f11cbf0bdf6570ae62fedd969efd802eccffede2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_04.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "a384f66bb12b81606d618041a8333ab0544e36d25c7f11156f26dd6eb551f9ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_05.logits.bf16",
+      "bytes": 8126588,
+      "sha256": "caadc65f4c637126959d04df3d10443f948582ea9187207a745d3a3726a30594"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_05.logits.bf16",
+      "bytes": 8388736,
+      "sha256": "f4de0f58b2f9d09e0ad97872cf74912ac53ec0f3103228d601ada7a9a1aa1ccd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_05.logits.bf16",
+      "bytes": 393222,
+      "sha256": "52973d4286769551e8914cfd1c55e10544108c4ec006d4f6c5b2ebc73d7b0f8c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_05.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "9356347731b00c0424e96da68488e6a3d7fb858b4e213f7c545b74afbf14ea03"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_05.logits.bf16",
+      "bytes": 1572888,
+      "sha256": "c4328474fbbeab52473a8ca5715cc59d3c97a53b4d53b091a946ff2a9707952d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_05.logits.bf16",
+      "bytes": 9568402,
+      "sha256": "fde7e0a63f6eb425511f4d370092c1cd0e54ba0068a13d3dba23cd188d2a3adc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_05.logits.bf16",
+      "bytes": 3801146,
+      "sha256": "7de6c6fcea16d6b8ebf088b85cf43259d42103b47051a76b412033dded0ec1d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_05.logits.bf16",
+      "bytes": 655370,
+      "sha256": "ef7e7f12a97f92300f0bc1df813c72eb01662479a203fa488452e10c97462bf5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_06.logits.bf16",
+      "bytes": 6291552,
+      "sha256": "bb0ea7908be3702ad9d48c6442262e8c155b591837257023adeab207a4537547"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_06.logits.bf16",
+      "bytes": 393222,
+      "sha256": "74ced5ce6508972d7b814544b8defc508f4a51e0bf8d5c27ee321456e5f841f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_06.logits.bf16",
+      "bytes": 524296,
+      "sha256": "1a2df78be6df96e02b0d331ad77c6874c2ef7adcfc09b5623aff820b02fec832"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_06.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "6f518e79988a0b74d880160f425825b9f3682349112baf2be55d14e28cc2f936"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_06.logits.bf16",
+      "bytes": 1179666,
+      "sha256": "77bc3e24f4dec5cd85ccee0453ae7d1a35ea957ef59a90985376ca18b0aec95b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_06.logits.bf16",
+      "bytes": 9306254,
+      "sha256": "f71fcc314a9f20d635e6da70ae502b9a47cfba2300e662de87b9c2848f36908b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_06.logits.bf16",
+      "bytes": 393222,
+      "sha256": "ff5b268fa17acfc1b20f1b2fae9c94a838126d7b840eea471635f53947c2a45d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_06.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "89df840213adefc2f8863f7c6cdc3d1cc8a845deaaf2a93baf967252cae86184"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_07.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "c77abd2d06cfdd9770523e1208dba497c3d115bc06c974edec3ddaf0f6178de2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_07.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "eb9313f7d4bc3d1bbebe29bdcc4ecf01d6ef2ebc6d4c8f8c4dfbe23c0a161f40"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_07.logits.bf16",
+      "bytes": 12452030,
+      "sha256": "1962267b0ed439c3e31c0505f38e969cd9dfe0c28aaba96bbc6af25d6f40859b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_07.logits.bf16",
+      "bytes": 2752554,
+      "sha256": "00f1b1a415d4c1785b91f2bb2e565069e57d709b1aa20268ee4189dd17462ced"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_07.logits.bf16",
+      "bytes": 5242960,
+      "sha256": "fc066edb08c15ba82ccecf01b094bd0f8122e0a700893da55982c30f96020811"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_07.logits.bf16",
+      "bytes": 524296,
+      "sha256": "1bc409ceccf44b202688c619a550b8021eaeeecd7750fb22d11862cb615c8fdd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_07.logits.bf16",
+      "bytes": 1572888,
+      "sha256": "0621af323c3fe2883d1f0b5eb14fb70c47450ebeff74fcb44caf1a8f3f93c638"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_07.logits.bf16",
+      "bytes": 393222,
+      "sha256": "5add8394f12b96a1ef165c6aae2b037ea66cec34b3584edaf592ceba690a931e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_08.logits.bf16",
+      "bytes": 393222,
+      "sha256": "afd4185511ebe62028fad55edc568c4b779622916d6c2d996fdbdddb4738eab2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_08.logits.bf16",
+      "bytes": 393222,
+      "sha256": "3b54fbe0886770b228c78f4ec57a0fb83addcbfeeb12f9e5a9ee0b1504314921"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_08.logits.bf16",
+      "bytes": 1048592,
+      "sha256": "0ed58cb5b291af20ab5d66d2ae9509532c6c5090b5c490404ba3176ea5e31d5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_08.logits.bf16",
+      "bytes": 4587590,
+      "sha256": "6b5b11058d399099fdf90eaca63cd0cf6ef95ce9e120bea56b97d2f741ad04e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_08.logits.bf16",
+      "bytes": 1703962,
+      "sha256": "9e2a915cc30e043fb8fed86b098463118177215a83f0a6865cbf02c488b199bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_08.logits.bf16",
+      "bytes": 1835036,
+      "sha256": "a24a6e1b2b4ed6704b267f71c84ae1ae772175483c32f1cd1d9599e20ec9a2db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_08.logits.bf16",
+      "bytes": 10879142,
+      "sha256": "b148e09160bbb5808dc0bbfb441f17f744623334ff60778072a7aef78cf4bac8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_08.logits.bf16",
+      "bytes": 393222,
+      "sha256": "633fad88a18fe9be03567d56146b680d4afa3ebbf03b03a72685ec67de9bb758"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_09.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "ef97f24ae5b198704d2a3fbfa327eaa7330b2c2c38e729e3bd6e1ecb3389cc56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_09.logits.bf16",
+      "bytes": 6815848,
+      "sha256": "930ecdb142050136aa1e2b9a0a83d3a05d8710ddd8e6d8ab68ab36255fb8e603"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_09.logits.bf16",
+      "bytes": 393222,
+      "sha256": "f1b1bb06a0ff6dc7d8171c0f8ee86a1328b403a2d53418cd11b26d57edd53a12"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_09.logits.bf16",
+      "bytes": 3801146,
+      "sha256": "0ce0a8d6d06ba8bebebad5b60c649538a62b1990923c58932bbae363ff7291f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_09.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "e19cad61837c5929ac779c789b7099c45608ca7ca486e1e3b3a5aedfdf17ac43"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_09.logits.bf16",
+      "bytes": 8257662,
+      "sha256": "db1128857570eadbc73def1c16d73a77664f0bcc4f0e941ca0438dd4b7420f08"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_09.logits.bf16",
+      "bytes": 393222,
+      "sha256": "60b1f04e6018132a48ca6d448e86877ba82badef5ffbe595f51c895cdd47361e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_09.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "dab149020242f8d3fd30a04defb8bf5a310679790e27c0b82b00a52a87ef14eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_10.logits.bf16",
+      "bytes": 6946922,
+      "sha256": "010bdbfbfcc22385644e28ade24eca00a48bb95f3e6fb42fa1207fbe7765652e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_10.logits.bf16",
+      "bytes": 1179666,
+      "sha256": "4b551d775a6a8f7af70bc3af290d96d029991727d313c2637da85af6c81225f4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_10.logits.bf16",
+      "bytes": 786444,
+      "sha256": "be2a706343af14e616e0232ec462d431b2c41e7febe346d5e571d7e1da550a00"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_10.logits.bf16",
+      "bytes": 1966110,
+      "sha256": "719e471cadd766f2d7ca70f7abb5c1f7d5fde9996a98a955912c7b3586cf34cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_10.logits.bf16",
+      "bytes": 393222,
+      "sha256": "59f6d809aa8f9796f44498db84fb5ffe5d93fe6f703b907f786e722a7f39fa45"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_10.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "d0b22f3486da63dead0cc147a2ccbe5efc9b94d8965d5449c5f64e9a2d8b8129"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_10.logits.bf16",
+      "bytes": 9568402,
+      "sha256": "03cd42498ecabad2441700306c36f0dfb4da5f10de5252ae205be86f238d5375"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_10.logits.bf16",
+      "bytes": 1179666,
+      "sha256": "34675884cc6a4062ab2c9980da505014a887ba113b84c0d230b2d21b18bb35e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_11.logits.bf16",
+      "bytes": 524296,
+      "sha256": "ca12c15a69a831aba0ac7f8a2dde387829a21ec35c9cd961f5ac55490aba9b35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_11.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "dbcb509b53cbe0b0328c63fc0564e2abb84ec80c8a74f7522408c60aed2f94dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_11.logits.bf16",
+      "bytes": 1835036,
+      "sha256": "114352fea8c6d8778319900f715c21a2df88a5fb824eea74d4905a92796fb7d6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_11.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "6b7688bb4be50110733825fe023afd5545736f99ef17fe6f5a27425eed90b9ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_11.logits.bf16",
+      "bytes": 262148,
+      "sha256": "06e85f73b8805ee1d3086d77bd7daeb0a27c41a0bcb27de9e6bf0bafd91111be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_11.logits.bf16",
+      "bytes": 6160478,
+      "sha256": "727a940678242f7d461b030f8f933f4a724e0d23d1f381d27b1741115b7fe6be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_11.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "a949e819893dcf68b6ec573c82829ae290114bc3159d2c2ca1c1f7dfa8919fdd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_11.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "0c330175b85df13bc164f87696374ca0d53833a5364535d70801d858c022c0c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_12.logits.bf16",
+      "bytes": 393222,
+      "sha256": "0509d59a4aa8afb1e9890701c8eef44a63f7f462de631bbf8d6c55a58280b061"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_12.logits.bf16",
+      "bytes": 524296,
+      "sha256": "3a8c1e05a1ef400ad2abd23ebd75a0930df3ec76342ef7f6c2ce9e27c2f3b3ba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_12.logits.bf16",
+      "bytes": 1703962,
+      "sha256": "4eff68fefc1c303edabb091f1b82bfdcec625f3c8a16b483150e68128f2c9ee7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_12.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "9b6fae0b25a931f3c22d9a4b7b62271b051531089f5e28ce6f810a91f3a71d65"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_12.logits.bf16",
+      "bytes": 1310740,
+      "sha256": "3715d29eb6e2d7f349e58a52efb8174236075f4d5c2a3309c83f18ec6554ae62"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_12.logits.bf16",
+      "bytes": 7733366,
+      "sha256": "61366bab223e209795bd15f730391328f7c41529c4130bec39a547c7960e8367"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_12.logits.bf16",
+      "bytes": 393222,
+      "sha256": "f1b82f349fa55b8fcaedccacb93823016699a7b4f234d9f1eb6dcf0ae4d840ef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_12.logits.bf16",
+      "bytes": 4980812,
+      "sha256": "bc295af97b76998e1c637539d3e6214809ef50b394d73e2e7f68669b4b4cca11"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_13.logits.bf16",
+      "bytes": 6815848,
+      "sha256": "15fa101c938a65b5904025f81fcb478a73e9a654589efe89051e317986738fde"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_13.logits.bf16",
+      "bytes": 8388736,
+      "sha256": "64c645c78aca23be1f4d995052e0b7f6fc99b9350237bb114af2b92255ddaa95"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_13.logits.bf16",
+      "bytes": 1572888,
+      "sha256": "fcb0163a175f2dc2d3eff90bc9defdea7eeb8ac95bbac3085f412abefac6f507"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_13.logits.bf16",
+      "bytes": 8257662,
+      "sha256": "ccf4787d92f4611eae00395486586dd1374fbef1dd56d46438a3dd117fef3b1d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_13.logits.bf16",
+      "bytes": 9568402,
+      "sha256": "542b783f2ba5743a7596f56d0c7357091d23e56e1d2459ffd6912fffe49b8d85"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_13.logits.bf16",
+      "bytes": 655370,
+      "sha256": "1abbd726018f31357134c8d86bec68d8cbfa30ae7a87f36df3a24146b4ac9714"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_13.logits.bf16",
+      "bytes": 393222,
+      "sha256": "44c0cb5e93e8df6701343d46c688fb3811e7000060658c90f6aa7497b2811aca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_13.logits.bf16",
+      "bytes": 3801146,
+      "sha256": "6c13e349e77b54913cf2ab4b65bbada190678efa05c407aff6d86d7689a4efc2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_14.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "ca7038e776f4d6f0d874cba653b6c77cbe4003d5728501bc43f070da0b8483f0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_14.logits.bf16",
+      "bytes": 1179666,
+      "sha256": "8dad2b8c155809375e2ea32a2a3e1343daf09da4b413a677bf1055954b70078d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_14.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "4e4fb473f81fe1eb4c7137aad4891de2f9fb3cae9664f8722a933cddad550925"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_14.logits.bf16",
+      "bytes": 7077996,
+      "sha256": "79c589520d40de71f8d6482dd19fe9281c951fe2ad6e2802b5b2d0d9b443c72a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_14.logits.bf16",
+      "bytes": 9961624,
+      "sha256": "25e2cc47778051f2c52c34c9feaf99e6c7821e154d3d0c31362a90b372f0e24d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_14.logits.bf16",
+      "bytes": 7077996,
+      "sha256": "a1d1ac05d54bc9bf8c3fffbacb4894e0f76c468e4349da04c6e3a460f60f1f55"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_14.logits.bf16",
+      "bytes": 655370,
+      "sha256": "e079747629168f61cd236a44a0ff1b751a1649a823a948b16b977ca7e6d30d22"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_14.logits.bf16",
+      "bytes": 524296,
+      "sha256": "d5fec80c4279b1d64a89619c0a44ceb312345aa5fb3b00643bdf7efbd1ab624f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_code_15.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "cad1b2fcf22a31c0bcba25e065c338e28235562d30b4c2cec0521b2b949dfe17"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_history_15.logits.bf16",
+      "bytes": 524296,
+      "sha256": "b423d4f2da1b485aed1e7ab4f8a2f3ef86922bc2fd9551d26b0b7252ec372372"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_rewrite_15.logits.bf16",
+      "bytes": 1966110,
+      "sha256": "41863f1a39056045426ce9df861030ead6bfe0fa9ad64c1bb1f7dfe8c486e080"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_explanation_15.logits.bf16",
+      "bytes": 4849738,
+      "sha256": "a1aea6b051e0ffcf19fa4985932bcef7258251c677e231346474907e873b566f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_planning_15.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "19277868cdd9a14ac2c819cd9936f7deedcb3ef5b8ea998a70ee910bb2149655"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_arithmetic_15.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "464dd522d1aa24e782b97857bae1ce2db3af137872b2aa535ba1245e1151e5f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_instruction_15.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "6f55dd9d36157b0302dc8a7f03c5822176c61641feb6e23769e5b0eb69cb543c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\fit_reading_15.logits.bf16",
+      "bytes": 4718664,
+      "sha256": "36aae7483906e1c13ac490424539376350705257e1a995779b80a3ff76a2e905"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_reading_16.logits.bf16",
+      "bytes": 393222,
+      "sha256": "62d25dce12ee5967249937776f889455df95e2778678cc8a1a9e80f76ac0d675"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_history_16.logits.bf16",
+      "bytes": 393222,
+      "sha256": "ab84c88f88f184eac1aa2b9cc03749bb15bf6dd757713a3cc5d94b3d667d1a64"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_arithmetic_16.logits.bf16",
+      "bytes": 7995514,
+      "sha256": "1bb64dc6394c75bdf8a7f73c5afd8063547872a4a031c43e2714e0b6edbb53b4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_planning_16.logits.bf16",
+      "bytes": 2752554,
+      "sha256": "3d4829e2c64f3fb22f157e3b788f6d276e584a6e085c38f0eaadf939e1071b30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_instruction_16.logits.bf16",
+      "bytes": 393222,
+      "sha256": "ff358a2c6c4308bd7d7cf0b723f12e01a82d7d48f8db9787d85483356d60198b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_code_16.logits.bf16",
+      "bytes": 1703962,
+      "sha256": "97ba7714df16160802e808397da4c3c0f1bc425eb6290ebf474a905092bbd3ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_rewrite_16.logits.bf16",
+      "bytes": 1441814,
+      "sha256": "e593c56d2e031607bee89386a1bfea59307dda8bec0751e0ac89aaab6d0ecec6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_explanation_16.logits.bf16",
+      "bytes": 5374034,
+      "sha256": "42dbfc861fa34fc75ce3380afd884e75744c801eb5b145d3b7e8653784357c93"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_reading_17.logits.bf16",
+      "bytes": 393222,
+      "sha256": "c77eaeb9a878da18a31f36b932829c73a9823f971c30b51923b7ae62dc142f2b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_arithmetic_17.logits.bf16",
+      "bytes": 8257662,
+      "sha256": "860a920af4da3216d25d373b4904128d140d015912725ebc260ca38717be33b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_history_17.logits.bf16",
+      "bytes": 393222,
+      "sha256": "59d2af81e8c090a0093ba076a723af866687ff2eb66b770dcf903d8ccb14a17a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_rewrite_17.logits.bf16",
+      "bytes": 2490406,
+      "sha256": "499c22c1ec66bdd6ffc4ba397c738b996f27d647e86b4a3a3a362ab284430726"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_instruction_17.logits.bf16",
+      "bytes": 3801146,
+      "sha256": "b4a1237e1ad0d21a69f0aada155a08206cab072a1e816734738c5cbd3b897b61"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_planning_17.logits.bf16",
+      "bytes": 11141290,
+      "sha256": "44d9da26c300e9e3c2d6820e278136778cdbc83a85654251103b7f3e995b72fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_explanation_17.logits.bf16",
+      "bytes": 6946922,
+      "sha256": "ebff6f48b38e60a3923db96f9187d10140d87833ed5d3cd4ab199ab951a0c385"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_code_17.logits.bf16",
+      "bytes": 9568402,
+      "sha256": "612194ccb5e441f7cd181b331e097780cbc0f728b385670fa968c118ab5caf1b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_planning_18.logits.bf16",
+      "bytes": 8388736,
+      "sha256": "83b48d98a8fe446c25bb80da95731e2a5aafec39b005d8d232aee2de511bd0b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_explanation_18.logits.bf16",
+      "bytes": 7077996,
+      "sha256": "1c3d0b4cc370ccf7a2f15299ef5bbec4461de0f9de399a678f79a83cbebf214b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_rewrite_18.logits.bf16",
+      "bytes": 1966110,
+      "sha256": "034628a55262a52381422f609a5cfcbd51b5e22ca5e5f259edfa4a91567544d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_history_18.logits.bf16",
+      "bytes": 524296,
+      "sha256": "bf0f098f406d80e2514e2f15a68efa5a799a6983a674d003aa0fd85e60a8b576"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_instruction_18.logits.bf16",
+      "bytes": 1179666,
+      "sha256": "e69685426a3824f8a6d27af64b89a7a026150d01c89494cb40ccdd664d76f912"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_code_18.logits.bf16",
+      "bytes": 7077996,
+      "sha256": "d05e303a71338b3477a6d3c4cdb928af2a9ae7933812d094669d3736b0442f1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_arithmetic_18.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "5be90711e2392e0c4db538906a4f64a17b3f291a06c93aa9dcc93a0b65d86449"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_reading_18.logits.bf16",
+      "bytes": 524296,
+      "sha256": "c0b11d6d6271e16c0c21c27d1abe09129701b59b982b16d3577558e41df77a06"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_reading_19.logits.bf16",
+      "bytes": 393222,
+      "sha256": "4cdcff04ecf433292150d4dc79d416262c166d06697c5af643894e67281ab51d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_rewrite_19.logits.bf16",
+      "bytes": 3407924,
+      "sha256": "8eaf758fb19445f79ea7fb7ce39c5a2591e60bb7d84354a74dd5eea6b5ca0b52"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_explanation_19.logits.bf16",
+      "bytes": 6160478,
+      "sha256": "624e333625eb74700febc3052a70238de3a3d0f4d035f48193f8ed1c169ce638"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_planning_19.logits.bf16",
+      "bytes": 3801146,
+      "sha256": "dc7a0e3f2aa1f4346ea04219bd6075b73818e7a9d78d8babacdaaf28427afc97"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_code_19.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "a64b8d926ece9a821ecb9df56e6f383524e527f5b6217eab208733ff0cbcb29c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_instruction_19.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "236570f4587acbb43db29ab96a7eb172d726555d10caf18de9a6c9905d1ee774"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_history_19.logits.bf16",
+      "bytes": 524296,
+      "sha256": "f1f003219954014e7da69387fb1dfb9fd81cdc661a79abb7b8a620327f296a75"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\dev_arithmetic_19.logits.bf16",
+      "bytes": 12583104,
+      "sha256": "aa2b7d371370680335c6ed2a91ceb83960571589bcab9b9b5c0344faada86da6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+      "bytes": 59285,
+      "sha256": "abfb007ace80bfd5584c457569605cf57f43778495e587c68df63a8f0ffa5346"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\configuration_falcon_h1.py",
+      "bytes": 6632,
+      "sha256": "bd996cf14c0eaf7307e939fb6579a3c47a95f11a47a45b91ab1750c186a052aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\cache_utils.py",
+      "bytes": 90586,
+      "sha256": "16bbbba2394c0151af53009800e5a4052479417a8c7e5edfbd5ef128a46fcbc1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\utils\\import_utils.py",
+      "bytes": 117744,
+      "sha256": "f3c64422e98644451a5c5a4eb034b91dece3e915bff77a914f691c916ef6d3a6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\utils\\checkpoint.py",
+      "bytes": 67661,
+      "sha256": "10041cb9a79b7ba3867931a61aa4334a7955eed9ad9a8d3319d7727c10b1556c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\optim\\adamw.py",
+      "bytes": 35973,
+      "sha256": "ed13eef9d2875966c5b0e66371344c9e5665d41eac826c05518d38e13081fe7d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\optim\\optimizer.py",
+      "bytes": 48573,
+      "sha256": "b6f8fe2a7f2790d4eedc6910b82200306c340d2124021151716df8cf3c51db8c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ]
+}
