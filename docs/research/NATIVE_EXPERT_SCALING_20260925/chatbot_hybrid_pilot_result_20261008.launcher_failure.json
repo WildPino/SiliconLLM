@@ -1,0 +1,30 @@
+{
+  "freeze": "b7a47e15e7979f6a2a06421da60d202fb3bce99f",
+  "binding_sha256": "f484251254db3c0f31eb9157f6a62c1d414971a6eb1b1cfac9c8147f30c9c280",
+  "launcher_pid": 28336,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_pilot.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_pilot_binding_outputs_20261008.json",
+    "--binding-sha",
+    "f484251254db3c0f31eb9157f6a62c1d414971a6eb1b1cfac9c8147f30c9c280",
+    "--freeze",
+    "b7a47e15e7979f6a2a06421da60d202fb3bce99f",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_20261008",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_pilot_result_20261008.json"
+  ],
+  "worker_pid": 33712,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 3740237824,
+  "launcher_OS_peak_snapshot": 27168768,
+  "fault": "AssertionError('[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d\\n\\nLoading weights:   0%|          | 0/411 [00:00<?, ?it/s]\\nLoading weights: 100%|██████████| 411/411 [00:00<00:00, 6807.78it/s]\\n{\"stage\": \"source_loaded\", \"seconds\": 98.53099999995902}\\n[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.\\n{\"stage\": \"supervision_ready\", \"seconds\": 106.03099999995902, \"case\": \"fit_explain\", \"prefix_ids\": 32, \"generated\": 8}\\n{\"stage\": \"supervision_ready\", \"seconds\": 106.81199999997625, \"case\": \"fit_arithmetic\", \"prefix_ids\": 40, \"generated\": 2}\\n{\"stage\": \"supervision_ready\", \"seconds\": 108.07799999997951, \"case\": \"fit_reading\", \"prefix_ids\": 40, \"generated\": 8}\\n{\"stage\": \"supervision_ready\", \"seconds\": 108.71899999998277, \"case\": \"fit_code\", \"prefix_ids\": 42, \"generated\": 2}\\n{\"stage\": \"supervision_ready\", \"seconds\": 109.875, \"case\": \"dev_rewrite\", \"prefix_ids\": 27, \"generated\": 8}\\n{\"stage\": \"supervision_ready\", \"seconds\": 110.75, \"case\": \"dev_history\", \"prefix_ids\": 54, \"generated\": 4}\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_hybrid_pilot.py\", line 308, in <module>\\n    main(p.parse_args())\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_hybrid_pilot.py\", line 139, in main\\n    target = Target(config).to(\\'cuda\\')\\n             ^^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_hybrid_target.py\", line 134, in __init__\\n    c = target_config(source)\\n        ^^^^^^^^^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_hybrid_target.py\", line 23, in target_config\\n    c.layer_types = [\\'mamba\\'] * L\\n    ^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\chatbot_source_runtime\\\\site\\\\huggingface_hub\\\\dataclasses.py\", line 149, in __strict_setattr__\\n    original_setattr(self, name, value)\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\chatbot_source_runtime\\\\site\\\\huggingface_hub\\\\dataclasses.py\", line 149, in __strict_setattr__\\n    original_setattr(self, name, value)\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\chatbot_source_runtime\\\\site\\\\transformers\\\\configuration_utils.py\", line 449, in __setattr__\\n    super().__setattr__(key, value)\\nAttributeError: property \\'layers_block_type\\' of \\'FalconH1Config\\' object has no setter\\n')",
+  "elapsed_seconds": 117.06299999996554
+}

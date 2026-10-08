@@ -1,0 +1,47 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 5961.61it/s]
+{"stage": "source_loaded", "seconds": 11.10899999999674}
+{"stage": "supervision_ready", "seconds": 11.125, "case": "fit_explain", "prefix_ids": 32, "generated": 8}
+{"stage": "supervision_ready", "seconds": 11.203000000037719, "case": "fit_arithmetic", "prefix_ids": 40, "generated": 2}
+{"stage": "supervision_ready", "seconds": 11.21799999999348, "case": "fit_reading", "prefix_ids": 40, "generated": 8}
+{"stage": "supervision_ready", "seconds": 11.23399999999674, "case": "fit_code", "prefix_ids": 42, "generated": 2}
+{"stage": "supervision_ready", "seconds": 11.23399999999674, "case": "dev_rewrite", "prefix_ids": 27, "generated": 8}
+{"stage": "supervision_ready", "seconds": 11.25, "case": "dev_history", "prefix_ids": 54, "generated": 4}
+{"stage": "basis_ready", "seconds": 14.48399999999674, "orthogonality_max_abs": 1.0132789611816406e-06, "balanced_trace_fraction": 0.4719909727573395, "normalized_source_trace": [1.0000001192092896, 0.9999999403953552]}
+{"stage": "component_ready", "seconds": 16.46799999999348, "component": "embed"}
+{"stage": "component_ready", "seconds": 18.57800000003772, "component": "head"}
+{"stage": "component_ready", "seconds": 18.75, "component": "final_norm"}
+{"stage": "component_ready", "seconds": 21.06200000003446, "component": "layers.0"}
+{"stage": "component_ready", "seconds": 22.95300000003772, "component": "layers.1"}
+{"stage": "component_ready", "seconds": 25.07800000003772, "component": "layers.2"}
+{"stage": "component_ready", "seconds": 26.59299999999348, "component": "layers.3"}
+{"stage": "component_ready", "seconds": 28.34299999999348, "component": "layers.4"}
+{"stage": "component_ready", "seconds": 29.95300000003772, "component": "layers.5"}
+{"stage": "component_ready", "seconds": 31.64000000001397, "component": "layers.6"}
+{"stage": "component_ready", "seconds": 33.625, "component": "layers.7"}
+{"stage": "component_ready", "seconds": 35.35899999999674, "component": "layers.8"}
+{"stage": "component_ready", "seconds": 37.07800000003772, "component": "layers.9"}
+{"stage": "component_ready", "seconds": 39.10899999999674, "component": "layers.10"}
+{"stage": "component_ready", "seconds": 40.57800000003772, "component": "layers.11"}
+{"stage": "complete_target_ready", "seconds": 41.06200000003446, "parameters": 254932736, "F32_Adam_array_lower_bytes": 4078923776, "matrix_products_per_decode": 69632512, "teacher_released": true}
+{"stage": "before", "seconds": 44.125, "id": "fit_explain", "split": "FIT", "positions": 8, "KL": 29.617565155029297, "disagreements": 8, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\before.fit_explain.logits.f32", "shape": [8, 65537], "bytes": 2097184, "sha256": "40367bd61e44979f22461be8d7366c45560c02e5f06ec533a33e0245a916c015"}}
+{"stage": "before", "seconds": 46.54700000002049, "id": "fit_arithmetic", "split": "FIT", "positions": 2, "KL": 31.245285034179688, "disagreements": 2, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\before.fit_arithmetic.logits.f32", "shape": [2, 65537], "bytes": 524296, "sha256": "7f2035a3b976bd33eac5fb3f531e941de543515c7cbc8d2fb3dba3f6d115b944"}}
+{"stage": "before", "seconds": 48.46799999999348, "id": "fit_reading", "split": "FIT", "positions": 8, "KL": 24.33663558959961, "disagreements": 8, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\before.fit_reading.logits.f32", "shape": [8, 65537], "bytes": 2097184, "sha256": "545800fa8f8574a9a33d0578c29f3e92ea6c52275d7d8addf8b7363088ecbe5a"}}
+{"stage": "before", "seconds": 50.71799999999348, "id": "fit_code", "split": "FIT", "positions": 2, "KL": 30.962718963623047, "disagreements": 2, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\before.fit_code.logits.f32", "shape": [2, 65537], "bytes": 524296, "sha256": "be946d940c6f4a1078c944b4a0354801797cc581fc25e8748bdaa03ec25a9810"}}
+{"stage": "before", "seconds": 52.92200000002049, "id": "dev_rewrite", "split": "DEV", "positions": 8, "KL": 26.672386169433594, "disagreements": 8, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\before.dev_rewrite.logits.f32", "shape": [8, 65537], "bytes": 2097184, "sha256": "6301baaefa7acea168d9c5c094723de19fbb26c20c973eb9a8cd54f4986d3411"}}
+{"stage": "before", "seconds": 54.78100000001723, "id": "dev_history", "split": "DEV", "positions": 4, "KL": 29.49856185913086, "disagreements": 4, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\before.dev_history.logits.f32", "shape": [4, 65537], "bytes": 1048592, "sha256": "7956cbee606427c895a7ebdcf7ec0f1a2282d32e2773b3083eea109c8aabc657"}}
+{"stage": "update", "seconds": 67.51500000001397, "step": 1, "KL": 29.617565155029297, "gradient_norm": 3343.69775390625, "step_seconds": 11.375}
+{"stage": "update", "seconds": 77.875, "step": 2, "KL": 32.12104034423828, "gradient_norm": 4449.80517578125, "step_seconds": 9.077999999979511}
+{"stage": "update", "seconds": 88.0, "step": 3, "KL": 24.24410057067871, "gradient_norm": 1839.398681640625, "step_seconds": 9.53100000001723}
+{"stage": "update", "seconds": 97.71799999999348, "step": 4, "KL": 26.297374725341797, "gradient_norm": 3656.915283203125, "step_seconds": 8.98499999998603}
+{"stage": "update", "seconds": 107.14000000001397, "step": 5, "KL": 11.686948776245117, "gradient_norm": 994.427001953125, "step_seconds": 8.688000000023749}
+{"stage": "update", "seconds": 116.51500000001397, "step": 6, "KL": 21.26740837097168, "gradient_norm": 3197.089599609375, "step_seconds": 8.85899999999674}
+{"stage": "update", "seconds": 126.29700000002049, "step": 7, "KL": 5.240339756011963, "gradient_norm": 1276.373779296875, "step_seconds": 8.952999999979511}
+{"stage": "update", "seconds": 136.96799999999348, "step": 8, "KL": 17.4476318359375, "gradient_norm": 3520.609619140625, "step_seconds": 9.812999999965541}
+{"stage": "after", "seconds": 139.09299999999348, "id": "fit_explain", "split": "FIT", "positions": 8, "KL": 4.86257791519165, "disagreements": 4, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\after.fit_explain.logits.f32", "shape": [8, 65537], "bytes": 2097184, "sha256": "0b4921035293425aba5faf3b6b4d2a75a8f394a51cfd63f8ee8eb19d74f392f6"}}
+{"stage": "after", "seconds": 141.59299999999348, "id": "fit_arithmetic", "split": "FIT", "positions": 2, "KL": 18.786304473876953, "disagreements": 2, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\after.fit_arithmetic.logits.f32", "shape": [2, 65537], "bytes": 524296, "sha256": "6eccd80038d3f375eb41132ab69263712611e6863d007d403134130dc7a6559e"}}
+{"stage": "after", "seconds": 143.51500000001397, "id": "fit_reading", "split": "FIT", "positions": 8, "KL": 2.0828652381896973, "disagreements": 2, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\after.fit_reading.logits.f32", "shape": [8, 65537], "bytes": 2097184, "sha256": "288521d65b34624e3fe2262679f7f97be79dfa924da9817196e19c085527385a"}}
+{"stage": "after", "seconds": 145.81200000003446, "id": "fit_code", "split": "FIT", "positions": 2, "KL": 12.841021537780762, "disagreements": 2, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\after.fit_code.logits.f32", "shape": [2, 65537], "bytes": 524296, "sha256": "2efd28ad243488d5f97469cb6a858fad43d1a8d4d0d769b877df476626a91c8b"}}
+{"stage": "after", "seconds": 147.93700000003446, "id": "dev_rewrite", "split": "DEV", "positions": 8, "KL": 26.905113220214844, "disagreements": 8, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\after.dev_rewrite.logits.f32", "shape": [8, 65537], "bytes": 2097184, "sha256": "205c25ea11bcde285f0bdd066236b5f23493dbdd4198e093d20676656578cbe0"}}
+{"stage": "after", "seconds": 149.84299999999348, "id": "dev_history", "split": "DEV", "positions": 4, "KL": 25.74368667602539, "disagreements": 4, "logits": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_pilot_repair1_20261008\\after.dev_history.logits.f32", "shape": [4, 65537], "bytes": 1048592, "sha256": "5b9c3365de29aaa97bd3529c0e206a415926f95947a0f4c38cc16795e80615e8"}}
+{"stage": "complete", "seconds": 190.89000000001397, "decision": "PILOT_RECOVERY_PASS", "gates": {"complete_finite_gradient_updates": true, "FIT_KL_improves": true, "DEV_KL_no_more_than_2pct_worse": true}}

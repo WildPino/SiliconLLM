@@ -50,8 +50,8 @@ Tiny teacher5/16 FAIL fixed usefulness screen; not selected for whole adaptation
 NEW4 source forwards/layers0/12/23 give12 real packets: original exact-exp C scan
 max state RMS.275675%/gated output.406017%,ALL24 fixed1% gates PASS.
 Each call begins at its own source state; long-run C drift/whole chat unverified.
-Source projection/conv adapter, useful stronger hybrid teacher and costed target
-come next. Do not silently carry Tiny width/vocabulary/RMS assumptions forward.
+Source projection/conv adapter and larger target C validation remain required.
+Do not silently carry Tiny width/vocabulary/RMS assumptions forward.
 All jobs terminal; full goal/family/scales unchanged.
 
 **Useful larger hybrid donor acquired/screened:** [actual result/budget](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md).
@@ -63,8 +63,20 @@ SSM768-state256/48heads*16/SWA2/n72/k8 proposal counts69.44M products,
 All48 source decay-head indices retained within chosen blocks; naive SSD
 workspace grows4 times versus12heads at fixed chunk, actual pilot required.
 Ternary SwiGLU scalar/gated RMS/projection/conv/32-bit IDs require real support;
-source-row slot conservation is only a count. Next ONE whole target learner/
-memory and recovery pilot with separate calibration/fresh own-history criteria.
+source-row slot conservation is only a count. Native support remains required.
+
+**Complete compact target learner/pilot actual:** [result](CHATBOT_HYBRID_PILOT_RESULT_20261008.md).
+Source-informed D512/L12/SSM10/SWA2/n72/k8 ternary SwiGLU/AQ63 learner AVAILABLE;
+254,932,736 trainable parameters, temporary flat router,69,632,512 active matrix
+products. NEW6 calibration cases/32 labels, eight whole updates, all12 finite
+core/bank/norm gradients; ALL211 parameter tensors changed, full Adam moments.
+Independent saved-only F64/state audit PASS. FIT KL27.80248->5.94091/disagreement
+100%->50%; DEV27.61444->26.51797/disagreement100% unchanged. Numerical pilot PASS,
+chatbot quality NOT admitted. Actual200.125s/GPU4.45GB/OS8.24GB through exit.
+Original pre-target config fault/source packets retained; repair1 reuses ALL6,
+0 new source calls. Actual initial/final learner+optimizer checkpoints reusable.
+Next packed-only export and source-compatible evolving-state C/LUT execution
+against saved final logits, before a longer balanced calibration. No T4/jobs.
 No fit, whole native/rate, useful-n admission or T4 job yet.
 
 ## Two research questions
@@ -99,7 +111,7 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | Whole nonlinear connection |[Balanced initialization](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md)/[assembly](CHATBOT_WHOLE_ASSEMBLY_RESULT_20261008.md) qualified ALL24. [Actual whole-output result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md):1280 updates/1680 full forwards,FIRST PASS; DEV KL5.574->.5546/disagreement79.45%->18.43%,fixed recipe CLOSED |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No qualified whole-output/native compact chat/accepted50/useful-n artifact |
 
-Latest decisive evidence: [actual whole-output fit/FIRST/saved-only diagnosis](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md).
+Retained complete Qwen evidence: [actual whole-output fit/FIRST/saved-only diagnosis](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md).
 8epochs/1280updates/1680 full student forwards,all24 positive FIRST gradients.
 Independently verified FIT KL.431674/disagreement15.88%;DEV.554575/18.43%.
 Only2 relative KL gates pass;ALL6 absolute/category gates fail,THIS recipe CLOSED.
@@ -176,15 +188,21 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** implement/freeze ONE complete source-compatible compact target
-learner and its real memory/finite-gradient/output recovery pilot; prepare broad
-calibration separately from fresh excluded own-history/task criteria before fit.
-[Actual larger donor/budget/continuation](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md)
-governs: Falcon1.5B pinned/acquired/original14/16 screen PASS, new target priced.
-Do not replay acquisition/16 completed cases/metadata/Tiny source+C packets.
-Source-compatible projection/conv/gated RMS, ternary SwiGLU LUT scalar variant,
-32-bit IDs and accumulated C state remain missing. Proposed widths/depth/routes
-require joint learning, not exact source loading. No training or T4 job active.
+**First action:** implement/freeze packed-only export and ONE source-compatible
+complete C target using original phase60 AQ63/byte-pair LUT/scan/SWA machinery.
+[Native continuation](CHATBOT_HYBRID_NATIVE_NEXT_20261008.md) governs; reuse
+[actual complete learner/pilot](CHATBOT_HYBRID_PILOT_RESULT_20261008.md), final
+checkpoint SHA75b2317efe99fe66fc16f2b0e6df1f5001ef8b9c243c150b87b24e1f433793d9
+and ALL32 saved final full-vocab logits; no completed Python forward/fit replay.
+Actual finite gradients/resources/short FIT recovery now verified; target's DEV
+IDs still100% disagree. No quality/native/speed admission. Native projection/
+conv/gated RMS/per-head scan, ternary SwiGLU scalar/LUT,32-bit IDs and evolving
+C state remain missing. First flat72 router is charged, large-n structured CPU
+LUT winner/mass still required. Before a long fit, validate deployment algebra,
+then broaden balanced calibration/contexts/own-prefix data separately from fresh
+excluded own-history/task criteria. Keep all6 pilot/16 selection cases excluded.
+Do not replay source acquisition/selection/metadata/Tiny source+C/pilot/audit.
+All workers terminal, no training/T4 active; all full goal gates unchanged.
 
 [Order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md) is
 DEFERRED. Original fit/FIRST/drift jobs are terminal and recipe CLOSED. Existing

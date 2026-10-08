@@ -55,9 +55,30 @@ Source-compatible D512/L12/SSM768/48heads*16/N256/SWA2/n72/k8 proposal69.44M pro
 All48 source decay-head indices preserved in retained blocks; naive SSD
 workspace grows4 times versus12heads at same chunk, so pilot/checkpointing needed.
 Source width/composition/attention/ternary differences require learned recovery.
-Next ONE full target learner and resource/recovery pilot with separate broad
-calibration and fresh own-history criteria. Source-compatible C projection/conv/
-gated RMS/ternary SwiGLU scalar/LUT/32-bit IDs still missing, no training/T4.
+[Complete target learner/resource-recovery pilot](CHATBOT_HYBRID_PILOT_RESULT_20261008.md)
+is now AVAILABLE and executed: D512/L12/SSM10/SWA2/n72/k8, all F32 organs,
+actual ternary/AQ63 signed SwiGLU forward, learned row scales/master weights,
+flat72 router with stable ties/top8 selected mass. Source-specific projected
+embedding/head/SSM/SWA/all24 FFN groups initialize all254,932,736 parameters;
+width/depth/branch/norm approximations are trainable, not exact transformation.
+STE is the declared surrogate gradient for discrete weight/activation rounding,
+not the exact derivative of their discontinuous forward. Block SSD chunk16/
+activation checkpointing and dense Adam actually fit local12GB hardware.
+Six new calibration cases/32 labels saved once, eight full updates, all12
+positive finite core/bank/norm gradients and ALL211 parameter tensors changed.
+Independent F64/state audit verifies FIT KL27.80248->5.94091/disagreement100%->50%,
+DEV27.61444->26.51797/disagreement100% unchanged. Pilot numerical/recovery PASS;
+whole chatbot preservation NOT validated. Actual200.125s/GPU4.45GB/OS8.24GB
+through exit; full initial/final learner+optimizer checkpoint retained.
+Target flat-router69,632,512 matrix products/425,188,352B prospective packed bytes
+replace tree-proposal counts for this pilot only. Six pilot/16 selection cases
+stay excluded from fresh final quality. Source-compatible C projection/conv/
+gated RMS/per-head evolving scan/ternary SwiGLU scalar-LUT/SWA/32-bit IDs and
+packed-only export still missing. [Selected native continuation](CHATBOT_HYBRID_NATIVE_NEXT_20261008.md)
+comes before a longer balanced calibration. Reuse final learner and all32 saved
+logit vectors for first C comparison; do not repeat completed source/fit/audit.
+No training/T4 active. Original read-only config fault/partials retained,
+repair1 reused all6 teacher packets without new calls.
 Do not replay triage or completed Falcon calls/native packets.
 Deployment needs structured
 routing with IDs AND mass and packed-only expert storage; original full E scan

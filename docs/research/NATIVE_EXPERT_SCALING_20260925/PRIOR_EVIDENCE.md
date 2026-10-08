@@ -1,5 +1,22 @@
 # Native expert-count scaling: prior evidence
 
+**8 October actual complete compact recurrent/ternary learner:**
+[Result](CHATBOT_HYBRID_PILOT_RESULT_20261008.md): source-informed D512/L12/
+10SSM48head*16/SWA2/n72/k8/h128, AQ63 ternary SwiGLU, F32 organs/learned scales/
+temporary flat router AVAILABLE. New6 source calibration cases/32 labels ONCE,
+8 full updates/ALL12 finite positive core/bank/norm gradients; ALL211 parameter
+tensors changed,254,932,736 parameters/2,039,461,888 actual Adam moment bytes.
+Independent saved F64/state audit PASS. FIT KL27.80248->5.94091/disagreements
+20->10/20; DEV27.61444->26.51797/12->12/12. Numerical feasibility/recovery PASS,
+NOT broad chatbot/own-history/quality/native/rate. Actual200.125s family/GPU
+4,449,674,752B/OS8,242,982,912B through exit; audit22.609s/3,866,517,504B.
+Initial/final checkpoint+optimizer retained; original read-only config fault
+before target/basis, ALL6 teacher packets reused in repair1,0 new generations.
+Next actual packed-only native C/LUT/evolving-state path before longer balanced
+calibration. Flat router69,632,512 products, packed425,188,352B only counted;
+large-n routing/physical DRAM/useful capacity/fresh quality+50/families remain open.
+All workers terminal, no T4. Source derivation/row counts are not capacity proof.
+
 **8 October actual useful larger hybrid teacher and compact target budget:**
 [Result](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md): pinned Falcon1.5B original
 3.11GB/1.555B coefficients SHA/header complete; unchanged16 teacher screen14/16
