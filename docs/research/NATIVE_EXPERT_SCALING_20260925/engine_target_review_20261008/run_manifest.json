@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-08",
+  "kind": "focused-direction-review-and-target-contract",
+  "question": "Which pretrained adaptation routes serve the original compact SSM/SWA, ternary-expert, LUT engine thesis?",
+  "working_head_before_review": "2274bdf2abd222593a5de0f31c242e6167d8bfdd",
+  "providers": ["local repository reads", "web search/open", "public HF metadata GET"],
+  "scope": "Primary papers/model cards plus retained local evidence; project METHOD/INDEX and focused Markdown memo are the required artifacts. No full survey, HTML/PDF, retraining or native remeasurement.",
+  "assumptions": ["Long offline adaptation is allowed in principle by the human", "Original engine is the target starting point, with extensions that preserve bounded active cost", "At least50 accepted batch1 IDs/s and fresh donor-relative chatbot quality on the same artifact remain required"],
+  "observations": "Code/document reads and public configuration only. No new source weights, model inference, fit, C compile, rate, endpoint or physical memory observation.",
+  "queries": ["Transformer to Mamba pretrained chat distillation", "MoEfication/sparse upcycling", "pretrained ternary BitNet distillation", "Falcon-H1-Tiny instruction model and pinned config"],
+  "claim_policy": "Paper results are attributed to paper scope; new architecture/order/resource choices are proposals; local modeled speed is never measured quality or rate.",
+  "execution_decision": "Supersede order-stability next-fit priority with engine target and donor triage; retain all code/results and closed recipes.",
+  "goal_status": "active-incomplete"
+}

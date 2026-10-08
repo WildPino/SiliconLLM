@@ -1,0 +1,13 @@
+{
+  "date":"2026-10-08",
+  "kind":"document and source checks, not scientific artifact admission",
+  "report":"CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md",
+  "structure_validator":{"script":".agents/skills/deep-research/scripts/validate_report.py","exit_code":0,"checks_passed":9},
+  "citation_validator":{"script":".agents/skills/deep-research/scripts/verify_citations.py","exit_code":0,"mode":"non-strict","bibliography_entries":14,"web_urls_accessible":9,"local_entries_flagged":5},
+  "manual_local_resolution":"Entries1-5 are repository code/results, read directly in this review, not recent publications lacking online identity. Entries1-4 raw working-file SHA are in sources.jsonl; entry5 retained result and table read directly. Browser/HEAD success is not claim-support verification.",
+  "local_document_check":{"links_existing":5,"sources":14,"evidence_records":16,"claim_records":5,"source_sha_passes":4,"json_parse_and_reference_resolution":"PASS"},
+  "claim_support":"Atomic decisive claims/evidence/locators and source clusters persisted. Proposed combined conversion, target costs and T4 feasibility remain open.",
+  "scientific_tests":"none; no inference, training, native timing, endpoint or physical DRAM measurement",
+  "foreign_tracked_sha":"all three unchanged from turn entry",
+  "goal":"active-incomplete"
+}

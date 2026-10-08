@@ -1,5 +1,16 @@
 # Native expert-count scaling: prior evidence
 
+**8 October latest direction: original engine target.**
+[Engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)
+supersedes the proposed order-stability next fit. Latest Qwen all24-attention
+BF16/F32 path is a retained diagnostic, not the selected compact SSM/SWA/ternary
+LUT deployment route. Original router scans E; original MoE loader retains
+F32/int8/code arrays. Target-aware donor/operator/cost triage and one staged
+offline adaptation pilot come next. Public Falcon-H1-Tiny90M pinned config only;
+separate published recurrent/MoE/ternary evidence linked, combined transfer open.
+Long T4 adaptation allowed in principle; actual reason/budget/stops still needed.
+All previous scientific results/closures and full goal remain unchanged.
+
 **8 October actual whole-output fit/FIRST COMPLETE; fixed recipe CLOSED:**
 [result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md):8epochs/1280 updates/1680
 full student forwards,all24 positive FIRST gradient norms. Independently verified

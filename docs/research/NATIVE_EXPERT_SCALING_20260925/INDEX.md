@@ -18,6 +18,28 @@ capture/native/audit replay or concurrent timing. Preserve foreign work/publishe
 T4 needs communicated reason/budget/stops first. Routine Graphify disabled;
 donor-adaptation operationally frozen, evidence reusable.
 
+## Current direction: original engine target before more fitting
+
+[Engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)
+and [machine contract](chatbot_engine_target_contract_v1.json) follow the human's
+explicit engine.c correction. Compact recurrent SSM/SWA core + useful selected
+ternary LUT functions are the deployment starting target; justified extensions
+must serve bounded active cost. Latest all24-attention/BF16-F32 Qwen profile is
+a retained unexecuted diagnostic. The proposed order-stability fit is deferred.
+
+Original selected expert work is independent of E at fixed geometry, but its
+router scans E and its loader retains F32/int8 reference copies beside codes.
+Structured routing and packed-only storage are explicit deployment prerequisites.
+Published recurrent/conditional/ternary transfer evidence has separate scopes;
+their composition and this engine's whole chatbot quality/rate remain open.
+Long offline adaptation, including month-plus T4 if justified, is in scope;
+actual T4 reason/budget/stops and measured feasibility are still required.
+
+**Next:** target-aware donor/operator/cost triage using existing Qwen assets and
+pinned recurrent/hybrid/ternary metadata, then ONE target-shaped staged pilot.
+Public Falcon-H1-Tiny90M config observed at e6389502; no weights/quality/rate.
+No active jobs, new training or endpoint. Goal and all former closures unchanged.
+
 ## Two research questions
 
 | Question | Established | Open |
@@ -127,27 +149,21 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** implement/freeze [ONE order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md).
-Original fixed fit/FIRST are COMPLETE/CLOSED;77989/68777 and the drift job are
-terminal,do not resume/relaunch. Reuse qualified initial baseline and source
-teacher bytes; explicit FIT-only interleaving is the proposed new variable.
-Preserve geometry/8epochs/1280steps/optimizer/absolute/fresh gates;no order/epoch
-ladder. New schedule-aware producer/FIRST auditor and actual input/runtime
-binding must freeze before observations; code/control currently PROPOSED.
-No dense fallback;warm0/12 old buffers must not win. No completed fit/audit replay.
-Reuse qualified12833 x rows PER LAYER/3050 teacher vectors;64 endpoint texts
-unqueried. NEW x-only stride43008B/layer1792B differs from old x/y offsets.
-Keep source/canonical/J/H/old source features/copies/local1%/3% rejections BYTE;
-old48 and NEW200 warm-key recipes CLOSED. No completed scientific replay.
-Export/new C/client/decoded reference and bound export/FIRST codec code are
-AVAILABLE,UNEXECUTED;closed candidate cannot be exported for promotion.
-[Native integration plan](CHATBOT_COMPACT_NATIVE_NEXT_20261008.md)
-separates conversion codec, encoded reference, C arithmetic and fresh behavior.
-After finite whole-output transfer admission: export/new C/chat,
-fresh own-history/tasks AND accepted50 SAME artifact/useful n/LUT mass/DRAM/
-actual other family/scales. Bound arrays are not peak, quotas are not routes,
-local quality is not fresh whole behavior.18 geometry queries remain deferred;
-preserve214/231/310/311/316/297/528 and original523/528 resource FALSE closures.
+**First action:** implement/freeze the target-aware donor/operator/cost triage
+specified in [engine reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md#recommendations-and-exact-next-action).
+Compare original-compatible recurrent/ternary paths, full head/state/router/
+selected code/storage and actual training-memory requirements before selecting
+ONE staged pilot. Proposed metadata-only CPU budget <=60s/<=5MiB; no weights/
+inference/old observation replay. Reuse local Qwen census and public pinned
+hybrid/ternary metadata. Do not assume model-card compatibility or T4 feasibility.
+
+[Order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md) is
+DEFERRED. Original fit/FIRST/drift jobs are terminal and recipe CLOSED. Existing
+source/canonical/cached200/J/H/local transformations remain reusable bytes;
+64 endpoints remain unqueried. Prepared Transformer native export/C/client/
+reference are UNEXECUTED diagnostics; failed checkpoints cannot be promoted.
+Current target contract supersedes their old next step. Preserve all closures,
+including original523/528 resource FALSE;18 geometry queries remain deferred.
 
 All original scientific namespaces through528 terminal; original523/528 time
 and525 criterion failures explicit. Three foreign tracked SHA preserved. Compact active core,
@@ -168,7 +184,6 @@ families/~100B remain open. No percentage or goal completion claim.
 [Index through525](INDEX_THROUGH525_20261007.md) preserves the previous long index
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
-This index,
-[whole result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md) and
-[order-stability NEXT](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md)
-supersede all older operational NEXTs.
+This index and [engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)
+supersede all older operational NEXTs. [Whole result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md)
+retains its scientific closure; order-stability NEXT is deferred.

@@ -1,0 +1,41 @@
+{
+  "schema": "silicon-chatbot-engine-target-contract-v1",
+  "date": "2026-10-08",
+  "status": "target requirements, not an admitted artifact or measured budget",
+  "baseline_backend": "benchmarks/phase60/engine.c default E4M1",
+  "original_anchor": {"D":256,"L":6,"ssm_blocks":5,"state_N":96,"expanded_D":512,"swa_blocks":1,"swa_window":128,"V":1024,"n_per_layer":32,"k_per_layer":8,"expert_h":128},
+  "deployment_requirements": {
+    "core": "compact reusable recurrent core with explicitly costed bounded attention capability; justified variants allowed",
+    "expert_weights": "ternary coefficients, actual packed LUT execution, declared row scales and activation quantization",
+    "sensitive_organs": "F32 baseline; alternative precision requires its own evidence",
+    "activation": "gated-dReLU existing path; costed ternary gated-SiLU or other variant may be justified without invalid ReLU-skip identities",
+    "capacity": "distinct useful pretrained-informed functions, total n separate from selected k/h/work",
+    "router": "structured/hierarchical candidate; charge query/shortlist/selection/normalization and verify selected IDs plus masses",
+    "storage": "packed-only deployment without mandatory full F32/int8 expert reference copies; charge index/scales/padding/core/tokenizer/workspace",
+    "interaction": "canonical source tokenizer/chat/history/EOS; suitable native ID width; readout and prefill charged",
+    "admission": "fresh donor-relative chatbot behavior and at least50 accepted batch1 IDs/s on same artifact, declared cold/warm/context/thread/hardware",
+    "scaling": "useful large n/RAM, physical DRAM, actual further families/scales including10B/100B as resources permit"
+  },
+  "accounting": {
+    "n_convention": "experts per layer; total experts L*n",
+    "gated_expert_total_coefficients": "3*L*D*h*n",
+    "gated_expert_active_coefficients": "3*L*D*h*k",
+    "selected_code_bytes_before_padding_scales": "b*3*L*D*h*k",
+    "original_byte_pair_b": "1/2 physical byte per ternary coefficient",
+    "optional_nibble_b": "1/4 physical byte per ternary coefficient before padding",
+    "original_router_score_products": "L*n*D, excluding selection/softmax",
+    "full_head_products": "V*D",
+    "complete_cost": "core+state/SWA+router(n)+selected experts(k,h)+head(V,D)+prefill/interaction/glue",
+    "training": "explicit trainable arrays, gradients, optimizer moments, teacher storage, activations/checkpointing and transfers; routing sparsity does not imply sparse optimizer allocation"
+  },
+  "retained_diagnostic": "Qwen all24 attention/full151936-head BF16/F32 shared512+4*128 profile and fixed1280-update closed fit; optional diagnostic, not selected deployment route",
+  "next": "target-aware metadata/operator/cost triage before selecting and freezing one staged offline adaptation pilot",
+  "t4": {"long_adaptation_allowed_in_principle":true,"job_started":false,"execution_budget":"not established","prerequisite":"communicated reason/budget/stops and actual memory/FP16-compatible throughput feasibility"},
+  "first_new_hybrid_metadata": {
+    "model": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+    "revision": "e6389502a0b12cd8da894b395ba5bf7436873b16",
+    "url": "https://huggingface.co/tiiuae/Falcon-H1-Tiny-90M-Instruct/resolve/e6389502a0b12cd8da894b395ba5bf7436873b16/config.json",
+    "D":512,"L":24,"ffn_h":768,"V":32768,"activation":"silu","ssm_D":768,"ssm_state":64,"query_heads":8,"kv_heads":2,"head_dim":64,"attn_layer_indices":null,"sliding_window":null,
+    "scope": "public parsed configuration only; no weights, quality, source operator parity, deployment or training measurement"
+  }
+}

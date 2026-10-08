@@ -1,5 +1,11 @@
 # Next conversion decision: one order-stability control
 
+**DEFERRED by the later8October human engine.c correction.**
+[Engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)
+and target-aware donor/cost triage are the operational next step. This control
+remains an unexecuted optional diagnostic of the fixed Transformer-core recipe.
+Its original proposal and unchanged scientific gates below are preserved.
+
 8 October2026. PROPOSAL, not implemented/frozen/executed. Original fixed8epoch
 recipe is CLOSED under unchanged final gates; no exported/native eligible chatbot.
 The full goal remains a reproducible CHATBOT->compact conditional engine pipeline,

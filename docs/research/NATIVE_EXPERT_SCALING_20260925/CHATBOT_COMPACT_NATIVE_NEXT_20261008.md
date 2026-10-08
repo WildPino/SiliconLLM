@@ -1,10 +1,18 @@
-# Compact chatbot: connection from fitted weights to engine.c
+# Compact chatbot: retained Transformer native reference
+
+**Diagnostic profile, not the selected original-engine deployment route.**
+The later human engine.c correction selects [target-aware donor triage and staged
+conversion](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md). This profile preserves
+all24 attention blocks/full source head and uses BF16/F32/direct routing; it has
+no ternary LUT expert or recurrent-core conversion. Retain code and protocols
+for potential encoded-reference/operator comparisons. No new execution here.
 
 8 October2026. Prepared implementation, UNEXECUTED. The original fixed whole
 fit/FIRST are complete and reject the candidate;77989/68777 are terminal.
 Do not resume them or export that checkpoint for promotion. No native model
 artifact has been produced or admitted here. Current conversion resumption is
-[one order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md).
+[engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md);
+the [order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md) is deferred.
 
 ## Decision and evidence used
 

@@ -27,7 +27,31 @@ criterion fails; first-request prose is27.14/s. Missing: compact convenient
 active geometry, useful much larger expert pools, physical memory evidence and
 multi-family/large-scale applicability. Local/function/rate scopes remain explicit.
 
-## Current priority: the complete chatbot pipeline
+## Current priority: target-aware conversion into the original engine
+
+[Engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)
+and [target contract](chatbot_engine_target_contract_v1.json) now govern donor
+selection and the next experiment. The original compact SSM/SWA core and
+selected ternary LUT functions are the deployment starting point. Fixed original
+dimensions are an anchor; costed extensions are allowed. Source-shaped BF16/F32
+Transformer execution alone is a diagnostic, not target admission.
+
+First implement/freeze metadata/operator/complete-cost triage: existing Qwen,
+pinned small recurrent/hybrid and native ternary donors; explicit state/core/
+head/router/expert/packed-storage budgets and optimizer/teacher memory. Select
+one staged adaptation pilot after this comparison. Deployment needs structured
+routing with IDs AND mass and packed-only expert storage; original full E scan
+and simultaneous F32/int8/code arrays do not become free as n grows.
+
+Proposed order-stability fit is deferred. Latest Qwen closed fit and prepared
+Transformer C profile are retained diagnostics; none is an eligible export.
+Lengthy offline adaptation, including month-plus T4 in principle, is permitted
+by human steering. Communicate actual T4 reason/budget/stops and establish
+memory/FP16-compatible throughput before allocation; no T4 job starts here.
+Whole fresh chatbot quality+accepted50 SAME artifact and useful n/family/scales
+remain unchanged, without requiring exact internal source-layer reproduction.
+
+## Reusable chatbot pipeline components and retained results
 
 [Current macro reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261008.md) follows
 the human's explicit CHATBOT reminder. Required stages: source/interaction
@@ -85,7 +109,7 @@ tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
 Current [actual whole-output result](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md) and
-[ONE order-stability control NEXT](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md):
+[deferred order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -758,8 +782,8 @@ full forward/backward/update and student-trajectory composition observed.
 Independently verified final output criteria CLOSE this recipe. A new saved-only
 diagnosis shows final FIT caseKL.42633 versus online.21277,7/8 domain means
 worsen afterward,last domain improves;update order and category are confounded.
-Six final leaves lose all FIT/DEV occurrences. [Next order control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md)
-is PROPOSED,not executed;it holds active cost/data/update budget/gates fixed.
+Six final leaves lose all FIT/DEV occurrences. [Order control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md)
+is PROPOSED/DEFERRED,not executed;it holds active cost/data/update budget/gates fixed.
 Existing local1%/3% recipe failures stay CLOSED;
 The whole objective has its own prewritten fresh behavior/resource contract;
 new encoded/native operator observables need a separate bound protocol before
