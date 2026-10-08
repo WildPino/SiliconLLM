@@ -1,0 +1,1868 @@
+{
+  "schema": "HYBRID_BALANCED_CALIBRATION_V1",
+  "max_new_tokens": 96,
+  "context_limit": 512,
+  "cases": [
+    {
+      "id": "fit_history_00",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What is my current storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Lena Arden. My first storage code was 7. My travel item is a camera."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Lena Arden, your first storage code was 7, and your travel item is a camera."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 5. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 5; the original code was 7."
+        }
+      ]
+    },
+    {
+      "id": "fit_instruction_00",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return exactly this word in uppercase, with no other text: camera"
+    },
+    {
+      "id": "fit_arithmetic_00",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "Lena Arden has 7 green counters and 5 yellow counters. 2 green counters are lost. How many counters remain? Answer with one integer."
+    },
+    {
+      "id": "fit_reading_00",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  Lena Arden put the camera in drawer 7. Later, Omar moved it to drawer 5. Where is the camera now? Answer with the drawer number only."
+    },
+    {
+      "id": "fit_code_00",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sorted(set([7, 5, 7, 5]))? Return only the list."
+    },
+    {
+      "id": "fit_planning_00",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Lena Arden must charge a battery before testing a camera, and test it before packing it. List the three actions in order in one short sentence."
+    },
+    {
+      "id": "fit_explanation_00",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Lena Arden asks why a plant bends toward a window. Use these supplied facts: Light reaches the window side more strongly. The shaded side of the stem grows faster, causing a bend. Explain the cause in two short sentences and address Lena Arden by name."
+    },
+    {
+      "id": "fit_rewrite_00",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Give me the camera right now."
+    },
+    {
+      "id": "fit_history_01",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What was my original storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Omar Arden. My first storage code was 8. My travel item is a compass."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Omar Arden, your first storage code was 8, and your travel item is a compass."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 7. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 7; the original code was 8."
+        }
+      ]
+    },
+    {
+      "id": "fit_rewrite_01",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: You must check the 8 entries immediately."
+    },
+    {
+      "id": "fit_explanation_01",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Omar Arden asks why a wet cloth dries faster in moving air. Use these supplied facts: Evaporation adds water vapor near the cloth. Moving air removes that vapor, allowing further evaporation. Explain the cause in two short sentences and address Omar Arden by name."
+    },
+    {
+      "id": "fit_reading_01",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The compass belongs to Omar Arden. It was lent to Ravi for a day. Who owns the compass? Answer with the name only."
+    },
+    {
+      "id": "fit_arithmetic_01",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "There are 8 boxes with 4 pencils each. 4 pencils are given away. How many pencils remain? Answer with one integer."
+    },
+    {
+      "id": "fit_planning_01",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Omar Arden has 8 minutes. Task A needs 6 minutes and task B needs 4 minutes. Can both fit in that time without overlap? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_code_01",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sum(x for x in [8, 7, 4, 8] if x % 2 == 0)? Return only the integer."
+    },
+    {
+      "id": "fit_instruction_01",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return only a JSON object with keys \"name\" and \"count\", using values \"Omar Arden\" and 8."
+    },
+    {
+      "id": "fit_code_02",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of {\"left\": 9, \"right\": 9}.get(\"center\", 9)? Return only the integer."
+    },
+    {
+      "id": "fit_instruction_02",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return these integers in ascending order, separated by semicolons and with no spaces: 9, 8, 9."
+    },
+    {
+      "id": "fit_arithmetic_02",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "A ticket costs 9 dollars. Nia Arden buys 3 tickets and pays with 39 dollars. How many dollars of change are due? Answer with one integer."
+    },
+    {
+      "id": "fit_history_02",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What item did I say I travel with? Return the item only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Nia Arden. My first storage code was 9. My travel item is a radio."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Nia Arden, your first storage code was 9, and your travel item is a radio."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 9. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 9; the original code was 9."
+        }
+      ]
+    },
+    {
+      "id": "fit_explanation_02",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Nia Arden asks why a bicycle slows when its brakes are pressed. Use these supplied facts: Brake pads rub the wheel. Friction converts part of the bicycle motion energy into heat. Explain the cause in two short sentences and address Nia Arden by name."
+    },
+    {
+      "id": "fit_rewrite_02",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Send Nia Arden the report before noon."
+    },
+    {
+      "id": "fit_reading_02",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. Nia Arden arrived after Felix Arden but before Tess Arden. Which of these three arrived first? Answer with the name only."
+    },
+    {
+      "id": "fit_planning_02",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "The train leaves at 9:30 and the bus arrives at 9:45. Can Nia Arden catch that train after taking that bus? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_code_03",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of list(range(10, 17))[1:6:2]? Return only the list."
+    },
+    {
+      "id": "fit_rewrite_03",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Stop leaving your telescope on my desk."
+    },
+    {
+      "id": "fit_reading_03",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  The store originally opens at 10:00. The notice says opening is delayed by two hours. At what hour does it open today? Return the hour number only."
+    },
+    {
+      "id": "fit_history_03",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What name did I give you? Return the name only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Felix Arden. My first storage code was 10. My travel item is a telescope."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Felix Arden, your first storage code was 10, and your travel item is a telescope."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 11. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 11; the original code was 10."
+        }
+      ]
+    },
+    {
+      "id": "fit_instruction_03",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "From the text \"owner=Felix Arden; item=telescope; count=10\", return only the value of item."
+    },
+    {
+      "id": "fit_planning_03",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Felix Arden needs to buy paper, print a document, and deliver it. Printing requires paper and delivery requires the printed document. Give the order as three numbered steps."
+    },
+    {
+      "id": "fit_arithmetic_03",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "The four numbers are 10, 12, 14, and 16. What is their arithmetic mean? Answer with one integer."
+    },
+    {
+      "id": "fit_explanation_03",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Felix Arden asks why a sealed empty plastic bottle shrinks when cooled. Use these supplied facts: Cooling lowers the pressure of the gas inside. Outside air then exerts greater pressure on the bottle walls. Explain the cause in two short sentences and address Felix Arden by name."
+    },
+    {
+      "id": "fit_instruction_04",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return exactly this word in uppercase, with no other text: keyboard"
+    },
+    {
+      "id": "fit_explanation_04",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Tess Arden asks why a plant bends toward a window. Use these supplied facts: Light reaches the window side more strongly. The shaded side of the stem grows faster, causing a bend. Explain the cause in two short sentences and address Tess Arden by name."
+    },
+    {
+      "id": "fit_arithmetic_04",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "Tess Arden has 11 green counters and 13 yellow counters. 6 green counters are lost. How many counters remain? Answer with one integer."
+    },
+    {
+      "id": "fit_rewrite_04",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Give me the keyboard right now."
+    },
+    {
+      "id": "fit_reading_04",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. Tess Arden put the keyboard in drawer 11. Later, Omar moved it to drawer 13. Where is the keyboard now? Answer with the drawer number only."
+    },
+    {
+      "id": "fit_history_04",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What is my current storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Tess Arden. My first storage code was 11. My travel item is a keyboard."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Tess Arden, your first storage code was 11, and your travel item is a keyboard."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 13. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 13; the original code was 11."
+        }
+      ]
+    },
+    {
+      "id": "fit_code_04",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sorted(set([11, 13, 11, 9]))? Return only the list."
+    },
+    {
+      "id": "fit_planning_04",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Tess Arden must charge a battery before testing a keyboard, and test it before packing it. List the three actions in order in one short sentence."
+    },
+    {
+      "id": "fit_arithmetic_05",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "There are 12 boxes with 4 pencils each. 8 pencils are given away. How many pencils remain? Answer with one integer."
+    },
+    {
+      "id": "fit_explanation_05",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Ravi Arden asks why a wet cloth dries faster in moving air. Use these supplied facts: Evaporation adds water vapor near the cloth. Moving air removes that vapor, allowing further evaporation. Explain the cause in two short sentences and address Ravi Arden by name."
+    },
+    {
+      "id": "fit_history_05",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What was my original storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Ravi Arden. My first storage code was 12. My travel item is a thermometer."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Ravi Arden, your first storage code was 12, and your travel item is a thermometer."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 15. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 15; the original code was 12."
+        }
+      ]
+    },
+    {
+      "id": "fit_planning_05",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Ravi Arden has 12 minutes. Task A needs 10 minutes and task B needs 4 minutes. Can both fit in that time without overlap? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_rewrite_05",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: You must check the 12 entries immediately."
+    },
+    {
+      "id": "fit_code_05",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sum(x for x in [12, 15, 4, 8] if x % 2 == 0)? Return only the integer."
+    },
+    {
+      "id": "fit_instruction_05",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return only a JSON object with keys \"name\" and \"count\", using values \"Ravi Arden\" and 12."
+    },
+    {
+      "id": "fit_reading_05",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. The thermometer belongs to Ravi Arden. It was lent to Ravi for a day. Who owns the thermometer? Answer with the name only."
+    },
+    {
+      "id": "fit_explanation_06",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Cora Arden asks why a bicycle slows when its brakes are pressed. Use these supplied facts: Brake pads rub the wheel. Friction converts part of the bicycle motion energy into heat. Explain the cause in two short sentences and address Cora Arden by name."
+    },
+    {
+      "id": "fit_reading_06",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  Cora Arden arrived after Ivan Arden but before Lena Arden. Which of these three arrived first? Answer with the name only."
+    },
+    {
+      "id": "fit_history_06",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What item did I say I travel with? Return the item only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Cora Arden. My first storage code was 13. My travel item is a pencil."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Cora Arden, your first storage code was 13, and your travel item is a pencil."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 17. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 17; the original code was 13."
+        }
+      ]
+    },
+    {
+      "id": "fit_arithmetic_06",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "A ticket costs 13 dollars. Cora Arden buys 3 tickets and pays with 51 dollars. How many dollars of change are due? Answer with one integer."
+    },
+    {
+      "id": "fit_instruction_06",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return these integers in ascending order, separated by semicolons and with no spaces: 17, 12, 13."
+    },
+    {
+      "id": "fit_planning_06",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "The train leaves at 13:30 and the bus arrives at 13:45. Can Cora Arden catch that train after taking that bus? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_code_06",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of {\"left\": 13, \"right\": 17}.get(\"center\", 9)? Return only the integer."
+    },
+    {
+      "id": "fit_rewrite_06",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Send Cora Arden the report before noon."
+    },
+    {
+      "id": "fit_arithmetic_07",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "The four numbers are 14, 16, 18, and 20. What is their arithmetic mean? Answer with one integer."
+    },
+    {
+      "id": "fit_code_07",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of list(range(14, 21))[1:6:2]? Return only the list."
+    },
+    {
+      "id": "fit_planning_07",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Ivan Arden needs to buy paper, print a document, and deliver it. Printing requires paper and delivery requires the printed document. Give the order as three numbered steps."
+    },
+    {
+      "id": "fit_rewrite_07",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Stop leaving your charger on my desk."
+    },
+    {
+      "id": "fit_explanation_07",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Ivan Arden asks why a sealed empty plastic bottle shrinks when cooled. Use these supplied facts: Cooling lowers the pressure of the gas inside. Outside air then exerts greater pressure on the bottle walls. Explain the cause in two short sentences and address Ivan Arden by name."
+    },
+    {
+      "id": "fit_history_07",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What name did I give you? Return the name only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Ivan Arden. My first storage code was 14. My travel item is a charger."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Ivan Arden, your first storage code was 14, and your travel item is a charger."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 19. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 19; the original code was 14."
+        }
+      ]
+    },
+    {
+      "id": "fit_instruction_07",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "From the text \"owner=Ivan Arden; item=charger; count=14\", return only the value of item."
+    },
+    {
+      "id": "fit_reading_07",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The store originally opens at 14:00. The notice says opening is delayed by two hours. At what hour does it open today? Return the hour number only."
+    },
+    {
+      "id": "fit_instruction_08",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return exactly this word in uppercase, with no other text: brush"
+    },
+    {
+      "id": "fit_reading_08",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. Lena Blake put the brush in drawer 15. Later, Omar moved it to drawer 21. Where is the brush now? Answer with the drawer number only."
+    },
+    {
+      "id": "fit_planning_08",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Lena Blake must charge a battery before testing a brush, and test it before packing it. List the three actions in order in one short sentence."
+    },
+    {
+      "id": "fit_explanation_08",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Lena Blake asks why a plant bends toward a window. Use these supplied facts: Light reaches the window side more strongly. The shaded side of the stem grows faster, causing a bend. Explain the cause in two short sentences and address Lena Blake by name."
+    },
+    {
+      "id": "fit_code_08",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sorted(set([15, 21, 15, 13]))? Return only the list."
+    },
+    {
+      "id": "fit_rewrite_08",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Give me the brush right now."
+    },
+    {
+      "id": "fit_arithmetic_08",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "Lena Blake has 15 green counters and 21 yellow counters. 10 green counters are lost. How many counters remain? Answer with one integer."
+    },
+    {
+      "id": "fit_history_08",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What is my current storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Lena Blake. My first storage code was 15. My travel item is a brush."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Lena Blake, your first storage code was 15, and your travel item is a brush."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 21. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 21; the original code was 15."
+        }
+      ]
+    },
+    {
+      "id": "fit_code_09",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sum(x for x in [16, 23, 4, 8] if x % 2 == 0)? Return only the integer."
+    },
+    {
+      "id": "fit_explanation_09",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Omar Blake asks why a wet cloth dries faster in moving air. Use these supplied facts: Evaporation adds water vapor near the cloth. Moving air removes that vapor, allowing further evaporation. Explain the cause in two short sentences and address Omar Blake by name."
+    },
+    {
+      "id": "fit_history_09",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What was my original storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Omar Blake. My first storage code was 16. My travel item is a lantern."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Omar Blake, your first storage code was 16, and your travel item is a lantern."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 23. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 23; the original code was 16."
+        }
+      ]
+    },
+    {
+      "id": "fit_instruction_09",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return only a JSON object with keys \"name\" and \"count\", using values \"Omar Blake\" and 16."
+    },
+    {
+      "id": "fit_planning_09",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Omar Blake has 16 minutes. Task A needs 14 minutes and task B needs 4 minutes. Can both fit in that time without overlap? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_arithmetic_09",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "There are 16 boxes with 4 pencils each. 12 pencils are given away. How many pencils remain? Answer with one integer."
+    },
+    {
+      "id": "fit_reading_09",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  The lantern belongs to Omar Blake. It was lent to Ravi for a day. Who owns the lantern? Answer with the name only."
+    },
+    {
+      "id": "fit_rewrite_09",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: You must check the 16 entries immediately."
+    },
+    {
+      "id": "fit_explanation_10",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Nia Blake asks why a bicycle slows when its brakes are pressed. Use these supplied facts: Brake pads rub the wheel. Friction converts part of the bicycle motion energy into heat. Explain the cause in two short sentences and address Nia Blake by name."
+    },
+    {
+      "id": "fit_history_10",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What item did I say I travel with? Return the item only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Nia Blake. My first storage code was 17. My travel item is a backpack."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Nia Blake, your first storage code was 17, and your travel item is a backpack."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 25. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 25; the original code was 17."
+        }
+      ]
+    },
+    {
+      "id": "fit_reading_10",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. Nia Blake arrived after Felix Blake but before Tess Blake. Which of these three arrived first? Answer with the name only."
+    },
+    {
+      "id": "fit_rewrite_10",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Send Nia Blake the report before noon."
+    },
+    {
+      "id": "fit_code_10",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of {\"left\": 17, \"right\": 25}.get(\"center\", 9)? Return only the integer."
+    },
+    {
+      "id": "fit_arithmetic_10",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "A ticket costs 17 dollars. Nia Blake buys 3 tickets and pays with 63 dollars. How many dollars of change are due? Answer with one integer."
+    },
+    {
+      "id": "fit_planning_10",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "The train leaves at 7:30 and the bus arrives at 7:45. Can Nia Blake catch that train after taking that bus? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_instruction_10",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return these integers in ascending order, separated by semicolons and with no spaces: 25, 16, 17."
+    },
+    {
+      "id": "fit_history_11",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What name did I give you? Return the name only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Felix Blake. My first storage code was 18. My travel item is a notebook."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Felix Blake, your first storage code was 18, and your travel item is a notebook."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 27. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 27; the original code was 18."
+        }
+      ]
+    },
+    {
+      "id": "fit_arithmetic_11",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "The four numbers are 18, 20, 22, and 24. What is their arithmetic mean? Answer with one integer."
+    },
+    {
+      "id": "fit_rewrite_11",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Stop leaving your notebook on my desk."
+    },
+    {
+      "id": "fit_code_11",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of list(range(18, 25))[1:6:2]? Return only the list."
+    },
+    {
+      "id": "fit_reading_11",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. The store originally opens at 8:00. The notice says opening is delayed by two hours. At what hour does it open today? Return the hour number only."
+    },
+    {
+      "id": "fit_explanation_11",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Felix Blake asks why a sealed empty plastic bottle shrinks when cooled. Use these supplied facts: Cooling lowers the pressure of the gas inside. Outside air then exerts greater pressure on the bottle walls. Explain the cause in two short sentences and address Felix Blake by name."
+    },
+    {
+      "id": "fit_instruction_11",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "From the text \"owner=Felix Blake; item=notebook; count=18\", return only the value of item."
+    },
+    {
+      "id": "fit_planning_11",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Felix Blake needs to buy paper, print a document, and deliver it. Printing requires paper and delivery requires the printed document. Give the order as three numbered steps."
+    },
+    {
+      "id": "fit_reading_12",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  Tess Blake put the guitar in drawer 19. Later, Omar moved it to drawer 29. Where is the guitar now? Answer with the drawer number only."
+    },
+    {
+      "id": "fit_instruction_12",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return exactly this word in uppercase, with no other text: guitar"
+    },
+    {
+      "id": "fit_code_12",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sorted(set([19, 29, 19, 17]))? Return only the list."
+    },
+    {
+      "id": "fit_planning_12",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Tess Blake must charge a battery before testing a guitar, and test it before packing it. List the three actions in order in one short sentence."
+    },
+    {
+      "id": "fit_rewrite_12",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Give me the guitar right now."
+    },
+    {
+      "id": "fit_arithmetic_12",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "Tess Blake has 19 green counters and 29 yellow counters. 14 green counters are lost. How many counters remain? Answer with one integer."
+    },
+    {
+      "id": "fit_history_12",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What is my current storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Tess Blake. My first storage code was 19. My travel item is a guitar."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Tess Blake, your first storage code was 19, and your travel item is a guitar."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 29. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 29; the original code was 19."
+        }
+      ]
+    },
+    {
+      "id": "fit_explanation_12",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Tess Blake asks why a plant bends toward a window. Use these supplied facts: Light reaches the window side more strongly. The shaded side of the stem grows faster, causing a bend. Explain the cause in two short sentences and address Tess Blake by name."
+    },
+    {
+      "id": "fit_explanation_13",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Ravi Blake asks why a wet cloth dries faster in moving air. Use these supplied facts: Evaporation adds water vapor near the cloth. Moving air removes that vapor, allowing further evaporation. Explain the cause in two short sentences and address Ravi Blake by name."
+    },
+    {
+      "id": "fit_planning_13",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Ravi Blake has 20 minutes. Task A needs 18 minutes and task B needs 4 minutes. Can both fit in that time without overlap? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_rewrite_13",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: You must check the 20 entries immediately."
+    },
+    {
+      "id": "fit_arithmetic_13",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "There are 20 boxes with 4 pencils each. 16 pencils are given away. How many pencils remain? Answer with one integer."
+    },
+    {
+      "id": "fit_code_13",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sum(x for x in [20, 31, 4, 8] if x % 2 == 0)? Return only the integer."
+    },
+    {
+      "id": "fit_reading_13",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The binoculars belongs to Ravi Blake. It was lent to Ravi for a day. Who owns the binoculars? Answer with the name only."
+    },
+    {
+      "id": "fit_history_13",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What was my original storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Ravi Blake. My first storage code was 20. My travel item is a binoculars."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Ravi Blake, your first storage code was 20, and your travel item is a binoculars."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 31. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 31; the original code was 20."
+        }
+      ]
+    },
+    {
+      "id": "fit_instruction_13",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return only a JSON object with keys \"name\" and \"count\", using values \"Ravi Blake\" and 20."
+    },
+    {
+      "id": "fit_rewrite_14",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Send Cora Blake the report before noon."
+    },
+    {
+      "id": "fit_instruction_14",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "Return these integers in ascending order, separated by semicolons and with no spaces: 33, 20, 21."
+    },
+    {
+      "id": "fit_arithmetic_14",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "A ticket costs 21 dollars. Cora Blake buys 3 tickets and pays with 75 dollars. How many dollars of change are due? Answer with one integer."
+    },
+    {
+      "id": "fit_explanation_14",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Cora Blake asks why a bicycle slows when its brakes are pressed. Use these supplied facts: Brake pads rub the wheel. Friction converts part of the bicycle motion energy into heat. Explain the cause in two short sentences and address Cora Blake by name."
+    },
+    {
+      "id": "fit_planning_14",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "The train leaves at 11:30 and the bus arrives at 11:45. Can Cora Blake catch that train after taking that bus? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "fit_code_14",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of {\"left\": 21, \"right\": 33}.get(\"center\", 9)? Return only the integer."
+    },
+    {
+      "id": "fit_reading_14",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. Cora Blake arrived after Ivan Blake but before Lena Blake. Which of these three arrived first? Answer with the name only."
+    },
+    {
+      "id": "fit_history_14",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What item did I say I travel with? Return the item only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Cora Blake. My first storage code was 21. My travel item is a calculator."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Cora Blake, your first storage code was 21, and your travel item is a calculator."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 33. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 33; the original code was 21."
+        }
+      ]
+    },
+    {
+      "id": "fit_code_15",
+      "split": "FIT",
+      "domain": "code",
+      "prompt": "What is the exact Python value of list(range(22, 29))[1:6:2]? Return only the list."
+    },
+    {
+      "id": "fit_history_15",
+      "split": "FIT",
+      "domain": "history",
+      "prompt": "What name did I give you? Return the name only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Ivan Blake. My first storage code was 22. My travel item is a tripod."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Ivan Blake, your first storage code was 22, and your travel item is a tripod."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 35. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 35; the original code was 22."
+        }
+      ]
+    },
+    {
+      "id": "fit_rewrite_15",
+      "split": "FIT",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Stop leaving your tripod on my desk."
+    },
+    {
+      "id": "fit_explanation_15",
+      "split": "FIT",
+      "domain": "explanation",
+      "prompt": "Ivan Blake asks why a sealed empty plastic bottle shrinks when cooled. Use these supplied facts: Cooling lowers the pressure of the gas inside. Outside air then exerts greater pressure on the bottle walls. Explain the cause in two short sentences and address Ivan Blake by name."
+    },
+    {
+      "id": "fit_planning_15",
+      "split": "FIT",
+      "domain": "planning",
+      "prompt": "Ivan Blake needs to buy paper, print a document, and deliver it. Printing requires paper and delivery requires the printed document. Give the order as three numbered steps."
+    },
+    {
+      "id": "fit_arithmetic_15",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "prompt": "The four numbers are 22, 24, 26, and 28. What is their arithmetic mean? Answer with one integer."
+    },
+    {
+      "id": "fit_instruction_15",
+      "split": "FIT",
+      "domain": "instruction",
+      "prompt": "From the text \"owner=Ivan Blake; item=tripod; count=22\", return only the value of item."
+    },
+    {
+      "id": "fit_reading_15",
+      "split": "FIT",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  The store originally opens at 12:00. The notice says opening is delayed by two hours. At what hour does it open today? Return the hour number only."
+    },
+    {
+      "id": "dev_reading_16",
+      "split": "DEV",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. Lena Crane put the clock in drawer 23. Later, Omar moved it to drawer 37. Where is the clock now? Answer with the drawer number only."
+    },
+    {
+      "id": "dev_history_16",
+      "split": "DEV",
+      "domain": "history",
+      "prompt": "What is my current storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Lena Crane. My first storage code was 23. My travel item is a clock."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Lena Crane, your first storage code was 23, and your travel item is a clock."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 37. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 37; the original code was 23."
+        }
+      ]
+    },
+    {
+      "id": "dev_arithmetic_16",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "prompt": "Lena Crane has 23 green counters and 37 yellow counters. 18 green counters are lost. How many counters remain? Answer with one integer."
+    },
+    {
+      "id": "dev_planning_16",
+      "split": "DEV",
+      "domain": "planning",
+      "prompt": "Lena Crane must charge a battery before testing a clock, and test it before packing it. List the three actions in order in one short sentence."
+    },
+    {
+      "id": "dev_instruction_16",
+      "split": "DEV",
+      "domain": "instruction",
+      "prompt": "Return exactly this word in uppercase, with no other text: clock"
+    },
+    {
+      "id": "dev_code_16",
+      "split": "DEV",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sorted(set([23, 37, 23, 21]))? Return only the list."
+    },
+    {
+      "id": "dev_rewrite_16",
+      "split": "DEV",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Give me the clock right now."
+    },
+    {
+      "id": "dev_explanation_16",
+      "split": "DEV",
+      "domain": "explanation",
+      "prompt": "Lena Crane asks why a plant bends toward a window. Use these supplied facts: Light reaches the window side more strongly. The shaded side of the stem grows faster, causing a bend. Explain the cause in two short sentences and address Lena Crane by name."
+    },
+    {
+      "id": "dev_reading_17",
+      "split": "DEV",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. The tablet belongs to Omar Crane. It was lent to Ravi for a day. Who owns the tablet? Answer with the name only."
+    },
+    {
+      "id": "dev_arithmetic_17",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "prompt": "There are 24 boxes with 4 pencils each. 20 pencils are given away. How many pencils remain? Answer with one integer."
+    },
+    {
+      "id": "dev_history_17",
+      "split": "DEV",
+      "domain": "history",
+      "prompt": "What was my original storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Omar Crane. My first storage code was 24. My travel item is a tablet."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Omar Crane, your first storage code was 24, and your travel item is a tablet."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 39. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 39; the original code was 24."
+        }
+      ]
+    },
+    {
+      "id": "dev_rewrite_17",
+      "split": "DEV",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: You must check the 24 entries immediately."
+    },
+    {
+      "id": "dev_instruction_17",
+      "split": "DEV",
+      "domain": "instruction",
+      "prompt": "Return only a JSON object with keys \"name\" and \"count\", using values \"Omar Crane\" and 24."
+    },
+    {
+      "id": "dev_planning_17",
+      "split": "DEV",
+      "domain": "planning",
+      "prompt": "Omar Crane has 24 minutes. Task A needs 22 minutes and task B needs 4 minutes. Can both fit in that time without overlap? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "dev_explanation_17",
+      "split": "DEV",
+      "domain": "explanation",
+      "prompt": "Omar Crane asks why a wet cloth dries faster in moving air. Use these supplied facts: Evaporation adds water vapor near the cloth. Moving air removes that vapor, allowing further evaporation. Explain the cause in two short sentences and address Omar Crane by name."
+    },
+    {
+      "id": "dev_code_17",
+      "split": "DEV",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sum(x for x in [24, 39, 4, 8] if x % 2 == 0)? Return only the integer."
+    },
+    {
+      "id": "dev_planning_18",
+      "split": "DEV",
+      "domain": "planning",
+      "prompt": "The train leaves at 15:30 and the bus arrives at 15:45. Can Nia Crane catch that train after taking that bus? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "dev_explanation_18",
+      "split": "DEV",
+      "domain": "explanation",
+      "prompt": "Nia Crane asks why a bicycle slows when its brakes are pressed. Use these supplied facts: Brake pads rub the wheel. Friction converts part of the bicycle motion energy into heat. Explain the cause in two short sentences and address Nia Crane by name."
+    },
+    {
+      "id": "dev_rewrite_18",
+      "split": "DEV",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Send Nia Crane the report before noon."
+    },
+    {
+      "id": "dev_history_18",
+      "split": "DEV",
+      "domain": "history",
+      "prompt": "What item did I say I travel with? Return the item only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Nia Crane. My first storage code was 25. My travel item is a basket."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Nia Crane, your first storage code was 25, and your travel item is a basket."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 41. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 41; the original code was 25."
+        }
+      ]
+    },
+    {
+      "id": "dev_instruction_18",
+      "split": "DEV",
+      "domain": "instruction",
+      "prompt": "Return these integers in ascending order, separated by semicolons and with no spaces: 41, 24, 25."
+    },
+    {
+      "id": "dev_code_18",
+      "split": "DEV",
+      "domain": "code",
+      "prompt": "What is the exact Python value of {\"left\": 25, \"right\": 41}.get(\"center\", 9)? Return only the integer."
+    },
+    {
+      "id": "dev_arithmetic_18",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "prompt": "A ticket costs 25 dollars. Nia Crane buys 3 tickets and pays with 87 dollars. How many dollars of change are due? Answer with one integer."
+    },
+    {
+      "id": "dev_reading_18",
+      "split": "DEV",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  Nia Crane arrived after Felix Crane but before Tess Crane. Which of these three arrived first? Answer with the name only."
+    },
+    {
+      "id": "dev_reading_19",
+      "split": "DEV",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The store originally opens at 16:00. The notice says opening is delayed by two hours. At what hour does it open today? Return the hour number only."
+    },
+    {
+      "id": "dev_rewrite_19",
+      "split": "DEV",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Stop leaving your violin on my desk."
+    },
+    {
+      "id": "dev_explanation_19",
+      "split": "DEV",
+      "domain": "explanation",
+      "prompt": "Felix Crane asks why a sealed empty plastic bottle shrinks when cooled. Use these supplied facts: Cooling lowers the pressure of the gas inside. Outside air then exerts greater pressure on the bottle walls. Explain the cause in two short sentences and address Felix Crane by name."
+    },
+    {
+      "id": "dev_planning_19",
+      "split": "DEV",
+      "domain": "planning",
+      "prompt": "Felix Crane needs to buy paper, print a document, and deliver it. Printing requires paper and delivery requires the printed document. Give the order as three numbered steps."
+    },
+    {
+      "id": "dev_code_19",
+      "split": "DEV",
+      "domain": "code",
+      "prompt": "What is the exact Python value of list(range(26, 33))[1:6:2]? Return only the list."
+    },
+    {
+      "id": "dev_instruction_19",
+      "split": "DEV",
+      "domain": "instruction",
+      "prompt": "From the text \"owner=Felix Crane; item=violin; count=26\", return only the value of item."
+    },
+    {
+      "id": "dev_history_19",
+      "split": "DEV",
+      "domain": "history",
+      "prompt": "What name did I give you? Return the name only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Felix Crane. My first storage code was 26. My travel item is a violin."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Felix Crane, your first storage code was 26, and your travel item is a violin."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 43. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 43; the original code was 26."
+        }
+      ]
+    },
+    {
+      "id": "dev_arithmetic_19",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "prompt": "The four numbers are 26, 28, 30, and 32. What is their arithmetic mean? Answer with one integer."
+    }
+  ],
+  "reserved_cases": [
+    {
+      "id": "reserved_history_20",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What is my current storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Tess Crane. My first storage code was 27. My travel item is a helmet."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Tess Crane, your first storage code was 27, and your travel item is a helmet."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 45. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 45; the original code was 27."
+        }
+      ]
+    },
+    {
+      "id": "reserved_arithmetic_20",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "Tess Crane has 27 green counters and 45 yellow counters. 22 green counters are lost. How many counters remain? Answer with one integer."
+    },
+    {
+      "id": "reserved_explanation_20",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Tess Crane asks why a plant bends toward a window. Use these supplied facts: Light reaches the window side more strongly. The shaded side of the stem grows faster, causing a bend. Explain the cause in two short sentences and address Tess Crane by name."
+    },
+    {
+      "id": "reserved_rewrite_20",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Give me the helmet right now."
+    },
+    {
+      "id": "reserved_reading_20",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. Tess Crane put the helmet in drawer 27. Later, Omar moved it to drawer 45. Where is the helmet now? Answer with the drawer number only."
+    },
+    {
+      "id": "reserved_instruction_20",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "Return exactly this word in uppercase, with no other text: helmet"
+    },
+    {
+      "id": "reserved_code_20",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sorted(set([27, 45, 27, 25]))? Return only the list."
+    },
+    {
+      "id": "reserved_planning_20",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "Tess Crane must charge a battery before testing a helmet, and test it before packing it. List the three actions in order in one short sentence."
+    },
+    {
+      "id": "reserved_explanation_21",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Ravi Crane asks why a wet cloth dries faster in moving air. Use these supplied facts: Evaporation adds water vapor near the cloth. Moving air removes that vapor, allowing further evaporation. Explain the cause in two short sentences and address Ravi Crane by name."
+    },
+    {
+      "id": "reserved_code_21",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sum(x for x in [28, 47, 4, 8] if x % 2 == 0)? Return only the integer."
+    },
+    {
+      "id": "reserved_instruction_21",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "Return only a JSON object with keys \"name\" and \"count\", using values \"Ravi Crane\" and 28."
+    },
+    {
+      "id": "reserved_arithmetic_21",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "There are 28 boxes with 4 pencils each. 24 pencils are given away. How many pencils remain? Answer with one integer."
+    },
+    {
+      "id": "reserved_planning_21",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "Ravi Crane has 28 minutes. Task A needs 26 minutes and task B needs 4 minutes. Can both fit in that time without overlap? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "reserved_reading_21",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  The umbrella belongs to Ravi Crane. It was lent to Ravi for a day. Who owns the umbrella? Answer with the name only."
+    },
+    {
+      "id": "reserved_history_21",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What was my original storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Ravi Crane. My first storage code was 28. My travel item is a umbrella."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Ravi Crane, your first storage code was 28, and your travel item is a umbrella."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 47. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 47; the original code was 28."
+        }
+      ]
+    },
+    {
+      "id": "reserved_rewrite_21",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: You must check the 28 entries immediately."
+    },
+    {
+      "id": "reserved_explanation_22",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Cora Crane asks why a bicycle slows when its brakes are pressed. Use these supplied facts: Brake pads rub the wheel. Friction converts part of the bicycle motion energy into heat. Explain the cause in two short sentences and address Cora Crane by name."
+    },
+    {
+      "id": "reserved_planning_22",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "The train leaves at 9:30 and the bus arrives at 9:45. Can Cora Crane catch that train after taking that bus? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "reserved_reading_22",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. Cora Crane arrived after Ivan Crane but before Lena Crane. Which of these three arrived first? Answer with the name only."
+    },
+    {
+      "id": "reserved_arithmetic_22",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "A ticket costs 29 dollars. Cora Crane buys 3 tickets and pays with 99 dollars. How many dollars of change are due? Answer with one integer."
+    },
+    {
+      "id": "reserved_rewrite_22",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Send Cora Crane the report before noon."
+    },
+    {
+      "id": "reserved_instruction_22",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "Return these integers in ascending order, separated by semicolons and with no spaces: 49, 28, 29."
+    },
+    {
+      "id": "reserved_code_22",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of {\"left\": 29, \"right\": 49}.get(\"center\", 9)? Return only the integer."
+    },
+    {
+      "id": "reserved_history_22",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What item did I say I travel with? Return the item only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Cora Crane. My first storage code was 29. My travel item is a suitcase."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Cora Crane, your first storage code was 29, and your travel item is a suitcase."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 49. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 49; the original code was 29."
+        }
+      ]
+    },
+    {
+      "id": "reserved_reading_23",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. The store originally opens at 10:00. The notice says opening is delayed by two hours. At what hour does it open today? Return the hour number only."
+    },
+    {
+      "id": "reserved_instruction_23",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "From the text \"owner=Ivan Crane; item=flashlight; count=30\", return only the value of item."
+    },
+    {
+      "id": "reserved_planning_23",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "Ivan Crane needs to buy paper, print a document, and deliver it. Printing requires paper and delivery requires the printed document. Give the order as three numbered steps."
+    },
+    {
+      "id": "reserved_code_23",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of list(range(30, 37))[1:6:2]? Return only the list."
+    },
+    {
+      "id": "reserved_history_23",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What name did I give you? Return the name only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Ivan Crane. My first storage code was 30. My travel item is a flashlight."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Ivan Crane, your first storage code was 30, and your travel item is a flashlight."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 51. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 51; the original code was 30."
+        }
+      ]
+    },
+    {
+      "id": "reserved_explanation_23",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Ivan Crane asks why a sealed empty plastic bottle shrinks when cooled. Use these supplied facts: Cooling lowers the pressure of the gas inside. Outside air then exerts greater pressure on the bottle walls. Explain the cause in two short sentences and address Ivan Crane by name."
+    },
+    {
+      "id": "reserved_arithmetic_23",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "The four numbers are 30, 32, 34, and 36. What is their arithmetic mean? Answer with one integer."
+    },
+    {
+      "id": "reserved_rewrite_23",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Stop leaving your flashlight on my desk."
+    },
+    {
+      "id": "reserved_planning_24",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "Lena Dale must charge a battery before testing a microphone, and test it before packing it. List the three actions in order in one short sentence."
+    },
+    {
+      "id": "reserved_explanation_24",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Lena Dale asks why a plant bends toward a window. Use these supplied facts: Light reaches the window side more strongly. The shaded side of the stem grows faster, causing a bend. Explain the cause in two short sentences and address Lena Dale by name."
+    },
+    {
+      "id": "reserved_arithmetic_24",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "Lena Dale has 31 green counters and 53 yellow counters. 26 green counters are lost. How many counters remain? Answer with one integer."
+    },
+    {
+      "id": "reserved_rewrite_24",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Give me the microphone right now."
+    },
+    {
+      "id": "reserved_code_24",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sorted(set([31, 53, 31, 29]))? Return only the list."
+    },
+    {
+      "id": "reserved_reading_24",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  Lena Dale put the microphone in drawer 31. Later, Omar moved it to drawer 53. Where is the microphone now? Answer with the drawer number only."
+    },
+    {
+      "id": "reserved_history_24",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What is my current storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Lena Dale. My first storage code was 31. My travel item is a microphone."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Lena Dale, your first storage code was 31, and your travel item is a microphone."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 53. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 53; the original code was 31."
+        }
+      ]
+    },
+    {
+      "id": "reserved_instruction_24",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "Return exactly this word in uppercase, with no other text: microphone"
+    },
+    {
+      "id": "reserved_rewrite_25",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: You must check the 32 entries immediately."
+    },
+    {
+      "id": "reserved_explanation_25",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Omar Dale asks why a wet cloth dries faster in moving air. Use these supplied facts: Evaporation adds water vapor near the cloth. Moving air removes that vapor, allowing further evaporation. Explain the cause in two short sentences and address Omar Dale by name."
+    },
+    {
+      "id": "reserved_arithmetic_25",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "There are 32 boxes with 4 pencils each. 28 pencils are given away. How many pencils remain? Answer with one integer."
+    },
+    {
+      "id": "reserved_planning_25",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "Omar Dale has 32 minutes. Task A needs 30 minutes and task B needs 4 minutes. Can both fit in that time without overlap? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "reserved_instruction_25",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "Return only a JSON object with keys \"name\" and \"count\", using values \"Omar Dale\" and 32."
+    },
+    {
+      "id": "reserved_reading_25",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The bottle belongs to Omar Dale. It was lent to Ravi for a day. Who owns the bottle? Answer with the name only."
+    },
+    {
+      "id": "reserved_history_25",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What was my original storage code? Return the integer only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Omar Dale. My first storage code was 32. My travel item is a bottle."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Omar Dale, your first storage code was 32, and your travel item is a bottle."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 55. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 55; the original code was 32."
+        }
+      ]
+    },
+    {
+      "id": "reserved_code_25",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of sum(x for x in [32, 55, 4, 8] if x % 2 == 0)? Return only the integer."
+    },
+    {
+      "id": "reserved_explanation_26",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Nia Dale asks why a bicycle slows when its brakes are pressed. Use these supplied facts: Brake pads rub the wheel. Friction converts part of the bicycle motion energy into heat. Explain the cause in two short sentences and address Nia Dale by name."
+    },
+    {
+      "id": "reserved_reading_26",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them. The inventory sheet lists shelf 1 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 2 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 3 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 4 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 5 with a blue tag; this does not describe the requested item. The inventory sheet lists shelf 6 with a blue tag; this does not describe the requested item. Nia Dale arrived after Felix Dale but before Tess Dale. Which of these three arrived first? Answer with the name only."
+    },
+    {
+      "id": "reserved_planning_26",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "The train leaves at 13:30 and the bus arrives at 13:45. Can Nia Dale catch that train after taking that bus? Answer yes or no, then briefly explain."
+    },
+    {
+      "id": "reserved_rewrite_26",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Send Nia Dale the report before noon."
+    },
+    {
+      "id": "reserved_history_26",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What item did I say I travel with? Return the item only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Nia Dale. My first storage code was 33. My travel item is a scanner."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Nia Dale, your first storage code was 33, and your travel item is a scanner."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 57. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 57; the original code was 33."
+        }
+      ]
+    },
+    {
+      "id": "reserved_arithmetic_26",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "A ticket costs 33 dollars. Nia Dale buys 3 tickets and pays with 111 dollars. How many dollars of change are due? Answer with one integer."
+    },
+    {
+      "id": "reserved_code_26",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of {\"left\": 33, \"right\": 57}.get(\"center\", 9)? Return only the integer."
+    },
+    {
+      "id": "reserved_instruction_26",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "Return these integers in ascending order, separated by semicolons and with no spaces: 57, 32, 33."
+    },
+    {
+      "id": "reserved_planning_27",
+      "split": "RESERVED",
+      "domain": "planning",
+      "prompt": "Felix Dale needs to buy paper, print a document, and deliver it. Printing requires paper and delivery requires the printed document. Give the order as three numbered steps."
+    },
+    {
+      "id": "reserved_explanation_27",
+      "split": "RESERVED",
+      "domain": "explanation",
+      "prompt": "Felix Dale asks why a sealed empty plastic bottle shrinks when cooled. Use these supplied facts: Cooling lowers the pressure of the gas inside. Outside air then exerts greater pressure on the bottle walls. Explain the cause in two short sentences and address Felix Dale by name."
+    },
+    {
+      "id": "reserved_code_27",
+      "split": "RESERVED",
+      "domain": "code",
+      "prompt": "What is the exact Python value of list(range(34, 41))[1:6:2]? Return only the list."
+    },
+    {
+      "id": "reserved_instruction_27",
+      "split": "RESERVED",
+      "domain": "instruction",
+      "prompt": "From the text \"owner=Felix Dale; item=ruler; count=34\", return only the value of item."
+    },
+    {
+      "id": "reserved_arithmetic_27",
+      "split": "RESERVED",
+      "domain": "arithmetic",
+      "prompt": "The four numbers are 34, 36, 38, and 40. What is their arithmetic mean? Answer with one integer."
+    },
+    {
+      "id": "reserved_history_27",
+      "split": "RESERVED",
+      "domain": "history",
+      "prompt": "What name did I give you? Return the name only.",
+      "history": [
+        {
+          "role": "user",
+          "content": "My name is Felix Dale. My first storage code was 34. My travel item is a ruler."
+        },
+        {
+          "role": "assistant",
+          "content": "Your name is Felix Dale, your first storage code was 34, and your travel item is a ruler."
+        },
+        {
+          "role": "user",
+          "content": "Change my current storage code to 59. Keep the original code as a historical fact."
+        },
+        {
+          "role": "assistant",
+          "content": "Your current storage code is 59; the original code was 34."
+        }
+      ]
+    },
+    {
+      "id": "reserved_rewrite_27",
+      "split": "RESERVED",
+      "domain": "rewrite",
+      "prompt": "Rewrite the following request politely in one sentence, preserving its meaning and details: Stop leaving your ruler on my desk."
+    },
+    {
+      "id": "reserved_reading_27",
+      "split": "RESERVED",
+      "domain": "reading",
+      "prompt": "Read the supplied notes and answer using only them.  The store originally opens at 14:00. The notice says opening is delayed by two hours. At what hour does it open today? Return the hour number only."
+    }
+  ],
+  "domains": [
+    "arithmetic",
+    "code",
+    "reading",
+    "rewrite",
+    "history",
+    "instruction",
+    "explanation",
+    "planning"
+  ],
+  "scope": "128 FIT/32 DEV, 8 domains, deterministic authored template families. 64 RESERVED unqueried, not a complete final quality suite. No source/capture calls; limited-domain calibration, not broad preservation evidence."
+}
