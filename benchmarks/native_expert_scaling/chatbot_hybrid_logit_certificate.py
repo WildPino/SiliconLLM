@@ -29,6 +29,8 @@ def certify(actual,reference):
     assert math.isfinite(error) and math.isfinite(energy)
     if energy==0:
         return dict(RMS_gate=error==0,method='zero_energy',relative_RMS=0.0 if error==0 else None)
+    if error==0:
+        return dict(RMS_gate=True,method='zero_error',relative_RMS=0.0)
     # u=2^-52 covers each supported IEEE rounding direction; m*u<1/2.
     # gamma_m=m*u/(1-m*u) <= 2*m*u. Reference squares are exact (<=48 bits).
     ge=2*(n+2)*2.0**-52

@@ -36,6 +36,9 @@ conservative operation bounds,not measured errors or permission to loosen1e-4.
 Assume correct IEEE F64 arithmetic and ordinary NumPy sum of positive F64
 terms; arbitrary compiler/library faults are outside this mathematical model.
 No full native DLL certification is claimed. Zero energy is handled directly.
+Zero computed error with positive energy also passes directly:nonzero F32
+differences/squares cannot underflow F64,so a zero positive sum implies exact
+identity of every value. Signed-zero differences do not change the predicate.
 
 Exact real energies lie in `Ehat/(1+gE)..Ehat/(1-gE)` and corresponding R
 interval. Each computed endpoint is moved outward by `nextafter`,including
@@ -62,7 +65,9 @@ algebraic bound or a target quality measurement. No completed model output used.
 Check all212 packed descriptors/contiguous aligned offsets/field hashes/shape
 extents/dtypes,all84,934,656 code bytes0..8 and340,253,952 finite F32 bytes/scales.
 No inference master/unpacked reference arrays. Whole model425,210,736B.
-ALL160 metadata keys andactual input/position mapping equal source corpus.
+ALL160 metadata keys andactual input/position mapping equal source corpus;
+binary queries independently parsed and checked against the metadata. Actual
+native output extents/SHA must match the primary receipt before inspection.
 ALL5746 full-vocabulary C-versus-learner rows receive an interval/zero/exact
 certificate and exact argmax comparison. Require agreement with every native
 row and its final PASS/FAIL decision;report all certificate methods/intervals

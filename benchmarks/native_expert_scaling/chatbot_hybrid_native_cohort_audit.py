@@ -21,6 +21,7 @@ def bind(a):
     learner=json.loads(a.learner_result.read_bytes())
     assert native['case_count']==160 and native['full_vocabulary_rows']==5746
     assert exported['model']==native['model'] and learner['decision']=='BALANCED_RECOVERY_ELIGIBLE'
+    assert exported['checkpoint_sha256']==learner['checkpoint']['sha256']
     files=[a.native_result,a.native_result.with_suffix('.terminal.json'),a.export_result,
            a.export_result.with_suffix('.terminal.json'),a.learner_result,a.corpus,
            Path(native['model']['path']),Path(exported['manifest']['path']),Path(__file__),
@@ -68,6 +69,15 @@ def worker(a):
         references={r['id']:r for r in learner['after']['cases']}
         assert len(metadata)==len(sources)==len(references)==160
         assert {r['id'] for r in metadata}==sources.keys()==references.keys()
+        assert sha(native['queries']['path'])==native['queries']['sha256']
+        with Path(native['queries']['path']).open('rb') as f:
+            assert struct.unpack('<4I',f.read(16))==(0x31514853,160,5746,65537)
+            for case in metadata:
+                n,t=struct.unpack('<2I',f.read(8))
+                assert 1<=n<=512 and 1<=t<=n
+                assert np.fromfile(f,dtype='<u4',count=n).tolist()==case['input_ids']
+                assert np.fromfile(f,dtype='<u4',count=t).tolist()==case['positions']
+            assert f.read()==b''
         model=Path(native['model']['path'])
         assert sha(model)==native['model']['sha256']==exported['model']['sha256']
         with model.open('rb') as f:
@@ -98,6 +108,9 @@ def worker(a):
             assert f.read()==b'' and cursor==425210736 and len(set(names))==212
             assert code_bytes==84934656 and float_bytes==340253952
         outputs={Path(v['path']).name:Path(v['path']) for v in native['native_outputs']}
+        for item in native['native_outputs']:
+            assert Path(item['path']).stat().st_size==item['bytes'] and sha(item['path'])==item['sha256']
+            guard()
         total_inputs=sum(len(r['input_ids']) for r in metadata)
         total_rows=sum(len(r['positions']) for r in metadata)
         assert total_inputs==15999 and total_rows==5746
