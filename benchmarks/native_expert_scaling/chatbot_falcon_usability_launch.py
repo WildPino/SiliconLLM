@@ -93,6 +93,8 @@ def main(args):
                         except psutil.NoSuchProcess:
                             continue
                         assert name in b.get('allowed_worker_children',[]), ('unexpected worker descendant',name)
+                        if name=='conhost.exe':
+                            assert Path(child.exe().removeprefix('\\\\?\\')).resolve()==Path(b['allowed_system_child_path']).resolve()
                 except psutil.NoSuchProcess:
                     pass
                 with log.open('rb') as f:
