@@ -1,5 +1,26 @@
 # Native expert-count scaling: prior evidence
 
+**8 October complete pipeline reassessed; augmented quadratic recipe CLOSED:**
+[macro view](CHATBOT_PIPELINE_REASSESSMENT_20261008.md),
+[new feature kernel](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md) and
+[response result](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md). ALL256 FIT-only
+columns/augmented covariance/FIRST audit qualified, old linear G reused.
+ONE fixed positive-ridge compiler now implemented/numerically certified;
+primal/dual/fold<=2.04e-14,encoded FIT2.50175%,FIRST64 novel70.68293%,smooth
+70.68354%. BOTH exact prefix/FULL-energy1% necessary failures independently
+verified; THIS recipe CLOSED,remaining1431/ALL24/export/native stopped.
+Prefix64 is consumed arithmetic_2,not FULL novel RMS/fresh chatbot quality.
+No source/core/H/J/old field/optimizer replay. Kernel8.766s/822.7MB,audit6.875s/
+943.3MB;fit15.172s/1.057GB,audit22.360s/.897GB through exit,200.51MB new fit
+outputs. All5 kernel and4 fit instances closed/no faults/foreign SHA intact;
+pre-worker kernel Scopa overlap retained/0 labels. [Current NEXT](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md)
+prioritizes complete joint nonlinear transfer feasibility/resource liveness,
+useful source-derived redundancy/coverage and canonical native chat integration.
+New whole learner/global objective remains proposed; no compact admitted
+CHATBOT. Old1%/3% rejections unchanged; no precision/rank/alpha/epoch ladder.
+All older NEXT/unimplemented statuses below describe their record dates;
+current INDEX/METHOD/new operational NEXT govern resumption.
+
 **8 October FIRST actual source-conditioned quadratic factors qualified:**
 [result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md), eight source/core atoms
 per original FIT parent/two forms per atom, actual R/T BF16 source rows,

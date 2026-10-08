@@ -29,7 +29,7 @@ multi-family/large-scale applicability. Local/function/rate scopes remain explic
 
 ## Current priority: the complete chatbot pipeline
 
-[7 October macro reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) follows
+[Current macro reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261008.md) follows
 the human's explicit CHATBOT reminder. Required stages: source/interaction
 contract -> family analysis/compact transformation -> complete export -> actual
 C own-history dialogue/task quality -> SAME-artifact total cost/useful-n/scales.
@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [quadratic feature covariance/ONE fit](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md):
+Next [complete nonlinear transfer feasibility](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -97,8 +97,12 @@ response bound or fresh chatbot result. [ONE complete-cost quadratic format](CHA
 was priced before labels; FIT-only source-informed factor extraction/FIRST
 audit now AVAILABLE: sixteen distinct BF16 R/T bases,eight source/core atoms
 per parent/two forms each,ALL128 choices/688128 scores and source bytes verified.
-New quadratic feature design/kernel/fit remain unimplemented; they must be
-qualified separately before candidate/native chatbot admission.
+[NEW quadratic kernel](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md) and
+[ONE fixed response compiler](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md) are now
+implemented/FIRST independently verified; encoded FIT2.50175%,FIRST64 novel
+70.68293% and smooth70.68354%. BOTH exact necessary FULL1% failures; this
+recipe CLOSED. A complete jointly adapted nonlinear transfer route and native
+canonical chat integration remain proposals requiring feasibility/implementation.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
@@ -230,10 +234,19 @@ ALL128 choices/688128 scores/byte factors/projections verified independently,
 maximum score gap1.034e-15/normal1.695e-15. Primary27.454s/457.5MB,audit5.453s/
 229.6MB through actual exit, all5 instances closed/no faults. First pre-worker
 audit overlap retained; no audit acquisition before repair1. Source-factor
-qualification now permits [NEW feature covariance](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md):
-F32 center/scale,FIT-only256 quadratic column scales,old linear G reused as
-term,new positive Gram/factor and FIRST independent audit,then ONE frozen
-response fit. Feature design/kernel/fit NOT implemented. No rank/codec ladder.
+qualification permitted [NEW feature covariance](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md),
+now AVAILABLE: F32 center/scale,FIT-only256 quadratic scales,old linear G reused
+as term,new positive Gram/factor and FIRST independent audit,relative Gram
+gap3.620e-16. Main8.766s/822.7MB,audit6.875s/943.3MB through exit; all5 known
+instances closed,pre-worker Scopa overlap retained/0 labels. ONE fixed
+[augmented response fit](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md) also AVAILABLE
+as independently CLOSED failure: ALL3845 cached FIT values/RHS,NEW alpha1.62584,
+fixed128 triangular panels; actual primal/dual/fold residuals<=2.04e-14,
+FIT encoded2.50175%,FIRST64 novel encoded70.68293%/smooth70.68354%. Both exact
+necessary FULL1% failures verified. Primary15.172s/1.057GB,audit22.360s/.897GB,
+200.51MB output/all4 known instances closed/no faults/foreign SHA intact.
+No new source/core/J/H/old response/optimizer pass. Remaining1431/ALL24/native
+stopped for this recipe. No rank/alpha/codec ladder or universal impossibility.
 Promotion still requires novel1%/ALL-category3% and actual complete export/native
 composition, then fresh whole chat quality AND accepted50 SAME artifact,
 useful n/DRAM/LUT/family/scales. Consumed development can reject a candidate,
@@ -581,9 +594,12 @@ kernel/compiler also exists with an independently CLOSED candidate. Source-null
 curvature collector/FIRST independent audit now AVAILABLE as a finite positive
 representation diagnostic. [Current source-factor result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md)
 and [ONE complete-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
-connect these statuses to the full pipeline. FIT-only source factor extraction/
-FIRST audit now AVAILABLE; new quadratic feature design/kernel/fit remain
-PROPOSED,not available. No single executable currently
+connect these statuses to the full pipeline. FIT-only source factor extraction,
+NEW quadratic feature/kernel/compiler and FIRST audits now AVAILABLE, with a
+CLOSED candidate outcome. [New operational NEXT](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md)
+first inventories complete nonlinear transfer implementation/resource liveness
+and native canonical chat integration, BEFORE whole fitting/new labels. The
+joint whole objective/learner remains PROPOSED,not implemented. No single executable currently
 converts a pretrained chatbot into an admitted compact native artifact.
 
 493 independently joins saved F,p,expert,UID/occurrences and rounded pF
@@ -666,6 +682,14 @@ No completed capture/main/control/native/audit namespace rerun; preserve first
 fault/partials before a numbered repair.
 
 ## 7. Required return to the full goal
+
+Current [whole nonlinear feasibility route](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md)
+is prospective: inventory actual implementation/trainable-versus-frozen memory
+and complete operator cost before new labels or global fitting. It is not an
+eligible ALL24 checkpoint. Existing local1%/3% recipe failures stay CLOSED;
+a genuinely new joint whole objective requires its own prewritten fresh
+behavior/operator/resource admission contract, never favorable regrading.
+The local-screen sequence below remains the route for local-transfer recipes.
 
 After LOCAL function AND control eligibility:
 
