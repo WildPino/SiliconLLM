@@ -1,0 +1,64 @@
+{
+  "positive_control_ids": [
+    179810,
+    179791
+  ],
+  "new_original_BF16_full_forwards": 0,
+  "new_source_or_candidate_responses": 0,
+  "instances": [
+    {
+      "create_time_unix": 1791470872.2160385,
+      "creation_FILETIME": 134359444722160384,
+      "report_sha256": "438cf674a987efb4e587b464d91f8079fb87ece692a5b46b7a3d73d02288dbd0",
+      "FILETIME_tolerance_ticks": 16,
+      "owned_instance_closed": true,
+      "role": "launcher_instance",
+      "pid": 28936,
+      "PID_reused": false,
+      "report": "chatbot_new_cohort_initializer_20261008.terminal.json",
+      "faults": []
+    },
+    {
+      "create_time_unix": 1791470882.238345,
+      "creation_FILETIME": 134359444822383447,
+      "report_sha256": "438cf674a987efb4e587b464d91f8079fb87ece692a5b46b7a3d73d02288dbd0",
+      "FILETIME_tolerance_ticks": 0,
+      "owned_instance_closed": true,
+      "role": "worker_instance",
+      "pid": 14264,
+      "PID_reused": false,
+      "report": "chatbot_new_cohort_initializer_20261008.terminal.json",
+      "faults": []
+    },
+    {
+      "create_time_unix": 1791471029.5377338,
+      "creation_FILETIME": 134359446295377344,
+      "report_sha256": "652d97b87f0d1bcf0bbdb7d55e893c8d9708450e32e677e87303cebcd65d03ab",
+      "FILETIME_tolerance_ticks": 16,
+      "owned_instance_closed": true,
+      "role": "launcher_instance",
+      "pid": 15284,
+      "PID_reused": false,
+      "report": "chatbot_new_cohort_initializer_audit_20261008.terminal.json",
+      "faults": []
+    },
+    {
+      "create_time_unix": 1791471039.6317465,
+      "creation_FILETIME": 134359446396317466,
+      "report_sha256": "652d97b87f0d1bcf0bbdb7d55e893c8d9708450e32e677e87303cebcd65d03ab",
+      "FILETIME_tolerance_ticks": 0,
+      "owned_instance_closed": true,
+      "role": "worker_instance",
+      "pid": 25060,
+      "PID_reused": false,
+      "report": "chatbot_new_cohort_initializer_audit_20261008.terminal.json",
+      "faults": []
+    }
+  ],
+  "metadata_UTC": "Typed DateTime/DateTimeOffset; exact worker FILETIME, <=16tick launcher float tolerance",
+  "scope": "ADMINISTRATIVE_NEW_COHORT_INITIALIZER_TERMINAL_NO_SCIENTIFIC_REPLAY",
+  "positive_control_XML": [
+    "<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System><Provider Name='Application Error' Guid='{a0e9b465-b939-57d7-b27d-95d8e925ff57}'/><EventID>1000</EventID><Version>0</Version><Level>2</Level><Task>100</Task><Opcode>0</Opcode><Keywords>0x8000000000000000</Keywords><TimeCreated SystemTime='2026-10-06T15:48:02.7718060Z'/><EventRecordID>179810</EventRecordID><Correlation/><Execution ProcessID='25256' ThreadID='2448'/><Channel>Application</Channel><Computer>SirFissoWindows</Computer><Security UserID='S-1-5-21-4142847766-172438236-149005514-1001'/></System><EventData><Data Name='AppName'>python.exe</Data><Data Name='AppVersion'>3.12.10150.1013</Data><Data Name='AppTimeStamp'>67f515a7</Data><Data Name='ModuleName'>arrow.dll</Data><Data Name='ModuleVersion'>0.0.0.0</Data><Data Name='ModuleTimeStamp'>69de57f9</Data><Data Name='ExceptionCode'>c0000005</Data><Data Name='FaultingOffset'>0000000000bc31d8</Data><Data Name='ProcessId'>0x4260</Data><Data Name='ProcessCreationTime'>0x1dd55a9c3078f3b</Data><Data Name='AppPath'>C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe</Data><Data Name='ModulePath'>D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll</Data><Data Name='IntegratorReportId'>2eac554a-7679-4a88-b0ea-19f48518362b</Data><Data Name='PackageFullName'></Data><Data Name='PackageRelativeAppId'></Data></EventData></Event>",
+    "<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System><Provider Name='Application Error' Guid='{a0e9b465-b939-57d7-b27d-95d8e925ff57}'/><EventID>1000</EventID><Version>0</Version><Level>2</Level><Task>100</Task><Opcode>0</Opcode><Keywords>0x8000000000000000</Keywords><TimeCreated SystemTime='2026-10-06T15:47:53.8532345Z'/><EventRecordID>179791</EventRecordID><Correlation/><Execution ProcessID='26492' ThreadID='31664'/><Channel>Application</Channel><Computer>SirFissoWindows</Computer><Security UserID='S-1-5-21-4142847766-172438236-149005514-1001'/></System><EventData><Data Name='AppName'>python.exe</Data><Data Name='AppVersion'>3.12.10150.1013</Data><Data Name='AppTimeStamp'>67f515a7</Data><Data Name='ModuleName'>arrow.dll</Data><Data Name='ModuleVersion'>0.0.0.0</Data><Data Name='ModuleTimeStamp'>69de57f9</Data><Data Name='ExceptionCode'>c0000005</Data><Data Name='FaultingOffset'>0000000000bc5431</Data><Data Name='ProcessId'>0x4260</Data><Data Name='ProcessCreationTime'>0x1dd55a9c3078f3b</Data><Data Name='AppPath'>C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe</Data><Data Name='ModulePath'>D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\pyarrow\\arrow.dll</Data><Data Name='IntegratorReportId'>21f4c7d5-5e54-4fa5-8f43-99eaa03198d9</Data><Data Name='PackageFullName'></Data><Data Name='PackageRelativeAppId'></Data></EventData></Event>"
+  ]
+}

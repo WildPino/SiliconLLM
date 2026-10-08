@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**8 October NEW corpus inherited-key support recipe CLOSED; FIRST verified:**
+[result](CHATBOT_NEW_COHORT_INITIALIZER_RESULT_20261008.md): layer0 minFIT55/
+44cases/novelDEV13 PASS; layer1 parents3/4 zero FIT/DEV selections,6 FIT9/
+5cases/DEV2,7 FIT6/6cases/DEV1. Fixed >=8/>=2/>=4 rejects four parents before
+source features. Exactly0 source-row denominator at3/4; not coefficient-class
+capacity impossibility. Only0 NEW-supported,0/12 priors available,2..23 unentered.
+FIRST scalar NEW offsets/byte dictionaries/maps/saved masses/support/warm buffer
+BYTES/stop PASS. NEW covariance/clusters/source-feature/copy branches unentered,
+total NEW source copies0: conditional raw gates are not full-branch certification.
+Main11.984s/1.019GB/GPU113MB,audit10.016s/474MB through exit,2.15MB prefix files;
+all4 instances closed/no OS faults/foreignSHA intact. [Current NEXT](CHATBOT_BALANCED_KEYS_NEXT_20261008.md):
+FIT-only fixed20 quota-constrained greedy centroids helper implemented UNEXECUTED;
+ALL24 integration/construction FIRST audit next. Same16/selected4 inference
+cost; construction assignments NOT actual support/quality. Keep original and
+NEW warm-key recipes CLOSED; no data/threshold ladder or old scientific replay.
+Whole24 assembly/optimizer/global fit/export/native/fresh quality AND accepted50
+SAME artifact/useful n/families/scales remain missing. Older NEXTs are historical.
+
 **8 October NEW whole chatbot transfer cohort acquired and FIRST adopted:**
 [result](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md):200 new cases160 FIT/40 DEV,
 10263/2570 x rows PER LAYER and2437/613 full151936-vocabulary teacher logits.
@@ -11,7 +29,7 @@ capture/model/field/optimizer replay. Original FIRST audit cursor fault retained
 (exit1/zero case adoptions); repair1 ONLY seeks24B, unchanged data/criteria.
 Source555.781s/1.982GB/GPU1.037GB; successful audit21.484s/113.6MB through exit,
 1.4787GB tensors/1.4814GB total801 files. All6 instances closed/no OS faults/
-foreignSHA intact. [Current NEXT](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
+foreignSHA intact. [Historical initializer NEXT](CHATBOT_NEW_COHORT_INITIALIZER_NEXT_20261008.md)
 freezes NEW support/source initialization/FIRST audit using warm0/1/12 routing
 and0/12 source weights BYTE; then actual24 assembly/optimizer peak/global fit.
 Whole compact CHATBOT/export/native/fresh quality AND accepted50 SAME artifact/
