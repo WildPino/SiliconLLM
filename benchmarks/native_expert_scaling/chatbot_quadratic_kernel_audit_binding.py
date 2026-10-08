@@ -14,7 +14,8 @@ def main(args):
     assert not args.out.exists();doc=ROOT/'docs/research/NATIVE_EXPERT_SCALING_20260925';code=ROOT/'benchmarks/native_expert_scaling'
     prior_path=doc/'chatbot_quadratic_kernel_binding_20261008.json';prior=json.loads(prior_path.read_bytes())
     for item in prior['inputs']:assert sha(item['path'])==item['sha256'] and Path(item['path']).stat().st_size==item['bytes']
-    kernel_path=doc/'chatbot_quadratic_kernel_20261008.json';raw=json.loads(kernel_path.read_bytes());terminal_path=kernel_path.with_suffix('.terminal.json');term=json.loads(terminal_path.read_bytes())
+    kernel_path=args.kernel.resolve();assert kernel_path.parent==doc.resolve()
+    raw=json.loads(kernel_path.read_bytes());terminal_path=kernel_path.with_suffix('.terminal.json');term=json.loads(terminal_path.read_bytes())
     assert term['actual_worker_exit_code']==0 and term['result_sha256']==sha(kernel_path) and all(term['gates'].values())
     assert raw['decision']=='ELIGIBLE_FOR_ONE_QUADRATIC_CONVEX_COMPILER' and all(raw['eligibility_gates'].values())
     worker=code/'chatbot_quadratic_kernel_audit.py'
@@ -27,4 +28,5 @@ def main(args):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);main(p.parse_args())
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--kernel',type=Path,required=True);main(p.parse_args())
