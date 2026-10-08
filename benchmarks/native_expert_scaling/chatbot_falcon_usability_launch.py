@@ -27,7 +27,7 @@ def main(args):
     proc.cpu_affinity([11])
     assert sha(args.binding) == args.binding_sha
     b = json.loads(args.binding.read_bytes())
-    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1','HYBRID_NATIVE_BINDING_V1','HYBRID_NATIVE_AUDIT_BINDING_V1','HYBRID_COMMON_BANK_BINDING_V1','HYBRID_COMMON_CORE_BINDING_V1','HYBRID_TRANSFER_CAPTURE_BINDING_V1','HYBRID_TRANSFER_ADOPTION_BINDING_V1')
+    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1','HYBRID_NATIVE_BINDING_V1','HYBRID_NATIVE_AUDIT_BINDING_V1','HYBRID_COMMON_BANK_BINDING_V1','HYBRID_COMMON_CORE_BINDING_V1','HYBRID_TRANSFER_CAPTURE_BINDING_V1','HYBRID_TRANSFER_ADOPTION_BINDING_V1','HYBRID_RECOVERY_BINDING_V1')
     OS_cap=b.get('limits',{}).get('OS_bytes',4<<30)
     seconds_cap=b.get('limits',{}).get('seconds',600)
     output_cap=b.get('limits',{}).get('output_bytes',256<<20)
@@ -132,6 +132,8 @@ def main(args):
             assert result['schema']=='HYBRID_TRANSFER_CAPTURE_RESULT_V1' and result['cases']==160 and result['reserved_queries']==0
         elif b['schema'] == 'HYBRID_TRANSFER_ADOPTION_BINDING_V1':
             assert result['schema']=='HYBRID_TRANSFER_ADOPTION_RESULT_V1' and result['cases']==160
+        elif b['schema'] == 'HYBRID_RECOVERY_BINDING_V1':
+            assert result['schema']=='HYBRID_RECOVERY_RESULT_V1' and result['new_updates']==512
         else:
             assert result['schema'] == 'FALCON_SCAN_CAPTURE_RESULT_V1' and result['packet_count'] == 12
         assert result['process_instance']['pid'] == p.pid
