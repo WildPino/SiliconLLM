@@ -84,13 +84,18 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [source-null curvature investigation](CHATBOT_NULL_CURVATURE_NEXT_20261008.md):
+Next [source-informed private factors](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
 compiler also exists, with a numerical optimum certificate and novel failure;
 the source-null-J prior compiler also exists and fails at its qualified
-minimum. The new uncertainty is source curvature along selector-null inputs.
+minimum. [Actual source-null curvature](CHATBOT_NULL_CURVATURE_RESULT_20261008.md)
+now qualifies FIRST128 source+128 core H/four directions/ALL256 checks;
+novel residual/source curvature RMS96.686%,chi1.13847,16/16 anchors. Not a
+response bound or fresh chatbot result. [ONE complete-cost quadratic format](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
+was priced before labels; first FIT-only source-informed factor extraction
+remains unimplemented and must precede any changed-feature design/fit.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
@@ -199,16 +204,24 @@ CLOSED. Kernel6.359s/676MB,fit23.328s/1.963GB; audits9.500s/1.043GB and25.922s/
 shared values reused,0 new donor/core response/J/optimizer. Old227,joint16-jet,
 zero-prior ALL-FIT/source-null-prior and231 remain CLOSED; no all-class impossibility.
 
-NEW [selector-null curvature proposal](CHATBOT_NULL_CURVATURE_NEXT_20261008.md)
+NEW [selector-null curvature diagnostic](CHATBOT_NULL_CURVATURE_RESULT_20261008.md)
 follows the exact real identity D_v^2 sum_e w_e(Px)(A_e x+b_e)=0 for v in ker(P),
 independent of n at fixed P/shared. New source-minus-fixed-core contracted
-Hessian vectors can diagnose this restriction; they are not a finite1% response
-or semantic bound. FIRST implement/freeze source-specific second-order
-collector,original32 anchors/four fixed null directions and qualification by
-NEW directional gradients at±h inputs. No cubic Hessian,new fit or original
-source/J/FD/feature experiment replay. Collector/audit NOT implemented. Require
-all new numerical/resource/provenance gates/first independent audit before
-choosing/pricing one changed representation. No h/codec/anchor/direction ladder.
+Hessian vectors diagnose this restriction; they are not a finite1% response
+or semantic bound. Source-specific collector and FIRST independent scalar/
+formula audit now AVAILABLE: original32 anchors/four fixed directions,
+128 source+128 core H and512 NEW perturbed gradients,ALL256 qualification
+checks PASS. Novel residual/source H RMS.966861/chi1.13847,16/16 anchors.
+Collector17.735s/398.6MB,audit11.782s/403.5MB through actual exit; all5 known
+instances closed/no faults. Pre-worker overlap retained without labels,repair1
+same contract after foreign build ended. No cubic Hessian,new fit or original
+source/J/FD/feature experiment replay. Four probes do not cover864 null inputs.
+ONE rank16 dense-affine+factorized-quadratic format was priced BEFORE labels:
+ALL24 MAC295104512/logicalB592186464/stored payload1080411488 necessary gates
+PASS, no physical traffic/rate. Additional private curvature image<=64 per
+cell is a limitation. FIRST [FIT-only source-factor extraction](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md)
+and precise finite protocol/binder remain unimplemented; source qualification/
+FIRST audit before new feature design/ONE fixed fit. No rank/h/codec/anchor ladder.
 Promotion still requires novel1%/ALL-category3% and actual complete export/native
 composition, then fresh whole chat quality AND accepted50 SAME artifact,
 useful n/DRAM/LUT/family/scales. Consumed development can reject a candidate,
@@ -546,15 +559,18 @@ Price private/shared/core/head/state/router bytes and their n-dependent slopes.
 768 mass products per selected bank. These are logical counts, not DRAM/rate.
 A physical cost failure closes its defined recipe, without a universal claim.
 
-## 4. Compile source knowledge and learn on development only
+## 4. Compile source knowledge and qualify transfer
 
 For the current CHATBOT path, FIT/development partitions and canonical history
 are qualified; source operands, local source Js and shared-only outputs are
 cached. Actual joint neural,16-jet and ALL-FIT convex converters are reusable
 implemented tools with CLOSED candidate outcomes. The source-null-J covariance
 kernel/compiler also exists with an independently CLOSED candidate. Source-null
-curvature collection is PROPOSED,not available. [Current result](CHATBOT_NULL_PRIOR_RESULT_20261008.md)
-connects these statuses to the full pipeline. No single executable currently
+curvature collector/FIRST independent audit now AVAILABLE as a finite positive
+representation diagnostic. [Current result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md)
+and [ONE complete-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
+connect these statuses to the full pipeline. New FIT-only factor extraction/
+feature design/fit remain PROPOSED,not available. No single executable currently
 converts a pretrained chatbot into an admitted compact native artifact.
 
 493 independently joins saved F,p,expert,UID/occurrences and rounded pF

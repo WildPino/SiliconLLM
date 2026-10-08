@@ -1,5 +1,27 @@
 # Native expert-count scaling: prior evidence
 
+**8 October FIRST source-null curvature supported/independently verified:**
+[result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md),actual BF16 source/core
+slices/original32 anchors/old32 Js,FOUR fixed approximate null directions.
+FIRST128 source+128 core H/512 new perturbed gradients,ALL256 checks PASS;
+independent scalar/formula audit agrees H<=6.5e-16,gradient<=7.4e-16.
+Novel equal-anchor residual/source H RMS96.686%,chi1.13847,16/16 anchors.
+This is a curvature norm/scale diagnostic,not response or lost knowledge%,
+864-null coverage,reachable-state distribution or exact1% impossibility.
+Arbitrary affine n cannot change REAL selector-null curvature at fixedP/shared.
+Collector17.735s/398.6MB,audit11.782s/403.5MB through exit; all5 known instances
+closed/no OSfaults/foreignSHA intact. Original pre-worker overlap retained,
+0 labels; repair1 same contract after foreign build ended. No old source/J/
+forward/feature experiment/optimizer/native replay. [ONE whole-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
+rank16 dense-affine+quadratic private terms priced BEFORE labels: ALL24
+295104512MAC/592186464logicalB/1080411488stored payload necessary3/5 gates
+PASS,not physicalDRAM/rate. Extra private null-curvature output image<=64
+per cell is a limit. [Source-informed factor NEXT](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md)
+FIRST FIT-only extraction/protocol,then changed-feature design/ONE fixed fit;
+extraction/design/fit NOT implemented. Closed affine/neural/jet objectives
+remain CLOSED. Complete compact CHATBOT/fresh own-history/tasks AND accepted50
+SAME artifact/useful-n/LUT winner+mass/DRAM/actual families/scales remain open.
+
 **8 October actual ALL-FIT/source-null-J convex compiler CLOSED:**
 [result](CHATBOT_NULL_PRIOR_RESULT_20261008.md),new actual finite-P projector/
 16-leaf precision/covariance,first independent explicit14864-feature audit
@@ -14,7 +36,7 @@ faults/foreign SHA intact. All source/core values/Js reused,0 new original
 model/core/J/optimizer observation. [NEW curvature NEXT](CHATBOT_NULL_CURVATURE_NEXT_20261008.md)
 isolates real selector-null curvature invariant independent of affine n,
 FIRST second-order source/core contractions and new±h directional gradients.
-Collector/audit NOT implemented; no exact/global1% impossibility inference or
+Collector/audit now COMPLETE as recorded above; no exact/global1% impossibility inference or
 lambda/h/precision ladder. Full compact CHATBOT/fresh quality AND accepted50
 SAME artifact/useful-n/LUT winner+mass/DRAM/family/scale remain open.
 
