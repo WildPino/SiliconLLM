@@ -1,5 +1,17 @@
 # Native expert-count scaling: prior evidence
 
+**8 October target-aware donor triage actual:**
+[Result](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md): five sources/40 budgets,
+freeze03d65fa,exit0,.047s/25.8MB,seven independent integer terms pass.
+Source/operator metadata only, original Qwen/Giga counts reused,0 weights/model/
+C/rate observations. Granite8.801B active matrix products; native BitNet master
+2.412B; FalconTiny90.997M with both SSM+attention24. Selected real-state bridge
+donor FalconTiny, because source recurrence maps to original scan algebra;
+projection/conv/precision/actual usefulness still unqualified.100B expert storage
+~52GB packed/553GB old copies/1.61TB dense Adam in declared prospective D256 case.
+[Source/scan NEXT](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md) supersedes unexecuted
+triage NEXT; all existing scientific closures/full goal remain.
+
 **8 October latest direction: original engine target.**
 [Engine target reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)
 supersedes the proposed order-stability next fit. Latest Qwen all24-attention

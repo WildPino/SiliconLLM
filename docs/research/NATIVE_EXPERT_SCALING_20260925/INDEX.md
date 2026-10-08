@@ -35,10 +35,21 @@ their composition and this engine's whole chatbot quality/rate remain open.
 Long offline adaptation, including month-plus T4 if justified, is in scope;
 actual T4 reason/budget/stops and measured feasibility are still required.
 
-**Next:** target-aware donor/operator/cost triage using existing Qwen assets and
-pinned recurrent/hybrid/ternary metadata, then ONE target-shaped staged pilot.
-Public Falcon-H1-Tiny90M config observed at e6389502; no weights/quality/rate.
-No active jobs, new training or endpoint. Goal and all former closures unchanged.
+**Actual screening complete:** [five donors/40 target budgets](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md),
+freeze03d65fa,exit0,.047s/25.8MB,seven independent integer hand checks.
+Qwen/Giga counts reused; new Granite/Falcon/BitNet config/operator counts.
+Granite8.801B active matrix products and BitNet2.412B show structural affinity
+alone does not give a compact core. Original-Mamba1 D512/L12/V32768/n32 candidate
+costed56.31M products/260.0MB packed coefficients/2.097GB chosen Adam arrays.
+Physical rate/DRAM/useful capacity unmeasured.100B inference~52GB packed versus
+~553GB old copies and~1.61TB dense Adam in the declared D256 case.
+
+**Next:** [real Falcon source/scan bridge](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md).
+Source recurrence algebra matches the original scan after head/channel mapping,
+but projection/conv layout and finite precision differ. Acquire/qualify pinned
+source/interaction and actual usability, then real operands/state/C comparison.
+Keep source width512 for the first proposed whole learner; source-compatible
+core needs its own budget before training. Goal/family/scales unchanged; no jobs.
 
 ## Two research questions
 
@@ -149,13 +160,14 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** implement/freeze the target-aware donor/operator/cost triage
-specified in [engine reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md#recommendations-and-exact-next-action).
-Compare original-compatible recurrent/ternary paths, full head/state/router/
-selected code/storage and actual training-memory requirements before selecting
-ONE staged pilot. Proposed metadata-only CPU budget <=60s/<=5MiB; no weights/
-inference/old observation replay. Reuse local Qwen census and public pinned
-hybrid/ternary metadata. Do not assume model-card compatibility or T4 feasibility.
+**First action:** implement/freeze bounded source acquisition/interaction and
+real-state [Falcon-to-original-scan bridge](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md).
+[Target triage](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md) is COMPLETE;
+do not rerun its source/cost accounting. Reuse pinned metadata and output bytes.
+First bridge donor is FalconTiny; establish teacher usefulness before investing
+in whole adaptation, then retain width512/source vocabulary while testing
+recurrent/ternary/conditional recovery. A larger hybrid teacher remains an option
+if actual usefulness is insufficient. No model-card quality/compatibility inference.
 
 [Order-stability control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md) is
 DEFERRED. Original fit/FIRST/drift jobs are terminal and recipe CLOSED. Existing

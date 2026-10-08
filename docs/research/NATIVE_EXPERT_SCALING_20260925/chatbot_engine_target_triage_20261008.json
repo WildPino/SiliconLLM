@@ -1,0 +1,2243 @@
+{
+  "schema": "engine-target-triage-result-v1",
+  "started_commit": "03d65faeb0b5e2f80242e758002d7c37d14ee266",
+  "created_utc": "2026-10-08T18:33:29.436648+00:00",
+  "inputs_sha256": "aaccb86d02331060c0f42afec0295f713cd53b78fb975a343b3c5a6092d59488",
+  "sources": [
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "kind": "qwen2",
+      "D": 896,
+      "L": 24,
+      "V": 151936,
+      "activation": "silu",
+      "source_weight_values_observed": false,
+      "precision": "bfloat16",
+      "operator_compatibility_with_original": "adaptation required; no adapter/inference parity admission",
+      "products": {
+        "embedding_tied_head": 136134656,
+        "attention": 44040192,
+        "dense_ffn": 313786368
+      },
+      "total_products": 493961216,
+      "source_count_scope": "reused qualified census bytes; not a source observation replay",
+      "original_named_elements": 494032768,
+      "original_payload_bytes": 988065536,
+      "main_named_elements": 494032768,
+      "f32_dense_adam_main_lower_bound_bytes": 7904524288,
+      "source_head_products": 136134656,
+      "missing_transformations": [
+        "compact recurrent core",
+        "ternary small experts",
+        "structured router",
+        "packed-only engine loader"
+      ]
+    },
+    {
+      "model": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "revision": "189fff27a1dee68473960c3d5bca53e0e07a3191",
+      "kind": "deepseek_v3",
+      "D": 1536,
+      "L": 26,
+      "V": 128256,
+      "activation": "silu",
+      "source_weight_values_observed": false,
+      "precision": "bfloat16",
+      "operator_compatibility_with_original": "adaptation required; no adapter/inference parity admission",
+      "products": {
+        "head": 197001216,
+        "attention": 650051584,
+        "dense_ffn": 41287680,
+        "router": 2457600,
+        "routed_ffn": 589824000,
+        "shared_ffn": 147456000
+      },
+      "total_products": 1628078080,
+      "source_count_scope": "reused qualified census bytes; not a source observation replay",
+      "original_named_elements": 11479750784,
+      "original_payload_bytes": 22959501568,
+      "main_named_elements": 10672535616,
+      "f32_dense_adam_main_lower_bound_bytes": 170760569856,
+      "source_head_products": 197001216,
+      "missing_transformations": [
+        "compact recurrent core",
+        "ternary small experts",
+        "structured router",
+        "packed-only engine loader"
+      ]
+    },
+    {
+      "model": "ibm-granite/granite-4.0-h-small",
+      "revision": "b8c0982bab7fde4eb48110f5a069527c008fab39",
+      "kind": "granitemoehybrid",
+      "D": 4096,
+      "L": 40,
+      "V": 100352,
+      "activation": "silu",
+      "source_weight_values_observed": false,
+      "precision": "bfloat16",
+      "operator_compatibility_with_original": "adaptation required; no adapter/inference parity admission",
+      "expert_count_per_layer": 72,
+      "selected_per_layer": 10,
+      "products": {
+        "head": 411041792,
+        "routed_ffn": 3774873600,
+        "shared_ffn": 754974720,
+        "router": 11796480,
+        "ssm_projection": 3680501760,
+        "attention": 167772160
+      },
+      "total_products": 8800960512,
+      "source_head_products": 411041792,
+      "attention_layers": 4,
+      "recurrent_layers": 36,
+      "cached_kv_elements_per_context_token": 8192,
+      "attention_extra_products_per_context_token": 32768,
+      "recurrent_state_elements": 37748736,
+      "conv_state_elements": 1216512,
+      "source_count_scope": "config/operator-derived matrix products, NOT tensor-header completeness",
+      "original_named_elements": null,
+      "original_payload_bytes": null,
+      "matrix_only_f32_dense_adam_lower_bound_bytes": 140815368192,
+      "missing_transformations": [
+        "core active-cost reduction",
+        "ternary conditional experts",
+        "structured router",
+        "original engine operator/interaction mapping"
+      ]
+    },
+    {
+      "model": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "revision": "e6389502a0b12cd8da894b395ba5bf7436873b16",
+      "kind": "falcon_h1",
+      "D": 512,
+      "L": 24,
+      "V": 32768,
+      "activation": "silu",
+      "source_weight_values_observed": false,
+      "precision": "bfloat16",
+      "operator_compatibility_with_original": "adaptation required; no adapter/inference parity admission",
+      "products": {
+        "head": 16777216,
+        "ffn": 28311552,
+        "ssm_projection": 30179328,
+        "attention": 15728640
+      },
+      "total_products": 90996736,
+      "source_head_products": 16777216,
+      "attention_layers": 24,
+      "recurrent_layers": 24,
+      "cached_kv_elements_per_context_token": 6144,
+      "attention_extra_products_per_context_token": 24576,
+      "recurrent_state_elements": 1179648,
+      "conv_state_elements": 86016,
+      "source_count_scope": "config/operator-derived matrix products, NOT tensor-header completeness",
+      "original_named_elements": null,
+      "original_payload_bytes": null,
+      "matrix_only_f32_dense_adam_lower_bound_bytes": 1455947776,
+      "missing_transformations": [
+        "core active-cost reduction",
+        "ternary conditional experts",
+        "structured router",
+        "original engine operator/interaction mapping"
+      ]
+    },
+    {
+      "model": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "revision": "276681394656abdadb8e80e5b2c3db5e5d7fcaff",
+      "kind": "bitnet",
+      "D": 2560,
+      "L": 30,
+      "V": 128256,
+      "activation": "relu2",
+      "source_weight_values_observed": false,
+      "precision": "bfloat16",
+      "operator_compatibility_with_original": "adaptation required; no adapter/inference parity admission",
+      "products": {
+        "head": 328335360,
+        "ffn": 1592524800,
+        "attention": 491520000
+      },
+      "total_products": 2412380160,
+      "source_head_products": 328335360,
+      "attention_layers": 30,
+      "recurrent_layers": 0,
+      "cached_kv_elements_per_context_token": 38400,
+      "attention_extra_products_per_context_token": 153600,
+      "recurrent_state_elements": 0,
+      "conv_state_elements": 0,
+      "source_count_scope": "config/operator-derived matrix products, NOT tensor-header completeness",
+      "original_named_elements": null,
+      "original_payload_bytes": null,
+      "matrix_only_f32_dense_adam_lower_bound_bytes": 38598082560,
+      "missing_transformations": [
+        "compact recurrent core",
+        "conditional FFN partition",
+        "squared-ReLU/SubLN versus gated-dReLU mapping",
+        "structured router",
+        "original engine operator/interaction mapping"
+      ],
+      "format_affinity": "Producer reports native ternary; master BF16 values/cardinality and packed operator semantics not observed here"
+    }
+  ],
+  "prospective_targets": [
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 32,
+        "total_expert_functions": 192,
+        "expert_coefficients": 18874368,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 38895616,
+        "flat_router_products": 49152,
+        "tree_router_products_upper_proposal": 55296,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 46471168,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1598209024,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 9437184,
+            "packed_only_model_coefficients_bytes_flat_router": 333467392,
+            "packed_only_model_coefficients_bytes_tree_proposal": 333491968,
+            "legacy_loader_model_coefficient_copies_bytes": 427839232,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 170536960
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 4718592,
+            "packed_only_model_coefficients_bytes_flat_router": 328748800,
+            "packed_only_model_coefficients_bytes_tree_proposal": 328773376,
+            "legacy_loader_model_coefficient_copies_bytes": 423120640,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 169357312
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 128,
+        "total_expert_functions": 768,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 38895616,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 104448,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 46520320,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 2509302784,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 363550720,
+            "packed_only_model_coefficients_bytes_tree_proposal": 363084544,
+            "legacy_loader_model_coefficient_copies_bytes": 741038080,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 170733568
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 344676352,
+            "packed_only_model_coefficients_bytes_tree_proposal": 344210176,
+            "legacy_loader_model_coefficient_copies_bytes": 722163712,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 169553920
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 16955,
+        "total_expert_functions": 101730,
+        "expert_coefficients": 10000465920,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 38895616,
+        "flat_router_products": 26042880,
+        "tree_router_products_upper_proposal": 153600,
+        "tree": {
+          "internal_nodes": 548,
+          "depth": 3,
+          "parameters": 578688,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 46569472,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 162190925824,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000232960,
+            "packed_only_model_coefficients_bytes_flat_router": 5636594056,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5546100736,
+            "legacy_loader_model_coefficient_copies_bytes": 55638923656,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 170930176
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500116480,
+            "packed_only_model_coefficients_bytes_flat_router": 3136477576,
+            "packed_only_model_coefficients_bytes_tree_proposal": 3045984256,
+            "legacy_loader_model_coefficient_copies_bytes": 53138807176,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 169750528
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 169543,
+        "total_expert_functions": 1017258,
+        "expert_coefficients": 100000530432,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 38895616,
+        "flat_router_products": 260418048,
+        "tree_router_products_upper_proposal": 202752,
+        "tree": {
+          "internal_nodes": 5472,
+          "depth": 4,
+          "parameters": 5778432,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 46618624,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1610191138816,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000265216,
+            "packed_only_model_coefficients_bytes_flat_router": 53452790440,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52545928192,
+            "legacy_loader_model_coefficient_copies_bytes": 553455442600,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 171126784
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000132608,
+            "packed_only_model_coefficients_bytes_flat_router": 28452657832,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27545795584,
+            "legacy_loader_model_coefficient_copies_bytes": 528455309992,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 169947136
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 32,
+        "total_expert_functions": 384,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 77791232,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 208896,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 117321728,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 4049582080,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 748105216,
+            "packed_only_model_coefficients_bytes_tree_proposal": 748154368,
+            "legacy_loader_model_coefficient_copies_bytes": 1125592576,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 407793664
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 729230848,
+            "packed_only_model_coefficients_bytes_tree_proposal": 729280000,
+            "legacy_loader_model_coefficient_copies_bytes": 1106718208,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 403075072
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 128,
+        "total_expert_functions": 1536,
+        "expert_coefficients": 301989888,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 77791232,
+        "flat_router_products": 786432,
+        "tree_router_products_upper_proposal": 307200,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 117420032,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 7688427520,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 150994944,
+            "packed_only_model_coefficients_bytes_flat_router": 867254272,
+            "packed_only_model_coefficients_bytes_tree_proposal": 865142272,
+            "legacy_loader_model_coefficient_copies_bytes": 2377203712,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 408186880
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 75497472,
+            "packed_only_model_coefficients_bytes_flat_router": 791756800,
+            "packed_only_model_coefficients_bytes_tree_proposal": 789644800,
+            "legacy_loader_model_coefficient_copies_bytes": 2301706240,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 403468288
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 4239,
+        "total_expert_functions": 50868,
+        "expert_coefficients": 10001055744,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 77791232,
+        "flat_router_products": 26044416,
+        "tree_router_products_upper_proposal": 405504,
+        "tree": {
+          "internal_nodes": 139,
+          "depth": 3,
+          "parameters": 146784,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 117518336,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 163506841600,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000527872,
+            "packed_only_model_coefficients_bytes_flat_router": 5969564368,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5873015296,
+            "legacy_loader_model_coefficient_copies_bytes": 55974843088,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 408580096
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500263936,
+            "packed_only_model_coefficients_bytes_flat_router": 3469300432,
+            "packed_only_model_coefficients_bytes_tree_proposal": 3372751360,
+            "legacy_loader_model_coefficient_copies_bytes": 53474579152,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 403861504
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "Qwen/Qwen2.5-0.5B-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 151936,
+        "n_per_layer": 42386,
+        "total_expert_functions": 508632,
+        "expert_coefficients": 100001120256,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 77791232,
+        "flat_router_products": 260419584,
+        "tree_router_products_upper_proposal": 503808,
+        "tree": {
+          "internal_nodes": 1370,
+          "depth": 4,
+          "parameters": 1446720,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 117616640,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 1609382465536,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000560128,
+            "packed_only_model_coefficients_bytes_flat_router": 53315179360,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52341695488,
+            "legacy_loader_model_coefficient_copies_bytes": 553320780640,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 408973312
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000280064,
+            "packed_only_model_coefficients_bytes_flat_router": 28314899296,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27341415424,
+            "legacy_loader_model_coefficient_copies_bytes": 528320500576,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 404254720
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 32,
+        "total_expert_functions": 192,
+        "expert_coefficients": 18874368,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 49152,
+        "tree_router_products_upper_proposal": 55296,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40409088,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1404222464,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 9437184,
+            "packed_only_model_coefficients_bytes_flat_router": 284970752,
+            "packed_only_model_coefficients_bytes_tree_proposal": 284995328,
+            "legacy_loader_model_coefficient_copies_bytes": 379342592,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146288640
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 4718592,
+            "packed_only_model_coefficients_bytes_flat_router": 280252160,
+            "packed_only_model_coefficients_bytes_tree_proposal": 280276736,
+            "legacy_loader_model_coefficient_copies_bytes": 374624000,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145108992
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 128,
+        "total_expert_functions": 768,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 104448,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40458240,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 2315316224,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 315054080,
+            "packed_only_model_coefficients_bytes_tree_proposal": 314587904,
+            "legacy_loader_model_coefficient_copies_bytes": 692541440,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146485248
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 296179712,
+            "packed_only_model_coefficients_bytes_tree_proposal": 295713536,
+            "legacy_loader_model_coefficient_copies_bytes": 673667072,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145305600
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 16955,
+        "total_expert_functions": 101730,
+        "expert_coefficients": 10000465920,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 26042880,
+        "tree_router_products_upper_proposal": 153600,
+        "tree": {
+          "internal_nodes": 548,
+          "depth": 3,
+          "parameters": 578688,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40507392,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 161996939264,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000232960,
+            "packed_only_model_coefficients_bytes_flat_router": 5588097416,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5497604096,
+            "legacy_loader_model_coefficient_copies_bytes": 55590427016,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146681856
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500116480,
+            "packed_only_model_coefficients_bytes_flat_router": 3087980936,
+            "packed_only_model_coefficients_bytes_tree_proposal": 2997487616,
+            "legacy_loader_model_coefficient_copies_bytes": 53090310536,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145502208
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 169543,
+        "total_expert_functions": 1017258,
+        "expert_coefficients": 100000530432,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 260418048,
+        "tree_router_products_upper_proposal": 202752,
+        "tree": {
+          "internal_nodes": 5472,
+          "depth": 4,
+          "parameters": 5778432,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40556544,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1609997152256,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000265216,
+            "packed_only_model_coefficients_bytes_flat_router": 53404293800,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52497431552,
+            "legacy_loader_model_coefficient_copies_bytes": 553406945960,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146878464
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000132608,
+            "packed_only_model_coefficients_bytes_flat_router": 28404161192,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27497298944,
+            "legacy_loader_model_coefficient_copies_bytes": 528406813352,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145698816
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 32,
+        "total_expert_functions": 384,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 208896,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105197568,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 3661608960,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 651111936,
+            "packed_only_model_coefficients_bytes_tree_proposal": 651161088,
+            "legacy_loader_model_coefficient_copies_bytes": 1028599296,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 359297024
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 632237568,
+            "packed_only_model_coefficients_bytes_tree_proposal": 632286720,
+            "legacy_loader_model_coefficient_copies_bytes": 1009724928,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 354578432
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 128,
+        "total_expert_functions": 1536,
+        "expert_coefficients": 301989888,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 786432,
+        "tree_router_products_upper_proposal": 307200,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105295872,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 7300454400,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 150994944,
+            "packed_only_model_coefficients_bytes_flat_router": 770260992,
+            "packed_only_model_coefficients_bytes_tree_proposal": 768148992,
+            "legacy_loader_model_coefficient_copies_bytes": 2280210432,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 359690240
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 75497472,
+            "packed_only_model_coefficients_bytes_flat_router": 694763520,
+            "packed_only_model_coefficients_bytes_tree_proposal": 692651520,
+            "legacy_loader_model_coefficient_copies_bytes": 2204712960,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 354971648
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 4239,
+        "total_expert_functions": 50868,
+        "expert_coefficients": 10001055744,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 26044416,
+        "tree_router_products_upper_proposal": 405504,
+        "tree": {
+          "internal_nodes": 139,
+          "depth": 3,
+          "parameters": 146784,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105394176,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 163118868480,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000527872,
+            "packed_only_model_coefficients_bytes_flat_router": 5872571088,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5776022016,
+            "legacy_loader_model_coefficient_copies_bytes": 55877849808,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 360083456
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500263936,
+            "packed_only_model_coefficients_bytes_flat_router": 3372307152,
+            "packed_only_model_coefficients_bytes_tree_proposal": 3275758080,
+            "legacy_loader_model_coefficient_copies_bytes": 53377585872,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 355364864
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ai-sage/GigaChat3.1-10B-A1.8B-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 42386,
+        "total_expert_functions": 508632,
+        "expert_coefficients": 100001120256,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 260419584,
+        "tree_router_products_upper_proposal": 503808,
+        "tree": {
+          "internal_nodes": 1370,
+          "depth": 4,
+          "parameters": 1446720,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105492480,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 1608994492416,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000560128,
+            "packed_only_model_coefficients_bytes_flat_router": 53218186080,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52244702208,
+            "legacy_loader_model_coefficient_copies_bytes": 553223787360,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 360476672
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000280064,
+            "packed_only_model_coefficients_bytes_flat_router": 28217906016,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27244422144,
+            "legacy_loader_model_coefficient_copies_bytes": 528223507296,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 355758080
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 32,
+        "total_expert_functions": 192,
+        "expert_coefficients": 18874368,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 25690112,
+        "flat_router_products": 49152,
+        "tree_router_products_upper_proposal": 55296,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 33265664,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1175632896,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 9437184,
+            "packed_only_model_coefficients_bytes_flat_router": 227823360,
+            "packed_only_model_coefficients_bytes_tree_proposal": 227847936,
+            "legacy_loader_model_coefficient_copies_bytes": 322195200,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 117714944
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 4718592,
+            "packed_only_model_coefficients_bytes_flat_router": 223104768,
+            "packed_only_model_coefficients_bytes_tree_proposal": 223129344,
+            "legacy_loader_model_coefficient_copies_bytes": 317476608,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 116535296
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 128,
+        "total_expert_functions": 768,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 25690112,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 104448,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 33314816,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 2086726656,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 257906688,
+            "packed_only_model_coefficients_bytes_tree_proposal": 257440512,
+            "legacy_loader_model_coefficient_copies_bytes": 635394048,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 117911552
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 239032320,
+            "packed_only_model_coefficients_bytes_tree_proposal": 238566144,
+            "legacy_loader_model_coefficient_copies_bytes": 616519680,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 116731904
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 16955,
+        "total_expert_functions": 101730,
+        "expert_coefficients": 10000465920,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 25690112,
+        "flat_router_products": 26042880,
+        "tree_router_products_upper_proposal": 153600,
+        "tree": {
+          "internal_nodes": 548,
+          "depth": 3,
+          "parameters": 578688,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 33363968,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 161768349696,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000232960,
+            "packed_only_model_coefficients_bytes_flat_router": 5530950024,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5440456704,
+            "legacy_loader_model_coefficient_copies_bytes": 55533279624,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 118108160
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500116480,
+            "packed_only_model_coefficients_bytes_flat_router": 3030833544,
+            "packed_only_model_coefficients_bytes_tree_proposal": 2940340224,
+            "legacy_loader_model_coefficient_copies_bytes": 53033163144,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 116928512
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 169543,
+        "total_expert_functions": 1017258,
+        "expert_coefficients": 100000530432,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 25690112,
+        "flat_router_products": 260418048,
+        "tree_router_products_upper_proposal": 202752,
+        "tree": {
+          "internal_nodes": 5472,
+          "depth": 4,
+          "parameters": 5778432,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 33413120,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1609768562688,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000265216,
+            "packed_only_model_coefficients_bytes_flat_router": 53347146408,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52440284160,
+            "legacy_loader_model_coefficient_copies_bytes": 553349798568,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 118304768
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000132608,
+            "packed_only_model_coefficients_bytes_flat_router": 28347013800,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27440151552,
+            "legacy_loader_model_coefficient_copies_bytes": 528349665960,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 117125120
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 32,
+        "total_expert_functions": 384,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 51380224,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 208896,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 90910720,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 3204429824,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 536817152,
+            "packed_only_model_coefficients_bytes_tree_proposal": 536866304,
+            "legacy_loader_model_coefficient_copies_bytes": 914304512,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 302149632
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 517942784,
+            "packed_only_model_coefficients_bytes_tree_proposal": 517991936,
+            "legacy_loader_model_coefficient_copies_bytes": 895430144,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 297431040
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 128,
+        "total_expert_functions": 1536,
+        "expert_coefficients": 301989888,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 51380224,
+        "flat_router_products": 786432,
+        "tree_router_products_upper_proposal": 307200,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 91009024,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 6843275264,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 150994944,
+            "packed_only_model_coefficients_bytes_flat_router": 655966208,
+            "packed_only_model_coefficients_bytes_tree_proposal": 653854208,
+            "legacy_loader_model_coefficient_copies_bytes": 2165915648,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 302542848
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 75497472,
+            "packed_only_model_coefficients_bytes_flat_router": 580468736,
+            "packed_only_model_coefficients_bytes_tree_proposal": 578356736,
+            "legacy_loader_model_coefficient_copies_bytes": 2090418176,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 297824256
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 4239,
+        "total_expert_functions": 50868,
+        "expert_coefficients": 10001055744,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 51380224,
+        "flat_router_products": 26044416,
+        "tree_router_products_upper_proposal": 405504,
+        "tree": {
+          "internal_nodes": 139,
+          "depth": 3,
+          "parameters": 146784,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 91107328,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 162661689344,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000527872,
+            "packed_only_model_coefficients_bytes_flat_router": 5758276304,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5661727232,
+            "legacy_loader_model_coefficient_copies_bytes": 55763555024,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 302936064
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500263936,
+            "packed_only_model_coefficients_bytes_flat_router": 3258012368,
+            "packed_only_model_coefficients_bytes_tree_proposal": 3161463296,
+            "legacy_loader_model_coefficient_copies_bytes": 53263291088,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 298217472
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "ibm-granite/granite-4.0-h-small",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 100352,
+        "n_per_layer": 42386,
+        "total_expert_functions": 508632,
+        "expert_coefficients": 100001120256,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 51380224,
+        "flat_router_products": 260419584,
+        "tree_router_products_upper_proposal": 503808,
+        "tree": {
+          "internal_nodes": 1370,
+          "depth": 4,
+          "parameters": 1446720,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 91205632,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 1608537313280,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000560128,
+            "packed_only_model_coefficients_bytes_flat_router": 53103891296,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52130407424,
+            "legacy_loader_model_coefficient_copies_bytes": 553109492576,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 303329280
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000280064,
+            "packed_only_model_coefficients_bytes_flat_router": 28103611232,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27130127360,
+            "legacy_loader_model_coefficient_copies_bytes": 528109212512,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 298610688
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 32,
+        "total_expert_functions": 192,
+        "expert_coefficients": 18874368,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 8388608,
+        "flat_router_products": 49152,
+        "tree_router_products_upper_proposal": 55296,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 15964160,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 621984768,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 9437184,
+            "packed_only_model_coefficients_bytes_flat_router": 89411328,
+            "packed_only_model_coefficients_bytes_tree_proposal": 89435904,
+            "legacy_loader_model_coefficient_copies_bytes": 183783168,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 48508928
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 4718592,
+            "packed_only_model_coefficients_bytes_flat_router": 84692736,
+            "packed_only_model_coefficients_bytes_tree_proposal": 84717312,
+            "legacy_loader_model_coefficient_copies_bytes": 179064576,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 47329280
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 128,
+        "total_expert_functions": 768,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 8388608,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 104448,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 16013312,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1533078528,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 119494656,
+            "packed_only_model_coefficients_bytes_tree_proposal": 119028480,
+            "legacy_loader_model_coefficient_copies_bytes": 496982016,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 48705536
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 100620288,
+            "packed_only_model_coefficients_bytes_tree_proposal": 100154112,
+            "legacy_loader_model_coefficient_copies_bytes": 478107648,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 47525888
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 16955,
+        "total_expert_functions": 101730,
+        "expert_coefficients": 10000465920,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 8388608,
+        "flat_router_products": 26042880,
+        "tree_router_products_upper_proposal": 153600,
+        "tree": {
+          "internal_nodes": 548,
+          "depth": 3,
+          "parameters": 578688,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 16062464,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 161214701568,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000232960,
+            "packed_only_model_coefficients_bytes_flat_router": 5392537992,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5302044672,
+            "legacy_loader_model_coefficient_copies_bytes": 55394867592,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 48902144
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500116480,
+            "packed_only_model_coefficients_bytes_flat_router": 2892421512,
+            "packed_only_model_coefficients_bytes_tree_proposal": 2801928192,
+            "legacy_loader_model_coefficient_copies_bytes": 52894751112,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 47722496
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 169543,
+        "total_expert_functions": 1017258,
+        "expert_coefficients": 100000530432,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 8388608,
+        "flat_router_products": 260418048,
+        "tree_router_products_upper_proposal": 202752,
+        "tree": {
+          "internal_nodes": 5472,
+          "depth": 4,
+          "parameters": 5778432,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 16111616,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1609214914560,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000265216,
+            "packed_only_model_coefficients_bytes_flat_router": 53208734376,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52301872128,
+            "legacy_loader_model_coefficient_copies_bytes": 553211386536,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 49098752
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000132608,
+            "packed_only_model_coefficients_bytes_flat_router": 28208601768,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27301739520,
+            "legacy_loader_model_coefficient_copies_bytes": 528211253928,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 47919104
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 32,
+        "total_expert_functions": 384,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 16777216,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 208896,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 56307712,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 2097133568,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 259993088,
+            "packed_only_model_coefficients_bytes_tree_proposal": 260042240,
+            "legacy_loader_model_coefficient_copies_bytes": 637480448,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 163737600
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 241118720,
+            "packed_only_model_coefficients_bytes_tree_proposal": 241167872,
+            "legacy_loader_model_coefficient_copies_bytes": 618606080,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 159019008
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 128,
+        "total_expert_functions": 1536,
+        "expert_coefficients": 301989888,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 16777216,
+        "flat_router_products": 786432,
+        "tree_router_products_upper_proposal": 307200,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 56406016,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 5735979008,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 150994944,
+            "packed_only_model_coefficients_bytes_flat_router": 379142144,
+            "packed_only_model_coefficients_bytes_tree_proposal": 377030144,
+            "legacy_loader_model_coefficient_copies_bytes": 1889091584,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 164130816
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 75497472,
+            "packed_only_model_coefficients_bytes_flat_router": 303644672,
+            "packed_only_model_coefficients_bytes_tree_proposal": 301532672,
+            "legacy_loader_model_coefficient_copies_bytes": 1813594112,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 159412224
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 4239,
+        "total_expert_functions": 50868,
+        "expert_coefficients": 10001055744,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 16777216,
+        "flat_router_products": 26044416,
+        "tree_router_products_upper_proposal": 405504,
+        "tree": {
+          "internal_nodes": 139,
+          "depth": 3,
+          "parameters": 146784,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 56504320,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 161554393088,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000527872,
+            "packed_only_model_coefficients_bytes_flat_router": 5481452240,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5384903168,
+            "legacy_loader_model_coefficient_copies_bytes": 55486730960,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 164524032
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500263936,
+            "packed_only_model_coefficients_bytes_flat_router": 2981188304,
+            "packed_only_model_coefficients_bytes_tree_proposal": 2884639232,
+            "legacy_loader_model_coefficient_copies_bytes": 52986467024,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 159805440
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "tiiuae/Falcon-H1-Tiny-90M-Instruct",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 32768,
+        "n_per_layer": 42386,
+        "total_expert_functions": 508632,
+        "expert_coefficients": 100001120256,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 16777216,
+        "flat_router_products": 260419584,
+        "tree_router_products_upper_proposal": 503808,
+        "tree": {
+          "internal_nodes": 1370,
+          "depth": 4,
+          "parameters": 1446720,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 56602624,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 1607430017024,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000560128,
+            "packed_only_model_coefficients_bytes_flat_router": 52827067232,
+            "packed_only_model_coefficients_bytes_tree_proposal": 51853583360,
+            "legacy_loader_model_coefficient_copies_bytes": 552832668512,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 164917248
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000280064,
+            "packed_only_model_coefficients_bytes_flat_router": 27826787168,
+            "packed_only_model_coefficients_bytes_tree_proposal": 26853303296,
+            "legacy_loader_model_coefficient_copies_bytes": 527832388448,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 160198656
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 32,
+        "total_expert_functions": 192,
+        "expert_coefficients": 18874368,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 49152,
+        "tree_router_products_upper_proposal": 55296,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40409088,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1404222464,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 9437184,
+            "packed_only_model_coefficients_bytes_flat_router": 284970752,
+            "packed_only_model_coefficients_bytes_tree_proposal": 284995328,
+            "legacy_loader_model_coefficient_copies_bytes": 379342592,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146288640
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 4718592,
+            "packed_only_model_coefficients_bytes_flat_router": 280252160,
+            "packed_only_model_coefficients_bytes_tree_proposal": 280276736,
+            "legacy_loader_model_coefficient_copies_bytes": 374624000,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145108992
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 128,
+        "total_expert_functions": 768,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 104448,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40458240,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 2315316224,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 315054080,
+            "packed_only_model_coefficients_bytes_tree_proposal": 314587904,
+            "legacy_loader_model_coefficient_copies_bytes": 692541440,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146485248
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 296179712,
+            "packed_only_model_coefficients_bytes_tree_proposal": 295713536,
+            "legacy_loader_model_coefficient_copies_bytes": 673667072,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145305600
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 16955,
+        "total_expert_functions": 101730,
+        "expert_coefficients": 10000465920,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 26042880,
+        "tree_router_products_upper_proposal": 153600,
+        "tree": {
+          "internal_nodes": 548,
+          "depth": 3,
+          "parameters": 578688,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40507392,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 161996939264,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000232960,
+            "packed_only_model_coefficients_bytes_flat_router": 5588097416,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5497604096,
+            "legacy_loader_model_coefficient_copies_bytes": 55590427016,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146681856
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500116480,
+            "packed_only_model_coefficients_bytes_flat_router": 3087980936,
+            "packed_only_model_coefficients_bytes_tree_proposal": 2997487616,
+            "legacy_loader_model_coefficient_copies_bytes": 53090310536,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145502208
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 256,
+        "L": 6,
+        "swa": 1,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 169543,
+        "total_expert_functions": 1017258,
+        "expert_coefficients": 100000530432,
+        "active_expert_coefficients": 4718592,
+        "core_matrix_products": 2801664,
+        "full_head_products": 32833536,
+        "flat_router_products": 260418048,
+        "tree_router_products_upper_proposal": 202752,
+        "tree": {
+          "internal_nodes": 5472,
+          "depth": 4,
+          "parameters": 5778432,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 40556544,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 1286144,
+        "f32_dense_adam_all_target_coefficients_bytes": 1609997152256,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000265216,
+            "packed_only_model_coefficients_bytes_flat_router": 53404293800,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52497431552,
+            "legacy_loader_model_coefficient_copies_bytes": 553406945960,
+            "selected_expert_code_and_scale_bytes": 2457600,
+            "logical_decode_coefficients_bytes_tree_proposal": 146878464
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000132608,
+            "packed_only_model_coefficients_bytes_flat_router": 28404161192,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27497298944,
+            "legacy_loader_model_coefficient_copies_bytes": 528406813352,
+            "selected_expert_code_and_scale_bytes": 1277952,
+            "logical_decode_coefficients_bytes_tree_proposal": 145698816
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 32,
+        "total_expert_functions": 384,
+        "expert_coefficients": 75497472,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 196608,
+        "tree_router_products_upper_proposal": 208896,
+        "tree": {
+          "internal_nodes": 1,
+          "depth": 1,
+          "parameters": 1056,
+          "score_products_upper": 1024,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105197568,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 3661608960,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 37748736,
+            "packed_only_model_coefficients_bytes_flat_router": 651111936,
+            "packed_only_model_coefficients_bytes_tree_proposal": 651161088,
+            "legacy_loader_model_coefficient_copies_bytes": 1028599296,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 359297024
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 18874368,
+            "packed_only_model_coefficients_bytes_flat_router": 632237568,
+            "packed_only_model_coefficients_bytes_tree_proposal": 632286720,
+            "legacy_loader_model_coefficient_copies_bytes": 1009724928,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 354578432
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 128,
+        "total_expert_functions": 1536,
+        "expert_coefficients": 301989888,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 786432,
+        "tree_router_products_upper_proposal": 307200,
+        "tree": {
+          "internal_nodes": 5,
+          "depth": 2,
+          "parameters": 5280,
+          "score_products_upper": 9216,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105295872,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 7300454400,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 150994944,
+            "packed_only_model_coefficients_bytes_flat_router": 770260992,
+            "packed_only_model_coefficients_bytes_tree_proposal": 768148992,
+            "legacy_loader_model_coefficient_copies_bytes": 2280210432,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 359690240
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 75497472,
+            "packed_only_model_coefficients_bytes_flat_router": 694763520,
+            "packed_only_model_coefficients_bytes_tree_proposal": 692651520,
+            "legacy_loader_model_coefficient_copies_bytes": 2204712960,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 354971648
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 4239,
+        "total_expert_functions": 50868,
+        "expert_coefficients": 10001055744,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 26044416,
+        "tree_router_products_upper_proposal": 405504,
+        "tree": {
+          "internal_nodes": 139,
+          "depth": 3,
+          "parameters": 146784,
+          "score_products_upper": 17408,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105394176,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 163118868480,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 5000527872,
+            "packed_only_model_coefficients_bytes_flat_router": 5872571088,
+            "packed_only_model_coefficients_bytes_tree_proposal": 5776022016,
+            "legacy_loader_model_coefficient_copies_bytes": 55877849808,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 360083456
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 2500263936,
+            "packed_only_model_coefficients_bytes_flat_router": 3372307152,
+            "packed_only_model_coefficients_bytes_tree_proposal": 3275758080,
+            "legacy_loader_model_coefficient_copies_bytes": 53377585872,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 355364864
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    },
+    {
+      "donor": "microsoft/bitnet-b1.58-2B-4T-bf16",
+      "target": {
+        "D": 512,
+        "L": 12,
+        "swa": 2,
+        "k": 8,
+        "h": 128,
+        "V": 128256,
+        "n_per_layer": 42386,
+        "total_expert_functions": 508632,
+        "expert_coefficients": 100001120256,
+        "active_expert_coefficients": 18874368,
+        "core_matrix_products": 20447232,
+        "full_head_products": 65667072,
+        "flat_router_products": 260419584,
+        "tree_router_products_upper_proposal": 503808,
+        "tree": {
+          "internal_nodes": 1370,
+          "depth": 4,
+          "parameters": 1446720,
+          "score_products_upper": 25600,
+          "scope": "proposed trained beam tree, NOT exact search of arbitrary flat router or an implemented LUT router"
+        },
+        "per_decode_matrix_products_upper_tree_proposal": 105492480,
+        "fixed_recurrent_and_swa_cache_payload_bytes": 5144576,
+        "f32_dense_adam_all_target_coefficients_bytes": 1608994492416,
+        "layouts": [
+          {
+            "layout": "byte_pair",
+            "packed_expert_code_bytes": 50000560128,
+            "packed_only_model_coefficients_bytes_flat_router": 53218186080,
+            "packed_only_model_coefficients_bytes_tree_proposal": 52244702208,
+            "legacy_loader_model_coefficient_copies_bytes": 553223787360,
+            "selected_expert_code_and_scale_bytes": 9732096,
+            "logical_decode_coefficients_bytes_tree_proposal": 360476672
+          },
+          {
+            "layout": "nibble_pair",
+            "packed_expert_code_bytes": 25000280064,
+            "packed_only_model_coefficients_bytes_flat_router": 28217906016,
+            "packed_only_model_coefficients_bytes_tree_proposal": 27244422144,
+            "legacy_loader_model_coefficient_copies_bytes": 528223507296,
+            "selected_expert_code_and_scale_bytes": 5013504,
+            "logical_decode_coefficients_bytes_tree_proposal": 355758080
+          }
+        ],
+        "physical_dram_and_speed": "UNMEASURED",
+        "scope": "prospective original-Mamba1/SWA shape; all transfer/precision/behavior gates open"
+      }
+    }
+  ],
+  "resource": {
+    "seconds_before_serialization": 0.030999999959021807,
+    "OS_peak_bytes_before_serialization": 25821184
+  },
+  "scope": "new static target-aware accounting, not model/quality/native/rate or complete peak qualification",
+  "limitations": [
+    "matrix products omit elementwise/selection/normalization/nonlinear/dispatch cost",
+    "logical coefficients are not actual DRAM traffic",
+    "fixed cache payload is not full runtime workspace",
+    "Adam figures exclude activation/teacher/copy/workspace and are explicit chosen precision models",
+    "large-n target pools contain no trained weights; stored parameters are not useful capacity",
+    "config-derived sources do not establish complete header parameter count or weight values",
+    "tree bounds describe a proposed learned router, not a measured or exact arbitrary flat-router algorithm"
+  ],
+  "new_weight_value_bytes": 0,
+  "model_native_calls": 0,
+  "goal_complete": false
+}

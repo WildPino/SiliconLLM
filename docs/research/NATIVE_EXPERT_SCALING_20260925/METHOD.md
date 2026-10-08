@@ -36,10 +36,16 @@ selected ternary LUT functions are the deployment starting point. Fixed original
 dimensions are an anchor; costed extensions are allowed. Source-shaped BF16/F32
 Transformer execution alone is a diagnostic, not target admission.
 
-First implement/freeze metadata/operator/complete-cost triage: existing Qwen,
-pinned small recurrent/hybrid and native ternary donors; explicit state/core/
-head/router/expert/packed-storage budgets and optimizer/teacher memory. Select
-one staged adaptation pilot after this comparison. Deployment needs structured
+[Actual metadata/operator/complete-cost triage](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md)
+is AVAILABLE/executed: five donors,40 budgets, original counts reused/new family
+operator counts, seven hand-checked integer terms,0 model calls. Source affinity
+does not remove Granite/BitNet large active work. First real bridge donor is
+FalconTiny: its per-head recurrence maps algebraically to the original scan,
+with different projection/conv and source casts. [Next source/scan bridge](CHATBOT_FALCON_SCAN_BRIDGE_NEXT_20261008.md)
+requires bounded actual weights/interaction, usability and real-state operator
+parity before whole learning. Keep width512/source vocabulary initially;
+source-compatible core variant needs its own budget. Do not replay triage.
+Deployment needs structured
 routing with IDs AND mass and packed-only expert storage; original full E scan
 and simultaneous F32/int8/code arrays do not become free as n grows.
 
