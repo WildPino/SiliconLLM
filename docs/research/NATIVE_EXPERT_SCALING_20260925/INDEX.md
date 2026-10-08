@@ -63,12 +63,11 @@ is on donor trajectories; composition on student trajectories remains unknown.
 [Qualified200-case corpus](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md) supplies
 ALL24 operands and3050 full-vocabulary labels;43 EOS/157 length16 prefixes,
 limited domains.64 endpoint texts unqueried. Reuse BYTE, no source acquisition replay.
-[Balanced key builder](CHATBOT_BALANCED_KEYS_NEXT_20261008.md) is implemented
-UNEXECUTED: FIT-only fixed20 quota-constrained greedy centroid iterations,
-same16/selected4 inference arithmetic. Construction quotas are NOT actual
-top4 support/quality. FIRST construction audit and full-stage integration next.
-Whole adapter/output KL/Adam available; actual24 assembly/optimizer/global fit
-still missing. Cached-label array deduction3.005758208GB is not measured peak.
+[Balanced key builder/result](CHATBOT_BALANCED_INITIALIZER_RESULT_20261008.md)
+is complete/FIRST verified: fixed20 FIT-only quota iterations,actual top4 support
+minFIT377/40cases/novelDEV89. Quotas are NOT inference routes. Whole24 assembly/
+resident allocation is now actual/FIRST verified; full forward/global fit missing.
+Measured assembly peak3.723GB excludes actual training activations/backward.
 
 ## Retained necessary closures
 
