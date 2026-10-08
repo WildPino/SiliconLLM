@@ -1,5 +1,29 @@
 # Native expert-count scaling: prior evidence
 
+**9 October actual packed compact target/evolving-state original-kernel C:**
+[Result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md):212-field packed file/native
+model heap425,210,736B,84,934,656B ternary codes,0 master/unpacked bank references,
+9,117,696B actual state heap. Original matrix/LUT/AQ63 function bodies unchanged;
+explicit SSM/SWA/SwiGLU/32-bit-ID adaptations. ONE full6-prefix/261-input C run,
+ALL32 full-vocab rows/3132 trace records. Fixed1e-4 logit RMS13/32 PASS,
+19/32 FAIL/max0.783856%; ALL32 learner greedy IDs equal. Packed/original fixtures/
+flat router ID+mass gates PASS, mass max2.5845e-7. Exact saved-only dyadic audit
+certifies the failure and212 field extents/hashes. Export167.157s/OS3.626GB;
+native family16.953s/direct C4.750s/OS439.7MB; audit5.750s/202.6MB through exit.
+Three pre-execution apparatus faults retained, no completed C/source/fit replay.
+No accepted decode-rate/chatbot admission; head only32 times/core261 steps.
+
+NEW common C-input bank diagnostic: ALL3132 operands/actual packed codes;
+ALL router IDs equal,3131 FF outputs<=1e-4 RMS, ONE0.831066% anomaly at layer7/
+fit_code position33. Later original code logits41/42 PASS; this cannot explain
+all19 whole failures. Quantizer boundaries/upstream numerical drift remain
+hypotheses. Probe8.937s/OS1.175GB/GPU110.2MB allocated/140.5MB reserved,
+all successful resource gates PASS and jobs terminal; no T4. Next ONE bounded
+common-core diagnostic then deployable-forward qualification/broad balanced
+adaptation under [current NEXT](CHATBOT_HYBRID_BACKEND_ADAPTATION_NEXT_20261009.md).
+Original nativeFAIL/poor DEV12/12 disagreement/full goal remain unchanged.
+Historical NEXT/LIVE/missing-native statements below are superseded by INDEX.
+
 **8 October actual complete compact recurrent/ternary learner:**
 [Result](CHATBOT_HYBRID_PILOT_RESULT_20261008.md): source-informed D512/L12/
 10SSM48head*16/SWA2/n72/k8/h128, AQ63 ternary SwiGLU, F32 organs/learned scales/
