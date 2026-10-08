@@ -1,5 +1,24 @@
 # Native expert-count scaling: prior evidence
 
+**8 October FIRST actual source-conditioned quadratic factors qualified:**
+[result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md), eight source/core atoms
+per original FIT parent/two forms per atom, actual R/T BF16 source rows,
+16 distinct bases/72 unique atom IDs across128 selections (123source/5core).
+ALL128 choices/688128 scores/factor bytes/projections independently verified,
+score gap1.034e-15/projection normal1.695e-15. Scalar source-D curvature
+projection residual92.1%..95.5%; no free-C response coefficients or new
+response-class fidelity. No source/core H/J/value/old feature/optimizer replay.
+Primary27.454s/457.5MB,audit5.453s/229.6MB through exit,35.43MB outputs,
+all5 instances closed/no faults/foreignSHA preserved. Pre-worker audit overlap
+retained,0 calculations; repair1 SAME contract after instance ended.
+[New kernel/ONE response fit NEXT](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md):
+FIRST F32 center/scale/FIT-only256 feature RMS scales,old linear Gram reused
+as summand,new positive augmented covariance/factor and FIRST audit; then
+ONE frozen fixed convex response objective. Feature design/kernel/fit NOT
+implemented. Original novel1%/ALL-category3% and full compact CHATBOT/fresh
+own-history/tasks AND accepted50 SAME artifact/useful-n/LUT winner+mass/DRAM/
+actual families-scales remain mandatory. No rank/alpha/codec ladder.
+
 **8 October FIRST source-null curvature supported/independently verified:**
 [result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md),actual BF16 source/core
 slices/original32 anchors/old32 Js,FOUR fixed approximate null directions.
@@ -17,8 +36,8 @@ rank16 dense-affine+quadratic private terms priced BEFORE labels: ALL24
 295104512MAC/592186464logicalB/1080411488stored payload necessary3/5 gates
 PASS,not physicalDRAM/rate. Extra private null-curvature output image<=64
 per cell is a limit. [Source-informed factor NEXT](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md)
-FIRST FIT-only extraction/protocol,then changed-feature design/ONE fixed fit;
-extraction/design/fit NOT implemented. Closed affine/neural/jet objectives
+FIT-only extraction/FIRST audit now COMPLETE as above,then changed-feature design/ONE fixed fit;
+new design/kernel/fit NOT implemented. Closed affine/neural/jet objectives
 remain CLOSED. Complete compact CHATBOT/fresh own-history/tasks AND accepted50
 SAME artifact/useful-n/LUT winner+mass/DRAM/actual families/scales remain open.
 

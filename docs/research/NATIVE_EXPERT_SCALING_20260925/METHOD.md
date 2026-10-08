@@ -84,7 +84,7 @@ seven OS instances closed/no relevant faults. Restrict scope to plain text;
 tools and native adapter integration remain missing. Keep failed container/
 symlink faults and repaired prefixes, no completed fixture replay.
 
-Next [source-informed private factors](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md):
+Next [quadratic feature covariance/ONE fit](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md):
 the first finite joint shared+conditional SwiGLU converter now has measured
 value-only and value+full-J failures. The changed coupled-affine compiler also
 exists and fails outside its16 anchors. The new ALL-FIT positive-ridge affine
@@ -94,8 +94,11 @@ minimum. [Actual source-null curvature](CHATBOT_NULL_CURVATURE_RESULT_20261008.m
 now qualifies FIRST128 source+128 core H/four directions/ALL256 checks;
 novel residual/source curvature RMS96.686%,chi1.13847,16/16 anchors. Not a
 response bound or fresh chatbot result. [ONE complete-cost quadratic format](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
-was priced before labels; first FIT-only source-informed factor extraction
-remains unimplemented and must precede any changed-feature design/fit.
+was priced before labels; FIT-only source-informed factor extraction/FIRST
+audit now AVAILABLE: sixteen distinct BF16 R/T bases,eight source/core atoms
+per parent/two forms each,ALL128 choices/688128 scores and source bytes verified.
+New quadratic feature design/kernel/fit remain unimplemented; they must be
+qualified separately before candidate/native chatbot admission.
 Keep complete head/attention/router/cache priced and full x
 as conditional function input. Old independent
 PCA/parent/shared256/regional128 output spaces310/311/316 remain closed.
@@ -219,9 +222,18 @@ source/J/FD/feature experiment replay. Four probes do not cover864 null inputs.
 ONE rank16 dense-affine+factorized-quadratic format was priced BEFORE labels:
 ALL24 MAC295104512/logicalB592186464/stored payload1080411488 necessary gates
 PASS, no physical traffic/rate. Additional private curvature image<=64 per
-cell is a limitation. FIRST [FIT-only source-factor extraction](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md)
-and precise finite protocol/binder remain unimplemented; source qualification/
-FIRST audit before new feature design/ONE fixed fit. No rank/h/codec/anchor ladder.
+cell is a limitation. FIRST [FIT-only source-factor extraction](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md)
+is now AVAILABLE/independently qualified: original source/core BF16 rows,
+16 parents/eight atoms each,16 forms,72 unique source/core IDs. Fixed source-D
+scalar projection residual92.1%..95.5%, not free-C response-class fidelity.
+ALL128 choices/688128 scores/byte factors/projections verified independently,
+maximum score gap1.034e-15/normal1.695e-15. Primary27.454s/457.5MB,audit5.453s/
+229.6MB through actual exit, all5 instances closed/no faults. First pre-worker
+audit overlap retained; no audit acquisition before repair1. Source-factor
+qualification now permits [NEW feature covariance](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md):
+F32 center/scale,FIT-only256 quadratic column scales,old linear G reused as
+term,new positive Gram/factor and FIRST independent audit,then ONE frozen
+response fit. Feature design/kernel/fit NOT implemented. No rank/codec ladder.
 Promotion still requires novel1%/ALL-category3% and actual complete export/native
 composition, then fresh whole chat quality AND accepted50 SAME artifact,
 useful n/DRAM/LUT/family/scales. Consumed development can reject a candidate,
@@ -567,10 +579,11 @@ cached. Actual joint neural,16-jet and ALL-FIT convex converters are reusable
 implemented tools with CLOSED candidate outcomes. The source-null-J covariance
 kernel/compiler also exists with an independently CLOSED candidate. Source-null
 curvature collector/FIRST independent audit now AVAILABLE as a finite positive
-representation diagnostic. [Current result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md)
+representation diagnostic. [Current source-factor result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md)
 and [ONE complete-cost proposal](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md)
-connect these statuses to the full pipeline. New FIT-only factor extraction/
-feature design/fit remain PROPOSED,not available. No single executable currently
+connect these statuses to the full pipeline. FIT-only source factor extraction/
+FIRST audit now AVAILABLE; new quadratic feature design/kernel/fit remain
+PROPOSED,not available. No single executable currently
 converts a pretrained chatbot into an admitted compact native artifact.
 
 493 independently joins saved F,p,expert,UID/occurrences and rounded pF

@@ -1,4 +1,4 @@
-# Administrative closure of FIRST curvature acquisition and saved-formula audit.
+# Administrative closure of FIRST quadratic extraction and saved-score audit.
 
 $ErrorActionPreference='Stop'
 $taskDoc=(Resolve-Path (Join-Path $PSScriptRoot '../../docs/research/NATIVE_EXPERT_SCALING_20260925')).Path

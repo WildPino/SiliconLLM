@@ -44,23 +44,25 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | Actual ALL-FIT convex converter |[kernel/compiler result](CHATBOT_KERNEL_RESULT_20261008.md): ALL3845 FIT rows, one positive-ridge full-input affine minimum numerically certified; encoded FIT1.5485%, FIRST64 novel70.4495%. Exact necessary FULL1% failure independently verified; zero-prior objective CLOSED |
 | Actual ALL-FIT/source-null-J converter |[prior result](CHATBOT_NULL_PRIOR_RESULT_20261008.md): new covariance kernel/unique fixed quadratic fit/first audits COMPLETE; encoded FIT15.9122%,FIRST64 novel80.9040%. Both exact necessary FULL1% failures independently verified; this prior objective CLOSED |
 | New representation diagnostic |[curvature result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md): FIRST128 source+128 core H/four null directions/ALL256 checks independently verified; novel residual/source H RMS96.686%,chi1.13847,16/16 anchors. Supports ONE private-curvature investigation, not response/fresh quality |
+| Actual source-conditioned factors |[factor result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md): eight source/core atoms per FIT parent/two forms each, R/T BF16 exact source rows; ALL128 choices/688128 scores independently verified.16 distinct bases/72 atoms; scalar source-D curvature projection residual92.1%..95.5%, no C response fit yet |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No eligible NEW compact ALL24/export/chat/accepted50/useful-n artifact |
 
-Latest decisive result: [source-minus-shared null curvature](CHATBOT_NULL_CURVATURE_RESULT_20261008.md)
-is now measured/independently qualified in four fixed directions: novel H
-residual/source RMS96.686%,chi1.13847,16/16 anchors; ALL256 analytic-H/gradient-FD
-checks PASS. At fixed P/shared,arbitrary affine n cannot change real null
-curvature. No1% response impossibility,864-null coverage or semantic percentage.
-Collector17.735s/398.6MB,audit11.782s/403.5MB through exit; all5 known instances
-closed/no faults. First pre-worker foreign overlap retained,0 labels,repair1
-same contract after build ended; foreign SHA intact. Original Js/anchors reused.
+Latest decisive result: [source-factor extraction/FIRST audit](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md)
+now COMPLETE: source/core BF16 rows yield sixteen distinct rank16 quadratic
+bases/eight atoms each,72 unique atom IDs. ALL128 choices/688128 scores and
+factor bytes independently verified,maximum score gap1.034e-15/projection
+normal1.695e-15. Source-D scalar projection residual92.1%..95.5% is retained;
+not the later free-C response class. No source/core/J/H/old feature/optimizer
+replay. Extraction27.454s/457.5MB,audit5.453s/229.6MB through exit; all5
+known instances closed/no faults. Pre-worker audit overlap retained,0 audit
+calculations; repair1 same contract after instance ended; foreign SHA intact.
 
 [Complete pipeline/budget](CHATBOT_CURVATURE_PIPELINE_BUDGET_20261008.md) priced
 ONE dense-affine+rank16 quadratic private format BEFORE labels: ALL24
 295104512MAC/592186464 logicalB/1080411488 stored payload; necessary3/5
 gates PASS,physical DRAM/rate unmeasured. Private added null-curvature output
-image<=64 per cell is a limit. [FIT-only source-factor NEXT](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md)
-selects ONE changed representation; extraction/design/fit NOT implemented.
+image<=64 per cell is a limit. [Changed-feature kernel/ONE fit NEXT](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md)
+keeps this ONE representation; factors qualified, feature design/kernel/fit NOT implemented.
 No affine objective reopened. Full CHATBOT pipeline remains admission target.
 
 ## Retained necessary closures
@@ -120,7 +122,7 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [FIT-only source-informed quadratic factors](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md).
+**First action:** [changed quadratic feature covariance](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse adapter/IDs/census/original48-case calibration bytes without replay.
 All finite joint fits,16-jet,zero-prior ALL-FIT AND source-null-J prior objectives
@@ -133,11 +135,15 @@ independent audit now COMPLETE/positive: actual BF16 slices/original32 anchors,
 four fixed null directions,128+128 H/512 new perturbed gradients,ALL256 checks.
 No original source forward/J/FD/feature experiment replay. Saved small operands/
 curvature available; no cubic Hessian. ONE complete-cost rank16 quadratic format
-was priced before labels; FIRST implement/freeze eight source/core atoms per
-parent's FIT anchor,two forms per atom,actual coefficient/provenance extraction
-and finite protocol. Do not fit yet; FIRST factor qualification/audit before
-new ALL-FIT feature covariance and ONE frozen fit. Extraction/design/fit NOT
-implemented. No alpha/lambda/rank/precision/h/direction/anchor ladder.
+was priced before labels. Eight source/core atoms per parent's FIT anchor,
+two forms per atom now extracted/independently qualified; actual R/T BF16
+factors/IDs/score/projection witnesses saved. FIRST implement/freeze NEW
+quadratic features on immutable ALL3845 FIT_x/weights/W/U/mu/r and source
+factors. Encode new F32 center/scale,freeze FIT-only256 column RMS scales,
+reuse saved old linear G as summand,new augmented covariance/positive factor.
+Do not fit yet; FIRST feature/Gram/factor qualification/audit before ONE
+frozen response fit. New design/kernel/fit NOT implemented. No alpha/lambda/
+atom-count/rank/precision/h/direction/anchor ladder.
 Keep full head/attention/router/cache priced; local fidelity only permits the
 next ALL24/export/native composition step, never a fresh chat/accepted50 claim.
 Use newly excluded whole dialogue/task cases when an eligible artifact exists.
@@ -166,5 +172,5 @@ families/~100B remain open. No percentage or goal completion claim.
 BYTE; its resumptions are historical. [Method through498](METHOD_THROUGH_498_20261006.md)
 and individual protocol/result/RAW/RETENTION/ADMISSION records retain details.
 This index, [chatbot reassessment](CHATBOT_PIPELINE_REASSESSMENT_20261007.md) and
-[source-informed quadratic NEXT](CHATBOT_SOURCE_QUADRATIC_NEXT_20261008.md)
+[quadratic kernel/ONE fit NEXT](CHATBOT_QUADRATIC_KERNEL_NEXT_20261008.md)
 supersede all older operational NEXTs.
