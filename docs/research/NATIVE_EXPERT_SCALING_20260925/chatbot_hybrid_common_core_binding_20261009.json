@@ -1,0 +1,109 @@
+{
+  "schema": "HYBRID_COMMON_CORE_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_common_core.py",
+  "model": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_export_20261008\\model.bin",
+  "trace": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_native_repair3_20261008\\trace.bin",
+  "queries": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_native_repair3_20261008\\queries.json",
+  "source_config": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+  "limits": {
+    "seconds": 600,
+    "OS_bytes": 4294967296,
+    "GPU_allocated_bytes": 2147483648,
+    "GPU_reserved_bytes": 3221225472,
+    "output_bytes": 67108864
+  },
+  "runtime_binding_scope": "Packed model/C operands/source config and selected target/Torch/Transformers files bound; isolated versions, not full native DLL tree.",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_native_result_repair3_20261008.json",
+      "bytes": 13014,
+      "sha256": "1454fb7d212bbf88068591dfb4879a9a8114b50ae1df2db28190e4472e41dbe2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_native_result_repair3_20261008.terminal.json",
+      "bytes": 4999,
+      "sha256": "3cbc16c12cdb8dbc5f5ff5b2e28d08176e3c6bc169622243419968c1cd476f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_export_20261008\\model.bin",
+      "bytes": 425210736,
+      "sha256": "191d1d20058946702330038336553cd6588efbcebdbac85f70410a03126c3571"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_native_repair3_20261008\\trace.bin",
+      "bytes": 39588480,
+      "sha256": "7adc3b0bac9a98d3740221d3e75ad491df32565359a0650bcecd41ab0b969c0f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_native_repair3_20261008\\queries.json",
+      "bytes": 4334,
+      "sha256": "b15fa2aa426ba90435087e1e99426e8e8488072d72c7e4909e837f7b9dcab7e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+      "bytes": 1599,
+      "sha256": "2473f5e02854a2833df973277e6f109d94344e7860fbc78d5ff8b31d08dddaeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_common_core.py",
+      "bytes": 14124,
+      "sha256": "17d9fe83194d7bf2558ee5f4e9e0ba75737e1af1d9f3c576a26c8222911090f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_target.py",
+      "bytes": 10059,
+      "sha256": "7f58cb9a8bd7a995e6688de8620723eb3ba7695033387d537be5f6fb8525489b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 8569,
+      "sha256": "e35cf975480f82a6476f2fac01682aac6dc5f85fe616797e87f43aeab90c760e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_HYBRID_COMMON_CORE_PROTOCOL_20261009.md",
+      "bytes": 2716,
+      "sha256": "7a6f1a98446099b8ed7f23e7ab769ac70d369de1d31d95b1ca55f73f3f71647d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+      "bytes": 59285,
+      "sha256": "abfb007ace80bfd5584c457569605cf57f43778495e587c68df63a8f0ffa5346"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\configuration_falcon_h1.py",
+      "bytes": 6632,
+      "sha256": "bd996cf14c0eaf7307e939fb6579a3c47a95f11a47a45b91ab1750c186a052aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\nn\\functional.py",
+      "bytes": 247953,
+      "sha256": "0af69ca566d95e20abf038761893b2c0b4daf349f45dc42469eba5a8151187ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 # Bounded backend diagnosis, then recovery of useful chatbot capacity
 
-9 October2026. PROPOSED/UNEXECUTED. Current results and complete bindings are in
+9 October2026. Historical plan: common-core diagnostic now COMPLETE/CLOSE;
+balanced source capture and transport adoption COMPLETE. Current resumption is
+[balanced recovery NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md).
+The proposals below retain their original scope. Results and complete bindings are in
 [native result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md). No active worker/T4.
 This supersedes the completed export/build NEXT; goal remains ACTIVE/INCOMPLETE.
 

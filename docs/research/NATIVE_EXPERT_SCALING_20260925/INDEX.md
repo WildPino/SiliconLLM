@@ -15,7 +15,7 @@ Ryzen53600X/80GiB/RTX306012GB. Freeze before observations; retain first faults
 and numbered repairs; reuse completed scientific/capture/native/audit bytes.
 No timing overlap. Preserve foreign work/publisher. Routine Graphify disabled.
 Donor-adaptation operationally frozen, evidence reusable. T4 requires communicated
-reason/budget/stops first. No T4 or current owned worker.
+reason/budget/stops first. All owned workers terminal; no training/T4.
 
 ## Current direction and two research questions
 
@@ -46,6 +46,19 @@ replay: all router IDs equal;3131 FF outputs within1e-4 RMS, one0.831066% error
 at layer7/`fit_code` position33. Both later code logits pass, so this anomaly
 does not explain all19 whole failures. Quantizer boundary amplification and
 common-core arithmetic remain hypotheses. All jobs terminal/resource gates pass.
+
+**[Actual common-core/norm result](CHATBOT_HYBRID_COMMON_CORE_RESULT_20261009.md):**
+ALL72 module/case sequences/3132 core outputs and6264 norms CLOSE at fixed1e-4;
+max core2.8729e-6/norm7.8623e-7.54.735s family/OS1.238GB/GPU157.5MB through exit,
+all resource gates PASS/no faults. No material common-core defect localized;
+does not prove all whole-trajectory causes. Stop this diagnostic and reuse bytes.
+**[Actual balanced Falcon capture/adoption](CHATBOT_HYBRID_TRANSFER_CAPTURE_RESULT_20261009.md):**
+128 FIT/32 DEV/eight authored template domains,4643/1103 full-vocab labels,
+753,151,204B BF16 packets.137 EOS stops/23 length96 partials, all retained;
+64 RESERVED unqueried. Saved-only source-JSON-tokenizer/bit/argmax/EOS/position
+transport PASS across376,575,602 coordinates. Source861.782s/GPU5.715GB/
+OS3.742GB, adopter8.016s/109.9MB through exit; all resource gates PASS/no faults.
+No complete-answer truth or broad preservation claim. No learner update/T4.
 
 **[Actual whole learner/pilot](CHATBOT_HYBRID_PILOT_RESULT_20261008.md):**
 Falcon1.5B -> source-informed254,932,736-parameter compact target, all211 tensors
@@ -84,17 +97,20 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** implement/freeze ONE common-core operand diagnostic under
-[backend/adaptation NEXT](CHATBOT_HYBRID_BACKEND_ADAPTATION_NEXT_20261009.md).
-Reuse packed model/trace/case boundaries; evaluate individual SSM/SWA modules
-on the stored C core-input sequences, evolving within each case. No source,
-head/embedding/whole target replay. <=600s family local budget; record all rows
-and stop this diagnostic after one complete comparison. This separates common
-core arithmetic from bank rounding under small upstream perturbations.
+**First action:** implement/freeze ONE finite balanced whole recovery/robust-QAT
+learner under [current NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md).
+Reuse actual final model/optimizer and adopted
+results/native_expert_scaling/chatbot_hybrid_transfer_capture_20261009/corpus.json,
+4643 FIT/1103 DEV labels and source-role/EOS/position mapping. Source capture and
+adopter COMPLETE/exit0, exact commands/freeze/bindings in result receipts; no
+remaining worker/session. Source861.782s, below original900s cap. No restart/replay.
+23 partial replies remain prefix supervision only;64 RESERVED unqueried.
 
-Then qualify a concrete corrected learner/native forward, with oldFAIL retained,
-and move to broader balanced whole adaptation, longer contexts and own-prefix
-recovery. Examine information loss and dense-sum versus normalized-mixture
+Fix training-only dither/margin objective, case/domain weighting, data order,
+steps/learning rate/STE/RNG/gradient checks/resources and whole recovery gates
+BEFORE values. Provisional4 balanced epochs/512 updates/local3600s is a proposal,
+not a launched/frozen fit. Old nativeFAIL retained; NEW trained/native check before long
+adaptation. Examine information loss and dense-sum versus normalized-mixture
 initialization before committing long compute; do not assume multiplying scales
 by E preserves quality. All6 pilot/16 screening cases stay excluded from fresh
 final quality. T4 feasibility/reason/budget/stops remain unpriced.
@@ -102,5 +118,5 @@ final quality. T4 feasibility/reason/budget/stops remain unpriced.
 Reuse final checkpoint SHA75b2317efe99fe66fc16f2b0e6df1f5001ef8b9c243c150b87b24e1f433793d9,
 packed model SHA191d1d20058946702330038336553cd6588efbcebdbac85f70410a03126c3571,
 and ALL32 saved learner rows. No completed acquisition/selection/pilot/export/
-C-prefix/audit/common-bank rerun. Source-shaped runtime, duplicate experts,
+C-prefix/audit/common-bank/core/corpus/adoption rerun. Source-shaped runtime, duplicate experts,
 synthetic rates and internal fidelity checks do not complete the goal.

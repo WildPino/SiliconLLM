@@ -1,0 +1,1593 @@
+{
+  "schema": "HYBRID_TRANSFER_ADOPTION_RESULT_V1",
+  "decision": "SAVED_CALIBRATION_TRANSPORT_PASS",
+  "freeze": "a591ce2a51a02cc711adf1292e3077c3ac25bf61",
+  "binding_sha256": "029b19da27933f1e1c26a88e3795edf3ef198e803d627741d130ece50b8e1b92",
+  "process_instance": {
+    "pid": 22648,
+    "create_time_unix": 1791499821.116953
+  },
+  "cases": 160,
+  "labels": 5746,
+  "coordinates": 376575602,
+  "BF16_packet_bytes": 753151204,
+  "summary": [
+    {
+      "domain": "arithmetic",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 1351,
+      "EOS": 6,
+      "length": 10
+    },
+    {
+      "domain": "arithmetic",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 316,
+      "EOS": 2,
+      "length": 2
+    },
+    {
+      "domain": "code",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 829,
+      "EOS": 10,
+      "length": 6
+    },
+    {
+      "domain": "code",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 236,
+      "EOS": 3,
+      "length": 1
+    },
+    {
+      "domain": "reading",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 114,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "reading",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 13,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "rewrite",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 240,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "rewrite",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 71,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "history",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 59,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "history",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 14,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "instruction",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 230,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "instruction",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 59,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "explanation",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 742,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "explanation",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 195,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "planning",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 1078,
+      "EOS": 12,
+      "length": 4
+    },
+    {
+      "domain": "planning",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 199,
+      "EOS": 4,
+      "length": 0
+    }
+  ],
+  "case_records": [
+    {
+      "id": "fit_history_00",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 2,
+      "prompt_ids": 124,
+      "stop": "EOS",
+      "bytes": 262148
+    },
+    {
+      "id": "fit_instruction_00",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 5,
+      "prompt_ids": 23,
+      "stop": "EOS",
+      "bytes": 655370
+    },
+    {
+      "id": "fit_arithmetic_00",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 42,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_reading_00",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 2,
+      "prompt_ids": 60,
+      "stop": "EOS",
+      "bytes": 262148
+    },
+    {
+      "id": "fit_code_00",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 7,
+      "prompt_ids": 38,
+      "stop": "EOS",
+      "bytes": 917518
+    },
+    {
+      "id": "fit_planning_00",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 18,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_explanation_00",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 37,
+      "prompt_ids": 68,
+      "stop": "EOS",
+      "bytes": 4849738
+    },
+    {
+      "id": "fit_rewrite_00",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 10,
+      "prompt_ids": 34,
+      "stop": "EOS",
+      "bytes": 1310740
+    },
+    {
+      "id": "fit_history_01",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 2,
+      "prompt_ids": 124,
+      "stop": "EOS",
+      "bytes": 262148
+    },
+    {
+      "id": "fit_rewrite_01",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 12,
+      "prompt_ids": 36,
+      "stop": "EOS",
+      "bytes": 1572888
+    },
+    {
+      "id": "fit_explanation_01",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 46,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 6029404
+    },
+    {
+      "id": "fit_reading_01",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 5,
+      "prompt_ids": 110,
+      "stop": "EOS",
+      "bytes": 655370
+    },
+    {
+      "id": "fit_arithmetic_01",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 61,
+      "prompt_ids": 38,
+      "stop": "EOS",
+      "bytes": 7995514
+    },
+    {
+      "id": "fit_planning_01",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 77,
+      "prompt_ids": 51,
+      "stop": "EOS",
+      "bytes": 10092698
+    },
+    {
+      "id": "fit_code_01",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 96,
+      "prompt_ids": 52,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_instruction_01",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 28,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 3670072
+    },
+    {
+      "id": "fit_code_02",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 2,
+      "prompt_ids": 43,
+      "stop": "EOS",
+      "bytes": 262148
+    },
+    {
+      "id": "fit_instruction_02",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 6,
+      "prompt_ids": 36,
+      "stop": "EOS",
+      "bytes": 786444
+    },
+    {
+      "id": "fit_arithmetic_02",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 46,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_history_02",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 126,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_explanation_02",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 54,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 7077996
+    },
+    {
+      "id": "fit_rewrite_02",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 19,
+      "prompt_ids": 38,
+      "stop": "EOS",
+      "bytes": 2490406
+    },
+    {
+      "id": "fit_reading_02",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 6,
+      "prompt_ids": 170,
+      "stop": "EOS",
+      "bytes": 786444
+    },
+    {
+      "id": "fit_planning_02",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 80,
+      "prompt_ids": 53,
+      "stop": "EOS",
+      "bytes": 10485920
+    },
+    {
+      "id": "fit_code_03",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 96,
+      "prompt_ids": 41,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_rewrite_03",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 22,
+      "prompt_ids": 35,
+      "stop": "EOS",
+      "bytes": 2883628
+    },
+    {
+      "id": "fit_reading_03",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 21,
+      "prompt_ids": 57,
+      "stop": "EOS",
+      "bytes": 2752554
+    },
+    {
+      "id": "fit_history_03",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_instruction_03",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 18,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_planning_03",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 96,
+      "prompt_ids": 48,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_arithmetic_03",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 42,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_explanation_03",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 47,
+      "prompt_ids": 74,
+      "stop": "EOS",
+      "bytes": 6160478
+    },
+    {
+      "id": "fit_instruction_04",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 4,
+      "prompt_ids": 23,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_explanation_04",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 38,
+      "prompt_ids": 68,
+      "stop": "EOS",
+      "bytes": 4980812
+    },
+    {
+      "id": "fit_arithmetic_04",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 44,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_rewrite_04",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 10,
+      "prompt_ids": 34,
+      "stop": "EOS",
+      "bytes": 1310740
+    },
+    {
+      "id": "fit_reading_04",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 6,
+      "prompt_ids": 121,
+      "stop": "EOS",
+      "bytes": 786444
+    },
+    {
+      "id": "fit_history_04",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_code_04",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 12,
+      "prompt_ids": 41,
+      "stop": "EOS",
+      "bytes": 1572888
+    },
+    {
+      "id": "fit_planning_04",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 18,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_arithmetic_05",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 62,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 8126588
+    },
+    {
+      "id": "fit_explanation_05",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 64,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 8388736
+    },
+    {
+      "id": "fit_history_05",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 131,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_planning_05",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 96,
+      "prompt_ids": 53,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_rewrite_05",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 12,
+      "prompt_ids": 37,
+      "stop": "EOS",
+      "bytes": 1572888
+    },
+    {
+      "id": "fit_code_05",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 73,
+      "prompt_ids": 54,
+      "stop": "EOS",
+      "bytes": 9568402
+    },
+    {
+      "id": "fit_instruction_05",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 29,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 3801146
+    },
+    {
+      "id": "fit_reading_05",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 5,
+      "prompt_ids": 172,
+      "stop": "EOS",
+      "bytes": 655370
+    },
+    {
+      "id": "fit_explanation_06",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 48,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 6291552
+    },
+    {
+      "id": "fit_reading_06",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 50,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_history_06",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 131,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_arithmetic_06",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 47,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_instruction_06",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 9,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 1179666
+    },
+    {
+      "id": "fit_planning_06",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 71,
+      "prompt_ids": 55,
+      "stop": "EOS",
+      "bytes": 9306254
+    },
+    {
+      "id": "fit_code_06",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 3,
+      "prompt_ids": 45,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_rewrite_06",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 18,
+      "prompt_ids": 38,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_arithmetic_07",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 42,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_code_07",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 96,
+      "prompt_ids": 41,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_planning_07",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 95,
+      "prompt_ids": 47,
+      "stop": "EOS",
+      "bytes": 12452030
+    },
+    {
+      "id": "fit_rewrite_07",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 21,
+      "prompt_ids": 36,
+      "stop": "EOS",
+      "bytes": 2752554
+    },
+    {
+      "id": "fit_explanation_07",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 40,
+      "prompt_ids": 72,
+      "stop": "EOS",
+      "bytes": 5242960
+    },
+    {
+      "id": "fit_history_07",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_instruction_07",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 12,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 1572888
+    },
+    {
+      "id": "fit_reading_07",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 116,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_instruction_08",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 3,
+      "prompt_ids": 23,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_reading_08",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 181,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_planning_08",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 8,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 1048592
+    },
+    {
+      "id": "fit_explanation_08",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 35,
+      "prompt_ids": 68,
+      "stop": "EOS",
+      "bytes": 4587590
+    },
+    {
+      "id": "fit_code_08",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 13,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 1703962
+    },
+    {
+      "id": "fit_rewrite_08",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 14,
+      "prompt_ids": 34,
+      "stop": "EOS",
+      "bytes": 1835036
+    },
+    {
+      "id": "fit_arithmetic_08",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 83,
+      "prompt_ids": 45,
+      "stop": "EOS",
+      "bytes": 10879142
+    },
+    {
+      "id": "fit_history_08",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_code_09",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 96,
+      "prompt_ids": 54,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_explanation_09",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 52,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 6815848
+    },
+    {
+      "id": "fit_history_09",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 131,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_instruction_09",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 29,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 3801146
+    },
+    {
+      "id": "fit_planning_09",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 96,
+      "prompt_ids": 53,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_arithmetic_09",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 63,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 8257662
+    },
+    {
+      "id": "fit_reading_09",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 53,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_rewrite_09",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 18,
+      "prompt_ids": 37,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_explanation_10",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 53,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 6946922
+    },
+    {
+      "id": "fit_history_10",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 9,
+      "prompt_ids": 133,
+      "stop": "EOS",
+      "bytes": 1179666
+    },
+    {
+      "id": "fit_reading_10",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 6,
+      "prompt_ids": 110,
+      "stop": "EOS",
+      "bytes": 786444
+    },
+    {
+      "id": "fit_rewrite_10",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 15,
+      "prompt_ids": 38,
+      "stop": "EOS",
+      "bytes": 1966110
+    },
+    {
+      "id": "fit_code_10",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 3,
+      "prompt_ids": 45,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_arithmetic_10",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 47,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_planning_10",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 73,
+      "prompt_ids": 53,
+      "stop": "EOS",
+      "bytes": 9568402
+    },
+    {
+      "id": "fit_instruction_10",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 9,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 1179666
+    },
+    {
+      "id": "fit_history_11",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_arithmetic_11",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 42,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_rewrite_11",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 14,
+      "prompt_ids": 35,
+      "stop": "EOS",
+      "bytes": 1835036
+    },
+    {
+      "id": "fit_code_11",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 96,
+      "prompt_ids": 41,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_reading_11",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 2,
+      "prompt_ids": 175,
+      "stop": "EOS",
+      "bytes": 262148
+    },
+    {
+      "id": "fit_explanation_11",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 47,
+      "prompt_ids": 74,
+      "stop": "EOS",
+      "bytes": 6160478
+    },
+    {
+      "id": "fit_instruction_11",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 18,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_planning_11",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 96,
+      "prompt_ids": 48,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_reading_12",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 62,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_instruction_12",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 4,
+      "prompt_ids": 23,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_code_12",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 13,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 1703962
+    },
+    {
+      "id": "fit_planning_12",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 18,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_rewrite_12",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 10,
+      "prompt_ids": 34,
+      "stop": "EOS",
+      "bytes": 1310740
+    },
+    {
+      "id": "fit_arithmetic_12",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 59,
+      "prompt_ids": 45,
+      "stop": "EOS",
+      "bytes": 7733366
+    },
+    {
+      "id": "fit_history_12",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_explanation_12",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 38,
+      "prompt_ids": 68,
+      "stop": "EOS",
+      "bytes": 4980812
+    },
+    {
+      "id": "fit_explanation_13",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 52,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 6815848
+    },
+    {
+      "id": "fit_planning_13",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 64,
+      "prompt_ids": 53,
+      "stop": "EOS",
+      "bytes": 8388736
+    },
+    {
+      "id": "fit_rewrite_13",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 12,
+      "prompt_ids": 37,
+      "stop": "EOS",
+      "bytes": 1572888
+    },
+    {
+      "id": "fit_arithmetic_13",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 63,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 8257662
+    },
+    {
+      "id": "fit_code_13",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 73,
+      "prompt_ids": 54,
+      "stop": "EOS",
+      "bytes": 9568402
+    },
+    {
+      "id": "fit_reading_13",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 5,
+      "prompt_ids": 116,
+      "stop": "EOS",
+      "bytes": 655370
+    },
+    {
+      "id": "fit_history_13",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 135,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "fit_instruction_13",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 29,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 3801146
+    },
+    {
+      "id": "fit_rewrite_14",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 18,
+      "prompt_ids": 38,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_instruction_14",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 9,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 1179666
+    },
+    {
+      "id": "fit_arithmetic_14",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 47,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_explanation_14",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 54,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 7077996
+    },
+    {
+      "id": "fit_planning_14",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 76,
+      "prompt_ids": 55,
+      "stop": "EOS",
+      "bytes": 9961624
+    },
+    {
+      "id": "fit_code_14",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 54,
+      "prompt_ids": 45,
+      "stop": "EOS",
+      "bytes": 7077996
+    },
+    {
+      "id": "fit_reading_14",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 5,
+      "prompt_ids": 169,
+      "stop": "EOS",
+      "bytes": 655370
+    },
+    {
+      "id": "fit_history_14",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 131,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_code_15",
+      "split": "FIT",
+      "domain": "code",
+      "labels": 96,
+      "prompt_ids": 41,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_history_15",
+      "split": "FIT",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "fit_rewrite_15",
+      "split": "FIT",
+      "domain": "rewrite",
+      "labels": 15,
+      "prompt_ids": 36,
+      "stop": "EOS",
+      "bytes": 1966110
+    },
+    {
+      "id": "fit_explanation_15",
+      "split": "FIT",
+      "domain": "explanation",
+      "labels": 37,
+      "prompt_ids": 72,
+      "stop": "EOS",
+      "bytes": 4849738
+    },
+    {
+      "id": "fit_planning_15",
+      "split": "FIT",
+      "domain": "planning",
+      "labels": 96,
+      "prompt_ids": 47,
+      "stop": "EOS",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_arithmetic_15",
+      "split": "FIT",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 42,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "fit_instruction_15",
+      "split": "FIT",
+      "domain": "instruction",
+      "labels": 18,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "fit_reading_15",
+      "split": "FIT",
+      "domain": "reading",
+      "labels": 36,
+      "prompt_ids": 57,
+      "stop": "EOS",
+      "bytes": 4718664
+    },
+    {
+      "id": "dev_reading_16",
+      "split": "DEV",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 121,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "dev_history_16",
+      "split": "DEV",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "dev_arithmetic_16",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "labels": 61,
+      "prompt_ids": 45,
+      "stop": "EOS",
+      "bytes": 7995514
+    },
+    {
+      "id": "dev_planning_16",
+      "split": "DEV",
+      "domain": "planning",
+      "labels": 21,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 2752554
+    },
+    {
+      "id": "dev_instruction_16",
+      "split": "DEV",
+      "domain": "instruction",
+      "labels": 3,
+      "prompt_ids": 23,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "dev_code_16",
+      "split": "DEV",
+      "domain": "code",
+      "labels": 13,
+      "prompt_ids": 42,
+      "stop": "EOS",
+      "bytes": 1703962
+    },
+    {
+      "id": "dev_rewrite_16",
+      "split": "DEV",
+      "domain": "rewrite",
+      "labels": 11,
+      "prompt_ids": 34,
+      "stop": "EOS",
+      "bytes": 1441814
+    },
+    {
+      "id": "dev_explanation_16",
+      "split": "DEV",
+      "domain": "explanation",
+      "labels": 41,
+      "prompt_ids": 68,
+      "stop": "EOS",
+      "bytes": 5374034
+    },
+    {
+      "id": "dev_reading_17",
+      "split": "DEV",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 170,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "dev_arithmetic_17",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "labels": 63,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 8257662
+    },
+    {
+      "id": "dev_history_17",
+      "split": "DEV",
+      "domain": "history",
+      "labels": 3,
+      "prompt_ids": 129,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "dev_rewrite_17",
+      "split": "DEV",
+      "domain": "rewrite",
+      "labels": 19,
+      "prompt_ids": 37,
+      "stop": "EOS",
+      "bytes": 2490406
+    },
+    {
+      "id": "dev_instruction_17",
+      "split": "DEV",
+      "domain": "instruction",
+      "labels": 29,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 3801146
+    },
+    {
+      "id": "dev_planning_17",
+      "split": "DEV",
+      "domain": "planning",
+      "labels": 85,
+      "prompt_ids": 53,
+      "stop": "EOS",
+      "bytes": 11141290
+    },
+    {
+      "id": "dev_explanation_17",
+      "split": "DEV",
+      "domain": "explanation",
+      "labels": 53,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 6946922
+    },
+    {
+      "id": "dev_code_17",
+      "split": "DEV",
+      "domain": "code",
+      "labels": 73,
+      "prompt_ids": 54,
+      "stop": "EOS",
+      "bytes": 9568402
+    },
+    {
+      "id": "dev_planning_18",
+      "split": "DEV",
+      "domain": "planning",
+      "labels": 64,
+      "prompt_ids": 55,
+      "stop": "EOS",
+      "bytes": 8388736
+    },
+    {
+      "id": "dev_explanation_18",
+      "split": "DEV",
+      "domain": "explanation",
+      "labels": 54,
+      "prompt_ids": 71,
+      "stop": "EOS",
+      "bytes": 7077996
+    },
+    {
+      "id": "dev_rewrite_18",
+      "split": "DEV",
+      "domain": "rewrite",
+      "labels": 15,
+      "prompt_ids": 38,
+      "stop": "EOS",
+      "bytes": 1966110
+    },
+    {
+      "id": "dev_history_18",
+      "split": "DEV",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 131,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "dev_instruction_18",
+      "split": "DEV",
+      "domain": "instruction",
+      "labels": 9,
+      "prompt_ids": 39,
+      "stop": "EOS",
+      "bytes": 1179666
+    },
+    {
+      "id": "dev_code_18",
+      "split": "DEV",
+      "domain": "code",
+      "labels": 54,
+      "prompt_ids": 45,
+      "stop": "EOS",
+      "bytes": 7077996
+    },
+    {
+      "id": "dev_arithmetic_18",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 47,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "dev_reading_18",
+      "split": "DEV",
+      "domain": "reading",
+      "labels": 4,
+      "prompt_ids": 51,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "dev_reading_19",
+      "split": "DEV",
+      "domain": "reading",
+      "labels": 3,
+      "prompt_ids": 116,
+      "stop": "EOS",
+      "bytes": 393222
+    },
+    {
+      "id": "dev_rewrite_19",
+      "split": "DEV",
+      "domain": "rewrite",
+      "labels": 26,
+      "prompt_ids": 36,
+      "stop": "EOS",
+      "bytes": 3407924
+    },
+    {
+      "id": "dev_explanation_19",
+      "split": "DEV",
+      "domain": "explanation",
+      "labels": 47,
+      "prompt_ids": 74,
+      "stop": "EOS",
+      "bytes": 6160478
+    },
+    {
+      "id": "dev_planning_19",
+      "split": "DEV",
+      "domain": "planning",
+      "labels": 29,
+      "prompt_ids": 48,
+      "stop": "EOS",
+      "bytes": 3801146
+    },
+    {
+      "id": "dev_code_19",
+      "split": "DEV",
+      "domain": "code",
+      "labels": 96,
+      "prompt_ids": 41,
+      "stop": "length",
+      "bytes": 12583104
+    },
+    {
+      "id": "dev_instruction_19",
+      "split": "DEV",
+      "domain": "instruction",
+      "labels": 18,
+      "prompt_ids": 40,
+      "stop": "EOS",
+      "bytes": 2359332
+    },
+    {
+      "id": "dev_history_19",
+      "split": "DEV",
+      "domain": "history",
+      "labels": 4,
+      "prompt_ids": 131,
+      "stop": "EOS",
+      "bytes": 524296
+    },
+    {
+      "id": "dev_arithmetic_19",
+      "split": "DEV",
+      "domain": "arithmetic",
+      "labels": 96,
+      "prompt_ids": 42,
+      "stop": "length",
+      "bytes": 12583104
+    }
+  ],
+  "source_generations": 0,
+  "student_forwards": 0,
+  "training_updates": 0,
+  "native_runs": 0,
+  "worker_OS_peak_snapshot": 109883392,
+  "elapsed_seconds": 5.2810000000172295,
+  "scope": "HF-free source-JSON Rust tokenizer and independent bit/shape/argmax/EOS/position transport verification. Shared Rust tokenizer implementation, not independent BPE. Source BF16-lossless flag remains producer observation; no source-answer truth or chatbot preservation admission."
+}

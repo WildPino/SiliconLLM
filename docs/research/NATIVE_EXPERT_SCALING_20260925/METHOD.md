@@ -81,9 +81,15 @@ Actual200.125s family/GPU4.4497GB/OS8.2430GB through exit on local12GB GPU.
 Initial/final checkpoints retained; final learner SHA
 75b2317efe99fe66fc16f2b0e6df1f5001ef8b9c243c150b87b24e1f433793d9.
 
-Broader balanced Falcon supervision, longer context, own-prefix recovery and
-finite staged distillation/QAT are missing. Qwen200-case tensors belong to a
-different donor. Six pilot/16 screen cases stay excluded from fresh final tests.
+Broader [Falcon acquisition/adoption](CHATBOT_HYBRID_TRANSFER_CAPTURE_RESULT_20261009.md)
+is COMPLETE:128 FIT/32 DEV/eight authored template domains,4643/1103 full-vocab
+labels/753.15MB BF16 packets.137 EOS/23 length96 partials/context512;64 RESERVED
+unqueried. ALL saved source-JSON-tokenizer/bit/argmax/EOS/position transport PASS,
+376,575,602 coordinates; shared Rust tokenizer, not independent BPE. Source
+861.782s/GPU5.715GB/OS3.742GB, adopter8.016s/109.9MB through exit/all caps PASS.
+Partial replies are prefix supervision, not full-answer quality. Broad preservation/
+own-prefix recovery/finite staged distillation-QAT remain missing. Qwen200-case tensors
+belong to another donor. Pilot/screen/calibration stay excluded from fresh tests.
 
 ## 4. Export and run the actual packed candidate in C
 
@@ -127,12 +133,18 @@ Later original code logits pass; it does not explain all19 whole errors.
 Family8.937s/OS1.175GB/GPU110.2MB through exit. Quantization-boundary amplification
 is a hypothesis, not established causality.
 
-Current [NEXT](CHATBOT_HYBRID_BACKEND_ADAPTATION_NEXT_20261009.md): ONE <=600s
-common-core diagnostic, stored C per-site operands and case-continuous states,
-no head/source/whole evaluation. Then qualify a concrete corrected learner/native
-forward and move to balanced whole adaptation. Canonical scalar arithmetic/
-margin-aware QAT are unvalidated candidates. Old nativeFAIL remains; corrected
-math is a new method/artifact with frozen criteria.
+[Common-core result](CHATBOT_HYBRID_COMMON_CORE_RESULT_20261009.md) is COMPLETE:
+ALL3132 core/6264 norms CLOSE at1e-4; max2.8729e-6/7.8623e-7.54.735s/OS1.238GB/
+GPU157.5MB through exit, all caps PASS/no fault. Stop this diagnostic. There is
+no localized material common-core defect; quantization-boundary amplification
+under upstream perturbations remains a hypothesis, not a causal whole proof.
+
+Current [NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md): reuse adopted
+source corpus, implement/freeze a finite balanced whole robust-QAT pilot.
+Training-only dithering/margin terms are unimplemented hypotheses; inference
+geometry/ternary/AQ63/C kernels stay original. Old nativeFAIL remains, NEW trained
+artifact requires a frozen whole native check before long adaptation. No source
+replay, broad preservation or native50 admission follows from capture/transport.
 
 ## 6. Required fresh quality, physical rate, useful n and variants
 
@@ -164,4 +176,5 @@ Older bindings need their frozen launcher bytes, not newer schema versions.
 No completed source/capture/fit/export/C-prefix/audit/common-bank replay or timing
 overlap. Preserve foreign SHA/publisher. T4 permitted in scope, but communicate
 actual reason/budget/stops and measure FP16-compatible feasibility before allocation.
-No T4/current owned worker. INDEX's resumption supersedes historical LIVE/NEXTs.
+No training/T4/current owned worker. INDEX supersedes historical LIVE/NEXTs;
+source capture/adopter/core/bank namespaces are complete and reused as bytes.

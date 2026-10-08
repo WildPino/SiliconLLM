@@ -1,5 +1,34 @@
 # Native expert-count scaling: prior evidence
 
+**9 October actual balanced Falcon original supervision/adoption COMPLETE:**
+[Result](CHATBOT_HYBRID_TRANSFER_CAPTURE_RESULT_20261009.md):128 FIT/32 DEV,
+eight authored template domains,4643/1103 full-vocabulary labels,
+753,151,204B BF16 packets/376,575,602 coordinates.137 EOS stops/23 length96
+partials retained, no unfavorable-reply filtering;64 RESERVED unqueried.
+Shared-Rust source-JSON tokenization plus independent saved bit/argmax/EOS/
+position/extents/count transport PASS; not independent BPE or answer-truth proof.
+Source861.782s/OS3,742,052,352B through exit/GPU5,714,825,216B allocated;
+adopter8.016s/109,883,392B through exit. Both exit0/all fixed caps PASS/no faults,
+source322 outputs754,963,483B; no source/old-prefix replay, student/native update,
+T4 or remaining job. Current [NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md):
+implement/freeze finite balanced whole recovery/robust-QAT, NEW strict native check
+before long adaptation. Old native19/32FAIL/poor whole donor quality/all full
+goal gates remain. Source partials are supervision, not complete answers.
+
+**9 October actual common-core/norm diagnostic COMPLETE/CLOSE:**
+[Result](CHATBOT_HYBRID_COMMON_CORE_RESULT_20261009.md): ALL72 module/case
+sequences/3132 NEW common C-input core outputs/6264 norm vectors, fixed1e-4,
+zero material rows; core max2.8729021e-6/norm7.8622905e-7. Case-continuous
+SSM/SWA states, exact learned packed F32 controls, no whole/source/bank/fit replay.
+54.735s family/OS1,238,282,240B through exit/GPU157,537,280B allocated,
+289 outputs20,150,505B; all caps PASS/no fault. Does not prove all original whole
+trajectory errors; original native19/32FAIL and poor source quality unchanged.
+Stop this diagnostic. New balanced Falcon source capture now COMPLETE under freeze539c6d9,
+128 FIT/32 DEV/eight authored template domains/96-token cap/512 context;64
+RESERVED unqueried. No student/native/training/T4 call. Saved-only transport
+adoption COMPLETE/PASS; finite balanced robust-QAT
+[NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md) remains UNEXECUTED.
+
 **9 October actual packed compact target/evolving-state original-kernel C:**
 [Result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md):212-field packed file/native
 model heap425,210,736B,84,934,656B ternary codes,0 master/unpacked bank references,

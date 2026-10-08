@@ -1,0 +1,23 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 5605.46it/s]
+{"cases": 8, "labels": 177, "seconds": 40.10899999999674}
+{"cases": 16, "labels": 504, "seconds": 85.125}
+{"cases": 24, "labels": 771, "seconds": 120.40600000001723}
+{"cases": 32, "labels": 1171, "seconds": 172.51500000001397}
+{"cases": 40, "labels": 1358, "seconds": 200.68700000003446}
+{"cases": 48, "labels": 1702, "seconds": 248.21799999999348}
+{"cases": 56, "labels": 1954, "seconds": 285.4530000000377}
+{"cases": 64, "labels": 2321, "seconds": 336.01500000001397}
+{"cases": 72, "labels": 2483, "seconds": 363.40600000001723}
+{"cases": 80, "labels": 2843, "seconds": 411.85899999999674}
+{"cases": 88, "labels": 3107, "seconds": 456.81200000003446}
+{"cases": 96, "labels": 3480, "seconds": 507.60899999999674}
+{"cases": 104, "labels": 3628, "seconds": 534.1870000000345}
+{"cases": 112, "labels": 3929, "seconds": 580.4220000000205}
+{"cases": 120, "labels": 4245, "seconds": 632.2339999999967}
+{"cases": 128, "labels": 4643, "seconds": 694.5310000000172}
+{"cases": 136, "labels": 4799, "seconds": 721.3589999999967}
+{"cases": 144, "labels": 5127, "seconds": 766.9530000000377}
+{"cases": 152, "labels": 5427, "seconds": 809.4839999999967}
+{"cases": 160, "labels": 5746, "seconds": 853.7810000000172}
+{"decision": "ORIGINAL_CALIBRATION_CAPTURE_COMPLETE", "labels": 5746}

@@ -1,0 +1,165 @@
+{
+  "schema": "HYBRID_TRANSFER_CAPTURE_RESULT_V1",
+  "decision": "ORIGINAL_CALIBRATION_CAPTURE_COMPLETE",
+  "freeze": "539c6d9d006c089c5f5f36e4b677123651c2a546",
+  "binding_sha256": "55dd3cb1681aac52d228b11b3de8bf0b55684c3877917609a2c0740eef5b6156",
+  "process_instance": {
+    "pid": 2252,
+    "create_time_unix": 1791498804.367293
+  },
+  "cases": 160,
+  "FIT_cases": 128,
+  "DEV_cases": 32,
+  "reserved_queries": 0,
+  "new_source_generations": 160,
+  "labels": 5746,
+  "summary": [
+    {
+      "domain": "arithmetic",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 1351,
+      "EOS": 6,
+      "length": 10
+    },
+    {
+      "domain": "arithmetic",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 316,
+      "EOS": 2,
+      "length": 2
+    },
+    {
+      "domain": "code",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 829,
+      "EOS": 10,
+      "length": 6
+    },
+    {
+      "domain": "code",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 236,
+      "EOS": 3,
+      "length": 1
+    },
+    {
+      "domain": "reading",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 114,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "reading",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 13,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "rewrite",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 240,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "rewrite",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 71,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "history",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 59,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "history",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 14,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "instruction",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 230,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "instruction",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 59,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "explanation",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 742,
+      "EOS": 16,
+      "length": 0
+    },
+    {
+      "domain": "explanation",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 195,
+      "EOS": 4,
+      "length": 0
+    },
+    {
+      "domain": "planning",
+      "split": "FIT",
+      "cases": 16,
+      "labels": 1078,
+      "EOS": 12,
+      "length": 4
+    },
+    {
+      "domain": "planning",
+      "split": "DEV",
+      "cases": 4,
+      "labels": 199,
+      "EOS": 4,
+      "length": 0
+    }
+  ],
+  "corpus": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\corpus.json",
+    "sha256": "692b4bdf901840ae86c337fd5839753335c9e219939bdf862f5bc94f04642fc7"
+  },
+  "GPU_allocated_peak": 5714825216,
+  "GPU_reserved_peak": 6280970240,
+  "worker_OS_peak_snapshot": 3742052352,
+  "elapsed_seconds": 853.875,
+  "student_forwards": 0,
+  "training_updates": 0,
+  "native_runs": 0,
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "transformers": "5.13.1",
+    "device": "NVIDIA GeForce RTX 3060",
+    "source_code": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+    "TF32": false
+  },
+  "scope": "Balanced authored template-family calibration only, not broad/fresh chatbot preservation. All length truncations retained; no bad-answer filtering or capacity/rate claim."
+}
