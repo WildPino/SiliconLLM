@@ -20,7 +20,9 @@ def target_config(source):
     c.hidden_size, c.num_hidden_layers = D, L
     c.mamba_d_ssm, c.mamba_n_heads, c.mamba_d_head = 768, 48, 16
     c.mamba_chunk_size = 16
-    c.layer_types = ['mamba'] * L
+    # Source config derives this read-only property from the current layer count.
+    # Target core types are selected explicitly by Block, not by its source cache.
+    assert len(c.layer_types) == L
     c.ssm_in_multiplier = 1.0
     c.ssm_multipliers = [1.0] * 5
     return c

@@ -279,6 +279,7 @@ def main(a):
              process_instance=dict(pid=proc.pid, create_time_unix=proc.create_time()), runtime=runtime,
              decision='PILOT_RECOVERY_PASS' if all(gates.values()) else 'PILOT_RECOVERY_FAIL', gates=gates,
              complete_learner_available=True, before=before, after=after, updates=updates, checkpoint=checkpoint,
+             supervision_records=records,
              trainable_parameters=count, initial_basis=info, new_source_generations=new_generations,
              new_updates=len(completed), GPU_allocated_peak=torch.cuda.max_memory_allocated(),
              GPU_reserved_peak=torch.cuda.max_memory_reserved(), worker_OS_peak_snapshot=proc.memory_info().peak_wset,
