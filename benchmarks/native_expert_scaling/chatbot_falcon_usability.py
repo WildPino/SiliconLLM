@@ -136,8 +136,10 @@ def main(args):
         for key in ('embedding_multiplier','lm_head_multiplier','attention_in_multiplier','attention_out_multiplier',
                     'key_multiplier','ssm_in_multiplier','ssm_out_multiplier','ssm_multipliers','mlp_multipliers',
                     'mamba_d_state','mamba_d_ssm','mamba_n_heads','mamba_d_head','mamba_rms_norm',
-                    'mamba_norm_before_gate','rope_theta','rms_norm_eps','hidden_size','vocab_size'):
+                    'mamba_norm_before_gate','rms_norm_eps','hidden_size','vocab_size'):
             assert getattr(model.config,key)==raw_config[key],key
+        assert model.config.rope_parameters['rope_type']=='default'
+        assert model.config.rope_parameters['rope_theta']==raw_config['rope_theta']
         if larger:
             assert sum(p.numel() for p in model.parameters()) == binding['source_named_elements']
         eos = model.generation_config.eos_token_id

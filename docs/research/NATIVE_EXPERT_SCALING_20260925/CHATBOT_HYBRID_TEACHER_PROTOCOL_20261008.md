@@ -73,3 +73,9 @@ not claimed implemented/qualified in C. Original source BF16, eager attention,
 Torch fallback/no remote kernels retained. Wrapper uses dynamic larger resource
 limits; fixed cases/criteria/output-score retention unchanged. Freeze actual
 bound worker/binder/launcher before16 first larger-source generations.
+
+First screen94291c0 passed ALL16 interaction fixtures and loaded all411 objects,
+then failed before a source forward checking a legacy rope_theta attribute.
+Local HF5 standardizes legacy RoPE to rope_parameters; repair1 checks its actual
+default type/theta against original source. No model arithmetic/prompt/criterion
+change. Retain fault/preflight, new repair1 binding/namespace; no cases replayed.

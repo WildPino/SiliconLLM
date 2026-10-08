@@ -1,0 +1,30 @@
+{
+  "freeze": "94291c065665abed423e18ee283f0be572cb8145",
+  "binding_sha256": "7441d81e6bb78eddffb06c98c97830f144d3a823d55e4a61d5fcc7fad283342d",
+  "launcher_pid": 1864,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_usability_binding_20261008.json",
+    "--binding-sha",
+    "7441d81e6bb78eddffb06c98c97830f144d3a823d55e4a61d5fcc7fad283342d",
+    "--freeze",
+    "94291c065665abed423e18ee283f0be572cb8145",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_usability_20261008",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_usability_result_20261008.json"
+  ],
+  "worker_pid": 23184,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 3740483584,
+  "launcher_OS_peak_snapshot": 27553792,
+  "fault": "AssertionError('[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d\\n\\nLoading weights:   0%|          | 0/411 [00:00<?, ?it/s]\\nLoading weights: 100%|██████████| 411/411 [00:00<00:00, 6425.57it/s]\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 232, in <module>\\n    main(p.parse_args())\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 140, in main\\n    assert getattr(model.config,key)==raw_config[key],key\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\results\\\\native_expert_scaling\\\\chatbot_source_runtime\\\\site\\\\transformers\\\\configuration_utils.py\", line 454, in __getattribute__\\n    return super().__getattribute__(key)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAttributeError: \\'FalconH1Config\\' object has no attribute \\'rope_theta\\'\\n')",
+  "elapsed_seconds": 19.53200000000652
+}
