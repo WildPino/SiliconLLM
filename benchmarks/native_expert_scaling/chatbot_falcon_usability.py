@@ -55,7 +55,9 @@ def main(args):
     start = time.monotonic()
     assert sha(args.binding) == args.binding_sha
     binding = json.loads(args.binding.read_bytes())
-    assert binding['schema'] == 'FALCON_USABILITY_BINDING_V1'
+    assert binding['schema'] in ('FALCON_USABILITY_BINDING_V1','HYBRID_USABILITY_BINDING_V1')
+    larger = binding['schema'] == 'HYBRID_USABILITY_BINDING_V1'
+    limits = binding.get('limits',dict(OS_bytes=4<<30,GPU_allocated_bytes=6<<30,GPU_reserved_bytes=7<<30))
     assert sys.version_info[:3] == (3, 12, 10)
     assert Path(sys.executable).resolve() == Path(binding['python']).resolve()
     assert all(os.environ.get(k) == '1' for k in ('HF_HUB_OFFLINE', 'TRANSFORMERS_OFFLINE'))
@@ -91,37 +93,59 @@ def main(args):
                        device=torch.cuda.get_device_name(), attention='eager', source_code=source_code.__file__)
         def guard():
             assert time.monotonic() - start <= 600, 'worker deadline'
-            assert proc.memory_info().peak_wset <= 4 << 30, 'OS cap'
-            assert torch.cuda.max_memory_allocated() <= 6 << 30, 'GPU allocated cap'
-            assert torch.cuda.max_memory_reserved() <= 7 << 30, 'GPU reserved cap'
+            assert proc.memory_info().peak_wset <= limits['OS_bytes'], 'OS cap'
+            assert torch.cuda.max_memory_allocated() <= limits['GPU_allocated_bytes'], 'GPU allocated cap'
+            assert torch.cuda.max_memory_reserved() <= limits['GPU_reserved_bytes'], 'GPU reserved cap'
             assert not proc.children(recursive=True), 'unexpected subprocess'
             assert sum(p.stat().st_size for p in args.directory.iterdir() if p.is_file()) <= 256 << 20, 'output cap'
         source = Path(binding['source_directory'])
         cases = json.loads(Path(binding['cases_path']).read_bytes())
         assert len(cases['cases']) == 16 and cases['max_new_tokens'] == 64
         tokenizer = AutoTokenizer.from_pretrained(source, local_files_only=True, trust_remote_code=False)
+        raw_config = json.loads((source/'config.json').read_bytes())
+        generation_config = json.loads((source/'generation_config.json').read_bytes())
+        def serialize(messages):
+            if larger:
+                s = tokenizer.bos_token
+                for m in messages:
+                    s += '<|im_start|>'+m['role']+'\n'+m['content']+'<|im_end|>\n'
+                return s+'<|im_start|>assistant\n'
+            s = '\n'
+            for m in messages:
+                content = m['content'] + ('\n' if m['role'] == 'assistant' and m['content'] else '')
+                s += '<|im_start|>'+m['role']+'\n'+content+'<|im_end|>\n'
+            return s+'<|im_start|>assistant\n'
+        # Complete interaction checks before materializing the larger model.
+        preflight=[]
+        for case in cases['cases']:
+            messages=case.get('history',[])+[dict(role='user',content=case['prompt'])]
+            text=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
+            ids=tokenizer.apply_chat_template(messages,tokenize=True,add_generation_prompt=True,return_dict=False)
+            assert text==serialize(messages), ('template',case['id'],repr(text),repr(serialize(messages)))
+            assert ids==tokenizer.encode(text,add_special_tokens=False), ('tokenizer',case['id'])
+            assert len(ids)+64<=256
+            preflight.append(dict(id=case['id'],serialized=text,input_ids=ids))
+        write(args.directory/'interaction_preflight.json',preflight)
         model = FalconH1ForCausalLM.from_pretrained(source, local_files_only=True,
                    trust_remote_code=False, dtype=torch.bfloat16, attn_implementation='eager').to('cuda').eval()
         runtime['fast_ssm_path'] = source_code.is_fast_path_available
         assert not source_code.is_fast_path_available
-        assert model.lm_head.weight.data_ptr() == model.model.embed_tokens.weight.data_ptr()
-        assert model.config.embedding_multiplier == .11083984375 and model.config.lm_head_multiplier == .078125
-        assert len(model.model.layers) == 24
+        tied = model.lm_head.weight.data_ptr() == model.model.embed_tokens.weight.data_ptr()
+        assert tied == raw_config['tie_word_embeddings']
+        assert len(model.model.layers) == raw_config['num_hidden_layers']
+        for key in ('embedding_multiplier','lm_head_multiplier','attention_in_multiplier','attention_out_multiplier',
+                    'key_multiplier','ssm_in_multiplier','ssm_out_multiplier','ssm_multipliers','mlp_multipliers',
+                    'mamba_d_state','mamba_d_ssm','mamba_n_heads','mamba_d_head','mamba_rms_norm',
+                    'mamba_norm_before_gate','rope_theta','rms_norm_eps','hidden_size','vocab_size'):
+            assert getattr(model.config,key)==raw_config[key],key
+        if larger:
+            assert sum(p.numel() for p in model.parameters()) == binding['source_named_elements']
         eos = model.generation_config.eos_token_id
-        assert eos == [228, 11] and model.generation_config.pad_token_id == 0
+        assert eos == generation_config['eos_token_id'] and model.generation_config.pad_token_id == generation_config['pad_token_id']
         assert tokenizer.chat_template == (source / 'chat_template.jinja').read_text(encoding='utf8')
         special = dict(zip(tokenizer.all_special_tokens, tokenizer.all_special_ids))
-        # Canonical serialization also includes the assistant-history newline.
-        def serialize(messages):
-            # The producer Jinja template emits this initial newline even in the
-            # no-system/no-tools branch with HF's trim_blocks/lstrip_blocks flags.
-            s = '\n'
-            for m in messages:
-                content = m['content'] + ('\n' if m['role'] == 'assistant' and m['content'] else '')
-                s += '<|im_start|>' + m['role'] + '\n' + content + '<|im_end|>\n'
-            return s + '<|im_start|>assistant\n'
         contract = dict(runtime=runtime, source_revision=binding['source_revision'], eos_ids=eos,
-              special_tokens=special, tied_head=True, config=model.config.to_dict(),
+              special_tokens=special, tied_head=tied, config=model.config.to_dict(),
               parameter_dtypes=sorted({str(p.dtype) for p in model.parameters()}),
               trainable_named_elements=sum(p.numel() for p in model.parameters()),
               buffer_dtypes=sorted({str(p.dtype) for p in model.buffers()}), source_freeze=args.freeze)
@@ -181,7 +205,7 @@ def main(args):
                  no_special_leak=not any(v['role_or_other_special_leak'] for v in completed),
                  stop_policy=all(v['stop_policy_ok'] for v in completed))
         guard()
-        result = dict(schema='FALCON_USABILITY_RESULT_V1', freeze=args.freeze, binding_sha256=args.binding_sha,
+        result = dict(schema='HYBRID_USABILITY_RESULT_V1' if larger else 'FALCON_USABILITY_RESULT_V1', freeze=args.freeze, binding_sha256=args.binding_sha,
               process_instance=dict(pid=proc.pid, create_time_unix=proc.create_time()), runtime=runtime,
               decision='TEACHER_SCREEN_PASS' if all(gates.values()) else 'TEACHER_SCREEN_FAIL',
               quality_gates=gates, category_correct=categories, correct=sum(v['correct'] for v in completed),

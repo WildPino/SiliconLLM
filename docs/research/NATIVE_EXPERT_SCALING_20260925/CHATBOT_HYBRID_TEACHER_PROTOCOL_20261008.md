@@ -46,3 +46,30 @@ head/tokenizer/experts and actual optimizer/teacher/workspace before pilot. Fina
 fresh own-history tasks+>=50 accepted IDs/s SAME artifact/useful n/LUT IDs+mass/
 physical DRAM/family/scale still missing. Long T4 allowed only after communicated
 actual reason/budget/stops and measured FP16-compatible feasibility.
+
+## Actual metadata and executable larger-source screen
+
+Metadata8ae1e1a completed4.157s, pinned80ebc50d7799a440b96c93bb6686a3924a09b0cb.
+Source D2048/L24/V65537/FFN4608, SSM3072/N256/48heads*64/group1,
+gated RMS AFTER gate, attention8heads*128 with2KVheads (attention width1024,
+not hidden2048). Products1.420036096B:FFN679477248/SSM480509952/
+attention125829120/head134219776. BF16 file3109773032B. Dense-F32 Adam matrix
+arrays alone22.7206GB; inference is feasible prospectively, resident full-source
+training is not assumed on12GiB GPU/T4. Width/V/no-gated-RMS Tiny assumptions removed.
+
+First weights invocation rejected an incorrect caller metadata SHA before any
+file fetch/copy. Retain original fault directory; correct actual SHA in repair1
+namespace, no code/metadata/payload replay. Expected metadata SHA:
+bde2310e7f74dfbac73a0ccd5aff026a164151b5eaad1b6ab2dd8c3a754aa896.
+
+Larger source template has BOS `<|begin_of_text|>` then plain role messages, no
+initial Tiny newline or extra assistant-history newline. Source head is UNTIED.
+Source embedding5.656854249492381/head.01953125 and all nontrivial SSM/MLP/
+attention/key multipliers are preserved and checked against actual config.
+Both EOS[11,228] retained in source order. Complete16 text/ID preflight before
+model materialization. Loaded named-element count must match safetensor census.
+Source gated RMS is provided by existing local supported source class; it is
+not claimed implemented/qualified in C. Original source BF16, eager attention,
+Torch fallback/no remote kernels retained. Wrapper uses dynamic larger resource
+limits; fixed cases/criteria/output-score retention unchanged. Freeze actual
+bound worker/binder/launcher before16 first larger-source generations.
