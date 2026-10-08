@@ -46,6 +46,7 @@ artifact. No admitted compact chatbot exists;511 is bounded infilling only.
 | New representation diagnostic |[curvature result](CHATBOT_NULL_CURVATURE_RESULT_20261008.md): FIRST128 source+128 core H/four null directions/ALL256 checks independently verified; novel residual/source H RMS96.686%,chi1.13847,16/16 anchors. Supports ONE private-curvature investigation, not response/fresh quality |
 | Actual source-conditioned factors |[factor result](CHATBOT_SOURCE_QUADRATIC_RESULT_20261008.md): eight source/core atoms per FIT parent/two forms each, R/T BF16 exact source rows; ALL128 choices/688128 scores independently verified.16 distinct bases/72 atoms; scalar source-D curvature projection residual92.1%..95.5% |
 | Actual augmented quadratic converter |[kernel](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md)/[fit result](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md): ALL256 NEW features/augmented Gram and ONE fixed convex response fit independently verified. Encoded FIT2.50175%,FIRST64 novel70.68293%; BOTH exact necessary FULL1% failures. THIS recipe CLOSED |
+| Whole nonlinear connection |[implemented prerequisites](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md): E16 adapter/ALL24 replacement API/output KL/resident Adam code available; FIRST one-block BF16/autograd and independent output-gradient mechanics PASS. Actual ALL24 initialization/installation/fit missing |
 | Complete native/whole |Archive/direct C loading295/296 reusable;297 semantic FAIL. No eligible NEW compact ALL24/export/chat/accepted50/useful-n artifact |
 
 Latest decisive result: [ONE augmented response compiler/FIRST audit](CHATBOT_QUADRATIC_FIT_RESULT_20261008.md)
@@ -63,10 +64,17 @@ for THIS recipe; no precision/rank/alpha/epoch ladder.
 ONE dense-affine+rank16 quadratic private format BEFORE labels: ALL24
 295104512MAC/592186464 logicalB/1080411488 stored payload; necessary3/5
 gates PASS,physical DRAM/rate unmeasured. Private added null-curvature output
-image<=64 per cell is a limit. [New operational NEXT](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md)
-prioritizes complete joint nonlinear transfer feasibility, useful redundancy/
-coverage and canonical native chat integration. No new whole learner/training
-or admitted artifact yet; all old local recipes remain CLOSED.
+image<=64 per cell is a limit. [Whole connection result](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md)
+now makes the E16 adapter, ALL24 replacement API, output KL and resident Adam
+allocation available. Actual one-block mechanics PASS; independent loss/gradient
+gaps<=6.73e-9. Inventory reuses old dimensions: mandatory resident-design
+persistent bytes E16 3993823744 (peak UNMEASURED), E160 scenario23019642880
+(FAIL12GiB resident Adam only). Proposed F32-router native logical495.42/495.55MB,
+not physical DRAM. Inventory .219s/28.1MB; mechanics5.688s/503.8MB through exit;
+all4 instances closed/no faults. [New operational NEXT](CHATBOT_WHOLE_INITIALIZER_NEXT_20261008.md)
+is source-derived ALL24 initialization/FIRST provenance audit/actual assembly.
+No successful ALL24 installation, full optimizer allocation, global fit or
+admitted artifact yet; all old local recipes remain CLOSED.
 
 ## Retained necessary closures
 
@@ -125,7 +133,7 @@ sole reuse does not supply required speedup. No larger whole promotion.
 
 ## Exact point of resumption
 
-**First action:** [complete nonlinear transfer feasibility](CHATBOT_PIPELINE_TRANSFER_NEXT_20261008.md).
+**First action:** [ALL24 source initialization and actual assembly](CHATBOT_WHOLE_INITIALIZER_NEXT_20261008.md).
 Qwen role/history/assistant-continuation/ID/BOTH EOS fixtures are QUALIFIED;
 reuse adapter/IDs/census/original48-case calibration bytes without replay.
 All finite joint fits,16-jet,zero-prior ALL-FIT AND source-null-J prior objectives
@@ -136,16 +144,19 @@ Source-null prior/curvature/factor extraction, NEW quadratic features/kernel/
 factor/compiler and FIRST audits now COMPLETE. ONE quadratic response recipe
 joins prior local rejections; no eligible compact candidate. Reuse BYTE all
 source/core/J/H/canonical/capture/operator evidence, no old scientific replay.
-Read actual compact spec/source census/native interfaces and existing whole
-learner code. Produce ONE complete nonlinear target inventory and training-
-resource/liveness plan before NEW labels or fitting; verify no duplicate old
-whole learner answers this route. Price ALL24/head/attention/router/cache and
-trainable/frozen gradients/optimizer/teacher/logit/activation memory. Do not
-assume layer12 checkpoint is ALL24 initialization or estimates are peaks.
-Next implementation must connect source-derived useful redundant functions,
-complete adaptation/export and canonical native conversation/BOTH EOS.
-No whole learner/global objective is implemented by this NEXT; freeze its
-new prospective admission/fresh cohort/budget/stops before observations.
+Whole inventory and NEW one-block mechanics are COMPLETE; old whole learner
+inspection confirms different hierarchical/source-sized architecture. Actual
+E16 adapter/ALL24 replacement/output KL/resident optimizer API is AVAILABLE;
+ALL24 installation/optimizer allocation have NOT executed. Implement/freeze
+checkpointed source-derived initialization for23 NEW layers using original
+FIT operands; reuse layer12 original source-row initializer BYTE, never its
+trained block across layers. Preserve per-layer routes/support/source IDs and
+source-copy witnesses; FIRST independent audit precedes actual original BF16
+core installation and measured resident optimizer allocation. No source full
+forward/old labels/optimizer updates in this prerequisite. E16 lower-bound
+screen is not a peak admission; E160 resident design alone is excluded.
+Full training/export/C/canonical chat still need implementation and prospective
+new cohort/fresh own-history/tasks/resource admission before observations.
 Old local1%/3% failures remain closed; no regrading or blind variation ladder.
 Use newly excluded whole dialogue/task cases when an eligible artifact exists.
 Useful n/RAM, LUT winner+mass, physical DRAM and actual family/scales stay joint

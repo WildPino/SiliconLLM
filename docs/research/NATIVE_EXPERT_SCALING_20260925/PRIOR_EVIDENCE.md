@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**8 October whole nonlinear connection prerequisites implemented/qualified:**
+[result](CHATBOT_WHOLE_TRANSFER_RESULT_20261008.md): actual E16 BF16/F32 adapter,
+ALL24 core-preserving replacement API, masked output KL and resident Adam code
+AVAILABLE. FIRST one-block NEW synthetic BF16/autograd and independent saved-logit
+loss/gradient check PASS (gaps<=6.73e-9); no source forward/optimizer update or
+chatbot-quality claim. ALL24 installation/full optimizer allocation NOT executed.
+New memory ledger reuses immutable census/dimensions: E16 mandatory resident
+3993823744B before activations (peak UNMEASURED); E160 scenario23019642880B
+excludes12GiB resident Adam only, not inference capacity or offloading.
+Proposed F32 router raises logical native bytes495.42/495.55MB; DRAM/rate UNKNOWN.
+Inventory .219s/28.1MB; mechanics5.688s/503.8MB through exit; all4 instances
+closed/no faults/foreignSHA intact. [Current NEXT](CHATBOT_WHOLE_INITIALIZER_NEXT_20261008.md)
+is actual source-derived ALL24 initialization:23 NEW layers plus BYTE-reused
+original layer12 initialization, FIRST provenance/support audit, then actual
+BF16-core assembly/optimizer peak. Whole fit/export/native canonical chat/fresh
+quality AND accepted50 SAME artifact/useful-n/families remain open.
+Historical NEXT statuses below describe their dates; current INDEX governs.
+
 **8 October complete pipeline reassessed; augmented quadratic recipe CLOSED:**
 [macro view](CHATBOT_PIPELINE_REASSESSMENT_20261008.md),
 [new feature kernel](CHATBOT_QUADRATIC_KERNEL_RESULT_20261008.md) and
