@@ -14,7 +14,8 @@ def main(args):
     assert not args.out.exists();doc=ROOT/'docs/research/NATIVE_EXPERT_SCALING_20260925';code=ROOT/'benchmarks/native_expert_scaling'
     prior_path=doc/'chatbot_null_curvature_binding_20261008.json';prior=json.loads(prior_path.read_bytes())
     for item in prior['inputs']:assert sha(item['path'])==item['sha256'] and Path(item['path']).stat().st_size==item['bytes']
-    result_path=doc/'chatbot_null_curvature_20261008.json';raw=json.loads(result_path.read_bytes())
+    result_path=args.curvature.resolve();assert result_path.parent==doc.resolve()
+    raw=json.loads(result_path.read_bytes())
     terminal_path=result_path.with_suffix('.terminal.json');terminal=json.loads(terminal_path.read_bytes())
     assert terminal['actual_worker_exit_code']==0 and terminal['result_sha256']==sha(result_path) and all(terminal['gates'].values()) and all(raw['procedure_gates'].values())
     worker=code/'chatbot_null_curvature_audit.py'
@@ -27,4 +28,5 @@ def main(args):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);main(p.parse_args())
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--curvature',type=Path,required=True);main(p.parse_args())
