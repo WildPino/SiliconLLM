@@ -27,7 +27,7 @@ def main(args):
     proc.cpu_affinity([11])
     assert sha(args.binding) == args.binding_sha
     b = json.loads(args.binding.read_bytes())
-    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1')
+    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1','HYBRID_NATIVE_BINDING_V1')
     OS_cap=b.get('limits',{}).get('OS_bytes',4<<30)
     seconds_cap=b.get('limits',{}).get('seconds',600)
     output_cap=b.get('limits',{}).get('output_bytes',256<<20)
@@ -86,7 +86,13 @@ def main(args):
                 memory()
                 guard()
                 try:
-                    assert not psutil.Process(p.pid).children(recursive=True), 'unexpected worker descendants'
+                    children=psutil.Process(p.pid).children(recursive=True)
+                    for child in children:
+                        try:
+                            name=child.name().lower()
+                        except psutil.NoSuchProcess:
+                            continue
+                        assert name in b.get('allowed_worker_children',[]), ('unexpected worker descendant',name)
                 except psutil.NoSuchProcess:
                     pass
                 with log.open('rb') as f:
@@ -112,6 +118,8 @@ def main(args):
             assert result['schema'] == 'HYBRID_PILOT_RESULT_V1' and result['complete_learner_available']
         elif b['schema'] == 'HYBRID_PILOT_AUDIT_BINDING_V1':
             assert result['schema'] == 'HYBRID_PILOT_AUDIT_RESULT_V1'
+        elif b['schema'] == 'HYBRID_NATIVE_BINDING_V1':
+            assert result['schema']==('HYBRID_PACKED_EXPORT_RESULT_V1' if b['phase']=='export' else 'HYBRID_NATIVE_RESULT_V1')
         else:
             assert result['schema'] == 'FALCON_SCAN_CAPTURE_RESULT_V1' and result['packet_count'] == 12
         assert result['process_instance']['pid'] == p.pid
