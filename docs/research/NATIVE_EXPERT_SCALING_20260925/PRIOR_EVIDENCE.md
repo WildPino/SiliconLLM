@@ -1,5 +1,21 @@
 # Native expert-count scaling: prior evidence
 
+**9 October renewed original-engine direction and static audit COMPLETE:**
+[Reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md),freeze c8d3473/
+result42f1b3af:exact code-shape accounting,all input hashes unchanged,0.016s,
+exit0/no tensor/model/training/native/T4 observation. Current versus original:
+selected products4x/core5.982x/head128.002x/counted matrices8.891x;latency is not
+those ratios. Current stored bank is25% of source FFN coefficient count, not
+knowledge. C fixes E72/512MiB; n288/source-count and larger cannot load. Flat
+router LDn grows; dense F32 params/grads/Adam alone160GB/10B,1.60TB/100B bank.
+Direction correction:local source-FFN absolute gates do not prove a necessary
+condition for joint chatbot adaptation. Preserve their failures/criteria;
+source-width dose is DEFERRED, draft syntax only/no binding/execution. Selected
+[2-common/6-private construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
+keeps8 active H128 functions. Separate target code implemented/syntax checked;
+initial-loss/update-cost worker/binding/model execution still missing.
+No speed, quality, useful-n, DRAM or scaling admission follows this audit.
+
 **9 October broad internal operands and fixed coverage recovery COMPLETE:**
 [Capture](CHATBOT_SOURCE_FFN_BROAD_CAPTURE_RESULT_20261009.md),4eb02126/f18c52d1:
 44NEW/8266+4reused/542=48/8808, actualsite0/23 x/y144.31MB/new135.43MB;
@@ -15,10 +31,11 @@ site23 .488->.196/.556->.373. Relativegain onlysite23, allcase retentionPASS,
 absolutewhole .10/cosine .99/NEWcentered .10 gatesFAIL. Changedtrits2.24%/1.62%,
 not capacity/errorbounds.122.625s/OS1.705GB/GPU1.142/1.342GB/204files1.528GB/
 resource-inputPASS/exit0/session24779closed. Actual256 model/moments/RNG/history
-retained for bothsites. Next [site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md)
-restores SHAa2603025 actual256 and adds768 NEW steps to1024 underunchanged
-data/loss/operators. UNIMPLEMENTED/UNEXECUTED;no completed update/before/source
-replay. Substantial FIT error prevents treating256 as a representation ceiling.
+retained for bothsites. [Site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md)
+would restore SHAa2603025 actual256 and add768 NEW steps to1024 underunchanged
+data/loss/operators. Draft exists/syntax checked,unbound/UNEXECUTED/DEFERRED;
+no completed update/before/source replay. Substantial FIT error prevents treating
+256 as a representation ceiling; whole-target construction now has priority.
 
 **9 October true source local functions, recovery and saved geometry COMPLETE:**
 [Local result](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md):actualsourceFFN x/y

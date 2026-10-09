@@ -34,6 +34,20 @@ scores or guarantee capacity/DRAM speed. Source width is offline scaffolding.
 
 ## Latest decisive evidence
 
+**[Original-engine reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md):
+COMPLETE/static deductions; operational priority corrected.** Current target
+uses4x selected-expert products,5.98x core matrix products and128x head products
+versus original; sharing LUT bodies does not inherit its cost or recurrence.
+Current bank stores one quarter of source FFN coefficient count; this is not a
+knowledge fraction. Current C fixes E72/512MiB; n288+ cannot load. Flat router
+is O(n), and dense Adam bank storage is160GB/10B or1.6TB/100B. Variable-n packed
+storage, learned addressing and bounded optimizer residency remain required.
+Source local absolute fidelity is a diagnostic criterion, not a necessary
+condition for joint chatbot adaptation. [Next construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
+uses2 common+6 selected H128 functions within the current8-function budget.
+Separate target code implemented/syntax checked; binding/model/native unvalidated.
+The source-site0 dose is DEFERRED. No new model/timing/T4 observations.
+
 **[Broad fixed FFN recovery](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md): COMPLETE/absolute fidelity FAIL.**
 Actual source sites0/23, all48/8808,24FIT/24DEV/12 domains. Same original Student
 AST/STE/whole loss/Adam/native arithmetic, fresh selected original sectors,
@@ -43,8 +57,8 @@ matched rows or compute against the earlier two-prefix run.
 Site0 DEVwhole .560->.519/centered .558->.521;site23 .488->.196/.556->.373.
 Only site23 meets10% improvement; both retain everycase, neither meets absolute
 whole<=.10/cosine>=.99/centered<=.10. Site23 worst centeredDEV .970: means hide tails.
-Tritchanges2.24%/site0,1.62%/site23; site0 FIT still .475. This motivates isolating
-optimization dose before changing loss/representation.122.625s/OS1.705GB/
+Tritchanges2.24%/site0,1.62%/site23; site0 FIT still .475. Extra local dose remains
+an optional diagnostic, superseded as the next priority.122.625s/OS1.705GB/
 GPUallocated1.142/reserved1.342GB/all input/resourcePASS/exit0/session24779 closed.
 
 **[Broad source operands](CHATBOT_SOURCE_FFN_BROAD_CAPTURE_RESULT_20261009.md): COMPLETE/PASS.**
@@ -66,7 +80,7 @@ Full package all48/8808:DEV KL2.09967/42.9549% differing IDs,screen1/16 versus
 source14/16,own-history0/4;7/10 gatesFAIL. [Result](CHATBOT_SOURCE_FFN_CONTROL_RESULT_20261009.md).
 F32-only retains all411 objects and exactly all16 source generation sequences/
 text;14/16 screen. [Result](CHATBOT_SOURCE_FFN_CAST_RESULT_20261009.md).
-Arithmetic recovery precedes composing selection/compact-core losses.
+Arithmetic recovery diagnoses a recipe; final combined quality governs admission.
 
 ## Reusable pipeline and limitations
 
@@ -94,22 +108,24 @@ useful n. Qwen/Giga/511/actual256 evidence retains its scope and existing limits
 
 ## Exact point of resumption
 
-**First action:** implement/freeze/bind [additional site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md),
-currently UNIMPLEMENTED/UNEXECUTED. Restore actual source site0 model/Adam/RNG/
-history256 from broad recovery:site00.state256.pt339,929,096B,
-SHAa260302562f5ac40fef1d5043989f7e867b4a1026c468cc13b9e90279f0b2590.
-Validate six slots/step256/native pairs/scales/original Student AST. Reuse all48
-step256 outputs as before. Global steps257..1024 =768 NEW updates, same schedule/
-data/loss/precision/active rows; no completed update/initial/source observation replay.
-Site23 stays256/SHA b45e8d13. Freeze prospective whole/centered relative+absolute
-and individual retention gates. Proposed300s/45reserve envelope is not a binding;
-price firsttwo NEW updates, preserve258 and final1024. No T4 allocation.
+**First action:** implement/freeze/bind the initial-loss/update-cost worker for
+[2-common/6-private target](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md).
+Code `chatbot_hybrid_fixed_work_target.py` exists; no model execution or binding.
+Reuse actual broad24/Adam318 candidate:
+`results/native_expert_scaling/chatbot_broad_pilot_repair1_20261009/candidate.pt`,
+3,059,728,406B/SHA16a85448a706f96719c8d952bbfd5309b8bdf60237f763dfdf101bad1bb9983f.
+Preserve private/core/head tensors and moments/RNG/history. k8->6 changes output
+even with zero common functions; measure the new initial loss, not false parity.
+Reuse saved baseline observations and source labels. Price actual longest FIT
+updates under a separately frozen feasibility envelope before selecting a paired
+dose. No local FFN fidelity prerequisite or automatic month-scale T4 allocation.
+Dose draft is syntax-checked/unbound/DEFERRED; original states256 remain intact.
 
 Completed capture namespace `chatbot_source_ffn_broad_capture_20261009`,
 freeze4eb02126/bindingf18c52d1/resultfc992f45/exit0/session62694 closed.
 Completed broad recovery `chatbot_source_ffn_broad_recovery_20261009`,
 freeze8bb6af56/bindingb9955431/result981679c9/exit0/session24779 closed.
 Exact JSONs/logs/commands/AST/output hashes beside this index; large tensors off-repo.
-No owned live job. All-site/whole-source recovery, useful selection/compact state,
+No owned live job. Useful selection/compact state and joint chatbot recovery,
 fresh useful same-artifact original-engine quality+50,useful n/CPU IDs+mass/DRAM,
 family/scale variants and full-model/month-plus T4 price remain required.

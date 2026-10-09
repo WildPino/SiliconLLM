@@ -1,6 +1,9 @@
 # Next: fixed additional optimization dose at source FFN site0
 
-9 October 2026. Selected proposal, worker/binding UNIMPLEMENTED/UNEXECUTED.
+9 October 2026. DEFERRED optional diagnostic. Worker draft exists/syntax checked;
+launcher integration, binding, model/native-state adoption remain unvalidated.
+No optimizer execution, dose result or new checkpoint exists. Follow
+[fixed-work conditional construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md).
 Previous broad capture/recovery are COMPLETE. This isolates optimization dose;
 do not combine a new loss, representation, precision, data or deployment cost.
 
@@ -58,7 +61,7 @@ experiment with explicit extra updates, not relabeled original256 completion.
 Measure actual firsttwo NEW updates and persist258; conservatively project
 remaining updates using their maximum plus90s overhead. Freeze code/protocol/
 binding before observations; stop on bounds/price/finite/hash/adoption failure.
-Implementation and actual resumed price are missing. No T4 allocation follows.
+Launcher integration/binding and actual resumed price are missing. No T4 allocation follows.
 
 Engine goal stays useful selective functions + compact SSM/SWA state, original
 LUT/ternary kernels and fresh same-artifact chatbot quality+>=50 accepted IDs/s,

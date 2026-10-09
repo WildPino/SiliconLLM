@@ -8,6 +8,17 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Current operational correction:** [original-engine audit](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md)
+distinguishes unchanged LUT primitives from changed recurrence/width/depth/head
+and identifies fixed E72/512MiB and dense optimizer residency as scaling gaps.
+The next [fixed-work construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
+allocates2 common+6 selected functions within8 active H128 calls. Separate
+target code exists; only syntax/source review, no model/binding/export validation.
+This supersedes source-site0 dose and older recovery-first operational wording.
+Local faithful-FFN gates are diagnostics, not necessary conditions for joint
+chatbot transfer into a changed representation. Whole chatbot quality and
+same-artifact cost determine admission; all earlier failures remain recorded.
+
 Pretrained CHATBOT -> compact reusable SSM/SWA core + useful selectively consulted
 ternary functions -> original engine.c machinery. Preserve tokenizer/roles/history/
 stopping and fresh donor-relative dialogue/generation/tasks, with >=50 accepted
@@ -65,9 +76,9 @@ shows91-94% ofsite23 squared-error gain ismean correction;centered DEVerrors
 still .467/.492. Do not equate this gain with retained conditional knowledge.
 [Broader coverage](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md) is now
 COMPLETE under unchanged arithmetic/loss:site0 DEV .519/centered .521 andsite23
-.196/.373,absoluteFAIL. Next [site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md)
-isolates optimization byrestoring256 andadding768 NEW updates before selection/
-core;source-active cost is not an affordable final runtime.
+.196/.373,absoluteFAIL. [Site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md)
+is retained as an unbound, unexecuted draft/optional diagnostic. Joint conditional
+conversion now has priority;source-active cost is not an affordable final runtime.
 
 ## 1. Bind source, interaction and applicability
 
@@ -341,8 +352,11 @@ Site0 DEVwhole .560->.519/centered .558->.521;site23 .488->.196/.556->.373.
 Absolute all-case gatesFAIL;bothcase retentionPASS. Tritchanges2.24%/1.62%,
 FIT error still .475/site0. Family122.625s/OS1.705GB/GPU1.142/1.342GB;durable
 actual256/site models/moments/RNG/history retained. No discarded steps/fault.
-Next [site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md) isolates additional
-optimization from representation/loss changes by resuming actual256 to1024.
+Source-site0 additional dose remains optional/unexecuted. First implement the
+initial-loss/update-cost binding for the [fixed-work2+6 target](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md),
+starting from actual broad24/Adam318 compact state, preserving previous work.
+Variable-n packed export/loading, useful additional functions, structured CPU
+IDs/mass and bounded dormant optimizer storage belong to this pipeline.
 Alljobs terminal/noT4. No completed initial/source/capture/grid/update replay.
 INDEX holds exact resumption;no local pass would by itself admit finalengine.
 Native chat/cost family22s COMPLETE/exit0,

@@ -4,6 +4,21 @@
 reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 [method](METHOD.md) and completed evidence. No new model observation in this memo.
 
+## Current priority override
+
+[Original-engine reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md)
+supersedes older operational next steps below. Current dimensions imply4x
+selected-expert/5.98x core/128x head products versus original. Fixed E72/512MiB
+and dense optimizer residency prevent the intended RAM-driven capacity pipeline.
+Full donor FFN local fidelity is an optional diagnostic, not a necessary gate
+for jointly adapted chatbot representations. The next
+[fixed-work2-common/6-private construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
+keeps8 active functions; separate target code exists, no binding/model validation.
+Source-site0 dose is a deferred unbound draft. Retain all earlier evidence and
+criteria. Whole chatbot quality/native cost, useful n, structured IDs/mass and
+DRAM govern. The remaining text preserves prior scientific reasoning/history;
+its older selected-dose/recovery-first resumptions are superseded.
+
 ## Destination and present position
 
 Latest conversion evidence: [true source FFN recovery](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md)

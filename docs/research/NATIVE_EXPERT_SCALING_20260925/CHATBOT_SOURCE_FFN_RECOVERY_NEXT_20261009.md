@@ -3,8 +3,8 @@
 9 October 2026. Broad acquisition4eb02126/f18c52d1 is COMPLETE/PASS, and fixed
 broad recovery8bb6af56/b9955431 is COMPLETE/absolute fidelity FAIL. Both jobs
 terminal; no owned live process. The operational next action is now
-[site0 additional dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md), from actual
-state256 to1024 (768 NEW updates). Worker/binding remain unimplemented. The
+[fixed-work conditional construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md).
+Source-site0 dose is now a deferred syntax-checked/unbound/unexecuted draft. The
 coverage plan below is historical/completed and must not be restarted.
 Four-case capture, grids and fixed recovery are COMPLETE:
 [local result](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md).
@@ -14,8 +14,10 @@ INDEX governs. Do not restart the earlier next-plan capture or completed grids.
 
 ## New variable and decision
 
-Recover actual source FFN functions before composing normalized selection and
-layer/width/state reduction. Source-compatible organs are offline scaffolding.
+Historical coverage-only question: recover actual source FFN functions separately
+from selection and layer/width/state reduction. These local criteria do not
+establish a necessary condition for joint chatbot adaptation. Source-compatible
+organs are offline scaffolding.
 Keep original ternary/AQ63/shared-input-LUT arithmetic, active rows and the
 selected-work contract. No affordable full-donor engine runtime is admitted.
 
