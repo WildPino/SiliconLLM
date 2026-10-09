@@ -1,5 +1,33 @@
 # Native expert-count scaling: prior evidence
 
+**9 October complete source FFN control/positive arithmetic control:**
+[Full trit/AQ package](CHATBOT_SOURCE_FFN_CONTROL_RESULT_20261009.md),d4f7f0f/
+3d86ba62,COMPLETE:all48/8808,reuse2+46 new,16screen+4actualhistory. DEVKL
+2.09967/1884of4386=42.9549% differing IDs,8of12domainKL>2. Exactscreen1/16
+(original14),history0/4;format failures andsubstantive wrong arithmetic/repetition.
+7of10gatesFAIL,resource/inputPASS/family1674.125s/OS3.741GB/GPU4.901/11.159GB,
+136files1.368GB/exit0/session25136closed. No calibration/updates/C/T4/RESERVED.
+[F32 positive control](CHATBOT_SOURCE_FFN_CAST_RESULT_20261009.md),d94f854/
+00251063,COMPLETE/PASS:all411 original coefficient objects retained,noAQ/trits,
+twoFITKL.000162/.000472/5of274different;ALL16 actual source generation sequences
+andtext exactly preserved,14/16. Historical source-case hashes verified saved-only.
+75.829s/OS3.741GB/GPU5.580/6.906GB/exit0/session30528closed. Doesnot certify
+freshbroad or exclude interactions. [Next local FFN recovery](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md)
+prices missing actualx/y andfunction-aware diagonalcalibration before compression.
+
+**9 October source-width ternary FFN stage:**
+[Preflight](CHATBOT_SOURCE_TERNARY_FFN_PREFLIGHT_RESULT_20261009.md) COMPLETE,
+eb60758/1451533d/resource+integer arithmeticPASS,0 source generations/updates/C.
+All679.477M FFN coefficients converted7.390s into340.820MB packed sector9aa6f319;
+six actual F32 integer dots match every CPU F64 output. Original339 other
+parameters retain identity. Two FIT KL1.74557/2.14675,dis5/18 and141/256;
+not quality admission. Family77.781s/heldOS3.724GB/GPU4.902/7.155GB/exit0.
+[Full control protocol](CHATBOT_SOURCE_FFN_CONTROL_PROTOCOL_20261009.md) is
+frozen d4f7f0f/98-input3d86ba62 andCOMPLETE/session25136closed:reuse2+46 new forced
+prefixes and16 screen+4 actual generated-history followups,2100s fixedcap.
+No repeated calibration/source replies or training. Offline original-width
+intermediate,not affordable final source runtime/accepted50/useful-n/DRAM.
+
 **9 October fixed broad24 COMPLETE/quality-retention FAIL:**
 [Result](CHATBOT_BROAD_PILOT_RESULT_20261009.md),77a2606/1fefd3c3,actual24/Adam318;
 2 oldupdates+22 new,ALL48 before reused,all48 after+old32 retention. FITcaseKL

@@ -1,217 +1,125 @@
 # Native expert scaling: research control index
 
-9 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+9 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+All research jobs are terminal. No model, training, native or T4 process is running.
 
 ## Goal and constraints
 
-Reproducible pretrained CHATBOT -> compact reusable SSM/SWA core + useful
-selectively consulted ternary functions -> original engine.c machinery.
-Preserve interaction and fresh donor-relative dialogue/generation/task quality
-AND >=50 accepted batch1 IDs/s on the SAME artifact (100 stretch). Useful large
-n/RAM, structured CPU LUT winners AND normalized mass, actual DRAM and multiple
-families/scales/~10B/~100B remain required. Stored, active and useful capacity differ.
+Reproducible pretrained **CHATBOT -> compact SSM/SWA core + useful selectively
+consulted ternary functions -> original engine.c**. Preserve fresh donor-relative
+interaction/generation/tasks AND >=50 accepted batch1 IDs/s on the SAME artifact
+(100 stretch). Useful much larger n, CPU LUT winners AND normalized mass, actual
+DRAM, and variants for more families/~10B/~100B remain required. Stored capacity,
+active work and retained useful capacity are different quantities.
 
-Ryzen53600X/80GiB/RTX306012GB. Freeze before observations; retain first faults
-and numbered repairs; reuse completed scientific/capture/native/audit bytes.
-No timing overlap. Preserve foreign work/publisher. Routine Graphify disabled.
-Donor-adaptation operationally frozen, evidence reusable. T4 requires communicated
-reason/budget/stops first. All recovery/evaluation/native jobs terminal;
-All jobs terminal;no local worker or T4. Broad24 repair1/session16778 exited0,
-execution/resource PASS andquality/retention FAIL. Foreign hashes preserved.
+Ryzen 5 3600X/80GiB/RTX3060 12GB. Freeze code, criteria, inputs and caps before
+observations; retain first faults and completed bytes. No timing overlap. Preserve
+foreign work/publisher. Routine Graphify disabled. Donor-adaptation is operationally
+frozen; its evidence is reusable. Communicate T4 reason/budget/stops before use.
+[Engine priority](ENGINE_PIPELINE_PRIORITY_20261009.md),
+[target contract](chatbot_engine_target_contract_v1.json),
+[method](METHOD.md) and [prior evidence](PRIOR_EVIDENCE.md) govern.
 
-## Current direction and two research questions
+## Position of the two research questions
 
-[Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) governs.
-Recovery/adoption/fixed-state evaluation and sum/mixture comparison are COMPLETE.
-[Actual engine chat/cost result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
-is COMPLETE: engine.c entry, persistent canonical chat, full batch1 readout,
-one-core raw46.01-58.84 IDs/s on the retained8-update packed artifact. Quality
-remains unqualified. [Conversion roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md)
-selects broader data/curriculum and staged transfer before long adaptation.
-Broader [source capture/adoption](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md) is
-now COMPLETE:48 cases/8808 labels/577.25M verified BF16 coordinates,24 EOS/
-24 partials;46 new generations+2 original reused. [Actual training cost](CHATBOT_BROAD_COST_RESULT_20261009.md)
-has both58/1507-ID forward/backward records but GPU resource FAIL at19.31GB
-CUDA allocation;the separately [qualified storage schedule](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md)
-keeps original F32/geometry/reductions and passes at5.053GB allocated.
-The [fixed broad24 pilot](CHATBOT_BROAD_PILOT_RESULT_20261009.md) is COMPLETE;
-repair1 reused all48 before observations andboth original updates. NewDEV
-KL9.823->6.991 butdisagreement87.48%,oldDEV41.61->50.41%;5 of8 gatesFAIL.
-[Next staged conversion](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md) begins
-with source-compatible FFN arithmetic control before composing compression losses.
-[Common/private construction](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
-is implemented/frozen in b936b60 but UNEXECUTED/deferred until a controlled pilot
-requires that construction. Broader supervision/curriculum precedes long training. Redundancy
-requires coverage/coefficients; more slots alone do not preserve donor functions.
-The full chatbot head costs33.55M products/token, about48.2% of current matrix
-work. Original701.7/s is a small E32 cache-resident result, not large-donor proof.
-
-[Engine reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)/
-[target contract](chatbot_engine_target_contract_v1.json) govern: original
-LUT/ternary/compact recurrence is the deployment anchor. Costed extensions are
-allowed. Generic donor runtime alone cannot qualify the goal. Long offline
-adaptation is permitted but useful transfer must be demonstrated.
-
-| Question | Established | Open |
+| Question | Available evidence | Missing |
 |---|---|---|
-| Useful conditional target |Original trained E32 native parity; bounded source utility123/183/369 and cost373; actual packed compact C target now executes|Useful much larger n, structured CPU LUT IDs/mass, physical DRAM, fresh quality+50|
-| Transfer into that target |Screened Falcon1.5B;8+286+24 updates;old export/C;new48/8808 supervision;qualified F32 training storage;complete broad24 control|Source-compatible staged recovery,absolute/fresh quality,conditional functions,qualified new native forward,own-history/chat,family/scale variants|
+| Useful capacity at bounded active cost | Original trained E32 native quality/parity; packed compact target and actual engine chat path | Useful larger n; structured CPU selector IDs/mass; actual DRAM; fresh quality+50 |
+| Transfer from a pretrained chatbot | Pinned Falcon1.5B; source-informed compact learner; source supervision; recovery/coverage controls; actual source FFN conversion and F32 preservation control | Recover ternary/AQ63 functions, then selection/core compression; qualified new native artifact; fresh interaction; family/scale variants |
+
+The compact target uses original LUT/matrix/AQ63 bodies with D512/L12,
+10 SSM/2 SWA/E72/k8/H128/V65537. Full head costs33.55M products/token, about48.2%
+of69.63M matrix products. Original E32 ~701.7/s is a small cache-resident result,
+not proof of large-donor capacity or unlimited parameter scaling.
 
 ## Latest decisive evidence
 
-**[F32 storage qualification](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md):**
-Both58/1507 losses identical to retained original values;max gradient-group
-norm difference9.421e-8. Four actual long block0 CPU formula/VJP comparisons
-pass,all forward outputs/7 of8 VJP arrays bit-equal;remaining VJP RMS1.009e-7.
-ALL211 gradients finite;model/all Adam moments unchanged. GPU5.053/5.683GB,
-family114.266s/heldOS17.367GB including separately priced dense CPU reference;
-all gatesPASS/exit0/session70614 closed. Engine geometry unchanged.
+**[Source-width FFN arithmetic control](CHATBOT_SOURCE_FFN_CONTROL_RESULT_20261009.md): COMPLETE/quality FAIL.**
+Keep original D2048/L24/FFN4608/all rows and other donor organs; change only the
+ternary/AQ63/F32-internal/final-BF16 FFN package. Actual packed sector340.820MB,
+all679.477M FFN coefficients converted; no selected routing or core compression.
+All48/8808 forced rows (2 reused/46 new): DEV KL2.09967,1884/4386=42.9549%
+differing IDs,8/12 domain KLs>2. Known screen1/16 versus original14; actual
+four generated-history followups0/4 under the exact rubric. Both substantive
+and formatting failures occur. Seven of10 gates FAIL. Resource/input PASS,
+1674.125s/heldOS3.741GB/GPUallocated4.901GB/reserved11.159GB,exit0/session25136
+closed. Freeze d4f7f0f/binding3d86ba62. No recalibration/update/native/T4/RESERVED.
 
-**[Broad24 transfer/retention COMPLETE](CHATBOT_BROAD_PILOT_RESULT_20261009.md):**
-Fixed24/Adam318,all48 before/after+old32 retention. FITKL9.930->4.474,
-DEV9.823->6.991 (both relativePASS),newDEV3955->3837/4386 disagreements,
-oldDEV459->556/1103 despiteKL3.081->3.144.5 of8 gatesFAIL;no quality admission.
-All24 finite211 gradients/12positive groups anddurable model/moments;support
-counts exact. Originalfault after2 retained;repair22 new/no replays,232-input
-1fefd3c3/77a2606. Family1443.719s/OS4.962GB/GPU4.781/5.518GB,all resource/
-input gatesPASS,exit0/session16778closed. Candidate16a85448/3.060GB,
-BROAD_24_TRANSFER_CANDIDATE_V1,not full512 eligibility. Next staged control.
+**[F32-only positive control](CHATBOT_SOURCE_FFN_CAST_RESULT_20261009.md): COMPLETE/PASS.**
+Original411 parameter objects/values, no weight or activation quantization.
+Two consumed FIT trajectories KL.000162/.000472,5/274 differing greedy IDs.
+ALL16 actual source generation sequences/text exactly preserved,14/16; historical
+source-case hashes verified saved-only.75.829s/OS3.741GB/GPU5.580/6.906GB,
+exit0/session30528 closed. Freeze d94f854/binding00251063. This bounded control
+shows F32 alone does not explain package failure in its scope. It does not
+separate trits/AQ63 or certify fresh broad quality. [Next recovery](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md).
 
-**[Broad source supervision and actual target training envelope](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md):**
-48/8808 source packets adopted,24 FIT/24 DEV/12 strata,half replies partial;
-longalign/104+64 RESERVED untouched. Source1091.453s/OS3.743GB/GPUallocated
-5.580GB;adopter8.657s/260.3MB/zero source calls,all transport/input/capsPASS.
-[Cost](CHATBOT_BROAD_COST_RESULT_20261009.md):short58 IDs4.140s forward+4.844s
-backward;long1507 IDs9.281+28.578s,all211 finite gradients/12 positive groups.
-GPU allocated19,312,518,656B/reserved22,003,318,784B FAIL fixed11/12GiB caps;
-69.609s/held OS15.544GB,0 updates,native/T4,session90924 exit1/closed.
-Allocator counters are not physical VRAM residency. Long interchunk temporary
-alone7,247,757,312B by exact shape algebra. Engine geometry unchanged;
-next F32 forward/backward storage qualification,not a blind full training run.
+**[FFN preflight](CHATBOT_SOURCE_TERNARY_FFN_PREFLIGHT_RESULT_20261009.md): COMPLETE.**
+7.390s conversion, sector9aa6f319/340,819,968B;339 other parameter objects
+retained. All six actual integer-dot witnesses match every CPU F64 output.
+77.781s family; resource/arithmetic PASS. Reuse the sector and trajectories.
+These source-width controls are offline intermediates; their full active cost
+is not an affordable final engine runtime.
 
-**[Broader public dialogue adoption](CHATBOT_BROAD_DATA_RESULT_20261009.md):**
-Repair1 COMPLETE/PASS,624 untruncated canonical prefixes from13 sources,
-416 FIT/104 DEV/104 RESERVED;124 contain public prior assistant turns.
-Full ordered user-turn identity replaces the failed first-greeting grouping;
-original faults stay retained. One train shard plus complete official test,
-new network bytes0/source/model/GPU calls0.40s family/worker216.9MB/reader230.4MB,
-both exit0;all gates PASS.47 inputs exceed8192;longalign8186-20874 is deferred
-to a separate context stage. Its post-adoption48-case source cohort was then
-[captured/adopted](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md). [Exact next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md).
+## Reusable pipeline and retained limitations
 
-**[Actual engine entry/chat/full decode](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md):**
-Freeze54011fc/binding29519ab7,ONE native process/FIVE requests/484 advances/
-197 full V65537 heads/192 emitted IDs. Full vs split prefill64 IDs and all65537
-final logit bits exact;actual own-history reuses188 IDs,changed history resets.
-Raw one-core decode46.0077/48.8954/46.5267/58.8365 IDs/s;request rates18.12-40.97
-include prefill. Old8-update replies degenerate/all caps/no EOS observed;no quality/
-accepted50/n/DRAM admission.11 original kernel body hashes unchanged/default E4
-body preserved.22.000s family/native439.8MB held peak;caps/input checks PASS,
-exit0/session9664 closed,no model/source/GPU/update. Read roadmap for next work.
-
-**[Complete checkpoint286 prefix evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md):**
-ALL160/5746 NEW full-vocab rows,no updates/source/C calls. FIT equal-case
-KL24.0623->1.5135,DEV24.7119->3.0810;DEV459/1103=41.6138% differing IDs.
-Both relative recovery/final support pass;4 absolute/domain criteria FAIL.
-Original512 recipe remains incomplete;no new native/chat admission. F32/F64
-label delta max5.347e-6,IDs exact.471.969s family/OS5.387GB through exit/
-GPU1.407GB allocated;all resource/input gates PASS/no fault,session62892 closed.
-
-**[Initial group sum/mixture geometry](CHATBOT_HYBRID_GROUP_SUM_RESULT_20261009.md):**
-ALL3132 common old C operands/12 source-informed INITIAL projected FFN groups,
-F64;new aggregation variable,not trained bank/core/whole replay. All1092 DEV
-oracle-amplitude responses fail1%:site medians88.247–94.276%,minimum49.795%.
-Single amplitude cannot repair this selection on these operands. Two source
-halves share one operand here;not actual source block composition or286 error.
-12.391s family/OS946MB/GPU428MB allocated;all gates PASS/no faults,87486 closed.
-More meaningful functions/shared-private coverage needed;no general impossibility.
-
-**[Balanced whole recovery TERMINAL/INCOMPLETE](CHATBOT_HYBRID_RECOVERY_RESULT_20261009.md):**
-Actual286/512 updates;first fault time reserve,retained3.059GB recovery state.
-Family3588.125s/OS8.335GB through exit. Saved-only auditPASS:211 finite changed
-tensors/Adamstep294/RNG/boundary286. Original historical support/GPUpeak absent.
-Prepared full-recovery160-case C/streamed certificate tools UNEXECUTED;they only
-accept eligible512 recovery. New common/private variant needs its own protocol.
-
-**[Actual packed target/C result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md):**
-D512/L12/SSM10/SWA2/E72/k8/h128/V65537, original matrix/LUT/AQ63 bodies reused.
-212 fields, model425,210,736B with0 master/unpacked expert reference copies;
-native model heap same size, state9,117,696B. ONE whole evolving-state C run:
-all6 prefixes/261 inputs/32 full-vocabulary rows/3132 trace records.
-All32 greedy learner IDs match; fixed1e-4 logit RMS passes13/32, **FAIL19/32**,
-max0.783856%. Exact saved-only dyadic audit independently certifies the failure.
-Original fixtures/packed loader/flat router IDs+mass pass. No accepted-rate claim.
-
-## Reusable pipeline and retained closures
-
-| Stage | Current evidence |
+| Stage | Record and status |
 |---|---|
-| Donor/operator triage |[Five donors/40 budgets](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md); metadata/counts, not performance/capacity |
-| Original recurrence bridge |[FalconTiny source/scan](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md):12 real packets pass fixed1% state/output; source5/16 fails usefulness. Per-call source-state initialization only |
-| Selected teacher |[Falcon1.5B](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md): pinned3.11GB/1.555B coefficients, unchanged16-case screen14/16 PASS; dense source cost not target |
-| Actual learner |[Pilot](CHATBOT_HYBRID_PILOT_RESULT_20261008.md): source-informed SSM/SWA/ternary/AQ63, temporary flat72 router,69.63M active matrix products, poor DEV quality |
-| Actual export/native |[Packed result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md): strict numerical gate FAIL;[engine chat](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md): canonical persistent path/raw full-head cost AVAILABLE, quality/accepted-rate unqualified |
-| Closed common-input diagnostics |[Core/norm](CHATBOT_HYBRID_COMMON_CORE_RESULT_20261009.md):all3132 core/6264 norms CLOSE;[trained banks](chatbot_hybrid_common_bank_result_20261009.json):one3132-row anomaly. Neither explains every whole failure;reuse bytes |
-| Source supervision |[Capture/adoption](CHATBOT_HYBRID_TRANSFER_CAPTURE_RESULT_20261009.md):128 FIT/32 DEV/5746 rows/753MB BF16 transportPASS;137 EOS/23 partials;64 RESERVED unqueried |
-| Other family scaffolding |[Qwen/Giga census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md), [Qwen interaction](CHATBOT_INTERACTION_RESULT_20261007.md), [200-case Qwen cohort](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md): usable bytes/tools, not Falcon supervision |
+| Donor/applicability triage | [Five donors/40 budgets](CHATBOT_ENGINE_TARGET_TRIAGE_RESULT_20261008.md); metadata/counts, not capacity/performance |
+| Selected chatbot | [Falcon1.5B](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md), pinned revision80ebc50d;14/16 screen;1.555B coefficients/3.11GB BF16; generality open |
+| Original recurrence bridge | [FalconTiny scan](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md),12 real packets pass1%; teacher5/16 fails usefulness |
+| Broad supervision | [Capture/adoption](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md),48/8808 full-vocabulary rows/577.25M verified coordinates;24 EOS/24 partials; source1091.453s/adopter8.657s; no reply regeneration |
+| Training storage | [Qualification](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md),same F32 reductions/geometry; losses identical/local formula-VJP checks PASS; GPU allocation19.31->5.053GB |
+| Recovery/coverage | [286 evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md),oldDEV KL3.081/41.61% differing IDs; [broad24](CHATBOT_BROAD_PILOT_RESULT_20261009.md),newDEV KL9.823->6.991/87.48%,oldDEV41.61->50.41%;5/8 gates FAIL |
+| Actual packed C | [Native result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md),425.21MB packed-only/state9.12MB;32/32 learner IDs agree but strict1e-4 logit RMS FAIL19/32,independently exact-certified |
+| Actual engine chat/cost | [Result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md),one C process/five requests/full head/canonical persistent own-history; exact split-prefill; raw46.01-58.84 IDs/s,request18.12-40.97 including prefill; old8-update outputs degenerate, no accepted50 |
 
-Retain [Qwen whole-output fit](CHATBOT_WHOLE_OUTPUT_RESULT_20261008.md):1280
-updates, DEV KL.554575/18.43% disagreement,6 absolute/category gates fail; fixed
-recipe CLOSED. Proposed [order control](CHATBOT_WHOLE_OUTPUT_STABILITY_NEXT_20261008.md)
-and all24-attention BF16/F32 native profile are DEFERRED/unexecuted diagnostics.
+Source cohort:24FIT/24DEV across12 domains. Longalign remains unqueried/intact,
+context8186-20874 needs its own stage.104 new+64 old RESERVED remain unqueried.
+624 adopted public prefixes/13 sources are available; the other576 have no new
+teacher replies. Original160-case supervision/recovery and all completed source,
+export, native, audit, common-bank/core and group-sum observations stay reusable.
 
-[511](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) passes bounded-infilling
-fresh quality/warm accepted52.5586 on source-sized artifact; first27.1382 and
-all-book6/24 fail. [Actual256](METH_514_ACTUAL256_HEAD_RESULT_20261007.md) does
-not supply accepted50. These are not compact chatbot admission.
+Current broad24 candidate16a85448/3.060GB contains24 new updates/Adam318;
+recovery7b95e699 contains286/512/Adam294. Original full512 native tools require
+that eligibility; do not relabel a partial candidate. First support-file fault
+and repair from durable2 without replay are retained. No new318 native artifact.
 
-Local/J/H/affine/quadratic recipes and source-selector-only classes retain
-their individual failures; no general impossibility follows.523/528 original
-resource failures remain FALSE,528 single-anchor physical1% gate fails;
-525 has18 unresolved geometry queries. Full links and retained history:
-[previous index BYTE snapshot](INDEX_BEFORE_HYBRID_NATIVE_20261009.md),
-[PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [METHOD](METHOD.md).
+Group sum versus initialized normalized top8 mixture: all1092 DEV oracle-scaled
+responses fail1%; single scalar repair is insufficient in that scope. It is not
+a general impossibility. [Common/private](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
+code b936b60 is frozen/UNEXECUTED/deferred. Redundancy needs coverage/coefficient
+control; duplicated slots do not establish useful n. Qwen1280 recipe retains
+absolute/category failures; Giga frozen evidence is reusable, not an operational
+resume. [511](METH_511_WHOLE_HYBRID_HEAD_RESULT_20261007.md) bounded infilling
+warm52.56/cold27.14/all-book6/24 and actual25635.97 do not admit this compact
+chatbot goal. Detailed closures and older index snapshots are linked in
+[PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) and [METHOD](METHOD.md).
 
 ## Exact point of resumption
 
-**First action:**implement/price [source-compatible FFN arithmetic control](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md):
-keep original useful donor organs/width/depth/FFN coverage;change ONLY the
-deployable ternary/AQ63 FFN arithmetic package offline. Read exact source MUP/
-casts first,then freeze limits/criteria/short-long price. Reuse8808 original
-source rows/forced IDs/cached schedule;no source reply regeneration. This
-intermediate is not final generic donor runtime/accepted50. Measure conversion
-loss before adding selection/representation/core compression or month-plus T4.
-Broad24 andstorage COMPLETE;no running process or restart. Retained actual
-candidate24/Adam318 has separate eligibility;any new export/native/own-history
-test must bind that actual artifact,not weaken historical full512 tools.
-Longalign requires a separate context stage. Actual native chat/cost
-probe COMPLETE;reuse its bytes and client, no repeat for a favorable rate.
-Shared/private state conversion/connectivity code is frozen/deferred, not a result.
-All four recovery/audit/
-evaluation/group sessions TERMINAL;no polling or restart. Reuse actual
-recovery model/optimizer/RNG and adopted
-results/native_expert_scaling/chatbot_hybrid_transfer_capture_20261009/corpus.json,
-4643 FIT/1103 DEV labels and source-role/EOS/position mapping. Source capture and
-adopter COMPLETE/exit0, exact commands/freeze/bindings in result receipts.
-Source861.782s, below original900s cap. No source/capture restart/replay.
-23 partial replies remain prefix supervision only;64 RESERVED unqueried.
+**First action:** implement/price [local FFN recovery](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md),
+currently UNIMPLEMENTED/UNEXECUTED. Capture original-source x/y at sites0/23 on
+metadata-short/long FIT rewriting008/magpie022 and DEV rewriting035/magpie036:
+542 labels/8,880,128B raw BF16 hidden pairs. Preserve cached forced IDs; check
+source rows against existing packets. These NEW missing operands are needed
+for local function calibration; original source replies are not regenerated.
 
-Historical512 contract:case-mean KL/temp1/lr5e-5/clip1/STE/dither.025;
-planned512 final,actual stop286. Actual initial NEW full logits retained;
-original after observations absent;NEW standalone checkpoint286 evaluation
-complete160. First short/long backward observed finite;originalOS8.335GB through
-exit/GPU peak unavailable,new evaluationGPU1.407GB/OS5.387GB. Defer automatic
-continuation of the same tiny-template recipe;common/private and broader data
-need new frozen protocol. No repeating286 updates/160 initial/new evaluation/
-group operator observations;historical training support stays missing.
-Old nativeFAIL retained; NEW trained/native check before long
-adaptation. Examine information loss and dense-sum versus normalized-mixture
-initialization before committing long compute; do not assume multiplying scales
-by E preserves quality. All6 pilot/16 screening cases stay excluded from fresh
-final quality. T4 feasibility/reason/budget/stops remain unpriced.
+Separate local trit/AQ63 effects and price nine diagonal-balance candidates,
+FIT selection/DEV checking. S/R preserves the unquantized real-algebra FFN;
+finite/BF16 identity is not presumed. Freeze exact code/caps/criteria before
+observations. Proposed capture600s/local300s envelopes are UNPRICED/UNBOUND.
+Keep shared input/LUT and active rows fixed; additional deployed work needs a
+measured budget. Do not compose new selection/core losses before recovery.
 
-Reuse current recovery checkpoint SHA7b95e699a57c9bc0ed320bef016d95ba78ac1df2e79b9ea98a0c12a1ba78eec5.
-Old pilot checkpoint75b2317e/packed model191d1d20/32 learner rows are retained
-old evidence. No completed acquisition/selection/pilot/export/
-C-prefix/audit/common-bank/core/corpus/adoption rerun. Source-shaped runtime, duplicate experts,
-synthetic rates and internal fidelity checks do not complete the goal.
+Completed full-control namespace `results/native_expert_scaling/chatbot_source_ffn_control_20261009`,
+freeze d4f7f0f80ec468be2e4b0055c2a0cf88e3be7d50/binding
+3d86ba6235577bf28369125bcd1f3fa3eef7557c286376fed81e06a746a46430;
+cast namespace `chatbot_source_ffn_cast_control_20261009`,freeze
+ d94f854c60614d34f9ccfef4a716a3ef91aff346/binding
+002510630511bc5815db4cb99b47eb9c3488e59db26b489951147d8f907fe8a7.
+Results/terminal commands/output hashes are beside this index. Both jobs exited0;
+no polling, replay or restart. Sector9aa6f319/EngineFFN/source SSD helper remain
+frozen/unmodified. Full-source optimizer/month-plus T4 feasibility is not yet
+priced. Goal remains fresh useful same-artifact engine quality+50, useful large
+n/CPU addressing/mass/DRAM and family/scale conversion.

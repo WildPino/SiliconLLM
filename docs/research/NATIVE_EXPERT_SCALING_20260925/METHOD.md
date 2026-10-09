@@ -40,6 +40,22 @@ retentionFAIL. Actual24/Adam318/new48 before+after/old32 retention,not useful
 chatbot admission. [Next stage](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md)
 keeps source-compatible intermediate organs while measuring FFN arithmetic loss.
 
+First [source-width FFN preflight](CHATBOT_SOURCE_TERNARY_FFN_PREFLIGHT_RESULT_20261009.md)
+is COMPLETE:679.477M coefficients converted in7.390s into340.820MB packed
+codes/scales;all six actual integer dots match CPU F64 exactly. Source D2048/
+L24/intermediate4608/unmodified other organs are an offline intermediate.
+Two original forced FIT KL1.746/2.147 are not usefulness admission. The
+[complete control](CHATBOT_SOURCE_FFN_CONTROL_RESULT_20261009.md),d4f7f0f/
+3d86ba62,is COMPLETE:reuse2/46 new/8808 forced rows and20 generations;
+DEVKL2.09967/42.9549% differing IDs,screen1/16(original14),ownhistory0/4,
+7of10 gatesFAIL. Resource/inputPASS/family1674.125s,no source replies/updates.
+[F32-only control](CHATBOT_SOURCE_FFN_CAST_RESULT_20261009.md),d94f854/00251063,
+COMPLETE/PASS:twoFITKL<.0005 andALL16 original source generated sequences
+exactly preserved,14/16,family75.829s. Bounded arithmetic preservation,not
+broad quality or native admission. [Next local recovery](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md)
+needs actual hidden operand packets/function-aware calibration before
+changing selection/core;source-active cost is not an affordable final runtime.
+
 ## 1. Bind source, interaction and applicability
 
 Latest operational priority: qualify the deployment envelope before additional
@@ -82,14 +98,15 @@ oracle scaling of the initialized top8 mixture leaves DEVmedian88–94% residual
 all1092 fail1%. This rules out scalar-only reconciliation in this scope,not
 better routing/overlap/functions/whole transfer. It does not measure checkpoint286
 FFN error or source two-block composition. [Common/private proposal](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
-is the next construction:2 commonH128 functions plus72 private/top8;extra4.719M
+remains a candidate construction:2 commonH128 functions plus72 private/top8;extra4.719M
 products/2.433MB codes+scales. Implemented/frozen/UNEXECUTED;fresh capacity/rate open.
 
 [Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) identifies
 the next decision-bearing gaps: source group sum versus selected normalized
 mixture, redundant atom coverage/coefficients, accessible-state information
 loss and full chatbot readout. Recovery/state evaluation is complete at actual286;
-broader supervision is adopted and long training storage is the current gate.
+broader supervision/storage/broad24 controls are complete;recovering the
+source FFN arithmetic function is the current conversion gate.
 More experts cannot distinguish histories mapped to the same
 complete accessible state; no actual collision lower bound is yet measured.
 Use staged adaptation and high precision intermediates where necessary, then
@@ -217,6 +234,12 @@ is COMPLETE,with collector repair1 restoring2/Adam296 withoutreplays andfinishin
 24/Adam318. Relative KL improves;5 of8 absolute/domain/retention gatesFAIL.
 Next [source-compatible arithmetic control](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md)
 measures a conversion stage before combining source width/depth/coverage losses.
+The actual FFN sector/preflight is now available;full48-prefix and20-generation
+control is COMPLETE/qualityFAIL;F32-only twoFIT/16screen control PASS/exact16
+source generation sequences. Nextcapture/local recovery is UNIMPLEMENTED.
+Its unchanged
+organs retain source active cost,so any preservation result still needs
+conditional-function/core reduction andsame-artifact engine checks.
 Common/private code
 is frozen/UNEXECUTED/deferred until a controlled pilot requires it.
 Complete160-case boundary286 quality and initial-group directional residual
@@ -292,7 +315,10 @@ Older bindings need their frozen launcher bytes, not newer schema versions.
 No completed source/capture/fit/export/C-prefix/audit/common-bank replay or timing
 overlap. Preserve foreign SHA/publisher. T4 permitted in scope, but communicate
 actual reason/budget/stops and measure FP16-compatible feasibility before allocation.
-No training/T4/current owned worker. Native chat/cost family22s COMPLETE/exit0,
+All source FFN controls are terminal:fulltrit/AQ packageFAIL andF32-only
+bounded preservationPASS. Nextlocal function recovery needs NEW operand
+capture/code/pricing;seeINDEX anditsplan. No training/T4/current owned worker.
+Native chat/cost family22s COMPLETE/exit0,
 raw one-core rates46.01-58.84,all replies capped/degenerate;no accepted50.
 INDEX supersedes historical LIVE/NEXTs;
 source capture/adopter/core/bank namespaces are complete and reused as bytes.

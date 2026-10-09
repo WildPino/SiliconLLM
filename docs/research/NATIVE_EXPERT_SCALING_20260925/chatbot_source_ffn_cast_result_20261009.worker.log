@@ -1,0 +1,23 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 6892.60it/s]
+{"stage": "F32_FFN_ready", "seconds": 12.64100000000326, "changed_weight_values": 0, "quantizations": 0}
+{"stage": "forced_case", "seconds": 16.73399999999674, "id": "broad_fit_explore_instruct_rewriting_008", "KL": 0.0001624266364201145, "disagreements": 0, "labels": 18}
+{"stage": "forced_case", "seconds": 54.29700000002049, "id": "broad_fit_smol_magpie_ultra_022", "KL": 0.00047196522340848195, "disagreements": 5, "labels": 256}
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{"stage": "generation", "seconds": 55.29700000002049, "id": "screen.arithmetic_add", "correct": true, "answer": "12", "labels": 3}
+{"stage": "generation", "seconds": 56.01600000000326, "id": "screen.arithmetic_sub", "correct": true, "answer": "9", "labels": 2}
+{"stage": "generation", "seconds": 57.09400000004098, "id": "screen.arithmetic_mul", "correct": true, "answer": "12", "labels": 3}
+{"stage": "generation", "seconds": 57.81300000002375, "id": "screen.arithmetic_div", "correct": false, "answer": "2", "labels": 2}
+{"stage": "generation", "seconds": 58.5, "id": "screen.extract_color", "correct": true, "answer": "blue", "labels": 2}
+{"stage": "generation", "seconds": 59.32800000003772, "id": "screen.extract_city", "correct": true, "answer": "Paris", "labels": 3}
+{"stage": "generation", "seconds": 60.17200000002049, "id": "screen.extract_name", "correct": true, "answer": "Clara", "labels": 3}
+{"stage": "generation", "seconds": 60.89100000000326, "id": "screen.extract_animal", "correct": true, "answer": "dog", "labels": 2}
+{"stage": "generation", "seconds": 61.59400000004098, "id": "screen.follow_literal", "correct": true, "answer": "hello", "labels": 2}
+{"stage": "generation", "seconds": 62.56300000002375, "id": "screen.follow_upper", "correct": true, "answer": "CAT", "labels": 3}
+{"stage": "generation", "seconds": 63.25, "id": "screen.follow_lower", "correct": true, "answer": "dog", "labels": 2}
+{"stage": "generation", "seconds": 64.03100000001723, "id": "screen.follow_reverse", "correct": true, "answer": "cba", "labels": 3}
+{"stage": "generation", "seconds": 64.82800000003772, "id": "screen.history_pet", "correct": true, "answer": "Milo", "labels": 3}
+{"stage": "generation", "seconds": 65.51600000000326, "id": "screen.history_color", "correct": false, "answer": "Green", "labels": 2}
+{"stage": "generation", "seconds": 66.46900000004098, "id": "screen.history_city", "correct": true, "answer": "Berlin", "labels": 3}
+{"stage": "generation", "seconds": 67.21900000004098, "id": "screen.history_inventory", "correct": true, "answer": "3", "labels": 2}
+{"stage": "complete", "seconds": 67.28100000001723, "decision": "SOURCE_FFN_F32_CAST_PASS", "gates": {"both_FIT_KL": true, "FIT_disagreement": true, "screen_correct": true, "every_category": true, "screen_blank": true, "no_special_leak": true, "generation_stop": true}}
