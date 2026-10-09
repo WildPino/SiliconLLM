@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**9 October current-readout information probe COMPLETE;actual-direction scale hurts:**
+[Result](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md),freeze40a48e7/bind9d59cb86/
+raw26f59095.72 FIT labels/24 cases/12 domains,fullV65537;current fixed RMS/head
+mean optimum bracket[.659862763,.661743824],sqrt8[.042593995,.059468084];not all
+individual gaps<=1e-5. Free features are not a history-dependent model/capacity
+proof. Family196.078s/workerheld1,124,139,008B/GPU550,362,112/654,311,424B/exit0/
+session14841 CLOSED/no new model/source/update/T4. Post-hoc actual256-label control
+419733b/raw2443ff92:uniform9.880909/native10.580769/scaled22.947199. Keep amplitude
+and ACTUAL Adam1;recover conditional/history functions. [Byte inventory](original_falcon_recovery_inventory_20261009.json)
+36595a3/rawb9e7de41:FIT11148history/4422labels,DEV11399/4386;24 NEW steps end25,
+proposed95 new native cases/29.180GB output subtotal. Runner/protocol not implemented
+or frozen;[next finite native whole recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
+Original native numerical FAIL and all useful-quality/rate/large-n gaps remain.
+
 **9 October source-informed original-shaped whole-history step COMPLETE; numeric FAIL:**
 [Result](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md),freezea99d9cc2/bindingc2281fd9/
 raw5e6f3d3d. D256/L6/n1152/full V65537/717,877,248 masters;all24 source FFNs/all

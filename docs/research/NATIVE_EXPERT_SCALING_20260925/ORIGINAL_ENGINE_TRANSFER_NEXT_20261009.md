@@ -38,63 +38,68 @@ Thus the measured numerical difference does not explain this packet's large
 source-relative information loss. It remains an all-history robustness gap;
 this scope cannot certify other inputs. Do not loosen or relabel the old gate.
 
-## Exact first action: quantify the decoder's feasible information image
+## Readout decision is complete; do not repeat the oracle
 
-Before a longer dose, freeze a short mathematical readout probe if it can choose
-between readout initialization and missing conditional/history functions. Use
-current packed head/final RMS gamma and cached FIT-only full teacher distributions;
-no complete model/native/teacher prefix replay, optimizer update or RESERVED.
-Select labels by metadata only, e.g. first/middle/last from each24 FIT case.
+[Readout information result](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md),
+freeze40a48e7/result26f59095/session14841 CLOSED.72 FIT labels/24 cases/12 domains:
+current fixed D256 RMS/head optimum mean bracket[.659862763,.661743824];sqrt8
+control[.042593995,.059468084]. Not all per-label gaps<=1e-5;feasible features
+remain optimistic, not history functions. Current readout can express a much
+better sampled mean than actual model; no universal D256 capacity theorem.
 
-For original RMSNorm, u=x/sqrt(mean(x^2)+epsilon) lies in the radius sqrt256=16
-ball. Fixed gamma/head produce logits A*u, A=head*diag(gamma). Minimize convex
-KL(q_teacher || softmax(A*u)) independently per saved label over this ball.
-This gives an optimistic best-case readout loss with arbitrary internal features,
-not a useful model or source-history reconstruction. Compare teacher entropy,
-uniform predictor KL, actual student KL and that optimum. A declared gamma
-scale control (e.g. sqrt8) can separate an amplitude problem from a subspace
-problem at the same native cost. It is an initialization candidate, not preservation.
+Stored-only ALL256 longest-FIT actual-direction check,freeze419733b/result2443ff92:
+uniformKL9.880909232/currentnative10.580769335/scaledactual22.947199011.
+More amplitude hurts current directions; maintain gamma and actual Adam1.
+The original one-step loss decrease has not beaten uniform on this trajectory.
+No new model/native/teacher/optimizer/RESERVED/T4 use in these diagnostics.
 
-Use F64 objective/gradient, freeze optimization/convergence/label selection/caps
-before observing; record primal loss and the ball first-order lower bound
-`f(u)-dot(grad,u)-R*norm(grad)` with numerical scope explicit. If the gap remains
-large, mark optimum unresolved rather than infer a rank ceiling from a stalled
-solver. No proxy can prove low-dimensional whole chatbot capacity. The head is
-trainable; any bound concerns its current fixed matrix, not all possible D256
-models. The cached512 Gram energy is not a256 capacity measurement.
+**Exact first action now:** implement/freeze/bind one24-FIT coverage continuation
+from current actual model/Adam1/RNG, with COMPLETE native before/after48 outputs.
+Use [actual metadata/byte inventory](original_falcon_recovery_inventory_20261009.json),
+code36595a3/resultb9e7de41/session58554 CLOSED. FIT11148 history/4422 labels,
+DEV11399/4386; max1507/1488. Fixed case order is (domain,id) in that inventory.
+No additional oracle iterations/scales, no initializer change, no old A344/B344
+resumption. Longest FIT's second exposure is a deliberate NEW step within the
+complete24-case pass, not restarting historical Adam1.
 
-If current readout can express the teacher distributions well, prioritize
-source-state/conditional composition and actual whole recovery. If amplitude or
-fixed subspace accounts for substantial loss, price/correct its initialization
-before an expensive dose. Folding source RMS gamma into projected operators is
-another explicit approximation; do not pretend diagonal projection is an exact
-coordinate change. Width/depth/operator variants remain allowed when a measured
-information constraint justifies their actual cost.
+## First finite whole recovery, evaluated in the actual native engine
 
-## Then finite whole recovery, evaluated in the actual native engine
+Keep original D256/L6/H128/k8/n1152/V65537 operators/initialization/STE,
+current gamma, lr5e-5/Adam betas(.9,.999)/eps1e-8/wd0/foreachFalse/F32,
+no AMP/TF32/dither/auxiliary losses. Restore ACTUAL Adam1 and CPU/CUDA RNG,
+validate all92 parameter/moment states/counters/residency/ledger; end25 after
+24 NEW steps. Entire histories, all4422 FIT full-vocabulary teacher rows;
+no DEV training/truncation. Global F64 norm clip1 as first stage. Observe
+per-case loss/disagreement/unions/finiteness/counters and every site's gradients.
+Durable boundaries after12/24 new updates (actual13/25) plus precise faults;
+never replay completed steps/outputs because observation timed out.
 
-Freeze one concrete continuation/control from ACTUAL Adam1/RNG. Use all24 FIT
-cases in a fixed12-domain order for one finite pass as the first coverage dose;
-continuity/new dose must remain explicit if initializer/optimizer is changed.
-Do not assume one packet or one update establishes a capacity ceiling. The new
-streamed adjoint/CPU quantizer/direct producer are implemented and VJP-qualified;
-GPU training is a declared numerical surrogate for the native forward.
+New streamed adjoint/CPU quantizer/direct producer already implemented and
+qualified in their stated scopes. GPU is a declared numerical training surrogate;
+original all-history native numeric FAIL remains. Whole quality comes from native.
 
-Price exact sum/max FIT/DEV/retention histories, source packet extents, unions,
-CPU dormant optimizer state, native full-head files and durable boundaries from
-actual metadata/times/free disk. Snapshot8.615GB I/O is a material cost, not free.
-New namespace/code/criteria/binding required before execution. Cache adoption may
-reuse only byte-matched packed model/input/full-output packets; no prior update
-or before/after prediction is restarted merely because observation timed out.
+Proposed finite family cap3600s/reserve300s/OS32GiB/GPU10/11GiB/output40GiB.
+These must be confirmed/frozen in the new runner/protocol/binding. Exact declared
+output subtotal29,179,775,232B for two actual-size checkpoint estimates,final
+packed,before/after whole outputs/routes,excluding small files. Initial native
+baseline48 adopts byte-matched existing longest-FIT1507 output;47 NEW before and
+48 NEW after native cases. Price input/endpoint loads, dense CPU gradients/Adam,
+unknown unions, snapshot I/O/hashes and durable boundaries. Linear history-only
+FIT forward/backward896.478s/native340.645s are NOT measured total forecasts;
+union/group overhead and optimizer/save costs can be material. Existing snapshot
+8.615GB I/O is expensive. Check free disk and no live overlapping jobs before run.
 
-Measure before/after COMPLETE native teacher-relative label outputs on broad48
-and compatible old32 retention if included in the frozen protocol, with case/
-domain KL/disagreement/full vectors. Original longest-FIT native outputs may be
-adopted at Adam1, not regenerated for baseline. All other cases are NEW target
-observations at their actual state. Use separately frozen whole quality/retention
-criteria and report native numerical diagnostics unchanged. Native measurements
-must govern quality; GPU scores cannot substitute for deployment evidence.
-No declaration of native numerical qualification follows from this decision.
+Freeze NEW native quality criteria, separately from historical numerical FAIL:
+DEV case-mean KL<=1/disagreement<=.20 and all12 domain case means KL<=2/dis<=.35;
+relative recovery DEV case-KL<=.90*before AND disagreement<=.95*before. Report
+case/domain and label-weighted full-distribution metrics; relative PASS does not
+admit useful quality. FIT metrics are diagnostic, not DEV substitutes. Proposed
+first dose excludes old32 retention; neither old32/fresh-reserved/own-history/task
+quality nor the full goal is thereby qualified. Freeze this scope explicitly.
+Native before/after full logits/routes and same packed bytes govern measurements.
+Check actual IDs unique/inrange,finite nonnegative normalized masses and independent
+integer witnesses for initial/final artifacts. Do not silently call numerical
+compatibility PASS or measure speed on an unqualified artifact as accepted50.
 
 After finite recovery, choose broader source coverage, principled core-state
 transfer/capture, readout correction or a priced geometry/operator variant from

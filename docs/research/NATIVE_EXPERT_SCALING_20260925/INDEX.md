@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 9 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-All paired, packed, tensor and source-informed learner jobs terminal. No owned job/T4 allocation live.
+All paired, packed, tensor, source-informed learner and readout jobs terminal. No owned job/T4 allocation live.
 
 ## Goal and constraints
 
@@ -27,6 +27,20 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/whole supervision; actual staged controls and matched recovery | Useful joint function/state transfer under endpoint cost; fresh packed chatbot qualification; family/scale variants |
 
 ## Latest decisive evidence
+
+**[Current readout information and actual-direction control](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md): COMPLETE.**
+72 FIT labels/24 cases:fixed RMS/head mean optimum bracket[.659863,.661744];
+sqrt8 bracket[.042594,.059468],per-label convergence incomplete. Free features
+can express a much better sampled loss;this is not a learned history function.
+Actual256-label native loss10.580769 vsuniform9.880909;scaling actual logits
+sqrt8 worsens22.947199. Keep current amplitude/actual Adam1;primary next is
+conditional/history recovery,not further oracle iterations. Family196.078s/
+held OS1.124GB/GPU.550/.654GB/exit0/session14841 CLOSED/no new model/source/update.
+[Exact24-case inventory](original_falcon_recovery_inventory_20261009.json):FIT11148
+history/4422 labels,DEV11399/4386;proposed native47 newbefore+48 after,29.180GB
+output subtotal with two snapshots. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+is implement/freeze/run one actual24-FIT continuation/native48 evaluation.
+No useful quality/native parity/accepted50/large-n/family admission.
 
 **[Real source-informed original-shaped learner](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md):
 construction/full-history update COMPLETE; native numerical gate FAIL.**
@@ -126,17 +140,17 @@ reply labels. No source/update/export/native replay for reconfirmation.
 
 ## Exact point of resumption
 
-Implement [source-informed learning under original operators](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
-Inspect actual phase55 ArchA/phase59 SparseMoEMLP/phase57 BitLinear158 against the20
-frozen native bodies; produce new learner tensors directly in E4BPv001. Current
-producer is validated for the legacy E32 source only. Reuse pinned useful Falcon
-weights and cached broad48 source outputs/operands. Define which source functions/
-blocks/basis initialize each bank/core/head and charge representation/activation
-changes. Original-shaped n1152 is a source-count capacity candidate, not a knowledge
-identity. Freeze exact construction/control, row-scale/AQ/STE/optimizer/union/residency
-and durable state before one NEW full-history longest FIT update/native export.
-No T4 or repeated structural copied-bank sweep. Then whole recovery/fresh chatbot/
-same-artifact rate and large useful n/structured CPU IDs-mass/DRAM/family variants.
+Implement/freeze/bind/run [finite original-operator whole recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+from ACTUAL source-informed model/Adam1/RNG;no reinitialization/gamma scaling.
+Readout probe/current-direction audit are complete;the construction/streamed
+adjoint/arbitrary-runtime-n export already exist. Fixed24-case FIT pass ends25,
+durable13/25;native before/after COMPLETE48 with one longest-FIT baseline adopted.
+Metadata/bytes/candidate proposed caps/gates are in the exact next file;runner and
+protocol are not yet frozen/implemented. Do not repeat completed small-model,
+structural copied-bank,oracle or old A344/B344 experiments. After finite recovery,
+choose new internal source-state information or a priced geometry change from
+native DEV evidence. Fresh chatbot/same-useful-artifact>=50/structured CPU IDs-
+mass/physical DRAM/useful RAM-driven n/family~10B~100B remain required.
 
 Original packed namespace `original_packed_capacity_20261009` is CLOSED, immutable
 bindingd91893bf/result5d552a3e/terminal exit0; newbackend source freezea660545b.

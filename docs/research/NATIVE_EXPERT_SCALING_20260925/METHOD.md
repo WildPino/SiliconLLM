@@ -8,6 +8,15 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest information diagnostic:** [original readout image](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md)
+complete72 FIT labels; current fixed-head arbitrary-feature mean bracket.65986-
+.66174 versus scaled.04259-.05947,per-label gaps unresolved. This proves neither
+realizable history functions nor general D256 capacity. Actual native256-label
+KL10.58077 is worse thanuniform9.88091;scaling current outputs worsens22.94720.
+Retain gamma/actual Adam1,prioritize conditional/history recovery. [Exact inventory](original_falcon_recovery_inventory_20261009.json)
+prices24-FIT whole pass and native48 before/after;runner/protocol not implemented/
+frozen yet. Historical native numerical FAIL remains. No extra oracle/T4 now.
+
 **Newest source-informed implementation:** [original Falcon construction/step](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md)
 is real/COMPLETE, with native numeric gate FAIL. D256/L6/n1152/full V65537,
 all-source FFN rows via explicit projection/quadrants/partitions, fresh original
@@ -20,8 +29,8 @@ gap does not account for this packet's transfer loss. All-history parity remains
 unqualified; native quality must be measured directly. OS13.559GB/GPU1.690GB
 allocated prove this prototype memory scope, not T4 speed/100B optimization.
 [Next information geometry/recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-retains actual Adam1, resolves the feasible current RMS/readout image, then
-prices finite whole coverage/native evaluation. No additional original E32 dose.
+retains actual Adam1; current RMS/readout image is now measured, selecting
+finite whole coverage/native evaluation before an initializer or geometry change. No additional original E32 dose.
 
 **Earlier implemented bridge:** [direct original tensor learner/export](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md)
 is COMPLETE/PASS in E32/V1024/16-ID CPU scope. Complete original geometry with
@@ -45,9 +54,9 @@ removes that dependency for new supported learner tensors.
 
 [Selected next decision](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) reuses the real
 source-informed ledger/streamed adjoint/Adam1/cached outputs. Source-count n1152
-is a capacity allowance, not conservation of information. Quantify current
-RMS/readout information geometry before pricing finite broader whole recovery
-with actual native quality evidence. Initialization/union-adjoint/full-history
+is a capacity allowance, not conservation of information. Current RMS/readout
+information geometry is measured; implement finite broader whole recovery
+with actual native quality evidence and unchanged amplitude. Initialization/union-adjoint/full-history
 step prerequisites above are complete; no E32 dose/copied-bank sweep/T4 now.
 The [earlier0+8/2+6 comparison](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) remains
 COMPLETE with preference/absoluteDEV failures and retained A344/B344 states.
