@@ -47,6 +47,16 @@ adaptation is permitted but useful transfer must be demonstrated.
 
 ## Latest decisive evidence
 
+**[Broader public dialogue adoption](CHATBOT_BROAD_DATA_RESULT_20261009.md):**
+Repair1 COMPLETE/PASS,624 untruncated canonical prefixes from13 sources,
+416 FIT/104 DEV/104 RESERVED;124 contain public prior assistant turns.
+Full ordered user-turn identity replaces the failed first-greeting grouping;
+original faults stay retained. One train shard plus complete official test,
+new network bytes0/source/model/GPU calls0.40s family/worker216.9MB/reader230.4MB,
+both exit0;all gates PASS.47 inputs exceed8192;longalign8186-20874 is deferred
+to a separate context stage. Post-adoption48-case source cohort is prepared,
+not captured. [Exact next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md).
+
 **[Actual engine entry/chat/full decode](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md):**
 Freeze54011fc/binding29519ab7,ONE native process/FIVE requests/484 advances/
 197 full V65537 heads/192 emitted IDs. Full vs split prefill64 IDs and all65537
@@ -122,9 +132,12 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** follow [conversion roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md):
-select broader provenance-controlled chatbot data/curriculum and ONE staged
-conversion pilot with explicit error/quality/cost stops. Actual native chat/cost
+**First action:** implement/freeze the separate48-case broad donor capture in
+[next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md), then saved-only packet adoption
+and price ONE controlled whole-output pilot from checkpoint286/Adam294.
+Broader624-prefix data adoption is COMPLETE;reuse its actual corpus/receipts.
+Keep compact original-LUT/ternary/SSM geometry as the data-coverage control;
+longalign requires a separate context stage. Actual native chat/cost
 probe COMPLETE;reuse its bytes and client, no repeat for a favorable rate.
 Shared/private state conversion/connectivity code is frozen/deferred, not a result.
 All four recovery/audit/

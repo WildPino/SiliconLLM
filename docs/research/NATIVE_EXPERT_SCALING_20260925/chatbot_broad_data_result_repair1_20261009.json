@@ -1,0 +1,273 @@
+{
+  "schema": "HYBRID_BROAD_DATA_RESULT_V1",
+  "freeze": "457e790609af79fb95209665865d6664487c1f13",
+  "binding_sha256": "d5dd9b8bd2a8c8fb89af2b6c197795e8c7081fc769862aa56c56778757f38e35",
+  "process_instance": {
+    "pid": 2080,
+    "create_time_unix": 1791509777.859306
+  },
+  "decision": "BROAD_DATA_ADOPTION_PASS",
+  "selected": 624,
+  "gates": {
+    "pinned_shard_LFS_bytes": true,
+    "isolated_reader_exit": true,
+    "selected_prefix_transport": true,
+    "all624_unique_groups_and_prefixes": true,
+    "full_test_groups_excluded_from_selected_train": true,
+    "old_queries_excluded": true,
+    "source_template_ID_adoption": true,
+    "source_quotas": true,
+    "no_length_truncation": true
+  },
+  "downloads": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_20261009\\test.parquet",
+      "bytes": 105418621,
+      "sha256": "1b03370509adb9de78b0f44fec0947b86f27598a7b5bb814af7ba12b74fa524a",
+      "url": "https://huggingface.co/datasets/HuggingFaceTB/smoltalk/resolve/5feaf2fd3ffca7c237fc38d1861bc30365d48ffa/data/all/test-00000-of-00001.parquet?download=true",
+      "seconds": 0.14100000000325963,
+      "reused": true
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_20261009\\train.parquet",
+      "bytes": 222842864,
+      "sha256": "6e767604d8140cfaec65b5c56586d0a0df37a6b4124be6009aef943b21a376ce",
+      "url": "https://huggingface.co/datasets/HuggingFaceTB/smoltalk/resolve/5feaf2fd3ffca7c237fc38d1861bc30365d48ffa/data/all/train-00000-of-00009.parquet?download=true",
+      "seconds": 0.25,
+      "reused": true
+    }
+  ],
+  "reader": {
+    "command": [
+      "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_broad_data_reader.py",
+      "--config",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\reader_config.json",
+      "--directory",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009"
+    ],
+    "pid": 24828,
+    "exit_code": 0,
+    "seconds": 31.65700000000652,
+    "OS_peak_through_exit": 230424576,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "upstream_rows": {
+    "test": 54948,
+    "train": 115991
+  },
+  "upstream_source_rows": {
+    "test": {
+      "smol-magpie-ultra": 21555,
+      "apigen-80k": 4377,
+      "numina-cot-100k": 5587,
+      "explore-instruct-rewriting": 1600,
+      "smol-summarize": 5072,
+      "openhermes-100k": 5000,
+      "smol-rewrite": 2808,
+      "self-oss-instruct": 2534,
+      "metamathqa-50k": 2500,
+      "systemchats-30k": 1797,
+      "everyday-conversations": 119,
+      "smol-constraints": 1812,
+      "longalign": 187
+    },
+    "train": {
+      "numina-cot-100k": 11773,
+      "smol-magpie-ultra": 45436,
+      "smol-summarize": 10690,
+      "smol-rewrite": 6035,
+      "metamathqa-50k": 5176,
+      "self-oss-instruct": 5318,
+      "systemchats-30k": 3823,
+      "openhermes-100k": 10641,
+      "apigen-80k": 9236,
+      "longalign": 370,
+      "explore-instruct-rewriting": 3406,
+      "smol-constraints": 3817,
+      "everyday-conversations": 270
+    }
+  },
+  "counters": {
+    "test_rows": 54948,
+    "test_structurally_eligible": 54948,
+    "train_rows": 115991,
+    "train_structurally_eligible": 115110,
+    "train_group_seen_in_full_test": 881
+  },
+  "group_scheme": "normalized_all_user_turns_v2",
+  "first_user_unique_counts": {
+    "test": {
+      "smol-magpie-ultra": 21149,
+      "apigen-80k": 4360,
+      "numina-cot-100k": 5582,
+      "explore-instruct-rewriting": 1598,
+      "smol-summarize": 5066,
+      "openhermes-100k": 4997,
+      "smol-rewrite": 2795,
+      "self-oss-instruct": 2534,
+      "metamathqa-50k": 2434,
+      "systemchats-30k": 1671,
+      "everyday-conversations": 5,
+      "smol-constraints": 1764,
+      "longalign": 187
+    },
+    "train": {
+      "numina-cot-100k": 11753,
+      "smol-magpie-ultra": 44459,
+      "smol-summarize": 10641,
+      "smol-rewrite": 5964,
+      "metamathqa-50k": 4942,
+      "self-oss-instruct": 5318,
+      "systemchats-30k": 3365,
+      "openhermes-100k": 10629,
+      "apigen-80k": 9155,
+      "longalign": 370,
+      "explore-instruct-rewriting": 3396,
+      "smol-constraints": 3712,
+      "everyday-conversations": 5
+    }
+  },
+  "user_sequence_unique_counts": {
+    "test": {
+      "smol-magpie-ultra": 21555,
+      "apigen-80k": 4360,
+      "numina-cot-100k": 5582,
+      "explore-instruct-rewriting": 1598,
+      "smol-summarize": 5066,
+      "openhermes-100k": 4997,
+      "smol-rewrite": 2795,
+      "self-oss-instruct": 2534,
+      "metamathqa-50k": 2434,
+      "systemchats-30k": 1731,
+      "everyday-conversations": 119,
+      "smol-constraints": 1764,
+      "longalign": 187
+    },
+    "train": {
+      "numina-cot-100k": 11753,
+      "smol-magpie-ultra": 45435,
+      "smol-summarize": 10641,
+      "smol-rewrite": 5964,
+      "metamathqa-50k": 4942,
+      "self-oss-instruct": 5318,
+      "systemchats-30k": 3598,
+      "openhermes-100k": 10629,
+      "apigen-80k": 9155,
+      "longalign": 370,
+      "explore-instruct-rewriting": 3396,
+      "smol-constraints": 3712,
+      "everyday-conversations": 270
+    }
+  },
+  "new_download_bytes": 0,
+  "source_counts": {
+    "apigen-80k": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "everyday-conversations": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "explore-instruct-rewriting": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "longalign": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "metamathqa-50k": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "numina-cot-100k": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "openhermes-100k": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "self-oss-instruct": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "smol-constraints": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "smol-magpie-ultra": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "smol-rewrite": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "smol-summarize": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    },
+    "systemchats-30k": {
+      "RESERVED": 8,
+      "FIT": 32,
+      "DEV": 8
+    }
+  },
+  "length_bands": {
+    "RESERVED": {
+      "257_768": 17,
+      "le256": 67,
+      "gt8192": 8,
+      "769_8192": 12
+    },
+    "FIT": {
+      "257_768": 75,
+      "769_8192": 43,
+      "le256": 267,
+      "gt8192": 31
+    },
+    "DEV": {
+      "257_768": 11,
+      "769_8192": 13,
+      "le256": 72,
+      "gt8192": 8
+    }
+  },
+  "min_input_ids": 23,
+  "max_input_ids": 20874,
+  "prior_assistant_cases": 124,
+  "corpus": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\corpus.json",
+    "bytes": 13946319,
+    "sha256": "3ec0f6e1f32b417af631334d4f5d4615fc566e1eb6982f5f1258c7490a45a479"
+  },
+  "worker_OS_peak_snapshot": 216903680,
+  "reader_OS_peak_through_exit": 230424576,
+  "seconds": 38.71899999998277,
+  "source_calls": 0,
+  "model_calls": 0,
+  "optimizer_updates": 0,
+  "GPU_calls": 0,
+  "reserved_queries": 0,
+  "scope": "One of nine training shards plus all official test rows. New donor inputs, zero donor labels/quality/admission. Exact selected-group disjointness, not semantic decontamination or an independent Parquet decoder."
+}

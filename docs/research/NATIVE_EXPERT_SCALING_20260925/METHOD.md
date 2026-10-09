@@ -181,9 +181,9 @@ payload extents/hashes and all2,097,184 coordinate-derived integer energy tests;
 prefixes do not qualify long drift/window eviction. Head runs32/core261 times:
 these component clocks do not establish accepted batch1 rate or DRAM bandwidth.
 Standalone C target uses original kernels; native tokenizer/chat integration is open.
-The Falcon target is not yet wired into the phase60/engine.c entrypoint. That
-integration and persistent incremental chat interface are required deployment
-work,not evidence supplied by copying/validating the original matrix bodies.
+The later [engine entry/chat probe](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
+wires this target into phase60/engine.c and supplies persistent canonical chat.
+It measures old8-update raw rates, not numerical or quality admission.
 
 Prepared [complete cohort interface](CHATBOT_HYBRID_NATIVE_COHORT_PROTOCOL_20261009.md)
 and [streamed auditor](CHATBOT_HYBRID_NATIVE_COHORT_AUDIT_PROTOCOL_20261009.md)
@@ -195,8 +195,9 @@ protocol. Algebraic certificate checker is also UNEXECUTED.
 
 ## 5. Bound numerical diagnosis, then recover source quality
 
-Current operative next step is the separate common/private variant and broader
-supervision under [NEXT](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md).
+Current operative next step is broader donor supervision and ONE data-coverage
+pilot under [NEXT](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md). Common/private code
+is frozen/UNEXECUTED/deferred until a controlled pilot requires it.
 Complete160-case boundary286 quality and initial-group directional residual
 are now measured. Common-bank/core diagnostics below remain closed/reusable;
 no new diagnostic is selected solely to perfect old numerical artifacts.
@@ -214,12 +215,16 @@ GPU157.5MB through exit, all caps PASS/no fault. Stop this diagnostic. There is
 no localized material common-core defect; quantization-boundary amplification
 under upstream perturbations remains a hypothesis, not a causal whole proof.
 
-Current [NEXT](CHATBOT_HYBRID_BALANCED_RECOVERY_NEXT_20261009.md): reuse adopted
-source corpus, implement/freeze a finite balanced whole robust-QAT pilot.
-Training-only dithering/margin terms are unimplemented hypotheses; inference
-geometry/ternary/AQ63/C kernels stay original. Old nativeFAIL remains, NEW trained
-artifact requires a frozen whole native check before long adaptation. No source
-replay, broad preservation or native50 admission follows from capture/transport.
+Broader [data adoption](CHATBOT_BROAD_DATA_RESULT_20261009.md) is COMPLETE:
+624 canonical prefixes/13 sources,416 FIT/104 DEV/104 RESERVED,whole ordered
+user-turn identity,old queries excluded,all lengths preserved.40s family,
+source/model/GPU calls0;one train shard/complete official test,not semantic
+decontamination.47 prefixes exceed8192;longalign8186-20874 remains intact for a
+separate context stage. Post-adoption48-case cohort fixes2 FIT/2 DEV per12
+sources,input34-1252/max256 new IDs. Capture/adoption remain to be executed.
+Reuse checkpoint286/Adam294 after audited new supervision; retain original
+inference geometry/ternary/AQ63/C kernels. Old nativeFAIL remains;the actual
+new export requires whole native and own-history checks before long adaptation.
 
 ## 6. Required fresh quality, physical rate, useful n and variants
 

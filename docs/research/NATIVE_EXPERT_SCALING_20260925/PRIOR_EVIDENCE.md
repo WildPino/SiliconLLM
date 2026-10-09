@@ -1,5 +1,17 @@
 # Native expert-count scaling: prior evidence
 
+**9 October broader dialogue inputs COMPLETE/PASS:**
+[Result](CHATBOT_BROAD_DATA_RESULT_20261009.md),freeze457e790/bindingd5dd9b8b:
+624 untruncated canonical prefixes/13 sources,416 FIT/104 DEV/104 RESERVED,
+124 with public assistant history. Repair uses full ordered user-turn identity;
+first-greeting grouping/launcher failures remain retained. One train shard plus
+complete official test,exact group/prefix/old-query exclusions,no semantic
+decontamination claim. New download bytes0/source/model/GPU calls0. Family40s/
+held worker216.9MB/reader230.4MB,both exit0/all gatesPASS.47 inputs>8192,
+longalign8186-20874 deferred separate context stage. Post-adoption48-case
+donor cohort prepared,not captured. [Next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md)
+keeps original-LUT/ternary/SSM geometry as data-coverage control;no T4 allocation.
+
 **9 October original-engine entry and persistent complete decode COMPLETE:**
 [Result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md),freeze54011fc/
 binding29519ab7:actual engine.c compile branch,all11 original kernel body hashes

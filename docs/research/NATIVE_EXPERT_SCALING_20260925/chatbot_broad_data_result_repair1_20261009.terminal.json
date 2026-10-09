@@ -1,0 +1,75 @@
+{
+  "freeze": "457e790609af79fb95209665865d6664487c1f13",
+  "binding_sha256": "d5dd9b8bd2a8c8fb89af2b6c197795e8c7081fc769862aa56c56778757f38e35",
+  "launcher_pid": 26968,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_broad_data.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_data_binding_repair1_20261009.json",
+    "--binding-sha",
+    "d5dd9b8bd2a8c8fb89af2b6c197795e8c7081fc769862aa56c56778757f38e35",
+    "--freeze",
+    "457e790609af79fb95209665865d6664487c1f13",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_data_result_repair1_20261009.json"
+  ],
+  "worker_pid": 2080,
+  "exit_code": 0,
+  "worker_OS_peak_through_exit": 216903680,
+  "launcher_OS_peak_snapshot": 27590656,
+  "elapsed_seconds": 40.0,
+  "result_sha256": "b3519a65bae4d06ee7830517098e15abe34a3d58fba8ce9f4eae864bab4ac185",
+  "decision": "BROAD_DATA_ADOPTION_PASS",
+  "resource_gates": true,
+  "binding_scope": "Pinned public shard LFS bytes plus selected source/runtime/Arrow/Rust/template/code/protocol/Python extents; isolated Arrow reader without Torch/Rust. No full DLL tree or independent Parquet decoder.",
+  "output_files": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\corpus.json",
+      "bytes": 13946319,
+      "sha256": "3ec0f6e1f32b417af631334d4f5d4615fc566e1eb6982f5f1258c7490a45a479"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\reader.process.json",
+      "bytes": 743,
+      "sha256": "383a268f7b2bb5db6f100bd01022a2c4060a67f29fa343dc5107f45706619773"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\reader.progress.jsonl",
+      "bytes": 59060,
+      "sha256": "3f59022688c4d2bcf48e7898ad13cd7ba1ed9aaf5a1f825a8cafc79ab4b98636"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\reader_config.json",
+      "bytes": 21353,
+      "sha256": "89bb94e9786c82a6946708e26c522e20646a9ec39703066673239e7a5cd8bf9b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\selected_raw.json",
+      "bytes": 3642917,
+      "sha256": "545e0afc25a8f271e63337344761823bb86c7911d96bea3a7459a9cce1174b48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\test.download.json",
+      "bytes": 454,
+      "sha256": "1b41bb6129f151ee09438cd932db2e9fccd8ba18c6072db93b34644ed25b9441"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_data_repair1_20261009\\train.download.json",
+      "bytes": 441,
+      "sha256": "fb6fd605a32d036b58ed332862a8fc7f093564eb297d68ca49e70d1d797ab672"
+    }
+  ]
+}
