@@ -6,25 +6,27 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
-[Original-engine reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md)
-supersedes older operational next steps below. Current dimensions imply4x
-selected-expert/5.98x core/128x head products versus original. Fixed E72/512MiB
-and dense optimizer residency prevent the intended RAM-driven capacity pipeline.
-Full donor FFN local fidelity is an optional diagnostic, not a necessary gate
-for jointly adapted chatbot representations. The
-[fixed-work2-common/6-private construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
-keeps8 active functions. [Actual feasibility](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md)
-now proves exact state conversion and two NEW whole-model updates under the
-300s allowance, including first-fault cost. It does not establish an advantage
-over0+8, chatbot quality, a restored original active geometry or native speed.
-Next is the [matched continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md):
-reuse B's completed dose, two NEW A updates, then fixed24/domain-balanced updates
-per arm with retention and complete-output criteria. Worker implemented/syntax
-checked, binding/model unexecuted; see its prospective execution protocol.
-Source-site0 dose is a deferred unbound draft. Retain all earlier evidence and
-criteria. Whole chatbot quality/native cost, useful n, structured IDs/mass and
-DRAM govern. The remaining text preserves prior scientific reasoning/history;
-its older selected-dose/recovery-first resumptions are superseded.
+[Matched0+8 versus2+6](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) is COMPLETE.
+All50 NEW updates/all observations retained; B preferenceFAIL, both absoluteDEV
+setsFAIL, both continuation retention setsPASS. The longest-FIT common gain did
+not become a matched DEV advantage. Both actual final states remain reusable;
+no fresh useful chatbot/native>=50/useful-n admission. Further same-geometry
+allocation/dose and the compact-head oracle are deferred.
+
+The [new selected stage](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md) implements
+runtime-n packed capacity under an explicitly original-engine reference budget.
+The [anchor audit](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md) already established
+8.891x current matrix work, quarter-source FFN coefficient count and fixed E72/
+512MiB. Remove that endpoint incompatibility before long adaptation. Preserve
+LUT/ternary/compact core and charge full vocabulary/state/routing/physical DRAM.
+An offline source-compatible or wider scaffold remains permitted. Useful bank
+coverage, compact history information and bounded conversion optimizer residency
+are separate unresolved parts of the pipeline. A month-plus T4 recipe needs
+measured feasibility/coverage/recovery and communicated budget/stops.
+
+No owned job or T4 allocation live. INDEX gives the exact resumption. All older
+next-step/dose/live wording below is historical and superseded by this section;
+its scientific failures and original criteria remain retained.
 
 ## Destination and present position
 

@@ -1,14 +1,12 @@
 # Next: learn conditional chatbot functions within the engine active budget
 
-9 October 2026. SELECTED construction; initial conversion/learning feasibility
-is now [COMPLETE/PASS](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md).
-Exact state conversion and two NEW whole-model updates are retained; comparative
-quality and C export/dispatch remain unvalidated. The original feasibility
-instructions below preserve their prospective boundary. Current next is the
-[paired continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md).
-[Reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md) supersedes
-source-width local dose as the operational next step. All completed evidence
-and actual checkpoints remain reusable. No owned job or T4 allocation is live.
+9 October 2026. Historical construction plan. Initial conversion/learning
+[feasibility](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md) and the
+[matched whole-model comparison](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md)
+are COMPLETE. B2+6 has no selected DEV advantage over A0+8 at the fixed dose;
+both absolute DEV setsFAIL. Full states/faults/results retained; C export remains
+unvalidated. Current next is the [engine-anchored capacity contract](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md).
+The original prospective reasoning below is preserved. No owned job/T4 live.
 
 ## Decision-bearing question
 

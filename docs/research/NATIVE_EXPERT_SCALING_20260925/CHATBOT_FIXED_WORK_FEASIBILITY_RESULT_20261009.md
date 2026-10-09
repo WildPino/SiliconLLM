@@ -135,7 +135,11 @@ It is an offline master/optimizer checkpoint, not a packed engine artifact.
 
 ## Decision
 
-Feasible target-shaped learning is established. Construction advantage is open.
+Feasible target-shaped learning is established. The later
+[matched comparison](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) is COMPLETE:
+B preferenceFAIL/both absoluteDEV setsFAIL; current next is the
+[engine-anchored capacity contract](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md).
+The following original next-step wording records the earlier boundary.
 Next [matched whole-model comparison](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md)
 reuses this actual two-update state and prices a 0+8 control with the same new training dose,
 then a fixed broad/domain-balanced continuation. Avoid selecting the construction

@@ -1,12 +1,12 @@
 # Next: paired whole-chatbot recovery at fixed active work
 
-9 October 2026. SELECTED proposal, worker implemented; binding/model UNEXECUTED.
-The [execution protocol](CHATBOT_FIXED_WORK_PAIRED_PROTOCOL_20261009.md) freezes
-schedule/criteria and raises the prospective output cap to24GiB to retain all
-three actual checkpoints plus new full-vocabulary logits and fault-state headroom.
-[Actual2+6 feasibility](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md)
-passes state/gradient/operation/resource gates; it does not establish an
-advantage over0+8 or retained donor quality. No owned job or T4 allocation live.
+9 October 2026. Execution COMPLETE. [Final report](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md):
+all50 NEW updates and every planned output completed; B preferenceFAIL, both
+absolute DEV setsFAIL, both318-relative retention setsPASS. Retain original reserve
+fault, complete worker/launcher metadata fault and separate CPU adoption.
+A344/B344/common26 actual states preserved. No replay or quality/native admission.
+The proposal below records the original prospective boundary; current next is
+[engine-anchored capacity contract](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md).
 
 ## Decision and controlled variable
 
@@ -86,11 +86,10 @@ Measure broad teacher coverage and T4-compatible resident optimizer blocks/
 throughput before proposing weeks/months. Additional families/~10B/~100B remain
 independent requirements; a small successful comparison would be a first recipe.
 
-## Exact first action
+## Completed boundary and resumption
 
-Freeze/bind the implemented paired continuation worker with durable per-arm state
-and actual-data order. Extract B's stored initial update RNG through a bounded
-saved-state metadata read if needed for A; do not infer it from a seed or replay
-the failed stochastic forward. Verify A/B serialized tensor enumeration/slots.
-Then two NEW A updates plus the fixed24 continuations/evaluations, under the
-prospectively bound resource and scientific envelope. All workers now terminal.
+This comparison is COMPLETE. Never repeat A/B updates, before/after/retention
+outputs, source calls or metadata adoption. Use the final report's exact retained
+states, immutable raw result and adopted record. The selected resumption is the
+[original-engine capacity contract](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md),
+not another common/private allocation or same-corpus recovery dose.

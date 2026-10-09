@@ -8,22 +8,24 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
-**Current operational correction:** [original-engine audit](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md)
-distinguishes unchanged LUT primitives from changed recurrence/width/depth/head
-and identifies fixed E72/512MiB and dense optimizer residency as scaling gaps.
-The [fixed-work construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
-allocates2 common+6 selected functions within8 active H128 calls. Separate
-target and conversion worker now have
-[actual feasibility evidence](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md):
-exact parent/fault-state adoption, two whole-model updates, actual IDs/mass/common
-exposure and finite model/Adam gradients/state. C export/dispatch is still missing.
-The construction keeps current expert products fixed; it does not restore the
-original smaller core/head or prove a quality advantage. Next is a
-[matched whole-model continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md).
-This supersedes source-site0 dose and older recovery-first operational wording.
-Local faithful-FFN gates are diagnostics, not necessary conditions for joint
-chatbot transfer into a changed representation. Whole chatbot quality and
-same-artifact cost determine admission; all earlier failures remain recorded.
+**Current operational decision:** [paired 0+8 versus 2+6](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md)
+is COMPLETE:50 NEW updates, private344/common26, all before/after/retention
+outputs retained; B preference FAIL, both absolute DEV sets FAIL, both318-relative
+retention sets PASS. Separate CPU metadata adoption verifies807 inputs and stored
+aggregates/exposures without replay; historical source creation time remains
+missing. Original reserve fault and completion launcher fault stay recorded.
+Retain A/B final model/Adam/RNG. Prefer0+8 if reusing this representation; further
+same-data/allocation dose is deferred. No native or fresh-quality admission.
+
+[Engine audit](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md) identifies8.891x
+current counted matrix work, quarter-source stored FFN count, fixed E72/512MiB,
+flat router and dense optimizer residency. [Selected next stage](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md)
+implements runtime-n packed capacity under an original-engine reference budget
+and a full chatbot vocabulary. This is an enabling contract, not transferred
+capacity. It supersedes older NEXTs/dose/recovery-first language in the history
+below. No additional common-function fit or readout oracle is selected now.
+Local function gates remain diagnostics; joint history/conditional response
+transfer and same-artifact whole-chatbot quality/rate determine admission.
 
 Pretrained CHATBOT -> compact reusable SSM/SWA core + useful selectively consulted
 ternary functions -> original engine.c machinery. Preserve tokenizer/roles/history/
@@ -369,9 +371,12 @@ native observation follows. Feasibility PASS is distinct from quality admission.
 Full failed+repair cost219.156s; CUDA allocated5.069GB/reserved5.836GB; heldOS
 4.963GB; final3,116,677,466B checkpoint d6bac2d0 includes model/Adam/config/
 history/start+final RNG. Initial detailed exposure lost in RAM remains missing.
-The next [paired continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md) worker
-is implemented/syntax checked, binding/model unexecuted; retain B's two updates and price two NEW A updates
-before the fixed24 pass per arm. No completed baseline/source/update replay.
+The [paired continuation](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) is now
+COMPLETE, including50 NEW updates and all outputs; B preference and both absolute
+DEV gate sets FAIL. Complete A344/B344/common26 states are retained. The new
+[capacity contract stage](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md) is selected;
+no completed baseline/source/update replay. Earlier paragraphs describe the
+feasibility boundary and do not override this completed comparative evidence.
 Variable-n packed export/loading, useful additional functions, structured CPU
 IDs/mass and bounded dormant optimizer storage belong to this pipeline.
 Alljobs terminal/noT4. No completed initial/source/capture/grid/update replay.

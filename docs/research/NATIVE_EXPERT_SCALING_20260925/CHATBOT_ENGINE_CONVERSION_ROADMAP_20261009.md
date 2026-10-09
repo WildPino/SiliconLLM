@@ -6,6 +6,15 @@ Goal: pretrained useful chatbot -> original LUT/ternary/compact SSM/SWA target,
 with donor-relative fresh quality and accepted50 on the SAME artifact, then
 useful n/structured CPU addressing+mass/DRAM/further families and scales.
 
+## Current operational override
+
+The [matched0+8/2+6 experiment](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) is
+COMPLETE and finds no selected B advantage; both absoluteDEV gate setsFAIL.
+The [new capacity contract stage](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md)
+now supersedes the historical next-step wording below. It anchors deployed
+active geometry and runtime-n packed storage before long recovery. No owned job
+or T4 live; original faults/states/criteria remain retained. See INDEX.
+
 ## Fixed destination, variables of the conversion
 
 The final expert matrices execute through packed ternary LUT primitives. A

@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**9 October matched whole-model comparison COMPLETE:**
+[Result](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md),all50 NEW updates/private344/
+B common26;all before48/after48/old32 per arm complete. DEV case KL A7.113888/
+B7.130224,disagreement85.59%/85.32%. B .95*A preferenceFAIL;both absoluteDEV setsFAIL;
+both318-relative retention setsPASS. FIT improves/DEV KL worsens at this dose,
+not a general capacity ceiling. Original1800s reserve fault retained1773.859s;
+evaluation-only completion273.953s/worker exit0 then missing-process-instance
+launcher fault. Historical creation time unavailable. CPU-only adoption57.094s/
+807-inputpre-post checks/aggregate-exposure-gate verification/exit0;no replay.
+Adopted result89e22904/rawsource239cdda7/A26a68763bb/B26 2384fbaf retained.
+Families2104.906s excluding earlier B feasibility219.156s and binding preparation.
+No new source/RESERVED/native/quality admission. Prefer0+8 if reusing current
+representation. [Capacity contract under original-engine reference](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md)
+now supersedes older operational NEXTs. Further dose/readout oracle are deferred.
+
 **9 October fixed active-work conversion and two actual updates COMPLETE/PASS:**
 [Result](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md), repaired freeze1dc25904/
 bindingcc402a03/resulta15e2ee7. Exact parent broad24/Adam318 adoption into2 common+
@@ -16,7 +31,7 @@ no matched0+8, DEV/fresh generation/native/quality admission. Combined cost219.1
 <=300s;repair129.734s/OS4.963GB/GPU5.069/5.836GB/resourcePASS/exit0/session11388
 closed. Final checkpoint3,116,677,466B/d6bac2d0 retains full model/Adam/config/
 history/RNG; two namespaces6,339,312,659B retained. First [paired comparison](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md)
-is selected but unimplemented/unexecuted. No T4/RESERVED/source calls.
+is now COMPLETE in the report above. No T4/RESERVED/source calls.
 
 **9 October renewed original-engine direction and static audit COMPLETE:**
 [Reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md),freeze c8d3473/
