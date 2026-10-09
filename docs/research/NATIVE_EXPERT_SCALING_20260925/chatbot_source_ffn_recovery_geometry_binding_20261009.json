@@ -1,0 +1,283 @@
+{
+  "schema": "SOURCE_FFN_LOCAL_BINDING_V1",
+  "phase": "geometry",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_source_ffn_recovery_geometry.py",
+  "documents": {
+    "capture": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_capture_result_20261009.json",
+    "calibration": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_calibrate_result_20261009.json",
+    "recovery": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_recovery_result_repair1_20261009.json"
+  },
+  "sites": [
+    0,
+    23
+  ],
+  "rank_relative_cutoff": 1e-10,
+  "energy_fraction": 0.99,
+  "limits": {
+    "seconds": 120,
+    "reserve_seconds": 20,
+    "OS_bytes": 2147483648,
+    "GPU_allocated_bytes": 0,
+    "GPU_reserved_bytes": 0,
+    "output_bytes": 8388608
+  },
+  "runtime_binding_scope": "Saved x/y/before/after packets, successful result receipts, diagnostic code/Python/selected runtime and foreign hashes; no model weights or full DLL-tree.",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_source_ffn_recovery_geometry.py",
+      "bytes": 9829,
+      "sha256": "08771ee91989086b153ebdc95c4ef8b6c9e24d98ea82bde6f9443926bfbca41c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 13502,
+      "sha256": "f4a4cce59acb9d7d95da60b4bcc5110b3746e8a13095ddb5e02843ad13e54286"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_source_ffn_local.py",
+      "bytes": 26766,
+      "sha256": "9ac1deb96d1c722848958318f0d940745942373f3ea6ac6c6952391872ac00b3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_PROTOCOL_20261009.md",
+      "bytes": 2138,
+      "sha256": "87dd23e5e48c1f9e83fb5740d7aa7aa5a5eee44984fe1046918973f3cd2a1e94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\__init__.py",
+      "bytes": 103037,
+      "sha256": "0901a8ad92b30f947405e28fc98dd21c578cfbe8796b0173de931f42079b1f89"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\_C.cp312-win_amd64.pyd",
+      "bytes": 10240,
+      "sha256": "8cc12784367470aa0f3ebe54a0c4593ac52d5bc273ed7ba719cbb10b4a3dbdb8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_capture_result_20261009.json",
+      "bytes": 64081,
+      "sha256": "2b6e71531c34cec5c0e20d848af1a7b00ce9cc9090b45de42aece41a25622203"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_capture_result_20261009.terminal.json",
+      "bytes": 7847,
+      "sha256": "5f61aa4071a9d601bc7bc67769c4cde249c826958ced56242f8a8a09bc739c27"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_calibrate_result_20261009.json",
+      "bytes": 110573,
+      "sha256": "b09061a913775fa6da2e7cc7b5c572b281f3c30c798fbb386af771fd34ea2d20"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_calibrate_result_20261009.terminal.json",
+      "bytes": 47064,
+      "sha256": "f9b65b248b74cf3b866db613ffb5b8b0e4fe5d7c6a1378c20ff245d712810bea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_recovery_result_repair1_20261009.json",
+      "bytes": 318169,
+      "sha256": "1bf8b912111ca00a68ab22af20f54f419a748646551afff5faa61547d83ce2c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_recovery_result_repair1_20261009.terminal.json",
+      "bytes": 8968,
+      "sha256": "74741db44e87a730a9baae634673e022ef1e09ec0f95af29328d107e0f7e3051"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site00.x.bf16",
+      "bytes": 73728,
+      "sha256": "2d1e05dddd345e772ab65bd25df1d4786699f97495f7e4becb6e11a042debd0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site00.y.bf16",
+      "bytes": 73728,
+      "sha256": "eafacc63b316dc2b3ed6e3687d91e8a6bf810156d202564053073c347e9786df"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site23.x.bf16",
+      "bytes": 73728,
+      "sha256": "2e59f40fde9e0013a6f50d9dc45126db3ec7c49bf35c3ade27678cc200fd0ef6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site23.y.bf16",
+      "bytes": 73728,
+      "sha256": "fda8f48958d9d8e593614f790186aed51af92ee92bc7d765131c77746af1718a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_smol_magpie_ultra_022.site00.x.bf16",
+      "bytes": 1048576,
+      "sha256": "c6be50494896ce7e04f65df2e7a2ad35c42a8128d1c6e36b47843a4e8a2bba4d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_smol_magpie_ultra_022.site00.y.bf16",
+      "bytes": 1048576,
+      "sha256": "3d4e210cba806e256de447bd553462457b5346c12d2568bd12c21bde3c719284"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_smol_magpie_ultra_022.site23.x.bf16",
+      "bytes": 1048576,
+      "sha256": "6a0a1e5b36d1f19116fd4af9d85bc0fee5c42b90ad8809d172ada79c736337f0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_fit_smol_magpie_ultra_022.site23.y.bf16",
+      "bytes": 1048576,
+      "sha256": "b4e124c897266092535a447a46248ae11e0aef7cf1b234cfce51289bedf7b869"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site00.x.bf16",
+      "bytes": 49152,
+      "sha256": "b82db00e45d237eb391c5adb64ae0823213f461df156b2a21f99bbe1080f2fdc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site00.y.bf16",
+      "bytes": 49152,
+      "sha256": "73776e2515aa5b05123b13fa9dfea29f83daee8a902a10d1c246eef9c554f2ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site23.x.bf16",
+      "bytes": 49152,
+      "sha256": "53a2db9655e3488b1a01361b79f802f67a4a41a883401ce75db39c1ab5600957"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site23.y.bf16",
+      "bytes": 49152,
+      "sha256": "7bbc4c0e5fa22994d3051d214d74a6eb296c378354b2ba4ffb4871af73aecc51"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_smol_magpie_ultra_036.site00.x.bf16",
+      "bytes": 1048576,
+      "sha256": "fe9f2a2a130508326c8cf7c7bd31925269bf003c4e423ba0e0bdbc0f9c1b9bd9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_smol_magpie_ultra_036.site00.y.bf16",
+      "bytes": 1048576,
+      "sha256": "5911f6d8de3b5acc9c64dd067ec8475f16f5733e865249f1610f977d61abaaa5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_smol_magpie_ultra_036.site23.x.bf16",
+      "bytes": 1048576,
+      "sha256": "b3e2a639127b57b24bdbac3ba3643ae1b14a871f006ce583d51de5d45680a4cb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_capture_20261009\\broad_dev_smol_magpie_ultra_036.site23.y.bf16",
+      "bytes": 1048576,
+      "sha256": "239156c55e53f4b656f2f97ae1098d2dc9735937c96c557cd9855f36bb951459"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a0.0.b0.0.quantized.bf16",
+      "bytes": 73728,
+      "sha256": "5e6c25ebd73971caa63b00dd1734323611ea2ebc405729c78a582edf781fba81"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_smol_magpie_ultra_022.a0.0.b0.0.quantized.bf16",
+      "bytes": 1048576,
+      "sha256": "763c46541407180798383a052eef5fc1a1740107f52e8cfa32eab485723bac14"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_dev_explore_instruct_rewriting_035.selected.quantized.bf16",
+      "bytes": 49152,
+      "sha256": "049d5c46f14156b3f5527b744b4fe0fcbecbf6f72f9d648597753bad8f0705c0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_dev_smol_magpie_ultra_036.selected.quantized.bf16",
+      "bytes": 1048576,
+      "sha256": "fc250757f7c83cf0d6fb132af41a6cc2c30d84c96e8a47341d6e88c2e1c8a558"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a0.0.b1.0.quantized.bf16",
+      "bytes": 73728,
+      "sha256": "ac5992cf4d13c592fc46ca4e1487b9d62da77b26cf56d34015767ef6d733edab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_smol_magpie_ultra_022.a0.0.b1.0.quantized.bf16",
+      "bytes": 1048576,
+      "sha256": "d5b468dcc4b09f5296a889ad986cef6da7e02ade4af96d0001adeb3dc37e8cc9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_dev_explore_instruct_rewriting_035.selected.quantized.bf16",
+      "bytes": 49152,
+      "sha256": "70df3aba0da60a8e7358a355958640ec6366f4d1a858df9189bed4bba20a18cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_dev_smol_magpie_ultra_036.selected.quantized.bf16",
+      "bytes": 1048576,
+      "sha256": "62ed690d7fc8eb36e2edc4a8096b8c33106c10d900e09e9bb4bb9130716a6e48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site00.broad_fit_explore_instruct_rewriting_008.after.bf16",
+      "bytes": 73728,
+      "sha256": "a66b5f2df7feb727afb0dc1c13730ed08a294599886f8cb2875574d9a7addb9b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site00.broad_fit_smol_magpie_ultra_022.after.bf16",
+      "bytes": 1048576,
+      "sha256": "e51bc940efe040734d09eee104b4d1745d0613b129161f57fc53bc4a2e58c451"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site00.broad_dev_explore_instruct_rewriting_035.after.bf16",
+      "bytes": 49152,
+      "sha256": "291fb7b571160e1abf18be8b51224468a32dc221d6a693a6302b669bfc5d8e7f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site00.broad_dev_smol_magpie_ultra_036.after.bf16",
+      "bytes": 1048576,
+      "sha256": "31fb7e33fc4b2efefaad81cf41b6e606831718e8136e63a47943d4cf508089c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site23.broad_fit_explore_instruct_rewriting_008.after.bf16",
+      "bytes": 73728,
+      "sha256": "ac04956fdb31f4b4c11a13b5bc1653a4f40ff56a940de2d30fa7919f87534e2a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site23.broad_fit_smol_magpie_ultra_022.after.bf16",
+      "bytes": 1048576,
+      "sha256": "f67a17da62def2ac1616fb34a378b32ab22f2f5ddaef22385231f7797b81ba5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site23.broad_dev_explore_instruct_rewriting_035.after.bf16",
+      "bytes": 49152,
+      "sha256": "8e176684b5fe4a8569591cfa20e2a11c3974a1a38d0615b83237d71f077e0aa6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_repair1_20261009\\site23.broad_dev_smol_magpie_ultra_036.after.bf16",
+      "bytes": 1048576,
+      "sha256": "be7503846180e3e9fc2426c524364815208637576fd0ba1d85aafaa75320fb15"
+    }
+  ]
+}
