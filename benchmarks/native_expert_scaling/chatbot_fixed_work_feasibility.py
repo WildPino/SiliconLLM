@@ -58,10 +58,16 @@ def bind(a):
     for p in checked:
         v = inherited[p.resolve()]
         assert p.stat().st_size == v['bytes'] and sha(p) == v['sha256'], str(p)
+    runtime_roots=[(SITE/name).resolve() for name in ('torch','transformers')]
     for p,v in inherited.items():
-        if p.is_relative_to(SITE.resolve()):
+        if any(p.is_relative_to(root) for root in runtime_roots):
             assert p.stat().st_size == v['bytes'] and sha(p) == v['sha256']
             paths.append(p)
+    paths.extend(SITE/'torch'/name for name in ('serialization.py','nn/modules/module.py','nn/modules/linear.py'))
+    paths.extend([SITE/'transformers/models/falcon_h1/configuration_falcon_h1.py',
+                  SITE/'numpy/__init__.py',SITE/'psutil/_pswindows.py'])
+    previous_binding=DOC/'chatbot_fixed_work_feasibility_binding_20261009.json'
+    if previous_binding.exists() and a.out.resolve()!=previous_binding.resolve():paths.append(previous_binding)
     foreign = {
         'benchmarks/phase60/engine.c':'5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce',
         'benchmarks/donor_adaptation/configs/_manifest.json':'fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d',

@@ -79,3 +79,14 @@ all fixed resource caps. Report separately whether common ternary codes changed
 and produced nonzero deployed output; this distinguishes learning feasibility
 from active shared-function progress. Neither result admits final chatbot quality.
 Communicate actual cost and choose the next whole-model paired dose from evidence.
+
+## Pre-observation runtime binding correction
+
+Initial freeze89fc91d3/binding7fbc0e3e used23 inputs but selected inherited
+runtime files by containment under SITE. Torch/Transformers are individual
+Windows junctions to .venv; the resolved files were outside resolved SITE.
+That binding is retained UNEXECUTED. Before any model observation, correct
+selection using resolved package roots and explicitly add serialization/module/
+linear/configuration/NumPy/psutil code. New binding has a distinct path/freeze
+and includes the unexecuted first binding. Caps, data, target, optimizer,
+updates and scientific criteria do not change. No model has been restarted.
