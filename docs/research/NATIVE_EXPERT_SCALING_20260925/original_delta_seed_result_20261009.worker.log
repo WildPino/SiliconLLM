@@ -1,0 +1,14 @@
+{"stage": "actual26_load", "seconds": 7.7189999999827705, "counter": 26, "durable": 26, "exact_92_master_and_Adam_states": true}
+{"stage": "FIT_calibration", "seconds": 8.35899999999674, "counter": 26, "durable": 26, "calibrated_site": 0, "rank": 32, "cross": 5.227582300881527e-09}
+{"stage": "FIT_calibration", "seconds": 8.811999999976251, "counter": 26, "durable": 26, "calibrated_site": 1, "rank": 32, "cross": 6.102550779750471e-09}
+{"stage": "FIT_calibration", "seconds": 9.297000000020489, "counter": 26, "durable": 26, "calibrated_site": 2, "rank": 32, "cross": 6.635139876514979e-09}
+{"stage": "FIT_calibration", "seconds": 9.75, "counter": 26, "durable": 26, "calibrated_site": 3, "rank": 32, "cross": 7.55049853205888e-09}
+{"stage": "FIT_calibration", "seconds": 10.202999999979511, "counter": 26, "durable": 26, "calibrated_site": 4, "rank": 32, "cross": 6.345378185927075e-09}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_delta_seed_bridge.py", line 308, in <module>
+    else:worker(a)
+         ^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_delta_seed_bridge.py", line 158, in worker
+    else:assert exact(p,old),name
+                ^^^^^^^^^^^^
+AssertionError: layers.0.organs.x_proj

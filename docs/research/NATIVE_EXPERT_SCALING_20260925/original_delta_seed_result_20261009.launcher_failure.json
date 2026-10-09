@@ -1,0 +1,32 @@
+{
+  "freeze": "83dd2b2ac1c00d72d931c52ccbeee0dc42033f5c",
+  "binding_sha256": "3499a1a07ef1644c76ff0904beba91387f92ec441d922172815f36c447c3afb0",
+  "launcher_pid": 31320,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_delta_seed_bridge.py",
+    "--worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_delta_seed_binding_20261009.json",
+    "--binding-sha",
+    "3499a1a07ef1644c76ff0904beba91387f92ec441d922172815f36c447c3afb0",
+    "--freeze",
+    "83dd2b2ac1c00d72d931c52ccbeee0dc42033f5c",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_delta_seed_bridge_20261009",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_delta_seed_result_20261009.json"
+  ],
+  "worker_pid": 17984,
+  "worker_creation_time": 1791569625.5206437,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 12587532288,
+  "launcher_OS_peak_snapshot": 30597120,
+  "fault": "AssertionError('{\"stage\": \"actual26_load\", \"seconds\": 7.7189999999827705, \"counter\": 26, \"durable\": 26, \"exact_92_master_and_Adam_states\": true}\\n{\"stage\": \"FIT_calibration\", \"seconds\": 8.35899999999674, \"counter\": 26, \"durable\": 26, \"calibrated_site\": 0, \"rank\": 32, \"cross\": 5.227582300881527e-09}\\n{\"stage\": \"FIT_calibration\", \"seconds\": 8.811999999976251, \"counter\": 26, \"durable\": 26, \"calibrated_site\": 1, \"rank\": 32, \"cross\": 6.102550779750471e-09}\\n{\"stage\": \"FIT_calibration\", \"seconds\": 9.297000000020489, \"counter\": 26, \"durable\": 26, \"calibrated_site\": 2, \"rank\": 32, \"cross\": 6.635139876514979e-09}\\n{\"stage\": \"FIT_calibration\", \"seconds\": 9.75, \"counter\": 26, \"durable\": 26, \"calibrated_site\": 3, \"rank\": 32, \"cross\": 7.55049853205888e-09}\\n{\"stage\": \"FIT_calibration\", \"seconds\": 10.202999999979511, \"counter\": 26, \"durable\": 26, \"calibrated_site\": 4, \"rank\": 32, \"cross\": 6.345378185927075e-09}\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_delta_seed_bridge.py\", line 308, in <module>\\n    else:worker(a)\\n         ^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_delta_seed_bridge.py\", line 158, in worker\\n    else:assert exact(p,old),name\\n                ^^^^^^^^^^^^\\nAssertionError: layers.0.organs.x_proj\\n')",
+  "elapsed_seconds": 26.73399999999674
+}
