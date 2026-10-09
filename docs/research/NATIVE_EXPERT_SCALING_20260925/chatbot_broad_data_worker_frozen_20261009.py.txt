@@ -17,7 +17,7 @@ B=ROOT/'benchmarks/native_expert_scaling';DOC=ROOT/'docs/research/NATIVE_EXPERT_
 sys.path.insert(0,str(B))
 from chatbot_falcon_usability import SITE,sha,write
 sys.path.insert(0,str(SITE))
-from chatbot_broad_data_reader import key,dialogue_group
+from chatbot_broad_data_reader import key
 REPO='HuggingFaceTB/smoltalk'
 REV='5feaf2fd3ffca7c237fc38d1861bc30365d48ffa'
 SNAPSHOT=ROOT/'results/native_expert_scaling/chatbot_broad_data_sources_20261009'
@@ -49,7 +49,7 @@ def bind(a):
     source=json.loads(a.snapshot.read_bytes());assert source['revision']==REV
     files=[a.snapshot,*[Path(r['path']) for r in source['files']],Path(__file__),B/'chatbot_broad_data_reader.py',
       B/'chatbot_hybrid_engine_chat.py',B/'chatbot_falcon_usability.py',B/'chatbot_falcon_usability_launch.py',
-      DOC/('CHATBOT_BROAD_DATA_REPAIR1_PROTOCOL_20261009.md' if a.resume else 'CHATBOT_BROAD_DATA_PROTOCOL_20261009.md'),Path(sys.executable),
+      DOC/'CHATBOT_BROAD_DATA_PROTOCOL_20261009.md',Path(sys.executable),
       B/'chatbot_hybrid_transfer_cases_v1.json',B/'chatbot_falcon_usability_cases_v1.json',
       DOC/'chatbot_hybrid_pilot_result_repair1_20261008.json']
     arrow=ROOT/'.venv/Lib/site-packages/pyarrow'
@@ -69,22 +69,11 @@ def bind(a):
         for m in row['messages']:
             if m['role']=='user':protected.add(key(m['content']))
     assert all(sha(ROOT/p)==s for p,s in FOREIGN.items());files += [ROOT/p for p in FOREIGN]
-    conhost=Path(os.environ['SystemRoot'])/'System32/conhost.exe';files.append(conhost)
-    if a.resume:
-        assert (a.resume/'reader.first_failure.json').is_file()
-        files += [p for p in a.resume.iterdir() if p.is_file()]
-        files += [DOC/'chatbot_broad_data_result_20261009.launcher_failure.json',
-                  DOC/'chatbot_broad_data_binding_20261009.json',
-                  DOC/'chatbot_broad_data_worker_frozen_20261009.py.txt',
-                  DOC/'chatbot_broad_data_reader_frozen_20261009.py.txt',
-                  DOC/'chatbot_broad_data_launcher_frozen_20261009.py.txt']
     b=dict(schema='HYBRID_BROAD_DATA_BINDING_V1',python=str(Path(sys.executable).resolve()),worker_path=str(Path(__file__).resolve()),
        source_snapshot=str(a.snapshot.resolve()),source_revision=REV,source_repo=REPO,download_bytes=328261485,
        reader_path=str((B/'chatbot_broad_data_reader.py').resolve()),tokenizer_source=str(tokenizer_source),
        protected_prompt_keys=sorted(protected),selected_count=624,source_count=13,quotas=dict(FIT=32,DEV=8,RESERVED=8),
-       resume_directory=str(a.resume.resolve()) if a.resume else None,group_scheme='normalized_all_user_turns_v2',
-       limits=dict(seconds=600,OS_bytes=6<<30,output_bytes=768<<20),allowed_worker_children=['python.exe','conhost.exe'],
-       allowed_system_child_path=str(conhost.resolve()),
+       limits=dict(seconds=600,OS_bytes=6<<30,output_bytes=768<<20),allowed_worker_children=['python.exe'],
        runtime_binding_scope='Pinned public shard LFS bytes plus selected source/runtime/Arrow/Rust/template/code/protocol/Python extents; isolated Arrow reader without Torch/Rust. No full DLL tree or independent Parquet decoder.',
        inputs=[dict(path=str(p.resolve()),bytes=p.stat().st_size,sha256=sha(p)) for p in dict.fromkeys(files)])
     write(a.out,b);print(json.dumps(dict(binding=str(a.out),sha256=sha(a.out),inputs=len(b['inputs']),protected_keys=len(protected))),flush=True)
@@ -113,19 +102,14 @@ def worker(a):
             split='test' if '/test-' in shard['rfilename'] else 'train';path=a.directory/(split+'.parquet')
             url='https://huggingface.co/datasets/'+REPO+'/resolve/'+REV+'/'+shard['rfilename']+'?download=true'
             begin=time.monotonic();hasher=hashlib.sha256();count=0
-            if b.get('resume_directory'):
-                path=Path(b['resume_directory'])/(split+'.parquet');count=path.stat().st_size;digest=sha(path)
-            else:
-                with urllib.request.urlopen(url,timeout=30) as response,path.open('xb') as output:
-                    for chunk in iter(lambda:response.read(1<<20),b''):
-                        output.write(chunk);hasher.update(chunk);count+=len(chunk)
-                        assert count<=shard['size'];guard()
-                        if count%(16<<20)==0:print(json.dumps(dict(stage='download',split=split,bytes=count,total=shard['size'])),flush=True)
-                    output.flush();os.fsync(output.fileno())
-                digest=hasher.hexdigest()
-            assert count==shard['size'] and digest==shard['lfs']['sha256']
-            rec=dict(path=str(path.resolve()),bytes=count,sha256=digest,url=url,seconds=time.monotonic()-begin,
-                     reused=bool(b.get('resume_directory')))
+            with urllib.request.urlopen(url,timeout=30) as response,path.open('xb') as output:
+                for chunk in iter(lambda:response.read(1<<20),b''):
+                    output.write(chunk);hasher.update(chunk);count+=len(chunk)
+                    assert count<=shard['size'];guard()
+                    if count%(16<<20)==0:print(json.dumps(dict(stage='download',split=split,bytes=count,total=shard['size'])),flush=True)
+                output.flush();os.fsync(output.fileno())
+            assert count==shard['size'] and hasher.hexdigest()==shard['lfs']['sha256']
+            rec=dict(path=str(path.resolve()),bytes=count,sha256=hasher.hexdigest(),url=url,seconds=time.monotonic()-begin)
             downloads.append(rec);reader_config[split]=rec
             write(a.directory/(split+'.download.json'),rec)
         phase='reader';config=a.directory/'reader_config.json';write(config,reader_config);log=a.directory/'reader.log'
@@ -148,7 +132,7 @@ def worker(a):
         from chatbot_hybrid_engine_chat import ChatTokenizer
         tokenizer=ChatTokenizer(b['tokenizer_source']);records=selected['records'];groups=set();prefixes=set();lengths={};summaries={}
         for row in records:
-            assert row['group_scheme']==b['group_scheme'] and row['group_key']==dialogue_group(row['messages'])
+            assert row['group_key']==key(next(m['content'] for m in row['messages'] if m['role']=='user'))
             prefix=json.dumps(row['messages'],ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()
             assert hashlib.sha256(prefix).hexdigest()==row['prefix_sha256']
             assert row['group_key'] not in groups and row['prefix_sha256'] not in prefixes
@@ -174,9 +158,6 @@ def worker(a):
                     full_test_groups_excluded_from_selected_train=True,old_queries_excluded=True,source_template_ID_adoption=True,
                     source_quotas=True,no_length_truncation=True),downloads=downloads,reader=reader_receipt,
          upstream_rows=selected['upstream_rows'],upstream_source_rows=selected['upstream_source_rows'],counters=selected['counters'],
-         group_scheme=b['group_scheme'],first_user_unique_counts=selected['first_user_unique_counts'],
-         user_sequence_unique_counts=selected['user_sequence_unique_counts'],
-         new_download_bytes=0 if b.get('resume_directory') else b['download_bytes'],
          source_counts={k:dict(v) for k,v in summaries.items()},length_bands={k:dict(v) for k,v in lengths.items()},
          min_input_ids=min(r['input_length'] for r in records),max_input_ids=max(r['input_length'] for r in records),
          prior_assistant_cases=sum(r['prior_assistant_turns']>0 for r in records),
@@ -194,7 +175,6 @@ def worker(a):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--snapshot',type=Path);p.add_argument('--acquire-metadata',action='store_true')
-    p.add_argument('--resume',type=Path)
     p.add_argument('--bind',action='store_true');p.add_argument('--binding',type=Path);p.add_argument('--binding-sha')
     p.add_argument('--freeze');p.add_argument('--directory',type=Path);p.add_argument('--out',type=Path,required=True)
     a=p.parse_args();snapshot(a) if a.acquire_metadata else (bind(a) if a.bind else worker(a))

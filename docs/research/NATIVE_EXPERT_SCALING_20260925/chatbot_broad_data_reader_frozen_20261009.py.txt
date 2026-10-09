@@ -17,12 +17,6 @@ def key(text):
     return hashlib.sha256(value.encode()).hexdigest()
 
 
-def dialogue_group(messages):
-    users=[' '.join(unicodedata.normalize('NFKC',m['content']).casefold().split())
-           for m in messages if m.get('role')=='user' and isinstance(m.get('content'),str)]
-    return hashlib.sha256(json.dumps(users,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
-
-
 def write(path,value):
     with Path(path).open('x',encoding='utf8') as f:
         json.dump(value,f,ensure_ascii=False,indent=2,allow_nan=False);f.write('\n');f.flush();os.fsync(f.fileno())
@@ -54,7 +48,6 @@ def main(a):
         paths={s:Path(config[s]['path']) for s in ('test','train')}
         metadata={s:pq.ParquetFile(p).metadata.num_rows for s,p in paths.items()}
         candidates={s:{} for s in paths};thresholds={s:{} for s in paths}
-        first_keys={s:{} for s in paths};all_groups={s:{} for s in paths}
         test_groups=set();protected=set(config['protected_prompt_keys'])
         def keep(split,source,record):
             group=record['group_key'];pool=candidates[split].setdefault(source,{})
@@ -76,7 +69,7 @@ def main(a):
                         counts[split+'_invalid_schema']+=1;continue
                     basic_users=[m for m in messages if isinstance(m,dict) and m.get('role')=='user'
                                  and isinstance(m.get('content'),str)]
-                    if split=='test' and basic_users:test_groups.add(dialogue_group(basic_users))
+                    if split=='test' and basic_users:test_groups.add(key(basic_users[0]['content']))
                     if any(not isinstance(m,dict) or m.get('role') not in ('system','user','assistant')
                            or not isinstance(m.get('content'),str) for m in messages):
                         counts[split+'_unsupported_role_or_content']+=1;continue
@@ -85,9 +78,7 @@ def main(a):
                     users=[i for i,m in enumerate(messages) if m['role']=='user']
                     if not users or not messages[users[0]]['content'].strip():
                         counts[split+'_no_nonempty_user']+=1;continue
-                    first=users[0];last=users[-1];group=dialogue_group(messages)
-                    first_keys[split].setdefault(source,set()).add(key(messages[first]['content']))
-                    all_groups[split].setdefault(source,set()).add(group)
+                    first=users[0];last=users[-1];group=key(messages[first]['content'])
                     if split=='test':test_groups.add(group)
                     elif group in test_groups:
                         counts['train_group_seen_in_full_test']+=1;continue
@@ -103,8 +94,7 @@ def main(a):
                     canonical=json.dumps(prefix,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()
                     reference=messages[last+1]['content'] if last+1<len(messages) and messages[last+1]['role']=='assistant' else None
                     record=dict(source=source,upstream_split=split,parquet_path=str(paths[split]),row_index=at,
-                       group_key=group,group_scheme='normalized_all_user_turns_v2',first_user_key=key(messages[first]['content']),
-                       selection_rank=rank,conversation_sha256=conversation,
+                       group_key=group,selection_rank=rank,conversation_sha256=conversation,
                        prefix_sha256=hashlib.sha256(canonical).hexdigest(),messages=prefix,
                        external_reference_assistant=reference,user_turns=len(users),prior_assistant_turns=sum(m['role']=='assistant' for m in prefix))
                     keep(split,source,record)
@@ -131,8 +121,6 @@ def main(a):
         write(a.directory/'selected_raw.json',dict(schema='BROAD_CHAT_SELECTION_V1',records=selected,
              upstream_rows=metadata,upstream_source_rows=sources,counters=dict(counts),test_group_count=len(test_groups),
              protected_group_count=len(protected),pyarrow_version=pa.__version__,peak_OS_snapshot=process.memory_info().peak_wset,
-             first_user_unique_counts={s:{k:len(v) for k,v in c.items()} for s,c in first_keys.items()},
-             user_sequence_unique_counts={s:{k:len(v) for k,v in c.items()} for s,c in all_groups.items()},
              seconds=time.monotonic()-start,selected=624,independent_Parquet_decoder=False))
         phase='complete';event(selected=624)
     except BaseException as error:

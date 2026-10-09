@@ -38,7 +38,6 @@ def main(args):
     assert not any(p.exists() for p in (args.out, log, terminal, args.out.with_suffix('.launcher_failure.json')))
     record = dict(freeze=args.freeze, binding_sha256=args.binding_sha, launcher_pid=proc.pid)
     p = None
-    observed_descendants = {}
     peak = 0
     handle = None
     getmem = ctypes.WinDLL('psapi', use_last_error=True).GetProcessMemoryInfo
@@ -91,7 +90,6 @@ def main(args):
                     for child in children:
                         try:
                             name=child.name().lower()
-                            observed_descendants[(child.pid,child.create_time())]=child
                         except psutil.NoSuchProcess:
                             continue
                         assert name in b.get('allowed_worker_children',[]), ('unexpected worker descendant',name)
@@ -158,14 +156,6 @@ def main(args):
         write(terminal, record)
         print(json.dumps(dict(terminal=str(terminal), decision=result['decision'], exit_code=p.returncode, OS_peak=peak)), flush=True)
     except BaseException as error:
-        terminated=[]
-        for (pid,created),child in reversed(list(observed_descendants.items())):
-            try:
-                if child.is_running() and child.create_time()==created:
-                    child.kill();terminated.append(pid)
-            except psutil.NoSuchProcess:
-                pass
-        if terminated:record['terminated_worker_descendants']=terminated
         if p is not None:
             if p.poll() is None:
                 p.kill()
