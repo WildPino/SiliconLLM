@@ -144,7 +144,7 @@ def worker(a):
                 history=[];priced=[];price_state=None
                 for step in range(1,b['steps']+1):
                     guard();case=(step-1)%2;rec=fit[case];visit=(step-1)//2
-                    offset=(visit*b['batch'])%rec['x'].shape[0]
+                    offset=0 if rec['x'].shape[0]<=b['batch'] else (visit*b['batch'])%rec['x'].shape[0]
                     stop=min(offset+b['batch'],rec['x'].shape[0]);x=rec['x'][offset:stop]*S;y=rec['y'][offset:stop]
                     torch.cuda.synchronize();t0=time.monotonic();opt.zero_grad(set_to_none=True)
                     actual=model(x).float();loss=(actual-y).square().sum()/y.square().sum().clamp_min(1e-30)
