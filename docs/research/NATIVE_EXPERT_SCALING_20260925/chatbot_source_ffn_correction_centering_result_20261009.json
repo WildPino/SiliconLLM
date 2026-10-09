@@ -1,0 +1,285 @@
+{
+  "schema": "SOURCE_FFN_LOCAL_RESULT_V1",
+  "phase": "centering",
+  "decision": "SOURCE_FFN_CENTERING_DIAGNOSTIC_COMPLETE",
+  "freeze": "9fce8408a9ae1ee0a0621f8fc28b189a0ccf65d5",
+  "binding_sha256": "c27e6a31f2286cd22f8ee773e657633d4c40a064ea5093ca5d71477a0a1ecf4e",
+  "process_instance": {
+    "pid": 29088,
+    "create_time": 1791524906.3722255
+  },
+  "cases": 4,
+  "records": [
+    {
+      "site": 0,
+      "cases": [
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "source_mean_energy_fraction": 0.08666162772195116,
+          "before": {
+            "relative_L2": 0.5798679752142387,
+            "mean_error_squared_normalized": 0.029875088027907278,
+            "variation_error_squared_normalized": 0.3063717806511537,
+            "centered_relative_L2": 0.5791732942690543,
+            "identity_relative_defect": 0.0
+          },
+          "learned": {
+            "relative_L2": 0.11798890084994346,
+            "mean_error_squared_normalized": 0.0007447870661959487,
+            "variation_error_squared_normalized": 0.013176593657581838,
+            "centered_relative_L2": 0.12011181360739914,
+            "identity_relative_defect": 0.0
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.5609680360491145,
+            "mean_error_squared_normalized": 0.00831335681764685,
+            "variation_error_squared_normalized": 0.3063717806511537,
+            "centered_relative_L2": 0.5791732942690543,
+            "identity_relative_defect": 0.0
+          },
+          "normalized_squared_error_reduction": 0.32232548795528315,
+          "mean_gain_fraction_of_reduction": 0.0903754187932933,
+          "variation_gain_fraction_of_reduction": 0.9096245812067069
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "source_mean_energy_fraction": 0.01775409092179658,
+          "before": {
+            "relative_L2": 0.5576029561636207,
+            "mean_error_squared_normalized": 0.007925301071272043,
+            "variation_error_squared_normalized": 0.30299575565113657,
+            "centered_relative_L2": 0.5554029192722881,
+            "identity_relative_defect": 0.0
+          },
+          "learned": {
+            "relative_L2": 0.3558430674279761,
+            "mean_error_squared_normalized": 0.0008369603352956721,
+            "variation_error_squared_normalized": 0.12578732830125547,
+            "centered_relative_L2": 0.35785602379003006,
+            "identity_relative_defect": 1.6195425514073172e-17
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.5576558892345975,
+            "mean_error_squared_normalized": 0.007984335146893186,
+            "variation_error_squared_normalized": 0.30299575565113657,
+            "centered_relative_L2": 0.5554029192722881,
+            "identity_relative_defect": 0.0
+          },
+          "normalized_squared_error_reduction": 0.18429676808585752,
+          "mean_gain_fraction_of_reduction": 0.0384615574629836,
+          "variation_gain_fraction_of_reduction": 0.9615384425370161
+        },
+        {
+          "id": "broad_dev_explore_instruct_rewriting_035",
+          "split": "DEV",
+          "source_mean_energy_fraction": 0.09799162733313693,
+          "before": {
+            "relative_L2": 0.5609214013300857,
+            "mean_error_squared_normalized": 0.03268956143767116,
+            "variation_error_squared_normalized": 0.28194325703243595,
+            "centered_relative_L2": 0.5590820794655686,
+            "identity_relative_defect": 0.0
+          },
+          "learned": {
+            "relative_L2": 0.5394828579137176,
+            "mean_error_squared_normalized": 0.02860609655179217,
+            "variation_error_squared_normalized": 0.2624356574309603,
+            "centered_relative_L2": 0.5393940320130232,
+            "identity_relative_defect": 3.8184143811163404e-17
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.5599888915865537,
+            "mean_error_squared_normalized": 0.03164430166790114,
+            "variation_error_squared_normalized": 0.28194325703243595,
+            "centered_relative_L2": 0.5590820794655686,
+            "identity_relative_defect": 0.0
+          },
+          "normalized_squared_error_reduction": 0.02359106448735465,
+          "mean_gain_fraction_of_reduction": 0.17309371046261282,
+          "variation_gain_fraction_of_reduction": 0.8269062895373861
+        },
+        {
+          "id": "broad_dev_smol_magpie_ultra_036",
+          "split": "DEV",
+          "source_mean_energy_fraction": 0.014516769434315483,
+          "before": {
+            "relative_L2": 0.5588971725565766,
+            "mean_error_squared_normalized": 0.006214266733037649,
+            "variation_error_squared_normalized": 0.30615178275869803,
+            "centered_relative_L2": 0.557370240832383,
+            "identity_relative_defect": 0.0
+          },
+          "learned": {
+            "relative_L2": 0.5387342932190908,
+            "mean_error_squared_normalized": 0.003954562956717915,
+            "variation_error_squared_normalized": 0.28628007573355535,
+            "centered_relative_L2": 0.5389778807781153,
+            "identity_relative_defect": 5.681315905552884e-17
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.5609990634957869,
+            "mean_error_squared_normalized": 0.008568166484451837,
+            "variation_error_squared_normalized": 0.30615178275869803,
+            "centered_relative_L2": 0.557370240832383,
+            "identity_relative_defect": 0.0
+          },
+          "normalized_squared_error_reduction": 0.022131410801462414,
+          "mean_gain_fraction_of_reduction": 0.10210391902220783,
+          "variation_gain_fraction_of_reduction": 0.8978960809777923
+        }
+      ],
+      "constant": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_correction_centering_20261009\\site00.FIT_case_balanced_constant.f64",
+        "sha256": "af9a01e00c9ab9b20adb237babc42d54366ebee21d65cc21d7c94aebae070002",
+        "bytes": 16384,
+        "dtype": "F64",
+        "shape": [
+          2048
+        ]
+      }
+    },
+    {
+      "site": 23,
+      "cases": [
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "source_mean_energy_fraction": 0.8781703712412264,
+          "before": {
+            "relative_L2": 0.48592098925279337,
+            "mean_error_squared_normalized": 0.19146389511268117,
+            "variation_error_squared_normalized": 0.04465531268373214,
+            "centered_relative_L2": 0.6054246605500375,
+            "identity_relative_defect": 2.876527958117693e-17
+          },
+          "learned": {
+            "relative_L2": 0.09348034245121162,
+            "mean_error_squared_normalized": 0.0036434901143179875,
+            "variation_error_squared_normalized": 0.00509508431047781,
+            "centered_relative_L2": 0.20450278511173584,
+            "identity_relative_defect": 5.992766579411861e-19
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.2180837996665222,
+            "mean_error_squared_normalized": 0.0029052309932556474,
+            "variation_error_squared_normalized": 0.04465531268373214,
+            "centered_relative_L2": 0.6054246605500375,
+            "identity_relative_defect": 0.0
+          },
+          "normalized_squared_error_reduction": 0.2273806333716175,
+          "mean_gain_fraction_of_reduction": 0.8260175997108802,
+          "variation_gain_fraction_of_reduction": 0.17398240028911974
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "source_mean_energy_fraction": 0.8468294423132896,
+          "before": {
+            "relative_L2": 0.4849844014547456,
+            "mean_error_squared_normalized": 0.18837767097184113,
+            "variation_error_squared_normalized": 0.04683219868257664,
+            "centered_relative_L2": 0.5529484270474759,
+            "identity_relative_defect": 6.101007377279286e-17
+          },
+          "learned": {
+            "relative_L2": 0.121256870574772,
+            "mean_error_squared_normalized": 0.003944346956110556,
+            "variation_error_squared_normalized": 0.010758881705476451,
+            "centered_relative_L2": 0.26503053876567517,
+            "identity_relative_defect": 1.9065648053997768e-18
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.2256991854316996,
+            "mean_error_squared_normalized": 0.004107923621956076,
+            "variation_error_squared_normalized": 0.04683219868257664,
+            "centered_relative_L2": 0.5529484270474759,
+            "identity_relative_defect": 7.626259221599107e-18
+          },
+          "normalized_squared_error_reduction": 0.22050664099283085,
+          "mean_gain_fraction_of_reduction": 0.8364071176510592,
+          "variation_gain_fraction_of_reduction": 0.16359288234894026
+        },
+        {
+          "id": "broad_dev_explore_instruct_rewriting_035",
+          "split": "DEV",
+          "source_mean_energy_fraction": 0.9003641409322084,
+          "before": {
+            "relative_L2": 0.4881254202327228,
+            "mean_error_squared_normalized": 0.20353285357908987,
+            "variation_error_squared_normalized": 0.03473357229828236,
+            "centered_relative_L2": 0.5904279269973121,
+            "identity_relative_defect": 1.666465861401699e-17
+          },
+          "learned": {
+            "relative_L2": 0.19102972807342877,
+            "mean_error_squared_normalized": 0.01476574299024594,
+            "variation_error_squared_normalized": 0.0217266140175622,
+            "centered_relative_L2": 0.46696914948610907,
+            "identity_relative_defect": 0.0
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.19862674286454599,
+            "mean_error_squared_normalized": 0.004719010682696115,
+            "variation_error_squared_normalized": 0.03473357229828237,
+            "centered_relative_L2": 0.5904279269973121,
+            "identity_relative_defect": 8.332329307008495e-18
+          },
+          "normalized_squared_error_reduction": 0.2017740688695641,
+          "mean_gain_fraction_of_reduction": 0.9355370174493114,
+          "variation_gain_fraction_of_reduction": 0.06446298255068866
+        },
+        {
+          "id": "broad_dev_smol_magpie_ultra_036",
+          "split": "DEV",
+          "source_mean_energy_fraction": 0.8541419727266086,
+          "before": {
+            "relative_L2": 0.5016637078947179,
+            "mean_error_squared_normalized": 0.19875232005946397,
+            "variation_error_squared_normalized": 0.05291415575921296,
+            "centered_relative_L2": 0.6023109628495661,
+            "identity_relative_defect": 4.20671251113756e-17
+          },
+          "learned": {
+            "relative_L2": 0.22440052406909733,
+            "mean_error_squared_normalized": 0.015059426763543082,
+            "variation_error_squared_normalized": 0.035296168438942455,
+            "centered_relative_L2": 0.4919246824233553,
+            "identity_relative_defect": 7.0111875185626e-18
+          },
+          "FIT_constant_control": {
+            "relative_L2": 0.2359609583712194,
+            "mean_error_squared_normalized": 0.0027634181162513663,
+            "variation_error_squared_normalized": 0.05291415575921296,
+            "centered_relative_L2": 0.6023109628495661,
+            "identity_relative_defect": 7.0111875185626e-18
+          },
+          "normalized_squared_error_reduction": 0.20131088061619132,
+          "mean_gain_fraction_of_reduction": 0.9124836806319478,
+          "variation_gain_fraction_of_reduction": 0.08751631936805258
+        }
+      ],
+      "constant": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_correction_centering_20261009\\site23.FIT_case_balanced_constant.f64",
+        "sha256": "82be51fa56326002cccac4327922490c73f119e16a6ceefcbc2ce7c2fd423456",
+        "bytes": 16384,
+        "dtype": "F64",
+        "shape": [
+          2048
+        ]
+      }
+    }
+  ],
+  "source_forwards": 0,
+  "source_generations": 0,
+  "optimizer_updates": 0,
+  "native_runs": 0,
+  "reserved_queries": 0,
+  "GPU_allocated_peak": 0,
+  "GPU_reserved_peak": 0,
+  "elapsed_seconds": 3.827999999979511,
+  "quality_admission": false,
+  "native_admission": false,
+  "scope": "Saved-data mean/variation decomposition and FIT-only constant output correction control; no deployed model or broad/causal capacity certificate."
+}

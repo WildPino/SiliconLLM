@@ -1,5 +1,28 @@
 # Native expert-count scaling: prior evidence
 
+**9 October true source local functions, recovery and saved geometry COMPLETE:**
+[Local result](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md):actualsourceFFN x/y
+atsites0/23,fourFIT2/DEV2 cached forcedcases/542 labels/8,880,128BF16 bytes;
+35,521,054 source logit coordinates bit-exact. Trit-only error .517-.562,
+AQ-only .194-.244;localBF16batch difference .0022-.0037 explicitlymeasured.
+Positive diagonal grid34c600a/6581468f fails overall;sourceproposal inputbalance
+direction wasreversed. Corrected998e7eb/1dd6b4cc adds12FITtrials/reuses6 andfails;
+bothretain identityS/site23 hiddenR,DEVratio .764590 onlysite23. Closedfinitegrid,
+not generalternaryconversion. Family100.047/34.375/45.219s;allinput/resourcePASS.
+Fixed localQAT256/site24c8635/eb53c727 completes:DEVerrorssite0 .539/.539,
+site23 .191/.224;ratios .96285/.41972. Relativegain onlysite23,absolute .10/.99
+gatesbothFAIL. Same4608 active rows/AQ63/trits/MUP/SiLU;valid sixgradients/Adam/
+pairroundtrip. Firstloggingfaultafter32 retained;durable2+510 new=512 effective,
+542 actualincluding30discarded/recomputed;combined92.031s/GPU.894GB/OS2.029GB.
+[Saved geometry](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_RESULT_20261009.md):
+site0 learnedcorrection DEVcos~.30/scalaroracleerror>.53;amplitudealoneinsufficient.
+UncenteredFIToutput energy99rank203/site0 vs29/site23;not knowledgefractions.
+SeparatelyfrozenFIT-onlyconstantcontrol9fce840/c27e6a31 nearlymatches site23
+learnederror .199/.236 versus .191/.224;91-94% ofactualsquared-errorgain ismean.
+CenteredDEVerrors .467/.492 remain. CPUfamilies22.203/4.985s/noGPU/modelcalls.
+Alljobs terminal/noT4/RESERVED/native admission. Nextbroaderfunctioncoverage,
+separate mean/varying evidence;do notprolongsame-two-prefix fittingbydefault.
+
 **9 October complete source FFN control/positive arithmetic control:**
 [Full trit/AQ package](CHATBOT_SOURCE_FFN_CONTROL_RESULT_20261009.md),d4f7f0f/
 3d86ba62,COMPLETE:all48/8808,reuse2+46 new,16screen+4actualhistory. DEVKL

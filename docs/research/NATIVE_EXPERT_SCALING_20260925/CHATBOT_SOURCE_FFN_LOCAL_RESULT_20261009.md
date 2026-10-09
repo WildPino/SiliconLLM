@@ -104,10 +104,16 @@ results/native_expert_scaling/chatbot_source_ffn_*_20261009.
 
 ## Decision toward engine.c
 
+Completed [saved geometry/centering](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_RESULT_20261009.md)
+qualifies the interpretation:91-94% of site23 DEV squared-error gain is mean
+correction. A constant fitted only on FIT nearly matches that learned total
+error; centered DEV error still .467/.492. This is partial response recovery,
+not evidence of broad input-conditioned capacity preservation. At site0,
+amplitude-only scaling of the learned correction cannot fix its poor direction.
+
 Do not replay grids or extend256 updates on these same two FIT prefixes by default.
-Use [saved geometry](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_PROTOCOL_20261009.md)
-to assess learned correction direction/amplitude and linear support without
-new donor calls. Broader independently sourced input coverage is the next
+The saved-only diagnostics are COMPLETE and reusable. Broader independently
+sourced input coverage is the next
 candidate variable before all-site/whole-source recovery, selection and compact
 SSM-core transfer. Changes must stay inside a measured engine active-cost budget.
 Fresh useful same-artifact chatbot quality+>=50 accepted IDs/s, useful n/CPU LUT

@@ -6,6 +6,17 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Destination and present position
 
+Latest conversion evidence: [true source FFN recovery](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md)
+is COMPLETE under the original ternary/AQ63 arithmetic and unchanged active rows.
+Both absolute function gates fail. [Saved geometry and a FIT-only constant control](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_RESULT_20261009.md)
+show that91-94% of final-site squared-error improvement is mean correction;
+input-varying error remains large. Recover common AND conditional responses,
+then useful selection and compact source state, before a new C quality/rate claim.
+The next variable is broader function coverage, not another engine runtime.
+No model/compiler job is running. INDEX and the current
+[recovery next](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md) supersede older
+operational resumptions below. No completed old recovery/control should restart.
+
 Latest operational change after the human's renewed engine concern: measure the
 actual deployment envelope before another training variant. The
 [engine chat/cost result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)

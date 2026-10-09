@@ -52,9 +52,19 @@ DEVKL2.09967/42.9549% differing IDs,screen1/16(original14),ownhistory0/4,
 [F32-only control](CHATBOT_SOURCE_FFN_CAST_RESULT_20261009.md),d94f854/00251063,
 COMPLETE/PASS:twoFITKL<.0005 andALL16 original source generated sequences
 exactly preserved,14/16,family75.829s. Bounded arithmetic preservation,not
-broad quality or native admission. [Next local recovery](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md)
-needs actual hidden operand packets/function-aware calibration before
-changing selection/core;source-active cost is not an affordable final runtime.
+broad quality or native admission. [Local recovery](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md)
+is COMPLETE:542 actual hidden pairs/site0+23,35.52M source logit coordinates
+bit-exact;trit-only action error .517-.562/AQ-only .194-.244. Diagonal grid
+and corrected input direction fail overall;site23 hidden balance improves23.54%.
+Fixed256 effective updates/site uses identical deployable arithmetic and no
+extra active rows:DEV error .539/.539 atsite0,.191/.224 atsite23;absolute gatesFAIL.
+32 failed-family executions+510 repair executions=542 actual/512 effective;
+30 lost updates charged. Combined recovery92.031s/GPU.894GB/OS2.029GB.
+[Saved geometry/centering](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_RESULT_20261009.md)
+shows91-94% ofsite23 squared-error gain ismean correction;centered DEVerrors
+still .467/.492. Do not equate this gain with retained conditional knowledge.
+[Next](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md) broadens functional coverage
+before selection/core;source-active cost is not an affordable final runtime.
 
 ## 1. Bind source, interaction and applicability
 
@@ -315,9 +325,11 @@ Older bindings need their frozen launcher bytes, not newer schema versions.
 No completed source/capture/fit/export/C-prefix/audit/common-bank replay or timing
 overlap. Preserve foreign SHA/publisher. T4 permitted in scope, but communicate
 actual reason/budget/stops and measure FP16-compatible feasibility before allocation.
-All source FFN controls are terminal:fulltrit/AQ packageFAIL andF32-only
-bounded preservationPASS. Nextlocal function recovery needs NEW operand
-capture/code/pricing;seeINDEX anditsplan. No training/T4/current owned worker.
+All source FFN controls/local recovery/saved geometry are terminal:fulltrit/AQ
+packageFAIL,F32-only preservationPASS,localabsolute recoveryFAIL. Broader actual
+operand coverage andmean/varying recovery areselected next;seeINDEX anditsplan.
+No training/T4/current owned worker. No completed grids/recovery/source replies
+should be replayed as the next default action.
 Native chat/cost family22s COMPLETE/exit0,
 raw one-core rates46.01-58.84,all replies capped/degenerate;no accepted50.
 INDEX supersedes historical LIVE/NEXTs;
