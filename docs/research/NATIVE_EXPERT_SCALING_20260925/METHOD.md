@@ -8,6 +8,17 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest decision-bearing measurements:** [fixed-channel transport/linear repair](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md)
+COMPLETE/representation FAIL,with source-local numerical/resource PASS. FIT output-
+aware384-channel layouts(48x8 or6x64),3 denominator modes,144 complete case-sites.
+18 separately frozen FIT-only closed-form output fits change the decoder,not IDs.
+48x8 full-source-denominator DEV error80.47%/81.74%/53.92% becomes76.71%/80.27%/
+47.44%;subset/constant modes also fail original10%mean/20%worst/10%centered budget.
+All baseline errors0;normal equations/exported coefficients/FIT quadratics pass.
+Held families131.500s/both exit0/resourcesPASS/220.359MB actual stored statistics/
+coefficients/metrics. No new source/optimizer/native/RESERVED/T4;18 algebraic fits
+explicitly counted. No selected whole candidate;coreLUT/ternary engine unchanged.
+
 **Newest real converter stage:** [source recurrent capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md)
 all48 forced histories/all24 sites/every position,16.121GB logical operands;
 45 completed originals/one partial preserved, missing3 completed, exact63 partial
@@ -28,12 +39,13 @@ projection families95.689s; successful completion GPU1.169/1.642GB,OS1.458GB.
 No optimizer/native/source forwards in this stage, no original engine modification.
 
 **Current missing construction:** dense state bases need512 source nonlinear B/C
-auxiliaries. Original DT16 cannot represent arbitrary48 delta functions. Proposed
-DN1024/DT48 may retain48 timescales/8 x channels per head plus auxiliaries,992
-channels total, but channel/gate/full-norm omission and P256/depth losses are
-unmeasured. Widthvariants unimplemented. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-is FIT-derived output-weighted channel/head and denominator diagnostics on retained
-data before one warm learner/export/native variant or further adaptation dose.
+auxiliaries. Original DT16 cannot represent arbitrary48 delta functions. The
+proposed DN1024/DT48 copied8-x-per-head/992-channel warm construction is rejected
+by the measured channel/readout diagnostics above. Widthvariants unimplemented.
+[Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) changes to mixed UNGATED
+features within each source head,whose scalar dynamics commute with linear mixing.
+Gating and mixed nonlinear generators do not commute/transport for free;their
+conditional realization must be measured before a real warm/native variant or dose.
 LUT/dReLU/AQ63/sparse ternary endpoint remains the target; counted matrix products
 do not establish latency. Useful chatbot+same-artifact50 remains missing.
 
@@ -45,9 +57,10 @@ exact in every child. DEV caseKL12.09313->9.01572/25.4476% recovery, disagreemen
 post-export path-metadata fault preserved; evaluation-only completion did not
 replay training/baseline/export. Canonical held-family2998.562s; exact original
 GPU/launcher peaks missing, not retroactively qualified. No source/RESERVED/T4.
-[Selected next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses the completed
-internal capture/rank96 measurements above to measure channel/gate/full-norm
-omission before a real warm candidate.24->6 lost composition remains open.
+[Selected next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses completed
+internal capture/rank96/channel/readout measurements to investigate mixed-history
+observability and conditional decoding before a real warm candidate.24->6
+lost composition remains open.
 Partial recovery is not a universal D256 capacity limit or useful chat.
 
 **Earlier readout diagnostic:** [original readout image](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md)

@@ -29,6 +29,19 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[384-channel transfer + output repair](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md):
+COMPLETE/numerically valid;both representation budgets FAIL.** FIT-only output-aware
+8 channels per48 heads versus6 whole heads;144 case-sites per family,all baseline
+errors0. Even full-source denominator gives48x8 DEV errors80.47%/81.74%/53.92%.
+18 NEW FIT-only ridge output fits,unchanged channel IDs:76.71%/80.27%/47.44% with
+full denominator;deployable subset/constant modes also FAIL. No provisional warm
+layout. Actual held families56.750+74.750=131.500s;both exit0/resourcesPASS/sessions
+55850/68105 CLOSED;220.359MB saved. No source/optimizer/native calls;18 closed-form
+fits explicitly counted. Fixed channel deletion loses much more here than state
+rank96;not a theorem against other bases/conditional decoders. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+changes to within-head mixed UNGATED recurrent features;scalar dynamics commute
+with that projection,gate/generator realization still needs evidence.
+
 **[Source recurrent transport](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md):
 COMPLETE/locally valid; compact chatbot still open.** [Internal capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md)
 all48 full histories/all24 source sites/seven fields,16.121GB logical;45 originals/
@@ -80,13 +93,14 @@ No completed source/update/export/native replay merely for reconfirmation.
 Actual source-informed Adam25/model/RNG/packed bytes remain after failed whole
 recovery. Source internal capture,24 FIT bases/144 local comparisons and independent
 stored audit are COMPLETE. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-chooses dual96 as leading source-local map and specifies one output-weighted
-channel/head/gate/fullnorm assay on retained data before one warm candidate or
-further dose. Its implementation/frozen protocol/binding are still missing;
-planned caps and pre-observation selection criteria are in NEXT.
+keeps dual96 as a measured source-local state map. The channel/head/gate/fullnorm
+assay and fixed-channel18-readout repair are now COMPLETE/FAIL above. Next is one
+within-head mixed-history projection on retained data;new code/protocol/binding
+still missing. No additional source/answer/Adam25 dose selected.
 
-Proposed DN1024/DT48 preserves48 timescales with8 x channels/head plus nonlinear
-auxiliaries;it is UNIMPLEMENTED/unmeasured. P256,24->6 composition,parallel attention,
+The proposed DN1024/DT48 copied8-x-per-head layout is rejected by these local
+criteria;it was not implemented as a whole model. Mixed generators/decoder remain
+UNIMPLEMENTED/unmeasured. P256,24->6 composition,parallel attention,
 FFN arithmetic and routing losses remain distinct. Preserve original LUT/ternary
 endpoint;price any compact core extension including state/vector/DRAM work.
 No additional E32/copied-bank/oracle/A344/B344/fresh-core dose selected. Useful

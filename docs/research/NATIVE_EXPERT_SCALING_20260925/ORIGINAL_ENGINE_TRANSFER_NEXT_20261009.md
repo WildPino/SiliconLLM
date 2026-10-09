@@ -41,7 +41,7 @@ not identify retained knowledge, and no single omission is experimentally proven
 to be the dominant cause. The goal is a converter into the original LUT/ternary/
 SSM machinery with bounded active cost; donor-sized runtime is not presently priced.
 
-## Actual source-state investigation, then one channel/gate decision
+## Actual source-state/channel investigation, then mixed-history observability
 
 [Internal capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md) is COMPLETE:
 all48 existing forced histories/all24 blocks/seven fields/every position.45 complete
@@ -61,9 +61,14 @@ retained;24 bases/18 metrics reused,126 missing finished under unchanged caps;
 combined held projection families95.689s. No source/model/optimizer/native calls
 in the projection/audit stage.
 
-Leading source-local state map is dual96. Next measure output-weighted channel/
-head and gate/full-norm denominator omission USING RETAINED DATA before committing
-to one warm geometry. No further source capture or same-recipe Adam25 dose now.
+Leading source-local state-coordinate map remains dual96. [Channel/head/norm and
+linear readout repair](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md) are
+now COMPLETE/FAIL:48x8/6x64,all144 cases each,all baseline errors0;18 FIT-only
+readout fits cannot rescue the frozen selection. 48x8 DEV mean with actual full
+denominator80.47%/81.74%/53.92% ->76.71%/80.27%/47.44%. Deployable modes fail too.
+Actual131.500s combined held families,both exit0/resourcesPASS;no source/optimizer/
+native/RESERVED/T4. Mixed channel functions are the next new variable;do not repeat
+selection/refit or extend same-recipe Adam25. No warm geometry selected yet.
 
 Primary source code already inspected: pinned local
 `results/native_expert_scaling/chatbot_source_runtime/site/transformers/models/falcon_h1/modeling_falcon_h1.py`,
@@ -131,9 +136,9 @@ Channel counts, not implemented/qualified architectures:
   is representable by x_proj, but only four source heads/timescales remain.
 - DN1024/DT48:384 x (8 per each of48 heads),full256+256 B/C,96 paired delta =992.
   Retains all48 timescales but discards56/64 source x/gate channels per head.
-  Gate/input projection/operator differences remain. This is the leading layout
-  to investigate alongside a same-channel-budget whole-head selection control,
-  not a warm checkpoint or a claim of acceptable error.
+  Gate/input projection/operator differences remain. This copied-x layout is now
+  rejected by the local384-channel budget plus18-readout repair above. The same
+  counts do not price mixed nonlinear generators or a conditional decoder.
 
 Unused/auxiliary scan channels still cost recurrence work in the unchanged engine.
 Original auxiliary output columns can be zero; compute cannot be counted as zero
@@ -155,10 +160,10 @@ on real states before selecting L6, more layers or a parallel mixer. Preserve
 source order when a deeper variant is selected; do not substitute an average for
 function composition. n can shrink per site as depth grows, but active work grows.
 
-## Finite next assay and decision requirements
+## Completed fixed-channel assays and next mixed-feature variable
 
-State-rank comparisons are now complete; do not replay them merely to reconfirm.
-Freeze a stored-only channel/head assay before observing new predictions. All24 FIT
+State-rank and fixed-channel comparisons are complete;do not replay for reconfirmation.
+Historical fixed-channel protocol used all24 FIT
 histories determine output-weighted selection at sites0/12/23; all24 DEV histories
 evaluate it, no DEV selection. Budget384 active channels:48 heads x8 channels versus
 six complete64-channel heads selected on FIT. Both use the same actual source
@@ -188,10 +193,55 @@ diagnostic must still measure combined dual96+channel+P256+operator errors.
 No new source/optimizer/native/T4 call for that assay; data already exist. Maximum
 one declared family/30min/OS6GiB/GPU4allocated/5reserved/output32MiB, reserve90s;
 pre/post byte bindings, held launch/worker identity/resources and first faults.
-These are planning caps; implementation/frozen protocol/binding are still missing,
-and no channel-assay predictions are claimed. Adopt partial results rather than
-refit/replay completed comparisons on interruption. Local failure is not a theorem
-of impossibility for a jointly learned representation or another donor.
+These first-assay caps were frozen/executed;all comparisons complete,localbudget
+FAIL/resourcePASS. Subsequent output repair separately froze900s/256MiB output
+to save18 actual F64 G/C/eigen/F32 coefficient sets;no active-budget increase.
+All comparisons complete,FAIL,with equations/quadratic/resourcePASS. Reports link
+actual protocols/bindings/commands/results/costs. Local failure is not a theorem
+of impossibility for jointly learned features or another donor.
+
+### Selected next: retain mixtures of UNGATED history channels
+
+For each source head,all64 channels share scalar A_h/delta_h/B/C and Dskip_h.
+Fixed R_h(64x8) commutes with their linear state update and ungated output:
+
+```text
+Z_h = R_h^T S_h
+Z_h,t = exp(A_h delta_h,t) Z_h,t-1 + delta_h,t (R_h^T x_h,t) B_t^T
+y'_h,t = R_h^T y_h,t
+```
+
+That identity preserves projected dynamics exactly in real arithmetic,not omitted
+output components. Fit one rank8 basis per head/site0/12/23 on ALL24 FIT histories,
+using equal-case trace-normalized uncentered UNGATED y Grams;retain centered
+diagnostics separately. No new source capture. Evaluate ALL24 DEV full histories.
+New variable is mixing channels,not increasing384 budget. Independently check the
+projected recurrence against R_h^T captured y using actual x/B/C/delta/A/D and
+F64 witnesses before interpreting projected responses. All source coefficients
+and matrices already available;worker/protocol/binding still unimplemented.
+
+Then reconstruct y_hat_h=R_h y'_h and measure downstream source output with
+actual source gate/full denominator and reconstructed denominator,full/centered/
+label-position/domain/worst errors. Both decoder diagnostics require full source
+gate and are NOT deployable original-core candidates. Predeclare the same10%mean/
+20%worst/10%centered local budget only to decide whether this mixed-history encoder
+merits a conditional-generator/decoder study. A local PASS cannot admit quality.
+If this simple basis fails,do not claim all output-aware/conditional bases impossible.
+
+Gate multiplication does not commute with R_h:the input-dependent readout contains
+O_h diag(SiLU(g_h,t)) R_h,plus the norm denominator. Likewise R_h^T SiLU(conv(...))
+is not a single folded pre-SiLU linear generator. A useful mixed representation
+therefore needs actual approximations/adaptation of those functions. Investigate
+whether region-dependent ternary/dReLU functions can realize them under the same
+selected active-work/DRAM budget;extra stored functions may encode redundancy,
+but their routing/usefulness/accuracy/cost must be demonstrated. Preserve the
+original endpoint advantage rather than carrying all donor nonlinear channels.
+
+Next family planned maximum1800s/reserve90,OS6GiB/GPU4/5GiB/output96MiB,one owned
+job,pre/post frozen bytes/held processes/resources/first faults. Define exact
+generated/projection fields/dtypes/reduction/error criteria and costs in a NEW
+protocol before execution. No new predictions/candidate claimed yet. Keep actual
+Adam25 and all failed selected/linear maps. No same-recipe dose/T4 now.
 
 Price original DN512 versus any wider/deeper candidate in complete matrix products,
 scan states/exponentials, normalized routing, selected ternary bytes, fullV head,

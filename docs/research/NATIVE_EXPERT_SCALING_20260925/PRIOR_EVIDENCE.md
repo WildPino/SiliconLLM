@@ -1,5 +1,21 @@
 # Native expert-count scaling: prior evidence
 
+**9 October384-channel transport and closed-form readout repair COMPLETE/FAIL:**
+[Result](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md). FIT-only greedy
+output-aware48heads x8 versus6wholeheads x64;actual state256/gate/source generators
+retained. All144 baselineerrors0;greedy saved steps exact/momentobjectivePASS.
+48x8 DEV mean80.47%/81.74%/53.92% even full-source denominator. Second18 actual
+FIT-only ridge linear decoders,sameIDs/no grid:76.71%/80.27%/47.44%;subset/constant
+norm modes also FAIL10%mean/20%worst/10%centered atall3sites. Actual normal
+equations/F32coefficients/FITquadratic checksPASS. No provisional layout and no
+whole/state96/P256/quality admission. Sourcecall/optimizer/native/RESERVED/T4 zero;
+18 algebraic fits explicitly counted. Families56.750+74.750=131.500s/exit0/resource
+PASS/sessions55850+68105 CLOSED;220,359,483B across300 namespace files. Frozen6f2a843/
+bind635c7379/rawf9365513;refitf219eea/bindaca40ea0/raw10bb2ccd. No original engine/
+Adam25 changes. Reject tested fixed-copy layout;next finite mixed UNGATED head-
+channel projection/conditional decoding investigation uses retained data. Other
+bases/decoder families are open;fixed-linear failure is not a general theorem.
+
 **9 October source recurrence captured; rank96 local transport COMPLETE/valid:**
 [Capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md), all48 canonical
 full histories/all24 sites/seven fields/every position,22,547 IDs/16.121GB logical.
