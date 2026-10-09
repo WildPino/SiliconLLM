@@ -92,7 +92,7 @@ def bind(a):
 def launch(a):
     import psutil
     start=time.monotonic();assert sha(a.binding)==a.binding_sha
-    b=json.loads(a.binding.read_bytes());assert b['schema'] in ('ORIGINAL_FALCON_WHOLE_RECOVERY_BINDING_V1','ORIGINAL_FALCON_WHOLE_RECOVERY_FINISH_BINDING_V1')
+    b=json.loads(a.binding.read_bytes());assert b['schema']=='ORIGINAL_FALCON_WHOLE_RECOVERY_BINDING_V1'
     assert Path(sys.executable).resolve()==Path(b['python']).resolve()
     proc=psutil.Process();proc.cpu_affinity([11]);own={proc.pid,*(p.pid for p in proc.parents())}
     for other in psutil.process_iter(['name','cmdline']):
@@ -138,12 +138,8 @@ def launch(a):
         memory();guard();record.update(exit_code=worker.returncode,worker_OS_peak_through_exit=peak)
         assert worker.returncode==0,log.read_text(errors='replace')[-8000:]
         check_inputs(b);r=json.loads(a.out.read_bytes())
-        if b['schema']=='ORIGINAL_FALCON_WHOLE_RECOVERY_FINISH_BINDING_V1':
-            assert r['schema']=='ORIGINAL_FALCON_WHOLE_RECOVERY_FINISH_RESULT_V1' and r['new_updates']==0 and r['inherited_updates']==24
-            assert len(r['children'])==48 and r['combined_family_seconds']<=3600
-        else:
-            assert r['schema']=='ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_V1' and r['new_updates']==24 and len(r['children'])==95
-        assert r['final_counter']==25 and len(r['before'])==len(r['after'])==48 and len(r['updates'])==24
+        assert r['schema']=='ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_V1' and r['new_updates']==24 and r['final_counter']==25
+        assert len(r['before'])==len(r['after'])==48 and len(r['updates'])==24 and len(r['children'])==95
         assert r['source_calls']==0 and not r['quality_admission'] and not r['speed_admission']
         assert r['historical_native_numerical_gate']=='FAIL retained'
         assert r['GPU_allocated_peak']<=b['limits']['GPU_allocated_bytes'] and r['GPU_reserved_peak']<=b['limits']['GPU_reserved_bytes']
@@ -162,7 +158,7 @@ def launch(a):
         if worker is not None:
             if worker.poll() is None:worker.kill();worker.wait()
             memory();record.update(exit_code=worker.returncode,worker_OS_peak_through_exit=peak)
-        record.update(fault=repr(error),elapsed_seconds=time.monotonic()-start,launcher_OS_peak_snapshot=proc.memory_info().peak_wset)
+        record.update(fault=repr(error),elapsed_seconds=time.monotonic()-start)
         write(a.out.with_suffix('.launcher_failure.json'),record);raise
 
 
@@ -341,7 +337,6 @@ def worker(a):
                 stage='durable_boundary';snapshot('candidate_'+str(counter)+'.pt')
         assert counter==durable==25 and len(updates)==24
         stage='final_export';packed=export(model,a.directory/'candidate_25.packed');assert packed['bytes']==507505920
-        packed.update(extent(a.directory/'candidate_25.packed'))
         event(packed=packed)
         expected=[]
         for e in (0,31,32,1023,1024,E-1):
@@ -377,9 +372,7 @@ def worker(a):
     except BaseException as error:
         fault=dict(schema='ORIGINAL_FALCON_WHOLE_RECOVERY_FAULT_V1',stage=stage,error=repr(error),actual_counter=counter,
             durable_counter=durable,last_snapshot=last_snapshot,updates=updates,before=before,after=after,children=children,
-            elapsed_seconds=time.monotonic()-start,optimizer_partial_possible=stage=='optimizer_step',
-            GPU_allocated_peak=torch.cuda.max_memory_allocated(),GPU_reserved_peak=torch.cuda.max_memory_reserved(),
-            worker_OS_peak_snapshot=proc.memory_info().peak_wset,max_direct_child_OS_peak=child_peak)
+            elapsed_seconds=time.monotonic()-start,optimizer_partial_possible=stage=='optimizer_step')
         write(a.directory/'first_fault.json',fault)
         if model is not None and optimizer is not None and (counter!=durable or stage=='optimizer_step'):
             try:
