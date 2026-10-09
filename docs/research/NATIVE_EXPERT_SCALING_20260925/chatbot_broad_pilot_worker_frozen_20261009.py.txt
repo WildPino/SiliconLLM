@@ -3,7 +3,6 @@ import argparse
 import gc
 import importlib.util
 import json
-import math
 import os
 from pathlib import Path
 import sys
@@ -48,41 +47,14 @@ def bind(a):
               DOC/'CHATBOT_BROAD_PILOT_PROTOCOL_20261009.md',old_evaluation_path,old_terminal,old_binding_path,old_corpus]
     files += [Path(r['logits']['path']) for r in records+retention]
     files=list(dict.fromkeys(p.resolve() for p in files))
-    resume={};checkpoint=qualified['checkpoint'];seconds=2400
-    if a.resume_from is not None:
-        directory=a.resume_from.resolve()
-        assert directory==(ROOT/'results/native_expert_scaling/chatbot_broad_pilot_20261009').resolve()
-        original_path=DOC/'chatbot_broad_pilot_binding_20261009.json';original=json.loads(original_path.read_bytes())
-        assert sha(original_path)=='dd1469441b6407d071444c6bcded2369f89ce4cbc1b206069a39e978b451b25f'
-        assert original['order']==order and original['checkpoint']==checkpoint
-        for item in original['inputs']:
-            path=Path(item['path'])
-            if path.resolve() not in {Path(__file__).resolve(),(B/'chatbot_falcon_usability_launch.py').resolve()}:
-                assert path.stat().st_size==item['bytes'] and sha(path)==item['sha256'],str(path)
-        failure_path=directory/'first_failure.json';failure=json.loads(failure_path.read_bytes())
-        assert failure['durable_broad_boundary']==failure['attempted_complete_updates']==2 and failure['phase']=='training_2'
-        receipt_path=DOC/'chatbot_broad_pilot_result_20261009.launcher_failure.json';failure_receipt=json.loads(receipt_path.read_bytes())
-        assert failure_receipt['exit_code']==1 and failure_receipt['binding_sha256']==sha(original_path)
-        checkpoint=str(directory/'candidate.pt')
-        assert sha(checkpoint)=='2406fad13f18e4c9422a1f84fa61f42494d314003c3f7fbf56fb21384206150e'
-        frozen_worker=DOC/'chatbot_broad_pilot_worker_frozen_20261009.py.txt'
-        assert sha(frozen_worker)=='bb35c40260732aa6d310ae45c39133c674edac99400ea917a016eef3dd533d3d'
-        resume=dict(boundary=2,before=str(directory/'before.json'),
-                    updates=[str(directory/(f'update_{i:02d}.json')) for i in (1,2)],
-                    original_family_seconds=failure_receipt['elapsed_seconds'],original_binding=str(original_path))
-        seconds=2400-math.ceil(failure_receipt['elapsed_seconds'])
-        files += [original_path,receipt_path,frozen_worker,DOC/'chatbot_broad_pilot_result_20261009.worker.log',
-                  DOC/'CHATBOT_BROAD_PILOT_REPAIR1_PROTOCOL_20261009.md']
-        files += [p for p in directory.iterdir() if p.is_file()]
-        files=list(dict.fromkeys(p.resolve() for p in files))
     write(a.out,dict(schema='BROAD_CHAT_PILOT_BINDING_V1',python=str(Path(sys.executable).resolve()),
-        worker_path=str(Path(__file__).resolve()),checkpoint=checkpoint,corpus=str(corpus),resume=resume,
+        worker_path=str(Path(__file__).resolve()),checkpoint=qualified['checkpoint'],corpus=str(corpus),
         old_corpus=str(old_corpus),retention_ids=[r['id'] for r in retention],old_DEV_baseline=old['summary']['DEV'],
         order=order,updates=24,initial_optimizer_step=294,final_optimizer_step=318,
         normalized_AQ_dither=.025,learning_rate=5e-5,clip_norm=1,
         criteria=dict(FIT_KL_ratio_max=.5,DEV_KL_ratio_max=.75,DEV_case_KL_max=1.,DEV_label_disagreement_max=.2,
                       domain_DEV_case_KL_max=2.,domain_DEV_label_disagreement_max=.35,retention_ratio_max=1.1),
-        limits=dict(seconds=seconds,reserve_seconds=90,OS_bytes=16<<30,GPU_allocated_bytes=11<<30,
+        limits=dict(seconds=2400,reserve_seconds=90,OS_bytes=16<<30,GPU_allocated_bytes=11<<30,
                     GPU_reserved_bytes=12<<30,output_bytes=12<<30),
         runtime_binding_scope='Audited286/Adam294/RNG, qualified storage helper, adopted new48/old32 packets, old exact DEV baseline, explicit fixed order/code/Python/selected runtime and foreign hashes; not full DLL-tree.',
         inputs=[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in files]))
@@ -135,21 +107,13 @@ def worker(a):
         phase='load'
         old=torch.load(b['checkpoint'],map_location='cpu',weights_only=True)
         assert old['completed_recovery_updates']==286 and old['target_schema']=='COMPACT_FALCON_TERNARY_TARGET_V1'
-        start_step=b.get('resume',{}).get('boundary',0)
-        if start_step:
-            assert start_step==2 and old['candidate_schema']=='BROAD_24_TRANSFER_CANDIDATE_V1'
-            assert old['completed_broad_updates']==2 and old['order']==b['order']
-            inherited_support=old['support'];inherited_before=old['before']
-            updates=[json.loads(Path(v).read_bytes()) for v in b['resume']['updates']]
-            assert [v['step'] for v in updates]==[1,2] and [v['id'] for v in updates]==b['order'][:2]
-            durable=start_step
         config=old['config'];initial_cpu_rng=old['torch_CPU_rng'];initial_cuda_rng=old['torch_CUDA_rng']
         target=PilotTarget(config).to('cuda');target.load_state_dict(old['model'],strict=True)
         named=list(target.named_parameters());parameters=[p for _,p in named]
         assert len(named)==211 and sum(p.numel() for p in parameters)==254932736 and all(p.dtype==torch.float32 for p in parameters)
         optimizer=torch.optim.AdamW(parameters,lr=b['learning_rate'],weight_decay=0,foreach=False)
         optimizer.load_state_dict(old['optimizer'])
-        assert len(optimizer.state)==211 and all(int(s['step'].item())==294+start_step for s in optimizer.state.values())
+        assert len(optimizer.state)==211 and all(int(s['step'].item())==294 for s in optimizer.state.values())
         for group in optimizer.param_groups:
             assert tuple(group['betas'])==(.9,.999) and group['eps']==1e-8 and not group['amsgrad'] and not group['maximize']
             group.update(lr=b['learning_rate'],weight_decay=0,foreach=False)
@@ -161,13 +125,6 @@ def worker(a):
         stage_records=dict(before=records,training=[by_id[v] for v in b['order']],after=records,retention=retention)
         support={stage:{d:np.zeros((12,72),dtype=np.int64) for d in sorted({r['domain'] for r in rs})}
                  for stage,rs in stage_records.items()};collection=None
-        if start_step:
-            assert inherited_support.keys()==support.keys()
-            for stage,domains in support.items():
-                assert domains.keys()==inherited_support[stage].keys()
-                for domain in domains:
-                    domains[domain]=np.asarray(inherited_support[stage][domain],dtype=np.int64)
-                    assert domains[domain].shape==(12,72) and (domains[domain]>=0).all()
         def hook(site):
             def collect(module,args):
                 if collection is None:return
@@ -242,16 +199,11 @@ def worker(a):
             os.replace(temporary,path)
             del snapshot;gc.collect();return path
         torch.set_rng_state(initial_cpu_rng);torch.cuda.set_rng_state_all(initial_cuda_rng)
-        event('target_ready',initial_optimizer_step=294+start_step,resumed_boundary=start_step)
-        if start_step:
-            before=json.loads(Path(b['resume']['before']).read_bytes())
-            assert before==inherited_before
-            event('before_reused',cases=len(before['cases']),updates_reused=start_step)
-        else:before=evaluate('before')
+        event('target_ready',initial_optimizer_step=294)
+        before=evaluate('before')
         torch.set_rng_state(initial_cpu_rng);torch.cuda.set_rng_state_all(initial_cuda_rng)
         candidate=None
         for step,identifier in enumerate(b['order'],1):
-            if step<=start_step:continue
             phase='training_'+str(step);guard();t0=time.monotonic();target.train();dither=True;optimizer.zero_grad(set_to_none=True)
             loss,row=observe(by_id[identifier],'training',False);loss.backward()
             assert all(p.grad is not None and p.grad.shape==p.shape and torch.isfinite(p.grad).all().item() for p in parameters)
@@ -272,7 +224,7 @@ def worker(a):
                         seconds_before_snapshot=time.monotonic()-t0)
             updates.append(update);candidate=save_boundary(step);durable=step
             update['seconds_with_snapshot']=time.monotonic()-t0
-            write(a.directory/(f'update_{step:02d}.json'),update);write(a.directory/(f'support.update_{step:02d}.json'),support_record())
+            write(a.directory/(f'update_{step:02d}.json'),update);write(a.directory/'support.json',support_record())
             event('update',step=step,id=identifier,KL=row['KL'],seconds_with_snapshot=update['seconds_with_snapshot'],durable=durable)
             del loss
         assert durable==24 and candidate is not None
@@ -291,11 +243,10 @@ def worker(a):
             DEV_every_domain_disagreement=all(v['label_disagreement']<=c['domain_DEV_label_disagreement_max'] for v in post['DEV_domains'].values()),
             old_DEV_KL_retention=ret['case_KL']<=c['retention_ratio_max']*old['case_KL'],
             old_DEV_disagreement_retention=ret['label_disagreement']<=c['retention_ratio_max']*old['label_disagreement'])
-        phase='result';write(a.directory/'support.final.json',support_record());guard()
+        phase='result';write(a.directory/'support.json',support_record());guard()
         decision='BROAD24_PREFIX_TRANSFER_PASS' if all(gates.values()) else 'BROAD24_PREFIX_TRANSFER_FAIL'
         write(a.out,dict(schema='BROAD_CHAT_PILOT_RESULT_V1',decision=decision,freeze=a.freeze,binding_sha256=a.binding_sha,
             process_instance=dict(pid=proc.pid,create_time_unix=proc.create_time()),new_updates=24,final_optimizer_step=318,
-            worker_new_updates=24-start_step,reused_updates=start_step,reused_before_cases=48 if start_step else 0,
             checkpoint=dict(path=str(candidate.resolve()),bytes=candidate.stat().st_size,sha256=sha(candidate)),
             before=before,after=after,retention=old_after,old_DEV_baseline=old,gates=gates,updates=updates,
             support_counts_verified=True,parameter_tensors=211,model_parameters=254932736,optimizer_moment_bytes=2039461888,
@@ -314,5 +265,4 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=('bind','worker'),default='worker')
     p.add_argument('--binding',type=Path);p.add_argument('--binding-sha');p.add_argument('--freeze')
     p.add_argument('--directory',type=Path);p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--resume-from',type=Path)
     a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)
