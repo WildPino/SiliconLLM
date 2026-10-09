@@ -15,19 +15,21 @@ Ryzen53600X/80GiB/RTX306012GB. Freeze before observations; retain first faults
 and numbered repairs; reuse completed scientific/capture/native/audit bytes.
 No timing overlap. Preserve foreign work/publisher. Routine Graphify disabled.
 Donor-adaptation operationally frozen, evidence reusable. T4 requires communicated
-reason/budget/stops first. Original recovery and saved-only audit terminal;
+reason/budget/stops first. All recovery/evaluation/native jobs terminal;
 no local job or T4.
 
 ## Current direction and two research questions
 
 [Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) governs.
 Recovery/adoption/fixed-state evaluation and sum/mixture comparison are COMPLETE.
-[Original-engine chat/cost protocol](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md)
-is the next execution: actual engine.c entry, persistent canonical chat, full
-batch1 readout and raw decode cost on the retained packed artifact. Quality
-remains unqualified. [Common/private construction](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
-is implemented/frozen in b936b60 but UNEXECUTED and deferred until this deployment
-envelope is measured. Broader supervision/curriculum precedes long training. Redundancy
+[Actual engine chat/cost result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
+is COMPLETE: engine.c entry, persistent canonical chat, full batch1 readout,
+one-core raw46.01-58.84 IDs/s on the retained8-update packed artifact. Quality
+remains unqualified. [Conversion roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md)
+selects broader data/curriculum and staged transfer before long adaptation.
+[Common/private construction](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
+is implemented/frozen in b936b60 but UNEXECUTED/deferred until a controlled pilot
+requires that construction. Broader supervision/curriculum precedes long training. Redundancy
 requires coverage/coefficients; more slots alone do not preserve donor functions.
 The full chatbot head costs33.55M products/token, about48.2% of current matrix
 work. Original701.7/s is a small E32 cache-resident result, not large-donor proof.
@@ -44,6 +46,16 @@ adaptation is permitted but useful transfer must be demonstrated.
 | Transfer into that target |Source/interaction tools; screened Falcon1.5B;8 pilot+286 connected recovery updates,complete160 fixed-state observations and actual old export/C|Absolute/fresh donor-relative recovery,new common/private functions,qualified native numerical forward,own-history/chat,family/scale variants|
 
 ## Latest decisive evidence
+
+**[Actual engine entry/chat/full decode](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md):**
+Freeze54011fc/binding29519ab7,ONE native process/FIVE requests/484 advances/
+197 full V65537 heads/192 emitted IDs. Full vs split prefill64 IDs and all65537
+final logit bits exact;actual own-history reuses188 IDs,changed history resets.
+Raw one-core decode46.0077/48.8954/46.5267/58.8365 IDs/s;request rates18.12-40.97
+include prefill. Old8-update replies degenerate/all caps/no EOS observed;no quality/
+accepted50/n/DRAM admission.11 original kernel body hashes unchanged/default E4
+body preserved.22.000s family/native439.8MB held peak;caps/input checks PASS,
+exit0/session9664 closed,no model/source/GPU/update. Read roadmap for next work.
 
 **[Complete checkpoint286 prefix evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md):**
 ALL160/5746 NEW full-vocab rows,no updates/source/C calls. FIT equal-case
@@ -86,7 +98,7 @@ Original fixtures/packed loader/flat router IDs+mass pass. No accepted-rate clai
 | Original recurrence bridge |[FalconTiny source/scan](CHATBOT_FALCON_SOURCE_SCAN_RESULT_20261008.md):12 real packets pass fixed1% state/output; source5/16 fails usefulness. Per-call source-state initialization only |
 | Selected teacher |[Falcon1.5B](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md): pinned3.11GB/1.555B coefficients, unchanged16-case screen14/16 PASS; dense source cost not target |
 | Actual learner |[Pilot](CHATBOT_HYBRID_PILOT_RESULT_20261008.md): source-informed SSM/SWA/ternary/AQ63, temporary flat72 router,69.63M active matrix products, poor DEV quality |
-| Actual export/native |[Current result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md): packed-only/evolving-state C AVAILABLE, strict numerical gate FAIL; no tokenizer/chat/rate admission |
+| Actual export/native |[Packed result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md): strict numerical gate FAIL;[engine chat](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md): canonical persistent path/raw full-head cost AVAILABLE, quality/accepted-rate unqualified |
 | Closed common-input diagnostics |[Core/norm](CHATBOT_HYBRID_COMMON_CORE_RESULT_20261009.md):all3132 core/6264 norms CLOSE;[trained banks](chatbot_hybrid_common_bank_result_20261009.json):one3132-row anomaly. Neither explains every whole failure;reuse bytes |
 | Source supervision |[Capture/adoption](CHATBOT_HYBRID_TRANSFER_CAPTURE_RESULT_20261009.md):128 FIT/32 DEV/5746 rows/753MB BF16 transportPASS;137 EOS/23 partials;64 RESERVED unqueried |
 | Other family scaffolding |[Qwen/Giga census](CHATBOT_OPERATOR_CENSUS_RESULT_20261007.md), [Qwen interaction](CHATBOT_INTERACTION_RESULT_20261007.md), [200-case Qwen cohort](CHATBOT_GLOBAL_COHORT_RESULT_20261008.md): usable bytes/tools, not Falcon supervision |
@@ -110,9 +122,11 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** bind and execute [engine chat/cost protocol](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md).
-New engine entry/client/probe implemented, not yet executed. Shared/private
-state conversion/connectivity code is frozen but deferred, not a result.
+**First action:** follow [conversion roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md):
+select broader provenance-controlled chatbot data/curriculum and ONE staged
+conversion pilot with explicit error/quality/cost stops. Actual native chat/cost
+probe COMPLETE;reuse its bytes and client, no repeat for a favorable rate.
+Shared/private state conversion/connectivity code is frozen/deferred, not a result.
 All four recovery/audit/
 evaluation/group sessions TERMINAL;no polling or restart. Reuse actual
 recovery model/optimizer/RNG and adopted

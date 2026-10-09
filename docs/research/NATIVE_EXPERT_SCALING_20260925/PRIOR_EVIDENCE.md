@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**9 October original-engine entry and persistent complete decode COMPLETE:**
+[Result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md),freeze54011fc/
+binding29519ab7:actual engine.c compile branch,all11 original kernel body hashes
+unchanged/default E4 body preserved. One C process/five requests/484 advances/
+197 full V65537 heads/192 IDs;split-prefill64 IDs/all65537 final F32 logit bits
+exact,own-history reuses188 IDs,changed history resets. Raw one-core decode
+46.0077/48.8954/46.5267/58.8365 IDs/s,request18.12-40.97 includes prefill.
+Old8-update425.21MB packed model/9.12MB state;replies capped/degenerate/no EOS
+observed. No donor-quality/native-numerical/accepted50/useful-n/DRAM promotion.
+22s family/native439.8MB held peak,all input/cap gatesPASS/exit0/session9664
+closed/no model/source/optimizer/GPU calls. [Roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md):
+broader data/curriculum and controlled transfer before long offline compute.
+Shared/private b936b60 code frozen/UNEXECUTED/deferred;no T4 job.
+
 **9 October complete checkpoint286 evaluation and initial group algebra:**
 [Evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md),freeze6966666/
 binding4ab6f86a:ALL160/5746 NEW rows,FITcaseKL1.5135/DEV3.0810,

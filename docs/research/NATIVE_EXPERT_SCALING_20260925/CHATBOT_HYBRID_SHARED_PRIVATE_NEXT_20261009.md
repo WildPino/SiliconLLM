@@ -1,8 +1,10 @@
 # Next conversion construction: common response plus conditional private functions
 
 9 October2026. Implemented/frozen in b936b60, UNEXECUTED/not trained/validated.
-Execution DEFERRED while the [engine deployment/cost probe](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md)
-establishes the complete native envelope. All current workers
+Execution DEFERRED until the selected controlled conversion pilot needs this
+construction. [Engine deployment/cost result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
+is COMPLETE;the [roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md)
+prioritizes broader data/curriculum and staged transfer. All current workers
 terminal. [Fixed-state result](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md)
 and [group geometry](CHATBOT_HYBRID_GROUP_SUM_RESULT_20261009.md) choose this
 direction;original engine target/fresh quality+>=50/useful-n goal unchanged.
@@ -86,7 +88,7 @@ existing small corpus or dense full-100B Adam allocation feasible.
 
 ## Exact resumption
 
-Follow INDEX for the engine deployment/cost probe first. The separate
+Follow INDEX for broader data/curriculum and one controlled pilot. The separate
 shared/private target, state conversion and one-update apparatus are already
 implemented/frozen; do not treat that as execution or preservation evidence.
 When this variant is selected, bind its protocol and verify zero-common state;

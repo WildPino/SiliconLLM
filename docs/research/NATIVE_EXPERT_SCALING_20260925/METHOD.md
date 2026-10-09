@@ -20,16 +20,20 @@ learner, actual8-update resource/recovery pilot, packed-only exporter and comple
 evolving-state C target using original matrix/LUT/AQ63 kernels. **Failed necessary
 gate:**19/32 native logit RMS rows fail fixed1e-4 despite32/32 matching learner IDs,
 independently exact-certified. **Missing:** useful compact chatbot quality,
-own-history/native chat, accepted50 and large-n capacity. Selected donor is
+accepted50 and large-n capacity. [Actual engine chat](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
+supplies persistent canonical own-history apparatus and one-core raw46-59/s,
+using the unqualified8-update packed model. Selected donor is
 Falcon-H1-1.5B-Instruct; generality is not demonstrated.
 
 ## 1. Bind source, interaction and applicability
 
 Latest operational priority: qualify the deployment envelope before additional
-training. [Engine probe](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md) prepares
-an actual engine.c compile branch, source tokenizer/template and persistent
-batch1 full-head decode with exact-prefix state reuse/safe reset. UNEXECUTED;
-the old packed artifact remains unqualified. Common/private implementation
+training. [Engine probe result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
+executes the actual engine.c compile branch, source tokenizer/template and
+persistent batch1 full-head decode with exact-prefix state reuse/safe reset.
+Full/split prefill IDs/final logits bit-exact;actual own-history188-ID reuse.
+The old packed artifact remains unqualified. [Roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md)
+selects broader data/curriculum and controlled stages. Common/private implementation
 b936b60 is frozen but unexecuted/deferred. Broader data and controlled operator/
 precision/core compression stages precede long offline adaptation; T4 cost and
 recovery remain to be measured. The original LUT/ternary/SSM destination governs.
@@ -247,5 +251,7 @@ Older bindings need their frozen launcher bytes, not newer schema versions.
 No completed source/capture/fit/export/C-prefix/audit/common-bank replay or timing
 overlap. Preserve foreign SHA/publisher. T4 permitted in scope, but communicate
 actual reason/budget/stops and measure FP16-compatible feasibility before allocation.
-No training/T4/current owned worker. INDEX supersedes historical LIVE/NEXTs;
+No training/T4/current owned worker. Native chat/cost family22s COMPLETE/exit0,
+raw one-core rates46.01-58.84,all replies capped/degenerate;no accepted50.
+INDEX supersedes historical LIVE/NEXTs;
 source capture/adopter/core/bank namespaces are complete and reused as bytes.

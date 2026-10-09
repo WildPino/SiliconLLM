@@ -8,11 +8,14 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 Latest operational change after the human's renewed engine concern: measure the
 actual deployment envelope before another training variant. The
-[engine chat/cost protocol](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md)
+[engine chat/cost result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
 adds a real engine.c compile branch and persistent full-head batch1 generation,
 using the actual old packed model and unchanged original kernel bodies.
-Implementation is prepared; execution is pending. Shared/private state conversion
-is frozen but unexecuted/deferred. A month-plus T4 recipe must manipulate a donor
+Execution COMPLETE:five requests,exact split-prefill IDs/final logits,188-ID
+own-history reuse and raw46-59 one-core IDs/s. Old8-update replies degenerate;
+no accepted50. [Roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md) chooses
+broader data and controlled stages next. Shared/private state conversion is
+frozen but unexecuted/deferred. A month-plus T4 recipe must manipulate a donor
 into an affordable final engine target, with staged error recovery and broad
 chat supervision; useful n is a capacity dimension, not a reason to omit core,
 head or routing costs. Read INDEX for the current exact resumption.
@@ -34,7 +37,8 @@ complete speed evidence. It is not identical to the original small model.
 | Original trained E32, about 701.7 token/s | Small-model learned quality/parity and native speed; pool fits cache | Useful larger stored capacity with actual DRAM and full router cost |
 | Falcon packed C candidate | Original matrix/LUT bodies; 425.21 MB packed artifact; no expert master/reference copies; evolving state | Useful chatbot transfer; fresh generation; accepted rate |
 | Old whole C comparison | 32/32 learner greedy IDs agree; strict numerical criterion fails 19/32 rows | Native forward qualification; no source-quality admission follows |
-| Balanced recovery | Actual model/Adam restored; completed updates learn from eight domains | A fixed-checkpoint final evaluation is still needed; online training losses are insufficient |
+| Balanced recovery |Actual286/512 updates/model/Adam retained;complete160-case fixed-state evaluation|Absolute DEV quality FAIL;broader data/controlled transfer/own-history recovery|
+| Actual engine chat |Persistent canonical chat/packed-only full-head one-core raw46-59/s|Old8-update outputs degenerate;fresh useful quality+accepted50 remain open|
 
 The existing 1e-4 numerical gate and its failure remain recorded. Numerical
 transport, donor-relative quality and accepted speed answer separate questions.
@@ -91,13 +95,12 @@ does not provide those assumptions. Copying source rows does not solve this.
 Moreover, the two source FFNs normally see different intermediate operands:
 placing their rows in one site is not an exact composition of the two blocks.
 
-The next algebraic experiment should isolate this mechanism on common operands:
-all-group sum, selected sum, normalized mixture and a declared shared-plus-private
-construction, with the same precision/operands. Measure residual energy,
-covariance/cancellation, amplitude and routing margins. Separate projection,
-ternary quantization and changed recurrence from this comparison. Register one
-bounded protocol before new observations; reuse actual weights/corpus and never
-replay completed whole runs solely to obtain more diagnostics.
+The common-operand initial-group comparison is now COMPLETE:all1092 DEV
+oracle-scaled mixtures fail1%,site median residual88.25-94.28%. It isolated
+the aggregation variable;two source halves at one operand are a diagnostic
+proxy,not the actual two-block composition. Reuse those results. A shared/private
+construction and broader functional coverage are candidate remedies requiring
+whole-output recovery,not automatic scalar repair.
 
 ## 3. Redundancy is a plausible construction with an explicit identity
 

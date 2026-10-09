@@ -1,0 +1,196 @@
+{
+  "schema": "HYBRID_ENGINE_PROBE_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_engine_probe.py",
+  "compiler": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+  "header_directory": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_native_repair3_20261008",
+  "model": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_export_20261008\\model.bin",
+    "bytes": 425210736,
+    "sha256": "191d1d20058946702330038336553cd6588efbcebdbac85f70410a03126c3571"
+  },
+  "source_directory": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008",
+  "corpus_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\corpus.json",
+  "selected_case_ids": [
+    "fit_history_00",
+    "fit_instruction_00"
+  ],
+  "requests": 5,
+  "max_generation_lengths": [
+    64,
+    0,
+    64,
+    32,
+    32
+  ],
+  "followup": "Repeat your last answer in one short sentence.",
+  "threads": 1,
+  "limits": {
+    "seconds": 150,
+    "OS_bytes": 4294967296,
+    "output_bytes": 8388608
+  },
+  "allowed_worker_children": [
+    "clang.exe",
+    "clang-21.exe",
+    "ld.lld.exe",
+    "lld.exe",
+    "ld.exe",
+    "hybrid_engine.exe",
+    "conhost.exe"
+  ],
+  "allowed_system_child_path": "C:\\Windows\\System32\\conhost.exe",
+  "runtime_binding_scope": "Packed artifact, original kernel body hashes, entry/native/client/code/protocol, tokenizer/template, selected Python/Rust/compiler extents; no full DLL tree.",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_engine_probe.py",
+      "bytes": 12856,
+      "sha256": "3315f98ea8e25a7b52a29274e8bd9862c8d500b603be996e4f7765489930b1fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_engine_entry.c",
+      "bytes": 3652,
+      "sha256": "afd630f41e8282745e60fd7cc3bc02a929fca2417afa8a43fdb6ca4308e471fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_engine_chat.py",
+      "bytes": 6041,
+      "sha256": "189eac84156eab8cd4a2b43cc1ba3bd6b36c2655f230d28ac91b2d125d7c53c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_native.c",
+      "bytes": 14939,
+      "sha256": "e20719528fff7448f76aab373e927624ed00d141327e8b245cd4a3f6899a4179"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 10322,
+      "sha256": "b0ae30886471ac23523a12b2f405c16d5ba83531b659efbddb14e499e6ccae94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md",
+      "bytes": 5012,
+      "sha256": "446fa83db2d8478bdd4083abb4ff906feb154ab631a9bedc21bab17da808d86f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_native_repair3_20261008\\original_kernel_binding.json",
+      "bytes": 1837,
+      "sha256": "4030f9c8efbe94965299d9878e4a88fae6061104029e41ef21a29ea168f05206"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_native_repair3_20261008\\chatbot_hybrid_original_kernels.h",
+      "bytes": 2958,
+      "sha256": "d4b82cf3c3db4a6225c1bb0eb532f0dacb859011e83493abbec9cb2e23aeb529"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_export_result_20261008.json",
+      "bytes": 1308,
+      "sha256": "e8c5a7b0f34320172b340490e932a594bf8b7abaf830f591592ba9fe4dd15dc4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_export_result_20261008.terminal.json",
+      "bytes": 109150,
+      "sha256": "25a722f89cc61edb076a83fb95949b3b17887362015de9c8c2ca5ef2f1d93a1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_export_20261008\\model.bin",
+      "bytes": 425210736,
+      "sha256": "191d1d20058946702330038336553cd6588efbcebdbac85f70410a03126c3571"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\corpus.json",
+      "bytes": 846562,
+      "sha256": "692b4bdf901840ae86c337fd5839753335c9e219939bdf862f5bc94f04642fc7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "bytes": 16384,
+      "sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\tokenizers\\__init__.py",
+      "bytes": 2739,
+      "sha256": "510d5e23458612433da9f1fe430b5009fb88ba90508ee4340d2397b32c319080"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\tokenizers\\tokenizers.pyd",
+      "bytes": 7395328,
+      "sha256": "7acb83f5b89136597e0d14b788d82917bf2870df94575bf77e12731c4e49c4df"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\jinja2\\__init__.py",
+      "bytes": 1928,
+      "sha256": "c717a93bd8bb0c7b2a910ae004476e2ed7e8cf6402b93ebf81b2f85d237585b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\tokenizer.json",
+      "bytes": 5062983,
+      "sha256": "b641f1db7e5e759ddf0b633366a8cc2d318f00d1471176a5ea0bb9449c583029"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\tokenizer_config.json",
+      "bytes": 99905,
+      "sha256": "284b7aad5c1dab1777e020c25719eaae1793bb538cf5158ba5173b7adfaea9a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\chat_template.jinja",
+      "bytes": 1151,
+      "sha256": "b4bb2b3167994b1bfae42fb74d7166f94340bbea2d9dba3f2591e3261adcfb4e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\generation_config.json",
+      "bytes": 145,
+      "sha256": "b8e5d79b888141de7ee81a8c86f39164ccb840951b1691b83a6e0c8b96ce0fed"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+      "bytes": 98816,
+      "sha256": "185b0f6b0ca4d09df08fffe1105a17478146191c70dc5c0fc794bc0e38222807"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\ld.lld.exe",
+      "bytes": 5154304,
+      "sha256": "3dd734abe73f3db20483d3f61016b18295d95089f593a1c1e616daf5c6c225b7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\libclang-cpp.dll",
+      "bytes": 45662208,
+      "sha256": "1208545166ba135f879d508d94c1c6146f8f9e2afd0a399ee1e9535395118f94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    },
+    {
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "bytes": 1003520,
+      "sha256": "e449bce01f275cd08f3d4e64bb73b3b43ae845a0dbdb3e6131426e66537705e5"
+    }
+  ]
+}
