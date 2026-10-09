@@ -1,4 +1,6 @@
-#ifdef SILICON_QWEN_COMPACT
+#ifdef SILICON_FALCON_TERNARY_CHAT
+#include "../native_expert_scaling/chatbot_hybrid_engine_entry.c"
+#elif defined(SILICON_QWEN_COMPACT)
 #include "../native_expert_scaling/chatbot_compact_entry.c"
 #elif defined(SILICON_SWITCH_HYBRID_HEAD)
 #include "../native_expert_scaling/meth510_entry.c"

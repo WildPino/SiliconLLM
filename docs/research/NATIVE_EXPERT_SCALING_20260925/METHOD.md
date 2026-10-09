@@ -25,6 +25,15 @@ Falcon-H1-1.5B-Instruct; generality is not demonstrated.
 
 ## 1. Bind source, interaction and applicability
 
+Latest operational priority: qualify the deployment envelope before additional
+training. [Engine probe](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md) prepares
+an actual engine.c compile branch, source tokenizer/template and persistent
+batch1 full-head decode with exact-prefix state reuse/safe reset. UNEXECUTED;
+the old packed artifact remains unqualified. Common/private implementation
+b936b60 is frozen but unexecuted/deferred. Broader data and controlled operator/
+precision/core compression stages precede long offline adaptation; T4 cost and
+recovery remain to be measured. The original LUT/ternary/SSM destination governs.
+
 Pin revision, complete weight/header/config/tokenizer bytes, family operators,
 vocabulary, roles/history, BOS/EOS, source multipliers and precision. Screen
 usefulness before major adaptation; exclude consumed cases from final quality.

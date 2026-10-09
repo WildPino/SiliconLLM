@@ -1,6 +1,8 @@
 # Next conversion construction: common response plus conditional private functions
 
-9 October2026. PROPOSAL,not implemented/trained/validated. All current workers
+9 October2026. Implemented/frozen in b936b60, UNEXECUTED/not trained/validated.
+Execution DEFERRED while the [engine deployment/cost probe](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md)
+establishes the complete native envelope. All current workers
 terminal. [Fixed-state result](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md)
 and [group geometry](CHATBOT_HYBRID_GROUP_SUM_RESULT_20261009.md) choose this
 direction;original engine target/fresh quality+>=50/useful-n goal unchanged.
@@ -84,8 +86,10 @@ existing small corpus or dense full-100B Adam allocation feasible.
 
 ## Exact resumption
 
-Read both completed results/receipts and original target/checkpoint interfaces.
-Implement the separate shared/private variant with zero common output first;
+Follow INDEX for the engine deployment/cost probe first. The separate
+shared/private target, state conversion and one-update apparatus are already
+implemented/frozen; do not treat that as execution or preservation evidence.
+When this variant is selected, bind its protocol and verify zero-common state;
 no replay of286 updates or old initial/evaluation/operator/native observations.
 Then evidence-backed data/curriculum selection and a bounded pilot. Prepared
 old full512 cohort tools are not eligibility proof for this new variant.

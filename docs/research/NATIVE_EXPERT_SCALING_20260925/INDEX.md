@@ -22,9 +22,12 @@ no local job or T4.
 
 [Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) governs.
 Recovery/adoption/fixed-state evaluation and sum/mixture comparison are COMPLETE.
-[Next common/private construction](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md):
-implement separate zero-common variant from actual286 state,choose broader
-supervision/curriculum and freeze one pilot,then useful C chat plus accepted speed. Redundancy
+[Original-engine chat/cost protocol](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md)
+is the next execution: actual engine.c entry, persistent canonical chat, full
+batch1 readout and raw decode cost on the retained packed artifact. Quality
+remains unqualified. [Common/private construction](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
+is implemented/frozen in b936b60 but UNEXECUTED and deferred until this deployment
+envelope is measured. Broader supervision/curriculum precedes long training. Redundancy
 requires coverage/coefficients; more slots alone do not preserve donor functions.
 The full chatbot head costs33.55M products/token, about48.2% of current matrix
 work. Original701.7/s is a small E32 cache-resident result, not large-donor proof.
@@ -107,9 +110,10 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** follow [common/private NEXT](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md).
-Read new160-case evaluation/group geometry results and implement a separate
-zero-common target variant from actual286 checkpoint. All four recovery/audit/
+**First action:** bind and execute [engine chat/cost protocol](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md).
+New engine entry/client/probe implemented, not yet executed. Shared/private
+state conversion/connectivity code is frozen but deferred, not a result.
+All four recovery/audit/
 evaluation/group sessions TERMINAL;no polling or restart. Reuse actual
 recovery model/optimizer/RNG and adopted
 results/native_expert_scaling/chatbot_hybrid_transfer_capture_20261009/corpus.json,

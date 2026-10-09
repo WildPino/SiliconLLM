@@ -6,6 +6,17 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Destination and present position
 
+Latest operational change after the human's renewed engine concern: measure the
+actual deployment envelope before another training variant. The
+[engine chat/cost protocol](CHATBOT_HYBRID_ENGINE_PROBE_PROTOCOL_20261009.md)
+adds a real engine.c compile branch and persistent full-head batch1 generation,
+using the actual old packed model and unchanged original kernel bodies.
+Implementation is prepared; execution is pending. Shared/private state conversion
+is frozen but unexecuted/deferred. A month-plus T4 recipe must manipulate a donor
+into an affordable final engine target, with staged error recovery and broad
+chat supervision; useful n is a capacity dimension, not a reason to omit core,
+head or routing costs. Read INDEX for the current exact resumption.
+
 The desired artifact is a useful pretrained chatbot converted into compact
 SSM/SWA control plus selectively read ternary functions executed by the original
 LUT machinery. Offline adaptation may take a month or more when its feasibility
