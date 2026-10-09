@@ -48,6 +48,15 @@ cost, not compact deployment. Qwen/Giga evidence does not transfer automatically
 
 ## 2. Choose geometry; separate identities, approximations and learning
 
+[New controlled group geometry](CHATBOT_HYBRID_GROUP_SUM_RESULT_20261009.md):
+all3132 old C operands with INITIAL projected F64 FFN masters. Even per-operand
+oracle scaling of the initialized top8 mixture leaves DEVmedian88–94% residual;
+all1092 fail1%. This rules out scalar-only reconciliation in this scope,not
+better routing/overlap/functions/whole transfer. It does not measure checkpoint286
+FFN error or source two-block composition. [Common/private proposal](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
+is the next construction:2 commonH128 functions plus72 private/top8;extra4.719M
+products/2.433MB codes+scales. Unimplemented/unmeasured;fresh capacity/rate open.
+
 [Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) identifies
 the next decision-bearing gaps: source group sum versus selected normalized
 mixture, redundant atom coverage/coefficients, accessible-state information
@@ -119,6 +128,14 @@ was not checkpointed and stays missing. Separate final-state evaluation needed.
 Broad preservation/own-prefix recovery remain missing. Qwen200-case tensors
 belong to another donor. Pilot/screen/calibration stay excluded from fresh tests.
 
+[Separate fixed-state evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md)
+is now COMPLETE at actual286:ALL160/5746 NEW rows,original AQ63/no updates.
+FITcaseKL1.5135/labeldis33.5344%,DEV3.0810/41.6138%. Relative recovery/support
+passes,4 absolute/domain gatesFAIL;not eligible quality/native. F32/F64delta
+max5.347e-6,IDs exact.471.969s/OS5.387GB through exit/GPU1.407GB allocated,
+all resource/input gatesPASS. Original512 run remains incomplete,no historical
+support reconstruction. Defer automatic continuation;new functions/data needed.
+
 ## 4. Export and run the actual packed candidate in C
 
 [Driver](../../../benchmarks/native_expert_scaling/chatbot_hybrid_native.py)/
@@ -151,6 +168,9 @@ payload extents/hashes and all2,097,184 coordinate-derived integer energy tests;
 prefixes do not qualify long drift/window eviction. Head runs32/core261 times:
 these component clocks do not establish accepted batch1 rate or DRAM bandwidth.
 Standalone C target uses original kernels; native tokenizer/chat integration is open.
+The Falcon target is not yet wired into the phase60/engine.c entrypoint. That
+integration and persistent incremental chat interface are required deployment
+work,not evidence supplied by copying/validating the original matrix bodies.
 
 Prepared [complete cohort interface](CHATBOT_HYBRID_NATIVE_COHORT_PROTOCOL_20261009.md)
 and [streamed auditor](CHATBOT_HYBRID_NATIVE_COHORT_AUDIT_PROTOCOL_20261009.md)
@@ -161,6 +181,12 @@ audit can bind this path. Partial checkpoint evaluation needs its own frozen
 protocol. Algebraic certificate checker is also UNEXECUTED.
 
 ## 5. Bound numerical diagnosis, then recover source quality
+
+Current operative next step is the separate common/private variant and broader
+supervision under [NEXT](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md).
+Complete160-case boundary286 quality and initial-group directional residual
+are now measured. Common-bank/core diagnostics below remain closed/reusable;
+no new diagnostic is selected solely to perfect old numerical artifacts.
 
 [Common-input banks](chatbot_hybrid_common_bank_result_20261009.json): actual
 packed codes/ALL3132 stored C operands, no source/whole replay. All router IDs

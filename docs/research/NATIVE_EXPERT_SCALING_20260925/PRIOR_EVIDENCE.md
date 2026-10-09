@@ -1,5 +1,21 @@
 # Native expert-count scaling: prior evidence
 
+**9 October complete checkpoint286 evaluation and initial group algebra:**
+[Evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md),freeze6966666/
+binding4ab6f86a:ALL160/5746 NEW rows,FITcaseKL1.5135/DEV3.0810,
+DEV459/1103=41.6138% differing IDs. Relative recovery/supportPASS,4 absolute/
+domainFAIL. No updates/source/C calls;471.969s/OS5.387GB through exit/GPU1.407GB,
+all resource/input gatesPASS,no faults. Original512 run staysincomplete.
+[Group comparison](CHATBOT_HYBRID_GROUP_SUM_RESULT_20261009.md),425d9c5/
+6010c2df:all3132 retained C operands/INITIAL projected F64 groups,not old
+trained-bank replay. All1092 DEV per-operand oracle scalar errors>1%,minimum
+49.795%,site medians88.247–94.276%;blind scalar cannot reconcile that initialized
+selection. Both source halves see sameoperand,not original block composition or
+new286 FFN error.12.391s/OS946MB/GPU428MB,all gatesPASS/no faults.
+Both sessions62892/87486 terminal. [Next](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md):
+separate compact common+conditional private functions,broader data/curriculum,
+one bounded recovery before useful same-artifact C/fresh quality+50/n/DRAM/families.
+
 **9 October engine pipeline priority and actual recovery closure:**
 [Memo](ENGINE_PIPELINE_PRIORITY_20261009.md) reuses prior code/results; no new
 model values. Original701.7/s remains small-cache E32 evidence. Current full

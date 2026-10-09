@@ -77,7 +77,8 @@ contains immutable completed observations/updates and final or recovery state.
 Only a terminal receipt plus output inspection can establish closure. All old
 native19/32FAIL,poor quality,useful-n/structured LUT mass/DRAM/family gates remain.
 First action on resumption:read actual audit result/terminal and closure,then
-follow ENGINE_PIPELINE_PRIORITY_20261009.md. Both workers terminal; no polling/restart.
-Retained state needs a separately
-frozen final evaluation/continuation protocol. Historical routing support was
+follow CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md. All recovery/audit/new
+evaluation/group workers terminal;no polling/restart. Separately frozen complete
+checkpoint286 evaluation and initial group comparison now executed;absolute
+DEV gatesFAIL,and scalar-only initial-group reconciliationFAIL. Historical routing support was
 not checkpointed; keep it missing rather than replaying completed prefixes.

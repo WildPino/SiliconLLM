@@ -4,8 +4,10 @@
 updates/deadline reserve; saved-only audit PASS/exit0. No live job or T4.
 [Closure](CHATBOT_HYBRID_RECOVERY_RESULT_20261009.md) and
 [engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) govern next work:
-freeze a separate retained-state final evaluation/continuation decision, then
-isolate sum/mixture and information loss before long compute. Do not replay286
+complete fixed-state evaluation and group geometry are now measured;absolute
+DEV gatesFAIL and scalar-only group reconstructionFAIL. Follow
+[common/private NEXT](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md) before
+long compute. Do not replay286
 completed updates/160 initial outputs; missing support stays missing.
 
 The following implemented launch contract/snapshot is HISTORICAL, not a restart

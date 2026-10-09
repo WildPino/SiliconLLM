@@ -163,6 +163,13 @@ makes tokens/s comparisons interpretable.
 
 ## Operational order
 
+Update after actual execution:recovery/adoption and all160 fixed-boundary
+observations are COMPLETE;absolute DEV gatesFAIL. Initial common-operand group
+comparison COMPLETE;all1092 DEV scalar-oracle residuals>1%. Follow
+[common/private NEXT](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md) for a
+different function construction and broader data. The numbered stages below
+retain the overall dependency order;completed stages must not be restarted.
+
 1. Close the already running bounded recovery at its original cap. Preserve
    actual checkpoint/model/moments/RNG and the first fault. Independently adopt
    saved outputs/state once. An interrupted run is not eligible full recovery.
