@@ -1,0 +1,30 @@
+{
+  "freeze": "8f8e1fbe433b2909a6c8ff0102b744ea84d98a2e",
+  "binding_sha256": "36aa4945bcdc339d7ffca33ce11809c0767fb307457ec14e53d55b092677cefd",
+  "launcher_pid": 28288,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_broad_capture.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_capture_binding_20261009.json",
+    "--binding-sha",
+    "36aa4945bcdc339d7ffca33ce11809c0767fb307457ec14e53d55b092677cefd",
+    "--freeze",
+    "8f8e1fbe433b2909a6c8ff0102b744ea84d98a2e",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_20261009",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_capture_result_20261009.json"
+  ],
+  "worker_pid": 24232,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 3742986240,
+  "launcher_OS_peak_snapshot": 27168768,
+  "fault": "AssertionError('[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d\\n\\nLoading weights:   0%|          | 0/411 [00:00<?, ?it/s]\\nLoading weights: 100%|██████████| 411/411 [00:00<00:00, 6608.09it/s]\\n{\"cases\": 1, \"labels\": 118, \"case\": \"broad_fit_apigen_80k_023\", \"stop\": \"EOS\", \"case_seconds\": 18.030999999959022, \"seconds\": 33.60899999999674}\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_broad_capture.py\", line 226, in <module>\\n    bind(a) if a.mode == \\'bind\\' else worker(a)\\n                                     ^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_broad_capture.py\", line 176, in worker\\n    guard()\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_broad_capture.py\", line 103, in guard\\n    assert torch.cuda.max_memory_allocated() <= lim[\\'GPU_allocated_bytes\\'], \\'GPU allocated cap\\'\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: GPU allocated cap\\n')",
+  "elapsed_seconds": 48.51500000001397
+}

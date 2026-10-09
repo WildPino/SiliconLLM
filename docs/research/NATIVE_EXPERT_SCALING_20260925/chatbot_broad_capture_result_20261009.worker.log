@@ -1,0 +1,13 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 6608.09it/s]
+{"cases": 1, "labels": 118, "case": "broad_fit_apigen_80k_023", "stop": "EOS", "case_seconds": 18.030999999959022, "seconds": 33.60899999999674}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_broad_capture.py", line 226, in <module>
+    bind(a) if a.mode == 'bind' else worker(a)
+                                     ^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_broad_capture.py", line 176, in worker
+    guard()
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_broad_capture.py", line 103, in guard
+    assert torch.cuda.max_memory_allocated() <= lim['GPU_allocated_bytes'], 'GPU allocated cap'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: GPU allocated cap
