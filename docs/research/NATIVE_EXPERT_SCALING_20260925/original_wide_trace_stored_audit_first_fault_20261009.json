@@ -1,0 +1,10 @@
+{
+  "scope": "Unbound stored-only audit helper, after main diagnostic family completed. No prediction, optimizer update or checkpoint mutation.",
+  "session": 14578,
+  "exit_code": 1,
+  "line": "conditional['dint']=int(np.any(g['dint']!=c['dint'],axis=(-1,-2))[same_route&same_hq].sum())",
+  "error": "ValueError: operands could not be broadcast together with shapes (1507,6) (1507,6,8)",
+  "cause": "Hidden-code equality was reduced over channel only instead of rank and channel.",
+  "correction": "Reduce hidden-code equality over axes (-1,-2) before indexing whole token/site accumulator comparisons.",
+  "held_runtime_resources": null
+}

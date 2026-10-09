@@ -8,14 +8,24 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
-**Current operation:** [actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md)
+**Current conversion tool addition:** [actual26 diagnostic trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md)
+persists original core/router/AQ/LUT witnesses with head-bit observer identity.
+Conditional integer accumulation agrees;first input-code discontinuity crosses
+an AQ half-bin. Native quality remains the endpoint;GPU is explicitly a surrogate.
+The new FIT-response seed helper removes responses explained by existing delta
+functions,selects residual principal directions andfolds them into legal x_proj
+rows while keeping new read factors zero. Algebra checks pass;actual FIT
+calibration/master fork/native identity/new-gradient update are not yet qualified.
+No source quality orcapacity theorem from activation variance. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
+
+**Earlier learning operation:** [actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md)
 transports real masters/moments/RNG and completes one whole-FIT Adam25->26,
 durable checkpoint/native export/integer checks. All new read blocks change;
 three native KL improve modestly,disagreement94..98% remains. GPU/C26 head rows
 andfour ID calls FAIL;unpersisted GPU route fields cannot be independently audited.
 Both new delta factors zero create an exact zero-gradient invariant:added32
-coordinates cannot activate. Correct this initialization in an explicit fork,
-locate numerical divergence with persisted fields,then choose a bounded whole
+coordinates cannot activate. Correct this initialization in an explicit fork.
+The numerical divergence is now localized above;then choose a bounded whole
 history/conditional-function recovery pilot. No unchanged long dose/T4/quality/
 accepted-speed/useful-n/DRAM admission. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 

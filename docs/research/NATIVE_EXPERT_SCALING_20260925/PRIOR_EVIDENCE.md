@@ -1,5 +1,15 @@
 # Native expert-count scaling: prior evidence
 
+**9 October actual26 first-divergence trace COMPLETE:**
+[Result](ORIGINAL_WIDE_TRACE_RESULT_20261009.md). Both observer head streams
+bit-identical to retained outputs;input AQ first flip82/0/43 crosses a half-bin,
+sixteen decoded ternary-column identities explain first gate/up integer changes.
+Conditional gate/up/down sums exact;three ordered-route permutations/one set
+change. Main family204s/resourcesPASS;native128.64s includes diagnostic IO.
+35input/13output hashes independently rechecked;stored-helper reduction fault
+retained/corrected without model replay. FIT-response seed helper available,
+synthetic algebra PASS;actual26 calibration/fork/update still missing. NoT4.
+
 **9 October actual wider bridge COMPLETE/engineering checks PASS/numerical FAIL:**
 [Result](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md). Exact real master/moment/RNG
 transport,initial native fixture SHA identity,one whole1507 FIT Adam25->26,

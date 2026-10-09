@@ -29,6 +29,14 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Actual26 trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md): COMPLETE/observers
+bit-identical;first discrete divergence is an AQ half-bin crossing.** Conditional
+gate/up/down integer sums all agree. Three route calls only permute experts;
+one changes their set. Numerical gate remains FAIL;no evidence this small
+surrogate KL discrepancy explains poor native donor preservation. FIT-response
+seed helper implemented/algebra checked;actual calibration/fork/update still
+missing. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md). NoT4/all jobs terminal.
+
 **[Actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md): COMPLETE,
 transport/update/export/resource checks PASS; numerical/quality gates FAIL.**
 Real Adam25 master/moment/RNG injection,initial fixture export SHA identity,
@@ -142,21 +150,20 @@ No completed source/update/export/native replay merely for reconfirmation.
 
 ## Exact point of resumption
 
-Actual source-informed Adam25/model/RNG/packed bytes remain after failed whole
-recovery. Source internal capture,24 FIT bases/144 local comparisons and independent
-stored audit are COMPLETE. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-keeps dual96 as a measured source-local state map. Fixed-channel18-readout repair
-and mixed raw-y PCA history are COMPLETE/FAIL above. Actual mixed384 F32 latents/
-bases are retained. Next is one read/write-weighted channel geometry comparison
-on retained data,with fixed8 and FIT-onlyvariable rank allocation(sum384/min1head).
-New code/protocol/binding still missing;no source/answer/Adam25 dose selected.
+Actual source-informed wide Adam26/checkpoint/RNG/packed bytes remain immutable.
+Original native width envelope,actual wide update,numerical first-divergence
+trace andstored audits COMPLETE. Source dual96 remains a local state map;
+fixed/mixed/weighted384 readout routes failed their declared reconstruction budgets.
+No universal capacity impossibility follows from those local failures.
 
-The proposed DN1024/DT48 copied8-x-per-head layout is rejected by these local
-criteria;it was not implemented as a whole model. Mixed generators/decoder remain
-UNIMPLEMENTED/unmeasured. P256,24->6 composition,parallel attention,
-FFN arithmetic and routing losses remain distinct. Preserve original LUT/ternary
-endpoint;price any compact core extension including state/vector/DRAM work.
-No additional E32/copied-bank/oracle/A344/B344/fresh-core dose selected. Useful
-own-history chatbot/same-artifact50/useful n/IDs-mass/DRAM/family~10B~100B still required.
+[Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md):actual FIT activation
+calibration of prepared delta seed,explicit actual26 master/moment fork,
+native initial function identity andone whole-FIT step27/new-V activity/export/
+native endpoint. New runner/protocol/binding missing;no source/T4 allocation.
+Then finite joint source-history recovery with whole native quality andown-history
+criteria. Numerical trace doesnot justify replacing original LUT/ternary math
+or an unbounded floating-parity campaign. P256,depth/attention/FFN/routing/history
+information losses remain open. Useful chatbot/same-artifact50/useful n/IDs-mass/
+physicalDRAM/family~10B~100B still required.
 Historical capture-consumed NEXT bytes remain in the [byte archive](original_engine_transfer_next_frozen_20261009.md.txt).
 Exact commands/SHA/costs in reports;never restart a completed namespace/update.

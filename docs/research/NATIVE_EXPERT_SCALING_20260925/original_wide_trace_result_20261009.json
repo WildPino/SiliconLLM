@@ -1,0 +1,1471 @@
+{
+  "schema": "ORIGINAL_WIDE_TRACE_RESULT_V1",
+  "freeze": "548c1902fa9692b8f12e6fad975830c332b63fbd",
+  "binding_sha256": "933a15671409fe1d7d1b9fbf3d7112b2c6d805b3b556fa096a5c09c5457f0234",
+  "decision": "ACTUAL26_OBSERVERS_IDENTICAL_DIVERGENCE_LOCALIZED",
+  "observer_identity": true,
+  "body_identity": {
+    "original_sha256": "62e0d8c33dc8dd284665be959821b06b05f5b9e985164ffad35498e7d3861e0c",
+    "observer_count": 13,
+    "strip_identity": true
+  },
+  "source_calls": 0,
+  "optimizer_updates": 0,
+  "trace": {
+    "float_metrics": {
+      "pre": {
+        "worst": 0.009769881024622644,
+        "failed_token_sites": 25,
+        "first": [
+          82,
+          1
+        ]
+      },
+      "core_norm": {
+        "worst": 0.009731237660155104,
+        "failed_token_sites": 25,
+        "first": [
+          82,
+          1
+        ]
+      },
+      "core": {
+        "worst": 0.006220870304683213,
+        "failed_token_sites": 168,
+        "first": [
+          82,
+          1
+        ]
+      },
+      "post_core": {
+        "worst": 0.009533936463634516,
+        "failed_token_sites": 26,
+        "first": [
+          82,
+          1
+        ]
+      },
+      "ff_norm": {
+        "worst": 0.009494445907535965,
+        "failed_token_sites": 26,
+        "first": [
+          82,
+          1
+        ]
+      },
+      "moe": {
+        "worst": 0.32054656862674286,
+        "failed_token_sites": 50,
+        "first": [
+          82,
+          0
+        ]
+      },
+      "post_moe": {
+        "worst": 0.1428219180285753,
+        "failed_token_sites": 50,
+        "first": [
+          82,
+          0
+        ]
+      },
+      "score": {
+        "worst": 0.010381097407364417,
+        "failed_token_sites": 26,
+        "first": [
+          82,
+          1
+        ]
+      },
+      "prob": {
+        "worst": 0.008237884165760137,
+        "failed_token_sites": 26,
+        "first": [
+          82,
+          1
+        ]
+      },
+      "g": {
+        "worst": 0.8747975181346901,
+        "failed_token_sites": 41,
+        "first": [
+          82,
+          0
+        ]
+      },
+      "u": {
+        "worst": 0.9273836583429673,
+        "failed_token_sites": 41,
+        "first": [
+          82,
+          0
+        ]
+      },
+      "h": {
+        "worst": 0.8454663932514785,
+        "failed_token_sites": 44,
+        "first": [
+          82,
+          0
+        ]
+      }
+    },
+    "discrete": {
+      "ids": {
+        "coordinates": 9,
+        "token_sites": 4,
+        "locations": [
+          [
+            82,
+            5
+          ],
+          [
+            1251,
+            2
+          ],
+          [
+            1251,
+            5
+          ],
+          [
+            1324,
+            4
+          ]
+        ],
+        "first_coordinate": [
+          82,
+          5,
+          0
+        ]
+      },
+      "xq": {
+        "coordinates": 219,
+        "token_sites": 41,
+        "locations": [
+          [
+            82,
+            0
+          ],
+          [
+            82,
+            1
+          ],
+          [
+            82,
+            2
+          ],
+          [
+            82,
+            3
+          ],
+          [
+            82,
+            4
+          ],
+          [
+            82,
+            5
+          ],
+          [
+            99,
+            5
+          ],
+          [
+            108,
+            5
+          ],
+          [
+            114,
+            5
+          ],
+          [
+            171,
+            2
+          ],
+          [
+            171,
+            3
+          ],
+          [
+            171,
+            4
+          ],
+          [
+            171,
+            5
+          ],
+          [
+            186,
+            1
+          ],
+          [
+            186,
+            2
+          ],
+          [
+            186,
+            3
+          ],
+          [
+            186,
+            4
+          ],
+          [
+            186,
+            5
+          ],
+          [
+            209,
+            5
+          ],
+          [
+            215,
+            5
+          ],
+          [
+            269,
+            5
+          ],
+          [
+            288,
+            5
+          ],
+          [
+            290,
+            5
+          ],
+          [
+            296,
+            5
+          ],
+          [
+            309,
+            5
+          ],
+          [
+            408,
+            4
+          ],
+          [
+            408,
+            5
+          ],
+          [
+            1107,
+            5
+          ],
+          [
+            1186,
+            5
+          ],
+          [
+            1251,
+            1
+          ],
+          [
+            1251,
+            2
+          ],
+          [
+            1251,
+            3
+          ],
+          [
+            1251,
+            4
+          ],
+          [
+            1251,
+            5
+          ],
+          [
+            1288,
+            5
+          ],
+          [
+            1324,
+            2
+          ],
+          [
+            1324,
+            3
+          ],
+          [
+            1324,
+            4
+          ],
+          [
+            1324,
+            5
+          ],
+          [
+            1343,
+            5
+          ],
+          [
+            1352,
+            5
+          ]
+        ],
+        "first_coordinate": [
+          82,
+          0,
+          43
+        ]
+      },
+      "hq": {
+        "coordinates": 1977,
+        "token_sites": 47,
+        "locations": [
+          [
+            82,
+            0
+          ],
+          [
+            82,
+            1
+          ],
+          [
+            82,
+            2
+          ],
+          [
+            82,
+            3
+          ],
+          [
+            82,
+            4
+          ],
+          [
+            82,
+            5
+          ],
+          [
+            99,
+            5
+          ],
+          [
+            108,
+            5
+          ],
+          [
+            114,
+            5
+          ],
+          [
+            171,
+            2
+          ],
+          [
+            171,
+            3
+          ],
+          [
+            171,
+            4
+          ],
+          [
+            171,
+            5
+          ],
+          [
+            186,
+            0
+          ],
+          [
+            186,
+            1
+          ],
+          [
+            186,
+            2
+          ],
+          [
+            186,
+            3
+          ],
+          [
+            186,
+            4
+          ],
+          [
+            186,
+            5
+          ],
+          [
+            209,
+            5
+          ],
+          [
+            215,
+            5
+          ],
+          [
+            269,
+            5
+          ],
+          [
+            288,
+            5
+          ],
+          [
+            290,
+            5
+          ],
+          [
+            296,
+            5
+          ],
+          [
+            309,
+            5
+          ],
+          [
+            408,
+            4
+          ],
+          [
+            408,
+            5
+          ],
+          [
+            906,
+            5
+          ],
+          [
+            907,
+            3
+          ],
+          [
+            1107,
+            4
+          ],
+          [
+            1107,
+            5
+          ],
+          [
+            1186,
+            5
+          ],
+          [
+            1251,
+            1
+          ],
+          [
+            1251,
+            2
+          ],
+          [
+            1251,
+            3
+          ],
+          [
+            1251,
+            4
+          ],
+          [
+            1251,
+            5
+          ],
+          [
+            1288,
+            5
+          ],
+          [
+            1324,
+            1
+          ],
+          [
+            1324,
+            2
+          ],
+          [
+            1324,
+            3
+          ],
+          [
+            1324,
+            4
+          ],
+          [
+            1324,
+            5
+          ],
+          [
+            1343,
+            5
+          ],
+          [
+            1352,
+            5
+          ],
+          [
+            1362,
+            5
+          ]
+        ],
+        "first_coordinate": [
+          82,
+          0,
+          0,
+          118
+        ]
+      },
+      "gint": {
+        "coordinates": 31457,
+        "token_sites": 41,
+        "locations": [
+          [
+            82,
+            0
+          ],
+          [
+            82,
+            1
+          ],
+          [
+            82,
+            2
+          ],
+          [
+            82,
+            3
+          ],
+          [
+            82,
+            4
+          ],
+          [
+            82,
+            5
+          ],
+          [
+            99,
+            5
+          ],
+          [
+            108,
+            5
+          ],
+          [
+            114,
+            5
+          ],
+          [
+            171,
+            2
+          ],
+          [
+            171,
+            3
+          ],
+          [
+            171,
+            4
+          ],
+          [
+            171,
+            5
+          ],
+          [
+            186,
+            1
+          ],
+          [
+            186,
+            2
+          ],
+          [
+            186,
+            3
+          ],
+          [
+            186,
+            4
+          ],
+          [
+            186,
+            5
+          ],
+          [
+            209,
+            5
+          ],
+          [
+            215,
+            5
+          ],
+          [
+            269,
+            5
+          ],
+          [
+            288,
+            5
+          ],
+          [
+            290,
+            5
+          ],
+          [
+            296,
+            5
+          ],
+          [
+            309,
+            5
+          ],
+          [
+            408,
+            4
+          ],
+          [
+            408,
+            5
+          ],
+          [
+            1107,
+            5
+          ],
+          [
+            1186,
+            5
+          ],
+          [
+            1251,
+            1
+          ],
+          [
+            1251,
+            2
+          ],
+          [
+            1251,
+            3
+          ],
+          [
+            1251,
+            4
+          ],
+          [
+            1251,
+            5
+          ],
+          [
+            1288,
+            5
+          ],
+          [
+            1324,
+            2
+          ],
+          [
+            1324,
+            3
+          ],
+          [
+            1324,
+            4
+          ],
+          [
+            1324,
+            5
+          ],
+          [
+            1343,
+            5
+          ],
+          [
+            1352,
+            5
+          ]
+        ],
+        "first_coordinate": [
+          82,
+          0,
+          0,
+          0
+        ]
+      },
+      "uint": {
+        "coordinates": 31561,
+        "token_sites": 41,
+        "locations": [
+          [
+            82,
+            0
+          ],
+          [
+            82,
+            1
+          ],
+          [
+            82,
+            2
+          ],
+          [
+            82,
+            3
+          ],
+          [
+            82,
+            4
+          ],
+          [
+            82,
+            5
+          ],
+          [
+            99,
+            5
+          ],
+          [
+            108,
+            5
+          ],
+          [
+            114,
+            5
+          ],
+          [
+            171,
+            2
+          ],
+          [
+            171,
+            3
+          ],
+          [
+            171,
+            4
+          ],
+          [
+            171,
+            5
+          ],
+          [
+            186,
+            1
+          ],
+          [
+            186,
+            2
+          ],
+          [
+            186,
+            3
+          ],
+          [
+            186,
+            4
+          ],
+          [
+            186,
+            5
+          ],
+          [
+            209,
+            5
+          ],
+          [
+            215,
+            5
+          ],
+          [
+            269,
+            5
+          ],
+          [
+            288,
+            5
+          ],
+          [
+            290,
+            5
+          ],
+          [
+            296,
+            5
+          ],
+          [
+            309,
+            5
+          ],
+          [
+            408,
+            4
+          ],
+          [
+            408,
+            5
+          ],
+          [
+            1107,
+            5
+          ],
+          [
+            1186,
+            5
+          ],
+          [
+            1251,
+            1
+          ],
+          [
+            1251,
+            2
+          ],
+          [
+            1251,
+            3
+          ],
+          [
+            1251,
+            4
+          ],
+          [
+            1251,
+            5
+          ],
+          [
+            1288,
+            5
+          ],
+          [
+            1324,
+            2
+          ],
+          [
+            1324,
+            3
+          ],
+          [
+            1324,
+            4
+          ],
+          [
+            1324,
+            5
+          ],
+          [
+            1343,
+            5
+          ],
+          [
+            1352,
+            5
+          ]
+        ],
+        "first_coordinate": [
+          82,
+          0,
+          0,
+          0
+        ]
+      },
+      "dint": {
+        "coordinates": 60278,
+        "token_sites": 47,
+        "locations": [
+          [
+            82,
+            0
+          ],
+          [
+            82,
+            1
+          ],
+          [
+            82,
+            2
+          ],
+          [
+            82,
+            3
+          ],
+          [
+            82,
+            4
+          ],
+          [
+            82,
+            5
+          ],
+          [
+            99,
+            5
+          ],
+          [
+            108,
+            5
+          ],
+          [
+            114,
+            5
+          ],
+          [
+            171,
+            2
+          ],
+          [
+            171,
+            3
+          ],
+          [
+            171,
+            4
+          ],
+          [
+            171,
+            5
+          ],
+          [
+            186,
+            0
+          ],
+          [
+            186,
+            1
+          ],
+          [
+            186,
+            2
+          ],
+          [
+            186,
+            3
+          ],
+          [
+            186,
+            4
+          ],
+          [
+            186,
+            5
+          ],
+          [
+            209,
+            5
+          ],
+          [
+            215,
+            5
+          ],
+          [
+            269,
+            5
+          ],
+          [
+            288,
+            5
+          ],
+          [
+            290,
+            5
+          ],
+          [
+            296,
+            5
+          ],
+          [
+            309,
+            5
+          ],
+          [
+            408,
+            4
+          ],
+          [
+            408,
+            5
+          ],
+          [
+            906,
+            5
+          ],
+          [
+            907,
+            3
+          ],
+          [
+            1107,
+            4
+          ],
+          [
+            1107,
+            5
+          ],
+          [
+            1186,
+            5
+          ],
+          [
+            1251,
+            1
+          ],
+          [
+            1251,
+            2
+          ],
+          [
+            1251,
+            3
+          ],
+          [
+            1251,
+            4
+          ],
+          [
+            1251,
+            5
+          ],
+          [
+            1288,
+            5
+          ],
+          [
+            1324,
+            1
+          ],
+          [
+            1324,
+            2
+          ],
+          [
+            1324,
+            3
+          ],
+          [
+            1324,
+            4
+          ],
+          [
+            1324,
+            5
+          ],
+          [
+            1343,
+            5
+          ],
+          [
+            1352,
+            5
+          ],
+          [
+            1362,
+            5
+          ]
+        ],
+        "first_coordinate": [
+          82,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "route_set_mismatch_locations": [
+      [
+        1251,
+        5
+      ]
+    ],
+    "ordered_route_mismatch_locations": [
+      [
+        82,
+        5
+      ],
+      [
+        1251,
+        2
+      ],
+      [
+        1251,
+        5
+      ],
+      [
+        1324,
+        4
+      ]
+    ],
+    "conditional_same_route_same_input_integer_mismatch_sites": {
+      "gint": 0,
+      "uint": 0
+    },
+    "mass_max_delta": 0.0014161169528961182,
+    "first_AQ_witnesses": [
+      {
+        "position": 82,
+        "site": 0,
+        "coordinate": 43,
+        "GPU_input": -0.5851624011993408,
+        "native_input": -0.5851624011993408,
+        "GPU_scale": 0.01857658289372921,
+        "native_scale": 0.01857658475637436,
+        "GPU_code": -32,
+        "native_code": -31,
+        "GPU_scaled": -31.500003814697266,
+        "native_scaled": -31.499998092651367
+      },
+      {
+        "position": 82,
+        "site": 1,
+        "coordinate": 30,
+        "GPU_input": 0.22750623524188995,
+        "native_input": 0.22766561806201935,
+        "GPU_scale": 0.018211456015706062,
+        "native_scale": 0.018206600099802017,
+        "GPU_code": 12,
+        "native_code": 13,
+        "GPU_scaled": 12.49247932434082,
+        "native_scaled": 12.504565238952637
+      },
+      {
+        "position": 82,
+        "site": 1,
+        "coordinate": 134,
+        "GPU_input": -0.3731006383895874,
+        "native_input": -0.3732551038265228,
+        "GPU_scale": 0.018211456015706062,
+        "native_scale": 0.018206600099802017,
+        "GPU_code": -20,
+        "native_code": -21,
+        "GPU_scaled": -20.487138748168945,
+        "native_scaled": -20.501087188720703
+      },
+      {
+        "position": 82,
+        "site": 2,
+        "coordinate": 47,
+        "GPU_input": -0.02775273472070694,
+        "native_input": -0.02697977051138878,
+        "GPU_scale": 0.01825561560690403,
+        "native_scale": 0.018254024907946587,
+        "GPU_code": -2,
+        "native_code": -1,
+        "GPU_scaled": -1.5202299356460571,
+        "native_scaled": -1.4780176877975464
+      },
+      {
+        "position": 82,
+        "site": 2,
+        "coordinate": 148,
+        "GPU_input": -0.5562915205955505,
+        "native_input": -0.5569485425949097,
+        "GPU_scale": 0.01825561560690403,
+        "native_scale": 0.018254024907946587,
+        "GPU_code": -30,
+        "native_code": -31,
+        "GPU_scaled": -30.472349166870117,
+        "native_scaled": -30.51099967956543
+      },
+      {
+        "position": 82,
+        "site": 2,
+        "coordinate": 224,
+        "GPU_input": -0.22793106734752655,
+        "native_input": -0.22824107110500336,
+        "GPU_scale": 0.01825561560690403,
+        "native_scale": 0.018254024907946587,
+        "GPU_code": -12,
+        "native_code": -13,
+        "GPU_scaled": -12.4855318069458,
+        "native_scaled": -12.503602981567383
+      },
+      {
+        "position": 82,
+        "site": 3,
+        "coordinate": 57,
+        "GPU_input": 0.07436928153038025,
+        "native_input": 0.07488168776035309,
+        "GPU_scale": 0.021350448951125145,
+        "native_scale": 0.021341055631637573,
+        "GPU_code": 3,
+        "native_code": 4,
+        "GPU_scaled": 3.4832653999328613,
+        "native_scaled": 3.5088090896606445
+      },
+      {
+        "position": 82,
+        "site": 3,
+        "coordinate": 97,
+        "GPU_input": -0.8216230869293213,
+        "native_input": -0.8223960399627686,
+        "GPU_scale": 0.021350448951125145,
+        "native_scale": 0.021341055631637573,
+        "GPU_code": -38,
+        "native_code": -39,
+        "GPU_scaled": -38.48270797729492,
+        "native_scaled": -38.535865783691406
+      },
+      {
+        "position": 82,
+        "site": 3,
+        "coordinate": 103,
+        "GPU_input": -0.05373699218034744,
+        "native_input": -0.052651163190603256,
+        "GPU_scale": 0.021350448951125145,
+        "native_scale": 0.021341055631637573,
+        "GPU_code": -3,
+        "native_code": -2,
+        "GPU_scaled": -2.516902208328247,
+        "native_scaled": -2.467130184173584
+      },
+      {
+        "position": 82,
+        "site": 3,
+        "coordinate": 141,
+        "GPU_input": -0.6512762308120728,
+        "native_input": -0.6506387591362,
+        "GPU_scale": 0.021350448951125145,
+        "native_scale": 0.021341055631637573,
+        "GPU_code": -31,
+        "native_code": -30,
+        "GPU_scaled": -30.504098892211914,
+        "native_scaled": -30.48765754699707
+      },
+      {
+        "position": 82,
+        "site": 4,
+        "coordinate": 7,
+        "GPU_input": -0.17046810686588287,
+        "native_input": -0.16970689594745636,
+        "GPU_scale": 0.03094072826206684,
+        "native_scale": 0.030897293239831924,
+        "GPU_code": -6,
+        "native_code": -5,
+        "GPU_scaled": -5.509505271911621,
+        "native_scaled": -5.492613792419434
+      },
+      {
+        "position": 82,
+        "site": 4,
+        "coordinate": 23,
+        "GPU_input": -0.6332795023918152,
+        "native_input": -0.6346461176872253,
+        "GPU_scale": 0.03094072826206684,
+        "native_scale": 0.030897293239831924,
+        "GPU_code": -20,
+        "native_code": -21,
+        "GPU_scaled": -20.467504501342773,
+        "native_scaled": -20.540508270263672
+      },
+      {
+        "position": 82,
+        "site": 4,
+        "coordinate": 32,
+        "GPU_input": 1.4695055484771729,
+        "native_input": 1.4699586629867554,
+        "GPU_scale": 0.03094072826206684,
+        "native_scale": 0.030897293239831924,
+        "GPU_code": 47,
+        "native_code": 48,
+        "GPU_scaled": 47.49421310424805,
+        "native_scaled": 47.575645446777344
+      },
+      {
+        "position": 82,
+        "site": 4,
+        "coordinate": 35,
+        "GPU_input": -1.4380642175674438,
+        "native_input": -1.4389840364456177,
+        "GPU_scale": 0.03094072826206684,
+        "native_scale": 0.030897293239831924,
+        "GPU_code": -46,
+        "native_code": -47,
+        "GPU_scaled": -46.478031158447266,
+        "native_scaled": -46.573143005371094
+      },
+      {
+        "position": 82,
+        "site": 5,
+        "coordinate": 7,
+        "GPU_input": -0.3555479645729065,
+        "native_input": -0.36084994673728943,
+        "GPU_scale": 0.04756670072674751,
+        "native_scale": 0.04761044308543205,
+        "GPU_code": -7,
+        "native_code": -8,
+        "GPU_scaled": -7.474723815917969,
+        "native_scaled": -7.57921838760376
+      },
+      {
+        "position": 82,
+        "site": 5,
+        "coordinate": 33,
+        "GPU_input": -0.8387569189071655,
+        "native_input": -0.8258477449417114,
+        "GPU_scale": 0.04756670072674751,
+        "native_scale": 0.04761044308543205,
+        "GPU_code": -18,
+        "native_code": -17,
+        "GPU_scaled": -17.633277893066406,
+        "native_scaled": -17.345937728881836
+      },
+      {
+        "position": 82,
+        "site": 5,
+        "coordinate": 34,
+        "GPU_input": -2.212170124053955,
+        "native_input": -2.204025983810425,
+        "GPU_scale": 0.04756670072674751,
+        "native_scale": 0.04761044308543205,
+        "GPU_code": -47,
+        "native_code": -46,
+        "GPU_scaled": -46.50669479370117,
+        "native_scaled": -46.292911529541016
+      },
+      {
+        "position": 82,
+        "site": 5,
+        "coordinate": 61,
+        "GPU_input": -0.5003505349159241,
+        "native_input": -0.4998418092727661,
+        "GPU_scale": 0.04756670072674751,
+        "native_scale": 0.04761044308543205,
+        "GPU_code": -11,
+        "native_code": -10,
+        "GPU_scaled": -10.51892375946045,
+        "native_scaled": -10.498575210571289
+      },
+      {
+        "position": 99,
+        "site": 5,
+        "coordinate": 199,
+        "GPU_input": -1.0852638483047485,
+        "native_input": -1.085279107093811,
+        "GPU_scale": 0.06201547011733055,
+        "native_scale": 0.06201498582959175,
+        "GPU_code": -17,
+        "native_code": -18,
+        "GPU_scaled": -17.499889373779297,
+        "native_scaled": -17.500272750854492
+      },
+      {
+        "position": 108,
+        "site": 5,
+        "coordinate": 0,
+        "GPU_input": 0.8262264132499695,
+        "native_input": 0.8262466192245483,
+        "GPU_scale": 0.04721402749419212,
+        "native_scale": 0.047214023768901825,
+        "GPU_code": 17,
+        "native_code": 18,
+        "GPU_scaled": 17.499595642089844,
+        "native_scaled": 17.500024795532227
+      },
+      {
+        "position": 114,
+        "site": 5,
+        "coordinate": 37,
+        "GPU_input": 0.2109767198562622,
+        "native_input": 0.2109983265399933,
+        "GPU_scale": 0.060282301157712936,
+        "native_scale": 0.06028226390480995,
+        "GPU_code": 3,
+        "native_code": 4,
+        "GPU_scaled": 3.499812126159668,
+        "native_scaled": 3.5001726150512695
+      },
+      {
+        "position": 171,
+        "site": 2,
+        "coordinate": 200,
+        "GPU_input": 0.7530517578125,
+        "native_input": 0.7530518174171448,
+        "GPU_scale": 0.023170821368694305,
+        "native_scale": 0.023170821368694305,
+        "GPU_code": 32,
+        "native_code": 33,
+        "GPU_scaled": 32.5,
+        "native_scaled": 32.500003814697266
+      },
+      {
+        "position": 171,
+        "site": 3,
+        "coordinate": 4,
+        "GPU_input": 0.24926650524139404,
+        "native_input": 0.24981218576431274,
+        "GPU_scale": 0.02933107130229473,
+        "native_scale": 0.02932923659682274,
+        "GPU_code": 8,
+        "native_code": 9,
+        "GPU_scaled": 8.498376846313477,
+        "native_scaled": 8.5175142288208
+      },
+      {
+        "position": 171,
+        "site": 4,
+        "coordinate": 2,
+        "GPU_input": 0.020674552768468857,
+        "native_input": 0.02116638422012329,
+        "GPU_scale": 0.041352253407239914,
+        "native_scale": 0.04134233295917511,
+        "GPU_code": 0,
+        "native_code": 1,
+        "GPU_scaled": 0.4999619424343109,
+        "native_scaled": 0.5119784474372864
+      },
+      {
+        "position": 171,
+        "site": 4,
+        "coordinate": 217,
+        "GPU_input": -0.10303808748722076,
+        "native_input": -0.10409654676914215,
+        "GPU_scale": 0.041352253407239914,
+        "native_scale": 0.04134233295917511,
+        "GPU_code": -2,
+        "native_code": -3,
+        "GPU_scaled": -2.4917163848876953,
+        "native_scaled": -2.517916679382324
+      }
+    ],
+    "scope": "Per-operation observations on each runtime trajectory;integer comparisons are conditional on matching ordered routes/input codes. No forced-route or counterfactual inference."
+  },
+  "children": [
+    {
+      "command": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-mavx2",
+        "-mfma",
+        "-march=znver2",
+        "-DDN=1024",
+        "-DDTR=48",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_trace_20261009\\trace_native.c",
+        "-I",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_trace_20261009",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_trace_20261009\\native_trace.exe",
+        "-lm"
+      ],
+      "pid": 12852,
+      "creation_time": 1791568007.542047,
+      "exit_code": 0,
+      "held_OS_peak": 4771840,
+      "seconds": 2.547000000020489
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_trace_20261009\\native_trace.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_bridge_20261009\\candidate_wide26.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_bridge_20261009\\requests.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_trace_20261009\\native_trace.bin",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_wide_trace_20261009\\native_heads.f32"
+      ],
+      "pid": 32788,
+      "creation_time": 1791568052.866265,
+      "exit_code": 0,
+      "held_OS_peak": 528306176,
+      "seconds": 128.64000000001397
+    }
+  ],
+  "worker_OS_peak_snapshot": 6168870912,
+  "max_direct_child_OS_peak": 528306176,
+  "GPU_allocated_peak": 598123520,
+  "GPU_reserved_peak": 813694976,
+  "elapsed_seconds": 176.39100000000326,
+  "scope": "Diagnostic original math witnesses;no quality/speed/useful-n/DRAM admission."
+}

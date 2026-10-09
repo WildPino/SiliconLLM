@@ -7,7 +7,54 @@ gates FAIL; original all-history numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
-### Current resumption after actual wide Adam26 and zero-factor diagnosis
+### Current resumption after numerical trace andprepared FIT delta seed
+
+[Trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md) COMPLETE:original math observers
+reproduce priorheads/routes bitwise;first AQ flip82/0/43 straddles a half-bin.
+Conditional gate/up/down integers all agree;three ID calls are permutations,
+one changes set. Preserve numericalFAIL;GPU training is a surrogate andnative
+quality endpoint remains poor. No further numerical trace is selected unless
+new evidence reveals a concrete remaining arithmetic defect orquality risk.
+
+**Selected implementation/run:**explicit actual26 delta-seeded master fork and
+one whole-FIT new step27,using original native operators andexisting cached
+fields. [FIT seed helper](../../../benchmarks/native_expert_scaling/original_delta_fit_seed.py)
+exists/algebra qualification only. New runner/protocol/binding are still missing.
+
+1. Load actual26 master/optimizer/RNG/lineage. Reconstruct FIT postconv/SiLU X
+   forfive SSM sites using actual26 in_proj/conv tensors andretained GPU core_norm
+   inputs from the qualified trace. This is new feature calibration,reusing
+   actual1507 history;not a new source call orwhole-model prediction. Declare
+   arithmetic/precision andfeature extents/hashes before observation.
+2. U0=existing16 delta rows;D0=X U0^T;A=D0^+X;R=X-D0 A. Use principal32 residual
+   directions W andfold Unew=W-(W A^T)U0. Match old response medianRMS with row
+   norm cap10xoldmedian. Existing helper requires full oldrank/32 significant
+   residual directions/F32 cross-response<=1e-6/newrank retained. No grid or
+   arbitrary random seed if rank fails. Activation variance proves learnability
+   support,not source information preservation. FIT-only calibration,no DEV use.
+3. Write Unew only to x_proj[16:48,:];Vnew dt_proj[:,16:48] remains zero.
+   All other masters/moments/counters26/RNG exact;newU moments0 remain0.
+   Archive actual26 untouched;record explicit initialization/ancestry/seed ledger.
+   Export actual seeded masters directly;no dequantized bank substitution.
+   Native complete three-case heads/IDs/masses must bit-match actual26 before
+   learning. Real-arithmetic zero-read algebra is not that measured gate.
+4. One new full1507 FIT Adam26->27 withfull256 source distributions,current
+   recipe5e-5/.9,.999/eps1e-8/no decay/clip1. NewV must have actual nonzero
+   gradients andchanges;no demand for newU gradient inthis first step withV0.
+   Save real model/optimizer/RNG/lineage/counter27 even if later evaluation fails.
+   Updated packed integer/mass/head checks;persist GPU IDs/masses/full heads.
+   Evaluate native three existing cases;no useful quality/width-causal inference
+   fromone FIT step. Freeze exact criteria/caps/code before execution;one owned
+   family,no repeats merely for reconfirmation. Bound/time/plateau stop explicit.
+
+Then select a finite joint source-history recovery pilot,with full native DEV/
+domain andown-history criteria. Native quality is the decisive comparison;
+strict GPU/C numericalgate remains historical FAIL until actually passed.
+Original LUT/AQ63/ternary/SSM/SWA math remains the destination. No source/RESERVED/
+T4 allocation currently selected. Useful same-artifact chatbot+>=50 andlarge-n/
+CPU routing/mass/DRAM/family/scale requirements remain missing. Goal ACTIVE.
+
+### Completed historical selection: actual26 trace andzero-factor diagnosis
 
 [Actual bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md) COMPLETE:real masters/
 moments/RNG transport,one full1507 FIT Adam25->26,durable actual26/export/native

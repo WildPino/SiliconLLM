@@ -1,0 +1,229 @@
+{
+  "schema": "ORIGINAL_WIDE_TRACE_STORED_AUDIT_V1",
+  "result_sha256": "e775a6cc4977f55c1afe826931b744d92f3636290c195c112d190e0282ea97a5",
+  "binding_sha256": "933a15671409fe1d7d1b9fbf3d7112b2c6d805b3b556fa096a5c09c5457f0234",
+  "checked_inputs": 35,
+  "checked_outputs": 13,
+  "output_bytes": 1630177227,
+  "observer_heads_bit_identical": true,
+  "discrete_recomputation_exact": true,
+  "conditional_integer_mismatch_sites": {
+    "gint": 0,
+    "uint": 0,
+    "dint": 0
+  },
+  "first_input_AQ": {
+    "position": 82,
+    "site": 0,
+    "coordinate": 43,
+    "GPU_code": -32,
+    "native_code": -31,
+    "relative_RMS": {
+      "pre": 0.0,
+      "core_norm": 0.0,
+      "core": 5.853338927222653e-07,
+      "post_core": 7.221499648631841e-09,
+      "ff_norm": 8.760555915981897e-08,
+      "moe": 0.0050344280242720285,
+      "post_moe": 0.00036350706973809545
+    },
+    "scale_analysis": {
+      "GPU": {
+        "max_coordinate": 2,
+        "amax": 1.170324683189392,
+        "observed_scale": 0.01857658289372921,
+        "correctly_rounded_division_scale": 0.01857658289372921,
+        "multiply_reciprocal_scale": 0.01857658289372921,
+        "observed_matches_division": true,
+        "observed_matches_multiply": true
+      },
+      "native": {
+        "max_coordinate": 2,
+        "amax": 1.1703248023986816,
+        "observed_scale": 0.01857658475637436,
+        "correctly_rounded_division_scale": 0.01857658475637436,
+        "multiply_reciprocal_scale": 0.01857658475637436,
+        "observed_matches_division": true,
+        "observed_matches_multiply": true
+      }
+    },
+    "integer_weight_column_proofs": [
+      {
+        "organ": "gate",
+        "expert": 799,
+        "rank": 0,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 86
+      },
+      {
+        "organ": "gate",
+        "expert": 979,
+        "rank": 1,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 92
+      },
+      {
+        "organ": "gate",
+        "expert": 606,
+        "rank": 2,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 78
+      },
+      {
+        "organ": "gate",
+        "expert": 851,
+        "rank": 3,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 87
+      },
+      {
+        "organ": "gate",
+        "expert": 515,
+        "rank": 4,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 90
+      },
+      {
+        "organ": "gate",
+        "expert": 778,
+        "rank": 5,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 89
+      },
+      {
+        "organ": "gate",
+        "expert": 354,
+        "rank": 6,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 93
+      },
+      {
+        "organ": "gate",
+        "expert": 871,
+        "rank": 7,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 82
+      },
+      {
+        "organ": "up",
+        "expert": 799,
+        "rank": 0,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 86
+      },
+      {
+        "organ": "up",
+        "expert": 979,
+        "rank": 1,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 85
+      },
+      {
+        "organ": "up",
+        "expert": 606,
+        "rank": 2,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 83
+      },
+      {
+        "organ": "up",
+        "expert": 851,
+        "rank": 3,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 77
+      },
+      {
+        "organ": "up",
+        "expert": 515,
+        "rank": 4,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 86
+      },
+      {
+        "organ": "up",
+        "expert": 778,
+        "rank": 5,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 79
+      },
+      {
+        "organ": "up",
+        "expert": 354,
+        "rank": 6,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 87
+      },
+      {
+        "organ": "up",
+        "expert": 871,
+        "rank": 7,
+        "integer_delta_equals_single_weight_column": true,
+        "nonzero": 98
+      }
+    ]
+  },
+  "failed_head_positions": [
+    82,
+    99,
+    108,
+    114,
+    131,
+    140,
+    171,
+    186,
+    209,
+    215,
+    269,
+    288,
+    290,
+    296,
+    309,
+    408,
+    906,
+    907,
+    1107,
+    1186,
+    1251,
+    1288,
+    1324,
+    1343,
+    1352,
+    1362
+  ],
+  "greedy_mismatch_positions": [
+    339
+  ],
+  "worst_head_RMS": 0.0709878796703316,
+  "quant_mismatch_tokens": [
+    82,
+    99,
+    108,
+    114,
+    171,
+    186,
+    209,
+    215,
+    269,
+    288,
+    290,
+    296,
+    309,
+    408,
+    906,
+    907,
+    1107,
+    1186,
+    1251,
+    1288,
+    1324,
+    1343,
+    1352,
+    1362
+  ],
+  "failed_head_positions_without_same_token_quant_mismatch": [
+    131,
+    140
+  ],
+  "scope": "Stored fields only: all byte hashes, independent head/discrete audits, conditional integer checks and exact first single-code-flip weight-column identity. No new prediction/update/source call. No global proof that all floating errors originate from this first flip.",
+  "elapsed_seconds": 14.186999999976251
+}
