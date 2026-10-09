@@ -1,0 +1,2363 @@
+{
+  "schema": "ORIGINAL_FALCON_CHANNEL_TRANSPORT_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_channel_readout_refit.py",
+  "capture": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_recurrent_adopted_result_20261009.json",
+  "source_weights": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+  "source_config": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+  "sites": [
+    0,
+    12,
+    23
+  ],
+  "active_channels": 384,
+  "layouts": [
+    "all48_heads_x8",
+    "selected6_heads_x64"
+  ],
+  "modes": [
+    "full_source_denominator",
+    "subset_RMS_calibrated",
+    "constant_RMS_calibrated"
+  ],
+  "selection": "FIT only,equal case weights;FP32 CUDA contractions with TF32 disabled,F64 case accumulation;greedy fixed-unit output residual reduction,lowest index breaks ties;8 per head or6 whole heads.",
+  "criteria": {
+    "reconstruction_relative_RMS": 0.0001,
+    "moment_objective_relative_delta": 0.0001,
+    "DEV_output_mean": 0.1,
+    "DEV_case_worst": 0.2,
+    "DEV_domain_mean_worst": 0.2,
+    "DEV_centered_mean": 0.1,
+    "normal_equation_F64": 1e-08,
+    "normal_equation_export_F32": 0.0001
+  },
+  "limits": {
+    "seconds": 900,
+    "reserve_seconds": 90,
+    "OS_bytes": 6442450944,
+    "GPU_allocated_bytes": 4294967296,
+    "GPU_reserved_bytes": 5368709120,
+    "output_bytes": 268435456
+  },
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_channel_transport.py",
+      "bytes": 27929,
+      "sha256": "ee6b0a46c255303fe9440681a21b807ddaad8570f2f732422073cc8850e01016"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 21074,
+      "sha256": "bb15c705cc7afb1223ef1f79c95549302ece7aaeb66ef630ed4b7f6c6b19f9be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_whole_recovery.py",
+      "bytes": 30017,
+      "sha256": "8ffd416f172fb02f8dd58d7852014c7adaae65c01fc40b59c07bbc65326f6dd8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_recurrent_adopted_result_20261009.json",
+      "bytes": 8582070,
+      "sha256": "bdec178a948e49bbec1d9eb4c01076bec9c182be8347306eb5dc02e0c873c849"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+      "bytes": 3109773032,
+      "sha256": "1fb788513f2c58e3abb91af8730afe19e247bce7a7f01a46e452a084e98b2abd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+      "bytes": 1599,
+      "sha256": "2473f5e02854a2833df973277e6f109d94344e7860fbc78d5ff8b31d08dddaeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ORIGINAL_FALCON_CHANNEL_TRANSPORT_PROTOCOL_20261009.md",
+      "bytes": 6875,
+      "sha256": "62ea6dd9909d01ab56e385c774862444a80abe6d862d2215df432934a05b443f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_recurrent_projection_finish_result_20261009.json",
+      "bytes": 227081,
+      "sha256": "a00fa53213b20d0d23d87d921f1b4bfed8375cfa8a1fdab89547912c8160b0c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_recurrent_projection_audit_result_20261009.json",
+      "bytes": 179136,
+      "sha256": "ae5c8e839fe9052185089043fdad8325e7123bf3257d827b386468acd57d29d8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site00.y.f32",
+      "bytes": 9498624,
+      "sha256": "99cb288eba4cb4c1173fa01302aefd903cff722ba969c05c650e908b1b1628fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site00.gate.bf16",
+      "bytes": 4749312,
+      "sha256": "04f24bb81eb652eaae32ef84a00b3c534f6484ace3c0ee57e60926488e5cc33f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site00.output.bf16",
+      "bytes": 3166208,
+      "sha256": "6c2fd2c50b475a5d15b37fe19f14771e8739608aace917466b3b429c706b7b55"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site12.y.f32",
+      "bytes": 9498624,
+      "sha256": "d59ada6c4cbcd6f52cd6bb7d5b4dd260db0e750133368ef6017ce708c82478ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site12.gate.bf16",
+      "bytes": 4749312,
+      "sha256": "343051be41f511242f71d8d416bbd64c81b57c2e8a72d7fa9cee826e8a562dec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site12.output.bf16",
+      "bytes": 3166208,
+      "sha256": "50938d684b4087447fa0095c7643bda68990cdd381c16302f70230ee5e16c3cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site23.y.f32",
+      "bytes": 9498624,
+      "sha256": "49ba68a15e4415fff7f69f53ab8ee1ebab2b8ed101d61a3f20a49f1bdc5dc61e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site23.gate.bf16",
+      "bytes": 4749312,
+      "sha256": "bc0aabf9de4dcd01ba7b11f582304ed3ede0197c1399ceeb933b8dbf46b78efa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_002.site23.output.bf16",
+      "bytes": 3166208,
+      "sha256": "c1daf1671f532908e3c0d0da7115af4d1c6ee5a85604e084960811086266f018"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site00.y.f32",
+      "bytes": 5885952,
+      "sha256": "480dca21cc0fbd182aef891022f5769e37a445c13a931656f7e6dcd41ca68213"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site00.gate.bf16",
+      "bytes": 2942976,
+      "sha256": "ef50e19812a65e86596ab661835042beacf7dd717d23593c87ace0b837a8907d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site00.output.bf16",
+      "bytes": 1961984,
+      "sha256": "da5567408ef811bde1e1109ed4bd3cd106140aeaa77332a79cedd56466c00e8b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site12.y.f32",
+      "bytes": 5885952,
+      "sha256": "f53d22e229ae5cf537118b82110a84a7dea99842aa1352599326ec2406258571"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site12.gate.bf16",
+      "bytes": 2942976,
+      "sha256": "18d2b8c7780929aec41715bf964e5cb2c80d53a63bb712bd2801aacfc0c0801b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site12.output.bf16",
+      "bytes": 1961984,
+      "sha256": "f79815a618bd79e8d22b8d1b45d1dbd78972bb5b69baeb2b8566d7282ab0e3e8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site23.y.f32",
+      "bytes": 5885952,
+      "sha256": "6d99cbed04fc34ee3b9122def6319554f83fa10416261d51e0ff3519f53ea443"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site23.gate.bf16",
+      "bytes": 2942976,
+      "sha256": "4363667543c554d331de1b068c028ff2b829c2d2e56bfe33c0ff9dcc11a913ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_apigen_80k_023.site23.output.bf16",
+      "bytes": 1961984,
+      "sha256": "9f5fb5484b58df44ba508c0a4d92bbf017fdd19ca587f9698872703bc8bf8e1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site00.y.f32",
+      "bytes": 4460544,
+      "sha256": "14aec160687a04e1b7c21020cffc98385cd43d3ca87b70344c8ace131ae4f294"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site00.gate.bf16",
+      "bytes": 2230272,
+      "sha256": "9df6ad741f2dfa7580353209037a66bbc490857f65c3a7995619299fe1b7a9bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site00.output.bf16",
+      "bytes": 1486848,
+      "sha256": "baa29978bc68546c87ac21f0482d297d9151d8f5e75923a2cd9c253c4d6d80ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site12.y.f32",
+      "bytes": 4460544,
+      "sha256": "179a3f22b34f3efa98462ef60c486c74fc4124a063b4c611606126012b150595"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site12.gate.bf16",
+      "bytes": 2230272,
+      "sha256": "587986350f513baca68f8904d1363e8469e98357d672e4ee6659eb88a9578b62"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site12.output.bf16",
+      "bytes": 1486848,
+      "sha256": "b82246bef6bfdfc14c44a2db3da26e275566b14a4e8c39bfd2285c6181343ff6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site23.y.f32",
+      "bytes": 4460544,
+      "sha256": "84410c8c87d935946542e2646e55684bd0ff483f2ff691cccaa2b0e5c16ffbc8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site23.gate.bf16",
+      "bytes": 2230272,
+      "sha256": "0c9a7961a600601548919b009ba7aad1a3bc438533a513a6441af669204e41cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_002.site23.output.bf16",
+      "bytes": 1486848,
+      "sha256": "f6a763763cf597abf84bfbb8144886f6d878d379c81dab1340edf42737e64674"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site00.y.f32",
+      "bytes": 4509696,
+      "sha256": "06dfa46ffa7a181e12bfa3aebb7c5edf5b49fa820011e8b0d1cf44603cda148f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site00.gate.bf16",
+      "bytes": 2254848,
+      "sha256": "769c461520cca4741fdc6a8aac7bd691dae11b564cb49b27fa63b1b69ac9172a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site00.output.bf16",
+      "bytes": 1503232,
+      "sha256": "648c4ff544517d7dcf8de1065cf130c3eca43d8f84e5582614b3a68401e244e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site12.y.f32",
+      "bytes": 4509696,
+      "sha256": "44da22ca3c0958e63289cc231938283a09f5f376b3f081cccce8e9ea1b98d4b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site12.gate.bf16",
+      "bytes": 2254848,
+      "sha256": "f77c888c20a418cb9de3a10f98a3fe75a65cecb68c76bfbc0c22681b0806f037"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site12.output.bf16",
+      "bytes": 1503232,
+      "sha256": "fd62eb25f272a7f27b38798e739689d47a7f3f1ddbc2e28f744f168de0d18830"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site23.y.f32",
+      "bytes": 4509696,
+      "sha256": "7f10691fc2b8d983e6d0636123cece8986164775657d531ab39cc72dce250346"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site23.gate.bf16",
+      "bytes": 2254848,
+      "sha256": "f4d9063a69b93d19177c2a5142917ac053597bfa650a7d321b61f5a7b9153e47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_everyday_conversations_010.site23.output.bf16",
+      "bytes": 1503232,
+      "sha256": "0ff898bbc7e46fbe77787f372c9417271e2a992910e2269196affbe9ebb7a110"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site00.y.f32",
+      "bytes": 712704,
+      "sha256": "6c24350cc99d30d9fefebf812a125c4b547c9521be0f9679e95929460b52340d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site00.gate.bf16",
+      "bytes": 356352,
+      "sha256": "466ab722faf55fba77abb216d0bc55540b7c2043bb63e95bab58e2dfc3d0e790"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site00.output.bf16",
+      "bytes": 237568,
+      "sha256": "f4d18bc45658da7e6d2156eda6767619442a58c96d53601449deae18db210499"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site12.y.f32",
+      "bytes": 712704,
+      "sha256": "5ad52593bb53224cb369623a550596336970bac7b95414a9f7d2e95129227564"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site12.gate.bf16",
+      "bytes": 356352,
+      "sha256": "483020d40b101c8d09b51f7c4ded46b0547516a335e706f5900e3b3c7869a45a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site12.output.bf16",
+      "bytes": 237568,
+      "sha256": "25ccf38434afa62df2a90ea1e5dedaaee87fca4a95986d7f34d0b1812af6a194"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site23.y.f32",
+      "bytes": 712704,
+      "sha256": "e354cda14b4da7cdf1c7cd6609f9df8060097e98c28c267b99592f3b004c2eea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site23.gate.bf16",
+      "bytes": 356352,
+      "sha256": "2418ac8c36b73406c09f738c4856a27a5d5c9c59d098a26cb5cbd0d4c5364587"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_008.site23.output.bf16",
+      "bytes": 237568,
+      "sha256": "35f801a862b6d0306f554b2c5c126bb5f8ca314d64eaddaa83b16dff9495e999"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site00.y.f32",
+      "bytes": 1105920,
+      "sha256": "55c913a3fc8f1220a1b661a9a41c571b8248bf1652f5ab6eb69f5e2cee851d26"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site00.gate.bf16",
+      "bytes": 552960,
+      "sha256": "b9cb54098d36ea9f34c949159bb64ed034866c076a85652c44f0a48a2d6f0a83"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site00.output.bf16",
+      "bytes": 368640,
+      "sha256": "cd97f037a258f671f202c874675fcef46cd2bdaedf1a4a9488f63a30c64ad5ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site12.y.f32",
+      "bytes": 1105920,
+      "sha256": "c9669c6a1ec35ee6c5c081abf905afb8cc181455b5776683240c78afa2757a4c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site12.gate.bf16",
+      "bytes": 552960,
+      "sha256": "e36269a6e95eb53811c0461919c0fb49e5b7bc40577596937fd8f4004c7e29bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site12.output.bf16",
+      "bytes": 368640,
+      "sha256": "dbf35ca1dc9df8e7e9dd20b54d5ec71baf106a3dd1bf197256524e37dabd9ba7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site23.y.f32",
+      "bytes": 1105920,
+      "sha256": "d83356346cbc97af57f0be626870958b1f817f0a14d61217b3d29a995e67d037"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site23.gate.bf16",
+      "bytes": 552960,
+      "sha256": "b1458bd28e61998d67f7abaff26028dbd1b6beb2c4cda2ea50bdb37123ad87c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_explore_instruct_rewriting_009.site23.output.bf16",
+      "bytes": 368640,
+      "sha256": "b1e4061abdf2575ba95389d2700781e279b5dca885957a3d0d50958a733d2dce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site00.y.f32",
+      "bytes": 2568192,
+      "sha256": "c90904f84f9e0c830e805795a6a4548faf7aa6809d88ea003586e751225aff7f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site00.gate.bf16",
+      "bytes": 1284096,
+      "sha256": "95c0bd0b2bd723de91f7e9b32606f04b7a0979f8a48ea45401d5fa94d83089f5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site00.output.bf16",
+      "bytes": 856064,
+      "sha256": "ffe15a22a529801a437fea49ba211683d423b4e9ffa83339d26a6a041632ba83"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site12.y.f32",
+      "bytes": 2568192,
+      "sha256": "302187753adf79c59a2b2b1b9ea1dd1ef44e4b27a0138952b84747dcd5ca3c41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site12.gate.bf16",
+      "bytes": 1284096,
+      "sha256": "96138b0b97d1e90b342a5dc4d4046803ac98ab24683aa6f47ad02eb95a3a0a4b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site12.output.bf16",
+      "bytes": 856064,
+      "sha256": "49d95ddc8512c39c415b59e6da57573b5f5c870e3b6c8a70c2061a5f91c3a150"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site23.y.f32",
+      "bytes": 2568192,
+      "sha256": "5348d557b718e097c2a094388337164ca1df902241a3557544eaa2a76c34ec8a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site23.gate.bf16",
+      "bytes": 1284096,
+      "sha256": "fd2b9dccd04e942fb6673f18f9cacd9473a64cf9bb02c10a89d727094647e3ab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_015.site23.output.bf16",
+      "bytes": 856064,
+      "sha256": "00aceb033f422878dd742477d59f2c02a5e46195d073393ee163d5b6842f0a54"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site00.y.f32",
+      "bytes": 4141056,
+      "sha256": "f5485f0db8c1974c97f39433bc70dccb330456eb97c97c5b58e60628e34cb00c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site00.gate.bf16",
+      "bytes": 2070528,
+      "sha256": "db4206d0e9c5951aaac940f1ecea3eb9ba6b4c8b605be50599aaa0c9fb0cefe4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site00.output.bf16",
+      "bytes": 1380352,
+      "sha256": "5252cbb921d41e1888d0c2dcd1bafb5d44eeee0d14c5e2ffc5ba3a592dfba2c4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site12.y.f32",
+      "bytes": 4141056,
+      "sha256": "b85d171f09c7edd4ef3c1c2a89c476bc0c312c82a15510f0b737e67b09f34637"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site12.gate.bf16",
+      "bytes": 2070528,
+      "sha256": "811ad1ffb18c23e9201b64ad75ffe05d221a058ff9d824aa622bf81d049260cb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site12.output.bf16",
+      "bytes": 1380352,
+      "sha256": "a2acc71f7b2d4e0356b5782f731d992d7f6775b5ccd502524b3b8a92b6c36931"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site23.y.f32",
+      "bytes": 4141056,
+      "sha256": "0e23d8caf90aaa38d0e6281ac75209839a4d148dd5c5db62d2fda91b2d6f1967"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site23.gate.bf16",
+      "bytes": 2070528,
+      "sha256": "02965d12ed2aa5d068f0a7ecf791d41bd5b9de027871b412585d2b6bacdfe1d3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_metamathqa_50k_023.site23.output.bf16",
+      "bytes": 1380352,
+      "sha256": "46d6e3895adc333ace2657f53e52afc6d747b1636cdc034a2df7c06a239e3dbb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site00.y.f32",
+      "bytes": 3907584,
+      "sha256": "dc499cf6fc8f5f68d2cce7074cccf2cb6b2c09e13b0b529c533ef10a6bff77ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site00.gate.bf16",
+      "bytes": 1953792,
+      "sha256": "358fd510db8a085b14b6252297709a2276e90edd4c4d7e445c8fd7461f31e366"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site00.output.bf16",
+      "bytes": 1302528,
+      "sha256": "c038dd79efa8711bb6de53310377df97b6a54796c8e87b20583f3f6c25f50e63"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site12.y.f32",
+      "bytes": 3907584,
+      "sha256": "dd1d9ff1715be87e7fa2394b4c737d95364472bfee6ebd56e8a46a92d02f27a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site12.gate.bf16",
+      "bytes": 1953792,
+      "sha256": "8a1ac50b574a6fd5d5bcbebc07496daa3724210961007c70b14b868f59156eec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site12.output.bf16",
+      "bytes": 1302528,
+      "sha256": "810803ab3e01e622b8cc33e707995655b9356af14619d5ce15df7faaa09823e8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site23.y.f32",
+      "bytes": 3907584,
+      "sha256": "2c5bbee97c4cd5730cebf280f1d9d486e76cb7478f6c6444b220a85c270f729d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site23.gate.bf16",
+      "bytes": 1953792,
+      "sha256": "cc35f3ab15bc741e2707590f7a1190db89a9c64957966e5b9228ef9a1dfccb35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_015.site23.output.bf16",
+      "bytes": 1302528,
+      "sha256": "3c8d77f40d82a2252af407fc9030ca9534470493303379fc7000ba608d72f87b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site00.y.f32",
+      "bytes": 4681728,
+      "sha256": "e02ffd263f005ce0d9c351e129a43e2c3e5da8e604e973295e2d5ef3dcec45cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site00.gate.bf16",
+      "bytes": 2340864,
+      "sha256": "cc05136ea930291019fb0fd3bf6380d73350f061a4758969e702b62d52e1b420"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site00.output.bf16",
+      "bytes": 1560576,
+      "sha256": "0d53929cf65e453a0a62d9265cb6643fadae3c9bdd95d438ad76bc55483a18e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site12.y.f32",
+      "bytes": 4681728,
+      "sha256": "ecb55434b9a9442a8c7680f728df2523bc22f925e7d002fb534bb207bfbb506f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site12.gate.bf16",
+      "bytes": 2340864,
+      "sha256": "7ddc368cd925bcc1041565b05640feac7e57e65ce93b527fc4effdcec809b744"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site12.output.bf16",
+      "bytes": 1560576,
+      "sha256": "6d6e8c4af6bfa5842add3b0ffd0c0cc5c40a44ff7545435045542fc043268397"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site23.y.f32",
+      "bytes": 4681728,
+      "sha256": "9f71b919bc8cbdf5b37b3735606e1376192f89ce8247ea2b112c77c2935a9af8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site23.gate.bf16",
+      "bytes": 2340864,
+      "sha256": "3f2c46fd8a2aba1fe389302334fc9ba49f6079b6778c07ef99df2506932109e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_numina_cot_100k_016.site23.output.bf16",
+      "bytes": 1560576,
+      "sha256": "686516f521479d125d312930c8d9c7b8e17adf01bb0b678f7ea65454ca3a16de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site00.y.f32",
+      "bytes": 3883008,
+      "sha256": "60d0bb3407fc15bf3e3ad7296bb5c7d15f5d340742d5c2519189ec3e5f410389"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site00.gate.bf16",
+      "bytes": 1941504,
+      "sha256": "8f9f8c78b76f21ffad0f2e232ca59d3986af71c8c2ab4e1e84b9882e06bc9160"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site00.output.bf16",
+      "bytes": 1294336,
+      "sha256": "3e560a43f04028a2acb0930008867fbfe57823292c2856c8cb0e010739f30e8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site12.y.f32",
+      "bytes": 3883008,
+      "sha256": "1339aa8347a88d373d3e1c75e42375cd572a714558952fb5fa74b30f22bc109b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site12.gate.bf16",
+      "bytes": 1941504,
+      "sha256": "7023c47652cb8e9d8a5ed84ea14548f3d61bc4b259dd7676432c65213af1aaac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site12.output.bf16",
+      "bytes": 1294336,
+      "sha256": "1ca5c3f6fde0913bf91276435282b2e1875f7ccf77c2107faf688b05cc55448d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site23.y.f32",
+      "bytes": 3883008,
+      "sha256": "26b370a63d02367f20b9b15acc5ebd2b7d375512f65870a317f5b47be1488b4a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site23.gate.bf16",
+      "bytes": 1941504,
+      "sha256": "0a8cf7d8a9184b46ea4290f18ceb5842127252f6116f02ed25d25acf3d858fd2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_004.site23.output.bf16",
+      "bytes": 1294336,
+      "sha256": "b896c203487bcbeeaaa9f4f3195798c6049f09aedc17bf9acd051a90e5cfb79d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site00.y.f32",
+      "bytes": 5345280,
+      "sha256": "d396178d8762a9e1488a36bda98deb02ae30426d99883127f78702f13c2784f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site00.gate.bf16",
+      "bytes": 2672640,
+      "sha256": "a2c1812f2cf7180cb2ced9d623db3dfef80f52f95f344ad7ca6871148d418724"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site00.output.bf16",
+      "bytes": 1781760,
+      "sha256": "fc54ea504270fdd52c7346fa782a429e5b435aa98fd11c201fefb3837c013924"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site12.y.f32",
+      "bytes": 5345280,
+      "sha256": "d9a68f406277872e6ee03521914cfb484efce3cc2130c400f46ba20067ead204"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site12.gate.bf16",
+      "bytes": 2672640,
+      "sha256": "de502f20a4c827fa1cf913a0108d3a6dfed1c8610d211f106e2c4897f2284d8d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site12.output.bf16",
+      "bytes": 1781760,
+      "sha256": "cd9f6d58a78857d5e6b5c62764b13e532fddc40e5266e025cf25a9ec258bae12"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site23.y.f32",
+      "bytes": 5345280,
+      "sha256": "a38a5edec6e09a3692024a58dcad665854050d8c04065ecda2ee0e71e1d2244b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site23.gate.bf16",
+      "bytes": 2672640,
+      "sha256": "e5de35c96115803ffb77e7a5579a041b915ac1760054317d9ecb6bd2bc2dc86a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_openhermes_100k_028.site23.output.bf16",
+      "bytes": 1781760,
+      "sha256": "9c5555cec69203c42f8f7a7c88638b95f40c5136512c1aa4eb9153cf42752e82"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site00.y.f32",
+      "bytes": 5296128,
+      "sha256": "52f0b9c8b5a66b8b2b5aff02a5c174d2754978fb9c84fe7f3bfb2b7e0d417bc5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site00.gate.bf16",
+      "bytes": 2648064,
+      "sha256": "27a6000e63f6afd5b3dcd44f8cf714d0bd2cac6a77e7bf29f3466a323cd35c36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site00.output.bf16",
+      "bytes": 1765376,
+      "sha256": "a958feb74570fc4147dc470785f3bea432bc2fc356b726aa4336e9e6da70e83b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site12.y.f32",
+      "bytes": 5296128,
+      "sha256": "3398b0a83714ec9562c0b7a56b1881128d735189c1a77299455450e8de663a2f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site12.gate.bf16",
+      "bytes": 2648064,
+      "sha256": "7a0479a444c5a7245ea649c05d5ec3bda9e6df91607f3d3b70544b79c6b3b605"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site12.output.bf16",
+      "bytes": 1765376,
+      "sha256": "85f5256c4156c846399b84b9ce330e226a8bb59d95875b9e2a7615385e52ec6d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site23.y.f32",
+      "bytes": 5296128,
+      "sha256": "16ee4046c3031f230bd560c38a54777220be66f37ad1153d2770a7fa162d1f70"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site23.gate.bf16",
+      "bytes": 2648064,
+      "sha256": "78a0a054ece25e9424001467c36e4628b7caa989e6d306f35a87b7eea3c29c17"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_006.site23.output.bf16",
+      "bytes": 1765376,
+      "sha256": "cda9c4de493681a347d437bbcfbddc88b64fed3410d05f69805687f53ddfe652"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site00.y.f32",
+      "bytes": 4141056,
+      "sha256": "bb506b954d9b875f5945a61b66ef8288f20f11277ade6f9267c54e26baad5d8c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site00.gate.bf16",
+      "bytes": 2070528,
+      "sha256": "d0752d65598518745e35d56952ee7aef8cfc6c97f696cb7177b457439e2914fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site00.output.bf16",
+      "bytes": 1380352,
+      "sha256": "4003c203f67b255b63fab0809091f9edf71b2914a110b932689d0c0d5a9f8e8a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site12.y.f32",
+      "bytes": 4141056,
+      "sha256": "6daa3b2a6e738ce5d61c55e25ccca0ea236137b57453a9a7fc6bb6ae5b532dd0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site12.gate.bf16",
+      "bytes": 2070528,
+      "sha256": "b3e4c7ab073e9acdd51953b3beac6dc3560cff8fd143efcc5fe7ee0ddffee773"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site12.output.bf16",
+      "bytes": 1380352,
+      "sha256": "f75ec10391e97c51370231c803145979c6662ba8c4ed806cefc05ede1ca861f2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site23.y.f32",
+      "bytes": 4141056,
+      "sha256": "44f0aae80bad36e5720cfe25a49e75504e2c832db8c2bf48a294a58748a98844"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site23.gate.bf16",
+      "bytes": 2070528,
+      "sha256": "6ea44eb838d4ebd5df9f68dbe6cda69ef34d995a7407fe877e052b1a2fbf1a42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_self_oss_instruct_012.site23.output.bf16",
+      "bytes": 1380352,
+      "sha256": "2304a2b7dc6b722c434cfdf4ab29f0228351c4d39ae4b990164e6e2a93445957"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site00.y.f32",
+      "bytes": 2924544,
+      "sha256": "7ceccbed4613903da66a81ed2748c1b20058e94c8af415fba5591e542c6153e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site00.gate.bf16",
+      "bytes": 1462272,
+      "sha256": "8bb676cff9fc13e2845bc68c714d89930ce6133b58d272015a30b3ccb9d6e56f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site00.output.bf16",
+      "bytes": 974848,
+      "sha256": "0377820f34b3b8de59a97620c572fb1e9cde38828759982fb68968394077948a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site12.y.f32",
+      "bytes": 2924544,
+      "sha256": "54f977966ea8f14e2ebde5a838e0abfb92fede9b3917eb98211123e89842e5d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site12.gate.bf16",
+      "bytes": 1462272,
+      "sha256": "56d323c2aa2a6b5029b683f5ee51425e0020b1fd41a1e64046aca85d3bc1cefc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site12.output.bf16",
+      "bytes": 974848,
+      "sha256": "997ae9d3f9536779a34f3867baec56eaae7983179f8b76347d6a5c4faf3abeda"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site23.y.f32",
+      "bytes": 2924544,
+      "sha256": "af3c2a75d41795969a85114b8a75e9a0d93daef167072c7960e14e6e2149b8d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site23.gate.bf16",
+      "bytes": 1462272,
+      "sha256": "d0cc792a3a2eac72968680f52490eb26c4f851bee3cac1efeb680fcf49b1d0a8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_005.site23.output.bf16",
+      "bytes": 974848,
+      "sha256": "03ab41cf16f613f9d90a538d378216b7a491d72c0eae7a01b6ad6c3dcb9a7727"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site00.y.f32",
+      "bytes": 3612672,
+      "sha256": "a1a912155a7b734e7b0a3c79343728f2901edd40495345bd27220668660f20f8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site00.gate.bf16",
+      "bytes": 1806336,
+      "sha256": "10b45c0eb26b7f4f7c6bbedc1cdced3731545d37abc9f9d19f00a1a26e5afab3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site00.output.bf16",
+      "bytes": 1204224,
+      "sha256": "b4f7962cbd7488a30c33b6895d9cf90d9401fe55571eda81f1f24ae79dddc577"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site12.y.f32",
+      "bytes": 3612672,
+      "sha256": "7edcae2968bff71dfa917e140380ecad383fdd25e08a0a826b699ad9f8c98dc5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site12.gate.bf16",
+      "bytes": 1806336,
+      "sha256": "9aebbd85b5ae52f46b3d5a2f0b89f2c8f6e8659e1b88210998bd32abc75e853e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site12.output.bf16",
+      "bytes": 1204224,
+      "sha256": "f3d1d2eea1f2dc85245fd3a1ee89b4d96fb12fc6402c90b73ee890078744fd37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site23.y.f32",
+      "bytes": 3612672,
+      "sha256": "b12dc6874135859f57cca06ed894412c2f120d7bf69ee2c43e4af4ec119c3177"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site23.gate.bf16",
+      "bytes": 1806336,
+      "sha256": "934468b026dc316a1b8ec55a4361dbcf2ab6fb709d132633d225801737e06fd0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_constraints_021.site23.output.bf16",
+      "bytes": 1204224,
+      "sha256": "f6a2560f0c1ab5dc3f3d3b7bb7ffa78cc4651e4fec010fbcf2597723ddfd3417"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site00.y.f32",
+      "bytes": 12705792,
+      "sha256": "b02e9ebe5e9867415757817fe3294803a9a8e40d0c2e3279068002952f2edbfa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site00.gate.bf16",
+      "bytes": 6352896,
+      "sha256": "dbbb353f9c7c3df3c202bfe200d4b890f4350c87c68583cba54ed601a77024eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site00.output.bf16",
+      "bytes": 4235264,
+      "sha256": "ffcb18adf8eede06445cfa621ddcf4e8ed9f34bdfc84c99e84d1888ce9c70592"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site12.y.f32",
+      "bytes": 12705792,
+      "sha256": "faf80b57b500e8837a435d419d67bf021cd448560f666e13254dfb4f127cd762"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site12.gate.bf16",
+      "bytes": 6352896,
+      "sha256": "447779bd3db84ce3e3fd706860d7604f3fbfed8e6a9f7ddd4b91b94713f2ea7b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site12.output.bf16",
+      "bytes": 4235264,
+      "sha256": "4c3161624b67a56c1e9101c282edf79c8eb1193028737b728eb17a7251973434"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site23.y.f32",
+      "bytes": 12705792,
+      "sha256": "9df3eae9128718a0727210bcbaa5ca55dc3c5221ab7b30091dab3bffabcfae34"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site23.gate.bf16",
+      "bytes": 6352896,
+      "sha256": "96914f426ef036420e92b9684f3710181e8bc4ed52e98b4a619295fb5c298bfc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_000.site23.output.bf16",
+      "bytes": 4235264,
+      "sha256": "373411bda9d04e9c48c98fc5aaef6db632fa895d95ed56c14a94ad3e8c4aceab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site00.y.f32",
+      "bytes": 18518016,
+      "sha256": "b6d46a6baf0712c3a11a5b9eff34277df2d87976ca15375726d7ea50fc7ea319"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site00.gate.bf16",
+      "bytes": 9259008,
+      "sha256": "e1406791bf9837234c1bbbf7c8920a2ebacfe391379ec9df243830e3f6df2f2d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site00.output.bf16",
+      "bytes": 6172672,
+      "sha256": "7bad52e3a8990b813044b6dcc89408d2741e340ccf11b1fef59eba77665e10ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site12.y.f32",
+      "bytes": 18518016,
+      "sha256": "206bf33189433f6e44e334709670069cfda13444ad6d7812b1ecf8fa65ee4c70"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site12.gate.bf16",
+      "bytes": 9259008,
+      "sha256": "6140cddf2031cfc0cdb380d3a86bc9d0a6bf8340941f5935d21402fb20550ff6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site12.output.bf16",
+      "bytes": 6172672,
+      "sha256": "cb231f66e8af0a012a7c8578703224a85e3f23c3c62ae007f4049b36e7cc5c26"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site23.y.f32",
+      "bytes": 18518016,
+      "sha256": "c1cda70807de76de0f4d7cee913397132b185033c472359b44bc01f8078a3844"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site23.gate.bf16",
+      "bytes": 9259008,
+      "sha256": "80f11355a19129f77db67cce8236cdcd93f13f2da90697ceef2929758f0e6af8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_magpie_ultra_022.site23.output.bf16",
+      "bytes": 6172672,
+      "sha256": "3a802eec285dee239589fa6f95cdec6e62e1f8b8e4e8bf62f2569643a8489ae9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site00.y.f32",
+      "bytes": 3096576,
+      "sha256": "a769ac4a8cd5e55d81625888c486ecf0755852951eda199c52a34012350d0177"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site00.gate.bf16",
+      "bytes": 1548288,
+      "sha256": "06ea829e10d8bd168821ce4b26ce4f619b86404937450e733a4b27ac0823230f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site00.output.bf16",
+      "bytes": 1032192,
+      "sha256": "9ad410cc2745d6f46be0c8789ff2adcc782d536bc3d03e6648466dd66fbb1a73"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site12.y.f32",
+      "bytes": 3096576,
+      "sha256": "85fad8fc76c7e1b96ffc1abb2e724a404bba5e07a06d6e779742fa4cf6ac9d31"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site12.gate.bf16",
+      "bytes": 1548288,
+      "sha256": "e62a032da815e9b3cd63efdd2c34423447ffd5181e742c47a392d329c84e5716"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site12.output.bf16",
+      "bytes": 1032192,
+      "sha256": "15b73b0656ee389a024918295804d1f7157d36ff7877c65a4ce3b47bfda9d77e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site23.y.f32",
+      "bytes": 3096576,
+      "sha256": "d34ce8616cf7d92cece7af595d5d618ce2453253e3d9e66b30465e99d251d7b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site23.gate.bf16",
+      "bytes": 1548288,
+      "sha256": "7d6dfc18c143f74a77f2cba2f0f89529f4f912eb4f52a6867c847791fd987ae3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_004.site23.output.bf16",
+      "bytes": 1032192,
+      "sha256": "ae6227d2ac694277310b79119e40a27dff06c54403ec46fb8c1af20086c15f0b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site00.y.f32",
+      "bytes": 6807552,
+      "sha256": "49a841ab09c770f132500d401a51c4c4740f22981afcff5637d9e1dd9a3415ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site00.gate.bf16",
+      "bytes": 3403776,
+      "sha256": "09467b5f0bdb1d8d29a29bf3a603cf523461158173baeab3bf76b3b65f6c7deb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site00.output.bf16",
+      "bytes": 2269184,
+      "sha256": "7fb0c0cf58fe1b0073018608f16d31257584d2b94d92e63227466476768cdaee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site12.y.f32",
+      "bytes": 6807552,
+      "sha256": "e528615648cfa34fff2f419cee3100f97123fec06a10d7f3e5a86e5c483d8a4d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site12.gate.bf16",
+      "bytes": 3403776,
+      "sha256": "88a95ff276bf065b260676abb5c822eba9fbe269012e6f67239702290cce1dc2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site12.output.bf16",
+      "bytes": 2269184,
+      "sha256": "8c39081ba9b3fcda528b32d9d2911fe8039a2fd8f4f35b92ebb31d6f602914c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site23.y.f32",
+      "bytes": 6807552,
+      "sha256": "3af50c4dcdb97c001359adab10154de83e4424d05fabbf6d5e10d02bf126a2a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site23.gate.bf16",
+      "bytes": 3403776,
+      "sha256": "0041a71f7fc08358410e5c68a5d0461eb2484bb5c3c1162bdb38484aa225d27c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_rewrite_015.site23.output.bf16",
+      "bytes": 2269184,
+      "sha256": "307fc256bc03c81def885547475c75d4310c5445ca9bd0581ddb510228ae3889"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site00.y.f32",
+      "bytes": 9510912,
+      "sha256": "40e648db68f9a3f65bd51bfcf16c863da21c4e3358a8c1044f9abbae0ba81c72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site00.gate.bf16",
+      "bytes": 4755456,
+      "sha256": "916bb143dab77005057ff5695edace9efd2a97431bf2fa78851426b83a605453"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site00.output.bf16",
+      "bytes": 3170304,
+      "sha256": "760746a78c4b6ceb7ff30e98521d95a18071f41e3f44ab99a793799a0b3e3401"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site12.y.f32",
+      "bytes": 9510912,
+      "sha256": "c2f8f874a088da373b2c400a72093f48a3a5000c7fef328a0ef9d5f82b7a605a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site12.gate.bf16",
+      "bytes": 4755456,
+      "sha256": "1c211bcbe51b1abee62b9fdc320b838a1c36a703227d0ee775e742ea8fd7f72a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site12.output.bf16",
+      "bytes": 3170304,
+      "sha256": "41b691861c10ecc71fb5aa0ec431fcfece88c52330c3a80eae880d408471a816"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site23.y.f32",
+      "bytes": 9510912,
+      "sha256": "c2cd881e9921609a73e2d273dfecce75b40babd7df419044c467093e5ff771ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site23.gate.bf16",
+      "bytes": 4755456,
+      "sha256": "38972cdede5150c36534523d96d20541eef60ea9f791f50d2ceffd5f1d4a22e8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_003.site23.output.bf16",
+      "bytes": 3170304,
+      "sha256": "b62c166737fd6635a83d66617b8b8e53d1b52db7840a6b568c61a2e1e6569d06"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site00.y.f32",
+      "bytes": 3244032,
+      "sha256": "ba78e6eeadabeeb28a56c959971a3ca3b8735245c4f29758da29762f3735adb8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site00.gate.bf16",
+      "bytes": 1622016,
+      "sha256": "af206e706390c0c07cfb1edc9f76949ff0f7217195c2cdaf1481c28f38ee920f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site00.output.bf16",
+      "bytes": 1081344,
+      "sha256": "ad6de5a39384c2a1f4832db669a92d88728f93d20b75d4b2c1e798231b59be6c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site12.y.f32",
+      "bytes": 3244032,
+      "sha256": "43a4017fd324aa40a7dffa02fba3e98938459705535dd6ea9af4d74182ed45d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site12.gate.bf16",
+      "bytes": 1622016,
+      "sha256": "28f2ea22b52da76c57f8745808c657ec64c9df7d12489626919a1ee7c99777e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site12.output.bf16",
+      "bytes": 1081344,
+      "sha256": "67b835f8438524c26e6e1e166085a82a1c4d0bc012437d414d1b8373c06df1a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site23.y.f32",
+      "bytes": 3244032,
+      "sha256": "616d51a964a68ac545731370ca03a33c8925ed4c9e00c28e77ed618d09673058"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site23.gate.bf16",
+      "bytes": 1622016,
+      "sha256": "7983ee702b9b53f2fcc33160e1e2d21675179dcc1067449766ea81c395353834"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_smol_summarize_024.site23.output.bf16",
+      "bytes": 1081344,
+      "sha256": "988ad214f675137c49101265311c6c6e095627aced1f768b1b78df91db3b841e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site00.y.f32",
+      "bytes": 12533760,
+      "sha256": "12e7cfbcacaf56a1664e4f7cb205ec57d8e09b408e5eceb535eea714073d48e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site00.gate.bf16",
+      "bytes": 6266880,
+      "sha256": "3e6030eb2688a0c5e8432b1e378172a5fea8e12734b9304d9879ca3835eb7787"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site00.output.bf16",
+      "bytes": 4177920,
+      "sha256": "fd347aeaf58ffeacd86b8108b403ad2f54532f40e750f6ddb5212bf6981b7515"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site12.y.f32",
+      "bytes": 12533760,
+      "sha256": "18f2bec88a11d89a4d075600244556d447864296c7784d4b32d2edb7dbcfeedb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site12.gate.bf16",
+      "bytes": 6266880,
+      "sha256": "4d5860a67cc36a94196c45e3d2e9d2598c969242c51eb101f3db0eb117816b44"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site12.output.bf16",
+      "bytes": 4177920,
+      "sha256": "e58e9d0384003164c6b126e42fbb10fa09419b60b5a3d267b546d93cdafcf21c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site23.y.f32",
+      "bytes": 12533760,
+      "sha256": "b4c5ad5e3f2960a00d6efedd893b22ad4d83579cd9b021bd7caf462eeea3bde9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site23.gate.bf16",
+      "bytes": 6266880,
+      "sha256": "6bd798b65be635e1c7ec7986373f2aee8fd7797e2e36d8c301065d7e388a404b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_010.site23.output.bf16",
+      "bytes": 4177920,
+      "sha256": "04b465a309e268ab23291579bc8a26877c37e51f4f0e81d1d595b40872627595"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site00.y.f32",
+      "bytes": 3895296,
+      "sha256": "c299bca93d6a521f9982197599afa7328abe31dd0459ce114fe15925d5b49362"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site00.gate.bf16",
+      "bytes": 1947648,
+      "sha256": "0bdf336965ea1123248c73e2619e6c48e389e07f8edf79c9c6bfc11af027a4cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site00.output.bf16",
+      "bytes": 1298432,
+      "sha256": "a07ca8df19e9b9df8aab00b7f0e154e68d727a2b32a55e2728ff9fb10681c788"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site12.y.f32",
+      "bytes": 3895296,
+      "sha256": "b05538321884558cc084cb569733551e37fb1b7befb46615cb5f4c75b6cee399"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site12.gate.bf16",
+      "bytes": 1947648,
+      "sha256": "9f3f7a7e9e2e34ab06985efbdd86b38bff1acf77dec39bbaf05728526d7ae474"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site12.output.bf16",
+      "bytes": 1298432,
+      "sha256": "d66657e4490c79dc9100a7e7d3bc5f56e6ae20708cb278b099fb7e1ba967e48a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site23.y.f32",
+      "bytes": 3895296,
+      "sha256": "8ab13e80c332f076fc4e5b75d37d627e54267f87b62c9b5cd557d1b82c942696"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site23.gate.bf16",
+      "bytes": 1947648,
+      "sha256": "87a93f5348a434fde8ef7870a5fdeecf60d147886ecb6caed1e47ff9c300f67c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_fit_systemchats_30k_024.site23.output.bf16",
+      "bytes": 1298432,
+      "sha256": "77845fe05aa17d0cd1c0278f535e9d2af9f4d33e5ec6cb5518105a4ec131d984"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site00.y.f32",
+      "bytes": 11280384,
+      "sha256": "539615cbf97a4c6b3682b8e066394271fbd524af5f2fa9512a7116d9c2b985ab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site00.gate.bf16",
+      "bytes": 5640192,
+      "sha256": "d4a4f1b657a67bd0e993305163033ae3e4c0226e308b1e594613db2621c83017"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site00.output.bf16",
+      "bytes": 3760128,
+      "sha256": "4c87d0fa29dffeae76299f79b1f30ff909f087175c281bc974d961c1a469086b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site12.y.f32",
+      "bytes": 11280384,
+      "sha256": "8be4197c0c6db893a2deeafa9bad573bb35236fed97ec22cdf242968e1ebe827"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site12.gate.bf16",
+      "bytes": 5640192,
+      "sha256": "8e0c908fa539ce276678bf41b1cf34003b7e35f04319a6fc7c7157695d84071b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site12.output.bf16",
+      "bytes": 3760128,
+      "sha256": "82c40af7786cbeea1586d9715905a0f6620d65ec50ad0cf48e25777bf3d6ab58"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site23.y.f32",
+      "bytes": 11280384,
+      "sha256": "57ebf5a17347d265fa2879b8fde8c1254b5b33a0d83cb8219fc0e71aa450cace"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site23.gate.bf16",
+      "bytes": 5640192,
+      "sha256": "331204a23d2b5ffe0ccc185b9e1e1df9d2bf4a02c655c6f2a5254fa9cf48cf4b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_033.site23.output.bf16",
+      "bytes": 3760128,
+      "sha256": "e4ea2ea39e07a4b3252b0f34724f8ff71839137ad22a7e9b755c10eadecb4fde"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site00.y.f32",
+      "bytes": 5677056,
+      "sha256": "76bf5abc4ea14f57c71e2512c8ea83573d349aa7f2c8401df9aace888ab232e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site00.gate.bf16",
+      "bytes": 2838528,
+      "sha256": "cfaf6f65b9e8b092afec1277c7891ce8a1c060ce56f9203f635b107742fb9404"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site00.output.bf16",
+      "bytes": 1892352,
+      "sha256": "0fe3f225e671fc4c051993787c32759305c58677345fc87dfbe78d3761daf5ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site12.y.f32",
+      "bytes": 5677056,
+      "sha256": "853261de08d3cc62fcc9233b4c76a089c0bf0ce0225f0e74b09e4669b0f76fa2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site12.gate.bf16",
+      "bytes": 2838528,
+      "sha256": "24968610811092baac1d2314b43d63e1f5a118ab62e3c85ea03e0f57cc2ed9f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site12.output.bf16",
+      "bytes": 1892352,
+      "sha256": "0ce55289c439222212a114390a6c650862914fa5f73c176b1c758797f9cac426"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site23.y.f32",
+      "bytes": 5677056,
+      "sha256": "a3ece50736426d54ab817edd2d4ff2a8ede14b38c20efeaf084880a852b5683c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site23.gate.bf16",
+      "bytes": 2838528,
+      "sha256": "f23677d91f6c5911907964f86bd0efd163e18c8dc0128df4c4413cad903d30d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_apigen_80k_034.site23.output.bf16",
+      "bytes": 1892352,
+      "sha256": "4e6eed1b45e69c7ffece7936401dab51ba844e66036857957d9b2dd1397b6947"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site00.y.f32",
+      "bytes": 4644864,
+      "sha256": "ca88bce8fd39d0bd866238a4275fa0e90ae006cf3b452ba2cec45a9414de69e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site00.gate.bf16",
+      "bytes": 2322432,
+      "sha256": "69c375d4542b812c8abb0bffc198f5e332cb7450100684727f64e77148dbb5b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site00.output.bf16",
+      "bytes": 1548288,
+      "sha256": "55c584a3716e5222021f37712e5ade1a68dfef2ce6abbb0b04bd227e6d25d326"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site12.y.f32",
+      "bytes": 4644864,
+      "sha256": "0caf43e23ba1acb4de37a9f1a1259a96ce7e018e9231469fc44b3fb58963d5be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site12.gate.bf16",
+      "bytes": 2322432,
+      "sha256": "4f62b02a211ee73f8962c2d3e1cc9ed953fccb4201596e046fb6bb523e1a24bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site12.output.bf16",
+      "bytes": 1548288,
+      "sha256": "f0f1008a3774dd5e6307946be4267d8e6d4e13340bf829a7596cdf5f5dbb9143"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site23.y.f32",
+      "bytes": 4644864,
+      "sha256": "58a085037a953688370b9edd7504f733de50ad36107e4e153219e2b2ce94fb5c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site23.gate.bf16",
+      "bytes": 2322432,
+      "sha256": "d52128cb2c87d74041184ddaf2a0fabd6476dbc3e7136b8e4c8794b57df3e7da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_033.site23.output.bf16",
+      "bytes": 1548288,
+      "sha256": "774a5ae570a4f99a0e007a3aaab413fbe88f226bcb0f0e8215b903e88498f59b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site00.y.f32",
+      "bytes": 2457600,
+      "sha256": "65cb0173de350d6a7343ee88b6e83b7b1f7ea6053dff45dade3f0ba185e370dd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site00.gate.bf16",
+      "bytes": 1228800,
+      "sha256": "aaafbf3081ca1a540a5bc26b0cbba2926f8933c0d81d9f7f27674b2042b04ade"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site00.output.bf16",
+      "bytes": 819200,
+      "sha256": "f091833ba31de9b3e8baac6b2352ce538e611cb82dccc1a2060cd8dc9dc76d3a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site12.y.f32",
+      "bytes": 2457600,
+      "sha256": "dbfffb539c4146d5dde64a3e14d175c70eb47ccaa60013f4165638c31dc98d10"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site12.gate.bf16",
+      "bytes": 1228800,
+      "sha256": "1f2015ac7a17d5fb6180ae58b2e6e45c46b2ecef0485bfd431457def74046c7a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site12.output.bf16",
+      "bytes": 819200,
+      "sha256": "010423eb5c4a39fe54620886f121c6f5dedc881176f4c3589687b51f1e48eef8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site23.y.f32",
+      "bytes": 2457600,
+      "sha256": "4cfa9c835d2b6e93a3b7020777fd8badbcdac4328dccb20578bc9fbcdc7cbdee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site23.gate.bf16",
+      "bytes": 1228800,
+      "sha256": "d4f06cf0f045fff9b02c505722dbf2126c45a3efe4c4b2d83190c64bad965c58"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_everyday_conversations_036.site23.output.bf16",
+      "bytes": 819200,
+      "sha256": "fa09f5e4d7f734e252aa21a29b311f17150f2220ab7fd8fa4d1c5b76f51beaf8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site00.y.f32",
+      "bytes": 749568,
+      "sha256": "5ea5d4fc36022d4271289b1017b930a8e0275ca1523de0dbfe3c0f53ef31bccd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site00.gate.bf16",
+      "bytes": 374784,
+      "sha256": "2152544a56c45b05e5d5ee9b67961db75b115e3f7e1ad35595cbaee2dce352af"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site00.output.bf16",
+      "bytes": 249856,
+      "sha256": "b99ccb802a0d470a87b10b00e21eee51d9d89dc3d7a51a2eb43f28d3843166d8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site12.y.f32",
+      "bytes": 749568,
+      "sha256": "852ce005a181250f1dbc6a44c381689b46a506d5aaff6644f0da7e0a232556e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site12.gate.bf16",
+      "bytes": 374784,
+      "sha256": "6ab28612da64d31321a28ccb89516a2a3f04e18447f2993b9ae56a616be483b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site12.output.bf16",
+      "bytes": 249856,
+      "sha256": "98ee3b87ef86900106a8292282ffac770f0469d0cf50ff843d9925e95b54e41e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site23.y.f32",
+      "bytes": 749568,
+      "sha256": "a93841558b1bc7683805c778658e27730b78e3541d5b330f4d3c3febae4b199b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site23.gate.bf16",
+      "bytes": 374784,
+      "sha256": "49ff5c8829c94636d53496b436897fa0339eab9bfd8c5b3744ef93b5a56aec41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_035.site23.output.bf16",
+      "bytes": 249856,
+      "sha256": "b5d89e2dd3529bd09d619265119386b68bcc4cb6d8175cc902d544499fa34123"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site00.y.f32",
+      "bytes": 3969024,
+      "sha256": "79ecf748daf0a720a10ba5d811c8dbaee48b432152a554d75d74b3c328f73785"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site00.gate.bf16",
+      "bytes": 1984512,
+      "sha256": "435c48ec3c709acdf8a2bf4fee23cf6b7a1bf7d7a04fa13321b1443edcd413a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site00.output.bf16",
+      "bytes": 1323008,
+      "sha256": "1c3fe475d7c9422e5c9e927ddc795f87aaf93f7802b6f5205c854bbbb5e3bbd1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site12.y.f32",
+      "bytes": 3969024,
+      "sha256": "391e46d56bd35308ff02c6dfd7ae2491cb68860fe700687136c82faab314307b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site12.gate.bf16",
+      "bytes": 1984512,
+      "sha256": "abc2aa9e495067366e53c5fbae79ba91871bf115c5dd538cc5d675505134fb28"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site12.output.bf16",
+      "bytes": 1323008,
+      "sha256": "dc8f4c2e095e79b2fbc8fb15af3c2a9549a5d1911b320cf65fca87bd08e26528"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site23.y.f32",
+      "bytes": 3969024,
+      "sha256": "3add6472a4aa9e335ef1ca06d2693d14270b601572be3c9e09eff6b539df3b4d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site23.gate.bf16",
+      "bytes": 1984512,
+      "sha256": "b345fac9b211f3711d8cb47d5f380adda1f57d2eb1f4753fcf53987b5b5f95b3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_explore_instruct_rewriting_038.site23.output.bf16",
+      "bytes": 1323008,
+      "sha256": "995e157a34a7eda7f4aef8e38b02d18ae4ead115cedf322c60452d220b75565e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site00.y.f32",
+      "bytes": 2985984,
+      "sha256": "b70119c511a9672e2eeeeb582cab89673baea0f547173ffdf8b04f01e4b684a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site00.gate.bf16",
+      "bytes": 1492992,
+      "sha256": "cc73546c5140e38a59281ade0219ef403a85891bc26a05880ed00cbcd3adaea7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site00.output.bf16",
+      "bytes": 995328,
+      "sha256": "a6499be628b69e7d2e5d3967698ff063ee8a55919ec4147dc3b0a1821f129116"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site12.y.f32",
+      "bytes": 2985984,
+      "sha256": "60c9d363bcc3e38530e6d484c8ff1ddf8451fb08704782c0bfb222887641b53a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site12.gate.bf16",
+      "bytes": 1492992,
+      "sha256": "700497d3a7fd3b9d08cc66e4b56dce77793f6c9204b69e24aeaff2c7f562b923"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site12.output.bf16",
+      "bytes": 995328,
+      "sha256": "38ba7f5ab343d4184437283d3060a10e77d7faae36b6d6f79e422179dc3dce56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site23.y.f32",
+      "bytes": 2985984,
+      "sha256": "e5566969c012c70dce6fee46a87f04fbcc687f170d690e1b2f2bff1725a6b200"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site23.gate.bf16",
+      "bytes": 1492992,
+      "sha256": "9e75460bf0c808708dfad71c63d23d55a4ed0d9ee8248b5fc5639e3d4e685709"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_035.site23.output.bf16",
+      "bytes": 995328,
+      "sha256": "eebd113ec931eabdf45db4acf5ad6e6472cecaf2e1b4495c68e7628e43b93e19"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site00.y.f32",
+      "bytes": 4325376,
+      "sha256": "5228a8c9838c80022847e985bcca4d3c9955cd62f82003614c34f74b5323af02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site00.gate.bf16",
+      "bytes": 2162688,
+      "sha256": "2baf1dad1cf00b976385529ee2e11fa041196379ccfbc680219a16b7d98e7130"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site00.output.bf16",
+      "bytes": 1441792,
+      "sha256": "f2f52e0fa8d478302d1ef9211a7f114f5c6b6d016c01e296abc45d90203714f8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site12.y.f32",
+      "bytes": 4325376,
+      "sha256": "072b5763501f49764ddec480a948032eb1d7677f61cbb2292628f55eefac820b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site12.gate.bf16",
+      "bytes": 2162688,
+      "sha256": "e8cd2a534e7e19e753a213b2b164f7cf581984f505a33e0089e715f9f3d4cf94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site12.output.bf16",
+      "bytes": 1441792,
+      "sha256": "c3ad08f2e3a692f5b6f2f6bcc223f6216689f51aaa2a9f218a26f2b2ba6d3d2f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site23.y.f32",
+      "bytes": 4325376,
+      "sha256": "12e4740963314fc0e9dd36bd144f0b140964b6ce84a377dc662f20faee02aa3b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site23.gate.bf16",
+      "bytes": 2162688,
+      "sha256": "7a517fffbe3713df619d37caaf5ee641f72aa672b463e18925048f4200437102"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_metamathqa_50k_037.site23.output.bf16",
+      "bytes": 1441792,
+      "sha256": "c2ceb1587d86e91f1a190873449ae28421da511badbc31b92851a0b53a7413d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site00.y.f32",
+      "bytes": 4755456,
+      "sha256": "e34e6c7232b2c63daebafe073ca03ad3d9b1364644516ff3645421f6ff4ba594"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site00.gate.bf16",
+      "bytes": 2377728,
+      "sha256": "161b497d9e142c8b683ade548a0cde666169594cb47bd60f24e1f2faa4b987bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site00.output.bf16",
+      "bytes": 1585152,
+      "sha256": "2b47b2771ae8cae490313dfcc6d7fdc46a9309d6d28a6dea675abbb7806c6b5f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site12.y.f32",
+      "bytes": 4755456,
+      "sha256": "4f7fc2c17dea4e01182eb62d753ffbec6a331fb46c593b8589d1991f1931a493"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site12.gate.bf16",
+      "bytes": 2377728,
+      "sha256": "8867ac4c6de499d8cf9ae1c398ede81888fc43387362c540591b3568c27e851e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site12.output.bf16",
+      "bytes": 1585152,
+      "sha256": "661092e22e4d93c0148d1c5ee0493b35390bd26d346c0b00407d4387dcb662c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site23.y.f32",
+      "bytes": 4755456,
+      "sha256": "27f415ca15394f16051ddb3a30d069d137edfda1bd7ae914d8508ea439e45e16"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site23.gate.bf16",
+      "bytes": 2377728,
+      "sha256": "b5f2e09027d65c3878bf41b50c3877ae21e911b7771b9eed84e44c2a6580d915"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_035.site23.output.bf16",
+      "bytes": 1585152,
+      "sha256": "bb06fc363b7c27f909787f24f1fbb195070150f78cb6dc364c46119b647a1628"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site00.y.f32",
+      "bytes": 3907584,
+      "sha256": "590176643fd64b2bf83138896d41a1cd244bc9c40939464acfac21fec82f6c63"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site00.gate.bf16",
+      "bytes": 1953792,
+      "sha256": "7eb59c01000192394b720653cd5c7ebe98c6426b31b94abc8da8fb07404b4559"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site00.output.bf16",
+      "bytes": 1302528,
+      "sha256": "453cccdda886155063882411de45b8c37ae520d780fdf0b8e9bb7b1553509832"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site12.y.f32",
+      "bytes": 3907584,
+      "sha256": "f2602117aa518afbeb68720b4723ff2a3889d34071203c592ccc49874cd19900"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site12.gate.bf16",
+      "bytes": 1953792,
+      "sha256": "b82adb8bab73fe4db3d77f7e66233b0fa2bbd6ce21a6c2beabefc2318452f120"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site12.output.bf16",
+      "bytes": 1302528,
+      "sha256": "38c5a9f01e55d0b442d918ca291477a763608f62a24b5e855dc094031221418b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site23.y.f32",
+      "bytes": 3907584,
+      "sha256": "b6b569a72286f8e384058c6da1868872f3be9f06689628a6b0cfdcb38f37d1cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site23.gate.bf16",
+      "bytes": 1953792,
+      "sha256": "635e0a8c42f140e2500ed651fa1ed2fe6af80795f4e5a58157650ffa16228b56"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_numina_cot_100k_038.site23.output.bf16",
+      "bytes": 1302528,
+      "sha256": "b578a8ce9f96cbb1bdd5a059cc2006687a5ac7168bdbaa23b2908442228ddebf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site00.y.f32",
+      "bytes": 3551232,
+      "sha256": "c361e96b1449ade7f5cd7fdb85a23632421ce83a9657c5804b7e694417dd67a3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site00.gate.bf16",
+      "bytes": 1775616,
+      "sha256": "fe29c8488313a5daa7578f4b3ab8e9ac820455358d3341eb637190938e0336f0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site00.output.bf16",
+      "bytes": 1183744,
+      "sha256": "2c87235ced7e07fc7c0858e943bade4fefa61f99dfe260b99eb403bc2dc1b467"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site12.y.f32",
+      "bytes": 3551232,
+      "sha256": "eaa1b61490a1ba19aaddd126c72f2b75e14a28e8cd69e2e9b87d8f04adc089e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site12.gate.bf16",
+      "bytes": 1775616,
+      "sha256": "3b3ac9c7c693f8a8aabcb90bad3530857f2c98e74456f529ef7ce05d386ad200"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site12.output.bf16",
+      "bytes": 1183744,
+      "sha256": "b0f756446f5606270f7d837ac3ae658b61848be9272225720e8a89abb8f814bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site23.y.f32",
+      "bytes": 3551232,
+      "sha256": "23600861ae55bcd43729234e4e00d78905e5a929be4b4835dd9e164af2f2573b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site23.gate.bf16",
+      "bytes": 1775616,
+      "sha256": "be1ccf958a3be1773a240b53615244a2b8b41bc9a4a7afac4a5dddb418d65ab1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_034.site23.output.bf16",
+      "bytes": 1183744,
+      "sha256": "242c20c16316f8636a4f563c800ffe8a872ede0acb9780691629246aeb8c3e9a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site00.y.f32",
+      "bytes": 4374528,
+      "sha256": "c45fc26dc4547e942759380ffb4cabe3d31af064a455cef1f226f4b63bcda362"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site00.gate.bf16",
+      "bytes": 2187264,
+      "sha256": "7ba8696470aaa0fc672ef6923379220b8580c70f5653ecadda99acc9a9be4775"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site00.output.bf16",
+      "bytes": 1458176,
+      "sha256": "49f4a53945547dfbc49a7e51e86acea509804a22804b411963ba6d163a072e88"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site12.y.f32",
+      "bytes": 4374528,
+      "sha256": "0fb4039567cd155d22a7877cb062f4517a937ee064d9a3b8f50213c65214a928"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site12.gate.bf16",
+      "bytes": 2187264,
+      "sha256": "4b3d18a1de594c99b3040ef6548ead4b3f25b029ebec1aec26b000729eafb163"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site12.output.bf16",
+      "bytes": 1458176,
+      "sha256": "1f04d4de9cce83050a6649b8a9d24934e647818a23ac3e43057ac46b6e4939cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site23.y.f32",
+      "bytes": 4374528,
+      "sha256": "1adf102ae4d3a6445c6fc60b75a691d932f0a637b83b984553f62aea6a9cceeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site23.gate.bf16",
+      "bytes": 2187264,
+      "sha256": "c0aa5e177f2f4d787ecf0da86a7abe499439c5cfc812babc718958610e8c9fb6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_openhermes_100k_037.site23.output.bf16",
+      "bytes": 1458176,
+      "sha256": "84b657f5219c7afc3b1d5b1d8e14a4f02523f40141b9b061d28ae74ee12950f5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site00.y.f32",
+      "bytes": 5136384,
+      "sha256": "5f8799ce9155bbfee321fde64729dee31e39d43e025410bc9d057e0aea6473be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site00.gate.bf16",
+      "bytes": 2568192,
+      "sha256": "304ebc64dfac053871bce2e454bd1c84effe807fe2bbc6497934038f47f6b902"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site00.output.bf16",
+      "bytes": 1712128,
+      "sha256": "d0e7540d218705ed3cc949482c647d507145ded52767964c26e9e62771a076ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site12.y.f32",
+      "bytes": 5136384,
+      "sha256": "9ef48dd595cd13a481e138954cb428e3cbd08ce82c91359a2456b7b179a22db9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site12.gate.bf16",
+      "bytes": 2568192,
+      "sha256": "d25614e4dcc334ad84155ec81188e89406dca998a242a210effb162176f0fc37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site12.output.bf16",
+      "bytes": 1712128,
+      "sha256": "45529bffc0a42b63684cee07869c11527837b1b488edb95507351e44e941f5f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site23.y.f32",
+      "bytes": 5136384,
+      "sha256": "c97d4691307ad5a2860ce08be1b8f595dac5a867403faec1067bc70e0f3e76bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site23.gate.bf16",
+      "bytes": 2568192,
+      "sha256": "9af6e755140719918a3e97244844aafbbc1a1e658f441f34ff1b5d7e8bafc56d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_033.site23.output.bf16",
+      "bytes": 1712128,
+      "sha256": "efcc19cb4b60df66de91952580f4d0fadc5530b4f28f64da28ab03704542043e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site00.y.f32",
+      "bytes": 4386816,
+      "sha256": "6b25b4f0358d4cc61a60db58a898779f06eee6b13f3e957a523fed6d81a8d2b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site00.gate.bf16",
+      "bytes": 2193408,
+      "sha256": "37d1b0f5b2a21c21cb1474ce6a15ad943144d8534ad758771645ab84903daac1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site00.output.bf16",
+      "bytes": 1462272,
+      "sha256": "b1be9021c42cb3ecdec98639e7505e1e5600562b4e80c5d33627fa2576e827bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site12.y.f32",
+      "bytes": 4386816,
+      "sha256": "b09460d17c7378a2feda14feb572d1a2f47fe526bf94a1679e94d8a93f878d9c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site12.gate.bf16",
+      "bytes": 2193408,
+      "sha256": "41cf2246a07659268869a1e4858c92a0e68c7b7dcd7622cf66c0c4eb037b2d06"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site12.output.bf16",
+      "bytes": 1462272,
+      "sha256": "01ede0a5b39535236a314a3dec0340f451e3a38db2fa8f1e0b37dffa01eaadb1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site23.y.f32",
+      "bytes": 4386816,
+      "sha256": "4a56585065ed535fc256d76b0dc0372d1327e0e203f57c6756780e5236717598"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site23.gate.bf16",
+      "bytes": 2193408,
+      "sha256": "0e2f834f5ae599a8020173387be509f640ece29bc7b078b9884b8c9309ed4ceb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_self_oss_instruct_036.site23.output.bf16",
+      "bytes": 1462272,
+      "sha256": "110f39c4461b7e1b25e06dafb3a883e03d7df8449194bddf39611a8a118127c0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site00.y.f32",
+      "bytes": 2310144,
+      "sha256": "d17d5f63d83e5cdd04a378c11511089914f3f1ff36723cf6bc8f2c4df4bc318a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site00.gate.bf16",
+      "bytes": 1155072,
+      "sha256": "506d98fcbbd96cb9dd8a60546ab854b2278aedc84e654f2de90fb26a63621c4f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site00.output.bf16",
+      "bytes": 770048,
+      "sha256": "781bfc2dc31d027cf5858f28fb64ac68b8a973f79a5fadb266cfd6eadc7f4523"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site12.y.f32",
+      "bytes": 2310144,
+      "sha256": "5801ef87ebcd8184aa299f7211e7199aced47488a1b0aa677a15a7288c3dd97d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site12.gate.bf16",
+      "bytes": 1155072,
+      "sha256": "993aa7c6bc2d18817512e40e564d3b92e0ea1780cacf1e6130d3815c1b8ca8ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site12.output.bf16",
+      "bytes": 770048,
+      "sha256": "f68c49b688107d3ceb98594e8731b1263baa49a63a9c223a82aa6832190a08e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site23.y.f32",
+      "bytes": 2310144,
+      "sha256": "8e556b9834cc9bbae61629481f4fab35534716019b9fe5711c9fd5fec5c32df3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site23.gate.bf16",
+      "bytes": 1155072,
+      "sha256": "e18bae3a36668c2fc218a8b8b3f5a87b9867ac532bcc967e167cbe2750decdf5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_034.site23.output.bf16",
+      "bytes": 770048,
+      "sha256": "265cdfa8a33ae686da1a44aa6aedba669130650e564cf2c47df2e44bef3838e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site00.y.f32",
+      "bytes": 1314816,
+      "sha256": "f20d225d25b1c07a52af42268e8986a90759c588d24c45baa9690661079a921f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site00.gate.bf16",
+      "bytes": 657408,
+      "sha256": "9f0f3ce458c856f51141ee588fd4aabe22245a524d1192702b000f46a207cde5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site00.output.bf16",
+      "bytes": 438272,
+      "sha256": "1c7faf6bc8da4e553b83a17c8161f52614d760b45e0b0cb28e1c3799f4513bdb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site12.y.f32",
+      "bytes": 1314816,
+      "sha256": "ca7822e0ce0fe3ad1fbc12c90cc448b7051e598172a422a7666d171ba2e89e02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site12.gate.bf16",
+      "bytes": 657408,
+      "sha256": "741dadacb6ae8cfe1c499a6b527d483bc79a474baccd392ee9f1e16a6a8e119e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site12.output.bf16",
+      "bytes": 438272,
+      "sha256": "ff56abd84b437f1dec0c2d03d847001469ca8632d8afd196860b52095528db5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site23.y.f32",
+      "bytes": 1314816,
+      "sha256": "8df2219eeb3dbbff26d952a6f24965674d37449f32eb4aaba4a9184c51028613"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site23.gate.bf16",
+      "bytes": 657408,
+      "sha256": "887d464660ec935c1b12ae234eefd7248efb2d0b7a6cee615352ebd2931fde4a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_constraints_035.site23.output.bf16",
+      "bytes": 438272,
+      "sha256": "85cd93d0971127603be3280b8366cff5ae14f56a298576546ebea3d4fd0a749e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site00.y.f32",
+      "bytes": 15581184,
+      "sha256": "1c98f04045e82366acc1bee9901d48d41bd1e54fdb8dca084a0f0454a8d2fbad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site00.gate.bf16",
+      "bytes": 7790592,
+      "sha256": "cd8e4a7a579db3da48d80dd8fcb746db6e9b0354c316e0c94c9b5a90b4dca05b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site00.output.bf16",
+      "bytes": 5193728,
+      "sha256": "c7b9389a29ebf7b24c3e28b12d3114924511be1a62b3d9a6b3a74fecbee776de"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site12.y.f32",
+      "bytes": 15581184,
+      "sha256": "dba6b195ef6c9a19cf0cde764de0e66afe45a840b0da7e2ed17cc8014631cfdb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site12.gate.bf16",
+      "bytes": 7790592,
+      "sha256": "236d4163302123275d2707b8f924baa852a541390ef86c1642959891af7c24f2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site12.output.bf16",
+      "bytes": 5193728,
+      "sha256": "9aa2b9d04e0966b57fc075a2390c5e340dd8d6b5ba98618d254d47e16f40e8d6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site23.y.f32",
+      "bytes": 15581184,
+      "sha256": "b975f5432f077a4191f2b931080e696ca00b3fc12b9323fba1ddd1da29f88d04"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site23.gate.bf16",
+      "bytes": 7790592,
+      "sha256": "05980daf5a14c16bfccb27c55ca31e898f13ce705fa5ae695ba525149666aa16"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_034.site23.output.bf16",
+      "bytes": 5193728,
+      "sha256": "40fbaf74ffcc6bd639befd560ecd00efa4db147c183b9507350c336fe4d2d0ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site00.y.f32",
+      "bytes": 18284544,
+      "sha256": "a64dc6ef91c0cb9a1213f010f895029fc5922d56a782e79b84b0a3415cd56a32"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site00.gate.bf16",
+      "bytes": 9142272,
+      "sha256": "105e207a21082bd0430f104f1fdab234a8d35718b1689847550680ef2970f188"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site00.output.bf16",
+      "bytes": 6094848,
+      "sha256": "f21da2fee1dbfd09ab75cbabddf60126a9bff549cab4028a658cde3fbe38ad24"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site12.y.f32",
+      "bytes": 18284544,
+      "sha256": "c1221352089ac1f1544f5a00bcd7b0795c9115617b4f17022c10c93edeb21c7c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site12.gate.bf16",
+      "bytes": 9142272,
+      "sha256": "137fc5a9e340813648dfffb126d5819260fb0f2de518e906b6ea83488f7f4df9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site12.output.bf16",
+      "bytes": 6094848,
+      "sha256": "72c00bacb8af4a5962cfdfed6009df63f6cea6e3cf7e7c7f623f7d91c22bde90"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site23.y.f32",
+      "bytes": 18284544,
+      "sha256": "2df3e1fd3068044f964627c02e209c7a586d679bcb77771a6757ae8c2e69cd89"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site23.gate.bf16",
+      "bytes": 9142272,
+      "sha256": "6bc64543c4d28f24bbe011d805e7bc04c10d94d3d95bc84eba70dad4d50c1871"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_magpie_ultra_036.site23.output.bf16",
+      "bytes": 6094848,
+      "sha256": "4d1d88c6e14658c5eb18e32e7c6283d41752635c8bee433ac8627940a6ab2d21"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site00.y.f32",
+      "bytes": 6168576,
+      "sha256": "95fa825936931e978afa3c293e9c3ae02c7600b57017e07de374e6474bb160a7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site00.gate.bf16",
+      "bytes": 3084288,
+      "sha256": "dffcac97e7ef60d1c90509765bed57fd0ea5f21f386a6fb0c05e4c6007144f31"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site00.output.bf16",
+      "bytes": 2056192,
+      "sha256": "d7fcad5b36b336beeceabef8c67cc0d95f2deb1baaa17c7be576b0a7da9fb5a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site12.y.f32",
+      "bytes": 6168576,
+      "sha256": "5d8c58fd4ff7b546a600cd9e912305712bf861039e8b78ee44d5e670c4acb62b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site12.gate.bf16",
+      "bytes": 3084288,
+      "sha256": "848b7c46322dc9499f9334c1a85b897643eb223760f35dc61df0616cef212459"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site12.output.bf16",
+      "bytes": 2056192,
+      "sha256": "3139840c31046504db9926140345504168ef69ed5d06849a354409f1caa8c064"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site23.y.f32",
+      "bytes": 6168576,
+      "sha256": "00ebae106aa80f2f88c49a8acd80ce32f3c72741a46e704c9799dc15b836b10b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site23.gate.bf16",
+      "bytes": 3084288,
+      "sha256": "f2172a8d36f6d866703e1bf2411e5d5e0b3886e36f99c9760dd40fc9d82a5723"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_032.site23.output.bf16",
+      "bytes": 2056192,
+      "sha256": "3f8fbd7781ba751b7fa5bca19467c58d064785487788f37174b9420619c53183"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site00.y.f32",
+      "bytes": 4595712,
+      "sha256": "c55c5e3b46cb28471c18761f8bc5cb0f038c1273869a1cad528ae61dc28ae2b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site00.gate.bf16",
+      "bytes": 2297856,
+      "sha256": "8c860229c5bbe760438eef05e1dedf5c4987d41eb9b5b4c57ba5219c49d9af0a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site00.output.bf16",
+      "bytes": 1531904,
+      "sha256": "91900138f8595bbae0c669afb42ed0e717bae39e586eee5f346cd39578a4ad3c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site12.y.f32",
+      "bytes": 4595712,
+      "sha256": "883a50472f38982f25c04dcd428fff1de5471b3fb436fe75c1bf0f82574ec11e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site12.gate.bf16",
+      "bytes": 2297856,
+      "sha256": "b1f4a7c40e84ea7c966481eea0a288bb0dd4b8ec7009bca2507269f8307a8d91"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site12.output.bf16",
+      "bytes": 1531904,
+      "sha256": "258d1361e60e70475511e4627e2f37eb14c6bbd139559e49f5bab74175642907"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site23.y.f32",
+      "bytes": 4595712,
+      "sha256": "a0441a10ec14df9ce4feace39ffe22403267341553ce3a21525dac74e2bc721f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site23.gate.bf16",
+      "bytes": 2297856,
+      "sha256": "b2fab3477d61dbc85f24e26e64233848abed51a40929726dffd57f59d65ca860"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_rewrite_036.site23.output.bf16",
+      "bytes": 1531904,
+      "sha256": "8d8d1037e2e7d96de4d940ad6665423e2a0b1c180b8eccf815163fe8cd2e1cfe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site00.y.f32",
+      "bytes": 2985984,
+      "sha256": "c8984032220ead8a6823e910d87d30eb2c962cd662701a55e9579c0211565329"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site00.gate.bf16",
+      "bytes": 1492992,
+      "sha256": "dffa3fbbbc146278a04307f8803bdb70bf0ee9e6dc24a0b67b45ea6834884b23"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site00.output.bf16",
+      "bytes": 995328,
+      "sha256": "1a68a4944813e529b05e89083445a7d3db67792ec4fa44eb4809252b9265091c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site12.y.f32",
+      "bytes": 2985984,
+      "sha256": "74a1f5c1b4317aa12c49394549edcdf3bed1f060d6403c984e5103ee70caf390"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site12.gate.bf16",
+      "bytes": 1492992,
+      "sha256": "006843431830d839891688042d63ff5111fa30d723c9b3b071adf5fdaca34156"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site12.output.bf16",
+      "bytes": 995328,
+      "sha256": "112f80a8926e7b1e3aeef2a8f88aa12167901a874f86a218c9e90a6c2e91f6c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site23.y.f32",
+      "bytes": 2985984,
+      "sha256": "bbb24a6a0a44385ff7d03cf488300e07d7572697256ee1a887389833743e860b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site23.gate.bf16",
+      "bytes": 1492992,
+      "sha256": "7166236418d26286e906a2c6fa0fe04a3b718e4b017e34c2031b9549faf873ba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_capture_20261009\\broad_dev_smol_summarize_034.site23.output.bf16",
+      "bytes": 995328,
+      "sha256": "9c219c02c23151167c49fa5db01355e8705c38fa4c771f01918f17da83445757"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site00.y.f32",
+      "bytes": 12042240,
+      "sha256": "f9ce1ce97372da2f371ecc66fdadbf6e35d309f984075cb11dd54aa39c53acc2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site00.gate.bf16",
+      "bytes": 6021120,
+      "sha256": "a63ff2768db80b12b567d3ee2d7d9991248787788390dd52903ab9ce52dfbd36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site00.output.bf16",
+      "bytes": 4014080,
+      "sha256": "997ac8dfb6bd73fb62074575104a989c92f01fb8b9e43bcef4f3a2e84e6baf97"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site12.y.f32",
+      "bytes": 12042240,
+      "sha256": "c5f68697f647af9bbb401e552e92ac3b8b0aeeb121f7bc61cea2ee255262d7f1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site12.gate.bf16",
+      "bytes": 6021120,
+      "sha256": "f0f9761e3604963cedd86c136cff8f697b8b32ae4b77ba0d9bf52768e55ddb1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site12.output.bf16",
+      "bytes": 4014080,
+      "sha256": "3c5236f5dc804a0ca6e4593832d717e01fd6d1c660c699265f4f8235aed063dd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site23.y.f32",
+      "bytes": 12042240,
+      "sha256": "a0db8375fa8e40e2e78d5c2d04448f6f0edec8602e7803a8a26f8d3470786c41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site23.gate.bf16",
+      "bytes": 6021120,
+      "sha256": "821712ca132a57afa754942c0c88550011578acb38b37ae8f33dd6918cdf54f2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_smol_summarize_039.site23.output.bf16",
+      "bytes": 4014080,
+      "sha256": "5eb198a8459ee68ff3bbf7bd187368d014b2eb0f29eedc996d31731066716f88"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site00.y.f32",
+      "bytes": 10936320,
+      "sha256": "bf010a547b6360a70c5e503f6259184a4a2f98fcdfd89a72b6ac51c227ca74e7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site00.gate.bf16",
+      "bytes": 5468160,
+      "sha256": "8d429575ceaab3999e47e79b108a7fdb458058f011bfa5afa36e9cb2eb1a7640"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site00.output.bf16",
+      "bytes": 3645440,
+      "sha256": "47bc4f98053c568d6b406c177a8d78282c5567372bd21bff1cf461e3ba59bb60"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site12.y.f32",
+      "bytes": 10936320,
+      "sha256": "2ff6f2e3ecb55a2e913c2bbd4ae80f65c943d52c9062a181653e9b31b5db21d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site12.gate.bf16",
+      "bytes": 5468160,
+      "sha256": "fe018028e2a4ebdccb84bcb14485a43d200ffea33a198b6a324f0becb2bb747c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site12.output.bf16",
+      "bytes": 3645440,
+      "sha256": "8aeb27d8baf512f547370bc5a8565900a47cbf8f6566c35be6ce273c9b61a0ed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site23.y.f32",
+      "bytes": 10936320,
+      "sha256": "fbef3acb4faf905b7720740e0819c42a50b68a309e61411363f3a33af97f2de8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site23.gate.bf16",
+      "bytes": 5468160,
+      "sha256": "0acc26024635e69dc787fd2b343374e3524484abc5c00323295760b67c6a8300"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_034.site23.output.bf16",
+      "bytes": 3645440,
+      "sha256": "2c5818eae5b5aa207b852a9e210ed1609e66b0145863dde03810a80e7f33d3f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site00.y.f32",
+      "bytes": 3649536,
+      "sha256": "0a9b566eaf6362a44979f767ac2962ab46a2361a542921b8ced6ed5bcb28803f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site00.gate.bf16",
+      "bytes": 1824768,
+      "sha256": "21236e3ba1173ec8320c1562508cabac32f42db2178c416829507f2a7019cf37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site00.output.bf16",
+      "bytes": 1216512,
+      "sha256": "b5a756b8e4e6f9fb827edeb0224e58461e84f591ea7cd8b44063feefc490f16b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site12.y.f32",
+      "bytes": 3649536,
+      "sha256": "52c4d1fc368e7cd8494ca11ae3e8280f41d770f05f5b85c74b895a8c8e948bed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site12.gate.bf16",
+      "bytes": 1824768,
+      "sha256": "c16644a0e91bcc14734eb11af0802d4a04715a5a2287353a29ffcffcb707c1e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site12.output.bf16",
+      "bytes": 1216512,
+      "sha256": "794585f0cb863c586cdc6c315e79e14d793e680c36a0553d3968621d99695908"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site23.y.f32",
+      "bytes": 3649536,
+      "sha256": "2b5ae31fcfcda61d08b29a335086e72a279849b27045334e0571dcdf2a339493"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site23.gate.bf16",
+      "bytes": 1824768,
+      "sha256": "c19032f8956995d4c61cc0883915bb0311367a8bc2dfadea996d532a19129f82"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_recurrent_resume_20261009\\broad_dev_systemchats_30k_039.site23.output.bf16",
+      "bytes": 1216512,
+      "sha256": "05839504f8d71f1f3334e519dc678a7283a9b868d2f99fce277f39fec0b402f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\__init__.py",
+      "bytes": 103037,
+      "sha256": "0901a8ad92b30f947405e28fc98dd21c578cfbe8796b0173de931f42079b1f89"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\_C.cp312-win_amd64.pyd",
+      "bytes": 10240,
+      "sha256": "8cc12784367470aa0f3ebe54a0c4593ac52d5bc273ed7ba719cbb10b4a3dbdb8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+      "bytes": 251258368,
+      "sha256": "9419933b9cc163baf7859092f243de4695b45632f81b96a8d0060ea20d63d6b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\torch_cuda.dll",
+      "bytes": 957268480,
+      "sha256": "f798b6307caba957d3dbfc64ede4ab8d992260c5e2cdb5cc2ec7fb75b3ddf23e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\cuda\\__init__.py",
+      "bytes": 58784,
+      "sha256": "92f2d2434ce713d81f58aece36fe1bbc8fd9942973dbda7ba12009de30ddd885"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\safetensors\\torch.py",
+      "bytes": 20902,
+      "sha256": "81f477f2ab5e05e99308fc55ed26028eb2bf36334404e9c5558e4730184483f0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_channel_readout_refit.py",
+      "bytes": 14777,
+      "sha256": "462b37853693b957a14e4866e67b3d9b87d5e72ab75ceb7f59ced43b5ab2010c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_channel_transport_binding_20261009.json",
+      "bytes": 137129,
+      "sha256": "635c73794738f9b381ffc00aeeccea9ed6959b831b5ae27bd6a8aa60c55fd59b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_channel_transport_result_20261009.json",
+      "bytes": 661605,
+      "sha256": "f936551337e861ec24d21d90c86e814c391eb4013faa2506372cfaaaed2f3692"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_channel_transport_result_20261009.terminal.json",
+      "bytes": 46520,
+      "sha256": "a1fdd1bdb83458bd476be12000fb1b5022f14844ec8724e74110dff3aa35f792"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ORIGINAL_FALCON_CHANNEL_READOUT_REFIT_PROTOCOL_20261009.md",
+      "bytes": 3509,
+      "sha256": "0ddfe720802a7ceef888033e5d2a7f15297627adbb1425049b78d5c6e856fc33"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_channel_transport_20261009\\site00.selection_moments.npz",
+      "bytes": 9514232,
+      "sha256": "d55192e868cbebf17a4b1b221cd8cf985755aa890289ca5fd9e6cf9d9c18240d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_channel_transport_20261009\\site12.selection_moments.npz",
+      "bytes": 9514232,
+      "sha256": "b21838b2d3c2a0b9329e1d8d1ae0bd1b471c486deedb316f0b0f363328d92c6e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_channel_transport_20261009\\site23.selection_moments.npz",
+      "bytes": 9514232,
+      "sha256": "52935bcca0847b66738add1966a46ac14cdf2425456a8b09e85bcc5613a269d3"
+    }
+  ],
+  "runtime_binding_scope": "All144 y/gate/output packets,pinned coefficients/config,actual adopted capture,principal runtime binaries,worker/protocol and unchanged original engine;not a full DLL tree.",
+  "experiment": "CHANNEL_READOUT_REFIT_V1",
+  "parent_result": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_channel_transport_result_20261009.json",
+  "ridge_trace_fraction": 1e-06
+}
