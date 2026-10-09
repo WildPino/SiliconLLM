@@ -1,127 +1,172 @@
-# Next: information geometry and finite native whole-model recovery
+# Next: transfer donor history functions into the original engine envelope
 
-9 October 2026. Goal ACTIVE/INCOMPLETE. All workers terminal/no T4 allocation.
-The [real source-informed original-shaped construction and longest-history step](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md)
-are COMPLETE; the prospective native numerical gate is FAIL and stays FAIL.
-Earlier [packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md) and
-[original E32 tensor bridge](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md) remain retained.
+9 October 2026. Goal ACTIVE/INCOMPLETE. All jobs terminal; no T4 allocation.
+[Complete original-operator recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
+supersedes the previous proposed24-step pass. Five of six native distribution
+gates FAIL; original all-history numerical FAIL is retained.
 
-## Actual resumption state and observed problem
+## Actual resumption, not a fresh training restart
 
-`results/native_expert_scaling/original_falcon_transfer_20261009/candidate.pt`:
-actual8,614,643,514B/model+Adam1+CPU/CUDA RNG, SHA
-9f95617738df94722c5152dc72ff71e11942154cbb68ef1d99d03b83300cfd0a.
-717,877,248 masters/679,477,248 bank coefficients, original D256/L6/H128/k8,
-n1152/site/full canonical Falcon V65537. All source24 FFN blocks/all rows mapped
-through declared P256/quadrant/partition/normalization approximations; fresh
-original Mamba1/SWA core, not transferred Falcon Mamba2 state. Source mean-gate
-proxy and normalized top8 routing do not conserve the dense source function.
-All1,152 effective bundles/site hash-distinct is not useful capacity evidence.
+`results/native_expert_scaling/original_falcon_whole_recovery_20261009/candidate_25.pt`:
+actual model/Adam25/CPU+CUDA RNG/ledger/completed FIT IDs,8,614,638,714B, SHA
+`1a6f366e5df0d913f4fcffd205f2f32c3da844e4c0c4c08b66b8c29accdc8790`.
+Actual packed507,505,920B, SHA
+`98835350c753253b1e0a06e5525bf046153dae12aa51ff893a940fa1729b7969`.
+717,877,248 masters/679,477,248 bank coefficients, D256/L6/H128/k8/n1152/V65537.
+Do not reset Adam, replay completed updates/baselines or regenerate cached labels.
+A different initialization/geometry is a separately frozen candidate with explicit
+ancestry, not a continuation of Adam25.
 
-ENTIRE1,507-ID FIT history/256 labels; actual one new update, all gradients/moments
-finite. KL11.602068901 ->10.580770493, argmax disagreement256/256 ->256/256.
-Memory feasibility observed at OS13.559GB/GPU allocated1.690GB/reserved2.122GB;
-whole forward31.015s/backward90.172s. Sequence unions694..1019, not k8.
-Full initial/final snapshots are real; snapshot I/O is expensive and must be priced.
-No additional E32 dose/structural copied-bank sweep, old A344/B344 reset or update
-replay/source teacher regeneration. Keep this actual source Adam1 and ledger.
+Native48 before/after complete;24 new FIT updates actual1->25. FIT caseKL12.14269
+->8.14321, DEV12.09313->9.01572 (25.4476% recovery), DEV disagreement96.5741%.
+Both final mean KLs beat matched uniform; five absolute/domain/relative-disagreement
+criteria fail. The readout free-feature mean feasible loss~.66174 is optimistic
+and sampled: no history function/general D256 capacity conclusion. Actual-direction
+sqrt8 scaling hurt the previous model. No further oracle/scale/same-recipe dose
+selected merely because FIT drops. Finite dose failure is not an impossibility.
 
-Native numerical comparison:5/1507 output rows fail fixed1e-4 RMS and60 site
-calls fail1e-6 mass, all72,336 IDs/all1507 greedy predictions exact.18,432 integer
-witness coordinates exact; all complete outputs retained. No causal internal
-trace proves the first origin. Original source/foreign hashes unchanged.
+## Look at the whole compiler: the information losses are distinct
 
-[Stored-only audit](original_falcon_stored_audit_result_20261009.json) retains
-that FAIL. All bad rows/mass calls precede the supervised region; native label
-KL10.58076933452 and GPU10.58076931210 differ2.241824e-8, both256/256 disagreement.
-Thus the measured numerical difference does not explain this packet's large
-source-relative information loss. It remains an all-history robustness gap;
-this scope cannot certify other inputs. Do not loosen or relabel the old gate.
+| Stage | Current approximation | Question required before expensive adaptation |
+|---|---|---|
+| Residual representation | source D2048 -> P256 | Which observable donor distinctions disappear under the projection? |
+| History core | fresh five Mamba1 + one SWA; donor24 parallel SSM/attention blocks | Can pretrained recurrent/read-write modes be transported, and what history remains observable? |
+| Composition | four donor FFNs represented in each target site | Can the four successive nonlinear state updates be approximated by one conditional update at this cost? |
+| FFN function | source SiLU gate -> sign quadrants/mean-gate proxy, then ternary/AQ63 | What output-weighted residual remains on real reached states? |
+| Conditional selection | normalized top8 over n1152 | Which omitted function residual depends on history or region and is recoverable by routing? |
+| Readout | projected head and learned gamma | Can actual generated states reach the useful directions identified by the oracle? |
 
-## Readout decision is complete; do not repeat the oracle
+These effects are confounded by the whole recovery. Bank size/hash diversity does
+not identify retained knowledge, and no single omission is experimentally proven
+to be the dominant cause. The goal is a converter into the original LUT/ternary/
+SSM machinery with bounded active cost; donor-sized runtime is not presently priced.
 
-[Readout information result](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md),
-freeze40a48e7/result26f59095/session14841 CLOSED.72 FIT labels/24 cases/12 domains:
-current fixed D256 RMS/head optimum mean bracket[.659862763,.661743824];sqrt8
-control[.042593995,.059468084]. Not all per-label gaps<=1e-5;feasible features
-remain optimistic, not history functions. Current readout can express a much
-better sampled mean than actual model; no universal D256 capacity theorem.
+## Selected next investigation: source recurrent transport, with composition explicit
 
-Stored-only ALL256 longest-FIT actual-direction check,freeze419733b/result2443ff92:
-uniformKL9.880909232/currentnative10.580769335/scaledactual22.947199011.
-More amplitude hurts current directions; maintain gamma and actual Adam1.
-The original one-step loss decrease has not beaten uniform on this trajectory.
-No new model/native/teacher/optimizer/RESERVED/T4 use in these diagnostics.
+First complete algebra/operator/cost accounting against the locally pinned source
+and original code. Then freeze one finite NEW internal-state capture only if it
+supplies missing information for selecting an initializer or a geometry. Reuse
+existing canonical FIT/DEV IDs and teacher output packets; no new RESERVED queries
+or repeated donor answers. No source/model/native runs have yet been executed for
+this next investigation. A protocol/binding/caps must precede any capture.
 
-**Exact first action now:** implement/freeze/bind one24-FIT coverage continuation
-from current actual model/Adam1/RNG, with COMPLETE native before/after48 outputs.
-Use [actual metadata/byte inventory](original_falcon_recovery_inventory_20261009.json),
-code36595a3/resultb9e7de41/session58554 CLOSED. FIT11148 history/4422 labels,
-DEV11399/4386; max1507/1488. Fixed case order is (domain,id) in that inventory.
-No additional oracle iterations/scales, no initializer change, no old A344/B344
-resumption. Longest FIT's second exposure is a deliberate NEW step within the
-complete24-case pass, not restarting historical Adam1.
+Primary source code already inspected: pinned local
+`results/native_expert_scaling/chatbot_source_runtime/site/transformers/models/falcon_h1/modeling_falcon_h1.py`,
+`FalconH1Mixer.torch_forward`, `FalconH1RMSNormGated`, decoder and MuP vector;
+original `benchmarks/phase60/engine.c` recurrent loop and tensor learner match.
+This code comparison supports algebraic possibilities, not empirical quality.
 
-## First finite whole recovery, evaluated in the actual native engine
+### A concrete state map, not a parameter-count argument
 
-Keep original D256/L6/H128/k8/n1152/V65537 operators/initialization/STE,
-current gamma, lr5e-5/Adam betas(.9,.999)/eps1e-8/wd0/foreachFalse/F32,
-no AMP/TF32/dither/auxiliary losses. Restore ACTUAL Adam1 and CPU/CUDA RNG,
-validate all92 parameter/moment states/counters/residency/ledger; end25 after
-24 NEW steps. Entire histories, all4422 FIT full-vocabulary teacher rows;
-no DEV training/truncation. Global F64 norm clip1 as first stage. Observe
-per-case loss/disagreement/unions/finiteness/counters and every site's gradients.
-Durable boundaries after12/24 new updates (actual13/25) plus precise faults;
-never replay completed steps/outputs because observation timed out.
+For donor head h/channel c, scalar a_h<0 is repeated across its256 state coordinates:
 
-New streamed adjoint/CPU quantizer/direct producer already implemented and
-qualified in their stated scopes. GPU is a declared numerical training surrogate;
-original all-history native numeric FAIL remains. Whole quality comes from native.
+```text
+s_t = exp(a_h * delta_t) s_(t-1) + delta_t * x_t * B_t
+y_t = C_t^T s_t + D_h x_t
+```
 
-Proposed finite family cap3600s/reserve300s/OS32GiB/GPU10/11GiB/output40GiB.
-These must be confirmed/frozen in the new runner/protocol/binding. Exact declared
-output subtotal29,179,775,232B for two actual-size checkpoint estimates,final
-packed,before/after whole outputs/routes,excluding small files. Initial native
-baseline48 adopts byte-matched existing longest-FIT1507 output;47 NEW before and
-48 NEW after native cases. Price input/endpoint loads, dense CPU gradients/Adam,
-unknown unions, snapshot I/O/hashes and durable boundaries. Linear history-only
-FIT forward/backward896.478s/native340.645s are NOT measured total forecasts;
-union/group overhead and optimizer/save costs can be material. Existing snapshot
-8.615GB I/O is expensive. Check free disk and no live overlapping jobs before run.
+For orthonormal R in R^(256 x r), set z_t=R^T s_t, B'_t=R^T B_t,
+C'_t=R^T C_t. Scalar decay commutes exactly with this projection. The retained
+recurrence is the same algebra as original engine.c, with A[c,j]=a_h. The output
+residual is `C_t^T (I-RR^T) s_t`, bounded by the product of omitted C/state norms.
+This identity is conditional on exact x/B/C/delta inputs and initial-state mapping;
+it does not make their nonlinear generators or whole chatbot exact. An arbitrary
+projection across heads does not commute when head decays differ.
 
-Freeze NEW native quality criteria, separately from historical numerical FAIL:
-DEV case-mean KL<=1/disagreement<=.20 and all12 domain case means KL<=2/dis<=.35;
-relative recovery DEV case-KL<=.90*before AND disagreement<=.95*before. Report
-case/domain and label-weighted full-distribution metrics; relative PASS does not
-admit useful quality. FIT metrics are diagnostic, not DEV substitutes. Proposed
-first dose excludes old32 retention; neither old32/fresh-reserved/own-history/task
-quality nor the full goal is thereby qualified. Freeze this scope explicitly.
-Native before/after full logits/routes and same packed bytes govern measurements.
-Check actual IDs unique/inrange,finite nonnegative normalized masses and independent
-integer witnesses for initial/final artifacts. Do not silently call numerical
-compatibility PASS or measure speed on an unqualified artifact as accepted50.
+Need NEW reached B/C/state/output-energy information to pick R and donor channels,
+not just SVD of coefficient matrices. Rank96 may be useful or insufficient; measure
+output-weighted omitted modes, per-domain tails and propagated history error.
+Do not transfer/reset a source state at each step and call that target free-running.
 
-After finite recovery, choose broader source coverage, principled core-state
-transfer/capture, readout correction or a priced geometry/operator variant from
-actual evidence. Do not spend a month on the fresh-core proxy without that decision.
-Additional internal donor captures, if selected, must supply genuinely new state
-information with a priced protocol, not repeat cached whole teacher outputs.
+### Original B/C/delta generators have an identifiable representation cost
 
-## Remaining goal and scaling cost
+Donor B/C are direct in_proj -> depthwise conv4 -> SiLU channels. Original B/C
+are linears of the original convolved/SiLU x channels. Auxiliary internal channels
+can carry donor B/C features, while zero out_proj columns prevent direct residual
+contribution. A coordinate subset of96 B and96 C needs192 such channels. A dense
+R projection of all256 B/C needs512 source feature channels; projecting before
+SiLU does not commute with SiLU. Count them before claiming a compact warm map.
 
-Dense bank masters/gradients/Adam10,871,635,968B are presently CPU resident. This
-prototype is not a block-resident optimizer for10B/100B or a T4 throughput result.
-Flat O(n) CPU routing/softmax remains charged; structured CPU IDs AND normalized
-mass/physical DRAM/useful RAM-driven n need separate real evidence. Original
-head16,777,472 products plus compact core/expert work are the reference envelope;
-copying LUT alone cannot inherit old speed. Source coefficient count is not knowledge.
+Donor delta is softplus of an unconvolved affine projection plus bias. Real identity
+`SiLU(t)-SiLU(-t)=t` permits paired auxiliary channels with identity conv, x_proj
+recombination and original dt_proj/bias. Four selected heads need8 delta channels.
+The original DT rank16 can represent four distinct delta functions; it cannot
+represent arbitrary48 independent donor functions without compression. MuP/input/
+output scalars, time-step clamp, biases and F32/approximate-sigmoid arithmetic must
+be included. This is an untested construction, not numerical qualification.
 
-Fresh own-history chatbot/generation/tasks and SAME useful artifact>=50 accepted
-batch1 IDs/s (100 stretch), actual family/~10B/~100B variants remain required.
-Packed adapter is a real original-body endpoint, not yet the canonical persistent
-chat consumer. Connect the useful artifact to canonical tokenizer/roles/stops/
-persistent engine state after whole recovery justifies native chat evaluation.
-Giga/Qwen evidence reusable; donor-adaptation remains frozen operationally.
-Communicate T4 reason/budget/checkpoints/plateau stops after measured recovery and
-T4-compatible residency/precision/throughput. Month-plus allowed in principle;
-no allocation or T4 cost forecast is qualified now.
+Illustrative channel counts, not selected architectures:
+
+- Original DN512:256 retained x channels (four donor heads),96+96 B/C coordinate
+  channels,8 paired delta channels =456. Only a state coordinate subset is represented.
+- DN1024:256 x, full256+256 B/C and8 delta =776; now a general rank96 state map
+  is representable by x_proj. Wider core has real per-token compute/storage cost.
+
+Unused/auxiliary scan channels still cost recurrence work in the unchanged engine.
+Original auxiliary output columns can be zero; compute cannot be counted as zero
+unless an actual qualified implementation skips it. These counts do not solve the
+D2048->D256 residual projection, omitted x channels or omitted source layers.
+
+### Two operator omissions cannot be hidden in constant weights
+
+Falcon uses post-gate RMSNorm: the denominator depends on the current full3072-vector.
+Original gate -> out_proj has no such norm. A constant folded scalar is not exact;
+normalizing a retained subset does not recover the full denominator. Either measure
+approximation error or price a small norm extension and its missing-energy estimator.
+
+Every donor block runs SSM and RoPE attention in parallel on the same normalized
+input, then FFN. Original alternates five SSM blocks/one non-RoPE SWA, and the present
+four-to-one FFN grouping discards sequential composition. State transport alone
+cannot fix this. Compare composed projected donor residuals and one-site residuals
+on real states before selecting L6, more layers or a parallel mixer. Preserve
+source order when a deeper variant is selected; do not substitute an average for
+function composition. n can shrink per site as depth grows, but active work grows.
+
+## Finite capture and decision requirements
+
+Before source inference, specify exact NEW tensors/times/layers, canonical case IDs,
+full histories, dtype, output bytes, source/internal code hooks and pre/post hashes.
+Use a fixed FIT subset with DEV held for evaluating the chosen map; no map selection
+on DEV. Streaming sufficient statistics can reduce storage, but output-weighted
+cross-moments/tails and direct residual checks need an auditable definition.
+Existing whole teacher logits supply the same global labels without regeneration.
+
+A meaningful first comparison is scalar-decay projected recurrent outputs versus
+original-state target outputs with independently reconstructed coefficients and
+accumulated state, including gate/norm/output multipliers. Report how much of the
+source block survives the representation before fitting. Local error informs a
+candidate; it is not a necessary whole-chatbot theorem or a substitute for native
+DEV/own-history quality. If composition/projection loss dominates, revise that map
+before spending long compute on warm SSM alone.
+
+Price original DN512 versus any wider/deeper candidate in complete matrix products,
+scan states/exponentials, normalized routing, selected ternary bytes, fullV head,
+packed bytes and training residency. Current fullV head alone16,777,472 products;
+original small-V701.7/s cannot be inherited. Width/depth changes need an actual
+native variant and useful same-artifact batch1 accepted-speed measurements.
+
+Keep Adam25 and all failed measurements. Implement/freeze at most one candidate
+justified by new source evidence; evaluate original native distributions and new
+all-history numerical parity separately. Fresh canonical own-history generation/
+tasks and useful>=50 accepted IDs/s remain required before quality/speed admission.
+
+## RAM-driven n, routing and longer compute
+
+Flat O(n) router remains. In exact real arithmetic, renormalizing selected softmax
+weights cancels the global denominator; selected masses equal softmax over selected
+logits. This can remove unnecessary all-n normalization, but cannot find top8
+without a correct winner search. Exact or measured approximate structured CPU
+selection and finite-precision mass parity must be qualified as n grows.
+LUT integer arithmetic and active ternary work depend on selected expert shapes;
+router, memory locality and physical DRAM can still depend on total n. Copied
+experts do not qualify useful added capacity. Measure quality and latency with
+actual newly useful functions, unchanged active budget and accepted tokens.
+
+Current full-bank F32 masters/gradients/Adam require10.872GB on CPU. For10B/100B,
+select a measured block/streamed optimization schedule or another justified
+precision/residency strategy; current prototype is not that optimizer. T4 month+
+is authorized in principle, but no allocation selected. Communicate concrete
+reason, measured T4-compatible memory/throughput, budget/checkpoints/plateau stops
+once the source-informed candidate earns longer adaptation. Additional donor
+families/~10B/~100B remain actual variants to demonstrate; frozen Giga/Qwen
+analysis is reusable, donor-adaptation work remains operationally frozen.

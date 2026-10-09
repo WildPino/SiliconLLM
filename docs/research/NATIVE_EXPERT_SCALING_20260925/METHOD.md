@@ -8,14 +8,27 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest actual whole result:** [original24-FIT recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
+COMPLETE/native distribution FAIL. Exact Adam1 adoption/all24 new updates/end25,
+full native48 before/after/95 new children; all updated18,432 integer witnesses
+exact in every child. DEV caseKL12.09313->9.01572/25.4476% recovery, disagreement
+96.5741%;one relative gate PASS/five FAIL. Actual state/packed retained. First
+post-export path-metadata fault preserved; evaluation-only completion did not
+replay training/baseline/export. Canonical held-family2998.562s; exact original
+GPU/launcher peaks missing, not retroactively qualified. No source/RESERVED/T4.
+[Selected next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) accounts for source
+recurrent transport/nonlinear generation/norm and24->6 lost composition, then
+freezes a genuinely new internal-information capture before another dose or
+geometry. Partial recovery is not a universal D256 capacity limit or useful chat.
+
 **Newest information diagnostic:** [original readout image](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md)
 complete72 FIT labels; current fixed-head arbitrary-feature mean bracket.65986-
 .66174 versus scaled.04259-.05947,per-label gaps unresolved. This proves neither
 realizable history functions nor general D256 capacity. Actual native256-label
 KL10.58077 is worse thanuniform9.88091;scaling current outputs worsens22.94720.
-Retain gamma/actual Adam1,prioritize conditional/history recovery. [Exact inventory](original_falcon_recovery_inventory_20261009.json)
-prices24-FIT whole pass and native48 before/after;runner/protocol not implemented/
-frozen yet. Historical native numerical FAIL remains. No extra oracle/T4 now.
+This selected unchanged amplitude/conditional-history recovery. [Exact inventory](original_falcon_recovery_inventory_20261009.json)
+priced24-FIT whole pass/native48 before-after, now executed above. Historical
+native numerical FAIL remains; retain actual Adam25. No extra oracle/T4 now.
 
 **Newest source-informed implementation:** [original Falcon construction/step](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md)
 is real/COMPLETE, with native numeric gate FAIL. D256/L6/n1152/full V65537,
@@ -28,9 +41,9 @@ Stored native KL differs GPU by2.242e-8 on supervised labels, so that numerical
 gap does not account for this packet's transfer loss. All-history parity remains
 unqualified; native quality must be measured directly. OS13.559GB/GPU1.690GB
 allocated prove this prototype memory scope, not T4 speed/100B optimization.
-[Next information geometry/recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-retains actual Adam1; current RMS/readout image is now measured, selecting
-finite whole coverage/native evaluation before an initializer or geometry change. No additional original E32 dose.
+[Next source history/operator transport](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+retains actual Adam25; RMS/readout and whole coverage/native evaluation are now
+measured. No additional original E32 dose.
 
 **Earlier implemented bridge:** [direct original tensor learner/export](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md)
 is COMPLETE/PASS in E32/V1024/16-ID CPU scope. Complete original geometry with
@@ -53,11 +66,12 @@ Its legacy parser remains E32-specific; the newer direct tensor producer above
 removes that dependency for new supported learner tensors.
 
 [Selected next decision](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) reuses the real
-source-informed ledger/streamed adjoint/Adam1/cached outputs. Source-count n1152
+source-informed ledger/streamed adjoint/Adam25/cached outputs. Source-count n1152
 is a capacity allowance, not conservation of information. Current RMS/readout
-information geometry is measured; implement finite broader whole recovery
-with actual native quality evidence and unchanged amplitude. Initialization/union-adjoint/full-history
-step prerequisites above are complete; no E32 dose/copied-bank sweep/T4 now.
+geometry and finite native whole recovery are measured. Select new source
+history/operator information before further dose/geometry; initializer and
+composition losses are not individually diagnosed by the whole experiment.
+No E32 dose/copied-bank sweep/T4 now.
 The [earlier0+8/2+6 comparison](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) remains
 COMPLETE with preference/absoluteDEV failures and retained A344/B344 states.
 Older NEXT/dose/recovery-first wording below is historical. Whole fresh chatbot

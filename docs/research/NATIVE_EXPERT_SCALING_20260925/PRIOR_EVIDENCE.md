@@ -1,5 +1,26 @@
 # Native expert-count scaling: prior evidence
 
+**9 October original-operator24-FIT recovery/native48 evaluation COMPLETE; quality FAIL:**
+[Result](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md),original freeze7671731/
+bind8d98addd,finish freezed1ea53a/bind2473e481/raw46dd5f66,canonicala4090938.
+Exact actual Adam1 adoption/24 NEW entire-history updates/end25/all92finite;
+FIT11148tokens/4422labels,DEV11399/4386. Native48 before/after/95 NEW held children,
+all final18,432 integer witnesses exact. FIT caseKL12.14269->8.14321,
+DEV12.09313->9.01572/25.4476% recovery;DEV disagreement96.5741%. Relative KL
+PASS/five absolute-domain-relative-disagreement gates FAIL. Final means beat
+matched uniform, partial probability recovery not useful chatbot. Adam13/25,
+packed507,505,920B/98835350 retained. First path fault occurs AFTER all training/
+export/witnesses; original exit1/fault/log/frozenbytes preserved, no replay.
+Missing48 native after completed CPU-only/exit0/session64373 CLOSED.
+Canonical actual families2579.687+418.875=2998.562s; raw2931.281 incorrectly
+uses finishworker351.594, preserved/corrected in adoption.29,188,184,770B stored.
+Original heldworker13,478,191,104B;exact original GPU/launcher peaks missing;
+completion conservative OS1,019,215,872B/GPU0 only completion scope. Stored
+adoption freeze895fde0/exit0/session43008 aggregate error0/zero new predictions/
+updates/GPU. Original numeric FAIL/no source/RESERVED/T4/quality/rate/large-n
+admission. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md): new source recurrent/
+operator/composition information before further dose/geometry; retain actual25.
+
 **9 October current-readout information probe COMPLETE;actual-direction scale hurts:**
 [Result](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md),freeze40a48e7/bind9d59cb86/
 raw26f59095.72 FIT labels/24 cases/12 domains,fullV65537;current fixed RMS/head
@@ -8,10 +29,10 @@ individual gaps<=1e-5. Free features are not a history-dependent model/capacity
 proof. Family196.078s/workerheld1,124,139,008B/GPU550,362,112/654,311,424B/exit0/
 session14841 CLOSED/no new model/source/update/T4. Post-hoc actual256-label control
 419733b/raw2443ff92:uniform9.880909/native10.580769/scaled22.947199. Keep amplitude
-and ACTUAL Adam1;recover conditional/history functions. [Byte inventory](original_falcon_recovery_inventory_20261009.json)
+and actual Adam1 for the subsequent conditional/history pass. [Byte inventory](original_falcon_recovery_inventory_20261009.json)
 36595a3/rawb9e7de41:FIT11148history/4422labels,DEV11399/4386;24 NEW steps end25,
-proposed95 new native cases/29.180GB output subtotal. Runner/protocol not implemented
-or frozen;[next finite native whole recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
+proposed95 new native cases/29.180GB output subtotal, subsequently implemented/
+frozen/executed in the actual whole result above;[current next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 Original native numerical FAIL and all useful-quality/rate/large-n gaps remain.
 
 **9 October source-informed original-shaped whole-history step COMPLETE; numeric FAIL:**
@@ -27,8 +48,9 @@ nativeKL10.58076933452 versus GPU10.58076931210/delta2.242e-8;all numerical
 failures before labels, so they do not explain this observed loss. Family426.937s/
 OS13,559,287,808B/GPU1,689,576,960/2,122,317,824B/exit0/session55538 CLOSED.
 No retries/new source inference/RESERVED/T4/quality/rate/large-n admission.
-[Next current readout geometry and native whole recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-retains actual source Adam1;prior initialization-is-missing wording is superseded.
+[Current next source history transport](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+retains actual source-informed Adam25; readout and native whole recovery successors
+are complete above. Prior initialization-is-missing wording is superseded.
 
 **9 October direct tensor original-operator learner bridge COMPLETE/PASS:**
 [Result](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md),freeze1d7988c6/bindinga0b835d2/

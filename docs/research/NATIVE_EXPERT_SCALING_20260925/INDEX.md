@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 9 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-All paired, packed, tensor, source-informed learner and readout jobs terminal. No owned job/T4 allocation live.
+All paired, packed, tensor, source-informed recovery, native completion and audit jobs terminal. No owned job/T4 allocation live.
 
 ## Goal and constraints
 
@@ -28,18 +28,35 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Original-operator whole recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md):
+COMPLETE measurements; five of six native distribution gates FAIL.**
+Exactly24 NEW full-history FIT updates/actual Adam1->25; all92 states adopted exactly.
+Full native48 before/after,95 NEW children;18,432 final integer witnesses exact
+in every after child. FIT caseKL12.14269->8.14321;DEV12.09313->9.01572 (-25.4476%),
+DEV disagreement96.5741%;relative KL PASS, all other criteria FAIL. Partial
+probability recovery, not preserved useful chatbot. Original metadata path fault
+after completed training/export preserved; missing48 evaluation completed without
+training/baseline/export replay. Actual Adam25/packed retained, no source/RESERVED/T4.
+Canonical held families2998.562s/29,188,184,770B retained; original exact GPU and
+launcher peaks missing on fault, explicitly unqualified. Completion conservative
+OS1,019,215,872B/exit0/session64373 CLOSED. Stored adoption aggregate error0.
+[Current next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md): source recurrent transport,
+nonlinear generators/norm and lost24->6 composition accounting, then one finite NEW
+internal-information capture before new dose/geometry. No useful quality, renewed
+all-history numerical parity, accepted50, useful large n/DRAM/family admission.
+
 **[Current readout information and actual-direction control](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md): COMPLETE.**
 72 FIT labels/24 cases:fixed RMS/head mean optimum bracket[.659863,.661744];
 sqrt8 bracket[.042594,.059468],per-label convergence incomplete. Free features
 can express a much better sampled loss;this is not a learned history function.
 Actual256-label native loss10.580769 vsuniform9.880909;scaling actual logits
-sqrt8 worsens22.947199. Keep current amplitude/actual Adam1;primary next is
-conditional/history recovery,not further oracle iterations. Family196.078s/
+sqrt8 worsens22.947199. This selected conditional/history recovery rather than
+further oracle iterations. The subsequent actual24-update result is above. Family196.078s/
 held OS1.124GB/GPU.550/.654GB/exit0/session14841 CLOSED/no new model/source/update.
 [Exact24-case inventory](original_falcon_recovery_inventory_20261009.json):FIT11148
-history/4422 labels,DEV11399/4386;proposed native47 newbefore+48 after,29.180GB
-output subtotal with two snapshots. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-is implement/freeze/run one actual24-FIT continuation/native48 evaluation.
+history/4422 labels,DEV11399/4386;native47 newbefore+48 after and two snapshots
+are now actual, not proposed. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+retains actual Adam25 and examines donor history/operator transport.
 No useful quality/native parity/accepted50/large-n/family admission.
 
 **[Real source-informed original-shaped learner](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md):
@@ -56,9 +73,9 @@ Stored-only native/source audit: native labelKL10.5807693345 versus GPU10.580769
 delta2.242e-8;all numeric failures before labels. That error does not explain this
 packet's large transfer loss; historical FAIL stays. Family426.937s/OS13.559GB/
 GPU1.690/2.122GB/exit0/session55538 CLOSED/source queries0/T4 none. No useful
-chatbot/native parity/rate/large-n admission. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-quantifies the current RMS/readout information image before a finite broader
-whole recovery measured in the actual native engine. Retain actual Adam1.
+chatbot/native parity/rate/large-n admission. Readout and whole recovery successors
+are now complete above; [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+retains actual Adam25 and investigates source state/composition transfer.
 
 **[Direct tensor learner/export bridge](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md): COMPLETE/PASS.**
 New original D256/L6 trainable scan/SWA/dReLU/AQ63/full-softmax routing contract
@@ -72,7 +89,7 @@ session31156 CLOSED;source/GPU/T4 zero. This is original E32/V1024/16-ID bridge
 evidence, not a source-informed Falcon learner or useful-chatbot/large-n/rate
 admission. Its source-initialization/union-residency/longest-FIT successor is now
 the actual result above; [current next action](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-uses source Adam1. No additional original-small-model update sweep.
+uses source-informed Adam25 and the actual whole result. No additional original-small-model update sweep.
 
 **[Original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md): COMPLETE/PASS.**
 Actual original core/LUT/dReLU/AQ63 operators;20 source bodies/19 unchanged and
@@ -140,17 +157,17 @@ reply labels. No source/update/export/native replay for reconfirmation.
 
 ## Exact point of resumption
 
-Implement/freeze/bind/run [finite original-operator whole recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-from ACTUAL source-informed model/Adam1/RNG;no reinitialization/gamma scaling.
-Readout probe/current-direction audit are complete;the construction/streamed
-adjoint/arbitrary-runtime-n export already exist. Fixed24-case FIT pass ends25,
-durable13/25;native before/after COMPLETE48 with one longest-FIT baseline adopted.
-Metadata/bytes/candidate proposed caps/gates are in the exact next file;runner and
-protocol are not yet frozen/implemented. Do not repeat completed small-model,
-structural copied-bank,oracle or old A344/B344 experiments. After finite recovery,
-choose new internal source-state information or a priced geometry change from
-native DEV evidence. Fresh chatbot/same-useful-artifact>=50/structured CPU IDs-
-mass/physical DRAM/useful RAM-driven n/family~10B~100B remain required.
+Actual source-informed Adam25/model/RNG and packed bytes are retained after
+[complete24-FIT/native48 recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md).
+All original training/failed metadata/completed evaluation/audit sessions are CLOSED.
+[Selected next investigation](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) accounts
+for source recurrent state transport, nonlinear B/C/delta generators/post-gate
+norm and lost24->6 composition. A finite new internal-information capture needs
+its own frozen protocol/caps before execution; no new capture is claimed yet.
+Preserve original LUT/ternary sparse endpoint and price any compact core extension.
+Do not repeat completed small-model, copied-bank/oracle/A344/B344 experiments or
+blindly extend the failed fresh-core dose. Fresh chatbot/same-useful-artifact>=50/
+structured CPU IDs-mass/physical DRAM/useful RAM-driven n/family~10B~100B remain required.
 
 Original packed namespace `original_packed_capacity_20261009` is CLOSED, immutable
 bindingd91893bf/result5d552a3e/terminal exit0; newbackend source freezea660545b.
