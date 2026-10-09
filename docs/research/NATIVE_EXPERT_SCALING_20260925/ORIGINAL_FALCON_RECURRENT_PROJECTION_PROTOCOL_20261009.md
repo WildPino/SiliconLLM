@@ -3,6 +3,10 @@
 9 October2026. Prospective before any projection observations. No source-model
 forward/reply/head call, optimizer/native/RESERVED/T4. Uses newly captured actual
 full-history operands. The endpoint still needs useful chatbot+accepted50.
+After source process loss, consume the stored-only adopted48-case capture:
+45 durable originals plus3 separately held completion cases and63 bit-exact
+partial-prefix witnesses. Original source exit/time/peaks/final411 identity
+aggregate remain missing; this assay does not retroactively qualify them.
 
 ## FIT selection and actual output experiment
 
@@ -39,7 +43,11 @@ No earlier source/native numerical criteria are changed or inherited as PASS.
 
 Rank96 arms use SAME full x/gate/delta/48 heads/A/D/norm/out_proj, replacing only
 B/C by orthogonal BR/CR, selected coordinates or dual BW/CV. Report whole-history and supervised
-position output RMS, pre-gate RMS, equal case split means/worst cases and exact
+position output RMS, pre-gate RMS, recurrent-only RMS after removing identical
+Dskip*x from both outputs, and centered output RMS after separately removing
+each output's per-channel history mean. The latter diagnoses variation without
+counting common mean preservation; it does not replace full output error. A large
+Dskip component must not hide a poor recurrent approximation. Equal case split means/worst cases and exact
 per-case records. There is no predeclared whole-chatbot quality PASS from local
 error. Numerical reconstruction failure makes interpretation unqualified; do not
 relax it or replay source captures. Record any finite local projection errors
@@ -51,6 +59,14 @@ channels, donor48 delta functions, D2048 residual,24 blocks or parallel attentio
 Thus neither is a DN512/1024 target, warm core implementation or useful chatbot.
 It changes the decision about state compression; head/input/layer/operator
 omissions need their own evidence and complete native cost before a candidate.
+
+Also report exact shape accounting for D256/N96/L6/n1152/k8/H128/V65537,
+DN512/1024 and DT rank16/48: core matrices, full head, selected experts, flat
+router, F32 organ/state coefficients and untied state exponentials. Formula per
+SSM matrix products=DN*(3D+2DT+2N), five SSM plus one4D^2 SWA. Counts exclude
+conv/vector/window/norm/packing/physical DRAM and do not forecast timing or
+qualify an implemented geometry. Repeated scalar source rates/delta permit
+algebraic exponential hoisting, but no work is counted as skipped without code.
 
 ## Bounded execution and preservation
 

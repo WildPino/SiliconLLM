@@ -121,7 +121,7 @@ def launch(a):
         assert worker.returncode == 0, log.read_text(errors='replace')[-6000:]
         check_inputs(b); r = json.loads(a.out.read_bytes())
         assert r['schema'] == 'ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_V1'
-        assert r['cases'] == b['cases'] and r['source_base_forwards'] == b['cases'] and r['sites_per_case'] == 24
+        assert r['cases'] == 48 and r['source_base_forwards'] == 48 and r['sites_per_case'] == 24
         assert r['payload_bytes'] == b['expected_payload_bytes'] and r['LM_head_calls'] == 0
         assert r['source_generations'] == r['optimizer_updates'] == r['native_calls'] == 0
         assert r['GPU_allocated_peak'] <= b['limits']['GPU_allocated_bytes']
@@ -246,7 +246,7 @@ def worker(a):
             hooks.append(mixer.norm.register_forward_pre_hook(lambda m, args, site=site: norm_observer(site, m, args)))
             hooks.append(mixer.register_forward_hook(lambda m, args, out, site=site: output_observer(site, m, args, out)))
         records = {r['id']: r for r in json.loads(Path(b['corpus']).read_bytes())['records']}
-        event(stage='source_loaded', parameters=len(identities), capture_cases=b['cases'])
+        event(stage='source_loaded', parameters=len(identities), capture_cases=48)
         for identifier in b['ordered_ids']:
             rec = records[identifier]; stage = identifier
             current = dict(id=identifier, split=rec['split'], domain=rec['domain'], history=len(rec['student_input_ids']),

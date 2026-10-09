@@ -21,12 +21,14 @@ sys.path.insert(0, str(SITE))
 
 
 def bind(a):
-    capture = DOC/'original_falcon_recurrent_capture_result_20261009.json'
-    terminal = capture.with_suffix('.terminal.json')
-    r = json.loads(capture.read_bytes()); t = json.loads(terminal.read_bytes())
-    assert t['exit_code'] == 0 and t['resource_gates'] and sha(capture) == t['result_sha256']
+    capture = DOC/'original_falcon_recurrent_adopted_result_20261009.json'
+    r = json.loads(capture.read_bytes())
+    terminal = Path(r['completion_terminal']['path']); t = json.loads(terminal.read_bytes())
+    assert t['exit_code'] == 0 and t['resource_gates']
+    assert extent(terminal) == r['completion_terminal'] and r['stored_finite_extent_hash_adoption']
+    assert sha(r['completion_raw_result']['path']) == t['result_sha256']
     assert r['cases'] == 48 and r['sites_per_case'] == 24 and r['LM_head_calls'] == 0
-    binding = DOC/'original_falcon_recurrent_capture_binding_20261009.json'
+    binding = Path(r['adoption_binding']['path'])
     cb = json.loads(binding.read_bytes()); assert sha(binding) == r['binding_sha256']
     files = [Path(__file__), B/'chatbot_falcon_usability.py', B/'chatbot_falcon_usability_launch.py',
         B/'original_falcon_whole_recovery.py', capture, terminal, binding,
@@ -59,7 +61,8 @@ def bind(a):
             GPU_allocated_bytes=4 << 30, GPU_reserved_bytes=5 << 30, output_bytes=96 << 20),
         inputs=[extent(p) for p in dict.fromkeys(files)],
         runtime_binding_scope='Complete stored B/C all24 sites plus all seven operands of sites0/12/23; '
-            'pinned source coefficient file, primary runtime binaries; not a source-model execution.'))
+            'pinned source coefficient file, primary runtime binaries; not a source-model execution. '
+            'Interrupted source parent runtime/resource aggregate qualification remains missing.'))
     print(json.dumps(dict(binding=str(a.out), sha256=sha(a.out), inputs=len(dict.fromkeys(files)))), flush=True)
 
 
@@ -159,6 +162,29 @@ def scan(torch, code, x, bb, cc, delta, A_log, dskip):
     off = reduced*torch.exp(acum).permute(0, 2, 3, 1)[..., None]
     yy = (diag+off).reshape(1, -1, 48, 64)+d_residual
     return yy[:, :n].reshape(n, 3072)
+
+
+def core_costs():
+    """Exact shape accounting, no runtime/DRAM/speed claim for variants."""
+    result=[]
+    for dn,dt in ((512,16),(512,48),(1024,16),(1024,48)):
+        D,N,L,V,E,K,H=256,96,6,65537,1152,8,128
+        ssm_matrices=dn*(3*D+2*dt+2*N)
+        core_matrices=5*ssm_matrices+4*D*D
+        source_shaped_organs=5*(dn*(3*D+2*dt+3*N+7)+2*D)+(4*D*D+2*D)
+        result.append(dict(D=D,DN=dn,N=N,DT_rank=dt,L=L,E=E,K=K,expert_H=H,V=V,
+            core_matrix_products=core_matrices,
+            head_matrix_products=V*D,selected_expert_matrix_products=L*K*3*D*H,
+            flat_router_matrix_products=L*D*E,
+            all_counted_matrix_products=core_matrices+V*D+L*K*3*D*H+L*D*E,
+            core_master_coefficients=source_shaped_organs,core_F32_bytes=source_shaped_organs*4,
+            recurrence_state_coefficients=5*dn*N,recurrence_F32_state_bytes=5*dn*N*4,
+            untied_state_exponentials=5*dn*N,
+            imported_scalar_head_exponential_hoisting='Algebraically possible for repeated A/delta only; '
+                'not implemented or timed, cannot charge skipped work yet.',
+            scope='L6/five SSM+one SWA/n1152/full V; excludes vector ops,conv,attention window, '
+                'post-gate norm,packing/alignment and physical DRAM; variants not implemented.'))
+    return result
 
 
 def worker(a):
@@ -278,6 +304,9 @@ def worker(a):
                         scalar_records.append(dict(id=rec['id'],site=site,channels=channels.tolist(),history=rec['history'],relative_RMS=error,
                             passed=error<=b['criteria']['scalar_F64_relative_RMS']))
                     arms = {}
+                    skip = (xx.reshape(rec['history'],48,64).float()*dskip[None,:,None]).reshape(rec['history'],3072)
+                    source_output = values['output'].double()
+                    source_centered = source_output-source_output.mean(0)
                     for arm, Bp, Cp in (('dense96', bb.float()@R, cc.float()@R),
                         ('coordinate96', bb[:,coord], cc[:,coord]),
                         ('dual96', bb.float()@W, cc.float()@V)):
@@ -285,14 +314,16 @@ def worker(a):
                         op = output(yp, values['gate'])
                         label = torch.tensor(rec['positions'], device='cuda')
                         arms[arm] = dict(scan_relative_RMS=metric(yp, values['y']),
+                            recurrent_relative_RMS=metric(yp-skip, values['y']-skip),
                             output_relative_RMS=metric(op, values['output']),
+                            centered_output_relative_RMS=metric(op.double()-op.double().mean(0), source_centered),
                             label_output_relative_RMS=metric(op[label], values['output'][label]))
                         del yp, op
                     row = dict(id=rec['id'],split=rec['split'],domain=rec['domain'],site=site,history=rec['history'],
                         reconstruction=dict(scan_relative_RMS=scan_error,output_relative_RMS=output_error,passed=ok), arms=arms)
                     measured.append(row);write(a.directory/f"{rec['id']}.site{site:02d}.metrics.json",row)
                     event(stage='assay', id=rec['id'],site=site,complete=len(measured),reconstruction=ok,arms=arms)
-                    del values, xx,bb,cc,delta, yy,out, Bp,Cp
+                    del values, xx,bb,cc,delta, yy,out, Bp,Cp,skip,source_output,source_centered
         qualified=not reconstruction_failures and len(scalar_records)==3 and all(r['passed'] for r in scalar_records)
         aggregates = {}
         for site in b['assay_sites']:
@@ -304,7 +335,8 @@ def worker(a):
         result=dict(schema='ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_V1',freeze=a.freeze,binding_sha256=a.binding_sha,
             decision='LOCAL_RECURRENT_PROJECTION_MEASUREMENTS_QUALIFIED' if qualified else 'LOCAL_RECONSTRUCTION_GATE_FAIL',
             reconstruction_qualified=qualified,reconstruction_failures=reconstruction_failures,scalar_F64=scalar_records,
-            bases=bases,records=measured,aggregates=aggregates,source_forwards=0,optimizer_updates=0,native_calls=0,
+            bases=bases,records=measured,aggregates=aggregates,algebraic_candidate_costs=core_costs(),
+            source_forwards=0,optimizer_updates=0,native_calls=0,
             optimistic_scope='All source3072 x/gate channels/48 heads and complete source generators,full norm/out_proj retained;'
                 'isolates state rank,not DN512/1024 feasibility,source-to-P256 projection,head/layer composition or chatbot quality.',
             quality_admission=False,speed_admission=False,GPU_allocated_peak=torch.cuda.max_memory_allocated(),
