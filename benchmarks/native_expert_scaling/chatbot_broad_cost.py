@@ -138,9 +138,11 @@ def worker(a):
             groups=[]
             for index,layer in enumerate(target.layers):
                 values={}
-                for label,parameters in (('core',list(layer.core.parameters())),
+                for label,parameters in (
+                    ('core',list(layer.core.parameters())),
                     ('banks',list(layer.banks.parameters())),
-                    ('norm',list(layer.input_norm.parameters())+list(layer.ff_norm.parameters())):
+                    ('norm',list(layer.input_norm.parameters())+list(layer.ff_norm.parameters())),
+                ):
                     selected=[p.grad for p in parameters]
                     assert selected
                     squared=sum(float(g.double().square().sum().item()) for g in selected)

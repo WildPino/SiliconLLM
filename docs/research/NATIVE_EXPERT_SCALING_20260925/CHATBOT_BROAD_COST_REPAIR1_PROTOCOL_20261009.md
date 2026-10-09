@@ -19,6 +19,8 @@ launcher receipt/original worker byte archive are retained.
 
 Repair uses explicit layer.core/layer.banks/layer.input_norm+layer.ff_norm
 parameter groups,matching the already retained original recovery collector.
+Preparation commit1db4b93 had a tuple syntax fault caught by compilation/binding
+before any repair worker launch;corrected source must compile before freeze.
 Persist forward/backward cost/loss BEFORE inspection assertions so another
 reporting fault cannot lose completed metrics. Model/data/selection/RNG/loss/
 QAT/gradient/state criteria and900s/16GiB/11GiB allocated/12GiB reserved caps
