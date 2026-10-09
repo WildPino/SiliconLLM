@@ -7,7 +7,54 @@ gates FAIL; original all-history numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
-### Current resumption after qualified native width envelope
+### Current resumption after actual wide Adam26 and zero-factor diagnosis
+
+[Actual bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md) COMPLETE:real masters/
+moments/RNG transport,one full1507 FIT Adam25->26,durable actual26/export/native
+integer/mass/resource checks PASS. Native three-case KL improves modestly but
+94..98% disagreement remains. GPU/C26 head rows/four ID calls FAIL. Added32 delta
+directions have both factors zero:unchanged training cannot activate them.
+All jobs terminal/noT4;actual checkpoints andfrozen code preserved.
+
+**Selected next engineering work:** first-divergence observations andexplicit
+single-factor initialization,using actual26 lineage,original native operators,
+existing cached FIT/DEV fields andfull histories. No new source labels/RESERVED.
+
+1. Implement a new observer/worker;keep frozen learners/kernel math unchanged.
+   Persist raw GPU IDs/masses (previous protocol persistence gap),core pre/post
+   residuals,router scores/top8 margins,AQ scales/codes,LUT accumulators andnative
+   corresponding fields. Start with full1507 FIT history andidentify first
+   divergent site/operation before adding tests. Head worst is1251,first failed
+   row82;these are observation selectors,not inferred causes. An instrumented
+   replay is new diagnostic inference,not replay of the completed optimizer.
+   Distinguish finite reduction/transcendental tolerance from discrete top8/AQ
+   changes;never force routes to match andcall the actual operator qualified.
+2. Explicitly fork actual26 masters/moments/RNG. For new delta factors U/V,
+   initialize bounded independent nonzero U only,keep V=0 andnew moments0.
+   Prefer existing FIT-supported directions;verify row rank/variance/scale,
+   lineage andold coordinates. dV=g(Ux)^T can then become nonzero while VUx=0
+   initially. Native pre-update function preservation is a measured gate,
+   not inherited from real-arithmetic algebra. Keep frozen zero-initialized
+   candidate andresults immutable. No dequantized bank substitution.
+3. Freeze concrete code/criteria/resources before one actual whole-FIT new
+   optimizer step;check real added-V gradients/changes,durable counter27/
+   moments/lineage andnative export/integer/mass/head endpoints. Do not demand
+   added-U gradients in the first step when V initially0. A resource/numerical
+   result alone doesnot establish useful source history orwidth advantage.
+
+Then select a finite joint state/input/read-function recovery pilot from the
+observed native endpoint,with full DEV/domain/own-history gates andplateau stops.
+Do not choose a large same-recipe dose solely because width is available.
+Learned source history is the missing information;linear384 decoder failures
+do not prove all learned states inadequate. More experts cannot restore discarded
+past information on their own. A month+ T4 campaign requires actual compatible
+memory/throughput,priced budget andcheckpointed recovery hypotheses.
+
+Useful native chatbot AND>=50 accepted batch1 onthe sameartifact,useful large n/
+structured CPU IDs andmass,physicalDRAM andother families/~10B/~100B remainmissing.
+Goal ACTIVE/INCOMPLETE.
+
+### Completed historical selection: master/moment width bridge
 
 [Native envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md) COMPLETE:
 DN1024/DT48 actual20 original kernels/same bank/fullV/k8/native bytewise head/

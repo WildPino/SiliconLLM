@@ -1,0 +1,155 @@
+{
+  "schema": "ORIGINAL_WIDE_STORED_AUDIT_V1",
+  "result_sha256": "6f91350744c47fc28e65829a34931549aefb822d542b8521e27d92febe640dd3",
+  "binding_sha256": "ed6bd8b9f0fe0f9e6cdefc913af4816b6988629745cf3357c0f2a61a860bdede",
+  "checked_inputs": 41,
+  "checked_outputs": 17,
+  "output_bytes": 10967978123,
+  "metrics": [
+    {
+      "arm": "before",
+      "id": "broad_dev_self_oss_instruct_036",
+      "KL": 9.157763244449182,
+      "disagreement": 248,
+      "labels": 256,
+      "unions": [
+        409,
+        418,
+        454,
+        483,
+        467,
+        475
+      ],
+      "mass_defect": 1.7881393432617188e-07
+    },
+    {
+      "arm": "before",
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "KL": 6.655791504513454,
+      "disagreement": 239,
+      "labels": 256,
+      "unions": [
+        688,
+        851,
+        954,
+        1009,
+        954,
+        923
+      ],
+      "mass_defect": 1.862645149230957e-07
+    },
+    {
+      "arm": "before",
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "KL": 9.327918507010704,
+      "disagreement": 252,
+      "labels": 256,
+      "unions": [
+        664,
+        826,
+        905,
+        964,
+        925,
+        880
+      ],
+      "mass_defect": 1.9371509552001953e-07
+    },
+    {
+      "arm": "after",
+      "id": "broad_dev_self_oss_instruct_036",
+      "KL": 9.059255203439875,
+      "disagreement": 248,
+      "labels": 256,
+      "unions": [
+        408,
+        419,
+        458,
+        482,
+        467,
+        467
+      ],
+      "mass_defect": 1.564621925354004e-07
+    },
+    {
+      "arm": "after",
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "KL": 6.312887293274402,
+      "disagreement": 240,
+      "labels": 256,
+      "unions": [
+        686,
+        845,
+        951,
+        1004,
+        948,
+        911
+      ],
+      "mass_defect": 1.7881393432617188e-07
+    },
+    {
+      "arm": "after",
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "KL": 9.164405023889309,
+      "disagreement": 251,
+      "labels": 256,
+      "unions": [
+        664,
+        821,
+        907,
+        962,
+        925,
+        870
+      ],
+      "mass_defect": 1.7881393432617188e-07
+    }
+  ],
+  "max_metric_delta": 0.0,
+  "max_row_metric_delta": 3.0531133177191805e-16,
+  "failed_positions": [
+    82,
+    99,
+    108,
+    114,
+    131,
+    140,
+    171,
+    186,
+    209,
+    215,
+    269,
+    288,
+    290,
+    296,
+    309,
+    408,
+    906,
+    907,
+    1107,
+    1186,
+    1251,
+    1288,
+    1324,
+    1343,
+    1352,
+    1362
+  ],
+  "greedy_mismatch_positions": [
+    339
+  ],
+  "worst_position": 1251,
+  "worst_row_relative_RMS": 0.0709878796703316,
+  "supervised_failed_positions": [
+    1251,
+    1288,
+    1324,
+    1343,
+    1352,
+    1362
+  ],
+  "GPU_native_supervised_KL_delta": 0.0010966239619261131,
+  "independently_rechecked_GPU_routes": false,
+  "reason": "GPU routes remained in worker memory; raw GPU IDs/masses were not persisted. Four ID calls and mass delta are worker observations only.",
+  "independently_deserialized_checkpoint": false,
+  "scope": "All input/output hashes and stored native/GPU heads; six native teacher metrics and native route validity. No new prediction, update, source call or numerical cause claim.",
+  "elapsed_seconds": 26.610000000044238
+}

@@ -29,6 +29,19 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md): COMPLETE,
+transport/update/export/resource checks PASS; numerical/quality gates FAIL.**
+Real Adam25 master/moment/RNG injection,initial fixture export SHA identity,
+one1507-position whole-FIT Adam26 checkpoint and changed native export exist.
+655360 new read coefficients change;18432 native integer witnesses exact.
+Three native case KL9.158->9.059/6.656->6.313/9.328->9.164;disagreement94..98%.
+GPU/C26 failed head rows/four ID calls;GPU raw route persistence gap retained.
+Stored algebra finds both added delta factors zero:32 directions cannot learn
+without a new initialization. No width-causal/quality/accepted-speed/useful-n claim.
+Held487.641s/resourcesPASS/all jobs terminal/noT4. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+locates numerical divergence and explicitly unlocks new delta factors before
+choosing a finite joint source-history recovery pilot. Older nexts below are historical.
+
 **[Original native width envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md):
 COMPLETE/native preservation/raw cost PASS.** Actual Adam25 bank/fullV65537/
 n1152/k8/D256/N96/L6,DN512/DT16 versus DN1024/DT48,20 original computational bodies.
@@ -38,10 +51,8 @@ byte-identical. Raw case medians121..142 versus99..132 IDs/s,aggregate136.77 ver
 useful-n/DRAM admission. Wide520.029MB fixture adds no knowledge. Metadata fault
 after export/base compile retained;missing-only completion adopts them,11new+
 1inherited children,combined held377.750s/resourcesPASS/all jobs terminal.
-[Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md): implement trainable width and
-actual Adam25 master/moment injection,initial export identity andone real longest-
-FIT update/changed export/native endpoint before larger joint state/function pilot.
-New width learner/protocol/binding missing;no T4 allocation.
+Its selected trainable width/master injection/update bridge is now complete above;
+no T4 allocation. Fixture cost evidence remains separate from useful chatbot speed.
 
 **[Weighted384 histories](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md):
 COMPLETE/operator PASS/reconstruction budget FAIL.** FIT-only dual read/write
@@ -55,7 +66,7 @@ Close fixed linear384/source-gate route. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20
 returns to a complete original-kernel cost/parity comparison before learning a
 new state:actual Adam25 DN512/DT16 versus duplicated-core DN1024/DT48 fixture,
 same real bank/fullV/LUT/AQ63/dReLU. That native comparison is now complete above;
-fixture adds no knowledge. Trainable width/optimizer transport still missing.
+fixture adds no knowledge. The subsequently completed bridge is reported above.
 
 **[Mixed384 history](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md): COMPLETE,
 projected recurrence valid;plain decoder budget FAIL.** FIT-only144 head bases,

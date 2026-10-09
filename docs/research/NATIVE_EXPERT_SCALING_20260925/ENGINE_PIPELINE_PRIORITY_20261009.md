@@ -6,15 +6,25 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+The [actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md) is COMPLETE:
+real master/moment/RNG transport,one whole-FIT update26/durable checkpoint,
+changed original native export/integer/mass validation. Native case KL improves
+modestly;token disagreement94..98% remains. Whole GPU/C numerical gateFAIL.
+Added32 delta coordinates have both factors zero and are algebraically unable
+to learn under the frozen continuation. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+is numerical first-divergence trace plus an explicit function-preserving
+single-factor initialization,then a finite joint recovery pilot. No unchanged
+long dose,source-runtime expansion or T4 allocation follows from costPASS.
+The target remains useful pretrained chatbot -> original LUT/ternary/SSM engine.
+
 The [original native width envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md)
 is now COMPLETE:actual original20 kernels/LUT/AQ63/dReLU/same Adam25 bank/fullV,
 DN1024/DT48 bytewise preserves3352 head rows/IDs/masses/integer witnesses. Raw
 aggregate121.38 versus136.77 IDs/s,mincase99.37,declared raw costPASS. Wide fixture
 adds no knowledge;poor source-relative quality remains. Complete component cost
 is measured,not inherited from the old small-vocabulary cache fixture.
-[Current resumption](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) implements actual
-master/moment transport andtrainable wider core/one whole-history update/export/
-native bridge before a larger joint learned-state quality pilot. Older selected
+[Current resumption](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) supersedes the
+completed master/moment transport andwhole-history update bridge. Older selected
 steps below are historical;no additional unchanged-geometry Adam25 dose,T4
 allocation or fixed384/source-gate projection sweep. Goal ACTIVE/INCOMPLETE.
 

@@ -1,0 +1,82 @@
+{
+  "schema": "ORIGINAL_WIDE_DELTA_ZERO_LOCK_V1",
+  "packed_checks": [
+    {
+      "artifact": "initial_wide.packed",
+      "site": 0,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "initial_wide.packed",
+      "site": 1,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "initial_wide.packed",
+      "site": 2,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "initial_wide.packed",
+      "site": 3,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "initial_wide.packed",
+      "site": 4,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "candidate_wide26.packed",
+      "site": 0,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "candidate_wide26.packed",
+      "site": 1,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "candidate_wide26.packed",
+      "site": 2,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "candidate_wide26.packed",
+      "site": 3,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    },
+    {
+      "artifact": "candidate_wide26.packed",
+      "site": 4,
+      "new_U_nonzero": 0,
+      "new_V_nonzero": 0
+    }
+  ],
+  "frozen_learner": "original_wide_learner.py",
+  "U": "x_proj[16:48,:]",
+  "V": "dt_proj[:,16:48]",
+  "proof": "z_new=V U x; dV=g(Ux)^T; dU=(V^Tg)x^T. U=V=0 gives both derivatives identically zero. Zero first/second Adam moments and no decay preserve this subspace under subsequent updates.",
+  "scope": "Proof applies to the frozen computation graph and deterministic continuation without a new initialization or optimizer perturbation. Packed snapshots confirm both factors zero before and after update26; checkpoint moments are runtime observations, not independently deserialized here.",
+  "active_delta_factor_rank_upper_bound": 16,
+  "advertised_delta_coordinates": 48,
+  "single_factor_algebra_witness": {
+    "output_unchanged": true,
+    "dead_dV_nonzero": 0,
+    "dead_dU_nonzero": 0,
+    "seeded_dV_nonzero": 28
+  },
+  "proposed_correction": "Explicitly fork actual26; initialize new U only with bounded independent FIT-informed directions, keep V=0/new moments0. Native pre-update parity must be measured; real new V gradients/changes must be observed. No quality gain follows from this witness.",
+  "new_predictions": 0,
+  "new_optimizer_updates": 0,
+  "elapsed_seconds": 0.01600000000325963
+}

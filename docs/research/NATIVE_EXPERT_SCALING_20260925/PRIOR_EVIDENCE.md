@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**9 October actual wider bridge COMPLETE/engineering checks PASS/numerical FAIL:**
+[Result](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md). Exact real master/moment/RNG
+transport,initial native fixture SHA identity,one whole1507 FIT Adam25->26,
+8652209850B durable checkpoint/520029440B changed packed export.655360 new read
+coefficients nonzero;updated18432 integer witnesses exact/all native masses valid.
+Native KL9.158->9.059/6.656->6.313/9.328->9.164;disagreement94..98%,noquality.
+GPU/C26 failed rows/worst.07099/four ID calls/massdelta.001416;raw GPU routes
+not persisted,retained evidence gap. Added32 delta coordinates zero at both
+factors:exact zero-gradient invariant,rank<=16 until explicit initialization.
+Held487.641s/exit0/session25642 CLOSED/resourcesPASS/17files10967978123B.
+All41input/17output hashes/six native metrics/1507row comparisons rechecked.
+Next numerical trace andzero-factor correction,then finite joint recovery;noT4.
+
 **9 October original native width envelope COMPLETE/preservation andraw cost PASS:**
 [Result](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md). DN512/DT16 versus1024/48,
 same actual Adam25 ternary bank/fullV65537/n1152/k8/D256/N96/L6/20original bodies.
@@ -12,8 +25,8 @@ after export/base compile:held42.031s/exit1/session92576 CLOSED. Missing-only
 completion held335.719s/exit0/session7845 CLOSED,OSconservative2,357,403,648B,
 11new+1adopted child/resourcesPASS. Combined377.750s/55files2,281,128,027B.
 Stored46new+9oldhashes/bitidentity/timing mediansdelta0verified. Freeze4e42d47/
-bind93f38c80;completion88850ef/binde7f1c711/raw858552d6. Next actual master/moment
-transport andwider whole-update/native bridge;not an endless copied-bank sweep.
+bind93f38c80;completion88850ef/binde7f1c711/raw858552d6. Selected master/moment
+transport andwider whole-update bridge now completed above.
 
 **9 October weighted384 histories COMPLETE/operator PASS/reconstruction FAIL:**
 [Result](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md),freeze8bcd42e/bind325e4cfe/
