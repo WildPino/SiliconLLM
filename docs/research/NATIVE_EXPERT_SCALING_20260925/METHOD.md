@@ -29,7 +29,16 @@ New broad48-case source capture/adoption is COMPLETE/8808 labels/577.25M
 coordinates verified;[result](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md).
 New58/1507-ID [target cost](CHATBOT_BROAD_COST_RESULT_20261009.md) records complete
 finite forwards/backwards but FAILS GPU caps19.31GB allocated/22.00GB reserved,
-0 optimizer steps. Qualify F32 SSD bounded temporary storage before a full pilot.
+0 optimizer steps; the original failure is retained. The separately
+[qualified target storage](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md)
+keeps the complete original reductions/F32/geometry:both losses identical,
+four actual long block0 formula/VJP comparisons pass;GPU allocated5.053GB.
+This is an available offline schedule,not a model-capacity/native-quality result.
+The [fixed24-update coverage pilot](CHATBOT_BROAD_PILOT_RESULT_20261009.md)
+is COMPLETE:FIT/DEV relative KL recoveryPASS,absolute/domain/old-disagreement
+retentionFAIL. Actual24/Adam318/new48 before+after/old32 retention,not useful
+chatbot admission. [Next stage](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md)
+keeps source-compatible intermediate organs while measuring FFN arithmetic loss.
 
 ## 1. Bind source, interaction and applicability
 
@@ -202,9 +211,13 @@ protocol. Algebraic certificate checker is also UNEXECUTED.
 
 ## 5. Bound numerical diagnosis, then recover source quality
 
-Current operative next step is bounded F32 training storage qualification under
-[actual cost](CHATBOT_BROAD_COST_RESULT_20261009.md),then ONE data-coverage
-pilot under [NEXT](CHATBOT_BROAD_TRANSFER_PILOT_NEXT_20261009.md). Common/private code
+Storage qualification is [COMPLETE/PASS](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md).
+The [ONE fixed data-coverage pilot](CHATBOT_BROAD_PILOT_RESULT_20261009.md)
+is COMPLETE,with collector repair1 restoring2/Adam296 withoutreplays andfinishing
+24/Adam318. Relative KL improves;5 of8 absolute/domain/retention gatesFAIL.
+Next [source-compatible arithmetic control](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md)
+measures a conversion stage before combining source width/depth/coverage losses.
+Common/private code
 is frozen/UNEXECUTED/deferred until a controlled pilot requires it.
 Complete160-case boundary286 quality and initial-group directional residual
 are now measured. Common-bank/core diagnostics below remain closed/reusable;
@@ -237,8 +250,14 @@ bit equality on151 old forced rows only;new unseen equality is not asserted.
 Target training cost uses original SSD implementation,0 optimizer steps;
 58/1507-ID finite gradients recorded,but peak19.31GB allocated FAIL11GiB.
 Original SSD interchunk temporary is4*(ceil(T/16)+1)^2*48*16*256B,
-7.248GB at1507 IDs. F32 forward/backward storage needs separate qualification;
-the native bounded-state engine geometry remains unchanged. No full fit yet.
+7.248GB at1507 IDs. Separately qualified F32 storage tiles destination/chunk
+outputs,keeps full reductions,and measures5.053GB allocated with actual local
+adjoints;the native bounded-state engine geometry remains unchanged. Broad24
+COMPLETE:newDEVKL9.823->6.991/disagreement90.17->87.48%;oldDEVKL3.081->3.144
+butdisagreement41.61->50.41%. Coverage recovery exists,retention/absolute quality
+fail;not a full512 result or quality admission. Candidate3.060GB/16a85448 is
+saved actual24/Adam318 with separate schema. All counts/finite state/moments and
+resource gates pass;completed cases/updates must not be replayed for confirmation.
 Reuse checkpoint286/Adam294 after audited new supervision; retain original
 inference geometry/ternary/AQ63/C kernels. Old nativeFAIL remains;the actual
 new export requires whole native and own-history checks before long adaptation.

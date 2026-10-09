@@ -1,5 +1,32 @@
 # Native expert-count scaling: prior evidence
 
+**9 October fixed broad24 COMPLETE/quality-retention FAIL:**
+[Result](CHATBOT_BROAD_PILOT_RESULT_20261009.md),77a2606/1fefd3c3,actual24/Adam318;
+2 oldupdates+22 new,ALL48 before reused,all48 after+old32 retention. FITcaseKL
+9.92958->4.47428/newDEV9.82254->6.99079;relativePASS. NewDEVdisagreement
+3955->3837/4386 (90.17->87.48%);oldDEV459->556/1103 (41.61->50.41%) while
+KL3.08098->3.14427.5 of8 gatesFAIL;no capacity/chat admission or ceiling claim.
+All24 finite211 gradients/12positive groups/durable model+Adam fields andstage
+support countsPASS. Originalsupportfilefault retained282.609s/exit1/session95406;
+repair1443.719s/OS4.962GB/GPUallocated4.781GB/reserved5.518GB/exit0/session16778closed.
+209repairfiles5.670GB,candidate3.060GB/SHA16a85448;not full512 eligibility.
+No source/gen/native/T4/RESERVEDcalls. [Next](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md)
+prices a source-compatible FFN arithmetic stage offline,keeping engine destination.
+
+**9 October target F32 storage qualification COMPLETE/PASS:**
+[Result](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md),ac941b5/63dc3b8f;
+same geometry/precision/full reductions,58/1507 training losses identical,
+groupnorm delta<=9.421e-8,all211 finite gradients/all model+Adam tensors unchanged.
+Four actual long block0 operands/adjoints:CPU original/tiled all forwards exact,
+7/8 inputVJPs exact,interchunk stateVJP RMS1.009e-7;CPU/CUDA tiled output
+RMS<=9.635e-8. Not whole-model gradient-direction/unseen-quality equivalence.
+GPUallocated5.053GB/reserved5.683GB,heldOS17.367GB includes separate32GiB
+CPU dense-reference budget;family114.266s/11files774.6MB/exit0/session70614closed.
+No source/update/native/T4. [Broad24 protocol](CHATBOT_BROAD_PILOT_PROTOCOL_20261009.md)
+then observedall48 before,DEVKL9.82254/90.1733%disagreement;originalsupport
+exclusive-file fault afterdurable2/Adam296 remainsFAILED. Repair1
+77a2606/1fefd3c3 resumed2 withoutreplays;session16778 nowterminal (result above).
+
 **9 October broad source acquisition/adoption and actual long training cost:**
 [Source result](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md):48/8808 full-vocab
 BF16 labels/577,249,896 coordinates transportPASS;24 EOS/24 partial replies,

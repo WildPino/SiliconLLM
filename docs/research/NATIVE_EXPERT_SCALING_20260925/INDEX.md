@@ -16,7 +16,8 @@ and numbered repairs; reuse completed scientific/capture/native/audit bytes.
 No timing overlap. Preserve foreign work/publisher. Routine Graphify disabled.
 Donor-adaptation operationally frozen, evidence reusable. T4 requires communicated
 reason/budget/stops first. All recovery/evaluation/native jobs terminal;
-no local job or T4.
+All jobs terminal;no local worker or T4. Broad24 repair1/session16778 exited0,
+execution/resource PASS andquality/retention FAIL. Foreign hashes preserved.
 
 ## Current direction and two research questions
 
@@ -31,7 +32,13 @@ Broader [source capture/adoption](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md) is
 now COMPLETE:48 cases/8808 labels/577.25M verified BF16 coordinates,24 EOS/
 24 partials;46 new generations+2 original reused. [Actual training cost](CHATBOT_BROAD_COST_RESULT_20261009.md)
 has both58/1507-ID forward/backward records but GPU resource FAIL at19.31GB
-CUDA allocation. Qualify bounded F32 SSD temporary storage before any full fit.
+CUDA allocation;the separately [qualified storage schedule](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md)
+keeps original F32/geometry/reductions and passes at5.053GB allocated.
+The [fixed broad24 pilot](CHATBOT_BROAD_PILOT_RESULT_20261009.md) is COMPLETE;
+repair1 reused all48 before observations andboth original updates. NewDEV
+KL9.823->6.991 butdisagreement87.48%,oldDEV41.61->50.41%;5 of8 gatesFAIL.
+[Next staged conversion](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md) begins
+with source-compatible FFN arithmetic control before composing compression losses.
 [Common/private construction](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
 is implemented/frozen in b936b60 but UNEXECUTED/deferred until a controlled pilot
 requires that construction. Broader supervision/curriculum precedes long training. Redundancy
@@ -48,9 +55,27 @@ adaptation is permitted but useful transfer must be demonstrated.
 | Question | Established | Open |
 |---|---|---|
 | Useful conditional target |Original trained E32 native parity; bounded source utility123/183/369 and cost373; actual packed compact C target now executes|Useful much larger n, structured CPU LUT IDs/mass, physical DRAM, fresh quality+50|
-| Transfer into that target |Screened Falcon1.5B;8+286 updates/160 evaluation;old export/C;new48/8808 supervision and58/1507 training costs|Bounded F32 training storage,absolute/fresh quality,conditional functions,qualified native forward,own-history/chat,family/scale variants|
+| Transfer into that target |Screened Falcon1.5B;8+286+24 updates;old export/C;new48/8808 supervision;qualified F32 training storage;complete broad24 control|Source-compatible staged recovery,absolute/fresh quality,conditional functions,qualified new native forward,own-history/chat,family/scale variants|
 
 ## Latest decisive evidence
+
+**[F32 storage qualification](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md):**
+Both58/1507 losses identical to retained original values;max gradient-group
+norm difference9.421e-8. Four actual long block0 CPU formula/VJP comparisons
+pass,all forward outputs/7 of8 VJP arrays bit-equal;remaining VJP RMS1.009e-7.
+ALL211 gradients finite;model/all Adam moments unchanged. GPU5.053/5.683GB,
+family114.266s/heldOS17.367GB including separately priced dense CPU reference;
+all gatesPASS/exit0/session70614 closed. Engine geometry unchanged.
+
+**[Broad24 transfer/retention COMPLETE](CHATBOT_BROAD_PILOT_RESULT_20261009.md):**
+Fixed24/Adam318,all48 before/after+old32 retention. FITKL9.930->4.474,
+DEV9.823->6.991 (both relativePASS),newDEV3955->3837/4386 disagreements,
+oldDEV459->556/1103 despiteKL3.081->3.144.5 of8 gatesFAIL;no quality admission.
+All24 finite211 gradients/12positive groups anddurable model/moments;support
+counts exact. Originalfault after2 retained;repair22 new/no replays,232-input
+1fefd3c3/77a2606. Family1443.719s/OS4.962GB/GPU4.781/5.518GB,all resource/
+input gatesPASS,exit0/session16778closed. Candidate16a85448/3.060GB,
+BROAD_24_TRANSFER_CANDIDATE_V1,not full512 eligibility. Next staged control.
 
 **[Broad source supervision and actual target training envelope](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md):**
 48/8808 source packets adopted,24 FIT/24 DEV/12 strata,half replies partial;
@@ -149,15 +174,16 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** qualify bounded F32 SSD temporary storage under the actual
-[58/1507 training envelope](CHATBOT_BROAD_COST_RESULT_20261009.md):tile destination
-chunk of interchunk product while retaining complete source-chunk reductions;
-compare forward/gradients/resources before full fit. BF16 donor storage helper
-only covers three other contractions and does not certify target gradients.
-Capture/adoption COMPLETE;reuse ALL8808 labels and existing two cost records,
-do not repeat completed observations without this changed storage variable.
-Then freeze [ONE controlled whole-output pilot](CHATBOT_BROAD_TRANSFER_PILOT_NEXT_20261009.md)
-from checkpoint286/Adam294 with original engine geometry and old DEV retention.
+**First action:**implement/price [source-compatible FFN arithmetic control](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md):
+keep original useful donor organs/width/depth/FFN coverage;change ONLY the
+deployable ternary/AQ63 FFN arithmetic package offline. Read exact source MUP/
+casts first,then freeze limits/criteria/short-long price. Reuse8808 original
+source rows/forced IDs/cached schedule;no source reply regeneration. This
+intermediate is not final generic donor runtime/accepted50. Measure conversion
+loss before adding selection/representation/core compression or month-plus T4.
+Broad24 andstorage COMPLETE;no running process or restart. Retained actual
+candidate24/Adam318 has separate eligibility;any new export/native/own-history
+test must bind that actual artifact,not weaken historical full512 tools.
 Longalign requires a separate context stage. Actual native chat/cost
 probe COMPLETE;reuse its bytes and client, no repeat for a favorable rate.
 Shared/private state conversion/connectivity code is frozen/deferred, not a result.

@@ -20,6 +20,16 @@ into an affordable final engine target, with staged error recovery and broad
 chat supervision; useful n is a capacity dimension, not a reason to omit core,
 head or routing costs. Read INDEX for the current exact resumption.
 
+Latest offline step:the [target storage qualification](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md)
+reduced observed long training allocation19.31->5.05GB by tiling temporary
+products,with identical whole losses and passing actual local adjoints.
+It adds no deployed work/operator/parameter and preserves the original engine
+destination. The [fixed broad24 pilot](CHATBOT_BROAD_PILOT_RESULT_20261009.md)
+tests coverage/retention on that same geometry:relative recoveryPASS,but5 of8
+absolute/domain/retention gatesFAIL. [Next staged conversion](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md)
+keeps a useful source-compatible intermediate andmeasures FFN arithmetic loss
+before combining compression/selection changes. No new deployed work or T4.
+
 The desired artifact is a useful pretrained chatbot converted into compact
 SSM/SWA control plus selectively read ternary functions executed by the original
 LUT machinery. Offline adaptation may take a month or more when its feasibility

@@ -37,7 +37,7 @@ scopes. They are a motivation, not a chatbot conversion proof.
 |---|---|---|
 | Source capabilities and operators |Falcon1.5B pinned/screened; frozen Giga/Qwen evidence reusable|Keep Falcon as tractable first case; retain source/tokenizer/EOS/config identity. Another family follows a working procedure |
 | Data/information available for transfer |Old128 FIT/32 DEV retained;new624 prefixes adopted;48 new cohort replies/8808 labels transportPASS,half partials|Reuse all labels;full responses/longalign remain separately required.104 new+64 old RESERVED unqueried |
-| Offline training storage |58/1507-ID finite backwards;original long SSD allocation19.31GB FAIL11GiB;one interchunk array7.248GB|Qualify F32 forward/backward tiling of temporary contractions before the broad-data pilot;final native recurrence geometry stays unchanged |
+| Offline training storage |Original19.31GB FAIL retained;new storage qualification5.053GB PASS/actual local F32 adjoints;fixed broad24 completed|Reuse qualified schedule andactual costs;native recurrence geometry stays unchanged |
 | Functional decomposition of FFNs |Copied source groups -> normalized top8 loses direction; all1092 scalar-oracle DEV errors>1%|Train experts as conditional approximations of the needed response/residual. Compare one construction with a declared control; redundancy must supply coverage and correct coefficients |
 | Core/representation compression |2048->512 initialization47.2% matrix energy; changed width/depth/recurrence and precision simultaneously|Use staged recovery and a source-compatible positive control to separate recurrence, representation, selection and quantization. Matrix energy is not knowledge loss or a quality ceiling |
 | Ternary/AQ63 arithmetic |Original LUT bodies/packed loader execute; old native numerical gate fails|Recover through deployable quantization, then check the actual new packed candidate before long continuation. High-precision warmup is explicitly temporary |
@@ -64,9 +64,12 @@ generated histories remain the final observations.
 
 Broader [data adoption](CHATBOT_BROAD_DATA_RESULT_20261009.md) is COMPLETE.
 Source capture/saved-only adoption are [COMPLETE](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md).
-[Actual cost](CHATBOT_BROAD_COST_RESULT_20261009.md) FAILS long-training GPU caps.
-Qualify bounded F32 SSD temporary storage,then price ONE controlled conversion pilot before
-extending training. Reuse existing source/checkpoint/transport bytes. Preserve original286
+[Actual cost](CHATBOT_BROAD_COST_RESULT_20261009.md) FAILS long-training GPU caps;
+[separate storage schedule](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md) nowPASS.
+[Broad24](CHATBOT_BROAD_PILOT_RESULT_20261009.md) completes but5 of8 quality/
+retention gatesFAIL. [Next](CHATBOT_STAGED_CONVERSION_NEXT_20261009.md):source-compatible
+FFN arithmetic intermediate before composing compression/selection losses.
+Reuse existing source/checkpoint/transport bytes. Preserve original286
 updates and completed evaluations; no restart solely for extra diagnostics.
 Existing common/private code is available but its single-update connectivity
 probe is deferred until the selected pilot needs that construction.
