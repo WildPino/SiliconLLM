@@ -1,0 +1,1780 @@
+{
+  "schema": "SOURCE_FFN_LOCAL_RESULT_V1",
+  "phase": "calibrate",
+  "variant": "MIRRORED_INPUT_ALPHA",
+  "decision": "SOURCE_FFN_MIRROR_BALANCE_FAIL",
+  "freeze": "998e7ebe4a3b81bbfa4253f8d33aa9b087ee94df",
+  "binding_sha256": "1dd6b4cce7b8fe605dd2effc3e9781727ab50cc3bfa07c9e6ff765144356ef78",
+  "process_instance": {
+    "pid": 12712,
+    "create_time_unix": 1791523274.2313561
+  },
+  "cases": 4,
+  "records": [
+    {
+      "site": 0,
+      "trials": [
+        {
+          "alpha": 0.0,
+          "beta": 0.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.5798679752142387,
+              "cosine": 0.8217774661136062,
+              "oracle_amplitude": 1.1505678247797329,
+              "oracle_relative_L2": 0.5698085609991311,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a0.0.b0.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "5e6c25ebd73971caa63b00dd1734323611ea2ebc405729c78a582edf781fba81",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.5576029561636207,
+              "cosine": 0.835769492919545,
+              "oracle_amplitude": 1.1314785296070808,
+              "oracle_relative_L2": 0.5490804628695204,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_smol_magpie_ultra_022.a0.0.b0.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "763c46541407180798383a052eef5fc1a1740107f52e8cfa32eab485723bac14",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.0,
+              "cosine": 1.0,
+              "oracle_amplitude": 1.0,
+              "oracle_relative_L2": 0.0,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a0.0.b0.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "c9725550c7c70464c7f31dc9a2746bb6bbce3d0f6b542033e819b248e2862a1f",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.0,
+              "cosine": 1.0,
+              "oracle_amplitude": 1.0,
+              "oracle_relative_L2": 0.0,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_smol_magpie_ultra_022.a0.0.b0.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "788a5e9d057b4b4206cf23b087467aafa061322d9e4a8dbf4e8acad5bfbbf435",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "FIT_case_mean_relative_L2": 0.5687354656889296,
+          "origin": "Completed positive-grid alpha0 FIT outputs reused"
+        },
+        {
+          "alpha": 0.0,
+          "beta": 0.5,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.6409638571800025,
+              "cosine": 0.7739737887582716,
+              "oracle_amplitude": 1.1472644350530006,
+              "oracle_relative_L2": 0.6332176358213395,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a0.0.b0.5.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "034f89b42be4aca00122e88f4393fd865517496dd0e7535751e7953a8ebfaffa",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.5859600435762115,
+              "cosine": 0.8161859279810915,
+              "oracle_amplitude": 1.13568364795484,
+              "oracle_relative_L2": 0.5777893482625349,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_smol_magpie_ultra_022.a0.0.b0.5.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "d6115ba65a96c06a44a7c86b43807f6975f31d5646a9110b17f3cc01a538d300",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 2.7856259047433485e-07,
+              "cosine": 0.9999999999999614,
+              "oracle_amplitude": 0.999999992237811,
+              "oracle_relative_L2": 2.784544221759026e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a0.0.b0.5.identity.f32",
+                "bytes": 147456,
+                "sha256": "63d95949050b5e15f9e56395785d00b9afd3ce15fbf13c6111412b2de7b98875",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 4.5602344747965076e-07,
+              "cosine": 0.9999999999998961,
+              "oracle_amplitude": 0.9999999935034157,
+              "oracle_relative_L2": 4.559771694319797e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_smol_magpie_ultra_022.a0.0.b0.5.identity.f32",
+                "bytes": 2097152,
+                "sha256": "d9b2f2635e0bb783d3d870b5c1302444daf21b623b2aad8c26abc8fc0e1c5fd5",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "FIT_case_mean_relative_L2": 0.6134619503781069,
+          "origin": "Completed positive-grid alpha0 FIT outputs reused"
+        },
+        {
+          "alpha": 0.0,
+          "beta": 1.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.6809471589714157,
+              "cosine": 0.732778472030176,
+              "oracle_amplitude": 1.0361418416139996,
+              "oracle_relative_L2": 0.6804672739589469,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a0.0.b1.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "0fdf1c35214d41dcd470797f1dfb26cc8f776e42c0553a3bcf787c1a827ac0ac",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.6222389154251311,
+              "cosine": 0.7833965241935816,
+              "oracle_amplitude": 1.0396209902984206,
+              "oracle_relative_L2": 0.6215222328134491,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_smol_magpie_ultra_022.a0.0.b1.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "870a5ec69fc9a4130d49f8c02777a2328e1c0550e492e72e3e630b15bbce687f",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 2.7781484669229403e-07,
+              "cosine": 0.9999999999999615,
+              "oracle_amplitude": 0.9999999892900563,
+              "oracle_relative_L2": 2.77608332267584e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a0.0.b1.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "a7256c0357dbab6ad76f374dbb49ee43b695f5409a116d6b729a305cbf643801",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 4.603677579803653e-07,
+              "cosine": 0.9999999999998941,
+              "oracle_amplitude": 0.999999990960769,
+              "oracle_relative_L2": 4.602790076542875e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_fit_smol_magpie_ultra_022.a0.0.b1.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "6796b01deae77cce2e1c968b8d6be85395b5252d0ed12898b46f8cbaabcb5683",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "FIT_case_mean_relative_L2": 0.6515930371982734,
+          "origin": "Completed positive-grid alpha0 FIT outputs reused"
+        },
+        {
+          "alpha": -0.5,
+          "beta": 0.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.8607544203003251,
+              "cosine": 0.5306288492094504,
+              "oracle_amplitude": 0.7797487158708301,
+              "oracle_relative_L2": 0.8476042852573684,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "c2fb8403e1ac5f5de9c8444a01ad6744b1276327037b472d7d92de044b30d8b6",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.8774094904427412,
+              "cosine": 0.5019664799657925,
+              "oracle_amplitude": 0.7726426292799483,
+              "oracle_relative_L2": 0.8648870752825202,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-0.5.b0.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "b766f5e3d24e206ccf3034e8df16e51580eaa8638d73443718933455ccdcd365",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 2.3388428088443757e-07,
+              "cosine": 0.9999999999999727,
+              "oracle_amplitude": 0.9999999997670161,
+              "oracle_relative_L2": 2.3388416484051753e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "f34e6fa3edb0eaeb8ab625e6026acc925d5165db364ded57ad6a2b5848c89e09",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 3.459293001857108e-07,
+              "cosine": 0.9999999999999402,
+              "oracle_amplitude": 0.9999999983639297,
+              "oracle_relative_L2": 3.45925431272212e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-0.5.b0.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "bff1b67a09681a42cc48f5f8838ca36b1c15161c6a7855c7df159fa43116c058",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.8690819553715332
+        },
+        {
+          "alpha": -0.5,
+          "beta": 0.5,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.8899890708578743,
+              "cosine": 0.46958920658522674,
+              "oracle_amplitude": 0.807111230570115,
+              "oracle_relative_L2": 0.8828850304873548,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.5.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "e1945725be7e336c812c15bfade2e42ad69c70f42940d73a58daffac49496e05",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.8846367588406031,
+              "cosine": 0.4776639261604042,
+              "oracle_amplitude": 0.8216854452118413,
+              "oracle_relative_L2": 0.8785426419047786,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-0.5.b0.5.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "e18ba613d0c7769b977e12db703fcb8835242a351379c6971144bac1727c0736",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 3.007912454166087e-07,
+              "cosine": 0.9999999999999549,
+              "oracle_amplitude": 0.9999999824986268,
+              "oracle_relative_L2": 3.0028165985706856e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.5.identity.f32",
+                "bytes": 147456,
+                "sha256": "bae17ad016611a1d025731f0c1fcb1150f683950bc9518fb2946d5b6afbab242",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 4.794222805593598e-07,
+              "cosine": 0.9999999999998851,
+              "oracle_amplitude": 0.9999999939804358,
+              "oracle_relative_L2": 4.793844886349256e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-0.5.b0.5.identity.f32",
+                "bytes": 2097152,
+                "sha256": "f837f120f7b88c12073c3a9d22f66afefd0b40445d7deb845e2a158d8317f675",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.8873129148492387
+        },
+        {
+          "alpha": -0.5,
+          "beta": 1.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.9263128051834942,
+              "cosine": 0.4147185634032442,
+              "oracle_amplitude": 0.7052329405867559,
+              "oracle_relative_L2": 0.9099497311218622,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-0.5.b1.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "a3fa5878e475cfda105a0611caacbb4afabc67b1d1d27615402d2a3d8c587c62",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.9123174011375408,
+              "cosine": 0.4364656130012159,
+              "oracle_amplitude": 0.7428620763012425,
+              "oracle_relative_L2": 0.8997209393292306,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-0.5.b1.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "5e96efae7e6fa4e0cb3896ad86b38ba613ac576f504ef69faefdb56a40787806",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 3.023430527104207e-07,
+              "cosine": 0.9999999999999545,
+              "oracle_amplitude": 0.9999999978416281,
+              "oracle_relative_L2": 3.0233534850000885e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-0.5.b1.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "eb37673b48788683f3ea0a767fcf79188e1075021264806aa74b65a4f798d7af",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 4.868662787216082e-07,
+              "cosine": 0.9999999999998813,
+              "oracle_amplitude": 0.9999999911386789,
+              "oracle_relative_L2": 4.867856307922083e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-0.5.b1.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "41b1e12f1b4bbe70ccdbbbbcbc426b97f63969e722b07f76936afd6c6967482d",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.9193151031605176
+        },
+        {
+          "alpha": -1.0,
+          "beta": 0.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 1.0219425076412225,
+              "cosine": 0.35183132997921185,
+              "oracle_amplitude": 0.46178486223265924,
+              "oracle_relative_L2": 0.9360634141152291,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "a32d1f466fc9e2b2c24de27325d915c472a78f0f148a6cec79a238b3daae6eab",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.0574628660322436,
+              "cosine": 0.28930909496058327,
+              "oracle_amplitude": 0.3916608467828636,
+              "oracle_relative_L2": 0.9572357324991,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-1.0.b0.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "35f9e7222738e7c3f16cb3e1f82b093b6f0a0647dc052bb53ae6bc11d437485e",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 2.3336130845861892e-07,
+              "cosine": 0.9999999999999728,
+              "oracle_amplitude": 1.0000000053540286,
+              "oracle_relative_L2": 2.3329988140811278e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "0d0831df53f10494a518b7536fc19b8675482fcb72a0b0c0931977b542064a1f",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 3.4158223469681215e-07,
+              "cosine": 0.9999999999999416,
+              "oracle_amplitude": 0.9999999979650446,
+              "oracle_relative_L2": 3.4157617308187013e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-1.0.b0.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "f57c15175ee8daeaac4183f5e6195f134c796ad29b030927a9f56f57f1f26e29",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 1.039702686836733
+        },
+        {
+          "alpha": -1.0,
+          "beta": 0.5,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 1.0449494828382566,
+              "cosine": 0.2586501071761541,
+              "oracle_amplitude": 0.39358083487573864,
+              "oracle_relative_L2": 0.9659710772366655,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.5.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "5f1f80370fe7ef75967c187a791ab980f5eac941bf44d2538393ec2be00ecdcf",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.0602129804392368,
+              "cosine": 0.23760601771055317,
+              "oracle_amplitude": 0.35866761155778665,
+              "oracle_relative_L2": 0.9713616115266921,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-1.0.b0.5.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "975c0d7d9ec2c949813c219bde1f7aac160ff601bb5f56e29186f8cf16d6d19e",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 3.0250581411349493e-07,
+              "cosine": 0.9999999999999544,
+              "oracle_amplitude": 0.9999999895953608,
+              "oracle_relative_L2": 3.0232682820801596e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.5.identity.f32",
+                "bytes": 147456,
+                "sha256": "8253f67913cff5fbfe983db459f8590fcd3b5fc7313b96408134fda0979e0f48",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 4.811440641731395e-07,
+              "cosine": 0.9999999999998842,
+              "oracle_amplitude": 0.9999999903529115,
+              "oracle_relative_L2": 4.810473408867223e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-1.0.b0.5.identity.f32",
+                "bytes": 2097152,
+                "sha256": "bec76affea6df953192134b8f9f240d991bfad9a5fa02bfacf10f93515657e98",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 1.0525812316387468
+        },
+        {
+          "alpha": -1.0,
+          "beta": 1.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 1.0878101137751632,
+              "cosine": 0.1960273349706221,
+              "oracle_amplitude": 0.293921046452087,
+              "oracle_relative_L2": 0.9805984315428592,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-1.0.b1.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "9525cef7c35b7de1afabc23e209f0142193982c3b7f715ea49b60bc78a8ec953",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.0947369974017747,
+              "cosine": 0.18801291979721246,
+              "oracle_amplitude": 0.279972988118925,
+              "oracle_relative_L2": 0.9821665551164563,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-1.0.b1.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "d9c6a33826c9ba65c09b89eaa8b7960b8626d13d713b2026546ae1dc723ae3a2",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 3.033333434557131e-07,
+              "cosine": 0.9999999999999539,
+              "oracle_amplitude": 1.0000000018378998,
+              "oracle_relative_L2": 3.0332777547750374e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_explore_instruct_rewriting_008.a-1.0.b1.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "03496ac1217ed89e81982afede8eddf8afa68dab68352ed822f669cfcd1aa7c9",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 4.859979665223756e-07,
+              "cosine": 0.999999999999882,
+              "oracle_amplitude": 0.9999999870918777,
+              "oracle_relative_L2": 4.858265161940117e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.broad_fit_smol_magpie_ultra_022.a-1.0.b1.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "341d46712f625a5687af487dde9676185d5327d4c911cb7027c56b5ff9c66717",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 1.091273555588469
+        }
+      ],
+      "selected": {
+        "alpha": 0.0,
+        "beta": 0.0,
+        "FIT_case_mean_relative_L2": 0.5687354656889296,
+        "DEV": [
+          {
+            "id": "broad_dev_explore_instruct_rewriting_035",
+            "baseline_relative_L2": 0.5609214013300857,
+            "ratio": 1.0,
+            "identity": {
+              "relative_L2": 0.0,
+              "cosine": 1.0,
+              "oracle_amplitude": 1.0,
+              "oracle_relative_L2": 0.0,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_dev_explore_instruct_rewriting_035.selected.identity.f32",
+                "bytes": 98304,
+                "sha256": "cb9ae271d36b8f6a03548a7a7d964661b78fa0a58f5eeaad8914f75c45d12818",
+                "shape": [
+                  12,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            "relative_L2": 0.5609214013300857,
+            "cosine": 0.8380495745415709,
+            "oracle_amplitude": 1.1839879179892694,
+            "oracle_relative_L2": 0.5455940896038849,
+            "output": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_dev_explore_instruct_rewriting_035.selected.quantized.bf16",
+              "bytes": 49152,
+              "sha256": "049d5c46f14156b3f5527b744b4fe0fcbecbf6f72f9d648597753bad8f0705c0",
+              "shape": [
+                12,
+                2048
+              ],
+              "dtype": "BF16"
+            }
+          },
+          {
+            "id": "broad_dev_smol_magpie_ultra_036",
+            "baseline_relative_L2": 0.5588971725565764,
+            "ratio": 1.0,
+            "identity": {
+              "relative_L2": 0.0,
+              "cosine": 1.0,
+              "oracle_amplitude": 1.0,
+              "oracle_relative_L2": 0.0,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_dev_smol_magpie_ultra_036.selected.identity.f32",
+                "bytes": 2097152,
+                "sha256": "0dd3d9dc69e89696111b3ce267480711e61bd9043d1dca18f26f77e3d61e8d73",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            "relative_L2": 0.5588971725565764,
+            "cosine": 0.8363224218691084,
+            "oracle_amplitude": 1.1492856710862904,
+            "oracle_relative_L2": 0.548237910654662,
+            "output": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site00.broad_dev_smol_magpie_ultra_036.selected.quantized.bf16",
+              "bytes": 1048576,
+              "sha256": "fc250757f7c83cf0d6fb132af41a6cc2c30d84c96e8a47341d6e88c2e1c8a558",
+              "shape": [
+                256,
+                2048
+              ],
+              "dtype": "BF16"
+            }
+          }
+        ],
+        "DEV_origin": "Completed identical selected DEV responses reused",
+        "DEV_case_mean_ratio": 1.0,
+        "gates": {
+          "DEV_improvement": false,
+          "every_DEV_retention": true
+        },
+        "input_scale": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.S.f32",
+          "bytes": 8192,
+          "sha256": "fc3bd1e348ef843a5052596a42863c169d54cc3c352449596039497873862155",
+          "shape": [
+            2048
+          ],
+          "dtype": "F32"
+        },
+        "hidden_scale": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.R.f32",
+          "bytes": 18432,
+          "sha256": "9d9d0340e6578a40b4831c53bda77637c5beb9231d85839e422afbd1259fdbba",
+          "shape": [
+            4608
+          ],
+          "dtype": "F32"
+        },
+        "projections": [
+          {
+            "name": "gate",
+            "codes": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.gate.pairs.u8",
+              "bytes": 4718592,
+              "sha256": "37cb88f178d38cd449cc8dc3070b7c69c1718c5d807d891304a46e5a4fe7f2c4",
+              "shape": [
+                1024,
+                4608
+              ],
+              "dtype": "U8"
+            },
+            "scale": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.gate.scale.f32",
+              "bytes": 18432,
+              "sha256": "0cb98b48f90b4711c8a58f26126c0f21d056478d2249ee292793b3d06334612b",
+              "shape": [
+                4608
+              ],
+              "dtype": "F32"
+            }
+          },
+          {
+            "name": "up",
+            "codes": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.up.pairs.u8",
+              "bytes": 4718592,
+              "sha256": "86a43d39de25ce2837ef35d6c5dfb164c29472c7db2c74249ba3ce722438b326",
+              "shape": [
+                1024,
+                4608
+              ],
+              "dtype": "U8"
+            },
+            "scale": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.up.scale.f32",
+              "bytes": 18432,
+              "sha256": "1e4cc64ed25aedcd43dbd5bc4f609249608dec1dc6e7407d9d5fcb58353785ea",
+              "shape": [
+                4608
+              ],
+              "dtype": "F32"
+            }
+          },
+          {
+            "name": "down",
+            "codes": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.down.pairs.u8",
+              "bytes": 4718592,
+              "sha256": "8d5227483e01625124acdf9ad468b916f570656d9ef175d5634c308cef4493f3",
+              "shape": [
+                2304,
+                2048
+              ],
+              "dtype": "U8"
+            },
+            "scale": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site00.selected.down.scale.f32",
+              "bytes": 8192,
+              "sha256": "7e4c9239f047f90a319605f8e2e5402e841c05e7a8fc21fd604599fa6092fbf8",
+              "shape": [
+                2048
+              ],
+              "dtype": "F32"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "site": 23,
+      "trials": [
+        {
+          "alpha": 0.0,
+          "beta": 0.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.6527126442604746,
+              "cosine": 0.8368437436915227,
+              "oracle_amplitude": 1.7383593071209091,
+              "oracle_relative_L2": 0.5474418221549731,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a0.0.b0.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "9f34be4d4bd8b6c145a15f79f73a645683b011a17c74be92ec354201d5e9f460",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.6580834365850996,
+              "cosine": 0.8317627638822477,
+              "oracle_amplitude": 1.7388292486549788,
+              "oracle_relative_L2": 0.5551312499030875,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_smol_magpie_ultra_022.a0.0.b0.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "15c892e641232b9a3ce5aa4c34e8f5c2112f1dbd450f3f44377b0df285c0b543",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.0,
+              "cosine": 1.0,
+              "oracle_amplitude": 1.0,
+              "oracle_relative_L2": 0.0,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a0.0.b0.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "79cd5150787c3931b854f3331645a292c2b49a178282b820cf5f99a9c28fa2cf",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.0,
+              "cosine": 1.0,
+              "oracle_amplitude": 1.0,
+              "oracle_relative_L2": 0.0,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_smol_magpie_ultra_022.a0.0.b0.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "9f5e82e090e4078cf70417eb600d20025b8b34da61e9fdca9e93fa6a495da78f",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "FIT_case_mean_relative_L2": 0.655398040422787,
+          "origin": "Completed positive-grid alpha0 FIT outputs reused"
+        },
+        {
+          "alpha": 0.0,
+          "beta": 0.5,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.7036281593981852,
+              "cosine": 0.9071888122558711,
+              "oracle_amplitude": 2.6433291486042445,
+              "oracle_relative_L2": 0.42072373229683846,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a0.0.b0.5.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "8411c70f210981f877a10c2702c4d3252811c96d81083fa9811916ac4fa23b12",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.7091152809385536,
+              "cosine": 0.904730658029182,
+              "oracle_amplitude": 2.678104656505684,
+              "oracle_relative_L2": 0.4259840800101377,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_smol_magpie_ultra_022.a0.0.b0.5.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "39946213324dd58278fea59f2a990db5571510cfcb0644d260f7c5fc26bfb417",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 9.106112362355051e-08,
+              "cosine": 0.999999999999996,
+              "oracle_amplitude": 0.9999999991014531,
+              "oracle_relative_L2": 9.105669029896228e-08,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a0.0.b0.5.identity.f32",
+                "bytes": 147456,
+                "sha256": "dff3a40c521220c0e4b0dbee79658af86a01586fd3de590e112ef5c04580aa9e",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.4087058068868035e-07,
+              "cosine": 0.9999999999999901,
+              "oracle_amplitude": 0.9999999979698561,
+              "oracle_relative_L2": 1.4085595130701668e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_smol_magpie_ultra_022.a0.0.b0.5.identity.f32",
+                "bytes": 2097152,
+                "sha256": "ca1af8271da159cf32a440156d9a8909a5e23792d6e193a7c36ffec91b0f4600",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "FIT_case_mean_relative_L2": 0.7063717201683695,
+          "origin": "Completed positive-grid alpha0 FIT outputs reused"
+        },
+        {
+          "alpha": 0.0,
+          "beta": 1.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.48592098925279337,
+              "cosine": 0.9570233140146716,
+              "oracle_amplitude": 1.6874697754481156,
+              "oracle_relative_L2": 0.29001099364054334,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a0.0.b1.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "ac5992cf4d13c592fc46ca4e1487b9d62da77b26cf56d34015767ef6d733edab",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.4849844014547455,
+              "cosine": 0.9593392476508977,
+              "oracle_amplitude": 1.698091207781784,
+              "oracle_relative_L2": 0.28225557198505347,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_smol_magpie_ultra_022.a0.0.b1.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "d5b468dcc4b09f5296a889ad986cef6da7e02ade4af96d0001adeb3dc37e8cc9",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 7.6572333407466e-08,
+              "cosine": 0.9999999999999971,
+              "oracle_amplitude": 1.0000000003318847,
+              "oracle_relative_L2": 7.657161416549672e-08,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a0.0.b1.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "0231e68b2ce65d60a04eff65946028bd5ee64d9a5b0351afb1dc72cffe23ccce",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 9.729239120984833e-08,
+              "cosine": 0.9999999999999952,
+              "oracle_amplitude": 0.9999999999212194,
+              "oracle_relative_L2": 9.729235931414517e-08,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_fit_smol_magpie_ultra_022.a0.0.b1.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "54ad7730ebe7ff7948fe7b358d20e4aae75bc804f67024a56991b8b3af8f6b71",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "FIT_case_mean_relative_L2": 0.48545269535376945,
+          "origin": "Completed positive-grid alpha0 FIT outputs reused"
+        },
+        {
+          "alpha": -0.5,
+          "beta": 0.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.7140274344934867,
+              "cosine": 0.8162776175297584,
+              "oracle_amplitude": 2.058281536739221,
+              "oracle_relative_L2": 0.5776598056987707,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "b94ee29021e94f79bec6b7e2d9c7afa30935c87954909783a0e93824e757953d",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.7233337248988795,
+              "cosine": 0.823995368665119,
+              "oracle_amplitude": 2.201130320382123,
+              "oracle_relative_L2": 0.5665965340684979,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-0.5.b0.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "5ed4d722c857150ed2f8d48718c5031147420d4b5c1a9ce689edb14696ff1686",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 9.097091746341165e-08,
+              "cosine": 0.9999999999999959,
+              "oracle_amplitude": 1.0000000026368059,
+              "oracle_relative_L2": 9.093269531941884e-08,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "d410faae56f26b1cced9e68e4dc0add3d88fbc4b54e77c7ea6a53ba28f89bb12",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.4217719522324433e-07,
+              "cosine": 0.9999999999999899,
+              "oracle_amplitude": 1.000000005328335,
+              "oracle_relative_L2": 1.4207731587276717e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-0.5.b0.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "94c42e9585575805ffea6d1f502795cb6dfaf39b5e4a903446be9ae4014a8905",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.718680579696183
+        },
+        {
+          "alpha": -0.5,
+          "beta": 0.5,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.7786954370547617,
+              "cosine": 0.8382417644414673,
+              "oracle_amplitude": 2.968805595787666,
+              "oracle_relative_L2": 0.5452987661328932,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.5.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "d019576cc2a64c540cc00b533024b10e646d38658816db6cff596042070f25d9",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.7885548832346574,
+              "cosine": 0.851633893162384,
+              "oracle_amplitude": 3.244533039791332,
+              "oracle_relative_L2": 0.5241371118486851,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-0.5.b0.5.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "f0fe66bf6ec0880d6682fec4623f0f2e4fca221426dc4df75db84c0e193132e7",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 1.0593729650939395e-07,
+              "cosine": 0.9999999999999943,
+              "oracle_amplitude": 0.9999999981049092,
+              "oracle_relative_L2": 1.0592034471135713e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-0.5.b0.5.identity.f32",
+                "bytes": 147456,
+                "sha256": "008f9a5288c0fef6b9622f06de352227565fefe598672b7d6b26bf86d5861c89",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.6910737063973386e-07,
+              "cosine": 0.9999999999999856,
+              "oracle_amplitude": 1.0000000021954258,
+              "oracle_relative_L2": 1.6909311904932482e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-0.5.b0.5.identity.f32",
+                "bytes": 2097152,
+                "sha256": "70abb1a07573f6d587b08a0706d155fd634fd7b6e682e1d3b924cd427842af2f",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.7836251601447095
+        },
+        {
+          "alpha": -0.5,
+          "beta": 1.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.613785907329748,
+              "cosine": 0.9380447951185459,
+              "oracle_amplitude": 2.1742818822910808,
+              "oracle_relative_L2": 0.3465140146530948,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-0.5.b1.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "6c037216a78fab0b2594615dabf8d0e714912e64c09ce6eb29135d77ee8657c5",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.6297928508297739,
+              "cosine": 0.9408274066804903,
+              "oracle_amplitude": 2.294793295143912,
+              "oracle_relative_L2": 0.3388861030477106,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-0.5.b1.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "fc757a75e77590107dc375ba4f70474ae2a101c5a578173386d42634a7487a86",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 9.832001328894396e-08,
+              "cosine": 0.9999999999999952,
+              "oracle_amplitude": 1.000000003567118,
+              "oracle_relative_L2": 9.825528323960678e-08,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-0.5.b1.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "866e3d53ee9401e140f1a5850219247dd8aa8c5fb052224735f5ec9375204b20",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.524484049236429e-07,
+              "cosine": 0.9999999999999885,
+              "oracle_amplitude": 1.0000000049735003,
+              "oracle_relative_L2": 1.523672552073717e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-0.5.b1.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "e56480e2271ac92b4aa614751408d864367d8a8bd1fade3ec92b155af4585c80",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.621789379079761
+        },
+        {
+          "alpha": -1.0,
+          "beta": 0.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.7438455113775461,
+              "cosine": 0.7615488136933531,
+              "oracle_amplitude": 1.9206919265557807,
+              "oracle_relative_L2": 0.648107556168146,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "25704408ad86096192e0bb04a2f35caedf2617b8434496c381f1aab957109bcc",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.7520349243565297,
+              "cosine": 0.772589385812634,
+              "oracle_amplitude": 2.0906932353330685,
+              "oracle_relative_L2": 0.6349060095239741,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-1.0.b0.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "5a455aac22bafc8a65f567c11650852018350c3116e9d8138cab8b8f8e7c4553",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 9.63461475788796e-08,
+              "cosine": 0.9999999999999954,
+              "oracle_amplitude": 0.9999999975696624,
+              "oracle_relative_L2": 9.631548999323607e-08,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "58101a613e2d528f2751918dd3f4a8ef9aa3ed41167c76dc2dce7f2db2f75ea1",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.4301768970397822e-07,
+              "cosine": 0.9999999999999899,
+              "oracle_amplitude": 0.9999999999123644,
+              "oracle_relative_L2": 1.4301766285521723e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-1.0.b0.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "0ab81ff0677c137e93e19f93af19044550cccbf1d1dae712355450939588fa17",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.7479402178670379
+        },
+        {
+          "alpha": -1.0,
+          "beta": 0.5,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.7890518835461001,
+              "cosine": 0.7917612769939268,
+              "oracle_amplitude": 2.70898088676049,
+              "oracle_relative_L2": 0.6108306477682225,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.5.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "c81c8980c34b85bded80a1506e6aed36f8c50bc11d8a11db2128b636b3f5db37",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.8052856330057837,
+              "cosine": 0.7869271166282137,
+              "oracle_amplitude": 2.9200403171216056,
+              "oracle_relative_L2": 0.6170459570528,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-1.0.b0.5.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "bb6bc91558b93e4d00ce95b113e22e92659f11a9c5f7843d0848cf18035efaca",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 1.0929289963994381e-07,
+              "cosine": 0.9999999999999941,
+              "oracle_amplitude": 0.9999999965293975,
+              "oracle_relative_L2": 1.0923778114510147e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-1.0.b0.5.identity.f32",
+                "bytes": 147456,
+                "sha256": "d7437d42915e3971317815d851d936ed89b0eb5365d393d6dc94216d3fa4bda4",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.7058518558310444e-07,
+              "cosine": 0.9999999999999853,
+              "oracle_amplitude": 0.9999999965636129,
+              "oracle_relative_L2": 1.7055056958434071e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-1.0.b0.5.identity.f32",
+                "bytes": 2097152,
+                "sha256": "03c0045f1a901005072722f1a82e67cf23379e716777bcabf0c60195ae6205d2",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.7971687582759419
+        },
+        {
+          "alpha": -1.0,
+          "beta": 1.0,
+          "FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 0.6230920065117432,
+              "cosine": 0.9169325247600228,
+              "oracle_amplitude": 2.0916205660505702,
+              "oracle_relative_L2": 0.3990422847734437,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-1.0.b1.0.quantized.bf16",
+                "bytes": 73728,
+                "sha256": "bb094ea28dd55dc4310b8581830355aa02688df2fc27428f64408feb85597a84",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 0.6526388407618889,
+              "cosine": 0.9109751792032875,
+              "oracle_amplitude": 2.248236991574345,
+              "oracle_relative_L2": 0.41246117741617583,
+              "output": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-1.0.b1.0.quantized.bf16",
+                "bytes": 1048576,
+                "sha256": "442f897028ef6bcaba7856ea077f9f818a1105f34acf7d4d205f2f5312a3b94f",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "BF16"
+              }
+            }
+          ],
+          "identity_FIT": [
+            {
+              "id": "broad_fit_explore_instruct_rewriting_008",
+              "relative_L2": 1.0257848642806823e-07,
+              "cosine": 0.9999999999999947,
+              "oracle_amplitude": 0.999999996328324,
+              "oracle_relative_L2": 1.0251275371358206e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_explore_instruct_rewriting_008.a-1.0.b1.0.identity.f32",
+                "bytes": 147456,
+                "sha256": "44978a931433d29f71fbc43b651b9c9a612aa674f2ebf3a0c30a0ad228d2a618",
+                "shape": [
+                  18,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            {
+              "id": "broad_fit_smol_magpie_ultra_022",
+              "relative_L2": 1.5261006657579552e-07,
+              "cosine": 0.9999999999999882,
+              "oracle_amplitude": 0.999999998335908,
+              "oracle_relative_L2": 1.5260099350451766e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.broad_fit_smol_magpie_ultra_022.a-1.0.b1.0.identity.f32",
+                "bytes": 2097152,
+                "sha256": "1c3a86b978cdb4f5f95cc11cfd5b8c6da01a998c268e004133f422283c83ff27",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            }
+          ],
+          "origin": "New mirrored input response",
+          "FIT_case_mean_relative_L2": 0.6378654236368161
+        }
+      ],
+      "selected": {
+        "alpha": 0.0,
+        "beta": 1.0,
+        "FIT_case_mean_relative_L2": 0.48545269535376945,
+        "DEV": [
+          {
+            "id": "broad_dev_explore_instruct_rewriting_035",
+            "baseline_relative_L2": 0.6472755680057951,
+            "ratio": 0.7541230418082961,
+            "identity": {
+              "relative_L2": 6.824197904169471e-08,
+              "cosine": 0.9999999999999979,
+              "oracle_amplitude": 1.0000000000384515,
+              "oracle_relative_L2": 6.824196820766458e-08,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_dev_explore_instruct_rewriting_035.selected.identity.f32",
+                "bytes": 98304,
+                "sha256": "cb45545a2d1ced032696b6499a8ba913c4477993a0dff9b60c727394ba7cc2ae",
+                "shape": [
+                  12,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            "relative_L2": 0.4881254202327229,
+            "cosine": 0.96031687656323,
+            "oracle_amplitude": 1.7156982168914356,
+            "oracle_relative_L2": 0.27891127009829175,
+            "output": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_dev_explore_instruct_rewriting_035.selected.quantized.bf16",
+              "bytes": 49152,
+              "sha256": "70df3aba0da60a8e7358a355958640ec6366f4d1a858df9189bed4bba20a18cf",
+              "shape": [
+                12,
+                2048
+              ],
+              "dtype": "BF16"
+            }
+          },
+          {
+            "id": "broad_dev_smol_magpie_ultra_036",
+            "baseline_relative_L2": 0.6472600398312651,
+            "ratio": 0.7750574375416365,
+            "identity": {
+              "relative_L2": 1.0855690722061054e-07,
+              "cosine": 0.999999999999994,
+              "oracle_amplitude": 0.9999999989621847,
+              "oracle_relative_L2": 1.0855194629580637e-07,
+              "output_F32": {
+                "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_dev_smol_magpie_ultra_036.selected.identity.f32",
+                "bytes": 2097152,
+                "sha256": "b99233ed85b4efa595bcc341eb7bbe31dea3b9b5da392ea22c95df972022a2d7",
+                "shape": [
+                  256,
+                  2048
+                ],
+                "dtype": "F32"
+              }
+            },
+            "relative_L2": 0.5016637078947179,
+            "cosine": 0.9523997740207456,
+            "oracle_amplitude": 1.7191698736053596,
+            "oracle_relative_L2": 0.3048518827975847,
+            "output": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_calibrate_20261009\\site23.broad_dev_smol_magpie_ultra_036.selected.quantized.bf16",
+              "bytes": 1048576,
+              "sha256": "62ed690d7fc8eb36e2edc4a8096b8c33106c10d900e09e9bb4bb9130716a6e48",
+              "shape": [
+                256,
+                2048
+              ],
+              "dtype": "BF16"
+            }
+          }
+        ],
+        "DEV_origin": "Completed identical selected DEV responses reused",
+        "DEV_case_mean_ratio": 0.7645901141191498,
+        "gates": {
+          "DEV_improvement": true,
+          "every_DEV_retention": true
+        },
+        "input_scale": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.S.f32",
+          "bytes": 8192,
+          "sha256": "fc3bd1e348ef843a5052596a42863c169d54cc3c352449596039497873862155",
+          "shape": [
+            2048
+          ],
+          "dtype": "F32"
+        },
+        "hidden_scale": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.R.f32",
+          "bytes": 18432,
+          "sha256": "23af51c169fef8e71b8dcc077b9342b17e0a168dfb0eea7d46b6b751f16ccde4",
+          "shape": [
+            4608
+          ],
+          "dtype": "F32"
+        },
+        "projections": [
+          {
+            "name": "gate",
+            "codes": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.gate.pairs.u8",
+              "bytes": 4718592,
+              "sha256": "e4b142c595075882dbc1c20eedc0046da4cb74f5ac0e891c2e1fdf7ac3c96ee6",
+              "shape": [
+                1024,
+                4608
+              ],
+              "dtype": "U8"
+            },
+            "scale": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.gate.scale.f32",
+              "bytes": 18432,
+              "sha256": "f993ad534324d26ed210d3059e35b94383e6f7b43b8385b4d73d0e870a9e6c94",
+              "shape": [
+                4608
+              ],
+              "dtype": "F32"
+            }
+          },
+          {
+            "name": "up",
+            "codes": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.up.pairs.u8",
+              "bytes": 4718592,
+              "sha256": "40461d3ee3d32d5b90e47e252fac153a406b1c52d200554f57c97dd834c53a29",
+              "shape": [
+                1024,
+                4608
+              ],
+              "dtype": "U8"
+            },
+            "scale": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.up.scale.f32",
+              "bytes": 18432,
+              "sha256": "315cfc4fa2307c39a32ea8905929c376060cbf1db496207cb3261326643a9110",
+              "shape": [
+                4608
+              ],
+              "dtype": "F32"
+            }
+          },
+          {
+            "name": "down",
+            "codes": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.down.pairs.u8",
+              "bytes": 4718592,
+              "sha256": "5e2545cedeb20d8ff581f4c48074176cc426c702b06a2fb41cec9edb5014e4af",
+              "shape": [
+                2304,
+                2048
+              ],
+              "dtype": "U8"
+            },
+            "scale": {
+              "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_input_balance_20261009\\site23.selected.down.scale.f32",
+              "bytes": 8192,
+              "sha256": "02d769b2ab19ae93dbbdedd06e22d40160ea7934528250c82a2a8fa92d72a1ce",
+              "shape": [
+                2048
+              ],
+              "dtype": "F32"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "new_FIT_trials": 12,
+  "reused_FIT_trials": 6,
+  "source_forwards": 0,
+  "source_generations": 0,
+  "optimizer_updates": 0,
+  "native_runs": 0,
+  "reserved_queries": 0,
+  "GPU_allocated_peak": 574214144,
+  "GPU_reserved_peak": 704643072,
+  "elapsed_seconds": 35.06199999997625,
+  "quality_admission": false,
+  "native_admission": false,
+  "scope": "Corrected real-algebra input balance;two-site local response onfour captured prefixes;no whole quality/own-history/rate/n/DRAM/family admission."
+}
