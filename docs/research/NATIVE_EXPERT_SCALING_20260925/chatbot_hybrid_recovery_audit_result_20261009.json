@@ -1,0 +1,1704 @@
+{
+  "schema": "HYBRID_RECOVERY_AUDIT_RESULT_V1",
+  "decision": "SAVED_RECOVERY_AUDIT_PASS",
+  "freeze": "85aaaa828c1a2bd8b889d4953b6612140a3fbb7a",
+  "binding_sha256": "9c97ad570e06aa4f23bf3cdbd47f58edd5928c96f8329269c4b2cf17eb0e60b7",
+  "process_instance": {
+    "pid": 28772,
+    "create_time_unix": 1791504551.5991387
+  },
+  "primary_result_sha256": null,
+  "checkpoint": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_recovery_20261009\\recovery.pt",
+    "bytes": 3059446998,
+    "sha256": "7b95e699a57c9bc0ed320bef016d95ba78ac1df2e79b9ea98a0c12a1ba78eec5"
+  },
+  "corpus": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_transfer_capture_20261009\\corpus.json",
+    "sha256": "692b4bdf901840ae86c337fd5839753335c9e219939bdf862f5bc94f04642fc7"
+  },
+  "full_primary": false,
+  "checkpoint_boundary": 286,
+  "logged_updates": 286,
+  "observations": {
+    "before": {
+      "cases": [
+        {
+          "id": "fit_history_00",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 2,
+          "KL": 18.178228893720604,
+          "disagreements": 2
+        },
+        {
+          "id": "fit_instruction_00",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 5,
+          "KL": 21.076243483496597,
+          "disagreements": 5
+        },
+        {
+          "id": "fit_arithmetic_00",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 27.42656899696603,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_reading_00",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 2,
+          "KL": 17.56581486454187,
+          "disagreements": 2
+        },
+        {
+          "id": "fit_code_00",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 7,
+          "KL": 24.894958662443816,
+          "disagreements": 7
+        },
+        {
+          "id": "fit_planning_00",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 26.112765664937918,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_explanation_00",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 37,
+          "KL": 23.807847267728402,
+          "disagreements": 37
+        },
+        {
+          "id": "fit_rewrite_00",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 10,
+          "KL": 26.169403477855735,
+          "disagreements": 10
+        },
+        {
+          "id": "fit_history_01",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 2,
+          "KL": 18.575005168721077,
+          "disagreements": 2
+        },
+        {
+          "id": "fit_rewrite_01",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 12,
+          "KL": 23.528245869441076,
+          "disagreements": 12
+        },
+        {
+          "id": "fit_explanation_01",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 46,
+          "KL": 24.091072312058333,
+          "disagreements": 46
+        },
+        {
+          "id": "fit_reading_01",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 5,
+          "KL": 21.567007901719712,
+          "disagreements": 5
+        },
+        {
+          "id": "fit_arithmetic_01",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 61,
+          "KL": 27.89950148868855,
+          "disagreements": 61
+        },
+        {
+          "id": "fit_planning_01",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 77,
+          "KL": 25.94301777489615,
+          "disagreements": 76
+        },
+        {
+          "id": "fit_code_01",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 26.83972732462928,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_instruction_01",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 28,
+          "KL": 24.38741761493345,
+          "disagreements": 28
+        },
+        {
+          "id": "fit_code_02",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 2,
+          "KL": 17.108063934051767,
+          "disagreements": 2
+        },
+        {
+          "id": "fit_instruction_02",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 6,
+          "KL": 29.573590063429346,
+          "disagreements": 6
+        },
+        {
+          "id": "fit_arithmetic_02",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 25.281172802004154,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_history_02",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 24.374200380140493,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_explanation_02",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 54,
+          "KL": 23.785264335320658,
+          "disagreements": 54
+        },
+        {
+          "id": "fit_rewrite_02",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 19,
+          "KL": 25.677821748930917,
+          "disagreements": 19
+        },
+        {
+          "id": "fit_reading_02",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 6,
+          "KL": 24.204655675082464,
+          "disagreements": 6
+        },
+        {
+          "id": "fit_planning_02",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 80,
+          "KL": 26.97953194634208,
+          "disagreements": 79
+        },
+        {
+          "id": "fit_code_03",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 26.259602190672478,
+          "disagreements": 95
+        },
+        {
+          "id": "fit_rewrite_03",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 22,
+          "KL": 26.561351544217597,
+          "disagreements": 21
+        },
+        {
+          "id": "fit_reading_03",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 21,
+          "KL": 22.069731729914864,
+          "disagreements": 21
+        },
+        {
+          "id": "fit_history_03",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 20.4452720890028,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_instruction_03",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 24.670628953119373,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_planning_03",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 24.572348124172095,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_arithmetic_03",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 26.937323725895553,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_explanation_03",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 47,
+          "KL": 25.18245286739169,
+          "disagreements": 47
+        },
+        {
+          "id": "fit_instruction_04",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 19.75791790630407,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_explanation_04",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 38,
+          "KL": 23.831706141793088,
+          "disagreements": 38
+        },
+        {
+          "id": "fit_arithmetic_04",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 26.690463760186503,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_rewrite_04",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 10,
+          "KL": 25.201583213117836,
+          "disagreements": 10
+        },
+        {
+          "id": "fit_reading_04",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 6,
+          "KL": 21.22916922906158,
+          "disagreements": 6
+        },
+        {
+          "id": "fit_history_04",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 17.591552586949025,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_code_04",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 12,
+          "KL": 23.559043597428953,
+          "disagreements": 12
+        },
+        {
+          "id": "fit_planning_04",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 27.470769224859378,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_arithmetic_05",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 62,
+          "KL": 28.893548518503685,
+          "disagreements": 62
+        },
+        {
+          "id": "fit_explanation_05",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 64,
+          "KL": 24.209919703586607,
+          "disagreements": 64
+        },
+        {
+          "id": "fit_history_05",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 17.87649363965237,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_planning_05",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 26.78206075509563,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_rewrite_05",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 12,
+          "KL": 22.780267417158466,
+          "disagreements": 12
+        },
+        {
+          "id": "fit_code_05",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 73,
+          "KL": 25.41988764211395,
+          "disagreements": 73
+        },
+        {
+          "id": "fit_instruction_05",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 29,
+          "KL": 23.68690795791926,
+          "disagreements": 29
+        },
+        {
+          "id": "fit_reading_05",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 5,
+          "KL": 20.114536723145807,
+          "disagreements": 5
+        },
+        {
+          "id": "fit_explanation_06",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 48,
+          "KL": 24.343719293683794,
+          "disagreements": 48
+        },
+        {
+          "id": "fit_reading_06",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 21.256046736354985,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_history_06",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 23.618322015369372,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_arithmetic_06",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 25.15057455015858,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_instruction_06",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 9,
+          "KL": 20.131848590866095,
+          "disagreements": 9
+        },
+        {
+          "id": "fit_planning_06",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 71,
+          "KL": 27.7588088997591,
+          "disagreements": 71
+        },
+        {
+          "id": "fit_code_06",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 19.073629590413166,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_rewrite_06",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 24.279043650898913,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_arithmetic_07",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 26.688027314413628,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_code_07",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 27.466327750312157,
+          "disagreements": 95
+        },
+        {
+          "id": "fit_planning_07",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 95,
+          "KL": 25.174581264781345,
+          "disagreements": 95
+        },
+        {
+          "id": "fit_rewrite_07",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 21,
+          "KL": 26.453385506637318,
+          "disagreements": 21
+        },
+        {
+          "id": "fit_explanation_07",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 40,
+          "KL": 25.670579261848456,
+          "disagreements": 40
+        },
+        {
+          "id": "fit_history_07",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 20.248295112158942,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_instruction_07",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 12,
+          "KL": 25.81885346780564,
+          "disagreements": 12
+        },
+        {
+          "id": "fit_reading_07",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 19.111938293914335,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_instruction_08",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 21.85875501776937,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_reading_08",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 20.501921353781402,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_planning_08",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 8,
+          "KL": 24.745328049050094,
+          "disagreements": 8
+        },
+        {
+          "id": "fit_explanation_08",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 35,
+          "KL": 24.225043787607323,
+          "disagreements": 35
+        },
+        {
+          "id": "fit_code_08",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 13,
+          "KL": 23.858726405010216,
+          "disagreements": 13
+        },
+        {
+          "id": "fit_rewrite_08",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 14,
+          "KL": 26.59545786997054,
+          "disagreements": 14
+        },
+        {
+          "id": "fit_arithmetic_08",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 83,
+          "KL": 26.416886790463497,
+          "disagreements": 83
+        },
+        {
+          "id": "fit_history_08",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 20.225610585403455,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_code_09",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 25.543272651845196,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_explanation_09",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 52,
+          "KL": 23.94836418184129,
+          "disagreements": 52
+        },
+        {
+          "id": "fit_history_09",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 16.911106639733948,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_instruction_09",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 29,
+          "KL": 23.97185954685481,
+          "disagreements": 29
+        },
+        {
+          "id": "fit_planning_09",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 24.77707579037128,
+          "disagreements": 95
+        },
+        {
+          "id": "fit_arithmetic_09",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 63,
+          "KL": 27.621756283303117,
+          "disagreements": 63
+        },
+        {
+          "id": "fit_reading_09",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 17.454134012430696,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_rewrite_09",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 22.068461967655804,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_explanation_10",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 53,
+          "KL": 24.048810550774817,
+          "disagreements": 53
+        },
+        {
+          "id": "fit_history_10",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 9,
+          "KL": 27.052797771017897,
+          "disagreements": 9
+        },
+        {
+          "id": "fit_reading_10",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 6,
+          "KL": 26.730496239598352,
+          "disagreements": 6
+        },
+        {
+          "id": "fit_rewrite_10",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 15,
+          "KL": 25.581947017859612,
+          "disagreements": 15
+        },
+        {
+          "id": "fit_code_10",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 16.151420401707067,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_arithmetic_10",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 25.335445177106493,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_planning_10",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 73,
+          "KL": 27.105547027814268,
+          "disagreements": 72
+        },
+        {
+          "id": "fit_instruction_10",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 9,
+          "KL": 23.12339719897057,
+          "disagreements": 9
+        },
+        {
+          "id": "fit_history_11",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 20.076911057918224,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_arithmetic_11",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 26.804723252144782,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_rewrite_11",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 14,
+          "KL": 24.427541917486625,
+          "disagreements": 14
+        },
+        {
+          "id": "fit_code_11",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 28.072100021423974,
+          "disagreements": 95
+        },
+        {
+          "id": "fit_reading_11",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 2,
+          "KL": 20.056815021759387,
+          "disagreements": 2
+        },
+        {
+          "id": "fit_explanation_11",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 47,
+          "KL": 25.179213869196886,
+          "disagreements": 47
+        },
+        {
+          "id": "fit_instruction_11",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 25.186218395976173,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_planning_11",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 25.349321692717506,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_reading_12",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 20.496651447537342,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_instruction_12",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 23.36837790594709,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_code_12",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 13,
+          "KL": 24.815368656831215,
+          "disagreements": 13
+        },
+        {
+          "id": "fit_planning_12",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 27.81816093793283,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_rewrite_12",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 10,
+          "KL": 27.205282776086268,
+          "disagreements": 10
+        },
+        {
+          "id": "fit_arithmetic_12",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 59,
+          "KL": 27.451194936147015,
+          "disagreements": 59
+        },
+        {
+          "id": "fit_history_12",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 21.396044798402034,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_explanation_12",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 38,
+          "KL": 23.672835694556806,
+          "disagreements": 38
+        },
+        {
+          "id": "fit_explanation_13",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 52,
+          "KL": 24.47957419699263,
+          "disagreements": 52
+        },
+        {
+          "id": "fit_planning_13",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 64,
+          "KL": 27.141029764577333,
+          "disagreements": 64
+        },
+        {
+          "id": "fit_rewrite_13",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 12,
+          "KL": 22.71547045571658,
+          "disagreements": 12
+        },
+        {
+          "id": "fit_arithmetic_13",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 63,
+          "KL": 27.955026886393803,
+          "disagreements": 63
+        },
+        {
+          "id": "fit_code_13",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 73,
+          "KL": 25.473977299455033,
+          "disagreements": 73
+        },
+        {
+          "id": "fit_reading_13",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 5,
+          "KL": 22.36291644201819,
+          "disagreements": 5
+        },
+        {
+          "id": "fit_history_13",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 3,
+          "KL": 22.359936461192035,
+          "disagreements": 3
+        },
+        {
+          "id": "fit_instruction_13",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 29,
+          "KL": 25.10968258600025,
+          "disagreements": 29
+        },
+        {
+          "id": "fit_rewrite_14",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 24.02376381917414,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_instruction_14",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 9,
+          "KL": 23.350351117003736,
+          "disagreements": 9
+        },
+        {
+          "id": "fit_arithmetic_14",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 25.624676912115216,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_explanation_14",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 54,
+          "KL": 24.03305063269449,
+          "disagreements": 54
+        },
+        {
+          "id": "fit_planning_14",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 76,
+          "KL": 27.849763329422384,
+          "disagreements": 76
+        },
+        {
+          "id": "fit_code_14",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 54,
+          "KL": 25.62681096915671,
+          "disagreements": 54
+        },
+        {
+          "id": "fit_reading_14",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 5,
+          "KL": 20.864141586863244,
+          "disagreements": 5
+        },
+        {
+          "id": "fit_history_14",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 23.01398166976274,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_code_15",
+          "domain": "code",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 28.830533532157904,
+          "disagreements": 95
+        },
+        {
+          "id": "fit_history_15",
+          "domain": "history",
+          "split": "FIT",
+          "labels": 4,
+          "KL": 20.206699196119683,
+          "disagreements": 4
+        },
+        {
+          "id": "fit_rewrite_15",
+          "domain": "rewrite",
+          "split": "FIT",
+          "labels": 15,
+          "KL": 24.663680894393508,
+          "disagreements": 15
+        },
+        {
+          "id": "fit_explanation_15",
+          "domain": "explanation",
+          "split": "FIT",
+          "labels": 37,
+          "KL": 24.938213675949058,
+          "disagreements": 37
+        },
+        {
+          "id": "fit_planning_15",
+          "domain": "planning",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 24.87014844480106,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_arithmetic_15",
+          "domain": "arithmetic",
+          "split": "FIT",
+          "labels": 96,
+          "KL": 27.86057232019516,
+          "disagreements": 96
+        },
+        {
+          "id": "fit_instruction_15",
+          "domain": "instruction",
+          "split": "FIT",
+          "labels": 18,
+          "KL": 25.673673873523615,
+          "disagreements": 18
+        },
+        {
+          "id": "fit_reading_15",
+          "domain": "reading",
+          "split": "FIT",
+          "labels": 36,
+          "KL": 24.626920056014413,
+          "disagreements": 36
+        },
+        {
+          "id": "dev_reading_16",
+          "domain": "reading",
+          "split": "DEV",
+          "labels": 3,
+          "KL": 20.40877140146381,
+          "disagreements": 3
+        },
+        {
+          "id": "dev_history_16",
+          "domain": "history",
+          "split": "DEV",
+          "labels": 3,
+          "KL": 22.823037357380883,
+          "disagreements": 3
+        },
+        {
+          "id": "dev_arithmetic_16",
+          "domain": "arithmetic",
+          "split": "DEV",
+          "labels": 61,
+          "KL": 26.986350424141072,
+          "disagreements": 61
+        },
+        {
+          "id": "dev_planning_16",
+          "domain": "planning",
+          "split": "DEV",
+          "labels": 21,
+          "KL": 26.20567764796198,
+          "disagreements": 21
+        },
+        {
+          "id": "dev_instruction_16",
+          "domain": "instruction",
+          "split": "DEV",
+          "labels": 3,
+          "KL": 22.951935518686224,
+          "disagreements": 3
+        },
+        {
+          "id": "dev_code_16",
+          "domain": "code",
+          "split": "DEV",
+          "labels": 13,
+          "KL": 24.716939590121896,
+          "disagreements": 13
+        },
+        {
+          "id": "dev_rewrite_16",
+          "domain": "rewrite",
+          "split": "DEV",
+          "labels": 11,
+          "KL": 25.466282323008944,
+          "disagreements": 11
+        },
+        {
+          "id": "dev_explanation_16",
+          "domain": "explanation",
+          "split": "DEV",
+          "labels": 41,
+          "KL": 22.2790092779611,
+          "disagreements": 41
+        },
+        {
+          "id": "dev_reading_17",
+          "domain": "reading",
+          "split": "DEV",
+          "labels": 3,
+          "KL": 18.646642473597026,
+          "disagreements": 3
+        },
+        {
+          "id": "dev_arithmetic_17",
+          "domain": "arithmetic",
+          "split": "DEV",
+          "labels": 63,
+          "KL": 29.014785995608523,
+          "disagreements": 63
+        },
+        {
+          "id": "dev_history_17",
+          "domain": "history",
+          "split": "DEV",
+          "labels": 3,
+          "KL": 20.039887520824674,
+          "disagreements": 3
+        },
+        {
+          "id": "dev_rewrite_17",
+          "domain": "rewrite",
+          "split": "DEV",
+          "labels": 19,
+          "KL": 23.025070818828013,
+          "disagreements": 19
+        },
+        {
+          "id": "dev_instruction_17",
+          "domain": "instruction",
+          "split": "DEV",
+          "labels": 29,
+          "KL": 25.52667955748666,
+          "disagreements": 29
+        },
+        {
+          "id": "dev_planning_17",
+          "domain": "planning",
+          "split": "DEV",
+          "labels": 85,
+          "KL": 26.536057197288436,
+          "disagreements": 84
+        },
+        {
+          "id": "dev_explanation_17",
+          "domain": "explanation",
+          "split": "DEV",
+          "labels": 53,
+          "KL": 24.797235453407183,
+          "disagreements": 53
+        },
+        {
+          "id": "dev_code_17",
+          "domain": "code",
+          "split": "DEV",
+          "labels": 73,
+          "KL": 25.602630346868203,
+          "disagreements": 73
+        },
+        {
+          "id": "dev_planning_18",
+          "domain": "planning",
+          "split": "DEV",
+          "labels": 64,
+          "KL": 27.258563755034714,
+          "disagreements": 64
+        },
+        {
+          "id": "dev_explanation_18",
+          "domain": "explanation",
+          "split": "DEV",
+          "labels": 54,
+          "KL": 23.597598053499926,
+          "disagreements": 54
+        },
+        {
+          "id": "dev_rewrite_18",
+          "domain": "rewrite",
+          "split": "DEV",
+          "labels": 15,
+          "KL": 25.84327333561033,
+          "disagreements": 15
+        },
+        {
+          "id": "dev_history_18",
+          "domain": "history",
+          "split": "DEV",
+          "labels": 4,
+          "KL": 27.29608332456284,
+          "disagreements": 4
+        },
+        {
+          "id": "dev_instruction_18",
+          "domain": "instruction",
+          "split": "DEV",
+          "labels": 9,
+          "KL": 27.081415116706555,
+          "disagreements": 9
+        },
+        {
+          "id": "dev_code_18",
+          "domain": "code",
+          "split": "DEV",
+          "labels": 54,
+          "KL": 26.40644493509526,
+          "disagreements": 54
+        },
+        {
+          "id": "dev_arithmetic_18",
+          "domain": "arithmetic",
+          "split": "DEV",
+          "labels": 96,
+          "KL": 26.060922684204154,
+          "disagreements": 96
+        },
+        {
+          "id": "dev_reading_18",
+          "domain": "reading",
+          "split": "DEV",
+          "labels": 4,
+          "KL": 25.934252606766137,
+          "disagreements": 4
+        },
+        {
+          "id": "dev_reading_19",
+          "domain": "reading",
+          "split": "DEV",
+          "labels": 3,
+          "KL": 18.889876483419673,
+          "disagreements": 3
+        },
+        {
+          "id": "dev_rewrite_19",
+          "domain": "rewrite",
+          "split": "DEV",
+          "labels": 26,
+          "KL": 25.364139594619182,
+          "disagreements": 26
+        },
+        {
+          "id": "dev_explanation_19",
+          "domain": "explanation",
+          "split": "DEV",
+          "labels": 47,
+          "KL": 24.872127750930947,
+          "disagreements": 47
+        },
+        {
+          "id": "dev_planning_19",
+          "domain": "planning",
+          "split": "DEV",
+          "labels": 29,
+          "KL": 27.260534810437345,
+          "disagreements": 29
+        },
+        {
+          "id": "dev_code_19",
+          "domain": "code",
+          "split": "DEV",
+          "labels": 96,
+          "KL": 27.384593980698856,
+          "disagreements": 95
+        },
+        {
+          "id": "dev_instruction_19",
+          "domain": "instruction",
+          "split": "DEV",
+          "labels": 18,
+          "KL": 25.209287386323783,
+          "disagreements": 18
+        },
+        {
+          "id": "dev_history_19",
+          "domain": "history",
+          "split": "DEV",
+          "labels": 4,
+          "KL": 19.93916124083017,
+          "disagreements": 4
+        },
+        {
+          "id": "dev_arithmetic_19",
+          "domain": "arithmetic",
+          "split": "DEV",
+          "labels": 96,
+          "KL": 27.354412169697948,
+          "disagreements": 96
+        }
+      ],
+      "summary": {
+        "FIT": {
+          "cases": 128,
+          "labels": 4643,
+          "case_KL": 24.062270539175135,
+          "label_KL": 25.784472028882043,
+          "disagreements": 4634,
+          "label_disagreement": 0.9980615981046737
+        },
+        "DEV": {
+          "cases": 32,
+          "labels": 1103,
+          "case_KL": 24.711865004158515,
+          "label_KL": 26.043107340660235,
+          "disagreements": 1101,
+          "label_disagreement": 0.9981867633726201
+        },
+        "domains": {
+          "arithmetic": {
+            "FIT": {
+              "cases": 16,
+              "labels": 1351,
+              "case_KL": 26.87734148216786,
+              "label_KL": 26.744326964739564,
+              "disagreements": 1351,
+              "label_disagreement": 1.0
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 316,
+              "case_KL": 27.354117818412924,
+              "label_KL": 27.221427340413115,
+              "disagreements": 316,
+              "label_disagreement": 1.0
+            }
+          },
+          "code": {
+            "FIT": {
+              "cases": 16,
+              "labels": 829,
+              "case_KL": 24.312090664353306,
+              "label_KL": 26.511263900776346,
+              "disagreements": 825,
+              "label_disagreement": 0.9951749095295537
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 236,
+              "case_KL": 26.027652213196053,
+              "label_KL": 26.46263253658982,
+              "disagreements": 235,
+              "label_disagreement": 0.9957627118644068
+            }
+          },
+          "explanation": {
+            "FIT": {
+              "cases": 16,
+              "labels": 742,
+              "case_KL": 24.34047923581402,
+              "label_KL": 24.328337413748674,
+              "disagreements": 742,
+              "label_disagreement": 1.0
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 195,
+              "case_KL": 23.88649263394979,
+              "label_KL": 23.953605941588393,
+              "disagreements": 195,
+              "label_disagreement": 1.0
+            }
+          },
+          "history": {
+            "FIT": {
+              "cases": 16,
+              "labels": 59,
+              "case_KL": 20.759403629079042,
+              "label_KL": 21.593196750507325,
+              "disagreements": 59,
+              "label_disagreement": 1.0
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 14,
+              "case_KL": 22.52454236089964,
+              "label_KL": 22.68069663544205,
+              "disagreements": 14,
+              "label_disagreement": 1.0
+            }
+          },
+          "instruction": {
+            "FIT": {
+              "cases": 16,
+              "labels": 230,
+              "case_KL": 23.796607729994964,
+              "label_KL": 24.273317164058,
+              "disagreements": 230,
+              "label_disagreement": 1.0
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 59,
+              "case_KL": 25.192329394800804,
+              "label_KL": 25.5360919106332,
+              "disagreements": 59,
+              "label_disagreement": 1.0
+            }
+          },
+          "planning": {
+            "FIT": {
+              "cases": 16,
+              "labels": 1078,
+              "case_KL": 26.278141168220653,
+              "label_KL": 26.107266454721387,
+              "disagreements": 1074,
+              "label_disagreement": 0.9962894248608535
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 199,
+              "case_KL": 26.81520835268062,
+              "label_KL": 26.839134081415192,
+              "disagreements": 198,
+              "label_disagreement": 0.9949748743718593
+            }
+          },
+          "reading": {
+            "FIT": {
+              "cases": 16,
+              "labels": 114,
+              "case_KL": 21.263306082108667,
+              "label_KL": 22.625173366496302,
+              "disagreements": 114,
+              "label_disagreement": 1.0
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 13,
+              "case_KL": 20.96988574131166,
+              "label_KL": 21.35176011557739,
+              "disagreements": 13,
+              "label_disagreement": 1.0
+            }
+          },
+          "rewrite": {
+            "FIT": {
+              "cases": 16,
+              "labels": 240,
+              "case_KL": 24.870794321662558,
+              "label_KL": 24.902038366698196,
+              "disagreements": 239,
+              "label_disagreement": 0.9958333333333333
+            },
+            "DEV": {
+              "cases": 4,
+              "labels": 71,
+              "case_KL": 24.924691518016616,
+              "label_KL": 24.8552419803533,
+              "disagreements": 71,
+              "label_disagreement": 1.0
+            }
+          }
+        }
+      }
+    },
+    "after": {
+      "cases": [],
+      "summary": null
+    }
+  },
+  "maximum_label_KL_F64_difference": 2.115653027345843e-05,
+  "model_elements": 254932736,
+  "changed_tensors": 211,
+  "changed_tensor_names": [
+    "embed.weight",
+    "layers.0.input_norm.weight",
+    "layers.0.ff_norm.weight",
+    "layers.0.core.dt_bias",
+    "layers.0.core.A_log",
+    "layers.0.core.D",
+    "layers.0.core.conv1d.weight",
+    "layers.0.core.conv1d.bias",
+    "layers.0.core.in_proj.weight",
+    "layers.0.core.norm.weight",
+    "layers.0.core.out_proj.weight",
+    "layers.0.banks.gate",
+    "layers.0.banks.up",
+    "layers.0.banks.down",
+    "layers.0.banks.gate_scale",
+    "layers.0.banks.up_scale",
+    "layers.0.banks.down_scale",
+    "layers.0.banks.router.weight",
+    "layers.0.banks.router.bias",
+    "layers.1.input_norm.weight",
+    "layers.1.ff_norm.weight",
+    "layers.1.core.dt_bias",
+    "layers.1.core.A_log",
+    "layers.1.core.D",
+    "layers.1.core.conv1d.weight",
+    "layers.1.core.conv1d.bias",
+    "layers.1.core.in_proj.weight",
+    "layers.1.core.norm.weight",
+    "layers.1.core.out_proj.weight",
+    "layers.1.banks.gate",
+    "layers.1.banks.up",
+    "layers.1.banks.down",
+    "layers.1.banks.gate_scale",
+    "layers.1.banks.up_scale",
+    "layers.1.banks.down_scale",
+    "layers.1.banks.router.weight",
+    "layers.1.banks.router.bias",
+    "layers.2.input_norm.weight",
+    "layers.2.ff_norm.weight",
+    "layers.2.core.dt_bias",
+    "layers.2.core.A_log",
+    "layers.2.core.D",
+    "layers.2.core.conv1d.weight",
+    "layers.2.core.conv1d.bias",
+    "layers.2.core.in_proj.weight",
+    "layers.2.core.norm.weight",
+    "layers.2.core.out_proj.weight",
+    "layers.2.banks.gate",
+    "layers.2.banks.up",
+    "layers.2.banks.down",
+    "layers.2.banks.gate_scale",
+    "layers.2.banks.up_scale",
+    "layers.2.banks.down_scale",
+    "layers.2.banks.router.weight",
+    "layers.2.banks.router.bias",
+    "layers.3.input_norm.weight",
+    "layers.3.ff_norm.weight",
+    "layers.3.core.dt_bias",
+    "layers.3.core.A_log",
+    "layers.3.core.D",
+    "layers.3.core.conv1d.weight",
+    "layers.3.core.conv1d.bias",
+    "layers.3.core.in_proj.weight",
+    "layers.3.core.norm.weight",
+    "layers.3.core.out_proj.weight",
+    "layers.3.banks.gate",
+    "layers.3.banks.up",
+    "layers.3.banks.down",
+    "layers.3.banks.gate_scale",
+    "layers.3.banks.up_scale",
+    "layers.3.banks.down_scale",
+    "layers.3.banks.router.weight",
+    "layers.3.banks.router.bias",
+    "layers.4.input_norm.weight",
+    "layers.4.ff_norm.weight",
+    "layers.4.core.dt_bias",
+    "layers.4.core.A_log",
+    "layers.4.core.D",
+    "layers.4.core.conv1d.weight",
+    "layers.4.core.conv1d.bias",
+    "layers.4.core.in_proj.weight",
+    "layers.4.core.norm.weight",
+    "layers.4.core.out_proj.weight",
+    "layers.4.banks.gate",
+    "layers.4.banks.up",
+    "layers.4.banks.down",
+    "layers.4.banks.gate_scale",
+    "layers.4.banks.up_scale",
+    "layers.4.banks.down_scale",
+    "layers.4.banks.router.weight",
+    "layers.4.banks.router.bias",
+    "layers.5.input_norm.weight",
+    "layers.5.ff_norm.weight",
+    "layers.5.core.q.weight",
+    "layers.5.core.k.weight",
+    "layers.5.core.v.weight",
+    "layers.5.core.o.weight",
+    "layers.5.banks.gate",
+    "layers.5.banks.up",
+    "layers.5.banks.down",
+    "layers.5.banks.gate_scale",
+    "layers.5.banks.up_scale",
+    "layers.5.banks.down_scale",
+    "layers.5.banks.router.weight",
+    "layers.5.banks.router.bias",
+    "layers.6.input_norm.weight",
+    "layers.6.ff_norm.weight",
+    "layers.6.core.dt_bias",
+    "layers.6.core.A_log",
+    "layers.6.core.D",
+    "layers.6.core.conv1d.weight",
+    "layers.6.core.conv1d.bias",
+    "layers.6.core.in_proj.weight",
+    "layers.6.core.norm.weight",
+    "layers.6.core.out_proj.weight",
+    "layers.6.banks.gate",
+    "layers.6.banks.up",
+    "layers.6.banks.down",
+    "layers.6.banks.gate_scale",
+    "layers.6.banks.up_scale",
+    "layers.6.banks.down_scale",
+    "layers.6.banks.router.weight",
+    "layers.6.banks.router.bias",
+    "layers.7.input_norm.weight",
+    "layers.7.ff_norm.weight",
+    "layers.7.core.dt_bias",
+    "layers.7.core.A_log",
+    "layers.7.core.D",
+    "layers.7.core.conv1d.weight",
+    "layers.7.core.conv1d.bias",
+    "layers.7.core.in_proj.weight",
+    "layers.7.core.norm.weight",
+    "layers.7.core.out_proj.weight",
+    "layers.7.banks.gate",
+    "layers.7.banks.up",
+    "layers.7.banks.down",
+    "layers.7.banks.gate_scale",
+    "layers.7.banks.up_scale",
+    "layers.7.banks.down_scale",
+    "layers.7.banks.router.weight",
+    "layers.7.banks.router.bias",
+    "layers.8.input_norm.weight",
+    "layers.8.ff_norm.weight",
+    "layers.8.core.dt_bias",
+    "layers.8.core.A_log",
+    "layers.8.core.D",
+    "layers.8.core.conv1d.weight",
+    "layers.8.core.conv1d.bias",
+    "layers.8.core.in_proj.weight",
+    "layers.8.core.norm.weight",
+    "layers.8.core.out_proj.weight",
+    "layers.8.banks.gate",
+    "layers.8.banks.up",
+    "layers.8.banks.down",
+    "layers.8.banks.gate_scale",
+    "layers.8.banks.up_scale",
+    "layers.8.banks.down_scale",
+    "layers.8.banks.router.weight",
+    "layers.8.banks.router.bias",
+    "layers.9.input_norm.weight",
+    "layers.9.ff_norm.weight",
+    "layers.9.core.dt_bias",
+    "layers.9.core.A_log",
+    "layers.9.core.D",
+    "layers.9.core.conv1d.weight",
+    "layers.9.core.conv1d.bias",
+    "layers.9.core.in_proj.weight",
+    "layers.9.core.norm.weight",
+    "layers.9.core.out_proj.weight",
+    "layers.9.banks.gate",
+    "layers.9.banks.up",
+    "layers.9.banks.down",
+    "layers.9.banks.gate_scale",
+    "layers.9.banks.up_scale",
+    "layers.9.banks.down_scale",
+    "layers.9.banks.router.weight",
+    "layers.9.banks.router.bias",
+    "layers.10.input_norm.weight",
+    "layers.10.ff_norm.weight",
+    "layers.10.core.dt_bias",
+    "layers.10.core.A_log",
+    "layers.10.core.D",
+    "layers.10.core.conv1d.weight",
+    "layers.10.core.conv1d.bias",
+    "layers.10.core.in_proj.weight",
+    "layers.10.core.norm.weight",
+    "layers.10.core.out_proj.weight",
+    "layers.10.banks.gate",
+    "layers.10.banks.up",
+    "layers.10.banks.down",
+    "layers.10.banks.gate_scale",
+    "layers.10.banks.up_scale",
+    "layers.10.banks.down_scale",
+    "layers.10.banks.router.weight",
+    "layers.10.banks.router.bias",
+    "layers.11.input_norm.weight",
+    "layers.11.ff_norm.weight",
+    "layers.11.core.q.weight",
+    "layers.11.core.k.weight",
+    "layers.11.core.v.weight",
+    "layers.11.core.o.weight",
+    "layers.11.banks.gate",
+    "layers.11.banks.up",
+    "layers.11.banks.down",
+    "layers.11.banks.gate_scale",
+    "layers.11.banks.up_scale",
+    "layers.11.banks.down_scale",
+    "layers.11.banks.router.weight",
+    "layers.11.banks.router.bias",
+    "final_norm.weight",
+    "head.weight"
+  ],
+  "optimizer_moment_bytes": 2039461888,
+  "optimizer_step": 294,
+  "RNG_storage_present": true,
+  "reproduced_recovery_gates": null,
+  "elapsed_seconds": 44.07799999997951,
+  "worker_OS_peak_snapshot": 6795464704,
+  "source_calls": 0,
+  "student_calls": 0,
+  "CUDA_initialized": false,
+  "quality_admission": false,
+  "scope": "Saved F64 labels/IDs/decision and actual finite model/Adam/RNG transport; logged gradients are not independently recomputed. Partial primary stays incomplete."
+}

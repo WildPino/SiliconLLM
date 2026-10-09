@@ -1,0 +1,462 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+{"stage": "learner_ready", "seconds": 12.76600000000326, "parameters": 254932736, "optimizer_moment_bytes": 2039461888, "initial_optimizer_step": 8, "longest_training_case": "fit_reading_08", "runtime": {"torch": {"version": "2.6.0+cu124", "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\torch\\__init__.py"}, "transformers": {"version": "5.13.1", "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\transformers\\__init__.py"}, "numpy": {"version": "2.4.6", "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\numpy\\__init__.py"}, "tokenizers": {"version": "0.22.2", "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\tokenizers\\__init__.py"}, "psutil": {"version": "7.2.2", "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_runtime\\site\\psutil\\__init__.py"}, "device": "NVIDIA GeForce RTX 3060", "tf32": false, "dtype": "F32", "checkpointing": "whole blocks, nonreentrant, preserve_rng_state=True", "AQ_training_dither": 0.025, "AQ_inference": "original round/absmax/clip", "donor_loaded": false, "GPU_bitwise_determinism_claim": false}}
+{"stage": "before", "seconds": 17.03100000001723, "case": "fit_history_00", "KL": 18.178226470947266, "labels": 2, "case_seconds": 4.077999999979511}
+{"stage": "before", "seconds": 19.344000000040978, "case": "fit_instruction_00", "KL": 21.076244354248047, "labels": 5, "case_seconds": 2.25}
+{"stage": "before", "seconds": 22.75, "case": "fit_arithmetic_00", "KL": 27.426570892333984, "labels": 96, "case_seconds": 3.3290000000270084}
+{"stage": "before", "seconds": 24.70300000003772, "case": "fit_reading_00", "KL": 17.565814971923828, "labels": 2, "case_seconds": 1.922000000020489}
+{"stage": "before", "seconds": 27.25, "case": "fit_code_00", "KL": 24.894960403442383, "labels": 7, "case_seconds": 2.4839999999967404}
+{"stage": "before", "seconds": 29.39100000000326, "case": "fit_planning_00", "KL": 26.112768173217773, "labels": 18, "case_seconds": 2.0780000000377186}
+{"stage": "before", "seconds": 32.09400000004098, "case": "fit_explanation_00", "KL": 23.80784797668457, "labels": 37, "case_seconds": 2.6560000000172295}
+{"stage": "before", "seconds": 34.51600000000326, "case": "fit_rewrite_00", "KL": 26.169403076171875, "labels": 10, "case_seconds": 2.375}
+{"stage": "before", "seconds": 37.0, "case": "fit_history_01", "KL": 18.57500457763672, "labels": 2, "case_seconds": 2.422000000020489}
+{"stage": "before", "seconds": 39.59400000004098, "case": "fit_rewrite_01", "KL": 23.528247833251953, "labels": 12, "case_seconds": 2.5310000000172295}
+{"stage": "before", "seconds": 42.35899999999674, "case": "fit_explanation_01", "KL": 24.09107208251953, "labels": 46, "case_seconds": 2.719000000040978}
+{"stage": "before", "seconds": 45.03100000001723, "case": "fit_reading_01", "KL": 21.567007064819336, "labels": 5, "case_seconds": 2.625}
+{"stage": "before", "seconds": 47.65600000001723, "case": "fit_arithmetic_01", "KL": 27.899499893188477, "labels": 61, "case_seconds": 2.577999999979511}
+{"stage": "before", "seconds": 50.78100000001723, "case": "fit_planning_01", "KL": 25.943017959594727, "labels": 77, "case_seconds": 3.0619999999762513}
+{"stage": "before", "seconds": 53.25, "case": "fit_code_01", "KL": 26.83972930908203, "labels": 96, "case_seconds": 2.4060000000172295}
+{"stage": "before", "seconds": 55.81300000002375, "case": "fit_instruction_01", "KL": 24.38741683959961, "labels": 28, "case_seconds": 2.51500000001397}
+{"stage": "before", "seconds": 57.93800000002375, "case": "fit_code_02", "KL": 17.10806655883789, "labels": 2, "case_seconds": 2.062999999965541}
+{"stage": "before", "seconds": 60.125, "case": "fit_instruction_02", "KL": 29.573593139648438, "labels": 6, "case_seconds": 2.125}
+{"stage": "before", "seconds": 63.35899999999674, "case": "fit_arithmetic_02", "KL": 25.281173706054688, "labels": 96, "case_seconds": 3.2030000000377186}
+{"stage": "before", "seconds": 65.70300000003772, "case": "fit_history_02", "KL": 24.374204635620117, "labels": 4, "case_seconds": 2.2660000000032596}
+{"stage": "before", "seconds": 68.79700000002049, "case": "fit_explanation_02", "KL": 23.78526496887207, "labels": 54, "case_seconds": 3.030999999959022}
+{"stage": "before", "seconds": 71.01600000000326, "case": "fit_rewrite_02", "KL": 25.677824020385742, "labels": 19, "case_seconds": 2.1869999999762513}
+{"stage": "before", "seconds": 73.68800000002375, "case": "fit_reading_02", "KL": 24.20465660095215, "labels": 6, "case_seconds": 2.625}
+{"stage": "before", "seconds": 76.48399999999674, "case": "fit_planning_02", "KL": 26.979536056518555, "labels": 80, "case_seconds": 2.7189999999827705}
+{"stage": "before", "seconds": 79.625, "case": "fit_code_03", "KL": 26.25960350036621, "labels": 96, "case_seconds": 3.094000000040978}
+{"stage": "before", "seconds": 82.01600000000326, "case": "fit_rewrite_03", "KL": 26.561351776123047, "labels": 22, "case_seconds": 2.3429999999934807}
+{"stage": "before", "seconds": 84.53100000001723, "case": "fit_reading_03", "KL": 22.069734573364258, "labels": 21, "case_seconds": 2.452999999979511}
+{"stage": "before", "seconds": 87.40600000001723, "case": "fit_history_03", "KL": 20.44527244567871, "labels": 4, "case_seconds": 2.7959999999729916}
+{"stage": "before", "seconds": 90.125, "case": "fit_instruction_03", "KL": 24.670631408691406, "labels": 18, "case_seconds": 2.625}
+{"stage": "before", "seconds": 93.51600000000326, "case": "fit_planning_03", "KL": 24.57234764099121, "labels": 96, "case_seconds": 3.3280000000377186}
+{"stage": "before", "seconds": 96.60899999999674, "case": "fit_arithmetic_03", "KL": 26.93732452392578, "labels": 96, "case_seconds": 3.0160000000032596}
+{"stage": "before", "seconds": 99.10899999999674, "case": "fit_explanation_03", "KL": 25.182453155517578, "labels": 47, "case_seconds": 2.4380000000237487}
+{"stage": "before", "seconds": 101.10899999999674, "case": "fit_instruction_04", "KL": 19.75792121887207, "labels": 4, "case_seconds": 1.922000000020489}
+{"stage": "before", "seconds": 104.25, "case": "fit_explanation_04", "KL": 23.831708908081055, "labels": 38, "case_seconds": 3.0780000000377186}
+{"stage": "before", "seconds": 107.03100000001723, "case": "fit_arithmetic_04", "KL": 26.690465927124023, "labels": 96, "case_seconds": 2.7179999999934807}
+{"stage": "before", "seconds": 109.34400000004098, "case": "fit_rewrite_04", "KL": 25.201583862304688, "labels": 10, "case_seconds": 2.2660000000032596}
+{"stage": "before", "seconds": 112.25, "case": "fit_reading_04", "KL": 21.229169845581055, "labels": 6, "case_seconds": 2.844000000040978}
+{"stage": "before", "seconds": 115.01600000000326, "case": "fit_history_04", "KL": 17.591556549072266, "labels": 3, "case_seconds": 2.7030000000377186}
+{"stage": "before", "seconds": 117.04700000002049, "case": "fit_code_04", "KL": 23.55904769897461, "labels": 12, "case_seconds": 1.9689999999827705}
+{"stage": "before", "seconds": 120.23399999999674, "case": "fit_planning_04", "KL": 27.47076988220215, "labels": 18, "case_seconds": 3.10999999998603}
+{"stage": "before", "seconds": 123.71900000004098, "case": "fit_arithmetic_05", "KL": 28.89354705810547, "labels": 62, "case_seconds": 3.4060000000172295}
+{"stage": "before", "seconds": 127.26600000000326, "case": "fit_explanation_05", "KL": 24.20992088317871, "labels": 64, "case_seconds": 3.4540000000270084}
+{"stage": "before", "seconds": 129.7970000000205, "case": "fit_history_05", "KL": 17.87649154663086, "labels": 3, "case_seconds": 2.452999999979511}
+{"stage": "before", "seconds": 132.84400000004098, "case": "fit_planning_05", "KL": 26.782062530517578, "labels": 96, "case_seconds": 3.0}
+{"stage": "before", "seconds": 135.35899999999674, "case": "fit_rewrite_05", "KL": 22.780269622802734, "labels": 12, "case_seconds": 2.4380000000237487}
+{"stage": "before", "seconds": 138.31300000002375, "case": "fit_code_05", "KL": 25.41988754272461, "labels": 73, "case_seconds": 2.9070000000065193}
+{"stage": "before", "seconds": 141.20300000003772, "case": "fit_instruction_05", "KL": 23.686908721923828, "labels": 29, "case_seconds": 2.827999999979511}
+{"stage": "before", "seconds": 143.5470000000205, "case": "fit_reading_05", "KL": 20.114538192749023, "labels": 5, "case_seconds": 2.280999999959022}
+{"stage": "before", "seconds": 146.56300000002375, "case": "fit_explanation_06", "KL": 24.343719482421875, "labels": 48, "case_seconds": 2.952999999979511}
+{"stage": "before", "seconds": 149.06300000002375, "case": "fit_reading_06", "KL": 21.25604820251465, "labels": 3, "case_seconds": 2.437999999965541}
+{"stage": "before", "seconds": 152.23399999999674, "case": "fit_history_06", "KL": 23.618328094482422, "labels": 4, "case_seconds": 3.1089999999967404}
+{"stage": "before", "seconds": 155.26600000000326, "case": "fit_arithmetic_06", "KL": 25.150577545166016, "labels": 96, "case_seconds": 2.9679999999934807}
+{"stage": "before", "seconds": 157.90600000001723, "case": "fit_instruction_06", "KL": 20.13184928894043, "labels": 9, "case_seconds": 2.547000000020489}
+{"stage": "before", "seconds": 160.71900000004098, "case": "fit_planning_06", "KL": 27.75881004333496, "labels": 71, "case_seconds": 2.75}
+{"stage": "before", "seconds": 163.01600000000326, "case": "fit_code_06", "KL": 19.073631286621094, "labels": 3, "case_seconds": 2.235000000044238}
+{"stage": "before", "seconds": 165.23399999999674, "case": "fit_rewrite_06", "KL": 24.2790470123291, "labels": 18, "case_seconds": 2.172000000020489}
+{"stage": "before", "seconds": 168.5, "case": "fit_arithmetic_07", "KL": 26.688030242919922, "labels": 96, "case_seconds": 3.2030000000377186}
+{"stage": "before", "seconds": 171.09400000004098, "case": "fit_code_07", "KL": 27.46632957458496, "labels": 96, "case_seconds": 2.5310000000172295}
+{"stage": "before", "seconds": 174.75, "case": "fit_planning_07", "KL": 25.17458152770996, "labels": 95, "case_seconds": 3.5790000000270084}
+{"stage": "before", "seconds": 177.28100000001723, "case": "fit_rewrite_07", "KL": 26.453386306762695, "labels": 21, "case_seconds": 2.4679999999934807}
+{"stage": "before", "seconds": 180.40600000001723, "case": "fit_explanation_07", "KL": 25.670578002929688, "labels": 40, "case_seconds": 3.077999999979511}
+{"stage": "before", "seconds": 182.70300000003772, "case": "fit_history_07", "KL": 20.2482967376709, "labels": 4, "case_seconds": 2.2339999999967404}
+{"stage": "before", "seconds": 184.95300000003772, "case": "fit_instruction_07", "KL": 25.81885528564453, "labels": 12, "case_seconds": 2.202999999979511}
+{"stage": "before", "seconds": 187.81300000002375, "case": "fit_reading_07", "KL": 19.1119384765625, "labels": 3, "case_seconds": 2.7820000000065193}
+{"stage": "before", "seconds": 189.73399999999674, "case": "fit_instruction_08", "KL": 21.858760833740234, "labels": 3, "case_seconds": 1.8599999999860302}
+{"stage": "before", "seconds": 192.25, "case": "fit_reading_08", "KL": 20.50191879272461, "labels": 3, "case_seconds": 2.437000000034459}
+{"stage": "before", "seconds": 195.09400000004098, "case": "fit_planning_08", "KL": 24.745330810546875, "labels": 8, "case_seconds": 2.7660000000032596}
+{"stage": "before", "seconds": 198.31300000002375, "case": "fit_explanation_08", "KL": 24.225046157836914, "labels": 35, "case_seconds": 2.844000000040978}
+{"stage": "before", "seconds": 200.59400000004098, "case": "fit_code_08", "KL": 23.858728408813477, "labels": 13, "case_seconds": 2.202999999979511}
+{"stage": "before", "seconds": 202.98399999999674, "case": "fit_rewrite_08", "KL": 26.595460891723633, "labels": 14, "case_seconds": 2.3130000000237487}
+{"stage": "before", "seconds": 206.53100000001723, "case": "fit_arithmetic_08", "KL": 26.416885375976562, "labels": 83, "case_seconds": 3.4530000000377186}
+{"stage": "before", "seconds": 209.20300000003772, "case": "fit_history_08", "KL": 20.22561264038086, "labels": 3, "case_seconds": 2.5929999999934807}
+{"stage": "before", "seconds": 211.7970000000205, "case": "fit_code_09", "KL": 25.54327392578125, "labels": 96, "case_seconds": 2.5160000000032596}
+{"stage": "before", "seconds": 214.76600000000326, "case": "fit_explanation_09", "KL": 23.9483642578125, "labels": 52, "case_seconds": 2.9209999999729916}
+{"stage": "before", "seconds": 217.21900000004098, "case": "fit_history_09", "KL": 16.911109924316406, "labels": 3, "case_seconds": 2.297000000020489}
+{"stage": "before", "seconds": 219.6720000000205, "case": "fit_instruction_09", "KL": 23.971860885620117, "labels": 29, "case_seconds": 2.375}
+{"stage": "before", "seconds": 222.96900000004098, "case": "fit_planning_09", "KL": 24.777074813842773, "labels": 96, "case_seconds": 3.202999999979511}
+{"stage": "before", "seconds": 225.56300000002375, "case": "fit_arithmetic_09", "KL": 27.62175750732422, "labels": 63, "case_seconds": 2.547000000020489}
+{"stage": "before", "seconds": 228.06300000002375, "case": "fit_reading_09", "KL": 17.45413589477539, "labels": 3, "case_seconds": 2.4219999999622814}
+{"stage": "before", "seconds": 230.2970000000205, "case": "fit_rewrite_09", "KL": 22.068464279174805, "labels": 18, "case_seconds": 2.187999999965541}
+{"stage": "before", "seconds": 233.51600000000326, "case": "fit_explanation_10", "KL": 24.048810958862305, "labels": 53, "case_seconds": 3.155999999959022}
+{"stage": "before", "seconds": 235.71900000004098, "case": "fit_history_10", "KL": 27.052799224853516, "labels": 9, "case_seconds": 2.125}
+{"stage": "before", "seconds": 238.51600000000326, "case": "fit_reading_10", "KL": 26.730499267578125, "labels": 6, "case_seconds": 2.719000000040978}
+{"stage": "before", "seconds": 240.89100000000326, "case": "fit_rewrite_10", "KL": 25.58194923400879, "labels": 15, "case_seconds": 2.3119999999762513}
+{"stage": "before", "seconds": 243.1720000000205, "case": "fit_code_10", "KL": 16.15142250061035, "labels": 3, "case_seconds": 2.2189999999827705}
+{"stage": "before", "seconds": 246.31300000002375, "case": "fit_arithmetic_10", "KL": 25.335445404052734, "labels": 96, "case_seconds": 3.062999999965541}
+{"stage": "before", "seconds": 248.82800000003772, "case": "fit_planning_10", "KL": 27.105546951293945, "labels": 73, "case_seconds": 2.4369999999762513}
+{"stage": "before", "seconds": 251.20300000003772, "case": "fit_instruction_10", "KL": 23.123395919799805, "labels": 9, "case_seconds": 2.3130000000237487}
+{"stage": "before", "seconds": 253.68800000002375, "case": "fit_history_11", "KL": 20.076913833618164, "labels": 4, "case_seconds": 2.422000000020489}
+{"stage": "before", "seconds": 256.60899999999674, "case": "fit_arithmetic_11", "KL": 26.804723739624023, "labels": 96, "case_seconds": 2.8589999999967404}
+{"stage": "before", "seconds": 258.81300000002375, "case": "fit_rewrite_11", "KL": 24.42754364013672, "labels": 14, "case_seconds": 2.125}
+{"stage": "before", "seconds": 261.85899999999674, "case": "fit_code_11", "KL": 28.07210350036621, "labels": 96, "case_seconds": 2.9540000000270084}
+{"stage": "before", "seconds": 264.43800000002375, "case": "fit_reading_11", "KL": 20.05681800842285, "labels": 2, "case_seconds": 2.48499999998603}
+{"stage": "before", "seconds": 267.14100000000326, "case": "fit_explanation_11", "KL": 25.179214477539062, "labels": 47, "case_seconds": 2.625}
+{"stage": "before", "seconds": 269.65600000001723, "case": "fit_instruction_11", "KL": 25.18621826171875, "labels": 18, "case_seconds": 2.4209999999729916}
+{"stage": "before", "seconds": 272.8280000000377, "case": "fit_planning_11", "KL": 25.349323272705078, "labels": 96, "case_seconds": 3.077999999979511}
+{"stage": "before", "seconds": 275.2970000000205, "case": "fit_reading_12", "KL": 20.49665069580078, "labels": 3, "case_seconds": 2.3589999999967404}
+{"stage": "before", "seconds": 277.23399999999674, "case": "fit_instruction_12", "KL": 23.368379592895508, "labels": 4, "case_seconds": 1.8900000000139698}
+{"stage": "before", "seconds": 279.85899999999674, "case": "fit_code_12", "KL": 24.815372467041016, "labels": 13, "case_seconds": 2.5320000000065193}
+{"stage": "before", "seconds": 282.06300000002375, "case": "fit_planning_12", "KL": 27.81816291809082, "labels": 18, "case_seconds": 2.14000000001397}
+{"stage": "before", "seconds": 284.5780000000377, "case": "fit_rewrite_12", "KL": 27.20528221130371, "labels": 10, "case_seconds": 2.4369999999762513}
+{"stage": "before", "seconds": 287.3280000000377, "case": "fit_arithmetic_12", "KL": 27.451196670532227, "labels": 59, "case_seconds": 2.7189999999827705}
+{"stage": "before", "seconds": 289.625, "case": "fit_history_12", "KL": 21.396041870117188, "labels": 3, "case_seconds": 2.219000000040978}
+{"stage": "before", "seconds": 292.4530000000377, "case": "fit_explanation_12", "KL": 23.672836303710938, "labels": 38, "case_seconds": 2.7660000000032596}
+{"stage": "before", "seconds": 295.5, "case": "fit_explanation_13", "KL": 24.479578018188477, "labels": 52, "case_seconds": 2.969000000040978}
+{"stage": "before", "seconds": 298.75, "case": "fit_planning_13", "KL": 27.14103126525879, "labels": 64, "case_seconds": 3.187000000034459}
+{"stage": "before", "seconds": 301.28100000001723, "case": "fit_rewrite_13", "KL": 22.715469360351562, "labels": 12, "case_seconds": 2.4679999999934807}
+{"stage": "before", "seconds": 304.64100000000326, "case": "fit_arithmetic_13", "KL": 27.955028533935547, "labels": 63, "case_seconds": 3.0160000000032596}
+{"stage": "before", "seconds": 307.4530000000377, "case": "fit_code_13", "KL": 25.47397804260254, "labels": 73, "case_seconds": 2.75}
+{"stage": "before", "seconds": 310.4530000000377, "case": "fit_reading_13", "KL": 22.3629207611084, "labels": 5, "case_seconds": 2.9060000000172295}
+{"stage": "before", "seconds": 312.93800000002375, "case": "fit_history_13", "KL": 22.35993766784668, "labels": 3, "case_seconds": 2.4060000000172295}
+{"stage": "before", "seconds": 315.48399999999674, "case": "fit_instruction_13", "KL": 25.109682083129883, "labels": 29, "case_seconds": 2.4689999999827705}
+{"stage": "before", "seconds": 317.90600000001723, "case": "fit_rewrite_14", "KL": 24.02376365661621, "labels": 18, "case_seconds": 2.3280000000377186}
+{"stage": "before", "seconds": 320.6720000000205, "case": "fit_instruction_14", "KL": 23.350351333618164, "labels": 9, "case_seconds": 2.655999999959022}
+{"stage": "before", "seconds": 323.5470000000205, "case": "fit_arithmetic_14", "KL": 25.624675750732422, "labels": 96, "case_seconds": 2.7969999999622814}
+{"stage": "before", "seconds": 326.51600000000326, "case": "fit_explanation_14", "KL": 24.033050537109375, "labels": 54, "case_seconds": 2.875}
+{"stage": "before", "seconds": 329.25, "case": "fit_planning_14", "KL": 27.849763870239258, "labels": 76, "case_seconds": 2.672000000020489}
+{"stage": "before", "seconds": 332.31300000002375, "case": "fit_code_14", "KL": 25.626813888549805, "labels": 54, "case_seconds": 2.9689999999827705}
+{"stage": "before", "seconds": 334.844000000041, "case": "fit_reading_14", "KL": 20.864145278930664, "labels": 5, "case_seconds": 2.4689999999827705}
+{"stage": "before", "seconds": 337.594000000041, "case": "fit_history_14", "KL": 23.01398468017578, "labels": 4, "case_seconds": 2.672000000020489}
+{"stage": "before", "seconds": 340.40600000001723, "case": "fit_code_15", "KL": 28.830533981323242, "labels": 96, "case_seconds": 2.7179999999934807}
+{"stage": "before", "seconds": 343.14100000000326, "case": "fit_history_15", "KL": 20.206703186035156, "labels": 4, "case_seconds": 2.6709999999729916}
+{"stage": "before", "seconds": 345.4530000000377, "case": "fit_rewrite_15", "KL": 24.66368293762207, "labels": 15, "case_seconds": 2.2179999999934807}
+{"stage": "before", "seconds": 348.31300000002375, "case": "fit_explanation_15", "KL": 24.938215255737305, "labels": 37, "case_seconds": 2.7820000000065193}
+{"stage": "before", "seconds": 351.64100000000326, "case": "fit_planning_15", "KL": 24.870147705078125, "labels": 96, "case_seconds": 3.25}
+{"stage": "before", "seconds": 354.60899999999674, "case": "fit_arithmetic_15", "KL": 27.860572814941406, "labels": 96, "case_seconds": 2.922000000020489}
+{"stage": "before", "seconds": 357.25, "case": "fit_instruction_15", "KL": 25.673673629760742, "labels": 18, "case_seconds": 2.5320000000065193}
+{"stage": "before", "seconds": 359.8280000000377, "case": "fit_reading_15", "KL": 24.62691879272461, "labels": 36, "case_seconds": 2.5}
+{"stage": "before", "seconds": 362.5780000000377, "case": "dev_reading_16", "KL": 20.40877342224121, "labels": 3, "case_seconds": 2.672000000020489}
+{"stage": "before", "seconds": 364.875, "case": "dev_history_16", "KL": 22.823040008544922, "labels": 3, "case_seconds": 2.235000000044238}
+{"stage": "before", "seconds": 368.06300000002375, "case": "dev_arithmetic_16", "KL": 26.986351013183594, "labels": 61, "case_seconds": 3.1089999999967404}
+{"stage": "before", "seconds": 370.64100000000326, "case": "dev_planning_16", "KL": 26.205677032470703, "labels": 21, "case_seconds": 2.5}
+{"stage": "before", "seconds": 373.31300000002375, "case": "dev_instruction_16", "KL": 22.951934814453125, "labels": 3, "case_seconds": 2.577999999979511}
+{"stage": "before", "seconds": 375.5470000000205, "case": "dev_code_16", "KL": 24.716943740844727, "labels": 13, "case_seconds": 2.1570000000065193}
+{"stage": "before", "seconds": 378.8280000000377, "case": "dev_rewrite_16", "KL": 25.466283798217773, "labels": 11, "case_seconds": 3.1719999999622814}
+{"stage": "before", "seconds": 381.26600000000326, "case": "dev_explanation_16", "KL": 22.279010772705078, "labels": 41, "case_seconds": 2.3589999999967404}
+{"stage": "before", "seconds": 384.10899999999674, "case": "dev_reading_17", "KL": 18.64664077758789, "labels": 3, "case_seconds": 2.7339999999967404}
+{"stage": "before", "seconds": 386.7970000000205, "case": "dev_arithmetic_17", "KL": 29.014787673950195, "labels": 63, "case_seconds": 2.64000000001397}
+{"stage": "before", "seconds": 389.3280000000377, "case": "dev_history_17", "KL": 20.039886474609375, "labels": 3, "case_seconds": 2.4369999999762513}
+{"stage": "before", "seconds": 391.93800000002375, "case": "dev_rewrite_17", "KL": 23.02507209777832, "labels": 19, "case_seconds": 2.5320000000065193}
+{"stage": "before", "seconds": 394.344000000041, "case": "dev_instruction_17", "KL": 25.52667808532715, "labels": 29, "case_seconds": 2.327999999979511}
+{"stage": "before", "seconds": 397.51600000000326, "case": "dev_planning_17", "KL": 26.53605842590332, "labels": 85, "case_seconds": 3.0780000000377186}
+{"stage": "before", "seconds": 399.9530000000377, "case": "dev_explanation_17", "KL": 24.797237396240234, "labels": 53, "case_seconds": 2.3589999999967404}
+{"stage": "before", "seconds": 402.93800000002375, "case": "dev_code_17", "KL": 25.602630615234375, "labels": 73, "case_seconds": 2.922000000020489}
+{"stage": "before", "seconds": 405.68800000002375, "case": "dev_planning_18", "KL": 27.258563995361328, "labels": 64, "case_seconds": 2.6869999999762513}
+{"stage": "before", "seconds": 408.719000000041, "case": "dev_explanation_18", "KL": 23.597597122192383, "labels": 54, "case_seconds": 2.9380000000237487}
+{"stage": "before", "seconds": 410.90600000001723, "case": "dev_rewrite_18", "KL": 25.84327507019043, "labels": 15, "case_seconds": 2.1089999999967404}
+{"stage": "before", "seconds": 413.719000000041, "case": "dev_history_18", "KL": 27.296085357666016, "labels": 4, "case_seconds": 2.7339999999967404}
+{"stage": "before", "seconds": 415.844000000041, "case": "dev_instruction_18", "KL": 27.081417083740234, "labels": 9, "case_seconds": 2.047000000020489}
+{"stage": "before", "seconds": 418.6720000000205, "case": "dev_code_18", "KL": 26.406444549560547, "labels": 54, "case_seconds": 2.7660000000032596}
+{"stage": "before", "seconds": 421.23399999999674, "case": "dev_arithmetic_18", "KL": 26.060924530029297, "labels": 96, "case_seconds": 2.5}
+{"stage": "before", "seconds": 423.8280000000377, "case": "dev_reading_18", "KL": 25.934253692626953, "labels": 4, "case_seconds": 2.5}
+{"stage": "before", "seconds": 426.51600000000326, "case": "dev_reading_19", "KL": 18.889877319335938, "labels": 3, "case_seconds": 2.610000000044238}
+{"stage": "before", "seconds": 428.875, "case": "dev_rewrite_19", "KL": 25.3641414642334, "labels": 26, "case_seconds": 2.2810000000172295}
+{"stage": "before", "seconds": 431.76600000000326, "case": "dev_explanation_19", "KL": 24.872127532958984, "labels": 47, "case_seconds": 2.797000000020489}
+{"stage": "before", "seconds": 434.06300000002375, "case": "dev_planning_19", "KL": 27.260536193847656, "labels": 29, "case_seconds": 2.2339999999967404}
+{"stage": "before", "seconds": 437.5470000000205, "case": "dev_code_19", "KL": 27.38459587097168, "labels": 96, "case_seconds": 3.4070000000065193}
+{"stage": "before", "seconds": 439.73399999999674, "case": "dev_instruction_19", "KL": 25.209287643432617, "labels": 18, "case_seconds": 2.10999999998603}
+{"stage": "before", "seconds": 442.65600000001723, "case": "dev_history_19", "KL": 19.939167022705078, "labels": 4, "case_seconds": 2.827999999979511}
+{"stage": "before", "seconds": 445.5, "case": "dev_arithmetic_19", "KL": 27.354413986206055, "labels": 96, "case_seconds": 2.75}
+{"stage": "update", "seconds": 458.14100000000326, "step": 1, "epoch": 1, "case": "fit_explanation_15", "KL": 24.935150146484375, "step_seconds": 12.35899999999674, "inspected": true}
+{"stage": "update", "seconds": 468.64100000000326, "step": 2, "epoch": 1, "case": "fit_code_02", "KL": 17.876216888427734, "step_seconds": 10.264999999955762, "inspected": false}
+{"stage": "update", "seconds": 480.2970000000205, "step": 3, "epoch": 1, "case": "fit_arithmetic_04", "KL": 21.099788665771484, "step_seconds": 11.530999999959022, "inspected": false}
+{"stage": "update", "seconds": 493.1720000000205, "step": 4, "epoch": 1, "case": "fit_rewrite_13", "KL": 18.67462158203125, "step_seconds": 11.875, "inspected": false}
+{"stage": "update", "seconds": 504.844000000041, "step": 5, "epoch": 1, "case": "fit_reading_15", "KL": 17.37810707092285, "step_seconds": 11.563000000023749, "inspected": false}
+{"stage": "update", "seconds": 516.125, "step": 6, "epoch": 1, "case": "fit_history_14", "KL": 22.28409767150879, "step_seconds": 11.10899999999674, "inspected": false}
+{"stage": "update", "seconds": 526.7970000000205, "step": 7, "epoch": 1, "case": "fit_instruction_07", "KL": 20.46942138671875, "step_seconds": 10.530999999959022, "inspected": false}
+{"stage": "update", "seconds": 539.4220000000205, "step": 8, "epoch": 1, "case": "fit_planning_09", "KL": 14.591265678405762, "step_seconds": 12.0, "inspected": false}
+{"stage": "update", "seconds": 551.25, "step": 9, "epoch": 1, "case": "fit_explanation_04", "KL": 16.274381637573242, "step_seconds": 11.65700000000652, "inspected": false}
+{"stage": "update", "seconds": 562.6880000000237, "step": 10, "epoch": 1, "case": "fit_history_05", "KL": 10.84614372253418, "step_seconds": 11.23499999998603, "inspected": false}
+{"stage": "update", "seconds": 573.4060000000172, "step": 11, "epoch": 1, "case": "fit_rewrite_04", "KL": 18.98263931274414, "step_seconds": 10.577999999979511, "inspected": false}
+{"stage": "update", "seconds": 584.594000000041, "step": 12, "epoch": 1, "case": "fit_reading_13", "KL": 17.546133041381836, "step_seconds": 11.014999999955762, "inspected": false}
+{"stage": "update", "seconds": 595.969000000041, "step": 13, "epoch": 1, "case": "fit_planning_02", "KL": 12.429996490478516, "step_seconds": 11.21899999998277, "inspected": false}
+{"stage": "update", "seconds": 606.5, "step": 14, "epoch": 1, "case": "fit_instruction_15", "KL": 13.510255813598633, "step_seconds": 10.327999999979511, "inspected": false}
+{"stage": "update", "seconds": 616.8589999999967, "step": 15, "epoch": 1, "case": "fit_arithmetic_11", "KL": 6.761792182922363, "step_seconds": 10.186999999976251, "inspected": false}
+{"stage": "update", "seconds": 627.5310000000172, "step": 16, "epoch": 1, "case": "fit_code_14", "KL": 9.424718856811523, "step_seconds": 10.452999999979511, "inspected": false}
+{"stage": "update", "seconds": 638.7970000000205, "step": 17, "epoch": 1, "case": "fit_explanation_02", "KL": 11.404723167419434, "step_seconds": 11.094000000040978, "inspected": false}
+{"stage": "update", "seconds": 648.3589999999967, "step": 18, "epoch": 1, "case": "fit_code_12", "KL": 6.607382297515869, "step_seconds": 9.375, "inspected": false}
+{"stage": "update", "seconds": 658.8280000000377, "step": 19, "epoch": 1, "case": "fit_arithmetic_12", "KL": 6.891829490661621, "step_seconds": 10.25, "inspected": false}
+{"stage": "update", "seconds": 669.5470000000205, "step": 20, "epoch": 1, "case": "fit_instruction_03", "KL": 8.565290451049805, "step_seconds": 10.53100000001723, "inspected": false}
+{"stage": "update", "seconds": 680.8910000000033, "step": 21, "epoch": 1, "case": "fit_planning_11", "KL": 11.142451286315918, "step_seconds": 10.797000000020489, "inspected": false}
+{"stage": "update", "seconds": 691.2660000000033, "step": 22, "epoch": 1, "case": "fit_reading_07", "KL": 9.477777481079102, "step_seconds": 10.172000000020489, "inspected": false}
+{"stage": "update", "seconds": 701.7970000000205, "step": 23, "epoch": 1, "case": "fit_rewrite_03", "KL": 9.46733570098877, "step_seconds": 10.421999999962281, "inspected": false}
+{"stage": "update", "seconds": 712.7660000000033, "step": 24, "epoch": 1, "case": "fit_history_02", "KL": 9.59766960144043, "step_seconds": 10.829000000027008, "inspected": false}
+{"stage": "update", "seconds": 724.0780000000377, "step": 25, "epoch": 1, "case": "fit_instruction_02", "KL": 8.206962585449219, "step_seconds": 10.764999999955762, "inspected": false}
+{"stage": "update", "seconds": 734.5780000000377, "step": 26, "epoch": 1, "case": "fit_rewrite_09", "KL": 5.142946243286133, "step_seconds": 10.313000000023749, "inspected": false}
+{"stage": "update", "seconds": 745.9220000000205, "step": 27, "epoch": 1, "case": "fit_explanation_09", "KL": 8.849270820617676, "step_seconds": 11.187000000034459, "inspected": false}
+{"stage": "update", "seconds": 756.0780000000377, "step": 28, "epoch": 1, "case": "fit_code_13", "KL": 6.321192264556885, "step_seconds": 9.98399999999674, "inspected": false}
+{"stage": "update", "seconds": 766.094000000041, "step": 29, "epoch": 1, "case": "fit_reading_08", "KL": 5.509040832519531, "step_seconds": 9.827999999979511, "inspected": true}
+{"stage": "update", "seconds": 776.6560000000172, "step": 30, "epoch": 1, "case": "fit_planning_15", "KL": 6.8582892417907715, "step_seconds": 10.35899999999674, "inspected": false}
+{"stage": "update", "seconds": 786.7660000000033, "step": 31, "epoch": 1, "case": "fit_history_07", "KL": 7.306159973144531, "step_seconds": 9.89100000000326, "inspected": false}
+{"stage": "update", "seconds": 796.594000000041, "step": 32, "epoch": 1, "case": "fit_arithmetic_09", "KL": 5.486719131469727, "step_seconds": 9.594000000040978, "inspected": false}
+{"stage": "update", "seconds": 805.9839999999967, "step": 33, "epoch": 1, "case": "fit_instruction_11", "KL": 6.204987525939941, "step_seconds": 9.186999999976251, "inspected": false}
+{"stage": "update", "seconds": 817.6089999999967, "step": 34, "epoch": 1, "case": "fit_explanation_01", "KL": 6.36696195602417, "step_seconds": 10.421999999962281, "inspected": false}
+{"stage": "update", "seconds": 827.4530000000377, "step": 35, "epoch": 1, "case": "fit_rewrite_10", "KL": 5.858631610870361, "step_seconds": 9.64000000001397, "inspected": false}
+{"stage": "update", "seconds": 837.2660000000033, "step": 36, "epoch": 1, "case": "fit_arithmetic_00", "KL": 4.989259243011475, "step_seconds": 9.65700000000652, "inspected": false}
+{"stage": "update", "seconds": 848.3589999999967, "step": 37, "epoch": 1, "case": "fit_reading_11", "KL": 2.467967987060547, "step_seconds": 10.90700000000652, "inspected": false}
+{"stage": "update", "seconds": 859.594000000041, "step": 38, "epoch": 1, "case": "fit_planning_13", "KL": 6.549538612365723, "step_seconds": 10.670999999972992, "inspected": false}
+{"stage": "update", "seconds": 870.5780000000377, "step": 39, "epoch": 1, "case": "fit_history_03", "KL": 2.6095807552337646, "step_seconds": 10.670999999972992, "inspected": false}
+{"stage": "update", "seconds": 880.4220000000205, "step": 40, "epoch": 1, "case": "fit_code_10", "KL": 2.2244300842285156, "step_seconds": 9.60899999999674, "inspected": false}
+{"stage": "update", "seconds": 890.0630000000237, "step": 41, "epoch": 1, "case": "fit_rewrite_08", "KL": 6.177004337310791, "step_seconds": 9.5, "inspected": false}
+{"stage": "update", "seconds": 900.7339999999967, "step": 42, "epoch": 1, "case": "fit_arithmetic_10", "KL": 6.816425323486328, "step_seconds": 10.453000000037719, "inspected": false}
+{"stage": "update", "seconds": 911.3910000000033, "step": 43, "epoch": 1, "case": "fit_reading_02", "KL": 8.752622604370117, "step_seconds": 10.53100000001723, "inspected": false}
+{"stage": "update", "seconds": 921.7660000000033, "step": 44, "epoch": 1, "case": "fit_code_01", "KL": 4.70521879196167, "step_seconds": 9.860000000044238, "inspected": false}
+{"stage": "update", "seconds": 932.094000000041, "step": 45, "epoch": 1, "case": "fit_planning_07", "KL": 5.070165157318115, "step_seconds": 10.046999999962281, "inspected": false}
+{"stage": "update", "seconds": 941.1560000000172, "step": 46, "epoch": 1, "case": "fit_instruction_06", "KL": 3.037875175476074, "step_seconds": 8.875, "inspected": false}
+{"stage": "update", "seconds": 951.1560000000172, "step": 47, "epoch": 1, "case": "fit_explanation_00", "KL": 4.964219093322754, "step_seconds": 9.813000000023749, "inspected": false}
+{"stage": "update", "seconds": 961.125, "step": 48, "epoch": 1, "case": "fit_history_00", "KL": 4.278564453125, "step_seconds": 9.73399999999674, "inspected": false}
+{"stage": "update", "seconds": 971.3910000000033, "step": 49, "epoch": 1, "case": "fit_arithmetic_15", "KL": 4.050409317016602, "step_seconds": 10.10999999998603, "inspected": false}
+{"stage": "update", "seconds": 981.7339999999967, "step": 50, "epoch": 1, "case": "fit_explanation_14", "KL": 4.954219818115234, "step_seconds": 10.125, "inspected": false}
+{"stage": "update", "seconds": 992.2970000000205, "step": 51, "epoch": 1, "case": "fit_code_03", "KL": 5.698331356048584, "step_seconds": 10.35999999998603, "inspected": false}
+{"stage": "update", "seconds": 1002.3280000000377, "step": 52, "epoch": 1, "case": "fit_planning_14", "KL": 5.8958234786987305, "step_seconds": 9.827999999979511, "inspected": false}
+{"stage": "update", "seconds": 1012.4530000000377, "step": 53, "epoch": 1, "case": "fit_reading_10", "KL": 2.4798085689544678, "step_seconds": 9.922000000020489, "inspected": false}
+{"stage": "update", "seconds": 1022.2660000000033, "step": 54, "epoch": 1, "case": "fit_rewrite_12", "KL": 3.418954610824585, "step_seconds": 9.59299999999348, "inspected": false}
+{"stage": "update", "seconds": 1032.7030000000377, "step": 55, "epoch": 1, "case": "fit_instruction_12", "KL": 12.521322250366211, "step_seconds": 10.280999999959022, "inspected": false}
+{"stage": "update", "seconds": 1042.8130000000237, "step": 56, "epoch": 1, "case": "fit_history_04", "KL": 2.2015433311462402, "step_seconds": 9.952999999979511, "inspected": false}
+{"stage": "update", "seconds": 1054.1720000000205, "step": 57, "epoch": 1, "case": "fit_reading_14", "KL": 7.000075817108154, "step_seconds": 11.202999999979511, "inspected": false}
+{"stage": "update", "seconds": 1064.0160000000033, "step": 58, "epoch": 1, "case": "fit_rewrite_14", "KL": 4.625734329223633, "step_seconds": 9.625, "inspected": false}
+{"stage": "update", "seconds": 1074.6880000000237, "step": 59, "epoch": 1, "case": "fit_history_12", "KL": 3.036756992340088, "step_seconds": 10.454000000027008, "inspected": false}
+{"stage": "update", "seconds": 1085.1720000000205, "step": 60, "epoch": 1, "case": "fit_code_09", "KL": 3.765626907348633, "step_seconds": 9.98399999999674, "inspected": false}
+{"stage": "update", "seconds": 1095.3280000000377, "step": 61, "epoch": 1, "case": "fit_planning_04", "KL": 7.629883766174316, "step_seconds": 10.01600000000326, "inspected": false}
+{"stage": "update", "seconds": 1107.3130000000237, "step": 62, "epoch": 1, "case": "fit_arithmetic_14", "KL": 5.042257308959961, "step_seconds": 10.827999999979511, "inspected": false}
+{"stage": "update", "seconds": 1118.219000000041, "step": 63, "epoch": 1, "case": "fit_instruction_04", "KL": 13.195874214172363, "step_seconds": 10.35899999999674, "inspected": false}
+{"stage": "update", "seconds": 1128.469000000041, "step": 64, "epoch": 1, "case": "fit_explanation_06", "KL": 2.4166972637176514, "step_seconds": 10.10899999999674, "inspected": false}
+{"stage": "update", "seconds": 1139.0780000000377, "step": 65, "epoch": 1, "case": "fit_explanation_12", "KL": 2.2304399013519287, "step_seconds": 10.35899999999674, "inspected": false}
+{"stage": "update", "seconds": 1148.969000000041, "step": 66, "epoch": 1, "case": "fit_rewrite_05", "KL": 2.0673599243164062, "step_seconds": 9.75, "inspected": false}
+{"stage": "update", "seconds": 1158.719000000041, "step": 67, "epoch": 1, "case": "fit_instruction_01", "KL": 6.216646671295166, "step_seconds": 9.561999999976251, "inspected": false}
+{"stage": "update", "seconds": 1168.8910000000033, "step": 68, "epoch": 1, "case": "fit_reading_09", "KL": 16.986186981201172, "step_seconds": 9.921999999962281, "inspected": false}
+{"stage": "update", "seconds": 1179.344000000041, "step": 69, "epoch": 1, "case": "fit_arithmetic_08", "KL": 4.039624214172363, "step_seconds": 10.26600000000326, "inspected": false}
+{"stage": "update", "seconds": 1189.3910000000033, "step": 70, "epoch": 1, "case": "fit_code_00", "KL": 3.631596565246582, "step_seconds": 9.23399999999674, "inspected": false}
+{"stage": "update", "seconds": 1200.719000000041, "step": 71, "epoch": 1, "case": "fit_history_09", "KL": 2.0416951179504395, "step_seconds": 11.078000000037719, "inspected": false}
+{"stage": "update", "seconds": 1212.8280000000377, "step": 72, "epoch": 1, "case": "fit_planning_03", "KL": 5.272762775421143, "step_seconds": 11.922000000020489, "inspected": false}
+{"stage": "update", "seconds": 1223.0160000000033, "step": 73, "epoch": 1, "case": "fit_instruction_13", "KL": 3.744136333465576, "step_seconds": 10.047000000020489, "inspected": false}
+{"stage": "update", "seconds": 1234.2660000000033, "step": 74, "epoch": 1, "case": "fit_planning_01", "KL": 5.06569766998291, "step_seconds": 10.421999999962281, "inspected": false}
+{"stage": "update", "seconds": 1244.8280000000377, "step": 75, "epoch": 1, "case": "fit_history_11", "KL": 4.955743789672852, "step_seconds": 10.313000000023749, "inspected": false}
+{"stage": "update", "seconds": 1255.2660000000033, "step": 76, "epoch": 1, "case": "fit_arithmetic_03", "KL": 3.570612668991089, "step_seconds": 10.23399999999674, "inspected": false}
+{"stage": "update", "seconds": 1267.4530000000377, "step": 77, "epoch": 1, "case": "fit_code_07", "KL": 4.413885116577148, "step_seconds": 10.73399999999674, "inspected": false}
+{"stage": "update", "seconds": 1278.0630000000237, "step": 78, "epoch": 1, "case": "fit_rewrite_00", "KL": 4.423281192779541, "step_seconds": 10.202999999979511, "inspected": false}
+{"stage": "update", "seconds": 1289.8280000000377, "step": 79, "epoch": 1, "case": "fit_explanation_03", "KL": 6.792839527130127, "step_seconds": 11.34299999999348, "inspected": false}
+{"stage": "update", "seconds": 1300.2970000000205, "step": 80, "epoch": 1, "case": "fit_reading_04", "KL": 5.501617431640625, "step_seconds": 10.26600000000326, "inspected": false}
+{"stage": "update", "seconds": 1310.6720000000205, "step": 81, "epoch": 1, "case": "fit_code_11", "KL": 3.6063971519470215, "step_seconds": 10.188000000023749, "inspected": false}
+{"stage": "update", "seconds": 1322.0630000000237, "step": 82, "epoch": 1, "case": "fit_explanation_11", "KL": 3.9440345764160156, "step_seconds": 11.203000000037719, "inspected": false}
+{"stage": "update", "seconds": 1332.1560000000172, "step": 83, "epoch": 1, "case": "fit_instruction_09", "KL": 3.573425054550171, "step_seconds": 9.89100000000326, "inspected": false}
+{"stage": "update", "seconds": 1342.625, "step": 84, "epoch": 1, "case": "fit_planning_10", "KL": 5.256245136260986, "step_seconds": 10.25, "inspected": false}
+{"stage": "update", "seconds": 1353.7970000000205, "step": 85, "epoch": 1, "case": "fit_rewrite_02", "KL": 4.016161918640137, "step_seconds": 11.014999999955762, "inspected": false}
+{"stage": "update", "seconds": 1365.4839999999967, "step": 86, "epoch": 1, "case": "fit_reading_06", "KL": 4.21709680557251, "step_seconds": 10.422000000020489, "inspected": false}
+{"stage": "update", "seconds": 1376.1410000000033, "step": 87, "epoch": 1, "case": "fit_arithmetic_01", "KL": 4.2881178855896, "step_seconds": 10.422000000020489, "inspected": false}
+{"stage": "update", "seconds": 1387.4060000000172, "step": 88, "epoch": 1, "case": "fit_history_15", "KL": 2.069148063659668, "step_seconds": 11.077999999979511, "inspected": false}
+{"stage": "update", "seconds": 1398.7030000000377, "step": 89, "epoch": 1, "case": "fit_arithmetic_05", "KL": 3.0918970108032227, "step_seconds": 11.172000000020489, "inspected": false}
+{"stage": "update", "seconds": 1408.6089999999967, "step": 90, "epoch": 1, "case": "fit_instruction_14", "KL": 3.7707231044769287, "step_seconds": 9.71899999998277, "inspected": false}
+{"stage": "update", "seconds": 1418.8910000000033, "step": 91, "epoch": 1, "case": "fit_planning_08", "KL": 6.275761127471924, "step_seconds": 9.96899999998277, "inspected": false}
+{"stage": "update", "seconds": 1429.125, "step": 92, "epoch": 1, "case": "fit_history_01", "KL": 2.892608165740967, "step_seconds": 10.0, "inspected": false}
+{"stage": "update", "seconds": 1441.5, "step": 93, "epoch": 1, "case": "fit_reading_01", "KL": 1.8914453983306885, "step_seconds": 11.85899999999674, "inspected": false}
+{"stage": "update", "seconds": 1451.469000000041, "step": 94, "epoch": 1, "case": "fit_rewrite_01", "KL": 3.7361297607421875, "step_seconds": 9.84399999998277, "inspected": false}
+{"stage": "update", "seconds": 1463.1089999999967, "step": 95, "epoch": 1, "case": "fit_explanation_05", "KL": 9.597729682922363, "step_seconds": 11.5, "inspected": false}
+{"stage": "update", "seconds": 1473.0470000000205, "step": 96, "epoch": 1, "case": "fit_code_06", "KL": 3.0853662490844727, "step_seconds": 9.375, "inspected": false}
+{"stage": "update", "seconds": 1484.0630000000237, "step": 97, "epoch": 1, "case": "fit_history_10", "KL": 7.406498432159424, "step_seconds": 10.78200000000652, "inspected": false}
+{"stage": "update", "seconds": 1495.4060000000172, "step": 98, "epoch": 1, "case": "fit_planning_05", "KL": 5.007170677185059, "step_seconds": 11.15600000001723, "inspected": false}
+{"stage": "update", "seconds": 1505.6089999999967, "step": 99, "epoch": 1, "case": "fit_reading_00", "KL": 2.378753185272217, "step_seconds": 9.98399999999674, "inspected": false}
+{"stage": "update", "seconds": 1515.2970000000205, "step": 100, "epoch": 1, "case": "fit_rewrite_11", "KL": 6.088674545288086, "step_seconds": 9.48499999998603, "inspected": false}
+{"stage": "update", "seconds": 1525.1410000000033, "step": 101, "epoch": 1, "case": "fit_instruction_10", "KL": 3.27752423286438, "step_seconds": 9.625, "inspected": false}
+{"stage": "update", "seconds": 1535.7970000000205, "step": 102, "epoch": 1, "case": "fit_arithmetic_02", "KL": 4.4821343421936035, "step_seconds": 10.219000000040978, "inspected": false}
+{"stage": "update", "seconds": 1546.8589999999967, "step": 103, "epoch": 1, "case": "fit_explanation_07", "KL": 2.9931256771087646, "step_seconds": 10.85899999999674, "inspected": false}
+{"stage": "update", "seconds": 1557.2810000000172, "step": 104, "epoch": 1, "case": "fit_code_15", "KL": 4.042330265045166, "step_seconds": 10.25, "inspected": false}
+{"stage": "update", "seconds": 1568.125, "step": 105, "epoch": 1, "case": "fit_reading_05", "KL": 3.652820587158203, "step_seconds": 10.655999999959022, "inspected": false}
+{"stage": "update", "seconds": 1579.094000000041, "step": 106, "epoch": 1, "case": "fit_planning_12", "KL": 4.717158794403076, "step_seconds": 10.84399999998277, "inspected": false}
+{"stage": "update", "seconds": 1589.8130000000237, "step": 107, "epoch": 1, "case": "fit_arithmetic_07", "KL": 2.8702056407928467, "step_seconds": 9.85899999999674, "inspected": false}
+{"stage": "update", "seconds": 1599.3589999999967, "step": 108, "epoch": 1, "case": "fit_code_04", "KL": 2.643991470336914, "step_seconds": 9.34299999999348, "inspected": false}
+{"stage": "update", "seconds": 1610.1410000000033, "step": 109, "epoch": 1, "case": "fit_rewrite_06", "KL": 3.333972930908203, "step_seconds": 10.59299999999348, "inspected": false}
+{"stage": "update", "seconds": 1620.5160000000033, "step": 110, "epoch": 1, "case": "fit_instruction_05", "KL": 2.7044856548309326, "step_seconds": 10.21799999999348, "inspected": false}
+{"stage": "update", "seconds": 1631.5310000000172, "step": 111, "epoch": 1, "case": "fit_explanation_08", "KL": 2.5291860103607178, "step_seconds": 10.829000000027008, "inspected": false}
+{"stage": "update", "seconds": 1642.4060000000172, "step": 112, "epoch": 1, "case": "fit_history_06", "KL": 7.881008148193359, "step_seconds": 10.672000000020489, "inspected": false}
+{"stage": "update", "seconds": 1654.25, "step": 113, "epoch": 1, "case": "fit_history_08", "KL": 1.9220702648162842, "step_seconds": 11.110000000044238, "inspected": false}
+{"stage": "update", "seconds": 1664.5780000000377, "step": 114, "epoch": 1, "case": "fit_arithmetic_13", "KL": 3.1402487754821777, "step_seconds": 10.172000000020489, "inspected": false}
+{"stage": "update", "seconds": 1675.5470000000205, "step": 115, "epoch": 1, "case": "fit_explanation_13", "KL": 5.424137115478516, "step_seconds": 10.76600000000326, "inspected": false}
+{"stage": "update", "seconds": 1685.625, "step": 116, "epoch": 1, "case": "fit_reading_03", "KL": 3.463913679122925, "step_seconds": 9.89100000000326, "inspected": false}
+{"stage": "update", "seconds": 1696.094000000041, "step": 117, "epoch": 1, "case": "fit_planning_06", "KL": 3.0828938484191895, "step_seconds": 10.327999999979511, "inspected": false}
+{"stage": "update", "seconds": 1706.4220000000205, "step": 118, "epoch": 1, "case": "fit_rewrite_15", "KL": 3.1002910137176514, "step_seconds": 10.14100000000326, "inspected": false}
+{"stage": "update", "seconds": 1717.3130000000237, "step": 119, "epoch": 1, "case": "fit_instruction_08", "KL": 11.576295852661133, "step_seconds": 10.40600000001723, "inspected": false}
+{"stage": "update", "seconds": 1728.2030000000377, "step": 120, "epoch": 1, "case": "fit_code_05", "KL": 3.0786588191986084, "step_seconds": 10.688000000023749, "inspected": false}
+{"stage": "update", "seconds": 1740.4839999999967, "step": 121, "epoch": 1, "case": "fit_history_13", "KL": 1.9372986555099487, "step_seconds": 12.063000000023749, "inspected": false}
+{"stage": "update", "seconds": 1751.8910000000033, "step": 122, "epoch": 1, "case": "fit_rewrite_07", "KL": 5.409653663635254, "step_seconds": 11.202999999979511, "inspected": false}
+{"stage": "update", "seconds": 1764.3280000000377, "step": 123, "epoch": 1, "case": "fit_reading_12", "KL": 1.2037007808685303, "step_seconds": 11.938000000023749, "inspected": false}
+{"stage": "update", "seconds": 1776.3280000000377, "step": 124, "epoch": 1, "case": "fit_instruction_00", "KL": 10.993620872497559, "step_seconds": 11.329000000027008, "inspected": false}
+{"stage": "update", "seconds": 1786.3910000000033, "step": 125, "epoch": 1, "case": "fit_planning_00", "KL": 2.6180639266967773, "step_seconds": 9.85999999998603, "inspected": false}
+{"stage": "update", "seconds": 1797.3910000000033, "step": 126, "epoch": 1, "case": "fit_explanation_10", "KL": 2.367898941040039, "step_seconds": 10.811999999976251, "inspected": false}
+{"stage": "update", "seconds": 1808.7970000000205, "step": 127, "epoch": 1, "case": "fit_code_08", "KL": 3.608823537826538, "step_seconds": 10.5, "inspected": false}
+{"stage": "update", "seconds": 1820.3280000000377, "step": 128, "epoch": 1, "case": "fit_arithmetic_06", "KL": 2.968919277191162, "step_seconds": 10.937000000034459, "inspected": false}
+{"stage": "epoch", "seconds": 1820.4530000000377, "epoch": 1, "online_case_KL": 6.5398319168016315, "updates": 128, "training_seconds": 1336.702999999863}
+{"stage": "update", "seconds": 1831.5470000000205, "step": 129, "epoch": 2, "case": "fit_history_02", "KL": 2.619086503982544, "step_seconds": 10.546999999962281, "inspected": false}
+{"stage": "update", "seconds": 1842.5310000000172, "step": 130, "epoch": 2, "case": "fit_planning_14", "KL": 3.2292568683624268, "step_seconds": 10.828000000037719, "inspected": false}
+{"stage": "update", "seconds": 1854.2660000000033, "step": 131, "epoch": 2, "case": "fit_instruction_13", "KL": 1.439638376235962, "step_seconds": 11.297000000020489, "inspected": false}
+{"stage": "update", "seconds": 1864.7030000000377, "step": 132, "epoch": 2, "case": "fit_reading_03", "KL": 1.576172947883606, "step_seconds": 10.28100000001723, "inspected": false}
+{"stage": "update", "seconds": 1876.1720000000205, "step": 133, "epoch": 2, "case": "fit_explanation_14", "KL": 1.0599454641342163, "step_seconds": 10.938000000023749, "inspected": false}
+{"stage": "update", "seconds": 1886.6880000000237, "step": 134, "epoch": 2, "case": "fit_rewrite_09", "KL": 2.8757896423339844, "step_seconds": 10.28200000000652, "inspected": false}
+{"stage": "update", "seconds": 1897.7660000000033, "step": 135, "epoch": 2, "case": "fit_arithmetic_10", "KL": 1.8148616552352905, "step_seconds": 10.875, "inspected": false}
+{"stage": "update", "seconds": 1908.719000000041, "step": 136, "epoch": 2, "case": "fit_code_15", "KL": 2.3749613761901855, "step_seconds": 10.344000000040978, "inspected": false}
+{"stage": "update", "seconds": 1919.7030000000377, "step": 137, "epoch": 2, "case": "fit_explanation_09", "KL": 3.771002769470215, "step_seconds": 10.78100000001723, "inspected": false}
+{"stage": "update", "seconds": 1930.594000000041, "step": 138, "epoch": 2, "case": "fit_reading_07", "KL": 1.5779112577438354, "step_seconds": 10.65600000001723, "inspected": false}
+{"stage": "update", "seconds": 1941.9530000000377, "step": 139, "epoch": 2, "case": "fit_arithmetic_12", "KL": 2.704801321029663, "step_seconds": 11.23399999999674, "inspected": false}
+{"stage": "update", "seconds": 1953.6410000000033, "step": 140, "epoch": 2, "case": "fit_history_12", "KL": 0.9652864336967468, "step_seconds": 10.702999999979511, "inspected": false}
+{"stage": "update", "seconds": 1965.219000000041, "step": 141, "epoch": 2, "case": "fit_planning_01", "KL": 2.99345064163208, "step_seconds": 11.297000000020489, "inspected": false}
+{"stage": "update", "seconds": 1975.1880000000237, "step": 142, "epoch": 2, "case": "fit_rewrite_04", "KL": 2.83598256111145, "step_seconds": 9.84399999998277, "inspected": false}
+{"stage": "update", "seconds": 1986.8910000000033, "step": 143, "epoch": 2, "case": "fit_code_05", "KL": 1.6838639974594116, "step_seconds": 11.39000000001397, "inspected": false}
+{"stage": "update", "seconds": 1996.9380000000237, "step": 144, "epoch": 2, "case": "fit_instruction_01", "KL": 2.2744786739349365, "step_seconds": 9.796999999962281, "inspected": false}
+{"stage": "update", "seconds": 2008.25, "step": 145, "epoch": 2, "case": "fit_code_10", "KL": 1.823366403579712, "step_seconds": 10.25, "inspected": false}
+{"stage": "update", "seconds": 2018.9530000000377, "step": 146, "epoch": 2, "case": "fit_arithmetic_15", "KL": 2.1722419261932373, "step_seconds": 10.547000000020489, "inspected": false}
+{"stage": "update", "seconds": 2029.3589999999967, "step": 147, "epoch": 2, "case": "fit_history_01", "KL": 1.4375261068344116, "step_seconds": 10.202999999979511, "inspected": false}
+{"stage": "update", "seconds": 2040.219000000041, "step": 148, "epoch": 2, "case": "fit_planning_12", "KL": 1.698067545890808, "step_seconds": 10.421999999962281, "inspected": false}
+{"stage": "update", "seconds": 2049.75, "step": 149, "epoch": 2, "case": "fit_instruction_12", "KL": 2.0773284435272217, "step_seconds": 9.327999999979511, "inspected": false}
+{"stage": "update", "seconds": 2061.6880000000237, "step": 150, "epoch": 2, "case": "fit_explanation_11", "KL": 2.5416183471679688, "step_seconds": 10.937999999965541, "inspected": false}
+{"stage": "update", "seconds": 2074.375, "step": 151, "epoch": 2, "case": "fit_reading_12", "KL": 1.3298046588897705, "step_seconds": 10.547000000020489, "inspected": false}
+{"stage": "update", "seconds": 2085.4220000000205, "step": 152, "epoch": 2, "case": "fit_rewrite_05", "KL": 1.7089242935180664, "step_seconds": 10.46899999998277, "inspected": false}
+{"stage": "update", "seconds": 2097.7970000000205, "step": 153, "epoch": 2, "case": "fit_history_03", "KL": 3.9232239723205566, "step_seconds": 10.76600000000326, "inspected": false}
+{"stage": "update", "seconds": 2107.75, "step": 154, "epoch": 2, "case": "fit_instruction_11", "KL": 3.3758163452148438, "step_seconds": 9.76600000000326, "inspected": false}
+{"stage": "update", "seconds": 2118.6880000000237, "step": 155, "epoch": 2, "case": "fit_explanation_08", "KL": 1.115755558013916, "step_seconds": 10.687999999965541, "inspected": false}
+{"stage": "update", "seconds": 2129.4380000000237, "step": 156, "epoch": 2, "case": "fit_rewrite_00", "KL": 3.419283628463745, "step_seconds": 10.14000000001397, "inspected": false}
+{"stage": "update", "seconds": 2141.25, "step": 157, "epoch": 2, "case": "fit_code_06", "KL": 1.1187069416046143, "step_seconds": 9.938000000023749, "inspected": false}
+{"stage": "update", "seconds": 2152.2660000000033, "step": 158, "epoch": 2, "case": "fit_arithmetic_04", "KL": 3.301011085510254, "step_seconds": 10.46899999998277, "inspected": false}
+{"stage": "update", "seconds": 2163.4380000000237, "step": 159, "epoch": 2, "case": "fit_reading_04", "KL": 2.1161136627197266, "step_seconds": 10.875, "inspected": false}
+{"stage": "update", "seconds": 2176.7030000000377, "step": 160, "epoch": 2, "case": "fit_planning_11", "KL": 4.038003921508789, "step_seconds": 10.938000000023749, "inspected": false}
+{"stage": "update", "seconds": 2188.8910000000033, "step": 161, "epoch": 2, "case": "fit_planning_10", "KL": 3.0120580196380615, "step_seconds": 11.530999999959022, "inspected": false}
+{"stage": "update", "seconds": 2199.25, "step": 162, "epoch": 2, "case": "fit_rewrite_02", "KL": 2.4061214923858643, "step_seconds": 9.875, "inspected": false}
+{"stage": "update", "seconds": 2210.6410000000033, "step": 163, "epoch": 2, "case": "fit_reading_05", "KL": 2.6851460933685303, "step_seconds": 10.438000000023749, "inspected": false}
+{"stage": "update", "seconds": 2220.5780000000377, "step": 164, "epoch": 2, "case": "fit_instruction_10", "KL": 3.0670411586761475, "step_seconds": 9.563000000023749, "inspected": false}
+{"stage": "update", "seconds": 2229.969000000041, "step": 165, "epoch": 2, "case": "fit_code_02", "KL": 2.2930636405944824, "step_seconds": 9.14100000000326, "inspected": false}
+{"stage": "update", "seconds": 2240.625, "step": 166, "epoch": 2, "case": "fit_explanation_13", "KL": 3.6726932525634766, "step_seconds": 10.405999999959022, "inspected": false}
+{"stage": "update", "seconds": 2250.7810000000172, "step": 167, "epoch": 2, "case": "fit_arithmetic_13", "KL": 2.067166805267334, "step_seconds": 9.954000000027008, "inspected": false}
+{"stage": "update", "seconds": 2261.2030000000377, "step": 168, "epoch": 2, "case": "fit_history_14", "KL": 5.022189617156982, "step_seconds": 10.28100000001723, "inspected": false}
+{"stage": "update", "seconds": 2272.469000000041, "step": 169, "epoch": 2, "case": "fit_rewrite_10", "KL": 1.5925498008728027, "step_seconds": 10.73399999999674, "inspected": false}
+{"stage": "update", "seconds": 2283.5470000000205, "step": 170, "epoch": 2, "case": "fit_planning_07", "KL": 3.0977354049682617, "step_seconds": 10.89000000001397, "inspected": false}
+{"stage": "update", "seconds": 2294.3589999999967, "step": 171, "epoch": 2, "case": "fit_history_08", "KL": 2.6800308227539062, "step_seconds": 10.577999999979511, "inspected": false}
+{"stage": "update", "seconds": 2305.4060000000172, "step": 172, "epoch": 2, "case": "fit_reading_06", "KL": 2.6871535778045654, "step_seconds": 10.812999999965541, "inspected": false}
+{"stage": "update", "seconds": 2315.969000000041, "step": 173, "epoch": 2, "case": "fit_instruction_00", "KL": 2.875704526901245, "step_seconds": 9.188000000023749, "inspected": false}
+{"stage": "update", "seconds": 2326.7030000000377, "step": 174, "epoch": 2, "case": "fit_explanation_02", "KL": 1.217769742012024, "step_seconds": 10.577999999979511, "inspected": false}
+{"stage": "update", "seconds": 2336.9380000000237, "step": 175, "epoch": 2, "case": "fit_arithmetic_08", "KL": 3.675520896911621, "step_seconds": 10.01600000000326, "inspected": false}
+{"stage": "update", "seconds": 2346.8589999999967, "step": 176, "epoch": 2, "case": "fit_code_08", "KL": 2.0977673530578613, "step_seconds": 9.686999999976251, "inspected": false}
+{"stage": "update", "seconds": 2358.4380000000237, "step": 177, "epoch": 2, "case": "fit_planning_15", "KL": 2.249939441680908, "step_seconds": 10.311999999976251, "inspected": false}
+{"stage": "update", "seconds": 2370.0780000000377, "step": 178, "epoch": 2, "case": "fit_explanation_00", "KL": 1.3840978145599365, "step_seconds": 11.125, "inspected": false}
+{"stage": "update", "seconds": 2380.8910000000033, "step": 179, "epoch": 2, "case": "fit_rewrite_08", "KL": 2.5203285217285156, "step_seconds": 10.045999999972992, "inspected": false}
+{"stage": "update", "seconds": 2390.6720000000205, "step": 180, "epoch": 2, "case": "fit_instruction_06", "KL": 1.159311056137085, "step_seconds": 9.563000000023749, "inspected": false}
+{"stage": "update", "seconds": 2401.1720000000205, "step": 181, "epoch": 2, "case": "fit_history_06", "KL": 2.273357629776001, "step_seconds": 10.01500000001397, "inspected": false}
+{"stage": "update", "seconds": 2411.1089999999967, "step": 182, "epoch": 2, "case": "fit_code_14", "KL": 4.761470317840576, "step_seconds": 9.75, "inspected": false}
+{"stage": "update", "seconds": 2421.4530000000377, "step": 183, "epoch": 2, "case": "fit_arithmetic_03", "KL": 2.656083583831787, "step_seconds": 10.10899999999674, "inspected": false}
+{"stage": "update", "seconds": 2432.125, "step": 184, "epoch": 2, "case": "fit_reading_02", "KL": 3.439391613006592, "step_seconds": 10.46799999999348, "inspected": false}
+{"stage": "update", "seconds": 2442.6560000000172, "step": 185, "epoch": 2, "case": "fit_code_04", "KL": 1.3452304601669312, "step_seconds": 9.563000000023749, "inspected": false}
+{"stage": "update", "seconds": 2453.719000000041, "step": 186, "epoch": 2, "case": "fit_reading_01", "KL": 0.8422239422798157, "step_seconds": 10.64100000000326, "inspected": false}
+{"stage": "update", "seconds": 2465.0310000000172, "step": 187, "epoch": 2, "case": "fit_history_00", "KL": 3.082730770111084, "step_seconds": 10.23499999998603, "inspected": false}
+{"stage": "update", "seconds": 2475.7970000000205, "step": 188, "epoch": 2, "case": "fit_explanation_05", "KL": 3.837620735168457, "step_seconds": 10.625, "inspected": false}
+{"stage": "update", "seconds": 2486.3280000000377, "step": 189, "epoch": 2, "case": "fit_rewrite_03", "KL": 4.291337013244629, "step_seconds": 10.34299999999348, "inspected": false}
+{"stage": "update", "seconds": 2497.2030000000377, "step": 190, "epoch": 2, "case": "fit_arithmetic_05", "KL": 1.719796895980835, "step_seconds": 10.35899999999674, "inspected": false}
+{"stage": "update", "seconds": 2508.969000000041, "step": 191, "epoch": 2, "case": "fit_instruction_07", "KL": 3.974025249481201, "step_seconds": 11.327999999979511, "inspected": false}
+{"stage": "update", "seconds": 2519.1089999999967, "step": 192, "epoch": 2, "case": "fit_planning_04", "KL": 3.222745180130005, "step_seconds": 10.0, "inspected": false}
+{"stage": "update", "seconds": 2529.719000000041, "step": 193, "epoch": 2, "case": "fit_instruction_04", "KL": 3.2482972145080566, "step_seconds": 9.422000000020489, "inspected": false}
+{"stage": "update", "seconds": 2540.5470000000205, "step": 194, "epoch": 2, "case": "fit_reading_10", "KL": 1.6027024984359741, "step_seconds": 10.296999999962281, "inspected": false}
+{"stage": "update", "seconds": 2551.875, "step": 195, "epoch": 2, "case": "fit_history_13", "KL": 1.39297616481781, "step_seconds": 10.84399999998277, "inspected": false}
+{"stage": "update", "seconds": 2563.125, "step": 196, "epoch": 2, "case": "fit_explanation_06", "KL": 0.6331540942192078, "step_seconds": 10.64000000001397, "inspected": false}
+{"stage": "update", "seconds": 2573.4839999999967, "step": 197, "epoch": 2, "case": "fit_arithmetic_02", "KL": 2.504540205001831, "step_seconds": 10.14100000000326, "inspected": false}
+{"stage": "update", "seconds": 2584.0780000000377, "step": 198, "epoch": 2, "case": "fit_rewrite_14", "KL": 1.4972435235977173, "step_seconds": 10.40700000000652, "inspected": false}
+{"stage": "update", "seconds": 2595.0160000000033, "step": 199, "epoch": 2, "case": "fit_planning_09", "KL": 2.6654109954833984, "step_seconds": 10.687999999965541, "inspected": false}
+{"stage": "update", "seconds": 2604.6880000000237, "step": 200, "epoch": 2, "case": "fit_code_00", "KL": 2.158503293991089, "step_seconds": 9.438000000023749, "inspected": false}
+{"stage": "update", "seconds": 2615.9380000000237, "step": 201, "epoch": 2, "case": "fit_explanation_03", "KL": 1.7352592945098877, "step_seconds": 11.047000000020489, "inspected": false}
+{"stage": "update", "seconds": 2627.3589999999967, "step": 202, "epoch": 2, "case": "fit_planning_03", "KL": 2.3615052700042725, "step_seconds": 11.172000000020489, "inspected": false}
+{"stage": "update", "seconds": 2637.6720000000205, "step": 203, "epoch": 2, "case": "fit_code_03", "KL": 2.9467711448669434, "step_seconds": 10.063000000023749, "inspected": false}
+{"stage": "update", "seconds": 2648.7810000000172, "step": 204, "epoch": 2, "case": "fit_arithmetic_06", "KL": 1.319066047668457, "step_seconds": 10.85899999999674, "inspected": false}
+{"stage": "update", "seconds": 2658.5310000000172, "step": 205, "epoch": 2, "case": "fit_instruction_02", "KL": 3.2123420238494873, "step_seconds": 9.547000000020489, "inspected": false}
+{"stage": "update", "seconds": 2668.7810000000172, "step": 206, "epoch": 2, "case": "fit_rewrite_12", "KL": 1.9651561975479126, "step_seconds": 10.01500000001397, "inspected": false}
+{"stage": "update", "seconds": 2679.25, "step": 207, "epoch": 2, "case": "fit_history_11", "KL": 2.625074863433838, "step_seconds": 10.328000000037719, "inspected": false}
+{"stage": "update", "seconds": 2689.594000000041, "step": 208, "epoch": 2, "case": "fit_reading_09", "KL": 5.978194236755371, "step_seconds": 10.125, "inspected": false}
+{"stage": "update", "seconds": 2700.2810000000172, "step": 209, "epoch": 2, "case": "fit_reading_14", "KL": 3.249115467071533, "step_seconds": 10.530999999959022, "inspected": false}
+{"stage": "update", "seconds": 2711.4220000000205, "step": 210, "epoch": 2, "case": "fit_instruction_03", "KL": 2.500063180923462, "step_seconds": 10.063000000023749, "inspected": false}
+{"stage": "update", "seconds": 2721.8130000000237, "step": 211, "epoch": 2, "case": "fit_arithmetic_00", "KL": 3.9169363975524902, "step_seconds": 10.25, "inspected": false}
+{"stage": "update", "seconds": 2733.7970000000205, "step": 212, "epoch": 2, "case": "fit_explanation_15", "KL": 2.768066167831421, "step_seconds": 11.48499999998603, "inspected": false}
+{"stage": "update", "seconds": 2744.1720000000205, "step": 213, "epoch": 2, "case": "fit_planning_06", "KL": 1.9518870115280151, "step_seconds": 10.202999999979511, "inspected": false}
+{"stage": "update", "seconds": 2754.344000000041, "step": 214, "epoch": 2, "case": "fit_code_11", "KL": 2.272791624069214, "step_seconds": 9.98399999999674, "inspected": false}
+{"stage": "update", "seconds": 2764.719000000041, "step": 215, "epoch": 2, "case": "fit_history_07", "KL": 1.0719863176345825, "step_seconds": 10.202999999979511, "inspected": false}
+{"stage": "update", "seconds": 2774.1880000000237, "step": 216, "epoch": 2, "case": "fit_rewrite_11", "KL": 2.501389503479004, "step_seconds": 9.23499999998603, "inspected": false}
+{"stage": "update", "seconds": 2784.8589999999967, "step": 217, "epoch": 2, "case": "fit_planning_02", "KL": 2.2258565425872803, "step_seconds": 10.452999999979511, "inspected": false}
+{"stage": "update", "seconds": 2795.5310000000172, "step": 218, "epoch": 2, "case": "fit_arithmetic_11", "KL": 1.724750280380249, "step_seconds": 10.421999999962281, "inspected": false}
+{"stage": "update", "seconds": 2806.3130000000237, "step": 219, "epoch": 2, "case": "fit_code_13", "KL": 1.882338047027588, "step_seconds": 10.64100000000326, "inspected": false}
+{"stage": "update", "seconds": 2816.9220000000205, "step": 220, "epoch": 2, "case": "fit_instruction_15", "KL": 1.5639853477478027, "step_seconds": 9.75, "inspected": false}
+{"stage": "update", "seconds": 2826.719000000041, "step": 221, "epoch": 2, "case": "fit_rewrite_07", "KL": 2.3907248973846436, "step_seconds": 9.60899999999674, "inspected": false}
+{"stage": "update", "seconds": 2836.969000000041, "step": 222, "epoch": 2, "case": "fit_history_15", "KL": 2.768402576446533, "step_seconds": 10.030999999959022, "inspected": false}
+{"stage": "update", "seconds": 2848.844000000041, "step": 223, "epoch": 2, "case": "fit_reading_11", "KL": 1.5447942018508911, "step_seconds": 11.094000000040978, "inspected": false}
+{"stage": "update", "seconds": 2860.6089999999967, "step": 224, "epoch": 2, "case": "fit_explanation_07", "KL": 1.7321281433105469, "step_seconds": 11.296999999962281, "inspected": false}
+{"stage": "update", "seconds": 2871.2660000000033, "step": 225, "epoch": 2, "case": "fit_arithmetic_07", "KL": 1.2518956661224365, "step_seconds": 10.436999999976251, "inspected": false}
+{"stage": "update", "seconds": 2882.3130000000237, "step": 226, "epoch": 2, "case": "fit_explanation_04", "KL": 1.484123945236206, "step_seconds": 10.829000000027008, "inspected": false}
+{"stage": "update", "seconds": 2893.0310000000172, "step": 227, "epoch": 2, "case": "fit_instruction_09", "KL": 3.2372114658355713, "step_seconds": 10.5, "inspected": false}
+{"stage": "update", "seconds": 2903.4380000000237, "step": 228, "epoch": 2, "case": "fit_code_07", "KL": 2.1979990005493164, "step_seconds": 9.89100000000326, "inspected": false}
+{"stage": "update", "seconds": 2914.6089999999967, "step": 229, "epoch": 2, "case": "fit_planning_08", "KL": 4.031244277954102, "step_seconds": 10.65600000001723, "inspected": false}
+{"stage": "update", "seconds": 2925.469000000041, "step": 230, "epoch": 2, "case": "fit_rewrite_06", "KL": 1.882180094718933, "step_seconds": 10.625, "inspected": false}
+{"stage": "update", "seconds": 2936.4220000000205, "step": 231, "epoch": 2, "case": "fit_reading_13", "KL": 3.7763803005218506, "step_seconds": 10.71899999998277, "inspected": false}
+{"stage": "update", "seconds": 2947.219000000041, "step": 232, "epoch": 2, "case": "fit_history_09", "KL": 1.391766905784607, "step_seconds": 10.578000000037719, "inspected": false}
+{"stage": "update", "seconds": 2957.875, "step": 233, "epoch": 2, "case": "fit_code_09", "KL": 2.5705795288085938, "step_seconds": 10.48499999998603, "inspected": false}
+{"stage": "update", "seconds": 2968.3910000000033, "step": 234, "epoch": 2, "case": "fit_history_05", "KL": 1.9895591735839844, "step_seconds": 10.23399999999674, "inspected": false}
+{"stage": "update", "seconds": 2979.1089999999967, "step": 235, "epoch": 2, "case": "fit_arithmetic_01", "KL": 1.4235259294509888, "step_seconds": 10.46899999998277, "inspected": false}
+{"stage": "update", "seconds": 2990.75, "step": 236, "epoch": 2, "case": "fit_explanation_10", "KL": 1.20204758644104, "step_seconds": 11.296999999962281, "inspected": false}
+{"stage": "update", "seconds": 3001.0, "step": 237, "epoch": 2, "case": "fit_rewrite_01", "KL": 1.5779590606689453, "step_seconds": 9.687000000034459, "inspected": false}
+{"stage": "update", "seconds": 3010.969000000041, "step": 238, "epoch": 2, "case": "fit_planning_00", "KL": 2.0098865032196045, "step_seconds": 9.73399999999674, "inspected": false}
+{"stage": "update", "seconds": 3021.2970000000205, "step": 239, "epoch": 2, "case": "fit_reading_15", "KL": 2.7434420585632324, "step_seconds": 10.09399999998277, "inspected": false}
+{"stage": "update", "seconds": 3032.4220000000205, "step": 240, "epoch": 2, "case": "fit_instruction_05", "KL": 1.122832179069519, "step_seconds": 10.90700000000652, "inspected": false}
+{"stage": "update", "seconds": 3043.7810000000172, "step": 241, "epoch": 2, "case": "fit_arithmetic_09", "KL": 0.9708186984062195, "step_seconds": 10.59399999998277, "inspected": false}
+{"stage": "update", "seconds": 3054.3280000000377, "step": 242, "epoch": 2, "case": "fit_history_10", "KL": 2.608083486557007, "step_seconds": 10.40600000001723, "inspected": false}
+{"stage": "update", "seconds": 3065.0630000000237, "step": 243, "epoch": 2, "case": "fit_reading_08", "KL": 1.1568467617034912, "step_seconds": 10.46899999998277, "inspected": false}
+{"stage": "update", "seconds": 3076.875, "step": 244, "epoch": 2, "case": "fit_explanation_12", "KL": 0.8920236825942993, "step_seconds": 11.23399999999674, "inspected": false}
+{"stage": "update", "seconds": 3086.2810000000172, "step": 245, "epoch": 2, "case": "fit_instruction_08", "KL": 3.7644927501678467, "step_seconds": 8.90700000000652, "inspected": false}
+{"stage": "update", "seconds": 3097.0630000000237, "step": 246, "epoch": 2, "case": "fit_code_12", "KL": 2.112398862838745, "step_seconds": 10.23499999998603, "inspected": false}
+{"stage": "update", "seconds": 3108.0, "step": 247, "epoch": 2, "case": "fit_planning_05", "KL": 3.2095229625701904, "step_seconds": 10.71899999998277, "inspected": false}
+{"stage": "update", "seconds": 3118.2810000000172, "step": 248, "epoch": 2, "case": "fit_rewrite_15", "KL": 1.0246555805206299, "step_seconds": 10.077999999979511, "inspected": false}
+{"stage": "update", "seconds": 3129.0160000000033, "step": 249, "epoch": 2, "case": "fit_arithmetic_14", "KL": 1.8478082418441772, "step_seconds": 10.51600000000326, "inspected": false}
+{"stage": "update", "seconds": 3139.1089999999967, "step": 250, "epoch": 2, "case": "fit_instruction_14", "KL": 2.663984775543213, "step_seconds": 9.85899999999674, "inspected": false}
+{"stage": "update", "seconds": 3149.4060000000172, "step": 251, "epoch": 2, "case": "fit_reading_00", "KL": 2.224806070327759, "step_seconds": 9.827999999979511, "inspected": false}
+{"stage": "update", "seconds": 3161.7660000000033, "step": 252, "epoch": 2, "case": "fit_history_04", "KL": 1.4140108823776245, "step_seconds": 11.670999999972992, "inspected": false}
+{"stage": "update", "seconds": 3171.9839999999967, "step": 253, "epoch": 2, "case": "fit_rewrite_13", "KL": 2.270963191986084, "step_seconds": 9.65600000001723, "inspected": false}
+{"stage": "update", "seconds": 3182.9839999999967, "step": 254, "epoch": 2, "case": "fit_planning_13", "KL": 3.0850915908813477, "step_seconds": 10.59399999998277, "inspected": false}
+{"stage": "update", "seconds": 3193.7810000000172, "step": 255, "epoch": 2, "case": "fit_explanation_01", "KL": 3.6359775066375732, "step_seconds": 10.421999999962281, "inspected": false}
+{"stage": "update", "seconds": 3204.4839999999967, "step": 256, "epoch": 2, "case": "fit_code_01", "KL": 2.2702841758728027, "step_seconds": 10.51600000000326, "inspected": false}
+{"stage": "epoch", "seconds": 3206.4530000000377, "epoch": 2, "online_case_KL": 2.366082042455673, "updates": 128, "training_seconds": 1328.6629999997094}
+{"stage": "update", "seconds": 3219.2660000000033, "step": 257, "epoch": 3, "case": "fit_arithmetic_00", "KL": 2.0614192485809326, "step_seconds": 11.375, "inspected": false}
+{"stage": "update", "seconds": 3229.4060000000172, "step": 258, "epoch": 3, "case": "fit_reading_03", "KL": 1.2731075286865234, "step_seconds": 9.76500000001397, "inspected": false}
+{"stage": "update", "seconds": 3239.2339999999967, "step": 259, "epoch": 3, "case": "fit_code_02", "KL": 1.3037952184677124, "step_seconds": 9.46899999998277, "inspected": false}
+{"stage": "update", "seconds": 3250.4060000000172, "step": 260, "epoch": 3, "case": "fit_history_02", "KL": 6.7652363777160645, "step_seconds": 10.219000000040978, "inspected": false}
+{"stage": "update", "seconds": 3262.5470000000205, "step": 261, "epoch": 3, "case": "fit_explanation_07", "KL": 2.240065813064575, "step_seconds": 10.795999999972992, "inspected": false}
+{"stage": "update", "seconds": 3272.7810000000172, "step": 262, "epoch": 3, "case": "fit_instruction_06", "KL": 1.1068965196609497, "step_seconds": 10.045999999972992, "inspected": false}
+{"stage": "update", "seconds": 3284.5160000000033, "step": 263, "epoch": 3, "case": "fit_planning_03", "KL": 3.258251667022705, "step_seconds": 10.90600000001723, "inspected": false}
+{"stage": "update", "seconds": 3294.8589999999967, "step": 264, "epoch": 3, "case": "fit_rewrite_09", "KL": 1.879778504371643, "step_seconds": 10.203000000037719, "inspected": false}
+{"stage": "update", "seconds": 3305.4380000000237, "step": 265, "epoch": 3, "case": "fit_code_05", "KL": 1.3249140977859497, "step_seconds": 10.35899999999674, "inspected": false}
+{"stage": "update", "seconds": 3315.4380000000237, "step": 266, "epoch": 3, "case": "fit_rewrite_14", "KL": 1.6403096914291382, "step_seconds": 9.797000000020489, "inspected": false}
+{"stage": "update", "seconds": 3326.1720000000205, "step": 267, "epoch": 3, "case": "fit_history_14", "KL": 4.8733391761779785, "step_seconds": 10.48499999998603, "inspected": false}
+{"stage": "update", "seconds": 3337.094000000041, "step": 268, "epoch": 3, "case": "fit_reading_07", "KL": 1.8555821180343628, "step_seconds": 10.71799999999348, "inspected": false}
+{"stage": "update", "seconds": 3348.6880000000237, "step": 269, "epoch": 3, "case": "fit_explanation_09", "KL": 2.721403121948242, "step_seconds": 11.375, "inspected": false}
+{"stage": "update", "seconds": 3360.6720000000205, "step": 270, "epoch": 3, "case": "fit_planning_14", "KL": 1.9208711385726929, "step_seconds": 11.01500000001397, "inspected": false}
+{"stage": "update", "seconds": 3371.7030000000377, "step": 271, "epoch": 3, "case": "fit_arithmetic_14", "KL": 1.110205888748169, "step_seconds": 10.813000000023749, "inspected": false}
+{"stage": "update", "seconds": 3382.1410000000033, "step": 272, "epoch": 3, "case": "fit_instruction_13", "KL": 1.3566046953201294, "step_seconds": 10.202999999979511, "inspected": false}
+{"stage": "update", "seconds": 3394.875, "step": 273, "epoch": 3, "case": "fit_planning_07", "KL": 1.545652151107788, "step_seconds": 12.26600000000326, "inspected": false}
+{"stage": "update", "seconds": 3406.5780000000377, "step": 274, "epoch": 3, "case": "fit_arithmetic_05", "KL": 1.1540628671646118, "step_seconds": 11.422000000020489, "inspected": false}
+{"stage": "update", "seconds": 3416.9220000000205, "step": 275, "epoch": 3, "case": "fit_history_10", "KL": 0.8334824442863464, "step_seconds": 10.077999999979511, "inspected": false}
+{"stage": "update", "seconds": 3428.0310000000172, "step": 276, "epoch": 3, "case": "fit_explanation_04", "KL": 0.9201499819755554, "step_seconds": 10.875, "inspected": false}
+{"stage": "update", "seconds": 3439.375, "step": 277, "epoch": 3, "case": "fit_code_15", "KL": 2.11314058303833, "step_seconds": 11.10899999999674, "inspected": false}
+{"stage": "update", "seconds": 3450.0310000000172, "step": 278, "epoch": 3, "case": "fit_rewrite_07", "KL": 0.7355231642723083, "step_seconds": 10.436999999976251, "inspected": false}
+{"stage": "update", "seconds": 3462.4220000000205, "step": 279, "epoch": 3, "case": "fit_instruction_14", "KL": 1.2890536785125732, "step_seconds": 12.203000000037719, "inspected": false}
+{"stage": "update", "seconds": 3473.5470000000205, "step": 280, "epoch": 3, "case": "fit_reading_12", "KL": 1.2006162405014038, "step_seconds": 10.51600000000326, "inspected": false}
+{"stage": "update", "seconds": 3484.5780000000377, "step": 281, "epoch": 3, "case": "fit_code_01", "KL": 1.4124503135681152, "step_seconds": 10.780999999959022, "inspected": false}
+{"stage": "update", "seconds": 3496.25, "step": 282, "epoch": 3, "case": "fit_explanation_13", "KL": 2.01743745803833, "step_seconds": 11.437999999965541, "inspected": false}
+{"stage": "update", "seconds": 3507.1560000000172, "step": 283, "epoch": 3, "case": "fit_history_00", "KL": 2.414843797683716, "step_seconds": 10.329000000027008, "inspected": false}
+{"stage": "update", "seconds": 3518.2660000000033, "step": 284, "epoch": 3, "case": "fit_reading_01", "KL": 1.7848747968673706, "step_seconds": 10.84399999998277, "inspected": false}
+{"stage": "update", "seconds": 3530.6880000000237, "step": 285, "epoch": 3, "case": "fit_arithmetic_12", "KL": 2.169827699661255, "step_seconds": 11.46799999999348, "inspected": false}
+{"stage": "update", "seconds": 3540.5630000000237, "step": 286, "epoch": 3, "case": "fit_instruction_04", "KL": 2.8803083896636963, "step_seconds": 9.625, "inspected": false}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_hybrid_recovery.py", line 397, in <module>
+    bind(args) if args.bind else worker(args)
+                                 ^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_hybrid_recovery.py", line 341, in worker
+    event('update',step=record['step'],epoch=epoch+1,case=identifier,KL=row['KL'],step_seconds=record['seconds_with_snapshot'],inspected=inspect)
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_hybrid_recovery.py", line 128, in event
+    guard()
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_hybrid_recovery.py", line 119, in guard
+    assert time.monotonic()-start <= limit['seconds']-60, 'worker deadline reserve'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: worker deadline reserve

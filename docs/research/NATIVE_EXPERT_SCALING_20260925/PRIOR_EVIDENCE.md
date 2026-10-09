@@ -1,6 +1,24 @@
 # Native expert-count scaling: prior evidence
 
-**9 October balanced whole recovery IMPLEMENTED/FROZEN/LIVE:**
+**9 October engine pipeline priority and actual recovery closure:**
+[Memo](ENGINE_PIPELINE_PRIORITY_20261009.md) reuses prior code/results; no new
+model values. Original701.7/s remains small-cache E32 evidence. Current full
+head33,554,944 products is48.2% of69,632,512. Dense-group sum versus normalized
+top8 mixture, redundancy coverage and accessible-state information loss are
+the next conversion questions, before long offline compute. Original recovery
+closed exit1 after286 updates/deadline reserve3540.563s;retained3.059GB recovery,
+family3588.125s/OS8.335GB through exit. Completed epochs1/2 online
+caseKL6.5398319/2.3660820,training1336.703/1328.663s. No after observations,
+quality admission or historical support;GPU peak unavailable. [Closure](CHATBOT_HYBRID_RECOVERY_RESULT_20261009.md).
+Saved CPU audit PASS/exit0,freeze85aaaa8/binding9c97ad57;63.094s/OS6.795GB
+through exit/all resource-input gates PASS. Actual boundary286/Adamstep294,
+211 changed finite tensors/RNG storage,all160 F64 before checks and exact IDs;
+max label delta2.116e-5. No after/quality admission/modelcalls/replay.
+Complete-cohort C/certificate tools prepared in d18049f/b2f09aa/c0a5437 remain
+UNEXECUTED; Python syntax PASS,C uncompiled. Preserve old C failure; original
+launcher byte archive matches originalbinding, current schema extended only afterexit.
+
+**Historical 9 October launch/snapshot30; superseded by terminal closure above:**
 [Protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md),freeze1f2a30a,
 180-input bindinged9299ff; [live instance](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md)
 session76414/launcher20000/worker33244 verified. Actual254,932,736-parameter

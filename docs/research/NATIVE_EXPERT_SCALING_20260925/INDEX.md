@@ -15,9 +15,18 @@ Ryzen53600X/80GiB/RTX306012GB. Freeze before observations; retain first faults
 and numbered repairs; reuse completed scientific/capture/native/audit bytes.
 No timing overlap. Preserve foreign work/publisher. Routine Graphify disabled.
 Donor-adaptation operationally frozen, evidence reusable. T4 requires communicated
-reason/budget/stops first. ONE local recovery worker LIVE; no T4.
+reason/budget/stops first. Original recovery and saved-only audit terminal;
+no local job or T4.
 
 ## Current direction and two research questions
+
+[Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) makes the
+operational order explicit: close/adopt the current bounded recovery, evaluate
+the actual retained checkpoint, isolate dense-sum versus selected-mixture and
+information loss, then qualify useful C chat plus accepted speed. Redundancy
+requires coverage/coefficients; more slots alone do not preserve donor functions.
+The full chatbot head costs33.55M products/token, about48.2% of current matrix
+work. Original701.7/s is a small E32 cache-resident result, not large-donor proof.
 
 [Engine reassessment](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md)/
 [target contract](chatbot_engine_target_contract_v1.json) govern: original
@@ -32,18 +41,19 @@ adaptation is permitted but useful transfer must be demonstrated.
 
 ## Latest decisive evidence
 
-**[Balanced whole recovery LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md):**
-implementation/protocol frozen1f2a30a,180-input bindingSHAed9299ff. Session76414,
-launcher20000/worker33244 verified; actual model+Adam restored (254.93M/2.039GB
-moments/step8). ALL160 NEW initial observations COMPLETE by445.5s;FIT/DEV
-caseKL24.0623/24.7119,ID disagreement99.806%/99.819%. At snapshot30 complete
-update records,first AND first-longest(183 inputs,step29) ALL12 core/bank/norm
-gradients positive finite;first steps10–12s
-with CPU snapshots. This rate threatens3600s completion;cap fixed,not extended.
-Prepared saved-only partial/full auditor UNEXECUTED. Fixed512 balanced
-updates,training-only normalized AQ dither.025,inference original AQ63,60s
-recovery reserve inside3600s family/16GiB OS/11GiB GPU/12GiB output. No final
-recovery/quality/native admission; preserve old failures. Poll same live handle.
+**[Balanced whole recovery TERMINAL/INCOMPLETE](CHATBOT_HYBRID_RECOVERY_RESULT_20261009.md):**
+freeze1f2a30a/bindinged9299ff,original session76414 closed exit1. Actual286/512
+durable updates; first fault deadline reserve3540.563s. recovery.pt3.059GB
+retained;family3588.125s/OS8.335GB through exit/outputs4.567GB. ALL160 initial
+observations;0 after. FIT/DEV initial caseKL24.0623/24.7119;online epoch1/2
+means6.5398/2.3661 are not final held-out quality. First/longest backward all12
+positive finite core/bank/norm groups. Missing historical support/GPU peak remain
+missing. CPU-only saved audit PASS/exit0,freeze85aaaa8/binding9c97ad57,784 inputs,
+63.094s family/OS6.795GB through exit. All211 tensors finite/changed,Adamstep294,
+actual boundary286,all160 F64 before checks;max label delta2.116e-5. No modelcalls.
+Prepared160-case C/streamed certificate tools are UNEXECUTED; Python syntax PASS,
+C uncompiled. They only accept full eligible512-update recovery. Partial states
+need a separately frozen evaluation/continuation; original gate remains failed.
 
 **[Actual packed target/C result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md):**
 D512/L12/SSM10/SWA2/E72/k8/h128/V65537, original matrix/LUT/AQ63 bodies reused.
@@ -110,11 +120,12 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** observe SAME session76414/launcher20000/worker33244 under
-[LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md) and
-[frozen protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md).
-Implementation1f2a30a/bindinged9299ff; never restart because observation expires.
-Reuse actual final model/optimizer and adopted
+**First action:** adopt completed saved-audit result/terminal under
+[instance](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md) and
+[audit protocol](CHATBOT_HYBRID_RECOVERY_AUDIT_PROTOCOL_20261009.md).
+Auditfreeze85aaaa8/binding9c97ad57,PASS/exit0. Both original/audit sessions closed.
+Original recovery session76414 TERMINAL;286/512 updates retained. Reuse actual
+recovery model/optimizer/RNG and adopted
 results/native_expert_scaling/chatbot_hybrid_transfer_capture_20261009/corpus.json,
 4643 FIT/1103 DEV labels and source-role/EOS/position mapping. Source capture and
 adopter COMPLETE/exit0, exact commands/freeze/bindings in result receipts.
@@ -124,10 +135,11 @@ Source861.782s, below original900s cap. No source/capture restart/replay.
 Frozen4 balanced epochs/512 updates,case-mean KL,temp1,lr5e-5/clip1/STE,
 training-only dither.025,RNG-preserving checkpointing and explicit recovery gates.
 Final update512 selected,not DEV-best. Actual initial NEW full logits retained;
-final observations remain pending.
-First short/long backward observed finite;OS peak snapshot8.331GB,through-exit
-GPU/OS/final coverage still pending. On closure inspect actual
-terminal/fault/checkpoint/metrics and saved-only audit before NEW native export.
+final observations absent. First short/long backward observed finite;OS8.335GB
+through exit,GPU peak unavailable. Inspect actual audit closure and its
+receipt/metrics/checkpoint and follow ENGINE_PIPELINE_PRIORITY_20261009.md.
+Freeze a separate retained-state final evaluation/continuation before new model
+calls. No repeating286 updates/160 initial outputs; historical support stays missing.
 Old nativeFAIL retained; NEW trained/native check before long
 adaptation. Examine information loss and dense-sum versus normalized-mixture
 initialization before committing long compute; do not assume multiplying scales

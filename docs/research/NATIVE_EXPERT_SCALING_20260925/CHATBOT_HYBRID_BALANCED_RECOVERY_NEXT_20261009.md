@@ -1,6 +1,15 @@
 # Next whole recovery pilot: balanced source supervision and quantizer robustness
 
-9 October2026. Pilot IMPLEMENTED/FROZEN, ONE local instance LIVE under
+9 October2026. Operational override:original recovery TERMINAL/INCOMPLETE at286
+updates/deadline reserve; saved-only audit PASS/exit0. No live job or T4.
+[Closure](CHATBOT_HYBRID_RECOVERY_RESULT_20261009.md) and
+[engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) govern next work:
+freeze a separate retained-state final evaluation/continuation decision, then
+isolate sum/mixture and information loss before long compute. Do not replay286
+completed updates/160 initial outputs; missing support stays missing.
+
+The following implemented launch contract/snapshot is HISTORICAL, not a restart
+instruction. Pilot was IMPLEMENTED/FROZEN under
 [protocol](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md)/
 [process record](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md). No final recovery.
 Freeze1f2a30a,180-input bindinged9299ff,session76414/launcher20000/worker33244.
@@ -13,8 +22,8 @@ PASS.137 EOS stops/23 length96 truncations; no answer-truth admission.
 
 ## First available action
 
-Observe SAME session76414 or authoritative launcher20000/worker33244. Do not
-restart an expired observation. Actual final learner/optimizer is restored;
+Historical observation action, now completed:observe original session76414 or
+launcher20000/worker33244. Those processes are now absent. Actual learner/optimizer was restored;
 ALL160 NEW initial evaluations COMPLETE,at least30 update records durable at
 recorded snapshot;first-longest183-input backward ALL12 finite positive groups.
 Actual first steps10–12s including complete CPU state copy;3600s

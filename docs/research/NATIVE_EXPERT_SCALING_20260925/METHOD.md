@@ -48,6 +48,15 @@ cost, not compact deployment. Qwen/Giga evidence does not transfer automatically
 
 ## 2. Choose geometry; separate identities, approximations and learning
 
+[Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) identifies
+the next decision-bearing gaps: source group sum versus selected normalized
+mixture, redundant atom coverage/coefficients, accessible-state information
+loss and full chatbot readout. Close/adopt the current recovery before new
+observations. More experts cannot distinguish histories mapped to the same
+complete accessible state; no actual collision lower bound is yet measured.
+Use staged adaptation and high precision intermediates where necessary, then
+validate the final combined original-LUT/ternary/SSM artifact.
+
 [Target contract](chatbot_engine_target_contract_v1.json): compact SSM/SWA +
 selected ternary LUT functions. Costed extensions serve bounded active cost.
 Flat E scans and simultaneous F32/int8 expert reference copies remain problems.
@@ -89,15 +98,24 @@ unqueried. ALL saved source-JSON-tokenizer/bit/argmax/EOS/position transport PAS
 861.782s/GPU5.715GB/OS3.742GB, adopter8.016s/109.9MB through exit/all caps PASS.
 Partial replies are prefix supervision, not full-answer quality. ONE NEW
 [balanced whole recovery](CHATBOT_HYBRID_RECOVERY_PROTOCOL_20261009.md) is implemented/
-frozen1f2a30a and [LIVE](CHATBOT_HYBRID_RECOVERY_LIVE_20261009.md),session76414.
+frozen1f2a30a and [TERMINAL/INCOMPLETE](CHATBOT_HYBRID_RECOVERY_RESULT_20261009.md).
 Actual prior model+Adam restored;512 fixed case/domain-balanced updates,training-only
 AQ normalized dither.025,no changed inference formula,all160 NEW initial/final
 observations retained. ALL160 NEW initial complete,FIT/DEV caseKL24.0623/24.7119,
-99.806%/99.819% differing IDs. At snapshot30 updates;first and first-longest
+99.806%/99.819% differing IDs. Actual286/512 updates;first and first-longest
 183-input backward has all12 finite positive core/bank/norm gradient groups.
-First updates10–12s,OS peak snapshot8.331GB,through-exit/final coverage pending.
+First updates10–12s;original deadline reserve stopped at3540.563s after update286.
+Actual3588.125s family/OS8.335GB through exit/recovery.pt3.059GB;0 after outputs,
+no GPU peak available. Independent saved-only audit PASS/exit0 under85aaaa8/
+9c97ad57,63.094s family/OS6.795GB through exit/all resource-input gates PASS.
+Actual boundary286/Adamstep294/211 changed finite tensors;all160 before F64
+checks/IDs pass,max label reduction delta2.116e-5. Quality admission remainsfalse.
 Local3600s/16GiB OS/11GiB allocated GPU/12GiB output;
-complete budget feasibility/final recovery are not yet established.
+Full512 budget/final recovery not established; original incomplete gate retained.
+Actual completed epochs1/2 online caseKL6.5398/2.3661 and training1336.703/
+1328.663s. These are not fixed-checkpoint DEV values; original cap was not changed.
+No completed update or initial observation replay. Historical routing support
+was not checkpointed and stays missing. Separate final-state evaluation needed.
 Broad preservation/own-prefix recovery remain missing. Qwen200-case tensors
 belong to another donor. Pilot/screen/calibration stay excluded from fresh tests.
 
@@ -133,6 +151,14 @@ payload extents/hashes and all2,097,184 coordinate-derived integer energy tests;
 prefixes do not qualify long drift/window eviction. Head runs32/core261 times:
 these component clocks do not establish accepted batch1 rate or DRAM bandwidth.
 Standalone C target uses original kernels; native tokenizer/chat integration is open.
+
+Prepared [complete cohort interface](CHATBOT_HYBRID_NATIVE_COHORT_PROTOCOL_20261009.md)
+and [streamed auditor](CHATBOT_HYBRID_NATIVE_COHORT_AUDIT_PROTOCOL_20261009.md)
+extend query/count/streaming mechanics, not kernels. UNEXECUTED;Python syntax PASS,C uncompiled;
+160 cases/5746 rows/15999 input IDs imply5,408,639,320B priced total output
+including allowance. Only full512-update eligible recovery with independent
+audit can bind this path. Partial checkpoint evaluation needs its own frozen
+protocol. Algebraic certificate checker is also UNEXECUTED.
 
 ## 5. Bound numerical diagnosis, then recover source quality
 
