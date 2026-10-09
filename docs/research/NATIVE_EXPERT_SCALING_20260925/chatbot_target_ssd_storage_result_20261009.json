@@ -1,0 +1,418 @@
+{
+  "schema": "TARGET_SSD_STORAGE_RESULT_V1",
+  "decision": "TARGET_F32_SSD_STORAGE_PASS",
+  "freeze": "ac941b5dd62d50f658f76d59f928279efc163ee4",
+  "binding_sha256": "63dc3b8fcece32f9f2f46e47e041b16c5e427fcdbdda07664241a9a1ce1fc3e5",
+  "process_instance": {
+    "pid": 16768,
+    "create_time_unix": 1791515050.077744
+  },
+  "observations": [
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "teacher_forcing_ids": 58,
+      "labels": 18,
+      "KL": 10.07216739654541,
+      "loss_absolute_difference": 0.0,
+      "layer_gradient_groups": [
+        {
+          "layer": 0,
+          "core_gradient_norm": 61.88690329925844,
+          "banks_gradient_norm": 2.1409192060954347,
+          "norm_gradient_norm": 0.0944951148537062
+        },
+        {
+          "layer": 1,
+          "core_gradient_norm": 40.13959559111787,
+          "banks_gradient_norm": 2.4265410272147783,
+          "norm_gradient_norm": 0.050378441058309506
+        },
+        {
+          "layer": 2,
+          "core_gradient_norm": 65.74918921189814,
+          "banks_gradient_norm": 1.6079857836929285,
+          "norm_gradient_norm": 0.07292287010357931
+        },
+        {
+          "layer": 3,
+          "core_gradient_norm": 58.90691931740072,
+          "banks_gradient_norm": 1.4769053332744964,
+          "norm_gradient_norm": 0.08151256630518577
+        },
+        {
+          "layer": 4,
+          "core_gradient_norm": 70.74905016789769,
+          "banks_gradient_norm": 1.2602070675466919,
+          "norm_gradient_norm": 0.042861740393210494
+        },
+        {
+          "layer": 5,
+          "core_gradient_norm": 28.46601079059421,
+          "banks_gradient_norm": 1.5795400131557205,
+          "norm_gradient_norm": 0.04539372324963366
+        },
+        {
+          "layer": 6,
+          "core_gradient_norm": 95.23134101089232,
+          "banks_gradient_norm": 3.0897828891353405,
+          "norm_gradient_norm": 0.0543443309863807
+        },
+        {
+          "layer": 7,
+          "core_gradient_norm": 89.20708943417905,
+          "banks_gradient_norm": 2.5185962898037415,
+          "norm_gradient_norm": 0.06387412941724122
+        },
+        {
+          "layer": 8,
+          "core_gradient_norm": 54.23212459846038,
+          "banks_gradient_norm": 3.904303100966666,
+          "norm_gradient_norm": 0.05479868713685302
+        },
+        {
+          "layer": 9,
+          "core_gradient_norm": 201.99544247702815,
+          "banks_gradient_norm": 4.492610092056976,
+          "norm_gradient_norm": 0.04113710372610104
+        },
+        {
+          "layer": 10,
+          "core_gradient_norm": 175.4968727024882,
+          "banks_gradient_norm": 10.424789871049208,
+          "norm_gradient_norm": 0.11960928851120985
+        },
+        {
+          "layer": 11,
+          "core_gradient_norm": 51.487576077279606,
+          "banks_gradient_norm": 18.98076607517381,
+          "norm_gradient_norm": 0.10740638498220745
+        }
+      ],
+      "maximum_group_norm_relative_difference": 6.494799748563488e-09,
+      "forward_seconds": 4.046999999962281,
+      "backward_seconds": 6.0,
+      "seconds_with_capture_and_gradient_inspection": 10.155999999959022,
+      "GPU_allocated_peak_so_far": 4411485696,
+      "GPU_reserved_peak_so_far": 4607442944
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "teacher_forcing_ids": 1507,
+      "labels": 256,
+      "KL": 9.960439682006836,
+      "loss_absolute_difference": 0.0,
+      "layer_gradient_groups": [
+        {
+          "layer": 0,
+          "core_gradient_norm": 50.790566829363016,
+          "banks_gradient_norm": 2.3558838955046424,
+          "norm_gradient_norm": 0.08214875974099685
+        },
+        {
+          "layer": 1,
+          "core_gradient_norm": 33.15310729212353,
+          "banks_gradient_norm": 1.758916958387825,
+          "norm_gradient_norm": 0.04541437186190054
+        },
+        {
+          "layer": 2,
+          "core_gradient_norm": 66.36085575954081,
+          "banks_gradient_norm": 1.4965435635435955,
+          "norm_gradient_norm": 0.08411636592393595
+        },
+        {
+          "layer": 3,
+          "core_gradient_norm": 44.31518536016105,
+          "banks_gradient_norm": 1.0022465208220654,
+          "norm_gradient_norm": 0.052265501432846674
+        },
+        {
+          "layer": 4,
+          "core_gradient_norm": 73.5041542666242,
+          "banks_gradient_norm": 1.2123338877412013,
+          "norm_gradient_norm": 0.04898149376275221
+        },
+        {
+          "layer": 5,
+          "core_gradient_norm": 24.694250381090225,
+          "banks_gradient_norm": 2.6818597037295824,
+          "norm_gradient_norm": 0.0358812207795858
+        },
+        {
+          "layer": 6,
+          "core_gradient_norm": 85.18805776595815,
+          "banks_gradient_norm": 2.494048045465351,
+          "norm_gradient_norm": 0.0927636197714589
+        },
+        {
+          "layer": 7,
+          "core_gradient_norm": 78.79342787610952,
+          "banks_gradient_norm": 1.453438743758541,
+          "norm_gradient_norm": 0.10810044050987358
+        },
+        {
+          "layer": 8,
+          "core_gradient_norm": 52.176730632504,
+          "banks_gradient_norm": 2.306007842891271,
+          "norm_gradient_norm": 0.09206533563456418
+        },
+        {
+          "layer": 9,
+          "core_gradient_norm": 108.71733948110925,
+          "banks_gradient_norm": 1.3309565278615931,
+          "norm_gradient_norm": 0.0813724564731581
+        },
+        {
+          "layer": 10,
+          "core_gradient_norm": 76.21156484735349,
+          "banks_gradient_norm": 2.0326805439254656,
+          "norm_gradient_norm": 0.025729077169750814
+        },
+        {
+          "layer": 11,
+          "core_gradient_norm": 24.48233109253352,
+          "banks_gradient_norm": 8.66179974452007,
+          "norm_gradient_norm": 0.03910333392277613
+        }
+      ],
+      "maximum_group_norm_relative_difference": 9.420917417699037e-08,
+      "forward_seconds": 5.657000000006519,
+      "backward_seconds": 18.28100000001723,
+      "seconds_with_capture_and_gradient_inspection": 24.04700000002049,
+      "GPU_allocated_peak_so_far": 5053017600,
+      "GPU_reserved_peak_so_far": 5683281920
+    }
+  ],
+  "contractions": [
+    {
+      "operation": "products",
+      "input_shapes": [
+        [
+          1,
+          95,
+          16,
+          48,
+          256
+        ],
+        [
+          1,
+          95,
+          16,
+          48,
+          256
+        ]
+      ],
+      "output_shape": [
+        1,
+        95,
+        16,
+        16,
+        48
+      ],
+      "metrics": {
+        "output": {
+          "elements": 1167360,
+          "relative_RMS": 0.0,
+          "maximum_absolute_difference": 0.0,
+          "max_scaled_absolute": 0.0
+        },
+        "input_VJP": [
+          {
+            "elements": 18677760,
+            "relative_RMS": 0.0,
+            "maximum_absolute_difference": 0.0,
+            "max_scaled_absolute": 0.0
+          },
+          {
+            "elements": 18677760,
+            "relative_RMS": 0.0,
+            "maximum_absolute_difference": 0.0,
+            "max_scaled_absolute": 0.0
+          }
+        ],
+        "CPU_tiled_vs_CUDA_tiled_output": {
+          "elements": 1167360,
+          "relative_RMS": 8.902667850882212e-08,
+          "maximum_absolute_difference": 6.103515625e-05,
+          "max_scaled_absolute": 1.4755596779413935e-07
+        }
+      },
+      "seconds": 11.187999999965541
+    },
+    {
+      "operation": "states",
+      "input_shapes": [
+        [
+          1,
+          95,
+          16,
+          48,
+          256
+        ],
+        [
+          1,
+          95,
+          16,
+          48,
+          16
+        ]
+      ],
+      "output_shape": [
+        1,
+        95,
+        48,
+        16,
+        256
+      ],
+      "metrics": {
+        "output": {
+          "elements": 18677760,
+          "relative_RMS": 0.0,
+          "maximum_absolute_difference": 0.0,
+          "max_scaled_absolute": 0.0
+        },
+        "input_VJP": [
+          {
+            "elements": 18677760,
+            "relative_RMS": 0.0,
+            "maximum_absolute_difference": 0.0,
+            "max_scaled_absolute": 0.0
+          },
+          {
+            "elements": 1167360,
+            "relative_RMS": 0.0,
+            "maximum_absolute_difference": 0.0,
+            "max_scaled_absolute": 0.0
+          }
+        ],
+        "CPU_tiled_vs_CUDA_tiled_output": {
+          "elements": 18677760,
+          "relative_RMS": 6.152402677064245e-08,
+          "maximum_absolute_difference": 0.000244140625,
+          "max_scaled_absolute": 8.092720565480468e-08
+        }
+      },
+      "seconds": 6.875
+    },
+    {
+      "operation": "boundaries",
+      "input_shapes": [
+        [
+          1,
+          96,
+          96,
+          48
+        ],
+        [
+          1,
+          96,
+          48,
+          16,
+          256
+        ]
+      ],
+      "output_shape": [
+        1,
+        96,
+        48,
+        16,
+        256
+      ],
+      "metrics": {
+        "output": {
+          "elements": 18874368,
+          "relative_RMS": 0.0,
+          "maximum_absolute_difference": 0.0,
+          "max_scaled_absolute": 0.0
+        },
+        "input_VJP": [
+          {
+            "elements": 442368,
+            "relative_RMS": 0.0,
+            "maximum_absolute_difference": 0.0,
+            "max_scaled_absolute": 0.0
+          },
+          {
+            "elements": 18874368,
+            "relative_RMS": 1.0090805533523012e-07,
+            "maximum_absolute_difference": 2.3283064365386963e-10,
+            "max_scaled_absolute": 1.4492527833805488e-07
+          }
+        ],
+        "CPU_tiled_vs_CUDA_tiled_output": {
+          "elements": 18874368,
+          "relative_RMS": 6.059076105169908e-08,
+          "maximum_absolute_difference": 0.00048828125,
+          "max_scaled_absolute": 9.90238623742595e-08
+        }
+      },
+      "seconds": 15.155999999959022
+    },
+    {
+      "operation": "outputs",
+      "input_shapes": [
+        [
+          1,
+          95,
+          16,
+          48,
+          256
+        ],
+        [
+          1,
+          95,
+          48,
+          16,
+          256
+        ]
+      ],
+      "output_shape": [
+        1,
+        95,
+        16,
+        48,
+        16
+      ],
+      "metrics": {
+        "output": {
+          "elements": 1167360,
+          "relative_RMS": 0.0,
+          "maximum_absolute_difference": 0.0,
+          "max_scaled_absolute": 0.0
+        },
+        "input_VJP": [
+          {
+            "elements": 18677760,
+            "relative_RMS": 0.0,
+            "maximum_absolute_difference": 0.0,
+            "max_scaled_absolute": 0.0
+          },
+          {
+            "elements": 18677760,
+            "relative_RMS": 0.0,
+            "maximum_absolute_difference": 0.0,
+            "max_scaled_absolute": 0.0
+          }
+        ],
+        "CPU_tiled_vs_CUDA_tiled_output": {
+          "elements": 1167360,
+          "relative_RMS": 9.634797553866097e-08,
+          "maximum_absolute_difference": 0.0009765625,
+          "max_scaled_absolute": 1.6118626644653995e-07
+        }
+      },
+      "seconds": 10.672000000020489
+    }
+  ],
+  "cases": 2,
+  "model_and_moments_unchanged": true,
+  "finite_parameter_gradients": 211,
+  "source_calls": 0,
+  "optimizer_updates": 0,
+  "native_runs": 0,
+  "GPU_allocated_peak": 5053017600,
+  "GPU_reserved_peak": 5683281920,
+  "worker_OS_peak_snapshot": 17366630400,
+  "elapsed_seconds": 106.28200000000652,
+  "scope": "Two target training cases plus four actual longest-FIT block0 F32 CPU formula/VJP comparisons and CPU/CUDA tiled outputs. Whole gradient directions were not saved in the old baseline. No quality/native/rate admission."
+}
