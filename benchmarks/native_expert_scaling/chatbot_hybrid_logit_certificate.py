@@ -23,6 +23,8 @@ def certify(actual,reference):
     n=actual.size
     assert 1<=n<=65537 and np.isfinite(actual).all() and np.isfinite(reference).all()
     c=actual.astype(np.float64);r=reference.astype(np.float64)
+    assert np.array_equal(c.astype('<f4').view(np.uint32),actual.view(np.uint32)), 'F32/F64 actual bit roundtrip'
+    assert np.array_equal(r.astype('<f4').view(np.uint32),reference.view(np.uint32)), 'F32/F64 reference bit roundtrip'
     delta=c-r
     error=float(np.square(delta).sum(dtype=np.float64))
     energy=float(np.square(r).sum(dtype=np.float64))

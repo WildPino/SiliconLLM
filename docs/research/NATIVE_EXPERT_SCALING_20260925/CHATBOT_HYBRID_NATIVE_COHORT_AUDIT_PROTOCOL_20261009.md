@@ -22,7 +22,10 @@ The helper's separate algebraic checker must pass before a cohort audit launch.
 
 ## Algebra and arithmetic assumptions
 
-All finite F32 values embed exactly in F64. A nonzero difference of two F32
+All finite F32 values embed exactly in F64. The helper requires bit-exact
+F32->F64->F32 roundtrips,including subnormal/signed-zero values,before using
+the bound;an environment that flushes conversion operands fails this check.
+A nonzero difference of two F32
 values has magnitude>=2^-149 and<=2*F32max; its square is in the normal F64
 range. Positive sums over n<=65537 stay normal/finite. Every reference square
 is exact in F64 (at most48 significant bits); its reduction can round.
