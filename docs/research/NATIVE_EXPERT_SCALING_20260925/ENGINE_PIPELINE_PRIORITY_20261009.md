@@ -6,12 +6,23 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+The [actual27 original native/chat endpoint](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
+is now qualified without changing20 original computational bodies. Persistent
+canonical chat/full heads/all-prefix IDs/mass identity PASS; tasks0/16 versus
+source14/16 and full native DEV disagreement95.854% FAIL. Raw137.19 decode/
+62.73 pipe IDs/s are not useful accepted50. This directly connects conversion
+research to the original engine and exposes the remaining loss of source
+behavior. Prioritize measured history/function transfer. No further raw-speed,
+copied-expert or numerical-trace campaign is selected. Matched joint recovery
+still needs its worker/gradient qualification; consumer/baseline already exist.
+No month-long unchanged dose or T4 allocation follows from this endpoint.
+
 The [teacher history acquisition](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md)
 is complete with explicit parent resource/final-identity gaps. Actual residual
 composition is now available for all48 histories; all projection rows independently
 qualified. Prepared training-only learner can supervise six student boundaries;
-real matched KL versus KL+history recovery/native own-history consumer remain
-to implement/qualify. Fixed basis'12..14% intermediate energy retention is an
+real matched KL versus KL+history recovery remains to implement/qualify; the
+original native own-history consumer is now qualified above. Fixed basis'12..14% intermediate energy retention is an
 information warning, not a quality theorem. Raw states remain reusable. The
 next decision is measured whole recovery within original operators, with useful
 chatbot and same-artifact speed gates. No T4 allocation.

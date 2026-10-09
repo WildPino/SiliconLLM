@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**9 October actual27 original native/chat baseline COMPLETE/quality FAIL:**
+[Result](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md),freeze9c40c549/bind9ca774ee/
+raw71663dc9.45 new+3 adopted histories/all22547 positions/8808 full-V labels;
+native DEV caseKL8.76437/disagreement95.854%, all4 absolute/domain gates FAIL.
+Original20 bodies/prefix357/split178+179/reuse heads and ALL routes byte-exact.
+16 canonical tasks0/16 versus source14/16,all4 categories0;one own-answer
+followup wrong,113-ID cache reuse exact.1088 saved full-score argmax IDs exact.
+Raw decode137.19/request95.41/pipe62.73 IDs/s, incorrect content/noaccepted50.
+Held414.093s/471files5335096285B/OSconservative1.054GB caps PASS; linker gap.
+First stored-only unshifted logaddexp reference assertion preserved; completion
+stabilizes reference with row maxima, same1e-10 gate/no model replay.
+Source/optimizer/GPU/RESERVED/T4 zero/all native jobs terminal. Consumer and
+complete before endpoint now real; next finite matched joint history recovery.
+
 **9 October actual teacher boundaries COMPLETE with parent gaps:**
 [Result](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md).48 full histories22547
 positions/h0,h4..h24 raw BF16/fixed P256 F32;288 source streams byte-exact.
@@ -13,7 +27,8 @@ unused-cache release between cases; parent failure preserved. DEV projected
 energy12..14% intermediate,35.387% final/28.690% centered, not knowledge ratios.
 Prepared auxiliary learner/no optimizer/native/LM head/newanswers/RESERVED/T4;
 all jobs terminal. Next finite matched joint recovery with own-history/native
-DEV/domain gates; no useful chatbot/accepted50/n/DRAM admission.
+DEV/domain gates, now supported by the original persistent consumer/baseline
+above; no useful chatbot/accepted50/n/DRAM admission.
 
 **9 October actual27 delta correction COMPLETE/engineering PASS/numerical FAIL:**
 [Result](ORIGINAL_DELTA_SEED_RESULT_20261009.md), completion freezedbe80da9/

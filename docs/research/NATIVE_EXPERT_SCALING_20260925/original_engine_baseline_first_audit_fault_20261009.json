@@ -1,0 +1,20 @@
+{
+  "schema": "ORIGINAL_ENGINE_BASELINE_FIRST_AUDIT_FAULT_V1",
+  "script": "benchmarks/native_expert_scaling/original_engine_baseline_audit.py",
+  "command": ["C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe", "-I", "-S", "-B", "-X", "utf8", "benchmarks/native_expert_scaling/original_engine_baseline_audit.py"],
+  "observation_session": 5185,
+  "exit_code": 1,
+  "stage": "independent_label_KL_assertion",
+  "line": 76,
+  "error": "AssertionError: assert max_KL<=1e-10 and max_label_KL<=1e-10",
+  "first_reference": "Raw-logit sequential F64 np.logaddexp.reduce without subtracting each row maximum",
+  "max_case_delta": null,
+  "max_label_delta": null,
+  "missing_support": "First script did not persist values or elapsed time before the assertion; do not invent them.",
+  "candidate_family_exit_code": 0,
+  "candidate_result_sha256": "71663dc951249a7522fb263c078886590fa91132b5c3198d0bc76d3df3a78afc",
+  "source_calls": 0,
+  "model_calls": 0,
+  "optimizer_updates": 0,
+  "decision": "Retain first audit code/output fault;new stored-only reference stabilization, unchanged1e-10 gate"
+}

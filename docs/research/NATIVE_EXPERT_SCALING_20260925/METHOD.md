@@ -8,6 +8,21 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest executable endpoint:** [original actual27 native/chat baseline](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
+reuses20 original computational bodies and the actual packed-only520.029MB
+artifact, with persistent canonical chat, full heads on ALL prefill/emitted
+positions, exact prefix/split/reuse IDs/mass/logit qualification. Complete48
+native histories/8808 source labels:DEV caseKL8.76437/disagreement95.854%, all
+absolute/domain gates FAIL. Native tasks0/16 versus source14/16; candidate's
+own-answer followup fails with exact113-ID reuse. All1088 generated score argmax
+IDs exact. Raw decode137.19/C request95.41/pipe62.73/s are incorrect-content
+rates, not accepted useful50 or complete tokenization-to-display timing.
+Held414.093s/5.335GB/direct OS caps PASS, nested linker peak unavailable.
+No source/GPU/optimizer/T4. First independent audit reference assertion retained;
+new stable stored-only completion keeps1e-10. This exposes failed transfer while
+making the original deployment endpoint real. Matched recovery runner remains
+missing; the consumer and complete baseline are now available to reuse.
+
 **Newest reusable conversion input:** [actual teacher boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md)
 48 canonical full histories/seven actual BF16 residuals/all22547 positions and
 fixed inherited P256 F32 projections.288 source-output streams exact; CPU F64
@@ -34,7 +49,8 @@ an optimizer step. Combined482.297s/11.880GB; all jobs terminal/noT4.
 Original deployed operators are fixed. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
 uses now-qualified teacher residual-boundary inputs for a bounded joint history
 recovery comparison. Learner adapter exists; real gradient/native qualification
-and matched runner/own-history consumer remain missing.
+and matched runner remain missing; the original native chat consumer is now
+qualified above and must not be rebuilt merely for another baseline.
 
 **Current conversion tool addition:** [actual26 diagnostic trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md)
 persists original core/router/AQ/LUT witnesses with head-bit observer identity.

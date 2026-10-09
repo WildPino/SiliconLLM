@@ -23,23 +23,20 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 | Question | Established | Missing |
 |---|---|---|
 | Affordable useful conditional capacity | Original LUT/ternary/SSM/SWA; runtime-n packed backend; full-V raw cost envelope | Useful n, structured CPU IDs/mass, actual DRAM and useful same-artifact50 |
-| Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundary inputs | Joint compact history/functions, native own-history chatbot; family/scale variants |
+| Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
 
 ## Latest decisive evidence
 
-[Teacher residual boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md)
-COMPLETE with parent resource/identity gaps:48 histories/22547 positions/seven
-raw BF16 residuals/fixed P256 projections.288 SSM streams byte-exact; all157829
-projection rows independently F64 qualified<=8.078e-7, energy summaries delta0.
-First reserved cap FAIL after17 histories/h4 of eighteenth; missing-only finish
-adopts them, resumes remaining depth without replay, and runs30 new full calls.
-Completion resources/411 identity PASS; parent final aggregate gap retained.
-Combined272.140s/810.654MB, no candidate update/LM head/answers/RESERVED/T4.
-
-Fixed basis retains DEV12..14% intermediate squared energy, h24 35.387% total/
-28.690% centered. This is geometry, not knowledge preservation or impossibility.
-Raw states remain reusable. Prepared joint learner exists but is unqualified.
-Actual seeded27 remains the selected real master/Adam/RNG/lineage state.
+[Actual27 original native/chat baseline](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
+COMPLETE:45 new+3 adopted histories/all22547 positions/8808 full-V labels.
+Native DEV caseKL8.76437/disagreement95.854%;all absolute/domain gates FAIL.
+Original20 bodies retained, prefix/split/reuse heads and ALL IDs/mass byte-exact;
+16 canonical task answers0/16 versus source14/16. One own-answer followup FAIL,
+exact113-ID state reuse PASS.1088 generated IDs match saved full-head argmax.
+Raw decode137.19/C request95.41/pipe62.73 IDs/s;incorrect content, no accepted50.
+Held414.093s/471outputs5.335GB/direct OS caps PASS; nested linker peak gap.
+Source/optimizer/GPU/RESERVED/T4 zero. First stored-audit reference fault retained;
+stable stored-only completion preserves1e-10 gate. Transfer quality is the priority.
 
 ## Key completed evidence and closed routes
 
@@ -52,6 +49,7 @@ Actual seeded27 remains the selected real master/Adam/RNG/lineage state.
 | Original native envelope | [Cost](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md):3352 full heads/routes bytewise preserved, raw99..132 IDs/s; known poor quality, no useful50/DRAM/n admission |
 | Actual wider bridge and trace | [26](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md):real update/state/export PASS; [trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md):first AQ half-bin discontinuity, conditional LUT sums exact; numerical FAIL retained |
 | Actual delta correction | [27](ORIGINAL_DELTA_SEED_RESULT_20261009.md):new five rank32 V blocks active, initial native identity/durable state PASS; DEV disagreement96..98%, no width causality |
+| Teacher history inputs | [Boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md):48 raw histories/P256/288 source witnesses qualified; parent allocator/identity gaps retained; energy is not knowledge |
 | Older whole/native paths | [Prior ledger](PRIOR_EVIDENCE.md):matched2+6 preference FAIL, local FFN underfit/mean-only repair, D512/L12 own-history outputs degenerate; completed old doses not to restart |
 
 ## Exact resumption
@@ -59,10 +57,10 @@ Actual seeded27 remains the selected real master/Adam/RNG/lineage state.
 Use actual27 and qualified teacher boundaries. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
 fixes B auxiliary weight1/normalized six-boundary loss versus A final KL only.
 Implement/freeze matched24-FIT onepass worker, real-gradient/durability/export,
-and original wide packed C consumer with persistent own-history generation.
-Qualify its prefix/split-prefill against retained actual27, then full native
-DEV/domain/own-history tasks under predeclared criteria/resources/plateau stops.
-Adapter exists; runner/protocol/binding and native generation consumer missing.
+then native DEV/domain/own-history tasks under predeclared criteria/resources/
+plateau stops. Qualified original wide packed persistent consumer and complete
+native48/chat baseline now exist; reuse them. Adapter exists; matched runner/
+protocol/binding/real auxiliary gradient qualification remain missing.
 No further boundary capture/delta repair/numerical trace selected; no T4.
 
 Keep full scope: useful chatbot ANDsame-artifact50, useful n/CPU IDs-mass/DRAM/

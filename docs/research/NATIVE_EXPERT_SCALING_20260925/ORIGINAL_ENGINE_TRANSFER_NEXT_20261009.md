@@ -9,6 +9,18 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ### Current resumption: qualified teacher histories and finite joint recovery
 
+[Actual27 original native/chat baseline](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
+is COMPLETE. Same20 original bodies/packed model; prefix/split/reuse full heads
+and ALL route IDs/masses exact. All48 native histories22547positions/8808 labels;
+DEV caseKL8.76437/disagreement95.854%, all absolute/domain gates FAIL. Native
+16 tasks0/16 versus source14/16; own-answer followup wrong,113-ID reuse exact.
+Raw decode137.19/request95.41/pipe62.73/s do not establish useful accepted50.
+Held414.093s/5.335GB/direct OS caps PASS; first stored-audit reference fault
+retained/stable completion preserves1e-10. No source/optimizer/GPU/T4. The
+original persistent consumer and complete before endpoint now EXIST; reuse
+them, not another baseline run. Exact retained executable and interactive
+command are in the report. Actual27/real Adam/RNG remains unchanged.
+
 [Teacher boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md) COMPLETE:
 48 histories/22547 positions/seven raw BF16 residual boundaries and fixed P256
 projections exist. All288 inherited SSM streams match; all157829 projected rows
@@ -46,13 +58,12 @@ recipe and prompts a measured representation/depth bottleneck change. No
 unchanged month-long dose follows from either engineering or relative PASS.
 
 **Immediate selected implementation:** implement/freeze matched A/B worker,
-state adoption/durability/export, and original wide packed C consumer supporting
-persistent full-head own-history generation. Current parity/speed main only
-consumes fixed request histories; earlier D512/L12 chat is a different artifact.
-Reuse state_reset/forward_token and original computational bodies exactly.
-Qualify new consumer against retained actual27 prefix heads/routes and split
-prefill before generation. Bind canonical tokenizer/template/EOS policy and
-predeclared tasks. No generic donor runtime or source inference expansion.
+state adoption/durability/export and exact native evaluation/plateau rules using
+the now-qualified original persistent C consumer. The earlier D512/L12 chat is
+a different artifact. Reuse original state_reset/forward_token bodies exactly;
+ALL prefill heads are charged by the original kernel. Canonical tokenizer/
+template/EOS/task policies already qualified in the baseline remain inherited.
+No generic donor runtime or source inference expansion.
 
 Qualify real auxiliary forward/gradient during the first scheduled whole-FIT
 update, retaining actual inherited state and every new counter. Compare initial
@@ -75,9 +86,9 @@ exact DEV/domain and generation/task gates in the new protocol before seeing
 candidate results.
 No sweep or extra epochs by default.
 
-First obtain complete native actual27 before metrics, adopting only the three
-already measured cases after packed/request identity. Full24 DEV/native/domain
-and fresh own-history tasks must be compared after each arm, alongside FIT
+Complete native actual27 before metrics are now retained, with three previous
+cases adopted after packed/request identity. Do not repeat them. Full24 DEV/
+native/domain and fresh own-history tasks must be compared after each arm, alongside FIT
 losses and durable update counters. Absolute prior quality gates remain; a
 relative win alone does not admit a useful chatbot. Stop for nonfinite/resource/
 partial optimizer fault or predeclared intermediate plateau/DEV regression;
