@@ -24,13 +24,16 @@ def energy(x):
     x=x.astype('f8'); mean=x.mean(0)
     return dict(total=float(np.sum(x*x)),mean=float(len(x)*np.sum(mean*mean)),centered=float(np.sum((x-mean)**2)))
 
-rp=DOC/'original_history_boundaries_result_20261009.json';r=read(rp)
+rp=DOC/'original_history_boundaries_finish_result_20261009.json';r=read(rp)
 t=read(rp.with_suffix('.terminal.json'));bp=Path(t['command'][t['command'].index('--binding')+1]);b=read(bp)
 assert sha(rp)==t['result_sha256'] and sha(bp)==r['binding_sha256']==t['binding_sha256']
 for item in b['inputs']+t['output_files']:
     assert Path(item['path']).stat().st_size==item['bytes'] and sha(item['path'])==item['sha256'],item['path']
-assert t['exit_code']==0 and t['resource_gates'] and r['cases']==r['source_base_forwards']==r['source_base_attempts']==48
-assert r['exact_history_output_witnesses']==288 and r['source_parameter_identities_versions_unchanged']
+assert t['exit_code']==0 and t['resource_gates'] and r['cases']==48
+assert r['new_full_base_forwards']==30 and r['new_partial_layer_tails']==1 and r['new_source_attempts']==31
+assert r['adopted_complete_histories']==17 and r['adopted_partial_boundaries']==2
+assert r['exact_history_output_witnesses']==288 and r['completion_parameter_identities_versions_unchanged']
+assert r['parent_parameter_aggregate_check_missing'] and not r['inherited_parent_resource_gate']
 assert r['LM_head_calls']==r['source_generations']==r['optimizer_updates']==r['native_calls']==r['reserved_queries']==0
 P=np.fromfile(r['basis']['path'],dtype='<f4').reshape(2048,256).astype('f8')
 gram=P.T@P;defect=float(np.max(np.abs(gram-np.eye(256))))
@@ -82,11 +85,12 @@ for split in ('FIT','DEV'):
             centered_retained_min=float(min(row['centered_retained_fraction'] for row in group)),domains=domains))
 out=dict(schema='ORIGINAL_HISTORY_BOUNDARIES_STORED_AUDIT_V1',decision='STORED_BOUNDARIES_PROJECTION_PASS',
     binding_sha256=r['binding_sha256'],result_sha256=t['result_sha256'],checked_inputs=len(b['inputs']),checked_outputs=len(t['output_files']),
-    output_bytes=sum(item['bytes'] for item in t['output_files']),raw_payload_bytes=raw,projected_payload_bytes=projected,
+    new_output_bytes=sum(item['bytes'] for item in t['output_files']),old_output_bytes=sum(item['bytes'] for item in b['old_output_files']),
+    combined_held_seconds=b['parent_held_seconds']+t['elapsed_seconds'],raw_payload_bytes=raw,projected_payload_bytes=projected,
     projection_rows=sum(row['positions'] for row in rows),projection_worst_row_relative_RMS=max_projection,
     energy_relative_delta_max=max_energy_delta,basis_orthogonality_max=defect,
     discarded_estimate_vs_exact_relative_delta_max=max_discarded_identity_delta,aggregates=aggregates,rows=rows,
-    source_calls=0,optimizer_updates=0,native_calls=0,
+    source_calls=0,optimizer_updates=0,native_calls=0,parent_resource_failure_preserved=True,parent_parameter_aggregate_gap_preserved=True,
     scope='All saved projection rows independently checked by CPU NumPy F64 hP;all energy summaries/hashes checked.'
         'Script elapsed only,not separately held family resources;energy fractions are not a chatbot preservation theorem.',
     elapsed_seconds=time.monotonic()-start)

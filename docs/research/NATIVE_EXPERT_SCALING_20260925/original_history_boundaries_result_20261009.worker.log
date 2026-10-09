@@ -1,0 +1,64 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 7016.83it/s]
+{"seconds": 61.71899999998277, "stage": "source_loaded", "source_parameters": 411, "basis_orthogonality_max": 7.697597101952169e-07}
+{"seconds": 71.28099999995902, "stage": "captured_case", "id": "broad_fit_apigen_80k_002", "cases": 1, "raw_bytes": 22163456, "projected_bytes": 5540864, "exact_output_witnesses": 6}
+{"seconds": 76.06199999997625, "stage": "captured_case", "id": "broad_fit_apigen_80k_023", "cases": 2, "raw_bytes": 35897344, "projected_bytes": 8974336, "exact_output_witnesses": 12}
+{"seconds": 78.82799999997951, "stage": "captured_case", "id": "broad_fit_everyday_conversations_002", "cases": 3, "raw_bytes": 46305280, "projected_bytes": 11576320, "exact_output_witnesses": 18}
+{"seconds": 81.88999999995576, "stage": "captured_case", "id": "broad_fit_everyday_conversations_010", "cases": 4, "raw_bytes": 56827904, "projected_bytes": 14206976, "exact_output_witnesses": 24}
+{"seconds": 83.42199999996228, "stage": "captured_case", "id": "broad_fit_explore_instruct_rewriting_008", "cases": 5, "raw_bytes": 58490880, "projected_bytes": 14622720, "exact_output_witnesses": 30}
+{"seconds": 85.79699999996228, "stage": "captured_case", "id": "broad_fit_explore_instruct_rewriting_009", "cases": 6, "raw_bytes": 61071360, "projected_bytes": 15267840, "exact_output_witnesses": 36}
+{"seconds": 87.96899999998277, "stage": "captured_case", "id": "broad_fit_metamathqa_50k_015", "cases": 7, "raw_bytes": 67063808, "projected_bytes": 16765952, "exact_output_witnesses": 42}
+{"seconds": 90.54699999996228, "stage": "captured_case", "id": "broad_fit_metamathqa_50k_023", "cases": 8, "raw_bytes": 76726272, "projected_bytes": 19181568, "exact_output_witnesses": 48}
+{"seconds": 93.96899999998277, "stage": "captured_case", "id": "broad_fit_numina_cot_100k_015", "cases": 9, "raw_bytes": 85843968, "projected_bytes": 21460992, "exact_output_witnesses": 54}
+{"seconds": 96.84399999998277, "stage": "captured_case", "id": "broad_fit_numina_cot_100k_016", "cases": 10, "raw_bytes": 96768000, "projected_bytes": 24192000, "exact_output_witnesses": 60}
+{"seconds": 99.56199999997625, "stage": "captured_case", "id": "broad_fit_openhermes_100k_004", "cases": 11, "raw_bytes": 105828352, "projected_bytes": 26457088, "exact_output_witnesses": 66}
+{"seconds": 103.51499999995576, "stage": "captured_case", "id": "broad_fit_openhermes_100k_028", "cases": 12, "raw_bytes": 118300672, "projected_bytes": 29575168, "exact_output_witnesses": 72}
+{"seconds": 106.82799999997951, "stage": "captured_case", "id": "broad_fit_self_oss_instruct_006", "cases": 13, "raw_bytes": 130658304, "projected_bytes": 32664576, "exact_output_witnesses": 78}
+{"seconds": 110.35899999999674, "stage": "captured_case", "id": "broad_fit_self_oss_instruct_012", "cases": 14, "raw_bytes": 140320768, "projected_bytes": 35080192, "exact_output_witnesses": 84}
+{"seconds": 113.10899999999674, "stage": "captured_case", "id": "broad_fit_smol_constraints_005", "cases": 15, "raw_bytes": 147144704, "projected_bytes": 36786176, "exact_output_witnesses": 90}
+{"seconds": 115.75, "stage": "captured_case", "id": "broad_fit_smol_constraints_021", "cases": 16, "raw_bytes": 155574272, "projected_bytes": 38893568, "exact_output_witnesses": 96}
+{"seconds": 122.03099999995902, "stage": "captured_case", "id": "broad_fit_smol_magpie_ultra_000", "cases": 17, "raw_bytes": 185221120, "projected_bytes": 46305280, "exact_output_witnesses": 102}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_history_boundaries.py", line 315, in <module>
+    else: worker(args)
+          ^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_history_boundaries.py", line 273, in worker
+    result=model.model(input_ids=ids, attention_mask=torch.ones_like(ids), use_cache=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\transformers\utils\generic.py", line 1040, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\transformers\utils\output_capturing.py", line 252, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\transformers\models\falcon_h1\modeling_falcon_h1.py", line 1162, in forward
+    layer_outputs = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\transformers\modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\nn\modules\module.py", line 1845, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\nn\modules\module.py", line 1806, in inner
+    hook_result = hook(self, args, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_history_boundaries.py", line 264, in <lambda>
+    lambda m,args,out,site=site: save_boundary(site+1,out[0])))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_history_boundaries.py", line 244, in save_boundary
+    current['boundaries'].append(item); guard()
+                                        ^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_history_boundaries.py", line 196, in guard
+    assert torch.cuda.max_memory_reserved() <= lim['GPU_reserved_bytes'], 'GPU reserved cap'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: GPU reserved cap
