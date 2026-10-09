@@ -148,9 +148,7 @@ def scan(torch, code, x, bb, cc, delta, A_log, dskip):
     G = torch.cat([(cc[:, i:i+1, :, None, :, :]*bb[:, i:i+1, None, :, :, :]).sum(-1)
         for i in range(cc.shape[1])], dim=1)
     M = (G[..., None]*decay.permute(0, 2, 3, 4, 1)[..., None]).sum(-1)
-    # Bound this temporary on the source chunk axis; keep the S reduction intact.
-    diag = torch.cat([(M[:, i:i+1, ..., None]*x[:, i:i+1, None]).sum(dim=3)
-        for i in range(M.shape[1])], dim=1)
+    diag = (M[..., None]*x[:, :, None]).sum(dim=3)
     ds = torch.exp(acum[:, :, :, -1:]-acum)
     bd = bb*ds.permute(0, -2, -1, 1)[..., None]
     states = torch.cat([(bd[:, i:i+1, ..., None, :]*x[:, i:i+1, ..., None]).sum(dim=2)
@@ -214,8 +212,6 @@ def worker(a):
             guard(); print(json.dumps(dict(seconds=time.monotonic()-start, **fields)), flush=True)
         capture = json.loads(Path(b['capture']).read_bytes()); records = capture['records']
         fit = [r for r in records if r['split'] == 'FIT']; assert len(fit) == 24
-        measured = list(b.get('adopted_measurements', []))
-        inherited = {(r['id'], r['site']) for r in measured}
         rank = b['rank']; all_bases = {}
         def raw(item):
             shape = tuple(item['shape'])
@@ -224,15 +220,6 @@ def worker(a):
             return np.fromfile(item['path'], dtype='<f4').reshape(shape)
         for site in b['basis_sites']:
             stage = f'basis{site}'
-            if 'adopted_bases' in b:
-                packet = next(p for p in b['adopted_bases'] if p['site'] == site)
-                with np.load(packet['basis']['path']) as stored:
-                    all_bases[site] = (torch.from_numpy(stored['R'].astype('f4')).cuda(),
-                        torch.from_numpy(stored['coordinates']).cuda(),
-                        torch.from_numpy(stored['V'].astype('f4')).cuda(),
-                        torch.from_numpy(stored['W'].astype('f4')).cuda())
-                bases.append(packet); event(stage='adopted_basis', site=site)
-                continue
             joint = torch.zeros((256, 256), dtype=torch.float64)
             grams = {name:torch.zeros_like(joint) for name in ('B', 'C')}
             centered = torch.zeros_like(joint)
@@ -291,24 +278,7 @@ def worker(a):
                     normalized = gated*torch.rsqrt(gated.square().mean(-1, keepdim=True)+config['rms_norm_eps'])
                     return torch.nn.functional.linear((normalized*weight).bfloat16(), out_weight)
                 R, coord, V, W = all_bases[site]
-                if ('broad_fit_smol_magpie_ultra_022', site) in inherited:
-                    rec = next(r for r in records if r['id'] == 'broad_fit_smol_magpie_ultra_022')
-                    fields = rec['sites'][site]['fields']
-                    channels = np.array([0,63,64,511,1023,1535,2047,3071]); heads = channels//64
-                    state = np.zeros((8,256), dtype='f8'); direct = []
-                    bb64=raw(fields['B']).astype('f8');cc64=raw(fields['C']).astype('f8')
-                    x64=raw(fields['x'])[:,channels].astype('f8');dt64=raw(fields['delta'])[:,heads].astype('f8')
-                    aa=-np.exp(A_log.cpu().float().numpy().astype('f8'))[heads]
-                    dd=dskip.cpu().float().numpy().astype('f8')[heads]
-                    for t in range(rec['history']):
-                        state=state*np.exp(dt64[t,:,None]*aa[:,None])+dt64[t,:,None]*x64[t,:,None]*bb64[t]
-                        direct.append((state*cc64[t]).sum(-1)+dd*x64[t])
-                    actual=raw(fields['y'])[:,channels].astype('f8');direct=np.asarray(direct)
-                    error=float(np.sqrt(np.mean((direct-actual)**2))/max(np.sqrt(np.mean(actual**2)),1e-12))
-                    scalar_records.append(dict(id=rec['id'],site=site,channels=channels.tolist(),history=rec['history'],relative_RMS=error,
-                        passed=error<=b['criteria']['scalar_F64_relative_RMS'],origin='Stored-only witness missing from original fault record'))
                 for rec in records:
-                    if (rec['id'], site) in inherited: continue
                     stage = f"{rec['id']}/site{site:02d}"
                     fields = rec['sites'][site]['fields']
                     values = {name:torch.from_numpy(raw(item)).cuda() for name,item in fields.items()}
@@ -354,7 +324,6 @@ def worker(a):
                     measured.append(row);write(a.directory/f"{rec['id']}.site{site:02d}.metrics.json",row)
                     event(stage='assay', id=rec['id'],site=site,complete=len(measured),reconstruction=ok,arms=arms)
                     del values, xx,bb,cc,delta, yy,out, Bp,Cp,skip,source_output,source_centered
-                    torch.cuda.empty_cache()
         qualified=not reconstruction_failures and len(scalar_records)==3 and all(r['passed'] for r in scalar_records)
         aggregates = {}
         for site in b['assay_sites']:
@@ -367,9 +336,6 @@ def worker(a):
             decision='LOCAL_RECURRENT_PROJECTION_MEASUREMENTS_QUALIFIED' if qualified else 'LOCAL_RECONSTRUCTION_GATE_FAIL',
             reconstruction_qualified=qualified,reconstruction_failures=reconstruction_failures,scalar_F64=scalar_records,
             bases=bases,records=measured,aggregates=aggregates,algebraic_candidate_costs=core_costs(),
-            inherited_case_sites=len(inherited),new_case_sites=len(measured)-len(inherited),
-            basis_fits=0 if 'adopted_bases' in b else 24,
-            storage_schedule='Y_diag temporary sliced on source chunk axis,unchanged S reduction;empty_cache after each new case',
             source_forwards=0,optimizer_updates=0,native_calls=0,
             optimistic_scope='All source3072 x/gate channels/48 heads and complete source generators,full norm/out_proj retained;'
                 'isolates state rank,not DN512/1024 feasibility,source-to-P256 projection,head/layer composition or chatbot quality.',
