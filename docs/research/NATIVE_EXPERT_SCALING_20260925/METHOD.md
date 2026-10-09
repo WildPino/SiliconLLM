@@ -8,6 +8,35 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest real converter stage:** [source recurrent capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md)
+all48 forced histories/all24 sites/every position,16.121GB logical operands;
+45 completed originals/one partial preserved, missing3 completed, exact63 partial
+prefix witnesses. Source replies/labels not regenerated. Original source-family
+exit/held resources/final parameter identity check remain UNKNOWN; separate new3
+family resources PASS. Stored finite/extent/hash adoption qualifies the data only.
+
+[Actual rank96 transport](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md):
+24 FIT-only read/write bases;144 full-history case-sites0/12/23,all source x/gate/
+48-head functions/full norm retained. Baseline reconstruction errors0 and independent
+F64 recurrence witnesses PASS. Dual96 DEV mean output error7.6349%/8.7184%/2.4918%,
+coordinate96 20.1061%/25.7026%/4.4961%. Independent NumPy F64 confirms all24
+pair-kernel/biorthogonality identities and recomputes every aggregate with delta0.
+Leading local initializer is dual96, not a whole-model quality admission.
+First GPU-reserved-cap fault retained;24 bases/18 metrics adopted and only126
+missing comparisons computed with chunk-bounded storage/samecaps. Combined held
+projection families95.689s; successful completion GPU1.169/1.642GB,OS1.458GB.
+No optimizer/native/source forwards in this stage, no original engine modification.
+
+**Current missing construction:** dense state bases need512 source nonlinear B/C
+auxiliaries. Original DT16 cannot represent arbitrary48 delta functions. Proposed
+DN1024/DT48 may retain48 timescales/8 x channels per head plus auxiliaries,992
+channels total, but channel/gate/full-norm omission and P256/depth losses are
+unmeasured. Widthvariants unimplemented. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+is FIT-derived output-weighted channel/head and denominator diagnostics on retained
+data before one warm learner/export/native variant or further adaptation dose.
+LUT/dReLU/AQ63/sparse ternary endpoint remains the target; counted matrix products
+do not establish latency. Useful chatbot+same-artifact50 remains missing.
+
 **Newest actual whole result:** [original24-FIT recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
 COMPLETE/native distribution FAIL. Exact Adam1 adoption/all24 new updates/end25,
 full native48 before/after/95 new children; all updated18,432 integer witnesses
@@ -16,12 +45,12 @@ exact in every child. DEV caseKL12.09313->9.01572/25.4476% recovery, disagreemen
 post-export path-metadata fault preserved; evaluation-only completion did not
 replay training/baseline/export. Canonical held-family2998.562s; exact original
 GPU/launcher peaks missing, not retroactively qualified. No source/RESERVED/T4.
-[Selected next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) accounts for source
-recurrent transport/nonlinear generation/norm and24->6 lost composition, then
-freezes a genuinely new internal-information capture before another dose or
-geometry. Partial recovery is not a universal D256 capacity limit or useful chat.
+[Selected next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses the completed
+internal capture/rank96 measurements above to measure channel/gate/full-norm
+omission before a real warm candidate.24->6 lost composition remains open.
+Partial recovery is not a universal D256 capacity limit or useful chat.
 
-**Newest information diagnostic:** [original readout image](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md)
+**Earlier readout diagnostic:** [original readout image](ORIGINAL_READOUT_INFORMATION_RESULT_20261009.md)
 complete72 FIT labels; current fixed-head arbitrary-feature mean bracket.65986-
 .66174 versus scaled.04259-.05947,per-label gaps unresolved. This proves neither
 realizable history functions nor general D256 capacity. Actual native256-label
@@ -68,9 +97,9 @@ removes that dependency for new supported learner tensors.
 [Selected next decision](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) reuses the real
 source-informed ledger/streamed adjoint/Adam25/cached outputs. Source-count n1152
 is a capacity allowance, not conservation of information. Current RMS/readout
-geometry and finite native whole recovery are measured. Select new source
-history/operator information before further dose/geometry; initializer and
-composition losses are not individually diagnosed by the whole experiment.
+geometry and finite native whole recovery are measured. The subsequent internal
+capture/rank96 stage is now complete above; choose the channel/head/gate representation
+before further dose/geometry. Initializer/composition losses remain distinct.
 No E32 dose/copied-bank sweep/T4 now.
 The [earlier0+8/2+6 comparison](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) remains
 COMPLETE with preference/absoluteDEV failures and retained A344/B344 states.

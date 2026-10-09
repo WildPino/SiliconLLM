@@ -103,12 +103,15 @@ benchmarks/native_expert_scaling/original_falcon_recurrent_capture.py --launch -
 benchmarks/native_expert_scaling/original_falcon_recurrent_resume.py --adopt --out docs/research/NATIVE_EXPERT_SCALING_20260925/original_falcon_recurrent_adopted_result_20261009.json
 ```
 
-[Frozen stored projection](ORIGINAL_FALCON_RECURRENT_PROJECTION_PROTOCOL_20261009.md)
-fits bases on24 FIT histories/all24 sites, evaluates complete recurrent/gated/
-normalized outputs on sites0/12/23 and all48 histories. Coordinate96/orthogonal96/
-dual96 distinguish state loss and nonlinear-generator representation cost.
-Centered/recurrent-only errors and independent scalar F64 reconstruction guard
-against mean/Dskip domination and implementation mistakes. No source replay.
+[Completed stored projection](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md)
+fits bases on24 FIT histories/all24 sites and evaluates complete recurrent/gated/
+normalized outputs on sites0/12/23 and all48 histories. All144 baseline errors0;
+three independent scalar F64 witnesses PASS. Coordinate96/orthogonal96/dual96
+distinguish state loss and nonlinear-generator representation cost. DEV mean
+dual output errors7.6349%/8.7184%/2.4918% versus coordinate20.1061%/25.7026%/4.4961%.
+Centered/recurrent-only errors and independent F64 identity/aggregate audit retained.
+No source replay; original reserved-GPU fault retained, missing126 comparisons
+completed under the same GPU caps with a bounded chunk-storage schedule.
 
 These are source-local diagnostics retaining all3072 x/gate channels/48 heads.
 They do not qualify DN512/1024/P256/24->6 composition or whole chatbot quality.

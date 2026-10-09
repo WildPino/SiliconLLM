@@ -1,5 +1,26 @@
 # Native expert-count scaling: prior evidence
 
+**9 October source recurrence captured; rank96 local transport COMPLETE/valid:**
+[Capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md), all48 canonical
+full histories/all24 sites/seven fields/every position,22,547 IDs/16.121GB logical.
+45 complete originals/one partial preserved; missing3 new source forwards completed;
+63 old partial fields exactly match new prefix. Original source exit/resource/final
+parameter check missing; separate3 family PASS, no retroactive aggregate qualification.
+[Projection](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md): actual24
+FIT-only bases,all144 case-sites0/12/23,baseline errors0/three scalarF64 witnessesPASS.
+DEV mean source-local output errors dual96 7.6349%/8.7184%/2.4918%, orthogonal96
+8.2659%/12.3503%/3.2013%, coordinate96 20.1061%/25.7026%/4.4961%. All3072 x/gate
+channels/48heads/full source norm/generators retained; not DN512/1024/P256/depth
+or chatbot admission. First reservedcap6.732GB fault remains; completed24 bases/
+18 metrics adopted,ONLY126 missing comparisons finished under samecaps viachunk
+storage. Actual held projection families95.689s; completionexit0/session46714 CLOSED,
+GPU1.169/1.642GB/conservative OS1.458GB/rawa00fa532. No optimizer/native/source
+calls for projection. Stored NumPyF64 audit freeze19e1a36/rawae5c8e83/exit0 verifies
+all24 kernel/biorthogonality identities and144 aggregatesdelta0, with domain/case
+tails. Choose dual96 as leading local map, measure channel/gate/full-norm omission
+next on retained data; widthvariants unimplemented/engine unchanged. Adam25/five
+whole quality failures/originalnumericFAIL remain. No T4/RESERVED/new replies.
+
 **9 October original-operator24-FIT recovery/native48 evaluation COMPLETE; quality FAIL:**
 [Result](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md),original freeze7671731/
 bind8d98addd,finish freezed1ea53a/bind2473e481/raw46dd5f66,canonicala4090938.

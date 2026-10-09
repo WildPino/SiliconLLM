@@ -41,14 +41,29 @@ not identify retained knowledge, and no single omission is experimentally proven
 to be the dominant cause. The goal is a converter into the original LUT/ternary/
 SSM machinery with bounded active cost; donor-sized runtime is not presently priced.
 
-## Selected next investigation: source recurrent transport, with composition explicit
+## Actual source-state investigation, then one channel/gate decision
 
-First complete algebra/operator/cost accounting against the locally pinned source
-and original code. Then freeze one finite NEW internal-state capture only if it
-supplies missing information for selecting an initializer or a geometry. Reuse
-existing canonical FIT/DEV IDs and teacher output packets; no new RESERVED queries
-or repeated donor answers. No source/model/native runs have yet been executed for
-this next investigation. A protocol/binding/caps must precede any capture.
+[Internal capture](ORIGINAL_FALCON_RECURRENT_CAPTURE_RESULT_20261009.md) is COMPLETE:
+all48 existing forced histories/all24 blocks/seven fields/every position.45 complete
+originals/one partial/new3 completions; exact63 partial-prefix byte witnesses.
+16.121GB logical payload/16.388GB physically retained. Original source-parent
+exit/held resources/final identity check are unknown; separate new3 resource PASS
+does not qualify the original aggregate. No new replies/labels/RESERVED queries.
+
+[Local state projection](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md)
+is COMPLETE:24 FIT-only bases;coordinate96/orthogonal96/dual96 at sites0/12/23,
+all48 histories;144 source reconstruction errors0 and three F64 state witnesses
+PASS. DEV mean output error dual7.6349%/8.7184%/2.4918% versus coordinate20.1061%/
+25.7026%/4.4961%. Independent stored F64 confirms kernel identities/aggregates.
+All source3072 x/gate channels/48 heads/fullnorm/generators remain in this assay;
+no compact width/P256/composition/chatbot/speed qualification. First GPUcap fault
+retained;24 bases/18 metrics reused,126 missing finished under unchanged caps;
+combined held projection families95.689s. No source/model/optimizer/native calls
+in the projection/audit stage.
+
+Leading source-local state map is dual96. Next measure output-weighted channel/
+head and gate/full-norm denominator omission USING RETAINED DATA before committing
+to one warm geometry. No further source capture or same-recipe Adam25 dose now.
 
 Primary source code already inspected: pinned local
 `results/native_expert_scaling/chatbot_source_runtime/site/transformers/models/falcon_h1/modeling_falcon_h1.py`,
@@ -74,8 +89,21 @@ it does not make their nonlinear generators or whole chatbot exact. An arbitrary
 projection across heads does not commute when head decays differ.
 
 Need NEW reached B/C/state/output-energy information to pick R and donor channels,
-not just SVD of coefficient matrices. Rank96 may be useful or insufficient; measure
-output-weighted omitted modes, per-domain tails and propagated history error.
+not just SVD of coefficient matrices. The completed rank96 assay above implements
+this orthogonal control and a better observed dual read/write alternative:
+
+```text
+G_B = equal FIT case mean(B^T B / trace(B^T B)); likewise G_C
+H = sqrt(G_C) sqrt(G_B) = U Sigma Q^T
+V = sqrt(G_B) Q_r Sigma_r^(-1/2)
+W = sqrt(G_C) U_r Sigma_r^(-1/2)
+W^T V = I; z = W^T s; B' = W^T B; C' = V^T C
+```
+
+Its Cartesian weighted B/C pair-kernel error is the optimal rank-r singular tail;
+actual causal decay, gating/output and whole loss are different objectives.
+Observed rank96 DEV errors/tails are in the report. Dual basis norms grow to32.18/
+45.45 atsite23; actual target precision must be checked. No conservation theorem.
 Do not transfer/reset a source state at each step and call that target free-running.
 
 ### Original B/C/delta generators have an identifiable representation cost
@@ -95,12 +123,17 @@ represent arbitrary48 independent donor functions without compression. MuP/input
 output scalars, time-step clamp, biases and F32/approximate-sigmoid arithmetic must
 be included. This is an untested construction, not numerical qualification.
 
-Illustrative channel counts, not selected architectures:
+Channel counts, not implemented/qualified architectures:
 
 - Original DN512:256 retained x channels (four donor heads),96+96 B/C coordinate
   channels,8 paired delta channels =456. Only a state coordinate subset is represented.
 - DN1024:256 x, full256+256 B/C and8 delta =776; now a general rank96 state map
-  is representable by x_proj. Wider core has real per-token compute/storage cost.
+  is representable by x_proj, but only four source heads/timescales remain.
+- DN1024/DT48:384 x (8 per each of48 heads),full256+256 B/C,96 paired delta =992.
+  Retains all48 timescales but discards56/64 source x/gate channels per head.
+  Gate/input projection/operator differences remain. This is the leading layout
+  to investigate alongside a same-channel-budget whole-head selection control,
+  not a warm checkpoint or a claim of acceptable error.
 
 Unused/auxiliary scan channels still cost recurrence work in the unchanged engine.
 Original auxiliary output columns can be zero; compute cannot be counted as zero
@@ -122,22 +155,43 @@ on real states before selecting L6, more layers or a parallel mixer. Preserve
 source order when a deeper variant is selected; do not substitute an average for
 function composition. n can shrink per site as depth grows, but active work grows.
 
-## Finite capture and decision requirements
+## Finite next assay and decision requirements
 
-Before source inference, specify exact NEW tensors/times/layers, canonical case IDs,
-full histories, dtype, output bytes, source/internal code hooks and pre/post hashes.
-Use a fixed FIT subset with DEV held for evaluating the chosen map; no map selection
-on DEV. Streaming sufficient statistics can reduce storage, but output-weighted
-cross-moments/tails and direct residual checks need an auditable definition.
-Existing whole teacher logits supply the same global labels without regeneration.
+State-rank comparisons are now complete; do not replay them merely to reconfirm.
+Freeze a stored-only channel/head assay before observing new predictions. All24 FIT
+histories determine output-weighted selection at sites0/12/23; all24 DEV histories
+evaluate it, no DEV selection. Budget384 active channels:48 heads x8 channels versus
+six complete64-channel heads selected on FIT. Both use the same actual source
+gate and output projection restricted to chosen columns. This tests channel/head
+omission first; dual96 state omission has its independent measured result above.
+Do not call their separately observed errors a combined converted-model result.
 
-A meaningful first comparison is scalar-decay projected recurrent outputs versus
-original-state target outputs with independently reconstructed coefficients and
-accumulated state, including gate/norm/output multipliers. Report how much of the
-source block survives the representation before fitting. Local error informs a
-candidate; it is not a necessary whole-chatbot theorem or a substitute for native
-DEV/own-history quality. If composition/projection loss dominates, revise that map
-before spending long compute on warm SSM alone.
+FIT selection should include output cancellation/correlation rather than ranking
+raw feature energy alone: fit a deterministic greedy residual reduction on actual
+gated source output contributions, using equal case weights and declared rounding.
+Selection on source-local full-norm features is an optimistic diagnostic. Measure
+selected-column output under (1) actual full3072 denominator, (2) deployable subset
+RMS with FIT-only scalar calibration, and (3) FIT-only constant denominator. Price
+an actual norm extension separately. Source BF16 arithmetic/rounding and the source
+normalization epsilon must be matched before interpreting channel errors.
+
+Report full/centered/label-position relativeRMS, domain/worst tails, retained
+denominator energy and a baseline reconstruction check. Predeclare a finite local
+selection rule: provisionally continue one layout only if DEV mean output error
+<=10%, all case/domain worst<=20%, and centered mean<=10% at every assayed site.
+This is a new engineering budget for the next assay, not applied retroactively to
+rank96 results and not chatbot admission. If neither budgeted layout meets it,
+revise the representation (mixed features/gate operator or depth) before longer
+training; do not increase thresholds after observation. A candidate passing this
+diagnostic must still measure combined dual96+channel+P256+operator errors.
+
+No new source/optimizer/native/T4 call for that assay; data already exist. Maximum
+one declared family/30min/OS6GiB/GPU4allocated/5reserved/output32MiB, reserve90s;
+pre/post byte bindings, held launch/worker identity/resources and first faults.
+These are planning caps; implementation/frozen protocol/binding are still missing,
+and no channel-assay predictions are claimed. Adopt partial results rather than
+refit/replay completed comparisons on interruption. Local failure is not a theorem
+of impossibility for a jointly learned representation or another donor.
 
 Price original DN512 versus any wider/deeper candidate in complete matrix products,
 scan states/exponentials, normalized routing, selected ternary bytes, fullV head,
