@@ -67,8 +67,12 @@ now COMPLETE/FAIL:48x8/6x64,all144 cases each,all baseline errors0;18 FIT-only
 readout fits cannot rescue the frozen selection. 48x8 DEV mean with actual full
 denominator80.47%/81.74%/53.92% ->76.71%/80.27%/47.44%. Deployable modes fail too.
 Actual131.500s combined held families,both exit0/resourcesPASS;no source/optimizer/
-native/RESERVED/T4. Mixed channel functions are the next new variable;do not repeat
-selection/refit or extend same-recipe Adam25. No warm geometry selected yet.
+native/RESERVED/T4. Mixed raw-y PCA is now [COMPLETE](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md):
+projected operator errors<=3.454e-7/threeF64 witnessesPASS,all144 baselines0,but
+full-source-gate decoder DEV errors56.93%/84.61%/69.74%;all local gatesFAIL.
+103.897MB actual F32 mixed histories/bases retained;held70.531s/exit0/resourcesPASS.
+Next read/write-weighted channel geometry uses the output metric rather than raw
+y energy. Do not repeat selection/refit/PCA or extend Adam25. No warm geometry yet.
 
 Primary source code already inspected: pinned local
 `results/native_expert_scaling/chatbot_source_runtime/site/transformers/models/falcon_h1/modeling_falcon_h1.py`,
@@ -200,7 +204,7 @@ All comparisons complete,FAIL,with equations/quadratic/resourcePASS. Reports lin
 actual protocols/bindings/commands/results/costs. Local failure is not a theorem
 of impossibility for jointly learned features or another donor.
 
-### Selected next: retain mixtures of UNGATED history channels
+### Validated projection,failed raw-y basis choice
 
 For each source head,all64 channels share scalar A_h/delta_h/B/C and Dskip_h.
 Fixed R_h(64x8) commutes with their linear state update and ungated output:
@@ -218,7 +222,7 @@ diagnostics separately. No new source capture. Evaluate ALL24 DEV full histories
 New variable is mixing channels,not increasing384 budget. Independently check the
 projected recurrence against R_h^T captured y using actual x/B/C/delta/A/D and
 F64 witnesses before interpreting projected responses. All source coefficients
-and matrices already available;worker/protocol/binding still unimplemented.
+and matrices were used in the actual frozen worker/protocol/binding/report above.
 
 Then reconstruct y_hat_h=R_h y'_h and measure downstream source output with
 actual source gate/full denominator and reconstructed denominator,full/centered/
@@ -237,11 +241,52 @@ selected active-work/DRAM budget;extra stored functions may encode redundancy,
 but their routing/usefulness/accuracy/cost must be demonstrated. Preserve the
 original endpoint advantage rather than carrying all donor nonlinear channels.
 
-Next family planned maximum1800s/reserve90,OS6GiB/GPU4/5GiB/output96MiB,one owned
-job,pre/post frozen bytes/held processes/resources/first faults. Define exact
-generated/projection fields/dtypes/reduction/error criteria and costs in a NEW
-protocol before execution. No new predictions/candidate claimed yet. Keep actual
-Adam25 and all failed selected/linear maps. No same-recipe dose/T4 now.
+This family is complete1800s/reserve90/OS6GiB/GPU4/5GiB/resourcePASS. Its frozen
+output allowance128MiB replaced the96MiB planning value before observations to
+save103.897MB actual F32 latents plus~10MB bases/statistics. No compact candidate
+admitted. Keep Adam25 and all failed selected/linear/mixedraw-y maps.
+
+### Selected next: balance channel write variance and output reading metric
+
+For each source head define the real-arithmetic read matrix BEFORE BF16 feature
+rounding,as a source-local diagnostic:
+M_h,t=O_h diag(norm_weight_h*SiLU(gate_h,t)/source_denominator_t).
+FIT-only equal-case/time Grams G_Y=E[y_h y_h^T],G_M=E[M_h^T M_h],without
+per-head trace normalization so read/write signal strength is available for rank
+allocation. Source full norm values are a diagnostic oracle,not a compact generator.
+G_M can be computed as the Schur product of O_h^T O_h and the normalized gated-
+weight covariance;it must be PSD/finite. All operands/coefficients already captured.
+
+For H=sqrt(G_M)sqrt(G_Y)=U Sigma Q^T,form V=sqrt(G_Y)Q_r Sigma_r^(-1/2),
+W=sqrt(G_M)U_r Sigma_r^(-1/2),W^T V=I. Project state/input/y with W^T,reconstruct
+with V. Same scalar-head commutation remains valid. This minimizes the Cartesian
+independent-time pair error E_(t,u)||M_h,t(I-VW^T)y_h,u||^2 at fixed rank;it does
+NOT optimize same-time correlations,causal decay,head cancellation,BF16 rounding
+or chatbot loss. Downstream measurements must retain actual source rounding.
+Independently verify biorthogonality/truncated weighted kernel/singular tails in
+F64,then projected scan/F64 witnesses before trusting downstream measurements.
+
+One comparison with two variants,each total384:fixed8/head versus adaptive FIT-only
+r_h>=1,sum r_h=384,r_h<=64. Allocate the336 ranks after the required48 using largest
+next Sigma_h,r^2,lowest headindex breaks ties;this is optimal for the SEPARABLE
+pair objective with these constraints,not actual coupled output loss. Report all
+head ranks/timescales/tails/basis norms. Compare both on ALL24 DEV histories/
+sites0/12/23,fullsource gate and source/reconstructed norm diagnostics,full/centered/
+label/domain/worst errors. Original raw-y PCA results already exist as an immutable
+control,do not refit/replay it. No DEV map fitting or post-observationrank changes.
+
+Same10%mean/20%worst/10%centered local budget decides whether the weighted encoder
+earns a conditional-generator/decoder study,not native/quality admission. Variable
+headrank means packed384 state channels tied to sourcehead identities;do not pad
+to3072 and claim384 active work. Price actual padded/grouped diagnostic compute
+separately from a future native implementation. Preserve same active channel budget.
+
+Planned family1800s/reserve90,OS6GiB/GPU4/5GiB,output256MiB to retain both F32
+384-latent fields(~207.8MB) and basis/metric data. New worker/protocol/binding not
+implemented yet;freeze before execution,one ownedjob,pre/post raw bytes/held
+processes/resources/first faults. No source/labels/Adam25 dose/T4. Mixed nonlinear
+generators and gate decode still require actual conditional-function realization
+under ternary/LUT/routing/DRAM cost;the geometry alone is not a whole pipeline.
 
 Price original DN512 versus any wider/deeper candidate in complete matrix products,
 scan states/exponentials, normalized routing, selected ternary bytes, fullV head,

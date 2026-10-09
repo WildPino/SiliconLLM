@@ -29,6 +29,19 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Mixed384 history](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md): COMPLETE,
+projected recurrence valid;plain decoder budget FAIL.** FIT-only144 head bases,
+8 ungated mixtures per48 heads;all144 generated histories saved F32/103.897MB.
+Projected scan error<=3.454e-7/recurrent-only<=2.105e-7/three F64 witnessesPASS,
+all source output baseline errors0. DEV output mean with actual full gate/source
+denominator56.93%/84.61%/69.74%;recomputed denominator58.75%/84.82%/67.34%.
+All predeclared local gates FAIL. Raw-y PCA improves site0 versus repaired copied
+channels,but worsens12/23;not an information-capacity theorem. Held70.531s/exit0/
+session36520 CLOSED,OS1.560GB/GPU1.152/1.294GB,114.177MB namespace/resourcesPASS.
+Original engine/Adam25 unchanged,no source/optimizer/native/T4. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+weights channel read/write geometry by actual gate/output metric,compares fixed8
+versus FIT-only384 total rank allocation across48 heads. New protocol/code missing.
+
 **[384-channel transfer + output repair](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md):
 COMPLETE/numerically valid;both representation budgets FAIL.** FIT-only output-aware
 8 channels per48 heads versus6 whole heads;144 case-sites per family,all baseline
@@ -93,10 +106,11 @@ No completed source/update/export/native replay merely for reconfirmation.
 Actual source-informed Adam25/model/RNG/packed bytes remain after failed whole
 recovery. Source internal capture,24 FIT bases/144 local comparisons and independent
 stored audit are COMPLETE. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-keeps dual96 as a measured source-local state map. The channel/head/gate/fullnorm
-assay and fixed-channel18-readout repair are now COMPLETE/FAIL above. Next is one
-within-head mixed-history projection on retained data;new code/protocol/binding
-still missing. No additional source/answer/Adam25 dose selected.
+keeps dual96 as a measured source-local state map. Fixed-channel18-readout repair
+and mixed raw-y PCA history are COMPLETE/FAIL above. Actual mixed384 F32 latents/
+bases are retained. Next is one read/write-weighted channel geometry comparison
+on retained data,with fixed8 and FIT-onlyvariable rank allocation(sum384/min1head).
+New code/protocol/binding still missing;no source/answer/Adam25 dose selected.
 
 The proposed DN1024/DT48 copied8-x-per-head layout is rejected by these local
 criteria;it was not implemented as a whole model. Mixed generators/decoder remain

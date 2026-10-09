@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**9 October mixed384 history COMPLETE/operator PASS/plain decoder FAIL:**
+[Result](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md),freezeaa0ab15/bindd7c23631/
+rawefd7fb64.144 FIT-only8/head bases,48heads/site0/12/23;actual projected source
+recurrenceall144 full histories/source state256. All source baselineerrors0;
+projected scan<=3.454e-7/recurrent-only<=2.105e-7/three scalarF64 witnessesPASS.
+103,896,576B F32 latents retained for later decoderfit,no source-model/optimizer/
+native/RESERVED/T4. Full-gate/source-denominator DEV outputmeans56.93%/84.61%/
+69.74%,recomputed58.75%/84.82%/67.34%;all10%mean/20%worst/10%centered budget gates
+FAIL. Raw-y PCA improves0/worsens12/23 versus repairedcopied48x8;not global
+capacity ceiling. Heldfamily70.531s/exit0/session36520 CLOSED/resourcesPASS,
+OS1,559,941,120B/GPU1,151,896,576/1,293,942,784B;294 files114,176,791B. Independent
+stored aggregate delta2.220447e-16/294output hashesverified. Original engine/Adam25
+unchanged. Next read/write-weighted channel geometry/FIT-onlyrank allocation
+under384 budget uses retaineddata;newprotocol/worker missing.
+
 **9 October384-channel transport and closed-form readout repair COMPLETE/FAIL:**
 [Result](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md). FIT-only greedy
 output-aware48heads x8 versus6wholeheads x64;actual state256/gate/source generators

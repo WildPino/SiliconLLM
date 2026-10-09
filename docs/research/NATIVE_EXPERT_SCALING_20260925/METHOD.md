@@ -8,7 +8,17 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
-**Newest decision-bearing measurements:** [fixed-channel transport/linear repair](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md)
+**Newest implemented source-state operation:** [mixed history](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md)
+144 FIT-only perhead rank8 bases,actual source SSD with384 mixed channels/state256,
+all144 full histories saved F32/103.897MB. Direct projected recurrence versus
+projection of source y errors<=3.454e-7/recurrent-only<=2.105e-7,three independent
+F64 witnessesPASS/all source output baseline errors0. This makes fixed linear
+mixing of source head dynamics real/reproducible. Full-source-gate output decoder
+DEV means56.93%/84.61%/69.74%,all local budget gates FAIL;not a warm chatbot.
+Held70.531s/exit0/resourcesPASS/OS1.560GB/GPU1.152/1.294GB/114.177MB saved;source/
+optimizer/native/T4 zero. Raw-y energy PCA does not minimize the output metric.
+
+**Earlier fixed-channel measurements:** [fixed-channel transport/linear repair](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md)
 COMPLETE/representation FAIL,with source-local numerical/resource PASS. FIT output-
 aware384-channel layouts(48x8 or6x64),3 denominator modes,144 complete case-sites.
 18 separately frozen FIT-only closed-form output fits change the decoder,not IDs.
@@ -42,8 +52,9 @@ No optimizer/native/source forwards in this stage, no original engine modificati
 auxiliaries. Original DT16 cannot represent arbitrary48 delta functions. The
 proposed DN1024/DT48 copied8-x-per-head/992-channel warm construction is rejected
 by the measured channel/readout diagnostics above. Widthvariants unimplemented.
-[Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) changes to mixed UNGATED
-features within each source head,whose scalar dynamics commute with linear mixing.
+[Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses the now-qualified
+mixed-history operator to investigate read/write-weighted channel bases and
+FIT-onlyrank allocation under sum384. Raw-y PCA already fails downstream output.
 Gating and mixed nonlinear generators do not commute/transport for free;their
 conditional realization must be measured before a real warm/native variant or dose.
 LUT/dReLU/AQ63/sparse ternary endpoint remains the target; counted matrix products
