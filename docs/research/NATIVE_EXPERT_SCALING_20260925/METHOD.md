@@ -25,6 +25,12 @@ supplies persistent canonical own-history apparatus and one-core raw46-59/s,
 using the unqualified8-update packed model. Selected donor is
 Falcon-H1-1.5B-Instruct; generality is not demonstrated.
 
+New broad48-case source capture/adoption is COMPLETE/8808 labels/577.25M
+coordinates verified;[result](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md).
+New58/1507-ID [target cost](CHATBOT_BROAD_COST_RESULT_20261009.md) records complete
+finite forwards/backwards but FAILS GPU caps19.31GB allocated/22.00GB reserved,
+0 optimizer steps. Qualify F32 SSD bounded temporary storage before a full pilot.
+
 ## 1. Bind source, interaction and applicability
 
 Latest operational priority: qualify the deployment envelope before additional
@@ -68,13 +74,14 @@ all1092 fail1%. This rules out scalar-only reconciliation in this scope,not
 better routing/overlap/functions/whole transfer. It does not measure checkpoint286
 FFN error or source two-block composition. [Common/private proposal](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
 is the next construction:2 commonH128 functions plus72 private/top8;extra4.719M
-products/2.433MB codes+scales. Unimplemented/unmeasured;fresh capacity/rate open.
+products/2.433MB codes+scales. Implemented/frozen/UNEXECUTED;fresh capacity/rate open.
 
 [Engine pipeline priority](ENGINE_PIPELINE_PRIORITY_20261009.md) identifies
 the next decision-bearing gaps: source group sum versus selected normalized
 mixture, redundant atom coverage/coefficients, accessible-state information
-loss and full chatbot readout. Close/adopt the current recovery before new
-observations. More experts cannot distinguish histories mapped to the same
+loss and full chatbot readout. Recovery/state evaluation is complete at actual286;
+broader supervision is adopted and long training storage is the current gate.
+More experts cannot distinguish histories mapped to the same
 complete accessible state; no actual collision lower bound is yet measured.
 Use staged adaptation and high precision intermediates where necessary, then
 validate the final combined original-LUT/ternary/SSM artifact.
@@ -195,8 +202,9 @@ protocol. Algebraic certificate checker is also UNEXECUTED.
 
 ## 5. Bound numerical diagnosis, then recover source quality
 
-Current operative next step is broader donor supervision and ONE data-coverage
-pilot under [NEXT](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md). Common/private code
+Current operative next step is bounded F32 training storage qualification under
+[actual cost](CHATBOT_BROAD_COST_RESULT_20261009.md),then ONE data-coverage
+pilot under [NEXT](CHATBOT_BROAD_TRANSFER_PILOT_NEXT_20261009.md). Common/private code
 is frozen/UNEXECUTED/deferred until a controlled pilot requires it.
 Complete160-case boundary286 quality and initial-group directional residual
 are now measured. Common-bank/core diagnostics below remain closed/reusable;
@@ -221,7 +229,16 @@ user-turn identity,old queries excluded,all lengths preserved.40s family,
 source/model/GPU calls0;one train shard/complete official test,not semantic
 decontamination.47 prefixes exceed8192;longalign8186-20874 remains intact for a
 separate context stage. Post-adoption48-case cohort fixes2 FIT/2 DEV per12
-sources,input34-1252/max256 new IDs. Capture/adoption remain to be executed.
+sources,input34-1252/max256 new IDs. [Capture/adoption](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md)
+now COMPLETE:8808 full-vocab BF16 labels,24 EOS/24 partials,all packets/argmax/
+IDs/EOS/position transport PASS. Source1091.453s/GPUallocated5.580GB/OS3.743GB;
+saved-only adopter8.657s/260.3MB/zero source calls. Source storage helper passes
+bit equality on151 old forced rows only;new unseen equality is not asserted.
+Target training cost uses original SSD implementation,0 optimizer steps;
+58/1507-ID finite gradients recorded,but peak19.31GB allocated FAIL11GiB.
+Original SSD interchunk temporary is4*(ceil(T/16)+1)^2*48*16*256B,
+7.248GB at1507 IDs. F32 forward/backward storage needs separate qualification;
+the native bounded-state engine geometry remains unchanged. No full fit yet.
 Reuse checkpoint286/Adam294 after audited new supervision; retain original
 inference geometry/ternary/AQ63/C kernels. Old nativeFAIL remains;the actual
 new export requires whole native and own-history checks before long adaptation.

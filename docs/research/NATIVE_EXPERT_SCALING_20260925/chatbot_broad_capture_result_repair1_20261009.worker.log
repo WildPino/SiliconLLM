@@ -1,0 +1,51 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 5864.52it/s]
+{"cases": 1, "labels": 118, "case": "broad_fit_apigen_80k_023", "stop": "EOS", "case_seconds": 18.030999999959022, "seconds": 14.046999999962281}
+{"cases": 2, "labels": 151, "case": "broad_fit_apigen_80k_002", "stop": "EOS", "case_seconds": 10.422000000020489, "seconds": 15.687999999965541}
+{"cases": 3, "labels": 251, "case": "broad_dev_apigen_80k_034", "stop": "EOS", "case_seconds": 13.937000000034459, "seconds": 29.84399999998277}
+{"cases": 4, "labels": 362, "case": "broad_dev_apigen_80k_033", "stop": "EOS", "case_seconds": 16.21899999998277, "seconds": 46.25}
+{"cases": 5, "labels": 562, "case": "broad_fit_everyday_conversations_002", "stop": "EOS", "case_seconds": 23.29699999996228, "seconds": 69.625}
+{"cases": 6, "labels": 736, "case": "broad_fit_everyday_conversations_010", "stop": "EOS", "case_seconds": 20.54699999996228, "seconds": 90.26600000000326}
+{"cases": 7, "labels": 789, "case": "broad_dev_everyday_conversations_036", "stop": "EOS", "case_seconds": 9.186999999976251, "seconds": 99.51600000000326}
+{"cases": 8, "labels": 961, "case": "broad_dev_everyday_conversations_033", "stop": "EOS", "case_seconds": 21.344000000040978, "seconds": 120.92199999996228}
+{"cases": 9, "labels": 979, "case": "broad_fit_explore_instruct_rewriting_008", "stop": "EOS", "case_seconds": 3.0929999999934807, "seconds": 124.10999999998603}
+{"cases": 10, "labels": 992, "case": "broad_fit_explore_instruct_rewriting_009", "stop": "EOS", "case_seconds": 2.125, "seconds": 126.32799999997951}
+{"cases": 11, "labels": 1004, "case": "broad_dev_explore_instruct_rewriting_035", "stop": "EOS", "case_seconds": 1.7189999999827705, "seconds": 128.10999999998603}
+{"cases": 12, "labels": 1260, "case": "broad_dev_explore_instruct_rewriting_038", "stop": "length", "case_seconds": 30.35999999998603, "seconds": 158.51600000000326}
+{"cases": 13, "labels": 1415, "case": "broad_fit_metamathqa_50k_015", "stop": "EOS", "case_seconds": 18.844000000040978, "seconds": 177.42199999996228}
+{"cases": 14, "labels": 1671, "case": "broad_fit_metamathqa_50k_023", "stop": "length", "case_seconds": 29.60899999999674, "seconds": 207.10999999998603}
+{"cases": 15, "labels": 1862, "case": "broad_dev_metamathqa_50k_035", "stop": "EOS", "case_seconds": 23.01500000001397, "seconds": 230.18799999996554}
+{"cases": 16, "labels": 2118, "case": "broad_dev_metamathqa_50k_037", "stop": "length", "case_seconds": 29.71899999998277, "seconds": 259.98499999998603}
+{"cases": 17, "labels": 2374, "case": "broad_fit_numina_cot_100k_015", "stop": "length", "case_seconds": 31.29599999997299, "seconds": 291.35999999998603}
+{"cases": 18, "labels": 2630, "case": "broad_fit_numina_cot_100k_016", "stop": "length", "case_seconds": 30.73399999999674, "seconds": 322.18799999996554}
+{"cases": 19, "labels": 2886, "case": "broad_dev_numina_cot_100k_038", "stop": "length", "case_seconds": 29.54700000002049, "seconds": 351.780999999959}
+{"cases": 20, "labels": 3142, "case": "broad_dev_numina_cot_100k_035", "stop": "length", "case_seconds": 29.51600000000326, "seconds": 381.35999999998603}
+{"cases": 21, "labels": 3398, "case": "broad_fit_openhermes_100k_004", "stop": "length", "case_seconds": 29.70299999997951, "seconds": 411.14100000000326}
+{"cases": 22, "labels": 3654, "case": "broad_fit_openhermes_100k_028", "stop": "length", "case_seconds": 30.20299999997951, "seconds": 441.4219999999623}
+{"cases": 23, "labels": 3910, "case": "broad_dev_openhermes_100k_034", "stop": "length", "case_seconds": 30.70300000003772, "seconds": 472.21899999998277}
+{"cases": 24, "labels": 4166, "case": "broad_dev_openhermes_100k_037", "stop": "length", "case_seconds": 30.45299999997951, "seconds": 502.76600000000326}
+{"cases": 25, "labels": 4422, "case": "broad_fit_self_oss_instruct_012", "stop": "length", "case_seconds": 30.375, "seconds": 533.2189999999828}
+{"cases": 26, "labels": 4678, "case": "broad_fit_self_oss_instruct_006", "stop": "length", "case_seconds": 29.23399999999674, "seconds": 562.530999999959}
+{"cases": 27, "labels": 4934, "case": "broad_dev_self_oss_instruct_036", "stop": "length", "case_seconds": 29.26600000000326, "seconds": 591.859999999986}
+{"cases": 28, "labels": 5190, "case": "broad_dev_self_oss_instruct_033", "stop": "length", "case_seconds": 30.09399999998277, "seconds": 622.0469999999623}
+{"cases": 29, "labels": 5370, "case": "broad_fit_smol_constraints_005", "stop": "EOS", "case_seconds": 22.03100000001723, "seconds": 644.1719999999623}
+{"cases": 30, "labels": 5559, "case": "broad_fit_smol_constraints_021", "stop": "EOS", "case_seconds": 22.07800000003772, "seconds": 666.3439999999828}
+{"cases": 31, "labels": 5609, "case": "broad_dev_smol_constraints_035", "stop": "EOS", "case_seconds": 6.936999999976251, "seconds": 673.359999999986}
+{"cases": 32, "labels": 5702, "case": "broad_dev_smol_constraints_034", "stop": "EOS", "case_seconds": 11.98499999998603, "seconds": 685.4379999999655}
+{"cases": 33, "labels": 5958, "case": "broad_fit_smol_magpie_ultra_000", "stop": "length", "case_seconds": 31.25, "seconds": 716.7660000000033}
+{"cases": 34, "labels": 6214, "case": "broad_fit_smol_magpie_ultra_022", "stop": "length", "case_seconds": 32.65599999995902, "seconds": 749.484999999986}
+{"cases": 35, "labels": 6470, "case": "broad_dev_smol_magpie_ultra_034", "stop": "length", "case_seconds": 32.93799999996554, "seconds": 782.484999999986}
+{"cases": 36, "labels": 6726, "case": "broad_dev_smol_magpie_ultra_036", "stop": "length", "case_seconds": 33.01500000001397, "seconds": 815.5629999999655}
+{"cases": 37, "labels": 6816, "case": "broad_fit_smol_rewrite_004", "stop": "EOS", "case_seconds": 12.28200000000652, "seconds": 827.905999999959}
+{"cases": 38, "labels": 7072, "case": "broad_fit_smol_rewrite_015", "stop": "length", "case_seconds": 32.0, "seconds": 859.984999999986}
+{"cases": 39, "labels": 7297, "case": "broad_dev_smol_rewrite_036", "stop": "EOS", "case_seconds": 27.45299999997951, "seconds": 887.5160000000033}
+{"cases": 40, "labels": 7472, "case": "broad_dev_smol_rewrite_032", "stop": "EOS", "case_seconds": 22.375, "seconds": 910.0}
+{"cases": 41, "labels": 7533, "case": "broad_fit_smol_summarize_024", "stop": "EOS", "case_seconds": 8.437999999965541, "seconds": 918.484999999986}
+{"cases": 42, "labels": 7652, "case": "broad_fit_smol_summarize_003", "stop": "EOS", "case_seconds": 17.56199999997625, "seconds": 936.155999999959}
+{"cases": 43, "labels": 7686, "case": "broad_dev_smol_summarize_034", "stop": "EOS", "case_seconds": 5.422000000020489, "seconds": 941.655999999959}
+{"cases": 44, "labels": 7784, "case": "broad_dev_smol_summarize_039", "stop": "EOS", "case_seconds": 14.094000000040978, "seconds": 955.8279999999795}
+{"cases": 45, "labels": 8040, "case": "broad_fit_systemchats_30k_024", "stop": "length", "case_seconds": 29.71899999998277, "seconds": 985.5939999999828}
+{"cases": 46, "labels": 8296, "case": "broad_fit_systemchats_30k_010", "stop": "length", "case_seconds": 33.375, "seconds": 1019.0629999999655}
+{"cases": 47, "labels": 8552, "case": "broad_dev_systemchats_30k_039", "stop": "length", "case_seconds": 31.06199999997625, "seconds": 1050.2029999999795}
+{"cases": 48, "labels": 8808, "case": "broad_dev_systemchats_30k_034", "stop": "length", "case_seconds": 32.57799999997951, "seconds": 1082.875}
+{"decision": "BROAD_SOURCE_CAPTURE_COMPLETE", "labels": 8808}

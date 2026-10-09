@@ -36,7 +36,8 @@ scopes. They are a motivation, not a chatbot conversion proof.
 | Problem | Current evidence | Next action/decision |
 |---|---|---|
 | Source capabilities and operators |Falcon1.5B pinned/screened; frozen Giga/Qwen evidence reusable|Keep Falcon as tractable first case; retain source/tokenizer/EOS/config identity. Another family follows a working procedure |
-| Data/information available for transfer |Old128 FIT/32 DEV labels retained;new624 canonical public prefixes/13 sources adopted,416 FIT/104 DEV/104 RESERVED|Capture/adopt fixed48 donor replies from12 sources,then price a controlled data-coverage pilot. Longalign8186-20874 retained for separate context stage;new104+old64 RESERVED unqueried |
+| Data/information available for transfer |Old128 FIT/32 DEV retained;new624 prefixes adopted;48 new cohort replies/8808 labels transportPASS,half partials|Reuse all labels;full responses/longalign remain separately required.104 new+64 old RESERVED unqueried |
+| Offline training storage |58/1507-ID finite backwards;original long SSD allocation19.31GB FAIL11GiB;one interchunk array7.248GB|Qualify F32 forward/backward tiling of temporary contractions before the broad-data pilot;final native recurrence geometry stays unchanged |
 | Functional decomposition of FFNs |Copied source groups -> normalized top8 loses direction; all1092 scalar-oracle DEV errors>1%|Train experts as conditional approximations of the needed response/residual. Compare one construction with a declared control; redundancy must supply coverage and correct coefficients |
 | Core/representation compression |2048->512 initialization47.2% matrix energy; changed width/depth/recurrence and precision simultaneously|Use staged recovery and a source-compatible positive control to separate recurrence, representation, selection and quantization. Matrix energy is not knowledge loss or a quality ceiling |
 | Ternary/AQ63 arithmetic |Original LUT bodies/packed loader execute; old native numerical gate fails|Recover through deployable quantization, then check the actual new packed candidate before long continuation. High-precision warmup is explicitly temporary |
@@ -62,8 +63,9 @@ generated histories remain the final observations.
 ## Exact next work and the month-plus offline option
 
 Broader [data adoption](CHATBOT_BROAD_DATA_RESULT_20261009.md) is COMPLETE.
-Implement/freeze [48-case source capture](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md),
-saved-only packet adoption,then price ONE controlled conversion pilot before
+Source capture/saved-only adoption are [COMPLETE](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md).
+[Actual cost](CHATBOT_BROAD_COST_RESULT_20261009.md) FAILS long-training GPU caps.
+Qualify bounded F32 SSD temporary storage,then price ONE controlled conversion pilot before
 extending training. Reuse existing source/checkpoint/transport bytes. Preserve original286
 updates and completed evaluations; no restart solely for extra diagnostics.
 Existing common/private code is available but its single-update connectivity

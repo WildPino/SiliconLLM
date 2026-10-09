@@ -1,0 +1,164 @@
+{
+  "schema": "BROAD_CHAT_COST_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_broad_cost.py",
+  "checkpoint": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_recovery_20261009\\recovery.pt",
+  "corpus": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\corpus.json",
+  "selected_ids": [
+    "broad_fit_explore_instruct_rewriting_008",
+    "broad_fit_smol_magpie_ultra_022"
+  ],
+  "selection": "Shortest/longest FIT teacher-forcing length;ID tie break;metadata only.",
+  "limits": {
+    "seconds": 900,
+    "reserve_seconds": 60,
+    "OS_bytes": 17179869184,
+    "GPU_allocated_bytes": 11811160064,
+    "GPU_reserved_bytes": 12884901888,
+    "output_bytes": 67108864
+  },
+  "normalized_AQ_dither": 0.025,
+  "runtime_binding_scope": "Audited model/Adam/RNG/new adopted packets/code/Python/selected runtime/foreign hashes;not full native DLL tree.",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_adoption_result_20261009.json",
+      "bytes": 19560,
+      "sha256": "fb682157895d96b3296a6a0857da650c97c599a8433591b0fcd05ad6ebc592a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_adoption_result_20261009.terminal.json",
+      "bytes": 1854,
+      "sha256": "c18035d72c89d9503eca99bff6cb81b10c32252e4c8d7d6c5205529d0ee78dfd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\corpus.json",
+      "bytes": 1065224,
+      "sha256": "ac14f2082146e74e37253caffcca6866dab3548fff616aff8ea330bdf865f831"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_hybrid_recovery_20261009\\recovery.pt",
+      "bytes": 3059446998,
+      "sha256": "7b95e699a57c9bc0ed320bef016d95ba78ac1df2e79b9ea98a0c12a1ba78eec5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_recovery_audit_result_20261009.json",
+      "bytes": 47559,
+      "sha256": "b181dd4335bf707ceba1ce2362a0e47d6fb29d47b2c0f5b0a0aff22411b60b5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_hybrid_recovery_audit_result_20261009.terminal.json",
+      "bytes": 1652,
+      "sha256": "84ea7acb0fe4fc232851c1b93be9992a1f35e9a36db2e2d8b1dc42c6a22f673a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_BROAD_COST_PROTOCOL_20261009.md",
+      "bytes": 3428,
+      "sha256": "55a75447b51340d3606a0ffe87ca1d5273013d65dceceaad847cec878e5c6f11"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_broad_cost.py",
+      "bytes": 13324,
+      "sha256": "023f704a833d4f6ee4c5387ab33068233120983949e3b890e34b100ed617b0cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_target.py",
+      "bytes": 10059,
+      "sha256": "7f58cb9a8bd7a995e6688de8620723eb3ba7695033387d537be5f6fb8525489b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_hybrid_recovery.py",
+      "bytes": 23286,
+      "sha256": "a60fb8ad9d956bf940db4573f8c82157d02ba9e7e59699e4c4d1261e1b64d927"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 12168,
+      "sha256": "89fc45904ecaa1870c806947c8b2db5cb671b7ffb07f23b5959349b3574cc955"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\broad_fit_explore_instruct_rewriting_008.logits.bf16",
+      "bytes": 2359332,
+      "sha256": "c2d9e9b12d092a9c27fa69b34a6e97047d58a0b993b7a5f1314a80bcd149abb5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\broad_fit_smol_magpie_ultra_022.logits.bf16",
+      "bytes": 33554944,
+      "sha256": "84423fe02c976caee6812524261ae9c6f998b9de47d23d8b2edb42b0d7d2f447"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\utils\\checkpoint.py",
+      "bytes": 67661,
+      "sha256": "10041cb9a79b7ba3867931a61aa4334a7955eed9ad9a8d3319d7727c10b1556c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\optim\\adamw.py",
+      "bytes": 35973,
+      "sha256": "ed13eef9d2875966c5b0e66371344c9e5665d41eac826c05518d38e13081fe7d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\optim\\optimizer.py",
+      "bytes": 48573,
+      "sha256": "b6f8fe2a7f2790d4eedc6910b82200306c340d2124021151716df8cf3c51db8c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+      "bytes": 59285,
+      "sha256": "abfb007ace80bfd5584c457569605cf57f43778495e587c68df63a8f0ffa5346"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_cost_20261009\\first_failure.json",
+      "bytes": 227,
+      "sha256": "98c1aec34517364a540e64526b458c9e73053ab5dfa724c946b6f84a51e7fa8d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CHATBOT_BROAD_COST_REPAIR1_PROTOCOL_20261009.md",
+      "bytes": 2258,
+      "sha256": "0aff4245b36f7b168bdf7d1ab91d76a53b3f006f252b7407962cdd4f9f1975a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_cost_worker_frozen_20261009.py.txt",
+      "bytes": 12195,
+      "sha256": "cee9c95c75ab4fccd01aa9c990b493eb12d75f33a344740fe9095f367e37dd46"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_cost_binding_20261009.json",
+      "bytes": 6629,
+      "sha256": "79c8d3a71b0cb45b5089a59cbeb444be35e27eccb8bee6e90c95a02eff6f0bde"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_cost_result_20261009.launcher_failure.json",
+      "bytes": 2027,
+      "sha256": "9b0a13581dd0dbc00f27fab58f6efd05d0d8ee687f1817291059a5f1496711c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_cost_result_20261009.worker.log",
+      "bytes": 753,
+      "sha256": "7ce50c0b515e2e1fd5c0cad34acd98323dcc2515f1f0ce3a1ddd8248da02cc1b"
+    }
+  ]
+}

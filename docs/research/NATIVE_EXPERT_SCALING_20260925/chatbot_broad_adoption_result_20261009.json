@@ -1,0 +1,710 @@
+{
+  "schema": "BROAD_CHAT_ADOPTION_RESULT_V1",
+  "decision": "SAVED_BROAD_TRANSPORT_PASS",
+  "freeze": "d026658a34bf82d16bf54cd2ebcd966e9481174e",
+  "binding_sha256": "93eea578d496447798dca3e43508f14307d673ec28099ae544fc319d24c5bfe5",
+  "process_instance": {
+    "pid": 24360,
+    "create_time_unix": 1791513055.0178611
+  },
+  "cases": 48,
+  "labels": 8808,
+  "coordinates": 577249896,
+  "BF16_packet_bytes": 1154499792,
+  "summary": [
+    {
+      "domain": "apigen-80k",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 151,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "apigen-80k",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 211,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "everyday-conversations",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 374,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "everyday-conversations",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 225,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "explore-instruct-rewriting",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 31,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "explore-instruct-rewriting",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 268,
+      "EOS": 1,
+      "length": 1
+    },
+    {
+      "domain": "metamathqa-50k",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 411,
+      "EOS": 1,
+      "length": 1
+    },
+    {
+      "domain": "metamathqa-50k",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 447,
+      "EOS": 1,
+      "length": 1
+    },
+    {
+      "domain": "numina-cot-100k",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "numina-cot-100k",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "openhermes-100k",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "openhermes-100k",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "self-oss-instruct",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "self-oss-instruct",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "smol-constraints",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 369,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "smol-constraints",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 143,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "smol-magpie-ultra",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "smol-magpie-ultra",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "smol-rewrite",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 346,
+      "EOS": 1,
+      "length": 1
+    },
+    {
+      "domain": "smol-rewrite",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 400,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "smol-summarize",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 180,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "smol-summarize",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 132,
+      "EOS": 2,
+      "length": 0
+    },
+    {
+      "domain": "systemchats-30k",
+      "split": "FIT",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    },
+    {
+      "domain": "systemchats-30k",
+      "split": "DEV",
+      "cases": 2,
+      "labels": 512,
+      "EOS": 0,
+      "length": 2
+    }
+  ],
+  "case_records": [
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "labels": 118,
+      "prompt_ids": 362,
+      "stop": "EOS",
+      "bytes": 15466732,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "labels": 33,
+      "prompt_ids": 741,
+      "stop": "EOS",
+      "bytes": 4325442,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "labels": 100,
+      "prompt_ids": 363,
+      "stop": "EOS",
+      "bytes": 13107400,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "labels": 111,
+      "prompt_ids": 808,
+      "stop": "EOS",
+      "bytes": 14549214,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "labels": 200,
+      "prompt_ids": 164,
+      "stop": "EOS",
+      "bytes": 26214800,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "labels": 174,
+      "prompt_ids": 194,
+      "stop": "EOS",
+      "bytes": 22806876,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "labels": 53,
+      "prompt_ids": 148,
+      "stop": "EOS",
+      "bytes": 6946922,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "labels": 172,
+      "prompt_ids": 207,
+      "stop": "EOS",
+      "bytes": 22544728,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "labels": 18,
+      "prompt_ids": 41,
+      "stop": "EOS",
+      "bytes": 2359332,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "labels": 13,
+      "prompt_ids": 78,
+      "stop": "EOS",
+      "bytes": 1703962,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "labels": 12,
+      "prompt_ids": 50,
+      "stop": "EOS",
+      "bytes": 1572888,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "labels": 256,
+      "prompt_ids": 68,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "labels": 155,
+      "prompt_ids": 55,
+      "stop": "EOS",
+      "bytes": 20316470,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "labels": 256,
+      "prompt_ids": 82,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "labels": 191,
+      "prompt_ids": 53,
+      "stop": "EOS",
+      "bytes": 25035134,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "labels": 256,
+      "prompt_ids": 97,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "labels": 256,
+      "prompt_ids": 63,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "labels": 256,
+      "prompt_ids": 126,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "labels": 256,
+      "prompt_ids": 63,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "labels": 256,
+      "prompt_ids": 132,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "labels": 256,
+      "prompt_ids": 61,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "labels": 256,
+      "prompt_ids": 180,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "labels": 256,
+      "prompt_ids": 34,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "labels": 256,
+      "prompt_ids": 101,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "labels": 256,
+      "prompt_ids": 82,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "labels": 256,
+      "prompt_ids": 176,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "labels": 256,
+      "prompt_ids": 102,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "labels": 256,
+      "prompt_ids": 163,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "labels": 180,
+      "prompt_ids": 59,
+      "stop": "EOS",
+      "bytes": 23593320,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "labels": 189,
+      "prompt_ids": 106,
+      "stop": "EOS",
+      "bytes": 24772986,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "labels": 50,
+      "prompt_ids": 58,
+      "stop": "EOS",
+      "bytes": 6553700,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "labels": 93,
+      "prompt_ids": 96,
+      "stop": "EOS",
+      "bytes": 12189882,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "labels": 256,
+      "prompt_ids": 779,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "labels": 256,
+      "prompt_ids": 1252,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "labels": 256,
+      "prompt_ids": 1013,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "labels": 256,
+      "prompt_ids": 1233,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "labels": 90,
+      "prompt_ids": 163,
+      "stop": "EOS",
+      "bytes": 11796660,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "labels": 256,
+      "prompt_ids": 299,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "labels": 225,
+      "prompt_ids": 150,
+      "stop": "EOS",
+      "bytes": 29491650,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "labels": 175,
+      "prompt_ids": 328,
+      "stop": "EOS",
+      "bytes": 22937950,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "labels": 61,
+      "prompt_ids": 204,
+      "stop": "EOS",
+      "bytes": 7995514,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "labels": 119,
+      "prompt_ids": 656,
+      "stop": "EOS",
+      "bytes": 15597806,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "labels": 34,
+      "prompt_ids": 210,
+      "stop": "EOS",
+      "bytes": 4456516,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "labels": 98,
+      "prompt_ids": 883,
+      "stop": "EOS",
+      "bytes": 12845252,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "labels": 256,
+      "prompt_ids": 62,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "labels": 256,
+      "prompt_ids": 765,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "labels": 256,
+      "prompt_ids": 42,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "labels": 256,
+      "prompt_ids": 635,
+      "stop": "length",
+      "bytes": 33554944,
+      "context_origin": "Upstream public assistant turns, not donor-own-history."
+    }
+  ],
+  "source_generations": 0,
+  "student_forwards": 0,
+  "training_updates": 0,
+  "native_runs": 0,
+  "reserved_queries": 0,
+  "corpus": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\corpus.json",
+    "sha256": "ac14f2082146e74e37253caffcca6866dab3548fff616aff8ea330bdf865f831"
+  },
+  "gates": {
+    "all_packet_hashes_extents": true,
+    "all_finite_argmax": true,
+    "all_template_ids": true,
+    "all_EOS_positions": true,
+    "all_public_context_provenance": true,
+    "reserved_unqueried": true
+  },
+  "worker_OS_peak_snapshot": 260300800,
+  "elapsed_seconds": 5.313000000023749,
+  "scope": "All saved BF16 coordinates/IDs/text/EOS/positions transported without source/model/GPU calls. Shared Rust tokenizer,not independent BPE;losslessness remains producer observation. No answer correctness,own-history,quality or speed admission."
+}

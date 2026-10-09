@@ -1,5 +1,24 @@
 # Native expert-count scaling: prior evidence
 
+**9 October broad source acquisition/adoption and actual long training cost:**
+[Source result](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md):48/8808 full-vocab
+BF16 labels/577,249,896 coordinates transportPASS;24 EOS/24 partial replies,
+24 FIT/24 DEV/12 sources,46 new generations+2 original failed-family packets
+reused. Source freeze85bbc8/binding1cca76da,1091.453s/held OS3.743GB/
+CUDAallocated5.580GB,reserved8.508GB;all new-family gatesPASS. Saved-only adopter
+d026658/93eea578,8.657s/260.3MB/0 sourcecalls/PASS. Source SSD storage schedule
+matches all151 old forced rows bitwise;original GPU/qualification apparatus
+faults remain.104 new/64 old RESERVED and longalign stay unqueried/deferred.
+[Cost](CHATBOT_BROAD_COST_RESULT_20261009.md),3b0317b/d6ceee0f:58/1507-ID
+forward/backward4.140+4.844s/9.281+28.578s,all211 finite gradients/all12 positive
+core-bank-norm groups,0 optimizersteps. Long GPUallocated19.313GB/reserved22.003GB
+FAIL fixed11/12GiB;family69.609s/OS15.544GB/6 files21,308B/exit1/no live jobs.
+These are CUDA allocator counters,not certified physical VRAM. Original
+interchunk array is7,247,757,312B by shape algebra. Stop unchanged long schedule;
+next storage-only F32 forward/backward qualification then controlled data pilot,
+preserving original engine geometry. No full model equality check/native/T4/
+quality/accepted-rate admission. Both costs are reused,not replayed for confirmation.
+
 **9 October broader dialogue inputs COMPLETE/PASS:**
 [Result](CHATBOT_BROAD_DATA_RESULT_20261009.md),freeze457e790/bindingd5dd9b8b:
 624 untruncated canonical prefixes/13 sources,416 FIT/104 DEV/104 RESERVED,

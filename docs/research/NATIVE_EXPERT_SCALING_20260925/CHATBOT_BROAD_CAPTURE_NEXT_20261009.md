@@ -1,6 +1,12 @@
 # Next actual transfer: broad donor supervision before another architecture change
 
-9 October2026. Broad dialogue adoption COMPLETE; source/model/fit UNEXECUTED.
+9 October2026. Broad dialogue/source capture/saved-only adoption COMPLETE;
+target cost preflight resourceFAIL,model fit/native UNEXECUTED. Read
+[actual source result](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md) and
+[actual cost](CHATBOT_BROAD_COST_RESULT_20261009.md) before historical steps below.
+Next:qualify bounded F32 SSD temporaries,then freeze the
+[controlled pilot](CHATBOT_BROAD_TRANSFER_PILOT_NEXT_20261009.md). Original
+48 capture/8808 labels/two58/1507 costs are complete observations,reuse them.
 Use [data result](CHATBOT_BROAD_DATA_RESULT_20261009.md),actual canonical corpus
 and `chatbot_broad_capture_cases.py`. Keep the original compact SSM/SWA/ternary
 target geometry for the first data-coverage control. Common/private variant
@@ -21,6 +27,10 @@ replace them with easier questions. Other longer inputs remain visible as well.
 This initial capture is not long-context preservation or final fresh quality.
 
 ## Implement, preregister and run the bounded source capture
+
+Historical implementation/run instructions below are COMPLETE/superseded.
+Original resource fault remains failed;qualified storage repair generated46
+missing replies and reused2 without regeneration. No source restart.
 
 First action:bind/freeze/run the separate `chatbot_broad_capture.py` worker,
 now implemented using the retained

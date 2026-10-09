@@ -27,6 +27,11 @@ is COMPLETE: engine.c entry, persistent canonical chat, full batch1 readout,
 one-core raw46.01-58.84 IDs/s on the retained8-update packed artifact. Quality
 remains unqualified. [Conversion roadmap](CHATBOT_ENGINE_CONVERSION_ROADMAP_20261009.md)
 selects broader data/curriculum and staged transfer before long adaptation.
+Broader [source capture/adoption](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md) is
+now COMPLETE:48 cases/8808 labels/577.25M verified BF16 coordinates,24 EOS/
+24 partials;46 new generations+2 original reused. [Actual training cost](CHATBOT_BROAD_COST_RESULT_20261009.md)
+has both58/1507-ID forward/backward records but GPU resource FAIL at19.31GB
+CUDA allocation. Qualify bounded F32 SSD temporary storage before any full fit.
 [Common/private construction](CHATBOT_HYBRID_SHARED_PRIVATE_NEXT_20261009.md)
 is implemented/frozen in b936b60 but UNEXECUTED/deferred until a controlled pilot
 requires that construction. Broader supervision/curriculum precedes long training. Redundancy
@@ -43,9 +48,21 @@ adaptation is permitted but useful transfer must be demonstrated.
 | Question | Established | Open |
 |---|---|---|
 | Useful conditional target |Original trained E32 native parity; bounded source utility123/183/369 and cost373; actual packed compact C target now executes|Useful much larger n, structured CPU LUT IDs/mass, physical DRAM, fresh quality+50|
-| Transfer into that target |Source/interaction tools; screened Falcon1.5B;8 pilot+286 connected recovery updates,complete160 fixed-state observations and actual old export/C|Absolute/fresh donor-relative recovery,new common/private functions,qualified native numerical forward,own-history/chat,family/scale variants|
+| Transfer into that target |Screened Falcon1.5B;8+286 updates/160 evaluation;old export/C;new48/8808 supervision and58/1507 training costs|Bounded F32 training storage,absolute/fresh quality,conditional functions,qualified native forward,own-history/chat,family/scale variants|
 
 ## Latest decisive evidence
+
+**[Broad source supervision and actual target training envelope](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md):**
+48/8808 source packets adopted,24 FIT/24 DEV/12 strata,half replies partial;
+longalign/104+64 RESERVED untouched. Source1091.453s/OS3.743GB/GPUallocated
+5.580GB;adopter8.657s/260.3MB/zero source calls,all transport/input/capsPASS.
+[Cost](CHATBOT_BROAD_COST_RESULT_20261009.md):short58 IDs4.140s forward+4.844s
+backward;long1507 IDs9.281+28.578s,all211 finite gradients/12 positive groups.
+GPU allocated19,312,518,656B/reserved22,003,318,784B FAIL fixed11/12GiB caps;
+69.609s/held OS15.544GB,0 updates,native/T4,session90924 exit1/closed.
+Allocator counters are not physical VRAM residency. Long interchunk temporary
+alone7,247,757,312B by exact shape algebra. Engine geometry unchanged;
+next F32 forward/backward storage qualification,not a blind full training run.
 
 **[Broader public dialogue adoption](CHATBOT_BROAD_DATA_RESULT_20261009.md):**
 Repair1 COMPLETE/PASS,624 untruncated canonical prefixes from13 sources,
@@ -54,8 +71,8 @@ Full ordered user-turn identity replaces the failed first-greeting grouping;
 original faults stay retained. One train shard plus complete official test,
 new network bytes0/source/model/GPU calls0.40s family/worker216.9MB/reader230.4MB,
 both exit0;all gates PASS.47 inputs exceed8192;longalign8186-20874 is deferred
-to a separate context stage. Post-adoption48-case source cohort is prepared,
-not captured. [Exact next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md).
+to a separate context stage. Its post-adoption48-case source cohort was then
+[captured/adopted](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md). [Exact next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md).
 
 **[Actual engine entry/chat/full decode](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md):**
 Freeze54011fc/binding29519ab7,ONE native process/FIVE requests/484 advances/
@@ -132,12 +149,16 @@ resource failures remain FALSE,528 single-anchor physical1% gate fails;
 
 ## Exact point of resumption
 
-**First action:** implement/freeze the separate48-case broad donor capture in
-[next](CHATBOT_BROAD_CAPTURE_NEXT_20261009.md), then saved-only packet adoption
-and price ONE controlled whole-output pilot from checkpoint286/Adam294.
-Broader624-prefix data adoption is COMPLETE;reuse its actual corpus/receipts.
-Keep compact original-LUT/ternary/SSM geometry as the data-coverage control;
-longalign requires a separate context stage. Actual native chat/cost
+**First action:** qualify bounded F32 SSD temporary storage under the actual
+[58/1507 training envelope](CHATBOT_BROAD_COST_RESULT_20261009.md):tile destination
+chunk of interchunk product while retaining complete source-chunk reductions;
+compare forward/gradients/resources before full fit. BF16 donor storage helper
+only covers three other contractions and does not certify target gradients.
+Capture/adoption COMPLETE;reuse ALL8808 labels and existing two cost records,
+do not repeat completed observations without this changed storage variable.
+Then freeze [ONE controlled whole-output pilot](CHATBOT_BROAD_TRANSFER_PILOT_NEXT_20261009.md)
+from checkpoint286/Adam294 with original engine geometry and old DEV retention.
+Longalign requires a separate context stage. Actual native chat/cost
 probe COMPLETE;reuse its bytes and client, no repeat for a favorable rate.
 Shared/private state conversion/connectivity code is frozen/deferred, not a result.
 All four recovery/audit/

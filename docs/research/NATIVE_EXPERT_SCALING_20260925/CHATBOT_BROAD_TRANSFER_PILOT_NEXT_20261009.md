@@ -1,9 +1,18 @@
 # Controlled broader-data transfer: next decision and price
 
-9 October2026. Planned,not an executed learner observation. This preserves the
+9 October2026. Full pilot planned/UNEXECUTED;cost observations recorded below.
+This preserves the
 human's original-engine destination after [deployment cost](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md)
 and [broader-data adoption](CHATBOT_BROAD_DATA_RESULT_20261009.md). Source capture/
 packet adoption must be complete before any learner calls below.
+
+Current status:source capture/adoption COMPLETE/8808 labels. The
+[actual58/1507 cost preflight](CHATBOT_BROAD_COST_RESULT_20261009.md) has complete
+finite forward/backward records but FAILS allocated/reserved GPU caps19.31/
+22.00GB. Stop the unchanged long SSD storage schedule. First qualify a bounded
+F32 forward/backward storage variant;reuse both costs,do not rerun them for
+confirmation. The first cost-preflight instructions below are historical/
+complete numerical observations,not a passing resource result or new fit.
 
 ## Uncertainty and fixed destination
 
