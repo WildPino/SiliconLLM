@@ -1,0 +1,36 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 6353.83it/s]
+{"stage": "converted_layer", "seconds": 12.71899999998277, "layer": 0}
+{"stage": "converted_layer", "seconds": 13.077999999979511, "layer": 1}
+{"stage": "converted_layer", "seconds": 13.436999999976251, "layer": 2}
+{"stage": "converted_layer", "seconds": 13.59399999998277, "layer": 3}
+{"stage": "converted_layer", "seconds": 13.89100000000326, "layer": 4}
+{"stage": "converted_layer", "seconds": 14.28100000001723, "layer": 5}
+{"stage": "converted_layer", "seconds": 14.422000000020489, "layer": 6}
+{"stage": "converted_layer", "seconds": 14.53100000001723, "layer": 7}
+{"stage": "converted_layer", "seconds": 14.702999999979511, "layer": 8}
+{"stage": "converted_layer", "seconds": 14.89100000000326, "layer": 9}
+{"stage": "converted_layer", "seconds": 15.172000000020489, "layer": 10}
+{"stage": "converted_layer", "seconds": 15.422000000020489, "layer": 11}
+{"stage": "converted_layer", "seconds": 15.75, "layer": 12}
+{"stage": "converted_layer", "seconds": 15.936999999976251, "layer": 13}
+{"stage": "converted_layer", "seconds": 16.23399999999674, "layer": 14}
+{"stage": "converted_layer", "seconds": 16.48399999999674, "layer": 15}
+{"stage": "converted_layer", "seconds": 16.71899999998277, "layer": 16}
+{"stage": "converted_layer", "seconds": 17.0, "layer": 17}
+{"stage": "converted_layer", "seconds": 17.21899999998277, "layer": 18}
+{"stage": "converted_layer", "seconds": 17.46899999998277, "layer": 19}
+{"stage": "converted_layer", "seconds": 17.76600000000326, "layer": 20}
+{"stage": "converted_layer", "seconds": 17.92200000002049, "layer": 21}
+{"stage": "converted_layer", "seconds": 18.18699999997625, "layer": 22}
+{"stage": "converted_layer", "seconds": 18.32799999997951, "layer": 23}
+{"stage": "conversion_complete", "seconds": 19.18699999997625, "conversion_seconds": 7.39000000001397, "packed_bytes": 340819968}
+{"stage": "case", "seconds": 24.85899999999674, "id": "broad_fit_explore_instruct_rewriting_008", "input_ids": 41, "teacher_forcing_ids": 58, "labels": 18, "stop": "EOS", "case_KL_F64": 1.7455682699266664, "disagreements": 5, "trajectory_seconds": 4.10899999999674, "GPU_allocated_peak_so_far": 3340277760, "GPU_reserved_peak_so_far": 4290772992}
+{"stage": "case", "seconds": 68.29700000002049, "id": "broad_fit_smol_magpie_ultra_022", "input_ids": 1252, "teacher_forcing_ids": 1507, "labels": 256, "stop": "length", "case_KL_F64": 2.1467523591910096, "disagreements": 141, "trajectory_seconds": 41.79700000002049, "GPU_allocated_peak_so_far": 4902440960, "GPU_reserved_peak_so_far": 7155482624}
+{"stage": "integer_dot", "seconds": 68.73399999999674, "id": "broad_fit_explore_instruct_rewriting_008", "projection": "gate", "input_columns": 2048, "output_rows": 4608, "differing_exact_integer_dots": 0, "maximum_bound": 129024}
+{"stage": "integer_dot", "seconds": 69.09399999998277, "id": "broad_fit_explore_instruct_rewriting_008", "projection": "up", "input_columns": 2048, "output_rows": 4608, "differing_exact_integer_dots": 0, "maximum_bound": 129024}
+{"stage": "integer_dot", "seconds": 69.35899999999674, "id": "broad_fit_explore_instruct_rewriting_008", "projection": "down", "input_columns": 4608, "output_rows": 2048, "differing_exact_integer_dots": 0, "maximum_bound": 290304}
+{"stage": "integer_dot", "seconds": 69.60899999999674, "id": "broad_fit_smol_magpie_ultra_022", "projection": "gate", "input_columns": 2048, "output_rows": 4608, "differing_exact_integer_dots": 0, "maximum_bound": 129024}
+{"stage": "integer_dot", "seconds": 69.89100000000326, "id": "broad_fit_smol_magpie_ultra_022", "projection": "up", "input_columns": 2048, "output_rows": 4608, "differing_exact_integer_dots": 0, "maximum_bound": 129024}
+{"stage": "integer_dot", "seconds": 70.18699999997625, "id": "broad_fit_smol_magpie_ultra_022", "projection": "down", "input_columns": 4608, "output_rows": 2048, "differing_exact_integer_dots": 0, "maximum_bound": 290304}
+{"stage": "complete", "seconds": 70.29700000002049, "decision": "SOURCE_FFN_COST_ARITHMETIC_PASS"}
