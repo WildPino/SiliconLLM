@@ -27,7 +27,7 @@ def main(args):
     proc.cpu_affinity([11])
     assert sha(args.binding) == args.binding_sha
     b = json.loads(args.binding.read_bytes())
-    assert b['schema']=='ORIGINAL_TENSOR_LEARNER_BINDING_V1' or b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1','HYBRID_NATIVE_BINDING_V1','HYBRID_NATIVE_AUDIT_BINDING_V1','HYBRID_COMMON_BANK_BINDING_V1','HYBRID_COMMON_CORE_BINDING_V1','HYBRID_TRANSFER_CAPTURE_BINDING_V1','HYBRID_TRANSFER_ADOPTION_BINDING_V1','HYBRID_RECOVERY_BINDING_V1','HYBRID_RECOVERY_AUDIT_BINDING_V1','HYBRID_STATE_EVALUATION_BINDING_V1','HYBRID_GROUP_SUM_BINDING_V1','HYBRID_SHARED_PRIVATE_INIT_BINDING_V1','HYBRID_ENGINE_PROBE_BINDING_V1','HYBRID_BROAD_DATA_BINDING_V1','BROAD_CHAT_CAPTURE_BINDING_V1','BROAD_CHAT_ADOPTION_BINDING_V1','FALCON_SSD_TILES_BINDING_V1','BROAD_CHAT_CAPTURE_REPAIR_BINDING_V1','BROAD_CHAT_COST_BINDING_V1','TARGET_SSD_STORAGE_BINDING_V1','BROAD_CHAT_PILOT_BINDING_V1','SOURCE_FFN_PREFLIGHT_BINDING_V1','SOURCE_FFN_CONTROL_BINDING_V1','SOURCE_FFN_CAST_BINDING_V1','SOURCE_FFN_LOCAL_BINDING_V1','SOURCE_FFN_BROAD_BINDING_V1','FIXED_WORK_FEASIBILITY_BINDING_V1','FIXED_WORK_PAIRED_BINDING_V1','FIXED_WORK_PAIRED_FINISH_BINDING_V1','FIXED_WORK_PAIRED_ADOPTION_BINDING_V1','ORIGINAL_PACKED_CAPACITY_BINDING_V1')
+    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1','HYBRID_NATIVE_BINDING_V1','HYBRID_NATIVE_AUDIT_BINDING_V1','HYBRID_COMMON_BANK_BINDING_V1','HYBRID_COMMON_CORE_BINDING_V1','HYBRID_TRANSFER_CAPTURE_BINDING_V1','HYBRID_TRANSFER_ADOPTION_BINDING_V1','HYBRID_RECOVERY_BINDING_V1','HYBRID_RECOVERY_AUDIT_BINDING_V1','HYBRID_STATE_EVALUATION_BINDING_V1','HYBRID_GROUP_SUM_BINDING_V1','HYBRID_SHARED_PRIVATE_INIT_BINDING_V1','HYBRID_ENGINE_PROBE_BINDING_V1','HYBRID_BROAD_DATA_BINDING_V1','BROAD_CHAT_CAPTURE_BINDING_V1','BROAD_CHAT_ADOPTION_BINDING_V1','FALCON_SSD_TILES_BINDING_V1','BROAD_CHAT_CAPTURE_REPAIR_BINDING_V1','BROAD_CHAT_COST_BINDING_V1','TARGET_SSD_STORAGE_BINDING_V1','BROAD_CHAT_PILOT_BINDING_V1','SOURCE_FFN_PREFLIGHT_BINDING_V1','SOURCE_FFN_CONTROL_BINDING_V1','SOURCE_FFN_CAST_BINDING_V1','SOURCE_FFN_LOCAL_BINDING_V1','SOURCE_FFN_BROAD_BINDING_V1','FIXED_WORK_FEASIBILITY_BINDING_V1','FIXED_WORK_PAIRED_BINDING_V1','FIXED_WORK_PAIRED_FINISH_BINDING_V1','FIXED_WORK_PAIRED_ADOPTION_BINDING_V1','ORIGINAL_PACKED_CAPACITY_BINDING_V1')
     OS_cap=b.get('limits',{}).get('OS_bytes',4<<30)
     seconds_cap=b.get('limits',{}).get('seconds',600)
     output_cap=b.get('limits',{}).get('output_bytes',256<<20)
@@ -201,18 +201,6 @@ def main(args):
             assert result['stored_aggregate_and_exposure_checks'] and result['source_worker_provenance']['pid']>0
             assert not result['source_worker_provenance']['historical_creation_time_available']
             assert not result['quality_admission'] and not result['native_admission']
-        elif b['schema'] == 'ORIGINAL_TENSOR_LEARNER_BINDING_V1':
-            assert result['schema']=='ORIGINAL_TENSOR_LEARNER_RESULT_V1' and result['direct_master_export_bit_exact']
-            assert len(result['bank']['rows'])==24 and len(result['before']['rows'])==16
-            assert result['zero_exact'] and result['tie_exact']
-            assert result['source_calls']==result['GPU_calls']==0 and result['optimizer_updates'] in (0,1)
-            assert result['worker_OS_peak_snapshot']+result['max_direct_child_OS_peak']+proc.memory_info().peak_wset <= OS_cap
-            if result['optimizer_updates']:
-                assert result['bank']['pass_gate'] and result['before']['pass_gate']
-                assert result['checkpoint'] and result['after'] and result['integer_coordinates']==6144
-            else:
-                assert not (result['bank']['pass_gate'] and result['before']['pass_gate'])
-            assert not any(result[k] for k in ('source_informed_learner_available','quality_admission','useful_large_n_admission','speed_admission'))
         elif b['schema'] == 'ORIGINAL_PACKED_CAPACITY_BINDING_V1':
             assert result['schema']=='ORIGINAL_PACKED_CAPACITY_RESULT_V1' and result['small_logits_bit_exact']
             assert result['integer_coordinates']==24576 and result['integer_all_exact']
