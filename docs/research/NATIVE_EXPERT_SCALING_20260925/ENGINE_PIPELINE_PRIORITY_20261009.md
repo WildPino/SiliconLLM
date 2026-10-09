@@ -13,6 +13,13 @@ Native DEV milestones and own-answer/tasks decide usefulness; B preference
 requires behavioral support as well as KL/centered-error improvement. No new
 deployed operator/width/source query/T4. INDEX gives the exact live continuation.
 
+Latest observation before user pauses conversation monitoring: A actual36/
+durable33; initial27 restore/export/A first GPU heads/routes exact and initial
+auxiliary24DEV complete. At6 NEW updates original C DEV KL8.76437->7.96598,
+disagreement95.854%->94.2985%, absolute quality still FAIL. B/task/preference
+unobserved; autonomous worker continues. Stored-only audit draft unexecuted;
+run only after authoritative family exit, with its own held resource receipt.
+
 The [actual27 original native/chat endpoint](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
 is now qualified without changing20 original computational bodies. Persistent
 canonical chat/full heads/all-prefix IDs/mass identity PASS; tasks0/16 versus

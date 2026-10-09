@@ -12,8 +12,13 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 is frozen/running locally from actual27, A finalKL versus B finalKL+six residual
 losses. Same24 FIT onepass/real Adam/RNG,original C consumer/native baseline,
 6/12/24 durable/native DEV checkpoints and final auxiliary/tasks. Runner now
-exists; actual gradients/quality results remain unproven while running. No
-source/RESERVED/T4; see INDEX for live handle and exact resumption.
+exists; first A scheduled forward matches retained27 full GPU heads/routes and
+initial export exactly. Initial auxiliary24DEV complete; A33 durable/native24DEV
+caseKL7.9659835/disagreement94.2985%, relative improvement/absolute quality FAIL.
+Last observed actual36/durable33; B not started, preference/behavior unproven.
+User pauses conversation monitoring while autonomous worker continues. No
+source/RESERVED/T4; see INDEX for live handle and exact resumption. New stored-only
+audit draft exists/unexecuted; review/cap/hold it after family terminal, no replay.
 
 **Newest executable endpoint:** [original actual27 native/chat baseline](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
 reuses20 original computational bodies and the actual packed-only520.029MB

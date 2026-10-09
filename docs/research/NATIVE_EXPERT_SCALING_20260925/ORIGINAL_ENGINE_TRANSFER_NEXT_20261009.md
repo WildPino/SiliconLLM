@@ -19,8 +19,15 @@ Actual27 restore/initial auxiliary DEV precedes first scheduled new update.
 Poll the SAME handle or Win32 PID/create_time. Observation timeout is not exit.
 Do not start another benchmark/model/compiler while live;never replay updates.
 Exact arm counters/snapshots/native milestones/faults are authoritative outputs.
-Runner now exists; first real gradient/initial GPU/export identity remain to
-observe. Max48 newupdates/two24FIT onepasses and7200s/600reserve, resource/
+Initial27 restore/export/A first full GPU heads/routes identity PASS. Initial
+auxiliary24DEV complete. A33 durable/native24DEV caseKL7.9659835/disagreement
+94.2985%, relative improvement/absolute quality FAIL. Last observed actual36/
+durable33; B not started, behavioral/preference result unproven. User pauses
+conversation monitoring; autonomous worker continues. Stored-only
+`original_joint_history_recovery_audit.py` is a NEW unexecuted draft; review its
+state/export/metrics/resource checks and execute with held OS/time receipt only
+after terminal. It must not change/replay consumed worker states or outputs.
+Max48 newupdates/two24FIT onepasses and7200s/600reserve, resource/
 plateau/preference/behavior gates are frozen before any candidate observation.
 No source/RESERVED/T4. Native consumer/baseline reused; original operators fixed.
 

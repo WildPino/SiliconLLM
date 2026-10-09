@@ -6,7 +6,13 @@ freeze7f3d2eb/bind07c8b4e/386inputs,session81654/worker7132. Two independent
 actual27 real-Adam/RNG forks, same24 FIT onepass, original native endpoint.
 Max48 NEW updates;6/12/24 durability/native DEV,final auxiliary/tasks and
 plateau/preference gates frozen. Runner exists; gradient/quality still unproven.
-No other owned benchmark while live; no source/RESERVED/T4. INDEX has handle.
+Initial27 restore/export/A first full GPU heads/routes exact; initial24DEV
+auxiliary pass done. A33 durable/native24DEV KL7.9659835/disagreement94.2985%:
+relative improvement, absolute quality FAIL. Last observed actual36/durable33;
+B not started, no preference/task result yet. User pauses conversation monitoring;
+autonomous worker continues. New stored-only audit draft unexecuted, review and
+run with held resource receipt after terminal. No other owned benchmark while
+live; no source/RESERVED/T4. INDEX has handle.
 
 **9 October actual27 original native/chat baseline COMPLETE/quality FAIL:**
 [Result](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md),freeze9c40c549/bind9ca774ee/

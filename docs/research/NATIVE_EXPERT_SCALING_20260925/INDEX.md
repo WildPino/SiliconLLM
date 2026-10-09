@@ -59,8 +59,13 @@ fixes B auxiliary weight1/normalized six-boundary loss versus A final KL only.
 Matched24-FIT onepass [worker/protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
 RUNNING:freeze7f3d2eb/bind07c8b4e/386inputs/session81654. Launcher28184/worker7132,
 worker created2026-10-09T21:48:12.639016+02:00. Re-poll the SAME handle; Win32
-PID/create_time is authoritative. Actual27 restore/initial auxiliary DEV first;
-do not restart completed updates. Qualified C consumer/native48 baseline reused.
+PID/create_time is authoritative. User pauses conversation/monitoring; worker
+continues autonomously. Last observed A actual36/durable33, first6-update native
+DEV KL7.9659835/disagreement94.2985%; improvement, absolute quality still FAIL.
+Initial27 restore/export/full GPU heads/routes exact; initial auxiliary DEV done.
+Do not restart completed updates. Stored-only audit draft prepared/unexecuted;
+review it and run with held resource receipts only AFTER family terminal.
+Qualified C consumer/native48 baseline reused.
 Two independent actual27 forks,24 new FIT updates max each,6/12/24 native DEV/
 durable checkpoints,final auxiliary/tasks.7200s/reserve600/32GiBOS/10-11GiBGPU/
 96GiB outputs,plateau/native behavior gates frozen. Source/RESERVED/T4 zero.
