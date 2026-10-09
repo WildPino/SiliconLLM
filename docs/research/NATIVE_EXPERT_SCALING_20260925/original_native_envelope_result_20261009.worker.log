@@ -1,0 +1,14 @@
+{"seconds": 32.48399999999674, "stage": "export_wide", "bytes": 520029440}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_native_envelope.py", line 301, in <module>
+    else:worker(a)
+         ^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_native_envelope.py", line 232, in worker
+    run([b['compiler'],'-O3','-mavx2','-mfma','-march=znver2',f"-DDN={arm['DN']}",f"-DDTR={arm['DTR']}",cpath,'-I',a.directory,'-o',exe[arm['name']],'-lm'],stage)
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_native_envelope.py", line 219, in run
+    assert child.returncode==0,(name,child.returncode,log.read_text(errors='replace'));event(stage='child_complete',name=name,held_OS_peak=peak,seconds=receipt['seconds']);return receipt
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_native_envelope.py", line 203, in event
+    def event(**kw):guard();print(json.dumps(dict(seconds=time.monotonic()-start,**kw)),flush=True)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'seconds'

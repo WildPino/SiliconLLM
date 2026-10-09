@@ -1,0 +1,32 @@
+{
+  "freeze": "4e42d479f0c66e435d4e2e969063d1f01e8158a3",
+  "binding_sha256": "93f38c80b0f4cd9bb760c2583310c29fb5049f4fa68709ee320166d16db31777",
+  "launcher_pid": 32628,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_native_envelope.py",
+    "--worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_native_envelope_binding_20261009.json",
+    "--binding-sha",
+    "93f38c80b0f4cd9bb760c2583310c29fb5049f4fa68709ee320166d16db31777",
+    "--freeze",
+    "4e42d479f0c66e435d4e2e969063d1f01e8158a3",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_native_envelope_result_20261009.json"
+  ],
+  "worker_pid": 13136,
+  "worker_creation_time": 1791564412.069604,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 1075974144,
+  "launcher_OS_peak_snapshot": 29569024,
+  "fault": "AssertionError('{\"seconds\": 32.48399999999674, \"stage\": \"export_wide\", \"bytes\": 520029440}\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_native_envelope.py\", line 301, in <module>\\n    else:worker(a)\\n         ^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_native_envelope.py\", line 232, in worker\\n    run([b[\\'compiler\\'],\\'-O3\\',\\'-mavx2\\',\\'-mfma\\',\\'-march=znver2\\',f\"-DDN={arm[\\'DN\\']}\",f\"-DDTR={arm[\\'DTR\\']}\",cpath,\\'-I\\',a.directory,\\'-o\\',exe[arm[\\'name\\']],\\'-lm\\'],stage)\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_native_envelope.py\", line 219, in run\\n    assert child.returncode==0,(name,child.returncode,log.read_text(errors=\\'replace\\'));event(stage=\\'child_complete\\',name=name,held_OS_peak=peak,seconds=receipt[\\'seconds\\']);return receipt\\n                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_native_envelope.py\", line 203, in event\\n    def event(**kw):guard();print(json.dumps(dict(seconds=time.monotonic()-start,**kw)),flush=True)\\n                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nTypeError: dict() got multiple values for keyword argument \\'seconds\\'\\n')",
+  "elapsed_seconds": 42.03100000001723
+}
