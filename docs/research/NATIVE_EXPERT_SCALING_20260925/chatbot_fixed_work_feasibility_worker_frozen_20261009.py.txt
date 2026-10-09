@@ -3,7 +3,6 @@ import argparse
 import gc
 import importlib.util
 import json
-import math
 import os
 from pathlib import Path
 import sys
@@ -69,44 +68,6 @@ def bind(a):
                   SITE/'numpy/__init__.py',SITE/'psutil/_pswindows.py'])
     previous_binding=DOC/'chatbot_fixed_work_feasibility_binding_20261009.json'
     if previous_binding.exists() and a.out.resolve()!=previous_binding.resolve():paths.append(previous_binding)
-    resume={};seconds=300
-    if a.resume_from is not None:
-        directory=a.resume_from.resolve()
-        assert directory==(ROOT/'results/native_expert_scaling/chatbot_fixed_work_feasibility_20261009').resolve()
-        failed_binding_path=DOC/'chatbot_fixed_work_feasibility_binding_junctionfix1_20261009.json'
-        failed_binding=json.loads(failed_binding_path.read_bytes())
-        failed_receipt_path=DOC/'chatbot_fixed_work_feasibility_result_20261009.launcher_failure.json'
-        failed_receipt=json.loads(failed_receipt_path.read_bytes())
-        fault_path=directory/'first_failure.json';fault=json.loads(fault_path.read_bytes())
-        retained_path=directory/'failure_state.json';retained=json.loads(retained_path.read_bytes())
-        frozen_worker=DOC/'chatbot_fixed_work_feasibility_worker_frozen_20261009.py.txt'
-        assert failed_receipt['exit_code']==1 and failed_receipt['binding_sha256']==sha(failed_binding_path)
-        assert fault['phase']=='update_1' and fault['completed_new_updates']==retained['completed_new_updates']==0
-        assert '984' in fault['fault'] and '983' in fault['fault']
-        prior_worker=next(v for v in failed_binding['inputs'] if Path(v['path']).resolve()==Path(__file__).resolve())
-        assert sha(frozen_worker)==prior_worker['sha256']
-        for v in failed_binding['inputs']:
-            path=Path(v['path'])
-            if path.resolve()!=Path(__file__).resolve():
-                assert path.stat().st_size==v['bytes'] and sha(path)==v['sha256'],str(path)
-        checkpoint=retained['checkpoint']
-        assert sha(checkpoint['path'])==checkpoint['sha256']=='38460a03093656e46ef5a86728db2e7c7fcc7ad3c1ce816909cd58e37074b6dd'
-        assert Path(checkpoint['path']).stat().st_size==checkpoint['bytes']==3078711622
-        before_path=directory/'initial.json';baseline_path=directory/'baseline_reused.json'
-        before=json.loads(before_path.read_bytes());baseline_old=json.loads(baseline_path.read_bytes())
-        assert [r['id'] for r in before['cases']]==[r['id'] for r in selected] and before['zero_common']
-        assert [r['id'] for r in baseline_old['cases']]==[r['id'] for r in selected]
-        for r in before['cases']:
-            entry=r['logits'];assert sha(entry['path'])==entry['sha256'] and Path(entry['path']).stat().st_size==entry['bytes']
-        seconds=300-math.ceil(failed_receipt['elapsed_seconds'])
-        assert seconds==210
-        resume=dict(checkpoint=checkpoint,initial=str(before_path),baseline=str(baseline_path),
-                    failed_family_seconds=failed_receipt['elapsed_seconds'],completed_new_updates=0,
-                    historical_initial_exposure_available=False,failed_binding=str(failed_binding_path))
-        paths.extend([failed_binding_path,failed_receipt_path,fault_path,retained_path,frozen_worker,
-                      DOC/'chatbot_fixed_work_feasibility_result_20261009.worker.log',
-                      DOC/'CHATBOT_FIXED_WORK_FEASIBILITY_REPAIR1_PROTOCOL_20261009.md'])
-        paths.extend(p for p in directory.iterdir() if p.is_file())
     foreign = {
         'benchmarks/phase60/engine.c':'5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce',
         'benchmarks/donor_adaptation/configs/_manifest.json':'fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d',
@@ -119,11 +80,11 @@ def bind(a):
     assert a.freeze
     value = dict(schema='FIXED_WORK_FEASIBILITY_BINDING_V1',freeze=a.freeze,python=str(Path(sys.executable).resolve()),
         worker_path=str(Path(__file__).resolve()),parent_checkpoint=state,parent_result=str(report_path),
-        corpus=str(corpus.resolve()),case_ids=[r['id'] for r in selected],baseline=baseline,resume=resume,
+        corpus=str(corpus.resolve()),case_ids=[r['id'] for r in selected],baseline=baseline,
         update_case=selected[-1]['id'],new_updates=2,initial_optimizer_step=318,
         common_seed_private_ids=[0,36],initial_common_down_scale=5e-5,
         learning_rate=5e-5,normalized_AQ_dither=.025,clip_norm=1.,
-        limits=dict(seconds=seconds,reserve_seconds=45,OS_bytes=8<<30,GPU_allocated_bytes=10<<30,
+        limits=dict(seconds=300,reserve_seconds=45,OS_bytes=8<<30,GPU_allocated_bytes=10<<30,
                     GPU_reserved_bytes=11<<30,output_bytes=4<<30),
         runtime_binding_scope='Actual parent state/receipt, used two source and baseline packets, corpus, frozen target/storage code and selected inherited runtime files; not complete DLL-tree or CUDA determinism.',
         inputs=[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in paths])
@@ -187,32 +148,18 @@ def worker(a):
             assert left.dtype == right.dtype == torch.float32 and left.shape == right.shape
             return torch.equal(left.detach().cpu().contiguous().view(torch.int32),right.detach().cpu().contiguous().view(torch.int32))
         phase='parent_adoption'
-        resume=b.get('resume',{})
-        adopted=resume['checkpoint'] if resume else b['parent_checkpoint']
-        old=torch.load(adopted['path'],map_location='cpu',weights_only=True)
-        if resume:
-            assert old['target_schema']==variant.SCHEMA and old['candidate_schema']=='FIXED_WORK_FEASIBILITY_CANDIDATE_V1'
-            assert old['completed_new_updates']==old['common_optimizer_step']==0 and old['private_optimizer_step']==318
-            assert old['parent_checkpoint']==b['parent_checkpoint']
-            prior=old['parent_metadata']
-        else:
-            assert old['target_schema']=='COMPACT_FALCON_TERNARY_TARGET_V1' and old['candidate_schema']=='BROAD_24_TRANSFER_CANDIDATE_V1'
-            assert old['completed_broad_updates']==24 and old['completed_recovery_updates']==286
-            prior={k:v for k,v in old.items() if k not in ('model','optimizer','torch_CPU_rng','torch_CUDA_rng')}
+        old=torch.load(b['parent_checkpoint']['path'],map_location='cpu',weights_only=True)
+        assert old['target_schema']=='COMPACT_FALCON_TERNARY_TARGET_V1' and old['candidate_schema']=='BROAD_24_TRANSFER_CANDIDATE_V1'
+        assert old['completed_broad_updates']==24 and old['completed_recovery_updates']==286
+        prior={k:v for k,v in old.items() if k not in ('model','optimizer','torch_CPU_rng','torch_CUDA_rng')}
         cpu_rng=old['torch_CPU_rng'].clone();cuda_rng=[v.clone() for v in old['torch_CUDA_rng']]
         config=old['config'];target=TrainTarget(config,'ternary').to('cuda')
-        mapped=old['model'] if resume else variant.mapped_model(old['model'])
-        if not resume:
-            for i in range(12): mapped[f'layers.{i}.banks.common.down_scale'].fill_(b['initial_common_down_scale'])
+        mapped=variant.mapped_model(old['model'])
+        for i in range(12): mapped[f'layers.{i}.banks.common.down_scale'].fill_(b['initial_common_down_scale'])
         target.load_state_dict(mapped,strict=True)
         named=list(target.named_parameters());names=[n for n,_ in named];pars=[p for _,p in named]
         assert len(named)==283 and sum(p.numel() for p in pars)==259669760
-        if resume:
-            assert old['optimizer_parameter_names']==names
-            remapped=old['optimizer']
-            mapping=[dict(original_name=n,new_name=n,original_id=i,new_id=i)
-                     for i,n in enumerate(names) if '.banks.common.' not in n]
-        else:remapped,mapping=variant.mapped_optimizer(old['model'],old['optimizer'],names)
+        remapped,mapping=variant.mapped_optimizer(old['model'],old['optimizer'],names)
         optimizer=variant.make_optimizer(target,dict(optimizer=remapped,optimizer_parameter_names=names))
         assert len(optimizer.state)==211
         moment_bytes=0
@@ -220,9 +167,8 @@ def worker(a):
             assert p.dtype==torch.float32 and torch.isfinite(p).all().item()
             if '.banks.common.' in name:
                 assert p not in optimizer.state
-                if resume:assert same_bits(p,old['model'][name]),name
                 continue
-            original_name=name if resume else variant.canonical_private_name(name)
+            original_name=variant.canonical_private_name(name)
             assert same_bits(p,old['model'][original_name]), name
         by_name=dict(named)
         for m in mapping:
@@ -272,7 +218,6 @@ def worker(a):
                 row['mass_max_defect'][site]=max(row['mass_max_defect'][site],defect)
             return observe
         def common_hook(site):
-            @torch.no_grad()
             def observe(module,args,output):
                 if collection is None:return
                 stage,identifier=collection;row=row_for(stage,identifier)
@@ -319,15 +264,13 @@ def worker(a):
                 row['logits']=dict(path=str(path.resolve()),shape=list(values.shape),bytes=path.stat().st_size,sha256=sha(path))
             return loss,row
         baseline=[]
-        if resume:baseline=json.loads(Path(resume['baseline']).read_bytes())['cases']
-        else:
-            for rec in selected:
-                entry=b['baseline'][rec['id']]['logits']
-                values=np.fromfile(entry['path'],dtype='<f4').reshape(entry['shape'])
-                row=dict(id=rec['id'],labels=len(rec['output_ids']),logits=entry,**metrics(values,rec))
-                row['parent_report_KL_F32']=b['baseline'][rec['id']]['KL']
-                assert abs(row['KL']-row['parent_report_KL_F32'])<=1e-4*max(1.,row['KL'])
-                baseline.append(row)
+        for rec in selected:
+            entry=b['baseline'][rec['id']]['logits']
+            values=np.fromfile(entry['path'],dtype='<f4').reshape(entry['shape'])
+            row=dict(id=rec['id'],labels=len(rec['output_ids']),logits=entry,**metrics(values,rec))
+            row['parent_report_KL_F32']=b['baseline'][rec['id']]['KL']
+            assert abs(row['KL']-row['parent_report_KL_F32'])<=1e-4*max(1.,row['KL'])
+            baseline.append(row)
         write(a.directory/'baseline_reused.json',dict(cases=baseline,new_baseline_forwards=0))
         def evaluate(stage):
             nonlocal phase,dither
@@ -339,17 +282,13 @@ def worker(a):
                     write(a.directory/(stage+'.'+rec['id']+'.json'),row)
                     event(stage,id=rec['id'],KL=row['KL'],disagreements=row['disagreements'])
             return rows
-        if resume:
-            initial=json.loads(Path(resume['initial']).read_bytes())['cases']
-            event('initial_reused',cases=2,completed_prior_updates=0,historical_exposure_available=False)
-        else:
-            initial=evaluate('initial')
-            for rec,row,old_row in zip(selected,initial,baseline,strict=True):
-                new=np.fromfile(row['logits']['path'],dtype='<f4').reshape(row['logits']['shape'])
-                parent=np.fromfile(old_row['logits']['path'],dtype='<f4').reshape(old_row['logits']['shape'])
-                row['initial_to_parent_KL_ratio']=row['KL']/old_row['KL']
-                row['changed_parent_greedy_ids']=int(np.count_nonzero(new.argmax(-1)!=parent.argmax(-1)))
-                row['changed_parent_F32_coordinates']=int(np.count_nonzero(new.view('<u4')!=parent.view('<u4')))
+        initial=evaluate('initial')
+        for rec,row,old_row in zip(selected,initial,baseline,strict=True):
+            new=np.fromfile(row['logits']['path'],dtype='<f4').reshape(row['logits']['shape'])
+            parent=np.fromfile(old_row['logits']['path'],dtype='<f4').reshape(old_row['logits']['shape'])
+            row['initial_to_parent_KL_ratio']=row['KL']/old_row['KL']
+            row['changed_parent_greedy_ids']=int(np.count_nonzero(new.argmax(-1)!=parent.argmax(-1)))
+            row['changed_parent_F32_coordinates']=int(np.count_nonzero(new.view('<u4')!=parent.view('<u4')))
         write(a.directory/'initial.json',dict(cases=initial,baseline=baseline,zero_common=True))
         torch.set_rng_state(cpu_rng);torch.cuda.set_rng_state_all(cuda_rng)
         def common_trits():
@@ -375,7 +314,6 @@ def worker(a):
                 common_count=2,private_k=6,private_n=72,completed_new_updates=completed,
                 private_optimizer_step=318+completed,common_optimizer_step=completed,
                 parent_checkpoint=b['parent_checkpoint'],parent_metadata=prior,new_updates=list(updates),
-                resume_source=resume,initial_update_CPU_rng=cpu_rng,initial_update_CUDA_rng=cuda_rng,
                 torch_CPU_rng=torch.get_rng_state(),torch_CUDA_rng=torch.cuda.get_rng_state_all(),
                 freeze=a.freeze,binding_sha256=a.binding_sha,training_contract=dict(
                     normalized_AQ_dither=.025,learning_rate=5e-5,clip_norm=1.,
@@ -447,8 +385,6 @@ def worker(a):
         result=dict(schema='FIXED_WORK_FEASIBILITY_RESULT_V1',decision='FIXED_WORK_FEASIBILITY_PASS',
             freeze=a.freeze,binding_sha256=a.binding_sha,process_instance=dict(pid=proc.pid,create_time_unix=proc.create_time()),
             cases=2,new_updates=2,parent_private_step=318,final_private_step=320,final_common_step=2,
-            resumed_from=adopted if resume else None,reused_initial_cases=2 if resume else 0,
-            failed_family_seconds=resume.get('failed_family_seconds',0),historical_initial_exposure_available=not bool(resume),
             parameters=259669760,tensors=283,parent_adoption_bit_exact=True,
             parent_Adam_slots_bit_exact=True,initial_common_output_zero=True,actual_active_functions=8,
             actual_private_k=6,actual_common_count=2,actual_exposure_verified=True,
@@ -476,5 +412,4 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=('bind','worker'),default='worker')
     p.add_argument('--binding',type=Path);p.add_argument('--binding-sha');p.add_argument('--freeze')
     p.add_argument('--directory',type=Path);p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--resume-from',type=Path)
     a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)

@@ -1,0 +1,25 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+{"stage": "adopted", "seconds": 21.54699999996228, "parameters": 259669760, "tensors": 283, "old_slots": 211, "new_slots": 0, "old_moment_bytes": 2039461888}
+{"stage": "initial", "seconds": 26.93699999997625, "id": "broad_fit_explore_instruct_rewriting_008", "KL": 2.525586350947355, "disagreements": 9}
+{"stage": "initial", "seconds": 33.70299999997951, "id": "broad_fit_smol_magpie_ultra_022", "KL": 5.685551397386988, "disagreements": 232}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_fixed_work_feasibility.py", line 415, in <module>
+    a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)
+                                                    ^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_fixed_work_feasibility.py", line 337, in worker
+    loss,row=observe(records[b['update_case']],phase,False);loss.backward()
+                                                            ^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\autograd\graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\utils\checkpoint.py", line 1129, in unpack_hook
+    frame.check_recomputed_tensors_match(gid)
+  File "D:\_THINGS\Progetti\SiliconLLM\results\native_expert_scaling\chatbot_source_runtime\site\torch\utils\checkpoint.py", line 865, in check_recomputed_tensors_match
+    raise CheckpointError(
+torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
+Number of tensors saved during forward: 984
+Number of tensors saved during recomputation: 983
