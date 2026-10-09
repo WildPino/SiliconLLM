@@ -26,6 +26,7 @@ class PrivateBanks(base.Banks):
         for name in names:
             self.register_parameter(name, getattr(existing, name))
         self.router = existing.router
+        self.routing_observer = None
 
     def forward(self, x):
         shape = x.shape
@@ -33,6 +34,8 @@ class PrivateBanks(base.Banks):
         scores = self.router(x)
         ids = torch.argsort(scores, dim=-1, descending=True, stable=True)[:, :PRIVATE_K]
         mass = torch.softmax(torch.gather(scores, 1, ids), dim=-1)
+        if self.routing_observer is not None:
+            self.routing_observer(ids.detach(), mass.detach())
         y = torch.zeros_like(x)
         for e in range(base.E):
             positions, slots = (ids == e).nonzero(as_tuple=True)
