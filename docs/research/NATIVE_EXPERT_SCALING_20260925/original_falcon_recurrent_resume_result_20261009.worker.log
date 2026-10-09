@@ -1,0 +1,7 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 9722.45it/s]
+{"seconds": 10.452999999979511, "stage": "source_loaded", "parameters": 411, "capture_cases": 3}
+{"seconds": 102.84399999998277, "stage": "captured_case", "id": "broad_dev_smol_summarize_039", "split": "DEV", "history": 980, "cases": 1, "payload_bytes": 700707840, "source_base_forwards": 1}
+{"seconds": 231.7029999999795, "stage": "captured_case", "id": "broad_dev_systemchats_30k_034", "split": "DEV", "history": 890, "cases": 2, "payload_bytes": 1337064960, "source_base_forwards": 2}
+{"seconds": 255.5, "stage": "captured_case", "id": "broad_dev_systemchats_30k_039", "split": "DEV", "history": 297, "cases": 3, "payload_bytes": 1549422336, "source_base_forwards": 3}
+{"seconds": 255.56199999997625, "stage": "complete", "decision": "COMPLETE_RECURRENT_OPERANDS_PASS", "result_sha256": "eae91e1414bb268d4cdc578b5eb332d346c59983528751fbc3bd2a2738ba67de"}
