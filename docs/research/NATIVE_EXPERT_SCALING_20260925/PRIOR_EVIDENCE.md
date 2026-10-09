@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**9 October actual27 delta correction COMPLETE/engineering PASS/numerical FAIL:**
+[Result](ORIGINAL_DELTA_SEED_RESULT_20261009.md), completion freezedbe80da9/
+bindd49fa831/rawb71d31a3. Five FIT rank32 residual seed maps/cross<=7.551e-9;
+3352 initial native complete heads/routes/masses/18432 witnesses byte-identical.
+One full1507 FIT Adam26->27; all163840 new V coefficients active/rank32 perblock,
+full V rank48;92 disk Adam steps27 independently deserialized. Native case
+KL9.059->8.940/6.313->5.921/9.164->9.031; DEV disagreements247/250 of256,
+still poor. Persisted GPU/C head20 rowsFAIL/worst.01794/one greedy mismatch,
+IDs exact/massdelta.001997. First name-check fault preserved; completion adopts
+five saved X; ten total seed solves because first U arrays unsaved; one update.
+Combined482.297s/31files11880105822B/resourcesPASS/all jobs terminal/noT4.
+56inputs/25newoutputs/seed geometry/native metrics/routes/disk rank audited.
+Next actual teacher residual-boundary supervision and bounded joint recovery;
+no width causality, useful chatbot, accepted50, useful n or DRAM admission.
+
 **9 October actual26 first-divergence trace COMPLETE:**
 [Result](ORIGINAL_WIDE_TRACE_RESULT_20261009.md). Both observer head streams
 bit-identical to retained outputs;input AQ first flip82/0/43 crosses a half-bin,
@@ -7,8 +22,8 @@ sixteen decoded ternary-column identities explain first gate/up integer changes.
 Conditional gate/up/down sums exact;three ordered-route permutations/one set
 change. Main family204s/resourcesPASS;native128.64s includes diagnostic IO.
 35input/13output hashes independently rechecked;stored-helper reduction fault
-retained/corrected without model replay. FIT-response seed helper available,
-synthetic algebra PASS;actual26 calibration/fork/update still missing. NoT4.
+retained/corrected without model replay. FIT-response seed helper and actual26
+calibration/fork/update27 now qualified above. NoT4.
 
 **9 October actual wider bridge COMPLETE/engineering checks PASS/numerical FAIL:**
 [Result](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md). Exact real master/moment/RNG
@@ -21,7 +36,7 @@ not persisted,retained evidence gap. Added32 delta coordinates zero at both
 factors:exact zero-gradient invariant,rank<=16 until explicit initialization.
 Held487.641s/exit0/session25642 CLOSED/resourcesPASS/17files10967978123B.
 All41input/17output hashes/six native metrics/1507row comparisons rechecked.
-Next numerical trace andzero-factor correction,then finite joint recovery;noT4.
+Numerical trace and zero-factor correction completed above; next finite joint recovery;noT4.
 
 **9 October original native width envelope COMPLETE/preservation andraw cost PASS:**
 [Result](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md). DN512/DT16 versus1024/48,

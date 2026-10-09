@@ -6,13 +6,22 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+The [actual27 delta correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md) is COMPLETE:
+initial native identity and new learning directions qualified; durable state
+and resources PASS. Native DEV disagreement96..98% still fails usefulness.
+The pipeline bottleneck is pretrained history/function transfer into the
+affordable original operator envelope. Close this initialization repair.
+[Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) obtains actual source residual
+boundaries for a finite joint history-recovery comparison. Exact original LUT,
+ternary, AQ63, dReLU, SSM/SWA arithmetic remains fixed. No T4 allocation.
+
 The [actual26 trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md) localizes a first AQ
 half-bin discontinuity;conditional LUT sums agree andobserver outputs are bitwise
 identical. Numerical FAIL remains,butits small supervised KL discrepancy doesnot
 explain poor native donor fidelity. Close this scoped arithmetic investigation;
-do not expand into an unbounded surrogate-parity campaign. Apply the prepared
-FIT-response delta seed in an explicit actual26 fork,qualify new gradients/native
-output,andthen select joint source-history recovery. Native chatbot usefulness
+do not expand into an unbounded surrogate-parity campaign. The FIT-response delta
+seed and actual27 new-gradient/native-output qualification are complete above.
+Next is joint source-history recovery. Native chatbot usefulness
 andsame-artifact speed remain required. NoT4 allocation follows from this trace.
 
 The [actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md) is COMPLETE:
@@ -21,8 +30,8 @@ changed original native export/integer/mass validation. Native case KL improves
 modestly;token disagreement94..98% remains. Whole GPU/C numerical gateFAIL.
 Added32 delta coordinates have both factors zero and are algebraically unable
 to learn under the frozen continuation. Its selected numerical trace is now
-complete above;[next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) is the explicit
-function-preserving single-factor initialization,then a finite joint recovery pilot. No unchanged
+complete above; the function-preserving single-factor initialization also passed.
+[Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) is a finite joint recovery pilot. No unchanged
 long dose,source-runtime expansion or T4 allocation follows from costPASS.
 The target remains useful pretrained chatbot -> original LUT/ternary/SSM engine.
 

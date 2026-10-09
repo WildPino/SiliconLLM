@@ -2,12 +2,100 @@
 
 9 October 2026. Goal ACTIVE/INCOMPLETE. All jobs terminal; no T4 allocation.
 [Complete original-operator recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
-supersedes the previous proposed24-step pass. Five of six native distribution
-gates FAIL; original all-history numerical FAIL is retained.
+and [actual27 correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md) are complete.
+Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
-### Current resumption after numerical trace andprepared FIT delta seed
+### Current resumption: actual teacher residual boundaries, then joint recovery
+
+Actual27 is durable and independently audited. Initial C output identity/new
+delta activity/resource gates PASS; native DEV disagreement247/256 and250/256
+still FAIL. Use candidate_seeded27.pt/real Adam/RNG/lineage as the continuation
+state. No further calibration/update replay, zero-factor repair or numerical
+trace selected. Original wide native operators stay fixed. No T4 allocation.
+
+**Uncertainty and decision.** The current source-informed bank does not carry
+source history: five SSM cores and SWA began fresh; four source decoder layers
+collapse into each target block. Cached final distributions supply only256
+time positions/history. Can direct supervision of source residual history
+improve native held-out and own-history quality at this same deployment cost?
+A successful relative result motivates a finite broader conversion recipe;
+failure closes this auxiliary-loss recipe and prompts a measured change to
+the information bottleneck, rather than an unchanged month-long dose.
+
+**Immediate selected implementation:** a new teacher boundary-capture worker,
+protocol and binding, then one held capture family. These do not yet exist.
+Freeze them before observation. Reuse pinned useful Falcon1.5B, existing48
+canonical histories/22547 positions/24FIT+24DEV, actual source runtime/SSD
+tiles, the adopted recurrent packet and fixed P256 from original transfer.
+Do not create new answer labels, generations or RESERVED requests.
+
+1. Save the actual BF16 residual h0 (multiplied embedding) and decoder outputs
+   h4,h8,h12,h16,h20,h24, all time positions, source width2048. This includes
+   source SSM, parallel attention, nonlinear FFN and residual composition.
+   Existing seven recurrent fields contain branch operands/outputs, not these
+   residual boundaries; FFN x captures only two sites/label positions. No
+   equality between a sum of local FFNs and composed source blocks is assumed.
+2. Use identical zero-state full-prefill protocol as adopted recurrent capture,
+   not cached autoregressive replay. No LM head call. Preserve411 parameter
+   identities/versions before/after. At sites3,7,11,15,19,23 compare observed
+   mixer outputs bytewise with the retained BF16 fields for each history; stop
+   on first mismatch and save it. This qualifies reuse of that source history,
+   not cached-reply bit parity or the interrupted parent's missing resource log.
+3. Persist raw boundary bytes/hashes. Derive z_j=h_j P in explicitly declared
+   F32 arithmetic, fixed inherited P, no refit on DEV. Raw expected646467584B;
+   projected expected161616896B. Report uncentered/mean/centered projected energy
+   and discarded source energy per boundary/domain; low projection energy is
+   an information warning, not proof that this coordinate system cannot learn.
+   Projection and RMS normalization do not commute; these are auxiliary
+   residual-coordinate targets, not exact source-logit or state transport.
+4. Before binding, price expected5–10 minutes locally against a held1200s cap
+   with120s reserve, OS12GiB, GPU allocator8allocated/9reservedGiB, new outputs
+   1GiB/log4MiB. Principal binaries/fields/code bound; workerCPU0..5/Torch6/
+   inter-op1, launcher11, no children, no concurrent owned benchmark. Actual
+   cost remains to measure. Fail cap/identity/extent/nonfinite/byte-witness =>
+   preserve first fault and exact partial namespace, finish only missing work
+   if justified; never rerun completed inference merely due tool timeout.
+
+**Finite learner comparison after capture qualification (not yet executable).**
+Implement a new training-only adapter observing each target post-block residual;
+keep all frozen learners/exporters/native computational bodies immutable.
+Starting from the same actual27 state, compare A:whole final-distribution KL,
+B:same KL plus residual-boundary loss. Same24 FIT IDs/order/one full-history
+pass/24 NEW optimizer updates perarm; same optimizer/routing/bank quantization/
+STE/deployment geometry. No teacher residual forcing during candidate forward:
+student state evolves on its own canonical input history. Report mean AND
+centered residual recovery, avoiding a mean-only improvement claim. Choose
+auxiliary normalization/weight, gradient qualifications, exact DEV/domain and
+generation/task gates in the new protocol before seeing candidate results.
+No sweep or extra epochs by default.
+
+First obtain complete native actual27 before metrics, adopting only the three
+already measured cases after packed/request identity. Full24 DEV/native/domain
+and fresh own-history tasks must be compared after each arm, alongside FIT
+losses and durable update counters. Absolute prior quality gates remain; a
+relative win alone does not admit a useful chatbot. Stop for nonfinite/resource/
+partial optimizer fault or predeclared intermediate plateau/DEV regression;
+save actual completed state and do not repeat updates. Before launching either
+arm, bind exact code/criteria/caps and price time/CPU bank+Adam union/GPU/disk
+from measured actual27 resources. A long T4 allocation is not authorized by a
+local engineering PASS. No new teacher capacity or deployed operator is added.
+
+This is one finite recovery hypothesis. If it fails, examine retained target
+residual/head information and layer composition before choosing a new width,
+depth, redundancy or useful expert layout. More experts can offer conditional
+functions but cannot infer two different required outputs from an identical
+retained history representation. Conversely, this pilot cannot prove every
+compact representation inadequate.
+
+The original kernel evidence establishes selected-expert arithmetic/cost;
+full route cost, head, recurrence and physical selected DRAM remain explicit.
+Useful RAM-driven n and structured CPU IDs AND normalized mass still require
+their own evidence on a useful artifact. Same-artifact fresh chatbot +>=50
+accepted batch1, family/~10B/~100B evidence remain missing. Goal ACTIVE.
+
+### Completed historical selection: numerical trace and FIT delta seed
 
 [Trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md) COMPLETE:original math observers
 reproduce priorheads/routes bitwise;first AQ flip82/0/43 straddles a half-bin.

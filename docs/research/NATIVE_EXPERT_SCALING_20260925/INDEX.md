@@ -29,13 +29,25 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Actual27 delta correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md): COMPLETE,
+initial native identity/new gradients/durable state/resources PASS; numerical
+and quality FAIL.** All five new V blocks active/rank32, full V rank48; all92
+disk Adam steps27. Native KL9.059->8.940/6.313->5.921/9.164->9.031, DEV
+disagreement247/256 and250/256. No useful-chatbot or speed admission.
+First name-check fault preserved; missing-only completion adopts five X fields,
+no update replay. Combined482.297s/11.880GB;56inputs/25outputs independently
+audited including CPU checkpoint deserialization. All jobs terminal/noT4.
+**Exact resumption:** implement/freeze teacher residual-boundary capture for
+the existing48 canonical histories, then a bounded joint history recovery
+comparison; [next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) defines its
+information question, reuse, stops and decision. No more delta repair/trace.
+
 **[Actual26 trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md): COMPLETE/observers
 bit-identical;first discrete divergence is an AQ half-bin crossing.** Conditional
 gate/up/down integer sums all agree. Three route calls only permute experts;
 one changes their set. Numerical gate remains FAIL;no evidence this small
 surrogate KL discrepancy explains poor native donor preservation. FIT-response
-seed helper implemented/algebra checked;actual calibration/fork/update still
-missing. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md). NoT4/all jobs terminal.
+seed helper/calibration/fork/update now qualified above. NoT4/all jobs terminal.
 
 **[Actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md): COMPLETE,
 transport/update/export/resource checks PASS; numerical/quality gates FAIL.**
@@ -46,9 +58,8 @@ Three native case KL9.158->9.059/6.656->6.313/9.328->9.164;disagreement94..98%.
 GPU/C26 failed head rows/four ID calls;GPU raw route persistence gap retained.
 Stored algebra finds both added delta factors zero:32 directions cannot learn
 without a new initialization. No width-causal/quality/accepted-speed/useful-n claim.
-Held487.641s/resourcesPASS/all jobs terminal/noT4. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-locates numerical divergence and explicitly unlocks new delta factors before
-choosing a finite joint source-history recovery pilot. Older nexts below are historical.
+Held487.641s/resourcesPASS/all jobs terminal/noT4. The trace and delta correction
+are complete above. Older nexts below are historical.
 
 **[Original native width envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md):
 COMPLETE/native preservation/raw cost PASS.** Actual Adam25 bank/fullV65537/
@@ -150,18 +161,17 @@ No completed source/update/export/native replay merely for reconfirmation.
 
 ## Exact point of resumption
 
-Actual source-informed wide Adam26/checkpoint/RNG/packed bytes remain immutable.
+Actual source-informed Adam26 and seeded27 checkpoints/RNG/packed bytes are durable;
+actual26 remains immutable. Seeded27 is the selected continuation state.
 Original native width envelope,actual wide update,numerical first-divergence
 trace andstored audits COMPLETE. Source dual96 remains a local state map;
 fixed/mixed/weighted384 readout routes failed their declared reconstruction budgets.
 No universal capacity impossibility follows from those local failures.
 
-[Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md):actual FIT activation
-calibration of prepared delta seed,explicit actual26 master/moment fork,
-native initial function identity andone whole-FIT step27/new-V activity/export/
-native endpoint. New runner/protocol/binding missing;no source/T4 allocation.
-Then finite joint source-history recovery with whole native quality andown-history
-criteria. Numerical trace doesnot justify replacing original LUT/ternary math
+[Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md): qualify teacher residual
+boundaries for finite joint source-history recovery with whole native quality
+and own-history criteria. Boundary-capture runner/protocol/binding still missing;
+no source call or T4 allocation yet. Numerical trace doesnot justify replacing original LUT/ternary math
 or an unbounded floating-parity campaign. P256,depth/attention/FFN/routing/history
 information losses remain open. Useful chatbot/same-artifact50/useful n/IDs-mass/
 physicalDRAM/family~10B~100B still required.

@@ -1,0 +1,121 @@
+{
+  "schema": "ORIGINAL_DELTA_SEED_STORED_AUDIT_V1",
+  "result_sha256": "b71d31a3cd868aa79493ff8d6a1d5512eef37213125013f2569dd63922bb1b0b",
+  "binding_sha256": "d49fa8316a3ae164573767ec0de5d5169de0099198c022ea0035cfc132b58c64",
+  "checked_inputs": 56,
+  "checked_outputs": 25,
+  "new_output_bytes": 11849242017,
+  "old_output_bytes": 30863805,
+  "combined_held_seconds": 482.2970000000205,
+  "initial_native_identity": true,
+  "unchanged_initial_fields": 105,
+  "FIT_seed_cross": [
+    {
+      "site": 0,
+      "new_FIT_rank": 32,
+      "cross_relative": 5.227582300881527e-09
+    },
+    {
+      "site": 1,
+      "new_FIT_rank": 32,
+      "cross_relative": 6.102550779750471e-09
+    },
+    {
+      "site": 2,
+      "new_FIT_rank": 32,
+      "cross_relative": 6.635139876514979e-09
+    },
+    {
+      "site": 3,
+      "new_FIT_rank": 32,
+      "cross_relative": 7.55049853205888e-09
+    },
+    {
+      "site": 4,
+      "new_FIT_rank": 32,
+      "cross_relative": 6.345378185927075e-09
+    }
+  ],
+  "checkpoint_deserialized_CPU": true,
+  "all_92_disk_Adam_steps": 27,
+  "disk_new_V": [
+    {
+      "site": 0,
+      "new_V_nonzero": 32768,
+      "new_V_rank_F64": 32,
+      "all_V_rank_F64": 48
+    },
+    {
+      "site": 1,
+      "new_V_nonzero": 32768,
+      "new_V_rank_F64": 32,
+      "all_V_rank_F64": 48
+    },
+    {
+      "site": 2,
+      "new_V_nonzero": 32768,
+      "new_V_rank_F64": 32,
+      "all_V_rank_F64": 48
+    },
+    {
+      "site": 3,
+      "new_V_nonzero": 32768,
+      "new_V_rank_F64": 32,
+      "all_V_rank_F64": 48
+    },
+    {
+      "site": 4,
+      "new_V_nonzero": 32768,
+      "new_V_rank_F64": 32,
+      "all_V_rank_F64": 48
+    }
+  ],
+  "native_metrics": [
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "KL": 8.939947696090524,
+      "disagreement": 247
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "KL": 5.920897577092512,
+      "disagreement": 233
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "KL": 9.03054395106112,
+      "disagreement": 250
+    }
+  ],
+  "max_loss_delta": 0.0,
+  "GPU_native_failed_positions": [
+    194,
+    198,
+    200,
+    225,
+    300,
+    354,
+    356,
+    383,
+    462,
+    489,
+    555,
+    586,
+    614,
+    961,
+    1366,
+    1380,
+    1411,
+    1445,
+    1467,
+    1505
+  ],
+  "greedy_mismatch_positions": [
+    356
+  ],
+  "ordered_ID_mismatches": 0,
+  "set_ID_mismatches": 0,
+  "mass_delta": 0.001996830105781555,
+  "scope": "Stored-only hashes/native metrics/routes/seed geometry andCPU checkpoint deserialization;no new prediction/source/update/refit. Script elapsed only,not separately held family resources.",
+  "elapsed_seconds": 27.59299999999348
+}

@@ -8,14 +8,28 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest available operation:** [actual27 delta correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md)
+calibrates five rank32 FIT residual response maps, changes only new U rows,
+preserves all3352 initial native heads/routes/masses/witnesses bytewise, and
+executes one whole-FIT Adam26->27 with every new V column active. Durable real
+masters/Adam/RNG/lineage/export and independent CPU disk-state audit exist.
+Engineering/resource gates PASS; numerical and source quality FAIL. Three-case
+KL improves, but DEV disagreement96..98% remains. One update is no width-causal
+or broad-chatbot result. The first namespace verification fault is preserved;
+completion reuses five saved X fields without repeating feature inference or
+an optimizer step. Combined482.297s/11.880GB; all jobs terminal/noT4.
+Original deployed operators are fixed. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+builds actual teacher residual-boundary supervision before a bounded joint
+history recovery comparison. This capture/learner remains to implement and qualify.
+
 **Current conversion tool addition:** [actual26 diagnostic trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md)
 persists original core/router/AQ/LUT witnesses with head-bit observer identity.
 Conditional integer accumulation agrees;first input-code discontinuity crosses
 an AQ half-bin. Native quality remains the endpoint;GPU is explicitly a surrogate.
 The new FIT-response seed helper removes responses explained by existing delta
 functions,selects residual principal directions andfolds them into legal x_proj
-rows while keeping new read factors zero. Algebra checks pass;actual FIT
-calibration/master fork/native identity/new-gradient update are not yet qualified.
+rows while keeping new read factors zero. Algebra and actual FIT calibration/
+master fork/native identity/new-gradient update are now qualified above.
 No source quality orcapacity theorem from activation variance. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
 **Earlier learning operation:** [actual wider bridge](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md)
@@ -23,10 +37,9 @@ transports real masters/moments/RNG and completes one whole-FIT Adam25->26,
 durable checkpoint/native export/integer checks. All new read blocks change;
 three native KL improve modestly,disagreement94..98% remains. GPU/C26 head rows
 andfour ID calls FAIL;unpersisted GPU route fields cannot be independently audited.
-Both new delta factors zero create an exact zero-gradient invariant:added32
-coordinates cannot activate. Correct this initialization in an explicit fork.
-The numerical divergence is now localized above;then choose a bounded whole
-history/conditional-function recovery pilot. No unchanged long dose/T4/quality/
+Both new delta factors zero created an exact zero-gradient invariant in actual26;
+the explicit seeded27 fork above resolves it. Numerical divergence is localized;
+next is bounded whole history/conditional-function recovery. No unchanged long dose/T4/quality/
 accepted-speed/useful-n/DRAM admission. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
 **Earlier native cost implementation:** [width envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md)
