@@ -1,5 +1,13 @@
 # Native expert-count scaling: prior evidence
 
+**Current family RUNNING, no result yet:**
+[Matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
+freeze7f3d2eb/bind07c8b4e/386inputs,session81654/worker7132. Two independent
+actual27 real-Adam/RNG forks, same24 FIT onepass, original native endpoint.
+Max48 NEW updates;6/12/24 durability/native DEV,final auxiliary/tasks and
+plateau/preference gates frozen. Runner exists; gradient/quality still unproven.
+No other owned benchmark while live; no source/RESERVED/T4. INDEX has handle.
+
 **9 October actual27 original native/chat baseline COMPLETE/quality FAIL:**
 [Result](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md),freeze9c40c549/bind9ca774ee/
 raw71663dc9.45 new+3 adopted histories/all22547 positions/8808 full-V labels;

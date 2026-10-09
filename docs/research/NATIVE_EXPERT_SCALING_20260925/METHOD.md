@@ -8,6 +8,13 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Current execution:** [matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
+is frozen/running locally from actual27, A finalKL versus B finalKL+six residual
+losses. Same24 FIT onepass/real Adam/RNG,original C consumer/native baseline,
+6/12/24 durable/native DEV checkpoints and final auxiliary/tasks. Runner now
+exists; actual gradients/quality results remain unproven while running. No
+source/RESERVED/T4; see INDEX for live handle and exact resumption.
+
 **Newest executable endpoint:** [original actual27 native/chat baseline](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
 reuses20 original computational bodies and the actual packed-only520.029MB
 artifact, with persistent canonical chat, full heads on ALL prefill/emitted
@@ -20,8 +27,8 @@ rates, not accepted useful50 or complete tokenization-to-display timing.
 Held414.093s/5.335GB/direct OS caps PASS, nested linker peak unavailable.
 No source/GPU/optimizer/T4. First independent audit reference assertion retained;
 new stable stored-only completion keeps1e-10. This exposes failed transfer while
-making the original deployment endpoint real. Matched recovery runner remains
-missing; the consumer and complete baseline are now available to reuse.
+making the original deployment endpoint real. Matched recovery runner is now
+frozen/running; the consumer and complete baseline are available to reuse.
 
 **Newest reusable conversion input:** [actual teacher boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md)
 48 canonical full histories/seven actual BF16 residuals/all22547 positions and
@@ -49,8 +56,8 @@ an optimizer step. Combined482.297s/11.880GB; all jobs terminal/noT4.
 Original deployed operators are fixed. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
 uses now-qualified teacher residual-boundary inputs for a bounded joint history
 recovery comparison. Learner adapter exists; real gradient/native qualification
-and matched runner remain missing; the original native chat consumer is now
-qualified above and must not be rebuilt merely for another baseline.
+remain unqualified; the matched runner is now executing. The original native
+chat consumer is qualified above and must not be rebuilt for another baseline.
 
 **Current conversion tool addition:** [actual26 diagnostic trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md)
 persists original core/router/AQ/LUT witnesses with head-bit observer identity.

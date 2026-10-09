@@ -6,6 +6,13 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+The [finite matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
+is now frozen/running:actual27 real states,24FIT onepass perarm, final-KL versus
+KL+six-boundary weight1, original C endpoint and complete before baseline reused.
+Native DEV milestones and own-answer/tasks decide usefulness; B preference
+requires behavioral support as well as KL/centered-error improvement. No new
+deployed operator/width/source query/T4. INDEX gives the exact live continuation.
+
 The [actual27 original native/chat endpoint](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
 is now qualified without changing20 original computational bodies. Persistent
 canonical chat/full heads/all-prefix IDs/mass identity PASS; tasks0/16 versus
@@ -21,7 +28,7 @@ The [teacher history acquisition](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md
 is complete with explicit parent resource/final-identity gaps. Actual residual
 composition is now available for all48 histories; all projection rows independently
 qualified. Prepared training-only learner can supervise six student boundaries;
-real matched KL versus KL+history recovery remains to implement/qualify; the
+real matched KL versus KL+history recovery is executing/unqualified; the
 original native own-history consumer is now qualified above. Fixed basis'12..14% intermediate energy retention is an
 information warning, not a quality theorem. Raw states remain reusable. The
 next decision is measured whole recovery within original operators, with useful

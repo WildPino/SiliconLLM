@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 9 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-All owned jobs terminal; no T4 allocation. [METHOD](METHOD.md),
+Matched joint recovery RUNNING locally; no T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
 ## Goal and constraints
@@ -56,11 +56,14 @@ stable stored-only completion preserves1e-10 gate. Transfer quality is the prior
 
 Use actual27 and qualified teacher boundaries. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
 fixes B auxiliary weight1/normalized six-boundary loss versus A final KL only.
-Implement/freeze matched24-FIT onepass worker, real-gradient/durability/export,
-then native DEV/domain/own-history tasks under predeclared criteria/resources/
-plateau stops. Qualified original wide packed persistent consumer and complete
-native48/chat baseline now exist; reuse them. Adapter exists; matched runner/
-protocol/binding/real auxiliary gradient qualification remain missing.
+Matched24-FIT onepass [worker/protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
+RUNNING:freeze7f3d2eb/bind07c8b4e/386inputs/session81654. Launcher28184/worker7132,
+worker created2026-10-09T21:48:12.639016+02:00. Re-poll the SAME handle; Win32
+PID/create_time is authoritative. Actual27 restore/initial auxiliary DEV first;
+do not restart completed updates. Qualified C consumer/native48 baseline reused.
+Two independent actual27 forks,24 new FIT updates max each,6/12/24 native DEV/
+durable checkpoints,final auxiliary/tasks.7200s/reserve600/32GiBOS/10-11GiBGPU/
+96GiB outputs,plateau/native behavior gates frozen. Source/RESERVED/T4 zero.
 No further boundary capture/delta repair/numerical trace selected; no T4.
 
 Keep full scope: useful chatbot ANDsame-artifact50, useful n/CPU IDs-mass/DRAM/

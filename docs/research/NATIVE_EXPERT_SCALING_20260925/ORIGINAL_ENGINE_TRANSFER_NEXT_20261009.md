@@ -1,6 +1,6 @@
 # Next: transfer donor history functions into the original engine envelope
 
-9 October 2026. Goal ACTIVE/INCOMPLETE. All jobs terminal; no T4 allocation.
+9 October 2026. Goal ACTIVE/INCOMPLETE. Matched recovery running; no T4 allocation.
 [Complete original-operator recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
 and [actual27 correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md) are complete.
 Useful chatbot conversion remains missing; strict numerical FAIL is retained.
@@ -8,6 +8,21 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 ## Actual resumption, not a fresh training restart
 
 ### Current resumption: qualified teacher histories and finite joint recovery
+
+**LIVE selected family:** [protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
+worker `original_joint_history_recovery.py`,freeze7f3d2ebf8f15fd9b5a1c24c2553c6067050b707b,
+binding07c8b4e491bfe76e90c39ad55bebcd71bf6fd581988ac155a653988be86c1584/386inputs.
+Session81654;launcher28184/worker7132/create_time2026-10-09T21:48:12.639016+02:00.
+Namespace `results/native_expert_scaling/original_joint_history_recovery_20261009`;
+log `original_joint_history_recovery_result_20261009.worker.log` in this folder.
+Actual27 restore/initial auxiliary DEV precedes first scheduled new update.
+Poll the SAME handle or Win32 PID/create_time. Observation timeout is not exit.
+Do not start another benchmark/model/compiler while live;never replay updates.
+Exact arm counters/snapshots/native milestones/faults are authoritative outputs.
+Runner now exists; first real gradient/initial GPU/export identity remain to
+observe. Max48 newupdates/two24FIT onepasses and7200s/600reserve, resource/
+plateau/preference/behavior gates are frozen before any candidate observation.
+No source/RESERVED/T4. Native consumer/baseline reused; original operators fixed.
 
 [Actual27 original native/chat baseline](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
 is COMPLETE. Same20 original bodies/packed model; prefix/split/reuse full heads
@@ -57,7 +72,7 @@ A relative win motivates finite broader recovery; failure closes this loss
 recipe and prompts a measured representation/depth bottleneck change. No
 unchanged month-long dose follows from either engineering or relative PASS.
 
-**Immediate selected implementation:** implement/freeze matched A/B worker,
+**Selected implementation (now frozen/running):** matched A/B worker with
 state adoption/durability/export and exact native evaluation/plateau rules using
 the now-qualified original persistent C consumer. The earlier D512/L12 chat is
 a different artifact. Reuse original state_reset/forward_token bodies exactly;
@@ -73,7 +88,7 @@ contributions recorded; save durable state before later evaluation. No extra
 optimizer step/replay merely for adapter qualification. Freeze the exact24 FIT
 order/first-history selector before any candidate observation.
 
-**Finite learner comparison (runner/criteria not yet executable).**
+**Finite learner comparison (runner/criteria frozen; execution in progress).**
 Use the prepared training-only adapter observing each target post-block residual;
 keep all frozen learners/exporters/native computational bodies immutable.
 Starting from the same actual27 state, compare A:whole final-distribution KL,
