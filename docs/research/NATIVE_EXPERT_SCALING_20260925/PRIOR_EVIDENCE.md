@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**9 October weighted384 histories COMPLETE/operator PASS/reconstruction FAIL:**
+[Result](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md),freeze8bcd42e/bind325e4cfe/
+raw37ccf69d.144 FIT head fits,288 selected dual-basis audits,source state256;
+fixed8 versus adaptive384 retaining48 timescales. Independent NumPy kernel/tail
+and rank-allocation checksPASS;all144 cases/both scans<=7.251e-7,source baseline0,
+six F64 witnessesPASS. Adaptive source-denominator DEV54.45%/78.68%/53.72%;all
+10%mean/20%worst/10%centered gatesFAIL. Proxy optimum is Cartesian independent-time,
+not same-time/coupled output/chatbot optimum. No global capacity theorem.
+Held94.781s/exit0/session73310 CLOSED,OS1,550,340,096B/GPU1,227,675,136/
+1,447,034,880B/resourcesPASS;438 files248,797,448B,288 actual packed384 latents
+207,793,152B. Stored case/domain aggregate delta2.220447e-16/all438hashes checked.
+Source/optimizer/native/RESERVED/T4 zero. Close fixed linear384/source-gate route;
+next native cost/parity comparison before joint learned-state construction.
+
 **9 October mixed384 history COMPLETE/operator PASS/plain decoder FAIL:**
 [Result](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md),freezeaa0ab15/bindd7c23631/
 rawefd7fb64.144 FIT-only8/head bases,48heads/site0/12/23;actual projected source
@@ -12,8 +26,8 @@ FAIL. Raw-y PCA improves0/worsens12/23 versus repairedcopied48x8;not global
 capacity ceiling. Heldfamily70.531s/exit0/session36520 CLOSED/resourcesPASS,
 OS1,559,941,120B/GPU1,151,896,576/1,293,942,784B;294 files114,176,791B. Independent
 stored aggregate delta2.220447e-16/294output hashesverified. Original engine/Adam25
-unchanged. Next read/write-weighted channel geometry/FIT-onlyrank allocation
-under384 budget uses retaineddata;newprotocol/worker missing.
+unchanged. The weighted-head follow-up above is now complete; this raw-y result
+is an immutable failed control, not the operational next experiment.
 
 **9 October384-channel transport and closed-form readout repair COMPLETE/FAIL:**
 [Result](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md). FIT-only greedy

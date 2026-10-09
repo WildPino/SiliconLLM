@@ -29,6 +29,20 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Weighted384 histories](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md):
+COMPLETE/operator PASS/reconstruction budget FAIL.** FIT-only dual read/write
+bases,fixed8 versus adaptive384 across all48 heads;all144 case-sites/both scans
+qualified<=7.251e-7,six scalarF64 witnessesPASS/all source baselineerrors0.
+Adaptive full-source-gate/denominator DEVmeans54.45%/78.68%/53.72%,better than
+raw-y PCA but far above10%. Unequal-rank allocation changes means little.
+All local gatesFAIL,no warm/native/quality admission. Held94.781s/exit0/session73310
+CLOSED/resourcesPASS,248.797MB retained including207.793MB actual packed histories.
+Close fixed linear384/source-gate route. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+returns to a complete original-kernel cost/parity comparison before learning a
+new state:actual Adam25 DN512/DT16 versus duplicated-core DN1024/DT48 fixture,
+same real bank/fullV/LUT/AQ63/dReLU. Fixture adds no knowledge. Native width variant,
+new protocol/code/binding missing;no T4 allocation or additional Adam25 dose.
+
 **[Mixed384 history](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md): COMPLETE,
 projected recurrence valid;plain decoder budget FAIL.** FIT-only144 head bases,
 8 ungated mixtures per48 heads;all144 generated histories saved F32/103.897MB.
@@ -39,8 +53,8 @@ All predeclared local gates FAIL. Raw-y PCA improves site0 versus repaired copie
 channels,but worsens12/23;not an information-capacity theorem. Held70.531s/exit0/
 session36520 CLOSED,OS1.560GB/GPU1.152/1.294GB,114.177MB namespace/resourcesPASS.
 Original engine/Adam25 unchanged,no source/optimizer/native/T4. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-weights channel read/write geometry by actual gate/output metric,compares fixed8
-versus FIT-only384 total rank allocation across48 heads. New protocol/code missing.
+now supersedes that completed weighted-head comparison with a native deployment
+envelope and joint learned-state decision. Previous bases/results remain immutable.
 
 **[384-channel transfer + output repair](ORIGINAL_FALCON_CHANNEL_TRANSPORT_RESULT_20261009.md):
 COMPLETE/numerically valid;both representation budgets FAIL.** FIT-only output-aware

@@ -8,6 +8,19 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest measured operation:** [weighted head histories](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md)
+FIT-only dual read/write bases with384 actual carried channels, fixed8 versus
+variable ranks across48 source timescales. All144 case-sites/both projected scans
+qualify<=7.251e-7,six independentF64 witnessesPASS/source output baselines0.
+Independent-time pair algebra/biorthogonality/truncated kernel/tail auditsPASS.
+Adaptive full-source-gate output DEV54.45%/78.68%/53.72%,all reconstruction gates
+FAIL. Learned compact state/conditional decode remains missing; no capacity ceiling.
+Held94.781s/resourcesPASS/248.797MB stored,source/optimizer/native/T4 zero.
+Fixed linear384/source-gate route closed. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+measures original-kernel DN512/DT16 versus DN1024/DT48 deployment envelope with
+same actual Adam25 bank/fullV before choosing new joint learned-state geometry.
+Duplicated-core fixture is a cost/parity control, not a knowledge-bearing candidate.
+
 **Newest implemented source-state operation:** [mixed history](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md)
 144 FIT-only perhead rank8 bases,actual source SSD with384 mixed channels/state256,
 all144 full histories saved F32/103.897MB. Direct projected recurrence versus
@@ -53,8 +66,8 @@ auxiliaries. Original DT16 cannot represent arbitrary48 delta functions. The
 proposed DN1024/DT48 copied8-x-per-head/992-channel warm construction is rejected
 by the measured channel/readout diagnostics above. Widthvariants unimplemented.
 [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses the now-qualified
-mixed-history operator to investigate read/write-weighted channel bases and
-FIT-onlyrank allocation under sum384. Raw-y PCA already fails downstream output.
+mixed-history evidence to select a complete native deployment envelope before
+joint state/function learning. Both raw-y and weighted384 fixed maps fail output.
 Gating and mixed nonlinear generators do not commute/transport for free;their
 conditional realization must be measured before a real warm/native variant or dose.
 LUT/dReLU/AQ63/sparse ternary endpoint remains the target; counted matrix products

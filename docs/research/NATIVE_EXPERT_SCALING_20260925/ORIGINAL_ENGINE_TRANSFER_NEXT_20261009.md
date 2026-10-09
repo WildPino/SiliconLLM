@@ -7,6 +7,81 @@ gates FAIL; original all-history numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
+### Current override after weighted384 histories: return to complete native cost
+
+[Weighted384 head histories](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md)
+are COMPLETE/operator PASS/reconstruction budget FAIL. Fixed8 and adaptive384
+both preserve projected source dynamics numerically; adaptive full-source-gate
+DEV54.45%/78.68%/53.72%. All declared gatesFAIL. Keep actual bases/packed latents;
+no projection replay, rank grid, same-basis linear decoder or extra Adam25 dose.
+The older selected weighted-head section below is now completed historical work.
+
+The current bottleneck is a usable learned compact history representation and
+its conditional input/read functions. More stored FFN functions cannot recover
+discarded past information without an adequate state. Fixed linear-head failure
+does not prove all small learned states inadequate. Native LUT/ternary/AQ63/
+dReLU and original recurrence remain the endpoint; no generic donor runtime.
+
+**One selected next comparison, no training:** measure the complete original-
+kernel envelope using actual Adam25 fullV65537/n1152/k8/D256/N96/L6 weights.
+Control DN512/DT16 versus separately exported DN1024/DT48 duplicated-core fixture.
+The wider core adds no knowledge and is not a new warm donor candidate. Before
+execution implement/freeze new native wrapper/export/measurement code, exact
+input histories and speed/parity criteria/resource caps. No width variant exists
+yet. Preserve all original20 extracted bodies and verify hashes/source observer
+diff; only geometry constants, loader extents and measurement consumer may vary.
+
+Function-preserving construction in real arithmetic for each SSM site:
+
+1. Duplicate512 x channels and512 gate channels separately in in_proj;duplicate
+   conv/conv_bias/A_log/Dskip/delta_bias on channel axis.
+2. x_proj first16 delta rows and192 B/C rows: duplicate input columns with1/2
+   weights;shift B/C rows after new48 delta rows. New32 delta coordinates zero.
+3. dt_proj duplicate output rows,copy original16 input columns,append32 zero
+   columns. out_proj duplicate channel columns with1/2 weights.
+4. Keep residual/norm/SWA/head/embed/router/ternary codes/scales byte-identical.
+   Header/field shapes/offsets/bytes are an actual new packed artifact,not a shim.
+
+These identities preserve B/C/delta/outputs in real arithmetic. Floating summation
+order can change routes; require full-head relative RMS<=1e-4,all selected IDs
+exact,mass delta<=1e-6,finite outputs/normalized mass and independent LUT integer
+witnesses. Qualification of this duplication compares two native implementations;
+it does NOT remove historical C/GPU/source-quality failures. Stop/preserve first
+fault if any gate fails; do not use quality or cost from an unqualified fixture.
+
+Use a finite matched sequence selection from already captured FIT/DEV,including
+the1507-position FIT history;no RESERVED/source/label queries. Freeze selection
+and one owned compiler/native family with identical affinity/thread/exp settings.
+Batch1 persistent state/reset per request;full65537 vocabulary logits and actual
+router/LUT/SWA/scan included. Measure coldload separately and postload request
+wall time,component timing,counter overhead and OS/packed/resident bytes. Avoid
+full-logit file IO in speed timing; finite parity outputs are a separate phase.
+Do not extrapolate cache-only fixtures, padded work or GPU grouped scan timings.
+This is raw structural throughput,not accepted token/s of a useful chatbot.
+
+Counted matrices DN512/DT16:26,067,200 products/token;DN1024/DT48:28,934,400
+(+11.0%). Scan states/exponentials double;coreF32 bytes12,273,664->24,797,184;
+source-shaped matrices/wholehead/router count excludes vector/conv/SWA/vector-
+norm/packing/DRAM costs. FullV head alone16,777,472 products/token;actual cost
+must be measured. No latency follows from11%matrix growth. Test complete kernels,
+not a scalar-A hoist unimplemented in the current native code.
+
+If measured cost supports a wider compact target,define one finite **joint learned
+core/function pilot**: compact input/transition/gate/readout plus ternary bank,
+with source-informed timescales and retained local targets. W/V controls are
+failed source-local diagnostics,not certified initialization. Exact projected
+state96/readwrite maps still need nonlinear generator approximations;depth24->6,
+parallel attention,P256,FFN grouping/normalized selection must be recovered in
+the whole candidate. Do not assume a DN1024 source-copy construction works.
+If cost is unsuitable,choose an actual reduction/conditional realization based
+on component timings before spending training;no blanket claim of impossibility.
+
+T4 month+ remains authorized in principle. Select allocation only after measured
+T4-compatible residency/throughput and finite recovery evidence;state reason,
+budget/checkpoints/plateau stops. Native fresh chatbot quality AND >=50 accepted
+IDs/s on same artifact, useful n/structured CPU IDs AND mass/physical DRAM and
+other donor families/scales still required. Goal remains ACTIVE/INCOMPLETE.
+
 `results/native_expert_scaling/original_falcon_whole_recovery_20261009/candidate_25.pt`:
 actual model/Adam25/CPU+CUDA RNG/ledger/completed FIT IDs,8,614,638,714B, SHA
 `1a6f366e5df0d913f4fcffd205f2f32c3da844e4c0c4c08b66b8c29accdc8790`.
@@ -246,7 +321,7 @@ output allowance128MiB replaced the96MiB planning value before observations to
 save103.897MB actual F32 latents plus~10MB bases/statistics. No compact candidate
 admitted. Keep Adam25 and all failed selected/linear/mixedraw-y maps.
 
-### Selected next: balance channel write variance and output reading metric
+### Completed historical comparison: balanced channel write/read metric
 
 For each source head define the real-arithmetic read matrix BEFORE BF16 feature
 rounding,as a source-local diagnostic:
@@ -281,10 +356,10 @@ headrank means packed384 state channels tied to sourcehead identities;do not pad
 to3072 and claim384 active work. Price actual padded/grouped diagnostic compute
 separately from a future native implementation. Preserve same active channel budget.
 
-Planned family1800s/reserve90,OS6GiB/GPU4/5GiB,output256MiB to retain both F32
-384-latent fields(~207.8MB) and basis/metric data. New worker/protocol/binding not
-implemented yet;freeze before execution,one ownedjob,pre/post raw bytes/held
-processes/resources/first faults. No source/labels/Adam25 dose/T4. Mixed nonlinear
+Completed family94.781s/exit0/resourcesPASS under1800s/reserve90,OS6GiB/GPU4/5GiB,
+output256MiB;248.797MB retained including207.793MB actual F32 packed384 fields.
+New worker/protocol/binding frozen8bcd42e;full results linked in current override.
+All output reconstruction gatesFAIL;no source/labels/Adam25 dose/T4. Mixed nonlinear
 generators and gate decode still require actual conditional-function realization
 under ternary/LUT/routing/DRAM cost;the geometry alone is not a whole pipeline.
 
