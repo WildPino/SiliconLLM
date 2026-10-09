@@ -1,0 +1,280 @@
+{
+  "schema": "ORIGINAL_FALCON_RECURRENT_CAPTURE_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_recurrent_capture.py",
+  "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008",
+  "corpus": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\corpus.json",
+  "ordered_ids": [
+    "broad_fit_apigen_80k_002",
+    "broad_fit_apigen_80k_023",
+    "broad_fit_everyday_conversations_002",
+    "broad_fit_everyday_conversations_010",
+    "broad_fit_explore_instruct_rewriting_008",
+    "broad_fit_explore_instruct_rewriting_009",
+    "broad_fit_metamathqa_50k_015",
+    "broad_fit_metamathqa_50k_023",
+    "broad_fit_numina_cot_100k_015",
+    "broad_fit_numina_cot_100k_016",
+    "broad_fit_openhermes_100k_004",
+    "broad_fit_openhermes_100k_028",
+    "broad_fit_self_oss_instruct_006",
+    "broad_fit_self_oss_instruct_012",
+    "broad_fit_smol_constraints_005",
+    "broad_fit_smol_constraints_021",
+    "broad_fit_smol_magpie_ultra_000",
+    "broad_fit_smol_magpie_ultra_022",
+    "broad_fit_smol_rewrite_004",
+    "broad_fit_smol_rewrite_015",
+    "broad_fit_smol_summarize_003",
+    "broad_fit_smol_summarize_024",
+    "broad_fit_systemchats_30k_010",
+    "broad_fit_systemchats_30k_024",
+    "broad_dev_apigen_80k_033",
+    "broad_dev_apigen_80k_034",
+    "broad_dev_everyday_conversations_033",
+    "broad_dev_everyday_conversations_036",
+    "broad_dev_explore_instruct_rewriting_035",
+    "broad_dev_explore_instruct_rewriting_038",
+    "broad_dev_metamathqa_50k_035",
+    "broad_dev_metamathqa_50k_037",
+    "broad_dev_numina_cot_100k_035",
+    "broad_dev_numina_cot_100k_038",
+    "broad_dev_openhermes_100k_034",
+    "broad_dev_openhermes_100k_037",
+    "broad_dev_self_oss_instruct_033",
+    "broad_dev_self_oss_instruct_036",
+    "broad_dev_smol_constraints_034",
+    "broad_dev_smol_constraints_035",
+    "broad_dev_smol_magpie_ultra_034",
+    "broad_dev_smol_magpie_ultra_036",
+    "broad_dev_smol_rewrite_032",
+    "broad_dev_smol_rewrite_036",
+    "broad_dev_smol_summarize_034",
+    "broad_dev_smol_summarize_039",
+    "broad_dev_systemchats_30k_034",
+    "broad_dev_systemchats_30k_039"
+  ],
+  "source_revision": "80ebc50d7799a440b96c93bb6686a3924a09b0cb",
+  "sites": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "cases": 48,
+  "history_tokens": 22547,
+  "expected_payload_bytes": 16121285376,
+  "fields": {
+    "x": {
+      "width": 3072,
+      "dtype": "BF16"
+    },
+    "B": {
+      "width": 256,
+      "dtype": "BF16"
+    },
+    "C": {
+      "width": 256,
+      "dtype": "BF16"
+    },
+    "gate": {
+      "width": 3072,
+      "dtype": "BF16"
+    },
+    "delta": {
+      "width": 48,
+      "dtype": "BF16"
+    },
+    "y": {
+      "width": 3072,
+      "dtype": "F32"
+    },
+    "output": {
+      "width": 2048,
+      "dtype": "BF16"
+    }
+  },
+  "criteria": {
+    "all_cases_sites_fields": true,
+    "finite": true,
+    "exact_field_extents": true,
+    "source_parameter_identities_versions_unchanged": true,
+    "LM_head_calls": 0
+  },
+  "limits": {
+    "seconds": 1800,
+    "reserve_seconds": 90,
+    "OS_bytes": 12884901888,
+    "GPU_allocated_bytes": 10737418240,
+    "GPU_reserved_bytes": 11811160064,
+    "output_bytes": 21474836480
+  },
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_recurrent_capture.py",
+      "bytes": 19134,
+      "sha256": "c399c5144e11f64ea7b5789f49920a36f902681499efd47a0f68e66b1b0ae2b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 21074,
+      "sha256": "bb15c705cc7afb1223ef1f79c95549302ece7aaeb66ef630ed4b7f6c6b19f9be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_whole_recovery.py",
+      "bytes": 30017,
+      "sha256": "8ffd416f172fb02f8dd58d7852014c7adaae65c01fc40b59c07bbc65326f6dd8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_ssd_tiles.py",
+      "bytes": 2630,
+      "sha256": "ac1d50d46629762fdc017ec0392d78745146113494b1464a485954e18c19d546"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ORIGINAL_FALCON_RECURRENT_CAPTURE_PROTOCOL_20261009.md",
+      "bytes": 3741,
+      "sha256": "ffeb519f1cc8dc624c305c6f0b0faa9312ee1a558064c7153f44acac86b4c14e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_whole_adopted_result_20261009.json",
+      "bytes": 825012,
+      "sha256": "a4090938f04013588f72369453ccc727df51d6ca19c8b7137d19868805f4339d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md",
+      "bytes": 11130,
+      "sha256": "1f85ec259ab23ee08305da7cf28d4ad4dabd1e11deefd31d815669b365c41882"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_broad_capture_binding_20261009.json",
+      "bytes": 34370,
+      "sha256": "f18c52d1f0dbd565d971913d66297e4215697a580baa9668e3b9ad350fbd36b2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\corpus.json",
+      "bytes": 1065224,
+      "sha256": "ac14f2082146e74e37253caffcca6866dab3548fff616aff8ea330bdf865f831"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+      "bytes": 3109773032,
+      "sha256": "1fb788513f2c58e3abb91af8730afe19e247bce7a7f01a46e452a084e98b2abd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+      "bytes": 1599,
+      "sha256": "2473f5e02854a2833df973277e6f109d94344e7860fbc78d5ff8b31d08dddaeb"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\__init__.py",
+      "bytes": 103037,
+      "sha256": "0901a8ad92b30f947405e28fc98dd21c578cfbe8796b0173de931f42079b1f89"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\_C.cp312-win_amd64.pyd",
+      "bytes": 10240,
+      "sha256": "8cc12784367470aa0f3ebe54a0c4593ac52d5bc273ed7ba719cbb10b4a3dbdb8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+      "bytes": 251258368,
+      "sha256": "9419933b9cc163baf7859092f243de4695b45632f81b96a8d0060ea20d63d6b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\lib\\torch_cuda.dll",
+      "bytes": 957268480,
+      "sha256": "f798b6307caba957d3dbfc64ede4ab8d992260c5e2cdb5cc2ec7fb75b3ddf23e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\torch\\cuda\\__init__.py",
+      "bytes": 58784,
+      "sha256": "92f2d2434ce713d81f58aece36fe1bbc8fd9942973dbda7ba12009de30ddd885"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\__init__.py",
+      "bytes": 41736,
+      "sha256": "ff6828faeea7d6644b136fbdc818c7300a36e4cd0cc10de2edc6e5dd50d7c586"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\cache_utils.py",
+      "bytes": 90586,
+      "sha256": "16bbbba2394c0151af53009800e5a4052479417a8c7e5edfbd5ef128a46fcbc1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+      "bytes": 59285,
+      "sha256": "abfb007ace80bfd5584c457569605cf57f43778495e587c68df63a8f0ffa5346"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\configuration_falcon_h1.py",
+      "bytes": 6632,
+      "sha256": "bd996cf14c0eaf7307e939fb6579a3c47a95f11a47a45b91ab1750c186a052aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\safetensors\\__init__.py",
+      "bytes": 221,
+      "sha256": "3bc1e524ebaba28b4de3b3ebad1edfc623190a1d4fc34e76b900fa34e0c37bbd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ],
+  "runtime_binding_scope": "Pinned complete source weights/config/base model and principal runtime binaries;48 retained complete forced histories; no full DLL-tree binding or new source answers."
+}
