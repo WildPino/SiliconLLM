@@ -25,7 +25,7 @@ def energy(x):
     return dict(total=float(np.sum(x*x)),mean=float(len(x)*np.sum(mean*mean)),centered=float(np.sum((x-mean)**2)))
 
 rp=DOC/'original_history_boundaries_result_20261009.json';r=read(rp)
-t=read(rp.with_suffix('.terminal.json'));bp=DOC/'original_history_boundaries_binding_20261009.json';b=read(bp)
+t=read(rp.with_suffix('.terminal.json'));bp=Path(t['command'][t['command'].index('--binding')+1]);b=read(bp)
 assert sha(rp)==t['result_sha256'] and sha(bp)==r['binding_sha256']==t['binding_sha256']
 for item in b['inputs']+t['output_files']:
     assert Path(item['path']).stat().st_size==item['bytes'] and sha(item['path'])==item['sha256'],item['path']
@@ -33,7 +33,7 @@ assert t['exit_code']==0 and t['resource_gates'] and r['cases']==r['source_base_
 assert r['exact_history_output_witnesses']==288 and r['source_parameter_identities_versions_unchanged']
 assert r['LM_head_calls']==r['source_generations']==r['optimizer_updates']==r['native_calls']==r['reserved_queries']==0
 P=np.fromfile(r['basis']['path'],dtype='<f4').reshape(2048,256).astype('f8')
-defect=float(np.max(np.abs(P.T@P-np.eye(256))))
+gram=P.T@P;defect=float(np.max(np.abs(gram-np.eye(256))))
 assert abs(defect-r['basis_orthogonality_max'])<1e-12 and defect<=b['criteria']['projection_orthogonality_max']
 rows=[];raw=0;projected=0;max_projection=0.;max_energy_delta=0.;max_discarded_identity_delta=0.
 for rec in r['records']:
@@ -56,7 +56,7 @@ for rec in r['records']:
         assert abs(retained-item['retained_energy_fraction'])<1e-12 and abs(centered-item['centered_retained_fraction'])<1e-12
         # Algebraically exact residual norm, including measured nonorthogonality
         # and F32 z error: ||h-zP^T||^2 = ||h||^2 -2<hP,z> + <z(P^TP),z>.
-        exact_discard=eh['total']-2*float(np.sum(expected*z))+float(np.sum((z@(P.T@P))*z))
+        exact_discard=eh['total']-2*float(np.sum(expected*z))+float(np.sum((z@gram)*z))
         estimate=item['discarded_energy_difference'];assert abs(estimate-eh['total']+ez['total'])<1e-7
         delta=abs(exact_discard-estimate)/max(eh['total'],1e-24)
         max_discarded_identity_delta=max(max_discarded_identity_delta,delta);assert exact_discard>=-1e-10*max(eh['total'],1e-24)

@@ -39,7 +39,13 @@ for learner supervision. No retained-energy gate or DEV basis selection.
 Projection/RMS do not commute; these auxiliary coordinates are not exact source
 logits or transferred recurrent state. No useful-chatbot or speed admission.
 
-Expected5–10 local minutes. Held family1200s/reserve120s, OSworker+launcher12GiB,
+Pre-observation budget correction supersedes unexecuted freeze92a4023/binding
+2e53c486. Earlier original capture log records45 histories in1267.25s; missing3
+resume worker255.5s. Those include far more IO and do not isolate forward time.
+The original family's exit/resources remain unknown.5–10 minute estimate was
+too optimistic; price roughly15–25 minutes and a held family1800s/reserve120s.
+No source inference ran under the first frozen budget; its binding is retained.
+OSworker+launcher12GiB,
 GPU allocator8allocated/9reservedGiB, new namespace1GiB/log4MiB/diskfree>=4GiB.
 WorkerCPU0..5/Torch6/inter-op1/NumPy1; launcher11; no descendants/compiler/
 concurrent owned benchmark; exact publisher exception retained. Principal input

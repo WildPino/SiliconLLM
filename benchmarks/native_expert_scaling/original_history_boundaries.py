@@ -51,7 +51,9 @@ def bind(a):
         B/'original_falcon_whole_recovery.py', B/'chatbot_falcon_ssd_tiles.py', capture,
         Path(r['adoption_binding']['path']), source/'model.safetensors', source/'config.json',
         source/'source_package.json', corpus, basis, transfer_terminal, Path(sys.executable),
-        DOC/'ORIGINAL_HISTORY_BOUNDARIES_PROTOCOL_20261009.md']
+        DOC/'ORIGINAL_HISTORY_BOUNDARIES_PROTOCOL_20261009.md',
+        DOC/'original_falcon_recurrent_capture_result_20261009.worker.log',
+        DOC/'original_falcon_recurrent_resume_result_20261009.worker.log']
     files += [Path(item['path']) for rec in witnesses for item in rec['outputs']]
     for rec in witnesses:
         for item in rec['outputs']:
@@ -76,7 +78,7 @@ def bind(a):
         criteria=dict(exact_history_outputs=288, source_parameters_unchanged=411, boundaries_per_case=7,
             finite=True, raw_extents_exact=True, projection_orthogonality_max=1e-4,
             projection_relative_RMS=1e-5, LM_head_calls=0),
-        limits=dict(seconds=1200, reserve_seconds=120, OS_bytes=12 << 30,
+        limits=dict(seconds=1800, reserve_seconds=120, OS_bytes=12 << 30,
             GPU_allocated_bytes=8 << 30, GPU_reserved_bytes=9 << 30, output_bytes=1 << 30, log_bytes=4 << 20),
         inputs=[extent(path) for path in dict.fromkeys(files)],
         arithmetic='Actual source BF16 zero-state full prefill. Raw h0 multiplied embedding and h4..h24 decoder outputs;'
