@@ -1,6 +1,9 @@
 # Next: paired whole-chatbot recovery at fixed active work
 
-9 October 2026. SELECTED proposal, worker/binding UNIMPLEMENTED/UNEXECUTED.
+9 October 2026. SELECTED proposal, worker implemented; binding/model UNEXECUTED.
+The [execution protocol](CHATBOT_FIXED_WORK_PAIRED_PROTOCOL_20261009.md) freezes
+schedule/criteria and raises the prospective output cap to24GiB to retain all
+three actual checkpoints plus new full-vocabulary logits and fault-state headroom.
 [Actual2+6 feasibility](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md)
 passes state/gradient/operation/resource gates; it does not establish an
 advantage over0+8 or retained donor quality. No owned job or T4 allocation live.
@@ -60,7 +63,7 @@ No relative pass admits useful generation or greater capacity.
 
 Use measured 26.4 s worst long B interval/42.3 s snapshot to price the actual
 schedule; short cases are not presumed to cost the same. Preliminary sequential
-family 1800 s/reserve 90 s/heldOS 8 GiB/CUDA 10/11 GiB, output namespace 12 GiB/log 4 MiB,
+family 1800 s/reserve 90 s/heldOS 8 GiB/CUDA 10/11 GiB, output namespace 24 GiB/log 4 MiB,
 sixcores/nooverlap. These are proposals until code/protocol/binding are frozen.
 Reuse B's completed price; measure A's two NEW steps, preserve them and debit
 the budget. Full snapshots at every step add roughly 42 s each and would distort
@@ -85,7 +88,7 @@ independent requirements; a small successful comparison would be a first recipe.
 
 ## Exact first action
 
-Implement/freeze/bind a paired continuation worker with durable per-arm state
+Freeze/bind the implemented paired continuation worker with durable per-arm state
 and actual-data order. Extract B's stored initial update RNG through a bounded
 saved-state metadata read if needed for A; do not infer it from a seed or replay
 the failed stochastic forward. Verify A/B serialized tensor enumeration/slots.

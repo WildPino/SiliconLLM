@@ -370,7 +370,7 @@ Full failed+repair cost219.156s; CUDA allocated5.069GB/reserved5.836GB; heldOS
 4.963GB; final3,116,677,466B checkpoint d6bac2d0 includes model/Adam/config/
 history/start+final RNG. Initial detailed exposure lost in RAM remains missing.
 The next [paired continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md) worker
-is unimplemented/unexecuted; retain B's two updates and price two NEW A updates
+is implemented/syntax checked, binding/model unexecuted; retain B's two updates and price two NEW A updates
 before the fixed24 pass per arm. No completed baseline/source/update replay.
 Variable-n packed export/loading, useful additional functions, structured CPU
 IDs/mass and bounded dormant optimizer storage belong to this pipeline.

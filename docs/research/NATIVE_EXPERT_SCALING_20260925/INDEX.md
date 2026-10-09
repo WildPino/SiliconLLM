@@ -124,13 +124,16 @@ useful n. Qwen/Giga/511/actual256 evidence retains its scope and existing limits
 ## Exact point of resumption
 
 **First action:** implement/freeze/bind the
-[paired continuation worker](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md), still
-UNIMPLEMENTED/UNEXECUTED. Arm A adopts actual broad24/Adam318 (16a85448);
+[paired continuation worker](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md), now
+implemented/syntax checked; binding/model UNEXECUTED. The
+[prospective protocol](CHATBOT_FIXED_WORK_PAIRED_PROTOCOL_20261009.md) fixes order,
+criteria, durable A2/A26/B26 and1800s/24GiB output caps. Arm A adopts actual broad24/Adam318 (16a85448);
 arm B adopts actual fixed-work2/private320/common2 (d6bac2d0). Complete two NEW
 A longest FIT updates using B's recorded starting RNG policy; reuse completed
 B updates/initial observations. Then one fixed24-case pass per arm, both private
 slots344/B common26, with broad/domain/old32 retention criteria frozen beforehand.
-This prospective schedule/budget is a proposal until code/protocol/binding exist.
+Static raw-output projection9,742,468,272B plus three states9,236,134,278B
+motivates the24GiB cap before observations; actual resource/result validation is open.
 Retain each actual durable boundary; no local FFN prerequisite or automatic T4.
 Dose draft is syntax-checked/unbound/DEFERRED; original states256 remain intact.
 

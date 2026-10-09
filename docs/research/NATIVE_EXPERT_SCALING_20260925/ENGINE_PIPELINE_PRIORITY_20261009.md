@@ -19,7 +19,8 @@ now proves exact state conversion and two NEW whole-model updates under the
 over0+8, chatbot quality, a restored original active geometry or native speed.
 Next is the [matched continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md):
 reuse B's completed dose, two NEW A updates, then fixed24/domain-balanced updates
-per arm with retention and complete-output criteria. Worker/binding unimplemented.
+per arm with retention and complete-output criteria. Worker implemented/syntax
+checked, binding/model unexecuted; see its prospective execution protocol.
 Source-site0 dose is a deferred unbound draft. Retain all earlier evidence and
 criteria. Whole chatbot quality/native cost, useful n, structured IDs/mass and
 DRAM govern. The remaining text preserves prior scientific reasoning/history;

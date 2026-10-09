@@ -27,7 +27,7 @@ def main(args):
     proc.cpu_affinity([11])
     assert sha(args.binding) == args.binding_sha
     b = json.loads(args.binding.read_bytes())
-    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1','HYBRID_NATIVE_BINDING_V1','HYBRID_NATIVE_AUDIT_BINDING_V1','HYBRID_COMMON_BANK_BINDING_V1','HYBRID_COMMON_CORE_BINDING_V1','HYBRID_TRANSFER_CAPTURE_BINDING_V1','HYBRID_TRANSFER_ADOPTION_BINDING_V1','HYBRID_RECOVERY_BINDING_V1','HYBRID_RECOVERY_AUDIT_BINDING_V1','HYBRID_STATE_EVALUATION_BINDING_V1','HYBRID_GROUP_SUM_BINDING_V1','HYBRID_SHARED_PRIVATE_INIT_BINDING_V1','HYBRID_ENGINE_PROBE_BINDING_V1','HYBRID_BROAD_DATA_BINDING_V1','BROAD_CHAT_CAPTURE_BINDING_V1','BROAD_CHAT_ADOPTION_BINDING_V1','FALCON_SSD_TILES_BINDING_V1','BROAD_CHAT_CAPTURE_REPAIR_BINDING_V1','BROAD_CHAT_COST_BINDING_V1','TARGET_SSD_STORAGE_BINDING_V1','BROAD_CHAT_PILOT_BINDING_V1','SOURCE_FFN_PREFLIGHT_BINDING_V1','SOURCE_FFN_CONTROL_BINDING_V1','SOURCE_FFN_CAST_BINDING_V1','SOURCE_FFN_LOCAL_BINDING_V1','SOURCE_FFN_BROAD_BINDING_V1','FIXED_WORK_FEASIBILITY_BINDING_V1')
+    assert b['schema'] in ('FALCON_USABILITY_BINDING_V1', 'FALCON_SCAN_BRIDGE_BINDING_V1','HYBRID_USABILITY_BINDING_V1','HYBRID_PILOT_BINDING_V1','HYBRID_PILOT_AUDIT_BINDING_V1','HYBRID_NATIVE_BINDING_V1','HYBRID_NATIVE_AUDIT_BINDING_V1','HYBRID_COMMON_BANK_BINDING_V1','HYBRID_COMMON_CORE_BINDING_V1','HYBRID_TRANSFER_CAPTURE_BINDING_V1','HYBRID_TRANSFER_ADOPTION_BINDING_V1','HYBRID_RECOVERY_BINDING_V1','HYBRID_RECOVERY_AUDIT_BINDING_V1','HYBRID_STATE_EVALUATION_BINDING_V1','HYBRID_GROUP_SUM_BINDING_V1','HYBRID_SHARED_PRIVATE_INIT_BINDING_V1','HYBRID_ENGINE_PROBE_BINDING_V1','HYBRID_BROAD_DATA_BINDING_V1','BROAD_CHAT_CAPTURE_BINDING_V1','BROAD_CHAT_ADOPTION_BINDING_V1','FALCON_SSD_TILES_BINDING_V1','BROAD_CHAT_CAPTURE_REPAIR_BINDING_V1','BROAD_CHAT_COST_BINDING_V1','TARGET_SSD_STORAGE_BINDING_V1','BROAD_CHAT_PILOT_BINDING_V1','SOURCE_FFN_PREFLIGHT_BINDING_V1','SOURCE_FFN_CONTROL_BINDING_V1','SOURCE_FFN_CAST_BINDING_V1','SOURCE_FFN_LOCAL_BINDING_V1','SOURCE_FFN_BROAD_BINDING_V1','FIXED_WORK_FEASIBILITY_BINDING_V1','FIXED_WORK_PAIRED_BINDING_V1')
     OS_cap=b.get('limits',{}).get('OS_bytes',4<<30)
     seconds_cap=b.get('limits',{}).get('seconds',600)
     output_cap=b.get('limits',{}).get('output_bytes',256<<20)
@@ -168,6 +168,20 @@ def main(args):
             assert result['parameters']==259669760 and result['tensors']==283
             assert result['actual_private_k']==6 and result['actual_common_count']==2 and result['actual_exposure_verified']
             assert result['source_calls']==0 and result['native_runs']==0 and result['baseline_new_forwards']==0
+        elif b['schema'] == 'FIXED_WORK_PAIRED_BINDING_V1':
+            assert result['schema']=='FIXED_WORK_PAIRED_RESULT_V1' and result['new_optimizer_updates']==50
+            assert result['reused_B_updates']==2 and result['new_before_cases']==94 and result['reused_B_before_cases']==2
+            assert result['new_final_broad_cases']==96 and result['new_retention_cases']==64
+            assert set(result['arms'])=={'A','B'} and result['actual_exposure_verified']
+            for key,arm in result['arms'].items():
+                assert arm['worker_new_updates']==(26 if key=='A' else 24) and len(arm['new_updates'])==arm['worker_new_updates']
+                assert arm['final_private_step']==344 and arm['final_common_step']==(0 if key=='A' else 26)
+                assert arm['parameters']==(254932736 if key=='A' else 259669760)
+                assert arm['tensors']==(211 if key=='A' else 283) and arm['adoption_bit_exact'] and arm['actual_exposure_verified']
+                assert len(arm['before']['cases'])==len(arm['after']['cases'])==48 and len(arm['retention']['cases'])==32
+                assert sum(bool(r['observation_reused']) for r in arm['before']['cases'])==(0 if key=='A' else 2)
+            assert result['source_calls']==result['native_runs']==result['reserved_queries']==0
+            assert not result['quality_admission'] and not result['native_admission']
         elif b['schema'] == 'SOURCE_FFN_BROAD_BINDING_V1':
             assert result['schema'] == 'SOURCE_FFN_BROAD_RESULT_V1' and result['phase'] == b['phase'] and result['cases'] == 48
             if b['phase'] == 'capture':
