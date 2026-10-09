@@ -5,6 +5,16 @@
 This is a plan and new shape deductions, not learned weights or performance.
 Goal ACTIVE/INCOMPLETE. No model job or T4 allocation live.
 
+## Completed enabling boundary
+
+[Original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md) is
+now COMPLETE/PASS. New runtime-n/V/packed-only original core endpoint:trainedE32
+complete64-prefix logit bits identical;868.51MB2304/V65537 structural fixture,
+24,576 exact integer coordinates. No useful large-n/chatbot/rate admission.
+The original first-work proposal below is historical and must not be replayed.
+Current next is [source-informed native-shaped learning](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md),
+including a direct producer from new learner tensors and measured resident union.
+
 ## Decision and what changes
 
 The endpoint remains a useful pretrained CHATBOT transformed into the original

@@ -8,24 +8,26 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
-**Current operational decision:** [paired 0+8 versus 2+6](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md)
-is COMPLETE:50 NEW updates, private344/common26, all before/after/retention
-outputs retained; B preference FAIL, both absolute DEV sets FAIL, both318-relative
-retention sets PASS. Separate CPU metadata adoption verifies807 inputs and stored
-aggregates/exposures without replay; historical source creation time remains
-missing. Original reserve fault and completion launcher fault stay recorded.
-Retain A/B final model/Adam/RNG. Prefer0+8 if reusing this representation; further
-same-data/allocation dose is deferred. No native or fresh-quality admission.
+**Current implemented stage:** [original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md)
+is COMPLETE/PASS. New runtime-n/V/64-bit offset/packed-only original D256/L6 backend,
+20 actual source bodies/19 unchanged plus memcpy-only routing observer; trainedE32
+ALL65,536 logit bits match legacy LUT on64 inputs. Large2304/V65537 structural
+fixture868.51MB loads/forwards;24,576 integer coordinates exact, actual IDs/masses
+checked. No expert F32/unpacked reference copies. Typed addressing/representation
+is verified in this scope; copies/tied token rows do not prove transferred capacity,
+real-vocabulary chatbot quality or rate. Original source bytes remain unchanged.
+Current producer parses legacyE32 only; direct new-learner export is missing.
 
-[Engine audit](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md) identifies8.891x
-current counted matrix work, quarter-source stored FFN count, fixed E72/512MiB,
-flat router and dense optimizer residency. [Selected next stage](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md)
-implements runtime-n packed capacity under an original-engine reference budget
-and a full chatbot vocabulary. This is an enabling contract, not transferred
-capacity. It supersedes older NEXTs/dose/recovery-first language in the history
-below. No additional common-function fit or readout oracle is selected now.
-Local function gates remain diagnostics; joint history/conditional response
-transfer and same-artifact whole-chatbot quality/rate determine admission.
+[Selected next transfer](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses original
+learner/operator evidence and pinned Falcon/cached whole outputs to construct
+source-informed banks with explicit history/representation/activation/residency
+costs. Source-count original-shaped n1152 is a capacity allowance, not conservation
+of information. First freeze a real construction/control and complete-history
+learning/native-export probe; no further structural copied-bank sweep or T4 now.
+The [earlier0+8/2+6 comparison](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) remains
+COMPLETE with preference/absoluteDEV failures and retained A344/B344 states.
+Older NEXT/dose/recovery-first wording below is historical. Whole fresh chatbot
+quality/useful n/structured CPU IDs-mass/physical DRAM/same-artifact>=50 govern.
 
 Pretrained CHATBOT -> compact reusable SSM/SWA core + useful selectively consulted
 ternary functions -> original engine.c machinery. Preserve tokenizer/roles/history/
@@ -385,3 +387,14 @@ Native chat/cost family22s COMPLETE/exit0,
 raw one-core rates46.01-58.84,all replies capped/degenerate;no accepted50.
 INDEX supersedes historical LIVE/NEXTs;
 source capture/adopter/core/bank namespaces are complete and reused as bytes.
+
+## 7. Original-shaped runtime-n packed endpoint: available enabling stage
+
+[Tool/result](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md): actual legacy E32 ->
+lossless byte-pair typed format -> extracted-original-core C adapter;24.41MB,
+complete64-prefix numerical parity, arbitrary typed n/V loader verified at2304/
+65537 using declared structural fixtures.20 body hashes/native receipts/data
+and25-input binding retained. Family19.937s, no GPU/update/teacher call.20-body
+adapter is not yet canonical persistent chatbot wiring. Direct learned-bank
+producer, actual donor-derived original-shaped learner, useful fresh chatbot
+quality/rate/cheap addressing/DRAM/families remain missing. See current NEXT.

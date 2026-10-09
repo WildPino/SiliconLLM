@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 9 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-All paired training/evaluation/adoption jobs terminal. No owned job/T4 allocation live.
+All paired and original-packed export/native jobs terminal. No owned job/T4 allocation live.
 
 ## Goal and constraints
 
@@ -23,10 +23,24 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 | Question | Available | Missing |
 |---|---|---|
-| Useful capacity at bounded active cost | Original trained E32 quality/parity/native speed; packed compact target and actual C chat | Variable-n packed endpoint; useful large n; structured CPU IDs/mass; actual DRAM; useful quality+50 |
+| Useful capacity at bounded active cost | Original trained E32 quality/parity/native speed; actual original-shaped runtime-n packed backend and compact C chat | Useful large n; structured CPU IDs/mass; actual DRAM; useful quality+50 |
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/whole supervision; actual staged controls and matched recovery | Useful joint function/state transfer under endpoint cost; fresh packed chatbot qualification; family/scale variants |
 
 ## Latest decisive evidence
+
+**[Original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md): COMPLETE/PASS.**
+Actual original core/LUT/dReLU/AQ63 operators;20 source bodies/19 unchanged and
+one memcpy-only actual-route observer. New runtime-n/V typed packed-only backend,
+64-bit offsets/sizes, no expert F32/unpacked copies. Trained E32 export109.33MB
+becomes24.41MB;ALL65,536 compared logits on64 inputs bit-identical to legacy LUT.
+Structural n2304/V65537 fixture868.51MB loads/forwards IDs65535/65536;24,576 integer
+coordinates independently exact, actual mass defect<=1.714e-7. Copies/tied token
+rows prove storage/addressing only, not useful n or real-vocabulary semantics.
+Family19.937s/worker185.07MB/largest held native child874.73MB/exit0/session91076
+CLOSED;input/resource scopePASS, nested linker peaks not separately held. The
+original-shaped capacity stage is real; current Falcon compact C still fixesE72.
+No speed/fresh-chatbot/useful-n admission. [Next transfer work](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+connects donor-informed learner tensors/residency to this actual endpoint.
 
 **[Matched whole-model recovery](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md): COMPLETE.**
 A0+8 versus B2+6, same selected width/current geometry and fixed24-case pass per
@@ -55,7 +69,8 @@ flat routing grows with n, dense Adam memory with total coefficients. Original
 The [new selected direction](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md) makes
 capacity an independent endpoint dimension under an original-engine reference
 budget. A full chatbot vocabulary remains charged. No new target quality/rate
-or transferred-capacity claim follows reference-shape calculations.
+or transferred-capacity claim follows reference-shape calculations. The selected
+capacity implementation is now COMPLETE in the record above.
 
 ## Reusable stages and retained failures
 
@@ -79,19 +94,20 @@ reply labels. No source/update/export/native replay for reconfirmation.
 
 ## Exact point of resumption
 
-Implement the [engine-anchored capacity contract](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md):
-locate/bind the actual trained original E32 artifact; reuse frozen original core/
-LUT primitives and checked current packed-table logic. Version runtime-n packed-only
-bank storage with64-bit size/offset checks, declared scales/organ/state/workspace,
-full-vocabulary/32-bit ID handling. First verify unchanged small trained-bank
-outputs; large copied fixtures establish structural capacity only. Freeze actual
-fixture identities/costs/protocol before bounded native execution. No GPU/teacher/
-new learning/T4 in this enabling step. Then select one source-informed functional
-construction with separate conditional-coverage and history-information tests,
-bounded conversion residency and fresh whole-chatbot/same-artifact rate checks.
+Implement [source-informed learning under original operators](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
+Inspect actual phase55 ArchA/phase59 SparseMoEMLP/phase57 BitLinear158 against the20
+frozen native bodies; produce new learner tensors directly in E4BPv001. Current
+producer is validated for the legacy E32 source only. Reuse pinned useful Falcon
+weights and cached broad48 source outputs/operands. Define which source functions/
+blocks/basis initialize each bank/core/head and charge representation/activation
+changes. Original-shaped n1152 is a source-count capacity candidate, not a knowledge
+identity. Freeze exact construction/control, row-scale/AQ/STE/optimizer/union/residency
+and durable state before one NEW full-history longest FIT update/native export.
+No T4 or repeated structural copied-bank sweep. Then whole recovery/fresh chatbot/
+same-artifact rate and large useful n/structured CPU IDs-mass/DRAM/family variants.
 
-Paired namespaces `chatbot_fixed_work_paired_20261009`,
-`chatbot_fixed_work_paired_finish_20261009`, `chatbot_fixed_work_paired_adoption_20261009`
-are CLOSED (sessions27977/50668/96987). Adopted result89e22904/terminal exit0;
-immutable raw finish239cdda7 preserves its metadata fault. Full details/commands/
-SHA/costs in the paired report. Never restart any completed boundary or observation.
+Original packed namespace `original_packed_capacity_20261009` is CLOSED, immutable
+bindingd91893bf/result5d552a3e/terminal exit0; newbackend source freezea660545b.
+Paired namespaces and sessions27977/50668/96987 remain CLOSED; A344/B344/common26
+states, rawsource239cdda7/adopted89e22904 and all old faults remain retained.
+Exact commands/SHA/costs in reports. Never restart a completed output or update.

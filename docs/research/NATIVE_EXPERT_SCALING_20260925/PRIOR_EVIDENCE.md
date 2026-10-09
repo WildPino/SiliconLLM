@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**9 October original-shaped packed runtime-n stage COMPLETE/PASS:**
+[Result](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md),freezea660545b/bindingd91893bf/
+result5d552a3e.20 original body hashes/19 unchanged and one memcpy-only observer;
+D256/L6/original core+dReLU/AQ63, runtime n/V/64-bit fields/no expert reference
+copies. Legacy trainedE32 109,334,336B ->24,411,136B;ALL65,536 logit bits match
+legacy LUT across64 inputs. Structural2304/V65537 fixture868,505,856B handles
+u32 IDs0/65535/65536;24,576 integer coords exact,402 inside-forward site routes/
+max mass defect1.714e-7.72 bank copies/tied vocabulary rows are not useful n or
+real token semantics. Family19.937s/held worker185,065,472B/largest native child
+874,725,376B/exit0/session91076CLOSED. Direct child/worker resource scopePASS;
+nested linker peaks not separately held. No GPU/teacher/update/quality/rate
+admission. Producer is legacyE32-specific; [next source-informed original-shaped
+learning](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) must connect new donor-derived
+functions, state, whole quality, residency and typed export to this real endpoint.
+
 **9 October matched whole-model comparison COMPLETE:**
 [Result](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md),all50 NEW updates/private344/
 B common26;all before48/after48/old32 per arm complete. DEV case KL A7.113888/

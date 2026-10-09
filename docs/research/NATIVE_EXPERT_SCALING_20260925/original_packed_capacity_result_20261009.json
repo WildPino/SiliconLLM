@@ -1,0 +1,365 @@
+{
+  "schema": "ORIGINAL_PACKED_CAPACITY_RESULT_V1",
+  "freeze": "a660545b19dbc8309d47776bd3b770bf1c9082f5",
+  "binding_sha256": "d91893bf12a02aeab75f9d977ca96890e9ffa72305e74880a6058fccfe5b061c",
+  "process_instance": {
+    "pid": 12492,
+    "create_time_unix": 1791540835.523111
+  },
+  "decision": "ORIGINAL_PACKED_CAPACITY_PASS",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\phase60\\e4_model.bin",
+    "bytes": 109334336,
+    "sha256": "52086303c95ddab3592ae8285a9420d93f7424c3a17dbcf234ac3769fe0347e1"
+  },
+  "small": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\original_e32.packed",
+    "bytes": 24411136,
+    "sha256": "5c3505096488f725151176b92f85236aba0761576e851579955eb52c1d14309d",
+    "n": 32,
+    "V": 1024,
+    "structural_fixture": false,
+    "replication_factor": 1,
+    "vocabulary_rows": "original",
+    "expert_reference_bytes": 0,
+    "code_bytes": 9437184
+  },
+  "large_fixture": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\fixture_e2304_v65537.packed",
+    "bytes": 868505856,
+    "sha256": "72fc49b29e4f4fb87a87189a7ea7a9aa7695e4e9a001138442b7955f320e4059",
+    "n": 2304,
+    "V": 65537,
+    "structural_fixture": true,
+    "replication_factor": 72,
+    "vocabulary_rows": "row i copies original i mod1024",
+    "expert_reference_bytes": 0,
+    "code_bytes": 679477248
+  },
+  "original_bodies": {
+    "source": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    "functions": [
+      {
+        "name": "exp256_ps",
+        "original_body_sha256": "d1cf4b43aa0ca894a67f169f87e99aa091c39e2bf3257bed0932e13e2b476122",
+        "compiled_body_sha256": "d1cf4b43aa0ca894a67f169f87e99aa091c39e2bf3257bed0932e13e2b476122",
+        "observer_only": false
+      },
+      {
+        "name": "exp_approx1",
+        "original_body_sha256": "9f42b799b6c0d0b842bdde0134bd771413fffc0c5d1f6915787b728e7f6b3f1d",
+        "compiled_body_sha256": "9f42b799b6c0d0b842bdde0134bd771413fffc0c5d1f6915787b728e7f6b3f1d",
+        "observer_only": false
+      },
+      {
+        "name": "hsum256",
+        "original_body_sha256": "12d89b38e6414b60f6129a518f7c9a232ed21426c5a5b0fd03a109c25140fefb",
+        "compiled_body_sha256": "12d89b38e6414b60f6129a518f7c9a232ed21426c5a5b0fd03a109c25140fefb",
+        "observer_only": false
+      },
+      {
+        "name": "dotf",
+        "original_body_sha256": "25828cce39b821473d0b4002163d33acd6902fa03276d514e120e235738bca95",
+        "compiled_body_sha256": "25828cce39b821473d0b4002163d33acd6902fa03276d514e120e235738bca95",
+        "observer_only": false
+      },
+      {
+        "name": "matvec",
+        "original_body_sha256": "77d8f2503a714bad799a5a652d9bd96fb43ebc7d236182b9e17720c945eddaf7",
+        "compiled_body_sha256": "77d8f2503a714bad799a5a652d9bd96fb43ebc7d236182b9e17720c945eddaf7",
+        "observer_only": false
+      },
+      {
+        "name": "silu",
+        "original_body_sha256": "246ae1441a3b443d36f75295251f14fe89573135f7bc795ed0556430e341d4d0",
+        "compiled_body_sha256": "246ae1441a3b443d36f75295251f14fe89573135f7bc795ed0556430e341d4d0",
+        "observer_only": false
+      },
+      {
+        "name": "softplus",
+        "original_body_sha256": "6323e08c2d3f9786ef77e714723a73974a44445f7eda92ee74178a7587f75a07",
+        "compiled_body_sha256": "6323e08c2d3f9786ef77e714723a73974a44445f7eda92ee74178a7587f75a07",
+        "observer_only": false
+      },
+      {
+        "name": "reluf",
+        "original_body_sha256": "d7631f0b6c87f19e7a76da746919dcfe1b3d02c281ec617de57b1b22a64e8e75",
+        "compiled_body_sha256": "d7631f0b6c87f19e7a76da746919dcfe1b3d02c281ec617de57b1b22a64e8e75",
+        "observer_only": false
+      },
+      {
+        "name": "acc_add_i8x32",
+        "original_body_sha256": "798567d03ca74cfe836dab749e1dc919e122259603d7b505b73e56507ce58bca",
+        "compiled_body_sha256": "798567d03ca74cfe836dab749e1dc919e122259603d7b505b73e56507ce58bca",
+        "observer_only": false
+      },
+      {
+        "name": "matvec_lut_full",
+        "original_body_sha256": "6c1ab84ed38bff24a86e901771861b289343d6f2d67d520aef6db92eb771c26f",
+        "compiled_body_sha256": "6c1ab84ed38bff24a86e901771861b289343d6f2d67d520aef6db92eb771c26f",
+        "observer_only": false
+      },
+      {
+        "name": "matvec_lut_rows",
+        "original_body_sha256": "1051f1d20035c6b62a20bf08cc8a77b332e40df71e46a606c9706fa706ca6439",
+        "compiled_body_sha256": "1051f1d20035c6b62a20bf08cc8a77b332e40df71e46a606c9706fa706ca6439",
+        "observer_only": false
+      },
+      {
+        "name": "build_lut_t3",
+        "original_body_sha256": "c7d4770fd5be1eaed8509b0eafda53c086d28816a4ab58229503b9db2c79c5ab",
+        "compiled_body_sha256": "c7d4770fd5be1eaed8509b0eafda53c086d28816a4ab58229503b9db2c79c5ab",
+        "observer_only": false
+      },
+      {
+        "name": "bc_tm",
+        "original_body_sha256": "cf3d9dc75cb786e66235d4a9be81541704a3b7721fc87a0d65120413fe30eb61",
+        "compiled_body_sha256": "cf3d9dc75cb786e66235d4a9be81541704a3b7721fc87a0d65120413fe30eb61",
+        "observer_only": false
+      },
+      {
+        "name": "ref_t3",
+        "original_body_sha256": "89ce84bbbb4faf6d563d4e6c5210b3bef3bb17bf9ff47d550c821d8f69190fab",
+        "compiled_body_sha256": "89ce84bbbb4faf6d563d4e6c5210b3bef3bb17bf9ff47d550c821d8f69190fab",
+        "observer_only": false
+      },
+      {
+        "name": "quant_i8",
+        "original_body_sha256": "c1b066da14efffdd34397ca7613f2853e107e2ade3ef7cf16a042a3dddb71060",
+        "compiled_body_sha256": "c1b066da14efffdd34397ca7613f2853e107e2ade3ef7cf16a042a3dddb71060",
+        "observer_only": false
+      },
+      {
+        "name": "state_reset",
+        "original_body_sha256": "8b581e7b540d032e06efd4b5107c3bc233cf06b2e1d76b82cad44ac9375f0413",
+        "compiled_body_sha256": "8b581e7b540d032e06efd4b5107c3bc233cf06b2e1d76b82cad44ac9375f0413",
+        "observer_only": false
+      },
+      {
+        "name": "rmsnorm",
+        "original_body_sha256": "cb403c8095038fe343f5d7ffc9df3e37d3160ed531bf28b570d3369047387f25",
+        "compiled_body_sha256": "cb403c8095038fe343f5d7ffc9df3e37d3160ed531bf28b570d3369047387f25",
+        "observer_only": false
+      },
+      {
+        "name": "topk_sel",
+        "original_body_sha256": "39dffefb6d836ed9638ced7e3b14992cdb1cb8bc20c74288badc55b1d76c2e24",
+        "compiled_body_sha256": "39dffefb6d836ed9638ced7e3b14992cdb1cb8bc20c74288badc55b1d76c2e24",
+        "observer_only": false
+      },
+      {
+        "name": "mlp_moe",
+        "original_body_sha256": "a7b7c83ba927118e5e1aaeab519293e0da8f3400fc44bd250234d1fbc64be930",
+        "compiled_body_sha256": "318130ce327be095d427b2535cc6091689bc2950e68d4b3d0396533cf7e58368",
+        "observer_only": true
+      },
+      {
+        "name": "forward_token",
+        "original_body_sha256": "c4a400d2723e269d5ccb434ccc225ac7861838616c17bfe5680bf8e1e89e9a19",
+        "compiled_body_sha256": "c4a400d2723e269d5ccb434ccc225ac7861838616c17bfe5680bf8e1e89e9a19",
+        "observer_only": false
+      }
+    ],
+    "header": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\original_packed_bodies.h",
+      "bytes": 12103,
+      "sha256": "62e0d8c33dc8dd284665be959821b06b05f5b9e985164ffad35498e7d3861e0c"
+    }
+  },
+  "compiler": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\packed_original.exe",
+    "bytes": 271360,
+    "sha256": "e7d0a344c235d3a74fce79c8c21f4d3ed7e6f1f35b9f90e1323caddb06017792"
+  },
+  "native": {
+    "small": {
+      "n": 32,
+      "V": 1024,
+      "inputs": 64,
+      "max_input_id": 980,
+      "blob_bytes": 24411136,
+      "code_bytes": 9437184,
+      "f32_bytes": 14962432,
+      "allocated_state_and_router_bytes": 1491200,
+      "heap_allocated_bytes": 25906432,
+      "integer_coordinates": 6144,
+      "expert_reference_bytes": 0,
+      "load_seconds": 0.015757,
+      "elapsed_seconds": 0.1277917
+    },
+    "large": {
+      "n": 2304,
+      "V": 65537,
+      "inputs": 3,
+      "max_input_id": 65536,
+      "blob_bytes": 868505856,
+      "code_bytes": 679477248,
+      "f32_bytes": 189017088,
+      "allocated_state_and_router_bytes": 1509376,
+      "heap_allocated_bytes": 870277380,
+      "integer_coordinates": 18432,
+      "expert_reference_bytes": 0,
+      "load_seconds": 0.4424322,
+      "elapsed_seconds": 0.4707421
+    }
+  },
+  "children": [
+    {
+      "command": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-mavx2",
+        "-mfma",
+        "-march=znver2",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_packed_capacity.c",
+        "-I",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\packed_original.exe",
+        "-lm"
+      ],
+      "pid": 15772,
+      "exit_code": 0,
+      "held_OS_peak": 4775936,
+      "seconds": 4.032000000006519,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\compile.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\engine_e32.exe",
+        "--weights",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\phase60\\e4_model.bin",
+        "--threads",
+        "1",
+        "--mlp",
+        "lut",
+        "--exp",
+        "fast",
+        "--pack",
+        "byte",
+        "--seq",
+        "64",
+        "--ntok",
+        "64",
+        "--offset",
+        "0",
+        "--dumplogits",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\legacy.f32"
+      ],
+      "pid": 18696,
+      "exit_code": 0,
+      "held_OS_peak": 191066112,
+      "seconds": 0.35899999999674037,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\legacy.log",
+        "bytes": 679,
+        "sha256": "04794c02b7bf5a798cd3d65a0631146bbc3cb50354f5c4392bdee4f11eca010a"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\packed_original.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\original_e32.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small_queries.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small.native.json"
+      ],
+      "pid": 27404,
+      "exit_code": 0,
+      "held_OS_peak": 30736384,
+      "seconds": 0.28100000001722947,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\packed_original.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\fixture_e2304_v65537.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\large_queries.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\large.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\large.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\large.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\large.native.json"
+      ],
+      "pid": 32168,
+      "exit_code": 0,
+      "held_OS_peak": 874725376,
+      "seconds": 0.5929999999934807,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\large.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\packed_original.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_extent.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small_queries.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_extent.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_extent.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_extent.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_extent.native.json"
+      ],
+      "pid": 1156,
+      "exit_code": 2,
+      "held_OS_peak": 4366336,
+      "seconds": 0.0470000000204891,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\reject_extent.log",
+        "bytes": 13,
+        "sha256": "fc7818de3a0b8aadda4b060969208feb2d3b365a7549d37bfcdb9bc38696fd74"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\packed_original.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_n.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\small_queries.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_n.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_n.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_n.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\bad_n.native.json"
+      ],
+      "pid": 16864,
+      "exit_code": 2,
+      "held_OS_peak": 4349952,
+      "seconds": 0.062000000034458935,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_packed_capacity_20261009\\reject_n.log",
+        "bytes": 18,
+        "sha256": "1be68934db0e8d270d68ca25c2b8dc47eba231e649eba205474172fa7607ebd4"
+      }
+    }
+  ],
+  "small_logits_bit_exact": true,
+  "integer_coordinates": 24576,
+  "integer_all_exact": true,
+  "actual_mass_max_defect": 1.7136335372924805e-07,
+  "malformed_rejections": 2,
+  "expert_reference_bytes": 0,
+  "new_native_inputs": 131,
+  "source_calls": 0,
+  "GPU_calls": 0,
+  "optimizer_updates": 0,
+  "quality_admission": false,
+  "useful_large_n_admission": false,
+  "speed_admission": false,
+  "worker_OS_peak_snapshot": 185065472,
+  "max_direct_child_OS_peak": 874725376,
+  "resources_scope": "Worker held by outer launcher; direct native/compiler child peaks held through exit here; nested linker memory is not separately held. No timing or throughput claim.",
+  "elapsed_seconds": 18.82799999997951
+}

@@ -1,0 +1,170 @@
+{
+  "schema": "ORIGINAL_PACKED_CAPACITY_BINDING_V1",
+  "freeze": "a660545b19dbc8309d47776bd3b770bf1c9082f5",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "worker_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_packed_capacity.py",
+  "compiler": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+  "numpy_version": "2.4.6",
+  "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\phase60\\e4_model.bin",
+  "legacy_executable": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\engine_e32.exe",
+  "limits": {
+    "seconds": 120,
+    "reserve_seconds": 15,
+    "OS_bytes": 2147483648,
+    "output_bytes": 1073741824
+  },
+  "projected": {
+    "small_blob": 24411136,
+    "large_blob": 868505856,
+    "namespace_with_16MiB_misc_reserve": 909694208
+  },
+  "allowed_worker_children": [
+    "clang.exe",
+    "clang-21.exe",
+    "ld.lld.exe",
+    "lld.exe",
+    "packed_original.exe",
+    "engine_e32.exe",
+    "conhost.exe"
+  ],
+  "allowed_system_child_path": "C:\\Windows\\System32\\conhost.exe",
+  "runtime_binding_scope": "Original source/export/trained artifact, actual legacy executable/data, adapter/extractor/runtime entry extents and selected compiler files. Not a complete DLL/dependency-tree hash.",
+  "criteria": {
+    "small_logits_bit_exact": true,
+    "all_integer_coordinates_exact": true,
+    "actual_mass_max_defect": 1e-06,
+    "large_n": 2304,
+    "large_V": 65537,
+    "max_input_ID": 65536,
+    "expert_reference_bytes": 0,
+    "large_blob_above_512MiB": true,
+    "malformed_rejections": 2
+  },
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_packed_capacity.py",
+      "bytes": 19894,
+      "sha256": "ee730d5e066c0e8149bdd4192b6fa369cee5c307da8412bcb7568ef8c1b5887b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_packed_capacity.c",
+      "bytes": 10082,
+      "sha256": "e9b65a68d4278692043df3fbd26f2af706f9fd0264af91d1c51afb9a6b9a9319"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability_launch.py",
+      "bytes": 18824,
+      "sha256": "651a637ee24ca1a3f344a926009b7b095eb6855ab56d04bf8fce6bbc3a3d6cc8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\e4_export.py",
+      "bytes": 4384,
+      "sha256": "8b7baeb5842ff1f345ce1bc059062e056b09a0045074114046f6ba8f5c839686"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\phase60\\e4_model.bin",
+      "bytes": 109334336,
+      "sha256": "52086303c95ddab3592ae8285a9420d93f7424c3a17dbcf234ac3769fe0347e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\phase57\\moe_gran.pt",
+      "bytes": 90099298,
+      "sha256": "356478b2f63ace9d6ec429056fee5c0e14e1c0f36253edbca36300eba02d4525"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\phase55\\ids.u16",
+      "bytes": 65447690,
+      "sha256": "33b8cba2a26653599f7f87a4d8e05b38be051ba850d4cbc5d09b561aae133889"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\phase55\\meta.bin",
+      "bytes": 4021,
+      "sha256": "d7dd5e183a3740d3e3e8968aed4868afe7d039355792754fdfc60dc9a2489a4f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\weights\\bpe1024.bin",
+      "bytes": 6156,
+      "sha256": "97de713392eabfa4dff6ebd9dd5502f0d2f3e93232db8f349860bb57f3148f9b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\engine_e32.exe",
+      "bytes": 1792512,
+      "sha256": "37e5ff2cc504192dd479e93dcca248160d6df7c5e1692e612a014b6f6637bbb1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\NES_00_ASSET_AND_DISPATCH_20260925.md",
+      "bytes": 4590,
+      "sha256": "fb43e62ef6472fe35501c8a3ffc958b6ea9c8b5a83ea110e1f10154722e1e851"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ORIGINAL_PACKED_CAPACITY_PROTOCOL_20261009.md",
+      "bytes": 5490,
+      "sha256": "24af53ec077fd5e5d7e3adc487462fa6f29e09ea24f702da5786559594e252b3"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+      "bytes": 3714560,
+      "sha256": "80e7dc34f51cf6cef24da060e1e8620936b2cf188bae0ea367dc8619b2316204"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "bytes": 16384,
+      "sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang-21.exe",
+      "bytes": 98816,
+      "sha256": "185b0f6b0ca4d09df08fffe1105a17478146191c70dc5c0fc794bc0e38222807"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\ld.lld.exe",
+      "bytes": 5154304,
+      "sha256": "3dd734abe73f3db20483d3f61016b18295d95089f593a1c1e616daf5c6c225b7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\libclang-cpp.dll",
+      "bytes": 45662208,
+      "sha256": "1208545166ba135f879d508d94c1c6146f8f9e2afd0a399ee1e9535395118f94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\configs\\_manifest.json",
+      "bytes": 9948,
+      "sha256": "fcb168f0d2004baf6c0f2938f997e095c9210e72b004c0a561add8608500e35d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\build_document_holdout.py",
+      "bytes": 39074,
+      "sha256": "c5c9ed40864989592664c15790e69e41a5ebbad73d00ee7ac067d98e2baf15e9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\RESEARCH_INDEX.md",
+      "bytes": 51403,
+      "sha256": "99b5b11c865d000f387c17120b918458aa8cac8263628d7d040abddcd7eb5273"
+    }
+  ]
+}

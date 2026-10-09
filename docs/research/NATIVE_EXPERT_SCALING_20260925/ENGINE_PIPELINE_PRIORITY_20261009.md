@@ -6,27 +6,23 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
-[Matched0+8 versus2+6](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) is COMPLETE.
-All50 NEW updates/all observations retained; B preferenceFAIL, both absoluteDEV
-setsFAIL, both continuation retention setsPASS. The longest-FIT common gain did
-not become a matched DEV advantage. Both actual final states remain reusable;
-no fresh useful chatbot/native>=50/useful-n admission. Further same-geometry
-allocation/dose and the compact-head oracle are deferred.
+[Original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md) is
+COMPLETE/PASS:actual original core/LUT/dReLU/AQ63, runtime-n/V/64-bit byte extents,
+no mandatory expert reference copies. TrainedE32 all65,536 logit bits match
+legacyLUT;868.51MB n2304/fullV structural fixture loads,24,576 integer coordinates
+exact and actual IDs/masses checked. This removes the packed-capacity gap in a
+new original-shaped backend, not in the retained E72 compact Falcon path. Copies
+and tied token rows establish no useful capacity or real-vocabulary chatbot quality.
 
-The [new selected stage](ENGINE_ANCHORED_CONVERTER_NEXT_20261009.md) implements
-runtime-n packed capacity under an explicitly original-engine reference budget.
-The [anchor audit](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md) already established
-8.891x current matrix work, quarter-source FFN coefficient count and fixed E72/
-512MiB. Remove that endpoint incompatibility before long adaptation. Preserve
-LUT/ternary/compact core and charge full vocabulary/state/routing/physical DRAM.
-An offline source-compatible or wider scaffold remains permitted. Useful bank
-coverage, compact history information and bounded conversion optimizer residency
-are separate unresolved parts of the pipeline. A month-plus T4 recipe needs
-measured feasibility/coverage/recovery and communicated budget/stops.
-
-No owned job or T4 allocation live. INDEX gives the exact resumption. All older
-next-step/dose/live wording below is historical and superseded by this section;
-its scientific failures and original criteria remain retained.
+Next [source-informed native-shaped transfer](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+connects actual donor functions/state/whole supervision to this endpoint and
+prices the full sequence's resident expert/optimizer union. Further copied-bank
+sweeps are not selected. Source-count n1152 is a capacity candidate, not knowledge
+preservation. The paired2+6 preference/absoluteDEV failures remain retained;
+no additional common allocation or same-corpus dose follows by default. Broader
+T4 adaptation needs actual source-informed recovery, memory/throughput evidence
+and communicated reason/budget/stops. All jobs terminal/no T4. INDEX gives the
+exact resumption; older operational NEXTs below are historical/superseded.
 
 ## Destination and present position
 
