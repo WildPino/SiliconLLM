@@ -25,7 +25,7 @@ its evidence is reusable. Communicate T4 reason/budget/stops before use.
 | Question | Available evidence | Missing |
 |---|---|---|
 | Useful capacity at bounded active cost | Original trained E32 native quality/parity; packed compact target and actual engine chat | Useful larger n; structured CPU IDs/mass; DRAM; fresh useful quality +50 |
-| Pretrained chatbot conversion | Pinned Falcon1.5B; source-informed learner; broad source supervision/internal operands; source FFN quantization/local learning | Faithful ternary/AQ functions; useful selection/core compression; qualified useful C artifact; family/scale variants |
+| Pretrained chatbot conversion | Pinned Falcon1.5B; source-informed learner; broad supervision; actual 2-common/6-private state conversion and two whole-model updates | Useful joint function/state transfer; qualified useful C artifact; family/scale variants |
 
 Target D512/L12/10 SSM/2 SWA/E72/k8/H128/V65537 uses original LUT/matrix/AQ63
 bodies. Full head costs33.55M of69.63M matrix products/token (48.2%). Original
@@ -33,6 +33,19 @@ E32 ~701.7/s is small/cache-resident. Fixed k does not remove flat O(n) router
 scores or guarantee capacity/DRAM speed. Source width is offline scaffolding.
 
 ## Latest decisive evidence
+
+**[Fixed active-work feasibility](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md):
+COMPLETE/PASS for conversion and actual learning.** Parent broad24/Adam318 becomes
+two common plus six selected ternary functions per site, without increasing the
+current eight-function width. First backward fails in an observation hook; retain
+its exact state0 and 89.422s cost. Repair restores weights/moments/RNG, keeps
+checkpoint consistency checks, and completes two NEW longest FIT updates.
+Private slots318->320/common0->2; all gradients/state finite; actual six-ID/mass
+and two-common exposure verified. Long FIT KL5.686->3.949; short2.526->2.583.
+This is feasibility, not a construction advantage or fresh chatbot quality.
+Combined failed+successful family219.156s<=300s; GPU allocated5.069GB/reserved
+5.836GB; held OS4.963GB. Actual final state d6bac2d0 retained. Next is the
+[matched 0+8 versus 2+6 continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md).
 
 **[Original-engine reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md):
 COMPLETE/static deductions; operational priority corrected.** Current target
@@ -43,10 +56,11 @@ knowledge fraction. Current C fixes E72/512MiB; n288+ cannot load. Flat router
 is O(n), and dense Adam bank storage is160GB/10B or1.6TB/100B. Variable-n packed
 storage, learned addressing and bounded optimizer residency remain required.
 Source local absolute fidelity is a diagnostic criterion, not a necessary
-condition for joint chatbot adaptation. [Next construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
+condition for joint chatbot adaptation. [Construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
 uses2 common+6 selected H128 functions within the current8-function budget.
-Separate target code implemented/syntax checked; binding/model/native unvalidated.
-The source-site0 dose is DEFERRED. No new model/timing/T4 observations.
+Actual conversion/learning feasibility is now verified; its C export/dispatch
+remains missing. It does not restore the original smaller active geometry.
+The source-site0 dose is DEFERRED; no T4 allocation follows from this audit.
 
 **[Broad fixed FFN recovery](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md): COMPLETE/absolute fidelity FAIL.**
 Actual source sites0/23, all48/8808,24FIT/24DEV/12 domains. Same original Student
@@ -91,6 +105,7 @@ Arithmetic recovery diagnoses a recipe; final combined quality governs admission
 | Broad supervision | [Capture/adoption](CHATBOT_BROAD_CAPTURE_RESULT_20261009.md),48/8808 full-vocab rows/577.25M coordinates;24 EOS/24 partials;1091.453s +8.657s |
 | Offline storage | [Qualification](CHATBOT_TARGET_SSD_STORAGE_RESULT_20261009.md),same reductions/geometry, loss/local adjoints pass; GPU19.31->5.053GB |
 | Compact recovery/coverage | [286 evaluation](CHATBOT_HYBRID_STATE_EVALUATION_RESULT_20261009.md),oldDEV KL3.081/41.61%; [broad24](CHATBOT_BROAD_PILOT_RESULT_20261009.md),newDEV KL6.991/87.48%,oldDEV50.41%;5/8 gatesFAIL |
+| Fixed active-work conversion | [Actual result](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md),283 tensors/259.670M masters; exact parent/fault adoption; two NEW updates/private320/common2; FIT-only, no relative construction or quality admission |
 | Packed native | [C result](CHATBOT_HYBRID_NATIVE_RESULT_20261009.md),425.21MB/state9.12MB;32/32 learner IDs agree but strict1e-4 RMS FAIL19/32, independently certified |
 | Actual engine chat/cost | [Result](CHATBOT_HYBRID_ENGINE_PROBE_RESULT_20261009.md),one C process/five persistent requests/full head; exact split-prefill/own-history reuse;raw46.01-58.84 IDs/s,18.12-40.97 including prefill;old8-update replies degenerate |
 | Source FFN transport | [Preflight](CHATBOT_SOURCE_TERNARY_FFN_PREFLIGHT_RESULT_20261009.md),679.477M coefficients/7.390s/340.82MB; six int-dot/F64 witnesses exact |
@@ -108,23 +123,20 @@ useful n. Qwen/Giga/511/actual256 evidence retains its scope and existing limits
 
 ## Exact point of resumption
 
-**First action:** implement/freeze/bind the initial-loss/update-cost worker for
-[2-common/6-private target](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md).
-Code `chatbot_hybrid_fixed_work_target.py` exists; no model execution or binding.
-Reuse actual broad24/Adam318 candidate:
-`results/native_expert_scaling/chatbot_broad_pilot_repair1_20261009/candidate.pt`,
-3,059,728,406B/SHA16a85448a706f96719c8d952bbfd5309b8bdf60237f763dfdf101bad1bb9983f.
-Preserve private/core/head tensors and moments/RNG/history. k8->6 changes output
-even with zero common functions; measure the new initial loss, not false parity.
-Reuse saved baseline observations and source labels. Price actual longest FIT
-updates under a separately frozen feasibility envelope before selecting a paired
-dose. No local FFN fidelity prerequisite or automatic month-scale T4 allocation.
+**First action:** implement/freeze/bind the
+[paired continuation worker](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md), still
+UNIMPLEMENTED/UNEXECUTED. Arm A adopts actual broad24/Adam318 (16a85448);
+arm B adopts actual fixed-work2/private320/common2 (d6bac2d0). Complete two NEW
+A longest FIT updates using B's recorded starting RNG policy; reuse completed
+B updates/initial observations. Then one fixed24-case pass per arm, both private
+slots344/B common26, with broad/domain/old32 retention criteria frozen beforehand.
+This prospective schedule/budget is a proposal until code/protocol/binding exist.
+Retain each actual durable boundary; no local FFN prerequisite or automatic T4.
 Dose draft is syntax-checked/unbound/DEFERRED; original states256 remain intact.
 
-Completed capture namespace `chatbot_source_ffn_broad_capture_20261009`,
-freeze4eb02126/bindingf18c52d1/resultfc992f45/exit0/session62694 closed.
-Completed broad recovery `chatbot_source_ffn_broad_recovery_20261009`,
-freeze8bb6af56/bindingb9955431/result981679c9/exit0/session24779 closed.
+Completed feasibility namespaces `chatbot_fixed_work_feasibility_20261009`
+(first fault/session9819) and `chatbot_fixed_work_feasibility_repair1_20261009`
+(freeze1dc25904/bindingcc402a03/resulta15e2ee7/exit0/session11388), both CLOSED.
 Exact JSONs/logs/commands/AST/output hashes beside this index; large tensors off-repo.
 No owned live job. Useful selection/compact state and joint chatbot recovery,
 fresh useful same-artifact original-engine quality+50,useful n/CPU IDs+mass/DRAM,

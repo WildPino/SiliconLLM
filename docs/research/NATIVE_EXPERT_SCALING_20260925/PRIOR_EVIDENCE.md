@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**9 October fixed active-work conversion and two actual updates COMPLETE/PASS:**
+[Result](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md), repaired freeze1dc25904/
+bindingcc402a03/resulta15e2ee7. Exact parent broad24/Adam318 adoption into2 common+
+6 private; first backward CheckpointError984/983 saved tensors,0 completed Adam
+steps. First family89.422s/exit1 retains exact fault state0/RNG/old moments and
+all initial whole outputs; detailed initial routing exposure lost in RAM is missing.
+Observation hook repair uses no_grad and preserves checkpoint verification.
+Exact fault-state resumption completes two NEW longest FIT updates, private318->320/
+common0->2, all283 gradients/model/moments finite, actual6-ID/mass plus2-common
+exposure checked. Common outputs become nonzero; this is not knowledge quantity.
+Long FIT F64 KL5.68555->3.94876/disagreement232->204 of256;short2.52559->2.58289/
+9->9 of18. Whole model updates prevent attributing gain to common functions;
+no matched0+8, DEV/fresh generation/native/quality admission. Combined cost219.156s
+<=300s;repair129.734s/OS4.963GB/GPU5.069/5.836GB/resourcePASS/exit0/session11388
+closed. Final checkpoint3,116,677,466B/d6bac2d0 retains full model/Adam/config/
+history/RNG; two namespaces6,339,312,659B retained. First [paired comparison](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md)
+is selected but unimplemented/unexecuted. No T4/RESERVED/source calls.
+
 **9 October renewed original-engine direction and static audit COMPLETE:**
 [Reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md),freeze c8d3473/
 result42f1b3af:exact code-shape accounting,all input hashes unchanged,0.016s,
@@ -12,8 +30,8 @@ Direction correction:local source-FFN absolute gates do not prove a necessary
 condition for joint chatbot adaptation. Preserve their failures/criteria;
 source-width dose is DEFERRED, draft syntax only/no binding/execution. Selected
 [2-common/6-private construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
-keeps8 active H128 functions. Separate target code implemented/syntax checked;
-initial-loss/update-cost worker/binding/model execution still missing.
+keeps8 active H128 functions. At this audit's boundary target syntax only was
+verified; actual feasibility is now recorded above. C export remains missing.
 No speed, quality, useful-n, DRAM or scaling admission follows this audit.
 
 **9 October broad internal operands and fixed coverage recovery COMPLETE:**

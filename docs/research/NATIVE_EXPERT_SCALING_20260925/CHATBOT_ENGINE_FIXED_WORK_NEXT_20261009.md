@@ -1,7 +1,11 @@
 # Next: learn conditional chatbot functions within the engine active budget
 
-9 October 2026. SELECTED construction. Target code implemented; syntax/source
-review only. Binding, model execution, training/export unvalidated.
+9 October 2026. SELECTED construction; initial conversion/learning feasibility
+is now [COMPLETE/PASS](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md).
+Exact state conversion and two NEW whole-model updates are retained; comparative
+quality and C export/dispatch remain unvalidated. The original feasibility
+instructions below preserve their prospective boundary. Current next is the
+[paired continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md).
 [Reconciliation](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md) supersedes
 source-width local dose as the operational next step. All completed evidence
 and actual checkpoints remain reusable. No owned job or T4 allocation is live.
@@ -115,9 +119,12 @@ Additional donor families and10B/100B cases follow a demonstrated first recipe.
 Read INDEX, this plan and the actual broad24 result/checkpoint identity:
 `results/native_expert_scaling/chatbot_broad_pilot_repair1_20261009/candidate.pt`,
 3,059,728,406B/SHA16a85448a706f96719c8d952bbfd5309b8bdf60237f763dfdf101bad1bb9983f.
-No new
-model result exists in this plan. First implement its initial-loss/update-cost
-binding/worker using the separate2+6 target; then freeze and run that feasibility step.
+This parent was actually adopted. The repaired feasibility finishes at
+`results/native_expert_scaling/chatbot_fixed_work_feasibility_repair1_20261009/candidate.pt`,
+3,116,677,466B/SHAd6bac2d054cc16d9f736ddf94264abc2051e70f13ee9b0b3e080289a931938b3,
+private320/common2, full model/moments/history/start+final RNG. Retain both actual
+updates and the first backward fault/state0. Implement/freeze/bind the paired
+continuation worker from these two actual states; do not rerun feasibility.
 The source-site0 dose draft is DEFERRED and has no binding/result/checkpoint.
 Full source chat quality, useful selective capacity, native numerical/behavioral
 qualification, accepted>=50, structured large-n routing/DRAM and scale variants

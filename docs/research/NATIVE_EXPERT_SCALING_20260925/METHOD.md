@@ -11,9 +11,15 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 **Current operational correction:** [original-engine audit](CHATBOT_ENGINE_ANCHOR_AUDIT_RESULT_20261009.md)
 distinguishes unchanged LUT primitives from changed recurrence/width/depth/head
 and identifies fixed E72/512MiB and dense optimizer residency as scaling gaps.
-The next [fixed-work construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
+The [fixed-work construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
 allocates2 common+6 selected functions within8 active H128 calls. Separate
-target code exists; only syntax/source review, no model/binding/export validation.
+target and conversion worker now have
+[actual feasibility evidence](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md):
+exact parent/fault-state adoption, two whole-model updates, actual IDs/mass/common
+exposure and finite model/Adam gradients/state. C export/dispatch is still missing.
+The construction keeps current expert products fixed; it does not restore the
+original smaller core/head or prove a quality advantage. Next is a
+[matched whole-model continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md).
 This supersedes source-site0 dose and older recovery-first operational wording.
 Local faithful-FFN gates are diagnostics, not necessary conditions for joint
 chatbot transfer into a changed representation. Whole chatbot quality and
@@ -352,9 +358,20 @@ Site0 DEVwhole .560->.519/centered .558->.521;site23 .488->.196/.556->.373.
 Absolute all-case gatesFAIL;bothcase retentionPASS. Tritchanges2.24%/1.62%,
 FIT error still .475/site0. Family122.625s/OS1.705GB/GPU1.142/1.342GB;durable
 actual256/site models/moments/RNG/history retained. No discarded steps/fault.
-Source-site0 additional dose remains optional/unexecuted. First implement the
-initial-loss/update-cost binding for the [fixed-work2+6 target](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md),
-starting from actual broad24/Adam318 compact state, preserving previous work.
+Source-site0 additional dose remains optional/unexecuted. Actual
+[fixed-work2+6 conversion](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md)
+adopts broad24/Adam318, retains the first observation-hook backward fault/state0,
+then repairs the hook without disabling checkpoint checks. Two NEW longest FIT
+updates complete:private320/common2/283 tensors/259,669,760 F32 entries. Actual
+new routing/common exposures and all finite state/gradient paths pass. Long FIT
+KL5.68555->3.94876,short2.52559->2.58289; no matched0+8, DEV, fresh generation or
+native observation follows. Feasibility PASS is distinct from quality admission.
+Full failed+repair cost219.156s; CUDA allocated5.069GB/reserved5.836GB; heldOS
+4.963GB; final3,116,677,466B checkpoint d6bac2d0 includes model/Adam/config/
+history/start+final RNG. Initial detailed exposure lost in RAM remains missing.
+The next [paired continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md) worker
+is unimplemented/unexecuted; retain B's two updates and price two NEW A updates
+before the fixed24 pass per arm. No completed baseline/source/update replay.
 Variable-n packed export/loading, useful additional functions, structured CPU
 IDs/mass and bounded dormant optimizer storage belong to this pipeline.
 Alljobs terminal/noT4. No completed initial/source/capture/grid/update replay.

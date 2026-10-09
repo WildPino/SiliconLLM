@@ -1,0 +1,9 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+{"stage": "adopted", "seconds": 14.51500000001397, "parameters": 259669760, "tensors": 283, "old_slots": 211, "new_slots": 0, "old_moment_bytes": 2039461888}
+{"stage": "initial_reused", "seconds": 14.65600000001723, "cases": 2, "completed_prior_updates": 0, "historical_exposure_available": false}
+{"stage": "update", "seconds": 41.26500000001397, "step": 1, "KL": 5.685249328613281, "interval_seconds": 26.39100000000326, "common_down_nonzero": 1570365}
+{"stage": "update", "seconds": 66.71799999999348, "step": 2, "KL": 4.803397178649902, "interval_seconds": 25.264999999955762, "common_down_nonzero": 1507151}
+{"stage": "durable", "seconds": 109.04700000002049, "updates": 2, "checkpoint": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_fixed_work_feasibility_repair1_20261009\\candidate.pt", "bytes": 3116677466, "sha256": "d6bac2d054cc16d9f736ddf94264abc2051e70f13ee9b0b3e080289a931938b3"}, "interval_seconds": 42.28200000000652}
+{"stage": "after", "seconds": 110.71799999999348, "id": "broad_fit_explore_instruct_rewriting_008", "KL": 2.5828935255990024, "disagreements": 9}
+{"stage": "after", "seconds": 116.29700000002049, "id": "broad_fit_smol_magpie_ultra_022", "KL": 3.9487613451478794, "disagreements": 204}
+{"stage": "complete", "seconds": 116.40600000001723, "decision": "FIXED_WORK_FEASIBILITY_PASS", "common_ternary_progress": true}

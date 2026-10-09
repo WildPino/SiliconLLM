@@ -11,9 +11,15 @@ supersedes older operational next steps below. Current dimensions imply4x
 selected-expert/5.98x core/128x head products versus original. Fixed E72/512MiB
 and dense optimizer residency prevent the intended RAM-driven capacity pipeline.
 Full donor FFN local fidelity is an optional diagnostic, not a necessary gate
-for jointly adapted chatbot representations. The next
+for jointly adapted chatbot representations. The
 [fixed-work2-common/6-private construction](CHATBOT_ENGINE_FIXED_WORK_NEXT_20261009.md)
-keeps8 active functions; separate target code exists, no binding/model validation.
+keeps8 active functions. [Actual feasibility](CHATBOT_FIXED_WORK_FEASIBILITY_RESULT_20261009.md)
+now proves exact state conversion and two NEW whole-model updates under the
+300s allowance, including first-fault cost. It does not establish an advantage
+over0+8, chatbot quality, a restored original active geometry or native speed.
+Next is the [matched continuation](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md):
+reuse B's completed dose, two NEW A updates, then fixed24/domain-balanced updates
+per arm with retention and complete-output criteria. Worker/binding unimplemented.
 Source-site0 dose is a deferred unbound draft. Retain all earlier evidence and
 criteria. Whole chatbot quality/native cost, useful n, structured IDs/mass and
 DRAM govern. The remaining text preserves prior scientific reasoning/history;
