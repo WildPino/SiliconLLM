@@ -22,17 +22,20 @@ This initial capture is not long-context preservation or final fresh quality.
 
 ## Implement, preregister and run the bounded source capture
 
-First action:implement a separate broad-capture worker using the retained
+First action:bind/freeze/run the separate `chatbot_broad_capture.py` worker,
+now implemented using the retained
 `chatbot_hybrid_transfer_capture.py` model/generation/packet operators; preserve
 its completed old160 observations and frozen source package. Bind actual data
 adoption result/terminal/corpus/cohort plus source weights/config/tokenizer,
 worker/launcher/protocol/selected runtime/Python/foreign hashes before execution.
 Do not reuse the old160 schema while silently changing its meaning.
 
-ONE local source family proposed<=1800s/8GiB OS/10GiB GPU allocated/11GiB reserved/
+ONE local source family frozen<=2700s/8GiB OS/10GiB GPU allocated/11GiB reserved/
 2GiB output,30s reserve. At most48*256*65537*2=1,610,637,312B BF16 logits plus
-metadata. The1800s is a conservative budget based on the old861.8s/160 source
-capture,not a measured throughput for these longer prompts. Report actual costs.
+metadata. [Protocol](CHATBOT_BROAD_CAPTURE_PROTOCOL_20261009.md) replaces the
+earlier1800s proposal before execution:12288 maximum labels imply about1843s
+at the old861.8s/5746-label aggregate cost,plus longer prefills/hash overhead.
+This is a budget inference,not measured new throughput. Report actual costs.
 No T4 allocation. Source BF16/eager/no optional kernels/TF32off/original BOS17/
 BOTH EOS11/228/greedy cached generation preserved. Need actual preflight that
 new cohort IDs exactly match canonical source template and vocabulary.
