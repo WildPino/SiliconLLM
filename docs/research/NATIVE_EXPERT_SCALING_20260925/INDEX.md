@@ -1,7 +1,9 @@
 # Native expert scaling: research control index
 
 9 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-All research jobs terminal. No source, training, native or T4 job is running.
+Paired first attempt terminal exit1/session27977 CLOSED at the original reserve
+cap, after all50 NEW updates. A26/B26/17 final B rows retained. All jobs terminal;
+remaining63 B observations get a separately frozen600s completion, no updates.
 
 ## Goal and constraints
 
@@ -123,9 +125,12 @@ useful n. Qwen/Giga/511/actual256 evidence retains its scope and existing limits
 
 ## Exact point of resumption
 
-**First action:** implement/freeze/bind the
+**Current action:** bind/launch the evaluation-only
 [paired continuation worker](CHATBOT_FIXED_WORK_PAIRED_NEXT_20261009.md), now
-implemented/syntax checked; binding/model UNEXECUTED. The
+implemented/syntax checked; see [completion protocol](CHATBOT_FIXED_WORK_PAIRED_FINISH_PROTOCOL_20261009.md).
+First attempt freeze b959e33901fc172b9a0953945d044d6fba058c2f,
+196-input binding SHA8fb3b617ef2b1e54e8cf7bff25f80b72980b7914375c45f54046b649e3f8561c;
+namespace `chatbot_fixed_work_paired_20261009`, first fault/receipt retained, no final result. The
 [prospective protocol](CHATBOT_FIXED_WORK_PAIRED_PROTOCOL_20261009.md) fixes order,
 criteria, durable A2/A26/B26 and1800s/24GiB output caps. Arm A adopts actual broad24/Adam318 (16a85448);
 arm B adopts actual fixed-work2/private320/common2 (d6bac2d0). Complete two NEW
@@ -141,6 +146,8 @@ Completed feasibility namespaces `chatbot_fixed_work_feasibility_20261009`
 (first fault/session9819) and `chatbot_fixed_work_feasibility_repair1_20261009`
 (freeze1dc25904/bindingcc402a03/resulta15e2ee7/exit0/session11388), both CLOSED.
 Exact JSONs/logs/commands/AST/output hashes beside this index; large tensors off-repo.
-No owned live job. Useful selection/compact state and joint chatbot recovery,
+All workers terminal. Resume ONLY31 missing broad/32 oldDEV observations from
+B26 SHA2384fbaf; A26 a68763bb/actual50 updates/17 final B rows are never replayed.
+Useful selection/compact state and joint chatbot recovery,
 fresh useful same-artifact original-engine quality+50,useful n/CPU IDs+mass/DRAM,
 family/scale variants and full-model/month-plus T4 price remain required.
