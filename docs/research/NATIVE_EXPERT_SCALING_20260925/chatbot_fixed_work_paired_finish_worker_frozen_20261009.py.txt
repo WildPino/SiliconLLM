@@ -221,8 +221,7 @@ def worker(a):
         assert sum(p.stat().st_size for p in a.directory.glob('*.logits.f32')) == b['expected_new_logits_bytes']
         phase = 'result'; guard()
         result = dict(schema='FIXED_WORK_PAIRED_FINISH_RESULT_V1', decision='PAIRED_B_PREFERENCE_PASS' if preferred else 'PAIRED_B_PREFERENCE_FAIL',
-            freeze=a.freeze, binding_sha256=a.binding_sha, process_instance=dict(pid=proc.pid, create_time_unix=proc.create_time()),
-            arms=dict(A=result_a, B=result_b), preference_gates=preference,
+            freeze=a.freeze, binding_sha256=a.binding_sha, arms=dict(A=result_a, B=result_b), preference_gates=preference,
             absolute_retention_gates=gates, new_student_cases=63, reused_B_after_cases=17,
             new_optimizer_updates=0, retained_original_new_updates=50, reused_B_updates=2,
             original_family_seconds=b['original_family_seconds'], original_first_fault='worker deadline reserve after 50 complete updates/17 B final observations',
