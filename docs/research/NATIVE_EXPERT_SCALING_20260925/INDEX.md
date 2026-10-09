@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 9 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-All paired and original-packed export/native jobs terminal. No owned job/T4 allocation live.
+All paired, original-packed and tensor-learner jobs terminal. No owned job/T4 allocation live.
 
 ## Goal and constraints
 
@@ -27,6 +27,20 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/whole supervision; actual staged controls and matched recovery | Useful joint function/state transfer under endpoint cost; fresh packed chatbot qualification; family/scale variants |
 
 ## Latest decisive evidence
+
+**[Direct tensor learner/export bridge](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md): COMPLETE/PASS.**
+New original D256/L6 trainable scan/SWA/dReLU/AQ63/full-softmax routing contract
+and master-tensor E4BPv001 producer. All92 original master tensors export bit-
+identically to prior packed file;4 independent inputs/all6 banks compare within
+7.534e-7 normalized RMS. All16,384 logits before one NEW CPU Adam step and after
+changed native export pass fixed1e-4 normalized RMS (max4.443e-7/6.272e-7);
+all actual IDs exact/masses within1e-6. Actual model/Adam1/RNG saved;6,144 changed
+native integer witnesses exact. Family36.281s/conservative OS1.008GB/exit0/
+session31156 CLOSED;source/GPU/T4 zero. This is original E32/V1024/16-ID bridge
+evidence, not a source-informed Falcon learner or useful-chatbot/large-n/rate
+admission. [Exact next action](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) is a real
+source initialization ledger and union-aware bank residency before longest-FIT
+whole-model adaptation; no additional original-small-model update sweep.
 
 **[Original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md): COMPLETE/PASS.**
 Actual original core/LUT/dReLU/AQ63 operators;20 source bodies/19 unchanged and

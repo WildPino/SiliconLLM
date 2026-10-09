@@ -8,6 +8,15 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest implemented stage:** [direct original tensor learner/export](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md)
+is COMPLETE/PASS in E32/V1024/16-ID CPU scope. Complete original geometry with
+native AQ63/dReLU/mass-before-hidden-quantization and declared STE; all92 real
+masters export bit-identically; complete numerical bank/whole-forward comparisons
+pass before and after one actual Adam update/changed native export. Actual state/
+optimizer/RNG retained; changed integer witnesses6,144/6,144 exact. Numerical
+operator scope is qualified, not all-history bit parity or donor preservation.
+The direct arbitrary-runtime-E/V tensor producer is available for new learners.
+
 **Current implemented stage:** [original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md)
 is COMPLETE/PASS. New runtime-n/V/64-bit offset/packed-only original D256/L6 backend,
 20 actual source bodies/19 unchanged plus memcpy-only routing observer; trainedE32
@@ -16,14 +25,16 @@ fixture868.51MB loads/forwards;24,576 integer coordinates exact, actual IDs/mass
 checked. No expert F32/unpacked reference copies. Typed addressing/representation
 is verified in this scope; copies/tied token rows do not prove transferred capacity,
 real-vocabulary chatbot quality or rate. Original source bytes remain unchanged.
-Current producer parses legacyE32 only; direct new-learner export is missing.
+Its legacy parser remains E32-specific; the newer direct tensor producer above
+removes that dependency for new supported learner tensors.
 
 [Selected next transfer](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses original
 learner/operator evidence and pinned Falcon/cached whole outputs to construct
 source-informed banks with explicit history/representation/activation/residency
 costs. Source-count original-shaped n1152 is a capacity allowance, not conservation
-of information. First freeze a real construction/control and complete-history
-learning/native-export probe; no further structural copied-bank sweep or T4 now.
+of information. First freeze the real source initialization ledger and union-aware
+bank transfer/quantization before the complete-history learning/native-export
+probe; no further E32 dose/structural copied-bank sweep or T4 now.
 The [earlier0+8/2+6 comparison](CHATBOT_FIXED_WORK_PAIRED_RESULT_20261009.md) remains
 COMPLETE with preference/absoluteDEV failures and retained A344/B344 states.
 Older NEXT/dose/recovery-first wording below is historical. Whole fresh chatbot

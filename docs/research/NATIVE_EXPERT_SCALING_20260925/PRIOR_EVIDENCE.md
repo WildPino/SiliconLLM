@@ -1,5 +1,19 @@
 # Native expert-count scaling: prior evidence
 
+**9 October direct tensor original-operator learner bridge COMPLETE/PASS:**
+[Result](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md),freeze1d7988c6/bindinga0b835d2/
+rawe3732b34. All92 real original master tensors/22,516,672 coefficients adopted
+with key/shape coverage; direct E4BPv001 export24,411,136B bit-identical. AQ63/
+dReLU/flat-routing numerical bank and complete16-ID whole-output gates pass;
+before max relative RMS4.443e-7/after6.272e-7;all actual IDs exact. One NEW CPU
+Adam1 update/all gradients+moments finite, actual270,309,072B state5de1d580 saved;
+changed export26378408/new6,144 integer witnesses exact. Family36.281s/worker
+949,977,088B/conservative worker+child+launcher1,008,037,888B/exit0/session31156
+CLOSED. Source/GPU/T4 zero;no retries. E32/V1024/16-ID scope does not qualify a
+Falcon learner, all-history parity, useful large n or quality/rate. [Next real
+source initialization and union residency](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+supersedes the earlier missing-direct-producer wording; no further E32 dose sweep.
+
 **9 October original-shaped packed runtime-n stage COMPLETE/PASS:**
 [Result](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md),freezea660545b/bindingd91893bf/
 result5d552a3e.20 original body hashes/19 unchanged and one memcpy-only observer;

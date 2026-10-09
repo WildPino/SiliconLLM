@@ -6,6 +6,16 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+[Direct tensor original-operator learner/export](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md)
+is now COMPLETE/PASS. Original D256/L6/AQ63/dReLU/full-softmax/top8 contract,
+real-master direct packed export, actual one CPU Adam update and changed native
+whole-output/integer verification are available. Before/after16-ID complete
+outputs pass max relative RMS4.443e-7/6.272e-7; this is finite E32/V1024 operator
+bridge scope, not donor preservation. The endpoint no longer requires parsing a
+legacy file to ingest new tensors. [Exact resumption](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+constructs actual donor initialization and replaces rank-repeated expert copies
+with union-aware residency before longest-FIT adaptation. No additional E32 dose.
+
 [Original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md) is
 COMPLETE/PASS:actual original core/LUT/dReLU/AQ63, runtime-n/V/64-bit byte extents,
 no mandatory expert reference copies. TrainedE32 all65,536 logit bits match
