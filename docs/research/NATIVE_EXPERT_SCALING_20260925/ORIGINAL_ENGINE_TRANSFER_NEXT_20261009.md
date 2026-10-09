@@ -7,68 +7,72 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
-### Current resumption: actual teacher residual boundaries, then joint recovery
+### Current resumption: qualified teacher histories and finite joint recovery
 
-Actual27 is durable and independently audited. Initial C output identity/new
-delta activity/resource gates PASS; native DEV disagreement247/256 and250/256
-still FAIL. Use candidate_seeded27.pt/real Adam/RNG/lineage as the continuation
-state. No further calibration/update replay, zero-factor repair or numerical
-trace selected. Original wide native operators stay fixed. No T4 allocation.
+[Teacher boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md) COMPLETE:
+48 histories/22547 positions/seven raw BF16 residual boundaries and fixed P256
+projections exist. All288 inherited SSM streams match; all157829 projected rows
+pass independent F64 <=8.078e-7; energy summaries delta0. Parent reserved cap
+FAILED after17 histories/h4 of eighteenth; missing-only completion adopts those,
+resumes from saved h4 through layers4..23 without early-depth replay, and runs30
+new full histories. Completion GPU reserved6.885GB/resources PASS; parent final
+parameter aggregate/resource gap retained. Combined272.140s/810654370B. All jobs
+terminal/noT4. Source capture is done; do not repeat it.
 
-**Uncertainty and decision.** The current source-informed bank does not carry
-source history: five SSM cores and SWA began fresh; four source decoder layers
-collapse into each target block. Cached final distributions supply only256
-time positions/history. Can direct supervision of source residual history
-improve native held-out and own-history quality at this same deployment cost?
-A successful relative result motivates a finite broader conversion recipe;
-failure closes this auxiliary-loss recipe and prompts a measured change to
-the information bottleneck, rather than an unchanged month-long dose.
+At h4..h20 fixed basis retains roughly12..14% source squared energy; DEV h24
+35.387% total/28.690% centered. These are geometry, not knowledge or chatbot
+quality bounds. Keep complete raw states for alternative representations. No
+exact source residual/logit transport or universal D256 impossibility follows.
 
-**Immediate selected implementation:** a new teacher boundary-capture worker,
-protocol and binding, then one held capture family. These do not yet exist.
-Freeze them before observation. Reuse pinned useful Falcon1.5B, existing48
-canonical histories/22547 positions/24FIT+24DEV, actual source runtime/SSD
-tiles, the adopted recurrent packet and fixed P256 from original transfer.
-Do not create new answer labels, generations or RESERVED requests.
+Actual seeded27/real Adam/RNG/lineage remains the selected continuation state;
+no optimizer update in this capture. Original wide deployed operators stay fixed.
+Fresh core/four-source-layer collapse with final-label-only supervision is the
+missing transfer being tested. [Prepared training-only adapter](../../../benchmarks/native_expert_scaling/original_joint_history_learner.py)
+observes six post-block residuals on the student's own canonical trajectory;
+no teacher input/state forcing. It is not yet gradient/model/export qualified.
 
-1. Save the actual BF16 residual h0 (multiplied embedding) and decoder outputs
-   h4,h8,h12,h16,h20,h24, all time positions, source width2048. This includes
-   source SSM, parallel attention, nonlinear FFN and residual composition.
-   Existing seven recurrent fields contain branch operands/outputs, not these
-   residual boundaries; FFN x captures only two sites/label positions. No
-   equality between a sum of local FFNs and composed source blocks is assumed.
-2. Use identical zero-state full-prefill protocol as adopted recurrent capture,
-   not cached autoregressive replay. No LM head call. Preserve411 parameter
-   identities/versions before/after. At sites3,7,11,15,19,23 compare observed
-   mixer outputs bytewise with the retained BF16 fields for each history; stop
-   on first mismatch and save it. This qualifies reuse of that source history,
-   not cached-reply bit parity or the interrupted parent's missing resource log.
-3. Persist raw boundary bytes/hashes. Derive z_j=h_j P in explicitly declared
-   F32 arithmetic, fixed inherited P, no refit on DEV. Raw expected646467584B;
-   projected expected161616896B. Report uncentered/mean/centered projected energy
-   and discarded source energy per boundary/domain; low projection energy is
-   an information warning, not proof that this coordinate system cannot learn.
-   Projection and RMS normalization do not commute; these are auxiliary
-   residual-coordinate targets, not exact source-logit or state transport.
-4. Before binding, price expected5–10 minutes locally against a held1200s cap
-   with120s reserve, OS12GiB, GPU allocator8allocated/9reservedGiB, new outputs
-   1GiB/log4MiB. Principal binaries/fields/code bound; workerCPU0..5/Torch6/
-   inter-op1, launcher11, no children, no concurrent owned benchmark. Actual
-   cost remains to measure. Fail cap/identity/extent/nonfinite/byte-witness =>
-   preserve first fault and exact partial namespace, finish only missing work
-   if justified; never rerun completed inference merely due tool timeout.
+Selected B auxiliary loss, fixed before candidate observation:
 
-**Finite learner comparison after capture qualification (not yet executable).**
-Implement a new training-only adapter observing each target post-block residual;
+\[
+L_B=L_{KL}+\frac{1}{6}\sum_{j=1}^{6}
+\frac{\operatorname{mean}((H_j-h_{4j}P)^2)}
+{\max(\operatorname{mean}((h_{4j}P)^2),10^{-24})}.
+\]
+
+A uses only L_KL. Auxiliary weight1, shared teacher-energy normalization;
+report total=mean-error+centered-error and centered-relative recovery separately.
+A relative win motivates finite broader recovery; failure closes this loss
+recipe and prompts a measured representation/depth bottleneck change. No
+unchanged month-long dose follows from either engineering or relative PASS.
+
+**Immediate selected implementation:** implement/freeze matched A/B worker,
+state adoption/durability/export, and original wide packed C consumer supporting
+persistent full-head own-history generation. Current parity/speed main only
+consumes fixed request histories; earlier D512/L12 chat is a different artifact.
+Reuse state_reset/forward_token and original computational bodies exactly.
+Qualify new consumer against retained actual27 prefix heads/routes and split
+prefill before generation. Bind canonical tokenizer/template/EOS policy and
+predeclared tasks. No generic donor runtime or source inference expansion.
+
+Qualify real auxiliary forward/gradient during the first scheduled whole-FIT
+update, retaining actual inherited state and every new counter. Compare initial
+GPU full heads/routes to retained actual27 FIT packet; auxiliary observations
+must not change logits. All gradients/state finite and actual B auxiliary core
+contributions recorded; save durable state before later evaluation. No extra
+optimizer step/replay merely for adapter qualification. Freeze the exact24 FIT
+order/first-history selector before any candidate observation.
+
+**Finite learner comparison (runner/criteria not yet executable).**
+Use the prepared training-only adapter observing each target post-block residual;
 keep all frozen learners/exporters/native computational bodies immutable.
 Starting from the same actual27 state, compare A:whole final-distribution KL,
 B:same KL plus residual-boundary loss. Same24 FIT IDs/order/one full-history
 pass/24 NEW optimizer updates perarm; same optimizer/routing/bank quantization/
 STE/deployment geometry. No teacher residual forcing during candidate forward:
 student state evolves on its own canonical input history. Report mean AND
-centered residual recovery, avoiding a mean-only improvement claim. Choose
-auxiliary normalization/weight, gradient qualifications, exact DEV/domain and
-generation/task gates in the new protocol before seeing candidate results.
+centered residual recovery, avoiding a mean-only improvement claim. Auxiliary normalization/weight are fixed above. Freeze gradient qualifications,
+exact DEV/domain and generation/task gates in the new protocol before seeing
+candidate results.
 No sweep or extra epochs by default.
 
 First obtain complete native actual27 before metrics, adopting only the three

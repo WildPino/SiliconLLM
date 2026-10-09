@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**9 October actual teacher boundaries COMPLETE with parent gaps:**
+[Result](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md).48 full histories22547
+positions/h0,h4..h24 raw BF16/fixed P256 F32;288 source streams byte-exact.
+CPU F64 audit all157829 projection rows worst8.077e-7, energy delta0,590 input/
+462 new output hashes. First freezefe60e9f/bind2d565b4e reserved cap FAIL after17
+histories/h4 eighteenth, original final411 aggregate missing. Finish50841c1/
+bindab6bd670/raw e39d3838 adopts old fields, tail layers4..23 from saved h4;
+30 new full calls, completion identity/resources PASS. Combined272.140s/
+724files810654370B. Peak allocated5.983GB same, reserved9.920->6.885GB after
+unused-cache release between cases; parent failure preserved. DEV projected
+energy12..14% intermediate,35.387% final/28.690% centered, not knowledge ratios.
+Prepared auxiliary learner/no optimizer/native/LM head/newanswers/RESERVED/T4;
+all jobs terminal. Next finite matched joint recovery with own-history/native
+DEV/domain gates; no useful chatbot/accepted50/n/DRAM admission.
+
 **9 October actual27 delta correction COMPLETE/engineering PASS/numerical FAIL:**
 [Result](ORIGINAL_DELTA_SEED_RESULT_20261009.md), completion freezedbe80da9/
 bindd49fa831/rawb71d31a3. Five FIT rank32 residual seed maps/cross<=7.551e-9;

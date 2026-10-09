@@ -1,0 +1,5055 @@
+{
+  "schema": "ORIGINAL_HISTORY_BOUNDARIES_STORED_AUDIT_V1",
+  "decision": "STORED_BOUNDARIES_PROJECTION_PASS",
+  "binding_sha256": "ab6bd6704233d9066bc4d17aaae61cd1dd3b9dc18809036effc20949d2b3800f",
+  "result_sha256": "e39d38387f3c787475b4ceec806e86ae7b8af010c1b8b02f35a2083871883989",
+  "checked_inputs": 590,
+  "checked_outputs": 462,
+  "new_output_bytes": 561428816,
+  "old_output_bytes": 249225554,
+  "combined_held_seconds": 272.13999999995576,
+  "raw_payload_bytes": 646467584,
+  "projected_payload_bytes": 161616896,
+  "projection_rows": 157829,
+  "projection_worst_row_relative_RMS": 8.077043876947044e-07,
+  "energy_relative_delta_max": 0.0,
+  "basis_orthogonality_max": 7.697597101952169e-07,
+  "discarded_estimate_vs_exact_relative_delta_max": 6.128880575950972e-08,
+  "aggregates": [
+    {
+      "split": "FIT",
+      "boundary": 0,
+      "cases": 24,
+      "retained_mean": 0.27004961209096384,
+      "retained_min": 0.2501289166129584,
+      "centered_retained_mean": 0.263620535554296,
+      "centered_retained_min": 0.24504327872981105,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.2690950064906903,
+          "centered_retained_mean": 0.2593947851977385
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.273159792354129,
+          "centered_retained_mean": 0.26731113398762474
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.2747436097787649,
+          "centered_retained_mean": 0.26779499018611463
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.26764402616695493,
+          "centered_retained_mean": 0.2625118025567007
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.2612470872814268,
+          "centered_retained_mean": 0.25645145179296874
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.2636674547033949,
+          "centered_retained_mean": 0.2576432116607439
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.2689050042958597,
+          "centered_retained_mean": 0.26044322323278124
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.27433831710725737,
+          "centered_retained_mean": 0.2682883438488437
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.2686200470904653,
+          "centered_retained_mean": 0.2629804766845075
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.2752369860596049,
+          "centered_retained_mean": 0.269269279396058
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.2728725428523799,
+          "centered_retained_mean": 0.2667319269738334
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.2710654709106377,
+          "centered_retained_mean": 0.26462580113363654
+        }
+      ]
+    },
+    {
+      "split": "FIT",
+      "boundary": 4,
+      "cases": 24,
+      "retained_mean": 0.11787571441670802,
+      "retained_min": 0.09584314477540012,
+      "centered_retained_mean": 0.1146137641611817,
+      "centered_retained_min": 0.09437873158611854,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.12355561767500799,
+          "centered_retained_mean": 0.1199571385428101
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.13030082142389388,
+          "centered_retained_mean": 0.12591744851794157
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.106554954028067,
+          "centered_retained_mean": 0.10480657077114622
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.09702362566464609,
+          "centered_retained_mean": 0.09534149259230407
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.10935108865767512,
+          "centered_retained_mean": 0.10647820978742745
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.10076686757352595,
+          "centered_retained_mean": 0.09846381995475442
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.11436947505657162,
+          "centered_retained_mean": 0.11082334520505613
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.12388300375973862,
+          "centered_retained_mean": 0.12026624405716577
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.12749149074617983,
+          "centered_retained_mean": 0.12293303456470459
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.13653077691122295,
+          "centered_retained_mean": 0.13252929389390733
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.12079849237054985,
+          "centered_retained_mean": 0.11760362472759125
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.12388235913341746,
+          "centered_retained_mean": 0.12024494731937165
+        }
+      ]
+    },
+    {
+      "split": "FIT",
+      "boundary": 8,
+      "cases": 24,
+      "retained_mean": 0.12162611115687692,
+      "retained_min": 0.0973562423243116,
+      "centered_retained_mean": 0.11708264242948667,
+      "centered_retained_min": 0.09534814500709307,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.1264747178933418,
+          "centered_retained_mean": 0.12236747747670312
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.1356847298209497,
+          "centered_retained_mean": 0.1292521149566364
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.10858121385695874,
+          "centered_retained_mean": 0.10608530795880838
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.09888167502492032,
+          "centered_retained_mean": 0.09649080474171678
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.11233787439041945,
+          "centered_retained_mean": 0.10825513657552693
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.10358318688767182,
+          "centered_retained_mean": 0.10016898345201189
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.11758777148920632,
+          "centered_retained_mean": 0.11276415934346674
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.12839469105965487,
+          "centered_retained_mean": 0.12303617364311539
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.13299902985400258,
+          "centered_retained_mean": 0.1263611728082794
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.1415897897443144,
+          "centered_retained_mean": 0.1360503916684796
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.12534094212205654,
+          "centered_retained_mean": 0.12079335469065659
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.12805771173902641,
+          "centered_retained_mean": 0.12336663183843871
+        }
+      ]
+    },
+    {
+      "split": "FIT",
+      "boundary": 12,
+      "cases": 24,
+      "retained_mean": 0.1259020158097016,
+      "retained_min": 0.09964259955284593,
+      "centered_retained_mean": 0.11974852412470322,
+      "centered_retained_min": 0.09608650723337532,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.12833607763246577,
+          "centered_retained_mean": 0.12434156428165674
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.14142158223335358,
+          "centered_retained_mean": 0.13297094322561787
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.11060827160884938,
+          "centered_retained_mean": 0.10757544484958173
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.10146595907774503,
+          "centered_retained_mean": 0.0974454296306195
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.11525864093430097,
+          "centered_retained_mean": 0.10981957585386534
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.10632079215849194,
+          "centered_retained_mean": 0.10153819436264622
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.12176622505283782,
+          "centered_retained_mean": 0.11471746067885152
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.13347789424951012,
+          "centered_retained_mean": 0.12624235152404845
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.13962180352947115,
+          "centered_retained_mean": 0.13019981486381282
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.14781057218403726,
+          "centered_retained_mean": 0.1404717642843707
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.13131901532640944,
+          "centered_retained_mean": 0.12501984706059543
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.13341735572894656,
+          "centered_retained_mean": 0.1266398988807722
+        }
+      ]
+    },
+    {
+      "split": "FIT",
+      "boundary": 16,
+      "cases": 24,
+      "retained_mean": 0.13842304518221768,
+      "retained_min": 0.10647464776761256,
+      "centered_retained_mean": 0.1287738015627786,
+      "centered_retained_min": 0.09965899902720146,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.13618911945390216,
+          "centered_retained_mean": 0.13186882844373254
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.15649185209462335,
+          "centered_retained_mean": 0.14339683484053498
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.12031939295088356,
+          "centered_retained_mean": 0.11342542214456942
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.10899284103979887,
+          "centered_retained_mean": 0.10164312826206812
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.12444892595038179,
+          "centered_retained_mean": 0.11558455631851786
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.11544335122412572,
+          "centered_retained_mean": 0.10718826339018561
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.1350187495858647,
+          "centered_retained_mean": 0.12267991552651557
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.14788688339306164,
+          "centered_retained_mean": 0.13665077550827626
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.15528279585261312,
+          "centered_retained_mean": 0.14166126029549636
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.16306491736144868,
+          "centered_retained_mean": 0.15309125689719
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.14983592128320855,
+          "centered_retained_mean": 0.140150357815835
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.14810179199669976,
+          "centered_retained_mean": 0.13794501931042133
+        }
+      ]
+    },
+    {
+      "split": "FIT",
+      "boundary": 20,
+      "cases": 24,
+      "retained_mean": 0.14505459059165965,
+      "retained_min": 0.1189179773109455,
+      "centered_retained_mean": 0.12987272682519935,
+      "centered_retained_min": 0.10377716663299068,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.13617260835234196,
+          "centered_retained_mean": 0.12843136351245296
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.15868217254601488,
+          "centered_retained_mean": 0.14250444191375222
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.1351604429239356,
+          "centered_retained_mean": 0.12088168640566332
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.12176484042973815,
+          "centered_retained_mean": 0.1058863984730045
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.13496864506322503,
+          "centered_retained_mean": 0.11603866750912144
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.1294170642416869,
+          "centered_retained_mean": 0.11283558848657851
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.14580903504496284,
+          "centered_retained_mean": 0.1265838774032304
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.14885035527734014,
+          "centered_retained_mean": 0.13606122394444392
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.15603494358629638,
+          "centered_retained_mean": 0.13881997952138853
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.1619423150247157,
+          "centered_retained_mean": 0.14831898589385317
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.15805258719358037,
+          "centered_retained_mean": 0.14253724052215336
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.1538000774160779,
+          "centered_retained_mean": 0.13957326831674993
+        }
+      ]
+    },
+    {
+      "split": "FIT",
+      "boundary": 24,
+      "cases": 24,
+      "retained_mean": 0.36070351546902546,
+      "retained_min": 0.3305425197357206,
+      "centered_retained_mean": 0.29465527000966063,
+      "centered_retained_min": 0.22661397485078083,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.3725161138383668,
+          "centered_retained_mean": 0.32297491589907923
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.36196657917899666,
+          "centered_retained_mean": 0.3044680125937636
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.3391760754253089,
+          "centered_retained_mean": 0.27718571413576354
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.3829361892414104,
+          "centered_retained_mean": 0.33057682082957585
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.3873385262112702,
+          "centered_retained_mean": 0.34288184191690574
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.3844457345743278,
+          "centered_retained_mean": 0.33534455397164054
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.37273898208611456,
+          "centered_retained_mean": 0.31260181050977903
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.3495616690721444,
+          "centered_retained_mean": 0.27065134146702435
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.3473052307073198,
+          "centered_retained_mean": 0.25393889820496485
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.33594375522161934,
+          "centered_retained_mean": 0.23384970226570367
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.3314443285828027,
+          "centered_retained_mean": 0.24802861470326742
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.36306900148862403,
+          "centered_retained_mean": 0.3033610136184597
+        }
+      ]
+    },
+    {
+      "split": "DEV",
+      "boundary": 0,
+      "cases": 24,
+      "retained_mean": 0.26948969424831454,
+      "retained_min": 0.2596192060996879,
+      "centered_retained_mean": 0.26341497261154134,
+      "centered_retained_min": 0.2518825480290645,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.26650793999000855,
+          "centered_retained_mean": 0.2570185809537344
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.274450317112241,
+          "centered_retained_mean": 0.2675929119789059
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.2649367006640073,
+          "centered_retained_mean": 0.2590473915695629
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.26310785033581474,
+          "centered_retained_mean": 0.25890464369961946
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.26660080029049565,
+          "centered_retained_mean": 0.2627903897976277
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.27308674027515567,
+          "centered_retained_mean": 0.2670082289078467
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.2646198826005306,
+          "centered_retained_mean": 0.25627884288336367
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.2684020363732387,
+          "centered_retained_mean": 0.26301223666924306
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.26928859452864773,
+          "centered_retained_mean": 0.26352104286536215
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.2770417916615282,
+          "centered_retained_mean": 0.27046756322601384
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.2709267749872187,
+          "centered_retained_mean": 0.26516950334587747
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.2749069021608875,
+          "centered_retained_mean": 0.27016833544133867
+        }
+      ]
+    },
+    {
+      "split": "DEV",
+      "boundary": 4,
+      "cases": 24,
+      "retained_mean": 0.11752423413644593,
+      "retained_min": 0.09609903420743009,
+      "centered_retained_mean": 0.11455880930110074,
+      "centered_retained_min": 0.09460789979460493,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.14696066121036425,
+          "centered_retained_mean": 0.14288780116244423
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.10015815676116238,
+          "centered_retained_mean": 0.09839936374709835
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.11821145539993282,
+          "centered_retained_mean": 0.11539054319599455
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.10953129589929438,
+          "centered_retained_mean": 0.10720967123849251
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.11052832589938508,
+          "centered_retained_mean": 0.10766853079165056
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.1016870739393349,
+          "centered_retained_mean": 0.09968646975831268
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.10079121626758591,
+          "centered_retained_mean": 0.09844823545457562
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.11355088675705527,
+          "centered_retained_mean": 0.11105402257025382
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.13631443056741704,
+          "centered_retained_mean": 0.13165873585891594
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.12519977231851803,
+          "centered_retained_mean": 0.12159215229351195
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.12481272314174083,
+          "centered_retained_mean": 0.12149420535066507
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.12254481147556046,
+          "centered_retained_mean": 0.11921598019129376
+        }
+      ]
+    },
+    {
+      "split": "DEV",
+      "boundary": 8,
+      "cases": 24,
+      "retained_mean": 0.12096101268122567,
+      "retained_min": 0.09775937480256745,
+      "centered_retained_mean": 0.11673948965311882,
+      "centered_retained_min": 0.09558615584011416,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.14856922394642152,
+          "centered_retained_mean": 0.14435162835157328
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.10287636070820225,
+          "centered_retained_mean": 0.10012103951033918
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.12150389839037436,
+          "centered_retained_mean": 0.11747740570690676
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.11182616333668527,
+          "centered_retained_mean": 0.10857244794966561
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.11373681185531594,
+          "centered_retained_mean": 0.10949495624538932
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.10454109998467233,
+          "centered_retained_mean": 0.10139884053597928
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.10322819949729237,
+          "centered_retained_mean": 0.09972948117373354
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.11707314104081859,
+          "centered_retained_mean": 0.11329730159240431
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.14238399214501363,
+          "centered_retained_mean": 0.1354110844627886
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.12958609129819554,
+          "centered_retained_mean": 0.12448321791645572
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.1295171629419641,
+          "centered_retained_mean": 0.12451201472989867
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.12669000702975203,
+          "centered_retained_mean": 0.12202445766229181
+        }
+      ]
+    },
+    {
+      "split": "DEV",
+      "boundary": 12,
+      "cases": 24,
+      "retained_mean": 0.12491568283418512,
+      "retained_min": 0.10025196454928104,
+      "centered_retained_mean": 0.11920714573372287,
+      "centered_retained_min": 0.09641437030381395,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.14744109821005497,
+          "centered_retained_mean": 0.14408663694854018
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.106092876751673,
+          "centered_retained_mean": 0.1020539036025406
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.125878962239733,
+          "centered_retained_mean": 0.12031131647847865
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.11515661713104401,
+          "centered_retained_mean": 0.11014084856231504
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.11708149265739867,
+          "centered_retained_mean": 0.11120608287486639
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.10877755831265874,
+          "centered_retained_mean": 0.10354816013985522
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.10607267492961572,
+          "centered_retained_mean": 0.10103480950097882
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.12042696343480372,
+          "centered_retained_mean": 0.11575262074519208
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.14961444193937806,
+          "centered_retained_mean": 0.139749116595147
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.1348722069937925,
+          "centered_retained_mean": 0.12818694220718602
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.1355222770096775,
+          "centered_retained_mean": 0.12905749332720887
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.1320510244003917,
+          "centered_retained_mean": 0.1253578178223657
+        }
+      ]
+    },
+    {
+      "split": "DEV",
+      "boundary": 16,
+      "cases": 24,
+      "retained_mean": 0.1374032062160587,
+      "retained_min": 0.10726163218631744,
+      "centered_retained_mean": 0.12801176926479954,
+      "centered_retained_min": 0.10011718780373742,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.14912371524658463,
+          "centered_retained_mean": 0.14622836075430753
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.11895934633734503,
+          "centered_retained_mean": 0.10921265780660064
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.13954899706155088,
+          "centered_retained_mean": 0.129816599289887
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.12256052605519388,
+          "centered_retained_mean": 0.11508959434634142
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.12574053597241885,
+          "centered_retained_mean": 0.11674324683898396
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.12302989427192865,
+          "centered_retained_mean": 0.11191560357120812
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.11667887545957353,
+          "centered_retained_mean": 0.1071399752671447
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.13231793189386698,
+          "centered_retained_mean": 0.12333987772556315
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.16719492670074163,
+          "centered_retained_mean": 0.15278120365715628
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.15189780017333793,
+          "centered_retained_mean": 0.14052516643763946
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.15365689586987807,
+          "centered_retained_mean": 0.14504597139457234
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.14812902955028417,
+          "centered_retained_mean": 0.13830297408818984
+        }
+      ]
+    },
+    {
+      "split": "DEV",
+      "boundary": 20,
+      "cases": 24,
+      "retained_mean": 0.14403876710546318,
+      "retained_min": 0.11954150811933896,
+      "centered_retained_mean": 0.1289435496848588,
+      "centered_retained_min": 0.10354506197112948,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.14184242698254257,
+          "centered_retained_mean": 0.13440951520368316
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.1305363441558235,
+          "centered_retained_mean": 0.11579041410570504
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.14866743521216072,
+          "centered_retained_mean": 0.13222563102151408
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.13137892667557177,
+          "centered_retained_mean": 0.11567263113392057
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.13339176321260798,
+          "centered_retained_mean": 0.11715248550310631
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.13913951590464402,
+          "centered_retained_mean": 0.12098995342313393
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.13028764801611642,
+          "centered_retained_mean": 0.11229006077107373
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.1395781077246288,
+          "centered_retained_mean": 0.12690592426483696
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.16422612815270982,
+          "centered_retained_mean": 0.14743689283536054
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.15784932398930207,
+          "centered_retained_mean": 0.1404303784040032
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.16074156292179315,
+          "centered_retained_mean": 0.14590925601846483
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.1508260223176573,
+          "centered_retained_mean": 0.13810945353350318
+        }
+      ]
+    },
+    {
+      "split": "DEV",
+      "boundary": 24,
+      "cases": 24,
+      "retained_mean": 0.3538689732690752,
+      "retained_min": 0.31459613742073794,
+      "centered_retained_mean": 0.28690023771710527,
+      "centered_retained_min": 0.22832619116119465,
+      "domains": [
+        {
+          "domain": "apigen-80k",
+          "retained_mean": 0.3712361496757574,
+          "centered_retained_mean": 0.3322390957524817
+        },
+        {
+          "domain": "everyday-conversations",
+          "retained_mean": 0.3542642964493198,
+          "centered_retained_mean": 0.2963607928868167
+        },
+        {
+          "domain": "explore-instruct-rewriting",
+          "retained_mean": 0.33847781307452485,
+          "centered_retained_mean": 0.2453559518213245
+        },
+        {
+          "domain": "metamathqa-50k",
+          "retained_mean": 0.38143229470522233,
+          "centered_retained_mean": 0.334432340732592
+        },
+        {
+          "domain": "numina-cot-100k",
+          "retained_mean": 0.38551825114721744,
+          "centered_retained_mean": 0.3392297529269134
+        },
+        {
+          "domain": "openhermes-100k",
+          "retained_mean": 0.34318138014114896,
+          "centered_retained_mean": 0.2670625172117917
+        },
+        {
+          "domain": "self-oss-instruct",
+          "retained_mean": 0.3836078859811286,
+          "centered_retained_mean": 0.3326357640283186
+        },
+        {
+          "domain": "smol-constraints",
+          "retained_mean": 0.34605167144595006,
+          "centered_retained_mean": 0.2749255612032966
+        },
+        {
+          "domain": "smol-magpie-ultra",
+          "retained_mean": 0.32456974080535916,
+          "centered_retained_mean": 0.22924602593713045
+        },
+        {
+          "domain": "smol-rewrite",
+          "retained_mean": 0.33968342579875244,
+          "centered_retained_mean": 0.24540332867043832
+        },
+        {
+          "domain": "smol-summarize",
+          "retained_mean": 0.32332966192171064,
+          "centered_retained_mean": 0.23817906990482363
+        },
+        {
+          "domain": "systemchats-30k",
+          "retained_mean": 0.3550751080828104,
+          "centered_retained_mean": 0.3077326515293354
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 0,
+      "positions": 773,
+      "projection_worst_row_relative_RMS": 3.927702474785622e-07,
+      "retained_fraction": 0.27019870422448483,
+      "centered_retained_fraction": 0.260214856188166,
+      "source_mean_fraction": 0.06442235464783265,
+      "exact_discarded_fraction": 0.7298012952639388
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 4,
+      "positions": 773,
+      "projection_worst_row_relative_RMS": 4.2343695344932985e-07,
+      "retained_fraction": 0.11167267396659011,
+      "centered_retained_fraction": 0.10855016069135866,
+      "source_mean_fraction": 0.035355242141642505,
+      "exact_discarded_fraction": 0.8883273303404461
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 8,
+      "positions": 773,
+      "projection_worst_row_relative_RMS": 3.8108332876149344e-07,
+      "retained_fraction": 0.11486285683620158,
+      "centered_retained_fraction": 0.11104855871736408,
+      "source_mean_fraction": 0.05304023622921145,
+      "exact_discarded_fraction": 0.885137148079635
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 12,
+      "positions": 773,
+      "projection_worst_row_relative_RMS": 3.92205479573305e-07,
+      "retained_fraction": 0.11739274884663951,
+      "centered_retained_fraction": 0.11372333614118031,
+      "source_mean_fraction": 0.06731992600880041,
+      "exact_discarded_fraction": 0.8826072545994681
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 16,
+      "positions": 773,
+      "projection_worst_row_relative_RMS": 3.582369534200186e-07,
+      "retained_fraction": 0.1274506258894261,
+      "centered_retained_fraction": 0.1225486922934772,
+      "source_mean_fraction": 0.11546799558577152,
+      "exact_discarded_fraction": 0.8725493799872873
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 20,
+      "positions": 773,
+      "projection_worst_row_relative_RMS": 3.450226306876249e-07,
+      "retained_fraction": 0.1309945817727555,
+      "centered_retained_fraction": 0.12307173007264179,
+      "source_mean_fraction": 0.1851649857460445,
+      "exact_discarded_fraction": 0.8690054214271485
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 24,
+      "positions": 773,
+      "projection_worst_row_relative_RMS": 2.722990548578952e-07,
+      "retained_fraction": 0.3723897542028702,
+      "centered_retained_fraction": 0.32396063319998447,
+      "source_mean_fraction": 0.6437224044835201,
+      "exact_discarded_fraction": 0.6276103009045032
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 0,
+      "positions": 479,
+      "projection_worst_row_relative_RMS": 4.2683998657188205e-07,
+      "retained_fraction": 0.2679913087568958,
+      "centered_retained_fraction": 0.258574714207311,
+      "source_mean_fraction": 0.05442671213899055,
+      "exact_discarded_fraction": 0.7320086871185715
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 4,
+      "positions": 479,
+      "projection_worst_row_relative_RMS": 4.215707286215392e-07,
+      "retained_fraction": 0.13543856138342586,
+      "centered_retained_fraction": 0.13136411639426152,
+      "source_mean_fraction": 0.0547128624656265,
+      "exact_discarded_fraction": 0.8645614416656984
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 8,
+      "positions": 479,
+      "projection_worst_row_relative_RMS": 3.948395936383583e-07,
+      "retained_fraction": 0.13808657895048204,
+      "centered_retained_fraction": 0.13368639623604217,
+      "source_mean_fraction": 0.07795868507491674,
+      "exact_discarded_fraction": 0.8619134235308585
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 12,
+      "positions": 479,
+      "projection_worst_row_relative_RMS": 3.822659111829297e-07,
+      "retained_fraction": 0.13927940641829203,
+      "centered_retained_fraction": 0.13495979242213318,
+      "source_mean_fraction": 0.10593962829158207,
+      "exact_discarded_fraction": 0.860720593904915
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 16,
+      "positions": 479,
+      "projection_worst_row_relative_RMS": 3.911777652409441e-07,
+      "retained_fraction": 0.14492761301837825,
+      "centered_retained_fraction": 0.1411889645939879,
+      "source_mean_fraction": 0.15513541239627976,
+      "exact_discarded_fraction": 0.8550723878954959
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 20,
+      "positions": 479,
+      "projection_worst_row_relative_RMS": 3.598975362749856e-07,
+      "retained_fraction": 0.14135063493192845,
+      "centered_retained_fraction": 0.13379099695226415,
+      "source_mean_fraction": 0.22551475678850771,
+      "exact_discarded_fraction": 0.8586493663312458
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "boundary": 24,
+      "positions": 479,
+      "projection_worst_row_relative_RMS": 3.060467210927923e-07,
+      "retained_fraction": 0.3726424734738635,
+      "centered_retained_fraction": 0.32198919859817393,
+      "source_mean_fraction": 0.6362135373012213,
+      "exact_discarded_fraction": 0.6273575826746629
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 0,
+      "positions": 363,
+      "projection_worst_row_relative_RMS": 3.060237857390884e-07,
+      "retained_fraction": 0.27265727345659485,
+      "centered_retained_fraction": 0.26711307486239044,
+      "source_mean_fraction": 0.04441132353639266,
+      "exact_discarded_fraction": 0.7273427319450609
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 4,
+      "positions": 363,
+      "projection_worst_row_relative_RMS": 3.203034695737817e-07,
+      "retained_fraction": 0.12998573881383793,
+      "centered_retained_fraction": 0.12567929314888532,
+      "source_mean_fraction": 0.053119342434554004,
+      "exact_discarded_fraction": 0.8700142631899946
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 8,
+      "positions": 363,
+      "projection_worst_row_relative_RMS": 3.1557299783920195e-07,
+      "retained_fraction": 0.13559501622186843,
+      "centered_retained_fraction": 0.12906430834770496,
+      "source_mean_fraction": 0.086369658446924,
+      "exact_discarded_fraction": 0.8644049878704368
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 12,
+      "positions": 363,
+      "projection_worst_row_relative_RMS": 3.140066330104909e-07,
+      "retained_fraction": 0.1413452879144091,
+      "centered_retained_fraction": 0.13307474053415758,
+      "source_mean_fraction": 0.1404351497738474,
+      "exact_discarded_fraction": 0.8586547094594615
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 16,
+      "positions": 363,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.15748026169958945,
+      "centered_retained_fraction": 0.1440828084821642,
+      "source_mean_fraction": 0.28467516761281775,
+      "exact_discarded_fraction": 0.8425197451276096
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 20,
+      "positions": 363,
+      "projection_worst_row_relative_RMS": 3.081793574935251e-07,
+      "retained_fraction": 0.16100823642047882,
+      "centered_retained_fraction": 0.1446521239079464,
+      "source_mean_fraction": 0.3837301677860467,
+      "exact_discarded_fraction": 0.8389917631448598
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 24,
+      "positions": 363,
+      "projection_worst_row_relative_RMS": 1.8495278819241023e-07,
+      "retained_fraction": 0.3607984379830687,
+      "centered_retained_fraction": 0.302882600360605,
+      "source_mean_fraction": 0.6740405738889401,
+      "exact_discarded_fraction": 0.6392016174445635
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 0,
+      "positions": 367,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.27366231125166324,
+      "centered_retained_fraction": 0.267509193112859,
+      "source_mean_fraction": 0.04527235089666494,
+      "exact_discarded_fraction": 0.7263376918381635
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 4,
+      "positions": 367,
+      "projection_worst_row_relative_RMS": 3.075156110801529e-07,
+      "retained_fraction": 0.1306159040339498,
+      "centered_retained_fraction": 0.12615560388699779,
+      "source_mean_fraction": 0.055187695031203264,
+      "exact_discarded_fraction": 0.8693840978629662
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 8,
+      "positions": 367,
+      "projection_worst_row_relative_RMS": 3.1415040045432874e-07,
+      "retained_fraction": 0.13577444342003098,
+      "centered_retained_fraction": 0.12943992156556788,
+      "source_mean_fraction": 0.09357720515357956,
+      "exact_discarded_fraction": 0.8642255593697821
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 12,
+      "positions": 367,
+      "projection_worst_row_relative_RMS": 3.177567696774604e-07,
+      "retained_fraction": 0.14149787655229806,
+      "centered_retained_fraction": 0.13286714591707816,
+      "source_mean_fraction": 0.1452045855502751,
+      "exact_discarded_fraction": 0.8585021185855206
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 16,
+      "positions": 367,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.15550344248965725,
+      "centered_retained_fraction": 0.14271086119890575,
+      "source_mean_fraction": 0.28488877391948314,
+      "exact_discarded_fraction": 0.844496561480903
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 20,
+      "positions": 367,
+      "projection_worst_row_relative_RMS": 3.02271824981472e-07,
+      "retained_fraction": 0.15635610867155095,
+      "centered_retained_fraction": 0.14035675991955807,
+      "source_mean_fraction": 0.3758403053728997,
+      "exact_discarded_fraction": 0.8436438895816868
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "boundary": 24,
+      "positions": 367,
+      "projection_worst_row_relative_RMS": 2.162359236784384e-07,
+      "retained_fraction": 0.3631347203749246,
+      "centered_retained_fraction": 0.3060534248269222,
+      "source_mean_fraction": 0.6640846657542759,
+      "exact_discarded_fraction": 0.6368653342598096
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 0,
+      "positions": 58,
+      "projection_worst_row_relative_RMS": 2.1455084804574275e-07,
+      "retained_fraction": 0.2813784339121803,
+      "centered_retained_fraction": 0.273399781372474,
+      "source_mean_fraction": 0.0687276622202899,
+      "exact_discarded_fraction": 0.7186215671274837
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 4,
+      "positions": 58,
+      "projection_worst_row_relative_RMS": 2.3197240247298935e-07,
+      "retained_fraction": 0.10505333393011292,
+      "centered_retained_fraction": 0.10340629308807846,
+      "source_mean_fraction": 0.04094125124047718,
+      "exact_discarded_fraction": 0.8949466638417969
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 8,
+      "positions": 58,
+      "projection_worst_row_relative_RMS": 2.3354432395680802e-07,
+      "retained_fraction": 0.10705528411429235,
+      "centered_retained_fraction": 0.10464869116117832,
+      "source_mean_fraction": 0.05489044021067321,
+      "exact_discarded_fraction": 0.892944714778399
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 12,
+      "positions": 58,
+      "projection_worst_row_relative_RMS": 2.3426963825117328e-07,
+      "retained_fraction": 0.10877585691746197,
+      "centered_retained_fraction": 0.10585813268517966,
+      "source_mean_fraction": 0.06727954670277925,
+      "exact_discarded_fraction": 0.8912241400377876
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 16,
+      "positions": 58,
+      "projection_worst_row_relative_RMS": 2.120783456714334e-07,
+      "retained_fraction": 0.11784565803047724,
+      "centered_retained_fraction": 0.11083169334511668,
+      "source_mean_fraction": 0.12577177598353273,
+      "exact_discarded_fraction": 0.8821543423141975
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 20,
+      "positions": 58,
+      "projection_worst_row_relative_RMS": 2.1967882213109326e-07,
+      "retained_fraction": 0.13531334542256218,
+      "centered_retained_fraction": 0.11997762506331709,
+      "source_mean_fraction": 0.2565129487563263,
+      "exact_discarded_fraction": 0.8646866603520607
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 24,
+      "positions": 58,
+      "projection_worst_row_relative_RMS": 1.8837811893543608e-07,
+      "retained_fraction": 0.33455876984871724,
+      "centered_retained_fraction": 0.2718371097500732,
+      "source_mean_fraction": 0.6589348368778853,
+      "exact_discarded_fraction": 0.6654412740933399
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 0,
+      "positions": 90,
+      "projection_worst_row_relative_RMS": 2.855399631892835e-07,
+      "retained_fraction": 0.2681087856453495,
+      "centered_retained_fraction": 0.2621901989997553,
+      "source_mean_fraction": 0.05893246396253252,
+      "exact_discarded_fraction": 0.7318912236135048
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 4,
+      "positions": 90,
+      "projection_worst_row_relative_RMS": 2.7820368885823366e-07,
+      "retained_fraction": 0.10805657412602107,
+      "centered_retained_fraction": 0.10620684845421396,
+      "source_mean_fraction": 0.03869347751556791,
+      "exact_discarded_fraction": 0.8919434356831992
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 8,
+      "positions": 90,
+      "projection_worst_row_relative_RMS": 2.639159820024161e-07,
+      "retained_fraction": 0.11010714359962513,
+      "centered_retained_fraction": 0.10752192475643844,
+      "source_mean_fraction": 0.05145773241899349,
+      "exact_discarded_fraction": 0.889892864128771
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 12,
+      "positions": 90,
+      "projection_worst_row_relative_RMS": 2.6546409795406587e-07,
+      "retained_fraction": 0.11244068630023679,
+      "centered_retained_fraction": 0.10929275701398382,
+      "source_mean_fraction": 0.06472922730102167,
+      "exact_discarded_fraction": 0.8875593170289686
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 16,
+      "positions": 90,
+      "projection_worst_row_relative_RMS": 2.520598384678603e-07,
+      "retained_fraction": 0.12279312787128988,
+      "centered_retained_fraction": 0.11601915094402217,
+      "source_mean_fraction": 0.12456331165222713,
+      "exact_discarded_fraction": 0.8772068739944484
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 20,
+      "positions": 90,
+      "projection_worst_row_relative_RMS": 2.5768933156505365e-07,
+      "retained_fraction": 0.135007540425309,
+      "centered_retained_fraction": 0.12178574774800956,
+      "source_mean_fraction": 0.24744638368227098,
+      "exact_discarded_fraction": 0.8649924625957923
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 24,
+      "positions": 90,
+      "projection_worst_row_relative_RMS": 1.7635955446639352e-07,
+      "retained_fraction": 0.34379338100190066,
+      "centered_retained_fraction": 0.28253431852145394,
+      "source_mean_fraction": 0.6161978351887595,
+      "exact_discarded_fraction": 0.6562066643294595
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 0,
+      "positions": 209,
+      "projection_worst_row_relative_RMS": 2.908346312144173e-07,
+      "retained_fraction": 0.26622041478647224,
+      "centered_retained_fraction": 0.25983122724312263,
+      "source_mean_fraction": 0.07234727325170807,
+      "exact_discarded_fraction": 0.7337795919438032
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 4,
+      "positions": 209,
+      "projection_worst_row_relative_RMS": 2.7512940206523753e-07,
+      "retained_fraction": 0.09584314477540012,
+      "centered_retained_fraction": 0.09437873158611854,
+      "source_mean_fraction": 0.027123008938139674,
+      "exact_discarded_fraction": 0.9041568612943397
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 8,
+      "positions": 209,
+      "projection_worst_row_relative_RMS": 2.710102275395449e-07,
+      "retained_fraction": 0.0973562423243116,
+      "centered_retained_fraction": 0.09534814500709307,
+      "source_mean_fraction": 0.037856156857686986,
+      "exact_discarded_fraction": 0.9026437628373455
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 12,
+      "positions": 209,
+      "projection_worst_row_relative_RMS": 2.682291839623462e-07,
+      "retained_fraction": 0.09964259955284593,
+      "centered_retained_fraction": 0.09608650723337532,
+      "source_mean_fraction": 0.06157131839223579,
+      "exact_discarded_fraction": 0.9003574039530036
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 16,
+      "positions": 209,
+      "projection_worst_row_relative_RMS": 2.5161662036697474e-07,
+      "retained_fraction": 0.10647464776761256,
+      "centered_retained_fraction": 0.09965899902720146,
+      "source_mean_fraction": 0.12599274856522324,
+      "exact_discarded_fraction": 0.8935253549355338
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 20,
+      "positions": 209,
+      "projection_worst_row_relative_RMS": 2.396182048228464e-07,
+      "retained_fraction": 0.1189179773109455,
+      "centered_retained_fraction": 0.10377716663299068,
+      "source_mean_fraction": 0.2519316414289028,
+      "exact_discarded_fraction": 0.8810820231641767
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 24,
+      "positions": 209,
+      "projection_worst_row_relative_RMS": 1.9675000522363393e-07,
+      "retained_fraction": 0.38349059230133764,
+      "centered_retained_fraction": 0.33249782590969396,
+      "source_mean_fraction": 0.6968735232683441,
+      "exact_discarded_fraction": 0.6165094662348126
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 0,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.060237857390884e-07,
+      "retained_fraction": 0.2690676375474376,
+      "centered_retained_fraction": 0.2651923778702788,
+      "source_mean_fraction": 0.08642948243121376,
+      "exact_discarded_fraction": 0.730932364729054
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 4,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.1148894532346577e-07,
+      "retained_fraction": 0.09820410655389204,
+      "centered_retained_fraction": 0.0963042535984896,
+      "source_mean_fraction": 0.02669260230985622,
+      "exact_discarded_fraction": 0.9017959053490561
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 8,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.4019048559669394e-07,
+      "retained_fraction": 0.10040710772552905,
+      "centered_retained_fraction": 0.09763346447634051,
+      "source_mean_fraction": 0.04115182624594721,
+      "exact_discarded_fraction": 0.8995928938917367
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 12,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.797553473538707e-07,
+      "retained_fraction": 0.10328931860264413,
+      "centered_retained_fraction": 0.09880435202786367,
+      "source_mean_fraction": 0.06991143440666522,
+      "exact_discarded_fraction": 0.8967106796003189
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 16,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.11151103431198517,
+      "centered_retained_fraction": 0.10362725749693477,
+      "source_mean_fraction": 0.13453172627945065,
+      "exact_discarded_fraction": 0.8884889727029359
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 20,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.020638265072406e-07,
+      "retained_fraction": 0.12461170354853081,
+      "centered_retained_fraction": 0.10799563031301833,
+      "source_mean_fraction": 0.2862176292100486,
+      "exact_discarded_fraction": 0.8753882945047164
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "boundary": 24,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 2.251409507792101e-07,
+      "retained_fraction": 0.3823817861814831,
+      "centered_retained_fraction": 0.3286558157494577,
+      "source_mean_fraction": 0.6865016365688236,
+      "exact_discarded_fraction": 0.6176182736045283
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 0,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.27236525794989525,
+      "centered_retained_fraction": 0.26785962485612647,
+      "source_mean_fraction": 0.10057227906879387,
+      "exact_discarded_fraction": 0.7276347364042841
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 4,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.213041509852485e-07,
+      "retained_fraction": 0.1195943487348674,
+      "centered_retained_fraction": 0.11567573981599466,
+      "source_mean_fraction": 0.04998007215567958,
+      "exact_discarded_fraction": 0.8804056536407795
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 8,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.393487579296571e-07,
+      "retained_fraction": 0.1229645624083379,
+      "centered_retained_fraction": 0.11798837417686987,
+      "source_mean_fraction": 0.07891884706886623,
+      "exact_discarded_fraction": 0.8770354444899723
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 12,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.2417696877154065e-07,
+      "retained_fraction": 0.12589907678431608,
+      "centered_retained_fraction": 0.11973419632370744,
+      "source_mean_fraction": 0.1342575213995426,
+      "exact_discarded_fraction": 0.8741009200597821
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 16,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.212607674292718e-07,
+      "retained_fraction": 0.1346933166121548,
+      "centered_retained_fraction": 0.12585291805543644,
+      "source_mean_fraction": 0.23517916859552984,
+      "exact_discarded_fraction": 0.8653066806888409
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 20,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 2.910406342006538e-07,
+      "retained_fraction": 0.14170673995079522,
+      "centered_retained_fraction": 0.12253345548734414,
+      "source_mean_fraction": 0.40162839881587803,
+      "exact_discarded_fraction": 0.8582932575146447
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 24,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 2.2419415708212248e-07,
+      "retained_fraction": 0.3866562207757021,
+      "centered_retained_fraction": 0.3405595090889292,
+      "source_mean_fraction": 0.6974869623109875,
+      "exact_discarded_fraction": 0.6133438394111673
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 0,
+      "positions": 381,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.2501289166129584,
+      "centered_retained_fraction": 0.24504327872981105,
+      "source_mean_fraction": 0.08695298586189781,
+      "exact_discarded_fraction": 0.7498710889577709
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 4,
+      "positions": 381,
+      "projection_worst_row_relative_RMS": 3.1692395409498935e-07,
+      "retained_fraction": 0.09910782858048282,
+      "centered_retained_fraction": 0.09728067975886023,
+      "source_mean_fraction": 0.032162805578394044,
+      "exact_discarded_fraction": 0.9008921708859576
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 8,
+      "positions": 381,
+      "projection_worst_row_relative_RMS": 3.204721656902284e-07,
+      "retained_fraction": 0.10171118637250101,
+      "centered_retained_fraction": 0.09852189897418401,
+      "source_mean_fraction": 0.05448506287243083,
+      "exact_discarded_fraction": 0.8982888166912906
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 12,
+      "positions": 381,
+      "projection_worst_row_relative_RMS": 3.2951537898352793e-07,
+      "retained_fraction": 0.10461820508428586,
+      "centered_retained_fraction": 0.09990495538402326,
+      "source_mean_fraction": 0.08044409650557287,
+      "exact_discarded_fraction": 0.8953817881945045
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 16,
+      "positions": 381,
+      "projection_worst_row_relative_RMS": 3.334169854584354e-07,
+      "retained_fraction": 0.11420453528860876,
+      "centered_retained_fraction": 0.10531619458159928,
+      "source_mean_fraction": 0.16055866385914852,
+      "exact_discarded_fraction": 0.8857954685649276
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 20,
+      "positions": 381,
+      "projection_worst_row_relative_RMS": 3.0359886958413183e-07,
+      "retained_fraction": 0.12823055017565488,
+      "centered_retained_fraction": 0.10954387953089874,
+      "source_mean_fraction": 0.329794899206767,
+      "exact_discarded_fraction": 0.8717694518951017
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "boundary": 24,
+      "positions": 381,
+      "projection_worst_row_relative_RMS": 2.013041451523386e-07,
+      "retained_fraction": 0.38802083164683826,
+      "centered_retained_fraction": 0.34520417474488224,
+      "source_mean_fraction": 0.7200841666389142,
+      "exact_discarded_fraction": 0.6119792296419675
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 0,
+      "positions": 316,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.26350750807203427,
+      "centered_retained_fraction": 0.2580014539773981,
+      "source_mean_fraction": 0.09883178759522541,
+      "exact_discarded_fraction": 0.7364924977634107
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 4,
+      "positions": 316,
+      "projection_worst_row_relative_RMS": 3.430285795295871e-07,
+      "retained_fraction": 0.09887910304028034,
+      "centered_retained_fraction": 0.09680361185879098,
+      "source_mean_fraction": 0.03081850934033726,
+      "exact_discarded_fraction": 0.901120897822142
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 8,
+      "positions": 316,
+      "projection_worst_row_relative_RMS": 3.614416725105539e-07,
+      "retained_fraction": 0.10137803827857461,
+      "centered_retained_fraction": 0.09848577315209739,
+      "source_mean_fraction": 0.04971499291827775,
+      "exact_discarded_fraction": 0.8986219671662354
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 12,
+      "positions": 316,
+      "projection_worst_row_relative_RMS": 3.478675446900415e-07,
+      "retained_fraction": 0.10392376040550085,
+      "centered_retained_fraction": 0.09973174165274502,
+      "source_mean_fraction": 0.07481063504876578,
+      "exact_discarded_fraction": 0.8960762420723185
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 16,
+      "positions": 316,
+      "projection_worst_row_relative_RMS": 3.181373835535038e-07,
+      "retained_fraction": 0.11193568424354895,
+      "centered_retained_fraction": 0.10409298213224112,
+      "source_mean_fraction": 0.14754036154709774,
+      "exact_discarded_fraction": 0.8880643194307668
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 20,
+      "positions": 316,
+      "projection_worst_row_relative_RMS": 3.0255015396721474e-07,
+      "retained_fraction": 0.12600735026182022,
+      "centered_retained_fraction": 0.10931412177919701,
+      "source_mean_fraction": 0.30554417183318355,
+      "exact_discarded_fraction": 0.8739926527284761
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 24,
+      "positions": 316,
+      "projection_worst_row_relative_RMS": 1.782666894144587e-07,
+      "retained_fraction": 0.3875860139853788,
+      "centered_retained_fraction": 0.33291125989986076,
+      "source_mean_fraction": 0.741097364398718,
+      "exact_discarded_fraction": 0.6124140467702797
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 0,
+      "positions": 435,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.26382740133475563,
+      "centered_retained_fraction": 0.25728496934408973,
+      "source_mean_fraction": 0.08130014682283793,
+      "exact_discarded_fraction": 0.7361725987129326
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 4,
+      "positions": 435,
+      "projection_worst_row_relative_RMS": 3.1651816033449355e-07,
+      "retained_fraction": 0.10265463210677155,
+      "centered_retained_fraction": 0.10012402805071785,
+      "source_mean_fraction": 0.030795599020591084,
+      "exact_discarded_fraction": 0.897345372030661
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 8,
+      "positions": 435,
+      "projection_worst_row_relative_RMS": 3.2168755242659176e-07,
+      "retained_fraction": 0.10578833549676901,
+      "centered_retained_fraction": 0.1018521937519264,
+      "source_mean_fraction": 0.05296284008707953,
+      "exact_discarded_fraction": 0.8942116734361998
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 12,
+      "positions": 435,
+      "projection_worst_row_relative_RMS": 3.2180483000034605e-07,
+      "retained_fraction": 0.10871782391148302,
+      "centered_retained_fraction": 0.10334464707254742,
+      "source_mean_fraction": 0.08455224988241052,
+      "exact_discarded_fraction": 0.891282171993854
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 16,
+      "positions": 435,
+      "projection_worst_row_relative_RMS": 3.1817559452885557e-07,
+      "retained_fraction": 0.11895101820470247,
+      "centered_retained_fraction": 0.11028354464813012,
+      "source_mean_fraction": 0.1548142353895226,
+      "exact_discarded_fraction": 0.8810489825386811
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 20,
+      "positions": 435,
+      "projection_worst_row_relative_RMS": 3.3718007969146955e-07,
+      "retained_fraction": 0.13282677822155356,
+      "centered_retained_fraction": 0.11635705519396002,
+      "source_mean_fraction": 0.3138081293170568,
+      "exact_discarded_fraction": 0.8671732260193157
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "boundary": 24,
+      "positions": 435,
+      "projection_worst_row_relative_RMS": 2.0199159144488968e-07,
+      "retained_fraction": 0.3813054551632768,
+      "centered_retained_fraction": 0.33777784804342037,
+      "source_mean_fraction": 0.6975256031233652,
+      "exact_discarded_fraction": 0.6186946025098132
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 0,
+      "positions": 431,
+      "projection_worst_row_relative_RMS": 3.094657985932626e-07,
+      "retained_fraction": 0.27215288798075615,
+      "centered_retained_fraction": 0.2642986565304428,
+      "source_mean_fraction": 0.06317722651306774,
+      "exact_discarded_fraction": 0.7278471107661417
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 4,
+      "positions": 431,
+      "projection_worst_row_relative_RMS": 3.207249154264279e-07,
+      "retained_fraction": 0.10257707027664661,
+      "centered_retained_fraction": 0.10020495213462255,
+      "source_mean_fraction": 0.030124765061074553,
+      "exact_discarded_fraction": 0.8974229247451078
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 8,
+      "positions": 431,
+      "projection_worst_row_relative_RMS": 3.402670660501138e-07,
+      "retained_fraction": 0.10521255988890153,
+      "centered_retained_fraction": 0.10179297398061667,
+      "source_mean_fraction": 0.04711024761557939,
+      "exact_discarded_fraction": 0.8947874423994994
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 12,
+      "positions": 431,
+      "projection_worst_row_relative_RMS": 3.1964468297177836e-07,
+      "retained_fraction": 0.10939670869742281,
+      "centered_retained_fraction": 0.1037189421512023,
+      "source_mean_fraction": 0.07945085212192737,
+      "exact_discarded_fraction": 0.8906032988765672
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 16,
+      "positions": 431,
+      "projection_worst_row_relative_RMS": 3.0539654256891807e-07,
+      "retained_fraction": 0.12187190225762333,
+      "centered_retained_fraction": 0.1109037874381284,
+      "source_mean_fraction": 0.16288190453300966,
+      "exact_discarded_fraction": 0.8781280963172945
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 20,
+      "positions": 431,
+      "projection_worst_row_relative_RMS": 3.0537072033147386e-07,
+      "retained_fraction": 0.1362529164950553,
+      "centered_retained_fraction": 0.11775425130989718,
+      "source_mean_fraction": 0.3165052850689683,
+      "exact_discarded_fraction": 0.8637470819283978
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 24,
+      "positions": 431,
+      "projection_worst_row_relative_RMS": 1.9629217392317545e-07,
+      "retained_fraction": 0.37475380780513873,
+      "centered_retained_fraction": 0.3194103280758031,
+      "source_mean_fraction": 0.6835058901443344,
+      "exact_discarded_fraction": 0.6252462490151827
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 0,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.094657985932626e-07,
+      "retained_fraction": 0.2656571206109632,
+      "centered_retained_fraction": 0.25658778993511966,
+      "source_mean_fraction": 0.054588647962062836,
+      "exact_discarded_fraction": 0.734342883364908
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 4,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.159077286140462e-07,
+      "retained_fraction": 0.12616187983649663,
+      "centered_retained_fraction": 0.1214417382754897,
+      "source_mean_fraction": 0.05499994335257084,
+      "exact_discarded_fraction": 0.8738381214824101
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 8,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.124041978278688e-07,
+      "retained_fraction": 0.12996298308951112,
+      "centered_retained_fraction": 0.12373534470631682,
+      "source_mean_fraction": 0.09075645111549167,
+      "exact_discarded_fraction": 0.8700370196976029
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 12,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.140066330104909e-07,
+      "retained_fraction": 0.13413574140825285,
+      "centered_retained_fraction": 0.12571597920650074,
+      "source_mean_fraction": 0.13659632421494422,
+      "exact_discarded_fraction": 0.8658642540959859
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 16,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.14816559691410608,
+      "centered_retained_fraction": 0.13445604361490274,
+      "source_mean_fraction": 0.24517469961928967,
+      "exact_discarded_fraction": 0.8518344098832048
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 20,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 2.9606388027010516e-07,
+      "retained_fraction": 0.15536515359487035,
+      "centered_retained_fraction": 0.13541350349656361,
+      "source_mean_fraction": 0.3889722118864773,
+      "exact_discarded_fraction": 0.844634846630327
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "boundary": 24,
+      "positions": 337,
+      "projection_worst_row_relative_RMS": 1.9703360009799133e-07,
+      "retained_fraction": 0.3707241563670904,
+      "centered_retained_fraction": 0.30579329294375496,
+      "source_mean_fraction": 0.7009657433724049,
+      "exact_discarded_fraction": 0.6292759001908587
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 0,
+      "positions": 238,
+      "projection_worst_row_relative_RMS": 2.3842873091677944e-07,
+      "retained_fraction": 0.27116338638496545,
+      "centered_retained_fraction": 0.2651270137086921,
+      "source_mean_fraction": 0.045818242652295345,
+      "exact_discarded_fraction": 0.7288366154914022
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 4,
+      "positions": 238,
+      "projection_worst_row_relative_RMS": 2.2938211812669433e-07,
+      "retained_fraction": 0.12028160007977179,
+      "centered_retained_fraction": 0.117144368235446,
+      "source_mean_fraction": 0.041104861873902984,
+      "exact_discarded_fraction": 0.8797184062902025
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 8,
+      "positions": 238,
+      "projection_worst_row_relative_RMS": 2.417169509072972e-07,
+      "retained_fraction": 0.12450556368788408,
+      "centered_retained_fraction": 0.11960355068160347,
+      "source_mean_fraction": 0.06927534348868565,
+      "exact_discarded_fraction": 0.8754944439324971
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 12,
+      "positions": 238,
+      "projection_worst_row_relative_RMS": 2.2495467768196956e-07,
+      "retained_fraction": 0.1290185571533612,
+      "centered_retained_fraction": 0.12241389968757109,
+      "source_mean_fraction": 0.10177092421662479,
+      "exact_discarded_fraction": 0.8709814442833177
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 16,
+      "positions": 238,
+      "projection_worst_row_relative_RMS": 2.327046475208231e-07,
+      "retained_fraction": 0.14317890892153906,
+      "centered_retained_fraction": 0.13231436112732106,
+      "source_mean_fraction": 0.22192122183522234,
+      "exact_discarded_fraction": 0.8568210924848156
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 20,
+      "positions": 238,
+      "projection_worst_row_relative_RMS": 2.1724952247392486e-07,
+      "retained_fraction": 0.14532124749587924,
+      "centered_retained_fraction": 0.1324944505250241,
+      "source_mean_fraction": 0.31788023126934534,
+      "exact_discarded_fraction": 0.8546787569037925
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 24,
+      "positions": 238,
+      "projection_worst_row_relative_RMS": 1.6940871635291838e-07,
+      "retained_fraction": 0.3383271121552792,
+      "centered_retained_fraction": 0.24319304964667968,
+      "source_mean_fraction": 0.6574246452013138,
+      "exact_discarded_fraction": 0.6616729390708094
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 0,
+      "positions": 294,
+      "projection_worst_row_relative_RMS": 3.094657985932626e-07,
+      "retained_fraction": 0.2775132478295493,
+      "centered_retained_fraction": 0.2714496739889952,
+      "source_mean_fraction": 0.04461371080486187,
+      "exact_discarded_fraction": 0.7224867545515226
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 4,
+      "positions": 294,
+      "projection_worst_row_relative_RMS": 3.080399645545354e-07,
+      "retained_fraction": 0.12748440743970546,
+      "centered_retained_fraction": 0.12338811987888555,
+      "source_mean_fraction": 0.04898930661422974,
+      "exact_discarded_fraction": 0.8725155962148792
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 8,
+      "positions": 294,
+      "projection_worst_row_relative_RMS": 2.990780348547856e-07,
+      "retained_fraction": 0.13228381843142567,
+      "centered_retained_fraction": 0.12646879660462731,
+      "source_mean_fraction": 0.07555185626850273,
+      "exact_discarded_fraction": 0.8677161895371007
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 12,
+      "positions": 294,
+      "projection_worst_row_relative_RMS": 3.1561075409847424e-07,
+      "retained_fraction": 0.13793723134565908,
+      "centered_retained_fraction": 0.1300708033605258,
+      "source_mean_fraction": 0.12323206859735573,
+      "exact_discarded_fraction": 0.862062767131962
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 16,
+      "positions": 294,
+      "projection_worst_row_relative_RMS": 3.0255587367792726e-07,
+      "retained_fraction": 0.1525948578645842,
+      "centered_retained_fraction": 0.14098718988923148,
+      "source_mean_fraction": 0.2429504321893371,
+      "exact_discarded_fraction": 0.8474051436375419
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 20,
+      "positions": 294,
+      "projection_worst_row_relative_RMS": 2.8763840254408693e-07,
+      "retained_fraction": 0.152379463058801,
+      "centered_retained_fraction": 0.13962799736386378,
+      "source_mean_fraction": 0.3456210541539894,
+      "exact_discarded_fraction": 0.8476205362953584
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "boundary": 24,
+      "positions": 294,
+      "projection_worst_row_relative_RMS": 1.8977886958483723e-07,
+      "retained_fraction": 0.3607962259890096,
+      "centered_retained_fraction": 0.29810963328736906,
+      "source_mean_fraction": 0.6344685710759699,
+      "exact_discarded_fraction": 0.6392038290766631
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 0,
+      "positions": 1034,
+      "projection_worst_row_relative_RMS": 3.927702474785622e-07,
+      "retained_fraction": 0.26860614528569265,
+      "centered_retained_fraction": 0.26339795561194784,
+      "source_mean_fraction": 0.05076358991996534,
+      "exact_discarded_fraction": 0.7313938566583087
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 4,
+      "positions": 1034,
+      "projection_worst_row_relative_RMS": 3.897275929178033e-07,
+      "retained_fraction": 0.11773780337741298,
+      "centered_retained_fraction": 0.1140204760940332,
+      "source_mean_fraction": 0.04313997164511072,
+      "exact_discarded_fraction": 0.8822621990391397
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 8,
+      "positions": 1034,
+      "projection_worst_row_relative_RMS": 3.861070684526564e-07,
+      "retained_fraction": 0.12239987573616032,
+      "centered_retained_fraction": 0.11690410464245236,
+      "source_mean_fraction": 0.07633617931803202,
+      "exact_discarded_fraction": 0.8776001296782299
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 12,
+      "positions": 1034,
+      "projection_worst_row_relative_RMS": 4.016968586523342e-07,
+      "retained_fraction": 0.12773506953603314,
+      "centered_retained_fraction": 0.12010390087011302,
+      "source_mean_fraction": 0.12323250211167697,
+      "exact_discarded_fraction": 0.8722649363710432
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 16,
+      "positions": 1034,
+      "projection_worst_row_relative_RMS": 3.6309203383055606e-07,
+      "retained_fraction": 0.14036562457710128,
+      "centered_retained_fraction": 0.12979834981474625,
+      "source_mean_fraction": 0.2174972790741713,
+      "exact_discarded_fraction": 0.8596343777127466
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 20,
+      "positions": 1034,
+      "projection_worst_row_relative_RMS": 3.363059497173275e-07,
+      "retained_fraction": 0.1435935792139807,
+      "centered_retained_fraction": 0.12965200982416317,
+      "source_mean_fraction": 0.32176027697951864,
+      "exact_discarded_fraction": 0.8564064217507876
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 24,
+      "positions": 1034,
+      "projection_worst_row_relative_RMS": 2.5841784113038596e-07,
+      "retained_fraction": 0.3630210200727254,
+      "centered_retained_fraction": 0.27769093071160705,
+      "source_mean_fraction": 0.6875589237828975,
+      "exact_discarded_fraction": 0.6369790341468821
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 0,
+      "positions": 1507,
+      "projection_worst_row_relative_RMS": 7.520255748113029e-07,
+      "retained_fraction": 0.26863394889523784,
+      "centered_retained_fraction": 0.2625629977570672,
+      "source_mean_fraction": 0.03756530809501307,
+      "exact_discarded_fraction": 0.7313660499284204
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 4,
+      "positions": 1507,
+      "projection_worst_row_relative_RMS": 7.922731560908777e-07,
+      "retained_fraction": 0.13724517811494666,
+      "centered_retained_fraction": 0.13184559303537596,
+      "source_mean_fraction": 0.057856437749312636,
+      "exact_discarded_fraction": 0.8627548267778472
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 8,
+      "positions": 1507,
+      "projection_worst_row_relative_RMS": 7.743640962844672e-07,
+      "retained_fraction": 0.14359818397184487,
+      "centered_retained_fraction": 0.13581824097410647,
+      "source_mean_fraction": 0.09460721182805099,
+      "exact_discarded_fraction": 0.8564018246708371
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 12,
+      "positions": 1507,
+      "projection_worst_row_relative_RMS": 7.057510045302977e-07,
+      "retained_fraction": 0.15150853752290916,
+      "centered_retained_fraction": 0.14029572885751265,
+      "source_mean_fraction": 0.16569732804402526,
+      "exact_discarded_fraction": 0.8484914703768554
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 16,
+      "positions": 1507,
+      "projection_worst_row_relative_RMS": 6.636978848652976e-07,
+      "retained_fraction": 0.17019996712812493,
+      "centered_retained_fraction": 0.1535241707762465,
+      "source_mean_fraction": 0.3100488739309403,
+      "exact_discarded_fraction": 0.8298000346381249
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 20,
+      "positions": 1507,
+      "projection_worst_row_relative_RMS": 6.770443283631974e-07,
+      "retained_fraction": 0.16847630795861204,
+      "centered_retained_fraction": 0.1479879492186139,
+      "source_mean_fraction": 0.3943283153252365,
+      "exact_discarded_fraction": 0.8315236943575762
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "boundary": 24,
+      "positions": 1507,
+      "projection_worst_row_relative_RMS": 6.093613576164077e-07,
+      "retained_fraction": 0.33158944134191415,
+      "centered_retained_fraction": 0.2301868656983226,
+      "source_mean_fraction": 0.6893482687103123,
+      "exact_discarded_fraction": 0.66841061020187
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 0,
+      "positions": 252,
+      "projection_worst_row_relative_RMS": 2.1682892057452327e-07,
+      "retained_fraction": 0.2742848405520925,
+      "centered_retained_fraction": 0.26713742141223207,
+      "source_mean_fraction": 0.04088969950810662,
+      "exact_discarded_fraction": 0.7257151629123182
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 4,
+      "positions": 252,
+      "projection_worst_row_relative_RMS": 2.2595966398347218e-07,
+      "retained_fraction": 0.12340149791043288,
+      "centered_retained_fraction": 0.11993665373067623,
+      "source_mean_fraction": 0.03918460790969109,
+      "exact_discarded_fraction": 0.8765985084838727
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 8,
+      "positions": 252,
+      "projection_worst_row_relative_RMS": 2.417169509072972e-07,
+      "retained_fraction": 0.12783649779803102,
+      "centered_retained_fraction": 0.12290357941771463,
+      "source_mean_fraction": 0.06490963151862304,
+      "exact_discarded_fraction": 0.8721635100898261
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 12,
+      "positions": 252,
+      "projection_worst_row_relative_RMS": 2.2998196644580526e-07,
+      "retained_fraction": 0.13390119946040369,
+      "centered_retained_fraction": 0.12671362453020127,
+      "source_mean_fraction": 0.11616616293327738,
+      "exact_discarded_fraction": 0.8660988026384194
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 16,
+      "positions": 252,
+      "projection_worst_row_relative_RMS": 2.373514003631603e-07,
+      "retained_fraction": 0.1495483750951088,
+      "centered_retained_fraction": 0.13897945572909867,
+      "source_mean_fraction": 0.21665165264037986,
+      "exact_discarded_fraction": 0.8504516249207796
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 20,
+      "positions": 252,
+      "projection_worst_row_relative_RMS": 2.2545951076086956e-07,
+      "retained_fraction": 0.15522064943321318,
+      "centered_retained_fraction": 0.14037001877711075,
+      "source_mean_fraction": 0.3566035134216906,
+      "exact_discarded_fraction": 0.8447793513452994
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 24,
+      "positions": 252,
+      "projection_worst_row_relative_RMS": 1.6055272139688016e-07,
+      "retained_fraction": 0.3381764778195819,
+      "centered_retained_fraction": 0.2410854296806265,
+      "source_mean_fraction": 0.6952305720412596,
+      "exact_discarded_fraction": 0.6618235722789017
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 0,
+      "positions": 554,
+      "projection_worst_row_relative_RMS": 4.502621174787174e-07,
+      "retained_fraction": 0.27618913156711733,
+      "centered_retained_fraction": 0.2714011373798839,
+      "source_mean_fraction": 0.03299819919563466,
+      "exact_discarded_fraction": 0.7238108700840059
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 4,
+      "positions": 554,
+      "projection_worst_row_relative_RMS": 4.6842931246445814e-07,
+      "retained_fraction": 0.14966005591201303,
+      "centered_retained_fraction": 0.14512193405713844,
+      "source_mean_fraction": 0.05982126815746123,
+      "exact_discarded_fraction": 0.8503399468109614
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 8,
+      "positions": 554,
+      "projection_worst_row_relative_RMS": 4.461405502457837e-07,
+      "retained_fraction": 0.15534308169059782,
+      "centered_retained_fraction": 0.1491972039192446,
+      "source_mean_fraction": 0.09938190288406944,
+      "exact_discarded_fraction": 0.8446569194551524
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 12,
+      "positions": 554,
+      "projection_worst_row_relative_RMS": 4.327508078286419e-07,
+      "retained_fraction": 0.16171994490767086,
+      "centered_retained_fraction": 0.15422990403854014,
+      "source_mean_fraction": 0.17814707717204278,
+      "exact_discarded_fraction": 0.8382800596505684
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 16,
+      "positions": 554,
+      "projection_worst_row_relative_RMS": 4.5430562808704086e-07,
+      "retained_fraction": 0.17658145962778857,
+      "centered_retained_fraction": 0.1672030580652813,
+      "source_mean_fraction": 0.3009890623893082,
+      "exact_discarded_fraction": 0.8234185439861691
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 20,
+      "positions": 554,
+      "projection_worst_row_relative_RMS": 4.339737074316367e-07,
+      "retained_fraction": 0.16866398061621823,
+      "centered_retained_fraction": 0.15626795301059562,
+      "source_mean_fraction": 0.40068826362831955,
+      "exact_discarded_fraction": 0.8313360271864414
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "boundary": 24,
+      "positions": 554,
+      "projection_worst_row_relative_RMS": 2.889317037383475e-07,
+      "retained_fraction": 0.33371103262365676,
+      "centered_retained_fraction": 0.22661397485078083,
+      "source_mean_fraction": 0.6930991537264702,
+      "exact_discarded_fraction": 0.6662890170728623
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 0,
+      "positions": 774,
+      "projection_worst_row_relative_RMS": 3.927702474785622e-07,
+      "retained_fraction": 0.2650393949715729,
+      "centered_retained_fraction": 0.25904979970249686,
+      "source_mean_fraction": 0.03389805079682491,
+      "exact_discarded_fraction": 0.7349606087414127
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 4,
+      "positions": 774,
+      "projection_worst_row_relative_RMS": 3.9028022475062275e-07,
+      "retained_fraction": 0.11605476539047481,
+      "centered_retained_fraction": 0.11320747544993938,
+      "source_mean_fraction": 0.03614462210825223,
+      "exact_discarded_fraction": 0.8839452357411332
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 8,
+      "positions": 774,
+      "projection_worst_row_relative_RMS": 3.6495076645327943e-07,
+      "retained_fraction": 0.12054361219712441,
+      "centered_retained_fraction": 0.11657328028329586,
+      "source_mean_fraction": 0.06218643103556544,
+      "exact_discarded_fraction": 0.8794563913728142
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 12,
+      "positions": 774,
+      "projection_worst_row_relative_RMS": 3.552585095848237e-07,
+      "retained_fraction": 0.1266098986690782,
+      "centered_retained_fraction": 0.12097931483916478,
+      "source_mean_fraction": 0.11673908979264912,
+      "exact_discarded_fraction": 0.8733901058850136
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 16,
+      "positions": 774,
+      "projection_worst_row_relative_RMS": 3.5904493246098086e-07,
+      "retained_fraction": 0.1456844315989932,
+      "centered_retained_fraction": 0.13835540586981007,
+      "source_mean_fraction": 0.19442784254902212,
+      "exact_discarded_fraction": 0.8543155719603647
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 20,
+      "positions": 774,
+      "projection_worst_row_relative_RMS": 3.396080515607265e-07,
+      "retained_fraction": 0.15600103311024052,
+      "centered_retained_fraction": 0.14275069409736982,
+      "source_mean_fraction": 0.36541067046408915,
+      "exact_discarded_fraction": 0.8439989738825733
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 24,
+      "positions": 774,
+      "projection_worst_row_relative_RMS": 2.909127099783919e-07,
+      "retained_fraction": 0.3305425197357206,
+      "centered_retained_fraction": 0.2576476268323229,
+      "source_mean_fraction": 0.6481324552266816,
+      "exact_discarded_fraction": 0.669457527745
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 0,
+      "positions": 264,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.28070569073318685,
+      "centered_retained_fraction": 0.27441405424516996,
+      "source_mean_fraction": 0.039828688629342496,
+      "exact_discarded_fraction": 0.7192943155529973
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 4,
+      "positions": 264,
+      "projection_worst_row_relative_RMS": 3.1989945730511645e-07,
+      "retained_fraction": 0.12554221935062487,
+      "centered_retained_fraction": 0.12199977400524314,
+      "source_mean_fraction": 0.04013155614321981,
+      "exact_discarded_fraction": 0.8744577845962236
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 8,
+      "positions": 264,
+      "projection_worst_row_relative_RMS": 2.9731214841122673e-07,
+      "retained_fraction": 0.1301382720469887,
+      "centered_retained_fraction": 0.12501342909801733,
+      "source_mean_fraction": 0.06816458596105175,
+      "exact_discarded_fraction": 0.8698617367936755
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 12,
+      "positions": 264,
+      "projection_worst_row_relative_RMS": 3.1561075409847424e-07,
+      "retained_fraction": 0.13602813198374067,
+      "centered_retained_fraction": 0.1290603792820261,
+      "source_mean_fraction": 0.11889031724425404,
+      "exact_discarded_fraction": 0.863971867377692
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 16,
+      "positions": 264,
+      "projection_worst_row_relative_RMS": 3.1384262195811194e-07,
+      "retained_fraction": 0.15398741096742394,
+      "centered_retained_fraction": 0.14194530976185996,
+      "source_mean_fraction": 0.23508339034484363,
+      "exact_discarded_fraction": 0.846012590388683
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 20,
+      "positions": 264,
+      "projection_worst_row_relative_RMS": 2.8763840254408693e-07,
+      "retained_fraction": 0.16010414127692021,
+      "centered_retained_fraction": 0.1423237869469369,
+      "source_mean_fraction": 0.38566615883835037,
+      "exact_discarded_fraction": 0.8398958581868237
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "boundary": 24,
+      "positions": 264,
+      "projection_worst_row_relative_RMS": 1.9095839491934442e-07,
+      "retained_fraction": 0.33234613742988484,
+      "centered_retained_fraction": 0.23840960257421195,
+      "source_mean_fraction": 0.6938417232936221,
+      "exact_discarded_fraction": 0.6676539126950488
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 0,
+      "positions": 1020,
+      "projection_worst_row_relative_RMS": 3.927702474785622e-07,
+      "retained_fraction": 0.2746616104676708,
+      "centered_retained_fraction": 0.2678251482556642,
+      "source_mean_fraction": 0.04785683053541588,
+      "exact_discarded_fraction": 0.725338390082943
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 4,
+      "positions": 1020,
+      "projection_worst_row_relative_RMS": 4.0847588605552705e-07,
+      "retained_fraction": 0.1176731524978033,
+      "centered_retained_fraction": 0.11393173731350573,
+      "source_mean_fraction": 0.039537432172613546,
+      "exact_discarded_fraction": 0.8823268501266371
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 8,
+      "positions": 1020,
+      "projection_worst_row_relative_RMS": 3.8014116327220044e-07,
+      "retained_fraction": 0.12147984981355871,
+      "centered_retained_fraction": 0.11698875912029837,
+      "source_mean_fraction": 0.05528731754235083,
+      "exact_discarded_fraction": 0.8785201545545104
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 12,
+      "positions": 1020,
+      "projection_worst_row_relative_RMS": 3.616522658695907e-07,
+      "retained_fraction": 0.12690184456637602,
+      "centered_retained_fraction": 0.12009006953963296,
+      "source_mean_fraction": 0.10518701296741878,
+      "exact_discarded_fraction": 0.8730981612394223
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 16,
+      "positions": 1020,
+      "projection_worst_row_relative_RMS": 3.5905457220126545e-07,
+      "retained_fraction": 0.1408612166654188,
+      "centered_retained_fraction": 0.13050444505087716,
+      "source_mean_fraction": 0.19546796108097814,
+      "exact_discarded_fraction": 0.8591387891008124
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 20,
+      "positions": 1020,
+      "projection_worst_row_relative_RMS": 3.406324713338604e-07,
+      "retained_fraction": 0.15121802610052146,
+      "centered_retained_fraction": 0.13522333790719562,
+      "source_mean_fraction": 0.32289587092783184,
+      "exact_discarded_fraction": 0.8487819784101778
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 24,
+      "positions": 1020,
+      "projection_worst_row_relative_RMS": 3.1910342150364967e-07,
+      "retained_fraction": 0.3660806172495956,
+      "centered_retained_fraction": 0.3065023459691945,
+      "source_mean_fraction": 0.6928004635059227,
+      "exact_discarded_fraction": 0.633919439878008
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 0,
+      "positions": 317,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.2674693313536046,
+      "centered_retained_fraction": 0.2614264540116088,
+      "source_mean_fraction": 0.03520291730595032,
+      "exact_discarded_fraction": 0.7325306726815308
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 4,
+      "positions": 317,
+      "projection_worst_row_relative_RMS": 3.3172505065199997e-07,
+      "retained_fraction": 0.1300915657690316,
+      "centered_retained_fraction": 0.12655815732523756,
+      "source_mean_fraction": 0.0514381928410199,
+      "exact_discarded_fraction": 0.8699084381044182
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 8,
+      "positions": 317,
+      "projection_worst_row_relative_RMS": 3.2141445753116344e-07,
+      "retained_fraction": 0.13463557366449413,
+      "centered_retained_fraction": 0.12974450455657904,
+      "source_mean_fraction": 0.07930060650552447,
+      "exact_discarded_fraction": 0.8653644343529618
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 12,
+      "positions": 317,
+      "projection_worst_row_relative_RMS": 3.1561075409847424e-07,
+      "retained_fraction": 0.1399328668915171,
+      "centered_retained_fraction": 0.13318972822191147,
+      "source_mean_fraction": 0.12149103167101413,
+      "exact_discarded_fraction": 0.8600671310200106
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 16,
+      "positions": 317,
+      "projection_worst_row_relative_RMS": 3.0236912866395253e-07,
+      "retained_fraction": 0.1553423673279807,
+      "centered_retained_fraction": 0.1453855935699655,
+      "source_mean_fraction": 0.24786563871796577,
+      "exact_discarded_fraction": 0.8446576322186492
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 20,
+      "positions": 317,
+      "projection_worst_row_relative_RMS": 2.8763840254408693e-07,
+      "retained_fraction": 0.15638212873163435,
+      "centered_retained_fraction": 0.14392319872630424,
+      "source_mean_fraction": 0.3259756249239568,
+      "exact_discarded_fraction": 0.8436178693907298
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "boundary": 24,
+      "positions": 317,
+      "projection_worst_row_relative_RMS": 1.95638388644536e-07,
+      "retained_fraction": 0.36005738572765245,
+      "centered_retained_fraction": 0.30021968126772486,
+      "source_mean_fraction": 0.6264839302868963,
+      "exact_discarded_fraction": 0.6399426699185068
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 0,
+      "positions": 918,
+      "projection_worst_row_relative_RMS": 3.927702474785622e-07,
+      "retained_fraction": 0.27146309816930897,
+      "centered_retained_fraction": 0.2621546138784043,
+      "source_mean_fraction": 0.05564817760881853,
+      "exact_discarded_fraction": 0.7285369008631396
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 4,
+      "positions": 918,
+      "projection_worst_row_relative_RMS": 4.0994814798306886e-07,
+      "retained_fraction": 0.16147803671752028,
+      "centered_retained_fraction": 0.15747442942251455,
+      "source_mean_fraction": 0.07940935726671466,
+      "exact_discarded_fraction": 0.8385219652228217
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 8,
+      "positions": 918,
+      "projection_worst_row_relative_RMS": 3.6889977124919264e-07,
+      "retained_fraction": 0.16141844123603077,
+      "centered_retained_fraction": 0.1580023982435962,
+      "source_mean_fraction": 0.10762367156436548,
+      "exact_discarded_fraction": 0.8385815664785455
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 12,
+      "positions": 918,
+      "projection_worst_row_relative_RMS": 3.9212635396603145e-07,
+      "retained_fraction": 0.1580169414731332,
+      "centered_retained_fraction": 0.15627247668892807,
+      "source_mean_fraction": 0.12979365480708002,
+      "exact_discarded_fraction": 0.8419830621552278
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 16,
+      "positions": 918,
+      "projection_worst_row_relative_RMS": 3.6009237719218774e-07,
+      "retained_fraction": 0.15677258908637365,
+      "centered_retained_fraction": 0.15542516414920438,
+      "source_mean_fraction": 0.17856490308548675,
+      "exact_discarded_fraction": 0.8432274126139622
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 20,
+      "positions": 918,
+      "projection_worst_row_relative_RMS": 3.4816051794957527e-07,
+      "retained_fraction": 0.14600830322685465,
+      "centered_retained_fraction": 0.1396420661106008,
+      "source_mean_fraction": 0.24273845274744005,
+      "exact_discarded_fraction": 0.8539916978950179
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 24,
+      "positions": 918,
+      "projection_worst_row_relative_RMS": 3.356149430814477e-07,
+      "retained_fraction": 0.36558681480840866,
+      "centered_retained_fraction": 0.3353103523257489,
+      "source_mean_fraction": 0.5542682545264909,
+      "exact_discarded_fraction": 0.6344132393451822
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 0,
+      "positions": 462,
+      "projection_worst_row_relative_RMS": 4.2683998657188205e-07,
+      "retained_fraction": 0.2615527818107082,
+      "centered_retained_fraction": 0.2518825480290645,
+      "source_mean_fraction": 0.05665008165113372,
+      "exact_discarded_fraction": 0.7384472162133247
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 4,
+      "positions": 462,
+      "projection_worst_row_relative_RMS": 3.718899343265309e-07,
+      "retained_fraction": 0.1324432857032082,
+      "centered_retained_fraction": 0.12830117290237392,
+      "source_mean_fraction": 0.05428830125100418,
+      "exact_discarded_fraction": 0.8675567175876435
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 8,
+      "positions": 462,
+      "projection_worst_row_relative_RMS": 3.946163450728029e-07,
+      "retained_fraction": 0.1357200066568123,
+      "centered_retained_fraction": 0.13070085845955037,
+      "source_mean_fraction": 0.08320442278833687,
+      "exact_discarded_fraction": 0.8642799961340863
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 12,
+      "positions": 462,
+      "projection_worst_row_relative_RMS": 3.9939405435651486e-07,
+      "retained_fraction": 0.1368652549469767,
+      "centered_retained_fraction": 0.13190079720815226,
+      "source_mean_fraction": 0.11166245895305335,
+      "exact_discarded_fraction": 0.8631347450083351
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 16,
+      "positions": 462,
+      "projection_worst_row_relative_RMS": 3.895276225410734e-07,
+      "retained_fraction": 0.1414748414067956,
+      "centered_retained_fraction": 0.1370315573594107,
+      "source_mean_fraction": 0.16243697413601976,
+      "exact_discarded_fraction": 0.8585251597422776
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 20,
+      "positions": 462,
+      "projection_worst_row_relative_RMS": 3.511360587379562e-07,
+      "retained_fraction": 0.13767655073823049,
+      "centered_retained_fraction": 0.12917696429676553,
+      "source_mean_fraction": 0.24191600527000603,
+      "exact_discarded_fraction": 0.8623234525620926
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "boundary": 24,
+      "positions": 462,
+      "projection_worst_row_relative_RMS": 2.417297403520175e-07,
+      "retained_fraction": 0.37688548454310616,
+      "centered_retained_fraction": 0.3291678391792145,
+      "source_mean_fraction": 0.6316716751824168,
+      "exact_discarded_fraction": 0.6231145717347057
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 0,
+      "positions": 378,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.2729379337492454,
+      "centered_retained_fraction": 0.26698829811092256,
+      "source_mean_fraction": 0.03824174136780351,
+      "exact_discarded_fraction": 0.7270620665084551
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 4,
+      "positions": 378,
+      "projection_worst_row_relative_RMS": 3.326324003436187e-07,
+      "retained_fraction": 0.1021984482610333,
+      "centered_retained_fraction": 0.10038345308486214,
+      "source_mean_fraction": 0.02704230719335903,
+      "exact_discarded_fraction": 0.8978015588386571
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 8,
+      "positions": 378,
+      "projection_worst_row_relative_RMS": 3.1624252329656225e-07,
+      "retained_fraction": 0.10523959096490712,
+      "centered_retained_fraction": 0.10232812348861221,
+      "source_mean_fraction": 0.04328998030187152,
+      "exact_discarded_fraction": 0.8947604164223838
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 12,
+      "positions": 378,
+      "projection_worst_row_relative_RMS": 3.229551364036212e-07,
+      "retained_fraction": 0.10921682463656276,
+      "centered_retained_fraction": 0.10473175004473181,
+      "source_mean_fraction": 0.06920037808771864,
+      "exact_discarded_fraction": 0.890783175979009
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 16,
+      "positions": 378,
+      "projection_worst_row_relative_RMS": 3.239079665588169e-07,
+      "retained_fraction": 0.12390660092217864,
+      "centered_retained_fraction": 0.11355584623397376,
+      "source_mean_fraction": 0.15879254642087126,
+      "exact_discarded_fraction": 0.8760934044853969
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 20,
+      "positions": 378,
+      "projection_worst_row_relative_RMS": 3.0296918739487457e-07,
+      "retained_fraction": 0.1340390117230708,
+      "centered_retained_fraction": 0.1195696187663365,
+      "source_mean_fraction": 0.25957279881670986,
+      "exact_discarded_fraction": 0.8659609918982745
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 24,
+      "positions": 378,
+      "projection_worst_row_relative_RMS": 2.141480587807302e-07,
+      "retained_fraction": 0.3562077070898251,
+      "centered_retained_fraction": 0.2941938647632641,
+      "source_mean_fraction": 0.6675104442154154,
+      "exact_discarded_fraction": 0.6437923482247726
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 0,
+      "positions": 200,
+      "projection_worst_row_relative_RMS": 2.863113516734964e-07,
+      "retained_fraction": 0.2759627004752365,
+      "centered_retained_fraction": 0.2681975258468892,
+      "source_mean_fraction": 0.04811787198797746,
+      "exact_discarded_fraction": 0.7240373020607926
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 4,
+      "positions": 200,
+      "projection_worst_row_relative_RMS": 3.026059942525571e-07,
+      "retained_fraction": 0.09811786526129146,
+      "centered_retained_fraction": 0.09641527440933456,
+      "source_mean_fraction": 0.02913611500536506,
+      "exact_discarded_fraction": 0.9018821385456082
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 8,
+      "positions": 200,
+      "projection_worst_row_relative_RMS": 2.8859945047875106e-07,
+      "retained_fraction": 0.10051313045149736,
+      "centered_retained_fraction": 0.09791395553206615,
+      "source_mean_fraction": 0.04041630714885433,
+      "exact_discarded_fraction": 0.8994868713055014
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 12,
+      "positions": 200,
+      "projection_worst_row_relative_RMS": 2.7021971063240417e-07,
+      "retained_fraction": 0.10296892886678324,
+      "centered_retained_fraction": 0.09937605716034938,
+      "source_mean_fraction": 0.055533326581816256,
+      "exact_discarded_fraction": 0.8970310698204699
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 16,
+      "positions": 200,
+      "projection_worst_row_relative_RMS": 2.518589667414401e-07,
+      "retained_fraction": 0.11401209175251144,
+      "centered_retained_fraction": 0.1048694693792275,
+      "source_mean_fraction": 0.1274072357932669,
+      "exact_discarded_fraction": 0.8859879107790659
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 20,
+      "positions": 200,
+      "projection_worst_row_relative_RMS": 2.4069231875723524e-07,
+      "retained_fraction": 0.1270336765885762,
+      "centered_retained_fraction": 0.11201120944507356,
+      "source_mean_fraction": 0.23340241195551406,
+      "exact_discarded_fraction": 0.872966324460858
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "boundary": 24,
+      "positions": 200,
+      "projection_worst_row_relative_RMS": 1.7210051950834245e-07,
+      "retained_fraction": 0.35232088580881454,
+      "centered_retained_fraction": 0.2985277210103694,
+      "source_mean_fraction": 0.6635778364772639,
+      "exact_discarded_fraction": 0.6476791668785998
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 0,
+      "positions": 61,
+      "projection_worst_row_relative_RMS": 2.3842873091677944e-07,
+      "retained_fraction": 0.26208229951314976,
+      "centered_retained_fraction": 0.2553864074601861,
+      "source_mean_fraction": 0.07113083857683641,
+      "exact_discarded_fraction": 0.737917710044004
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 4,
+      "positions": 61,
+      "projection_worst_row_relative_RMS": 2.3197240247298935e-07,
+      "retained_fraction": 0.10512087488647509,
+      "centered_retained_fraction": 0.10330995953128294,
+      "source_mean_fraction": 0.040301525714835446,
+      "exact_discarded_fraction": 0.8948791229540718
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 8,
+      "positions": 61,
+      "projection_worst_row_relative_RMS": 2.3015700959537307e-07,
+      "retained_fraction": 0.10672886962758338,
+      "centered_retained_fraction": 0.10432695337414712,
+      "source_mean_fraction": 0.05263192854354817,
+      "exact_discarded_fraction": 0.8932711294393771
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 12,
+      "positions": 61,
+      "projection_worst_row_relative_RMS": 2.3426963825117328e-07,
+      "retained_fraction": 0.10848046127878168,
+      "centered_retained_fraction": 0.10536219168914425,
+      "source_mean_fraction": 0.06603263492574846,
+      "exact_discarded_fraction": 0.8915195355414872
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 16,
+      "positions": 61,
+      "projection_worst_row_relative_RMS": 2.264753893913791e-07,
+      "retained_fraction": 0.1171510932124958,
+      "centered_retained_fraction": 0.10993672711779341,
+      "source_mean_fraction": 0.12412627692095823,
+      "exact_discarded_fraction": 0.8828489070325268
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 20,
+      "positions": 61,
+      "projection_worst_row_relative_RMS": 2.6129747200800407e-07,
+      "retained_fraction": 0.13444131812000779,
+      "centered_retained_fraction": 0.11746852821371126,
+      "source_mean_fraction": 0.27273578357716444,
+      "exact_discarded_fraction": 0.8655586871011255
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 24,
+      "positions": 61,
+      "projection_worst_row_relative_RMS": 1.7049081099114026e-07,
+      "retained_fraction": 0.3361581034853783,
+      "centered_retained_fraction": 0.25681514793504184,
+      "source_mean_fraction": 0.7184010757996436,
+      "exact_discarded_fraction": 0.6638419437682147
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 0,
+      "positions": 323,
+      "projection_worst_row_relative_RMS": 3.094657985932626e-07,
+      "retained_fraction": 0.2677911018148649,
+      "centered_retained_fraction": 0.26270837567893973,
+      "source_mean_fraction": 0.03591631400581202,
+      "exact_discarded_fraction": 0.7322089004230514
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 4,
+      "positions": 323,
+      "projection_worst_row_relative_RMS": 3.06476018600013e-07,
+      "retained_fraction": 0.13130203591339054,
+      "centered_retained_fraction": 0.12747112686070616,
+      "source_mean_fraction": 0.049652790083852885,
+      "exact_discarded_fraction": 0.86869796515369
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 8,
+      "positions": 323,
+      "projection_worst_row_relative_RMS": 3.180860698177071e-07,
+      "retained_fraction": 0.13627892715316534,
+      "centered_retained_fraction": 0.13062785803966642,
+      "source_mean_fraction": 0.07594519051330277,
+      "exact_discarded_fraction": 0.8637210752930258
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 12,
+      "positions": 323,
+      "projection_worst_row_relative_RMS": 3.140066330104909e-07,
+      "retained_fraction": 0.1432774632006843,
+      "centered_retained_fraction": 0.13526044126781306,
+      "source_mean_fraction": 0.11695537058526373,
+      "exact_discarded_fraction": 0.8567225320983685
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 16,
+      "positions": 323,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.16194690091060596,
+      "centered_retained_fraction": 0.1496964714619806,
+      "source_mean_fraction": 0.24085235067251795,
+      "exact_discarded_fraction": 0.8380531026109338
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 20,
+      "positions": 323,
+      "projection_worst_row_relative_RMS": 2.9606388027010516e-07,
+      "retained_fraction": 0.16289355230431365,
+      "centered_retained_fraction": 0.14698273382931692,
+      "source_mean_fraction": 0.35719336269310176,
+      "exact_discarded_fraction": 0.8371064437834032
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "boundary": 24,
+      "positions": 323,
+      "projection_worst_row_relative_RMS": 2.1190930806780298e-07,
+      "retained_fraction": 0.34079752266367147,
+      "centered_retained_fraction": 0.23389675570760715,
+      "source_mean_fraction": 0.6822842373725458,
+      "exact_discarded_fraction": 0.659202531322517
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 0,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.3842873091677944e-07,
+      "retained_fraction": 0.2665964945719416,
+      "centered_retained_fraction": 0.2622003542737841,
+      "source_mean_fraction": 0.08382487744308505,
+      "exact_discarded_fraction": 0.7334035079636242
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 4,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.394229410545223e-07,
+      "retained_fraction": 0.09609903420743009,
+      "centered_retained_fraction": 0.09460789979460493,
+      "source_mean_fraction": 0.025674558691009392,
+      "exact_discarded_fraction": 0.9039009715825486
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 8,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.4802893365414054e-07,
+      "retained_fraction": 0.09775937480256745,
+      "centered_retained_fraction": 0.09558615584011416,
+      "source_mean_fraction": 0.0377336681505984,
+      "exact_discarded_fraction": 0.9022406289270007
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 12,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.5616151301783075e-07,
+      "retained_fraction": 0.10025196454928104,
+      "centered_retained_fraction": 0.09641437030381395,
+      "source_mean_fraction": 0.0625511675646177,
+      "exact_discarded_fraction": 0.8997480397043893
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 16,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.2849957333030513e-07,
+      "retained_fraction": 0.10726163218631744,
+      "centered_retained_fraction": 0.10011718780373742,
+      "source_mean_fraction": 0.12455718268646646,
+      "exact_discarded_fraction": 0.8927383678157242
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 20,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.2531636551684106e-07,
+      "retained_fraction": 0.11954150811933896,
+      "centered_retained_fraction": 0.10354506197112948,
+      "source_mean_fraction": 0.26430074962372907,
+      "exact_discarded_fraction": 0.880458492644675
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 24,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 1.687688564494268e-07,
+      "retained_fraction": 0.3803123906818262,
+      "centered_retained_fraction": 0.33064566945455376,
+      "source_mean_fraction": 0.6772708694404985,
+      "exact_discarded_fraction": 0.6196876680589917
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 0,
+      "positions": 352,
+      "projection_worst_row_relative_RMS": 3.094657985932626e-07,
+      "retained_fraction": 0.2596192060996879,
+      "centered_retained_fraction": 0.25560893312545485,
+      "source_mean_fraction": 0.06362321144003827,
+      "exact_discarded_fraction": 0.7403807953440575
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 4,
+      "positions": 352,
+      "projection_worst_row_relative_RMS": 3.103116537751504e-07,
+      "retained_fraction": 0.12296355759115866,
+      "centered_retained_fraction": 0.11981144268238009,
+      "source_mean_fraction": 0.05214399634395757,
+      "exact_discarded_fraction": 0.8770364436427809
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 8,
+      "positions": 352,
+      "projection_worst_row_relative_RMS": 3.1818084124374717e-07,
+      "retained_fraction": 0.1258929518708031,
+      "centered_retained_fraction": 0.12155874005921705,
+      "source_mean_fraction": 0.08925049169610219,
+      "exact_discarded_fraction": 0.8741070507222511
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 12,
+      "positions": 352,
+      "projection_worst_row_relative_RMS": 3.229605790152912e-07,
+      "retained_fraction": 0.130061269712807,
+      "centered_retained_fraction": 0.12386732682081612,
+      "source_mean_fraction": 0.15141916193788438,
+      "exact_discarded_fraction": 0.86993872559431
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 16,
+      "positions": 352,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.13785941992407033,
+      "centered_retained_fraction": 0.13006200088894543,
+      "source_mean_fraction": 0.26263075844388484,
+      "exact_discarded_fraction": 0.8621405849710426
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 20,
+      "positions": 352,
+      "projection_worst_row_relative_RMS": 3.019670823828161e-07,
+      "retained_fraction": 0.1432163452318046,
+      "centered_retained_fraction": 0.12780020029671166,
+      "source_mean_fraction": 0.39684066372856047,
+      "exact_discarded_fraction": 0.8567836543687349
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "boundary": 24,
+      "positions": 352,
+      "projection_worst_row_relative_RMS": 2.3307270792539994e-07,
+      "retained_fraction": 0.3825521987286184,
+      "centered_retained_fraction": 0.3382190120106302,
+      "source_mean_fraction": 0.6535846917062943,
+      "exact_discarded_fraction": 0.617447858315067
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 0,
+      "positions": 387,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.2683192734432251,
+      "centered_retained_fraction": 0.2638169211358312,
+      "source_mean_fraction": 0.07376481383315148,
+      "exact_discarded_fraction": 0.7316807320460209
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 4,
+      "positions": 387,
+      "projection_worst_row_relative_RMS": 3.19289135598167e-07,
+      "retained_fraction": 0.12396511534761419,
+      "centered_retained_fraction": 0.12026308124185867,
+      "source_mean_fraction": 0.05262422727135368,
+      "exact_discarded_fraction": 0.8760348869680817
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 8,
+      "positions": 387,
+      "projection_worst_row_relative_RMS": 3.244235316725358e-07,
+      "retained_fraction": 0.1279556690906598,
+      "centered_retained_fraction": 0.12265430832210698,
+      "source_mean_fraction": 0.09486949750344682,
+      "exact_discarded_fraction": 0.8720443361854616
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 12,
+      "positions": 387,
+      "projection_worst_row_relative_RMS": 3.307822486448372e-07,
+      "retained_fraction": 0.13251806240839784,
+      "centered_retained_fraction": 0.12516044193274223,
+      "source_mean_fraction": 0.14706557827463698,
+      "exact_discarded_fraction": 0.8674819444761837
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 16,
+      "positions": 387,
+      "projection_worst_row_relative_RMS": 3.1055649530862115e-07,
+      "retained_fraction": 0.1425601359253629,
+      "centered_retained_fraction": 0.13237897591028114,
+      "source_mean_fraction": 0.2626178714625194,
+      "exact_discarded_fraction": 0.8574398612250236
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 20,
+      "positions": 387,
+      "projection_worst_row_relative_RMS": 3.182286443636593e-07,
+      "retained_fraction": 0.14609179171820763,
+      "centered_retained_fraction": 0.13032778820654856,
+      "source_mean_fraction": 0.41082614373305887,
+      "exact_discarded_fraction": 0.8539082043926162
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 24,
+      "positions": 387,
+      "projection_worst_row_relative_RMS": 1.9629217392317545e-07,
+      "retained_fraction": 0.3807081388094078,
+      "centered_retained_fraction": 0.3325470697142637,
+      "source_mean_fraction": 0.6950169102199353,
+      "exact_discarded_fraction": 0.619291919328042
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 0,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.2648823271377662,
+      "centered_retained_fraction": 0.26176385845942424,
+      "source_mean_fraction": 0.16453744403323797,
+      "exact_discarded_fraction": 0.7351176758066343
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 4,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.2924923147576356e-07,
+      "retained_fraction": 0.09709153645115598,
+      "centered_retained_fraction": 0.09507398034144247,
+      "source_mean_fraction": 0.030741028806565054,
+      "exact_discarded_fraction": 0.90290846212317
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 8,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.187681620622117e-07,
+      "retained_fraction": 0.09951795461997207,
+      "centered_retained_fraction": 0.09633560416867167,
+      "source_mean_fraction": 0.05083858739069659,
+      "exact_discarded_fraction": 0.9004820477808669
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 12,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.1972128984648457e-07,
+      "retained_fraction": 0.10164492290639951,
+      "centered_retained_fraction": 0.09725172381699056,
+      "source_mean_fraction": 0.07782276078507663,
+      "exact_discarded_fraction": 0.8983550758897678
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 16,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.3283276828911657e-07,
+      "retained_fraction": 0.10892093601947482,
+      "centered_retained_fraction": 0.1011075177676868,
+      "source_mean_fraction": 0.15582000284117462,
+      "exact_discarded_fraction": 0.891079064614556
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 20,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 3.049977282532729e-07,
+      "retained_fraction": 0.12069173470700835,
+      "centered_retained_fraction": 0.10397718279966406,
+      "source_mean_fraction": 0.3333378614541411,
+      "exact_discarded_fraction": 0.8793082689670259
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "boundary": 24,
+      "positions": 318,
+      "projection_worst_row_relative_RMS": 1.793148725878844e-07,
+      "retained_fraction": 0.3903283634850271,
+      "centered_retained_fraction": 0.345912436139563,
+      "source_mean_fraction": 0.7661365598734744,
+      "exact_discarded_fraction": 0.6096716971122644
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 0,
+      "positions": 289,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.2683567491233666,
+      "centered_retained_fraction": 0.2627416459011421,
+      "source_mean_fraction": 0.036048736609807064,
+      "exact_discarded_fraction": 0.7316432593409713
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 4,
+      "positions": 289,
+      "projection_worst_row_relative_RMS": 3.05441523498777e-07,
+      "retained_fraction": 0.10036169420188142,
+      "centered_retained_fraction": 0.09861814681589151,
+      "source_mean_fraction": 0.025653141522422356,
+      "exact_discarded_fraction": 0.8996383097649041
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 8,
+      "positions": 289,
+      "projection_worst_row_relative_RMS": 3.313890423673821e-07,
+      "retained_fraction": 0.10289766545122479,
+      "centered_retained_fraction": 0.100097603264859,
+      "source_mean_fraction": 0.03883687188910858,
+      "exact_discarded_fraction": 0.8971023366134271
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 12,
+      "positions": 289,
+      "projection_worst_row_relative_RMS": 3.1561075409847424e-07,
+      "retained_fraction": 0.10670705019062644,
+      "centered_retained_fraction": 0.10210929720644596,
+      "source_mean_fraction": 0.06327113877181424,
+      "exact_discarded_fraction": 0.893292954212955
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 16,
+      "positions": 289,
+      "projection_worst_row_relative_RMS": 2.887194610835703e-07,
+      "retained_fraction": 0.1223111881490938,
+      "centered_retained_fraction": 0.11119631968379735,
+      "source_mean_fraction": 0.15395896214004537,
+      "exact_discarded_fraction": 0.8776888123065673
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 20,
+      "positions": 289,
+      "projection_worst_row_relative_RMS": 3.368503606720012e-07,
+      "retained_fraction": 0.13789587500361822,
+      "centered_retained_fraction": 0.12031174281111454,
+      "source_mean_fraction": 0.2709117088309363,
+      "exact_discarded_fraction": 0.8621041261705997
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 24,
+      "positions": 289,
+      "projection_worst_row_relative_RMS": 2.5506550523087187e-07,
+      "retained_fraction": 0.3391271271485085,
+      "centered_retained_fraction": 0.27624794111180495,
+      "source_mean_fraction": 0.6147152541465345,
+      "exact_discarded_fraction": 0.6608729234846665
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 0,
+      "positions": 356,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.27781673142694474,
+      "centered_retained_fraction": 0.2712748119145514,
+      "source_mean_fraction": 0.051842456066162355,
+      "exact_discarded_fraction": 0.722183270444834
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 4,
+      "positions": 356,
+      "projection_worst_row_relative_RMS": 3.3020757635426215e-07,
+      "retained_fraction": 0.10301245367678838,
+      "centered_retained_fraction": 0.10075479270073384,
+      "source_mean_fraction": 0.02721709019064548,
+      "exact_discarded_fraction": 0.8969875472134103
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 8,
+      "positions": 356,
+      "projection_worst_row_relative_RMS": 3.240535049962776e-07,
+      "retained_fraction": 0.10618453451811986,
+      "centered_retained_fraction": 0.10270007780709955,
+      "source_mean_fraction": 0.042547276883251994,
+      "exact_discarded_fraction": 0.8938154713989583
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 12,
+      "positions": 356,
+      "projection_worst_row_relative_RMS": 3.140066330104909e-07,
+      "retained_fraction": 0.11084806643469104,
+      "centered_retained_fraction": 0.10498702307326449,
+      "source_mean_fraction": 0.07256355437760202,
+      "exact_discarded_fraction": 0.8891519328015468
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 16,
+      "positions": 356,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.12374860039476349,
+      "centered_retained_fraction": 0.1126348874586189,
+      "source_mean_fraction": 0.15346653557805673,
+      "exact_discarded_fraction": 0.8762514054738397
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 20,
+      "positions": 356,
+      "projection_worst_row_relative_RMS": 3.2233337853411073e-07,
+      "retained_fraction": 0.1403831568056698,
+      "centered_retained_fraction": 0.12166816403515333,
+      "source_mean_fraction": 0.2887554085456422,
+      "exact_discarded_fraction": 0.8596168491074587
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "boundary": 24,
+      "positions": 356,
+      "projection_worst_row_relative_RMS": 1.9314725313033933e-07,
+      "retained_fraction": 0.34723563313378947,
+      "centered_retained_fraction": 0.25787709331177844,
+      "source_mean_fraction": 0.722935862322749,
+      "exact_discarded_fraction": 0.652764413304526
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 0,
+      "positions": 418,
+      "projection_worst_row_relative_RMS": 3.060237857390884e-07,
+      "retained_fraction": 0.265122903165891,
+      "centered_retained_fraction": 0.25608701971194103,
+      "source_mean_fraction": 0.06605261815295475,
+      "exact_discarded_fraction": 0.7348770966189287
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 4,
+      "positions": 418,
+      "projection_worst_row_relative_RMS": 3.217610516810696e-07,
+      "retained_fraction": 0.10164714071517608,
+      "centered_retained_fraction": 0.0993070167577801,
+      "source_mean_fraction": 0.028832408137561164,
+      "exact_discarded_fraction": 0.8983528707295898
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 8,
+      "positions": 418,
+      "projection_worst_row_relative_RMS": 3.244235316725358e-07,
+      "retained_fraction": 0.10401955124464336,
+      "centered_retained_fraction": 0.1007483878250096,
+      "source_mean_fraction": 0.04681466990983758,
+      "exact_discarded_fraction": 0.8959804521100838
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 12,
+      "positions": 418,
+      "projection_worst_row_relative_RMS": 3.3074984727855477e-07,
+      "retained_fraction": 0.10708214910980429,
+      "centered_retained_fraction": 0.10223657962903476,
+      "source_mean_fraction": 0.07312300510570321,
+      "exact_discarded_fraction": 0.8929178582849269
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 16,
+      "positions": 418,
+      "projection_worst_row_relative_RMS": 3.0600927391570623e-07,
+      "retained_fraction": 0.11836031805795992,
+      "centered_retained_fraction": 0.10918013980674815,
+      "source_mean_fraction": 0.14585234936774363,
+      "exact_discarded_fraction": 0.8816396862880685
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 20,
+      "positions": 418,
+      "projection_worst_row_relative_RMS": 3.0619842474360507e-07,
+      "retained_fraction": 0.13131457229868557,
+      "centered_retained_fraction": 0.11477608228781665,
+      "source_mean_fraction": 0.29719649450953833,
+      "exact_discarded_fraction": 0.8686854300794195
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 24,
+      "positions": 418,
+      "projection_worst_row_relative_RMS": 1.9629217392317545e-07,
+      "retained_fraction": 0.38201054329126527,
+      "centered_retained_fraction": 0.32668642418049526,
+      "source_mean_fraction": 0.7054635829968586,
+      "exact_discarded_fraction": 0.617989515412553
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 0,
+      "positions": 357,
+      "projection_worst_row_relative_RMS": 3.094657985932626e-07,
+      "retained_fraction": 0.26411686203517026,
+      "centered_retained_fraction": 0.25647066605478624,
+      "source_mean_fraction": 0.07588549035218453,
+      "exact_discarded_fraction": 0.7358831396921157
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 4,
+      "positions": 357,
+      "projection_worst_row_relative_RMS": 3.1158170365559897e-07,
+      "retained_fraction": 0.09993529181999573,
+      "centered_retained_fraction": 0.09758945415137114,
+      "source_mean_fraction": 0.029710504017224568,
+      "exact_discarded_fraction": 0.9000647201911987
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 8,
+      "positions": 357,
+      "projection_worst_row_relative_RMS": 3.2561302204685645e-07,
+      "retained_fraction": 0.10243684774994137,
+      "centered_retained_fraction": 0.09871057452245749,
+      "source_mean_fraction": 0.04899301962972922,
+      "exact_discarded_fraction": 0.8975631579263427
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 12,
+      "positions": 357,
+      "projection_worst_row_relative_RMS": 3.179265257492768e-07,
+      "retained_fraction": 0.10506320074942715,
+      "centered_retained_fraction": 0.09983303937292286,
+      "source_mean_fraction": 0.07244640559164527,
+      "exact_discarded_fraction": 0.8949368000028519
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 16,
+      "positions": 357,
+      "projection_worst_row_relative_RMS": 3.2949015452149547e-07,
+      "retained_fraction": 0.11499743286118715,
+      "centered_retained_fraction": 0.10509981072754122,
+      "source_mean_fraction": 0.13967865660587545,
+      "exact_discarded_fraction": 0.8850025732311866
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 20,
+      "positions": 357,
+      "projection_worst_row_relative_RMS": 2.9606388027010516e-07,
+      "retained_fraction": 0.1292607237335473,
+      "centered_retained_fraction": 0.10980403925433081,
+      "source_mean_fraction": 0.28771236614137485,
+      "exact_discarded_fraction": 0.8707392765833605
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "boundary": 24,
+      "positions": 357,
+      "projection_worst_row_relative_RMS": 1.754806271411445e-07,
+      "retained_fraction": 0.3852052286709919,
+      "centered_retained_fraction": 0.33858510387614194,
+      "source_mean_fraction": 0.6990157578257012,
+      "exact_discarded_fraction": 0.6147948304704877
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 0,
+      "positions": 188,
+      "projection_worst_row_relative_RMS": 4.057554812747285e-07,
+      "retained_fraction": 0.26684110083265855,
+      "centered_retained_fraction": 0.26092230109486797,
+      "source_mean_fraction": 0.04877631049614414,
+      "exact_discarded_fraction": 0.7331589008144329
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 4,
+      "positions": 188,
+      "projection_worst_row_relative_RMS": 3.8517198498842784e-07,
+      "retained_fraction": 0.11696446212234113,
+      "centered_retained_fraction": 0.11411877766407606,
+      "source_mean_fraction": 0.04064295492452087,
+      "exact_discarded_fraction": 0.8830355465987735
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 8,
+      "positions": 188,
+      "projection_worst_row_relative_RMS": 3.5507275530744686e-07,
+      "retained_fraction": 0.12127934067022417,
+      "centered_retained_fraction": 0.1167634121291547,
+      "source_mean_fraction": 0.0646526341822149,
+      "exact_discarded_fraction": 0.8787206630932847
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 12,
+      "positions": 188,
+      "projection_worst_row_relative_RMS": 3.6579362193847847e-07,
+      "retained_fraction": 0.12463067326104092,
+      "centered_retained_fraction": 0.11956523551812374,
+      "source_mean_fraction": 0.08643236243477204,
+      "exact_discarded_fraction": 0.8753693230178947
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 16,
+      "positions": 188,
+      "projection_worst_row_relative_RMS": 3.6995180336860235e-07,
+      "retained_fraction": 0.13640323056060694,
+      "centered_retained_fraction": 0.1277332728790154,
+      "source_mean_fraction": 0.1769699173511521,
+      "exact_discarded_fraction": 0.8635967734753581
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 20,
+      "positions": 188,
+      "projection_worst_row_relative_RMS": 3.232158375112233e-07,
+      "retained_fraction": 0.1421380524748585,
+      "centered_retained_fraction": 0.13111558540914964,
+      "source_mean_fraction": 0.269801021115924,
+      "exact_discarded_fraction": 0.8578619526050478
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 24,
+      "positions": 188,
+      "projection_worst_row_relative_RMS": 2.4065276936784795e-07,
+      "retained_fraction": 0.3429669201331168,
+      "centered_retained_fraction": 0.272359287603943,
+      "source_mean_fraction": 0.6508194992081431,
+      "exact_discarded_fraction": 0.6570331252263001
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 0,
+      "positions": 107,
+      "projection_worst_row_relative_RMS": 2.3842873091677944e-07,
+      "retained_fraction": 0.2699629719138188,
+      "centered_retained_fraction": 0.26510217224361815,
+      "source_mean_fraction": 0.04660874048265835,
+      "exact_discarded_fraction": 0.730037031489854
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 4,
+      "positions": 107,
+      "projection_worst_row_relative_RMS": 2.3366541452389847e-07,
+      "retained_fraction": 0.1101373113917694,
+      "centered_retained_fraction": 0.10798926747643157,
+      "source_mean_fraction": 0.03940882633835334,
+      "exact_discarded_fraction": 0.8898626946757949
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 8,
+      "positions": 107,
+      "projection_worst_row_relative_RMS": 2.2858327252210567e-07,
+      "retained_fraction": 0.11286694141141303,
+      "centered_retained_fraction": 0.10983119105565393,
+      "source_mean_fraction": 0.053956086512675215,
+      "exact_discarded_fraction": 0.8871330656403045
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 12,
+      "positions": 107,
+      "projection_worst_row_relative_RMS": 2.3381010199373984e-07,
+      "retained_fraction": 0.11622325360856653,
+      "centered_retained_fraction": 0.1119400059722604,
+      "source_mean_fraction": 0.07713594673261708,
+      "exact_discarded_fraction": 0.8837767539517161
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 16,
+      "positions": 107,
+      "projection_worst_row_relative_RMS": 2.251603023521273e-07,
+      "retained_fraction": 0.12823263322712705,
+      "centered_retained_fraction": 0.11894648257211092,
+      "source_mean_fraction": 0.15836571867769247,
+      "exact_discarded_fraction": 0.8717673707279523
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 20,
+      "positions": 107,
+      "projection_worst_row_relative_RMS": 2.1859779682245998e-07,
+      "retained_fraction": 0.1370181629743991,
+      "centered_retained_fraction": 0.12269626312052428,
+      "source_mean_fraction": 0.2833818257146205,
+      "exact_discarded_fraction": 0.8629818377804902
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "boundary": 24,
+      "positions": 107,
+      "projection_worst_row_relative_RMS": 1.649005569591741e-07,
+      "retained_fraction": 0.3491364227587833,
+      "centered_retained_fraction": 0.27749183480265016,
+      "source_mean_fraction": 0.6437330818085395,
+      "exact_discarded_fraction": 0.6508636290196517
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 0,
+      "positions": 1268,
+      "projection_worst_row_relative_RMS": 7.520255748113029e-07,
+      "retained_fraction": 0.27517644958616644,
+      "centered_retained_fraction": 0.2691494378514255,
+      "source_mean_fraction": 0.0341163972721085,
+      "exact_discarded_fraction": 0.7248235542140979
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 4,
+      "positions": 1268,
+      "projection_worst_row_relative_RMS": 7.402820855238615e-07,
+      "retained_fraction": 0.1327203314056125,
+      "centered_retained_fraction": 0.12817271934796476,
+      "source_mean_fraction": 0.05237977495389153,
+      "exact_discarded_fraction": 0.8672796772967774
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 8,
+      "positions": 1268,
+      "projection_worst_row_relative_RMS": 7.238390619802175e-07,
+      "retained_fraction": 0.1387323939086854,
+      "centered_retained_fraction": 0.13168021350513118,
+      "source_mean_fraction": 0.09008046521288413,
+      "exact_discarded_fraction": 0.8612676033047535
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 12,
+      "positions": 1268,
+      "projection_worst_row_relative_RMS": 6.82959109532853e-07,
+      "retained_fraction": 0.14590387687194223,
+      "centered_retained_fraction": 0.1359252227335657,
+      "source_mean_fraction": 0.14196680358394526,
+      "exact_discarded_fraction": 0.8540961250499466
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 16,
+      "positions": 1268,
+      "projection_worst_row_relative_RMS": 6.974244080590114e-07,
+      "retained_fraction": 0.1632015455965039,
+      "centered_retained_fraction": 0.1485545174568169,
+      "source_mean_fraction": 0.279841389865967,
+      "exact_discarded_fraction": 0.8367984575227548
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 20,
+      "positions": 1268,
+      "projection_worst_row_relative_RMS": 6.928830106275186e-07,
+      "retained_fraction": 0.1577205448971299,
+      "centered_retained_fraction": 0.14298974199429695,
+      "source_mean_fraction": 0.3267303146143916,
+      "exact_discarded_fraction": 0.8422794602643692
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 24,
+      "positions": 1268,
+      "projection_worst_row_relative_RMS": 6.156915568952523e-07,
+      "retained_fraction": 0.3242263396756115,
+      "centered_retained_fraction": 0.22967009858759319,
+      "source_mean_fraction": 0.6632719213254424,
+      "exact_discarded_fraction": 0.6757737095498032
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 0,
+      "positions": 1488,
+      "projection_worst_row_relative_RMS": 7.520255748113029e-07,
+      "retained_fraction": 0.263400739471129,
+      "centered_retained_fraction": 0.2578926478792989,
+      "source_mean_fraction": 0.03738316265493283,
+      "exact_discarded_fraction": 0.7365992592475542
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 4,
+      "positions": 1488,
+      "projection_worst_row_relative_RMS": 8.077043876947044e-07,
+      "retained_fraction": 0.13990852972922155,
+      "centered_retained_fraction": 0.13514475236986712,
+      "source_mean_fraction": 0.0644369249896311,
+      "exact_discarded_fraction": 0.8600914788490561
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 8,
+      "positions": 1488,
+      "projection_worst_row_relative_RMS": 7.338113476893287e-07,
+      "retained_fraction": 0.1460355903813419,
+      "centered_retained_fraction": 0.139141955420446,
+      "source_mean_fraction": 0.10037166784710062,
+      "exact_discarded_fraction": 0.8539644163729619
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 12,
+      "positions": 1488,
+      "projection_worst_row_relative_RMS": 7.064200663821026e-07,
+      "retained_fraction": 0.15332500700681392,
+      "centered_retained_fraction": 0.14357301045672827,
+      "source_mean_fraction": 0.16867847726104063,
+      "exact_discarded_fraction": 0.8466749961565108
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 16,
+      "positions": 1488,
+      "projection_worst_row_relative_RMS": 6.662733171194102e-07,
+      "retained_fraction": 0.17118830780497934,
+      "centered_retained_fraction": 0.15700788985749567,
+      "source_mean_fraction": 0.3219639338283208,
+      "exact_discarded_fraction": 0.8288116936517984
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 20,
+      "positions": 1488,
+      "projection_worst_row_relative_RMS": 6.552708591116327e-07,
+      "retained_fraction": 0.17073171140828974,
+      "centered_retained_fraction": 0.15188404367642414,
+      "source_mean_fraction": 0.3869885787296498,
+      "exact_discarded_fraction": 0.8292682876143932
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "boundary": 24,
+      "positions": 1488,
+      "projection_worst_row_relative_RMS": 5.981016217125795e-07,
+      "retained_fraction": 0.3249131419351068,
+      "centered_retained_fraction": 0.22882195328666774,
+      "source_mean_fraction": 0.6706311990759679,
+      "exact_discarded_fraction": 0.6750869073108354
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 0,
+      "positions": 502,
+      "projection_worst_row_relative_RMS": 4.2683998657188205e-07,
+      "retained_fraction": 0.2741621596410906,
+      "centered_retained_fraction": 0.268039104675628,
+      "source_mean_fraction": 0.03272978440796344,
+      "exact_discarded_fraction": 0.7258378471038829
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 4,
+      "positions": 502,
+      "projection_worst_row_relative_RMS": 3.928516344420707e-07,
+      "retained_fraction": 0.14683523216891484,
+      "centered_retained_fraction": 0.14204611178171528,
+      "source_mean_fraction": 0.05817826036901438,
+      "exact_discarded_fraction": 0.8531647726104241
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 8,
+      "positions": 502,
+      "projection_worst_row_relative_RMS": 3.867748122224967e-07,
+      "retained_fraction": 0.15208658603763237,
+      "centered_retained_fraction": 0.14569655753404234,
+      "source_mean_fraction": 0.10080452176703253,
+      "exact_discarded_fraction": 0.8479134192499534
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 12,
+      "positions": 502,
+      "projection_worst_row_relative_RMS": 3.717595847054131e-07,
+      "retained_fraction": 0.1572210760453686,
+      "centered_retained_fraction": 0.15048643473598314,
+      "source_mean_fraction": 0.17362828019587445,
+      "exact_discarded_fraction": 0.8427789270265936
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 16,
+      "positions": 502,
+      "projection_worst_row_relative_RMS": 3.6327195310134774e-07,
+      "retained_fraction": 0.17395717543531405,
+      "centered_retained_fraction": 0.16492972305024717,
+      "source_mean_fraction": 0.2942576720592017,
+      "exact_discarded_fraction": 0.8260428279218868
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 20,
+      "positions": 502,
+      "projection_worst_row_relative_RMS": 3.366604533307128e-07,
+      "retained_fraction": 0.17192812607823527,
+      "centered_retained_fraction": 0.15741290045373932,
+      "source_mean_fraction": 0.42192251662641267,
+      "exact_discarded_fraction": 0.8280718759363614
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 24,
+      "positions": 502,
+      "projection_worst_row_relative_RMS": 2.4075391251108966e-07,
+      "retained_fraction": 0.3408759024397418,
+      "centered_retained_fraction": 0.2513620716279326,
+      "source_mean_fraction": 0.6801049576185586,
+      "exact_discarded_fraction": 0.65912414974683
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 0,
+      "positions": 374,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.27992142368196576,
+      "centered_retained_fraction": 0.27289602177639966,
+      "source_mean_fraction": 0.04589414473743837,
+      "exact_discarded_fraction": 0.7200785825064204
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 4,
+      "positions": 374,
+      "projection_worst_row_relative_RMS": 3.461288180765063e-07,
+      "retained_fraction": 0.10356431246812123,
+      "centered_retained_fraction": 0.10113819280530863,
+      "source_mean_fraction": 0.026806448818278525,
+      "exact_discarded_fraction": 0.8964356884973842
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 8,
+      "positions": 374,
+      "projection_worst_row_relative_RMS": 3.542361053168106e-07,
+      "retained_fraction": 0.10708559655875874,
+      "centered_retained_fraction": 0.1032698782988691,
+      "source_mean_fraction": 0.039365261116625416,
+      "exact_discarded_fraction": 0.8929144034485489
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 12,
+      "positions": 374,
+      "projection_worst_row_relative_RMS": 3.6325225269782507e-07,
+      "retained_fraction": 0.11252333794221638,
+      "centered_retained_fraction": 0.1058874496783889,
+      "source_mean_fraction": 0.07240786057394044,
+      "exact_discarded_fraction": 0.8874766577185278
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 16,
+      "positions": 374,
+      "projection_worst_row_relative_RMS": 3.190136866538059e-07,
+      "retained_fraction": 0.12983842491136177,
+      "centered_retained_fraction": 0.11612060982503172,
+      "source_mean_fraction": 0.16447128005743403,
+      "exact_discarded_fraction": 0.8701615767382603
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 20,
+      "positions": 374,
+      "projection_worst_row_relative_RMS": 2.837260890264807e-07,
+      "retained_fraction": 0.1437705219003689,
+      "centered_retained_fraction": 0.12344785635426704,
+      "source_mean_fraction": 0.29326891136037914,
+      "exact_discarded_fraction": 0.8562294800810358
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "boundary": 24,
+      "positions": 374,
+      "projection_worst_row_relative_RMS": 1.8287007153492943e-07,
+      "retained_fraction": 0.338490949157763,
+      "centered_retained_fraction": 0.23944458571294402,
+      "source_mean_fraction": 0.6879718478096711,
+      "exact_discarded_fraction": 0.6615091039082394
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 0,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.19507225833084e-07,
+      "retained_fraction": 0.2729138525257842,
+      "centered_retained_fraction": 0.2673991710182509,
+      "source_mean_fraction": 0.03491315410705401,
+      "exact_discarded_fraction": 0.7270861460647926
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 4,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.510075879770526e-07,
+      "retained_fraction": 0.1239359771287301,
+      "centered_retained_fraction": 0.12083934529572718,
+      "source_mean_fraction": 0.04000353909883621,
+      "exact_discarded_fraction": 0.876064029132203
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 8,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.417169509072972e-07,
+      "retained_fraction": 0.12834773513621933,
+      "centered_retained_fraction": 0.1237965228290461,
+      "source_mean_fraction": 0.06974287189010599,
+      "exact_discarded_fraction": 0.8716522728723031
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 12,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.2994020566261355e-07,
+      "retained_fraction": 0.13417947184467807,
+      "centered_retained_fraction": 0.1280678917808241,
+      "source_mean_fraction": 0.11322812781819797,
+      "exact_discarded_fraction": 0.8658205306768761
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 16,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.2744383052362862e-07,
+      "retained_fraction": 0.15176027527334893,
+      "centered_retained_fraction": 0.1422862785321029,
+      "source_mean_fraction": 0.20996328687181276,
+      "exact_discarded_fraction": 0.8482397254327836
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 20,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 2.1829842026063897e-07,
+      "retained_fraction": 0.15798427165891493,
+      "centered_retained_fraction": 0.14264543130939827,
+      "source_mean_fraction": 0.35730359334155026,
+      "exact_discarded_fraction": 0.8420157305915332
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 24,
+      "positions": 243,
+      "projection_worst_row_relative_RMS": 1.6979184372638507e-07,
+      "retained_fraction": 0.3320631864226834,
+      "centered_retained_fraction": 0.2480319486484526,
+      "source_mean_fraction": 0.6689514315578108,
+      "exact_discarded_fraction": 0.6679368581461563
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 0,
+      "positions": 980,
+      "projection_worst_row_relative_RMS": 3.7829584775755796e-07,
+      "retained_fraction": 0.26893969744865315,
+      "centered_retained_fraction": 0.26293983567350404,
+      "source_mean_fraction": 0.03270538031458486,
+      "exact_discarded_fraction": 0.7310603074725236
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 4,
+      "positions": 980,
+      "projection_worst_row_relative_RMS": 3.921056004676778e-07,
+      "retained_fraction": 0.12568946915475154,
+      "centered_retained_fraction": 0.12214906540560297,
+      "source_mean_fraction": 0.03581209044789228,
+      "exact_discarded_fraction": 0.8743105368474913
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 8,
+      "positions": 980,
+      "projection_worst_row_relative_RMS": 3.7865284471747196e-07,
+      "retained_fraction": 0.1306865907477089,
+      "centered_retained_fraction": 0.12522750663075125,
+      "source_mean_fraction": 0.06543792781383292,
+      "exact_discarded_fraction": 0.8693134162310427
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 12,
+      "positions": 980,
+      "projection_worst_row_relative_RMS": 3.706251231622939e-07,
+      "retained_fraction": 0.1368650821746769,
+      "centered_retained_fraction": 0.13004709487359364,
+      "source_mean_fraction": 0.13010564205276715,
+      "exact_discarded_fraction": 0.8631349226965238
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 16,
+      "positions": 980,
+      "projection_worst_row_relative_RMS": 3.480269467264685e-07,
+      "retained_fraction": 0.1555535164664072,
+      "centered_retained_fraction": 0.14780566425704178,
+      "source_mean_fraction": 0.22082341371936176,
+      "exact_discarded_fraction": 0.8444464882072888
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 20,
+      "positions": 980,
+      "projection_worst_row_relative_RMS": 3.3506093079404566e-07,
+      "retained_fraction": 0.16349885418467133,
+      "centered_retained_fraction": 0.1491730807275314,
+      "source_mean_fraction": 0.39979762665423985,
+      "exact_discarded_fraction": 0.8365011521995283
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "boundary": 24,
+      "positions": 980,
+      "projection_worst_row_relative_RMS": 2.792854639385781e-07,
+      "retained_fraction": 0.31459613742073794,
+      "centered_retained_fraction": 0.22832619116119465,
+      "source_mean_fraction": 0.6607180899938099,
+      "exact_discarded_fraction": 0.6854039112661453
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 0,
+      "positions": 890,
+      "projection_worst_row_relative_RMS": 7.520255748113029e-07,
+      "retained_fraction": 0.27984711391017536,
+      "centered_retained_fraction": 0.27619226788053813,
+      "source_mean_fraction": 0.05123962010538994,
+      "exact_discarded_fraction": 0.7201528856609645
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 4,
+      "positions": 890,
+      "projection_worst_row_relative_RMS": 7.331011709655566e-07,
+      "retained_fraction": 0.11765966104471672,
+      "centered_retained_fraction": 0.11427778088545823,
+      "source_mean_fraction": 0.03984206913328827,
+      "exact_discarded_fraction": 0.8823403418232096
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 8,
+      "positions": 890,
+      "projection_worst_row_relative_RMS": 7.165592426259882e-07,
+      "retained_fraction": 0.12187683233477288,
+      "centered_retained_fraction": 0.11751422418333866,
+      "source_mean_fraction": 0.06519758382108365,
+      "exact_discarded_fraction": 0.8781231720953695
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 12,
+      "positions": 890,
+      "projection_worst_row_relative_RMS": 7.753356562674203e-07,
+      "retained_fraction": 0.1271420160043789,
+      "centered_retained_fraction": 0.12081656577200081,
+      "source_mean_fraction": 0.11665243444877205,
+      "exact_discarded_fraction": 0.8728579824845276
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 16,
+      "positions": 890,
+      "projection_worst_row_relative_RMS": 7.058791811654534e-07,
+      "retained_fraction": 0.14271894140299518,
+      "centered_retained_fraction": 0.1344196348939588,
+      "source_mean_fraction": 0.2226700523916448,
+      "exact_discarded_fraction": 0.8572810592264126
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 20,
+      "positions": 890,
+      "projection_worst_row_relative_RMS": 6.907702929667338e-07,
+      "retained_fraction": 0.14827821337465125,
+      "centered_retained_fraction": 0.13679959652262505,
+      "source_mean_fraction": 0.3352139577744587,
+      "exact_discarded_fraction": 0.8517217880006354
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 24,
+      "positions": 890,
+      "projection_worst_row_relative_RMS": 6.368864430183575e-07,
+      "retained_fraction": 0.3710572640247518,
+      "centered_retained_fraction": 0.32815821905119424,
+      "source_mean_fraction": 0.6452403370331053,
+      "exact_discarded_fraction": 0.6289427904233886
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 0,
+      "positions": 297,
+      "projection_worst_row_relative_RMS": 3.1367580225733804e-07,
+      "retained_fraction": 0.2699666904115996,
+      "centered_retained_fraction": 0.26414440300213915,
+      "source_mean_fraction": 0.037660482350801675,
+      "exact_discarded_fraction": 0.7300333129674096
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 4,
+      "positions": 297,
+      "projection_worst_row_relative_RMS": 3.1293121661295137e-07,
+      "retained_fraction": 0.12742996190640418,
+      "centered_retained_fraction": 0.1241541794971293,
+      "source_mean_fraction": 0.047785980125870486,
+      "exact_discarded_fraction": 0.8725700421181622
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 8,
+      "positions": 297,
+      "projection_worst_row_relative_RMS": 3.1210944133235634e-07,
+      "retained_fraction": 0.13150318172473116,
+      "centered_retained_fraction": 0.12653469114124494,
+      "source_mean_fraction": 0.08339441718726691,
+      "exact_discarded_fraction": 0.868496827185044
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 12,
+      "positions": 297,
+      "projection_worst_row_relative_RMS": 3.1561075409847424e-07,
+      "retained_fraction": 0.1369600327964045,
+      "centered_retained_fraction": 0.1298990698727306,
+      "source_mean_fraction": 0.12629546184886095,
+      "exact_discarded_fraction": 0.8630399669224967
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 16,
+      "positions": 297,
+      "projection_worst_row_relative_RMS": 2.8834786235079826e-07,
+      "retained_fraction": 0.15353911769757317,
+      "centered_retained_fraction": 0.14218631328242087,
+      "source_mean_fraction": 0.2614188258104222,
+      "exact_discarded_fraction": 0.8464608885084487
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 20,
+      "positions": 297,
+      "projection_worst_row_relative_RMS": 2.8763840254408693e-07,
+      "retained_fraction": 0.1533738312606633,
+      "centered_retained_fraction": 0.1394193105443813,
+      "source_mean_fraction": 0.3391934174586417,
+      "exact_discarded_fraction": 0.8466261718519127
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "boundary": 24,
+      "positions": 297,
+      "projection_worst_row_relative_RMS": 2.2574792600314484e-07,
+      "retained_fraction": 0.33909295214086904,
+      "centered_retained_fraction": 0.28730708400747645,
+      "source_mean_fraction": 0.5946702458892876,
+      "exact_discarded_fraction": 0.6609070976363348
+    }
+  ],
+  "source_calls": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "parent_resource_failure_preserved": true,
+  "parent_parameter_aggregate_gap_preserved": true,
+  "scope": "All saved projection rows independently checked by CPU NumPy F64 hP;all energy summaries/hashes checked.Script elapsed only,not separately held family resources;energy fractions are not a chatbot preservation theorem.",
+  "elapsed_seconds": 13.46799999999348
+}

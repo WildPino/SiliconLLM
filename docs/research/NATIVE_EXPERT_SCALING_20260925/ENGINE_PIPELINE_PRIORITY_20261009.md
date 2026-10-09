@@ -6,12 +6,22 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+The [teacher history acquisition](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md)
+is complete with explicit parent resource/final-identity gaps. Actual residual
+composition is now available for all48 histories; all projection rows independently
+qualified. Prepared training-only learner can supervise six student boundaries;
+real matched KL versus KL+history recovery/native own-history consumer remain
+to implement/qualify. Fixed basis'12..14% intermediate energy retention is an
+information warning, not a quality theorem. Raw states remain reusable. The
+next decision is measured whole recovery within original operators, with useful
+chatbot and same-artifact speed gates. No T4 allocation.
+
 The [actual27 delta correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md) is COMPLETE:
 initial native identity and new learning directions qualified; durable state
 and resources PASS. Native DEV disagreement96..98% still fails usefulness.
 The pipeline bottleneck is pretrained history/function transfer into the
 affordable original operator envelope. Close this initialization repair.
-[Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) obtains actual source residual
+[Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) uses qualified source residual
 boundaries for a finite joint history-recovery comparison. Exact original LUT,
 ternary, AQ63, dReLU, SSM/SWA arithmetic remains fixed. No T4 allocation.
 

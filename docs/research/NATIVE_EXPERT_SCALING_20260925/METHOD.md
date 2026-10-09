@@ -8,6 +8,19 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest reusable conversion input:** [actual teacher boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md)
+48 canonical full histories/seven actual BF16 residuals/all22547 positions and
+fixed inherited P256 F32 projections.288 source-output streams exact; CPU F64
+all157829 projections<=8.078e-7/energy summaries delta0. Complete with inherited
+reserved cap/final parameter aggregate gaps; new completion resources/411
+identity PASS. Exact h4 depth continuation avoids replay of saved early layers.
+Combined272.140s/810.654MB, no candidate optimizer/native/answer/RESERVED/T4.
+Raw source states stay available; projected source energy12..14% intermediate,
+35.39% final DEV does not establish source quality preservation. Prepared
+training-only joint learner uses student trajectories and normalized residual
+loss; no deployment parameter/operator added. Adapter remains unqualified;
+matched whole native DEV/domain/own-history recovery is the next operation.
+
 **Newest available operation:** [actual27 delta correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md)
 calibrates five rank32 FIT residual response maps, changes only new U rows,
 preserves all3352 initial native heads/routes/masses/witnesses bytewise, and
@@ -19,8 +32,9 @@ or broad-chatbot result. The first namespace verification fault is preserved;
 completion reuses five saved X fields without repeating feature inference or
 an optimizer step. Combined482.297s/11.880GB; all jobs terminal/noT4.
 Original deployed operators are fixed. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-builds actual teacher residual-boundary supervision before a bounded joint
-history recovery comparison. This capture/learner remains to implement and qualify.
+uses now-qualified teacher residual-boundary inputs for a bounded joint history
+recovery comparison. Learner adapter exists; real gradient/native qualification
+and matched runner/own-history consumer remain missing.
 
 **Current conversion tool addition:** [actual26 diagnostic trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md)
 persists original core/router/AQ/LUT witnesses with head-bit observer identity.
