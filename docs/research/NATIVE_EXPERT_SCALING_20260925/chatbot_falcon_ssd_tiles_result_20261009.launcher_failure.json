@@ -1,0 +1,30 @@
+{
+  "freeze": "3e10bfedfd686e2bf6d5b961d28736286d33cb5b",
+  "binding_sha256": "3b9758e16cebae4bc5fbb40b7ebcc0d8a3b56318f01b70926ba4dbb351672cad",
+  "launcher_pid": 29272,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_ssd_tiles_qualify.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_ssd_tiles_binding_20261009.json",
+    "--binding-sha",
+    "3b9758e16cebae4bc5fbb40b7ebcc0d8a3b56318f01b70926ba4dbb351672cad",
+    "--freeze",
+    "3e10bfedfd686e2bf6d5b961d28736286d33cb5b",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_falcon_ssd_tiles_20261009",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_falcon_ssd_tiles_result_20261009.json"
+  ],
+  "worker_pid": 25756,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 496390144,
+  "launcher_OS_peak_snapshot": 27009024,
+  "fault": "AssertionError('Traceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_ssd_tiles_qualify.py\", line 129, in <module>\\n    a=p.parse_args();bind(a) if a.mode==\\'bind\\' else worker(a)\\n                                                    ^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_ssd_tiles_qualify.py\", line 74, in worker\\n    modification=install(code);write(a.directory/\\'source_method.json\\',modification)\\n                 ^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_ssd_tiles.py\", line 34, in install\\n    assert text.count(old) == 1, old\\n           ^^^^^^^^^^^^^^^^^^^^\\nAssertionError:     G_intermediate = C[:, :, :, None, :, :] * B[:, :, None, :, :, :]  # shape: (b, c, l, s, h, n)\\n    G = G_intermediate.sum(dim=-1)  # shape: (b, c, l, s, h)\\n\\n')",
+  "elapsed_seconds": 14.563000000023749
+}

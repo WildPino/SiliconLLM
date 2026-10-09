@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_falcon_ssd_tiles_qualify.py", line 129, in <module>
+    a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)
+                                                    ^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_falcon_ssd_tiles_qualify.py", line 74, in worker
+    modification=install(code);write(a.directory/'source_method.json',modification)
+                 ^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_falcon_ssd_tiles.py", line 34, in install
+    assert text.count(old) == 1, old
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError:     G_intermediate = C[:, :, :, None, :, :] * B[:, :, None, :, :, :]  # shape: (b, c, l, s, h, n)
+    G = G_intermediate.sum(dim=-1)  # shape: (b, c, l, s, h)
+

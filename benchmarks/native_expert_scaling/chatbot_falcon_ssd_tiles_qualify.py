@@ -34,6 +34,13 @@ def bind(a):
             'cache_utils.py','generation/utils.py')]
     files+=[ROOT/name for name in ('benchmarks/donor_adaptation/configs/_manifest.json',
             'benchmarks/donor_adaptation/density/build_document_holdout.py','docs/research/RESEARCH_INDEX.md')]
+    if a.prior_failure:
+        prior=json.loads(a.prior_failure.read_bytes())
+        assert prior['source_forwards']==0 and not prior['completed']
+        files += [a.prior_failure, DOC/'CHATBOT_FALCON_SSD_TILES_REPAIR1_PROTOCOL_20261009.md']
+        files += [DOC/name for name in ('chatbot_falcon_ssd_tiles_binding_20261009.json',
+                  'chatbot_falcon_ssd_tiles_result_20261009.launcher_failure.json',
+                  'chatbot_falcon_ssd_tiles_result_20261009.worker.log')]
     files=list(dict.fromkeys(p.resolve() for p in files))
     inputs=[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in files]
     write(a.out,dict(schema='FALCON_SSD_TILES_BINDING_V1',python=str(Path(sys.executable).resolve()),
@@ -126,4 +133,5 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=('bind','worker'),default='worker')
     p.add_argument('--binding',type=Path);p.add_argument('--binding-sha');p.add_argument('--freeze')
     p.add_argument('--directory',type=Path);p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--prior-failure',type=Path)
     a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)
