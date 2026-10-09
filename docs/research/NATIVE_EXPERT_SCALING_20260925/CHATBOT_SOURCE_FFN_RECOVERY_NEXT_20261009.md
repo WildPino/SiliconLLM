@@ -1,7 +1,12 @@
 # Next: broader useful functions under original engine arithmetic
 
-9 October 2026. Selected next investigation; broader code/protocol/binding NOT
-implemented or frozen. Four-case capture, grids and fixed recovery are COMPLETE:
+9 October 2026. Broad acquisition4eb02126/f18c52d1 is COMPLETE/PASS, and fixed
+broad recovery8bb6af56/b9955431 is COMPLETE/absolute fidelity FAIL. Both jobs
+terminal; no owned live process. The operational next action is now
+[site0 additional dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md), from actual
+state256 to1024 (768 NEW updates). Worker/binding remain unimplemented. The
+coverage plan below is historical/completed and must not be restarted.
+Four-case capture, grids and fixed recovery are COMPLETE:
 [local result](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md).
 [Geometry/centering](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_RESULT_20261009.md)
 prevents treating final-site mean correction as useful conditional transfer.

@@ -63,8 +63,11 @@ extra active rows:DEV error .539/.539 atsite0,.191/.224 atsite23;absolute gatesF
 [Saved geometry/centering](CHATBOT_SOURCE_FFN_RECOVERY_GEOMETRY_RESULT_20261009.md)
 shows91-94% ofsite23 squared-error gain ismean correction;centered DEVerrors
 still .467/.492. Do not equate this gain with retained conditional knowledge.
-[Next](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md) broadens functional coverage
-before selection/core;source-active cost is not an affordable final runtime.
+[Broader coverage](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md) is now
+COMPLETE under unchanged arithmetic/loss:site0 DEV .519/centered .521 andsite23
+.196/.373,absoluteFAIL. Next [site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md)
+isolates optimization byrestoring256 andadding768 NEW updates before selection/
+core;source-active cost is not an affordable final runtime.
 
 ## 1. Bind source, interaction and applicability
 
@@ -328,8 +331,20 @@ actual reason/budget/stops and measure FP16-compatible feasibility before alloca
 All source FFN controls/local recovery/saved geometry are terminal:fulltrit/AQ
 packageFAIL,F32-only preservationPASS,localabsolute recoveryFAIL. Broader actual
 operand coverage andmean/varying recovery areselected next;seeINDEX anditsplan.
-No training/T4/current owned worker. No completed grids/recovery/source replies
-should be replayed as the next default action.
+[Broad source operands](CHATBOT_SOURCE_FFN_BROAD_CAPTURE_RESULT_20261009.md)
+4eb02126/f18c52d1 COMPLETE/PASS:all48/8808,44NEW/8266 labels,135.43MB new
+hidden payload;all577.25M source coordinates match bits including old4 reuse.
+1246.485s/OS3.726GB/GPU5.102/9.181GB. [Broader fixed recovery](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md)
+8bb6af56/b9955431 COMPLETE:512 updates,same original Student AST/STE/loss/native
+arithmetic,12-domain FIT coverage. Per-site13965 rows/all4422 uniqueFIT positions.
+Site0 DEVwhole .560->.519/centered .558->.521;site23 .488->.196/.556->.373.
+Absolute all-case gatesFAIL;bothcase retentionPASS. Tritchanges2.24%/1.62%,
+FIT error still .475/site0. Family122.625s/OS1.705GB/GPU1.142/1.342GB;durable
+actual256/site models/moments/RNG/history retained. No discarded steps/fault.
+Next [site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md) isolates additional
+optimization from representation/loss changes by resuming actual256 to1024.
+Alljobs terminal/noT4. No completed initial/source/capture/grid/update replay.
+INDEX holds exact resumption;no local pass would by itself admit finalengine.
 Native chat/cost family22s COMPLETE/exit0,
 raw one-core rates46.01-58.84,all replies capped/degenerate;no accepted50.
 INDEX supersedes historical LIVE/NEXTs;

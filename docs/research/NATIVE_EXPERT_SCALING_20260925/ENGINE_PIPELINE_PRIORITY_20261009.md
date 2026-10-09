@@ -13,6 +13,12 @@ show that91-94% of final-site squared-error improvement is mean correction;
 input-varying error remains large. Recover common AND conditional responses,
 then useful selection and compact source state, before a new C quality/rate claim.
 The next variable is broader function coverage, not another engine runtime.
+That coverage experiment is now [COMPLETE](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md):
+original Student/STE/loss/active rows,256/site over12 FIT domains. Site0 FITerror
+.475/DEV .519 means it still underfits the observed functions; only2.24% trits
+changed. [Selected next dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md) resumes
+actualsite0 state256 to1024 with allprevious moments/history andnew768 updates.
+Broader source packets andeverycompleted before/source observation stay reusable.
 No model/compiler job is running. INDEX and the current
 [recovery next](CHATBOT_SOURCE_FFN_RECOVERY_NEXT_20261009.md) supersede older
 operational resumptions below. No completed old recovery/control should restart.

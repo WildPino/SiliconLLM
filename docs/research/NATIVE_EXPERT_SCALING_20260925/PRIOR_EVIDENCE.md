@@ -1,5 +1,25 @@
 # Native expert-count scaling: prior evidence
 
+**9 October broad internal operands and fixed coverage recovery COMPLETE:**
+[Capture](CHATBOT_SOURCE_FFN_BROAD_CAPTURE_RESULT_20261009.md),4eb02126/f18c52d1:
+44NEW/8266+4reused/542=48/8808, actualsite0/23 x/y144.31MB/new135.43MB;
+all577,249,896 source-logit coordinates match BF16 bits, original411 parameter
+objects/versions unchanged.1246.485s/heldOS3.726GB/GPU5.102/9.181GB/resourcePASS/
+exit0/session62694closed. No source replies/optimizer/native/T4/RESERVED.
+[Broader recovery](CHATBOT_SOURCE_FFN_BROAD_RECOVERY_RESULT_20261009.md),8bb6af56/
+b9955431:exact originalStudent AST/STE/loss/optimizer/native rows;fixed256/site,
+512finite updates, nofault.44NEWinitial+4reused/48after eachsite.24FIT/4422
+uniquerows,13965 actualtrainingrow exposures/site,12 domains;not equal rowdose
+to old2prefix256. Site0 FIT .475/DEVwhole .560->.519/centered .558->.521;
+site23 .488->.196/.556->.373. Relativegain onlysite23, allcase retentionPASS,
+absolutewhole .10/cosine .99/NEWcentered .10 gatesFAIL. Changedtrits2.24%/1.62%,
+not capacity/errorbounds.122.625s/OS1.705GB/GPU1.142/1.342GB/204files1.528GB/
+resource-inputPASS/exit0/session24779closed. Actual256 model/moments/RNG/history
+retained for bothsites. Next [site0 dose](CHATBOT_SOURCE_FFN_DOSE_NEXT_20261009.md)
+restores SHAa2603025 actual256 and adds768 NEW steps to1024 underunchanged
+data/loss/operators. UNIMPLEMENTED/UNEXECUTED;no completed update/before/source
+replay. Substantial FIT error prevents treating256 as a representation ceiling.
+
 **9 October true source local functions, recovery and saved geometry COMPLETE:**
 [Local result](CHATBOT_SOURCE_FFN_LOCAL_RESULT_20261009.md):actualsourceFFN x/y
 atsites0/23,fourFIT2/DEV2 cached forcedcases/542 labels/8,880,128BF16 bytes;
