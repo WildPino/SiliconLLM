@@ -38,13 +38,6 @@ def bind(a):
     files += [SITE/'transformers/models/falcon_h1/modeling_falcon_h1.py']
     files += [ROOT/name for name in ('benchmarks/donor_adaptation/configs/_manifest.json',
                'benchmarks/donor_adaptation/density/build_document_holdout.py','docs/research/RESEARCH_INDEX.md')]
-    if a.prior_failure:
-        prior=json.loads(a.prior_failure.read_bytes());assert not prior['completed']
-        files += [a.prior_failure,DOC/'CHATBOT_BROAD_COST_REPAIR1_PROTOCOL_20261009.md',
-                  DOC/'chatbot_broad_cost_worker_frozen_20261009.py.txt',
-                  DOC/'chatbot_broad_cost_binding_20261009.json',
-                  DOC/'chatbot_broad_cost_result_20261009.launcher_failure.json',
-                  DOC/'chatbot_broad_cost_result_20261009.worker.log']
     files=list(dict.fromkeys(p.resolve() for p in files))
     inputs=[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in files]
     write(a.out,dict(schema='BROAD_CHAT_COST_BINDING_V1',python=str(Path(sys.executable).resolve()),
@@ -128,20 +121,13 @@ def worker(a):
             loss=(prob*(logp-torch.log_softmax(logits,-1))).sum(-1).mean()
             assert torch.isfinite(loss).item();forward_seconds=time.monotonic()-t0
             loss.backward();torch.cuda.synchronize();backward_seconds=time.monotonic()-t0-forward_seconds
-            write(a.directory/(identifier+'.forward_backward.json'),dict(id=identifier,
-                  input_ids=len(record['input_ids']),teacher_forcing_ids=len(record['student_input_ids']),
-                  labels=len(record['output_ids']),training_dither=True,KL=loss.detach().item(),
-                  forward_seconds=forward_seconds,backward_seconds=backward_seconds,
-                  GPU_allocated_peak_so_far=torch.cuda.max_memory_allocated(),
-                  GPU_reserved_peak_so_far=torch.cuda.max_memory_reserved()))
             assert all(p.grad is not None and p.grad.shape==p.shape and torch.isfinite(p.grad).all().item() for _,p in named)
             groups=[]
             for index,layer in enumerate(target.layers):
                 values={}
-                for label,parameters in (('core',list(layer.core.parameters())),
-                    ('banks',list(layer.banks.parameters())),
-                    ('norm',list(layer.input_norm.parameters())+list(layer.ff_norm.parameters())):
-                    selected=[p.grad for p in parameters]
+                for label in ('core','banks','norm'):
+                    selected=[p.grad for name,p in layer.named_parameters()
+                              if (name.startswith('core') if label=='core' else name.startswith('banks') if label=='banks' else name.startswith('norm'))]
                     assert selected
                     squared=sum(float(g.double().square().sum().item()) for g in selected)
                     assert 0<squared<float('inf'),(index,label)
@@ -180,5 +166,4 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=('bind','worker'),default='worker')
     p.add_argument('--binding',type=Path);p.add_argument('--binding-sha');p.add_argument('--freeze')
     p.add_argument('--directory',type=Path);p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--prior-failure',type=Path)
     a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)

@@ -1,0 +1,9 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_broad_cost.py", line 169, in <module>
+    a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)
+                                                    ^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_broad_cost.py", line 131, in worker
+    assert selected
+           ^^^^^^^^
+AssertionError

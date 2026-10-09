@@ -1,0 +1,30 @@
+{
+  "freeze": "d026658a34bf82d16bf54cd2ebcd966e9481174e",
+  "binding_sha256": "79c8d3a71b0cb45b5089a59cbeb444be35e27eccb8bee6e90c95a02eff6f0bde",
+  "launcher_pid": 26184,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_broad_cost.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_cost_binding_20261009.json",
+    "--binding-sha",
+    "79c8d3a71b0cb45b5089a59cbeb444be35e27eccb8bee6e90c95a02eff6f0bde",
+    "--freeze",
+    "d026658a34bf82d16bf54cd2ebcd966e9481174e",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_cost_20261009",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_broad_cost_result_20261009.json"
+  ],
+  "worker_pid": 8016,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 5535723520,
+  "launcher_OS_peak_snapshot": 27742208,
+  "fault": "AssertionError('[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_broad_cost.py\", line 169, in <module>\\n    a=p.parse_args();bind(a) if a.mode==\\'bind\\' else worker(a)\\n                                                    ^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_broad_cost.py\", line 131, in worker\\n    assert selected\\n           ^^^^^^^^\\nAssertionError\\n')",
+  "elapsed_seconds": 28.70300000003772
+}
