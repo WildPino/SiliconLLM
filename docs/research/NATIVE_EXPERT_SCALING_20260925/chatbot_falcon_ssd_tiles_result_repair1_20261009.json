@@ -1,0 +1,54 @@
+{
+  "schema": "FALCON_SSD_TILES_RESULT_V1",
+  "freeze": "ffb92001628be578248c9600526aac0dabf6361c",
+  "binding_sha256": "42b900af40cd1d3e1873daaf72f394b5e14cf83b641083bea9b9fbc8a90dc243",
+  "decision": "TILED_SOURCE_TRAJECTORIES_PASS",
+  "process_instance": {
+    "pid": 12424,
+    "create_time_unix": 1791511504.5745895
+  },
+  "cases": 2,
+  "labels": 151,
+  "source_forwards": 151,
+  "source_generations": 0,
+  "student_forwards": 0,
+  "training_updates": 0,
+  "native_runs": 0,
+  "gates": {
+    "all_logit_bits_equal": true,
+    "all_argmax_equal": true
+  },
+  "observations": [
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "input_length": 362,
+      "labels": 118,
+      "differing_BF16_coordinates": 0,
+      "differing_argmax": 0,
+      "seconds": 16.71799999999348,
+      "logits": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_falcon_ssd_tiles_repair1_20261009\\broad_fit_apigen_80k_023.logits.bf16",
+        "bytes": 15466732,
+        "sha256": "dc64c2b86dfd78d317c9aa574c6794dc401f6c327f28fcd6f378d162fe63894b"
+      }
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "input_length": 741,
+      "labels": 33,
+      "differing_BF16_coordinates": 0,
+      "differing_argmax": 0,
+      "seconds": 8.89100000000326,
+      "logits": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_falcon_ssd_tiles_repair1_20261009\\broad_fit_apigen_80k_002.logits.bf16",
+        "bytes": 4325442,
+        "sha256": "8a64e6293ff046677b7008b1a3f04cd43108b2ea9b65e48d40cf233eac65e511"
+      }
+    }
+  ],
+  "GPU_allocated_peak": 4622627328,
+  "GPU_reserved_peak": 6146752512,
+  "worker_OS_peak_snapshot": 3723444224,
+  "elapsed_seconds": 38.04700000002049,
+  "scope": "New source temporary-storage schedule on two saved fixed forced trajectories. Zero regenerated labels; exact observed BF16 logits and IDs required. Mathematical contraction identity is general; bit equality is observed only here."
+}

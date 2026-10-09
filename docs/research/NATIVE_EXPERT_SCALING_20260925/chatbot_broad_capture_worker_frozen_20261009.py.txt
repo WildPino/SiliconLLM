@@ -67,7 +67,7 @@ def worker(a):
     start = time.monotonic()
     assert sha(a.binding) == a.binding_sha
     b = json.loads(a.binding.read_bytes())
-    assert b['schema'] in ('BROAD_CHAT_CAPTURE_BINDING_V1', 'BROAD_CHAT_CAPTURE_REPAIR_BINDING_V1')
+    assert b['schema'] == 'BROAD_CHAT_CAPTURE_BINDING_V1'
     a.directory.mkdir(exist_ok=False)
     completed = []
     new_calls = 0
@@ -128,63 +128,44 @@ def worker(a):
             preflight.append(dict(**case, serialized=text))
         write(a.directory / 'interaction_preflight.json', preflight)
         guard(reserve=True)
-        old = Path(b['resume']) if b.get('resume') else None
-        if old:
-            qualification = json.loads(Path(b['qualification']).read_bytes())
-            assert qualification['decision'] == 'TILED_SOURCE_TRAJECTORIES_PASS' and all(qualification['gates'].values())
-            from chatbot_falcon_ssd_tiles import install
-            write(a.directory / 'source_method.json', install(source_code))
         model = FalconH1ForCausalLM.from_pretrained(source, local_files_only=True, trust_remote_code=False,
                     dtype=torch.bfloat16, attn_implementation='eager').to('cuda').eval()
         assert sum(p.numel() for p in model.parameters()) == b['source_named_elements']
         assert not source_code.is_fast_path_available and model.generation_config.eos_token_id == [11, 228]
         records = []
-        reused = 0
         for case in preflight:
             guard(reserve=True)
             active_case = case['id']
             case_start = time.monotonic()
-            saved = old / (case['id']+'.json') if old and case['id'] in b['reused_ids'] else None
-            if saved:
-                record = json.loads(saved.read_bytes())
-                assert all(record[k] == v for k, v in case.items())
-                assert sha(record['logits']['path']) == record['logits']['sha256']
-                outputs = record['output_ids']
-                record['source_packet_origin'] = 'Original failed family; reused without new generation.'
-                write(a.directory / (case['id']+'.json'), record)
+            with torch.inference_mode():
+                inputs = torch.tensor([case['input_ids']], device='cuda')
+                result = model.generate(input_ids=inputs, attention_mask=torch.ones_like(inputs),
+                        max_new_tokens=spec['max_new_tokens'], do_sample=False, use_cache=True,
+                        return_dict_in_generate=True, output_logits=True)
+                new_calls += 1
+                outputs = result.sequences[0, len(case['input_ids']):].tolist()
+                logits = torch.stack(result.logits).squeeze(1)
+                encoded = logits.to(torch.bfloat16)
+                raw = a.directory / (case['id'] + '.logits.bf16')
+                with raw.open('xb') as stream:
+                    stream.write(encoded.contiguous().view(torch.uint16).cpu().numpy().astype('<u2', copy=False).tobytes())
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                record = dict(**case, output_ids=outputs,
+                    output_text=tokenizer.decode(outputs, skip_special_tokens=True, clean_up_tokenization_spaces=False),
+                    stop=('EOS' if outputs[-1] in (11, 228) else 'length') if outputs else 'empty',
+                    raw_logits_dtype=str(logits.dtype), BF16_lossless=bool(torch.equal(encoded.float(), logits.float())),
+                    raw_argmax_equals_generated=bool(logits.argmax(-1).tolist() == outputs),
+                    finite=bool(torch.isfinite(logits).all()),
+                    logits=dict(path=str(raw.resolve()), shape=list(logits.shape), dtype='BF16',
+                                bytes=raw.stat().st_size, sha256=sha(raw)),
+                    student_input_ids=case['input_ids']+outputs[:-1],
+                    positions=list(range(len(case['input_ids'])-1, len(case['input_ids'])+len(outputs)-1)),
+                    source_and_packet_seconds=time.monotonic()-case_start)
+                # Save every completed generation before any transport or resource admission.
+                write(a.directory / (case['id'] + '.json'), record)
                 completed.append(case['id'])
-                reused += 1
-            else:
-                with torch.inference_mode():
-                    inputs = torch.tensor([case['input_ids']], device='cuda')
-                    result = model.generate(input_ids=inputs, attention_mask=torch.ones_like(inputs),
-                            max_new_tokens=spec['max_new_tokens'], do_sample=False, use_cache=True,
-                            return_dict_in_generate=True, output_logits=True)
-                    new_calls += 1
-                    outputs = result.sequences[0, len(case['input_ids']):].tolist()
-                    logits = torch.stack(result.logits).squeeze(1)
-                    encoded = logits.to(torch.bfloat16)
-                    raw = a.directory / (case['id'] + '.logits.bf16')
-                    with raw.open('xb') as stream:
-                        stream.write(encoded.contiguous().view(torch.uint16).cpu().numpy().astype('<u2', copy=False).tobytes())
-                        stream.flush()
-                        os.fsync(stream.fileno())
-                    record = dict(**case, output_ids=outputs,
-                        source_packet_origin='Qualified tiled SSD new capture.' if old else 'Original source capture.',
-                        output_text=tokenizer.decode(outputs, skip_special_tokens=True, clean_up_tokenization_spaces=False),
-                        stop=('EOS' if outputs[-1] in (11, 228) else 'length') if outputs else 'empty',
-                        raw_logits_dtype=str(logits.dtype), BF16_lossless=bool(torch.equal(encoded.float(), logits.float())),
-                        raw_argmax_equals_generated=bool(logits.argmax(-1).tolist() == outputs),
-                        finite=bool(torch.isfinite(logits).all()),
-                        logits=dict(path=str(raw.resolve()), shape=list(logits.shape), dtype='BF16',
-                                    bytes=raw.stat().st_size, sha256=sha(raw)),
-                        student_input_ids=case['input_ids']+outputs[:-1],
-                        positions=list(range(len(case['input_ids'])-1, len(case['input_ids'])+len(outputs)-1)),
-                        source_and_packet_seconds=time.monotonic()-case_start)
-                    # Save every completed generation before any transport or resource admission.
-                    write(a.directory / (case['id'] + '.json'), record)
-                    completed.append(case['id'])
-                    del result, logits, encoded, inputs
+                del result, logits, encoded, inputs
             assert record['finite'] and record['BF16_lossless'] and record['raw_argmax_equals_generated']
             assert record['logits']['shape'] == [len(outputs), 65537]
             assert 1 <= len(outputs) <= spec['max_new_tokens']
@@ -212,8 +193,6 @@ def worker(a):
             freeze=a.freeze, binding_sha256=a.binding_sha,
             process_instance=dict(pid=proc.pid, create_time_unix=proc.create_time()),
             source_revision=b['source_revision'], cases=48, FIT_cases=24, DEV_cases=24,
-            binding_path=str(a.binding.resolve()), source_storage_variant='qualified_tiled_SSD' if old else 'original',
-            reused_original_generations=reused,
             reserved_queries=0, new_source_generations=new_calls, labels=sum(len(r['output_ids']) for r in records),
             BF16_packet_bytes=sum(r['logits']['bytes'] for r in records), summary=summary,
             corpus=dict(path=str(corpus_path.resolve()), bytes=corpus_path.stat().st_size, sha256=sha(corpus_path)),
