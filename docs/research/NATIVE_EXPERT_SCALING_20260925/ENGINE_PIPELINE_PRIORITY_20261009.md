@@ -6,6 +6,18 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+[Real source-informed original-shaped construction/step](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md)
+now exists: D256/L6/n1152/full V65537/all-source FFN maps/fresh original core,
+streamed CPU-master adjoint, whole1507 history/actual Adam1/native packed output.
+Memory scopePASS; native numeric gateFAIL at5 output rows/60 mass calls. Actual
+native versus GPU full-label KL differs2.242e-8/all faults precede labels; both
+have256/256 disagreement and post-update KL10.58. This measured numeric discrepancy
+does not explain the large source-information loss in this packet. Keep that
+FAIL and actual state; [next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) resolves
+the current RMS/readout feasible image and then finite whole recovery measured
+in C, with GPU training explicitly a numerical surrogate. No small-model/loader
+sweep or month-long allocation before a measured whole-recovery decision.
+
 [Direct tensor original-operator learner/export](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md)
 is now COMPLETE/PASS. Original D256/L6/AQ63/dReLU/full-softmax/top8 contract,
 real-master direct packed export, actual one CPU Adam update and changed native

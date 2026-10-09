@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 9 October 2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-All paired, original-packed and tensor-learner jobs terminal. No owned job/T4 allocation live.
+All paired, packed, tensor and source-informed learner jobs terminal. No owned job/T4 allocation live.
 
 ## Goal and constraints
 
@@ -28,6 +28,24 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Real source-informed original-shaped learner](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md):
+construction/full-history update COMPLETE; native numerical gate FAIL.**
+Actual original D256/L6/H128/k8/n1152/full V65537,717.877M masters/679.477M bank
+coefficients; ALL24 Falcon FFNs/all rows through explicit P256/quadrant/partition
+maps, fresh original core. New streamed first-order adjoint agrees with reference
+CPU/GPU VJPs<=4.835e-7; CPU quantizer shared by forward/export. Entire1507-ID FIT
+history/256 labels, actual Adam1/RNG saved;KL11.602069 ->10.580770,dis256/256 both.
+All-source coefficient count/hash-distinct1152 bundles/site do not prove knowledge.
+Five/1507 full-output rows and60 route-mass calls fail fixed numeric gates;
+all72,336 IDs/all1507 greedy outputs exact/18,432 integer witnesses exact.
+Stored-only native/source audit: native labelKL10.5807693345 versus GPU10.5807693121,
+delta2.242e-8;all numeric failures before labels. That error does not explain this
+packet's large transfer loss; historical FAIL stays. Family426.937s/OS13.559GB/
+GPU1.690/2.122GB/exit0/session55538 CLOSED/source queries0/T4 none. No useful
+chatbot/native parity/rate/large-n admission. [Exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+quantifies the current RMS/readout information image before a finite broader
+whole recovery measured in the actual native engine. Retain actual Adam1.
+
 **[Direct tensor learner/export bridge](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md): COMPLETE/PASS.**
 New original D256/L6 trainable scan/SWA/dReLU/AQ63/full-softmax routing contract
 and master-tensor E4BPv001 producer. All92 original master tensors export bit-
@@ -38,9 +56,9 @@ all actual IDs exact/masses within1e-6. Actual model/Adam1/RNG saved;6,144 chang
 native integer witnesses exact. Family36.281s/conservative OS1.008GB/exit0/
 session31156 CLOSED;source/GPU/T4 zero. This is original E32/V1024/16-ID bridge
 evidence, not a source-informed Falcon learner or useful-chatbot/large-n/rate
-admission. [Exact next action](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) is a real
-source initialization ledger and union-aware bank residency before longest-FIT
-whole-model adaptation; no additional original-small-model update sweep.
+admission. Its source-initialization/union-residency/longest-FIT successor is now
+the actual result above; [current next action](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+uses source Adam1. No additional original-small-model update sweep.
 
 **[Original-shaped packed capacity](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md): COMPLETE/PASS.**
 Actual original core/LUT/dReLU/AQ63 operators;20 source bodies/19 unchanged and

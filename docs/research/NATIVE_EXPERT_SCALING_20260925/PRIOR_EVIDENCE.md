@@ -1,5 +1,21 @@
 # Native expert-count scaling: prior evidence
 
+**9 October source-informed original-shaped whole-history step COMPLETE; numeric FAIL:**
+[Result](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md),freezea99d9cc2/bindingc2281fd9/
+raw5e6f3d3d. D256/L6/n1152/full V65537/717,877,248 masters;all24 source FFNs/all
+rows mapped, fresh original core. Streamed adjoint reference CPU/GPU VJPs<=4.835e-7;
+entire1507 FIT history/256 labels/actual Adam1/RNG. KL11.602069 ->10.580770,dis
+256/256 both;one FIT step is not useful recovery. Actual8,614,643,514B state
+9f956177 retained;packed507,505,920B/no references. Five/1507 output rows and60
+mass calls fail frozen numeric criteria;all72,336 IDs/all1507 greedy outputs agree,
+all18,432 integer witnesses exact. Stored-only audit087e6147 preserves FAIL,
+nativeKL10.58076933452 versus GPU10.58076931210/delta2.242e-8;all numerical
+failures before labels, so they do not explain this observed loss. Family426.937s/
+OS13,559,287,808B/GPU1,689,576,960/2,122,317,824B/exit0/session55538 CLOSED.
+No retries/new source inference/RESERVED/T4/quality/rate/large-n admission.
+[Next current readout geometry and native whole recovery](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+retains actual source Adam1;prior initialization-is-missing wording is superseded.
+
 **9 October direct tensor original-operator learner bridge COMPLETE/PASS:**
 [Result](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md),freeze1d7988c6/bindinga0b835d2/
 rawe3732b34. All92 real original master tensors/22,516,672 coefficients adopted

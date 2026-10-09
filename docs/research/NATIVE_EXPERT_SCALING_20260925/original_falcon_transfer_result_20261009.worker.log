@@ -1,0 +1,34 @@
+{"stage": "adjoint_control", "seconds": 5.75, "pass_gate": true}
+{"stage": "source_initialization", "seconds": 8.452999999979511, "operation": "source_block", "completed": 1, "total": 24, "site": null}
+{"stage": "source_initialization", "seconds": 14.03100000001723, "operation": "source_block", "completed": 24, "total": 24, "site": null}
+{"stage": "source_initialization", "seconds": 60.09299999999348, "snapshot": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_transfer_20261009\\source_initial.pt", "bytes": 2871547324, "sha256": "0f92e996b54363158e53cb910b7f2ac0d47908aa77bab4a99b110e1fa4a834d0"}}
+{"stage": "whole_forward_backward", "seconds": 61.95299999997951, "operation": "bank_forward", "completed": 1, "total": 694, "site": 0}
+{"stage": "whole_forward_backward", "seconds": 65.125, "operation": "bank_forward", "completed": 694, "total": 694, "site": 0}
+{"stage": "whole_forward_backward", "seconds": 70.0, "operation": "bank_forward", "completed": 865, "total": 865, "site": 1}
+{"stage": "whole_forward_backward", "seconds": 75.125, "operation": "bank_forward", "completed": 970, "total": 970, "site": 2}
+{"stage": "whole_forward_backward", "seconds": 80.64000000001397, "operation": "bank_forward", "completed": 1019, "total": 1019, "site": 3}
+{"stage": "whole_forward_backward", "seconds": 86.42099999997299, "operation": "bank_forward", "completed": 998, "total": 998, "site": 4}
+{"stage": "whole_forward_backward", "seconds": 90.78100000001723, "operation": "bank_forward", "completed": 997, "total": 997, "site": 5}
+{"stage": "whole_forward_backward", "seconds": 92.04599999997299, "KL": 11.602068901062012, "exposure": [{"site": 0, "union": 694, "selected_pairs": 12056}, {"site": 1, "union": 865, "selected_pairs": 12056}, {"site": 2, "union": 970, "selected_pairs": 12056}, {"site": 3, "union": 1019, "selected_pairs": 12056}, {"site": 4, "union": 998, "selected_pairs": 12056}, {"site": 5, "union": 997, "selected_pairs": 12056}], "forward_seconds": 31.014999999955762}
+{"stage": "whole_forward_backward", "seconds": 96.92099999997299, "operation": "bank_forward", "completed": 997, "total": 997, "site": 5}
+{"stage": "whole_forward_backward", "seconds": 105.34299999999348, "operation": "bank_backward", "completed": 997, "total": 997, "site": 5}
+{"stage": "whole_forward_backward", "seconds": 111.84299999999348, "operation": "bank_forward", "completed": 998, "total": 998, "site": 4}
+{"stage": "whole_forward_backward", "seconds": 119.93699999997625, "operation": "bank_backward", "completed": 998, "total": 998, "site": 4}
+{"stage": "whole_forward_backward", "seconds": 127.96799999999348, "operation": "bank_forward", "completed": 1019, "total": 1019, "site": 3}
+{"stage": "whole_forward_backward", "seconds": 136.06199999997625, "operation": "bank_backward", "completed": 1019, "total": 1019, "site": 3}
+{"stage": "whole_forward_backward", "seconds": 143.76500000001397, "operation": "bank_forward", "completed": 970, "total": 970, "site": 2}
+{"stage": "whole_forward_backward", "seconds": 151.170999999973, "operation": "bank_backward", "completed": 970, "total": 970, "site": 2}
+{"stage": "whole_forward_backward", "seconds": 158.89000000001397, "operation": "bank_forward", "completed": 865, "total": 865, "site": 1}
+{"stage": "whole_forward_backward", "seconds": 165.7029999999795, "operation": "bank_backward", "completed": 865, "total": 865, "site": 1}
+{"stage": "whole_forward_backward", "seconds": 172.875, "operation": "bank_forward", "completed": 694, "total": 694, "site": 0}
+{"stage": "whole_forward_backward", "seconds": 178.68699999997625, "operation": "bank_backward", "completed": 694, "total": 694, "site": 0}
+{"stage": "durable_update", "seconds": 345.76500000001397, "snapshot": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_transfer_20261009\\candidate.pt", "bytes": 8614643514, "sha256": "9f95617738df94722c5152dc72ff71e11942154cbb68ef1d99d03b83300cfd0a"}}
+{"stage": "export_updated", "seconds": 359.81199999997625, "packed_bytes": 507505920}
+{"stage": "GPU_whole_history", "seconds": 377.43699999997625, "operation": "bank_forward", "completed": 1, "total": 694, "site": 0}
+{"stage": "GPU_whole_history", "seconds": 380.9679999999935, "operation": "bank_forward", "completed": 694, "total": 694, "site": 0}
+{"stage": "GPU_whole_history", "seconds": 385.295999999973, "operation": "bank_forward", "completed": 865, "total": 865, "site": 1}
+{"stage": "GPU_whole_history", "seconds": 390.170999999973, "operation": "bank_forward", "completed": 971, "total": 971, "site": 2}
+{"stage": "GPU_whole_history", "seconds": 395.53100000001723, "operation": "bank_forward", "completed": 1023, "total": 1023, "site": 3}
+{"stage": "GPU_whole_history", "seconds": 402.48399999999674, "operation": "bank_forward", "completed": 996, "total": 996, "site": 4}
+{"stage": "GPU_whole_history", "seconds": 407.0929999999935, "operation": "bank_forward", "completed": 990, "total": 990, "site": 5}
+{"stage": "complete", "decision": "ORIGINAL_FALCON_NATIVE_NUMERICAL_GATE_FAIL", "seconds": 417.0, "KL_before": 11.602068901062012, "KL_after": 10.580770492553711}
