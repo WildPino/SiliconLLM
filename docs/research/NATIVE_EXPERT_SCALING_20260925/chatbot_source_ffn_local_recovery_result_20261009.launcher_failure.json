@@ -1,0 +1,30 @@
+{
+  "freeze": "f45c1d002e42b4a1fe6f4d6ca5af04f39260c656",
+  "binding_sha256": "7172fd5436a472e72c8b0ea11fc96d73606b212b373a26d66e4dde8224d03156",
+  "launcher_pid": 20820,
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_source_ffn_local_recovery.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_recovery_binding_repair1_20261009.json",
+    "--binding-sha",
+    "7172fd5436a472e72c8b0ea11fc96d73606b212b373a26d66e4dde8224d03156",
+    "--freeze",
+    "f45c1d002e42b4a1fe6f4d6ca5af04f39260c656",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_20261009",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\chatbot_source_ffn_local_recovery_result_20261009.json"
+  ],
+  "worker_pid": 2088,
+  "exit_code": 1,
+  "worker_OS_peak_through_exit": 1579778048,
+  "launcher_OS_peak_snapshot": 27459584,
+  "fault": "AssertionError('{\"stage\": \"actual_price\", \"seconds\": 15.89100000000326, \"site\": 0, \"seconds_per_step\": [0.14100000000325963, 0.0470000000204891], \"projected_total_seconds\": 147.80100000166567, \"durable_state\": {\"path\": \"D:\\\\\\\\_THINGS\\\\\\\\Progetti\\\\\\\\SiliconLLM\\\\\\\\results\\\\\\\\native_expert_scaling\\\\\\\\chatbot_source_ffn_local_recovery_20261009\\\\\\\\site00.state002.pt\", \"bytes\": 339886792, \"sha256\": \"3bbc6b4b4d45bbcdcd0a6c229b7ceff5d7342fe88d69e992eaf9ba9e69333a15\"}}\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_source_ffn_local_recovery.py\", line 216, in <module>\\n    a=p.parse_args();bind(a) if a.mode==\\'bind\\' else worker(a)\\n                                                    ^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_source_ffn_local_recovery.py\", line 172, in worker\\n    if step%32==0:event(\\'update\\',site=site,step=step,loss=loss.item(),seconds=seconds)\\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_source_ffn_local_recovery.py\", line 61, in event\\n    def event(stage,**fields):print(json.dumps(dict(stage=stage,seconds=time.monotonic()-start,**fields)),flush=True);guard()\\n                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nTypeError: dict() got multiple values for keyword argument \\'seconds\\'\\n')",
+  "elapsed_seconds": 24.51600000000326
+}

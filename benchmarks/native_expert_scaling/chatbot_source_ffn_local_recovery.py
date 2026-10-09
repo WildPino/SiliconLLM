@@ -14,6 +14,28 @@ sys.path.insert(0,str(SITE))
 
 
 def bind(a):
+    if a.mode=='bind-resume':
+        previous_path=DOC/'chatbot_source_ffn_local_recovery_binding_repair1_20261009.json';previous=read(previous_path)
+        failure_path=DOC/'chatbot_source_ffn_local_recovery_result_20261009.launcher_failure.json';failure=read(failure_path)
+        worker_failure=ROOT/'results/native_expert_scaling/chatbot_source_ffn_local_recovery_20261009/first_failure.json'
+        wf=read(worker_failure)
+        assert failure['exit_code']==1 and wf['optimizer_updates']==32 and wf['completed']==[]
+        assert 'multiple values' in wf['fault'] and 'seconds' in wf['fault']
+        state=ROOT/'results/native_expert_scaling/chatbot_source_ffn_local_recovery_20261009/site00.state002.pt'
+        assert sha(state)=='3bbc6b4b4d45bbcdcd0a6c229b7ceff5d7342fe88d69e992eaf9ba9e69333a15'
+        for item in previous['inputs']:
+            p=Path(item['path'])
+            if p.resolve()!=Path(__file__).resolve():assert p.stat().st_size==item['bytes'] and sha(p)==item['sha256'],str(p)
+        files=[Path(v['path']) for v in previous['inputs']]
+        files += [previous_path,failure_path,worker_failure,state,DOC/'CHATBOT_SOURCE_FFN_LOCAL_RECOVERY_RESUME_20261009.md']
+        files=list(dict.fromkeys(p.resolve() for p in files))
+        b={k:v for k,v in previous.items() if k!='inputs'}
+        import math
+        b['limits']=dict(previous['limits'],seconds=previous['limits']['seconds']-math.ceil(failure['elapsed_seconds']))
+        b.update(resume=dict(path=str(state),sha256=sha(state),site=0,steps=2,original_executed_updates=32,discarded_unpersisted_updates=30,
+            original_family_seconds=failure['elapsed_seconds']),inputs=[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in files])
+        write(a.out,b);print(json.dumps(dict(binding=str(a.out),sha256=sha(a.out),inputs=len(files),limits=b['limits'])),flush=True)
+        return
     oldpath=DOC/'chatbot_source_ffn_input_balance_binding_20261009.json';old=read(oldpath)
     priorpath=DOC/'chatbot_source_ffn_input_balance_result_20261009.json';prior=read(priorpath);terminal=receipt(priorpath)
     assert sha(oldpath)==prior['binding_sha256'] and prior['decision']=='SOURCE_FFN_MIRROR_BALANCE_FAIL'
@@ -128,11 +150,16 @@ def worker(a):
                 fit=[r for r in data if r['split']=='FIT'];dev=[r for r in data if r['split']=='DEV'];assert len(fit)==len(dev)==2
                 base=next(r for r in read(DOC/'chatbot_source_ffn_local_calibrate_result_20261009.json')['records'] if r['site']==site)
                 initial=[]
+                resume_here='resume' in b and b['resume']['site']==site
                 for rec in data:
                     if rec['split']=='FIT':
                         trial=next(t for t in base['trials'] if t['alpha']==selected['alpha'] and t['beta']==selected['beta'])
                         expected=next(v for v in trial['FIT'] if v['id']==rec['id'])['output']
                     else:expected=next(v for v in selected['DEV'] if v['id']==rec['id'])['output']
+                    if resume_here:
+                        prior_metric=next(v for v in (trial['FIT'] if rec['split']=='FIT' else selected['DEV']) if v['id']==rec['id'])
+                        initial.append(dict(id=rec['id'],split=rec['split'],relative_L2=prior_metric['relative_L2'],cosine=prior_metric['cosine']))
+                        continue
                     bits=np.fromfile(expected['path'],dtype='<u2').reshape(expected['shape'])
                     with torch.no_grad():value=model(rec['x']*S)
                     assert np.array_equal(value.view(torch.uint16).cpu().numpy(),bits),('initial inference',site,rec['id'])
@@ -142,7 +169,20 @@ def worker(a):
                     initial.append(dict(id=rec['id'],split=rec['split'],**metric(value.float(),rec['y'])));del value,train_value
                 opt=torch.optim.AdamW(model.parameters(),lr=b['lr'],betas=(.9,.999),eps=1e-8,weight_decay=0,foreach=False)
                 history=[];priced=[];price_state=None
-                for step in range(1,b['steps']+1):
+                first_step=1
+                if resume_here:
+                    assert sha(b['resume']['path'])==b['resume']['sha256']
+                    state=torch.load(b['resume']['path'],map_location='cpu',weights_only=True)
+                    assert state['schema']=='LOCAL_SOURCE_FFN_RECOVERY_STATE_V1' and state['site']==site and state['steps']==2
+                    model.load_state_dict(state['model'],strict=True);opt.load_state_dict(state['optimizer'])
+                    assert len(opt.state)==6 and all(v['step'].item()==2 for v in opt.state.values())
+                    torch.set_rng_state(state['CPU_RNG']);torch.cuda.set_rng_state(state['CUDA_RNG'])
+                    history=state['history'];assert len(history)==2 and history[-1]['step']==2
+                    priced=[v['seconds'] for v in history];first_step=3
+                    price_state=dict(path=b['resume']['path'],sha256=b['resume']['sha256'],bytes=Path(b['resume']['path']).stat().st_size)
+                    del state
+                    event('resume',site=site,durable_step=2,original_executed=32,unpersisted_discarded=30)
+                for step in range(first_step,b['steps']+1):
                     guard();case=(step-1)%2;rec=fit[case];visit=(step-1)//2
                     offset=0 if rec['x'].shape[0]<=b['batch'] else (visit*b['batch'])%rec['x'].shape[0]
                     stop=min(offset+b['batch'],rec['x'].shape[0]);x=rec['x'][offset:stop]*S;y=rec['y'][offset:stop]
@@ -169,7 +209,7 @@ def worker(a):
                         estimate=time.monotonic()-start+remaining*max(priced)+60
                         event('actual_price',site=site,seconds_per_step=priced,projected_total_seconds=estimate,durable_state=price_state)
                         assert estimate<=b['limits']['seconds']-b['limits']['reserve_seconds'],'priced total exceeds cap'
-                    if step%32==0:event('update',site=site,step=step,loss=loss.item(),seconds=seconds)
+                    if step%32==0:event('update',site=site,step=step,loss=loss.item(),step_seconds=seconds)
                     del actual,loss,x,y
                 final_state=snapshot(site,b['steps'],model,opt,history);after=[]
                 with torch.no_grad():
@@ -196,21 +236,28 @@ def worker(a):
                     initial_sector_and_all_STE_forward_bits_equal=True,trainable_elements=28322816)
                 write(a.directory/f'site{site:02d}.json',record);records.append(record);completed.append(site)
                 event('site_complete',site=site,DEV_ratio=ratio,gates=gates);del model,opt,w,transformed,scales,data
-        assert updates==512;phase='result';guard()
+        assert updates==(510 if 'resume' in b else 512);phase='result';guard()
         decision='SOURCE_FFN_LOCAL_RECOVERY_PASS' if all(all(v['gates'].values()) for v in records) else 'SOURCE_FFN_LOCAL_RECOVERY_FAIL'
         write(a.out,dict(schema='SOURCE_FFN_LOCAL_RESULT_V1',phase='recover',variant=b['variant'],decision=decision,freeze=a.freeze,binding_sha256=a.binding_sha,
-            process_instance=dict(pid=proc.pid,create_time_unix=proc.create_time()),cases=4,records=records,optimizer_updates=updates,source_forwards=0,source_generations=0,
+            process_instance=dict(pid=proc.pid,create_time_unix=proc.create_time()),cases=4,records=records,optimizer_updates=updates,effective_final_updates=512,
+            resume=b.get('resume'),source_forwards=0,source_generations=0,
             native_runs=0,reserved_queries=0,GPU_allocated_peak=torch.cuda.max_memory_allocated(),GPU_reserved_peak=torch.cuda.max_memory_reserved(),
             elapsed_seconds=time.monotonic()-start,quality_admission=False,native_admission=False,
             scope='Fixed256 updates per source FFN/two sites atsame selected rows/native arithmetic;local function evidence only,not whole source/compact chatbot/rate/n/DRAM/family admission.'))
         event('complete',decision=decision)
     except BaseException as error:
         failure=dict(fault=repr(error),phase=phase,completed=completed,optimizer_updates=updates,elapsed_seconds=time.monotonic()-start)
+        if 'model' in locals() and 'opt' in locals() and opt.state:
+            try:
+                steps={int(v['step'].item()) for v in opt.state.values()}
+                assert len(steps)==1
+                failure['durable_failure_state']=snapshot(site,next(iter(steps)),model,opt,history)
+            except BaseException as save_error:failure['failure_state_fault']=repr(save_error)
         if torch is not None:failure.update(GPU_allocated_peak=torch.cuda.max_memory_allocated(),GPU_reserved_peak=torch.cuda.max_memory_reserved())
         write(a.directory/'first_failure.json',failure);raise
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--mode',choices=('bind','worker'),default='worker');p.add_argument('--binding',type=Path)
+    p=argparse.ArgumentParser();p.add_argument('--mode',choices=('bind','bind-resume','worker'),default='worker');p.add_argument('--binding',type=Path)
     p.add_argument('--binding-sha');p.add_argument('--freeze');p.add_argument('--directory',type=Path);p.add_argument('--out',type=Path,required=True)
-    a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)
+    a=p.parse_args();bind(a) if a.mode.startswith('bind') else worker(a)

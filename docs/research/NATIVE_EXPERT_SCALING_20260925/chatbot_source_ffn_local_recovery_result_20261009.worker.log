@@ -1,0 +1,12 @@
+{"stage": "actual_price", "seconds": 15.89100000000326, "site": 0, "seconds_per_step": [0.14100000000325963, 0.0470000000204891], "projected_total_seconds": 147.80100000166567, "durable_state": {"path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_source_ffn_local_recovery_20261009\\site00.state002.pt", "bytes": 339886792, "sha256": "3bbc6b4b4d45bbcdcd0a6c229b7ceff5d7342fe88d69e992eaf9ba9e69333a15"}}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_ffn_local_recovery.py", line 216, in <module>
+    a=p.parse_args();bind(a) if a.mode=='bind' else worker(a)
+                                                    ^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_ffn_local_recovery.py", line 172, in worker
+    if step%32==0:event('update',site=site,step=step,loss=loss.item(),seconds=seconds)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_source_ffn_local_recovery.py", line 61, in event
+    def event(stage,**fields):print(json.dumps(dict(stage=stage,seconds=time.monotonic()-start,**fields)),flush=True);guard()
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'seconds'
