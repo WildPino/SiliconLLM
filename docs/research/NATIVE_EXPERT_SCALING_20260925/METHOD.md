@@ -8,6 +8,17 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Newest native implementation:** [width envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md)
+same actual Adam25 bank/fullV65537/n1152/k8/original20 bodies,DN1024/DT48 executes
+all widened recurrence/matrix work. Zero-read duplicate preserves all3352 head
+rows/routes/masses/18432integer witnesses perarm bytewise. Raw median aggregate
+121.38 versus136.77 IDs/s,slowdown1.127,mincase99.37>=50. Cost PASS is a fixture
+envelope;known poor quality unchanged,no newknowledge/accepted-speed/DRAM/useful-n.
+Actual520.029MB artifact/native variant now exists. Metadatafault preserved;
+missing-only completion,combined held377.750s/resourcesPASS. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
+connects real master/Adam transport to trainable width andone actual full-history
+update/export/native measurement. No dequantized packed-bank substitution;no T4.
+
 **Newest measured operation:** [weighted head histories](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md)
 FIT-only dual read/write bases with384 actual carried channels, fixed8 versus
 variable ranks across48 source timescales. All144 case-sites/both projected scans

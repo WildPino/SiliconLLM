@@ -29,6 +29,20 @@ evidence reusable. Communicate T4 reason/budget/stops before allocation.
 
 ## Latest decisive evidence
 
+**[Original native width envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md):
+COMPLETE/native preservation/raw cost PASS.** Actual Adam25 bank/fullV65537/
+n1152/k8/D256/N96/L6,DN512/DT16 versus DN1024/DT48,20 original computational bodies.
+All3352 full-head rows/actual routes/masses and18432 LUT integer coordinates perarm
+byte-identical. Raw case medians121..142 versus99..132 IDs/s,aggregate136.77 versus
+121.38,slowdown1.127. Known poor chatbot quality unchanged;no accepted-speed/
+useful-n/DRAM admission. Wide520.029MB fixture adds no knowledge. Metadata fault
+after export/base compile retained;missing-only completion adopts them,11new+
+1inherited children,combined held377.750s/resourcesPASS/all jobs terminal.
+[Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md): implement trainable width and
+actual Adam25 master/moment injection,initial export identity andone real longest-
+FIT update/changed export/native endpoint before larger joint state/function pilot.
+New width learner/protocol/binding missing;no T4 allocation.
+
 **[Weighted384 histories](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md):
 COMPLETE/operator PASS/reconstruction budget FAIL.** FIT-only dual read/write
 bases,fixed8 versus adaptive384 across all48 heads;all144 case-sites/both scans
@@ -40,8 +54,8 @@ CLOSED/resourcesPASS,248.797MB retained including207.793MB actual packed histori
 Close fixed linear384/source-gate route. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
 returns to a complete original-kernel cost/parity comparison before learning a
 new state:actual Adam25 DN512/DT16 versus duplicated-core DN1024/DT48 fixture,
-same real bank/fullV/LUT/AQ63/dReLU. Fixture adds no knowledge. Native width variant,
-new protocol/code/binding missing;no T4 allocation or additional Adam25 dose.
+same real bank/fullV/LUT/AQ63/dReLU. That native comparison is now complete above;
+fixture adds no knowledge. Trainable width/optimizer transport still missing.
 
 **[Mixed384 history](ORIGINAL_FALCON_MIXED_HISTORY_RESULT_20261009.md): COMPLETE,
 projected recurrence valid;plain decoder budget FAIL.** FIT-only144 head bases,

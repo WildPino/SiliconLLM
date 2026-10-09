@@ -1,5 +1,20 @@
 # Native expert-count scaling: prior evidence
 
+**9 October original native width envelope COMPLETE/preservation andraw cost PASS:**
+[Result](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md). DN512/DT16 versus1024/48,
+same actual Adam25 ternary bank/fullV65537/n1152/k8/D256/N96/L6/20original bodies.
+3352 full65537 head rows/IDs/masses/18432 integer witnesses perarm byte-identical.
+Raw median case121..142 vs99..132,aggregate136.7705 vs121.3781 IDs/s,slowdown1.1268,
+declaredraw gatesPASS.520,029,440B wider artifact,a06e2619...,45changed/65unchanged
+fields independentlyverified. It adds no knowledge;source quality remainsFAIL.
+No accepted-speed/useful-n/physicalDRAM/GPU/optimizer/source/T4. Firstmetadatafault
+after export/base compile:held42.031s/exit1/session92576 CLOSED. Missing-only
+completion held335.719s/exit0/session7845 CLOSED,OSconservative2,357,403,648B,
+11new+1adopted child/resourcesPASS. Combined377.750s/55files2,281,128,027B.
+Stored46new+9oldhashes/bitidentity/timing mediansdelta0verified. Freeze4e42d47/
+bind93f38c80;completion88850ef/binde7f1c711/raw858552d6. Next actual master/moment
+transport andwider whole-update/native bridge;not an endless copied-bank sweep.
+
 **9 October weighted384 histories COMPLETE/operator PASS/reconstruction FAIL:**
 [Result](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md),freeze8bcd42e/bind325e4cfe/
 raw37ccf69d.144 FIT head fits,288 selected dual-basis audits,source state256;

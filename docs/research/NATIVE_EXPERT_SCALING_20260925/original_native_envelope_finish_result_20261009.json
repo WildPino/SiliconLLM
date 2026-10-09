@@ -1,0 +1,1459 @@
+{
+  "schema": "ORIGINAL_NATIVE_ENVELOPE_RESULT_V1",
+  "freeze": "88850ef28ddc3d95dd1f38d60212d08494c93310",
+  "binding_sha256": "e7f1c7117a6b1f84d3fdad6acd7c874f3a1df0e46f6d71653715d5476b3537b5",
+  "decision": "WIDER_NATIVE_RAW_ENVELOPE_SUPPORTS_FINITE_LEARNED_CORE_PILOT",
+  "original_bodies": {
+    "source": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    "functions": [
+      {
+        "name": "exp256_ps",
+        "original_body_sha256": "d1cf4b43aa0ca894a67f169f87e99aa091c39e2bf3257bed0932e13e2b476122",
+        "compiled_body_sha256": "d1cf4b43aa0ca894a67f169f87e99aa091c39e2bf3257bed0932e13e2b476122",
+        "observer_only": false
+      },
+      {
+        "name": "exp_approx1",
+        "original_body_sha256": "9f42b799b6c0d0b842bdde0134bd771413fffc0c5d1f6915787b728e7f6b3f1d",
+        "compiled_body_sha256": "9f42b799b6c0d0b842bdde0134bd771413fffc0c5d1f6915787b728e7f6b3f1d",
+        "observer_only": false
+      },
+      {
+        "name": "hsum256",
+        "original_body_sha256": "12d89b38e6414b60f6129a518f7c9a232ed21426c5a5b0fd03a109c25140fefb",
+        "compiled_body_sha256": "12d89b38e6414b60f6129a518f7c9a232ed21426c5a5b0fd03a109c25140fefb",
+        "observer_only": false
+      },
+      {
+        "name": "dotf",
+        "original_body_sha256": "25828cce39b821473d0b4002163d33acd6902fa03276d514e120e235738bca95",
+        "compiled_body_sha256": "25828cce39b821473d0b4002163d33acd6902fa03276d514e120e235738bca95",
+        "observer_only": false
+      },
+      {
+        "name": "matvec",
+        "original_body_sha256": "77d8f2503a714bad799a5a652d9bd96fb43ebc7d236182b9e17720c945eddaf7",
+        "compiled_body_sha256": "77d8f2503a714bad799a5a652d9bd96fb43ebc7d236182b9e17720c945eddaf7",
+        "observer_only": false
+      },
+      {
+        "name": "silu",
+        "original_body_sha256": "246ae1441a3b443d36f75295251f14fe89573135f7bc795ed0556430e341d4d0",
+        "compiled_body_sha256": "246ae1441a3b443d36f75295251f14fe89573135f7bc795ed0556430e341d4d0",
+        "observer_only": false
+      },
+      {
+        "name": "softplus",
+        "original_body_sha256": "6323e08c2d3f9786ef77e714723a73974a44445f7eda92ee74178a7587f75a07",
+        "compiled_body_sha256": "6323e08c2d3f9786ef77e714723a73974a44445f7eda92ee74178a7587f75a07",
+        "observer_only": false
+      },
+      {
+        "name": "reluf",
+        "original_body_sha256": "d7631f0b6c87f19e7a76da746919dcfe1b3d02c281ec617de57b1b22a64e8e75",
+        "compiled_body_sha256": "d7631f0b6c87f19e7a76da746919dcfe1b3d02c281ec617de57b1b22a64e8e75",
+        "observer_only": false
+      },
+      {
+        "name": "acc_add_i8x32",
+        "original_body_sha256": "798567d03ca74cfe836dab749e1dc919e122259603d7b505b73e56507ce58bca",
+        "compiled_body_sha256": "798567d03ca74cfe836dab749e1dc919e122259603d7b505b73e56507ce58bca",
+        "observer_only": false
+      },
+      {
+        "name": "matvec_lut_full",
+        "original_body_sha256": "6c1ab84ed38bff24a86e901771861b289343d6f2d67d520aef6db92eb771c26f",
+        "compiled_body_sha256": "6c1ab84ed38bff24a86e901771861b289343d6f2d67d520aef6db92eb771c26f",
+        "observer_only": false
+      },
+      {
+        "name": "matvec_lut_rows",
+        "original_body_sha256": "1051f1d20035c6b62a20bf08cc8a77b332e40df71e46a606c9706fa706ca6439",
+        "compiled_body_sha256": "1051f1d20035c6b62a20bf08cc8a77b332e40df71e46a606c9706fa706ca6439",
+        "observer_only": false
+      },
+      {
+        "name": "build_lut_t3",
+        "original_body_sha256": "c7d4770fd5be1eaed8509b0eafda53c086d28816a4ab58229503b9db2c79c5ab",
+        "compiled_body_sha256": "c7d4770fd5be1eaed8509b0eafda53c086d28816a4ab58229503b9db2c79c5ab",
+        "observer_only": false
+      },
+      {
+        "name": "bc_tm",
+        "original_body_sha256": "cf3d9dc75cb786e66235d4a9be81541704a3b7721fc87a0d65120413fe30eb61",
+        "compiled_body_sha256": "cf3d9dc75cb786e66235d4a9be81541704a3b7721fc87a0d65120413fe30eb61",
+        "observer_only": false
+      },
+      {
+        "name": "ref_t3",
+        "original_body_sha256": "89ce84bbbb4faf6d563d4e6c5210b3bef3bb17bf9ff47d550c821d8f69190fab",
+        "compiled_body_sha256": "89ce84bbbb4faf6d563d4e6c5210b3bef3bb17bf9ff47d550c821d8f69190fab",
+        "observer_only": false
+      },
+      {
+        "name": "quant_i8",
+        "original_body_sha256": "c1b066da14efffdd34397ca7613f2853e107e2ade3ef7cf16a042a3dddb71060",
+        "compiled_body_sha256": "c1b066da14efffdd34397ca7613f2853e107e2ade3ef7cf16a042a3dddb71060",
+        "observer_only": false
+      },
+      {
+        "name": "state_reset",
+        "original_body_sha256": "8b581e7b540d032e06efd4b5107c3bc233cf06b2e1d76b82cad44ac9375f0413",
+        "compiled_body_sha256": "8b581e7b540d032e06efd4b5107c3bc233cf06b2e1d76b82cad44ac9375f0413",
+        "observer_only": false
+      },
+      {
+        "name": "rmsnorm",
+        "original_body_sha256": "cb403c8095038fe343f5d7ffc9df3e37d3160ed531bf28b570d3369047387f25",
+        "compiled_body_sha256": "cb403c8095038fe343f5d7ffc9df3e37d3160ed531bf28b570d3369047387f25",
+        "observer_only": false
+      },
+      {
+        "name": "topk_sel",
+        "original_body_sha256": "39dffefb6d836ed9638ced7e3b14992cdb1cb8bc20c74288badc55b1d76c2e24",
+        "compiled_body_sha256": "39dffefb6d836ed9638ced7e3b14992cdb1cb8bc20c74288badc55b1d76c2e24",
+        "observer_only": false
+      },
+      {
+        "name": "mlp_moe",
+        "original_body_sha256": "a7b7c83ba927118e5e1aaeab519293e0da8f3400fc44bd250234d1fbc64be930",
+        "compiled_body_sha256": "318130ce327be095d427b2535cc6091689bc2950e68d4b3d0396533cf7e58368",
+        "observer_only": true
+      },
+      {
+        "name": "forward_token",
+        "original_body_sha256": "c4a400d2723e269d5ccb434ccc225ac7861838616c17bfe5680bf8e1e89e9a19",
+        "compiled_body_sha256": "c4a400d2723e269d5ccb434ccc225ac7861838616c17bfe5680bf8e1e89e9a19",
+        "observer_only": false
+      }
+    ],
+    "header": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\original_packed_bodies.h",
+      "bytes": 12103,
+      "sha256": "62e0d8c33dc8dd284665be959821b06b05f5b9e985164ffad35498e7d3861e0c"
+    }
+  },
+  "wide_export": {
+    "artifact": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\duplicate_dn1024_dt48.packed",
+      "bytes": 520029440,
+      "sha256": "a06e2619fb5bbe2a96690ed5dba03bc2345bc03799d48485b134630f56daf423"
+    },
+    "modified_fields": [
+      "layers.0.in_proj",
+      "layers.0.conv_w",
+      "layers.0.conv_b",
+      "layers.0.x_proj",
+      "layers.0.dt_proj",
+      "layers.0.dt_b",
+      "layers.0.A_log",
+      "layers.0.Dskip",
+      "layers.0.out_proj",
+      "layers.1.in_proj",
+      "layers.1.conv_w",
+      "layers.1.conv_b",
+      "layers.1.x_proj",
+      "layers.1.dt_proj",
+      "layers.1.dt_b",
+      "layers.1.A_log",
+      "layers.1.Dskip",
+      "layers.1.out_proj",
+      "layers.2.in_proj",
+      "layers.2.conv_w",
+      "layers.2.conv_b",
+      "layers.2.x_proj",
+      "layers.2.dt_proj",
+      "layers.2.dt_b",
+      "layers.2.A_log",
+      "layers.2.Dskip",
+      "layers.2.out_proj",
+      "layers.3.in_proj",
+      "layers.3.conv_w",
+      "layers.3.conv_b",
+      "layers.3.x_proj",
+      "layers.3.dt_proj",
+      "layers.3.dt_b",
+      "layers.3.A_log",
+      "layers.3.Dskip",
+      "layers.3.out_proj",
+      "layers.4.in_proj",
+      "layers.4.conv_w",
+      "layers.4.conv_b",
+      "layers.4.x_proj",
+      "layers.4.dt_proj",
+      "layers.4.dt_b",
+      "layers.4.A_log",
+      "layers.4.Dskip",
+      "layers.4.out_proj"
+    ],
+    "unchanged_fields": [
+      "embed",
+      "layers.0.norm",
+      "layers.0.ff_norm",
+      "layers.0.router",
+      "layers.0.router_bias",
+      "layers.1.norm",
+      "layers.1.ff_norm",
+      "layers.1.router",
+      "layers.1.router_bias",
+      "layers.2.norm",
+      "layers.2.ff_norm",
+      "layers.2.router",
+      "layers.2.router_bias",
+      "layers.3.norm",
+      "layers.3.ff_norm",
+      "layers.3.router",
+      "layers.3.router_bias",
+      "layers.4.norm",
+      "layers.4.ff_norm",
+      "layers.4.router",
+      "layers.4.router_bias",
+      "layers.5.norm",
+      "layers.5.qkv",
+      "layers.5.o",
+      "layers.5.ff_norm",
+      "layers.5.router",
+      "layers.5.router_bias",
+      "final_norm",
+      "head",
+      "layers.0.gate_code",
+      "layers.0.gate_scale",
+      "layers.0.up_code",
+      "layers.0.up_scale",
+      "layers.0.down_code",
+      "layers.0.down_scale",
+      "layers.1.gate_code",
+      "layers.1.gate_scale",
+      "layers.1.up_code",
+      "layers.1.up_scale",
+      "layers.1.down_code",
+      "layers.1.down_scale",
+      "layers.2.gate_code",
+      "layers.2.gate_scale",
+      "layers.2.up_code",
+      "layers.2.up_scale",
+      "layers.2.down_code",
+      "layers.2.down_scale",
+      "layers.3.gate_code",
+      "layers.3.gate_scale",
+      "layers.3.up_code",
+      "layers.3.up_scale",
+      "layers.3.down_code",
+      "layers.3.down_scale",
+      "layers.4.gate_code",
+      "layers.4.gate_scale",
+      "layers.4.up_code",
+      "layers.4.up_scale",
+      "layers.4.down_code",
+      "layers.4.down_scale",
+      "layers.5.gate_code",
+      "layers.5.gate_scale",
+      "layers.5.up_code",
+      "layers.5.up_scale",
+      "layers.5.down_code",
+      "layers.5.down_scale"
+    ],
+    "all_fields_verified": true,
+    "new_knowledge": false,
+    "construction": "zero read injection with duplicated recurrent channels"
+  },
+  "parity": {
+    "passed": true,
+    "first_fault": null,
+    "cases": [
+      {
+        "id": "broad_dev_self_oss_instruct_036",
+        "tokens": 357,
+        "worst_row_relative_RMS": 0.0,
+        "history_relative_RMS": 0.0,
+        "ID_mismatch_calls": 0,
+        "mass_max_delta": 0.0,
+        "mass_max_defect": 1.7881393432617188e-07,
+        "argmax_mismatch_rows": 0
+      },
+      {
+        "id": "broad_fit_smol_magpie_ultra_022",
+        "tokens": 1507,
+        "worst_row_relative_RMS": 0.0,
+        "history_relative_RMS": 0.0,
+        "ID_mismatch_calls": 0,
+        "mass_max_delta": 0.0,
+        "mass_max_defect": 1.862645149230957e-07,
+        "argmax_mismatch_rows": 0
+      },
+      {
+        "id": "broad_dev_smol_magpie_ultra_036",
+        "tokens": 1488,
+        "worst_row_relative_RMS": 0.0,
+        "history_relative_RMS": 0.0,
+        "ID_mismatch_calls": 0,
+        "mass_max_delta": 0.0,
+        "mass_max_defect": 1.9371509552001953e-07,
+        "argmax_mismatch_rows": 0
+      }
+    ],
+    "integer_coordinates_per_arm": 18432,
+    "native": {
+      "base": {
+        "DN": 512,
+        "DTR": 16,
+        "n": 1152,
+        "V": 65537,
+        "mode": "parity",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.5636018000077456,
+        "timer500000_seconds": 0.015517699997872114,
+        "blob_bytes": 507505920,
+        "code_bytes": 339738624,
+        "f32_bytes": 167755776,
+        "state_router_bytes": 1500160,
+        "heap_allocated_bytes": 509006080,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 2.772976999403909,
+            "request_wall_seconds": 4.866088300012052,
+            "raw_IDs_per_second": 128.74250312092104,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 10.527140198042616,
+            "request_wall_seconds": 20.428254499973264,
+            "raw_IDs_per_second": 143.1537883650687,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 10.064024000719655,
+            "request_wall_seconds": 20.389085000031628,
+            "raw_IDs_per_second": 147.85338348692298,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 46.276967699988745
+      },
+      "wide": {
+        "DN": 1024,
+        "DTR": 48,
+        "n": 1152,
+        "V": 65537,
+        "mode": "parity",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.4976449999958277,
+        "timer500000_seconds": 0.018801099970005453,
+        "blob_bytes": 520029440,
+        "code_bytes": 339738624,
+        "f32_bytes": 180279296,
+        "state_router_bytes": 2728960,
+        "heap_allocated_bytes": 522758400,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 3.5275043001165614,
+            "request_wall_seconds": 5.986743599991314,
+            "raw_IDs_per_second": 101.20469590588549,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 17.658921498339623,
+            "request_wall_seconds": 25.76844060001895,
+            "raw_IDs_per_second": 85.33930003266029,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 13.049628000240773,
+            "request_wall_seconds": 20.965931400016416,
+            "raw_IDs_per_second": 114.02623890677539,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 53.24257200001739
+      }
+    }
+  },
+  "speed": [
+    {
+      "ordinal": 0,
+      "arm": "base",
+      "result": {
+        "DN": 512,
+        "DTR": 16,
+        "n": 1152,
+        "V": 65537,
+        "mode": "speed",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.5393694000085816,
+        "timer500000_seconds": 0.019325100001879036,
+        "blob_bytes": 507505920,
+        "code_bytes": 339738624,
+        "f32_bytes": 167755776,
+        "state_router_bytes": 1500160,
+        "heap_allocated_bytes": 509006080,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 2.6719631000305526,
+            "request_wall_seconds": 2.6719637000351213,
+            "raw_IDs_per_second": 133.60962956259308,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 11.3823010000051,
+            "request_wall_seconds": 11.38230359996669,
+            "raw_IDs_per_second": 132.39853699171414,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 10.453951800009236,
+            "request_wall_seconds": 10.453954399970826,
+            "raw_IDs_per_second": 142.33851738236305,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 25.06768859998556
+      }
+    },
+    {
+      "ordinal": 0,
+      "arm": "wide",
+      "result": {
+        "DN": 1024,
+        "DTR": 48,
+        "n": 1152,
+        "V": 65537,
+        "mode": "speed",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.3719614999718033,
+        "timer500000_seconds": 0.014707599999383092,
+        "blob_bytes": 520029440,
+        "code_bytes": 339738624,
+        "f32_bytes": 180279296,
+        "state_router_bytes": 2728960,
+        "heap_allocated_bytes": 522758400,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 3.5927285999641754,
+            "request_wall_seconds": 3.592728999967221,
+            "raw_IDs_per_second": 99.3673721982673,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 12.779310999962036,
+            "request_wall_seconds": 12.77931409998564,
+            "raw_IDs_per_second": 117.92498046291205,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 11.244147199962754,
+            "request_wall_seconds": 11.244150599988643,
+            "raw_IDs_per_second": 132.33551407126092,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 28.003909200022463
+      }
+    },
+    {
+      "ordinal": 1,
+      "arm": "wide",
+      "result": {
+        "DN": 1024,
+        "DTR": 48,
+        "n": 1152,
+        "V": 65537,
+        "mode": "speed",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.34334590000798926,
+        "timer500000_seconds": 0.016251299995929003,
+        "blob_bytes": 520029440,
+        "code_bytes": 339738624,
+        "f32_bytes": 180279296,
+        "state_router_bytes": 2728960,
+        "heap_allocated_bytes": 522758400,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 4.252045200031716,
+            "request_wall_seconds": 4.252045700035524,
+            "raw_IDs_per_second": 83.95959666593787,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 13.060508999973536,
+            "request_wall_seconds": 13.060511799994856,
+            "raw_IDs_per_second": 115.38600830971087,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 12.421276099979877,
+            "request_wall_seconds": 12.421278499998152,
+            "raw_IDs_per_second": 119.79445493546437,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 30.094930300023407
+      }
+    },
+    {
+      "ordinal": 1,
+      "arm": "base",
+      "result": {
+        "DN": 512,
+        "DTR": 16,
+        "n": 1152,
+        "V": 65537,
+        "mode": "speed",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.35346800001570955,
+        "timer500000_seconds": 0.01501770003233105,
+        "blob_bytes": 507505920,
+        "code_bytes": 339738624,
+        "f32_bytes": 167755776,
+        "state_router_bytes": 1500160,
+        "heap_allocated_bytes": 509006080,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 3.485097099968698,
+            "request_wall_seconds": 3.4850978999747895,
+            "raw_IDs_per_second": 102.43617028725153,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 11.556737000006251,
+            "request_wall_seconds": 11.556739500025287,
+            "raw_IDs_per_second": 130.4001293790094,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 9.322290999989491,
+            "request_wall_seconds": 9.322293800010812,
+            "raw_IDs_per_second": 159.61741593366668,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 24.735515300009865
+      }
+    },
+    {
+      "ordinal": 2,
+      "arm": "base",
+      "result": {
+        "DN": 512,
+        "DTR": 16,
+        "n": 1152,
+        "V": 65537,
+        "mode": "speed",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.35905260004801676,
+        "timer500000_seconds": 0.014765600033570081,
+        "blob_bytes": 507505920,
+        "code_bytes": 339738624,
+        "f32_bytes": 167755776,
+        "state_router_bytes": 1500160,
+        "heap_allocated_bytes": 509006080,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 2.9503624999779277,
+            "request_wall_seconds": 2.9503628999809735,
+            "raw_IDs_per_second": 121.00208025375554,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 11.649529299989808,
+            "request_wall_seconds": 11.649533000017982,
+            "raw_IDs_per_second": 129.36144982281115,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 11.80178729997715,
+            "request_wall_seconds": 11.80179009999847,
+            "raw_IDs_per_second": 126.08259767593685,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 26.77709300001152
+      }
+    },
+    {
+      "ordinal": 2,
+      "arm": "wide",
+      "result": {
+        "DN": 1024,
+        "DTR": 48,
+        "n": 1152,
+        "V": 65537,
+        "mode": "speed",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.49432830000296235,
+        "timer500000_seconds": 0.01606230001198128,
+        "blob_bytes": 520029440,
+        "code_bytes": 339738624,
+        "f32_bytes": 180279296,
+        "state_router_bytes": 2728960,
+        "heap_allocated_bytes": 522758400,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 3.3024119999608956,
+            "request_wall_seconds": 3.302412499964703,
+            "raw_IDs_per_second": 108.10280486027403,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 12.82648240000708,
+            "request_wall_seconds": 12.826485499972478,
+            "raw_IDs_per_second": 117.49129285821716,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 10.659630300011486,
+            "request_wall_seconds": 10.65963340003509,
+            "raw_IDs_per_second": 139.59208322622564,
+            "components": {
+              "scan": 0,
+              "scan_other": 0,
+              "swa": 0,
+              "mlp_including_router": 0,
+              "router": 0,
+              "head": 0,
+              "norm": 0
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 27.299941800010856
+      }
+    }
+  ],
+  "profile": [
+    {
+      "arm": "wide",
+      "result": {
+        "DN": 1024,
+        "DTR": 48,
+        "n": 1152,
+        "V": 65537,
+        "mode": "profile",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.3727707000216469,
+        "timer500000_seconds": 0.014516299997922033,
+        "blob_bytes": 520029440,
+        "code_bytes": 339738624,
+        "f32_bytes": 180279296,
+        "state_router_bytes": 2728960,
+        "heap_allocated_bytes": 522758400,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 4.090993600024376,
+            "request_wall_seconds": 4.090994000027422,
+            "raw_IDs_per_second": 87.26486396797904,
+            "components": {
+              "scan": 0.20180250075645745,
+              "scan_other": 1.084108500275761,
+              "swa": 0.057440899836365134,
+              "mlp_including_router": 0.7805407990817912,
+              "router": 0.313777300005313,
+              "head": 1.933485399116762,
+              "norm": 0.0024522001040168107
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 12.927790199988522,
+            "request_wall_seconds": 12.927793100010604,
+            "raw_IDs_per_second": 116.57057986610411,
+            "components": {
+              "scan": 0.7404046003357507,
+              "scan_other": 3.4234438987914473,
+              "swa": 0.20526500034611672,
+              "mlp_including_router": 2.581932696979493,
+              "router": 1.0190656027989462,
+              "head": 5.850936499191448,
+              "norm": 0.010110202303621918
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 11.383342000015546,
+            "request_wall_seconds": 11.38334440003382,
+            "raw_IDs_per_second": 130.71732361181523,
+            "components": {
+              "scan": 0.6489754972280934,
+              "scan_other": 2.9253139055799693,
+              "swa": 0.18775820021983236,
+              "mlp_including_router": 2.337519495107699,
+              "router": 0.9151726948912255,
+              "head": 5.1701520992210135,
+              "norm": 0.009693900763522834
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 28.790874199999962
+      }
+    },
+    {
+      "arm": "base",
+      "result": {
+        "DN": 512,
+        "DTR": 16,
+        "n": 1152,
+        "V": 65537,
+        "mode": "profile",
+        "affinity_mask": 1,
+        "threads": 1,
+        "load_seconds": 0.43057639995822683,
+        "timer500000_seconds": 0.016126799979247153,
+        "blob_bytes": 507505920,
+        "code_bytes": 339738624,
+        "f32_bytes": 167755776,
+        "state_router_bytes": 1500160,
+        "heap_allocated_bytes": 509006080,
+        "expert_reference_bytes": 0,
+        "requests": [
+          {
+            "index": 0,
+            "tokens": 357,
+            "batch1_seconds": 3.5372116999933496,
+            "request_wall_seconds": 3.5372118999948725,
+            "raw_IDs_per_second": 100.92695328376054,
+            "components": {
+              "scan": 0.12520189909264445,
+              "scan_other": 0.5935739990673028,
+              "swa": 0.05094200017629191,
+              "mlp_including_router": 0.8587182010523975,
+              "router": 0.3890376001945697,
+              "head": 1.8703138006967492,
+              "norm": 0.0024226002860814333
+            }
+          },
+          {
+            "index": 1,
+            "tokens": 1507,
+            "batch1_seconds": 11.430367099994328,
+            "request_wall_seconds": 11.430369900015648,
+            "raw_IDs_per_second": 131.84178485402694,
+            "components": {
+              "scan": 0.38736420148052275,
+              "scan_other": 1.5792330992408097,
+              "swa": 0.2130106999538839,
+              "mlp_including_router": 2.7876659967005253,
+              "router": 1.1067751008667983,
+              "head": 6.301191401376855,
+              "norm": 0.010301801434252411
+            }
+          },
+          {
+            "index": 2,
+            "tokens": 1488,
+            "batch1_seconds": 9.305817599990405,
+            "request_wall_seconds": 9.30582070001401,
+            "raw_IDs_per_second": 159.89997482881398,
+            "components": {
+              "scan": 0.3079803939908743,
+              "scan_other": 1.3017309029819444,
+              "swa": 0.17740019946359098,
+              "mlp_including_router": 2.305317606194876,
+              "router": 0.9492436020518653,
+              "head": 5.094683299481403,
+              "norm": 0.009739498782437295
+            }
+          }
+        ],
+        "sink": 1702,
+        "timer_sink_finite": true,
+        "process_seconds": 24.72109109995654
+      }
+    }
+  ],
+  "summary": {
+    "base": {
+      "cases": [
+        {
+          "id": "broad_dev_self_oss_instruct_036",
+          "tokens": 357,
+          "seconds": [
+            2.6719631000305526,
+            3.485097099968698,
+            2.9503624999779277
+          ],
+          "median_seconds": 2.9503624999779277,
+          "median_raw_IDs_per_second": 121.00208025375554,
+          "profile_seconds": 3.5372116999933496,
+          "profile_minus_unprofiled_median": 0.586849200015422,
+          "components": {
+            "scan": 0.12520189909264445,
+            "scan_other": 0.5935739990673028,
+            "swa": 0.05094200017629191,
+            "mlp_including_router": 0.8587182010523975,
+            "router": 0.3890376001945697,
+            "head": 1.8703138006967492,
+            "norm": 0.0024226002860814333
+          }
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "tokens": 1507,
+          "seconds": [
+            11.3823010000051,
+            11.556737000006251,
+            11.649529299989808
+          ],
+          "median_seconds": 11.556737000006251,
+          "median_raw_IDs_per_second": 130.4001293790094,
+          "profile_seconds": 11.430367099994328,
+          "profile_minus_unprofiled_median": -0.12636990001192316,
+          "components": {
+            "scan": 0.38736420148052275,
+            "scan_other": 1.5792330992408097,
+            "swa": 0.2130106999538839,
+            "mlp_including_router": 2.7876659967005253,
+            "router": 1.1067751008667983,
+            "head": 6.301191401376855,
+            "norm": 0.010301801434252411
+          }
+        },
+        {
+          "id": "broad_dev_smol_magpie_ultra_036",
+          "tokens": 1488,
+          "seconds": [
+            10.453951800009236,
+            9.322290999989491,
+            11.80178729997715
+          ],
+          "median_seconds": 10.453951800009236,
+          "median_raw_IDs_per_second": 142.33851738236305,
+          "profile_seconds": 9.305817599990405,
+          "profile_minus_unprofiled_median": -1.1481342000188306,
+          "components": {
+            "scan": 0.3079803939908743,
+            "scan_other": 1.3017309029819444,
+            "swa": 0.17740019946359098,
+            "mlp_including_router": 2.305317606194876,
+            "router": 0.9492436020518653,
+            "head": 5.094683299481403,
+            "norm": 0.009739498782437295
+          }
+        }
+      ],
+      "median_aggregate_raw_IDs_per_second": 136.77046153301842,
+      "minimum_case_median_raw_IDs_per_second": 121.00208025375554
+    },
+    "wide": {
+      "cases": [
+        {
+          "id": "broad_dev_self_oss_instruct_036",
+          "tokens": 357,
+          "seconds": [
+            3.5927285999641754,
+            4.252045200031716,
+            3.3024119999608956
+          ],
+          "median_seconds": 3.5927285999641754,
+          "median_raw_IDs_per_second": 99.3673721982673,
+          "profile_seconds": 4.090993600024376,
+          "profile_minus_unprofiled_median": 0.4982650000602007,
+          "components": {
+            "scan": 0.20180250075645745,
+            "scan_other": 1.084108500275761,
+            "swa": 0.057440899836365134,
+            "mlp_including_router": 0.7805407990817912,
+            "router": 0.313777300005313,
+            "head": 1.933485399116762,
+            "norm": 0.0024522001040168107
+          }
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "tokens": 1507,
+          "seconds": [
+            12.779310999962036,
+            13.060508999973536,
+            12.82648240000708
+          ],
+          "median_seconds": 12.82648240000708,
+          "median_raw_IDs_per_second": 117.49129285821716,
+          "profile_seconds": 12.927790199988522,
+          "profile_minus_unprofiled_median": 0.10130779998144135,
+          "components": {
+            "scan": 0.7404046003357507,
+            "scan_other": 3.4234438987914473,
+            "swa": 0.20526500034611672,
+            "mlp_including_router": 2.581932696979493,
+            "router": 1.0190656027989462,
+            "head": 5.850936499191448,
+            "norm": 0.010110202303621918
+          }
+        },
+        {
+          "id": "broad_dev_smol_magpie_ultra_036",
+          "tokens": 1488,
+          "seconds": [
+            11.244147199962754,
+            12.421276099979877,
+            10.659630300011486
+          ],
+          "median_seconds": 11.244147199962754,
+          "median_raw_IDs_per_second": 132.33551407126092,
+          "profile_seconds": 11.383342000015546,
+          "profile_minus_unprofiled_median": 0.13919480005279183,
+          "components": {
+            "scan": 0.6489754972280934,
+            "scan_other": 2.9253139055799693,
+            "swa": 0.18775820021983236,
+            "mlp_including_router": 2.337519495107699,
+            "router": 0.9151726948912255,
+            "head": 5.1701520992210135,
+            "norm": 0.009693900763522834
+          }
+        }
+      ],
+      "median_aggregate_raw_IDs_per_second": 121.37808975182183,
+      "minimum_case_median_raw_IDs_per_second": 99.3673721982673
+    }
+  },
+  "aggregate_raw_slowdown": 1.1268134291177998,
+  "raw_cost_gate": true,
+  "children": [
+    {
+      "command": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-mavx2",
+        "-mfma",
+        "-march=znver2",
+        "-DDN=1024",
+        "-DDTR=48",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_envelope.c",
+        "-I",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_wide.exe",
+        "-lm"
+      ],
+      "pid": 18292,
+      "creation_time": 1791564620.6486375,
+      "exit_code": 0,
+      "held_OS_peak": 4767744,
+      "seconds": 3.702999999979511,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\compile_wide.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_base.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_whole_recovery_20261009\\candidate_25.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "parity",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\parity_base"
+      ],
+      "pid": 18092,
+      "creation_time": 1791564624.5466583,
+      "exit_code": 0,
+      "held_OS_peak": 514297856,
+      "seconds": 46.82799999997951,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\parity_base.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_wide.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\duplicate_dn1024_dt48.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "parity",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\parity_wide"
+      ],
+      "pid": 31520,
+      "creation_time": 1791564671.4212735,
+      "exit_code": 0,
+      "held_OS_peak": 528060416,
+      "seconds": 53.48499999998603,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\parity_wide.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_base.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_whole_recovery_20261009\\candidate_25.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "speed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_0_base"
+      ],
+      "pid": 30848,
+      "creation_time": 1791564729.472896,
+      "exit_code": 0,
+      "held_OS_peak": 513708032,
+      "seconds": 25.375,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_0_base.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_wide.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\duplicate_dn1024_dt48.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "speed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_0_wide"
+      ],
+      "pid": 25972,
+      "creation_time": 1791564754.9341815,
+      "exit_code": 0,
+      "held_OS_peak": 527470592,
+      "seconds": 28.06299999996554,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_0_wide.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_wide.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\duplicate_dn1024_dt48.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "speed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_1_wide"
+      ],
+      "pid": 29256,
+      "creation_time": 1791564783.1086245,
+      "exit_code": 0,
+      "held_OS_peak": 527458304,
+      "seconds": 30.15600000001723,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_1_wide.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_base.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_whole_recovery_20261009\\candidate_25.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "speed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_1_base"
+      ],
+      "pid": 9048,
+      "creation_time": 1791564813.3325157,
+      "exit_code": 0,
+      "held_OS_peak": 513708032,
+      "seconds": 24.85999999998603,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_1_base.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_base.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_whole_recovery_20261009\\candidate_25.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "speed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_2_base"
+      ],
+      "pid": 14256,
+      "creation_time": 1791564838.6280804,
+      "exit_code": 0,
+      "held_OS_peak": 513708032,
+      "seconds": 26.875,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_2_base.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_wide.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\duplicate_dn1024_dt48.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "speed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_2_wide"
+      ],
+      "pid": 31896,
+      "creation_time": 1791564866.2897446,
+      "exit_code": 0,
+      "held_OS_peak": 527470592,
+      "seconds": 27.35899999999674,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\speed_2_wide.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_wide.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\duplicate_dn1024_dt48.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "profile",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\profile_wide"
+      ],
+      "pid": 24804,
+      "creation_time": 1791564893.7602797,
+      "exit_code": 0,
+      "held_OS_peak": 527470592,
+      "seconds": 29.0,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\profile_wide.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_base.exe",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_falcon_whole_recovery_20261009\\candidate_25.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\requests.u32",
+        "profile",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\profile_base"
+      ],
+      "pid": 9612,
+      "creation_time": 1791564922.862111,
+      "exit_code": 0,
+      "held_OS_peak": 513708032,
+      "seconds": 24.98399999999674,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\profile_base.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "compiled_executables": {
+    "base": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_base.exe",
+      "bytes": 276480,
+      "sha256": "23f4af99d421c88b37ff1faf8d5af1b3e584d478ad76ea89a810ba32e20b59eb"
+    },
+    "wide": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_finish_20261009\\native_wide.exe",
+      "bytes": 272384,
+      "sha256": "a792e37eb2304c5cc32a08c8be9866c2224be16cfd3678eacdce74ee86f4a371"
+    }
+  },
+  "source_calls": 0,
+  "optimizer_updates": 0,
+  "GPU_calls": 0,
+  "quality_admission": false,
+  "speed_admission": false,
+  "useful_large_n_admission": false,
+  "physical_DRAM_bytes": null,
+  "logical_selected_pair_code_bytes_per_token": 2359296,
+  "scope": "Real poor-quality Adam25 bank/fullV;zero-read duplicate wider core,no new information. Complete batch1 forced histories+fullhead argmax/finiteness/mass consumer,postload. Not useful accepted generation;no DRAM counters. Profiling difference includes timing noise,not isolated QPC overhead. Nested linker separate peak unknown.",
+  "worker_OS_peak_snapshot": 1799647232,
+  "max_direct_child_OS_peak": 528060416,
+  "elapsed_seconds": 330.5779999999795,
+  "inherited_children": [
+    {
+      "command": [
+        "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+        "-O3",
+        "-mavx2",
+        "-mfma",
+        "-march=znver2",
+        "-DDN=512",
+        "-DDTR=16",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\native_envelope.c",
+        "-I",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009",
+        "-o",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\native_base.exe",
+        "-lm"
+      ],
+      "pid": 33084,
+      "creation_time": 1791564444.9257038,
+      "exit_code": 0,
+      "held_OS_peak": 4780032,
+      "seconds": 8.077999999979511,
+      "log": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_native_envelope_20261009\\compile_base.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "adopted_wide_export": true,
+  "prior_held_family_seconds": 42.03100000001723
+}

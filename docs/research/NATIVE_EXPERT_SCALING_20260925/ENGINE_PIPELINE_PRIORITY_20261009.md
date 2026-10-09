@@ -6,6 +6,18 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+The [original native width envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md)
+is now COMPLETE:actual original20 kernels/LUT/AQ63/dReLU/same Adam25 bank/fullV,
+DN1024/DT48 bytewise preserves3352 head rows/IDs/masses/integer witnesses. Raw
+aggregate121.38 versus136.77 IDs/s,mincase99.37,declared raw costPASS. Wide fixture
+adds no knowledge;poor source-relative quality remains. Complete component cost
+is measured,not inherited from the old small-vocabulary cache fixture.
+[Current resumption](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md) implements actual
+master/moment transport andtrainable wider core/one whole-history update/export/
+native bridge before a larger joint learned-state quality pilot. Older selected
+steps below are historical;no additional unchanged-geometry Adam25 dose,T4
+allocation or fixed384/source-gate projection sweep. Goal ACTIVE/INCOMPLETE.
+
 [Real source-informed original-shaped construction/step](ORIGINAL_FALCON_TRANSFER_RESULT_20261009.md)
 now exists: D256/L6/n1152/full V65537/all-source FFN maps/fresh original core,
 streamed CPU-master adjoint, whole1507 history/actual Adam1/native packed output.

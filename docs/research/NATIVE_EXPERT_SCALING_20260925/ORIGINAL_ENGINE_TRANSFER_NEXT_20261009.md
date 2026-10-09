@@ -7,13 +7,67 @@ gates FAIL; original all-history numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
-### Current override after weighted384 histories: return to complete native cost
+### Current resumption after qualified native width envelope
+
+[Native envelope](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md) COMPLETE:
+DN1024/DT48 actual20 original kernels/same bank/fullV/k8/native bytewise head/
+ID/mass/integer preservation over3352 positions. Raw case medians99..132 IDs/s,
+aggregate121.378 versus136.770 base,slowdown1.127;cost envelope PASS. Wide packed
+520,029,440B,a06e2619...,adds no knowledge. Metadatafault retained;missing-only
+completion/all jobs terminal/resourcesPASS/combined held377.750s,noT4.
+The prior cost selection below is now completed history,not another test to run.
+
+**One selected next implementation:** trainable DN1024/DT48 adapter using actual
+source-informed Adam25 master tensors/moments/RNG/ledger. Keep old learner/workers
+and checkpoints immutable;new module/protocol/binding/export. Packed fixture is
+the exact target before adaptation,not a source of dequantized replacement masters.
+Configure both tensor specifications/SSM functions and source stream-bank learner
+consistently;do not accidentally retain imported512/16 globals in one component.
+
+Master transport matches the zero-read native fixture:duplicate recurrent x/gate/
+conv/A/Dskip/delta_bias,old x_proj/out_proj primary columns retained,new read columns
+zero;old16 delta coordinates/new32 zero/B-C row relocation. Unchanged organs/bank
+masters and all existing optimizer coordinates byte-identical. For enlarged organ
+moment tensors copy first/second moments only into the original primary coordinate
+subspace,zero new coordinates,retain each original tensor step counter;new master
+replicas are an explicit initialization,not inherited optimization history.
+Preserve CPU/CUDA RNG before any new updates. Metadata must distinguish this new
+geometry from an unchanged continuation/restart of original Adam25.
+
+Before new learning: verify all master/moment transports and initial packed export
+SHA equal actual520.029MB fixture. Retain original source C/GPU numerical FAIL;
+GPU is a training surrogate. No new source labels/RESERVED queries are needed.
+One actual longest1507-position FIT history,broad_fit_smol_magpie_ultra_022,
+full original teacher256 label vectors,whole core+bank forward/backward andactual
+Adam25->26 in new geometry. Keep existing5e-5/.9,.999/eps1e-8/no decay/globalclip1
+recipe for this bridge check;freeze exact code/criteria/caps before observation.
+Check finite loss/all grads/moments,actual new read-coordinate changes,CPU union
+bank residency/held OS/GPU peaks,changed durable checkpoint/RNG/ledger/export;
+updated integer witnesses andactual native head/IDs/masses on full history.
+New channels may have zero upstream gradient until their zero read weights change;
+do not invent a requirement that every added coordinate must change inone step.
+
+This one update qualifies learning/export/memory scope only. Whole native loss is
+the source-relative endpoint;no useful chatbot admission from FIT recovery alone.
+Do not claim width causes recovery without a matched causal design. Source96
+transport/failed384 maps remain diagnostics. Joint learned recurrent coordinates,
+conditional decode/input functions,FFN/depth/attention/residual loss remain the
+scientific recovery problem. Select a finite larger quality pilot only after this
+actual width bridge andresource evidence;no unconditional same-recipe long dose.
+
+Longer T4 needs a concrete recovery hypothesis,actual compatible residency/
+throughput,cost/checkpoints/plateau stops. Useful native fresh chatbot ANDaccepted
+>=50 on same artifact,useful n/structured CPU IDs ANDmass/physicalDRAM,other
+families/~10B/~100B remain missing. Goal ACTIVE/INCOMPLETE.
+
+### Completed selection after weighted384 histories: native cost comparison
 
 [Weighted384 head histories](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md)
 are COMPLETE/operator PASS/reconstruction budget FAIL. Fixed8 and adaptive384
 both preserve projected source dynamics numerically; adaptive full-source-gate
 DEV54.45%/78.68%/53.72%. All declared gatesFAIL. Keep actual bases/packed latents;
-no projection replay, rank grid, same-basis linear decoder or extra Adam25 dose.
+no projection replay, rank grid, same-basis linear decoder or unchanged-geometry
+Adam25 dose.
 The older selected weighted-head section below is now completed historical work.
 
 The current bottleneck is a usable learned compact history representation and
