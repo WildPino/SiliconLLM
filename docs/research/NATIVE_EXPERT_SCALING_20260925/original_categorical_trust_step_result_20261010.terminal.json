@@ -1,0 +1,1625 @@
+{
+  "freeze": "738896a6bace46c0707124aaac9cd52f5408b6aa",
+  "binding_sha256": "c6500378ef3e37d6cca2a72fb05b1fe52dfb8c483a9bee228af1f4f53aa5cd42",
+  "launcher_freeze": "738896a6bace46c0707124aaac9cd52f5408b6aa",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_launch_binding_20261010.json",
+    "bytes": 1636,
+    "sha256": "a8e57aa014f391ce91be8b139528df2d762d597a2177b118b1e601436d7a7480"
+  },
+  "launcher_pid": 25220,
+  "limits": {
+    "seconds": 1800,
+    "reserve_seconds": 180,
+    "OS_bytes": 25769803776,
+    "output_bytes": 12884901888,
+    "log_bytes": 8388608,
+    "child_seconds": 100
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_trust_step.py",
+    "--capture-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_binding_20261010.json",
+    "--binding-sha",
+    "c6500378ef3e37d6cca2a72fb05b1fe52dfb8c483a9bee228af1f4f53aa5cd42",
+    "--freeze",
+    "738896a6bace46c0707124aaac9cd52f5408b6aa",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 3720,
+  "worker_creation_time": 1791649350.6792483,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_result_20261010.json",
+    "bytes": 211317,
+    "sha256": "fbde76bcadb5f2da0b4d9e9c47ebef1a6e4ec1c1d9d0e2e72be8ec2c5301dae7"
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\candidate.json",
+      "bytes": 62503,
+      "sha256": "ff612bf0a85a5554d3426bd51fe0add153729235e844505b4b184a50b6b501f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\candidate.packed",
+      "bytes": 520029440,
+      "sha256": "de70bd50867327e0200da86df0f4a5a6905a29139799763465e6fbfcc7f89944"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\embed.group_stats.bin",
+      "bytes": 3145776,
+      "sha256": "87ad95fb3d5e561f32dd9e52976e421bf88a49baadcd8330307d54e8b4664107"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\expected.witness",
+      "bytes": 73728,
+      "sha256": "f721d573d08fa56be83b1d257d6d0529fac65459a8b56776abcf52c5bc0e0fff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d5b039ae6fa1004854b9c1b9a056bedc6b1852214ecf531f78ab9739b546c93a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "783000cdff24e58dd46159b48f1943b32f13d894ee66025d255dd1190207ffae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d5e74139948e2cce82740cfabbf7f2de66f03c824a10f642159ff7fdc21db371"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "ec45086435afc2d9b9ada4d22ce218932235fa3f1c29d755155d04379af9ccfe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "5d27dc25434e39a5e21f1fabaf104126e15a5562c77611af622b74a2c9a4f972"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4da8e2a294e0ea1bef97c5872706360dcbb7176b1394f4f0ebfab4e35738de93"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "229db7250b17a6509d48b9a38cd235d5d8e47661e9eb7f8b14273dc05e7c2f55"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "b8278b0f6f41cf8eadd5f76200526a7cc6458be1ca3234da5c90b658675e67d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "004f1abdb10d13ae6e6ca4804eb0b7a76f8182c2a2b6dd095c6dceb869d54c9a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "d00a2a8c60176725c79cdfd6a3892562fade1b3664d547d6c7b4a8cf43b54916"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "586f90521a98fa3b651ee22551803b6e6d1f424620af386ceb5227e9b6cb893f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "af7f3dec53f05e4de5f3ee23ae30fc9b2ef9b0d7fe9076464f08792909e13f4d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "49879eb4fe1b1309a327fbc9a6c748dd6e478e9ceac201dff31edd67a0cfff9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "ce75e85ece79deb37c9b9909b45f7773624f206a1f5bc56d11bb352b486d2f4e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "5afa0a1209ad7c70e99ee46fc67b99babc3d57b7e2a7ff61612aec39b433c9ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_0_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "7f344cf2a50181057f84edd6e9371a4cb9cfede31ede85dc7f3a3b985c4dc46b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "c50c67770a987aa3d7dc76532d765b9339419c15a103758f6a5b5b9282d6b896"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "e7d0ca2adc3a3ed0f6220889fcf0a09750189bcf63fd490e3c348184d1f8ccbb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "2e18a4aff3a5856d0ea7048cb89185022110a425035d8b3d29a2bfb1d7029ed5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d62940c9d6045d39893a11aca4582dd3f2c93be20fd4b233fc9546e1f9c2f956"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d1fdf2b66e4080664295270f41097c97f8f5ddf9f4c5addf8f973f369a07ce5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "945d9c113663de7c92e6818f1c21c061499fc485e819a604ffb30a5ed166ce49"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "46030c4b7528bff9ed00a19145c49e07432e57bbba699e9983b41c482988909b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "2d9ff6aea41ab79d881511a4df797af8a65d969f62d7dfa87e321b2780a3aa20"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "760db131a5f40caa5bf3d171cb671c5708fff93e159cd3cda064928ddfb7db75"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "98e3502b1ddbab733ecf8f157527faa79929c0079e093bc88903a741b7871755"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "ba704730f1c2c49d56200fbf158b900ea509177eacee16ee81ec94906cfb6798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "75cfd05edb0b822f52432f2b2f863dd03b353dc53294ad94309d92788a201d01"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "50c85962f11006044b6583ba1886e1ace24fca04c6ff142a51395a9babb269cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9b98c60d4ca1e811785b64b6d96668613939577e7907005c3a09f3a0739fd139"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4c6493b52603ae028c861595681ce6d104d73b88faa77ebbac2919b5a9590a74"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_1_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f44a67a904826a38cb063f322bac25b415403aaa47f90a8661d5752368c60be3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "196d2ec43ff536b673ba35a1adfc3dabaf866645845c727a4bd6f656593b3092"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "e78ca84c0db5677e1aca59583daac38c01ba8b26fe2fdc01f9a8b88aecaca8af"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "124d7573a4afd4acbc2041ee83a7eae92592c27ff8accd691bd123b3e9da77b8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "bf04ba229858f2ee65b0eed27592b84a0d370b6b5ce355c966c18e1506c4334d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "f6db43c1fdd7a293bd6bf60760017fbaa51c83fe591f74a818203bf1d96f8e82"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "d6c44a646a453bb6eff47e7f91b0acc061f78540a6bb3dcec31ade7fcae6c19e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "d5de4b46352ca413308e8a552b2f13da73ac35adbde74dc4802edf21ef57f4f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f1c4c66f267b4240077d1d1ddc04b09d33eadeed58a882a1781a550710cd6735"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "374b4df4b21cfb91fc737aa372e60025ba79401416f5169c401bef829f8fab09"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "6b91f98949388716ea52c04d66a76750ea1bd933e0669faf036915427115df91"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "81e1c7deb80b8f0a8c8d6d9f4b4f0d8b50de0a8d31740e83cd4a71e6478267e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4f4c78fe5c53083cc594ec1336e782c2a907f096b97681dd735ba5820376394d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "7e6a8b3c90d5a1c928f940d83ac8dcaf08cda63aca56ac8dbb71dda936cf7e5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9bf6862e7e2e81e9fd45b2af1f4f63d3a5404bd2ce9fb087dfde203ffb031bb1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a2a088d6f6c336aa86c6378082a1b5523cc5be0781bf87e3571819215f090cf6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_2_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c5e1b425b3f61d0c1e8dce3dadc21a0a64c46c3dd804081b2b69672697bb7915"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "1bad96de73fe7277ba0d53d6162626140b71c406b721fbc29bdb92b88d8ed68c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "f0114b3ef78d7f9e7f6cc797c83e4d8dee72ee098d099217eca923df77a1064e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "303eece1fbc3578a00524d8acded19c540d7951a9b3af9cb3fddc075b8616ed1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "05e341a603d94ac9d2d729de5ef7c0f14e315b6f3df6ba15f244feb4fef2fffc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "53fa240ad2cc986ad8ae61fb58f5cdbd8b75770168b788a43ce3bfbc827df4ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f0634b6af297863b82d9f3135cc47af546bec09ee88168747e1bdecfde2bea47"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "303e922f14d578278f1bc083dfaff093369f22751dfafa2a6408b3f0c1132e53"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "21cfbbc2e39d0f2e5a68ea992638b5d832fb5ee97a1a4c5fa8b38f3af9395864"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9a11e5f179637010f941b7c36a2887ed4d39f6ace1f99e49b8aa6515e96e8db1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "e6a215ec7d7986a46e727189bcae57c34e515e3043601b602386ff9e7b17f508"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "2b250e08104d34e3cdd5d7dede436da00562790338a9c12639c2e26e1f1f719e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "cf92de423ff3128ceb83189df1139a40c2fc1291b7b70d823855d917e0ea2990"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "e899ca33f5518202032ce5f417601a676a8ed4472ea38ed4c8f993bf9bb39843"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9e58d3094d79ae52ca7b8fcecd269bb053e22fca055997d092862fcc310f45c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "0c79ba5c4b75d2bb52a0452939f4eefad61784d627a72dc5dcee152abca149dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_3_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9f297997cb3f77f1f6a70d51cba27985379f84d4100d5736e647d752e878586d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "abbb221060db4e22e8e1c5bfdce845a7fee5b4743c9034bf3865c75d12891264"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "04b333e3d8940a1bbdd28b84b4b23c4ac4975368d89e478463078b82579deda4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "0573512d7be6d67a1413c05e65dd70a34782d7e1be51f737507357f20a135cbb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "a413d4bae7330ff5bb8be83e6eed4f9a7263d073e33ba0f123e0c1838688f0db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "69f1a3eb3acbe95b5f68070b6b5edc8902e10ef9cf0daf56d6996adfeccda7ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "bf95d5e032337aebc4d83e0b6e3d2fa2f3f62cbedeb37d269dc695ab62ec2742"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "34931e3f81717fcd9a526e6887673cfc889f03e7bbbad1187e18a8670bae1fcd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "edb0a0eced05ff8f26c152a2ff3bc056cbfa5e21d5ca96eb00bb0fb6a0c1af64"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a57220e30c57a89348aa87577582cdc305c3df924b5e362eb7ae3a135b385399"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c3ca91ec65c778768b9ca04667a26cc185712d5b838c52a64570a292e0d1d41b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "16aa5f8bd56705115f6c713fa5ed5a53825de28900415a0c53c4c26290442348"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f8c3c0fd9237ae6a6c12971f41e3b7e479a7145842d77950d210cd3eb2d9e7ba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a652d17c07f8186498c0db441952e604b79cd96c8dccb2ca2a81085b6bdefb80"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "be73f132da2a72da59e5ff464d167e47cb0a86d15046796009f85201afd7c24c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "37046c58d802971338f208736a67467f23e61997af4b7231bc8d59eb5e1ff0d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_4_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "1300f59095239b64edfc99c44835dc871c640d49229b1a00f7305c04dea7c873"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "9c4427867ad7b335b3cccf74e068af3d6023ea2ad62f6e0f3ca3698ecf1db2cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "a415c65b02ac649f85cbaab134f32dfeb89ae17e2a7c4f649a47a64cc12a1604"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "06424cbf3a24c5199350b6ce32dd0b5361367b2a4175ccf314db2b3826345f77"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "bfe3d3994b8e0abbb6ba6d6cf998f72f18a0a96b16894d5c3de1fbba048e4d29"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "7d0dbf6995a7f2ba6074ad196b5ee042798d3a1fe4497e69aa3cf9842807ceaa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a89ce7323986986c824f75287dce543d942c32b8cfe35b1892cd501f4a419f31"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4f8f898ef0b146f020cc5293305e9c737a96f701e098c8c3cf7ca6ec2606cf39"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_organs_o.group_stats.bin",
+      "bytes": 48,
+      "sha256": "5e50047e983278e7c73d511a24bfb65cd2a48e58e8dd8ca585b4b21e85d8a479"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\layers_5_organs_qkv.group_stats.bin",
+      "bytes": 48,
+      "sha256": "5ec6e40b66288fbf95f1ff32f3c0d0917c3b130419816800ddd4165d1fcab2d6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\masters.pt",
+      "bytes": 2884060418,
+      "sha256": "e2cc1648504bcce58b51dea2c85c9b841400f70b2efa2d5f71bf2043f835076c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.receipt.json",
+      "bytes": 1193,
+      "sha256": "b5f5aaae16b1a266451ae3844c7d9f1d6b1bda3d996453c4f7f53df6285ba01b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.routes",
+      "bytes": 22272,
+      "sha256": "2d97785ce2fb4619a5cdfb3e17ea9b7d85040079a59cdf0ea42a342fd51342f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.scores.f32",
+      "bytes": 15204584,
+      "sha256": "7b57d4dbed6f0976a5e4ec0feb6e21365ab8abb38b50d8294aae6ae68b26e39f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.summary.json",
+      "bytes": 306,
+      "sha256": "4b8c3c8763165011b01fbf1886f86e68151d3e0cd80aa7ae6f88db8c96debd57"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.witness",
+      "bytes": 73728,
+      "sha256": "f721d573d08fa56be83b1d257d6d0529fac65459a8b56776abcf52c5bc0e0fff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\query.u32",
+      "bytes": 236,
+      "sha256": "f3307a933f76b8e0dca155fc5e316bc511b3b74a88242b591315113fd5da47f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\candidate.json",
+      "bytes": 62403,
+      "sha256": "126bf63d2e7114c20ae34a3c5ccea0218927aff220b1da9c2ac0dbe59b0cc694"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\candidate.packed",
+      "bytes": 520029440,
+      "sha256": "3db0e64477c19983f44e86e954516cf8f52e6c567632fef04336222886bd31f0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\embed.group_stats.bin",
+      "bytes": 3145776,
+      "sha256": "68184463277db5b972fce36dd423308de3824cdd9d30b1ce509f82aef930b862"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\expected.witness",
+      "bytes": 73728,
+      "sha256": "27f0287281cc41e4728a5eaccf7474c649f454a1634d2b7c2d47223b36441dd2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d32d7bfc85f35508cbfe483d0a2ceb9effea69a7764cc94ed7f34cd5a14cd602"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "8301fb6b5237bdf6a8c6874d47c524e378017a759a612e511c3e01bd03e081db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "c7548f6d1e6aa622922f78198ddb048fa7a6b6f131b99c5b0bdeb46fbbdc08c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "1088bb2587615b1d653507534953c77879c72ea25253cb3e167e057da89a0159"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "8898e955c270153b13101aeca9c1c7222f659c8a59263a8f971bdb16055a0489"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "0a8b1895fdce2fa822397a57356401e9a814d5a8bef3ae34e990677a2369543d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "30fb66f6566ff9d67f405c127226be7dab187736a791de159c2c5392690ecdd3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "bb86a5eb221f405919c0ec42c8990ec838d7ada0a25d365197655022a20a2a94"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8b18c980c3fb19ac8834042df09ffac7a97dfd6d513969c433724268aa88141e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "90333b7064eb0244f973008569922f9bb75b8307cb57c3516403bf8f03537a6c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4a5ab8b2e4a47bc06d8445a64fe58bfddbf0ec2540b8afaa7743e88739bcdee5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8d45a132db7e806b3851ccd17a4849179962a78ce9b6efc7ca4a53b46de8138a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f0b1e7690c917930836be7757974fd655425f165aab64d652ee35f623cab69fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a744dc698a7e55f5d4f66764cb62c2442745be2e9f547467dcd187a42c47beb7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "dc7ff53860f5207bf86e3ed98c54b9b57e4458cb61defeb30c1616fe230f5f58"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_0_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "081a764014e373b55bdba36dc28bd283b03babf946a42ef434198b25df6d7035"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "b3fff341a8bb7654a38ec7aee647e8bfee52948a8cedb70439fb794b202fc998"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d68d43be67c748b973b858a5b48421062f7ec350527b870eef8b3edc2336abbd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "5c16d7e2cc3a9b12c40da3e4b7b88ac15f8a9aaf9a62b28d23f3c41b263807d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "7981bfc6937aa04f31a3e95513a1f9eee94e08c239b3f3e03b34263af911eca9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "6c03cfc6ba211da1f2239f6d6ff076252fdc70e9aa756f380ab1542c56f65db9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c94787ca021dca8badff2297b09638ef52f643479ed1e03948c9807e9c486e68"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "40c3f74ca52c0813ec3f5f3fedb0d8063c40160064c7cbdd5310d27b00c1d74c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "59bd0996f575dfc94d97d10b50314896399590eaecab8f3c646ce2d31ce10818"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "71ffe7173206ecaaa64d7916d6e0446e2309c552560f3a6538d3f7b437eb04b3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "fc0d5c9050f632ad9733cb155b9dff0017651ae8fc672c32334157d3667c0f41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f113df3af52f58a6ce16854e6d7ce96f1920de718dfabce9f7797d9cd77d9998"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "45c6fbbbb3e742f89174039bd0c6d404525bbc04ecc54e3652ff7a21d91a4bbc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "01de0b992be440ab6b6be7c068d9079b488035420a9fada7c844705f8df2d4dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "1029b91e24d022d3955b534023ab16dc3cfcadd257a3f791d21de2fdc31b716d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "775ee9d830c572b992e22a03a1d8c5ada3c8e50d9bb0b097102993df20c2a163"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_1_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "3ea046183196528e582cdfad7429d3ffb9245bb29cd8cd7a81953a7e65b49c49"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "8874b4058b2965ed749180639915eefd41866539dbc03db82d2ffc00e4831896"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d7b69e749951a415b64420343d5cd82171f8073eea0d0a6a6cced4aee625785d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "f868407548c0892294e11532fedc4bdeebb8ed21cb8034b6fd972ee85f9c2d02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "a4d6b59ea91381b1d0ed1e973e7c945aa79bbdadc3e4eaaf174480268fe0fbeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "5a5a655089812dda6ce210ae770af9e68df1df719b11dd9e8e444760a975f6ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "193d9f3afdb1ceb442a843880a81ab5d2360130948972e1a2d1d138a5579615a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8f78df4cd685115215bd4f696d0c58b6ee166ac5aa8d37a75a6fd425a44474db"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f3e9277088deaff265bc8b04f87a91e94f4726e7a29b0b62b91253fda26a8b98"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "3cc0f3839dd835237cae25a549a4c3a0d4add520cf64fddb65031d5643377731"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "94a0cb37f5e6325056e0a4a705d9271476c059f479ba3da4dfc8b3af73cc5b7e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "14b4f4852ec979dac198ba50ee5f754fa0bbe21eb8636dafe3f2f66b6eddd70f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "b5db666e14301bb111a9e093e23c07d90a86aefd3b4cc17091f3622fcfddb70e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8a5a98e1a49616843987b43f7d9a9c2897a7b3643e72d95d64373603aac44a6e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "cce5525b3d17670ce85725d3e1af43a64c491fea67c86d13fe03883886268732"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "180a475e303c4f995b5804c40c6253a92d82650dafb3915a09a40aa9dcd5532b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_2_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "66e38c7c468b79b3e0c6fc17571d8ac627a4d971c00c7c58e1c6d24dd5c16696"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "e01c57ea729889f4c7b3d88a44200f01b06932f0711ff4153d91b536a84bbc17"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "11616d0b75320a5400d1a9ae0a46f4337eaafd1d04d6f25ae856e0d1a00d50d9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "8d023e8d9e9a6d2411d25ad3837890d33d6ddadce0c54a16b2f4b12b0687768b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "26b28da3a24c14a46f72867d8c05a7ceac03d7d83668277b69469a153edeaa86"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "97cd20d4cb464555ea4af8bbe9fa7f32549405497760564959dcf01a100403ef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "b21ebbfd5b491d286727e55c7f596a169d10d3f3ca735ab50972d8ec71183be2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8034a277730f5ff77d0b378da0f6481fb33b33dc74e69018bd644c52c5718ca2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "386c4b4858d99356b75736860ef2d4542360c703a095493c89edafe3660558d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "dcc17d1ca641b1b8796e422e916b62e6890e621ddcd2268438c3869c9882d5df"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c25fb69860df6fb98009b9d0de7f3fe552162c464f442953d6559110327ac75b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "97b5c2c8c21117aaedb73cae8d7b94fd530b81ef3840539ec018ce03747e1389"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "25eb7fad22bd072f752b5f83fd18dfb1dd8b78dc9eb3829132ea32477ea4b342"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c2ec45e1dca1c7d04b3afa06fb8f24e12e5792b5aea56551ed756884d6759adb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "1178256540c9f62e710ed478296fd1b8ca2264baf11fc392600c964a2b2bc798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "668a9105538701b2e7864cda0ed6b208a3c07a4381b97e96f1feeb47e7d4f9fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_3_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "899bb9470a75ac6d1abd74d102adcd93875089932eefe2a7f052b65d063f80ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "4aa90bc2f5712d60614b9c020316b65585c31e46ac1588699930f4acbf239b42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "f0cd1652425906881876a646921ee95a692a44de2b87ba92cfb3626ebb8afc4e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "75a44bc98fa367ce416c5862a4cc0510629b4db600b56d237ce1dbe3b3710dd1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "f8a0c97e28c86276bb547f56308a001723936ef2f8da2d374bad9a42287aa0ba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "b0f6ae3c3ecab83442ab10d1b7a713b229efe5dad646bd1b7430edda000f7811"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "5230f04b41ec998b6547e0a8b4d7f53285d261818f54d71b6b7a4c8e4c5a0e5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "069ffd12e4446866096274e00b453c16e7f068279ad168df413b7d10d2359fbd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4e3b6938d23ea3a1ea048c3fb3eb9c074f1ec40efc69722bd34627e3f0f3f7e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "7687b969921dc36466801d3a33fd3ee73f4ee8b581979eb43c9afbb10293b798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "6507c56a7f1ab49d7fbee6fdd7d6d60a92517d04ab72804bc712c5be6448d288"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "3a29c5d270f4ad61b659b472255248e92e5e470a96c40cbb69078e5bf6b50f49"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "19fee3655d5fe14065227797f523e32b318d5e30a75904ed7bacadc41d34fe78"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "563386814d12fb6e04e8e38dbf336a495e59df75b0fe2d2961f628c47393481b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8260f43695d9d1b261793413af2d8167257ac3b487a2d7e492fb0113dd11bb65"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f5856e95803ef6612101e8e91a5d01863438f602cf82648893d65a6fe6409ffd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_4_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "1eca23703a041b766305af11ff3cfe1a72ce5968a4cb02fb94aaefc73dfeab83"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "8854a38bfcab511138ca2d9eaeefdfece90f2ae6301c41096786559741e7cbed"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "4a7987d071fe2bf99f8cc58126a1622ea9fd46a0fab9be8c25afd03e7372ebe2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "b5446ea93ea2ac89bdaf486c51e4c291afbd5406c30ed3f4eb5099765789b6e1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "4fdb045dc73b5b7832c9c62bbdb6db6c82b63c2fe82f88492b78ef94a0241e75"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "7e486cb92fc087a23f6c8983d9e3b3274709d3de9e3e23d998fcb6c3601f1fa9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "5bf168e249e5285c71ae46e4ba44e128aa95b9a566302bf2955397953401bca2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "5617825b9f7692a38080a8ce641f73e4b70ba4e842e622be53123b5302f7907a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_organs_o.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c02efaf28a3c0cf9c03317ad753fb2b7968c945c6bf42f568ee488146503e7b9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\layers_5_organs_qkv.group_stats.bin",
+      "bytes": 48,
+      "sha256": "6c7503beb3cfbaad94e5cad97f6645776d32539a5080b936b93d78f971437058"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\masters.pt",
+      "bytes": 2884060418,
+      "sha256": "7dfb2de14accf7b079268064c40dc1124586509e203e28a035f5fb3236355111"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.receipt.json",
+      "bytes": 1185,
+      "sha256": "a155504d06fea315ca81451154a73f06bb12bd64aec56975ce2489baba867bd7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.routes",
+      "bytes": 22272,
+      "sha256": "c458e8aefd7391a065f1412c68ff0e03ea7cebb802c2901fbc188509c148f946"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.scores.f32",
+      "bytes": 15204584,
+      "sha256": "20ffce5fb6f382d17ac1536bf75cc647bde99eb389a788bbd4a261d6d72d1de7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.summary.json",
+      "bytes": 305,
+      "sha256": "94f4f3a57780bff08c0829d08303fc06237f9c6613a2322b685ab7c9e1e6dd07"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.witness",
+      "bytes": 73728,
+      "sha256": "27f0287281cc41e4728a5eaccf7474c649f454a1634d2b7c2d47223b36441dd2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\query.u32",
+      "bytes": 236,
+      "sha256": "f3307a933f76b8e0dca155fc5e316bc511b3b74a88242b591315113fd5da47f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\candidate.json",
+      "bytes": 62305,
+      "sha256": "e53138575c5c3b8c9421f57136cf3f8fc4fdaa47f0c1c9cf9ffec643f405fdd3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\candidate.packed",
+      "bytes": 520029440,
+      "sha256": "08a9cd6392ccbb9c6d7ea1194c5fcc258732d9bc197636e06f0a51bb3c3bef79"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\embed.group_stats.bin",
+      "bytes": 3145776,
+      "sha256": "72298427ba6217ec632b630c814f89dda194c01a8ee82a072eda112221e8d996"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\expected.witness",
+      "bytes": 73728,
+      "sha256": "7ecfcc3f88c80dd05154af8d3dcc985f763f25245e951abe023044b5249ff0fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "781a9fade0b01aa6d8433142029a3cf473b7355734a6262e1b769d362168b6f4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "e0618dc2dd37749311ba8a27fa755e179f04a1db02300bb70bcd2461e9241c71"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "67f71c43f62ee3c4fab211a66ef6091079961eb14d982fac4baa4a134691fe8e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "b9e3c7811ba18a2b7f53f7ff48049c3ba0616df0b5975329f12cf289d1e73c65"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "a8de9ec9a08fbabe9e589d80770a0fb63e6fe8369ad0c757943d9791fcc7fc42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "02a1325d7fceeff55fd84d5cf47e30aea77cbdb6d42ffdcf7e7f111ae896c11e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "335500ba2dc606ddab1fc2689cc696043329858f7b5df8589de42492b254c5b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "362bafa1668805c31bf050c356586e0927522b184cd2acaa0d28a0eb295cee29"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "7986efbb692a4840ae21f36a3cb1ea76ab6c055b48340fdbfcf0b6b3913ed41f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a34ac43bd3c1d8e48435bc0b61a767c8016e800fa7a9117c377aaaedf25e0463"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4283b5e255d0eb40411d76a87f77451cf4ff8e37dbf9d41f1f4fa9dc2094fdde"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "ea775ec0b1cbbf143e0ac1a6be16d21e36da6af91f17678993abc7101e9cebfa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "b22bae0d6558fc1442757c7406d3b157f1d45d39bce64b687b237d030c55e313"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "2cfb84b4a52883b00febd031040a628cdacd5a3d93d0aec16f27a182605aee09"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "751a6e36a9d9f62140abc2081e6e9fa585b72e5d8f472ce1308f87cae56a7c3f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_0_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "49b541a8d80528aa61568ca801cfb7d2cede4f01140aabb8b06f7372ed9fd2a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "0069760c721c48a02ed6a7cc7ad4607b81a324fbbe26807ea8808e0d60363b40"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "35c489e398f7c79ecd003876d507a6bfc3e57ea04802f4e6be1cb7ae86be8ce0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d30a1407889fdc6355596ddf02dc18b2c55a669a529e322d78b994188d7eb5a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "c26370f2ab5a786c5b48a36bd87413338e8e8a658499edab5c94b8e445e87de7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "0dc68ed70a61e25bd63f92e9d108c2f84a980312e73c79beabda5b02ce99f5cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8cf3ee1ff2465a594a73ca525d1008df1a461f17954676cd641e11ef9bd22798"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "cf0fc435d90c24800db033ac8b002c0d998e8975714b9dd47b063023babebd88"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "3f67bfc334dcdbc3a4e2d2980dc90d1d7a11206ed4611e7aa4900233075beb1d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "681797d4e19b33fe64bc7bcfb30e74d84145b534158911e4db4be4639db89cfc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "58780968c525aaca9f2a5c7d5b8bca162c1d226dc1e25e3118a47aff82488aad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a5967ab0f71387435d4d95a5f69de9fde1bec54dc127b73abd55138e67b0316a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c71907b22259bb9359571a34aec154853d4848f27d4a52b28f911f199f7e7f90"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "d8821249ce4faedb1b953e495f644f2cb80839e2bf25515b7ff86d7997bd0a7b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "6caea86de7dfedfd2af63a00835b0e4151aa2b8de0e6e0d471b042d224ed025d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "37004585733302463d6d6a5c920eb5292656ba7e4a06d6579867895fa50756ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_1_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "76a6b9a8c47dadda9cbca9be4cd5e7d6585a3138bc24d4797ec4937174eec4ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "11a81b96d40514a594160b4059240d3e4de7534d1cae49c9e767b36cb0b50761"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "e55b38ffd34088d8db67726b8438d081374b410613ca55e979508da2cdef07e5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "b5b7d8301b8fe5635f82ab8e58e035b99f84e25e94d91bc19fb5ccb849fa3416"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "d0a67cae8ab27bb6b28421a3331e5ebc4c85447f879872a4ee44e8361a502055"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "e4e039681c767d6c85d8f6905962229d937fc5042274dc60c4ea4c25abaa0fea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "ef2008adbeab1489eb86a220583ef67d8f38ea76fff57ec03764327da0a28081"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a62fd3e354ecf8a71a5dc6b6e976b1644141d2b88fcd7b067b2a6227f4ebcf27"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "87468567a20e0fb1c4c93ceaad144b78e99fb499d15e7b15b6cb9cbab9569cb9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "138b669938ff3cb8047c1b1feea89e1cdaee64fa2f7ef5928b3cbfc83ce6696b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "db903c36b3f14ceb6db952649681c640600a556cff7ff994638c985bb3d67626"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "eee028e3e50f58735ab8debaf3e5ab00fe5d6bc300a2fbf75e7539309db7f0bf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "e9eba0999b1131af651a250a67b934e29ee0c449f8de4cf67c7352c2344a1f2c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "35b31186383cf8f6d1e8b0cd44932215b0d3660f83eb2cd0228c627c3ab6b65d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "0815c65473063337b5306facbf9e762f69adc56e045cc17f4a601c68c898530f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "b281acee3b91bb3410dfc2c775ec10f1e9aacc1e491d4d244f35bbfee7d585a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_2_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "93bada20538a181a0c55ef7f29305a61b4d4a4a73446be1f281cbc5dee02807d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "2358cae038b661444657920080c0e68be24968f82f3bb8688b33825727da0ab6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "a120f5c38c5444ded0b93be4d46fbbc60b9a740647ebd932ef5c5d8aacf56ff4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "6059e113a9c8e7cf00fa981c61ee8a6899b9a00ebc85a771ecd2e7a0a27a3e50"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "3e52cf7a77c99f5dcdd2692fe03b9119c2c4cf9f5a81f3675bf2968e3e3382b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "a82c16ab81fac5b3781d41a8060c82eb0d5cc799355db72bce56d1a85f9321fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "e56ec8eb51bf289c39fd2c56bc4f327d8f38bf4780c662a6ef511bdd9ff8887d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9932af3c0af9982bd9789a213d80f44db34d0a8f92db90affca7e37932b8af9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "f556d12127b86500594447b4775c358790a50127d542c0a7a62c2b286ab52200"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c307105734466d326838ed5067b2a19964f754e7bcd749588d6826ca5b3a80ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "bb155956b35a1f88af192ebb5c18edd921687749c0438a9f7d108ee9c158d750"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9050f8c8c79bc606626c727ad1f17e513ef78672cbb050eaa22744a11890147c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "6d6c0c7c1887b8688641a410e3ec7565df8e0fc77d01fb0e80ca09be1e01d5df"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "4a52dbf337b0dcb9e59eec714bf61ba36b305cdbeba01ce5e2ecdf84c7699058"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "fc9a16ec590fa7de782748721e88eb6ca01835c8696414e2d05065c424e9100c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "bc36c56a550d725555509e53f2ff1d68289d8e6037c2e32be474d881217ec23d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_3_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "9f44ca1d2f094ae4b1b823d6b2367c525e846dac1ca646e1744e234fd95e7530"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "810290333c4ca8f2d4e353c231ea0af93e02862369e91028f3a173df983b2519"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "c0a293de685de59da886405589bb76a08ce4ba597a2c8610770a7efefa2575d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "ab37c256d3e4ca8516f0d7af48038853e918a168881ee35bc6c71bcdcb802c2d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "fb6e3fdccbd03bb3850f30c36406306ce37d24bc12458406f5648edfd5a5e441"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "0bcad373b070cdea85376844330dd966a57f92f8d36e5a59189d87f45a36d4da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_A_log.group_stats.bin",
+      "bytes": 48,
+      "sha256": "b88006529843c9441521d778b18d8be7468af85b996456efa0b4fb88f1d119f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_conv_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "c7acbde6374facb3ffa542733674257f2873467799292e5b6ac24ba844263878"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_conv_w.group_stats.bin",
+      "bytes": 48,
+      "sha256": "e8b7fb4c0112466133eba21fa2c544be5f24ad812f95fcfefd7ef8022f055ea3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_Dskip.group_stats.bin",
+      "bytes": 48,
+      "sha256": "b0de26123e82654fde1f96811f2771cb8789d1649525fe5b0c21c54f5aec0daf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_dt_b.group_stats.bin",
+      "bytes": 48,
+      "sha256": "17f9f0157a4e1d4741f9f49795e71de673899dbfd229ac433c914bf533df56cd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_dt_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "140c2fbc74b43463c1af2f2ea531bbf4ff1316b934fc20915214a409051e4b5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "191c3866d7ec317df40bfe42f59d9eb9a428c07f2759fba1dd949c2a7159b7ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_in_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a368d4e90f9bab168a8f3f8112a7c2f1e833d23f02742255cbaec50a277056bb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "04171229119d3b5db271bbf70070a7698683ef1f2acebaae620a873fe29bfe66"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_out_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "8768220d51369f240cfc72e7d6818567025177574965392f01f883835056ac17"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_4_organs_x_proj.group_stats.bin",
+      "bytes": 48,
+      "sha256": "a4b68c9da914c875ae7c90e31d9d6de6677af25cc5dc8d8789b0e818e1d0f253"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_bank_down.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "9c738159bed2fedbbb1832739462edae3c4736db7478c25ebf3df52ad8412cfd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_bank_gate.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "2748675971277ddf654d033ac8145de293995576f1f8db045ea5e33a618d5864"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_bank_router_bias.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "335915e36b7dbbdf2fdf843f200912b1491d24809942883ac2803cb4921067a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_bank_router_weight.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "76ada7dce50001bbd84aefeb8052ab0e85b02aaf549d00792b426f5254a69303"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_bank_up.group_stats.bin",
+      "bytes": 55296,
+      "sha256": "35951e1201d24572d22514b7fb3556f09519173204c88b28ca2fc6f4f0601c50"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_organs_ff_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "ed28db897fdb651ff2d847570d2ee07fab8a171b7a33a8a29a8c23a784790d9a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_organs_norm.group_stats.bin",
+      "bytes": 48,
+      "sha256": "329bc14b649a2a232e91e55595e84538669fd5287bd8d57341e16d6158d6fb0b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_organs_o.group_stats.bin",
+      "bytes": 48,
+      "sha256": "168ebf701e4aebdee170764138b367194929af1b2464b777fecd8a320b8e68b3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\layers_5_organs_qkv.group_stats.bin",
+      "bytes": 48,
+      "sha256": "05e17bbbdabf76f6e8bffc11c209c828176564cbbed25fb43283977b161a6deb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\masters.pt",
+      "bytes": 2884060418,
+      "sha256": "47f884116fa259f7f9b061e18588935d5c67bc468c93ac1a80713bb8abf5e1e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.receipt.json",
+      "bytes": 1165,
+      "sha256": "e2cc2712c56c5df073aca9f4314dde696510bc7e12871f26a389640e6b7c5b7b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.routes",
+      "bytes": 22272,
+      "sha256": "69cceca89de7a9dc927d5b5320154fb93ffe5704cb8f9ae2bbef0764c01c1c84"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.scores.f32",
+      "bytes": 15204584,
+      "sha256": "c2ae86829fd19d0956adba1bd4779659b31d2b8eadd7602e6e5e1b6e4f7dac5c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.summary.json",
+      "bytes": 304,
+      "sha256": "45f1cd7e7e0279c3d68ef2199cb37aee466a6713374e4d6798de806c6c8b6683"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.witness",
+      "bytes": 73728,
+      "sha256": "7ecfcc3f88c80dd05154af8d3dcc985f763f25245e951abe023044b5249ff0fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\query.u32",
+      "bytes": 236,
+      "sha256": "f3307a933f76b8e0dca155fc5e316bc511b3b74a88242b591315113fd5da47f9"
+    }
+  ],
+  "extra_inputs": [],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 449.765999999996,
+  "worker_OS_peak_through_exit": 11781296128,
+  "native_OS_peak": 527511552,
+  "observed_native_children": [
+    {
+      "pid": 18552,
+      "creation_time": 1791649487.7876115,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.0001\\native.summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 10060,
+      "creation_time": 1791649621.03956,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.001\\native.summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 28292,
+      "creation_time": 1791649757.081238,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010\\alpha_0.01\\native.summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    }
+  ],
+  "launcher_OS_peak_snapshot": 31649792,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_result_20261010.worker.log",
+    "bytes": 3360,
+    "sha256": "046d035f30d85638f1caa2a2ff84005239347bb01bc73d1704c8d2e2786c41af"
+  }
+}

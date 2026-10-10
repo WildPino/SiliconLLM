@@ -1,0 +1,74 @@
+{
+  "freeze": "738896a6bace46c0707124aaac9cd52f5408b6aa",
+  "binding_sha256": "c6500378ef3e37d6cca2a72fb05b1fe52dfb8c483a9bee228af1f4f53aa5cd42",
+  "launcher_freeze": "cf22e7ed9a8493d336eda59f3dc5252a277827a0",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_fsum_audit_launch_binding_20261010.json",
+    "bytes": 2574,
+    "sha256": "721cfb2db35b895c805eb37dfcd113b7e1228796a4d7203e8246721988ab55c5"
+  },
+  "launcher_pid": 31652,
+  "limits": {
+    "seconds": 1800,
+    "OS_bytes": 21474836480,
+    "output_bytes": 2097152,
+    "log_bytes": 8388608
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_trust_fsum_audit.py",
+    "--audit-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_binding_20261010.json",
+    "--binding-sha",
+    "c6500378ef3e37d6cca2a72fb05b1fe52dfb8c483a9bee228af1f4f53aa5cd42",
+    "--freeze",
+    "738896a6bace46c0707124aaac9cd52f5408b6aa",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_trust_step_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_fsum_adjudication_20261010.json",
+    "--source-result",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 29292,
+  "worker_creation_time": 1791649833.7996647,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_fsum_adjudication_20261010.json",
+    "bytes": 6848,
+    "sha256": "e6278a018928d87d1e15de3a0c7ab9b97507da69fd7e8fa2ccd37131890bd724"
+  },
+  "outputs": [],
+  "extra_inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_result_20261010.json",
+      "bytes": 211317,
+      "sha256": "fbde76bcadb5f2da0b4d9e9c47ebef1a6e4ec1c1d9d0e2e72be8ec2c5301dae7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_result_20261010.terminal.json",
+      "bytes": 95966,
+      "sha256": "38f2d947d29d4de8a4e07e5522320471f056926a6dc187e317fe010185ec4923"
+    }
+  ],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 1213.5319999999992,
+  "worker_OS_peak_through_exit": 11735347200,
+  "native_OS_peak": 0,
+  "observed_native_children": [],
+  "launcher_OS_peak_snapshot": 31461376,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_fsum_adjudication_20261010.worker.log",
+    "bytes": 169,
+    "sha256": "806c7fdd2ab9fb1da1c45144d28655b966f0a85fab1fefefbc9f4e897d20924e"
+  }
+}

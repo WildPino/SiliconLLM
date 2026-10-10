@@ -1,0 +1,211 @@
+{
+  "schema": "ORIGINAL_CATEGORICAL_TRUST_STEP_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_result_20261010.json",
+    "bytes": 211317,
+    "sha256": "fbde76bcadb5f2da0b4d9e9c47ebef1a6e4ec1c1d9d0e2e72be8ec2c5301dae7"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_trust_step_binding_20261010.json",
+    "bytes": 801869,
+    "sha256": "c6500378ef3e37d6cca2a72fb05b1fe52dfb8c483a9bee228af1f4f53aa5cd42"
+  },
+  "decision": "GROUPED_DISCRETE_DESCENT_QUALIFIED",
+  "selection": {
+    "alpha": 0.001,
+    "flags": {
+      "weighted_descent": true,
+      "first_not_regressed": true,
+      "all_numeric": true
+    },
+    "decision": "GROUPED_DISCRETE_DESCENT_QUALIFIED",
+    "quality_flags": {
+      "mean_KL": false,
+      "disagreement": false
+    }
+  },
+  "complete_input_output_hashes": true,
+  "all3_92_master_states_110_fields_verified": true,
+  "all90_gradient_source_tensors_verified": true,
+  "max_proposal_ULP": 0,
+  "max_metric_delta": 2.1316282072803006e-12,
+  "records": [
+    {
+      "alpha": 0.0001,
+      "metrics": {
+        "KL_per_label": [
+          115.32120080068448,
+          111.09082195015546,
+          87.47640009872103,
+          84.89050277577519,
+          254.11229474626793,
+          102.20542892654944,
+          42.10535636863206,
+          292.13674317119603,
+          153.63121390823548,
+          38.94511660791566,
+          125.86657352804662,
+          187.39017459051456,
+          206.77122830471842,
+          199.1219039449404,
+          131.05100601908237,
+          102.24426149015929,
+          34.693116447463325,
+          203.40308881123275
+        ],
+        "mean_KL": 137.35869069390503,
+        "weighted_KL": 126.98810721474241,
+        "first_KL": 115.32120080068448,
+        "disagreement": 18,
+        "route_ID_slots_changed": 361,
+        "route_sets_changed": 52,
+        "route_mass_delta_max": 0.04989886283874512,
+        "route_mass_defect": 1.4901161193847656e-07,
+        "route_unions": [
+          218,
+          236,
+          224,
+          230,
+          239,
+          227
+        ]
+      },
+      "numeric_flags": {
+        "group_radius": true,
+        "actual_direction_descent": true,
+        "quantization_certificate": true,
+        "route_mass": true
+      },
+      "max_proposal_ULP": 0,
+      "max_group_relative_error": 3.066581840515862e-16
+    },
+    {
+      "alpha": 0.001,
+      "metrics": {
+        "KL_per_label": [
+          44.15112378665885,
+          26.05635561998375,
+          42.52681859576289,
+          47.313503836233224,
+          109.8000697185749,
+          60.586894790816245,
+          4.285502387081521,
+          142.52935992495233,
+          51.85322084086187,
+          29.661002178589158,
+          71.97694432022317,
+          149.3186261392043,
+          144.37071502400033,
+          129.94566465846344,
+          83.18964901231955,
+          73.51464509128013,
+          17.832816319186907,
+          64.56949909755737
+        ],
+        "mean_KL": 71.86013396343054,
+        "weighted_KL": 58.82059976259682,
+        "first_KL": 44.15112378665885,
+        "disagreement": 18,
+        "route_ID_slots_changed": 1006,
+        "route_sets_changed": 136,
+        "route_mass_delta_max": 0.07497015595436096,
+        "route_mass_defect": 1.6391277313232422e-07,
+        "route_unions": [
+          218,
+          237,
+          225,
+          229,
+          247,
+          227
+        ]
+      },
+      "numeric_flags": {
+        "group_radius": true,
+        "actual_direction_descent": true,
+        "quantization_certificate": true,
+        "route_mass": true
+      },
+      "max_proposal_ULP": 0,
+      "max_group_relative_error": 3.066581840515862e-16
+    },
+    {
+      "alpha": 0.01,
+      "metrics": {
+        "KL_per_label": [
+          154.79531614946308,
+          86.83385360353181,
+          156.73292749156562,
+          32.18128299884986,
+          126.13740914421551,
+          129.4593245131265,
+          2.5188540891449036,
+          82.2382792480778,
+          102.40274580059373,
+          156.76237702529673,
+          139.79813373934473,
+          95.33924705932874,
+          60.21536406586422,
+          78.87221190992076,
+          148.73381677094943,
+          134.5944472773132,
+          15.29712205547062,
+          25.25139654154262
+        ],
+        "mean_KL": 96.00911719353333,
+        "weighted_KL": 123.67321081985321,
+        "first_KL": 154.79531614946308,
+        "disagreement": 18,
+        "route_ID_slots_changed": 2225,
+        "route_sets_changed": 315,
+        "route_mass_delta_max": 0.1359005868434906,
+        "route_mass_defect": 1.341104507446289e-07,
+        "route_unions": [
+          223,
+          230,
+          229,
+          241,
+          244,
+          249
+        ]
+      },
+      "numeric_flags": {
+        "group_radius": true,
+        "actual_direction_descent": true,
+        "quantization_certificate": true,
+        "route_mass": true
+      },
+      "max_proposal_ULP": 0,
+      "max_group_relative_error": 4.361562433120558e-16
+    }
+  ],
+  "model_forwards": 0,
+  "backward_calls": 0,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "GPU_calls": 0,
+  "source_calls": 0,
+  "seconds": 1148.9839999999967,
+  "OS_peak": 11735347200,
+  "scope": "Stored arrays/weights only: math.fsum row-norm/dot proposal verification, full original packing/witness checks and shifted logaddexp metrics. longdouble aliases F64 on this Windows runtime; no extended-precision claim, original history/backward/native replay or changed thresholds.",
+  "independent_reduction_adapter": {
+    "code": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_trust_fsum_audit.py",
+      "bytes": 2532,
+      "sha256": "a93bdb5d58578e3456d18e548a73f020665b704018ee327b9b92c3e9147bd54b"
+    },
+    "protocol": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ORIGINAL_CATEGORICAL_TRUST_FSUM_AUDIT_20261010.md",
+      "bytes": 2714,
+      "sha256": "13ce042a17d061a86da72b8b06b5069860d8fdc94232d375a6439f9c7a1dfefb"
+    },
+    "NumPy": "2.4.6",
+    "longdouble_bytes": 8,
+    "longdouble_mantissa": 52,
+    "method": "math.fsum on every 2D float64 axis1 reduction in fresh stored audit process; original on other reductions",
+    "model_forwards": 0,
+    "backward_calls": 0,
+    "native_calls": 0,
+    "thresholds_unchanged": true
+  },
+  "all_group_updates_independent_fsum_verified": true
+}

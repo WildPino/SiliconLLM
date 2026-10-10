@@ -1,8 +1,8 @@
 # Pretrained-to-native conditional-capacity method
 
-**Current audit preparation, 10 October:** trust-step producer LIVE session16983/holder25220/worker3720, frozen738896a/c6500378/a8e57aa0. Windows longdouble8B/mantissa52 aliasesF64, independently observed; unexecuted norm-audit branch superseded by [fsum audit adapter](ORIGINAL_CATEGORICAL_TRUST_FSUM_AUDIT_20261010.md), AST/independent cancellation fixture PASS. New audit launch binding 721cfb2db35b895c805eb37dfcd113b7e1228796a4d7203e8246721988ab55c5; same gates/full audits/caps, no producer repair/replay. Launch only after producer terminal. Full goal incomplete.
+**Current, 10 October:** [grouped saved-gradient steps/full independent audit](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) COMPLETE/GROUPED_DISCRETE_DESCENT_QUALIFIED. Three changed original C models from one saved gradient; bestalpha.001 weightedKL138.960856->58.820600 (-57.6711%), first129.972493->44.151124; absolute quality FAIL18of18 wrong. All2917 inputs/303 outputs/3x92 masters/100156 groups per candidate/3x110 fields/trits/scales/witnesses/routes PASS, independent fsum max0ULP/group4.3616e-16/KL2.1316e-12. Windows longdouble alias independently resolved before audit, same gates/no replay. Held1663.298s/OS producer12.3405GB/audit11.7668GB/CUDA hidden, all owned CLOSED. Three mathematical displacements/native histories, no neural forward/backward/optimizer API/source/DEV/RESERVED/T4. Next [changed-state GPU/backward+full ID/mass comparison](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED, use selected actual masters and existing C scores/routes. [Scale geometry/n/primary papers](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md) conditional derivation/optional correction UNTESTED. Full goal incomplete; older statuses historical.
 
-**Current preparation, 10 October:** [grouped saved-gradient original C experiment](ORIGINAL_CATEGORICAL_TRUST_STEP_PROTOCOL_20261010.md) runner/CPU holder IMPLEMENTED/AST and tiny structural preflight PASS; binding being sealed, actual proposals/native runs UNEXECUTED. Frozen three independent alpha1e-4/1e-3/1e-2 group-relative displacements from saved gradient, all masters retained, original full export/witness/trit/routing audit. Producer1800s/OS24GiB/output12GiB + stored audit1800s/OS20GiB; CUDA hidden/no source/DEV/RESERVED/T4/baseline replay. Full goal incomplete; older statuses historical.
+
 
 **Current, 10 October:** [original categorical causal bridge/full stored audit](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md) COMPLETE/CAUSAL_BRIDGE_QUALIFIED_PENDING_TRAINING. One new original58-ID forward/backward/C prefix; all92 parameters/90 gradient tensors/108 unchanged packed fields/routes/mass/witnesses and full hashes PASS. Dense/compiled loss2.2737e-13/gradient3.2685e-13; GPU/C scores.000386641/KL.000156436/zero argmax differences; independent delta1.8474e-12. Quality FAIL caseKL146.950513/18of18 wrong. Held280.859s, OS producer11.0124GB/audit6.6702GB/GPU allocated.6014GB; all owned CLOSED. No optimizer/source/DEV/RESERVED/T4. Next [grouped trust-step geometry](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md) algebra/plan only, tool/update UNIMPLEMENTED: saved gradients, scale-aware per-expert/core displacement and actual discrete C descent, no baseline replay. Full goal incomplete; older statuses below historical.
 
@@ -34,6 +34,34 @@ This is the procedure in construction, not a completed universal converter.
 [INDEX](INDEX.md) gives the current resumption. Older procedure/history is
 preserved BYTE in [method through pilot](METHOD_THROUGH_HYBRID_PILOT_20261008.md)
 and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historical.
+
+## Executable grouped parameter conversion and actual discrete descent
+
+`original_categorical_trust_step.py` now converts a qualified saved gradient and
+source model into three actual92-master states and original110-field packed
+artifacts. Groups follow each expert/projection, embedding-row, router-row/bias
+and core tensor; per-group radius uses current parameter scale with an explicit
+RMS floor. Original exporter and C are retained. Mathematical displacements
+are recorded separately from iterative optimizer API calls.
+[Protocol](ORIGINAL_CATEGORICAL_TRUST_STEP_PROTOCOL_20261010.md),
+[inputs/outputs/commands/cost/complete result](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md).
+
+The full stored audit uses `original_categorical_trust_fsum_audit.py`: Windows
+longdouble aliasesF64, so independent fsum accumulation replaces the originally
+planned cast; source/protocol/gates preserved. All3x92 masters,100156 groups per
+candidate,110 fields/trits/scales/witnesses/routes and54 metrics verified.
+Bestalpha.001 improves one FIT case's weighted native KL by57.67%, but18/18
+labels remain wrong. This validates a local conversion update, not a trained
+chatbot/generalization/useful50 or other family.
+
+[Changed-state GPU/backward/route-mass prerequisite](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_NEXT_20261010.md)
+is still UNIMPLEMENTED. It consumes selected updated masters and existing C
+scores/routes, avoiding repeated C baseline calls. Then prepare a finite
+multi-case campaign with held-out/own-history quality gates.
+[Scale geometry](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md) links relative
+expert steps to conditional n invariance and published LARS/STE scopes; optional
+neutral-direction correction remains untested. Dense converter master/gradient
+storage still grows with n; no large-n conversion-memory admission.
 
 ## Executable original categorical causal qualification
 
