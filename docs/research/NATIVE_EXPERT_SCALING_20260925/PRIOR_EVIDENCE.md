@@ -5,7 +5,8 @@ holder generic AssertionError before result seal.24 steps/48 candidate trials/
 all48 final forced cases retained/5 accepted,138.619GB. Missing task stage and
 original successful custody; exact holder cause/stream startup exposure unknown.
 [Present-boundary recovery](CATEGORICAL_CAMPAIGN_RECOVERY_PROTOCOL_20261011.md)
-new read-only seal source/AST PASS, unexecuted until freeze. No training restart
+new read-only seal source/AST PASS/frozen109da1b, actual LIVE session19032/
+PID29424 creation00:01:38.8803848+02:00, cap30min/256MiB. No training restart
 or old auditor with forged terminal; full numerical/quality audit still required.
 Older LIVE statuses below are historical.
 

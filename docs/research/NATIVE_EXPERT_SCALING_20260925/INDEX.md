@@ -100,7 +100,11 @@ stream receipt or task record. Exact holder assertion/initial stream exposure
 UNKNOWN. No original successful custody; do NOT launch unchanged auditor or
 fabricate terminal success. New read-only recovery seal ready/AST PASS,
 30min/256MiB/8MiB output, hashes current original inputs and recovered files;
-freeze protocol/source then launch in exclusive20261011 namespace. Follow
+Recovery seal LIVE session19032/PID29424 creation2026-10-11T00:01:38.8803848+02:00,
+source/protocol freeze109da1b, exact command recordb4bc521. Read-only139GB
+present boundary/30min cap; no model or old producer restart. Re-poll same
+handle until closure and preserve any recovery fault; do not start an audit
+on unsealed files. Follow
 linked recovery protocol for distinct audit/missing-chat jobs. Older live
 resumption paragraphs below are historical and must not trigger a restart.
 
