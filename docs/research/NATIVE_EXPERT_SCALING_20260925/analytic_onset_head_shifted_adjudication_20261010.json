@@ -1,0 +1,48 @@
+{
+  "schema": "ANALYTIC_ONSET_HEAD_SHIFTED_AUDIT_V1",
+  "freeze": "4af01befc778711655dfb9746bcf9a4d73a065a0",
+  "parent_producer_freeze": "b6e1aa8178f809e7eaee2d83e0a077eddc50ae37",
+  "first_audit_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_stored_adjudication_20261010.terminal.json",
+    "bytes": 8944,
+    "sha256": "2e0558fdb0a25ae4a0aa1b56f881ecf6ca7836e8a36ab3acdcae571c18319df2"
+  },
+  "normalization": "Subtract row maxima before sequential logaddexp reduction; independent of producer exp/sum normalization",
+  "checkpoint": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\analytic_onset_head_shifted_audit_20261010\\normalization_checkpoint.json",
+    "bytes": 241,
+    "sha256": "a1313d8cc2614d8814029f844bb8d4bd7006c859e86c28f615ae7d7454878ae6"
+  },
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_result_20261010.json",
+    "bytes": 1059889,
+    "sha256": "c592ba0b026056f074caf7ee68d501460ba3518d9efd21961665f7df91d3c7bf"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_shifted_audit_binding_20261010.json",
+    "bytes": 548674,
+    "sha256": "4c1dd969c800e8fb9cded796de3fc0c13744c111eb57426c97c62dcb19a5af77"
+  },
+  "decision": "ANALYTIC_FIRST_CORRECTION_PROXY_QUALITY_FAIL",
+  "complete_input_output_hashes": true,
+  "all8808_independent_probabilities_KL_argmax_verified": true,
+  "all48_case_domain_flags_verified": true,
+  "all24_reference_first_labels_verified": true,
+  "all_forced_uncertainty_verified": true,
+  "original_packed_bytes_except_head_exact": true,
+  "full_fusion_verified": true,
+  "max_adapter_absolute_delta": 0.0,
+  "max_fusion_absolute_delta": 0.0,
+  "max_KL_absolute_delta": 4.0472514228895307e-11,
+  "max_uncertainty_absolute_delta": 0.0,
+  "first_reference_max_KL_delta": 1.515584532874037e-13,
+  "stored_head_labels_verified": 8808,
+  "source_calls": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "GPU_calls": 0,
+  "SVD_calls": 0,
+  "seconds": 84.73400000000038,
+  "OS_peak": 577290240,
+  "scope": "Full stored-only independent audit, no core/source/history/optimizer/SVD replay. Proxy probabilities not actual new-head C/chatbot admission."
+}

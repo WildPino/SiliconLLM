@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method
 
-**Current, 10 October:** analytic onset head producer COMPLETE/exit0/88.641s: FITKL49.3213/DEV63.3742, exact24 FIT first codes KL.004127/zero errors, DEVfirst19/24 wrong. Whole proxy quality FAIL. First full audit terminated1 after all8808 products at final numeric conjunction; stored aggregate equality PASS, maximum not saved, cause unresolved. Exact original code/log/terminal preserved. [Shifted independent audit](ANALYTIC_ONSET_HEAD_SHIFTED_AUDIT_PROTOCOL_20261010.md) NEW normalizer/AST PASS/bound UNEXECUTED, same tolerances/gates, one charged8808 pass with new max checkpoint;300s/OS2GiB. First-state control/full audit PASS; no new source/native/history/optimizer/SVD/GPU/T4. Full goal incomplete; older statuses historical.
+**Current, 10 October:** [analytic onset head/full shifted audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md) COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742, FITfirst0/24 errors but DEVfirst19/24. One packed head,109 other fields exact; all8808 probabilities/uncertainties/fusion/hashes PASS, maxKLdelta4.0473e-11. First unshifted audit fault retained with unsaved maximum/cause unresolved; same thresholds, new normalizer independently passes. Held265.062s including failed audit, all owned CLOSED. [Next original categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED: fixed native-head moment/entropy compiler, loss/gradient qualification, then NEW coherent core/bank training with explicit onset weight. No optimizer/source/native/GPU/SVD/T4 call in this family; full goal incomplete, older statuses historical.
 
 
 **Current, 10 October:** [new categorical packed native/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) COMPLETE/numeric PASS/quality FAIL. Actual FITKL2.92084/DEV6.25897 versus old7.83019/8.76437; tasks0/16 vs donor14/16. All8808 proxy/native bounds/old routes/ternary witnesses/679 greedy IDs PASS; held812.953s. Raw timings foreign-test-contaminated, no useful50 admission. [Stored onset diagnosis](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md): all16 first IDs1563,14/14 donor-correct first replies wrong; FIT first response only1.17535% objective mass. All owned processes CLOSED. Next [24-first-state controllability](CATEGORICAL_ONSET_CONTROLLABILITY_NEXT_20261010.md) algebra/specification UNIMPLEMENTED/UNEXECUTED, no new optimizer/native/T4. Full goal incomplete; no information ceiling established. Older statuses historical.
@@ -662,9 +662,23 @@ timing retains the foreign-test caveat and quality admission fails.
 This stage is a measured readout intervention, not a useful pretrained chatbot
 conversion yet. Stored first-response control shows14/14 donor-correct cases
 already wrong before own-answer feedback; FIT onset has1.17535% of loss mass.
-Next24-row controllability/algebra diagnosis is prospective, not another dose. Useful expert capacity/scaling and other-family prerequisites
-remain distinct required stages. No repeated unchanged32-update dose authorized
-by a passing local numeric check.
+The24-first-state SVD/minimum-map/dual control is now COMPLETE/full audit PASS:
+minimum31.2699/preserved31.3308, robust exact-reference norm lower28.9436>16.
+The old fit radius16 excludes this interpolation but is not a C head limit.
+A NEW radius-unconstrained analytic map was fused/exported and evaluated on all
+8808 stored labels: FITKL49.3213/DEV63.3742; FITfirst zero errors, DEVfirst19/24.
+Full shifted independent audit PASS with original first audit fault preserved.
+This rejects one global onset interpolation, not nonlinear causal transfer or
+an information ceiling. [Report](ANALYTIC_ONSET_HEAD_RESULT_20261010.md).
+
+Next [fixed-head supervision compiler and causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
+is PROPOSED/UNIMPLEMENTED. Exact real categorical loss for fixed H uses teacher
+moments H^Tq and entropy; compiler must qualify finite-precision loss/gradient
+before any NEW core/bank campaign with coherent head/norm and explicit onset
+weight. Existing ordinary paired head/carrier/native witnesses are reused.
+No old SVD/oracle dose/optimizer/history replay or unannounced T4. Useful expert
+capacity/scaling, own-history chatbot/useful same-artifact50/DRAM/CPU mass and
+other-family prerequisites remain distinct required stages.
 
 ## 6. Required fresh quality, physical rate, useful n and variants
 

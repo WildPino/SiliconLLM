@@ -1,17 +1,14 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Categorical native/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md)
-COMPLETE/numeric PASS/quality FAIL: FITKL2.92084/DEV6.25897,task0/16.
-[Onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md):14/14 donor-correct first
-responses wrong; FIT first-response objective weight1.17535%. All owned CLOSED.
-[First-state control/full audit](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md) PASS:
-minimum31.2699/preserved31.3308/robust lower28.9436>old fit radius16.
-[Analytic head protocol](ANALYTIC_ONSET_HEAD_PROTOCOL_20261010.md) capture CLOSED/exit0;
-first audit CLOSED/exit1 after8808 products, numeric conjunction fault retained.
-[Shifted audit](ANALYTIC_ONSET_HEAD_SHIFTED_AUDIT_PROTOCOL_20261010.md) bound UNEXECUTED.
-[METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
-[exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
+[Analytic onset head/full audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md)
+COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742,
+FITfirst0 errors/DEVfirst19 of24. First unshifted audit fault preserved;
+new shifted algorithm passes SAME tolerances. All owned CLOSED.
+[Next causal converter component](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
+PROPOSED/UNIMPLEMENTED: fixed native-head moment/entropy compiler, then
+qualified NEW original core/bank training with explicit onset weight.
+[METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
 
@@ -35,6 +32,16 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
 
 ## Latest decisive evidence
+
+[New analytic onset intervention](ANALYTIC_ONSET_HEAD_RESULT_20261010.md):
+all24 FIT chosen first codes reproduced exactly, but whole FITKL49.3213/
+DEV63.3742 versus prior2.92084/6.25897; DEVfirst19/24 wrong. All8808 independent
+probability/ID/entropy/bound/hash/packed/fusion checks PASS with shifted logaddexp,
+maxKLdelta4.0473e-11. Original unshifted audit failure retained; cause unresolved
+because its maxima were not saved. Combined held265.062s, no new native/source/
+GPU/optimizer/SVD/T4. No unrestricted linear/nonlinear information ceiling.
+[First-state control](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md) full audit
+PASS: rank24,minimum31.2699,preserved31.3308,robust lower28.9436>old fit radius16.
 
 [Actual new head in original C](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md):
 old->new FITKL7.83019->2.92084,DEV8.76437->6.25897;task0/16 vs source14/16.
@@ -114,16 +121,19 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 
 ## Exact resumption
 
-Analytic producer CLOSED/exit0/88.641s/quality FAIL; first audit CLOSED/exit1/
-86.218s after all8808 products at final numeric conjunction. Aggregate equality
-PASS; unsaved maximum prevents cause claim. No completed producer/head export/
-optimizer/SVD/history replay. New shifted independent audit implemented/AST PASS,
-binding4c1dd969/holder effebc31 UNEXECUTED. Freeze new script/protocol/binding,
-then held300s/OS2GiB/output1MiB with new namespace. Same KL1e-9/bound1e-8,
-quality gates unchanged. New max checkpoint before conjunction. Charge full
-new8808 audit pass and repeated bytes/fusion checks; preserve first fault.
-No source/native/GPU/T4/RESERVED. Goal useful chatbot/native50/n/DRAM/CPU mass/
-family gates remain open; no general information ceiling.
+All owned81330/95580/92911 CLOSED. Producer and shifted complete audit exit0;
+first unshifted audit exit1 retained. Exact receipts/artifacts in analytic report;
+no unfinished numerical worker, no completed SVD/optimizer/head-export replay.
+Next [fixed-head categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
+PROPOSED/UNIMPLEMENTED. Implement loss compiler for all48 stored source cohorts
+and existing paired F32 head (FIT/DEV separately); freeze new code/runtime/inputs/
+criteria/caps. Store moments/entropy and independently qualify all8808 statistics
+plus dense-versus-compiled loss/gradient on existing72 native-normalized states.
+Review actual shapes/budgets before binding: prospective300s perstage/OS2GiB/
+128MiB output, no model/source/native/optimizer/GPU/SVD/RESERVED/T4.
+Only after qualification prepare NEW coherent original core/bank initialization
+and first-balanced categorical campaign. Preserve donor-relative whole/chatbot/
+own-history/same-artifact50/useful n/CPU IDs+mass/physical DRAM/family gates.
 
 [Operator algebra](TARGET_READOUT_GEOMETRY_20261010.md),
 [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) and
