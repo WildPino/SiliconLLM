@@ -6,6 +6,11 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+**Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
+implemented/AST PASS/binding4914ab1f, no worker yet. One new source generation
+for actual same-call state/logit custody/cache rounding witnesses;600s/8GiBOS/
+GPU10-11GiB/128MiB+120s audit. Original alignment FAIL retained; no compact fit/T4.
+
 **Current, 10 October:** [source-readout](SOURCE_FINAL_READOUT_RESULT_20261010.md)
 and full stored audit COMPLETE; alignment FAIL on3/53 in one DEV conversation.
 [Margins](SOURCE_READOUT_MARGIN_RESULT_20261010.md): positive-gap drift in both

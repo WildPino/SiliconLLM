@@ -6,7 +6,11 @@ First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hash
 Target/readout control and independent audit COMPLETE; coupling branch selected.
 Source final readout and full independent audit COMPLETE; alignment FAIL.
 Bounded margin diagnosis COMPLETE:3 positive-gap changes, not teacher ties.
-All owned workers/sessions CLOSED; complete validation method remains in force.
+Paired cached-state control prepared/AST PASS, binding4914ab1f/53 inputs4.949GB.
+[Frozen protocol](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md): one new generation,
+same-invocation h24/norm/logits, exact old token/logit replay/paired operator gates.
+600s/OS8GiB/GPU10-11GiB/128MiB outputs; separate120s stored audit. No worker yet.
+Complete validation method remains in force; no codec fit or T4.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 

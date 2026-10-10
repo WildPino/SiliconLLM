@@ -8,6 +8,12 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
+**Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
+implemented/AST PASS/binding4914ab1f/53 inputs4.949GB. Freeze/launch one new
+generation with actual final-state/logit pairing, source values before/after,
+cache rounding coordinates;600s/OS8GiB/GPU10-11GiB/128MiB+120s stored audit.
+No worker yet; original ALL48 alignment FAIL retained, no compact fit/T4.
+
 **Current, 10 October:** source-readout and full stored audit COMPLETE,
 alignment FAIL on3/53 in one DEV conversation. [Source result](SOURCE_FINAL_READOUT_RESULT_20261010.md).
 [Margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md) confirms positive

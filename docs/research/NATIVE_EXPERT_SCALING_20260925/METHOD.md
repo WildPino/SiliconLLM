@@ -8,6 +8,12 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
+implemented/AST PASS/binding4914ab1f (53 inputs4.949GB), no worker yet. One new
+generation for missing h24/norm/logit pairing; source actual values before/after,
+cache BF16 rounding coordinates, exact replay/paired operator gates.600s/8GiBOS/
+GPU10-11GiB/128MiB plus120s audit. No compact fit or T4.
+
 **Current, 10 October:** [source-readout result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
 and full independent audit COMPLETE. Alignment FAIL on3/53 in one DEV case,
 meanKL about.0005/dis<1%. [Margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md)

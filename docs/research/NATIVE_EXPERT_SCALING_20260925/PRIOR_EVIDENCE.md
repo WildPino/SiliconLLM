@@ -1,5 +1,10 @@
 # Native expert-count scaling: prior evidence
 
+**Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
+implemented/AST PASS/binding4914ab1f, no worker yet. One new source generation
+for actual same-call state/logit custody and observed cache rounding; not a
+whole-cohort/training replay.600s/OS8GiB/GPU10-11GiB/128MiB+120s audit; no fit/T4.
+
 **Current, 10 October:** [source-readout result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
 and full independent audit COMPLETE; alignment FAIL on3/53 in one DEV case.
 MeanKL about.0005/dis<1%; all hashes/576 scalar witnesses PASS. New bounded
