@@ -7,7 +7,9 @@ COMPLETE/numeric PASS/quality FAIL: FITKL2.92084/DEV6.25897,task0/16.
 responses wrong; FIT first-response objective weight1.17535%. All owned CLOSED.
 [First-state control/full audit](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md) PASS:
 minimum31.2699/preserved31.3308/robust lower28.9436>old fit radius16.
-[Analytic head protocol](ANALYTIC_ONSET_HEAD_PROTOCOL_20261010.md) bound, UNEXECUTED.
+[Analytic head protocol](ANALYTIC_ONSET_HEAD_PROTOCOL_20261010.md) capture CLOSED/exit0;
+first audit CLOSED/exit1 after8808 products, numeric conjunction fault retained.
+[Shifted audit](ANALYTIC_ONSET_HEAD_SHIFTED_AUDIT_PROTOCOL_20261010.md) bound UNEXECUTED.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -112,15 +114,16 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 
 ## Exact resumption
 
-All owned workers CLOSED/exit0. First-state control/audit completed, all numeric
-checks PASS; no completed SVD/optimizer/history replay. New analytic head code,
-protocol and binding43732ba8 frozen next before observation. Existing separately
-bound holder exports one preserved-map F32 head, then all8808 stored FIT/DEV
-labels and uncertainty; full independent audit even on quality failure.
-Producer300s/reserve30/OS2GiB/output1GiB; audit300s/OS2GiB. No native/source/model/
-optimizer/GPU/T4/RESERVED call. Whole proxy strict gates decide pass pending
-actual C versus failed global onset correction. Useful chatbot/native50/n/DRAM/
-structured CPU mass/family gates remain open. No general information ceiling.
+Analytic producer CLOSED/exit0/88.641s/quality FAIL; first audit CLOSED/exit1/
+86.218s after all8808 products at final numeric conjunction. Aggregate equality
+PASS; unsaved maximum prevents cause claim. No completed producer/head export/
+optimizer/SVD/history replay. New shifted independent audit implemented/AST PASS,
+binding4c1dd969/holder effebc31 UNEXECUTED. Freeze new script/protocol/binding,
+then held300s/OS2GiB/output1MiB with new namespace. Same KL1e-9/bound1e-8,
+quality gates unchanged. New max checkpoint before conjunction. Charge full
+new8808 audit pass and repeated bytes/fusion checks; preserve first fault.
+No source/native/GPU/T4/RESERVED. Goal useful chatbot/native50/n/DRAM/CPU mass/
+family gates remain open; no general information ceiling.
 
 [Operator algebra](TARGET_READOUT_GEOMETRY_20261010.md),
 [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) and

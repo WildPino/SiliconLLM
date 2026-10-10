@@ -1,0 +1,53 @@
+{
+  "freeze": "b6e1aa8178f809e7eaee2d83e0a077eddc50ae37",
+  "binding_sha256": "43732ba8fc07994b8fe0832267fef72cfa63d5a824b75aa3262e2b04c9ddcfaa",
+  "launcher_freeze": "b6e1aa8178f809e7eaee2d83e0a077eddc50ae37",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_launch_binding_20261010.json",
+    "bytes": 1570,
+    "sha256": "fd2348d426b7be38f600a1ac14a258fda2a324977ceba871b93292891f6cc47a"
+  },
+  "launcher_pid": 28804,
+  "limits": {
+    "seconds": 300,
+    "OS_bytes": 2147483648,
+    "output_bytes": 1048576,
+    "log_bytes": 4194304
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\analytic_onset_head.py",
+    "--audit-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_binding_20261010.json",
+    "--binding-sha",
+    "43732ba8fc07994b8fe0832267fef72cfa63d5a824b75aa3262e2b04c9ddcfaa",
+    "--freeze",
+    "b6e1aa8178f809e7eaee2d83e0a077eddc50ae37",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\analytic_onset_head_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_stored_adjudication_20261010.json",
+    "--source-result",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 21876,
+  "worker_creation_time": 1791643628.658425,
+  "exit_code": 1,
+  "error": "AssertionError(': 1260}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_metamathqa_50k_015\", \"KL\": 36.5727991846734, \"first_KL\": 0.00040085439210453533, \"count\": 1415}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_metamathqa_50k_023\", \"KL\": 37.719505655939436, \"first_KL\": 2.5514373680841543e-05, \"count\": 1671}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_metamathqa_50k_035\", \"KL\": 52.7391040635773, \"first_KL\": 4.492231039218923, \"count\": 1862}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_metamathqa_50k_037\", \"KL\": 53.35275351654546, \"first_KL\": 0.5418158685480207, \"count\": 2118}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_numina_cot_100k_015\", \"KL\": 39.503886347205025, \"first_KL\": 6.515186563468167e-05, \"count\": 2374}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_numina_cot_100k_016\", \"KL\": 50.59142020511231, \"first_KL\": 0.0024747517406253786, \"count\": 2630}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_numina_cot_100k_038\", \"KL\": 40.62255734768156, \"first_KL\": 1.4163352957114304, \"count\": 2886}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_numina_cot_100k_035\", \"KL\": 53.5414358465994, \"first_KL\": 0.10371797332521178, \"count\": 3142}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_openhermes_100k_004\", \"KL\": 39.987952087173156, \"first_KL\": 0.0006819560912578187, \"count\": 3398}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_openhermes_100k_028\", \"KL\": 47.30510955008036, \"first_KL\": 0.003257734812581376, \"count\": 3654}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_openhermes_100k_034\", \"KL\": 81.83823595197774, \"first_KL\": 0.29747174532068354, \"count\": 3910}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_openhermes_100k_037\", \"KL\": 62.663908631155984, \"first_KL\": 9.601775888597714, \"count\": 4166}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_self_oss_instruct_012\", \"KL\": 54.0791405439072, \"first_KL\": 0.0008433845872502595, \"count\": 4422}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_self_oss_instruct_006\", \"KL\": 51.24495515670162, \"first_KL\": 0.0006178124746116797, \"count\": 4678}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_self_oss_instruct_036\", \"KL\": 59.28381072797593, \"first_KL\": 2.5102482282803376, \"count\": 4934}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_self_oss_instruct_033\", \"KL\": 56.04292270027859, \"first_KL\": 1.3860450193481686, \"count\": 5190}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_constraints_005\", \"KL\": 56.32695763102612, \"first_KL\": 0.0006528061311272434, \"count\": 5370}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_constraints_021\", \"KL\": 58.573166949162555, \"first_KL\": 3.094759196928442e-07, \"count\": 5559}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_constraints_035\", \"KL\": 73.19036403255514, \"first_KL\": 7.941422903615194, \"count\": 5609}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_constraints_034\", \"KL\": 59.627253101471744, \"first_KL\": 0.5409316059925207, \"count\": 5702}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_magpie_ultra_000\", \"KL\": 63.150524423103406, \"first_KL\": 0.0009583737213335404, \"count\": 5958}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_magpie_ultra_022\", \"KL\": 66.74257784423439, \"first_KL\": 0.031193461633573658, \"count\": 6214}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_magpie_ultra_034\", \"KL\": 71.63726835318893, \"first_KL\": 7.6680724569265575, \"count\": 6470}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_magpie_ultra_036\", \"KL\": 74.8057721048684, \"first_KL\": 5.728316474123549, \"count\": 6726}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_rewrite_004\", \"KL\": 60.39214280741943, \"first_KL\": 0.001838954716652151, \"count\": 6816}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_rewrite_015\", \"KL\": 71.51000186125928, \"first_KL\": 0.015673764914279367, \"count\": 7072}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_rewrite_036\", \"KL\": 71.37768407778894, \"first_KL\": 4.815158862958038, \"count\": 7297}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_rewrite_032\", \"KL\": 76.1927168548943, \"first_KL\": 3.515673885191339, \"count\": 7472}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_summarize_024\", \"KL\": 51.786974135397855, \"first_KL\": 0.0033645018848018154, \"count\": 7533}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_smol_summarize_003\", \"KL\": 64.2450814939321, \"first_KL\": 0.006163170911528104, \"count\": 7652}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_summarize_034\", \"KL\": 81.39020377722511, \"first_KL\": 7.055017948271535, \"count\": 7686}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_smol_summarize_039\", \"KL\": 84.78624104270195, \"first_KL\": 5.947693964709105, \"count\": 7784}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_systemchats_30k_024\", \"KL\": 62.81101092967268, \"first_KL\": 0.00043712078031301146, \"count\": 8040}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_fit_systemchats_30k_010\", \"KL\": 59.15446207536492, \"first_KL\": 0.009610951253055583, \"count\": 8296}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_systemchats_30k_039\", \"KL\": 75.23893224359831, \"first_KL\": 3.8532921531998956, \"count\": 8552}\\n{\"stage\": \"stored_probability_case\", \"id\": \"broad_dev_systemchats_30k_034\", \"KL\": 57.841060804158374, \"first_KL\": 12.047501918797954, \"count\": 8808}\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\analytic_onset_head.py\", line 134, in <module>\\n    elif a.audit_worker:audit(a)\\n                        ^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\analytic_onset_head.py\", line 114, in audit\\n    assert maxKL<=b[\\'numeric\\'][\\'metric_absolute\\'] and maxE<=b[\\'numeric\\'][\\'bound_absolute\\'] and gates(r[\\'records\\'],b)==r[\\'aggregate\\']\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError\\n')",
+  "elapsed_seconds": 86.21800000000076,
+  "worker_OS_peak_through_exit": 577642496,
+  "launcher_OS_peak_snapshot": 29003776,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\analytic_onset_head_stored_adjudication_20261010.worker.log",
+    "bytes": 7879,
+    "sha256": "21f5ab6e4d95535e7e2ae2d628a4d280c61fa77915cbcaf924d0e9a57891a630"
+  }
+}
