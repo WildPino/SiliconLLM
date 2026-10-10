@@ -1,0 +1,39 @@
+{
+  "schema": "CATEGORICAL_CAMPAIGN_RECOVERY_SEAL_LAUNCH_V1",
+  "source_protocol_freeze": "109da1bdc6a100114b25c963b2abac4f6f2769d6",
+  "original_numeric_freeze": "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+  "command": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/seal_categorical_campaign_recovery.py",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_binding_20261010.json",
+    "--binding-sha",
+    "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+    "--holder-binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_launch_binding_20261010.json",
+    "--holder-binding-sha",
+    "a1d1aa65b8b3e908886b6f2eeadb685854011ad8ec84852324d414ef634ca401",
+    "--failed-terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_result_20261010.terminal.json",
+    "--failed-terminal-sha",
+    "0d6bf116cd51868bdb1d507cbe23f0d3429949a2a999ced8152395abf3399ade",
+    "--freeze",
+    "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+    "--directory",
+    "results/native_expert_scaling/original_categorical_campaign_20261010",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/categorical_campaign_recovery_seal_20261011.json"
+  ],
+  "script_sha256": "10d01b329b723a8e01ce8c6c2413bc91911d906709631d4e52e6182a8016e3de",
+  "limits": {
+    "seconds": 1800,
+    "OS_bytes": 268435456,
+    "output_bytes": 8388608
+  },
+  "scope": "New present-boundary read-only seal; original failed receipt unchanged; full audit/new task job still pending"
+}
