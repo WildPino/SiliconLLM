@@ -75,6 +75,38 @@ output spread. Small mass error is not automatically small final-logit error.
 F32 normalization defects and changing activation decisions require additional
 terms, not this fixed-value bound alone.
 
+### Activation rounding cells are a separate condition
+
+Current learner `original_tensor_learner.py:52` and original C `engine.c:322`
+quantize a nonzero vector h with A=||h||_infinity, a=A/63,
+q=round(h/a). In real arithmetic, positive scalar mass m leaves q(m*h)=q(h)
+and scales a by m. This supports the fixed-expert linear mixture interpretation
+when all other expert inputs/operators agree. The actual bank multiplies mass
+into the hidden vector BEFORE this activation quantization; different floating
+paths need not preserve that exact homogeneity or the rounding cells.
+
+For arbitrary hidden perturbation ||delta_h||_infinity<=epsilon<A,
+
+    ||63*(h+delta_h)/||h+delta_h||_infinity - 63*h/A||_infinity
+        <= 126*epsilon/(A-epsilon).
+
+If every normalized coordinate has distance to the nearest half-integer
+greater than this bound PLUS a justified arithmetic-error bound, rounded
+coordinates stay fixed. No actual activation-margin certificate is stored yet.
+Inside fixed cells the integer down-dot stays fixed and only scale varies.
+Across a cell boundary there is no global continuity guarantee: with fixed A,
+h=(A,A/126-epsilon) and h'=(A,A/126+epsilon), the second rounded activation
+jumps0->1 for arbitrarily small epsilon. A nonzero corresponding ternary
+down coefficient gives a finite jump A*weight_scale/63. This is our algebra,
+not a located cause in the measured campaign.
+
+Direction7 full209-ID history reports zero ranked-ID changes, mass2.65837e-5,
+but selected-label score discrepancy.334613/KL.128457/one argmax change.
+The scalar mass maximum alone therefore does not qualify the whole function.
+Stored route localization cannot reconstruct activation cells; a later common-
+operand observation must distinguish input, activation and reduction effects.
+All direction7 observations remain pending full independent campaign audit.
+
 ## Consequence for the conversion and CPU LUT goal
 
 Three questions must be measured separately: selected-set/rank margins,

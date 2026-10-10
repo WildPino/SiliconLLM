@@ -182,3 +182,19 @@ ALL bridge gates PASS, full IDs exact/mass4.172325e-7/selected-label score
 metamath015 full209-ID causal history. Observed20:56:14: same actual holder/
 worker creation, CPU progressing, no terminal record, worker peak19,154,034,688B.
 Six complete/three accepted; no final quality or independent audit conclusion.
+
+At2689.531 worker seconds direction7 metamath015 full209-ID/155-label completes:
+REJECTED alpha.0001 weighted77.109582->71.470905/first28.200426->25.195990,
+155/155 wrong. Alpha.001 weighted52.379185/first43.115202 is ineligible.
+Bridge dense/compiled/upstream/checkpoint/roles PASS, all ranked IDs exact;
+mass2.658367e-5/score.334613/KL.128457/one GPU-C argmax difference FAIL.
+This demonstrates a different observed pattern from a mere selected-set
+change, without locating its arithmetic cause. Seventh rejected; eighth
+metamath023 full337-ID history/backward saved and finite proposals underway.
+Seven complete/three accepted; actual campaign/audit/final quality PENDING.
+
+[Post-audit stored route observer](CATEGORICAL_ROUTE_DIVERGENCE_OBSERVER_20261010.md)
+implemented, AST and6 synthetic byte-format fixture flags PASS. Actual route
+localization/binding remains UNEXECUTED until full custody closure. Standard-
+library tool60s/256MiB/128MiB reads; order/set/common-ID comparisons reproduce
+audited aggregate counts, not score margins or original causal operands.

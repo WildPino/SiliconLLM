@@ -856,7 +856,7 @@ Chunked F32-bit XOR/zlib-or-raw archive with per-chunk/tensor/source-target hash
 
 ## Finite original categorical conversion trajectory: implemented, not yet qualified
 
-Actual trajectory LIVE/frozenc9c04df: first six directions complete/three accepted.
+Actual trajectory LIVE/frozenc9c04df: first seven directions complete/three accepted.
 First native weighted58.8206->38.9700,17/18 wrong. Second/third feasible native
 steps are rejected by frozen cross-runtime criteria: second4 ranked slots and
 mass/score/KL mismatch, third solely full-history mass while IDs and supervised
@@ -864,6 +864,12 @@ scores/KL pass. This narrows the numeric qualification to previously audited
 short histories; broad changed trajectories are NOT qualified. Full campaign
 and stored audit continue. [Attribution/functional approximation algebra](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md)
 specifies missing evidence and separate future remedies; no gate alteration.
+
+[Stored route divergence observer](CATEGORICAL_ROUTE_DIVERGENCE_OBSERVER_20261010.md)
+is available as code with synthetic format fixtures PASS, actual UNEXECUTED.
+Requires full campaign/audit closure, separately hashed small-input binding;
+locates ranked-order versus membership and common-ID mass errors without
+model replay. It provides evidence for a correction, not numeric qualification.
 
 Fourth and sixth histories pass bridge gates and accept constrained native
 decreases; fifth fails solely full-history mass. Worker observations require full audit.

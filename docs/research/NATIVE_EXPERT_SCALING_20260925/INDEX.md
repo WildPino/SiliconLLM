@@ -123,9 +123,16 @@ true: alpha.0001 weighted83.8903->75.0426,200/200 wrong. Fifth full367-ID
 everyday010 REJECTED1845.250s, solely mass9.05991e-5; IDs/selected scores/KL
 pass, feasible weighted83.0574->76.3504. Sixth rewriting009 full90-ID/13-label
 ACCEPTED2296.547s alpha.0001 weighted68.5963->62.9875/first47.2216->44.6966;
-all bridge gates PASS/mass4.17233e-7,13/13 wrong. Six directions complete/three
-accepted; milestone6 saved, seventh metamath015 full209-ID history running.
+all bridge gates PASS/mass4.17233e-7,13/13 wrong. Seventh metamath015 full209-ID
+REJECTED2689.531s: IDs exact but mass2.65837e-5/score.334613/KL.128457/one
+GPU/C argmax differ. Feasible alpha.0001 weighted77.1096->71.4709,155/155 wrong.
+Seven complete/three accepted; milestone6 saved, eighth metamath023 full337-ID
+history saved and finite proposals running.
 [Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
+[Stored route observer](CATEGORICAL_ROUTE_DIVERGENCE_OBSERVER_20261010.md)
+IMPLEMENTED/6 synthetic fixture flags PASS, actual UNEXECUTED. After full audit,
+separately bind small sealed arrays to localize order/set/common-ID mass defects;
+60s/256MiB/128MiB reads/no model or native replay. Does not replace full audit.
 No completed24-case or quality claim; frozen campaign/audit unchanged.
 Exact-session observation until terminal,
 then exhaustive stored audit even quality failure; NEVER restart live. No

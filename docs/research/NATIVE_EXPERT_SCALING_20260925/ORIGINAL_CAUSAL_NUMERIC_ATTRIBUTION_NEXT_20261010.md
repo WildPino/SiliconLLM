@@ -71,7 +71,9 @@ all numeric failures, rejected candidates and final quality; do not restart,
 shorten the audit or change thresholds. Independent adjudication establishes
 which observed bridge failures are real and their breadth across histories.
 
-Then a small separately bound stored-route diagnostic can identify first
+The [stored-route diagnostic](CATEGORICAL_ROUTE_DIVERGENCE_OBSERVER_20261010.md)
+is now IMPLEMENTED/AST and synthetic format fixtures PASS, actual preparation
+and execution PENDING full campaign/audit closure. It can identify first
 position/layer, order versus membership, and mass differences with matching IDs,
 using existing sealed arrays. It needs no model/backward/native replay. Whole
 loss/head checks need not be repeated merely to rediscover their current result.
