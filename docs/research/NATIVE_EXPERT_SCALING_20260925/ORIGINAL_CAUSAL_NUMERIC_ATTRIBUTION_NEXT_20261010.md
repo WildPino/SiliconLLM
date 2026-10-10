@@ -27,6 +27,15 @@ quantization/route-validity flags true and all118 argmax disagreements with
 the donor. The runner conservatively retains the preceding accepted state.
 Full candidate/state-chain audit is still required even on this failed bridge.
 
+Case3 apigen002 supplies a distinct boundary:773 history IDs/33 labels, ALL
+ranked IDs equal and selected-label score.000321198/KL.000159854 pass, but
+full-history mass maximum.000555463 exceeds1e-5. Its feasible alpha.001 actual
+C weighted83.606062->58.933532 is likewise rejected by the frozen mass gate.
+Thus ranked-ID disagreement is not necessary for the observed bridge failure.
+The score comparison covers the33 supervised positions, whereas route/mass
+checks cover every773 position/six layers. It does not prove that all earlier
+prefix logits match or that an earlier mass discrepancy is harmless.
+
 ## Why this is not an attribution to the loss compiler
 
 Original GPU causal operators are numerically separate from original AVX C:
@@ -91,3 +100,24 @@ introduce more selection competitors; no margin or normalization guarantee
 follows from the current1152-expert test. The useful chatbot pipeline, CPU
 structured selection/mass, physical DRAM, useful50 and family/scale evidence
 remain required.
+
+## What a functional approximation guarantee would actually require
+
+Let F_C(W,x) be the declared categorical loss executed in the original C,
+and F_G(W,x) its training-forward approximation. Bounds at BOTH endpoints,
+|F_C(W,x)-F_G(W,x)|<=epsilon0 and
+|F_C(W+delta,x)-F_G(W+delta,x)|<=epsilon1, imply
+
+    F_C(W+delta,x)-F_C(W,x)
+      <= F_G(W+delta,x)-F_G(W,x)+epsilon0+epsilon1.
+
+A surrogate finite decrease exceeding epsilon0+epsilon1 would therefore
+certify a native finite decrease for THAT case. A baseline-only discrepancy
+bound cannot do so. No candidate GPU forwards were captured in this campaign;
+the two-endpoint surrogate bound is not established here. Conversely, an actual
+before/after C comparison directly measures that finite difference without
+requiring such an approximation bound. Neither observation proves descent of
+the24-case mean, a true continuous gradient through discrete operations,
+held-out quality or robustness at arbitrary n. This algebra describes a
+possible future approximate-learning contract; it does not override the
+current exact-routing/mass acceptance gate or admit its rejected candidates.

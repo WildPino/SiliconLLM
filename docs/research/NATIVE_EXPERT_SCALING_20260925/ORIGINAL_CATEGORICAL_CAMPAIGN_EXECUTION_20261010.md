@@ -131,3 +131,14 @@ alpha.0001 candidate construction is running (783.781s stage start).
 Session22911/holder23256/worker2968 remain LIVE, observed OS worker peak
 18,980,462,592B, within32GiB before holder/native addition. Exact-session
 observation remains the next action; do not launch another owned benchmark.
+
+At1064.641 worker seconds apigen002 completes direction3: alpha.001 feasible
+actual C weighted83.606062->58.933532/first59.145803,33/33 wrong. Selection is
+REJECTED solely by the full-history GPU/C mass flag (.000555463135). Ranked
+IDs all exact, selected-label scores.000321198/KL.000159854 within existing
+limits; dense/compiled/checkpoint/role checks true. This distinguishes mass
+failure from membership/ranking failure and from the supervised readout.
+At20:34:08 local,3 directions COMPLETE/1 accepted; fourth everyday002 full363
+history starts. Exact holder23256/worker2968/session22911 LIVE; stored audit
+and final all48/chat tasks still pending. Full observation/attribution remains
+in the linked plan, no replay or threshold change.

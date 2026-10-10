@@ -116,8 +116,10 @@ alpha.001 selected, weighted58.8206->38.9700/first44.1511->37.1461,17/18 wrong;
 worker observation/full campaign audit PENDING. NEW full479-ID apigen023
 history/backward/two state-gradient checks saved, blocks[2]*6; second direction
 REJECTED643.453s: feasible C decrease but GPU/C bridge4 slots/.00084446 mass/
-.39417 score/.05513 KL discrepancy. Full773-ID third history/backward saved,
-finite candidates running. [Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
+.39417 score/.05513 KL discrepancy. Third full773-ID direction REJECTED1064.641s
+solely for mass.00055546; IDs/selected-label scores/KL pass, feasible C
+weighted83.6061->58.9335. Three directions complete/one accepted; fourth
+full363-ID everyday002 running. [Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
 No completed24-case or quality claim; frozen campaign/audit unchanged.
 Exact-session observation until terminal,
 then exhaustive stored audit even quality failure; NEVER restart live. No
