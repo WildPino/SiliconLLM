@@ -37,11 +37,12 @@ def bind(a):
     files=[Path(__file__),B/'original_latent_readout_attribution_launch.py',
         B/'original_latent_readout_attribution_audit.py',B/'original_latent_readout_attribution_audit_launch.py',
         B/'original_joint_history_recovery_audit.py',
-        B/'original_packed_capacity.py',B/'chatbot_falcon_usability.py',B/'original_falcon_whole_recovery.py',
+        B/'original_packed_capacity.py',B/'chatbot_falcon_usability.py',B/'chatbot_falcon_usability_launch.py',B/'original_falcon_whole_recovery.py',
         DOC/'ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md',
         DOC/'ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md',result,terminal,audit,receipt,pbpath,
-        Path(sys.executable),Path(native_numpy.__file__),SITE/'numpy/__init__.py',SITE/'psutil/__init__.py']
+        Path(sys.executable),Path(sys.executable).parent/'python312.dll',Path(native_numpy.__file__),SITE/'numpy/__init__.py',SITE/'psutil/__init__.py']
     files+=sorted((SITE/'numpy.libs').glob('*.dll'))
+    files+=sorted((SITE/'psutil').glob('*.pyd'))
     for arm in r['arms']:
         fields=packed_fields(arm['final_packed']['path'])
         assert fields['head']['shape']==(V,D) and fields['final_norm']['shape']==(D,)
