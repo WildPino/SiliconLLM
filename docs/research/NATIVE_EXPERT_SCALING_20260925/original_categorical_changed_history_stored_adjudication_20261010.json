@@ -1,0 +1,47 @@
+{
+  "schema": "ORIGINAL_CATEGORICAL_CHANGED_HISTORY_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_changed_history_result_20261010.json",
+    "bytes": 53154,
+    "sha256": "673c4d44254412797bf0a45b282cc48f79b19088cbb4cb3b48dcd7c032657c23"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_changed_history_binding_20261010.json",
+    "bytes": 1033101,
+    "sha256": "f6651a4f6593cfcf9a1622517ed3871f59a1bf32b3efaf6f68666e2c955a5c21"
+  },
+  "decision": "CHANGED_CAUSAL_BRIDGE_QUALIFIED",
+  "complete_input_output_hashes": true,
+  "all92_changed_parameters_and90_new_gradients_verified": true,
+  "all348_route_rows_and_checkpoint_traces_verified": true,
+  "all18_independent_native_metrics_verified": true,
+  "numeric_flags": {
+    "loss": true,
+    "gradient": true,
+    "upstream": true,
+    "GPU_CPU_real_readout": true,
+    "GPU_CPU_losses": true,
+    "GPU_CPU_gradients": true,
+    "GPU_native_scores": true,
+    "GPU_native_KL": true,
+    "GPU_native_argmax": true,
+    "route_valid": true,
+    "route_ID_exact": true,
+    "route_mass": true,
+    "route_normalization": true,
+    "checkpoint_route_exact": true,
+    "gradient_roles_nonzero": true,
+    "checkpoint_blocks": true
+  },
+  "max_diagnostic_delta": 1.723510223428093e-12,
+  "gradient_tensors": 90,
+  "optimizer_updates": 0,
+  "source_calls": 0,
+  "history_forwards": 0,
+  "backward_calls": 0,
+  "native_calls": 0,
+  "GPU_calls": 0,
+  "seconds": 73.28100000000268,
+  "OS_peak": 6706614272,
+  "scope": "Stored-only full audit at one changed parameter point. Native artifacts reuse qualified full packing/quantization audit under exact hashes; no new export or C call. Finite gradient custody is not an independent proof of every nonlinear STE derivative."
+}

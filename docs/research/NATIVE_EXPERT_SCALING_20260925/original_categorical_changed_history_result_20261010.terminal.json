@@ -1,0 +1,124 @@
+{
+  "freeze": "579f37071ab1ae8eda73ca0172af917725335ad4",
+  "binding_sha256": "f6651a4f6593cfcf9a1622517ed3871f59a1bf32b3efaf6f68666e2c955a5c21",
+  "launcher_freeze": "579f37071ab1ae8eda73ca0172af917725335ad4",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_changed_history_launch_binding_20261010.json",
+    "bytes": 1960,
+    "sha256": "529d51cf5484ff7222f948681c9c00639a373842ab2d69ee4c739610078254e8"
+  },
+  "launcher_pid": 31392,
+  "limits": {
+    "seconds": 900,
+    "reserve_seconds": 120,
+    "OS_bytes": 25769803776,
+    "GPU_allocated_bytes": 6442450944,
+    "GPU_reserved_bytes": 8589934592,
+    "output_bytes": 4294967296,
+    "log_bytes": 8388608
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_changed_history.py",
+    "--capture-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_changed_history_binding_20261010.json",
+    "--binding-sha",
+    "f6651a4f6593cfcf9a1622517ed3871f59a1bf32b3efaf6f68666e2c955a5c21",
+    "--freeze",
+    "579f37071ab1ae8eda73ca0172af917725335ad4",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_changed_history_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 31700,
+  "worker_creation_time": 1791652069.4633064,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_changed_history_result_20261010.json",
+    "bytes": 53154,
+    "sha256": "673c4d44254412797bf0a45b282cc48f79b19088cbb4cb3b48dcd7c032657c23"
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\backward_feature_gradient.bin",
+      "bytes": 18432,
+      "sha256": "dd4a29b8bfbf7d33628b07c4478c9457149834bcd0e3f36c73e18b38ce323310"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\backward_route_ids.bin",
+      "bytes": 11136,
+      "sha256": "12dccca6deeaf15d49a9d538d1f86a38a6fca9cb7fdf4ab87e9f5929e9350896"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\backward_route_mass.bin",
+      "bytes": 11136,
+      "sha256": "676e87b743ac320bc50f1152d993a3a28cd010db7bca7de89cae03265b864f5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\compiled_gradient.bin",
+      "bytes": 36864,
+      "sha256": "58f881c0a835fec1643aad8063bef315b80bed1d9a9fc8580a9d5759fd2b1f58"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\compiled_loss.bin",
+      "bytes": 144,
+      "sha256": "9314d689900cc6d4a530cac4375650c09ddda936442c0420f517dae4579b09c4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\direct_gradient.bin",
+      "bytes": 36864,
+      "sha256": "9ba9b8a6bad961fdf1f8153adea91a27d9d1a585871e45e87789f29d428a8748"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\direct_loss.bin",
+      "bytes": 144,
+      "sha256": "7909550c2102c4d086ca058076561aaf9cdd21aced5d3a2e0df70d5991b2ecb9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\features.bin",
+      "bytes": 18432,
+      "sha256": "1ee77fec0728d140eaabf176ee94a9a02cd69e146438fe3c1f39d3ccdd3ee0d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\forward_route_ids.bin",
+      "bytes": 11136,
+      "sha256": "12dccca6deeaf15d49a9d538d1f86a38a6fca9cb7fdf4ab87e9f5929e9350896"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\forward_route_mass.bin",
+      "bytes": 11136,
+      "sha256": "676e87b743ac320bc50f1152d993a3a28cd010db7bca7de89cae03265b864f5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\GPU_logits.bin",
+      "bytes": 9437328,
+      "sha256": "f3516dfcde7a3081aa403c0b87a3b3adeaec68b6333776656849f16ed460ca84"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_changed_history_20261010\\gradients.pt",
+      "bytes": 2816948868,
+      "sha256": "38cc3ac94c3a38e7fa2ef6dcdef8fc100efc57a61bcb0b1253702b909c12074c"
+    }
+  ],
+  "extra_inputs": [],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 144.15600000000268,
+  "worker_OS_peak_through_exit": 10460807168,
+  "observed_children": [],
+  "launcher_OS_peak_snapshot": 31428608,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_changed_history_result_20261010.worker.log",
+    "bytes": 2234,
+    "sha256": "e9f34d80c069dd91ab7cbe1bf948121858a60c8cf6f75d8c38ecf264ed6dca6e"
+  }
+}

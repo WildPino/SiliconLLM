@@ -3,7 +3,8 @@
 10 October 2026. Compiler/FIT consumer and original causal preflight COMPLETE/full audits PASS.
 [Actual causal result](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md): numerical bridge qualified, case quality FAIL; all owned CLOSED.
 [Grouped parameter steps](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) COMPLETE/full independent audit PASS, actual C local descent qualified, absolute quality FAIL.
-Next [changed-state GPU/backward+full route ID/mass comparison](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED; multi-case training UNEXECUTED. Full goal incomplete.
+[Changed-state GPU/backward+full route ID/mass comparison](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md) COMPLETE/full audit PASS.
+Next [finite full24-FIT conversion](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED; multi-case training UNEXECUTED. Full goal incomplete.
 This replaces the completed first-state/global-head diagnostic as the next
 operational step. It does not resume an old optimizer or donor-adaptation run.
 

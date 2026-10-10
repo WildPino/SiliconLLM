@@ -2,7 +2,8 @@
 
 10 October 2026. [Grouped step/result and independent full audit](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) COMPLETE/QUALIFIED.
 All owned jobs CLOSED; actual selectedalpha.001 masters/packed retained. Quality still FAIL.
-Exact next [changed-state causal gradient/route comparison](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED.
+[Changed-state causal bridge](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md) COMPLETE/full independent audit PASS.
+Exact next [finite full24-FIT conversion](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED.
 Original planning algebra below is historical; full goal incomplete.
 The [complete causal preflight](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md)
 qualifies the coherent readout/loss/backward bridge, not quality or a step size.

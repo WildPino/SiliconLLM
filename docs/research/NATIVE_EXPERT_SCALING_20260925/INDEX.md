@@ -1,9 +1,8 @@
 # Native expert scaling: research control index
 
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-[Latest grouped actual C descent](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md):
-COMPLETE/full independent audit/local descent PASS; absolute quality FAIL.
-Changed-point runner IMPLEMENTED/structural PASS/sealed, UNEXECUTED.
+[Latest changed-point causal bridge](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md):
+COMPLETE/full independent audit/all numericPASS; absolute sample qualityFAIL.
 All owned jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
@@ -27,9 +26,18 @@ budget and stops before allocating; none allocated by latest work.
 | Question | Established | Missing |
 |---|---|---|
 | Affordable useful conditional capacity | Original LUT/ternary/SSM/SWA; typed runtime-n backend; relative per-expert step geometry | Useful n/structured CPU IDs+mass/actualDRAM/useful same-artifact50 |
-| Pretrained chatbot conversion | Useful Falcon1.5B; source-informed original learner/export; qualified boundaries; compiled categorical supervision; numeric causal bridge; actual grouped local C descent | Useful learned history/functions/own-history chatbot/family variants |
+| Pretrained chatbot conversion | Useful Falcon1.5B; source-informed original learner/export; qualified boundaries; compiled categorical supervision; numeric causal bridge at initial AND changed weights; actual grouped local C descent | Useful learned history/functions/own-history chatbot/family variants |
 
 ## Latest decisive evidence
+
+[Changed-point GPU/backward/full stored audit](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md):
+actual selectedalpha.00192-master state; ONE new GPU58-ID history/backward,
+all90 NEW gradients, existing C reused/no C/export/optimizer replay. All2784
+ranked IDs exact, normalized mass1.78814e-7/score.000243821/KL.000141289,
+checkpoint ID/mass bits exact. Full hashes/stats/348 rows/18 labels PASS,
+independent delta1.72351e-12. Absolute quality still18of18 wrong; no additional
+quality improvement in this control. Held250.515s/OS producer10.4922GB/audit
+6.7384GB/GPU allocated.6014GB, all owned CLOSED. Scope ONE changed point.
 
 [Grouped saved-gradient steps/full independent audit](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md):
 three independent alpha1e-4/1e-3/1e-2 modified models from ONE saved gradient,
@@ -72,26 +80,25 @@ history. No compact-state information ceiling or universal conversion claim.
 
 ## Exact resumption
 
-Producer16983/holder25220/worker3720 (creation1791649350.6792483) and native
-18552/10060/28292 CLOSED exit0. Fsum audit10761/holder31652/worker29292
-(creation1791649833.7996647) CLOSED exit0; no missing audit or owned live job.
-Numeric freeze738896a/c6500378; producer holdera8e57aa0/resultfbde76bc.
-Fsum adapter/holder freezecf22e7e/721cfb2d/adjudicatione6278a01.
-Platform precision gap retained/corrected before audit; all consumed code/
-protocols/receipts immutable. Live INDEX timestamp typo corrected from terminal;
-actual process receipts always authoritative. No baseline replay.
+Changed-point producer session67964/holder31392/worker31700
+(creation1791652069.4633064) and audit3302/holder192/worker18272
+(creation1791652232.1595821) CLOSED exit0/errornull/full hashes exact.
+Numeric+holder freeze579f370; bindings f6651a4f/529d51cf; result673c4d44,
+adjudication8ccd62c4. No missing audit or owned live job. All consumed code/
+protocols/results/bindings immutable. Parent grouped3-step audit COMPLETE;
+Windows longdouble gap resolved before it, all first faults retained.
 
-[Next changed-state causal gradient and full route comparison](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_NEXT_20261010.md):
-IMPLEMENTED/structural PASS/UNEXECUTED, [frozen protocol](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_PROTOCOL_20261010.md).
-Numeric binding f6651a4f, producer/audit900s each, OS24/12GiB/localRTX3060.
-Consume actual selectedalpha.001/masters.pt/candidate.packed
-under qualified receipt, ONE new GPU history/backward and all90 new gradients;
-compare EXISTING C scores and all58x6 route IDs/normalized mass, no new C baseline.
-Freeze numeric/resource gates and full audit before launch. Then a finite
-multi-case first-balanced campaign/DEV/generation, not an unbounded old optimizer.
-[Scale geometry/n/primary papers](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md):
-conditional n/gauge derivation, optional neutral-direction correction UNTESTED.
-Dense converter memory still grows with n; no100B memory/quality admission.
+[Next finite full24-FIT conversion](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md):
+PROPOSED/UNIMPLEMENTED, use current changed-point saved gradient and existing C
+for first new displacement/no repeated preflight. Then fresh per-case directions,
+original C finite acceptance, all24FIT4422/all24DEV4386/own-history tasks on final
+SAME artifact. Histories58..1507 retained. First implement bounded exact master
+transition storage; naive24-gradient+master+48-pack layout exceeds safe disk.
+Freeze complete numeric/resource/quality/counter/audit gates before launch.
+No24-case campaign/storage experiment executed; local resources/noT4 proposed.
+[Scale geometry/n](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md): conditional
+n/gauge derivation, optional neutral-direction correction UNTESTED. Dense
+converter memory still grows with n; no100B memory/quality admission.
 
 104 new+64 older RESERVED and longalign8186-20874 unqueried. Useful own-history
 quality/same-artifact50/useful n/CPU mass/DRAM/families still required.
