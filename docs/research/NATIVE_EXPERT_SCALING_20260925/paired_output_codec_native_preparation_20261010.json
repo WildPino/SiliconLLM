@@ -1,0 +1,61 @@
+{
+  "schema": "PAIRED_OUTPUT_NATIVE_PREPARATION_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_native_20261010\\paired_original_readout.c",
+    "bytes": 1373,
+    "sha256": "e4fe7cdfcccd3efee8eec31a00f7f0a4978cf7c8cd6edecece6afe8754c56846"
+  },
+  "dll": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_native_20261010\\paired_original_readout.dll",
+    "bytes": 70656,
+    "sha256": "53416b0f93fc928d8d358cefa89b291d5b90857511c81f896ac4c20d32d428bb"
+  },
+  "engine": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "bytes": 137439,
+    "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+  },
+  "functions": [
+    {
+      "name": "hsum256",
+      "original_body_sha256": "12d89b38e6414b60f6129a518f7c9a232ed21426c5a5b0fd03a109c25140fefb"
+    },
+    {
+      "name": "dotf",
+      "original_body_sha256": "25828cce39b821473d0b4002163d33acd6902fa03276d514e120e235738bca95"
+    },
+    {
+      "name": "matvec",
+      "original_body_sha256": "77d8f2503a714bad799a5a652d9bd96fb43ebc7d236182b9e17720c945eddaf7"
+    },
+    {
+      "name": "rmsnorm",
+      "original_body_sha256": "cb403c8095038fe343f5d7ffc9df3e37d3160ed531bf28b570d3369047387f25"
+    }
+  ],
+  "compiler": {
+    "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+    "bytes": 16384,
+    "sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7"
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+    "-O3",
+    "-mavx2",
+    "-mfma",
+    "-march=znver2",
+    "-shared",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_native_20261010\\paired_original_readout.c",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_native_20261010\\paired_original_readout.dll",
+    "-lm"
+  ],
+  "exit_code": 0,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_native_20261010\\compile.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "seconds": 2.5310000000008586,
+  "scope": "Compile-only preparation: four original bodies unchanged, OMP_PFOR empty, F32 norm/head; no model input or readout call."
+}

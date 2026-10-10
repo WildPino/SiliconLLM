@@ -1,5 +1,7 @@
 # Native expert scaling: research control index
 
+**Current preparation, 10 October12:56:** [one paired output codec](PAIRED_OUTPUT_CODEC_PROTOCOL_20261010.md) implemented/AST/native compilation+ABI preflight PASS. Binding027117b4/301 inputs6,797,817,706B; no fit launched yet. One FIT-only rank255 whitened pair/carrier, real F64 versus original F32 norm/head; quality/precision/conditioning gates frozen. Fit900s/OS6GiB/GPU4-5GiB/output5GiB; full audit900s/OS3GiB. No source history/training/DEV/T4. Last qualified FIT capture remains PASS; goal incomplete. Older state below superseded.
+
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
 [Coherent FIT capture and full audit](SOURCE_CACHED_FIT_RESULT_20261010.md)
 COMPLETE/PASS:24 FIT/4422 exact paired labels; all owned sessions/PIDs CLOSED.

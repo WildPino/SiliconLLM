@@ -1,5 +1,7 @@
 # Pretrained-to-native conditional-capacity method
 
+**Current preparation, 10 October12:56:** [one paired output codec](PAIRED_OUTPUT_CODEC_PROTOCOL_20261010.md) implemented/AST/native compilation+ABI preflight PASS. Binding027117b4/301 inputs6,797,817,706B; no fit launched yet. One FIT-only rank255 whitened pair/carrier, real F64 versus original F32 norm/head; quality/precision/conditioning gates frozen. Fit900s/OS6GiB/GPU4-5GiB/output5GiB; full audit900s/OS3GiB. No source history/training/DEV/T4. Last qualified FIT capture remains PASS; goal incomplete. Older state below superseded.
+
 **Current, 10 October12:37:** [coherent FIT capture/full audit](SOURCE_CACHED_FIT_RESULT_20261010.md) COMPLETE/PASS:24 FIT/4422 exact paired labels,411 parameters/all114 inputs+171 outputs sealed,4422 frames/548 scalar witnesses. Held644.500s+21.281s; sessions90559/6122 CLOSED, launchers20972/13068 and workers22192/26704 gone. No codec fit/T4. Next freeze ONE paired representation using [output-weighted rank algebra](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md) and [original RMS geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md), actual native state/norm/head F32. Older preparation/LIVE below historical; full validation in force, goal incomplete.
 
 9 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
