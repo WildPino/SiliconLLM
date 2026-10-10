@@ -1,0 +1,60 @@
+{
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_joint_history_recovery_audit.py",
+    "--result",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_joint_history_recovery_finish_result_20261010.json",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_joint_history_recovery_finish_consumed_binding_20261010.json",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_joint_history_recovery_stored_adjudication_20261010.json"
+  ],
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_joint_history_recovery_audit.py",
+      "bytes": 28600,
+      "sha256": "7c88c326ce83a8b479b8b2af401a2fa7c8f71a325dc77e28d6f18b0916cd4ed6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_joint_history_recovery_audit_launch.py",
+      "bytes": 3496,
+      "sha256": "7dd6ab452c7958b5dce6e4e353e38b541e6424ef8fd5eaa7a40c070ab15d3b08"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_joint_history_recovery_finish_result_20261010.json",
+      "bytes": 1891087,
+      "sha256": "6d35545827dbb4248f07012da2799991aae705a0bd9e17a22e54dbdcc8b1a808"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_joint_history_recovery_finish_consumed_binding_20261010.json",
+      "bytes": 3002853,
+      "sha256": "2ff6afc97cb8c27ee8b76c2896a181e76aaad2f5cce6e7d2d60c9a5e954a35f6"
+    }
+  ],
+  "limits": {
+    "seconds": 2400,
+    "OS_bytes": 21474836480,
+    "log_bytes": 8388608
+  },
+  "launcher_pid": 5596,
+  "worker_pid": 2764,
+  "worker_creation_time": 1791616945.6910632,
+  "exit_code": 1,
+  "error": "AssertionError('stored audit deadline')",
+  "worker_OS_peak_through_exit": 9203138560,
+  "launcher_OS_peak_snapshot": 27181056,
+  "seconds": 2401.312,
+  "output": null,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_joint_history_recovery_stored_adjudication_20261010.worker.log",
+    "bytes": 194,
+    "sha256": "c2408a767db4eb4d52b8be54c12700f377ef1cbcc25e43b04dbc3fe72a957cbf"
+  },
+  "model_calls": 0,
+  "optimizer_updates": 0
+}
