@@ -1,10 +1,10 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Paired-head probe/full audit](PAIRED_HEAD_IMAGE_RESULT_20261010.md) COMPLETE:
-72 meanKL.006529733/zero argmax changes, worstKL.230831/lower0; numeric PASS,
-sampled quality FAIL. All owned sessions/PIDs CLOSED; no source/DEV/T4.
-Next categorical adaptation of existing causal states, then compact history.
+[Stored causal coordinates](CAUSAL_READOUT_COORDINATES_PROTOCOL_20261010.md)
+implemented/AST PASS, bindingf8fcb9d9/70 inputs;600s CPU +600s full audit.
+No worker yet, teacher/source/history/optimizer/native/GPU/T4 calls0.
+[Previous head-image control](PAIRED_HEAD_IMAGE_RESULT_20261010.md) complete.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -88,7 +88,7 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 ## Exact resumption
 
 [Next causal-coordinate qualification](CAUSAL_READOUT_COORDINATE_NEXT_20261010.md):
-implement/freeze a CPU stored-feature recovery from the audited actual27 native
+CPU stored-feature recovery implemented/bound, freeze before launch. Audited actual27 native
 FIT/DEV logits and exact old head. Qualify rank/conditioning/rounding uncertainty,
 then a FIT-only categorical encoder J and offline fused native head A J; no extra
 runtime operator or donor history. No feature recovery/fit launched yet.
