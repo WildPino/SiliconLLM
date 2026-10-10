@@ -1,0 +1,43 @@
+{
+  "schema": "CATEGORICAL_CAMPAIGN_RECOVERY_SEAL_V2_LAUNCH_V1",
+  "source_protocol_freeze": "d89e9d3300722ba1cbed4f35850d2cb724d2a7a6",
+  "command": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/seal_categorical_campaign_recovery_v2.py",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_binding_20261010.json",
+    "--binding-sha",
+    "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+    "--holder-binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_launch_binding_20261010.json",
+    "--holder-binding-sha",
+    "a1d1aa65b8b3e908886b6f2eeadb685854011ad8ec84852324d414ef634ca401",
+    "--failed-terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_result_20261010.terminal.json",
+    "--failed-terminal-sha",
+    "0d6bf116cd51868bdb1d507cbe23f0d3429949a2a999ced8152395abf3399ade",
+    "--freeze",
+    "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+    "--directory",
+    "results/native_expert_scaling/original_categorical_campaign_20261010",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/categorical_campaign_recovery_seal_v2_20261011.json"
+  ],
+  "script_sha256": "2799ac9c554adf64d14cb427960f5b71216065b2a6d1b1b6dc2a73482478cb8a",
+  "limits": {
+    "seconds": 3600,
+    "OS_bytes": 268435456,
+    "output_bytes": 8388608
+  },
+  "previous_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_campaign_recovery_seal_20261011.fault.json",
+    "bytes": 271,
+    "sha256": "61f63abee162535f1818e33af5616226144cf5dd1399b4b3e44becb7828880e0"
+  },
+  "scope": "Separate one-hour present-boundary seal; full hashes/thresholds preserved; original and first recovery faults unchanged"
+}
