@@ -1,9 +1,11 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[One paired codec and complete audit](PAIRED_OUTPUT_CODEC_RESULT_20261010.md)
-COMPLETE/numeric PASS, FIT quality FAIL. All owned sessions/PIDs CLOSED.
-Next fixed-head/domain KL versus encoder diagnosis; no T4 allocated.
+[Paired-head/domain probe](PAIRED_HEAD_IMAGE_PROTOCOL_20261010.md) implemented,
+AST/native ABI PASS; binding916e2bf4/84 inputs. One warm72 FIT arm awaiting
+frozen launch,300s capture +300s full audit; no source/DEV/T4.
+[Previous paired codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md) numeric PASS,
+FIT quality FAIL; next isolate encoder room versus head/domain floor.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
