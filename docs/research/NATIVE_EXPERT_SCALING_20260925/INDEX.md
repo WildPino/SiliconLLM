@@ -3,7 +3,7 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest original causal bridge](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md):
 COMPLETE/full stored audit/numeric PASS; case quality FAIL, no parameter update.
-All owned jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
+Previous owned jobs CLOSED. Trust-step binding sealed c6500378; no proposal worker yet. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
 
@@ -74,13 +74,16 @@ Torch non-path metadata fault and superseded draft binding retained; no model
 execution on that draft. Consumed code and receipts immutable, no baseline replay.
 
 [Next grouped trust-step geometry](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md):
-algebra/plan only; fresh update/export runner UNIMPLEMENTED, no new optimizer.
+[Frozen protocol](ORIGINAL_CATEGORICAL_TRUST_STEP_PROTOCOL_20261010.md) runner/holder
+IMPLEMENTED/AST and tiny structural preflight PASS; binding sealed c6500378.
+Three independent alpha1e-4/1e-3/1e-2 candidates; producer1800s/OS24GiB/
+output12GiB + stored audit1800s/OS20GiB. CUDA hidden; no actual proposal yet.
 Reuse saved90 gradients; SSM out_proj norm~.22 versus gradient thousands exposes
-parameter-unit conditioning. Freeze group directions/radii/zero-norm floors and
+parameter-unit conditioning. Frozen group directions/radii/zero-norm floors and
 alpha grid; per-expert bank groups, core/router units; measure F32 displacement,
 ternary symbol/scale changes, routing IDs+mass and actual original C descent.
 A negative STE derivative alone is not actual discrete improvement. Complete
-new audits even failure. Set NEW budget/caps/protocol before launch; no T4.
+new audits even failure. Seal binding/freeze before launch; no T4.
 Only then qualify a finite multi-case first-balanced campaign/DEV/generation.
 
 104 new+64 older RESERVED and longalign8186-20874 unqueried. Useful own-history

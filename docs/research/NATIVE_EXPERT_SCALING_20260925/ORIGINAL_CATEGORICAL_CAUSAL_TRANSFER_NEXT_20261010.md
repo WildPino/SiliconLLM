@@ -2,7 +2,7 @@
 
 10 October 2026. Compiler/FIT consumer and original causal preflight COMPLETE/full audits PASS.
 [Actual causal result](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md): numerical bridge qualified, case quality FAIL; all owned CLOSED.
-Training still UNEXECUTED. The exact next step is [grouped trust-step geometry and discrete descent](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md), algebra/plan only, tool UNIMPLEMENTED. Full goal incomplete.
+Training still UNEXECUTED. The exact next step is [grouped trust-step geometry and discrete descent](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md), new runner/holder and frozen protocol IMPLEMENTED/AST PASS, binding being sealed, actual execution pending. Full goal incomplete.
 This replaces the completed first-state/global-head diagnostic as the next
 operational step. It does not resume an old optimizer or donor-adaptation run.
 

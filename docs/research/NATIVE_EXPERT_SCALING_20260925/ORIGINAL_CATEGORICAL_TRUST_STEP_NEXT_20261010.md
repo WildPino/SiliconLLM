@@ -1,6 +1,6 @@
 # Next causal transfer step: parameter geometry and actual discrete descent
 
-10 October 2026. Algebra/plan only; new runner and update **UNIMPLEMENTED**.
+10 October 2026. Algebra/plan implemented as [new frozen protocol](ORIGINAL_CATEGORICAL_TRUST_STEP_PROTOCOL_20261010.md): runner/holder AST and tiny structural preflight PASS, binding sealed c6500378. Actual updates/native/complete audit UNEXECUTED.
 The [complete causal preflight](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md)
 qualifies the coherent readout/loss/backward bridge, not quality or a step size.
 Do not replay its completed baseline forward/backward/native prefix.
