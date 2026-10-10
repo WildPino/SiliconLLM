@@ -1,5 +1,7 @@
 # Next: transfer donor history functions into the original engine envelope
 
+**Current preparation, 10 October:** [FIT paired final-state protocol](SOURCE_CACHED_FIT_PROTOCOL_20261010.md) implemented/AST and binding validation PASS. Binding4116baa7/114 inputs5,530,886,470B.24 FIT/4422 labels; no capture launched yet. Full stored audit follows regardless of scientific outcome; Fail-Fast revoked. New observable only, no codec fit/optimizer/native/DEV/RESERVED generation. Capture1500s/OS8GiB/GPU10-11GiB/output2GiB; audit300s/OS1GiB. Latest completed one-case qualification remains PASS. Older preparation/live status below historical; this paragraph is authoritative.
+
 10 October2026. Goal INCOMPLETE. Matched training complete; assessment completion
 complete; stored audit running. No T4 allocation.
 [Complete original-operator recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
