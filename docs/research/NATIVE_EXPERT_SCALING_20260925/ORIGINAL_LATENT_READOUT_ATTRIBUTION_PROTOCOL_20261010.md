@@ -45,10 +45,10 @@ Original quality gates and all failures are retained.
 Require completed actual51 result/terminal and missing-only independent audit
 result/held receipt, all matched by raw SHA. Bind original history binding,
 all24 final target arrays/full-V BF16 labels, both final packs, relevant code,
-Python and NumPy native runtime, this protocol and prior proposal. Fixed
+Python and NumPy native runtime, this protocol and prior proposal.
 Windows peak-memory helper code, psutil native extension and Python runtime DLL
 are included prospectively in the same binding before the first contraction.
-projection, target record IDs/positions and full head fields are not swept.
+The fixed projection, target record IDs/positions and full head fields are not swept.
 Hash consumed inputs before/after with held launcher. Full history arrays are
 read only to index existing labels; no model is instantiated.
 

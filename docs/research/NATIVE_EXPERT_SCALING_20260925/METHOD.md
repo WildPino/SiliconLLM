@@ -8,6 +8,14 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Latest override, 10 October10:46:** actual51 family fully adjudicated;
+missing-only audit exit0/2051.016s, all1890 hashes87.519GB PASS, audit SHA22110f81.
+A3 completed checks adopted/B3 independently checked; both tasks0/16 and B
+preference FAIL confirmed. First training/audit deadlines retained. Session85445
+CLOSED, launcher12840/worker21208 gone. Next target/readout binding preparation,
+then freeze/held900s contraction; candidate unexecuted. All earlier RUNNING
+paragraphs are historical. [Final report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md).
+
 **Current override, 10 October10:28:** all matched updates and assessments are
 complete; both actual51 tasks0/16, frozen B preference FAIL. First stored audit
 terminated1 at2401.312s deadline after all A checks. Missing-only completion

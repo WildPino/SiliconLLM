@@ -1,5 +1,12 @@
 # Native expert-count scaling: prior evidence
 
+**Latest override, 10 October10:46:** actual51 family fully adjudicated,
+missing-only audit exit0/2051.016s/all1890 hashes87.519GB PASS/audit22110f81.
+Both tasks0/16 and B preference FAIL confirmed; A3 completed checks adopted/B3
+independently checked. First deadlines retained. Session85445 CLOSED/PIDs gone.
+Next target/readout binding preparation then freeze/900s held contraction,
+candidate unexecuted. Earlier RUNNING text is historical; [INDEX](INDEX.md) current.
+
 **Current override, 10 October10:28:** training/assessments COMPLETE, both final
 tasks0/16 and B preference FAIL. First stored audit deadline FAIL at2401.312s
 after all A checks; new missing-only audit LIVE session85445, launcher12840/

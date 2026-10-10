@@ -1,12 +1,32 @@
 # Matched source-history recovery in the original engine
 
-10 October2026. ASSESSMENT COMPLETE; STORED AUDIT DEADLINE FAIL,
-MISSING-ONLY AUDIT COMPLETION RUNNING. Goal INCOMPLETE.
+10 October2026. ASSESSMENT/INDEPENDENT ADJUDICATION COMPLETE;
+FIRST STORED AUDIT DEADLINE FAIL RETAINED. Goal INCOMPLETE.
 Original [protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
 missing-only [completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md),
 prospective [input custody](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_INPUT_CUSTODY_20261010.md).
-All numbers below are retained worker observations, not yet final independent
-adjudication. Original state/code/first fault are preserved.
+Retained worker numbers are now independently adjudicated or explicitly adopted
+from completed first-audit checks. Original state/code/first faults are preserved.
+
+## Completed independent adjudication
+
+Missing-only audit freeze e8b17a5/bind7493e7ac terminated0, session85445 CLOSED;
+launcher12840/worker21208 gone. [Final audit](original_joint_history_recovery_stored_adjudication_finish_20261010.json)
+SHA22110f81cbc38a63368be9c779625ae1a25d5483061a3986ca9a9f13596465b1,
+[held receipt](original_joint_history_recovery_stored_adjudication_finish_20261010.receipt.json).
+Held2051.016s, science855.593s/endseal1178.781s;worker OS9,229,029,376B plus
+launcher29,646,848B within20GiB. All1890 extents87,519,429,485B match; metadata
+unchanged. All three A successes are adopted through immutable control-flow
+markers and end hashes, with numeric upper bounds rather than invented exact
+deltas. Three B states/native milestones independently checked: worst label
+KL delta5.045e-12 <=1e-10. All92 masters/moments/counters/RNG/lineage,110 export
+fields and18432 integer coordinates per milestone qualify. Both tasks0/16;
+each arm has1088 saved argmax IDs independently checked. Auxiliary aggregates
+delta0; saved intermediate
+candidate activations were unavailable, so this is summary recomputation only.
+Preference JOINT_HISTORY_B_NOT_SUPPORTED confirmed. Original training reserve
+FAIL and first audit deadline FAIL remain; no optimizer/source/native replay.
+Historical running descriptions below record the former process boundary.
 
 ## Question and actual experiment
 

@@ -6,6 +6,13 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+**Latest override, 10 October10:46:** independent actual51 adjudication COMPLETE,
+missing-only audit exit0/2051.016s/all1890 hashes87.519GB PASS/SHA22110f81.
+Both tasks0/16/B preference FAIL confirmed. First deadlines preserved;
+session85445 CLOSED/launcher12840/worker21208 gone. Next existing target/readout
+protocol binding/freeze/held900s contraction, candidate still unexecuted.
+Earlier status paragraphs are historical; [INDEX](INDEX.md) current.
+
 **Latest, 10 October10:28:** all assessments complete, both tasks0/16, frozen
 B preference FAIL. First independent audit deadline FAIL at2401.312s; missing-only
 audit LIVE session85445/launcher12840/worker21208, freeze e8b17a5/bind7493e7ac.

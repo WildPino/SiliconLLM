@@ -1,8 +1,8 @@
 # Native expert scaling: research control index
 
 10 October2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-Matched recovery training and missing assessment COMPLETE. First stored audit
-deadline FAIL; missing-only audit completion RUNNING, B33/B39/B51 verified.
+Matched recovery training/assessments/independent adjudication COMPLETE.
+First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hashes.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -34,7 +34,7 @@ new updates complete,24 perarm. A native DEV caseKL6.519307/disagreement89.789%;
 B6.516115/89.681%, both tasks0/16 versus useful source14/16. B centered-relative
 boundary error0.903887 versus A0.904681; the frozen preference FAIL. Relative
 KL recovery has not preserved useful chatbot behavior. Independent stored
-adjudication is still finishing; numerical/source/resource gaps are explicit.
+adjudication COMPLETE; numerical/source/resource gaps remain explicit.
 No accepted50/useful-n/DRAM/family admission. Next uncertainty is whether the
 retained projected donor target is compatible with the learned final head.
 
@@ -60,18 +60,17 @@ Parent training reserve FAIL at6600s; missing B assessment completion exit0/
 265.656s, freeze f309ba52/bind2ff6afc9, parent fault preserved.
 First stored audit exit1 at2401.312s deadline after all A milestones/hashes.
 Missing-only [audit completion](ORIGINAL_JOINT_HISTORY_AUDIT_FINISH_PROTOCOL_20261010.md)
-freeze e8b17a5/bind7493e7ac is LIVE session85445, launcher12840 created
-2026-10-10T10:12:01.770723+02:00, worker21208 created10:12:02.207490.
-Re-poll SAME session or exact Win32 PID/time; observation timeout is not exit.
-B33/B39/B51 have durable audit receipts at157.140/504.796/848.046s.
-End hash traversal is running; all1890 sealed extents87.519GB must pass before
-publication. Task/decision assembly has reached the pre-seal pending result.
+freeze e8b17a5/bind7493e7ac COMPLETE exit0/session85445 CLOSED; launcher12840/
+worker21208 gone. Held2051.016s, science855.593/endseal1178.781s. All1890 sealed
+extents87.519GB PASS; audit SHA22110f81. A33/A39/A51 successes explicitly adopted,
+B33/B39/B51 independently completed; no fabricated exact A metric deltas.
+Both task decisions/gradient witnesses/export fields/real moments verified.
 First overlap rejection was prelaunch only; foreign uploader exited naturally.
-Keep all first faults; no other owned benchmark while this worker is live.
+Keep all first faults. Next control binding is being prepared after audit PASS.
 
 [Target/readout protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
-and four Python tools are prepared/AST parsed, UNEXECUTED. Bind/freeze only
-after successful audit completion. Exactly two actual51 heads, same24 DEV/
+and four Python tools are prepared/AST parsed, candidate contraction UNEXECUTED.
+Bind/freeze after successful audit completion. Exactly two actual51 heads, same24 DEV/
 4386 labels; F64 lossless score storage4,599,124,512B, held900s/4GiB/5GiB outputs,
 independent stored audit600s. Same prospective interpretation as the
 [prior proposal](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md). No fitting,

@@ -10,6 +10,13 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ### Current resumption: qualified teacher histories and finite joint recovery
 
+**Latest override, 10 October10:46:** actual51 adjudication COMPLETE exit0/
+2051.016s; all1890 hashes87.519GB PASS/SHA22110f81. Both tasks0/16 and B
+preference FAIL confirmed; first deadlines retained. Session85445 CLOSED/PIDs
+12840/21208 gone. Bind/freeze and run the existing two-head target/readout
+control next, held900s plus independent stored600s audit. Candidate unexecuted;
+all earlier RUNNING descriptions below are historical.
+
 **Latest resumption, 10 October10:28:** both assessments complete/tasks0/16,
 B preference FAIL. First stored audit deadline FAIL2401.312s after all A checks.
 Missing-only audit LIVE session85445, launcher12840/worker21208, freeze e8b17a5/
