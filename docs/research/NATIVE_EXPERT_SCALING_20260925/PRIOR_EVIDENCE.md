@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE11 October00:37:** First recovery seal CLOSED exit1 at1800s,
+no valid seal; fault retained. [Fault/v2 protocol](CATEGORICAL_RECOVERY_SEAL_V1_FAULT_AND_V2_PROTOCOL_20261011.md).
+Separate v2 source/protocol frozen d89e9d3, exact launch7fc130d, LIVE session17973/
+PID27196 creation00:36:49.017935+02:00, cap3600s/256MiB. GPT-6 Luna
+`/root/recovery_monitor` owns read-only monitoring; root stops substantive work
+pending its closure/fault alert. All hashes/custody checks retained; no original
+restart or failed receipt overwritten. Recovered numerical auditor ready30a78a0/
+8 preflight flags PASS, but exact binding/9h audit NOT launched. On v2 PASS use
+its exact new SHA for `recovered_categorical_campaign_launch.py --prepare`, then
+freeze/launch the CPU holder and hand it to the same Luna monitor. Missing chat
+tasks and original GPU/custody measurements remain unassessed/UNKNOWN. Prior
+LIVE/status paragraphs below are historical. Full goal ACTIVE/INCOMPLETE.
+
 **11 October preparation:** Separately bound recovered auditor IMPLEMENTED,
 source/protocol freeze30a78a0,8 small preflight flags PASS/1.344s.
 [Protocol](RECOVERED_CATEGORICAL_CAMPAIGN_AUDIT_PROTOCOL_20261011.md): original
