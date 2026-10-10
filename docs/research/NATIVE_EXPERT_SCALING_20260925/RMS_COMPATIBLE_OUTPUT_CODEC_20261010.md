@@ -63,7 +63,9 @@ provide a declared norm domain; an observed FIT maximum alone is not a guarantee
 on future inputs. If a DEV/future input violates the domain, retain failure;
 do not clip silently or refit the gain on DEV. Large gain also shrinks information
 coordinates relative to the carrier and may harm original activation quantizers
-or enlarge F16 head values. Radius/gain require explicit conditioning and native
+or enlarge head values. The current original engine head/norm/state are F32
+(engine.c rd/float pointers, lines329,347,388,439-440,642-645); F16 must not be
+silently assumed. Radius/gain require explicit conditioning and native
 precision gates. Square-root carrier production by the causal core is missing.
 
 ## What these identities settle and what remains
@@ -73,7 +75,7 @@ retained output information after projection; and whether the original causal
 core can reach the paired representation. Only the first has an exact measured
 one-case cached control. The identities settle compatibility with the final
 RMS geometry on their declared domains in real arithmetic. They do not admit
-quality, speed, useful n, DRAM traffic or family applicability. Head F16,
+quality, speed, useful n, DRAM traffic or family applicability. Actual F32 head,
 coordinate precision, source BF16 rounding, causal target reachability and
 full own-history behavior remain measured gates, not consequences of algebra.
 

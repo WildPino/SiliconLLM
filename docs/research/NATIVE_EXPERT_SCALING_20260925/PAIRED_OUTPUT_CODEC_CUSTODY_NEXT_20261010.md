@@ -1,7 +1,8 @@
 # Next: consistent FIT output features, then one paired original-engine codec
 
-10 October2026. PROSPECTIVE; no new FIT capture or codec fit launched. Goal
-ACTIVE/INCOMPLETE. All prior source/control workers gone; no T4 allocation.
+10 October2026. FIT capture LIVE under frozen f2f4011 protocol/binding4116baa7,
+session90559/launcher20972/worker22192. No codec fit. Goal ACTIVE/INCOMPLETE.
+All prior source/control workers gone; no T4 allocation.
 
 ## Resolved uncertainty and reusable procedure
 
@@ -28,7 +29,9 @@ after implementation review. Separate model load/parameter checks once per
 family; do not multiply the single-case46.125s total by24. Prospective numeric
 payload with raw/observed/reconstructed norm and two BF16 score streams is
 4422*(3*2048*2+2*65537*2)=1,213,555,992B; metadata remains extra. No cap has
-been consumed or new family launched in this memo.
+been selected by the original prospective memo; the separately frozen
+[SOURCE_CACHED_FIT_PROTOCOL](SOURCE_CACHED_FIT_PROTOCOL_20261010.md) now implements
+and runs that capture with1500s/2GiB and a complete300s stored audit.
 
 Original initializer original_falcon_learner.initialize uses p=packet.P[:,:256],
 head=sW p and projected diagonal final_norm=sum_i p_ij^2 gamma_i; it initializes
@@ -69,10 +72,12 @@ not another unchanged initializer/training dose.
 
 ## Resumption and full scope
 
-Current next safe action: read24 FIT cost records and retained basis/head
-initializer semantics; select/preregister the smallest coherent FIT capture
-and one codec variable that resolves normalization/readout coupling. Scientific
-compression still unexecuted. Useful RAM-driven expert capacity, structured
+Current next safe action: retain the LIVE exact capture handle through exit
+and full stored audit. Then review/freeze ONE representation variable before
+fitting or matching DEV capture. The [output-weighted rank derivation](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md)
+supplies a paired encoder/head and precise surrogate optimum; it is prospective,
+not measured. Native original head/state/norm are F32. Scientific compression
+still unexecuted. Useful RAM-driven expert capacity, structured
 CPU IDs and normalized mass, measured physical DRAM, chatbot preservation and
 same-artifact>=50 accepted batch1 tokens/s (100 stretch), followed by another
 family/scale, remain the actual goal. No new source-runtime port substitutes
