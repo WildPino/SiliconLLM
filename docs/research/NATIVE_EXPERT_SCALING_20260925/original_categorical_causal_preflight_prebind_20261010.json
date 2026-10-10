@@ -1,0 +1,16 @@
+{
+  "schema": "ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_PREBIND_RECORD_V1",
+  "first_binding_attempt": {
+    "exit_code": 1,
+    "elapsed_observed_seconds": 7.6802513,
+    "error": "pathlib TypeError: Torch _OpNamespace returned for a module __file__/__cached__ attribute",
+    "binding_written": false,
+    "source_calls": 0,
+    "model_forwards": 0,
+    "backward_calls": 0,
+    "native_calls": 0,
+    "repair": "Before numeric consumption: accept only str/os.PathLike module path attributes; preserve valid actual imported source/bytecode files"
+  },
+  "AST": "PASS",
+  "scope": "Preparation failure; no sealed binding or model/native execution consumed"
+}

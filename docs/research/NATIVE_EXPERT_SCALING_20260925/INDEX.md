@@ -3,7 +3,7 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest converter component](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md):
 fixed native-head supervision COMPLETE/full audit/FIT consumer PASS.
-Causal learner adapter implemented/AST PASS, not executed. All owned jobs CLOSED.
+Causal adapter + preflight runner/holder IMPLEMENTED/AST PASS, reviewed binding sealed; no numeric worker launched. Previous owned jobs CLOSED.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) retain procedure/history.
 
 ## Goal and constraints
@@ -73,8 +73,14 @@ No unfinished worker or missing supervision verdict; LOSS_SUPERVISION_QUALIFIED.
 
 [Next causal bridge](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md):
 `original_categorical_history_learner.py` IMPLEMENTED/AST PASS/UNEXECUTED.
-Review coherent fixed head/norm and training-only F64 buffer; implement/freeze
-runner/binding and numerical/native/resource gates. Deterministic shortest FIT
+[Preflight protocol](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_PROTOCOL_20261010.md)
+runner/holder IMPLEMENTED/AST PASS; reviewed binding 5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b
+and holder f80af6da6f48d10d18060ded6feddec2466dbe4ad9afa737b44c8c2be38d483a.
+Freeze before one worker. Preliminary binding retained, superseded before
+numeric execution after the stored-audit false-diagnostic review.
+Producer900s/OS24GiB/GPU6-8GiB/output4GiB + stored audit900s/OS12GiB.
+Retain all90 gradient tensors. Prebinding non-path Torch metadata fault retained
+and corrected; no sealed numeric inputs consumed. Deterministic shortest FIT
 rewriting008,58 history IDs/18 labels. Immutable actual27 .pt8.652GB/model mmap,
 original packed/executable and compiled FIT proof; no old Adam continuation.
 One NEW changed-head/norm forward/backward/native bridge before a new first-

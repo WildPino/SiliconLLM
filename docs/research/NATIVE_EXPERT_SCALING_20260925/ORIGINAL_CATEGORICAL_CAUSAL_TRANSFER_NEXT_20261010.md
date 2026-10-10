@@ -2,7 +2,7 @@
 
 10 October 2026. Compiler COMPLETE/LOSS_SUPERVISION_QUALIFIED/full audit;
 FIT consumer COMPLETE/PASS. Causal adapter IMPLEMENTED/AST PASS, UNEXECUTED.
-Causal preflight runner and training PROPOSED/UNIMPLEMENTED. Full goal incomplete.
+Causal preflight runner/holder IMPLEMENTED/AST PASS, reviewed binding sealed 5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b; numerical execution and training UNEXECUTED. [Protocol](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_PROTOCOL_20261010.md). Full goal incomplete.
 This replaces the completed first-state/global-head diagnostic as the next
 operational step. It does not resume an old optimizer or donor-adaptation run.
 
