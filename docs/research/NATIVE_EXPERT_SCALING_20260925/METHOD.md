@@ -8,11 +8,14 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
-**Current repair, 10 October:** source cached-state first attempt startup FAIL,
-exit1/71.625s/session42559 CLOSED/PIDs gone. No model or source observation.
-[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md) moves the runtime flag
-check after mixer initialization, new sealed binding/namespace; old artifacts
-immutable, science/gates/caps unchanged. Older LIVE below historical.
+**Current result, 10 October:** [paired cached state](SOURCE_CACHED_FINAL_RESULT_20261010.md)
+and full stored audit COMPLETE/PASS. Exact53 original tokens/logits and own-state
+norm/head; cached/prefill h24 RMS1.1708%/postnorm.5550%, first label differs too.
+All411 source values checked/90 cache rounding coordinates audited. First startup
+fault preserved. All workers gone; original ALL48 alignment FAIL unchanged.
+[RMS-compatible codec algebra](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md) is prospective.
+Next [coherent FIT features/one paired codec](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md),
+no new FIT capture/codec fit launched. Older LIVE/preparation below historical.
 
 **LIVE, 10 October11:53:** source cached-state capture session42559,
 launcher25876/worker28136, freeze129a9a8/bind4914ab1f. First prelaunch overlap

@@ -1,0 +1,67 @@
+{
+  "schema": "SOURCE_CACHED_FINAL_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_cached_final_result_repair1_20261010.json",
+    "bytes": 3573,
+    "sha256": "0f7c069263ee87c1fcbcbe3c05eac057a6b87d407dedd1cdb9c561a32db577f0"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_cached_final_binding_repair1_sealed_20261010.json",
+    "bytes": 127862,
+    "sha256": "d787a906d0c52cfe5ec28e9792a9477ec7fe509e5146c82bd8fdac45d88307d1"
+  },
+  "decision": "PAIRED_CACHED_STATE_PASS",
+  "gates": {
+    "tokens_exact": true,
+    "old_logits_exact": true,
+    "paired_norm_exact": true,
+    "paired_head_exact": true
+  },
+  "complete_input_output_hashes": true,
+  "all_source_parameter_values_before_after_exact": true,
+  "norm_feature_relative_RMS": 0.0023166176268244708,
+  "scalar_head_witnesses": 24,
+  "max_scalar_head_absolute_delta": 0.09407329228997696,
+  "cache_quantization_coordinates": 90,
+  "cache_nonzero_rounding_coordinates": 90,
+  "comparable_teacher_forced_positions": 53,
+  "generated_prefix_exact": 53,
+  "raw_h24_differing_coordinates": 93843,
+  "raw_h24_relative_RMS": 0.011708068052981677,
+  "normalized_relative_RMS": 0.005549610066615647,
+  "first_label_raw_equal": false,
+  "margins": [
+    {
+      "label_index": 21,
+      "cached_argmax": 2632,
+      "prefill_argmax": 3942,
+      "cached_gap_to_prefill": 0.125,
+      "pairwise_prefill_minus_cached": 0.171875,
+      "h24_relative_RMS": 0.009737401526782695,
+      "normalized_relative_RMS": 0.005201679310749292
+    },
+    {
+      "label_index": 23,
+      "cached_argmax": 4496,
+      "prefill_argmax": 15155,
+      "cached_gap_to_prefill": 0.015625,
+      "pairwise_prefill_minus_cached": 0.0625,
+      "h24_relative_RMS": 0.013028375500365032,
+      "normalized_relative_RMS": 0.006004022071027334
+    },
+    {
+      "label_index": 33,
+      "cached_argmax": 9330,
+      "prefill_argmax": 228,
+      "cached_gap_to_prefill": 0.140625,
+      "pairwise_prefill_minus_cached": 0.1796875,
+      "h24_relative_RMS": 0.01116552914691579,
+      "normalized_relative_RMS": 0.005138933016760769
+    }
+  ],
+  "source_history_forwards": 0,
+  "new_full_head_contractions": 0,
+  "optimizer_updates": 0,
+  "seconds": 4.438000000000102,
+  "scope": "Stored one-case audit. Cached/full-prefill state drift observed if gates pass; cache rounding witnessed but not uniquely causal. Original ALL48 FAIL retained."
+}

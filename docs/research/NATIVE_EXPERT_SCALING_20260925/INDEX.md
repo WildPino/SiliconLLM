@@ -6,15 +6,10 @@ First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hash
 Target/readout control and independent audit COMPLETE; coupling branch selected.
 Source final readout and full independent audit COMPLETE; alignment FAIL.
 Bounded margin diagnosis COMPLETE:3 positive-gap changes, not teacher ties.
-Cached-state first attempt exit1/71.625s, startup flag read before initialization.
-Session42559 CLOSED/PIDs25876/28136 gone; zero model/history/head observation.
-[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md) moves assertion after
-mixer construction, unchanged science/caps; new sealed binding and namespace.
-First fault/overlap rejection immutable; no completed generation to replay.
-[Frozen protocol](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md): one new generation,
-same-invocation h24/norm/logits, exact old token/logit replay/paired operator gates.
-600s/OS8GiB/GPU10-11GiB/128MiB outputs; separate120s stored audit after exit.
-Complete validation method remains in force; no codec fit or T4.
+[Paired cached-state control](SOURCE_CACHED_FINAL_RESULT_20261010.md) and full
+stored audit COMPLETE/PASS. Exact53 old tokens/logits and own-state norm/head.
+First startup fault/overlap retained; repaired consumed code immutable.
+All owned sessions/PIDs CLOSED. No codec fit/T4; complete validation in force.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -41,6 +36,17 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 
 ## Latest decisive evidence
 
+[New paired cached-state evidence](SOURCE_CACHED_FINAL_RESULT_20261010.md): actual
+cached h24 differs from retained prefill by1.1708%RMS/postnorm.5550%, including
+the first label; source parameters411/all input-output hashes PASS.90 observed
+F32->BF16 cache coordinates exactly audited, not unique causal attribution.
+Same-call53 logits/norm reconstruct EXACT; held46.125s+14.313s audit. One new
+generation/53 base+53 source heads+53 reconstructions, no optimizer/native calls.
+Original ALL48 prefill alignment FAIL remains. [RMS-compatible representations](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md)
+derived, not measured. [Current next](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md):
+coherent FIT final features then one paired codec.24 FIT costs548.904s already
+observed/4422 labels; new FIT capture not yet implemented/launched.
+
 [Source final readout](SOURCE_FINAL_READOUT_RESULT_20261010.md): ALL48/8808 labels,
 meanKL about.0005/dis<1%; frozen every-case gate fails on3/53 in one DEV case.
 Full independent audit PASS/all hashes/576 scalar witnesses. Held604.844s+
@@ -49,7 +55,7 @@ Full independent audit PASS/all hashes/576 scalar witnesses. Held604.844s+
 the same3 IDs with positive teacher gaps; no exact top ties or better +/-1 shift.
 Held2.813s/all30 hashes PASS. Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md):
 inspect exact code/capture semantics before pricing any new source observation.
-Old preparation/live paragraphs below historical; first capture now TERMINAL1.
+Old preparation/live paragraphs below historical; all workers now gone.
 
 [Matched actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md):48 actual
 new updates complete,24 perarm. A native DEV caseKL6.519307/disagreement89.789%;
@@ -113,8 +119,10 @@ diagnostic, not a converted chatbot or global compact-state ceiling.
 source-readout prerequisite; [complete result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
 and audit confirm a localized strict ID alignment FAIL. [Stored margins](SOURCE_READOUT_MARGIN_RESULT_20261010.md)
 exclude exact teacher top ties in the3 failing positions. No worker live.
-Resume [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md)
-at pinned generation/capture source inspection; price any new observation first.
+Cached-state investigation now [complete in one case](SOURCE_CACHED_FINAL_RESULT_20261010.md).
+Resume [consistent FIT custody/paired codec](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md),
+with [explicit RMS geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md). Price/freeze
+necessary new FIT final features first, no completed DEV capture replay.
 No codec fit/width-rank grid/T4. Old72-label feasible head oracle reused, no replay.
 [Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
 papers/coverage algebra/product-key selection; provenance ledger retained,

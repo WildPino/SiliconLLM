@@ -1,0 +1,139 @@
+{
+  "schema": "SOURCE_CACHED_FINAL_RESULT_V1",
+  "freeze": "a6a0800a6df475fcdef65d135aa4b10eb16a0720",
+  "binding_sha256": "d787a906d0c52cfe5ec28e9792a9477ec7fe509e5146c82bd8fdac45d88307d1",
+  "id": "broad_dev_everyday_conversations_036",
+  "labels": 53,
+  "output_ids": [
+    4032,
+    1197,
+    2632,
+    4496,
+    43832,
+    7668,
+    2277,
+    4762,
+    7737,
+    8048,
+    535,
+    35082,
+    535,
+    1021,
+    4197,
+    7934,
+    29501,
+    537,
+    3093,
+    4226,
+    1974,
+    2632,
+    4197,
+    4496,
+    43832,
+    1093,
+    15155,
+    1021,
+    2277,
+    3166,
+    840,
+    10082,
+    537,
+    9330,
+    2205,
+    4532,
+    831,
+    2635,
+    790,
+    15230,
+    530,
+    606,
+    15920,
+    842,
+    7268,
+    16658,
+    831,
+    4620,
+    790,
+    23817,
+    2481,
+    537,
+    228
+  ],
+  "decision": "PAIRED_CACHED_STATE_PASS",
+  "gates": {
+    "tokens_exact": true,
+    "old_logits_exact": true,
+    "paired_norm_exact": true,
+    "paired_head_exact": true
+  },
+  "h24": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\source_cached_final_repair1_20261010\\cached_h24.bf16",
+    "bytes": 217088,
+    "sha256": "63126bc48acbc924cf0cd1bc49fc83e1606d03dbe980b7921d979bde4cd9b449",
+    "shape": [
+      53,
+      2048
+    ],
+    "dtype": "uint16"
+  },
+  "normalized": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\source_cached_final_repair1_20261010\\cached_normalized.bf16",
+    "bytes": 217088,
+    "sha256": "ad02e93a045361d5e545946c4e22bc19d254b5fdc9dd3bdb2b26231d7c4d3864",
+    "shape": [
+      53,
+      2048
+    ],
+    "dtype": "uint16"
+  },
+  "logits": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\source_cached_final_repair1_20261010\\cached_logits.bf16",
+    "bytes": 6946922,
+    "sha256": "c6c075752d129c7ac55e31cf2c19be32564e67c6d1786bb46acb71c5b99bb547",
+    "shape": [
+      53,
+      65537
+    ],
+    "dtype": "uint16"
+  },
+  "reconstructed_norm": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\source_cached_final_repair1_20261010\\cached_normalized_reconstructed.bf16",
+    "bytes": 217088,
+    "sha256": "ad02e93a045361d5e545946c4e22bc19d254b5fdc9dd3bdb2b26231d7c4d3864",
+    "shape": [
+      53,
+      2048
+    ],
+    "dtype": "uint16"
+  },
+  "reconstructed_logits": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\source_cached_final_repair1_20261010\\cached_logits_reconstructed.bf16",
+    "bytes": 6946922,
+    "sha256": "c6c075752d129c7ac55e31cf2c19be32564e67c6d1786bb46acb71c5b99bb547",
+    "shape": [
+      53,
+      65537
+    ],
+    "dtype": "uint16"
+  },
+  "source_generations": 1,
+  "source_base_forwards": 53,
+  "source_LM_head_calls": 53,
+  "new_reconstruction_head_calls": 53,
+  "new_reconstruction_norm_calls": 1,
+  "cache_state_updates": 1272,
+  "parameters": 411,
+  "all_source_parameter_values_before_after_exact": true,
+  "optimizer_updates": 0,
+  "native_calls": 0,
+  "reserved_queries": 0,
+  "GPU_allocated_peak": 4024430592,
+  "GPU_reserved_peak": 4068474880,
+  "worker_OS_peak_snapshot": 3726835712,
+  "seconds": 28.65600000000086,
+  "quality_admission": false,
+  "speed_admission": false,
+  "useful_large_n_admission": false,
+  "physical_DRAM_bytes": null,
+  "scope": "One paired cached-state observation; original ALL48 full-prefill alignment FAIL retained. No compact codec or chatbot admission."
+}

@@ -1,0 +1,5 @@
+[transformers] The fast path is not available because one of `(selective_state_update, causal_conv1d_fn, causal_conv1d_update)` is None. Falling back to the naive implementation. To install follow https://github.com/state-spaces/mamba/#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/411 [00:00<?, ?it/s]Loading weights: 100%|██████████| 411/411 [00:00<00:00, 7016.23it/s]
+{"stage": "source_loaded", "parameters": 411, "seconds": 10.311999999999898}
+{"stage": "cached_observed", "labels": 53, "base_calls": 53, "head_calls": 53, "seconds": 18.95300000000134}
+{"stage": "complete", "decision": "PAIRED_CACHED_STATE_PASS", "gates": {"tokens_exact": true, "old_logits_exact": true, "paired_norm_exact": true, "paired_head_exact": true}, "seconds": 28.65600000000086}

@@ -8,12 +8,15 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
-**Current repair, 10 October:** first capture startup FAIL exit1/71.625s,
-session42559 CLOSED/PIDs gone; no model/history/head observation completed.
-[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md): new script moves flag
-check after model/mixer construction, frozen new sealed binding/namespace;
-original code/fault retained, unchanged science/gates/caps. Freeze/launch repair1,
-then120s stored audit; older LIVE below historical.
+**Current result, 10 October:** [cached-state control](SOURCE_CACHED_FINAL_RESULT_20261010.md)
+and full audit COMPLETE/PASS. Session36559/61396 CLOSED/all PIDs gone. Old53
+tokens/logits/own-state norm/head EXACT, all411 source parameters checked.
+Observed cached/prefill h24 RMS1.1708%/postnorm.5550%; first-position drift too.
+First startup fault and original ALL48 FAIL retained, no compact codec fitted.
+Resume [consistent FIT features/one paired codec](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md):
+24 FIT/4422 labels/prior source cost548.904s; implement/freeze finite missing-only
+FIT final-state capture, then choose one [RMS-compatible geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md).
+No completed DEV capture/unchanged training replay or T4. Older LIVE historical.
 
 **LIVE, 10 October11:53:** cached-state capture session42559/launcher25876/
 worker28136, created11:52:59.571652/11:53:04.048027+02:00, freeze129a9a8/

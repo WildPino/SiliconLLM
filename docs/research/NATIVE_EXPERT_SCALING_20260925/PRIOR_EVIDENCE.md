@@ -1,10 +1,13 @@
 # Native expert-count scaling: prior evidence
 
-**Current repair, 10 October:** cached-state startup FAIL exit1/71.625s,
-session42559 CLOSED/PIDs gone, zero model/history/head observation.
-[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md) verifies flag after
-mixer initialization, new sealed binding/namespace/unchanged criteria. Old fault
-immutable, older LIVE below historical; no inference has been completed.
+**Current result, 10 October:** [paired cached state](SOURCE_CACHED_FINAL_RESULT_20261010.md)
+and full audit COMPLETE/PASS, original53 tokens/logits and own-state norm/head
+EXACT. Cached/prefill h24 RMS1.1708%/postnorm.5550%, first label differs.
+All411 source values checked/90 rounding coordinates verified; not unique cause.
+First startup fault retained, all workers gone, original ALL48 FAIL unchanged.
+Next [coherent FIT features/paired codec](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md),
+[RMS-compatible algebra](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md) not yet measured.
+Older LIVE/preparation below historical; no new FIT capture/codec fit launched.
 
 **LIVE, 10 October11:53:** cached-state capture session42559/launcher25876/
 worker28136, freeze129a9a8/bind4914ab1f. Earlier preparation paragraphs historical.
