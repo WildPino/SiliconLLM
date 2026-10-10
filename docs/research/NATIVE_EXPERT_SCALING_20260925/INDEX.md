@@ -1,11 +1,10 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Paired-head/domain probe](PAIRED_HEAD_IMAGE_PROTOCOL_20261010.md) implemented,
-AST/native ABI PASS; binding916e2bf4/84 inputs. One warm72 FIT arm awaiting
-frozen launch,300s capture +300s full audit; no source/DEV/T4.
-[Previous paired codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md) numeric PASS,
-FIT quality FAIL; next isolate encoder room versus head/domain floor.
+[Paired-head probe/full audit](PAIRED_HEAD_IMAGE_RESULT_20261010.md) COMPLETE:
+72 meanKL.006529733/zero argmax changes, worstKL.230831/lower0; numeric PASS,
+sampled quality FAIL. All owned sessions/PIDs CLOSED; no source/DEV/T4.
+Next categorical adaptation of existing causal states, then compact history.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -31,6 +30,13 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
 
 ## Latest decisive evidence
+
+[Head/domain probe](PAIRED_HEAD_IMAGE_RESULT_20261010.md): SAME72 FIT codes
+meanKL.871596171 -> .006529733,17 ->0 argmax disagreements, including original
+C readout. Encoder-room gate PASS, sampled maxKL.230831 FAIL; all lowers0,
+15/72 small gaps, no zero-floor/global optimum claim. Full84-input/45-output
+hash audit and all33 checkpoints/72 final certificates/native numeric checks
+PASS. Held166.062s+24.343s, zero source/model/DEV/T4/full-engine calls.
 
 [Paired rank255/carrier codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md): one FIT
 encoder/head constructed; original F32 norm/head injected, all numeric gates
@@ -81,22 +87,22 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 
 ## Exact resumption
 
-[Next head-image versus encoder diagnosis](PAIRED_CODEC_HEAD_IMAGE_NEXT_20261010.md):
-implement/freeze one new-head fixed-domain forward-KL certificate probe, warm
-starting at this artifact's Bf/a on72 metadata-selected FIT labels. New K/gain,
-not old Adam1 heads or another scale arm. Feasible improvements identify
-encoder room; valid lower bounds use actual case label counts before rejecting
-whole-case/cohort gates. Finite unresolved optimization is not a rank theorem.
-No new probe launched yet; proposed costs must be frozen with actual code.
+[Next causal-coordinate qualification](CAUSAL_READOUT_COORDINATE_NEXT_20261010.md):
+implement/freeze a CPU stored-feature recovery from the audited actual27 native
+FIT/DEV logits and exact old head. Qualify rank/conditioning/rounding uncertainty,
+then a FIT-only categorical encoder J and offline fused native head A J; no extra
+runtime operator or donor history. No feature recovery/fit launched yet.
+[Exact categorical algebra](PAIRED_HEAD_IMAGE_ENCODER_ALGEBRA_20261010.md).
 
-Codec fit session23652 and audit40785 CLOSED/exit0; launchers26956/25468 and
-workers23292/19648 gone at13:04:19. Exact commands/hash/costs in linked result.
-[Matched DEV custody](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md) still missing
-except qualified53-label case: reuse it when operators match, no DEV refit.
-[Output rank derivation](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md) and
-[original RMS geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md) now have one
-measured pair with explicit failure. Actual native state/norm/head are F32.
-No repeated FIT/source capture, width/rank/scale sweep or unchanged training.
+Head-image capture70152 and audit68070 CLOSED/exit0; launchers19436/28500 and
+workers25972/20028 gone. Full result/hash/costs in linked report. Fixed-head
+radius16 conclusions do not extend silently to a changed J/domain. The current
+quadratic linear encoder fails; categorical linear correction remains possible.
+[Matched DEV final-state custody](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md)
+still missing except53 paired labels; a native-coordinate correction can use
+existing cached teacher logits without refitting the codec on DEV. No new source
+capture, width/rank/scale sweep or unchanged training replay. Native F32 remains
+authoritative; eventual own-history chatbot and all goal gates remain open.
 
 [Operator/readout algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates norm,
 projection/head and missing SwiGLU sigmoid; [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md)

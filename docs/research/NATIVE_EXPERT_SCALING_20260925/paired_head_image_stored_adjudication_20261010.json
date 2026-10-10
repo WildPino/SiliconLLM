@@ -1,0 +1,234 @@
+{
+  "schema": "PAIRED_HEAD_IMAGE_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\paired_head_image_result_20261010.json",
+    "bytes": 57371,
+    "sha256": "2352fc9a3027ec068101984bbb6b38efe2f00033007b1b776725342c14f47b5c"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\paired_head_image_binding_20261010.json",
+    "bytes": 58275,
+    "sha256": "916e2bf4e1a018bf04eda1c09733d0b20d8830f9d9eec4ab5a4d0a10b38017b7"
+  },
+  "decision": "NONLINEAR_ENCODER_ROOM",
+  "conclusion": {
+    "decision": "NONLINEAR_ENCODER_ROOM",
+    "encoder_room": true,
+    "head_domain_floor_present": false,
+    "sampled_quality_pass": false,
+    "whole_cohort_lower": 0.0,
+    "whole_case_lowers": [
+      {
+        "id": "broad_fit_apigen_80k_023",
+        "domain": "apigen-80k",
+        "case_labels": 118,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_apigen_80k_002",
+        "domain": "apigen-80k",
+        "case_labels": 33,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_everyday_conversations_002",
+        "domain": "everyday-conversations",
+        "case_labels": 200,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_everyday_conversations_010",
+        "domain": "everyday-conversations",
+        "case_labels": 174,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_explore_instruct_rewriting_008",
+        "domain": "explore-instruct-rewriting",
+        "case_labels": 18,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_explore_instruct_rewriting_009",
+        "domain": "explore-instruct-rewriting",
+        "case_labels": 13,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_metamathqa_50k_015",
+        "domain": "metamathqa-50k",
+        "case_labels": 155,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_metamathqa_50k_023",
+        "domain": "metamathqa-50k",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_numina_cot_100k_015",
+        "domain": "numina-cot-100k",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_numina_cot_100k_016",
+        "domain": "numina-cot-100k",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_openhermes_100k_004",
+        "domain": "openhermes-100k",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_openhermes_100k_028",
+        "domain": "openhermes-100k",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_self_oss_instruct_012",
+        "domain": "self-oss-instruct",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_self_oss_instruct_006",
+        "domain": "self-oss-instruct",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_constraints_005",
+        "domain": "smol-constraints",
+        "case_labels": 180,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_constraints_021",
+        "domain": "smol-constraints",
+        "case_labels": 189,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_magpie_ultra_000",
+        "domain": "smol-magpie-ultra",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_magpie_ultra_022",
+        "domain": "smol-magpie-ultra",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_rewrite_004",
+        "domain": "smol-rewrite",
+        "case_labels": 90,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_rewrite_015",
+        "domain": "smol-rewrite",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_summarize_024",
+        "domain": "smol-summarize",
+        "case_labels": 61,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_smol_summarize_003",
+        "domain": "smol-summarize",
+        "case_labels": 119,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_systemchats_30k_024",
+        "domain": "systemchats-30k",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      },
+      {
+        "id": "broad_fit_systemchats_30k_010",
+        "domain": "systemchats-30k",
+        "case_labels": 256,
+        "selected_labels": 3,
+        "whole_case_lower": 0.0
+      }
+    ],
+    "whole_domain_lowers": {
+      "apigen-80k": 0.0,
+      "everyday-conversations": 0.0,
+      "explore-instruct-rewriting": 0.0,
+      "metamathqa-50k": 0.0,
+      "numina-cot-100k": 0.0,
+      "openhermes-100k": 0.0,
+      "self-oss-instruct": 0.0,
+      "smol-constraints": 0.0,
+      "smol-magpie-ultra": 0.0,
+      "smol-rewrite": 0.0,
+      "smol-summarize": 0.0,
+      "systemchats-30k": 0.0
+    },
+    "native_precision_pass": true,
+    "scope": "72 sampled upper bounds; whole4422-label lowers use selected losses/actual case sizes and zero lower for omitted labels."
+  },
+  "numeric_flags": {
+    "norm": true,
+    "scores": true,
+    "probability": true,
+    "argmax": true
+  },
+  "complete_input_output_hashes": true,
+  "all72_final_upper_and_lower_points_verified": true,
+  "all_saved_current_objectives_gradients_verified": true,
+  "original_four_native_bodies_exact": true,
+  "lower_bound_kind": "F64 convex tangent-ball bound; no directed-rounding interval certification",
+  "max_score_reconstruction_absolute_delta": 4.263256414560601e-14,
+  "max_gradient_absolute_delta": 4.842348744205083e-12,
+  "max_metric_absolute_delta": 9.50794998288984e-13,
+  "native_scores_F64_linear_reference_absolute_delta": 3.27829369553001e-05,
+  "selected_labels": 72,
+  "full_cohort_labels": 4422,
+  "stored_objective_gradient_calls": 36,
+  "checkpoint_labels_verified": 2376,
+  "stored_linear_head_labels_reconstructed": 2736,
+  "source_generations": 0,
+  "source_history_forwards": 0,
+  "native_binary_calls": 0,
+  "optimizer_updates": 0,
+  "new_pairs_fit": 0,
+  "seconds": 18.96900000000096,
+  "scope": "Complete hash/custody/checkpoint/final-bound/native arithmetic/metrics/decision/resource audit; no descent or native replay."
+}
