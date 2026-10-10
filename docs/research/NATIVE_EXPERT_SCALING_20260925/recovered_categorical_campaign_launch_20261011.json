@@ -1,0 +1,34 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_LAUNCH_RECORD_V1",
+  "source_protocol_freeze": "30a78a09a9e2a60db19c8d09e34f2eb1a348a9d4",
+  "command": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/recovered_categorical_campaign_launch.py",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_categorical_campaign_binding_20261011.json",
+    "--binding-sha",
+    "14d20fdf33afaa4bb80ab68c95e8a760565c22da35f856f47abb4cd11ba1a801",
+    "--directory",
+    "results/native_expert_scaling/original_categorical_campaign_20261010",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_categorical_campaign_stored_adjudication_20261011.json",
+    "--freeze",
+    "30a78a09a9e2a60db19c8d09e34f2eb1a348a9d4"
+  ],
+  "numeric_binding_sha256": "14d20fdf33afaa4bb80ab68c95e8a760565c22da35f856f47abb4cd11ba1a801",
+  "recovery_seal_sha256": "2a207ae38ca3820640f9f741648eee4edda684afed26562afd761a2eba0b74eb",
+  "script_sha256": "39df0f067643b993ebb5d838155552e4cecc6ea3f089cb3aadd2d9f10af60e37",
+  "limits": {
+    "output_bytes": 4194304,
+    "OS_bytes": 25769803776,
+    "log_bytes": 8388608,
+    "seconds": 32400
+  },
+  "expected": "6-8 hours uncertain cold IO; hard 9 hours including holder pre-read and after-checks",
+  "scope": "All24 stored gradients/48 exact proposal-transition-packing checks/48 final forced cases; original failures preserved, unavailable original measurements UNKNOWN; no neural/native/export/optimizer/source/DEV-optimizer/RESERVED/T4 replay"
+}
