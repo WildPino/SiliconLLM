@@ -6,6 +6,11 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+**Current, 10 October11:29:** source-readout worker exit0/604.844s, all48 cases
+and8808 labels retained; alignment FAIL pending independent stored audit.
+No codec fit. Session71059 CLOSED/launcher28460/worker12572 gone.
+User revoked temporary Fail-Fast instruction; complete validation restored.
+
 **Current, 10 October11:12:** implement source final readout alignment first;
 four tools AST PASS/binding preparation, no new result yet. ALL48 h24/8808
 cached labels, BF16 source norm/head and F64 head on same normalized features.

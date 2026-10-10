@@ -4,7 +4,9 @@
 Matched recovery training/assessments/independent adjudication COMPLETE.
 First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hashes.
 Target/readout control and independent audit COMPLETE; coupling branch selected.
-Source final readout qualification implemented/AST PASS; binding preparation.
+Source final readout worker COMPLETE exit0; independent stored audit next.
+Freezec30af06/bindb656c600; session71059 CLOSED, launcher28460/worker12572 gone.
+User revoked the temporary Fail-Fast instruction; complete validation restored.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 

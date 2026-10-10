@@ -1,0 +1,719 @@
+{
+  "schema": "SOURCE_FINAL_READOUT_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_final_readout_result_20261010.json",
+    "bytes": 2676573,
+    "sha256": "47180815b05c2c3bccbda69b077e10e3440331ab9443bdb696630ae121466066"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_final_readout_binding_20261010.json",
+    "bytes": 1123764,
+    "sha256": "b656c6000cedd0a4646e021427b1632731e6cbfdbd48ec5fdb0edf30a9f40dee"
+  },
+  "decision": "SOURCE_STATE_LABEL_ALIGNMENT_FAIL",
+  "flags": [
+    {
+      "readout": "BF16",
+      "split": "FIT",
+      "gates": {
+        "mean_KL": true,
+        "mean_disagreement": true,
+        "every_case_KL": true,
+        "every_case_disagreement": true,
+        "domains": true
+      },
+      "pass_all": true
+    },
+    {
+      "readout": "BF16",
+      "split": "DEV",
+      "gates": {
+        "mean_KL": true,
+        "mean_disagreement": true,
+        "every_case_KL": true,
+        "every_case_disagreement": false,
+        "domains": true
+      },
+      "pass_all": false
+    },
+    {
+      "readout": "F64",
+      "split": "FIT",
+      "gates": {
+        "mean_KL": true,
+        "mean_disagreement": true,
+        "every_case_KL": true,
+        "every_case_disagreement": true,
+        "domains": true
+      },
+      "pass_all": true
+    },
+    {
+      "readout": "F64",
+      "split": "DEV",
+      "gates": {
+        "mean_KL": true,
+        "mean_disagreement": true,
+        "every_case_KL": true,
+        "every_case_disagreement": false,
+        "domains": true
+      },
+      "pass_all": false
+    }
+  ],
+  "aggregates": [
+    {
+      "name": "BF16",
+      "aggregates": {
+        "FIT": {
+          "cases": 24,
+          "labels": 4422,
+          "case_KL": 0.0004752587978626391,
+          "label_KL": 0.00047230942165223626,
+          "case_disagreement": 0.007201535227756492,
+          "label_disagreement": 0.008819538670284939,
+          "case_teacher_entropy": 0.3909974995736367,
+          "label_teacher_entropy": 0.4070711728896812,
+          "case_uniform_KL": 10.699372648058137,
+          "label_uniform_KL": 10.683298974742092,
+          "domains": {
+            "apigen-80k": {
+              "cases": 2,
+              "labels": 151,
+              "case_KL": 3.2142281195949e-06,
+              "label_KL": 2.1663101816943158e-06,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.0036372278623898846,
+              "label_teacher_entropy": 0.003029016887280555,
+              "case_uniform_KL": 11.086732919769386,
+              "label_uniform_KL": 11.087341130744493
+            },
+            "everyday-conversations": {
+              "cases": 2,
+              "labels": 374,
+              "case_KL": 0.0004526092136985661,
+              "label_KL": 0.0004508841150778157,
+              "case_disagreement": 0.01824712643678161,
+              "label_disagreement": 0.01871657754010695,
+              "case_teacher_entropy": 0.6929955754552302,
+              "label_teacher_entropy": 0.7002736654431051,
+              "case_uniform_KL": 10.397374572176544,
+              "label_uniform_KL": 10.39009648218867
+            },
+            "explore-instruct-rewriting": {
+              "cases": 2,
+              "labels": 31,
+              "case_KL": 0.00041416317153704916,
+              "label_KL": 0.00042975091565314696,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.16074633651901443,
+              "label_teacher_entropy": 0.14880139911112825,
+              "case_uniform_KL": 10.929623811112759,
+              "label_uniform_KL": 10.941568748520645
+            },
+            "metamathqa-50k": {
+              "cases": 2,
+              "labels": 411,
+              "case_KL": 0.0001836538310881552,
+              "label_KL": 0.00020282553260422503,
+              "case_disagreement": 0.00390625,
+              "label_disagreement": 0.004866180048661801,
+              "case_teacher_entropy": 0.1530649893811934,
+              "label_teacher_entropy": 0.14779647418209557,
+              "case_uniform_KL": 10.937305158250581,
+              "label_uniform_KL": 10.942573673449678
+            },
+            "numina-cot-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00014276597748612442,
+              "label_KL": 0.00014276597748612442,
+              "case_disagreement": 0.001953125,
+              "label_disagreement": 0.001953125,
+              "case_teacher_entropy": 0.11974307007592139,
+              "label_teacher_entropy": 0.11974307007592139,
+              "case_uniform_KL": 10.970627077555852,
+              "label_uniform_KL": 10.970627077555852
+            },
+            "openhermes-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00014854808733691247,
+              "label_KL": 0.00014854808733691247,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.2091248992298096,
+              "label_teacher_entropy": 0.2091248992298096,
+              "case_uniform_KL": 10.881245248401964,
+              "label_uniform_KL": 10.881245248401964
+            },
+            "self-oss-instruct": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00043491911810566,
+              "label_KL": 0.00043491911810566,
+              "case_disagreement": 0.0078125,
+              "label_disagreement": 0.0078125,
+              "case_teacher_entropy": 0.19076501951618005,
+              "label_teacher_entropy": 0.19076501951618008,
+              "case_uniform_KL": 10.899605128115592,
+              "label_uniform_KL": 10.899605128115592
+            },
+            "smol-constraints": {
+              "cases": 2,
+              "labels": 369,
+              "case_KL": 0.001290561985232015,
+              "label_KL": 0.001303662221041128,
+              "case_disagreement": 0.021296296296296296,
+              "label_disagreement": 0.02168021680216802,
+              "case_teacher_entropy": 0.5441418297180829,
+              "label_teacher_entropy": 0.5456761555369638,
+              "case_uniform_KL": 10.546228317913691,
+              "label_uniform_KL": 10.54469399209481
+            },
+            "smol-magpie-ultra": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00059925621561657,
+              "label_KL": 0.00059925621561657,
+              "case_disagreement": 0.013671875,
+              "label_disagreement": 0.013671875,
+              "case_teacher_entropy": 0.8573155202556175,
+              "label_teacher_entropy": 0.8573155202556175,
+              "case_uniform_KL": 10.233054627376156,
+              "label_uniform_KL": 10.233054627376156
+            },
+            "smol-rewrite": {
+              "cases": 2,
+              "labels": 346,
+              "case_KL": 0.0006239354916579023,
+              "label_KL": 0.0006868634789959535,
+              "case_disagreement": 0.0078125,
+              "label_disagreement": 0.011560693641618497,
+              "case_teacher_entropy": 0.6347910633735832,
+              "label_teacher_entropy": 0.6430934577692041,
+              "case_uniform_KL": 10.45557908425819,
+              "label_uniform_KL": 10.44727668986257
+            },
+            "smol-summarize": {
+              "cases": 2,
+              "labels": 180,
+              "case_KL": 0.0008286419157699902,
+              "label_KL": 0.0007120334312006125,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.667578414075207,
+              "label_teacher_entropy": 0.6053306005469002,
+              "case_uniform_KL": 10.422791733556565,
+              "label_uniform_KL": 10.485039547084872
+            },
+            "systemchats-30k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00058083633870313,
+              "label_KL": 0.00058083633870313,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.45806604942141105,
+              "label_teacher_entropy": 0.45806604942141105,
+              "case_uniform_KL": 10.632304098210362,
+              "label_uniform_KL": 10.632304098210362
+            }
+          }
+        },
+        "DEV": {
+          "cases": 24,
+          "labels": 4386,
+          "case_KL": 0.000562327626266467,
+          "label_KL": 0.0005564655494981486,
+          "case_disagreement": 0.008851989455609393,
+          "label_disagreement": 0.007523939808481532,
+          "case_teacher_entropy": 0.5168119263398112,
+          "label_teacher_entropy": 0.522161448153129,
+          "case_uniform_KL": 10.573558221291963,
+          "label_uniform_KL": 10.568208699478644,
+          "domains": {
+            "apigen-80k": {
+              "cases": 2,
+              "labels": 211,
+              "case_KL": 0.00012630987574774094,
+              "label_KL": 0.00013216302170223162,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.04004499125050309,
+              "label_teacher_entropy": 0.04158869886633508,
+              "case_uniform_KL": 11.050325156381273,
+              "label_uniform_KL": 11.048781448765439
+            },
+            "everyday-conversations": {
+              "cases": 2,
+              "labels": 225,
+              "case_KL": 0.0005921883465858828,
+              "label_KL": 0.00052194829658694,
+              "case_disagreement": 0.031208863536638876,
+              "label_disagreement": 0.017777777777777778,
+              "case_teacher_entropy": 0.9471992595163712,
+              "label_teacher_entropy": 0.7733616890035578,
+              "case_uniform_KL": 10.143170888115403,
+              "label_uniform_KL": 10.317008458628216
+            },
+            "explore-instruct-rewriting": {
+              "cases": 2,
+              "labels": 268,
+              "case_KL": 0.0005355493646653272,
+              "label_KL": 0.0006953751277430024,
+              "case_disagreement": 0.001953125,
+              "label_disagreement": 0.0037313432835820895,
+              "case_teacher_entropy": 0.5073328691771062,
+              "label_teacher_entropy": 0.8553356897460218,
+              "case_uniform_KL": 10.583037278454666,
+              "label_uniform_KL": 10.235034457885753
+            },
+            "metamathqa-50k": {
+              "cases": 2,
+              "labels": 447,
+              "case_KL": 0.00026032676159072344,
+              "label_KL": 0.000262706316273213,
+              "case_disagreement": 0.008477176047120418,
+              "label_disagreement": 0.008948545861297539,
+              "case_teacher_entropy": 0.23639732171797923,
+              "label_teacher_entropy": 0.23533186698601521,
+              "case_uniform_KL": 10.853972825913795,
+              "label_uniform_KL": 10.85503828064576
+            },
+            "numina-cot-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00020721797192942682,
+              "label_KL": 0.00020721797192942682,
+              "case_disagreement": 0.0078125,
+              "label_disagreement": 0.0078125,
+              "case_teacher_entropy": 0.22423927300383778,
+              "label_teacher_entropy": 0.22423927300383778,
+              "case_uniform_KL": 10.866130874627936,
+              "label_uniform_KL": 10.866130874627936
+            },
+            "openhermes-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0009580073059077978,
+              "label_KL": 0.0009580073059077977,
+              "case_disagreement": 0.009765625,
+              "label_disagreement": 0.009765625,
+              "case_teacher_entropy": 0.6725584551218274,
+              "label_teacher_entropy": 0.6725584551218275,
+              "case_uniform_KL": 10.417811692509947,
+              "label_uniform_KL": 10.417811692509947
+            },
+            "self-oss-instruct": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0003001276559259221,
+              "label_KL": 0.0003001276559259221,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.12454506232078587,
+              "label_teacher_entropy": 0.12454506232078588,
+              "case_uniform_KL": 10.965825085310989,
+              "label_uniform_KL": 10.965825085310987
+            },
+            "smol-constraints": {
+              "cases": 2,
+              "labels": 143,
+              "case_KL": 0.00075216665344409,
+              "label_KL": 0.0008484385925650065,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.6248335266167317,
+              "label_teacher_entropy": 0.6661022154017519,
+              "case_uniform_KL": 10.465536621015042,
+              "label_uniform_KL": 10.424267932230022
+            },
+            "smol-magpie-ultra": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0005558355282974256,
+              "label_KL": 0.0005558355282974256,
+              "case_disagreement": 0.009765625,
+              "label_disagreement": 0.009765625,
+              "case_teacher_entropy": 0.9029159246899379,
+              "label_teacher_entropy": 0.902915924689938,
+              "case_uniform_KL": 10.187454222941835,
+              "label_uniform_KL": 10.187454222941835
+            },
+            "smol-rewrite": {
+              "cases": 2,
+              "labels": 400,
+              "case_KL": 0.000860486460302092,
+              "label_KL": 0.0008860926426964008,
+              "case_disagreement": 0.005714285714285714,
+              "label_disagreement": 0.005,
+              "case_teacher_entropy": 0.7417093399452747,
+              "label_teacher_entropy": 0.7597654217311866,
+              "case_uniform_KL": 10.3486608076865,
+              "label_uniform_KL": 10.330604725900587
+            },
+            "smol-summarize": {
+              "cases": 2,
+              "labels": 132,
+              "case_KL": 0.000948127618905014,
+              "label_KL": 0.0011160421831605497,
+              "case_disagreement": 0.019807923169267706,
+              "label_disagreement": 0.015151515151515152,
+              "case_teacher_entropy": 0.6044741240951274,
+              "label_teacher_entropy": 0.7118451449923842,
+              "case_uniform_KL": 10.485896023536647,
+              "label_uniform_KL": 10.37852500263939
+            },
+            "systemchats-30k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0006515879718961618,
+              "label_KL": 0.0006515879718961618,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.5754929686222519,
+              "label_teacher_entropy": 0.5754929686222519,
+              "case_uniform_KL": 10.514877179009522,
+              "label_uniform_KL": 10.51487717900952
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "F64",
+      "aggregates": {
+        "FIT": {
+          "cases": 24,
+          "labels": 4422,
+          "case_KL": 0.00046615059783077016,
+          "label_KL": 0.0004595437690308052,
+          "case_disagreement": 0.0075017377740527885,
+          "label_disagreement": 0.009045680687471733,
+          "case_teacher_entropy": 0.3909974995736367,
+          "label_teacher_entropy": 0.4070711728896812,
+          "case_uniform_KL": 10.699372648058137,
+          "label_uniform_KL": 10.683298974742092,
+          "domains": {
+            "apigen-80k": {
+              "cases": 2,
+              "labels": 151,
+              "case_KL": 2.960631280913646e-06,
+              "label_KL": 1.9173641740628917e-06,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.0036372278623898846,
+              "label_teacher_entropy": 0.003029016887280555,
+              "case_uniform_KL": 11.086732919769386,
+              "label_uniform_KL": 11.087341130744493
+            },
+            "everyday-conversations": {
+              "cases": 2,
+              "labels": 374,
+              "case_KL": 0.00044905935522380276,
+              "label_KL": 0.00044711056129199115,
+              "case_disagreement": 0.01824712643678161,
+              "label_disagreement": 0.01871657754010695,
+              "case_teacher_entropy": 0.6929955754552302,
+              "label_teacher_entropy": 0.7002736654431051,
+              "case_uniform_KL": 10.397374572176544,
+              "label_uniform_KL": 10.39009648218867
+            },
+            "explore-instruct-rewriting": {
+              "cases": 2,
+              "labels": 31,
+              "case_KL": 0.00043290656672548354,
+              "label_KL": 0.0004478226969766519,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.16074633651901443,
+              "label_teacher_entropy": 0.14880139911112825,
+              "case_uniform_KL": 10.929623811112759,
+              "label_uniform_KL": 10.941568748520645
+            },
+            "metamathqa-50k": {
+              "cases": 2,
+              "labels": 411,
+              "case_KL": 0.00017431303880000953,
+              "label_KL": 0.00019507555651308633,
+              "case_disagreement": 0.00390625,
+              "label_disagreement": 0.004866180048661801,
+              "case_teacher_entropy": 0.1530649893811934,
+              "label_teacher_entropy": 0.14779647418209557,
+              "case_uniform_KL": 10.937305158250581,
+              "label_uniform_KL": 10.942573673449678
+            },
+            "numina-cot-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0001341282033053113,
+              "label_KL": 0.0001341282033053113,
+              "case_disagreement": 0.001953125,
+              "label_disagreement": 0.001953125,
+              "case_teacher_entropy": 0.11974307007592139,
+              "label_teacher_entropy": 0.11974307007592139,
+              "case_uniform_KL": 10.970627077555852,
+              "label_uniform_KL": 10.970627077555852
+            },
+            "openhermes-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0001431785135141948,
+              "label_KL": 0.0001431785135141948,
+              "case_disagreement": 0.00390625,
+              "label_disagreement": 0.00390625,
+              "case_teacher_entropy": 0.2091248992298096,
+              "label_teacher_entropy": 0.2091248992298096,
+              "case_uniform_KL": 10.881245248401964,
+              "label_uniform_KL": 10.881245248401964
+            },
+            "self-oss-instruct": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.000421106361907738,
+              "label_KL": 0.000421106361907738,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.19076501951618005,
+              "label_teacher_entropy": 0.19076501951618008,
+              "case_uniform_KL": 10.899605128115592,
+              "label_uniform_KL": 10.899605128115592
+            },
+            "smol-constraints": {
+              "cases": 2,
+              "labels": 369,
+              "case_KL": 0.0012996857297056651,
+              "label_KL": 0.0013126611797000698,
+              "case_disagreement": 0.02685185185185185,
+              "label_disagreement": 0.02710027100271003,
+              "case_teacher_entropy": 0.5441418297180829,
+              "label_teacher_entropy": 0.5456761555369638,
+              "case_uniform_KL": 10.546228317913691,
+              "label_uniform_KL": 10.54469399209481
+            },
+            "smol-magpie-ultra": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.000573460754369262,
+              "label_KL": 0.000573460754369262,
+              "case_disagreement": 0.015625,
+              "label_disagreement": 0.015625,
+              "case_teacher_entropy": 0.8573155202556175,
+              "label_teacher_entropy": 0.8573155202556175,
+              "case_uniform_KL": 10.233054627376156,
+              "label_uniform_KL": 10.233054627376156
+            },
+            "smol-rewrite": {
+              "cases": 2,
+              "labels": 346,
+              "case_KL": 0.0006026301492860601,
+              "label_KL": 0.0006649377478387515,
+              "case_disagreement": 0.0078125,
+              "label_disagreement": 0.011560693641618497,
+              "case_teacher_entropy": 0.6347910633735832,
+              "label_teacher_entropy": 0.6430934577692041,
+              "case_uniform_KL": 10.45557908425819,
+              "label_uniform_KL": 10.44727668986257
+            },
+            "smol-summarize": {
+              "cases": 2,
+              "labels": 180,
+              "case_KL": 0.0008151937963282205,
+              "label_KL": 0.0006986724064281743,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.667578414075207,
+              "label_teacher_entropy": 0.6053306005469002,
+              "case_uniform_KL": 10.422791733556565,
+              "label_uniform_KL": 10.485039547084872
+            },
+            "systemchats-30k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.000545184073522581,
+              "label_KL": 0.000545184073522581,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.45806604942141105,
+              "label_teacher_entropy": 0.45806604942141105,
+              "case_uniform_KL": 10.632304098210362,
+              "label_uniform_KL": 10.632304098210362
+            }
+          }
+        },
+        "DEV": {
+          "cases": 24,
+          "labels": 4386,
+          "case_KL": 0.0005532818566589996,
+          "label_KL": 0.0005460955847542932,
+          "case_disagreement": 0.009542266191460022,
+          "label_disagreement": 0.007979936160510716,
+          "case_teacher_entropy": 0.5168119263398112,
+          "label_teacher_entropy": 0.522161448153129,
+          "case_uniform_KL": 10.573558221291963,
+          "label_uniform_KL": 10.568208699478644,
+          "domains": {
+            "apigen-80k": {
+              "cases": 2,
+              "labels": 211,
+              "case_KL": 0.00011617659222012755,
+              "label_KL": 0.00012152501396293217,
+              "case_disagreement": 0.0,
+              "label_disagreement": 0.0,
+              "case_teacher_entropy": 0.04004499125050309,
+              "label_teacher_entropy": 0.04158869886633508,
+              "case_uniform_KL": 11.050325156381273,
+              "label_uniform_KL": 11.048781448765439
+            },
+            "everyday-conversations": {
+              "cases": 2,
+              "labels": 225,
+              "case_KL": 0.0005751442847081434,
+              "label_KL": 0.0005125253086965272,
+              "case_disagreement": 0.03411584028082493,
+              "label_disagreement": 0.022222222222222223,
+              "case_teacher_entropy": 0.9471992595163712,
+              "label_teacher_entropy": 0.7733616890035578,
+              "case_uniform_KL": 10.143170888115403,
+              "label_uniform_KL": 10.317008458628216
+            },
+            "explore-instruct-rewriting": {
+              "cases": 2,
+              "labels": 268,
+              "case_KL": 0.0005439257815906502,
+              "label_KL": 0.0006897036745324805,
+              "case_disagreement": 0.001953125,
+              "label_disagreement": 0.0037313432835820895,
+              "case_teacher_entropy": 0.5073328691771062,
+              "label_teacher_entropy": 0.8553356897460218,
+              "case_uniform_KL": 10.583037278454666,
+              "label_uniform_KL": 10.235034457885753
+            },
+            "metamathqa-50k": {
+              "cases": 2,
+              "labels": 447,
+              "case_KL": 0.00025447418136752677,
+              "label_KL": 0.0002561614763272146,
+              "case_disagreement": 0.008477176047120418,
+              "label_disagreement": 0.008948545861297539,
+              "case_teacher_entropy": 0.23639732171797923,
+              "label_teacher_entropy": 0.23533186698601521,
+              "case_uniform_KL": 10.853972825913795,
+              "label_uniform_KL": 10.85503828064576
+            },
+            "numina-cot-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00020560824571376986,
+              "label_KL": 0.0002056082457137699,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.22423927300383778,
+              "label_teacher_entropy": 0.22423927300383778,
+              "case_uniform_KL": 10.866130874627936,
+              "label_uniform_KL": 10.866130874627936
+            },
+            "openhermes-100k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0009275479562903692,
+              "label_KL": 0.0009275479562903691,
+              "case_disagreement": 0.01171875,
+              "label_disagreement": 0.01171875,
+              "case_teacher_entropy": 0.6725584551218274,
+              "label_teacher_entropy": 0.6725584551218275,
+              "case_uniform_KL": 10.417811692509947,
+              "label_uniform_KL": 10.417811692509947
+            },
+            "self-oss-instruct": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.00028610020500660735,
+              "label_KL": 0.0002861002050066074,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.12454506232078587,
+              "label_teacher_entropy": 0.12454506232078588,
+              "case_uniform_KL": 10.965825085310989,
+              "label_uniform_KL": 10.965825085310987
+            },
+            "smol-constraints": {
+              "cases": 2,
+              "labels": 143,
+              "case_KL": 0.00075565169151553,
+              "label_KL": 0.0008512824366249048,
+              "case_disagreement": 0.005376344086021506,
+              "label_disagreement": 0.006993006993006993,
+              "case_teacher_entropy": 0.6248335266167317,
+              "label_teacher_entropy": 0.6661022154017519,
+              "case_uniform_KL": 10.465536621015042,
+              "label_uniform_KL": 10.424267932230022
+            },
+            "smol-magpie-ultra": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0005492220528878788,
+              "label_KL": 0.0005492220528878788,
+              "case_disagreement": 0.009765625,
+              "label_disagreement": 0.009765625,
+              "case_teacher_entropy": 0.9029159246899379,
+              "label_teacher_entropy": 0.902915924689938,
+              "case_uniform_KL": 10.187454222941835,
+              "label_uniform_KL": 10.187454222941835
+            },
+            "smol-rewrite": {
+              "cases": 2,
+              "labels": 400,
+              "case_KL": 0.0008511208819177425,
+              "label_KL": 0.0008760087333937868,
+              "case_disagreement": 0.005714285714285714,
+              "label_disagreement": 0.005,
+              "case_teacher_entropy": 0.7417093399452747,
+              "label_teacher_entropy": 0.7597654217311866,
+              "case_uniform_KL": 10.3486608076865,
+              "label_uniform_KL": 10.330604725900587
+            },
+            "smol-summarize": {
+              "cases": 2,
+              "labels": 132,
+              "case_KL": 0.0009295074045839594,
+              "label_KL": 0.0010960780855710402,
+              "case_disagreement": 0.019807923169267706,
+              "label_disagreement": 0.015151515151515152,
+              "case_teacher_entropy": 0.6044741240951274,
+              "label_teacher_entropy": 0.7118451449923842,
+              "case_uniform_KL": 10.485896023536647,
+              "label_uniform_KL": 10.37852500263939
+            },
+            "systemchats-30k": {
+              "cases": 2,
+              "labels": 512,
+              "case_KL": 0.0006449030021056904,
+              "label_KL": 0.0006449030021056902,
+              "case_disagreement": 0.005859375,
+              "label_disagreement": 0.005859375,
+              "case_teacher_entropy": 0.5754929686222519,
+              "label_teacher_entropy": 0.5754929686222519,
+              "case_uniform_KL": 10.514877179009522,
+              "label_uniform_KL": 10.51487717900952
+            }
+          }
+        }
+      }
+    }
+  ],
+  "max_absolute_metric_delta": 7.056429550920951e-13,
+  "max_aggregate_delta": 7.105427357601002e-15,
+  "max_feature_relative_RMS": 0.0024148370273828937,
+  "max_scalar_head_absolute_delta": 0.0,
+  "scalar_head_witnesses": 576,
+  "complete_input_output_hashes": true,
+  "source_history_forwards": 0,
+  "new_head_contractions": 0,
+  "optimizer_updates": 0,
+  "seconds": 176.36000000000058,
+  "scope": "Stored score/norm/scalar audits only; no codec fit, causal source reconstruction, compact chatbot, useful speed/n/DRAM admission."
+}

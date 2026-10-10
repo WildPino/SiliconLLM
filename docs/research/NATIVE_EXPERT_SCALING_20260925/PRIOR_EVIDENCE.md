@@ -1,5 +1,11 @@
 # Native expert-count scaling: prior evidence
 
+**Current, 10 October11:29:** source-readout worker exit0/604.844s, all48 cases
+and8808 labels retained. Alignment FAIL pending independent stored audit;
+no codec fit. Session71059 CLOSED/launcher28460/worker12572 gone.
+User revoked temporary Fail-Fast instruction; complete validation restored.
+Older status below historical; INDEX authoritative.
+
 **Current preparation, 10 October11:12:** source final readout qualification
 implemented/four tools AST PASS, binding in preparation; no head result yet.
 ALL48 h24/8808 cached labels, BF16 norm/head versus F64 head on same normalized

@@ -8,6 +8,11 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
+**Current, 10 October11:29:** source-readout worker exit0/604.844s, all48 cases
+and8808 labels retained; alignment FAIL pending independent stored audit.
+No codec fit. Session71059 CLOSED/launcher28460/worker12572 gone.
+User revoked temporary Fail-Fast instruction; complete validation restored.
+
 ### Current resumption: qualified teacher histories and finite joint recovery
 
 **Current preparation, 10 October11:12:** four source final readout tools
