@@ -1,5 +1,16 @@
 # Pretrained-to-native conditional-capacity method
 
+**11 October preparation:** Separately bound recovered auditor IMPLEMENTED,
+source/protocol freeze30a78a0,8 small preflight flags PASS/1.344s.
+[Protocol](RECOVERED_CATEGORICAL_CAMPAIGN_AUDIT_PROTOCOL_20261011.md): original
+independent mathematical core unchanged except internal index name, all24
+steps/48 proposals/48 final forced cases, missing original GPU peaks/custody
+UNKNOWN. Actual binding/9h CPU holder NOT launched while recovery seal LIVE.
+[Fixed support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
+PROPOSED/UNIMPLEMENTED, no new backward or numeric job. Latest user authorizes
+ordered/traced E: artifacts and GPT-6 Luna read-only monitor for long runs;
+root stops substantive work until completion/fault/intervention alert.
+
 **Authoritative11 October:** Full24-direction/48-candidate original campaign
 reached all48 final forced cases,5 accepted displacements, but its holder failed
 with a generic assertion before result/chat/custody closure. This method has

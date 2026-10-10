@@ -1,5 +1,16 @@
 # Native expert scaling: research control index
 
+**11 October preparation:** Separately bound recovered auditor IMPLEMENTED,
+source/protocol freeze30a78a0,8 small preflight flags PASS/1.344s.
+[Protocol](RECOVERED_CATEGORICAL_CAMPAIGN_AUDIT_PROTOCOL_20261011.md): original
+independent mathematical core unchanged except internal index name, all24
+steps/48 proposals/48 final forced cases, missing original GPU peaks/custody
+UNKNOWN. Actual binding/9h CPU holder NOT launched while recovery seal LIVE.
+[Fixed support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
+PROPOSED/UNIMPLEMENTED, no new backward or numeric job. Latest user authorizes
+ordered/traced E: artifacts and GPT-6 Luna read-only monitor for long runs;
+root stops substantive work until completion/fault/intervention alert.
+
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest lossless master-transition custody](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md):
 COMPLETE/full independent audit/all721008128 F32 words exact; prior qualityFAIL.
