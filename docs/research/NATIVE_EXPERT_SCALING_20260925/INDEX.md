@@ -3,6 +3,7 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest changed-point causal bridge](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md):
 COMPLETE/full independent audit/all numericPASS; absolute sample qualityFAIL.
+Master-transition helper/probe IMPLEMENTED/structural PASS/sealed; UNEXECUTED.
 All owned jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
@@ -92,8 +93,9 @@ Windows longdouble gap resolved before it, all first faults retained.
 PROPOSED/UNIMPLEMENTED, use current changed-point saved gradient and existing C
 for first new displacement/no repeated preflight. Then fresh per-case directions,
 original C finite acceptance, all24FIT4422/all24DEV4386/own-history tasks on final
-SAME artifact. Histories58..1507 retained. First implement bounded exact master
-transition storage; naive24-gradient+master+48-pack layout exceeds safe disk.
+SAME artifact. Histories58..1507 retained. Bounded exact master transition helper/probe IMPLEMENTED/structural PASS,
+actual encoding/full audit UNEXECUTED; [protocol](ORIGINAL_MASTER_TRANSITION_PROTOCOL_20261010.md).
+Naive24-gradient+master+48-pack layout exceeds safe disk.
 Freeze complete numeric/resource/quality/counter/audit gates before launch.
 No24-case campaign/storage experiment executed; local resources/noT4 proposed.
 [Scale geometry/n](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md): conditional
