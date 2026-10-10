@@ -1,5 +1,13 @@
 # Native expert-count scaling: prior evidence
 
+**Current preparation, 10 October11:12:** source final readout qualification
+implemented/four tools AST PASS, binding in preparation; no head result yet.
+ALL48 h24/8808 cached labels, BF16 norm/head versus F64 head on same normalized
+features, no history forward/fit/update. [Protocol](SOURCE_FINAL_READOUT_PROTOCOL_20261010.md).
+The prior72-label fixed-head oracle has feasible meanKL.6617; do not repeat it
+or infer a D256 ceiling. New prerequisite is final-head alignment between
+captured full-prefill states and cached-generation teacher logits.
+
 **Latest decisive result, 10 October10:54:** ideal h24P/actual51 readout control
 and independent audit COMPLETE: caseKL13.567112/13.567607, dis99.9349%, both worse
 than native6.52/uniform10.574. TARGET_DECODER_COUPLING, independent delta7.841e-12

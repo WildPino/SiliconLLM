@@ -10,6 +10,14 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ### Current resumption: qualified teacher histories and finite joint recovery
 
+**Current preparation, 10 October11:12:** four source final readout tools
+implemented/AST PASS; binding preparation. Freeze new protocol/code/binding
+before any head call, run held1200s source-readout-only qualification, then
+held900s stored audit. ALL48 raw h24/8808 labels, actual BF16 norm/head versus
+F64 head on same normalized features; no history/model/fit/optimizer calls.
+Cached/full-prefill alignment is the new prerequisite. [Protocol](SOURCE_FINAL_READOUT_PROTOCOL_20261010.md).
+No codec fit before this qualifies, no replay of the old72-label head oracle.
+
 **Latest resumption, 10 October10:54:** actual51 and retained target/readout
 adjudications COMPLETE; all workers gone. Coupling branch confirmed: ideal h24P
 with actual heads KL13.567112/13.567607/dis99.9349%, worse than native6.52.

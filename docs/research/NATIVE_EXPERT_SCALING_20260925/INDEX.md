@@ -4,6 +4,7 @@
 Matched recovery training/assessments/independent adjudication COMPLETE.
 First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hashes.
 Target/readout control and independent audit COMPLETE; coupling branch selected.
+Source final readout qualification implemented/AST PASS; binding preparation.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -92,6 +93,15 @@ diagnostic, not a converted chatbot or global compact-state ceiling.
 source final readout/normalization/retained raw h24 and old codec evidence;
 qualify any reconstructed readout, then freeze one FIT-only paired compact
 codec/control and unchanged DEV gates. No fit yet; no width/rank grid or T4.
+[Source-readout prerequisite](SOURCE_FINAL_READOUT_PROTOCOL_20261010.md)
+implemented with four tools/AST PASS, binding being prepared before execution.
+ALL48 retained raw h24/8808 cached-generation labels; exact inspected BF16
+norm/head versus F64 head on same saved post-norm features. No history call.
+Price3–8min+IO, held1200s/6GiBOS/GPU2-3GiB/8GiB outputs plus stored900s audit.
+Gate meanKL<=.01/dis<=.01, every caseKL<=.05/dis<=.05 per split/readout.
+Old Adam1 readout oracle already found feasible meanKL.6617 on72 FIT labels;
+no extra oracle iterations/scales. New issue is prefilling h24 versus cached
+generation labels through the actual source final operators; no codec fit yet.
 [Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
 papers/coverage algebra/product-key selection; provenance ledger retained,
 no new model observation or substitute for original-engine quality.

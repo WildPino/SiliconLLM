@@ -8,6 +8,15 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Current preparation, 10 October11:12:** source final readout qualification
+implemented/four tools AST PASS, binding being prepared. ALL48 raw h24/8808
+cached labels; inspected source F32 norm->BF16 gamma/head/multiplier and F64
+head on SAME saved BF16 normalized feature. No source history/model/fit/update.
+[Frozen prospective gates/cost](SOURCE_FINAL_READOUT_PROTOCOL_20261010.md):
+1200s/OS6GiB/GPU2-3GiB/8GiB outputs, stored900s audit; meanKL.01/dis1%,
+every caseKL.05/dis5%. Qualify cached/full-prefill alignment before a paired fit.
+Previous72-label Adam1 feasible-readout study reused; no oracle/scale replay.
+
 **Latest decisive result, 10 October10:54:** retained target/readout control
 and independent audit COMPLETE. Ideal h24P with actual51 heads gives case
 KL13.567112/13.567607, disagreement99.9349%, worse than native6.52/uniform10.574.

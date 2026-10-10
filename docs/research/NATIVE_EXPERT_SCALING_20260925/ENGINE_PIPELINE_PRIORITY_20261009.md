@@ -6,6 +6,13 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+**Current, 10 October11:12:** implement source final readout alignment first;
+four tools AST PASS/binding preparation, no new result yet. ALL48 h24/8808
+cached labels, BF16 source norm/head and F64 head on same normalized features.
+No source history/fit/update; qualify this pair before compact compression.
+[Protocol](SOURCE_FINAL_READOUT_PROTOCOL_20261010.md); previous72-label feasible
+readout evidence reused, not another oracle/width/scale ladder.
+
 **Latest result, 10 October10:54:** target/readout control and independent audit
 COMPLETE; caseKL13.567112/13.567607/dis99.9349%, worse than native6.52/uniform10.574.
 TARGET_DECODER_COUPLING confirmed; all workers gone. Priority becomes
