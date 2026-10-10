@@ -112,3 +112,22 @@ this existing job; never rerun the command above in its consumed namespace.
 Final all48/native tasks and full adjudication are required before a campaign
 conclusion. Protected original engine and three foreign modified files match
 the previous recorded SHA256 values at this observation.
+
+## Second direction exposes a cross-runtime numeric boundary
+
+At643.453 worker seconds apigen023 completes both trials. Alpha.0001 actual C
+weighted82.298031->76.281505/first43.516856->35.763158 is feasible; alpha.001
+weighted73.276947/first76.993394 regresses first. The selected.0001 is REJECTED
+because baseline GPU/C flags fail:4 ranked slots, mass.000844463706,
+score.394166961/KL.055132711; argmax0 differences. Dense/compiled/CPU head/
+checkpoint/block/gradient-role checks report PASS. The source of trajectory
+divergence remains unattributed, full stored audit PENDING. See
+[attribution plan and algebra](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
+The frozen campaign continues; no quality-triggered audit shortcut or changed
+threshold. Both trial states/packs remain retained even rejection.
+
+At20:30:51 local, full773-ID apigen002 NEW history/backward is stored and
+alpha.0001 candidate construction is running (783.781s stage start).
+Session22911/holder23256/worker2968 remain LIVE, observed OS worker peak
+18,980,462,592B, within32GiB before holder/native addition. Exact-session
+observation remains the next action; do not launch another owned benchmark.

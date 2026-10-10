@@ -114,8 +114,11 @@ Freezec9c04df. Producer session22911/holder23256 created20:16:05+02:00,
 worker2968 creation1791656179.7136545. First direction completed254.141s:
 alpha.001 selected, weighted58.8206->38.9700/first44.1511->37.1461,17/18 wrong;
 worker observation/full campaign audit PENDING. NEW full479-ID apigen023
-history/backward/two state-gradient checks saved, blocks[2]*6; second-case
-finite proposals running at381.860s. No completed24-case or quality claim.
+history/backward/two state-gradient checks saved, blocks[2]*6; second direction
+REJECTED643.453s: feasible C decrease but GPU/C bridge4 slots/.00084446 mass/
+.39417 score/.05513 KL discrepancy. Full773-ID third history/backward saved,
+finite candidates running. [Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
+No completed24-case or quality claim; frozen campaign/audit unchanged.
 Exact-session observation until terminal,
 then exhaustive stored audit even quality failure; NEVER restart live. No
 other owned benchmark. [Focused primary-paper/algebra follow-up](QUANTIZED_DIRECTION_INFORMATION_NOTE_20261010.md)
