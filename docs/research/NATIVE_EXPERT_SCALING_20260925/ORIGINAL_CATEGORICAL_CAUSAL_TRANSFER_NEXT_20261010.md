@@ -1,7 +1,8 @@
 # Next converter component: fixed-head categorical supervision for original C
 
-10 October 2026. Compiler IMPLEMENTED/AST PASS/bound, UNEXECUTED.
-Causal preflight/training PROPOSED/UNIMPLEMENTED. Full goal incomplete.
+10 October 2026. Compiler COMPLETE/LOSS_SUPERVISION_QUALIFIED/full audit;
+FIT consumer COMPLETE/PASS. Causal adapter IMPLEMENTED/AST PASS, UNEXECUTED.
+Causal preflight runner and training PROPOSED/UNIMPLEMENTED. Full goal incomplete.
 This replaces the completed first-state/global-head diagnostic as the next
 operational step. It does not resume an old optimizer or donor-adaptation run.
 
@@ -104,6 +105,37 @@ Success makes a reusable converter/training input real. It does not admit a
 useful chatbot, family transfer or engine speed.
 
 ## Subsequent causal experiment, after compiler qualification
+
+The compiler and FIT-only consumer now pass complete qualification; see
+[compiler result](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md).
+`original_categorical_history_learner.CategoricalHistoryLearner` is implemented
+and AST checked, not GPU/native qualified. It preserves the existing widened
+SourceLearner original operators and streamed bank adjoint, exposes postnorm
+features at canonical positions, and installs the paired F32 head/norm coherently
+after loading the actual27 core/banks. Head/final norm remain fixed; validate
+their values/dtypes against the constant supervision buffer before each loss.
+
+Training readout uses F64 products of the EXACT F32 head coefficients and F64
+moments/entropy. This avoids claiming an exact compiled identity with separately
+rounded F32 logits. Core/ternary surrogates remain F32; conversion of upstream
+gradients into those operators still needs the preflight. Packed C retains the
+ordinary F32 head/norm; the training-only F64 buffer adds134219776 B to GPU
+storage and16777472 multiply-adds per supervised readout label. Actual costs and
+GPU/C rounding differences are unmeasured for this adapter, not admitted by the
+CPU compiler proof. Changing H, enabling AMP on its buffer or training norm
+weights silently would invalidate the stated geometry.
+
+Deterministic candidate for first preflight: shortest existing FIT history,
+ties by identifier, `broad_fit_explore_instruct_rewriting_008`,58 input IDs/18
+teacher labels. This selection uses lengths, not new loss outcomes. Implement
+and bind the runner before observing its model outputs. Reuse immutable actual27
+model/packed/executable and source/FIT compiled extents; declare measured prior
+training costs, GPU/OS/output budget, exact original native prefix comparison
+and dense/compiled loss/state-gradient gates. No truncation or new source
+generation. One NEW changed-head/norm case forward/backward/native bridge, no
+optimizer step or replay of old head/model histories. Fully audit retained
+outputs even if quality/numerical gates fail, then decide whether training can
+begin or the bridge/initialization must be corrected.
 
 Create a NEW initial model and optimizer namespace. Start from the retained
 original actual27 core/bank tensors; replace head and final norm coherently.

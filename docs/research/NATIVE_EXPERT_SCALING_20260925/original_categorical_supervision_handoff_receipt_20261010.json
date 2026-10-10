@@ -1,0 +1,2043 @@
+{
+  "schema": "ORIGINAL_CATEGORICAL_SUPERVISION_HANDOFF_V1",
+  "freeze": "03a5e2c03bb1ea120c01b6cb03a2d0c5da30fcf9",
+  "command": "python -I -S -B -X utf8 -; load_fit_supervision(original_categorical_loss_compile_result_20261010.json, original_categorical_loss_compile_scalar_adjudication_20261010.json); verify returned FIT/read-only/weights and all consumed extents before/after",
+  "decision": "FIT_SUPERVISION_HANDOFF_PASS",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_supervision.py",
+      "bytes": 3726,
+      "sha256": "49a43e05e3dcc2e22de3b2e830fe86a75eacfec60e69105fde2e956662c0589d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\ORIGINAL_CATEGORICAL_SUPERVISION_HANDOFF_20261010.md",
+      "bytes": 1869,
+      "sha256": "febacb73f542a7f5cec37a3bc8162a417b3ddc9626887ab8a5b29cfb36c2bae0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.json",
+      "bytes": 195317,
+      "sha256": "86b35caa2b9f3b15d40909776a5b2c09d1c491d5644146bed144e0e0563a1d74"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_scalar_adjudication_20261010.json",
+      "bytes": 3253,
+      "sha256": "9ba08a2cd668910995c5887eb645a8ae986645c42f6ec6b97ff895cbfe1ff4a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_scalar_adjudication_20261010.terminal.json",
+      "bytes": 4252,
+      "sha256": "256b4610a5550754087df9a005f91e1cd7218a92422350f07f3acb6300b7f225"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_20261010\\head.f32",
+      "bytes": 67109888,
+      "sha256": "768aaf9e17873707624e4489a8f14f345afb2722e256de871113b7d6e64baa66"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_20261010\\final_norm.f32",
+      "bytes": 1024,
+      "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll",
+      "bytes": 6945272,
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_023.moments.f64",
+      "bytes": 241664,
+      "sha256": "80ce9bc540e89c4190c79f7a6090618a19aaf50abed99bdcf209ee924fd3c911"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_023.negative_entropy.f64",
+      "bytes": 944,
+      "sha256": "5cfea98c170612f8832b16cf7836462dfe38ee08cf9a342a1a6a2ac87dd15583"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_023.source_argmax.i32",
+      "bytes": 472,
+      "sha256": "f4ad8ea06fda4ae776fbdcfca317bc5950597c735fcd6b681b69f724a2bc60be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_002.moments.f64",
+      "bytes": 67584,
+      "sha256": "8712919ca6699d90b61fabe1e187c15eef35751ef0a609b1f1bd31e06afb104e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_002.negative_entropy.f64",
+      "bytes": 264,
+      "sha256": "2b996fe08478609c73e80a8b6d408863d15a386067c6d3f5a60a0b47766f60d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_002.source_argmax.i32",
+      "bytes": 132,
+      "sha256": "b55d1cf7a7a298cb4c80c86444558b15e8fc638855a42ab7b4c650221b4f7e18"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_002.moments.f64",
+      "bytes": 409600,
+      "sha256": "b7a1e263031254fe70b73b369cc22df7f2d3297d803c48b568a9fd3c4452269d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_002.negative_entropy.f64",
+      "bytes": 1600,
+      "sha256": "05bef6a43615536045543cd0f2d2285bb2fbedd24988338bd585939ab4cd8090"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_002.source_argmax.i32",
+      "bytes": 800,
+      "sha256": "aebc007082be9f7f80ea1467cb278c379c6131cf74c5d33d1c43558bd7302d0e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_010.moments.f64",
+      "bytes": 356352,
+      "sha256": "48f1a247012a106e16a0f91295d7e491096b47585a69371725c6dd5e6ec25e50"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_010.negative_entropy.f64",
+      "bytes": 1392,
+      "sha256": "2cc045cf400f40e842581fea25cb2e46749bb80640df3c992c9426f57b5abb67"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_010.source_argmax.i32",
+      "bytes": 696,
+      "sha256": "e902a26f80357bb0c3b029cef738ad05964517427c7309155babdf393de9abc9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_008.moments.f64",
+      "bytes": 36864,
+      "sha256": "c756bbdf084b1bf8f118c1b42d15d3a561106cee41416a00d471a6a9119e068d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_008.negative_entropy.f64",
+      "bytes": 144,
+      "sha256": "d624f496b30df7e0fc9a7ff5cbb0b291b05f13cc1e525ceb65b49d20995d6513"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_008.source_argmax.i32",
+      "bytes": 72,
+      "sha256": "36846f51287d31de79c46d7dcb7387f2f1815f142790205d700213f863d60ac1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_009.moments.f64",
+      "bytes": 26624,
+      "sha256": "0607e4395ebaff89daa9e58626eb03ab676dd08818dd3e2498ff4e8c5aeb0d35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_009.negative_entropy.f64",
+      "bytes": 104,
+      "sha256": "3f7578a4f7e7649e40af017965d9c3863304af5c809986522b4859ed9f10121a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_009.source_argmax.i32",
+      "bytes": 52,
+      "sha256": "d397a1d5a9e6748ced7321445a18ca122df235c304f5c6290d54a7b36aba188a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_015.moments.f64",
+      "bytes": 317440,
+      "sha256": "c2e97efc9489a862fb77c4d2a4e67120a7bdc40a4ab459d7e7e7d62916ba2737"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_015.negative_entropy.f64",
+      "bytes": 1240,
+      "sha256": "ca389fa798dab595e98d6fca622b0eab39ff59c093eeced8ae1596e8fcdbe2da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_015.source_argmax.i32",
+      "bytes": 620,
+      "sha256": "babd125b07a829063b6890269e1747c0eaa1fbbe375e2c0104c53430549c94c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_023.moments.f64",
+      "bytes": 524288,
+      "sha256": "79d2d49181529cee0dcc4e11891a2536cecb458bcc1742d3e404264b002c2986"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_023.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "bb7133bee2c89143857b7d7c15932f595b5fc9af428e057f439d7de5c5d62106"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_023.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "ee32353335f4a418e210192bd7dcd5656f166919b5205cd2de8340dfacbccf2d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_015.moments.f64",
+      "bytes": 524288,
+      "sha256": "a0303ad85edb004a591e984c4ae1a3321b5cddd15c9cb6c1fd95e14bf08332d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_015.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "5eb32159a2264865128e9a0677c8eaaab02d24d99e9b7a136663992f3fd74c90"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_015.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "caa24305eebb3a0b25ad1e69bce9ed346fcb3607fb390baa5cae41bacabf44e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_016.moments.f64",
+      "bytes": 524288,
+      "sha256": "2d74e523a8fd6ce2a48cfe3ab2a6c1c43ee11f3e036fc1c93e0042e2b17fcdfd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_016.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "2ea5fef3b196c670dab83aea8703f2093cb2fc5180d75b7cf6a783ad844e58b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_016.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "22663a4854f91f2e20e0638029f07109654e6c1bfc8f0351a5be191ce9b28e1e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_004.moments.f64",
+      "bytes": 524288,
+      "sha256": "a4fb11f7032b38369e030fdc61bf7d1dcecf9b205b39a5c9e7777c4823d7ae7a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_004.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "d5c3e149cbb3bcf631525734af08ed9281cdce650e22cb76e7e2fed14fc2b22b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_004.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "6b43a4ba492cc388185a8708fdb35960f2900f27e2d79bc9605b5a02dcb5ba1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_028.moments.f64",
+      "bytes": 524288,
+      "sha256": "550d83cf8f7993228b8c7aa66e834801711de62b751a9b7df902607e081594d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_028.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "548969a0ca7eff646436d71e98855a8dacfc69f1289b45d696e952ed849c8ba5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_028.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "c84341ed296660961456fbfce18aaed4a17ca11363c248bb87fc22e99a3db299"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_012.moments.f64",
+      "bytes": 524288,
+      "sha256": "beeca8d5de6fe87130e104ac633b5cb2d6a3d0eb116ca209584611f7cd99505f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_012.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "2cf1cd32d4d323a75527841692a07df162c6259288a0f6fdbe7affbf91a5f1d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_012.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "cb4c895810ed7d51e6a412f44dfdd70e55ef0aaf1843d7016566757adc5009d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_006.moments.f64",
+      "bytes": 524288,
+      "sha256": "70beb911f5af4323783a26fe15b21abdc49b50edfad2c08802be1c6dc6ee0f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_006.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "a7e14e919a1cb52de1f30030c706cc7885586bd6b9b0ef3235e4dabdc6e5b3aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_006.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "36c4de9f3ae4c1fe9aca21a6147d6af13ddb9c96bc6a203fa066fbd2309e8576"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_005.moments.f64",
+      "bytes": 368640,
+      "sha256": "5a8b9ed9e649198fc356c5b9ab7417ef4725576932dcfb29cd75759c2914310a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_005.negative_entropy.f64",
+      "bytes": 1440,
+      "sha256": "310b888586d657084505f1b91bb1b9a9e3c85211a432cf56ea63be0d3c16d452"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_005.source_argmax.i32",
+      "bytes": 720,
+      "sha256": "c755bc688d240d04f3c1187e8abfd18ba42ee4334a6aaf6727fa645fa540fe78"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_021.moments.f64",
+      "bytes": 387072,
+      "sha256": "c15f18be82978ceebaa60eb88e6767784f8ed498dabee6c7f6756ca3aafa69c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_021.negative_entropy.f64",
+      "bytes": 1512,
+      "sha256": "0e96444ed60259542f3e6fe5fbf3216ceabe19a5f9ea61c75828c68a4481c8ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_021.source_argmax.i32",
+      "bytes": 756,
+      "sha256": "076db0426bcc158a4a56c9a694b212424249dbe92efa6993a0eb91c4a14ae128"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_000.moments.f64",
+      "bytes": 524288,
+      "sha256": "f54bcc378b5e4657f66585f586c1431df3798940b343588c0e782e73301c28ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_000.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "40d0dff040c4f2916b951eec537e1e3df865c9d4cd2d2e889b6d0a0608df9b55"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_000.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "22aaed196a0b6da00af8374e2236efbcb7e0cf68fc9d8cd6087eab1cefaafc37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_022.moments.f64",
+      "bytes": 524288,
+      "sha256": "f60cceb0ed5ca2c6d21c4518ae61e4866416bc776ff503c2b2e4792073017878"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_022.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "9763f318a468f79ef381672a5b1dc99fafb5f3f165701770321cb689b874b66e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_022.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "786a88c6b956ac5aa6256d271fd6af2a150c65c6e0d839ffffdf51254e6dc7ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_004.moments.f64",
+      "bytes": 184320,
+      "sha256": "f45c23b7162fc9b916e6b045e9d87154fcf41f131480a3e7638823604262ad4f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_004.negative_entropy.f64",
+      "bytes": 720,
+      "sha256": "0d0d9b1d1ff48bd2b1c514e38e0ec64c5f1c0dc3dacb02ffc3392e8d9bdfca76"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_004.source_argmax.i32",
+      "bytes": 360,
+      "sha256": "64f3f00de79c9fe071b07a72bd4b41974829cc43898031ea84bff4c909cadc8d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_015.moments.f64",
+      "bytes": 524288,
+      "sha256": "496301cb6597370f1995399a145e70ccbc6f2b22225af84dfef4359dd5055fe7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_015.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "3c83c31e0cb1b7cbef567de38c939a89b8c0157c3161f1942f0ffafe4d1fa9ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_015.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "c3f70a9aaba453a92bd7a272405cc50245b8098f52287b376707b944089b6cf7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_024.moments.f64",
+      "bytes": 124928,
+      "sha256": "5f3fecc264ce5a7ecbd6e04bfc5e39a5339894caa13076a29e5c37063a8469d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_024.negative_entropy.f64",
+      "bytes": 488,
+      "sha256": "8e84c609da0314b1705966288cbc80938a08076eef5736f1940e9213306e94c0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_024.source_argmax.i32",
+      "bytes": 244,
+      "sha256": "79d691696740a7c835139c8938f70468e8f455cd35f34b0500ec286755b6a564"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_003.moments.f64",
+      "bytes": 243712,
+      "sha256": "68aac8108c3385c00bc15b55a79e42d3e64646204d8472fbc77c55668dea1062"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_003.negative_entropy.f64",
+      "bytes": 952,
+      "sha256": "1206cf4a00b36bb8ae863990ef6630e9cc8d223ce5f3559233aa3a35e98a3194"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_003.source_argmax.i32",
+      "bytes": 476,
+      "sha256": "e46cd02988543315614bc8026dfef9303dcaf7c024a088265364d8ec7d5d11ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_024.moments.f64",
+      "bytes": 524288,
+      "sha256": "62e797deb3e73fb70971bcadb7fc285b17e7890f2791a8c2f6f8e1eeae48c9cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_024.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "5e3755747282b1bcec39c1f69e8aecf83833271335a1096f27d217cae935d47c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_024.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "cc4a00535c7da5eaff42e7b13b745677635eb51e68b1470b62391925381f8e91"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_010.moments.f64",
+      "bytes": 524288,
+      "sha256": "367c64f121fb943f7bfb11cd5e660b5a4c8ffec1fd2464cbf296f8ab6f6df2cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_010.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "999d9ae284d745dbabb91a486055a2640e358550eb23dfa5d8a2694797f64566"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_010.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "e768af4d5822f24462214bfc5a2ed6bc5c9cc5e45c55dcb43054aa3e1a0eaa97"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\_bootstrap.py",
+      "bytes": 58608,
+      "sha256": "b9b30c578a34f70508768eeac35fab4a0095e369a7f5d7d3275c310e605d4313"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\_bootstrap_external.py",
+      "bytes": 71155,
+      "sha256": "255750f5267b487dbb99b1deed48b50a4524f4dbba38d40aa0f9cd5a063f7c62"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\zipimport.py",
+      "bytes": 28552,
+      "sha256": "6e3d94c0d4e0622a6a034e8212e41be78aa702d6e18100e2769c05413fbf7e7a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\codecs.py",
+      "bytes": 37999,
+      "sha256": "000cf1d683c677ed3de6d8e284376f81def4b91f93d68ee41bdf07c4e04cea77"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\aliases.py",
+      "bytes": 16228,
+      "sha256": "1893cfb597bc5eafd38ef03ac85d8874620112514eb42660408811929cc0d6f8"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\__pycache__\\aliases.cpython-312.pyc",
+      "bytes": 12447,
+      "sha256": "eb3f141ed0afab988e427c59c1e1e5671274b3f7c1e069f00ddc80be7c3aff72"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\__init__.py",
+      "bytes": 6058,
+      "sha256": "8b997e9f7beef09de01c34ac34191866d3ab25e17164e08f411940b070bc3e74"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 5814,
+      "sha256": "eb879ed73614144c21e01d044b5a42fea339802b8ed2df1329a7f330e423e1b5"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\utf_8.py",
+      "bytes": 1047,
+      "sha256": "9c54c7db8ce0722ca4ddb5f45d4e170357e37991afb3fcdc091721bf6c09257e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\__pycache__\\utf_8.cpython-312.pyc",
+      "bytes": 2186,
+      "sha256": "7bea298f33916dd0093da0430853c8a0f60641c62d4fdce513f55da2d58fa418"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\abc.py",
+      "bytes": 6726,
+      "sha256": "d51c54428495cd62a5da4360315fa84f692b5aa9db21be986b3e14a83f7cf288"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\io.py",
+      "bytes": 3681,
+      "sha256": "d70646d9c063dd0ac4293591639de75a100731d9f091f916fbca4857cd8a044e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\types.py",
+      "bytes": 11326,
+      "sha256": "d7ce485ecd8d4d1531d8f710e538b4d1a49378afacb6ff9231e48c645a9fa95e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\types.cpython-312.pyc",
+      "bytes": 14984,
+      "sha256": "039cfc808d3dc3b333650053a466dac5b73d4ca14a4ef26ee4f9f58a40c41d56"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\operator.py",
+      "bytes": 11432,
+      "sha256": "c57b6816cfddfa6e4a126583fca0a2563234018daec2cfb9b5142d855546955c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\operator.cpython-312.pyc",
+      "bytes": 17391,
+      "sha256": "918ef263ef5b3a5a2339c47df2ab22d440f6c9fd154ac3d34b71b22fe49bfb84"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_collections_abc.py",
+      "bytes": 33262,
+      "sha256": "d0c7b4810d0d6e22968223599e2051aa2148c8ce435cad8798644e7b682a9147"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\keyword.py",
+      "bytes": 1137,
+      "sha256": "1f28f509383273238ad86eda04a96343fa0dc10eeaf3189439959d75cdac0a0b"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\keyword.cpython-312.pyc",
+      "bytes": 1080,
+      "sha256": "1d336a80377db4813a1cab030a085a87d0b0418d36bff0181674ae156c4eca8a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\reprlib.py",
+      "bytes": 7362,
+      "sha256": "53c0c775acd2c7ea3405271e2b8619a5fdc0567a63f263199d594626616184cd"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\reprlib.cpython-312.pyc",
+      "bytes": 10265,
+      "sha256": "699f937f43b3d126af81394821aba578ba940557b379a601b642787b20c02ea9"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\collections\\__init__.py",
+      "bytes": 53970,
+      "sha256": "58d1f234b7845ff280f8a195a795f206bc62ce42732caecaf06e6a133ddd6f15"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\collections\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 72976,
+      "sha256": "81d46ced7d93e60c13754a8c7eb96f4bf981d13f2f7dd50cabc5c68d11bd3937"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\functools.py",
+      "bytes": 38949,
+      "sha256": "f0ca5dd563498f8971e410fe9f37083cfcff2052a0f48efcfbe07d6975754864"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\functools.cpython-312.pyc",
+      "bytes": 40381,
+      "sha256": "e72cdd80bc35fd60df2aa898ea13c07ee4ffc9ef5e1bfcfc8bace87e5e03333e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\enum.py",
+      "bytes": 83648,
+      "sha256": "5f6126ee55609a8fc27be206803703597e2efdcaad1fb80ab975ecd0e63cd6aa"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\enum.cpython-312.pyc",
+      "bytes": 80383,
+      "sha256": "46e888ef07f38326f7f743b567d5989800fc76328e005060cfacc994aaa3f2de"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\_constants.py",
+      "bytes": 6150,
+      "sha256": "8df304954ca75dcd98b9f1f5e3cb5347adc6eaccfc461a94ab914e1b0085e9ab"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\__pycache__\\_constants.cpython-312.pyc",
+      "bytes": 5342,
+      "sha256": "5cd982cad84bd9fe308414e1a91f19da31be2475047281667bd21fcd9e55b769"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\_parser.py",
+      "bytes": 42281,
+      "sha256": "bcc84f06d54e2d28506350a60bc1aaaa0efda4221f4ceeb05b2d0f48c712c479"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\__pycache__\\_parser.cpython-312.pyc",
+      "bytes": 41986,
+      "sha256": "c26f0211cae4bac1b4ea14cbb827a998d840d32c38b1173678721d419f81a931"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\_casefix.py",
+      "bytes": 5550,
+      "sha256": "b0dee234e5f8096fc9c1b035ec52d0b1b50cc1f3aea20b360b8be902e53ac752"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\__pycache__\\_casefix.cpython-312.pyc",
+      "bytes": 1855,
+      "sha256": "3378c2f104b4c1c816c74562c2a7a317a000010c4b645c28b89855ea64c4476c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\_compiler.py",
+      "bytes": 27169,
+      "sha256": "618f17add086b1dc5314a4e68e9b02a7072cbfb0a401791fd5963dabcd03098c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\__pycache__\\_compiler.cpython-312.pyc",
+      "bytes": 26533,
+      "sha256": "7821d2d230d76e302b9258699dd548f5cb53be0cd3a7760788edbd48fd40e82d"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\copyreg.py",
+      "bytes": 7831,
+      "sha256": "ea2363638fe83e8e5b007013a821841371a615d99414b3c2f8f19152ca109a07"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\copyreg.cpython-312.pyc",
+      "bytes": 7438,
+      "sha256": "e5c8d6455fa109e08e92097b50a625cc072500a2dfeca43055ccfdcfc321cb29"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\__init__.py",
+      "bytes": 16700,
+      "sha256": "778cdca1fe51cddb7671d7a158c6bdecee1b7967e9f4a0ddf41cfb5320568c42"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\re\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 17969,
+      "sha256": "9977f01ad6f2006cbe4c423665bcd16be906e628e1164699dc5d13b73b65513a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\scanner.py",
+      "bytes": 2507,
+      "sha256": "b2577f9db9f69a0a27f251776349238b17b8b214a01128e7477b0f7d8e24a186"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\__pycache__\\scanner.cpython-312.pyc",
+      "bytes": 3369,
+      "sha256": "18964c0761308aacb0dff14c95f090c210e805c2777c38b9891f390c929a5147"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\decoder.py",
+      "bytes": 12882,
+      "sha256": "9f4cc83197bf1b13fee3ce71a044a4b4987a7eeecd8768206abd31a78e0a3d16"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\__pycache__\\decoder.cpython-312.pyc",
+      "bytes": 13952,
+      "sha256": "5f1e117a99d003abb32c41b4c1619e5bb7b9cb2ff973e1e65e8c415d4ae0d2f3"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\encoder.py",
+      "bytes": 16518,
+      "sha256": "497cc84d2b3936f2a25ec6e561a9a3266c4bc4c9661f5841c3b6ec31eaa0edb9"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\__pycache__\\encoder.cpython-312.pyc",
+      "bytes": 15127,
+      "sha256": "b077ae56a6dee274adc4a86cc3b9ee71151d83dffe57bb6d2aa4436ab42afd5f"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\__init__.py",
+      "bytes": 14379,
+      "sha256": "feb17670e443e5db2723f217727dcc5d5e155c40e4e6935b16061c88542f24e7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\json\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 13654,
+      "sha256": "4dd8631682e26332ff71cb77d01a7a9d3fc017d9a8be7d6ed9f8eee7182af11f"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\stat.py",
+      "bytes": 5680,
+      "sha256": "e514fd41e2933dd1f06be315fb42a62e67b33d04571435a4815a18f490e0f6ce"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\genericpath.py",
+      "bytes": 5468,
+      "sha256": "c540a28c560234d4d00d3451dfdde05b404f81a38bde87086ce8773021e1cc1b"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ntpath.py",
+      "bytes": 32762,
+      "sha256": "e62526627fe0129120e452f99b05b84965a57451e5ad8d29f0d5f3276cc2c489"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\os.py",
+      "bytes": 41980,
+      "sha256": "c1549bf7ce4acf22f760f5076149afa5250faf24bcab9515890f590ee78d927b"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\posixpath.py",
+      "bytes": 17870,
+      "sha256": "4a50991174a61362a0d612b86d05230b05c7ae282291733e32c87699168c857b"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\fnmatch.py",
+      "bytes": 6184,
+      "sha256": "146d27a2853cd14c95ee49cc6130b9f84e2a56618dd1be695cddb20489460425"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\fnmatch.cpython-312.pyc",
+      "bytes": 6519,
+      "sha256": "02b190a3fdcf066d1777f527cc7c08e7099ec432ac6f67e63cb640b8930f4294"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\warnings.py",
+      "bytes": 22507,
+      "sha256": "0cdd7709b5f38f2a3a1d84893d5d652eaaffd96fb1182e953513998ed09a2e34"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\warnings.cpython-312.pyc",
+      "bytes": 23866,
+      "sha256": "ec37b61495240a3d8accb748d3da7705e2d84df68baa17ec84654c420679cd9e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 174,
+      "sha256": "6c2cca6ed5606f39ee592f10af96a28c01d2eb5dec31bb795b91bfb55737a4eb"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ipaddress.py",
+      "bytes": 81504,
+      "sha256": "98e5d9e9235c4381265d84d3b4d8125822cbfbe352e747190c8be877f6cec2d5"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\ipaddress.cpython-312.pyc",
+      "bytes": 91421,
+      "sha256": "3a690ce9e21ce2ed9438a667b0c57f9aa9d2ef0d78a879a3e2b1eaa58208c5cc"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\parse.py",
+      "bytes": 46938,
+      "sha256": "8e1026b2de5fb7ef9265bf512b6ba11923c3a8bfa48a8b2158475c07c255e1a1"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\urllib\\__pycache__\\parse.cpython-312.pyc",
+      "bytes": 50652,
+      "sha256": "a7b4d0c83cb7ad0fb331b574ac02c8a65437f1896875005cdfc9fdbb78a9f202"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py",
+      "bytes": 52487,
+      "sha256": "cd1557dedcaa1be0459cd59760c5ebac83a3e412e0e1b5bc0b1a82a19563a090"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\pathlib.cpython-312.pyc",
+      "bytes": 61737,
+      "sha256": "61cd5d745f4d458cdfe8a9bee72ad60962fbd548e528f4b57756f01f8e87a2d6"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\gettext.py",
+      "bytes": 21966,
+      "sha256": "da55e22f51bb369819fe4cc1201459c8f18ca948b6ca00137e6dfd7012814d83"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\gettext.cpython-312.pyc",
+      "bytes": 21822,
+      "sha256": "31e95d1897a538d3d1aea3bea754b2ce01a18bb5d7f7528964ed9f74692bdfc5"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\argparse.py",
+      "bytes": 103805,
+      "sha256": "8cfce14fba1859a653fc093f396d6789fa32c7b502d78703507429d1d7adf862"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\argparse.cpython-312.pyc",
+      "bytes": 101094,
+      "sha256": "29a0aa3a0b5c4eccad347fae7396c3639b61f9393624e4da5abbc3846f4ed938"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_ctypes.pyd",
+      "bytes": 127480,
+      "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\struct.py",
+      "bytes": 272,
+      "sha256": "eadbcc540c3b6496e52449e712eca3694e31e1d935af0f1e26cff0e3cc370945"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\struct.cpython-312.pyc",
+      "bytes": 364,
+      "sha256": "6d046fe4da6c8ada45ccc5e16af2585268b45ad1078c8bb7cc0a168bb40fdf38"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\_endian.py",
+      "bytes": 2613,
+      "sha256": "8c5b9ac7306dcf98856c9b815a5fc604ba0f47acab15ac47ad858499c6981579"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\__pycache__\\_endian.cpython-312.pyc",
+      "bytes": 3412,
+      "sha256": "bd65b52e60a3431bf11b428276a0fcc468eadc739c8152914e071cb924b278f0"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\__init__.py",
+      "bytes": 18789,
+      "sha256": "8fc533f8ae18a7ca06dce88fc8dca5eae61f2a4198ceb9d4b4b5a69862aa42ee"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 23507,
+      "sha256": "a0eb785d08123bed9995ff078ee2bd3526f24b9ef86426e0161876ed613f7098"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\wintypes.py",
+      "bytes": 5831,
+      "sha256": "4d9150e8603bd922e9dbee8a5e9cf1379cf599a382b09a5cbf09bed520f6c459"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ctypes\\__pycache__\\wintypes.cpython-312.pyc",
+      "bytes": 8534,
+      "sha256": "4ec829ed51a710b13159468791660049ecfc79d0135a3162a633d1d5d1747bff"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_hashlib.pyd",
+      "bytes": 68976,
+      "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\hashlib.py",
+      "bytes": 9602,
+      "sha256": "f0c8900585062c567a283cb782c3c867f86c38516e30f1f98a04ffa775b9a013"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\hashlib.cpython-312.pyc",
+      "bytes": 8119,
+      "sha256": "8dba0c133d6ecf72e0f6812e96a57f1aabc0e298b3db4900d763746abac853c2"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\locale.py",
+      "bytes": 80378,
+      "sha256": "f2a5793c0d629730c9f60ef11509484e04a92697ce603b30b7e9f1137cc48742"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\locale.cpython-312.pyc",
+      "bytes": 59527,
+      "sha256": "d0b50393b836ce340830027b38b89f64b67ba1695c565f17d87bc0cb6b2f45a3"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\signal.py",
+      "bytes": 2589,
+      "sha256": "0b7e3d3d39a120142dbf4875d7d79579cad8fee662add30c2375a797f0d2386e"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\signal.cpython-312.pyc",
+      "bytes": 4496,
+      "sha256": "61007c05c0b0a038e8dc03560460e1eb3c7fd6e1151c56bdf2727e9cdaca76b8"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_weakrefset.py",
+      "bytes": 6098,
+      "sha256": "cf8031a6e21150438f3d2964c4152615b91a03894616d5b6930e0f14f44dabda"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\_weakrefset.cpython-312.pyc",
+      "bytes": 11776,
+      "sha256": "5df76e127535d5622b8e06290fcf1696ea1c5a36a4291f55a3286cb2cab1fb32"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\threading.py",
+      "bytes": 61908,
+      "sha256": "feb12e11fd550b71869a8960d6e8c0151e3b1fdc7a2df08a4bf5900affc11c8a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\threading.cpython-312.pyc",
+      "bytes": 65255,
+      "sha256": "f5031e6faca59a3aa52b85dd7e6c96756e9005ee9ade6c31740782048422f35c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\contextlib.py",
+      "bytes": 28437,
+      "sha256": "a53b1db774f19c6b1e4320c2bc64058c49e3fba58b20b9c1158e5a8d02069890"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\contextlib.cpython-312.pyc",
+      "bytes": 30389,
+      "sha256": "e70e74c25ca621621e784df030a70c2e81314c6dd4056e610acf681a4effd423"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\subprocess.py",
+      "bytes": 90963,
+      "sha256": "e9886605ccac88bcfe2330a1b4cd8f132cbaf97ebb6834b1dcb5a69b127b8d5b"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\subprocess.cpython-312.pyc",
+      "bytes": 79093,
+      "sha256": "bd9c3456bfadbac79f688e5fd70dcc84f9bf3d0f538e04094422d3c0130a9862"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\__init__.py",
+      "bytes": 4922,
+      "sha256": "80ca1730bd367f664ae4bafbe73326bdcaa60fa1029033a9210a355a5168c0fa"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 4598,
+      "sha256": "f095ba047d337cbafe1892742918eaa4dddc3c53a11ab12d15ef3e3432321b40"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\_abc.py",
+      "bytes": 1393,
+      "sha256": "795157b91862d662ae681c0521daa1311b34b763b955e01505a27c865d848eae"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\__pycache__\\_abc.cpython-312.pyc",
+      "bytes": 1682,
+      "sha256": "586f2103d2fd389ea758ec658bb83d0f44542eb2332a2afb7464990c07aac1d7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\util.py",
+      "bytes": 11264,
+      "sha256": "5adb3c86ff7b800c60cc78ea5a892ae8fc08f90d97208a7e447e77beb9d50360"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\chatbot_falcon_usability.py",
+      "bytes": 14123,
+      "sha256": "45862cc2e24f08c04e71c86519fb958b95ee9c9f10be1699490559c0a3f00ad2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_packed_capacity.py",
+      "bytes": 19894,
+      "sha256": "ee730d5e066c0e8149bdd4192b6fa369cee5c307da8412bcb7568ef8c1b5887b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\version.py",
+      "bytes": 304,
+      "sha256": "79cbe06301c3b27ab1817bac6d831b9029f613cb8fa6d18f2bbc3eda52571b53"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\version.cpython-312.pyc",
+      "bytes": 536,
+      "sha256": "b283b440298d10972499d2b1b59d55d574fb53da053ed4e7845c1acf8a05812e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_expired_attrs_2_0.py",
+      "bytes": 3849,
+      "sha256": "423c736e781efd600ae673b6825c9b2b606ff6036e966c46a1f8db1b02cb930f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\_expired_attrs_2_0.cpython-312.pyc",
+      "bytes": 4231,
+      "sha256": "9d4cc222b5e0a5dd31f7105f0ba804267cc7d14d95347b5e38a63dbb440f01c6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_utils\\_convertions.py",
+      "bytes": 347,
+      "sha256": "bdeb5916a0b5a81f99f63bdced12ae53fe444ce6926e385b29afac570615f135"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_utils\\__pycache__\\_convertions.cpython-312.pyc",
+      "bytes": 823,
+      "sha256": "335cacbc5dda14bb508949d869215b361d6d1f4a247d0321293ad05f438f4b1e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_utils\\__init__.py",
+      "bytes": 3572,
+      "sha256": "ab7bccaf178179e53da6f0af2ce928743833652e55d63788d7f51977805bcc35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_utils\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 4165,
+      "sha256": "95ada7b22a4c58378b71af1dbb2e1439c30b669f23726e9014b2f7988a149abf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_globals.py",
+      "bytes": 4276,
+      "sha256": "402e352cfba2e71205d2f6d7ac1b6b065c4957c24abf166c09cdddf723d398b6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\_globals.cpython-312.pyc",
+      "bytes": 4546,
+      "sha256": "ce6e46a0b74c87ee1f306709bfd66baa170d0e3026de6fcebb6399efc7a086bd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_distributor_init.py",
+      "bytes": 436,
+      "sha256": "879fc2abb22d0ebb75259a00874e1a3b9e195ec5d1464c86a0d1451fd4fed3c5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\_distributor_init.cpython-312.pyc",
+      "bytes": 647,
+      "sha256": "56b316d51b5f2885b16be4162b61c166a262891874dcc62c77844a3f9fbd6be2"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\datetime.py",
+      "bytes": 277,
+      "sha256": "5068c4ed2c79bfb4b9ae426675112ca8c89ca27aa40b33dabe6cd313ab22dd73"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\datetime.cpython-312.pyc",
+      "bytes": 448,
+      "sha256": "70922da2d5bd4131ed1f50540ea0295c3a5bc0a06d1c39d6340206f57521a2fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\exceptions.py",
+      "bytes": 7955,
+      "sha256": "1e04ff12b64b8937dc782bf4cb6758a1eb2d0e92add8847ae8c1eef8b015a4d2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\exceptions.cpython-312.pyc",
+      "bytes": 8631,
+      "sha256": "f6bb7f01c9ada3ca09ab0312bae5778030d13b79c1867b73bc62e63d919db3c7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_exceptions.py",
+      "bytes": 5321,
+      "sha256": "ba6c5687d4cb8435f2f4b996efbc2420731e80593f2857c10799ddc6c25de45e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_exceptions.cpython-312.pyc",
+      "bytes": 8273,
+      "sha256": "15aeb2f734ba228cdc7b0427aa18e71aa44a80e56e9854e537740cd76d2161e6"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\contextvars.py",
+      "bytes": 133,
+      "sha256": "758a96e17249e1e97c5ca5d1ee39aa31e5d439d0922ae7af0064318e70b59fc8"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\contextvars.cpython-312.pyc",
+      "bytes": 300,
+      "sha256": "d5f8c3709d4cd1b1833c4b6ed9e6f2974fa3233b1559ecb928b81e5f4aab4188"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\printoptions.py",
+      "bytes": 1088,
+      "sha256": "6577a406be9f235f1d571b0ce9bc401a2f340a232568c3787696cf1c342204e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\printoptions.cpython-312.pyc",
+      "bytes": 928,
+      "sha256": "ee564735ca4f72e84f05acf9ee08e7c4415c0f055e16e9b51cccf247214807ae"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\dtypes.py",
+      "bytes": 1353,
+      "sha256": "70f912e812d1be97ec53385ded59352fbfd571e9d66f59ee1ee0b173d7d80b82"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\dtypes.cpython-312.pyc",
+      "bytes": 1527,
+      "sha256": "4ab51699357b9a9303dce02aff45cde3ad873303374a13fcd2eacb49d5d12e8d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+      "bytes": 3714560,
+      "sha256": "80e7dc34f51cf6cef24da060e1e8620936b2cf188bae0ea367dc8619b2316204"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\ast.py",
+      "bytes": 66292,
+      "sha256": "57cf6e193f932dcfa3b7080e189d689f510c700d95c3b27e7e8a0d48d2166c2d"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\ast.cpython-312.pyc",
+      "bytes": 99773,
+      "sha256": "e69c41cf93caf5f887377d42fb0be351c646202c88f13be9663d3875dd36ceb1"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\opcode.py",
+      "bytes": 13667,
+      "sha256": "3edc2765efb81769f13e958c742f77159cfe6466d2298f656c5a31274ee6537d"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\opcode.cpython-312.pyc",
+      "bytes": 14755,
+      "sha256": "8c64a8f9c348d5904917e726732a9509a0056060e2e8a6f3130eff549e172085"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\dis.py",
+      "bytes": 31032,
+      "sha256": "123add22ba17877928a397a279ec7f59c822bbfc6a381423955d8fdf7e47fa54"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\dis.cpython-312.pyc",
+      "bytes": 34480,
+      "sha256": "d20fa61e3a1750260da81d446e1ddd155800522c99a18add80d538763ff6b560"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\collections\\abc.py",
+      "bytes": 122,
+      "sha256": "7ad86878712fc6682863f12208f4ced5daf2dd82b6ff5ed58207de29d0efa410"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\collections\\__pycache__\\abc.cpython-312.pyc",
+      "bytes": 288,
+      "sha256": "82b38e63e99e60c67314c17d372f31a6a4fa42299f55ba0cc8f03964b6dcb1ad"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\importlib\\machinery.py",
+      "bytes": 900,
+      "sha256": "9a2ee437c38e45cdf7559f613f57209b5b11c0824a9069192b9ebd5a2ceefa1a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\token.py",
+      "bytes": 2654,
+      "sha256": "b4324f039278fa84f7a6fd0b9c51190216ac0cac19e5b1ea4282d8919a114693"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\token.cpython-312.pyc",
+      "bytes": 3608,
+      "sha256": "d9b73ee06ca333486c9398e99bd240dcf265d30b6097de6112410305b9d5442b"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tokenize.py",
+      "bytes": 22164,
+      "sha256": "f386e9870735b6ba7ce4893c0faf0475fe5b6a5f47da7d717433fc488a7bb3b0"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\tokenize.cpython-312.pyc",
+      "bytes": 25415,
+      "sha256": "ddfba24ba9343057a42d9ddd87b82d41a120f8566c83e10f7eb4cc4ab7b1eeaf"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\linecache.py",
+      "bytes": 5985,
+      "sha256": "30af1d7d7d3c999bb1ee983f3228f8964b5d59ded653ab018d31b73f25a2576f"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\linecache.cpython-312.pyc",
+      "bytes": 6588,
+      "sha256": "0c3d3e3a638bde9ad853d4624ccc51e02395e0ba96f318f98bde937c89e7a4fe"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\weakref.py",
+      "bytes": 22187,
+      "sha256": "6721c34ba3c404bf4a443890ed374b546a870c958935a6aa4fdf634876a5a980"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\weakref.cpython-312.pyc",
+      "bytes": 31250,
+      "sha256": "e5a987e12ddb486a5512ca5e5f1d1e3c41cea402adb5b68c12d4deadbd83dc93"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\inspect.py",
+      "bytes": 130558,
+      "sha256": "07ff418cda6eb3f187cdb83b51e7da34e9524ed3cb68235dbcd0efcbde49014c"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\inspect.cpython-312.pyc",
+      "bytes": 134402,
+      "sha256": "5790c962dfbdc01b9b68670ca9d7cdc91d8feacba7273f310d1695fe3de63edc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_utils\\_inspect.py",
+      "bytes": 7628,
+      "sha256": "7e91db2f51b1edf970e071e39cd1cd37ebfc34ac755a01415a09d7f13e619626"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_utils\\__pycache__\\_inspect.cpython-312.pyc",
+      "bytes": 9401,
+      "sha256": "d91401c2ad2e70d0fd5d8a893724e29a4a2847248cf195ad122eeb4d63e72ed8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\overrides.py",
+      "bytes": 7668,
+      "sha256": "ef14176ca34d4c3a83151ddc2fabdc05b81ccdaacc55d3a22a359f1cce734b80"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\overrides.cpython-312.pyc",
+      "bytes": 8189,
+      "sha256": "8f07532d4bb01500cc0559ce37b56dea2b719e5f277d6950075df3361526629a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\multiarray.py",
+      "bytes": 58526,
+      "sha256": "7e25a653ea4bd1639e4bb4d3fdf941b9ea8a9b3d3c8226ddac1142a1a9d24a81"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\multiarray.cpython-312.pyc",
+      "bytes": 57347,
+      "sha256": "4b4e7e5fadea2222e0506b7295bd6212fd94554058290c263b9ea9cf6d5c5e02"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\umath.py",
+      "bytes": 2200,
+      "sha256": "3569afa325905c5b82382422deb39760094d7087e14a22a6e16373c420a7f5f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\umath.cpython-312.pyc",
+      "bytes": 2005,
+      "sha256": "debb6780b975d7f9cfe4af2d92ac222e1194924ebbbd3af17beb7a466cd256aa"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\numbers.py",
+      "bytes": 11885,
+      "sha256": "090c5543a1446c444960524b4bb73585cff1ac7420120bdd4805988327a4dbf9"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\numbers.cpython-312.pyc",
+      "bytes": 14006,
+      "sha256": "05f90de880cc9ae514241362a32dd22b32e72bbd2c57a4cc6bed8af2c440def3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_dtype.py",
+      "bytes": 10913,
+      "sha256": "4c48cf6571e6a70e7e1e17c67ca4be3df413f40f6c93c727684ea27005d56f7e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_dtype.cpython-312.pyc",
+      "bytes": 13444,
+      "sha256": "2e556d17afc23057cc416babe200a6ea59fd945b8192c9fe57e2cd4f7ea99a8b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_string_helpers.py",
+      "bytes": 2945,
+      "sha256": "697d4de54b0d794172e78a39b6e4c2e97e8df4026e785376ffa408c88503d978"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_string_helpers.cpython-312.pyc",
+      "bytes": 3279,
+      "sha256": "71a9cdc6218d5c42c15c72f5b84c302b52062a5abc096ba3bfd54850ce85f24d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_type_aliases.py",
+      "bytes": 3886,
+      "sha256": "539d5e9b5754eea96e158202a66af28121cb7e4fb2e14a2a0f424933ea6c0a31"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_type_aliases.cpython-312.pyc",
+      "bytes": 3683,
+      "sha256": "72717ed2a134016e41af7cdb1173be2b1409adea8ecf9d025e66410d221078f0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\numerictypes.py",
+      "bytes": 16600,
+      "sha256": "b018a2e0de0f5fae8315927f4250dea5fba05c74e857832a55397d0eb9130a4a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\numerictypes.cpython-312.pyc",
+      "bytes": 17699,
+      "sha256": "ac51e42d151dd93bc388720294a19f06796fe26d2a850d52a7c639cece218b5a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_compat_pickle.py",
+      "bytes": 9013,
+      "sha256": "10c81e8803cffaac8bdf085cd01ea948c3adfa32263b2d452bafd5b5519410f6"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\_compat_pickle.cpython-312.pyc",
+      "bytes": 7238,
+      "sha256": "3094ac61bbd9a5e0c6c1c45d4bf38e52fc1a3f21633d6ddd4c5cb7704ee674f6"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pickle.py",
+      "bytes": 68777,
+      "sha256": "0da2af5a8ab98ac06323047df84d319563e9bffeceb7e70c214438f424443bb6"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\pickle.cpython-312.pyc",
+      "bytes": 77753,
+      "sha256": "65d821beb8bcf7df6fe22c56b63f2fde4794282180db8e080b454f32b46786c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_methods.py",
+      "bytes": 9645,
+      "sha256": "5dd70c059e7359916950988bfa29b6482b6cbf2627fcd0e2ad25880a4cedd9fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_methods.cpython-312.pyc",
+      "bytes": 11407,
+      "sha256": "adc3e931fd93d093490b5771c7448eb8acc6466917619b0c93d62d19ed0694b4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\fromnumeric.py",
+      "bytes": 146891,
+      "sha256": "e53fabedfc641db76f26205f5950fa9b023b6db8b613de45d33f5715e06af822"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\fromnumeric.cpython-312.pyc",
+      "bytes": 149584,
+      "sha256": "b87e862437f57d41543009e500119eed2e3037eecf654f109bdf7b0504d20887"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\shape_base.py",
+      "bytes": 33708,
+      "sha256": "a32e3688fa2368b8d08ec432d5cdf95e5ef6c3456d2d909bb62a5995bf171a8a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\shape_base.cpython-312.pyc",
+      "bytes": 34407,
+      "sha256": "b506d3aae44b053dc1addc59bdd129e87dbc7cb563b5781adbf029010e00bcb1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_ufunc_config.py",
+      "bytes": 16126,
+      "sha256": "c5e272dcaeca3d5e4fa496e45bd9dc598fd49e72c794cf4ceab5f80bd78db369"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_ufunc_config.cpython-312.pyc",
+      "bytes": 17185,
+      "sha256": "949846e331d1de3baa74d12e4fe3d53d184d369ae79b7a9a9241dd324b75f92a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_asarray.py",
+      "bytes": 4024,
+      "sha256": "314d672bbea64388036425996dd57ece692666984054090dc2085b9384e0aa54"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_asarray.cpython-312.pyc",
+      "bytes": 4259,
+      "sha256": "685b0d231e529d37b6df11a7d042ecc9a8f67319893fb8d85372db58ff3e7dd7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\arrayprint.py",
+      "bytes": 67050,
+      "sha256": "969c438168c200b7094e152d74a55454e88ce15adde179fba9a1e7aae734b73c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\arrayprint.cpython-312.pyc",
+      "bytes": 72444,
+      "sha256": "e8202a2b3320ab992d04243a2c76596f1dfb90833d02a5b001c7c75a36bb61a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\numeric.py",
+      "bytes": 85809,
+      "sha256": "7f7e98dd78ad7c7da06bbcc7d8467881cb48d53cb0bd3628272aad15ea57a4d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\numeric.cpython-312.pyc",
+      "bytes": 91930,
+      "sha256": "3020486de82d6afb8c7775b509e1d9941c35d888f8d311a19c6d7efdadd93793"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\einsumfunc.py",
+      "bytes": 59580,
+      "sha256": "558522c9f30d2cf2ad040c243d32f6d4d4094a394fc1e747a235363259bd98a5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\einsumfunc.cpython-312.pyc",
+      "bytes": 55602,
+      "sha256": "94792350a1878e97ce10d04f0d1cf2478327d51e2275100b9ce052012f6887f9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\function_base.py",
+      "bytes": 20224,
+      "sha256": "cc1bed2146685157bfb0648f7670e639773d18c5f6df622ac7916d90ca797bc7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\function_base.cpython-312.pyc",
+      "bytes": 20769,
+      "sha256": "bc07ebf5bd3bcacb46cb5d07c10dff4d5d6bc9809575bdfcaea6650058f4e511"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\getlimits.py",
+      "bytes": 15465,
+      "sha256": "b57ede0d6558df5d771c5073b6de493adb544c8df54b8fab0b46d55d82511b83"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\getlimits.cpython-312.pyc",
+      "bytes": 19168,
+      "sha256": "cab01a414607ce803577ff953110aac3a0e2ae60ce755742028f179c25f7342c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\memmap.py",
+      "bytes": 13014,
+      "sha256": "ec75901a32b96d2dd2cc03f1e300251f01fa605ad7d77b01a5ae84e76cf16ad7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\memmap.cpython-312.pyc",
+      "bytes": 13305,
+      "sha256": "d1a837b0b179797fd4bdf5e04593176156778a98d5d559ecee3244b1c94004ee"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\records.py",
+      "bytes": 37842,
+      "sha256": "00e8b45136d8a877bc539027b4abdcf7aecef219ad570f294aa89a85f261b48f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\records.cpython-312.pyc",
+      "bytes": 39479,
+      "sha256": "1be5655509f31f19a5d07a730bd4ca9078b7fe453aafb5b83b0f02303c15e310"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\textwrap.py",
+      "bytes": 20209,
+      "sha256": "cad00069b2a25a585604d2fa774c288cf5ed70d4464afac16edf821f3a4afd5f"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\textwrap.cpython-312.pyc",
+      "bytes": 18319,
+      "sha256": "520324dca389fb5a06671293e649c7301d8c1f99d1f6c551d5a80fc1d7b7ea01"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_add_newdocs.py",
+      "bytes": 223247,
+      "sha256": "02a0b5ce6834a631b356a80d846b0a7e189ee72fde8c90d710252a43a93991ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_add_newdocs.cpython-312.pyc",
+      "bytes": 209709,
+      "sha256": "49d2b803685d1436bc510d2dd10e965af0b4f5f836d2c6b5a70ecb2d7bcc6dcd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_add_newdocs_scalars.py",
+      "bytes": 13314,
+      "sha256": "562316500225b142a8b1dd661292e8f74edc65e692ed583f19eaf30832005144"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_add_newdocs_scalars.cpython-312.pyc",
+      "bytes": 13312,
+      "sha256": "322c151138e53a2882062b29497b09ddc08f9a0cfeecb5ca14e791fecf16afac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_dtype_ctypes.py",
+      "bytes": 3846,
+      "sha256": "7bc1207daa97889f3e5188bc14ce6c9bd5bc7a1aaf706feb4e90d139a2b04ca8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_dtype_ctypes.cpython-312.pyc",
+      "bytes": 4809,
+      "sha256": "59665078166975db614c44595f48f756559e083ba701792e7e5e7608319ea7f7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_internal.py",
+      "bytes": 30405,
+      "sha256": "2c306e9887e30cc20ef1c3527e8d35e007189e0b1d9179ace9314b35eb59bb16"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\_internal.cpython-312.pyc",
+      "bytes": 35399,
+      "sha256": "3c284657fea9e9fb718c135b5ab38f14c7c3cb37202a52d494c38f22b6f49a8f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_pytesttester.py",
+      "bytes": 6529,
+      "sha256": "5123a1dfb6d685703340b7860f553add7a439db91ab5fafe6a242efa01e47410"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\_pytesttester.cpython-312.pyc",
+      "bytes": 6708,
+      "sha256": "0c67dcfeaa13c1f32d1ea4c68ae032ef3ec24d3c20118937aea245ebd548b37b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__init__.py",
+      "bytes": 6865,
+      "sha256": "73c57a7f3a54e33399ddb9b142eb27ed3aae2bf4be2f4c159396788e16b620e5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 6560,
+      "sha256": "f230eca17f40f6a1cd22a3d57d3e1e01ef979808e8aa1362abe78648909c6d80"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__config__.py",
+      "bytes": 5751,
+      "sha256": "b9c2ad023bd26886303cc4b05cd1652b4b566a02a58526b4835565e95ad021ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\__config__.cpython-312.pyc",
+      "bytes": 5293,
+      "sha256": "204a966c2d6f08508c4a991384fbe6e7a5390c3a0e5e227bf45ebdfbcee378f0"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\typing.py",
+      "bytes": 122330,
+      "sha256": "26506916777c5fb375f98d13824895adb110565a12a9674c03cb596332e13c43"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\typing.cpython-312.pyc",
+      "bytes": 142425,
+      "sha256": "47e14dd079e3c17cc36c4bdb2f5bac054908397c2616cb6360eb8c5e6d053de1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_nbit_base.py",
+      "bytes": 3152,
+      "sha256": "3e742dfd56c1297fd48f5ee0ff4c9fa14ab08746e73772c4c851e047a1b335ac"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_nbit_base.cpython-312.pyc",
+      "bytes": 3863,
+      "sha256": "de4bd576f7ad2c3cd1c041f24c8ba043e9d1fe8c17ba613691db61de6e0dd64a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_nested_sequence.py",
+      "bytes": 2724,
+      "sha256": "d1995b054ea4e7c0ec47fcb94fc59a0c7b2dd163694f79696dfcee9cdddf6300"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_nested_sequence.cpython-312.pyc",
+      "bytes": 3501,
+      "sha256": "70cdad3c22ce332d25033aa600fbdf811d9785ac2ac1dd9f8dd5aee7f61558dc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_shape.py",
+      "bytes": 283,
+      "sha256": "e5cb1d07eca3dfdd2d851ad63e7c14ecb7157eafb062777c42f5f2b86763017e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_shape.cpython-312.pyc",
+      "bytes": 518,
+      "sha256": "298620a8ba23baf2548728d7458034af22ed518a6c3ee0f2c0b52eef1259a9ab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_array_like.py",
+      "bytes": 4294,
+      "sha256": "37e7b8a75ed135f7bb1f78e7a5c5f47145eeaf80087238938bde5b696fb41196"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_array_like.cpython-312.pyc",
+      "bytes": 5789,
+      "sha256": "04e9e7ff0f356b5fbfdb19298f7237f1170c06da3373dded483bccf5fbdad00c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_char_codes.py",
+      "bytes": 8977,
+      "sha256": "559be3ce9446d4485fd9fae776244b2db3d16b9f40e85a1c7701b08c710ea2b3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_char_codes.cpython-312.pyc",
+      "bytes": 7062,
+      "sha256": "c90306e4246db1a300d4e6d235cf6930b5f4c347edb4c8cb3aa609fde2724430"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_dtype_like.py",
+      "bytes": 4023,
+      "sha256": "9e6c7417e38d56fb0412d05d2cc53cbe4ec56c371fc126be52945962a994be05"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_dtype_like.cpython-312.pyc",
+      "bytes": 4409,
+      "sha256": "7711dd54e9a0ced8ae54aa2feb55a99eb75cea180cef710e3321c7990bb9136d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_nbit.py",
+      "bytes": 651,
+      "sha256": "a633a9cf4b08761a61b1730ad1d090790597b2b0e9c42559ad8275c2600b7f4e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_nbit.cpython-312.pyc",
+      "bytes": 953,
+      "sha256": "5a4578d7f46b86a6c474fbb2d357b8adc92ee5e53aaf5be8140c5dda2b7bf96c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_scalars.py",
+      "bytes": 964,
+      "sha256": "ad38a5fdd49aa011a69860fd41067436a10fd81799b643842bd65ac83301fa5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_scalars.cpython-312.pyc",
+      "bytes": 1413,
+      "sha256": "66b767083091d468ea8f6f2adba894bf769821cd63722279cd701c1a03ec140e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\_ufunc.py",
+      "bytes": 163,
+      "sha256": "968939421439689040469c95a1f7eb6deb8426c279bc0e83689e1a1d3794866b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\_ufunc.cpython-312.pyc",
+      "bytes": 359,
+      "sha256": "96225cf061c35752412720db188a9ebf131d79336e7af45916b68cd815379612"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__init__.py",
+      "bytes": 5639,
+      "sha256": "280099b3ff25f1c346e13a25bd992abf960a2c0ec4c86ea89bd72de1fb17a698"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_typing\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 4032,
+      "sha256": "a3de52cf0c3ce1922e3bb2a385e9edd3716048ba5db47202c7e4e6584c011a45"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_stride_tricks_impl.py",
+      "bytes": 19697,
+      "sha256": "bae18089959c68af8df5d424a216c0b5196b608b686a7cb8280b7884842ce8df"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_stride_tricks_impl.cpython-312.pyc",
+      "bytes": 20662,
+      "sha256": "5bef93e5382d7c281eb2b7ea9499e0cdaf6b6c27fd06c7735258bf8d0d659b01"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_twodim_base_impl.py",
+      "bytes": 35124,
+      "sha256": "6cac836fd6f8c2f4000e182c52e8ceb49722d33b6ebc5a3fe7342db011cf9612"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_twodim_base_impl.cpython-312.pyc",
+      "bytes": 38467,
+      "sha256": "133484617f0c656f6378a234f4e1cae1e90acd9e19409d25cf39cd95d02a3485"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_array_utils_impl.py",
+      "bytes": 1759,
+      "sha256": "25013d525e75e5e9b7e7455c45741a3b80661341f02113dd06914d5eee079f0b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_array_utils_impl.cpython-312.pyc",
+      "bytes": 2143,
+      "sha256": "081ff6f51112b0eb69c26226c4817ac03b769b6c9744ca90b40d4a780e5f9e0f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\array_utils.py",
+      "bytes": 151,
+      "sha256": "ce6ad421595e5845b397d5e31295250d4407b7da9b6eccadcaefe32e3f8e8271"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\array_utils.cpython-312.pyc",
+      "bytes": 337,
+      "sha256": "3c02269bf53c5e62e485639e868ad7ac4e0e08361a66fae5d6d757211595bd42"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp312-win_amd64.pyd",
+      "bytes": 112128,
+      "sha256": "b465dda08f9238ae83b05a0acbfbddec969d0b5fc5de366bbbe312a4600d6e31"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\_linalg.py",
+      "bytes": 118519,
+      "sha256": "bdae22bd533cf10a9827741de04a5d79b5457eb53ceab9beb9a890966ecfd32c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\__pycache__\\_linalg.cpython-312.pyc",
+      "bytes": 125922,
+      "sha256": "0d04b696e89fc031832591cb04ced5fcb9dc45dbb1070d69ba52432caa8a89af"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\__init__.py",
+      "bytes": 2171,
+      "sha256": "3782aa04e50465446b8ffd34ab70dfff22f03eb99130a1dd9ba511d6c89bbb66"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\linalg\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 2308,
+      "sha256": "dd7cf352df18fab612f4596f914f6a8fab3e3a7a569216a3f3103c5a0f1aec36"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\matrixlib\\defmatrix.py",
+      "bytes": 31994,
+      "sha256": "1da158b471088668b828a6f0cd4270fb9ba4f976a1f094bd751562d9b647db4c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\matrixlib\\__pycache__\\defmatrix.cpython-312.pyc",
+      "bytes": 36070,
+      "sha256": "803bdee9c98669b459da7d4d2936f44d671117fae874f76939878a04bd92b9b9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\matrixlib\\__init__.py",
+      "bytes": 255,
+      "sha256": "68f5db68de0e603a7d4c503c906cedda04c11dbde8f0d6a7c3eb8cff75e80c5e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\matrixlib\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 473,
+      "sha256": "1cdee8f11581a110fb1dd1125954320ec4908a8dcb8f43165317acc20c414cdd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_histograms_impl.py",
+      "bytes": 39517,
+      "sha256": "d9d71e62bec13954e4ca9493e02560b242738c8fa46bf16b2f9a31056eeb1c44"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_histograms_impl.cpython-312.pyc",
+      "bytes": 40724,
+      "sha256": "3fe0e31dce85579e6be0ea043805ee9c9395ad3ed27aab85af45014093f17bd8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_function_base_impl.py",
+      "bytes": 199498,
+      "sha256": "4fc535d1583b477c697fd079cefad6b4b66619279bd0e65f0902c8cad9f27949"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_function_base_impl.cpython-312.pyc",
+      "bytes": 205332,
+      "sha256": "84389f2c00002fcaa964444686e2d378df3a1bcbe4cd1cf222a9c55092465b01"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_index_tricks_impl.py",
+      "bytes": 32567,
+      "sha256": "67346d15da5b62d0c4628c77faecc3b7310e20b319d0b757ebb56458d2320696"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_index_tricks_impl.cpython-312.pyc",
+      "bytes": 35432,
+      "sha256": "04445823c4cf0e40c4e22d31f5907a8523982bac90e970464dbe7e8c1d051b1b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_arraypad_impl.py",
+      "bytes": 34445,
+      "sha256": "ac7fce53a5efa26de5e29d836eb840ad020f8ec8ccf4438dc6d4aa28dcf177a8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_arraypad_impl.cpython-312.pyc",
+      "bytes": 30313,
+      "sha256": "a77fe82aace17b4522abc98426c9a5cbf623152475e4f8b738b54c31c19cdbf7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_arraysetops_impl.py",
+      "bytes": 38499,
+      "sha256": "1154611100aa471ce1794ebcbb9906812f29925b3fb1448cf565daf59f58de1a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_arraysetops_impl.cpython-312.pyc",
+      "bytes": 39144,
+      "sha256": "8e93a34610e7e4228e228367eda7ee787947cb7a14f6a9a21fba4fd93af2e0b9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_arrayterator_impl.py",
+      "bytes": 7442,
+      "sha256": "1d4b422c15dc1bb982e405f72ae25c0e31c3f4510f85e09c1f2a53e8fb52b306"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_arrayterator_impl.cpython-312.pyc",
+      "bytes": 9613,
+      "sha256": "f8a6a0bc22536385620a13e7c22dd1f440218d24d42c6725834d0df21ad5d6e3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_nanfunctions_impl.py",
+      "bytes": 73405,
+      "sha256": "aa69b1e47eeaf9ab60a1840059c0c01d6390f965970ab5f251ec30cd1ca08ecb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_nanfunctions_impl.cpython-312.pyc",
+      "bytes": 75316,
+      "sha256": "ed681740305ad6bc229c8cb9aaa22f6bd961f93826db1e9bf326e3d78db1b295"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_wmi.pyd",
+      "bytes": 40304,
+      "sha256": "a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\platform.py",
+      "bytes": 44747,
+      "sha256": "2ba439e96bd5962b3c1f3569b5ac6dc37fbf4920fca2cfd447140de14dbb81b3"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\platform.cpython-312.pyc",
+      "bytes": 41618,
+      "sha256": "0bb85116c4db035f78f506c995247b8be91708a5f4d8b0679d24d3cba9e805d6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_utils_impl.py",
+      "bytes": 24283,
+      "sha256": "41d9c2c88931799691db0c27e105f15c10a8931b978be446f89fc61c6e1e2feb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_utils_impl.cpython-312.pyc",
+      "bytes": 25800,
+      "sha256": "aa43240809772f0fef1553e51fb038e49e7641f3478c7365fce94d2aea4e8908"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_format_impl.py",
+      "bytes": 37920,
+      "sha256": "fd316042dae09dd9105b13d28dd3bde6577f7028044a98ec274e012ea64f18d9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_format_impl.cpython-312.pyc",
+      "bytes": 35979,
+      "sha256": "4883730653f2bc8bdfb49bd7c27d0cad1f17ed8133ea9cc09cd4ec640d2fb5d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\format.py",
+      "bytes": 501,
+      "sha256": "8a2f0c45098f6759c06aa9cca9e62d2a074d44fe76899b073e8e6b383976d143"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\format.cpython-312.pyc",
+      "bytes": 775,
+      "sha256": "f66bda9fdd00c1a563c19dae4dfd28a2fae1d4412762a0ed00b6b55613c851c4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_datasource.py",
+      "bytes": 23431,
+      "sha256": "72c15f3952f4d15efa28cfbecfdc113802261c33c1e65e5bfbc875009962e777"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_datasource.cpython-312.pyc",
+      "bytes": 25613,
+      "sha256": "381363e34f425d5381006ca47283a80f8b4f680440f5b8c76d03b11eace0ae26"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_iotools.py",
+      "bytes": 31776,
+      "sha256": "621ef122ee4e9d23678f6697fb25bcbe224d1cd0b7de78420d9b5a7a9f13b331"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_iotools.cpython-312.pyc",
+      "bytes": 35166,
+      "sha256": "4d10010eaacc63370d365dd2b9e30a1f8026746713da7159140a8ca36a2c472e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_npyio_impl.py",
+      "bytes": 101219,
+      "sha256": "f66964e8201c9039c121a396d4ac7278f9cd35482e442136728de59365deb63c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_npyio_impl.cpython-312.pyc",
+      "bytes": 95927,
+      "sha256": "f3867211ec8c966c3bad1272cf613983e69023a2f5aea7ba53d610cd1acf4dbb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_ufunclike_impl.py",
+      "bytes": 6213,
+      "sha256": "0cb6db8180d149bcaa997dd7cc94e3381443e683a351412fa425626a1c89aa80"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_ufunclike_impl.cpython-312.pyc",
+      "bytes": 6906,
+      "sha256": "22af615574164f80680a409fd798d43f94285baab5d073830e1ab0d82ac3f4a7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_type_check_impl.py",
+      "bytes": 20624,
+      "sha256": "38da8cde685edc84e89d26496484a9389fdf936580e0fadd79c5be1d416f4473"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_type_check_impl.cpython-312.pyc",
+      "bytes": 22879,
+      "sha256": "c1d2acc31b7ec39936bff76f0fbbaf82e1c0c2dcdb3e457b50a16337ce0776a4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_polynomial_impl.py",
+      "bytes": 45590,
+      "sha256": "52ac9032954025147acfd1e3f51abb30ae74f5c23c3a771390cd972ec62c9af5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_polynomial_impl.cpython-312.pyc",
+      "bytes": 53557,
+      "sha256": "320a3bc23b7b4c9bc14158b4dfc4651afa29586c485a204d6d84886ecb814908"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_shape_base_impl.py",
+      "bytes": 40302,
+      "sha256": "05b0c679cff48c62be624006d21637e9e084f3a6b4b64b0c085ea8a0b8189954"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_shape_base_impl.cpython-312.pyc",
+      "bytes": 43233,
+      "sha256": "d48c166d78e77d0f4516bbd7d8a7956b7542de88b82b332c0147576d9083da1d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_version.py",
+      "bytes": 4936,
+      "sha256": "275a6aba3384e11fe41fb475cb1b629b06d6551c43367043f365c867d972d726"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_version.cpython-312.pyc",
+      "bytes": 6574,
+      "sha256": "48616a19b807cbcf775d6828b15dc40ffb372115d0bbe45b2dc42124c2ccf4b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\introspect.py",
+      "bytes": 2843,
+      "sha256": "1c1c92ad97cae677a27a58e9f6adbdb7b04f6a0f1c15fa80b83f278e02436778"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\introspect.cpython-312.pyc",
+      "bytes": 3284,
+      "sha256": "982fa9263da3c40680d8cca7fbe8889d1d58ac5b13f7c551c693caba385a536f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\mixins.py",
+      "bytes": 7375,
+      "sha256": "b98fb87429b3be218fd64a5f92cc522e7fff100fe84f098bab2af80e5fca034e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\mixins.cpython-312.pyc",
+      "bytes": 8968,
+      "sha256": "c90da7dde841a95f4750166387dada28016c6d1d10fc567bafdfd5223963782b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\npyio.py",
+      "bytes": 69,
+      "sha256": "118e7fb6a1a9951a3e077709b6abdff470b7e2740aaf924d832ca41d68f9abf1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\npyio.cpython-312.pyc",
+      "bytes": 258,
+      "sha256": "cbb290c5a1d58b783a899b1bc1caac55e72910c983bd29c996fec702cb5a8418"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\_scimath_impl.py",
+      "bytes": 16326,
+      "sha256": "563cac448db898c77819a684cb97b59e90110dcd3f4ca810aaae9346888d7406"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\_scimath_impl.cpython-312.pyc",
+      "bytes": 18314,
+      "sha256": "2aa68ef71c34aad103b8fc91a2a6d8ea9c1063141e149ef2ee390a519fecc618"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\scimath.py",
+      "bytes": 182,
+      "sha256": "de7b18a85746a28d1d6a76879c62bc42bcf4000037d531d45f4aa742ca797aef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\scimath.cpython-312.pyc",
+      "bytes": 398,
+      "sha256": "5d978781d135541ec35158f7eb104d294ffedc6abbe3450e0e14753ea680e1f2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\stride_tricks.py",
+      "bytes": 89,
+      "sha256": "a976a7f7f5295c50280cb040689d7061bd01f3a0e03f8f28829e6c52edecd4bc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\stride_tricks.cpython-312.pyc",
+      "bytes": 286,
+      "sha256": "43604cdfb109da33d387ff336ceb074f7a1af11235f6ef379a943ea81000bada"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__init__.py",
+      "bytes": 3101,
+      "sha256": "b192ff0453161d346630051695b049fa780c09d93a509f45754de7d12d123048"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\lib\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 2997,
+      "sha256": "69b6823e9f1ed5767b483ee75c25fe57af08a7cd5143bc2e16608c7442a62118"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_array_api_info.py",
+      "bytes": 10731,
+      "sha256": "01e1ae4413c1709d0f78e4a2d80077ae43871539166b537bb58abf1a3f6b8b7a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\_array_api_info.cpython-312.pyc",
+      "bytes": 11162,
+      "sha256": "876c4c549592ca269e7399cec4ddde6d8b674d63a21b2e931612ec89da48ef9e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 29010,
+      "sha256": "c071d5107c0264fe5b9f0b280cee2c513ece87a26afd79f3ec31a5ee3f999645"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\_socket.pyd",
+      "bytes": 85496,
+      "sha256": "3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\select.pyd",
+      "bytes": 33136,
+      "sha256": "d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\selectors.py",
+      "bytes": 20294,
+      "sha256": "c33ae11c98b22294d106d21c60f853025eef0fbe86f4b534d35761dfa0b825cf"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\selectors.cpython-312.pyc",
+      "bytes": 26142,
+      "sha256": "106965a4f9d2d9fa5bb2345fba29962ab76fa120563babde643466a7bacb40a8"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\socket.py",
+      "bytes": 38798,
+      "sha256": "423c823130b3e26ebf5bd5645cf1d263d5e3e23c1ffcd02ddd54acb60eb7d6b5"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__pycache__\\socket.cpython-312.pyc",
+      "bytes": 41984,
+      "sha256": "347156fa241b87451b63996449fe8e70de5c52fdd87716e31d44178d0510a4dd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_common.py",
+      "bytes": 26115,
+      "sha256": "6fc6bf5f86491ba962521374472570238929003cebea8e9b6c55224084b52bb0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__pycache__\\_common.cpython-312.pyc",
+      "bytes": 31291,
+      "sha256": "d08504737c697c5438494ec4c46d7d85953dc57f18f74d84a08ae1df671ea5a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_ntuples.py",
+      "bytes": 11399,
+      "sha256": "96f42bc24549636b5707a949b7cc92e89c87f7cea7d343a6d17821ac670dfcd2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__pycache__\\_ntuples.cpython-312.pyc",
+      "bytes": 5555,
+      "sha256": "07eb7d1774111f5d5e0191eb811346e0746683790e281bae2615cf41cca96007"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+      "bytes": 70656,
+      "sha256": "0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_pswindows.py",
+      "bytes": 36466,
+      "sha256": "0bbd52dcb214735be4168d11a2ae192d5bc7265c8cf72c611179476479687f54"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__pycache__\\_pswindows.cpython-312.pyc",
+      "bytes": 43502,
+      "sha256": "517f2206c97896824e1b8a737d6fa6a48e7ea04c15cc9a7ab67cd3cecb5d3560"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 91260,
+      "sha256": "c29870dd074997374a16395a7e42fa9594e461447ab6db95df99e95a5dc326fb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "bytes": 20415488,
+      "sha256": "63c857e738469261263c764a36be9436ebdeaa272e340a828f42047a97131080"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "bytes": 575056,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+    }
+  ],
+  "inputs_before_after_exact": true,
+  "FIT_cases": 24,
+  "FIT_labels": 4422,
+  "DEV_ids_excluded": true,
+  "all_arrays_readonly": true,
+  "max_case_weight_sum_delta": 4.440892098500626e-16,
+  "onset_weight": 0.5,
+  "continuation_weight_total": 0.5,
+  "head": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_20261010\\head.f32",
+    "bytes": 67109888,
+    "sha256": "768aaf9e17873707624e4489a8f14f345afb2722e256de871113b7d6e64baa66",
+    "shape": [
+      65537,
+      256
+    ],
+    "dtype": "float32"
+  },
+  "final_norm": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\paired_output_codec_20261010\\final_norm.f32",
+    "bytes": 1024,
+    "sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c",
+    "shape": [
+      256
+    ],
+    "dtype": "float32"
+  },
+  "Python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "NumPy": "2.4.6",
+  "pid": 13120,
+  "creation_time": 1791645794.9883096,
+  "seconds": 1.3909999999996217,
+  "OS_peak": 47230976,
+  "source_calls": 0,
+  "model_calls": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "GPU_calls": 0,
+  "source_probability_rows": 0,
+  "scope": "Direct lightweight qualified FIT data-consumer handoff, not engine/training/quality/speed authority."
+}

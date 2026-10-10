@@ -1,151 +1,85 @@
 # Native expert scaling: research control index
 
-10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Analytic onset head/full audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md)
-COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742,
-FITfirst0 errors/DEVfirst19 of24. First unshifted audit fault preserved;
-new shifted algorithm passes SAME tolerances. All owned CLOSED.
-[Next causal converter component](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
-Compiler producer CLOSED/exit0; first audit CLOSED/exit1 JSON scalar fault.
-Serialization adapter bound UNEXECUTED; then
-qualified NEW original core/bank training with explicit onset weight.
-[METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
+10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
+[Latest converter component](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md):
+fixed native-head supervision COMPLETE/full audit/FIT consumer PASS.
+Causal learner adapter implemented/AST PASS, not executed. All owned jobs CLOSED.
+[METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) retain procedure/history.
 
 ## Goal and constraints
 
-Pretrained useful **CHATBOT -> compact SSM/SWA core + useful selectively consulted
-ternary functions -> original engine.c**. Fresh donor-relative interaction,
-generation/tasks AND >=50 accepted batch1 IDs/s on the SAME artifact (100 stretch).
-Useful RAM-driven n, structured CPU IDs AND normalized mass, physical DRAM and
-multiple families/~10B/~100B remain requirements. Stored parameters, active work
-and retained useful capacity are different quantities. [Contract](chatbot_engine_target_contract_v1.json).
+Useful pretrained CHATBOT -> compact original SSM/SWA + selectively consulted
+useful ternary functions -> original engine.c. Donor-relative own-history chat,
+generation/tasks AND >=50 accepted batch1 tokens/s on SAME artifact (100 stretch).
+RAM-driven useful n/~10B/~100B, structured CPU IDs AND normalized mass, physical
+DRAM and multiple families required. [Target contract](chatbot_engine_target_contract_v1.json).
+Stored parameters, active work and preserved useful capacity are distinct.
 
 Ryzen5 3600X/80GiB/RTX3060 12GB. Freeze code/inputs/criteria/caps before observation;
-retain first faults/actual states. No timing overlap. Preserve foreign work and
-exact publisher. Routine Graphify disabled; donor-adaptation operationally frozen,
-evidence reusable. Communicate T4 reason/budget/stops before allocating it.
+complete audits even scientific failure, preserve first faults/actual state.
+Never restart a live worker after observation timeout; exact handles/PID/creation.
+No owned timing overlap; foreign publisher/work preserved. Routine Graphify off.
+Donor-adaptation operationally frozen, evidence reusable. Announce T4 reason,
+budget and stops before allocating; none allocated by latest work.
 
-## Two research questions
+## Two questions
 
 | Question | Established | Missing |
 |---|---|---|
-| Affordable useful conditional capacity | Original LUT/ternary/SSM/SWA; runtime-n packed backend; full-V raw cost envelope | Useful n, structured CPU IDs/mass, actual DRAM and useful same-artifact50 |
-| Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
+| Affordable useful conditional capacity | Original LUT/ternary/SSM/SWA; typed runtime-n packed backend; measured full-V raw envelope | Useful n/structured CPU IDs+mass/actualDRAM/useful same-artifact50 |
+| Pretrained chatbot conversion | Pinned useful Falcon1.5B; source-informed original learner/export/native chat; qualified teacher boundaries; fixed-head supervision compiler/FIT consumer | Useful learned compact causal state/functions/own-history chatbot/family variants |
 
 ## Latest decisive evidence
 
-[New analytic onset intervention](ANALYTIC_ONSET_HEAD_RESULT_20261010.md):
-all24 FIT chosen first codes reproduced exactly, but whole FITKL49.3213/
-DEV63.3742 versus prior2.92084/6.25897; DEVfirst19/24 wrong. All8808 independent
-probability/ID/entropy/bound/hash/packed/fusion checks PASS with shifted logaddexp,
-maxKLdelta4.0473e-11. Original unshifted audit failure retained; cause unresolved
-because its maxima were not saved. Combined held265.062s, no new native/source/
-GPU/optimizer/SVD/T4. No unrestricted linear/nonlinear information ceiling.
-[First-state control](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md) full audit
-PASS: rank24,minimum31.2699,preserved31.3308,robust lower28.9436>old fit radius16.
+[Supervision compiler/full audit](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md):
+all48/8808 source distributions compiled to fixed H^Tq/negative entropy/argmax.
+18.144MB numerical payload vs1.1545GB BF16,63.628x reduction. All395 input/148
+output hashes,8808 statistics,72 dense-vs-compiled loss/state gradients/scalars
+PASS; maxmoment3.6522e-11,loss2.2107e-13,gradient1.4368e-11. Held239.047s
+including failed first JSON audit; scalar-only adapter preserves same maths/gates.
+Exact uploader identities allowed for final stored CPU audit; no speed admission.
+FIT consumer PASS24/4422/readonly/DEV excluded,1.391s. No model/native/source/
+optimizer/SVD/GPU/T4. Real fixed-H identity, not arbitrary-head/GPU/C equivalence.
 
-[Actual new head in original C](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md):
-old->new FITKL7.83019->2.92084,DEV8.76437->6.25897;task0/16 vs source14/16.
-All200 inputs/485 outputs6.108GB/8808 labels/forced routes/ternary witnesses/
-21 stream requests/679 greedy IDs/packed/kernel/proxy bounds audit PASS.
-Max score discrepancy2.097e-5. Held812.953s; raw timing contaminated by foreign
-pytest, no useful50 claim. [Shared fit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md)
-32updates/75FG/331650 label FG,upper2.92084/lower0, no optimal-floor claim.
+[Analytic onset correction/full audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md):
+FIT first24 codes exact but wholeKL49.3213/DEV63.3742 and DEVfirst19/24 wrong.
+Rejects THIS global interpolation, not nonlinear causal transfer/information ceiling.
+[24-state control](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md): rank24,
+minimum31.2699/preserved31.3308/robust lower28.9436>introduced fit radius16;
+original C imposes no such head-weight radius. All numeric/full audit PASS.
 
-[Stored response onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md):all16
-chatbot responses firstID1563;14/14 donor-correct first IDs disagree before
-candidate feedback,mean firstKL9.10092. FIT onsetKL4.57825/continuation2.89729,
-onset loss mass1.17535%. Numeric/hash/scalar checks PASS,no model/history/fit.
-[Information decomposition](CAUSAL_CATEGORICAL_INFORMATION_DECOMPOSITION_20261010.md)
-separates fixed vocabulary image,shared readout and causal construction.
+## Other decisive evidence and scope
 
-[Native causal coordinates](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md):
-all8808 original C states recovered, rank256/condition22.9684, full-score max
-residual1.53e-5. Complete70-input/102-output/factor/8808-state/384-scalar audit
-PASS; original loose-bound FAIL retained. Exact dot path39 gives relative
-error upper.0147187%; all8808 Decimal50 rechecks PASS without state replay.
-Held109.390s; approximate coordinates, no new quality or native history claim.
-
-[Head/domain probe](PAIRED_HEAD_IMAGE_RESULT_20261010.md): SAME72 FIT codes
-meanKL.871596171 -> .006529733,17 ->0 argmax disagreements, including original
-C readout. Encoder-room gate PASS, sampled maxKL.230831 FAIL; all lowers0,
-15/72 small gaps, no zero-floor/global optimum claim. Full84-input/45-output
-hash audit and all33 checkpoints/72 final certificates/native numeric checks
-PASS. Held166.062s+24.343s, zero source/model/DEV/T4/full-engine calls.
-
-[Paired rank255/carrier codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md): one FIT
-encoder/head constructed; original F32 norm/head injected, all numeric gates
-PASS. FIT24/4422 caseKL.804121205/dis22.1684% (1102 wrong), all quality flags
-FAIL. F32/F64 zero argmax changes/precision KL5.86e-13. The fixed quadratic
-optimum retains97.95% metric energy yet categorical fidelity fails. Full audit
-all301 inputs/162 outputs, eigensystems/decoder/8844 stored head rows/metrics
-PASS. Held222.297s+140.047s, no donor history/training/full engine or DEV call.
-This fixed linear pair fails; not an irreducible D256 head-image conclusion.
-
-[Coherent cached FIT final states](SOURCE_CACHED_FIT_RESULT_20261010.md): all24
-cases/4422 original tokens/logits and own-state norm/head EXACT. All411 source
-parameters and114 inputs/171 outputs sealed; complete stored audit checks all
-4422 frames/548 scalar head witnesses. Capture644.5s+audit21.281s, one source
-instance/24 generations,4422 base+source heads+extra reconstructions. No native
-or optimizer call. Offline coherent supervision, not converted-chatbot quality.
-
-[Paired one-case source control](SOURCE_CACHED_FINAL_RESULT_20261010.md): cached
-versus retained prefill raw h24 RMS1.1708%/postnorm.5550%, including first label.
-Own norm/head and old53 logits EXACT; startup fault retained/90 rounding
-coordinates audited. [ALL48 source-readout alignment](SOURCE_FINAL_READOUT_RESULT_20261010.md)
-FAIL remains: meanKL about.0005/dis<1%, one case3/53 exceeds frozen5% gate.
-[Stored margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md): all3 positive
-teacher gaps, not exact ties or a better +/-1 offset. No unique drift cause claimed.
-
-[Actual51 recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md): A/B24
-updates each complete/native caseKL6.519307/6.516115, dis89.789%/89.681%, tasks
-0/16 versus source14/16. B preference FAIL; full audit all1890 extents87.519GB
-PASS, initial reserve/audit deadline faults retained. No completed dose replay.
-[Readout attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md):
-exact h24P with actual51 norm/head gives KL13.567112/13.567607/dis99.9349%,
-worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling.
-
-## Key completed evidence and closed routes
-
-| Evidence | Result and limit |
+| Record | Finding and limit |
 |---|---|
-| Useful source | [Falcon1.5B](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md):14/16 source usefulness; Tiny5/16 fails; not converted target quality |
-| Original native/chat baseline | [Actual27](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md):DEV KL8.76437/tasks0/16; exact prefix/split/reuse/full-V/routing bridge; raw rates not useful50 |
-| Packed original capacity | [Runtime-n](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md), [direct learner/export](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md):operator bridge real; copied banks are not useful capacity |
-| Source-informed original whole recovery | [Actual25](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md):relative DEV KL recovery; five of six quality gates FAIL, fresh core |
-| Source history maps | [Dual96](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md):local state projection PASS; [weighted384](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md):decoder budget FAIL; fixed/mixed/channel384 routes closed, no universal ceiling |
-| Original native envelope | [Cost](ORIGINAL_NATIVE_ENVELOPE_RESULT_20261009.md):3352 full heads/routes bytewise preserved, raw99..132 IDs/s; known poor quality, no useful50/DRAM/n admission |
-| Actual wider bridge and trace | [26](ORIGINAL_WIDE_BRIDGE_RESULT_20261009.md):real update/state/export PASS; [trace](ORIGINAL_WIDE_TRACE_RESULT_20261009.md):first AQ half-bin discontinuity, conditional LUT sums exact; numerical FAIL retained |
-| Actual delta correction | [27](ORIGINAL_DELTA_SEED_RESULT_20261009.md):new five rank32 V blocks active, initial native identity/durable state PASS; DEV disagreement96..98%, no width causality |
-| Teacher history inputs | [Boundaries](ORIGINAL_HISTORY_BOUNDARIES_RESULT_20261009.md):48 raw histories/P256/288 source witnesses qualified; parent allocator/identity gaps retained; energy is not knowledge |
-| Older whole/native paths | [Prior ledger](PRIOR_EVIDENCE.md):matched2+6 preference FAIL, local FFN underfit/mean-only repair, D512/L12 own-history outputs degenerate; completed old doses not to restart |
+| [Actual categorical C/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) | FITKL2.92084/DEV6.25897,task0/16 vs source14/16; all8808 numeric/routes/ternary witnesses PASS; raw timing contaminated, no useful50 |
+| [Stored onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md) | 14/14 donor-correct first replies wrong BEFORE feedback; onset only1.17535% old FIT loss mass |
+| [Shared categorical fit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md) | 32updates/75FG; upper2.92084/lower0, not an optimal floor; ordinary packed head/full audit PASS |
+| [Native coordinates](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md) | All8808 states qualified approximately; exact39-dot-path/Decimal50 full audit, relative error upper.0147187%; no own-history quality |
+| [Head image](PAIRED_HEAD_IMAGE_RESULT_20261010.md) | SAME72 meanKL.00653/zero argmax errors in native readout, maxKL.23083 FAIL; no whole-corpus representability proof |
+| [Paired codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md) | Quadratic97.95% energy retained yet FITKL.8041/22.17% wrong; numericPASS is not quality |
+| [Coherent source](SOURCE_CACHED_FIT_RESULT_20261010.md) | Actual cached FIT states/logits exact, all411 parameters/4422 frames/full audit; no causal conversion |
+| [Actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) | Both24-update arms task0/16/B preferenceFAIL; full87.519GB audit, first deadlines/missing-only completion retained |
+
+Useful source/native/operator/capacity/structured-router/prior alternatives in
+METHOD/PRIOR. No unchanged old dose or general compact-state impossibility claim.
 
 ## Exact resumption
 
-All owned81330/95580/92911 CLOSED. Producer and shifted complete audit exit0;
-first unshifted audit exit1 retained. Exact receipts/artifacts in analytic report;
-no unfinished numerical worker, no completed SVD/optimizer/head-export replay.
-Next [fixed-head categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
-Compiler producer50027 CLOSED/exit0/80.359s; first audit89422 CLOSED/exit1/72.125s
-at final NumPy bool JSON serialization. Final maxima not saved, original fault retained.
-Scalar adapter61c2057 preflight PASS; holderbcaaad16 rejected uploader18752
-before any worker/log. New exact-foreign holder binding prepared/UNEXECUTED;
-freeze it then full300s
-stored audit with unchanged numeric binding/tolerances, charge extra8808 pass.
-Freeze4ea205b542ab448d86be065fcfe6cdcb31b40266/bindingbcb329de/holder8cbfcfa9.
-Freeze and launch loss compiler for all48 stored source cohorts
-and existing paired F32 head (FIT/DEV separately); freeze new code/runtime/inputs/
-criteria/caps. Store moments/entropy and independently qualify all8808 statistics
-plus dense-versus-compiled loss/gradient on existing72 native-normalized states.
-Review actual shapes/budgets before binding: prospective300s perstage/OS2GiB/
-128MiB output, no model/source/native/optimizer/GPU/SVD/RESERVED/T4.
-Only after qualification prepare NEW coherent original core/bank initialization
-and first-balanced categorical campaign. Preserve donor-relative whole/chatbot/
-own-history/same-artifact50/useful n/CPU IDs+mass/physical DRAM/family gates.
+All owned50027/89422/79002 terminal. Compiler freeze4ea205b/bindingbcb329de;
+scalar adapter61c2057/final holderc40a8f2/a7cfa6ee; consumer03a5e2c.
+Original JSON serialization fault and uploader prelaunch rejection preserved.
+No unfinished worker or missing supervision verdict; LOSS_SUPERVISION_QUALIFIED.
 
-[Operator algebra](TARGET_READOUT_GEOMETRY_20261010.md),
-[13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) and
-[router reuse](STRUCTURED_ROUTER_REUSE_20261010.md) remain reusable. Useful50/CPU
-structured ID+mass/physical DRAM/RAM-driven useful n/families are required/open.
-Longalign8186-20874 and104 new+64 old RESERVED unqueried. Donor-adaptation frozen;
-routine Graphify off. Foreign work preserved; exact raw timing caveats in report.
+[Next causal bridge](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md):
+`original_categorical_history_learner.py` IMPLEMENTED/AST PASS/UNEXECUTED.
+Review coherent fixed head/norm and training-only F64 buffer; implement/freeze
+runner/binding and numerical/native/resource gates. Deterministic shortest FIT
+rewriting008,58 history IDs/18 labels. Immutable actual27 .pt8.652GB/model mmap,
+original packed/executable and compiled FIT proof; no old Adam continuation.
+One NEW changed-head/norm forward/backward/native bridge before a new first-
+balanced core/bank campaign. No new source generation/truncation/RESERVED/T4.
+GPU/native equivalence, useful chat and long training budget not yet qualified.
+
+104 new+64 older RESERVED and longalign8186-20874 unqueried. Full goal still
+requires useful own-history quality/same-artifact50/useful n/CPU mass/DRAM/families.

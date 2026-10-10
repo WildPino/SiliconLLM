@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method
 
-**Current, 10 October:** fixed-head compiler producer COMPLETE/exit0/80.359s, all8808 tuples plus72 dense/compiled loss-gradient identities PASS (loss5.04e-14/gradient5.16e-13). First independent audit terminated1 only at JSON serialization after all8808 blocks/scalar work; NumPy bool not serializable, final maxima unsaved. Frozen numeric code/binding unchanged. [Scalar serialization adapter](ORIGINAL_CATEGORICAL_LOSS_AUDIT_SCALAR_ADAPTER_20261010.md) AST/value/NaN preflight PASS/new holder bindingbcaaad16, UNEXECUTED. Repeat necessary full stored audit to recover unsaved maxima, same300s/OS2GiB/tolerances, charge extra pass; no producer/source/model/native/optimizer/SVD/GPU/T4 replay. Goal incomplete; older statuses historical.
+**Current, 10 October:** [fixed native-head supervision compiler/full audit/FIT handoff](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md) COMPLETE/LOSS_SUPERVISION_QUALIFIED: all8808 moments/entropy/IDs,72 dense/compiled loss-gradient checks, all hashes/scalars PASS. Maxmomentdelta3.6522e-11,loss2.2107e-13,gradient1.4368e-11. Numerical payload18.144MB vs1.1545GB BF16 (63.628x); held239.047s including first JSON fault, handoff1.391s/24FIT4422 labels/DEV excluded. First serialization fault and uploader prelaunch rejection retained; scalar adapter only, same maths/tolerances. All owned CLOSED. Causal adapter IMPLEMENTED/AST PASS/UNEXECUTED; [next one-case original bridge](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md) runner/binding UNIMPLEMENTED, shortestFIT rewriting008 history58/labels18, fixed coherent F32 head/norm with training-only F64 readout. No model/source/native/optimizer/SVD/GPU/T4 call yet; full goal incomplete, older statuses historical.
 **Current, 10 October:** [analytic onset head/full shifted audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md) COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742, FITfirst0/24 errors but DEVfirst19/24. One packed head,109 other fields exact; all8808 probabilities/uncertainties/fusion/hashes PASS, maxKLdelta4.0473e-11. First unshifted audit fault retained with unsaved maximum/cause unresolved; same thresholds, new normalizer independently passes. Held265.062s including failed audit, all owned CLOSED. [Next original categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED: fixed native-head moment/entropy compiler, loss/gradient qualification, then NEW coherent core/bank training with explicit onset weight. No optimizer/source/native/GPU/SVD/T4 call in this family; full goal incomplete, older statuses historical.
 
 
@@ -672,14 +672,35 @@ Full shifted independent audit PASS with original first audit fault preserved.
 This rejects one global onset interpolation, not nonlinear causal transfer or
 an information ceiling. [Report](ANALYTIC_ONSET_HEAD_RESULT_20261010.md).
 
-Next [fixed-head supervision compiler and causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
-is PROPOSED/UNIMPLEMENTED. Exact real categorical loss for fixed H uses teacher
-moments H^Tq and entropy; compiler must qualify finite-precision loss/gradient
-before any NEW core/bank campaign with coherent head/norm and explicit onset
-weight. Existing ordinary paired head/carrier/native witnesses are reused.
-No old SVD/oracle dose/optimizer/history replay or unannounced T4. Useful expert
-capacity/scaling, own-history chatbot/useful same-artifact50/DRAM/CPU mass and
-other-family prerequisites remain distinct required stages.
+### 5.2 Available fixed-head categorical supervision component
+
+`original_categorical_loss_compile.py` compiles ALL48 source cohorts/8808 BF16
+labels for the existing paired F32 head into H^Tq, negative entropy and source
+argmax; all arrays/positions/splits/provenance retained. Real loss and state
+gradient are conserved for FIXED H; not enough for head training or arbitrary
+q reconstruction. Numerical payload18.144MB versus1.1545GB,63.628x reduction,
+not a whole training-memory or inference-speed claim. Full independent shifted
+logaddexp/vocabulary-block/scalar audit PASS, maxmoments3.6522e-11,72 dense
+loss2.2107e-13/gradient1.4368e-11. All395 input/148 output hashes verified;
+held239.047s including first failed audit. JSON NumPy-bool fault repaired with
+separately frozen scalar-only adapter; first fault/rejected uploader preserved.
+[Full command/data/cost/limits](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md).
+
+`original_categorical_supervision.load_fit_supervision` checks complete
+qualification and exact proof/head/FIT-array linkage, returns ONLY24 FIT/4422
+read-only moment/entropy/ID/position arrays with .5 onset/.5 continuation
+case weights. Actual handoff PASS1.391s/47.231MB OS; no DEV training access.
+Weights implement a proposed loss, not an observed recovery of quality.
+
+`original_categorical_history_learner.CategoricalHistoryLearner` is IMPLEMENTED/
+AST PASS, UNEXECUTED/unqualified. Same original widened SourceLearner/streamed
+bank adjoint, coherent fixed F32 head/norm, training-only F64 readout to avoid
+an exact compiled-identity claim with rounded F32 logits. Packed C stays F32.
+[Next](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md): implement/freeze
+one NEW shortestFIT changed-head/norm forward/backward/native bridge before
+training. No old optimizer/SVD/oracle/history replay, no unannounced T4.
+Own-history/chatbot/useful same-artifact50/useful RAM-driven n/CPU IDs+mass/
+physicalDRAM/family gates remain separate required stages.
 
 ## 6. Required fresh quality, physical rate, useful n and variants
 
