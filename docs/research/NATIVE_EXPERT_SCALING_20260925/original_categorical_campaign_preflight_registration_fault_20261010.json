@@ -1,0 +1,16 @@
+{
+  "stage": "synthetic preflight result registration",
+  "error": "FileExistsError from exclusive writer: original_categorical_campaign_structural_preflight_20261010.json already existed",
+  "command": "python.exe -I -S -B -X utf8 benchmarks/native_expert_scaling/original_categorical_campaign_preflight.py",
+  "shell_exit_code": 1,
+  "shell_seconds": 3.3649843,
+  "all_synthetic_assertions_before_write_completed": true,
+  "previous_capsule_preserved": true,
+  "correction": "Explicit fresh --out argument; reviewed preflight uses a separate immutable capsule. Move successful producer result write after all fallible final guards.",
+  "actual_model_loads": 0,
+  "history_forwards": 0,
+  "backward_calls": 0,
+  "native_calls": 0,
+  "GPU_calls": 0,
+  "scope": "Pre-consumption fixture registration fault, not a numerical campaign failure. Tool traceback retained in chat."
+}

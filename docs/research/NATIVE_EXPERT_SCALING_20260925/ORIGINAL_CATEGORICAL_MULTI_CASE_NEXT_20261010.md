@@ -1,6 +1,13 @@
 # Next: finite full-FIT conversion with actual discrete step acceptance
 
-10 October2026. Campaign PROPOSED/UNIMPLEMENTED/UNEXECUTED. Exact transition
+10 October2026. Campaign IMPLEMENTED/PREFLIGHT PASS/UNEXECUTED; new
+[frozen protocol](ORIGINAL_CATEGORICAL_CAMPAIGN_PROTOCOL_20261010.md) supersedes
+the prospective resource estimates below. Complete24-case runner, original
+packing/causal geometry, lossless both-trial storage, held launcher and full
+independent stored auditor available. Numeric binding7b515d13:3978 inputs/
+11,381,278,978 bytes;31.375s preparation. Producer18000s/reserve1800s,
+audit32400s, output140GiB/free reserve24GiB; no T4.
+Exact transition
 storage helper now IMPLEMENTED/fully qualified on actual92 masters, [result](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md). Prerequisites now COMPLETE:
 [grouped actual C descent](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) and
 [changed-point full causal audit](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md).
@@ -79,10 +86,11 @@ all exports. Raw fallback and a hard per-campaign output cap are required;
 do not assume favorable compression or silently discard rejected trials.
 Zero-gradient groups and fixed head/norm should encode unchanged bits exactly.
 
-The next concrete coding action is the full24-case campaign runner and storage
-helper integration, followed by frozen structural/binding preflight. Existing
-data/code remain immutable. One real storage experiment/audit is COMPLETE; no
-24-case campaign has run. Exact future raw fallback/cap behavior must remain
+The complete runner/storage/auditor and reviewed structural preflight are now
+implemented; next freeze and held actual execution, then exhaustive stored
+audit. Existing data/code remain immutable. One real storage experiment/audit
+is COMPLETE; no24-case campaign has run at this preparation record.
+Exact future raw fallback/cap behavior must remain
 explicit; the measured15.49x ratio is not a guarantee.
 
 ## Cost and mathematical problems remaining

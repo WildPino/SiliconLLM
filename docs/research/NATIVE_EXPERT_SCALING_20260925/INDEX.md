@@ -96,19 +96,22 @@ adjudication8ccd62c4. No missing audit or owned live job. All consumed code/
 protocols/results/bindings immutable. Parent grouped3-step audit COMPLETE;
 Windows longdouble gap resolved before it, all first faults retained.
 
-[Next finite full24-FIT conversion](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md):
-PROPOSED/UNIMPLEMENTED, use current changed-point saved gradient and existing C
-for first new displacement/no repeated preflight. Then fresh per-case directions,
-original C finite acceptance, all24FIT4422/all24DEV4386/own-history tasks on final
-SAME artifact. Histories58..1507 retained. Bounded exact master transition helper/probe COMPLETE/full independent audit
-QUALIFIED; [result](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md).
-Producer47256/holder20444/worker12620 creation1791653015.8990896 and audit
-83350/holder31404/worker26784 creation1791653109.2523856 CLOSED/exit0.
-Freeze924be56/bindings7d2eb8e9/a6fec134/resultaaa5dc89/adjudication7383203b.
-Naive24-gradient+master+48-pack layout exceeds safe disk.
-Freeze complete numeric/resource/quality/counter/audit gates before launch.
-One actual storage experiment/full audit COMPLETE;24-case campaign runner
-UNIMPLEMENTED/UNEXECUTED, integrate helper before frozen launch. Local/noT4 proposed.
+[Full24-FIT conversion](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md):
+IMPLEMENTED/reviewed synthetic preflight PASS/actual campaign UNEXECUTED at
+preparation. [Protocol](ORIGINAL_CATEGORICAL_CAMPAIGN_PROTOCOL_20261010.md),
+[execution record](ORIGINAL_CATEGORICAL_CAMPAIGN_EXECUTION_20261010.md).
+First current saved gradient/C reused;23 fresh per-case histories,48 actual
+finite candidates with exact both-trial archives/all110 packing/full independent
+fsum audit. All24FIT4422/all24DEV4386/own-history tasks on final SAME artifact;
+full58..1507 histories. Numeric binding7b515d13/holdera1d1aa65,3978 actual inputs/
+11.381GB,31.375s binding prep. Producer18000s/reserve1800s/audit32400s;
+OS32/24GiB,GPU10/11GiB,output140GiB/free reserve24GiB. Cost estimates corrected
+BEFORE consumption from prior134s/trial +39s/archive. No T4. Preserve original
+fixture and exclusive-writer registration fault; reviewed fixture PASS/no LLM
+execution. Exact actual master-transition helper/probe COMPLETE/full audit
+QUALIFIED/freeze924be56; [result](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md).
+Next coherent freeze, held producer, then exhaustive stored audit even quality
+failure. No owned live worker at this preparation snapshot.
 [Scale geometry/n](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md): conditional
 n/gauge derivation, optional neutral-direction correction UNTESTED. Dense
 converter memory still grows with n; no100B memory/quality admission.
