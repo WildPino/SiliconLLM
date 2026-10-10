@@ -4,9 +4,9 @@
 Matched recovery training/assessments/independent adjudication COMPLETE.
 First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hashes.
 Target/readout control and independent audit COMPLETE; coupling branch selected.
-Source final readout worker COMPLETE exit0; independent stored audit next.
-Freezec30af06/bindb656c600; session71059 CLOSED, launcher28460/worker12572 gone.
-User revoked the temporary Fail-Fast instruction; complete validation restored.
+Source final readout and full independent audit COMPLETE; alignment FAIL.
+Bounded margin diagnosis COMPLETE:3 positive-gap changes, not teacher ties.
+All owned workers/sessions CLOSED; complete validation method remains in force.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -32,6 +32,16 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
 
 ## Latest decisive evidence
+
+[Source final readout](SOURCE_FINAL_READOUT_RESULT_20261010.md): ALL48/8808 labels,
+meanKL about.0005/dis<1%; frozen every-case gate fails on3/53 in one DEV case.
+Full independent audit PASS/all hashes/576 scalar witnesses. Held604.844s+
+177.391s audit, no source history/optimizer/native call. No codec fit.
+[Margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md): both readouts change
+the same3 IDs with positive teacher gaps; no exact top ties or better +/-1 shift.
+Held2.813s/all30 hashes PASS. Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md):
+inspect exact code/capture semantics before pricing any new source observation.
+Old preparation/live paragraphs below are historical; no worker currently live.
 
 [Matched actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md):48 actual
 new updates complete,24 perarm. A native DEV caseKL6.519307/disagreement89.789%;
@@ -91,19 +101,13 @@ independent stored audit600s. Same prospective interpretation as the
 [prior proposal](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md). No fitting,
 source/student history, optimizer, native calls or T4; injected control is
 diagnostic, not a converted chatbot or global compact-state ceiling.
-[Exact next investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md): inspect actual
-source final readout/normalization/retained raw h24 and old codec evidence;
-qualify any reconstructed readout, then freeze one FIT-only paired compact
-codec/control and unchanged DEV gates. No fit yet; no width/rank grid or T4.
-[Source-readout prerequisite](SOURCE_FINAL_READOUT_PROTOCOL_20261010.md)
-implemented with four tools/AST PASS, binding being prepared before execution.
-ALL48 retained raw h24/8808 cached-generation labels; exact inspected BF16
-norm/head versus F64 head on same saved post-norm features. No history call.
-Price3–8min+IO, held1200s/6GiBOS/GPU2-3GiB/8GiB outputs plus stored900s audit.
-Gate meanKL<=.01/dis<=.01, every caseKL<=.05/dis<=.05 per split/readout.
-Old Adam1 readout oracle already found feasible meanKL.6617 on72 FIT labels;
-no extra oracle iterations/scales. New issue is prefilling h24 versus cached
-generation labels through the actual source final operators; no codec fit yet.
+[Paired-codec investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md) reached its
+source-readout prerequisite; [complete result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
+and audit confirm a localized strict ID alignment FAIL. [Stored margins](SOURCE_READOUT_MARGIN_RESULT_20261010.md)
+exclude exact teacher top ties in the3 failing positions. No worker live.
+Resume [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md)
+at pinned generation/capture source inspection; price any new observation first.
+No codec fit/width-rank grid/T4. Old72-label feasible head oracle reused, no replay.
 [Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
 papers/coverage algebra/product-key selection; provenance ledger retained,
 no new model observation or substitute for original-engine quality.

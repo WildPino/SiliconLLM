@@ -1,10 +1,12 @@
 # Native expert-count scaling: prior evidence
 
-**Current, 10 October11:29:** source-readout worker exit0/604.844s, all48 cases
-and8808 labels retained. Alignment FAIL pending independent stored audit;
-no codec fit. Session71059 CLOSED/launcher28460/worker12572 gone.
-User revoked temporary Fail-Fast instruction; complete validation restored.
-Older status below historical; INDEX authoritative.
+**Current, 10 October:** [source-readout result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
+and full independent audit COMPLETE; alignment FAIL on3/53 in one DEV case.
+MeanKL about.0005/dis<1%; all hashes/576 scalar witnesses PASS. New bounded
+[margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md) finds3 positive-gap
+changes in both readouts, not teacher ties. All workers gone; no codec fit.
+Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md).
+Full validation remains in force; older status below historical, INDEX authoritative.
 
 **Current preparation, 10 October11:12:** source final readout qualification
 implemented/four tools AST PASS, binding in preparation; no head result yet.

@@ -8,10 +8,12 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
-**Current, 10 October11:29:** source-readout worker exit0/604.844s, all48 cases
-and8808 labels retained. Scientific alignment FAIL; independent stored audit
-next, no codec fit. Session71059 CLOSED/launcher28460/worker12572 gone.
-User revoked temporary Fail-Fast instruction; complete validation restored.
+**Current, 10 October:** [source-readout result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
+and full independent audit COMPLETE. Alignment FAIL on3/53 in one DEV case,
+meanKL about.0005/dis<1%. [Margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md)
+COMPLETE:3 positive-gap changes in both readouts; exact teacher ties excluded.
+All workers gone. Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md),
+no codec fit/new source call selected; full validation remains in force.
 
 **Current preparation, 10 October11:12:** source final readout qualification
 implemented/four tools AST PASS, binding being prepared. ALL48 raw h24/8808

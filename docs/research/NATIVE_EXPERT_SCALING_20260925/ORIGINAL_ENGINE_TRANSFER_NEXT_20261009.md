@@ -8,10 +8,14 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
-**Current, 10 October11:29:** source-readout worker exit0/604.844s, all48 cases
-and8808 labels retained; alignment FAIL pending independent stored audit.
-No codec fit. Session71059 CLOSED/launcher28460/worker12572 gone.
-User revoked temporary Fail-Fast instruction; complete validation restored.
+**Current, 10 October:** source-readout and full stored audit COMPLETE,
+alignment FAIL on3/53 in one DEV conversation. [Source result](SOURCE_FINAL_READOUT_RESULT_20261010.md).
+[Margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md) confirms positive
+teacher gaps/same changed IDs in both formats, not exact ties. All workers gone.
+Resume [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md):
+inspect exact pinned capture/generation semantics, then price any necessary new
+observation before launch. No codec fit/source call selected; full validation
+remains in force. Older preparation/live paragraphs below historical.
 
 ### Current resumption: qualified teacher histories and finite joint recovery
 

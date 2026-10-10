@@ -6,10 +6,12 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
-**Current, 10 October11:29:** source-readout worker exit0/604.844s, all48 cases
-and8808 labels retained; alignment FAIL pending independent stored audit.
-No codec fit. Session71059 CLOSED/launcher28460/worker12572 gone.
-User revoked temporary Fail-Fast instruction; complete validation restored.
+**Current, 10 October:** [source-readout](SOURCE_FINAL_READOUT_RESULT_20261010.md)
+and full stored audit COMPLETE; alignment FAIL on3/53 in one DEV conversation.
+[Margins](SOURCE_READOUT_MARGIN_RESULT_20261010.md): positive-gap drift in both
+readouts, not exact teacher ties. All workers gone; no codec fit/new source
+call selected. Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md).
+Full validation remains in force; earlier status paragraphs historical.
 
 **Current, 10 October11:12:** implement source final readout alignment first;
 four tools AST PASS/binding preparation, no new result yet. ALL48 h24/8808
