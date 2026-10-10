@@ -1,0 +1,47 @@
+{
+  "freeze": "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+  "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+  "launcher_freeze": "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_launch_binding_20261010.json",
+    "bytes": 3038,
+    "sha256": "a1d1aa65b8b3e908886b6f2eeadb685854011ad8ec84852324d414ef634ca401"
+  },
+  "launcher_pid": 23256,
+  "limits": {
+    "seconds": 18000,
+    "reserve_seconds": 1800,
+    "OS_bytes": 34359738368,
+    "GPU_allocated_bytes": 10737418240,
+    "GPU_reserved_bytes": 11811160064,
+    "output_bytes": 150323855360,
+    "free_disk_bytes": 25769803776,
+    "log_bytes": 8388608,
+    "child_seconds": 100,
+    "stream_seconds": 300
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_campaign.py",
+    "--capture-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_binding_20261010.json",
+    "--binding-sha",
+    "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+    "--freeze",
+    "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 2968,
+  "worker_creation_time": 1791656179.7136545
+}

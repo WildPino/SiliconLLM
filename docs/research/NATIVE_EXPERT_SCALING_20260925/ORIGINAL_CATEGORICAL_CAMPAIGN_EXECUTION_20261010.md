@@ -27,7 +27,7 @@ PID30384 created20:13:12 local, CLOSED exit0; no numerical model execution.
 Holder [binding](original_categorical_campaign_launch_binding_20261010.json)
 SHA256 `a1d1aa65b8b3e908886b6f2eeadb685854011ad8ec84852324d414ef634ca401`,
 .047s preparation. Actual resolved imported runtime/DLL/Python files sealed.
-Numeric and launcher Git freeze filled after the coherent commit below.
+Numeric and launcher Git freeze `c9c04dfe27285a578d9c42c7b333e41eecd110a7`.
 
 ## Structural qualification and retained first fault
 
@@ -55,7 +55,7 @@ control admission. No T4 allocation.
 Commands from repository root (PowerShell; replace freeze with recorded commit):
 
 ```powershell
-$taskFreeze = '<recorded coherent numeric/launcher commit>'
+$taskFreeze = 'c9c04dfe27285a578d9c42c7b333e41eecd110a7'
 & 'C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe' -I -S -B -X utf8 benchmarks/native_expert_scaling/original_categorical_campaign_launch.py --binding docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_binding_20261010.json --binding-sha 7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f --launch-binding docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_launch_binding_20261010.json --launch-binding-sha a1d1aa65b8b3e908886b6f2eeadb685854011ad8ec84852324d414ef634ca401 --freeze $taskFreeze --launch-freeze $taskFreeze --directory results/native_expert_scaling/original_categorical_campaign_20261010 --out docs/research/NATIVE_EXPERT_SCALING_20260925/original_categorical_campaign_result_20261010.json
 ```
 
@@ -66,3 +66,18 @@ Start only after producer exact session/worker/children are CLOSED and terminal
 exit0/errornull/full seals. A structured interrupted result still needs its
 completed-prefix audit; exit0 is not a scientific PASS. If holder kills/unseals,
 separate custody recovery is required. Never overwrite consumed namespace.
+
+## Authoritative live start
+
+Producer unified session22911; holder23256 created20:16:05+02:00;
+worker2968 created20:16:19+02:00, psutil creation1791656179.7136545.
+Live receipt records exact command/bindings/caps. At the first observation,
+rewriting008 direction1 had reused its stored gradient/current C and begun
+the NEW alpha.0001 finite proposal. No complete direction or campaign claim.
+Inputs/criteria/code remain immutable; monitor exact session until terminal,
+then full stored audit. Do not run another owned benchmark while live.
+
+Focused online follow-up while waiting:
+[quantized-direction information note](QUANTIZED_DIRECTION_INFORMATION_NOTE_20261010.md).
+Two primary papers and stable-cell rank derivation; no concurrent numerical
+run, change of learning rule or conclusion about unobserved campaign quality.

@@ -97,8 +97,8 @@ protocols/results/bindings immutable. Parent grouped3-step audit COMPLETE;
 Windows longdouble gap resolved before it, all first faults retained.
 
 [Full24-FIT conversion](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md):
-IMPLEMENTED/reviewed synthetic preflight PASS/actual campaign UNEXECUTED at
-preparation. [Protocol](ORIGINAL_CATEGORICAL_CAMPAIGN_PROTOCOL_20261010.md),
+IMPLEMENTED/reviewed synthetic preflight PASS/actual producer LIVE.
+[Protocol](ORIGINAL_CATEGORICAL_CAMPAIGN_PROTOCOL_20261010.md),
 [execution record](ORIGINAL_CATEGORICAL_CAMPAIGN_EXECUTION_20261010.md).
 First current saved gradient/C reused;23 fresh per-case histories,48 actual
 finite candidates with exact both-trial archives/all110 packing/full independent
@@ -110,8 +110,12 @@ BEFORE consumption from prior134s/trial +39s/archive. No T4. Preserve original
 fixture and exclusive-writer registration fault; reviewed fixture PASS/no LLM
 execution. Exact actual master-transition helper/probe COMPLETE/full audit
 QUALIFIED/freeze924be56; [result](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md).
-Next coherent freeze, held producer, then exhaustive stored audit even quality
-failure. No owned live worker at this preparation snapshot.
+Freezec9c04df. Producer session22911/holder23256 created20:16:05+02:00,
+worker2968 creation1791656179.7136545. First NEW candidate in progress; no
+completed24-case or quality claim. Exact-session observation until terminal,
+then exhaustive stored audit even quality failure; NEVER restart live. No
+other owned benchmark. [Focused primary-paper/algebra follow-up](QUANTIZED_DIRECTION_INFORMATION_NOTE_20261010.md)
+adds stable-cell operator-rank diagnostic, no concurrent numerical run.
 [Scale geometry/n](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md): conditional
 n/gauge derivation, optional neutral-direction correction UNTESTED. Dense
 converter memory still grows with n; no100B memory/quality admission.
