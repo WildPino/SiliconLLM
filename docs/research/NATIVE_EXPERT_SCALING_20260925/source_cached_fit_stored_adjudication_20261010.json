@@ -1,0 +1,370 @@
+{
+  "schema": "SOURCE_CACHED_FIT_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_cached_fit_result_20261010.json",
+    "bytes": 141583,
+    "sha256": "af5a8b640249de5ff84e56e13ca546a015b6fd2b6a04ac68ebbb1582f16cd506"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_cached_fit_binding_20261010.json",
+    "bytes": 656929,
+    "sha256": "4116baa7da2763753b5516f7db090b3473f12f372dd090ad5781dca524cae248"
+  },
+  "decision": "PAIRED_CACHED_FIT_PASS",
+  "gates": {
+    "tokens_exact": true,
+    "old_logits_exact": true,
+    "paired_norm_exact": true,
+    "paired_head_exact": true
+  },
+  "records": [
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "labels": 118,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023208869899550393,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.19853290042374283,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "labels": 33,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023301163181416915,
+      "scalar_head_witnesses": 20,
+      "max_scalar_head_absolute_delta": 0.20070657237010892,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "labels": 200,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0024103839649633634,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.0852316351083573,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "labels": 174,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.002353702325020503,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.12391950085293502,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "labels": 18,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0024441823431146587,
+      "scalar_head_witnesses": 12,
+      "max_scalar_head_absolute_delta": 0.13614670200331602,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "labels": 13,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023629734703265663,
+      "scalar_head_witnesses": 12,
+      "max_scalar_head_absolute_delta": 0.11286641539845732,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "labels": 155,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0022525681727429115,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.13878596044014557,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023207956497945824,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.1693121695134323,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023083654367638965,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.1371350217013969,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023149796473528727,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.15685856857453473,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023269019217305835,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.16515991842607036,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023127190495231134,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.14906914906896418,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023054567513411074,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.19950133794918656,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023050633462780596,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.15117253200878622,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "labels": 180,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0022892481802293716,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.111518252143469,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "labels": 189,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023716138548181805,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.1276180127151747,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023145555073695663,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.0900018913380336,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023509009690296247,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.10597158537711948,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "labels": 90,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.002312043982999744,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.13409001132367848,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023165629224344395,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.12836124436580576,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "labels": 61,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023156978786096193,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.08100481934707204,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "labels": 119,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023760259511540227,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.13166111797909252,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023124429601756903,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.14199520857073367,
+      "exact_old_logits_imply_KL_zero": true
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "labels": 256,
+      "gates": {
+        "tokens_exact": true,
+        "old_logits_exact": true,
+        "paired_norm_exact": true,
+        "paired_head_exact": true
+      },
+      "norm_feature_relative_RMS": 0.0023463613823306575,
+      "scalar_head_witnesses": 24,
+      "max_scalar_head_absolute_delta": 0.12283935964296688,
+      "exact_old_logits_imply_KL_zero": true
+    }
+  ],
+  "complete_input_output_hashes": true,
+  "all_source_parameter_values_before_after_exact": true,
+  "frames_checked": 4422,
+  "numeric_bytes": 1213555992,
+  "scalar_head_witnesses": 548,
+  "max_scalar_head_absolute_delta": 0.20070657237010892,
+  "max_norm_feature_relative_RMS": 0.0024441823431146587,
+  "source_history_forwards": 0,
+  "new_full_head_contractions": 0,
+  "optimizer_updates": 0,
+  "seconds": 9.609000000000378,
+  "scope": "Full stored FIT capture audit, all hashes/frames/exact gates plus analytic norm and scalar head witnesses; no codec or DEV fit."
+}

@@ -1,21 +1,11 @@
 # Native expert scaling: research control index
 
-**LIVE, 10 October12:26:** coherent FIT capture session90559/launcher20972 created12:25:49/worker22192 created12:25:54, freeze f2f40118792a56d978d048c45889b838f144b2ca, binding4116baa7. Poll SAME handle until terminal and Win32 PIDs gone; then frozen300s stored audit.24 FIT/4422 labels expected; no concurrent owned benchmark, codec fit, T4 or DEV generation. Older status below superseded.
-
-**Current preparation, 10 October:** [FIT paired final-state protocol](SOURCE_CACHED_FIT_PROTOCOL_20261010.md) implemented/AST and binding validation PASS. Binding4116baa7/114 inputs5,530,886,470B.24 FIT/4422 labels; no capture launched yet. Full stored audit follows regardless of scientific outcome; Fail-Fast revoked. New observable only, no codec fit/optimizer/native/DEV/RESERVED generation. Capture1500s/OS8GiB/GPU10-11GiB/output2GiB; audit300s/OS1GiB. Latest completed one-case qualification remains PASS. Older preparation/live status below historical; this paragraph is authoritative.
-
-10 October2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-Matched recovery training/assessments/independent adjudication COMPLETE.
-First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hashes.
-Target/readout control and independent audit COMPLETE; coupling branch selected.
-Source final readout and full independent audit COMPLETE; alignment FAIL.
-Bounded margin diagnosis COMPLETE:3 positive-gap changes, not teacher ties.
-[Paired cached-state control](SOURCE_CACHED_FINAL_RESULT_20261010.md) and full
-stored audit COMPLETE/PASS. Exact53 old tokens/logits and own-state norm/head.
-First startup fault/overlap retained; repaired consumed code immutable.
-All owned sessions/PIDs CLOSED. No codec fit/T4; complete validation in force.
-No T4 allocation. [METHOD](METHOD.md),
-[PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
+10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
+[Coherent FIT capture and full audit](SOURCE_CACHED_FIT_RESULT_20261010.md)
+COMPLETE/PASS:24 FIT/4422 exact paired labels; all owned sessions/PIDs CLOSED.
+Next ONE paired output codec; no codec fit or T4 allocated.
+[METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
+[exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
 ## Goal and constraints
 
@@ -40,42 +30,28 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 
 ## Latest decisive evidence
 
-[New paired cached-state evidence](SOURCE_CACHED_FINAL_RESULT_20261010.md): actual
-cached h24 differs from retained prefill by1.1708%RMS/postnorm.5550%, including
-the first label; source parameters411/all input-output hashes PASS.90 observed
-F32->BF16 cache coordinates exactly audited, not unique causal attribution.
-Same-call53 logits/norm reconstruct EXACT; held46.125s+14.313s audit. One new
-generation/53 base+53 source heads+53 reconstructions, no optimizer/native calls.
-Original ALL48 prefill alignment FAIL remains. [RMS-compatible representations](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md)
-derived, not measured. [Current next](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md):
-coherent FIT final features then one paired codec.24 FIT costs548.904s already
-observed/4422 labels; new FIT capture not yet implemented/launched.
+[Coherent cached FIT final states](SOURCE_CACHED_FIT_RESULT_20261010.md): all24
+cases/4422 original tokens/logits and own-state norm/head EXACT. All411 source
+parameters and114 inputs/171 outputs sealed; complete stored audit checks all
+4422 frames/548 scalar head witnesses. Capture644.5s+audit21.281s, one source
+instance/24 generations,4422 base+source heads+extra reconstructions. No native
+or optimizer call. Offline coherent supervision, not converted-chatbot quality.
 
-[Source final readout](SOURCE_FINAL_READOUT_RESULT_20261010.md): ALL48/8808 labels,
-meanKL about.0005/dis<1%; frozen every-case gate fails on3/53 in one DEV case.
-Full independent audit PASS/all hashes/576 scalar witnesses. Held604.844s+
-177.391s audit, no source history/optimizer/native call. No codec fit.
-[Margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md): both readouts change
-the same3 IDs with positive teacher gaps; no exact top ties or better +/-1 shift.
-Held2.813s/all30 hashes PASS. Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md):
-inspect exact code/capture semantics before pricing any new source observation.
-Old preparation/live paragraphs below historical; all workers now gone.
+[Paired one-case source control](SOURCE_CACHED_FINAL_RESULT_20261010.md): cached
+versus retained prefill raw h24 RMS1.1708%/postnorm.5550%, including first label.
+Own norm/head and old53 logits EXACT; startup fault retained/90 rounding
+coordinates audited. [ALL48 source-readout alignment](SOURCE_FINAL_READOUT_RESULT_20261010.md)
+FAIL remains: meanKL about.0005/dis<1%, one case3/53 exceeds frozen5% gate.
+[Stored margin diagnosis](SOURCE_READOUT_MARGIN_RESULT_20261010.md): all3 positive
+teacher gaps, not exact ties or a better +/-1 offset. No unique drift cause claimed.
 
-[Matched actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md):48 actual
-new updates complete,24 perarm. A native DEV caseKL6.519307/disagreement89.789%;
-B6.516115/89.681%, both tasks0/16 versus useful source14/16. B centered-relative
-boundary error0.903887 versus A0.904681; the frozen preference FAIL. Relative
-KL recovery has not preserved useful chatbot behavior. Independent stored
-adjudication COMPLETE; numerical/source/resource gaps remain explicit.
-No accepted50/useful-n/DRAM/family admission.
-
-[New target/readout control](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md):
-actual51 head/gamma applied to exact retained h24P targets gives caseKL13.567112/
-13.567607 and disagreement99.9349%, versus native6.52 and uniform10.573558.
-All12 domains fail; independent full-V metric audit delta7.841e-12 PASS.
-Frozen branch TARGET_DECODER_COUPLING. Investigate a paired source output
-representation/normalization/head before further causal-history recovery;
-this does not establish a compact-state ceiling or an optimal decoder.
+[Actual51 recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md): A/B24
+updates each complete/native caseKL6.519307/6.516115, dis89.789%/89.681%, tasks
+0/16 versus source14/16. B preference FAIL; full audit all1890 extents87.519GB
+PASS, initial reserve/audit deadline faults retained. No completed dose replay.
+[Readout attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md):
+exact h24P with actual51 norm/head gives KL13.567112/13.567607/dis99.9349%,
+worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling.
 
 ## Key completed evidence and closed routes
 
@@ -94,55 +70,26 @@ this does not establish a compact-state ceiling or an optimal decoder.
 
 ## Exact resumption
 
-Original48 updates/native milestones/assessments are complete: never replay.
-Parent training reserve FAIL at6600s; missing B assessment completion exit0/
-265.656s, freeze f309ba52/bind2ff6afc9, parent fault preserved.
-First stored audit exit1 at2401.312s deadline after all A milestones/hashes.
-Missing-only [audit completion](ORIGINAL_JOINT_HISTORY_AUDIT_FINISH_PROTOCOL_20261010.md)
-freeze e8b17a5/bind7493e7ac COMPLETE exit0/session85445 CLOSED; launcher12840/
-worker21208 gone. Held2051.016s, science855.593/endseal1178.781s. All1890 sealed
-extents87.519GB PASS; audit SHA22110f81. A33/A39/A51 successes explicitly adopted,
-B33/B39/B51 independently completed; no fabricated exact A metric deltas.
-Both task decisions/gradient witnesses/export fields/real moments verified.
-First overlap rejection was prelaunch only; foreign uploader exited naturally.
-Keep all first faults. Target/readout bind2e95dc67/freeze67d2b03 COMPLETE exit0/
-150.531s; result SHA86c09283. Session37053 CLOSED/PIDs20132/4068 gone.
-Independent audit34538 CLOSED/PIDs21656/21452 gone, exit0/52.922s/SHA1d3c8f48.
-First overlap rejection retained; uploader exited naturally. All8772 F64 label
-metrics/hashes/decision arithmetic PASS. No owned worker remains live.
+Freeze ONE FIT-only paired codec algorithm/conditioning/precision/quality/cost
+protocol, then fit using the now-qualified cached FIT final features. The
+[output-weighted rank derivation](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md)
+provides a precise surrogate optimum and paired encoder/head; [original RMS
+geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md) supplies a255-direction carrier
+construction. Both prospective, unmeasured. Actual original state/norm/head F32.
+Do not substitute Euclidean feature energy or surrogate optimum for full-V KL/IDs.
 
-[Target/readout protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
-and four Python tools frozen with74 inputs; contractions and stored audit COMPLETE.
-Exactly two actual51 heads, same24 DEV/
-4386 labels; F64 lossless score storage4,599,124,512B, held900s/4GiB/5GiB outputs,
-independent stored audit600s. Same prospective interpretation as the
-[prior proposal](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md). No fitting,
-source/student history, optimizer, native calls or T4; injected control is
-diagnostic, not a converted chatbot or global compact-state ceiling.
-[Paired-codec investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md) reached its
-source-readout prerequisite; [complete result](SOURCE_FINAL_READOUT_RESULT_20261010.md)
-and audit confirm a localized strict ID alignment FAIL. [Stored margins](SOURCE_READOUT_MARGIN_RESULT_20261010.md)
-exclude exact teacher top ties in the3 failing positions. No worker live.
-Cached-state investigation now [complete in one case](SOURCE_CACHED_FINAL_RESULT_20261010.md).
-Resume [consistent FIT custody/paired codec](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md),
-with [explicit RMS geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md). Price/freeze
-necessary new FIT final features first, no completed DEV capture replay.
-No codec fit/width-rank grid/T4. Old72-label feasible head oracle reused, no replay.
-[Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
-papers/coverage algebra/product-key selection; provenance ledger retained,
-no new model observation or substitute for original-engine quality.
-[Readout/operator algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates
-projection/norm/head terms and the missing sigmoid in signed dReLU replicas;
-derived error conditions are not measurements or a capacity ceiling.
-[Existing structured routing](STRUCTURED_ROUTER_REUSE_20261010.md) reconnects
-METH53/54/58/104 with the papers; reuse their code, no new synthetic prototype.
-METH54 cost0.44049ms/273408 synthetic experts/10x ratio1.392 is historical
-component evidence; actual flat-router additive fidelity/useful n remain open.
-No further boundary capture/delta repair/numerical trace or unchanged long
-training dose selected; no T4. Original numerical/source/full-runtime/DRAM gaps remain.
+[Custody and codec next](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md): freeze the
+pair before matching DEV capture; reuse completed53-label DEV state/control if
+operators/custody match. No DEV refit, repeated FIT/source capture, rank/scale
+sweep or unchanged long recovery. Complete validation remains in force.
+Capture session90559 and audit6122 CLOSED/exit0; launchers20972/13068 and
+workers22192/26704 gone at12:37:11. Exact commands/SHA/costs in linked report.
 
-Keep full scope: useful chatbot ANDsame-artifact50, useful n/CPU IDs-mass/DRAM/
-family~10B~100B remain missing. Longalign8186-20874 unqueried;104 new+64 old
-RESERVED untouched. Capture-consumed historical NEXT bytes remain in the
-[byte archive](original_engine_transfer_next_frozen_20261009.md.txt).
-Exact commands/SHA/costs in linked reports; never repeat a completed update.
+[Operator/readout algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates norm,
+projection/head and missing SwiGLU sigmoid; [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md)
+and [structured router reuse](STRUCTURED_ROUTER_REUSE_20261010.md) support
+specific hypotheses, not quality admission. METH54 historical synthetic
+273408-expert routing .44049ms/10x ratio1.392, no demonstrated useful n.
+Useful same-artifact50, CPU IDs/mass/physical DRAM and family scaling remain open.
+Longalign8186-20874 unqueried;104 new+64 old RESERVED untouched. Consumed NEXT
+bytes retained in [archive](original_engine_transfer_next_frozen_20261009.md.txt).

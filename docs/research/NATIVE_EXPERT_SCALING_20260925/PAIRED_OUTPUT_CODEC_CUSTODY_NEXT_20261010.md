@@ -1,8 +1,8 @@
 # Next: consistent FIT output features, then one paired original-engine codec
 
-10 October2026. FIT capture LIVE under frozen f2f4011 protocol/binding4116baa7,
-session90559/launcher20972/worker22192. No codec fit. Goal ACTIVE/INCOMPLETE.
-All prior source/control workers gone; no T4 allocation.
+10 October2026. [FIT capture/full audit](SOURCE_CACHED_FIT_RESULT_20261010.md)
+COMPLETE/PASS under frozen f2f4011 protocol/binding4116baa7; sessions90559/6122
+CLOSED. No codec fit. Goal ACTIVE/INCOMPLETE; all owned workers gone/no T4.
 
 ## Resolved uncertainty and reusable procedure
 
@@ -31,7 +31,8 @@ payload with raw/observed/reconstructed norm and two BF16 score streams is
 4422*(3*2048*2+2*65537*2)=1,213,555,992B; metadata remains extra. No cap has
 been selected by the original prospective memo; the separately frozen
 [SOURCE_CACHED_FIT_PROTOCOL](SOURCE_CACHED_FIT_PROTOCOL_20261010.md) now implements
-and runs that capture with1500s/2GiB and a complete300s stored audit.
+completed that capture in644.5s and full stored audit in21.281s; all24 FIT cases
+and4422 paired labels EXACT. Steps1-2 below are now COMPLETE, not a replay request.
 
 Original initializer original_falcon_learner.initialize uses p=packet.P[:,:256],
 head=sW p and projected diagonal final_norm=sum_i p_ij^2 gamma_i; it initializes
@@ -72,9 +73,9 @@ not another unchanged initializer/training dose.
 
 ## Resumption and full scope
 
-Current next safe action: retain the LIVE exact capture handle through exit
-and full stored audit. Then review/freeze ONE representation variable before
-fitting or matching DEV capture. The [output-weighted rank derivation](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md)
+Current next safe action: review/freeze ONE representation variable using
+qualified FIT states before fitting or matching DEV capture. Do not repeat
+completed FIT/source observations. The [output-weighted rank derivation](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md)
 supplies a paired encoder/head and precise surrogate optimum; it is prospective,
 not measured. Native original head/state/norm are F32. Scientific compression
 still unexecuted. Useful RAM-driven expert capacity, structured
