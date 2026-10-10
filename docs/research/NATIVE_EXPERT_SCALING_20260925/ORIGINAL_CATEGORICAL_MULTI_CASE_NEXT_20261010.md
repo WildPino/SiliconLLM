@@ -1,6 +1,7 @@
 # Next: finite full-FIT conversion with actual discrete step acceptance
 
-10 October2026. PROPOSED/UNIMPLEMENTED/UNEXECUTED. Prerequisites now COMPLETE:
+10 October2026. Campaign PROPOSED/UNIMPLEMENTED/UNEXECUTED. Exact transition
+storage helper now IMPLEMENTED/fully qualified on actual92 masters, [result](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md). Prerequisites now COMPLETE:
 [grouped actual C descent](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) and
 [changed-point full causal audit](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md).
 These are useful numerical components, not a successful chatbot conversion.
@@ -27,7 +28,7 @@ One proposed bounded campaign is one epoch,24 case directions, first case
 rewriting008 then remaining cases in the immutable qualified FIT order.
 The objective is the mean of24 case losses, each giving the first response
 label.5 and all continuations together.5. An individual case direction is a
-one case component; local case acceptance cannot guarantee whole-FIT descent
+case component; local case acceptance cannot guarantee whole-FIT descent
 or generalization. Measure those questions separately at the final checkpoint.
 
 ## Proposed update and decision decomposition
@@ -66,7 +67,8 @@ The last observed free disk was~180.6GB before the changed-history2.827GB output
 Those estimates make a naive all-state layout unsuitable with a safe reserve.
 Do not launch a24-case producer and discover this only at its final audit.
 
-Implement exact bounded storage for accepted master transitions first, e.g.
+Exact bounded storage helper is implemented/qualified on one real transition:
+see the result above. Integrate accepted master transitions with
 chunked raw F32-bit XOR against the preceding state with lossless compression,
 source/target raw hashes and chunk extents. This is a reversible bit encoding,
 not quantization or replay of floating-point optimizer arithmetic. Retain fresh
@@ -77,9 +79,11 @@ all exports. Raw fallback and a hard per-campaign output cap are required;
 do not assume favorable compression or silently discard rejected trials.
 Zero-gradient groups and fixed head/norm should encode unchanged bits exactly.
 
-The next concrete coding action is this storage/custody helper and campaign
-runner, followed by a frozen structural/binding preflight. Existing data/code
-remain immutable. No actual new24-case run or storage experiment has occurred.
+The next concrete coding action is the full24-case campaign runner and storage
+helper integration, followed by frozen structural/binding preflight. Existing
+data/code remain immutable. One real storage experiment/audit is COMPLETE; no
+24-case campaign has run. Exact future raw fallback/cap behavior must remain
+explicit; the measured15.49x ratio is not a guarantee.
 
 ## Cost and mathematical problems remaining
 

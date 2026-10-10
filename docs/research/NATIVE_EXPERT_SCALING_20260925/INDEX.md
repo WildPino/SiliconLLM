@@ -1,9 +1,8 @@
 # Native expert scaling: research control index
 
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-[Latest changed-point causal bridge](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md):
-COMPLETE/full independent audit/all numericPASS; absolute sample qualityFAIL.
-Master-transition helper/probe IMPLEMENTED/structural PASS/sealed; UNEXECUTED.
+[Latest lossless master-transition custody](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md):
+COMPLETE/full independent audit/all721008128 F32 words exact; prior qualityFAIL.
 All owned jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
@@ -30,6 +29,14 @@ budget and stops before allocating; none allocated by latest work.
 | Pretrained chatbot conversion | Useful Falcon1.5B; source-informed original learner/export; qualified boundaries; compiled categorical supervision; numeric causal bridge at initial AND changed weights; actual grouped local C descent | Useful learned history/functions/own-history chatbot/family variants |
 
 ## Latest decisive evidence
+
+[Actual lossless master transition](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md):
+all92 tensors/721008128 words reconstructed exactly by independent Python
+integer-byte XOR. Raw2.884GB->archive186.158MB (15.4924x), all hashes/offsets/
+shapes/counts PASS. Copy35/compressed719/raw0 chunks, raw fallback fixturePASS;
+future compression not guaranteed. Held214.313s/CPU only/no numerical
+proposal/history/backward/native/GPU/optimizer/source/DEV/T4 replay. Converter
+custody component, no new quality/capacity claim; dense master RAM stillO(n).
 
 [Changed-point GPU/backward/full stored audit](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_RESULT_20261010.md):
 actual selectedalpha.00192-master state; ONE new GPU58-ID history/backward,
@@ -93,11 +100,15 @@ Windows longdouble gap resolved before it, all first faults retained.
 PROPOSED/UNIMPLEMENTED, use current changed-point saved gradient and existing C
 for first new displacement/no repeated preflight. Then fresh per-case directions,
 original C finite acceptance, all24FIT4422/all24DEV4386/own-history tasks on final
-SAME artifact. Histories58..1507 retained. Bounded exact master transition helper/probe IMPLEMENTED/structural PASS,
-actual encoding/full audit UNEXECUTED; [protocol](ORIGINAL_MASTER_TRANSITION_PROTOCOL_20261010.md).
+SAME artifact. Histories58..1507 retained. Bounded exact master transition helper/probe COMPLETE/full independent audit
+QUALIFIED; [result](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md).
+Producer47256/holder20444/worker12620 creation1791653015.8990896 and audit
+83350/holder31404/worker26784 creation1791653109.2523856 CLOSED/exit0.
+Freeze924be56/bindings7d2eb8e9/a6fec134/resultaaa5dc89/adjudication7383203b.
 Naive24-gradient+master+48-pack layout exceeds safe disk.
 Freeze complete numeric/resource/quality/counter/audit gates before launch.
-No24-case campaign/storage experiment executed; local resources/noT4 proposed.
+One actual storage experiment/full audit COMPLETE;24-case campaign runner
+UNIMPLEMENTED/UNEXECUTED, integrate helper before frozen launch. Local/noT4 proposed.
 [Scale geometry/n](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md): conditional
 n/gauge derivation, optional neutral-direction correction UNTESTED. Dense
 converter memory still grows with n; no100B memory/quality admission.
