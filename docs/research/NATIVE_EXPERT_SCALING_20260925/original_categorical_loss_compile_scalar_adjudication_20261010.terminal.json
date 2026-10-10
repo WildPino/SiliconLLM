@@ -1,0 +1,97 @@
+{
+  "freeze": "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+  "binding_sha256": "bcb329defd685e5327af892e9078a3728472bdbcd0601535435d9251e7cd23c7",
+  "launcher_freeze": "c40a8f2b937fde03264bfc290601c96fa822154b",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_audit_scalar_foreign_launch_binding_20261010.json",
+    "bytes": 4004,
+    "sha256": "a7cfa6ee0cdf3336b21d1f8a9a2af309670e29986e1c2f4995d1f6102ee19b0c"
+  },
+  "launcher_pid": 16756,
+  "limits": {
+    "seconds": 300,
+    "OS_bytes": 2147483648,
+    "output_bytes": 1048576,
+    "log_bytes": 4194304
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_loss_audit_scalar_adapter.py",
+    "--audit-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_binding_20261010.json",
+    "--binding-sha",
+    "bcb329defd685e5327af892e9078a3728472bdbcd0601535435d9251e7cd23c7",
+    "--freeze",
+    "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_scalar_adjudication_20261010.json",
+    "--source-result",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [
+    {
+      "pid": 18752,
+      "creation_time": 1791645408.5946991,
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\tools\\country_tournament\\youtube_uploader.py",
+        "--video",
+        "E:\\Volume E\\TikTokVideo\\tournament_elaborati\\tournament_20260929_091958.mp4",
+        "--schedule",
+        "2026-10-10T21:00:00"
+      ]
+    },
+    {
+      "pid": 23300,
+      "creation_time": 1791645408.5686436,
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\python.exe",
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\tools\\country_tournament\\youtube_uploader.py",
+        "--video",
+        "E:\\Volume E\\TikTokVideo\\tournament_elaborati\\tournament_20260929_091958.mp4",
+        "--schedule",
+        "2026-10-10T21:00:00"
+      ]
+    }
+  ],
+  "timing_control_admitted": false,
+  "worker_pid": 14892,
+  "worker_creation_time": 1791645494.8727083,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_scalar_adjudication_20261010.json",
+    "bytes": 3253,
+    "sha256": "9ba08a2cd668910995c5887eb645a8ae986645c42f6ec6b97ff895cbfe1ff4a0"
+  },
+  "outputs": [],
+  "extra_inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.json",
+      "bytes": 195317,
+      "sha256": "86b35caa2b9f3b15d40909776a5b2c09d1c491d5644146bed144e0e0563a1d74"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.terminal.json",
+      "bytes": 46648,
+      "sha256": "5f13c75c682ae0766b3e6ee1bb3b60709c1ed299944d63761c8ff245371f47b5"
+    }
+  ],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 86.56299999999828,
+  "worker_OS_peak_through_exit": 570540032,
+  "launcher_OS_peak_snapshot": 29777920,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_scalar_adjudication_20261010.worker.log",
+    "bytes": 5642,
+    "sha256": "01a07dcd4fb21dfbd443f736fcf2d0ca0bc7bf8306e06c23a0cc3c8baa4889b6"
+  }
+}

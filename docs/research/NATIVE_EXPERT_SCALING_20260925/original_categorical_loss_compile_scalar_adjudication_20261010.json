@@ -1,0 +1,75 @@
+{
+  "schema": "ORIGINAL_CATEGORICAL_LOSS_AUDIT_V1",
+  "freeze": "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.json",
+    "bytes": 195317,
+    "sha256": "86b35caa2b9f3b15d40909776a5b2c09d1c491d5644146bed144e0e0563a1d74"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_binding_20261010.json",
+    "bytes": 400337,
+    "sha256": "bcb329defd685e5327af892e9078a3728472bdbcd0601535435d9251e7cd23c7"
+  },
+  "decision": "LOSS_SUPERVISION_QUALIFIED",
+  "numeric_flags": {
+    "all_moments": true,
+    "all_entropy": true,
+    "all_source_mass": true,
+    "scalar_moments": true,
+    "scalar_gradients": true,
+    "witness_arrays": true,
+    "loss_identity": true,
+    "gradient_identity": true,
+    "scalar_loss": true,
+    "target_mass": true
+  },
+  "complete_input_output_hashes": true,
+  "split_boundary_verified": true,
+  "all8808_moments_entropy_argmax_checked": true,
+  "all72_loss_gradient_witnesses_checked": true,
+  "scalar_moment_witnesses": 24,
+  "scalar_gradient_witnesses": 12,
+  "scalar_loss_witnesses": 72,
+  "max_moment_absolute_delta": 3.652189661806915e-11,
+  "max_entropy_absolute_delta": 3.3661962106634746e-13,
+  "source_probability_mass_error": 5.100364575127969e-13,
+  "witness_metrics": {
+    "loss_absolute_delta": 2.2107446082109128e-13,
+    "gradient_absolute_delta": 1.4367986401336852e-11,
+    "scalar_loss_absolute_delta": 1.2434497875801753e-14,
+    "target_probability_mass_error": 3.241851231905457e-14,
+    "scalar_moment_absolute_delta": 2.0872192862952943e-13,
+    "scalar_gradient_absolute_delta": 4.607859233063394e-19
+  },
+  "witness_array_comparison": {
+    "direct_loss": 1.687079295709104e-13,
+    "compiled_loss": 3.197442310920451e-14,
+    "direct_gradient": 1.2191616639845027e-11,
+    "compiled_gradient": 2.1174173525650986e-12
+  },
+  "labels_verified": 8808,
+  "source_probability_rows": 8880,
+  "target_probability_rows": 72,
+  "stored_loss_gradient_witnesses": 72,
+  "source_calls": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "GPU_calls": 0,
+  "SVD_calls": 0,
+  "OS_peak": 570540032,
+  "seconds": 81.70400000000154,
+  "scope": "Full independent stored supervision audit. Real fixed-head identities, not finite-precision GPU/native training equivalence or chatbot/speed admission.",
+  "serialization_adapter": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_loss_audit_scalar_adapter.py",
+    "bytes": 1623,
+    "sha256": "c4f065cf0f5f5bab47ea5cebb26cfc22cc12a5a4c355df0e43423ad5e013e9c3"
+  },
+  "retained_first_audit_fault": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_stored_adjudication_20261010.terminal.json",
+    "bytes": 9207,
+    "sha256": "893e0cbf7936f8c6f5d701f4f9e53481dd4d49b433ab59249ef4dcd0b577da49"
+  },
+  "mathematical_algorithm_and_thresholds_unchanged": true,
+  "extra_complete_audit_label_pass": 8808
+}
