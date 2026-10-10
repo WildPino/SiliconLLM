@@ -1,8 +1,8 @@
 # Pretrained-to-native conditional-capacity method
 
-**Prepared, 10 October:** original categorical causal preflight runner/holder AST PASS, reviewed binding 5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b; holder f80af6da6f48d10d18060ded6feddec2466dbe4ad9afa737b44c8c2be38d483a. Frozen 900s producer +900s stored audit, all90 gradient tensors; no worker yet. Preliminary binding retained separately and superseded before any numeric consumption by the reviewed binding (audit false diagnostics remain auditable). Full goal ACTIVE/INCOMPLETE.
+**Current, 10 October:** [original categorical causal bridge/full stored audit](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md) COMPLETE/CAUSAL_BRIDGE_QUALIFIED_PENDING_TRAINING. One new original58-ID forward/backward/C prefix; all92 parameters/90 gradient tensors/108 unchanged packed fields/routes/mass/witnesses and full hashes PASS. Dense/compiled loss2.2737e-13/gradient3.2685e-13; GPU/C scores.000386641/KL.000156436/zero argmax differences; independent delta1.8474e-12. Quality FAIL caseKL146.950513/18of18 wrong. Held280.859s, OS producer11.0124GB/audit6.6702GB/GPU allocated.6014GB; all owned CLOSED. No optimizer/source/DEV/RESERVED/T4. Next [grouped trust-step geometry](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md) algebra/plan only, tool/update UNIMPLEMENTED: saved gradients, scale-aware per-expert/core displacement and actual discrete C descent, no baseline replay. Full goal incomplete; older statuses below historical.
 
-**Current preparation, 10 October:** [original categorical causal preflight](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_PROTOCOL_20261010.md) runner/holder IMPLEMENTED/AST PASS; binding being sealed, UNEXECUTED. ShortestFIT rewriting008 history58/labels18; one NEW original GPU forward/backward and original C prefix, fixed coherent head/norm, no optimizer. Producer900s/OS24GiB/GPU6-8GiB/output4GiB plus full stored audit900s/OS12GiB. All90 gradient tensors retained. Initial prebinding Torch non-path metadata fault retained/corrected before numeric consumption. No new source/DEV/RESERVED/T4; full goal incomplete. Older statuses below historical.
+
 
 **Current, 10 October:** [fixed native-head supervision compiler/full audit/FIT handoff](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md) COMPLETE/LOSS_SUPERVISION_QUALIFIED: all8808 moments/entropy/IDs,72 dense/compiled loss-gradient checks, all hashes/scalars PASS. Maxmomentdelta3.6522e-11,loss2.2107e-13,gradient1.4368e-11. Numerical payload18.144MB vs1.1545GB BF16 (63.628x); held239.047s including first JSON fault, handoff1.391s/24FIT4422 labels/DEV excluded. First serialization fault and uploader prelaunch rejection retained; scalar adapter only, same maths/tolerances. All owned CLOSED. Causal adapter IMPLEMENTED/AST PASS/UNEXECUTED; [next one-case original bridge](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md) runner/binding UNIMPLEMENTED, shortestFIT rewriting008 history58/labels18, fixed coherent F32 head/norm with training-only F64 readout. No model/source/native/optimizer/SVD/GPU/T4 call yet; full goal incomplete, older statuses historical.
 **Current, 10 October:** [analytic onset head/full shifted audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md) COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742, FITfirst0/24 errors but DEVfirst19/24. One packed head,109 other fields exact; all8808 probabilities/uncertainties/fusion/hashes PASS, maxKLdelta4.0473e-11. First unshifted audit fault retained with unsaved maximum/cause unresolved; same thresholds, new normalizer independently passes. Held265.062s including failed audit, all owned CLOSED. [Next original categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md) PROPOSED/UNIMPLEMENTED: fixed native-head moment/entropy compiler, loss/gradient qualification, then NEW coherent core/bank training with explicit onset weight. No optimizer/source/native/GPU/SVD/T4 call in this family; full goal incomplete, older statuses historical.
@@ -30,6 +30,30 @@ This is the procedure in construction, not a completed universal converter.
 [INDEX](INDEX.md) gives the current resumption. Older procedure/history is
 preserved BYTE in [method through pilot](METHOD_THROUGH_HYBRID_PILOT_20261008.md)
 and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historical.
+
+## Executable original categorical causal qualification
+
+The fixed-head compiler and FIT-only readonly consumer now feed
+`original_categorical_history_learner.py`. The preflight tool
+`original_categorical_causal_preflight.py` and held launcher
+`original_categorical_causal_preflight_launch.py` execute and audit one original
+causal forward/backward/export/native prefix with canonical F32 head/norm.
+[Protocol](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_PROTOCOL_20261010.md),
+[result/input/output/commands/costs](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md).
+
+Inputs are the immutable actual27 model/packed checkpoint, qualified fixed-H
+supervision/audit and one shortest FIT teacher boundary. No old Adam is loaded.
+Outputs include all90 gradients, original-format candidate, full native scores,
+routes/mass/witnesses and independently audited numerical receipts. F64 readout
+is training-only; original C remains F32 and all108 other packed fields exact.
+The surrogate nonlinear adjoint is explicitly retained; finite gradient custody
+is not an independent derivation of every STE or proof of discrete descent.
+
+Numerical bridge validated on one58-ID/18-label history; candidate quality FAIL.
+It is not a trained conversion, held-out/generative quality or useful50 result.
+[Next step](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md) separates normalized
+state geometry, group parameter units and actual quantized/routed execution.
+Its grouped update/export runner is UNIMPLEMENTED; no long campaign qualified.
 
 ## Required result and actual scope
 

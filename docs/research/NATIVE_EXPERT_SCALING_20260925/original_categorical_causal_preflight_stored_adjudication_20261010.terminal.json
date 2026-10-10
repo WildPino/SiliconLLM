@@ -1,0 +1,74 @@
+{
+  "freeze": "47e09b202c2893f57fb6cdca7b25ede956f2d80d",
+  "binding_sha256": "5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b",
+  "launcher_freeze": "47e09b202c2893f57fb6cdca7b25ede956f2d80d",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_launch_binding_20261010.json",
+    "bytes": 1681,
+    "sha256": "f80af6da6f48d10d18060ded6feddec2466dbe4ad9afa737b44c8c2be38d483a"
+  },
+  "launcher_pid": 29300,
+  "limits": {
+    "seconds": 900,
+    "OS_bytes": 12884901888,
+    "output_bytes": 2097152,
+    "log_bytes": 8388608
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_causal_preflight.py",
+    "--audit-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_reviewed_binding_20261010.json",
+    "--binding-sha",
+    "5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b",
+    "--freeze",
+    "47e09b202c2893f57fb6cdca7b25ede956f2d80d",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_stored_adjudication_20261010.json",
+    "--source-result",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 27164,
+  "worker_creation_time": 1791648026.0017524,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_stored_adjudication_20261010.json",
+    "bytes": 1741,
+    "sha256": "20994d30cc3605b6eb7db1e2bb3e1983168887674c391ab708a04550a7aa4602"
+  },
+  "outputs": [],
+  "extra_inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_result_20261010.json",
+      "bytes": 74225,
+      "sha256": "363969c296b2d0ec84cef2b23d7e278b6b2f895b997b069a3b76f23ec157f64b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_result_20261010.terminal.json",
+      "bytes": 8335,
+      "sha256": "a5e6380fddf86c8a704a4ad138dbc4352bb1df529f872bd0a0fdbe4b480e19c7"
+    }
+  ],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 124.375,
+  "worker_OS_peak_through_exit": 6639230976,
+  "native_OS_peak": 0,
+  "observed_native_children": [],
+  "launcher_OS_peak_snapshot": 30924800,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_stored_adjudication_20261010.worker.log",
+    "bytes": 87,
+    "sha256": "d94058bde479b0c91a49a3f83bd401ebdad8debe558cc1cbd7cdbdb8b7833401"
+  }
+}

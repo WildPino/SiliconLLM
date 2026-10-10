@@ -1,0 +1,162 @@
+{
+  "freeze": "47e09b202c2893f57fb6cdca7b25ede956f2d80d",
+  "binding_sha256": "5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b",
+  "launcher_freeze": "47e09b202c2893f57fb6cdca7b25ede956f2d80d",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_launch_binding_20261010.json",
+    "bytes": 1681,
+    "sha256": "f80af6da6f48d10d18060ded6feddec2466dbe4ad9afa737b44c8c2be38d483a"
+  },
+  "launcher_pid": 5560,
+  "limits": {
+    "seconds": 900,
+    "reserve_seconds": 120,
+    "OS_bytes": 25769803776,
+    "GPU_allocated_bytes": 6442450944,
+    "GPU_reserved_bytes": 8589934592,
+    "output_bytes": 4294967296,
+    "log_bytes": 8388608,
+    "child_seconds": 100
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_causal_preflight.py",
+    "--capture-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_reviewed_binding_20261010.json",
+    "--binding-sha",
+    "5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b",
+    "--freeze",
+    "47e09b202c2893f57fb6cdca7b25ede956f2d80d",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 30944,
+  "worker_creation_time": 1791647851.185734,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_result_20261010.json",
+    "bytes": 74225,
+    "sha256": "363969c296b2d0ec84cef2b23d7e278b6b2f895b997b069a3b76f23ec157f64b"
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\backward_feature_gradient.bin",
+      "bytes": 18432,
+      "sha256": "f3c88dadcaa7cdf11f85d7736f2f22b0e9867e606f05666892a0d9ba43c0e781"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\candidate_categorical_causal.packed",
+      "bytes": 520029440,
+      "sha256": "ea27f3a30c740f8cf60f794c0a5f0f9bb36554e55f00983bbd770e4e77ac1201"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\compiled_gradient.bin",
+      "bytes": 36864,
+      "sha256": "7e9e2cd5f2581eb923f71cfd16c530893f18132ba7cdfb9dd70ac26c16f3f0e5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\compiled_loss.bin",
+      "bytes": 144,
+      "sha256": "c73f842ee277fef260320ef63619d479676e888255c097143a98356a629307ef"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\direct_gradient.bin",
+      "bytes": 36864,
+      "sha256": "c9e1d0649339815163b68b871e3bb5d7b3fa5116932a92a51a082651a57253e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\direct_loss.bin",
+      "bytes": 144,
+      "sha256": "ffa54171e24a48eb332c2ffa6a000717ece05bde906d3488d79d300d2e94bc41"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\features.bin",
+      "bytes": 18432,
+      "sha256": "020ba056b716d8dc4959456ba35f06979c8bac72d99cf4b9693472e6d18691d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\GPU_logits.bin",
+      "bytes": 9437328,
+      "sha256": "0bdceb1e50f2819d31d3e9e00deb4eece3a9591c8e3bfa4b4fa837c28398b93b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\gradients.pt",
+      "bytes": 2816948868,
+      "sha256": "928adcde12a3e70fa7975e4c9ce6ffa510089d4512a2fc31541a04df1e621c3d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.receipt.json",
+      "bytes": 1164,
+      "sha256": "e78c7a12cac7c1a931bad233ee4a6d31ab009f84bfdd4acc29d1c59d2fd3fa43"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.routes",
+      "bytes": 22272,
+      "sha256": "3c22d4178aaece1f99e826cd789d2e6c8b7d4c9f95fa7d74bc0747570dc01a69"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.scores.f32",
+      "bytes": 15204584,
+      "sha256": "10235b96ef575ddb0fc937dd27cd667160b891dd3ad1ff68815c23ac089f6adb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.summary.json",
+      "bytes": 306,
+      "sha256": "005717287796a6770ed58e330539ce91ecc71bf495f62ebd66734a39154e4863"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.witness",
+      "bytes": 73728,
+      "sha256": "bc1677ce2a80589fe1f2ceb2568dfb3768f3162731635c457d7866a16ba5b830"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\query.u32",
+      "bytes": 236,
+      "sha256": "f3307a933f76b8e0dca155fc5e316bc511b3b74a88242b591315113fd5da47f9"
+    }
+  ],
+  "extra_inputs": [],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 156.48399999999674,
+  "worker_OS_peak_through_exit": 10453270528,
+  "native_OS_peak": 527507456,
+  "observed_native_children": [
+    {
+      "pid": 23300,
+      "creation_time": 1791647968.1011724,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\candidate_categorical_causal.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_causal_preflight_20261010\\native.summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    }
+  ],
+  "launcher_OS_peak_snapshot": 31621120,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_causal_preflight_result_20261010.worker.log",
+    "bytes": 3295,
+    "sha256": "26a28f3d7d13c07824483610239b960bb1026ecee401447d4ec2c4157373727e"
+  }
+}

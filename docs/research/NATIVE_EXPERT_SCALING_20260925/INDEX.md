@@ -1,10 +1,9 @@
 # Native expert scaling: research control index
 
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-[Latest converter component](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md):
-fixed native-head supervision COMPLETE/full audit/FIT consumer PASS.
-Causal adapter + preflight runner/holder IMPLEMENTED/AST PASS, reviewed binding sealed; no numeric worker launched. Previous owned jobs CLOSED.
-[METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md) retain procedure/history.
+[Latest original causal bridge](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md):
+COMPLETE/full stored audit/numeric PASS; case quality FAIL, no parameter update.
+All owned jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
 
@@ -26,66 +25,63 @@ budget and stops before allocating; none allocated by latest work.
 
 | Question | Established | Missing |
 |---|---|---|
-| Affordable useful conditional capacity | Original LUT/ternary/SSM/SWA; typed runtime-n packed backend; measured full-V raw envelope | Useful n/structured CPU IDs+mass/actualDRAM/useful same-artifact50 |
-| Pretrained chatbot conversion | Pinned useful Falcon1.5B; source-informed original learner/export/native chat; qualified teacher boundaries; fixed-head supervision compiler/FIT consumer | Useful learned compact causal state/functions/own-history chatbot/family variants |
+| Affordable useful conditional capacity | Original LUT/ternary/SSM/SWA; typed runtime-n backend; measured full-V raw envelope | Useful n/structured CPU IDs+mass/actualDRAM/useful same-artifact50 |
+| Pretrained chatbot conversion | Useful Falcon1.5B; source-informed original learner/export; qualified boundaries; fixed-head supervision compiler/FIT consumer; one original causal numeric bridge | Useful learned compact causal functions/own-history chatbot/family variants |
 
 ## Latest decisive evidence
 
-[Supervision compiler/full audit](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md):
-all48/8808 source distributions compiled to fixed H^Tq/negative entropy/argmax.
-18.144MB numerical payload vs1.1545GB BF16,63.628x reduction. All395 input/148
-output hashes,8808 statistics,72 dense-vs-compiled loss/state gradients/scalars
-PASS; maxmoment3.6522e-11,loss2.2107e-13,gradient1.4368e-11. Held239.047s
-including failed first JSON audit; scalar-only adapter preserves same maths/gates.
-Exact uploader identities allowed for final stored CPU audit; no speed admission.
-FIT consumer PASS24/4422/readonly/DEV excluded,1.391s. No model/native/source/
-optimizer/SVD/GPU/T4. Real fixed-H identity, not arbitrary-head/GPU/C equivalence.
+[Original categorical causal bridge/full audit](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md):
+one NEW58-ID/18-label GPU forward/backward and original C prefix, fixed coherent
+head/norm. All92 parameters/90 saved gradient tensors/108 unchanged packed fields,
+routes IDs+mass, ternary witnesses and full3730-input/16-output hashes PASS.
+Dense/compiled lossdelta2.2737e-13/gradient3.2685e-13; GPU/Cscore.000386641,
+KLdelta.000156436/zero argmax differences; independent metric delta1.8474e-12.
+Quality FAIL: caseKL146.950513/18of18 wrong. Qualified readout/adjoint bridge does
+not make the unadapted core produce useful codes. No optimizer/source/DEV/T4.
+Held280.859s; OS producer11.0124GB/audit6.6702GB; GPU allocated.6014GB.
 
-[Analytic onset correction/full audit](ANALYTIC_ONSET_HEAD_RESULT_20261010.md):
-FIT first24 codes exact but wholeKL49.3213/DEV63.3742 and DEVfirst19/24 wrong.
-Rejects THIS global interpolation, not nonlinear causal transfer/information ceiling.
-[24-state control](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md): rank24,
-minimum31.2699/preserved31.3308/robust lower28.9436>introduced fit radius16;
-original C imposes no such head-weight radius. All numeric/full audit PASS.
+[Supervision compiler/full audit](ORIGINAL_CATEGORICAL_LOSS_COMPILE_RESULT_20261010.md):
+all48/8808 distributions compiled to fixed H^Tq/negative entropy/argmax,
+18.144MB vs1.1545GB BF16 (63.628x). All395 inputs/148 outputs/8808 statistics/
+72 loss-gradient checks/scalars PASS, including scalar-only JSON repair/full
+repeated audit. Held239.047s. FIT-only readonly consumer24/4422 PASS,1.391s.
+Real fixed-H identity; not arbitrary-head or whole-model conversion.
 
 ## Other decisive evidence and scope
 
 | Record | Finding and limit |
 |---|---|
-| [Actual categorical C/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) | FITKL2.92084/DEV6.25897,task0/16 vs source14/16; all8808 numeric/routes/ternary witnesses PASS; raw timing contaminated, no useful50 |
-| [Stored onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md) | 14/14 donor-correct first replies wrong BEFORE feedback; onset only1.17535% old FIT loss mass |
-| [Shared categorical fit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md) | 32updates/75FG; upper2.92084/lower0, not an optimal floor; ordinary packed head/full audit PASS |
-| [Native coordinates](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md) | All8808 states qualified approximately; exact39-dot-path/Decimal50 full audit, relative error upper.0147187%; no own-history quality |
-| [Head image](PAIRED_HEAD_IMAGE_RESULT_20261010.md) | SAME72 meanKL.00653/zero argmax errors in native readout, maxKL.23083 FAIL; no whole-corpus representability proof |
-| [Paired codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md) | Quadratic97.95% energy retained yet FITKL.8041/22.17% wrong; numericPASS is not quality |
-| [Coherent source](SOURCE_CACHED_FIT_RESULT_20261010.md) | Actual cached FIT states/logits exact, all411 parameters/4422 frames/full audit; no causal conversion |
-| [Actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) | Both24-update arms task0/16/B preferenceFAIL; full87.519GB audit, first deadlines/missing-only completion retained |
+| [Actual categorical C](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) | FITKL2.92084/DEV6.25897,task0/16 vs source14/16; all8808 numeric/routes/witnesses PASS; contaminated raw timing, no useful50 |
+| [Stored onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md) | 14/14 donor-correct first replies wrong BEFORE feedback; first response only1.17535% old FIT loss mass |
+| [Analytic onset](ANALYTIC_ONSET_HEAD_RESULT_20261010.md) | FITfirst24 exact but wholeKL49.3213/DEV63.3742; rejects this global map, not nonlinear transfer |
+| [24-state control](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md) | Rank24, min31.2699/robust lower28.9436>introduced radius16; no original C radius restriction |
+| [Native coordinates](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md) | All8808 approximate states/39-dot-path/full Decimal50 audit PASS, relative error upper.0147187% |
+| [Head image](PAIRED_HEAD_IMAGE_RESULT_20261010.md) | SAME72 meanKL.00653/zero native argmax differences, maxKL.23083 FAIL; no whole-corpus representation proof |
+| [Paired codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md) | 97.95% quadratic energy yet FITKL.8041/22.17% wrong; numericPASS is not categorical preservation |
+| [Coherent source](SOURCE_CACHED_FIT_RESULT_20261010.md) | Actual24/4422 cached FIT states/logits/all411 parameters exact/full audit |
+| [Actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) | Both24-update arms task0/16/B preferenceFAIL; full87.519GB audit retained |
 
-Useful source/native/operator/capacity/structured-router/prior alternatives in
-METHOD/PRIOR. No unchanged old dose or general compact-state impossibility claim.
+METHOD/PRIOR retain useful source/native/operator/capacity/structured-router and
+literature evidence. No compact-state information ceiling or general impossibility.
 
 ## Exact resumption
 
-All owned50027/89422/79002 terminal. Compiler freeze4ea205b/bindingbcb329de;
-scalar adapter61c2057/final holderc40a8f2/a7cfa6ee; consumer03a5e2c.
-Original JSON serialization fault and uploader prelaunch rejection preserved.
-No unfinished worker or missing supervision verdict; LOSS_SUPERVISION_QUALIFIED.
+Producer session91004/holder5560/worker30944/native23300 CLOSED exit0.
+Stored audit15347/holder29300/worker27164 CLOSED exit0; no outstanding audit.
+Freeze47e09b202c2893f57fb6cdca7b25ede956f2d80d; reviewed binding5f2ea1ad,
+holderf80af6da; producer363969c2/adjudication20994d30. Preliminary prebinding
+Torch non-path metadata fault and superseded draft binding retained; no model
+execution on that draft. Consumed code and receipts immutable, no baseline replay.
 
-[Next causal bridge](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md):
-`original_categorical_history_learner.py` IMPLEMENTED/AST PASS/UNEXECUTED.
-[Preflight protocol](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_PROTOCOL_20261010.md)
-runner/holder IMPLEMENTED/AST PASS; reviewed binding 5f2ea1ade3fe3a6921f590893bd67a02b524d35efc619937a7c3ab334a7a7e4b
-and holder f80af6da6f48d10d18060ded6feddec2466dbe4ad9afa737b44c8c2be38d483a.
-Freeze before one worker. Preliminary binding retained, superseded before
-numeric execution after the stored-audit false-diagnostic review.
-Producer900s/OS24GiB/GPU6-8GiB/output4GiB + stored audit900s/OS12GiB.
-Retain all90 gradient tensors. Prebinding non-path Torch metadata fault retained
-and corrected; no sealed numeric inputs consumed. Deterministic shortest FIT
-rewriting008,58 history IDs/18 labels. Immutable actual27 .pt8.652GB/model mmap,
-original packed/executable and compiled FIT proof; no old Adam continuation.
-One NEW changed-head/norm forward/backward/native bridge before a new first-
-balanced core/bank campaign. No new source generation/truncation/RESERVED/T4.
-GPU/native equivalence, useful chat and long training budget not yet qualified.
+[Next grouped trust-step geometry](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md):
+algebra/plan only; fresh update/export runner UNIMPLEMENTED, no new optimizer.
+Reuse saved90 gradients; SSM out_proj norm~.22 versus gradient thousands exposes
+parameter-unit conditioning. Freeze group directions/radii/zero-norm floors and
+alpha grid; per-expert bank groups, core/router units; measure F32 displacement,
+ternary symbol/scale changes, routing IDs+mass and actual original C descent.
+A negative STE derivative alone is not actual discrete improvement. Complete
+new audits even failure. Set NEW budget/caps/protocol before launch; no T4.
+Only then qualify a finite multi-case first-balanced campaign/DEV/generation.
 
-104 new+64 older RESERVED and longalign8186-20874 unqueried. Full goal still
-requires useful own-history quality/same-artifact50/useful n/CPU mass/DRAM/families.
+104 new+64 older RESERVED and longalign8186-20874 unqueried. Useful own-history
+quality/same-artifact50/useful n/CPU mass/DRAM/families still required.
