@@ -1,6 +1,7 @@
 # Next converter component: fixed-head categorical supervision for original C
 
-10 October 2026. PROPOSED, UNIMPLEMENTED, UNEXECUTED. Full goal incomplete.
+10 October 2026. Compiler IMPLEMENTED/AST PASS/bound, UNEXECUTED.
+Causal preflight/training PROPOSED/UNIMPLEMENTED. Full goal incomplete.
 This replaces the completed first-state/global-head diagnostic as the next
 operational step. It does not resume an old optimizer or donor-adaptation run.
 

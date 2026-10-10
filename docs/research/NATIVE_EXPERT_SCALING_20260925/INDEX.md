@@ -6,7 +6,7 @@ COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742,
 FITfirst0 errors/DEVfirst19 of24. First unshifted audit fault preserved;
 new shifted algorithm passes SAME tolerances. All owned CLOSED.
 [Next causal converter component](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
-PROPOSED/UNIMPLEMENTED: fixed native-head moment/entropy compiler, then
+Compiler IMPLEMENTED/AST PASS/bound UNEXECUTED; then
 qualified NEW original core/bank training with explicit onset weight.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
@@ -125,7 +125,8 @@ All owned81330/95580/92911 CLOSED. Producer and shifted complete audit exit0;
 first unshifted audit exit1 retained. Exact receipts/artifacts in analytic report;
 no unfinished numerical worker, no completed SVD/optimizer/head-export replay.
 Next [fixed-head categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
-PROPOSED/UNIMPLEMENTED. Implement loss compiler for all48 stored source cohorts
+Compiler IMPLEMENTED/AST PASS/bindingbcb329de/holder sealed, UNEXECUTED.
+Freeze and launch loss compiler for all48 stored source cohorts
 and existing paired F32 head (FIT/DEV separately); freeze new code/runtime/inputs/
 criteria/caps. Store moments/entropy and independently qualify all8808 statistics
 plus dense-versus-compiled loss/gradient on existing72 native-normalized states.
