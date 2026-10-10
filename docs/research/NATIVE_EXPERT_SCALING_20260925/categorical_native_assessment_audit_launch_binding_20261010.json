@@ -1,0 +1,63 @@
+{
+  "schema": "CATEGORICAL_NATIVE_NUMERIC_AUDIT_LAUNCH_V1",
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\categorical_native_assessment_audit_launch.py",
+      "bytes": 4987,
+      "sha256": "f036d3b2a330d3fb6949046c298c672109718966b3d2dfb583caaf8cd7b11e1c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\CATEGORICAL_NATIVE_NUMERIC_AUDIT_LAUNCH_20261010.md",
+      "bytes": 1659,
+      "sha256": "890601166f3de117362b84354aff2f9bbe4e42df0eab597a2c7e4c49b702a68d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\categorical_native_assessment_audit.py",
+      "bytes": 21850,
+      "sha256": "e48b83dd66a3bd584cc612027f9ea6a1908c7328660a39ee3d124d328aea6480"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_native_assessment_binding_20261010.json",
+      "bytes": 3173501,
+      "sha256": "bd71419b7a6c2e169f124ca46447e2111977820c7ddbc3011ca29171e2ed2951"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_native_foreign_overlap_20261010.json",
+      "bytes": 1054,
+      "sha256": "754608e8f83672d3e2aa1645ced37a35cca510279e4e669db4f2a2866ada612d"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    }
+  ],
+  "native_binding_sha256": "bd71419b7a6c2e169f124ca46447e2111977820c7ddbc3011ca29171e2ed2951",
+  "audit_script": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\categorical_native_assessment_audit.py",
+  "allowed_foreign": [
+    {
+      "pid": 26408,
+      "creation_time": 1791640426.5171978,
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\poli_ai_new\\poli_ai\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/",
+        "-q"
+      ]
+    },
+    {
+      "pid": 23088,
+      "creation_time": 1791640426.5313246,
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "-m",
+        "pytest",
+        "tests/",
+        "-q"
+      ]
+    }
+  ],
+  "scientific_audit_unmodified": true,
+  "timing_control_admitted": false
+}
