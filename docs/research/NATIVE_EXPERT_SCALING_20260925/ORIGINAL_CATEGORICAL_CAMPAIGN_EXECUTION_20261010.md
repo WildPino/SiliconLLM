@@ -198,3 +198,20 @@ implemented, AST and6 synthetic byte-format fixture flags PASS. Actual route
 localization/binding remains UNEXECUTED until full custody closure. Standard-
 library tool60s/256MiB/128MiB reads; order/set/common-ID comparisons reproduce
 audited aggregate counts, not score margins or original causal operands.
+
+At3112.406 worker seconds direction8 metamath023 full337-ID/256-label completes:
+REJECTED alpha.0001 weighted93.942120->86.163398/first41.112364->37.334831,
+256/256 wrong. Alpha.001 weighted58.643993/first42.307623 is ineligible.
+Bridge dense/compiled/upstream/checkpoint/roles PASS and all ranked IDs exact;
+mass.002151817/selected-label score2.374393/KL1.285110 FAIL, no GPU/C argmax
+difference. This retains scientific numeric failure despite native feasible
+descent; no criteria change, early stopping or skipped full audit.
+
+Directions7 and8 are both rejected and retain the same selected pack and
+92-parameter metadata. Thus their provisional different divergence patterns
+occur across different histories at the same recorded master state, not an
+accepted update between them. Full audit must verify the actual state chain.
+No monotonic length law follows from209 and337 different-input histories.
+At21:09 actual holder23256/worker2968 creation unchanged and live; ninth
+numina015 full318-ID causal history. Eight complete/three accepted; final
+all48/own-history quality and independent audit still pending.

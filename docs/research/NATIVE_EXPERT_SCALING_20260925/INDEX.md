@@ -126,8 +126,10 @@ ACCEPTED2296.547s alpha.0001 weighted68.5963->62.9875/first47.2216->44.6966;
 all bridge gates PASS/mass4.17233e-7,13/13 wrong. Seventh metamath015 full209-ID
 REJECTED2689.531s: IDs exact but mass2.65837e-5/score.334613/KL.128457/one
 GPU/C argmax differ. Feasible alpha.0001 weighted77.1096->71.4709,155/155 wrong.
-Seven complete/three accepted; milestone6 saved, eighth metamath023 full337-ID
-history saved and finite proposals running.
+Eighth metamath023 full337-ID REJECTED3112.406s: IDs exact/mass.00215182/
+score2.37439/KL1.28511 discrepancy, no GPU/C argmax difference. Feasible
+alpha.0001 weighted93.9421->86.1634,256/256 wrong. Eight complete/three accepted;
+milestone6 saved, ninth numina015 full318-ID causal history running.
 [Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
 [Stored route observer](CATEGORICAL_ROUTE_DIVERGENCE_OBSERVER_20261010.md)
 IMPLEMENTED/6 synthetic fixture flags PASS, actual UNEXECUTED. After full audit,

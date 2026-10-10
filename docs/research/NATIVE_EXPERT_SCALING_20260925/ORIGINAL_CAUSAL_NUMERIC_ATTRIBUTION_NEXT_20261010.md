@@ -66,6 +66,16 @@ not identify a cause or prove that all future directions are unusable.
 
 ## Next safe evidence and possible corrections
 
+Later provisional directions7/8 add two SAME-recorded-state histories:
+both reject and retain identical selected pack/92-parameter metadata. Full209-ID
+case7 has IDs exact/mass2.65837e-5/score.334613/KL.128457/one GPU-C argmax change;
+full337-ID case8 also has IDs exact but mass.002151817/score2.374393/KL1.285110
+discrepancy and zero argmax change. The independent state-chain audit is pending.
+These observations do not show a monotonic length dependence or a particular
+router/activation culprit; they show why ID equality and argmax equality alone
+cannot qualify categorical function parity. All local dense/compiled/checkpoint
+gates report PASS. Preserve both full histories and locate missing operands.
+
 First finish the CURRENT24-case capture and exhaustive stored audit. Preserve
 all numeric failures, rejected candidates and final quality; do not restart,
 shorten the audit or change thresholds. Independent adjudication establishes

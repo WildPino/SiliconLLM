@@ -856,7 +856,7 @@ Chunked F32-bit XOR/zlib-or-raw archive with per-chunk/tensor/source-target hash
 
 ## Finite original categorical conversion trajectory: implemented, not yet qualified
 
-Actual trajectory LIVE/frozenc9c04df: first seven directions complete/three accepted.
+Actual trajectory LIVE/frozenc9c04df: first eight directions complete/three accepted.
 First native weighted58.8206->38.9700,17/18 wrong. Second/third feasible native
 steps are rejected by frozen cross-runtime criteria: second4 ranked slots and
 mass/score/KL mismatch, third solely full-history mass while IDs and supervised
