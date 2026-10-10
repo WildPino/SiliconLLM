@@ -81,3 +81,34 @@ Focused online follow-up while waiting:
 [quantized-direction information note](QUANTIZED_DIRECTION_INFORMATION_NOTE_20261010.md).
 Two primary papers and stable-cell rank derivation; no concurrent numerical
 run, change of learning rule or conclusion about unobserved campaign quality.
+
+## First completed direction: worker observation, full audit still pending
+
+At254.141 worker seconds, rewriting008 completes BOTH original-C candidates.
+Alpha.0001 weighted57.438970 but first46.334344 regresses baseline44.151124,
+therefore not feasible. Alpha.001 is selected/accepted: weighted58.820600 ->
+38.969955, first44.151124 ->37.146058,17/18 donor-argmax disagreements.
+All baseline/trial numeric flags reported true; original110 packing/trit
+certificates/witnesses retained. Two trial archives are stored. This is a new
+displacement from the qualified changed point, not a replay of the earlier
+initial-state step. Independent whole-campaign audit NOT performed yet.
+
+Next actual case apigen023, full479 input IDs/118 labels, runs a NEW causal
+forward/backward at the newly selected state. At20:22:15 local, checkpointed
+bank backward has progressed through site1; history/gradient metadata still
+being finalized. Session22911/holder23256/worker2968 remain LIVE, OS worker
+observed peak15,286,865,920B/holder45,330,432B; these are live snapshots, not
+terminal resource admission. No new source/DEV/task/RESERVED/T4 call. Actual
+campaign/final quality and independent state-chain reconstruction still pending.
+
+At20:23:49 local the apigen023 NEW complete history/backward and two F64
+state-gradient checks are stored (`step_02/history.json`), all six checkpoint
+blocks called twice. Four gradient-role squared norms are nonzero: embed
+544.865533/core9,053,878.192193/bank307,184.258764/router33,934.960701.
+Worker proceeds to second-case alpha.0001 finite proposal at381.860s. These
+are stored worker observations; the independent campaign audit is still
+pending. Session22911 and exact holder/worker remain LIVE. Next resume observes
+this existing job; never rerun the command above in its consumed namespace.
+Final all48/native tasks and full adjudication are required before a campaign
+conclusion. Protected original engine and three foreign modified files match
+the previous recorded SHA256 values at this observation.

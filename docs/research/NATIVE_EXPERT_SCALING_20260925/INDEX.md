@@ -111,8 +111,12 @@ fixture and exclusive-writer registration fault; reviewed fixture PASS/no LLM
 execution. Exact actual master-transition helper/probe COMPLETE/full audit
 QUALIFIED/freeze924be56; [result](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md).
 Freezec9c04df. Producer session22911/holder23256 created20:16:05+02:00,
-worker2968 creation1791656179.7136545. First NEW candidate in progress; no
-completed24-case or quality claim. Exact-session observation until terminal,
+worker2968 creation1791656179.7136545. First direction completed254.141s:
+alpha.001 selected, weighted58.8206->38.9700/first44.1511->37.1461,17/18 wrong;
+worker observation/full campaign audit PENDING. NEW full479-ID apigen023
+history/backward/two state-gradient checks saved, blocks[2]*6; second-case
+finite proposals running at381.860s. No completed24-case or quality claim.
+Exact-session observation until terminal,
 then exhaustive stored audit even quality failure; NEVER restart live. No
 other owned benchmark. [Focused primary-paper/algebra follow-up](QUANTIZED_DIRECTION_INFORMATION_NOTE_20261010.md)
 adds stable-cell operator-rank diagnostic, no concurrent numerical run.
