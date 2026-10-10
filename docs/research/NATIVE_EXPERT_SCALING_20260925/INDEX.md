@@ -1,10 +1,10 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Native coordinate recovery/full audits](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md)
-COMPLETE/QUALIFIED_APPROXIMATE,8808 states; same thresholds/error bound.0147187%.
-All owned processes CLOSED; no new source/history/native/GPU/optimizer/T4 call.
-Next FIT-only categorical map and offline fused original C head; no fit yet.
+[Categorical shared head protocol](CAUSAL_CATEGORICAL_READOUT_PROTOCOL_20261010.md)
+PREPARED/AST PASS/binding sealed, not consumed. Max32 FIT-only updates, offline
+fused unchanged original C head;1200s capture+600s complete stored audit.
+All owned processes CLOSED; no new fit/native/source/T4 call yet.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
