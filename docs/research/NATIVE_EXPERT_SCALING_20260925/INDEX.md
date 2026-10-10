@@ -100,6 +100,19 @@ all48/8808 fixed-H moments/entropy/argmax qualified,18.144MB vs1.1545GB BF16,
 METHOD/PRIOR retain source/operator/capacity/structured-router and literature
 history. No compact-state information ceiling or universal conversion claim.
 
+## Live monitor handoff — 11 October00:18
+
+GPT-6 Luna subagent `/root/recovery_monitor` owns read-only monitoring of seal
+session19032/PID29424 creation00:01:38.8803848+02:00. Last observed3000/5742
+files, still LIVE. Root stops substantive work pending its completion/fault alert.
+No new recovered audit binding or 9h audit process launched yet. On seal PASS:
+prepare separately bound `recovered_categorical_campaign_launch.py --prepare`,
+using exact seal SHA/preflight/protocol and missing original result path; freeze
+binding and exact invocation, launch CPU-only held audit, then hand its exact
+session/PID/create/receipt paths to the SAME Luna monitor. On seal fault:
+preserve fault/session closure and correct only in a new namespace; no original
+campaign restart, no cap editing in the consumed seal. E: remains available for
+large future artifacts; no model files moved. Full goal remains incomplete.
 ## Exact resumption
 
 AUTHORITATIVE11 October: session22911 CLOSED exit1; actual holder23256/worker2968
