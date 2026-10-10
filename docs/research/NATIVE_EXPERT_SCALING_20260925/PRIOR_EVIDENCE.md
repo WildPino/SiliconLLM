@@ -1,5 +1,17 @@
 # Native expert-count scaling: prior evidence
 
+**Current, 10 October20:54:** Frozen24-FIT producer LIVE session22911/holder23256/
+worker2968 creation1791656179.7136545. Five directions complete/two accepted;
+fifth rejected solely for mass9.059906e-5, sixth finite proposals running.
+Final quality and exhaustive independent audit PENDING. Small1.567MB/1.682s
+[router-support metadata observation](ROUTER_SUPPORT_AND_NORMALIZED_STEP_20261010.md)
+reports nonzero tiny gradients/full relative movements for all5,529 never-selected
+router rows. Actual gradient/archive coefficients require campaign adjudication;
+algebra identifies a potential cancellation-residual amplification, not causality.
+Separatev2 preserves first PowerShell container fault. No campaign repair,
+gate change, source/DEV/T4 replay or concurrent neural benchmark. Older status
+paragraphs below are historical; INDEX gives exact resumption.
+
 **Current, 10 October20:30:** Full24-FIT original categorical campaign IMPLEMENTED/frozenc9c04df/producer LIVE session22911, holder23256, worker2968 creation1791656179.7136545. First direction accepted: actual C weighted58.8206->38.9700/first44.1511->37.1461,17/18 wrong. Second full479-ID/118-label direction stored, dense/compiled/checkpoint checks report PASS, but GPU/C broader-history bridge FAIL:4 ranked slots/.00084446 mass/.39417 score/.05513 KL discrepancy, no argmax difference. Feasible finite C candidate is rejected by frozen numeric criteria. Third full773-ID history/backward saved and finite proposals running. Full campaign/final quality/exhaustive independent audit PENDING; no source/DEV/T4 yet. [Execution](ORIGINAL_CATEGORICAL_CAMPAIGN_EXECUTION_20261010.md), [new attribution problem/possible remedies](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md). No inference from the first58-ID qualification to arbitrary changed histories; older statuses below historical.
 
 **Current, 10 October:** [lossless real master-transition/full independent audit](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md) COMPLETE/LOSSLESS_MASTER_TRANSITION_QUALIFIED. All92 tensors/721008128 F32 words/54.342M changed words exactly reconstructed by independent Python integer-byte XOR. Raw2.884GB->archive186.158MB (15.4924x), copy35/compressed719/raw0 chunks; raw fallback separately tested/no future ratio guarantee. All offsets/shapes/source-target/chunk/full input-output hashesPASS. Held214.313s/CPU only/CUDA hidden/no numerical proposal/history/backward/native/optimizer/source/DEV/T4 replay. All owned CLOSED. [Next full24-FIT campaign](ORIGINAL_CATEGORICAL_MULTI_CASE_NEXT_20261010.md) runner UNIMPLEMENTED; helper ready, full output/free-disk bound still required. Previous qualityFAIL remains18of18 wrong; full goal incomplete. Older statuses historical.

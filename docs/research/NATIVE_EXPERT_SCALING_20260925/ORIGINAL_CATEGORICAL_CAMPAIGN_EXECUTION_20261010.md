@@ -142,3 +142,34 @@ At20:34:08 local,3 directions COMPLETE/1 accepted; fourth everyday002 full363
 history starts. Exact holder23256/worker2968/session22911 LIVE; stored audit
 and final all48/chat tasks still pending. Full observation/attribution remains
 in the linked plan, no replay or threshold change.
+
+At1449.516 worker seconds everyday002 completes direction4 and ACCEPTS
+alpha.0001: actual C weighted83.890263->75.042610, first52.510424,
+200/200 donor-argmax disagreements. All bridge gates report PASS: IDs exact,
+mass3.42727e-7, selected-label score.000391446/KL.000124439, checkpoint bits
+exact. Alpha.001 weighted72.932626 but first83.064010 is ineligible. This
+preserves feasible constrained selection rather than a global weighted minimum.
+Four directions complete/two accepted; fifth everyday010 full367-ID history
+is running at the new state. Full campaign/state-chain audit and final native
+quality PENDING. Observed worker peak19,018,145,792B at20:39:17 local.
+
+Additional focused primary-paper/algebra follow-up:
+[routing stability and n](ROUTER_STABILITY_AND_N_NOTE_20261010.md). Switch
+F32/ST-MoE z-loss hypotheses, common-shift counterexample and fixed-set mass
+Jacobian bounds; no concurrent model/test, implemented repair or changed gate.
+
+At1845.250 worker seconds direction5 everyday010 full367-ID/174-label completes:
+REJECTED alpha.0001 weighted83.057403->76.350403/first52.046212. Sole bridge
+failure is mass9.059906e-5; all ranked IDs exact, selected-label score.000388309/
+KL.000249427, dense/compiled/upstream/checkpoint/roles gates PASS. Alpha.001
+weighted79.038035/first96.616042 is ineligible. Five complete/two accepted;
+sixth rewriting009 full90-ID history/backward saved, two finite proposals
+under construction. Actual holder23256/worker2968 creation unchanged at20:54.
+Campaign and final own-history quality/full audit remain PENDING.
+
+[Small stored support observation and algebra](ROUTER_SUPPORT_AND_NORMALIZED_STEP_20261010.md)
+reports inactive router-row metadata movements, not an independently adjudicated
+tensor result.1,567,404 bytes/1.6821934s/OS122,273,792B/no model or neural/native
+calls. First PowerShell empty-container fault preserved; v2 separate. Neither
+consumed campaign code nor criteria changed. Proposed support-mask/new-adjoint
+alternatives wait for full audit and a separately frozen experiment.

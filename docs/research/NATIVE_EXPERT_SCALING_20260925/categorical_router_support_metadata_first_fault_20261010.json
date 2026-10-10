@@ -1,0 +1,43 @@
+{
+  "schema": "CATEGORICAL_ROUTER_SUPPORT_METADATA_FIRST_FAULT_V1",
+  "provenance": "Observed shell outcome preserved from this conversation; original source retained",
+  "first_attempt": {
+    "script": "benchmarks/native_expert_scaling/inspect_categorical_router_support.ps1",
+    "exit_code": 1,
+    "shell_seconds": 0.8358337,
+    "error": "You cannot call a method on a null-valued expression.",
+    "cause": "PowerShell pipeline enumerated empty HashSets, yielding an empty taskSets array",
+    "failure_point": "First selected-ID Add; before group-stat loop",
+    "output_written": false,
+    "model_loads": 0,
+    "history_forwards": 0,
+    "backwards": 0,
+    "native_calls": 0,
+    "GPU_calls": 0
+  },
+  "repair": {
+    "script": "benchmarks/native_expert_scaling/inspect_categorical_router_support_v2.ps1",
+    "change": "New namespace; explicit object array and indexed HashSet construction",
+    "first_script_modified": false,
+    "output": "docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_router_support_metadata_20261010.json",
+    "completed": true,
+    "scope": "Producer metadata only; actual gradient and displacement coefficient verification pending full campaign audit"
+  },
+  "preserved_extents": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\inspect_categorical_router_support.ps1",
+      "bytes": 5863,
+      "sha256": "d91d3331c0776887792d581f7bdac001dc759c03c3a14f92d02c953df8174b5a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\inspect_categorical_router_support_v2.ps1",
+      "bytes": 5921,
+      "sha256": "593f9916bcd4eb7307e2f9c4de3dbe1df41758ccf2ac3c425085f216b24a8387"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_router_support_metadata_20261010.json",
+      "bytes": 20316,
+      "sha256": "421057696747fc908a75eda554f00a142ae4689320835c4017a0697998b29c71"
+    }
+  ]
+}

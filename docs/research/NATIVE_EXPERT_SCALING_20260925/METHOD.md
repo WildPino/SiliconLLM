@@ -856,7 +856,7 @@ Chunked F32-bit XOR/zlib-or-raw archive with per-chunk/tensor/source-target hash
 
 ## Finite original categorical conversion trajectory: implemented, not yet qualified
 
-Actual trajectory LIVE/frozenc9c04df: first three directions complete/one accepted.
+Actual trajectory LIVE/frozenc9c04df: first five directions complete/two accepted.
 First native weighted58.8206->38.9700,17/18 wrong. Second/third feasible native
 steps are rejected by frozen cross-runtime criteria: second4 ranked slots and
 mass/score/KL mismatch, third solely full-history mass while IDs and supervised
@@ -864,5 +864,14 @@ scores/KL pass. This narrows the numeric qualification to previously audited
 short histories; broad changed trajectories are NOT qualified. Full campaign
 and stored audit continue. [Attribution/functional approximation algebra](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md)
 specifies missing evidence and separate future remedies; no gate alteration.
+
+Fourth history passes bridge gates and accepts a constrained native decrease;
+fifth fails solely full-history mass. Worker observations require full audit.
+[Router-support algebra/metadata](ROUTER_SUPPORT_AND_NORMALIZED_STEP_20261010.md)
+identifies a distinct possible converter defect: all-n normalization residues
+on mathematically inactive rows can be amplified by nonzero-gradient row
+normalization. Observed producer metadata supports investigation; actual
+coefficient adjudication PENDING. A stored-gradient support mask or selected
+adjoint is proposed, UNIMPLEMENTED/UNTESTED, not part of available conversion.
 
 [Protocol](ORIGINAL_CATEGORICAL_CAMPAIGN_PROTOCOL_20261010.md), runner `original_categorical_campaign.py`, geometry helper, held launcher and `original_categorical_campaign_audit.py`. Evolving92-master state; first audited gradient reused,23 new complete FIT histories/backwards, two independently formed grouped F64-to-F32 proposals each. Constrained native C selection requires weighted loss descent and no first-label regression; all numeric flags required. Both candidates archived exactly even rejection, full milestones6/12/18/24. Final all48 cases and16 canonical tasks+own-answer followup on SAME selected original pack. No DEV selection, source replay or old Adam. Reviewed synthetic loss/gradient/codec/route/stream-counter fixture PASS does not qualify an actual training trajectory. Finite local producer5h/reserve30min, exhaustive CPU audit9h, GPU10/11GiB, OS32/24GiB, output140GiB/free24GiB; no T4. Full numeric/quality/own-history result required before deciding whether this learning rule contributes to useful conversion. Same-artifact useful50/useful-n/CPU mass/DRAM/multiple families remain missing.

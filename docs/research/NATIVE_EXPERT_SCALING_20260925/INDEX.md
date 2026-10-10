@@ -3,7 +3,7 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest lossless master-transition custody](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md):
 COMPLETE/full independent audit/all721008128 F32 words exact; prior qualityFAIL.
-All owned jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
+Full24-FIT producer LIVE; prior jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
 
@@ -92,7 +92,7 @@ Changed-point producer session67964/holder31392/worker31700
 (creation1791652069.4633064) and audit3302/holder192/worker18272
 (creation1791652232.1595821) CLOSED exit0/errornull/full hashes exact.
 Numeric+holder freeze579f370; bindings f6651a4f/529d51cf; result673c4d44,
-adjudication8ccd62c4. No missing audit or owned live job. All consumed code/
+adjudication8ccd62c4. That prerequisite audit complete. All consumed code/
 protocols/results/bindings immutable. Parent grouped3-step audit COMPLETE;
 Windows longdouble gap resolved before it, all first faults retained.
 
@@ -118,13 +118,27 @@ history/backward/two state-gradient checks saved, blocks[2]*6; second direction
 REJECTED643.453s: feasible C decrease but GPU/C bridge4 slots/.00084446 mass/
 .39417 score/.05513 KL discrepancy. Third full773-ID direction REJECTED1064.641s
 solely for mass.00055546; IDs/selected-label scores/KL pass, feasible C
-weighted83.6061->58.9335. Three directions complete/one accepted; fourth
-full363-ID everyday002 running. [Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
+weighted83.6061->58.9335. Fourth full363-ID ACCEPTED1449.516s/all bridge flags
+true: alpha.0001 weighted83.8903->75.0426,200/200 wrong. Fifth full367-ID
+everyday010 REJECTED1845.250s, solely mass9.05991e-5; IDs/selected scores/KL
+pass, feasible weighted83.0574->76.3504. Five directions complete/two accepted;
+sixth rewriting009 full90-ID history saved/both finite proposals running.
+[Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
 No completed24-case or quality claim; frozen campaign/audit unchanged.
 Exact-session observation until terminal,
 then exhaustive stored audit even quality failure; NEVER restart live. No
 other owned benchmark. [Focused primary-paper/algebra follow-up](QUANTIZED_DIRECTION_INFORMATION_NOTE_20261010.md)
 adds stable-cell operator-rank diagnostic, no concurrent numerical run.
+[Router stability/n follow-up](ROUTER_STABILITY_AND_N_NOTE_20261010.md):
+primary F32/z-loss mechanisms and conditional mass/output sensitivity algebra;
+no automatic correction/large-n admission or consumed protocol change.
+[Router support and normalized-step hypothesis](ROUTER_SUPPORT_AND_NORMALIZED_STEP_20261010.md):
+1.567MB/1.682s metadata inspection reports all5,529 never-consulted router
+rows have tiny nonzero gradients and both proposals move all11,058 weight/bias
+groups at near full relative radius. Actual coefficient verification PENDING
+full campaign audit; cancellation/noise mechanism conditional, no causal quality
+claim. First PowerShell container fault retained; separatev2. Stored-gradient
+support-mask intervention proposed before considering a new backward.
 [Scale geometry/n](ORIGINAL_CATEGORICAL_SCALE_GEOMETRY_20261010.md): conditional
 n/gauge derivation, optional neutral-direction correction UNTESTED. Dense
 converter memory still grows with n; no100B memory/quality admission.
