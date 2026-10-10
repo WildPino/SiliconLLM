@@ -1,0 +1,44 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_PREFLIGHT_V1",
+  "flags": {
+    "AST_PASS": true,
+    "independent_original_math_core_exact_except_index_name": true,
+    "complete_durable_index_without_invented_runtime_receipt": true,
+    "wrong_ordinal_rejected": true,
+    "inconsistent_duplicate_trial_rejected": true,
+    "missing_final_step_rejected": true,
+    "unexpected_stream_receipt_rejected": true,
+    "changed_sealed_extent_rejected": true
+  },
+  "sources": {
+    "recovered_categorical_campaign_audit.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit.py",
+      "bytes": 22774,
+      "sha256": "c8b350a0f90173c4ce0ff225ebd9f3a859bb27a8d5aab112d45c287a8301877d"
+    },
+    "recovered_categorical_campaign_launch.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_launch.py",
+      "bytes": 9926,
+      "sha256": "39df0f067643b993ebb5d838155552e4cecc6ea3f089cb3aadd2d9f10af60e37"
+    },
+    "recovered_categorical_campaign_preflight.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_preflight.py",
+      "bytes": 5652,
+      "sha256": "f85925d2312cf6c7e5c0267c37ad7cb82f29178ddbfd1a10f0be114be700c585"
+    },
+    "original_mathematical_auditor": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_campaign_audit.py",
+      "bytes": 26559,
+      "sha256": "405bec757d0ea17ceb711f08f7e6634298ab3940a95c4578fe21baf8cec343fb"
+    }
+  },
+  "independent_math_core_sha256": "4e1d913b309deb328fce1be8a3c17dae782962d6c72b70a5899c7fc8ddea979a",
+  "seconds": 1.3439999999973224,
+  "model_loads": 0,
+  "history_forwards": 0,
+  "backwards": 0,
+  "native_calls": 0,
+  "GPU_calls": 0,
+  "optimizer_updates": 0,
+  "scope": "Small format and inherited-source checks only; actual complete audit remains unexecuted."
+}
