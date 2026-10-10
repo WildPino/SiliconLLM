@@ -3,7 +3,7 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest original causal bridge](ORIGINAL_CATEGORICAL_CAUSAL_PREFLIGHT_RESULT_20261010.md):
 COMPLETE/full stored audit/numeric PASS; case quality FAIL, no parameter update.
-Previous owned jobs CLOSED. Trust-step binding sealed c6500378; no proposal worker yet. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
+Previous owned jobs CLOSED. Trust-step producer LIVE, session16983; original freeze738896a. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
 
@@ -72,6 +72,14 @@ Freeze47e09b202c2893f57fb6cdca7b25ede956f2d80d; reviewed binding5f2ea1ad,
 holderf80af6da; producer363969c2/adjudication20994d30. Preliminary prebinding
 Torch non-path metadata fault and superseded draft binding retained; no model
 execution on that draft. Consumed code and receipts immutable, no baseline replay.
+
+Trust-step producer session16983/holder25220 (created18:22:14.219557+02:00),
+worker3720 creation1791648550.6792486 LIVE. Poll SAME session.
+Windows longdouble8B/mantissa52 aliasesF64; unexecuted audit precision gap
+identified. [New fsum stored audit](ORIGINAL_CATEGORICAL_TRUST_FSUM_AUDIT_20261010.md)
+AST/independent cancellation fixture PASS; audit holder 721cfb2db35b895c805eb37dfcd113b7e1228796a4d7203e8246721988ab55c5
+prepared; freeze before
+launch, only after producer terminal. Original producer/code/criteria unchanged.
 
 [Next grouped trust-step geometry](ORIGINAL_CATEGORICAL_TRUST_STEP_NEXT_20261010.md):
 [Frozen protocol](ORIGINAL_CATEGORICAL_TRUST_STEP_PROTOCOL_20261010.md) runner/holder
