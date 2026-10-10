@@ -13,6 +13,17 @@ not the frozen5% KL advantage. Preserve first fault and zero-replay
 [completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) before
 independent stored adjudication. No parent process live/new optimizer/source/
 DEV replay/T4. Older RUNNING paragraphs below are historical; INDEX current.
+New completion COMPLETE exit0/265.656s freeze f309ba52/bind2ff6afc9;
+Btasks0/16/centered-relative0.903887/preference FAIL.414 consumed
+inputs and1791 whole sealed inputs; independent stored audit RUNNING
+session16603/launcher5596/worker2764. Current
+[report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) pending; next
+[attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md) is a proposed
+target/decoder consistency control, not an executed chatbot or rank ceiling.
+
+[Primary literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md)
+adds concrete redundant-shard and large-n product-key mechanisms. Complete
+the readout/history diagnosis before another long conversion dose.
 
 The [finite matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
 is now frozen/running:actual27 real states,24FIT onepass perarm, final-KL versus

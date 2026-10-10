@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 10 October2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-Matched recovery training complete; missing assessment completion prepared.
+Matched recovery training and missing assessment COMPLETE; stored audit RUNNING.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -60,15 +60,27 @@ fixes B auxiliary weight1/normalized six-boundary loss versus A final KL only.
 Original [family](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md) exit1/
 completion reserve FAIL at6600s; both24-step forks/all48 updates/durable51 and
 six native24DEV milestones complete. A KL6.5193073/disagreement89.7893%, tasks0/16;
-B KL6.5161150/disagreement89.6814%, final16 auxiliary cases saved, tasks missing.
+B KL6.5161150/disagreement89.6814%, tasks0/16 after missing-only completion.
 No original process live. Preserve first fault/failure/1397 outputs75.134GB;
 never restart completed updates or native milestones. Missing-only
-[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) prepares
+[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) executes
 16 adopted/eight new B auxiliary cases plus B16 tasks/own-answer followup from
 immutable B51, zero optimizer/source/DEV replay.1200s/12GiBOS/5-6GiBGPU/1GiBoutputs.
-Independent stored audit drafted/AST parsed, execute with held receipts after
-completion; original numerical/source-capture/reserve gaps remain. Source/
-RESERVED/T4 zero. Exact new binding/freeze/handle pending; verify actual state.
+Completion exit0/265.656s, resources PASS; B centered-relative0.903887 versus
+A0.904681, below frozen10% advantage. B preference FAIL, both tasks0/16.
+Independent stored audit RUNNING with held receipts, session16603/
+launcher5596/worker2764 created2026-10-10T09:22:25+02:00;
+original numerical/source-capture/reserve gaps remain. Source/RESERVED/T4 zero.
+Completion freeze f309ba52/bind2ff6afc9. Re-poll SAME audit handle or exact PID/time;
+414 consumed inputs checked before/after;1791 whole inputs for stored audit.
+[Custody](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_INPUT_CUSTODY_20261010.md)
+keeps the whole75GB parent seal while avoiding repeated unused reads during
+completion. [Report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) pending
+independent adjudication; [next attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md)
+is proposed/unexecuted. No other owned benchmark while stored audit live.
+[Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
+papers/coverage algebra/product-key selection; provenance ledger retained,
+no new model observation or substitute for original-engine quality.
 No further boundary capture/delta repair/numerical trace selected; no T4.
 
 Keep full scope: useful chatbot ANDsame-artifact50, useful n/CPU IDs-mass/DRAM/

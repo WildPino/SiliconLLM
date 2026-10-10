@@ -13,10 +13,22 @@ reserve after BOTH24 new-update onepasses/durable51/all six native24DEV
 milestones/A auxiliary/tasks/16 B auxiliary cases. A finalKL6.5193073/tasks0/16;
 B finalKL6.5161150, preference5% nativeKL gate already FAIL. First fault preserved.
 Missing-only [completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md)
-prepares eight unsaved B auxiliary cases and B canonical tasks/own-answer
+executes eight unsaved B auxiliary cases and B canonical tasks/own-answer
 followup, zero optimizer/source/native DEV replay. No parent process live.
 All earlier live paragraphs below describe historical observation. INDEX
 supersedes them; parent reserve/numerical/source capture gaps remain explicit.
+Completion exit0/265.656s freeze f309ba52/bind2ff6afc9, Btasks0/16 and
+centered-relative0.903887, preference FAIL. Stored audit RUNNING session16603/
+launcher5596/worker2764,414 consumed/1791 whole
+adjudication inputs; prospective custody avoids repeated unused75GB reads.
+[Current report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) awaits final
+independent audit. [Next attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md)
+is proposed/unexecuted; no target injection has run.
+
+[Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) formalizes
+coverage/coefficient preservation for redundant functions and constrained
+product-key retrieval. Published conversion recipes preserve more donor
+structure than this student. Their results are not local quality evidence.
 
 **Previous execution:** [matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
 is frozen/running locally from actual27, A finalKL versus B finalKL+six residual

@@ -7,9 +7,16 @@ gradient differences nonzero/distinguishable; not a5% nativeKL preference.
 First reserve/deadline fault at6600.156s during B final auxiliary; launcherexit1/
 6620.437s/1397 files75.134GB.16 Baux cases durable/eight missing/tasks unexecuted.
 Parent code/binding/state/fault retained. Missing-only
-[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) prepares
+[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) executes
 eight new auxiliary histories and Btasks; zero optimizer/source/DEV replay.
 No parent process live. Older RUNNING text below is historical; INDEX current.
+New completion freeze f309ba52/bind2ff6afc9 COMPLETE exit0/265.656s,
+Btasks0/16/centered-relative0.903887 versus A0.904681/preference FAIL.
+414 consumed inputs/1791 whole inputs sealed; final stored audit RUNNING
+session16603/launcher5596/worker2764. The missing-case description above
+records the parent fault boundary, not current missing work. Current
+[report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) pending; proposed
+[attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md) unexecuted.
 
 **Previous live observation, superseded above:**
 [Matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),

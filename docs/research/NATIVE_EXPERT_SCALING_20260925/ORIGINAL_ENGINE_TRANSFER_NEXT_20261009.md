@@ -1,7 +1,7 @@
 # Next: transfer donor history functions into the original engine envelope
 
 10 October2026. Goal INCOMPLETE. Matched training complete; assessment completion
-prepared. No T4 allocation.
+complete; stored audit running. No T4 allocation.
 [Complete original-operator recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
 and [actual27 correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md) are complete.
 Useful chatbot conversion remains missing; strict numerical FAIL is retained.
@@ -17,8 +17,20 @@ missing. Preserve all first-family files/code/fault; no optimizer/native DEV
 replay. Missing-only [completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md)
 restores immutable B51 masters/RNG for eight unsaved auxiliary histories then
 canonical16 native tasks/own-answer followup. New namespace/binding/1200s caps.
-Stored audit follows with held receipts. Original reserve/numerical/source gaps
+Completion exit0/265.656s, freeze f309ba52/bind2ff6afc9; Btasks0/16,
+centered-relative0.903887; preference FAIL.414 consumed inputs before/after,1791 whole
+inputs at audit, via prospective custody refinement; no original state replay.
+Stored audit RUNNING session16603/launcher5596/worker2764 with held receipts.
+Original reserve/numerical/source gaps
 are retained; no T4. The previous LIVE description below is historical.
+[Current report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) pending;
+proposed [latent/readout attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md)
+has no executed control yet. Complete/audit current family first.
+
+[Primary literature addendum](LITERATURE_CONVERSION_FOLLOWUP_20261010.md)
+formalizes redundant shard coverage and product-key selection. Diagnose the
+target/readout relation before selecting either new experiment; no model
+controls were added during literature research.
 
 **Previous selected family:** [protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
 worker `original_joint_history_recovery.py`,freeze7f3d2ebf8f15fd9b5a1c24c2553c6067050b707b,
