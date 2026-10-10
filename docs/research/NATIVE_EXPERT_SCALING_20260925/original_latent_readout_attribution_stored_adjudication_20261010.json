@@ -1,0 +1,67 @@
+{
+  "schema": "ORIGINAL_LATENT_READOUT_ATTRIBUTION_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_latent_readout_attribution_result_20261010.json",
+    "bytes": 1143945,
+    "sha256": "86c0928326ea6ddf9b1d1799756a20dfe0286f916be4b4be439b0d49571bb797"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_latent_readout_attribution_binding_20261010.json",
+    "bytes": 581323,
+    "sha256": "2e95dc67b836a96f4c17037a676febcb1db26980d86301114bbeb5022a0afb28"
+  },
+  "audit_code": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_latent_readout_attribution_audit.py",
+    "bytes": 5044,
+    "sha256": "9a72d6c944be133c5cbc0a5125b7ddba85206bc948282ee35d9b56de41b979e6"
+  },
+  "arms": [
+    {
+      "name": "A",
+      "labels": 4386,
+      "case_KL": 13.567111869075928,
+      "case_disagreement": 0.9993489583333334,
+      "max_aggregate_delta": 9.237055564881302e-14
+    },
+    {
+      "name": "B",
+      "labels": 4386,
+      "case_KL": 13.567607162504109,
+      "case_disagreement": 0.9993489583333334,
+      "max_aggregate_delta": 8.348877145181177e-14
+    }
+  ],
+  "max_absolute_metric_delta": 7.840839089112706e-12,
+  "decision": "TARGET_DECODER_COUPLING",
+  "flags": [
+    {
+      "name": "A",
+      "target_readable_substantially_better": false,
+      "target_does_not_make_current_head_sufficient": true,
+      "absolute_domain_screens": {
+        "KL": false,
+        "disagreement": false,
+        "domain_KL": false,
+        "domain_disagreement": false
+      }
+    },
+    {
+      "name": "B",
+      "target_readable_substantially_better": false,
+      "target_does_not_make_current_head_sufficient": true,
+      "absolute_domain_screens": {
+        "KL": false,
+        "disagreement": false,
+        "domain_KL": false,
+        "domain_disagreement": false
+      }
+    }
+  ],
+  "label_scores_bytes": 4599124512,
+  "complete_input_output_hashes": true,
+  "model_calls": 0,
+  "head_contractions": 0,
+  "optimizer_updates": 0,
+  "seconds": 52.29700000000048,
+  "limits": "Recomputes full-V metrics from lossless stored scores; head contractions belong to held worker. Injected states are diagnostic and do not qualify chatbot/rate/general applicability."
+}

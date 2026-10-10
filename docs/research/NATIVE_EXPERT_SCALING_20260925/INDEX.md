@@ -3,6 +3,7 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
 Matched recovery training/assessments/independent adjudication COMPLETE.
 First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hashes.
+Target/readout control and independent audit COMPLETE; coupling branch selected.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -35,8 +36,15 @@ B6.516115/89.681%, both tasks0/16 versus useful source14/16. B centered-relative
 boundary error0.903887 versus A0.904681; the frozen preference FAIL. Relative
 KL recovery has not preserved useful chatbot behavior. Independent stored
 adjudication COMPLETE; numerical/source/resource gaps remain explicit.
-No accepted50/useful-n/DRAM/family admission. Next uncertainty is whether the
-retained projected donor target is compatible with the learned final head.
+No accepted50/useful-n/DRAM/family admission.
+
+[New target/readout control](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md):
+actual51 head/gamma applied to exact retained h24P targets gives caseKL13.567112/
+13.567607 and disagreement99.9349%, versus native6.52 and uniform10.573558.
+All12 domains fail; independent full-V metric audit delta7.841e-12 PASS.
+Frozen branch TARGET_DECODER_COUPLING. Investigate a paired source output
+representation/normalization/head before further causal-history recovery;
+this does not establish a compact-state ceiling or an optimal decoder.
 
 ## Key completed evidence and closed routes
 
@@ -66,16 +74,24 @@ extents87.519GB PASS; audit SHA22110f81. A33/A39/A51 successes explicitly adopte
 B33/B39/B51 independently completed; no fabricated exact A metric deltas.
 Both task decisions/gradient witnesses/export fields/real moments verified.
 First overlap rejection was prelaunch only; foreign uploader exited naturally.
-Keep all first faults. Next control binding is being prepared after audit PASS.
+Keep all first faults. Target/readout bind2e95dc67/freeze67d2b03 COMPLETE exit0/
+150.531s; result SHA86c09283. Session37053 CLOSED/PIDs20132/4068 gone.
+Independent audit34538 CLOSED/PIDs21656/21452 gone, exit0/52.922s/SHA1d3c8f48.
+First overlap rejection retained; uploader exited naturally. All8772 F64 label
+metrics/hashes/decision arithmetic PASS. No owned worker remains live.
 
 [Target/readout protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
-and four Python tools are prepared/AST parsed, candidate contraction UNEXECUTED.
-Bind/freeze after successful audit completion. Exactly two actual51 heads, same24 DEV/
+and four Python tools frozen with74 inputs; contractions and stored audit COMPLETE.
+Exactly two actual51 heads, same24 DEV/
 4386 labels; F64 lossless score storage4,599,124,512B, held900s/4GiB/5GiB outputs,
 independent stored audit600s. Same prospective interpretation as the
 [prior proposal](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md). No fitting,
 source/student history, optimizer, native calls or T4; injected control is
 diagnostic, not a converted chatbot or global compact-state ceiling.
+[Exact next investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md): inspect actual
+source final readout/normalization/retained raw h24 and old codec evidence;
+qualify any reconstructed readout, then freeze one FIT-only paired compact
+codec/control and unchanged DEV gates. No fit yet; no width/rank grid or T4.
 [Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
 papers/coverage algebra/product-key selection; provenance ledger retained,
 no new model observation or substitute for original-engine quality.

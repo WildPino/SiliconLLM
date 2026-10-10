@@ -6,6 +6,19 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+**Latest result, 10 October10:54:** target/readout control and independent audit
+COMPLETE; caseKL13.567112/13.567607/dis99.9349%, worse than native6.52/uniform10.574.
+TARGET_DECODER_COUPLING confirmed; all workers gone. Priority becomes
+[paired output codec investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md)
+before another causal-history dose. No new fit/width grid/T4 selected; full
+chatbot/accepted50/useful n/DRAM/family requirements remain. Older live text historical.
+
+**Live control, 10 October10:50:** actual51 adjudication COMPLETE; two-head
+target/readout contraction LIVE37053/launcher20132/worker4068, freeze67d2b03/
+bind2e95dc67. First prelaunch rejection retained; foreign uploader exited
+naturally. After terminal run held600s stored metric audit and select the
+existing prospective diagnostic branch. No new history/optimizer/native call.
+
 **Latest override, 10 October10:46:** independent actual51 adjudication COMPLETE,
 missing-only audit exit0/2051.016s/all1890 hashes87.519GB PASS/SHA22110f81.
 Both tasks0/16/B preference FAIL confirmed. First deadlines preserved;

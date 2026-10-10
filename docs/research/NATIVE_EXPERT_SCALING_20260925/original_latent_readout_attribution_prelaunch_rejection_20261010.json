@@ -1,0 +1,24 @@
+{
+  "schema": "ORIGINAL_LATENT_READOUT_ATTRIBUTION_PRELAUNCH_REJECTION_V1",
+  "freeze": "67d2b03a09349cf0413346581161ff488817b6f5",
+  "binding_sha256": "2e95dc67b836a96f4c17037a676febcb1db26980d86301114bbeb5022a0afb28",
+  "observed_at": "2026-10-10T10:48:53.6400237+02:00",
+  "exit_code": 1,
+  "error": "AssertionError: ('overlap', 3116, 'pythonw.exe')",
+  "foreign_process": {
+    "pid": 3116,
+    "parent_pid": 18904,
+    "creation_time": "2026-10-10T10:48:05.327126+02:00",
+    "program": "D:/_THINGS/Progetti/tiktok_publisher/tools/quiz_generator/tiktok_android_uploader.py",
+    "arguments": ["--account", "franklin", "--schedule", "auto", "--limit", "3"],
+    "child_pid": 18976,
+    "child_creation_time": "2026-10-10T10:48:05.335688+02:00"
+  },
+  "worker_created": false,
+  "candidate_namespace_exists": false,
+  "candidate_log_exists": false,
+  "new_head_contractions": 0,
+  "model_calls": 0,
+  "optimizer_updates": 0,
+  "disposition": "Preserve foreign uploader. Retry identical frozen launch only after exact foreign process and child exit naturally. Rejection occurs before input hashes and worker creation; no candidate observation."
+}

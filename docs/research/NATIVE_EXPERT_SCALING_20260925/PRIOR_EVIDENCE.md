@@ -1,5 +1,18 @@
 # Native expert-count scaling: prior evidence
 
+**Latest decisive result, 10 October10:54:** ideal h24P/actual51 readout control
+and independent audit COMPLETE: caseKL13.567112/13.567607, dis99.9349%, both worse
+than native6.52/uniform10.574. TARGET_DECODER_COUPLING, independent delta7.841e-12
+PASS;150.531s+52.922s audit, all workers gone. [Result](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md).
+Next [paired output codec investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md),
+no fit yet. All earlier live descriptions below historical; INDEX authoritative.
+
+**Live control, 10 October10:50:** actual51 audit COMPLETE; two-head stored
+target/readout contraction freeze67d2b03/bind2e95dc67 LIVE session37053,
+launcher20132/worker4068, created10:49:35.886329/10:49:37.753696+02:00.
+Prelaunch overlap rejection preserved; foreign uploader exited naturally.
+Use same handle; stored600s audit after terminal, no inference/optimizer replay.
+
 **Latest override, 10 October10:46:** actual51 family fully adjudicated,
 missing-only audit exit0/2051.016s/all1890 hashes87.519GB PASS/audit22110f81.
 Both tasks0/16 and B preference FAIL confirmed; A3 completed checks adopted/B3

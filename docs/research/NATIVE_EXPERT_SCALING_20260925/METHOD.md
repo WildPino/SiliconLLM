@@ -8,6 +8,21 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Latest decisive result, 10 October10:54:** retained target/readout control
+and independent audit COMPLETE. Ideal h24P with actual51 heads gives case
+KL13.567112/13.567607, disagreement99.9349%, worse than native6.52/uniform10.574.
+Frozen TARGET_DECODER_COUPLING branch; metric delta7.841e-12 PASS. Held150.531s
+plus separate52.922s audit, no workers live. [Result](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md).
+Next [paired output codec investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md)
+before further history recovery; no new fit yet. Older live paragraphs historical.
+
+**Live target/readout control, 10 October10:50:** qualified actual51 adjudication
+closed. Two-head contraction freeze67d2b03/bind2e95dc67/74 inputs LIVE session37053,
+launcher20132 created10:49:35.886329/worker4068 created10:49:37.753696+02:00.
+First foreign uploader rejection occurred before worker creation; job exited
+naturally and identical frozen launch succeeded. Next held600s stored metric
+audit after terminal. No source/optimizer/native replay or quality admission.
+
 **Latest override, 10 October10:46:** actual51 family fully adjudicated;
 missing-only audit exit0/2051.016s, all1890 hashes87.519GB PASS, audit SHA22110f81.
 A3 completed checks adopted/B3 independently checked; both tasks0/16 and B

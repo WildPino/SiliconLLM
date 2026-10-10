@@ -10,6 +10,22 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ### Current resumption: qualified teacher histories and finite joint recovery
 
+**Latest resumption, 10 October10:54:** actual51 and retained target/readout
+adjudications COMPLETE; all workers gone. Coupling branch confirmed: ideal h24P
+with actual heads KL13.567112/13.567607/dis99.9349%, worse than native6.52.
+Read [result](ORIGINAL_LATENT_READOUT_ATTRIBUTION_RESULT_20261010.md) and
+[paired output codec investigation](PAIRED_OUTPUT_CODEC_NEXT_20261010.md).
+Inspect source final norm/head/retained raw h24 and earlier codec evidence,
+then implement/freeze one FIT-only readable pair control before new history
+recovery. No fit yet, no source history replay/RESERVED/width grid/T4. All older
+live paragraphs below historical. INDEX gives current state.
+
+**Live control, 10 October10:50:** actual51 adjudication CLOSED. Two-head
+target/readout control LIVE37053/launcher20132/worker4068, freeze67d2b03/
+bind2e95dc67. Uploader rejection before worker creation retained; natural
+foreign exit then identical launch. After terminal run held600s stored metric
+audit; interpret only with its receipt. No inference or optimizer replay.
+
 **Latest override, 10 October10:46:** actual51 adjudication COMPLETE exit0/
 2051.016s; all1890 hashes87.519GB PASS/SHA22110f81. Both tasks0/16 and B
 preference FAIL confirmed; first deadlines retained. Session85445 CLOSED/PIDs
