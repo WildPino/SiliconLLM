@@ -1,7 +1,9 @@
 # Next prerequisite: changed-candidate causal gradient, then finite multi-case transfer
 
-10 October2026. PROPOSED/UNIMPLEMENTED; [grouped-step full independent audit](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) COMPLETE/QUALIFIED.
+10 October2026. IMPLEMENTED/AST+synthetic route preflight PASS/numeric+holder binding sealed; [grouped-step full independent audit](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md) COMPLETE/QUALIFIED.
 All owned jobs CLOSED. No changed-point GPU/backward experiment has run yet.
+[Frozen changed-point protocol](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_PROTOCOL_20261010.md): producer900s/audit900s, OS24/12GiB, localRTX3060 only. Numeric binding f6651a4f.
+The subsequent multi-case campaign remains PROPOSED/UNIMPLEMENTED.
 
 ## Why another baseline call is unnecessary
 
@@ -59,5 +61,4 @@ The full goal still requires useful-n/structured CPU selection+normalized mass,
 actual DRAM and more donor families/scales. This path retains compact original
 SSM/SWA/selected ternary computation; it does not add donor computation to
 inference. No new source/RESERVED/T4 activity is authorized by this plan alone;
-announce a separate bounded allocation if needed. No runner or campaign has
-been executed for this record.
+announce a separate bounded allocation if needed. Runner implemented/sealed but UNEXECUTED; campaign UNIMPLEMENTED/UNEXECUTED.

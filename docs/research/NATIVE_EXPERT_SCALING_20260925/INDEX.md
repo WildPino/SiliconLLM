@@ -3,6 +3,7 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest grouped actual C descent](ORIGINAL_CATEGORICAL_TRUST_STEP_RESULT_20261010.md):
 COMPLETE/full independent audit/local descent PASS; absolute quality FAIL.
+Changed-point runner IMPLEMENTED/structural PASS/sealed, UNEXECUTED.
 All owned jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
@@ -81,7 +82,9 @@ protocols/receipts immutable. Live INDEX timestamp typo corrected from terminal;
 actual process receipts always authoritative. No baseline replay.
 
 [Next changed-state causal gradient and full route comparison](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_NEXT_20261010.md):
-PROPOSED/UNIMPLEMENTED. Consume actual selectedalpha.001/masters.pt/candidate.packed
+IMPLEMENTED/structural PASS/UNEXECUTED, [frozen protocol](ORIGINAL_CATEGORICAL_CHANGED_HISTORY_PROTOCOL_20261010.md).
+Numeric binding f6651a4f, producer/audit900s each, OS24/12GiB/localRTX3060.
+Consume actual selectedalpha.001/masters.pt/candidate.packed
 under qualified receipt, ONE new GPU history/backward and all90 new gradients;
 compare EXISTING C scores and all58x6 route IDs/normalized mass, no new C baseline.
 Freeze numeric/resource gates and full audit before launch. Then a finite
