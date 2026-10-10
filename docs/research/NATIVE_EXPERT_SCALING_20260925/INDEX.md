@@ -6,10 +6,14 @@ First stored audit deadline FAIL retained; missing-only audit exit0/all1890 hash
 Target/readout control and independent audit COMPLETE; coupling branch selected.
 Source final readout and full independent audit COMPLETE; alignment FAIL.
 Bounded margin diagnosis COMPLETE:3 positive-gap changes, not teacher ties.
-Paired cached-state control prepared/AST PASS, binding4914ab1f/53 inputs4.949GB.
+Cached-state first attempt exit1/71.625s, startup flag read before initialization.
+Session42559 CLOSED/PIDs25876/28136 gone; zero model/history/head observation.
+[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md) moves assertion after
+mixer construction, unchanged science/caps; new sealed binding and namespace.
+First fault/overlap rejection immutable; no completed generation to replay.
 [Frozen protocol](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md): one new generation,
 same-invocation h24/norm/logits, exact old token/logit replay/paired operator gates.
-600s/OS8GiB/GPU10-11GiB/128MiB outputs; separate120s stored audit. No worker yet.
+600s/OS8GiB/GPU10-11GiB/128MiB outputs; separate120s stored audit after exit.
 Complete validation method remains in force; no codec fit or T4.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
@@ -45,7 +49,7 @@ Full independent audit PASS/all hashes/576 scalar witnesses. Held604.844s+
 the same3 IDs with positive teacher gaps; no exact top ties or better +/-1 shift.
 Held2.813s/all30 hashes PASS. Next [cached-state investigation](SOURCE_CACHED_FINAL_STATE_NEXT_20261010.md):
 inspect exact code/capture semantics before pricing any new source observation.
-Old preparation/live paragraphs below are historical; no worker currently live.
+Old preparation/live paragraphs below historical; first capture now TERMINAL1.
 
 [Matched actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md):48 actual
 new updates complete,24 perarm. A native DEV caseKL6.519307/disagreement89.789%;

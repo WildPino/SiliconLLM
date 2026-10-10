@@ -8,6 +8,17 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Current repair, 10 October:** source cached-state first attempt startup FAIL,
+exit1/71.625s/session42559 CLOSED/PIDs gone. No model or source observation.
+[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md) moves the runtime flag
+check after mixer initialization, new sealed binding/namespace; old artifacts
+immutable, science/gates/caps unchanged. Older LIVE below historical.
+
+**LIVE, 10 October11:53:** source cached-state capture session42559,
+launcher25876/worker28136, freeze129a9a8/bind4914ab1f. First prelaunch overlap
+rejection retained; process20380 exited naturally, no prior worker created.
+Poll SAME held handle, then120s stored audit; no concurrent owned benchmark.
+
 **Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
 implemented/AST PASS/binding4914ab1f (53 inputs4.949GB), no worker yet. One new
 generation for missing h24/norm/logit pairing; source actual values before/after,

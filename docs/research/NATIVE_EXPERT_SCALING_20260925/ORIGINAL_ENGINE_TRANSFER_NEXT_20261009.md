@@ -8,6 +8,19 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ## Actual resumption, not a fresh training restart
 
+**Current repair, 10 October:** first capture startup FAIL exit1/71.625s,
+session42559 CLOSED/PIDs gone; no model/history/head observation completed.
+[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md): new script moves flag
+check after model/mixer construction, frozen new sealed binding/namespace;
+original code/fault retained, unchanged science/gates/caps. Freeze/launch repair1,
+then120s stored audit; older LIVE below historical.
+
+**LIVE, 10 October11:53:** cached-state capture session42559/launcher25876/
+worker28136, created11:52:59.571652/11:53:04.048027+02:00, freeze129a9a8/
+bind4914ab1f. First overlap rejection retained; process20380 naturally gone,
+no prior worker. Poll same held handle, preserve terminal/outputs, then120s
+stored audit. No concurrent owned benchmark; earlier preparation below historical.
+
 **Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
 implemented/AST PASS/binding4914ab1f/53 inputs4.949GB. Freeze/launch one new
 generation with actual final-state/logit pairing, source values before/after,

@@ -1,5 +1,16 @@
 # Native expert-count scaling: prior evidence
 
+**Current repair, 10 October:** cached-state startup FAIL exit1/71.625s,
+session42559 CLOSED/PIDs gone, zero model/history/head observation.
+[Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md) verifies flag after
+mixer initialization, new sealed binding/namespace/unchanged criteria. Old fault
+immutable, older LIVE below historical; no inference has been completed.
+
+**LIVE, 10 October11:53:** cached-state capture session42559/launcher25876/
+worker28136, freeze129a9a8/bind4914ab1f. Earlier preparation paragraphs historical.
+First overlap rejection retained/process20380 gone naturally/no prior worker.
+Poll same handle, then120s stored audit; no concurrent owned benchmark.
+
 **Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
 implemented/AST PASS/binding4914ab1f, no worker yet. One new source generation
 for actual same-call state/logit custody and observed cache rounding; not a

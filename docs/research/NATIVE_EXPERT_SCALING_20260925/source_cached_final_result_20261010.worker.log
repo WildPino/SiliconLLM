@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\source_cached_final_capture.py", line 327, in <module>
+    elif a.capture_worker:capture(a)
+                          ^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\source_cached_final_capture.py", line 82, in capture
+    assert not code.is_fast_path_available
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'transformers.models.falcon_h1.modeling_falcon_h1' has no attribute 'is_fast_path_available'

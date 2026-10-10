@@ -6,6 +6,16 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+**Current repair, 10 October:** cached-state startup FAIL exit1/71.625s,
+session42559 CLOSED/PIDs gone/zero source observation. [Repair1](SOURCE_CACHED_FINAL_REPAIR1_PROTOCOL_20261010.md)
+moves flag check after mixer initialization, new sealed binding/namespace,
+unchanged science/caps. Original fault immutable; older LIVE below historical.
+
+**LIVE, 10 October11:53:** cached-state capture session42559/launcher25876/
+worker28136, freeze129a9a8/bind4914ab1f. First prelaunch overlap retained,
+process20380 naturally gone/no earlier worker. Same handle then120s stored
+audit, no concurrent owned benchmark. Older preparation below historical.
+
 **Current preparation, 10 October:** [paired cached-state control](SOURCE_CACHED_FINAL_PROTOCOL_20261010.md)
 implemented/AST PASS/binding4914ab1f, no worker yet. One new source generation
 for actual same-call state/logit custody/cache rounding witnesses;600s/8GiBOS/
