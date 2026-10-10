@@ -1,0 +1,62 @@
+{
+  "schema": "CAUSAL_READOUT_COORDINATES_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\causal_readout_coordinates_result_20261010.json",
+    "bytes": 1557332,
+    "sha256": "e95ae8a8831ae3800ca1049c8e7fb26f95919b34311d4a53df082e85270ef36c"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\causal_readout_coordinates_binding_20261010.json",
+    "bytes": 193541,
+    "sha256": "f8fcb9d9eb9ab2940cc5ef0fbfc3b3675712f5eeb10f70d8346ab6de31748db0"
+  },
+  "decision": "CAUSAL_COORDINATES_NOT_QUALIFIED",
+  "numeric_flags": {
+    "numerically_full_rank": true,
+    "QR": true,
+    "SVD": true,
+    "orthogonal": true,
+    "scores": true,
+    "feature_absolute": false,
+    "feature_relative": true,
+    "norms": true
+  },
+  "complete_input_output_hashes": true,
+  "original_four_native_bodies_exact": true,
+  "full_QR_SVD_identities_and_orthogonality": true,
+  "all_stored_feature_normal_equations_and_residuals": true,
+  "max_scalar_comparison_absolute_delta": 2.1458390619955026e-12,
+  "max_normal_equation_absolute_delta": 2.5011104298755527e-12,
+  "calibration": {
+    "head_Frobenius": 42.59723441130109,
+    "head_singular_max": 20.969894426067295,
+    "head_singular_min": 0.912987455225991,
+    "head_condition": 22.96843653878753,
+    "effective_rank": 256,
+    "QR_error_Frobenius": 5.3211096554825034e-14,
+    "QR_relative": 1.2491678694687295e-15,
+    "Q_orthogonal_Frobenius": 3.45276838491155e-14,
+    "SVD_error_Frobenius": 2.2037077084237226e-13,
+    "SVD_relative": 5.173358643769725e-15,
+    "U_orthogonal_Frobenius": 3.4600793804015915e-14,
+    "V_orthogonal_Frobenius": 3.5277753537825167e-14,
+    "sigma_R_lower": 0.9129874552257387,
+    "sigma_H_lower": 0.9129874552256697,
+    "F32_gamma_dot": 1.5259021896696422e-05,
+    "F32_gamma_RMS": 3.051850947599719e-05,
+    "native_normalized_norm_upper": 342.57650668717804,
+    "native_dot_rounding_L2_upper": 0.2226720341673667,
+    "bound_kind": "Conservative unexceptional F32/FMA rounding model, F64 evaluated; not directed-rounding intervals"
+  },
+  "scalar_head_witnesses": 384,
+  "max_scalar_arithmetic_absolute_delta": 3.552713678800501e-15,
+  "stored_full_head_reconstructions": 8808,
+  "QR_factorizations": 0,
+  "SVD_factorizations": 0,
+  "native_binary_calls": 0,
+  "optimizer_updates": 0,
+  "source_calls": 0,
+  "GPU_calls": 0,
+  "seconds": 48.0470000000023,
+  "scope": "Full stored feature/factor/rounding-bound/metrics/decision/custody/resource audit; no QR/SVD or history replay."
+}

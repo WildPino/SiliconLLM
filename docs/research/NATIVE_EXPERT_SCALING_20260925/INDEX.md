@@ -2,9 +2,10 @@
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
 [Stored causal coordinates](CAUSAL_READOUT_COORDINATES_PROTOCOL_20261010.md)
-implemented/AST PASS, bindingf8fcb9d9/70 inputs;600s CPU +600s full audit.
-No worker yet, teacher/source/history/optimizer/native/GPU/T4 calls0.
-[Previous head-image control](PAIRED_HEAD_IMAGE_RESULT_20261010.md) complete.
+COMPLETE/audit PASS, NOT_QUALIFIED solely conservative absolute error bound.
+[Exact dot-path refinement](CAUSAL_COORDINATE_DOT_BOUND_PROTOCOL_20261010.md)
+implemented/binding66a62c71; freeze then60s+60s, no recovery/history replay.
+All owned sessions/PIDs CLOSED; no fit/teacher/source/native/GPU/T4.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
