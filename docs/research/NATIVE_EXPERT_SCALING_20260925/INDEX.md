@@ -3,7 +3,10 @@
 10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
 [Latest lossless master-transition custody](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md):
 COMPLETE/full independent audit/all721008128 F32 words exact; prior qualityFAIL.
-Full24-FIT producer LIVE; prior jobs CLOSED. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
+11 October00:00: full24-FIT producer CLOSED/holder failure, result missing.
+[Recovery protocol](CATEGORICAL_CAMPAIGN_RECOVERY_PROTOCOL_20261011.md).
+Original complete audit NOT launched; recovered boundary/missing chat assessment
+required. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
 ## Goal and constraints
 
@@ -87,6 +90,19 @@ METHOD/PRIOR retain source/operator/capacity/structured-router and literature
 history. No compact-state information ceiling or universal conversion claim.
 
 ## Exact resumption
+
+AUTHORITATIVE11 October: session22911 CLOSED exit1; actual holder23256/worker2968
+absent. Failed terminal SHA0d6bf116cd51868bdb1d507cbe23f0d3429949a2a999ced8152395abf3399ade,
+error AssertionError()/12678.531s, worker peak19.7187GB.24 directions/48 trials/
+48 final forced case records/115 native-prefix receipts persist;5 accepted.
+5,742 files/138.619GB currently; empty final.stream.log, no producer result,
+stream receipt or task record. Exact holder assertion/initial stream exposure
+UNKNOWN. No original successful custody; do NOT launch unchanged auditor or
+fabricate terminal success. New read-only recovery seal ready/AST PASS,
+30min/256MiB/8MiB output, hashes current original inputs and recovered files;
+freeze protocol/source then launch in exclusive20261011 namespace. Follow
+linked recovery protocol for distinct audit/missing-chat jobs. Older live
+resumption paragraphs below are historical and must not trigger a restart.
 
 Changed-point producer session67964/holder31392/worker31700
 (creation1791652069.4633064) and audit3302/holder192/worker18272

@@ -1,0 +1,1785 @@
+{
+  "freeze": "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+  "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+  "launcher_freeze": "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_launch_binding_20261010.json",
+    "bytes": 3038,
+    "sha256": "a1d1aa65b8b3e908886b6f2eeadb685854011ad8ec84852324d414ef634ca401"
+  },
+  "launcher_pid": 23256,
+  "limits": {
+    "seconds": 18000,
+    "reserve_seconds": 1800,
+    "OS_bytes": 34359738368,
+    "GPU_allocated_bytes": 10737418240,
+    "GPU_reserved_bytes": 11811160064,
+    "output_bytes": 150323855360,
+    "free_disk_bytes": 25769803776,
+    "log_bytes": 8388608,
+    "child_seconds": 100,
+    "stream_seconds": 300
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_campaign.py",
+    "--capture-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_binding_20261010.json",
+    "--binding-sha",
+    "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+    "--freeze",
+    "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 2968,
+  "worker_creation_time": 1791656179.7136545,
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "elapsed_seconds": 12678.531000000003,
+  "worker_OS_peak_through_exit": 19718729728,
+  "native_OS_peak": 527785984,
+  "observed_native_children": [
+    {
+      "pid": 31232,
+      "creation_time": 1791656314.4067423,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 18328,
+      "creation_time": 1791656427.6916223,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 30856,
+      "creation_time": 1791656557.6592205,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 30972,
+      "creation_time": 1791656682.9831395,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 28964,
+      "creation_time": 1791656813.0483496,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_02\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 31520,
+      "creation_time": 1791656957.1414797,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 19624,
+      "creation_time": 1791657081.3244045,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527507456
+    },
+    {
+      "pid": 1792,
+      "creation_time": 1791657233.2694938,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_03\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 4112,
+      "creation_time": 1791657360.6753657,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_01\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 29544,
+      "creation_time": 1791657488.9867768,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 21160,
+      "creation_time": 1791657620.2356184,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 19732,
+      "creation_time": 1791657749.925142,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 9016,
+      "creation_time": 1791657876.640628,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 20512,
+      "creation_time": 1791658017.2684572,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_05\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 29040,
+      "creation_time": 1791658118.3561761,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_04\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 30204,
+      "creation_time": 1791658233.8713143,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527511552
+    },
+    {
+      "pid": 28500,
+      "creation_time": 1791658437.935012,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 30984,
+      "creation_time": 1791658584.0558453,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527511552
+    },
+    {
+      "pid": 29816,
+      "creation_time": 1791658731.0495172,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527511552
+    },
+    {
+      "pid": 30984,
+      "creation_time": 1791658862.853664,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_07\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 12844,
+      "creation_time": 1791659009.8680775,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 12364,
+      "creation_time": 1791659144.8313715,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 31212,
+      "creation_time": 1791659283.4670048,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_08\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 29416,
+      "creation_time": 1791659412.5080168,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 10560,
+      "creation_time": 1791659550.686594,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527785984
+    },
+    {
+      "pid": 10264,
+      "creation_time": 1791659690.2548363,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_09\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 29184,
+      "creation_time": 1791659828.8026395,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 23860,
+      "creation_time": 1791659965.3864932,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527507456
+    },
+    {
+      "pid": 31604,
+      "creation_time": 1791660111.3254876,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_10\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527511552
+    },
+    {
+      "pid": 31624,
+      "creation_time": 1791660247.187474,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 19376,
+      "creation_time": 1791660384.9877095,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 5652,
+      "creation_time": 1791660529.174281,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_11\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 30548,
+      "creation_time": 1791660669.3624444,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 8756,
+      "creation_time": 1791660814.980718,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 24100,
+      "creation_time": 1791660963.6962457,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_12\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 19640,
+      "creation_time": 1791661152.988579,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 31348,
+      "creation_time": 1791661297.9762516,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 27600,
+      "creation_time": 1791661458.2826672,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_13\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 1736,
+      "creation_time": 1791661610.2158413,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 17460,
+      "creation_time": 1791661764.605708,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 12208,
+      "creation_time": 1791661976.9222636,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_14\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 29540,
+      "creation_time": 1791662178.373032,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 25676,
+      "creation_time": 1791662364.968609,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 27296,
+      "creation_time": 1791662561.5645046,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_15\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 19472,
+      "creation_time": 1791662714.8322728,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 31204,
+      "creation_time": 1791662900.900303,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527511552
+    },
+    {
+      "pid": 7564,
+      "creation_time": 1791663085.1025825,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_16\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 30368,
+      "creation_time": 1791663280.3476999,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 31144,
+      "creation_time": 1791663539.4205248,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 27764,
+      "creation_time": 1791663756.0231454,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_17\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 29684,
+      "creation_time": 1791664002.505946,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 27268,
+      "creation_time": 1791664233.2618828,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 26176,
+      "creation_time": 1791664466.951366,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_18\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527507456
+    },
+    {
+      "pid": 13796,
+      "creation_time": 1791664685.7198684,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_06\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 4068,
+      "creation_time": 1791664879.4218104,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 25608,
+      "creation_time": 1791665073.0191007,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 30772,
+      "creation_time": 1791665259.0469863,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 7176,
+      "creation_time": 1791665453.7423868,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 13636,
+      "creation_time": 1791665771.276354,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_20\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 4592,
+      "creation_time": 1791665933.6621473,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_19\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 9772,
+      "creation_time": 1791666136.7433286,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 5580,
+      "creation_time": 1791666368.1531875,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 31164,
+      "creation_time": 1791666568.6943948,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 22332,
+      "creation_time": 1791666754.0109165,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527511552
+    },
+    {
+      "pid": 28048,
+      "creation_time": 1791666957.947373,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_22\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 10116,
+      "creation_time": 1791667145.69262,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 17560,
+      "creation_time": 1791667328.2515001,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 30724,
+      "creation_time": 1791667522.9363136,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_23\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 28632,
+      "creation_time": 1791667721.0516236,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\baseline_native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\baseline_native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\baseline_native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\baseline_native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\baseline_native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 9044,
+      "creation_time": 1791667943.2384937,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.0001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.0001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.0001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.0001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.0001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.0001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 31044,
+      "creation_time": 1791668171.298202,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.001\\native\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.001\\native\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.001\\native\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.001\\native\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_24\\alpha_0.001\\native\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 4064,
+      "creation_time": 1791668254.5032148,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_023\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_023\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_023\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_023\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_023\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 12472,
+      "creation_time": 1791668267.1306968,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_002\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_002\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_002\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_002\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_apigen_80k_002\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 10040,
+      "creation_time": 1791668282.3957407,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_034\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_034\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_034\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_034\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_034\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 5068,
+      "creation_time": 1791668297.4667816,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_033\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_033\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_033\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_033\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_apigen_80k_033\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 31164,
+      "creation_time": 1791668317.5576293,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_002\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_002\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_002\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_002\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_002\\summary.json"
+      ],
+      "observed_OS_peak": 527364096
+    },
+    {
+      "pid": 12404,
+      "creation_time": 1791668328.4241636,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_010\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_010\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_010\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_010\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_everyday_conversations_010\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 16524,
+      "creation_time": 1791668337.2503023,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_036\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_036\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_036\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_036\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_036\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 4484,
+      "creation_time": 1791668341.2162611,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_033\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_033\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_033\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_033\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_everyday_conversations_033\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 7276,
+      "creation_time": 1791668355.6603951,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_008\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_008\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_008\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_008\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_008\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 24180,
+      "creation_time": 1791668358.0633907,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_009\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_009\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_009\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_009\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_explore_instruct_rewriting_009\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 22956,
+      "creation_time": 1791668361.0488696,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_035\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_035\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_035\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_035\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_035\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 24156,
+      "creation_time": 1791668363.9447472,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_038\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_038\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_038\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_038\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_explore_instruct_rewriting_038\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 31140,
+      "creation_time": 1791668375.2792313,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_015\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_015\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_015\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_015\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_015\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 30468,
+      "creation_time": 1791668381.9229035,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_023\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_023\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_023\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_023\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_metamathqa_50k_023\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 26720,
+      "creation_time": 1791668392.7807157,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_035\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_035\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_035\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_035\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_035\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 31184,
+      "creation_time": 1791668400.5992515,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_037\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_037\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_037\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_037\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_metamathqa_50k_037\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 18412,
+      "creation_time": 1791668411.4824252,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_015\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_015\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_015\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_015\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_015\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 30084,
+      "creation_time": 1791668420.0200744,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_016\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_016\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_016\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_016\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_numina_cot_100k_016\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 30844,
+      "creation_time": 1791668430.868342,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_038\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_038\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_038\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_038\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_038\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 30112,
+      "creation_time": 1791668439.3376367,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_035\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_035\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_035\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_035\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_numina_cot_100k_035\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 4068,
+      "creation_time": 1791668450.5844088,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_004\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_004\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_004\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_004\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_004\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 1776,
+      "creation_time": 1791668460.725599,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_028\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_028\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_028\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_028\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_openhermes_100k_028\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 23604,
+      "creation_time": 1791668472.8512628,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_034\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_034\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_034\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_034\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_034\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 5068,
+      "creation_time": 1791668483.6835074,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_037\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_037\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_037\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_037\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_openhermes_100k_037\\summary.json"
+      ],
+      "observed_OS_peak": 527368192
+    },
+    {
+      "pid": 9376,
+      "creation_time": 1791668491.7992873,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_012\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_012\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_012\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_012\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_012\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 8580,
+      "creation_time": 1791668499.5769756,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_006\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_006\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_006\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_006\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_self_oss_instruct_006\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 30484,
+      "creation_time": 1791668512.175017,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_036\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_036\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_036\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_036\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_036\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 13636,
+      "creation_time": 1791668521.4459221,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_033\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_033\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_033\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_033\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_self_oss_instruct_033\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 29916,
+      "creation_time": 1791668533.037567,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_005\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_005\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_005\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_005\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_005\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 6476,
+      "creation_time": 1791668544.1052027,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_021\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_021\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_021\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_021\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_constraints_021\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 27680,
+      "creation_time": 1791668555.2109268,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_035\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_035\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_035\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_035\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_035\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 31432,
+      "creation_time": 1791668559.4075568,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_034\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_034\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_034\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_034\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_constraints_034\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 22500,
+      "creation_time": 1791668566.74714,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_000\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_000\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_000\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_000\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_000\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 30400,
+      "creation_time": 1791668591.680601,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_022\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_022\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_022\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_022\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_magpie_ultra_022\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 19288,
+      "creation_time": 1791668617.4733653,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_034\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_034\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_034\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_034\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_034\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 5984,
+      "creation_time": 1791668641.0257463,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_036\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_036\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_036\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_036\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_magpie_ultra_036\\summary.json"
+      ],
+      "observed_OS_peak": 527368192
+    },
+    {
+      "pid": 25700,
+      "creation_time": 1791668669.8359687,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_004\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_004\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_004\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_004\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_004\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 27780,
+      "creation_time": 1791668678.7440238,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_015\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_015\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_015\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_015\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_fit_smol_rewrite_015\\summary.json"
+      ],
+      "observed_OS_peak": 527360000
+    },
+    {
+      "pid": 2960,
+      "creation_time": 1791668695.4020162,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_036\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_036\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_036\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_036\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_036\\summary.json"
+      ],
+      "observed_OS_peak": 527380480
+    },
+    {
+      "pid": 19316,
+      "creation_time": 1791668706.6544347,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_032\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_032\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_032\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_032\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_rewrite_032\\summary.json"
+      ],
+      "observed_OS_peak": 527376384
+    },
+    {
+      "pid": 18016,
+      "creation_time": 1791668720.0639389,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_034\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_034\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_034\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_034\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_034\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 29740,
+      "creation_time": 1791668726.0063014,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_039\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_039\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_039\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_039\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_smol_summarize_039\\summary.json"
+      ],
+      "observed_OS_peak": 527368192
+    },
+    {
+      "pid": 27144,
+      "creation_time": 1791668777.3239176,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_039\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_039\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_039\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_039\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_039\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    },
+    {
+      "pid": 13544,
+      "creation_time": 1791668803.7556732,
+      "command": [
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_engine_baseline_20261009\\original_engine_chat.exe",
+        "--prefix",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\step_21\\alpha_0.001\\candidate.packed",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_034\\query.u32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_034\\scores.f32",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_034\\routes",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_034\\witness",
+        "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010\\final_broad_dev_systemchats_30k_034\\summary.json"
+      ],
+      "observed_OS_peak": 527384576
+    }
+  ],
+  "launcher_OS_peak_snapshot": 45330432,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_result_20261010.worker.log",
+    "bytes": 41988,
+    "sha256": "f0e60441e98c7d2bb3c3d2def0474a4c0bcfe2424a09a7477681d24487c83f88"
+  }
+}

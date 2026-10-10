@@ -1,5 +1,14 @@
 # Native expert-count scaling: prior evidence
 
+**Authoritative11 October00:00:** Original24-direction producer CLOSED exit1,
+holder generic AssertionError before result seal.24 steps/48 candidate trials/
+all48 final forced cases retained/5 accepted,138.619GB. Missing task stage and
+original successful custody; exact holder cause/stream startup exposure unknown.
+[Present-boundary recovery](CATEGORICAL_CAMPAIGN_RECOVERY_PROTOCOL_20261011.md)
+new read-only seal source/AST PASS, unexecuted until freeze. No training restart
+or old auditor with forged terminal; full numerical/quality audit still required.
+Older LIVE statuses below are historical.
+
 **Current, 10 October21:09:** Frozen24-FIT producer LIVE session22911/holder23256/
 worker2968 creation1791656179.7136545. Eight directions complete/three accepted;
 fifth rejected solely for mass9.059906e-5, sixth all bridge gates PASS and accepts
