@@ -3,6 +3,7 @@
 No learner construction, CUDA access, source inference or optimizer replay.
 Run only after the experiment's launcher has terminated and sealed its outputs.
 """
+import argparse
 import gc
 import json
 import math
@@ -185,6 +186,7 @@ def state_export(checkpoint, packed, witness_path, arm, milestone, binding, inhe
         if name.endswith('_code'):
             base=name[:-5];p=model[master_name(base)]
             sf=fields[base+'_scale']; scales=np.memmap(packed,dtype='<f4',mode='r',offset=sf['offset'],shape=sf['shape'])
+            assert np.isfinite(scales).all() and (scales>0).all()
             for first in range(0,E,32):
                 last=min(first+32,E); w=p[first:last]
                 scale=w.abs().mean(-1).clamp_min(1e-5)
@@ -267,24 +269,31 @@ def task_check(result,binding):
         tasks_exact=True,own_answer_followup_exact=True,raw_rates_exact=True)
 
 
-def main():
+def main(args):
     import numpy as np
     import psutil
     import torch
     started=time.monotonic();psutil.Process().cpu_affinity(list(range(6)));torch.set_num_threads(6)
-    result_path=DOC/'original_joint_history_recovery_result_20261009.json'
+    result_path=args.result
     bpath=DOC/'original_joint_history_recovery_binding_20261009.json'
     r=json.loads(result_path.read_bytes());b=json.loads(bpath.read_bytes())
+    finish_binding=json.loads(args.binding.read_bytes())
     terminal=json.loads(result_path.with_suffix('.terminal.json').read_bytes())
     assert terminal['exit_code']==0 and terminal['result_sha256']==sha(result_path)
-    assert r['binding_sha256']==terminal['binding_sha256']==sha(bpath)
+    assert r['binding_sha256']==terminal['binding_sha256']==sha(args.binding)
+    assert r['parent_binding_sha256']==sha(bpath)==finish_binding['parent_binding']['sha256']
     for pid in (terminal['worker_pid'],terminal['launcher_pid']):
         try:
             p=psutil.Process(pid)
             assert not (p.name().lower().startswith('python') and 'original_joint_history_recovery.py' in ' '.join(p.cmdline())),'family still live'
         except psutil.NoSuchProcess:pass
-    assert r['schema']=='ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_V1'
-    for item in b['inputs']+terminal['output_files']:assert extent(item['path'])==item,item['path']
+    assert r['schema']=='ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_RESULT_V1'
+    for item in finish_binding['adjudication_inputs']+terminal['output_files']:assert extent(item['path'])==item,item['path']
+    parent_failure=json.loads(Path(finish_binding['parent_failure']['path']).read_bytes())
+    parent_fault=json.loads(Path(finish_binding['first_fault']['path']).read_bytes())
+    assert parent_failure['exit_code']==1 and parent_fault['error']=="AssertionError('reserve/deadline')"
+    assert parent_fault['counter']==parent_fault['durable']==51 and not parent_fault['optimizer_partial_possible']
+    assert not r['parent_completion_reserve_gate'] and r['parent_first_fault']==finish_binding['first_fault']
     ns=Path(r['arms'][0]['final_checkpoint']['path']).parent;records={rec['id']:rec for rec in b['records']}
     assert len(records)==48 and len(b['FIT_order'])==24
     source=torch.load(b['source_state']['path'],map_location='cpu',weights_only=True,mmap=True)
@@ -356,27 +365,44 @@ def main():
         behavioral_support=Barm['tasks']['correct']>=max(g['B_behavioral_min'],A['tasks']['correct']+2))
     assert preference==r['B_preference_gates'] and r['B_preferred']==all(preference.values())
     assert r['decision']==('JOINT_HISTORY_B_SUPPORTED' if all(preference.values()) else 'JOINT_HISTORY_B_NOT_SUPPORTED')
-    assert r['new_optimizer_updates']==sum(x['new_updates'] for x in r['arms'])<=48
+    assert r['new_optimizer_updates']==0 and r['parent_optimizer_updates']==sum(x['new_updates'] for x in r['arms'])==48
+    assert r['adopted_B_auxiliary_cases']==16 and r['candidate_auxiliary_calls']==8
+    Baux=Barm['auxiliary_DEV'];assert Baux['adopted_cases']==16 and Baux['new_cases']==8
+    for item in finish_binding['adopted_B_auxiliary']:
+        row=json.loads(Path(item['path']).read_bytes());assert row==next(x for x in Baux['records'] if x['id']==row['id'])
     assert r['source_calls']==r['reserved_queries']==r['GPU_source_calls']==0
     assert r['quality_admission']==r['speed_admission']==r['useful_large_n_admission']==False
     assert r['physical_DRAM_bytes'] is None and not r['inherited_source_capture_resource_gate']
     assert all(child['exit_code']==0 for child in r['children'])
-    assert len(r['children'])==sum(24*len(arm['milestones'])+1 for arm in r['arms'])
+    assert len(r['children'])==1 and len(parent_fault['children'])==145
+    assert all(child['exit_code']==0 for child in parent_fault['children'])
     peak=terminal['worker_OS_peak_through_exit']+r['max_direct_child_OS_peak']+terminal['launcher_OS_peak_snapshot']
-    assert peak<=b['limits']['OS_bytes'] and terminal['elapsed_seconds']<=b['limits']['seconds']
-    assert r['GPU_allocated_peak']<=b['limits']['GPU_allocated_bytes'] and r['GPU_reserved_peak']<=b['limits']['GPU_reserved_bytes']
-    assert sum(item['bytes'] for item in terminal['output_files'])<=b['limits']['output_bytes']
+    assert peak<=finish_binding['limits']['OS_bytes'] and terminal['elapsed_seconds']<=finish_binding['limits']['seconds']
+    assert r['GPU_allocated_peak']<=finish_binding['limits']['GPU_allocated_bytes'] and r['GPU_reserved_peak']<=finish_binding['limits']['GPU_reserved_bytes']
+    assert sum(item['bytes'] for item in terminal['output_files'])<=finish_binding['limits']['output_bytes']
+    parent_peak=parent_failure['worker_OS_peak_through_exit']+parent_fault['max_direct_child_OS_peak']+parent_failure['launcher_OS_peak_snapshot']
+    assert parent_peak<=b['limits']['OS_bytes'] and parent_failure['elapsed_seconds']<=b['limits']['seconds']
+    assert parent_fault['GPU_allocated_peak']<=b['limits']['GPU_allocated_bytes'] and parent_fault['GPU_reserved_peak']<=b['limits']['GPU_reserved_bytes']
+    assert sum(item['bytes'] for item in finish_binding['parent_outputs'])<=b['limits']['output_bytes']
     result=dict(schema='ORIGINAL_JOINT_HISTORY_RECOVERY_STORED_ADJUDICATION_V1',result=extent(result_path),binding=extent(bpath),
-        audit_code=extent(Path(__file__)),input_hashes=len(b['inputs']),output_hashes=len(terminal['output_files']),arms=audit,
+        audit_code=extent(Path(__file__)),completion_binding=extent(args.binding),input_hashes=len(finish_binding['adjudication_inputs']),
+        parent_input_hashes=len(b['inputs']),parent_output_hashes=len(finish_binding['parent_outputs']),output_hashes=len(terminal['output_files']),arms=audit,
         auxiliary_summary_max_aggregate_delta=auxiliary_delta,initial_core_gradient_deltas=gradient_deltas,
         first_GPU_heads_routes_initial_packed_exact=True,worker_initial_RAM_92_master_moments_RNG_witness_retained=True,
-        source_lineage_exact=True,B_preference_gates=preference,decision=r['decision'],new_optimizer_updates=r['new_optimizer_updates'],
-        conservative_held_OS_union=peak,model_calls=0,source_calls=0,GPU_calls=0,optimizer_updates=0,seconds=time.monotonic()-started,
+        source_lineage_exact=True,B_preference_gates=preference,decision=r['decision'],parent_optimizer_updates=48,
+        parent_completion_reserve_gate=False,adopted_B_auxiliary_cases=16,new_B_auxiliary_cases=8,
+        conservative_held_OS_union=peak,parent_conservative_held_OS_union=parent_peak,
+        model_calls=0,source_calls=0,GPU_calls=0,optimizer_updates=0,seconds=time.monotonic()-started,
         limits='Stored auxiliary summaries independently reduced; no saved intermediate candidate activations to recompute auxiliary loss. '
             'Initial92 RAM restoration witness belongs to worker; initial packs/heads/routes and all durable states checked here. '
             'Inherited source capture/numerical/full runtime DLL/DRAM/fresh quality gaps retained. Stored audit is outside held experiment family.')
-    out=DOC/'original_joint_history_recovery_stored_adjudication_20261009.json';write(out,result)
+    out=args.out;write(out,result)
     print(json.dumps(dict(audit=str(out),sha256=sha(out),decision=result['decision'],seconds=result['seconds'])),flush=True)
 
 
-if __name__=='__main__': main()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--result',type=Path,required=True)
+    parser.add_argument('--binding',type=Path,required=True)
+    parser.add_argument('--out',type=Path,required=True)
+    main(parser.parse_args())

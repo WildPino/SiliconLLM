@@ -1,6 +1,17 @@
 # Native expert-count scaling: prior evidence
 
-**Current family RUNNING, no result yet:**
+**10 October matched family terminated, assessment incomplete:** both24-update
+forks/durable51/six24DEV native milestones COMPLETE. A KL6.5193073/disagreement
+89.7893%/tasks0/16; B KL6.5161150/disagreement89.6814%. Bfirst auxiliary core
+gradient differences nonzero/distinguishable; not a5% nativeKL preference.
+First reserve/deadline fault at6600.156s during B final auxiliary; launcherexit1/
+6620.437s/1397 files75.134GB.16 Baux cases durable/eight missing/tasks unexecuted.
+Parent code/binding/state/fault retained. Missing-only
+[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) prepares
+eight new auxiliary histories and Btasks; zero optimizer/source/DEV replay.
+No parent process live. Older RUNNING text below is historical; INDEX current.
+
+**Previous live observation, superseded above:**
 [Matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
 freeze7f3d2eb/bind07c8b4e/386inputs,session81654/worker7132. Two independent
 actual27 real-Adam/RNG forks, same24 FIT onepass, original native endpoint.

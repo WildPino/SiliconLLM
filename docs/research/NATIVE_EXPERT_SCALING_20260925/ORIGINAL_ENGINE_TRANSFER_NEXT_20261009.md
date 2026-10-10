@@ -1,6 +1,7 @@
 # Next: transfer donor history functions into the original engine envelope
 
-9 October 2026. Goal ACTIVE/INCOMPLETE. Matched recovery running; no T4 allocation.
+10 October2026. Goal INCOMPLETE. Matched training complete; assessment completion
+prepared. No T4 allocation.
 [Complete original-operator recovery](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md)
 and [actual27 correction](ORIGINAL_DELTA_SEED_RESULT_20261009.md) are complete.
 Useful chatbot conversion remains missing; strict numerical FAIL is retained.
@@ -9,7 +10,17 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ### Current resumption: qualified teacher histories and finite joint recovery
 
-**LIVE selected family:** [protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
+**Current override:** original family terminated exit1 at6600s reserve, BOTH
+actual51/24 NEW updates each/all six24DEV native milestones durable. A KL6.5193073/
+tasks0/16; B KL6.5161150.16 final B auxiliary cases saved; eight/task assessment
+missing. Preserve all first-family files/code/fault; no optimizer/native DEV
+replay. Missing-only [completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md)
+restores immutable B51 masters/RNG for eight unsaved auxiliary histories then
+canonical16 native tasks/own-answer followup. New namespace/binding/1200s caps.
+Stored audit follows with held receipts. Original reserve/numerical/source gaps
+are retained; no T4. The previous LIVE description below is historical.
+
+**Previous selected family:** [protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
 worker `original_joint_history_recovery.py`,freeze7f3d2ebf8f15fd9b5a1c24c2553c6067050b707b,
 binding07c8b4e491bfe76e90c39ad55bebcd71bf6fd581988ac155a653988be86c1584/386inputs.
 Session81654;launcher28184/worker7132/create_time2026-10-09T21:48:12.639016+02:00.

@@ -8,7 +8,17 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
-**Current execution:** [matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
+**10 October status:** matched family terminated exit1 at6600s completion
+reserve after BOTH24 new-update onepasses/durable51/all six native24DEV
+milestones/A auxiliary/tasks/16 B auxiliary cases. A finalKL6.5193073/tasks0/16;
+B finalKL6.5161150, preference5% nativeKL gate already FAIL. First fault preserved.
+Missing-only [completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md)
+prepares eight unsaved B auxiliary cases and B canonical tasks/own-answer
+followup, zero optimizer/source/native DEV replay. No parent process live.
+All earlier live paragraphs below describe historical observation. INDEX
+supersedes them; parent reserve/numerical/source capture gaps remain explicit.
+
+**Previous execution:** [matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
 is frozen/running locally from actual27, A finalKL versus B finalKL+six residual
 losses. Same24 FIT onepass/real Adam/RNG,original C consumer/native baseline,
 6/12/24 durable/native DEV checkpoints and final auxiliary/tasks. Runner now

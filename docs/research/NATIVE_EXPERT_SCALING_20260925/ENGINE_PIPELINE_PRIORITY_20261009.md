@@ -6,6 +6,14 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+10 October: BOTH matched24-step forks/durable51/six native24DEV milestones are
+complete. Original family terminated exit1 at6600s reserve during B auxiliary;
+16 cases durable/eight and Btasks missing. A nativeKL6.51931/tasks0/16; B6.51611,
+not the frozen5% KL advantage. Preserve first fault and zero-replay
+[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) before
+independent stored adjudication. No parent process live/new optimizer/source/
+DEV replay/T4. Older RUNNING paragraphs below are historical; INDEX current.
+
 The [finite matched joint recovery](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md)
 is now frozen/running:actual27 real states,24FIT onepass perarm, final-KL versus
 KL+six-boundary weight1, original C endpoint and complete before baseline reused.
