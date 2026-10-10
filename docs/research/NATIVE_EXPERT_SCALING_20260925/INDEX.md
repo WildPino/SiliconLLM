@@ -80,6 +80,9 @@ diagnostic, not a converted chatbot or global compact-state ceiling.
 [Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
 papers/coverage algebra/product-key selection; provenance ledger retained,
 no new model observation or substitute for original-engine quality.
+[Readout/operator algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates
+projection/norm/head terms and the missing sigmoid in signed dReLU replicas;
+derived error conditions are not measurements or a capacity ceiling.
 No further boundary capture/delta repair/numerical trace or unchanged long
 training dose selected; no T4. Original numerical/source/full-runtime/DRAM gaps remain.
 
