@@ -173,3 +173,12 @@ tensor result.1,567,404 bytes/1.6821934s/OS122,273,792B/no model or neural/nativ
 calls. First PowerShell empty-container fault preserved; v2 separate. Neither
 consumed campaign code nor criteria changed. Proposed support-mask/new-adjoint
 alternatives wait for full audit and a separately frozen experiment.
+
+At2296.547 worker seconds direction6 rewriting009 full90-ID/13-label ACCEPTS
+alpha.0001: weighted68.596337->62.987484, first47.221575->44.696635,
+13/13 wrong. Alpha.001 weighted65.854651/first87.429897 is ineligible.
+ALL bridge gates PASS, full IDs exact/mass4.172325e-7/selected-label score
+.000169570/KL.000117265/checkpoint bits0. Milestone6 stored before seventh
+metamath015 full209-ID causal history. Observed20:56:14: same actual holder/
+worker creation, CPU progressing, no terminal record, worker peak19,154,034,688B.
+Six complete/three accepted; no final quality or independent audit conclusion.

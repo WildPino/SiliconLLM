@@ -121,8 +121,10 @@ solely for mass.00055546; IDs/selected-label scores/KL pass, feasible C
 weighted83.6061->58.9335. Fourth full363-ID ACCEPTED1449.516s/all bridge flags
 true: alpha.0001 weighted83.8903->75.0426,200/200 wrong. Fifth full367-ID
 everyday010 REJECTED1845.250s, solely mass9.05991e-5; IDs/selected scores/KL
-pass, feasible weighted83.0574->76.3504. Five directions complete/two accepted;
-sixth rewriting009 full90-ID history saved/both finite proposals running.
+pass, feasible weighted83.0574->76.3504. Sixth rewriting009 full90-ID/13-label
+ACCEPTED2296.547s alpha.0001 weighted68.5963->62.9875/first47.2216->44.6966;
+all bridge gates PASS/mass4.17233e-7,13/13 wrong. Six directions complete/three
+accepted; milestone6 saved, seventh metamath015 full209-ID history running.
 [Attribution after full audit](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md).
 No completed24-case or quality claim; frozen campaign/audit unchanged.
 Exact-session observation until terminal,

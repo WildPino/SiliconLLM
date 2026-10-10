@@ -1,8 +1,9 @@
 # Native expert-count scaling: prior evidence
 
-**Current, 10 October20:54:** Frozen24-FIT producer LIVE session22911/holder23256/
-worker2968 creation1791656179.7136545. Five directions complete/two accepted;
-fifth rejected solely for mass9.059906e-5, sixth finite proposals running.
+**Current, 10 October20:56:** Frozen24-FIT producer LIVE session22911/holder23256/
+worker2968 creation1791656179.7136545. Six directions complete/three accepted;
+fifth rejected solely for mass9.059906e-5, sixth all bridge gates PASS and accepts
+alpha.0001 weighted68.5963->62.9875,13/13 wrong. Seventh full209-ID history running.
 Final quality and exhaustive independent audit PENDING. Small1.567MB/1.682s
 [router-support metadata observation](ROUTER_SUPPORT_AND_NORMALIZED_STEP_20261010.md)
 reports nonzero tiny gradients/full relative movements for all5,529 never-selected

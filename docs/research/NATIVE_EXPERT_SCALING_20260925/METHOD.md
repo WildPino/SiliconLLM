@@ -856,7 +856,7 @@ Chunked F32-bit XOR/zlib-or-raw archive with per-chunk/tensor/source-target hash
 
 ## Finite original categorical conversion trajectory: implemented, not yet qualified
 
-Actual trajectory LIVE/frozenc9c04df: first five directions complete/two accepted.
+Actual trajectory LIVE/frozenc9c04df: first six directions complete/three accepted.
 First native weighted58.8206->38.9700,17/18 wrong. Second/third feasible native
 steps are rejected by frozen cross-runtime criteria: second4 ranked slots and
 mass/score/KL mismatch, third solely full-history mass while IDs and supervised
@@ -865,8 +865,8 @@ short histories; broad changed trajectories are NOT qualified. Full campaign
 and stored audit continue. [Attribution/functional approximation algebra](ORIGINAL_CAUSAL_NUMERIC_ATTRIBUTION_NEXT_20261010.md)
 specifies missing evidence and separate future remedies; no gate alteration.
 
-Fourth history passes bridge gates and accepts a constrained native decrease;
-fifth fails solely full-history mass. Worker observations require full audit.
+Fourth and sixth histories pass bridge gates and accept constrained native
+decreases; fifth fails solely full-history mass. Worker observations require full audit.
 [Router-support algebra/metadata](ROUTER_SUPPORT_AND_NORMALIZED_STEP_20261010.md)
 identifies a distinct possible converter defect: all-n normalization residues
 on mathematically inactive rows can be amplified by nonzero-gradient row
