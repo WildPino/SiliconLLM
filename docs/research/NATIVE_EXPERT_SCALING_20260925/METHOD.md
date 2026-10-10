@@ -1,5 +1,8 @@
 # Pretrained-to-native conditional-capacity method
 
+**Current preparation, 10 October:** [first-state controllability protocol](CATEGORICAL_ONSET_CONTROL_PROTOCOL_20261010.md) implemented/AST PASS/runtime-aware binding4a60d8e6 sealed, no SVD yet. One new24x256 decomposition/minimum maps/dual radius+native error propagation;60s producer+120s full stored audit, no model/history/optimizer/GPU/native/T4. First unconsumed junction-omitting preparation retained. Full goal incomplete.
+
+
 **Current, 10 October:** [new categorical packed native/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) COMPLETE/numeric PASS/quality FAIL. Actual FITKL2.92084/DEV6.25897 versus old7.83019/8.76437; tasks0/16 vs donor14/16. All8808 proxy/native bounds/old routes/ternary witnesses/679 greedy IDs PASS; held812.953s. Raw timings foreign-test-contaminated, no useful50 admission. [Stored onset diagnosis](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md): all16 first IDs1563,14/14 donor-correct first replies wrong; FIT first response only1.17535% objective mass. All owned processes CLOSED. Next [24-first-state controllability](CATEGORICAL_ONSET_CONTROLLABILITY_NEXT_20261010.md) algebra/specification UNIMPLEMENTED/UNEXECUTED, no new optimizer/native/T4. Full goal incomplete; no information ceiling established. Older statuses historical.
 
 

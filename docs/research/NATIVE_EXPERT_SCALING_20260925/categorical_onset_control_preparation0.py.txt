@@ -1,0 +1,214 @@
+"""FIT first-code controllability from stored qualified native features."""
+import argparse,json,math,os,subprocess,sys,time
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[2];B=ROOT/'benchmarks/native_expert_scaling';DOC=ROOT/'docs/research/NATIVE_EXPERT_SCALING_20260925'
+sys.path.insert(0,str(B))
+from original_packed_capacity import SITE,extent,sha,write
+from original_falcon_whole_recovery import memory_reader
+sys.path.insert(0,str(SITE))
+D,K,M,N=256,255,24,4422
+
+def bind(a):
+    import numpy as np
+    import psutil
+    assert not a.binding.exists()
+    names=['causal_categorical_readout_result_20261010.json','causal_categorical_readout_stored_adjudication_20261010.json','causal_categorical_readout_binding_20261010.json','paired_head_image_result_20261010.json','paired_head_image_stored_adjudication_20261010.json','paired_head_image_binding_20261010.json']
+    paths=[DOC/name for name in names];objs=[json.loads(p.read_bytes()) for p in paths];r,ar,b,p,ap,pb=objs
+    files=[Path(__file__),a.protocol,*paths,B/'original_packed_capacity.py',B/'original_falcon_whole_recovery.py',Path(sys.executable),Path(sys.executable).parent/'python312.dll']
+    for result_path,audit_path,result,audit in [(paths[0],paths[1],r,ar),(paths[3],paths[4],p,ap)]:
+        for q in [result_path,audit_path]:
+            terminal=q.with_suffix('.terminal.json');t=json.loads(terminal.read_bytes());assert t['exit_code']==0 and t['error'] is None and t['result']==extent(q) and t['inputs_before_after_exact'];files.append(terminal)
+        assert audit['result']==extent(result_path) and audit['complete_input_output_hashes']
+    assert ar['full_weighted_SVD_whitening_initializer_verified'] and ar['all_checkpoint_Y_objectives_gradients_verified'] and ar['forced_native_uncertainty_bounds_verified']
+    assert p['native_teacher_disagreement']==0
+    assert all(p['numeric_flags'].values()) and all(ap['numeric_flags'].values()) and ap['all72_final_upper_and_lower_points_verified']
+    assert pb['gain']==b['gain'] and pb['artifacts']['decoder']==b['decoder'] and b['solver']['radius']==pb['radius']==16
+    assert r['geometry']['rank']==D and len(b['records'])==M and sum(rec['labels'] for rec in b['records'])==N
+    selected=[];cursor=0
+    for rec in b['records']:
+        matches=[i for i,label in enumerate(p['labels']) if label['id']==rec['id'] and label['label_index']==0];assert len(matches)==1;index=matches[0];label=p['labels'][index]
+        assert label['position']==rec['positions'][0] and label['domain']==rec['domain']
+        selected.append(dict(id=rec['id'],split='FIT',domain=rec['domain'],position=rec['positions'][0],native_row=cursor,code_row=index,feature_error=rec['feature_error'][0],reference_KL=p['per_label_upper'][index],reference_native_disagreement=0));cursor+=rec['labels']
+    artifacts={name:r['artifacts'][name] for name in ['whitened_features','whitener','best_theta','singular_values','VT']};artifacts['upper_x']=p['points']['upper_x']
+    files += [Path(item['path']) for item in artifacts.values()]
+    files += [Path(module.__file__) for module in list(sys.modules.values()) if getattr(module,'__file__',None) and str(SITE.resolve()).lower() in str(Path(module.__file__).resolve()).lower()]
+    files += sorted((SITE/'numpy.libs').glob('*.dll'))+sorted((SITE/'psutil').glob('*.pyd'))
+    inputs=[extent(path) for path in dict.fromkeys(files)];lookup={item['path']:item for item in inputs}
+    for item in artifacts.values():assert lookup[item['path']]=={key:item[key] for key in ('path','bytes','sha256')}
+    foreign=[]
+    for pid in (26408,23088):
+        try:
+            proc=psutil.Process(pid);argv=proc.cmdline();assert argv[1:]==['-m','pytest','tests/','-q'];foreign.append(dict(pid=pid,creation_time=proc.create_time(),cmdline=argv))
+        except psutil.NoSuchProcess:pass
+    write(a.binding,dict(schema='CATEGORICAL_ONSET_CONTROL_BINDING_V1',inputs=inputs,selected=selected,artifacts=artifacts,radius=16.,rank_relative_cutoff=1e-12,
+        numeric=dict(factor_relative=1e-10,orthogonal_absolute=1e-10,code_absolute=1e-8,identity_relative=1e-10,scalar_absolute=1e-8,radius_slack=1e-10,audit_relative=1e-10,audit_absolute=1e-8),
+        capture_limits=dict(seconds=60,OS_bytes=256<<20,output_bytes=4<<20,log_bytes=1<<20),audit_limits=dict(seconds=120,OS_bytes=256<<20,output_bytes=1<<20,log_bytes=1<<20),
+        allowed_foreign=foreign,timing_control_admitted=False,scope='One new24x256 SVD and minimum-norm code maps from stored FIT evidence. No model/history/head FG/GPU/optimizer/DEV/RESERVED/T4/native call. Original numeric model conditional, not interval or global KL proof.'))
+    print(json.dumps(dict(binding_sha256=sha(a.binding),inputs=len(inputs),bytes=sum(i['bytes'] for i in inputs))),flush=True)
+
+def save(directory,key,x):
+    import numpy as np
+    x=np.ascontiguousarray(x,dtype='<f8');p=directory/(key+'.f64')
+    with p.open('xb') as f:f.write(x.tobytes());f.flush();os.fsync(f.fileno())
+    return dict(**extent(p),shape=list(x.shape),dtype='float64')
+
+def load_array(item):
+    import numpy as np
+    x=np.fromfile(item['path'],dtype='<f8').reshape(item['shape']);assert np.isfinite(x).all();return x
+
+def norm(x):
+    import numpy as np
+    return float(np.linalg.norm(x))
+
+def relative(x,y):return norm(x-y)/max(norm(y),1e-300)
+
+def geometry(T,Y,base,W,old_s,old_VT,errors,U,s,VT,b):
+    import numpy as np
+    rank=int((s>b['rank_relative_cutoff']*s[0]).sum());orth=norm(U.T@U-np.eye(M))+norm(VT@VT.T-np.eye(M));factor=relative((U*s)@VT,T)
+    old_orth=norm(old_VT@old_VT.T-np.eye(D));assert np.array_equal(W,old_VT/old_s[:,None])
+    W_upper=math.sqrt(1+old_orth)/float(old_s[-1]);eta=W_upper*norm(errors);s_lower=float(s[-1])-eta
+    metrics=dict(rank=rank,condition=float(s[0]/s[-1]) if s[-1]>0 else None,SVD_relative=factor,orthogonal_Frobenius_sum=orth,W_spectral_upper=W_upper,old_VT_orthogonal_Frobenius=old_orth,feature_uncertainty_L2=norm(errors),first_matrix_uncertainty_spectral_upper=eta,first_min_singular_value_lower=s_lower,approx_min_singular_value=float(s[-1]),reference_mean_KL=sum(x['reference_KL'] for x in b['selected'])/M,reference_max_KL=max(x['reference_KL'] for x in b['selected']),reference_native_disagreements=sum(x['reference_native_disagreement'] for x in b['selected']))
+    g=b['numeric'];flags=dict(SVD=factor<=g['factor_relative'],orthogonality=orth<=g['orthogonal_absolute']);maps={}
+    if rank==M:
+        Q=(U/s)@VT;minimum=Y.T@Q;delta=(Y.T-base@T.T)@Q;preserved=base+delta;P=VT.T@VT;null_base=base@(np.eye(D)-P);Lambda=(Y.T@U/(s*s))@U.T
+        numerator=float(np.sum(Lambda*Y.T));denominator=norm(Lambda@T)+norm(Lambda)*eta;robust_lower=max(0.,numerator)/denominator if denominator>0 else 0.
+        values=dict(left_inverse_relative=relative(T@Q.T,np.eye(M)),minimum_norm=norm(minimum),correction_norm=norm(delta),preserved_norm=norm(preserved),base_norm=norm(base),null_base_norm=norm(null_base),
+            minimum_code_absolute=float(np.max(abs(minimum@T.T-Y.T))),preserved_code_absolute=float(np.max(abs(preserved@T.T-Y.T))),
+            preserve_identity_relative=relative(preserved,minimum+null_base),norm_decomposition_relative=abs(norm(preserved)**2-norm(minimum)**2-norm(null_base)**2)/max(1.,norm(preserved)**2),
+            minimum_row_support_relative=relative(minimum@P,minimum),correction_row_support_relative=relative(delta@P,delta),dual_pairing=numerator,dual_pairing_norm_identity_relative=abs(numerator-norm(minimum)**2)/max(1.,abs(numerator)),dual_denominator=denominator,dual_true_exact_code_norm_lower=robust_lower)
+        metrics.update(values);flags.update(left_inverse=values['left_inverse_relative']<=g['code_absolute'],exact_code_residual=max(values['minimum_code_absolute'],values['preserved_code_absolute'])<=g['code_absolute'],projection_identities=max(values['preserve_identity_relative'],values['norm_decomposition_relative'],values['minimum_row_support_relative'],values['correction_row_support_relative'])<=g['identity_relative'],dual_identity=values['dual_pairing_norm_identity_relative']<=g['identity_relative'])
+        maps=dict(pseudoinverse_transpose=Q,minimum_theta=minimum,minimum_delta=delta,preserved_theta=preserved,first_row_projector=P,null_base=null_base,dual_Lambda=Lambda)
+    if not all(flags.values()):decision='FIRST_CODE_CONTROL_NUMERIC_NOT_QUALIFIED'
+    elif rank<M:decision='FIRST_FEATURE_NUMERICAL_RANK_DEFECT'
+    elif metrics['dual_true_exact_code_norm_lower']>b['radius']+g['radius_slack']:decision='FIRST_CODE_MATCH_ROBUSTLY_OUTSIDE_RADIUS'
+    elif s_lower<=0:decision='FIRST_STATE_RANK_NOT_CERTIFIED'
+    elif metrics['preserved_norm']<=b['radius']+g['radius_slack']:decision='PRESERVED_CORRECTION_FEASIBLE_APPROX'
+    elif metrics['minimum_norm']<=b['radius']+g['radius_slack']:decision='REBUILT_INTERPOLANT_FEASIBLE_APPROX'
+    else:decision='FIRST_CODE_MATCH_OUTSIDE_RADIUS_APPROX'
+    return metrics,flags,maps,decision
+
+def capture(a):
+    import numpy as np
+    import psutil
+    start=time.monotonic();proc=psutil.Process();proc.cpu_affinity([1]);b=json.loads(a.binding.read_bytes());assert sha(a.binding)==a.binding_sha
+    a.directory.mkdir(exist_ok=False);art={};stage='stored_inputs'
+    try:
+        full=load_array(b['artifacts']['whitened_features']);codes=load_array(b['artifacts']['upper_x']);T=full[[rec['native_row'] for rec in b['selected']]];Y=codes[[rec['code_row'] for rec in b['selected']]]
+        base=load_array(b['artifacts']['best_theta']);W=load_array(b['artifacts']['whitener']);old_s=load_array(b['artifacts']['singular_values']);old_VT=load_array(b['artifacts']['VT']);errors=np.asarray([rec['feature_error'] for rec in b['selected']])
+        assert T.shape==(M,D) and Y.shape==(M,K) and base.shape==(K,D) and errors.shape==(M,)
+        stage='new_first_feature_SVD';U,s,VT=np.linalg.svd(T,full_matrices=False)
+        for key,x in [('T0',T),('Y0',Y),('base_theta',base),('first_errors',errors),('U',U),('s',s),('VT',VT)]:art[key]=save(a.directory,key,x)
+        stage='minimum_norm_maps';metrics,flags,maps,decision=geometry(T,Y,base,W,old_s,old_VT,errors,U,s,VT,b)
+        for key,x in maps.items():art[key]=save(a.directory,key,x)
+        assert time.monotonic()-start<=b['capture_limits']['seconds'] and proc.memory_info().peak_wset<=b['capture_limits']['OS_bytes'] and not proc.children(recursive=True)
+        result=dict(schema='CATEGORICAL_ONSET_CONTROL_RESULT_V1',freeze=a.freeze,binding_sha256=a.binding_sha,metrics=metrics,numeric_flags=flags,decision=decision,artifacts=art,selected=b['selected'],SVD_factorizations=1,first_labels=M,prior_whitening_SVD_replays=0,source_calls=0,native_calls=0,head_FG_calls=0,optimizer_updates=0,DEV_queries=0,reserved_queries=0,GPU_calls=0,OS_peak=proc.memory_info().peak_wset,seconds=time.monotonic()-start,scope=b['scope'])
+        write(a.out,result);assert sum(p.stat().st_size for p in a.directory.iterdir())+a.out.stat().st_size<=b['capture_limits']['output_bytes'];print(json.dumps(dict(decision=decision,metrics=metrics,numeric_flags=flags,seconds=result['seconds'])),flush=True)
+    except BaseException as error:write(a.directory/'first_fault.json',dict(stage=stage,error=repr(error),artifacts=art,seconds=time.monotonic()-start));raise
+
+def audit(a):
+    import numpy as np
+    import psutil
+    start=time.monotonic();proc=psutil.Process();proc.cpu_affinity([1]);b=json.loads(a.binding.read_bytes());r=json.loads(a.source_result.read_bytes());terminal=json.loads(a.source_result.with_suffix('.terminal.json').read_bytes())
+    assert sha(a.binding)==a.binding_sha==r['binding_sha256']==terminal['binding_sha256'] and a.freeze==r['freeze']==terminal['freeze'];assert terminal['exit_code']==0 and terminal['error'] is None and terminal['result']==extent(a.source_result) and terminal['inputs_before_after_exact']
+    for item in b['inputs']+terminal['outputs']:assert extent(item['path'])==item
+    out_by={item['path']:item for item in terminal['outputs']};art=r['artifacts'];arrays={}
+    for key,item in art.items():assert out_by[item['path']]=={k:item[k] for k in ('path','bytes','sha256')};arrays[key]=load_array(item)
+    T,Y,base,errors,U,s,VT=[arrays[key] for key in ['T0','Y0','base_theta','first_errors','U','s','VT']]
+    full=load_array(b['artifacts']['whitened_features']);codes=load_array(b['artifacts']['upper_x'])
+    assert np.array_equal(T,full[[rec['native_row'] for rec in b['selected']]]) and np.array_equal(Y,codes[[rec['code_row'] for rec in b['selected']]]) and np.array_equal(base,load_array(b['artifacts']['best_theta'])) and np.array_equal(errors,[rec['feature_error'] for rec in b['selected']])
+    assert T.shape==(M,D) and Y.shape==(M,K) and U.shape==(M,M) and s.shape==(M,) and VT.shape==(M,D) and np.all(s>=0) and np.all(np.diff(s)<=0)
+    g=b['numeric'];factor=relative((U*s)@VT,T);orth=norm(U.T@U-np.eye(M))+norm(VT@VT.T-np.eye(M));assert abs(factor-r['metrics']['SVD_relative'])<=g['audit_absolute'] and abs(orth-r['metrics']['orthogonal_Frobenius_sum'])<=g['audit_absolute']
+    W=load_array(b['artifacts']['whitener']);old_s=load_array(b['artifacts']['singular_values']);old_VT=load_array(b['artifacts']['VT']);assert np.array_equal(W,old_VT/old_s[:,None])
+    wupper=math.sqrt(1+norm(old_VT@old_VT.T-np.eye(D)))/float(old_s[-1]);eta=wupper*math.sqrt(math.fsum(float(x)**2 for x in errors));assert abs(eta-r['metrics']['first_matrix_uncertainty_spectral_upper'])<=1e-12
+    rank=int((s>b['rank_relative_cutoff']*s[0]).sum());assert rank==r['metrics']['rank'] and r['selected']==b['selected'];max_scalar=max_identity=0.;witnesses=0
+    def same(actual,expected):
+        nonlocal max_identity
+        rel=norm(actual-expected)/max(1.,norm(expected));max_identity=max(max_identity,rel);assert rel<=g['audit_relative']
+    if rank==M:
+        Q=arrays['pseudoinverse_transpose'];minimum=arrays['minimum_theta'];delta=arrays['minimum_delta'];preserved=arrays['preserved_theta'];P=arrays['first_row_projector'];null=arrays['null_base'];Lambda=arrays['dual_Lambda']
+        same(Q,(U/s)@VT);same(minimum,Y.T@Q);same(delta,(Y.T-base@T.T)@Q);same(preserved,base+delta);same(P,VT.T@VT);same(P@P,P);same(null,base@(np.eye(D)-P));same(preserved,minimum+null)
+        for case in range(M):
+            k=(17*case)%K;reference=math.fsum(float(minimum[k,j])*float(T[case,j]) for j in range(D));observed=float((minimum@T.T)[k,case]);difference=abs(reference-observed);absolute_sum=math.fsum(abs(float(minimum[k,j])*float(T[case,j])) for j in range(D));u=2.**-53;gamma512=512*u/(1-512*u);assert difference<=g['scalar_absolute']+gamma512*absolute_sum;max_scalar=max(max_scalar,difference);witnesses+=1
+        same(Lambda,(Y.T@U/(s*s))@U.T)
+        numerator=math.fsum(float(Lambda[k,i])*float(Y[i,k]) for k in range(K) for i in range(M));denominator=norm(Lambda@T)+norm(Lambda)*eta;lower=max(0.,numerator)/denominator
+        checks=dict(left_inverse_relative=relative(T@Q.T,np.eye(M)),minimum_norm=norm(minimum),correction_norm=norm(delta),preserved_norm=norm(preserved),base_norm=norm(base),null_base_norm=norm(null),minimum_code_absolute=float(np.max(abs(minimum@T.T-Y.T))),preserved_code_absolute=float(np.max(abs(preserved@T.T-Y.T))),preserve_identity_relative=relative(preserved,minimum+null),norm_decomposition_relative=abs(norm(preserved)**2-norm(minimum)**2-norm(null)**2)/max(1.,norm(preserved)**2),minimum_row_support_relative=relative(minimum@P,minimum),correction_row_support_relative=relative(delta@P,delta),dual_pairing=numerator,dual_pairing_norm_identity_relative=abs(numerator-norm(minimum)**2)/max(1.,abs(numerator)),dual_denominator=denominator,dual_true_exact_code_norm_lower=lower)
+        for key,value in checks.items():assert abs(value-r['metrics'][key])<=g['audit_absolute']+g['audit_relative']*max(1.,abs(value))
+        flags=dict(SVD=factor<=g['factor_relative'],orthogonality=orth<=g['orthogonal_absolute'],left_inverse=checks['left_inverse_relative']<=g['code_absolute'],exact_code_residual=max(checks['minimum_code_absolute'],checks['preserved_code_absolute'])<=g['code_absolute'],projection_identities=max(checks['preserve_identity_relative'],checks['norm_decomposition_relative'],checks['minimum_row_support_relative'],checks['correction_row_support_relative'])<=g['identity_relative'],dual_identity=checks['dual_pairing_norm_identity_relative']<=g['identity_relative'])
+        if not all(flags.values()):decision='FIRST_CODE_CONTROL_NUMERIC_NOT_QUALIFIED'
+        elif lower>b['radius']+g['radius_slack']:decision='FIRST_CODE_MATCH_ROBUSTLY_OUTSIDE_RADIUS'
+        elif float(s[-1])-eta<=0:decision='FIRST_STATE_RANK_NOT_CERTIFIED'
+        elif checks['preserved_norm']<=b['radius']+g['radius_slack']:decision='PRESERVED_CORRECTION_FEASIBLE_APPROX'
+        elif checks['minimum_norm']<=b['radius']+g['radius_slack']:decision='REBUILT_INTERPOLANT_FEASIBLE_APPROX'
+        else:decision='FIRST_CODE_MATCH_OUTSIDE_RADIUS_APPROX'
+    else:
+        assert set(arrays)=={'T0','Y0','base_theta','first_errors','U','s','VT'};flags=dict(SVD=factor<=g['factor_relative'],orthogonality=orth<=g['orthogonal_absolute']);decision='FIRST_FEATURE_NUMERICAL_RANK_DEFECT' if all(flags.values()) else 'FIRST_CODE_CONTROL_NUMERIC_NOT_QUALIFIED'
+    assert flags==r['numeric_flags'] and decision==r['decision']
+    for key in ['source_calls','native_calls','head_FG_calls','optimizer_updates','DEV_queries','reserved_queries','GPU_calls','prior_whitening_SVD_replays']:assert r[key]==0
+    assert r['SVD_factorizations']==1 and r['first_labels']==M
+    assert terminal['elapsed_seconds']<=b['capture_limits']['seconds'] and terminal['worker_OS_peak_through_exit']+terminal['launcher_OS_peak_snapshot']<=b['capture_limits']['OS_bytes']
+    assert sum(item['bytes'] for item in terminal['outputs'])+terminal['result']['bytes']<=b['capture_limits']['output_bytes']
+    assert time.monotonic()-start<=b['audit_limits']['seconds'] and proc.memory_info().peak_wset<=b['audit_limits']['OS_bytes'] and not proc.children(recursive=True)
+    write(a.out,dict(schema='CATEGORICAL_ONSET_CONTROL_AUDIT_V1',result=extent(a.source_result),binding=extent(a.binding),decision=decision,numeric_flags=flags,complete_input_output_hashes=True,all24_first_label_provenance_verified=True,full_SVD_factor_orthogonality_verified=True,minimum_maps_projection_dual_verified=rank==M,native_uncertainty_verified=True,independent_scalar_witnesses=witnesses,max_scalar_absolute_delta=max_scalar,max_identity_relative_delta=max_identity,SVD_replays=0,optimizer_updates=0,source_calls=0,native_calls=0,head_FG_calls=0,GPU_calls=0,seconds=time.monotonic()-start,OS_peak=proc.memory_info().peak_wset,scope='Complete stored CPU geometry audit; no SVD/model/history/optimizer replay or quality admission.'))
+    print(json.dumps(dict(decision=decision,seconds=time.monotonic()-start,scalar_delta=max_scalar)),flush=True)
+def launch(a):
+    import psutil
+    proc=psutil.Process();proc.cpu_affinity([11]);own={proc.pid,*(p.pid for p in proc.parents())};b=json.loads(a.binding.read_bytes());allowed={row['pid']:row for row in b['allowed_foreign']}
+    for p in psutil.process_iter(['name','cmdline']):
+        name=(p.info['name'] or '').lower();argv=p.info['cmdline'] or []
+        if p.pid in own:continue
+        if p.pid in allowed:
+            permit=allowed[p.pid];assert abs(p.create_time()-permit['creation_time'])<1e-5 and argv==permit['cmdline'];continue
+        if name=='pythonw.exe' and len(argv)==2 and Path(argv[1]).resolve()==Path('D:/_THINGS/Progetti/tiktok_publisher/daemon_workflow.py').resolve():continue
+        assert not name.startswith(('python','native','original_engine','clang','lld','packed_original')),('overlap',p.pid,name)
+    terminal=a.out.with_suffix('.terminal.json');log=a.out.with_suffix('.worker.log')
+    assert not any(path.exists() for path in (a.out,terminal,log)) and (a.audit or not a.directory.exists())
+    assert sha(a.binding)==a.binding_sha;b=json.loads(a.binding.read_bytes());lim=b['audit_limits' if a.audit else 'capture_limits']
+    began=time.monotonic();reader=memory_reader();peak=0
+    for item in b['inputs']:assert extent(item['path'])==item
+    assert time.monotonic()-began<lim['seconds'],'prehash deadline'
+    extra=[]
+    if a.audit:extra=[extent(a.source_result),extent(a.source_result.with_suffix('.terminal.json'))]
+    command=[sys.executable,'-I','-S','-B','-X','utf8',str(Path(__file__).resolve()),'--audit-worker' if a.audit else '--capture-worker',
+        '--binding',str(a.binding.resolve()),'--binding-sha',a.binding_sha,'--freeze',a.freeze,'--out',str(a.out.resolve())]
+    command += ['--source-result',str(a.source_result.resolve())] if a.audit else ['--directory',str(a.directory.resolve())]
+    env=dict(os.environ,OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',
+             CUDA_VISIBLE_DEVICES='',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
+    receipt=dict(freeze=a.freeze,binding_sha256=a.binding_sha,command=command,launcher_pid=proc.pid,limits=lim)
+    with log.open('xb') as output:
+        child=subprocess.Popen(command,stdout=output,stderr=subprocess.STDOUT,env=env,creationflags=8)
+        receipt.update(worker_pid=child.pid,worker_creation_time=psutil.Process(child.pid).create_time());fault=None
+        try:
+            while child.poll() is None:
+                peak=max(peak,reader(child))
+                assert time.monotonic()-began<=lim['seconds'],'deadline'
+                assert peak+proc.memory_info().peak_wset<=lim['OS_bytes'],'OS cap'
+                assert log.stat().st_size<=lim['log_bytes'],'log cap'
+                try:assert not psutil.Process(child.pid).children(recursive=True),'unexpected child'
+                except psutil.NoSuchProcess:pass
+                time.sleep(.1)
+            assert child.returncode==0,log.read_text(errors='replace')[-5000:]
+            for item in b['inputs']+extra:assert extent(item['path'])==item
+            outputs=[] if a.audit else [extent(path) for path in sorted(a.directory.iterdir()) if path.is_file()]
+            assert sum(item['bytes'] for item in outputs)+a.out.stat().st_size<=lim['output_bytes']
+            assert time.monotonic()-began<=lim['seconds'],'seal deadline'
+            receipt.update(inputs_before_after_exact=True,result=extent(a.out),outputs=outputs,extra_inputs=extra)
+        except BaseException as error:
+            fault=repr(error)
+            if child.poll() is None:child.kill();child.wait()
+        finally:
+            peak=max(peak,reader(child));receipt.update(exit_code=child.returncode,error=fault,elapsed_seconds=time.monotonic()-began,
+                worker_OS_peak_through_exit=peak,launcher_OS_peak_snapshot=proc.memory_info().peak_wset,log=extent(log))
+            write(terminal,receipt)
+    assert child.returncode==0 and fault is None,fault
+    print(json.dumps(dict(terminal=str(terminal),seconds=receipt['elapsed_seconds'],result_sha256=receipt['result']['sha256'])),flush=True)
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser()
+    for key in ('bind','audit','capture-worker','audit-worker'):p.add_argument('--'+key,action='store_true')
+    for key in ('binding','out','directory','source-result','protocol'):p.add_argument('--'+key,type=Path)
+    for key in ('binding-sha','freeze'):p.add_argument('--'+key)
+    a=p.parse_args()
+    if a.bind:bind(a)
+    elif a.capture_worker:capture(a)
+    elif a.audit_worker:audit(a)
+    else:launch(a)

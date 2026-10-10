@@ -5,7 +5,7 @@
 COMPLETE/numeric PASS/quality FAIL: FITKL2.92084/DEV6.25897,task0/16.
 [Onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md):14/14 donor-correct first
 responses wrong; FIT first-response objective weight1.17535%. All owned CLOSED.
-Next24-first-state controllability: algebra/specification, not executed.
+First-state controllability implemented/AST PASS/binding4a60d8e6, no SVD yet.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
