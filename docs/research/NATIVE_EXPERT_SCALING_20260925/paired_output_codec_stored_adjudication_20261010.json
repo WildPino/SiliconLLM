@@ -1,0 +1,191 @@
+{
+  "schema": "PAIRED_OUTPUT_CODEC_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\paired_output_codec_result_20261010.json",
+    "bytes": 1613572,
+    "sha256": "bfe8173b00c3dbaeb4d9b5656e734e249baf7cf0d4e036163941bb4b7e7879ad"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\paired_output_codec_binding_20261010.json",
+    "bytes": 328208,
+    "sha256": "027117b4676a934adb4269f0129ad4f07ff6d4dda69035d4d5ed55a04041c9a7"
+  },
+  "decision": "PAIRED_CODEC_FIT_QUALITY_FAIL",
+  "numeric_flags": {
+    "whitening": true,
+    "encoder_root": true,
+    "surrogate_identity": true,
+    "native_norm": true,
+    "native_scores": true,
+    "native_mean_KL_to_real": true,
+    "native_every_case_disagreement_to_real": true
+  },
+  "real_quality_flags": {
+    "mean_KL": false,
+    "mean_disagreement": false,
+    "every_case_KL": false,
+    "every_case_disagreement": false,
+    "domains": false
+  },
+  "native_quality_flags": {
+    "mean_KL": false,
+    "mean_disagreement": false,
+    "every_case_KL": false,
+    "every_case_disagreement": false,
+    "domains": false
+  },
+  "complete_input_output_hashes": true,
+  "original_four_native_bodies_exact": true,
+  "eigen_checks": {
+    "covariance_residual": 2.219548070197563e-15,
+    "covariance_orthogonality": 3.357196251306022e-15,
+    "rank_residual": 2.1013113189086543e-15,
+    "rank_orthogonality": 3.2071149276694967e-15,
+    "root_support": 2.3549365423489566e-15,
+    "metric_pullback": 9.581448937724298e-16,
+    "transport": 1.3163830343758976e-18,
+    "encoder_definition": 3.965129148844551e-15
+  },
+  "decoder_full_reconstruction_absolute_delta": 1.3855583347321954e-13,
+  "covariance_scalar_witnesses": 32,
+  "output_metric_scalar_witnesses": 32,
+  "covariance_witness_absolute_delta": 0.0,
+  "qbar_all_v_absolute_delta": 9.71445146547012e-17,
+  "output_metric_witness_absolute_delta": 5.251604272976662e-20,
+  "head_mean_witness_absolute_delta": 1.0408340855860843e-17,
+  "real_scores_full_reconstruction_absolute_delta": 1.2789769243681803e-13,
+  "native_scores_F64_linear_reference_absolute_delta": 4.9348910984292615e-05,
+  "max_metric_absolute_delta": 1.7719159473017498e-12,
+  "labels": 4422,
+  "records": [
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "labels": 118,
+      "metric_absolute_delta": 1.4921397450962104e-13
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "labels": 33,
+      "metric_absolute_delta": 2.0469737016526324e-15
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "labels": 200,
+      "metric_absolute_delta": 4.4497738826976274e-13
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "labels": 174,
+      "metric_absolute_delta": 1.2096990076315706e-12
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "labels": 18,
+      "metric_absolute_delta": 1.5074747006238454e-14
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "labels": 13,
+      "metric_absolute_delta": 4.7475912090533257e-14
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "labels": 155,
+      "metric_absolute_delta": 1.2780887459484802e-12
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "labels": 256,
+      "metric_absolute_delta": 5.444533712761768e-13
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "labels": 256,
+      "metric_absolute_delta": 3.801403636316536e-13
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "labels": 256,
+      "metric_absolute_delta": 1.3495871087343403e-12
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "labels": 256,
+      "metric_absolute_delta": 4.982680934517703e-13
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "labels": 256,
+      "metric_absolute_delta": 1.7719159473017498e-12
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "labels": 256,
+      "metric_absolute_delta": 8.193445921733655e-13
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "labels": 256,
+      "metric_absolute_delta": 1.1386447340555605e-12
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "labels": 180,
+      "metric_absolute_delta": 1.1004530620084552e-12
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "labels": 189,
+      "metric_absolute_delta": 9.450218385609332e-13
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "labels": 256,
+      "metric_absolute_delta": 8.855138844410249e-13
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "labels": 256,
+      "metric_absolute_delta": 9.50794998288984e-13
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "labels": 90,
+      "metric_absolute_delta": 4.525269048372138e-13
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "labels": 256,
+      "metric_absolute_delta": 6.004086117172847e-13
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "labels": 61,
+      "metric_absolute_delta": 4.2099657093785936e-13
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "labels": 119,
+      "metric_absolute_delta": 2.1005419625907962e-13
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "labels": 256,
+      "metric_absolute_delta": 4.742872761198669e-13
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "labels": 256,
+      "metric_absolute_delta": 1.2727596754302795e-12
+    }
+  ],
+  "stored_linear_head_labels_reconstructed": 8844,
+  "full_decoder_factorizations_verified": 1,
+  "source_generations": 0,
+  "source_history_forwards": 0,
+  "native_binary_calls": 0,
+  "optimizer_updates": 0,
+  "new_pairs_fit": 0,
+  "seconds": 126.85899999999856,
+  "scope": "Complete stored numeric/metric/decision/hash audit; CPU F64 arithmetic checks both stored heads, no native/history replay or refit."
+}

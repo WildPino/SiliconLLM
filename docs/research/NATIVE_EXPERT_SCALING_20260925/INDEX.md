@@ -1,11 +1,9 @@
 # Native expert scaling: research control index
 
-**Current preparation, 10 October12:56:** [one paired output codec](PAIRED_OUTPUT_CODEC_PROTOCOL_20261010.md) implemented/AST/native compilation+ABI preflight PASS. Binding027117b4/301 inputs6,797,817,706B; no fit launched yet. One FIT-only rank255 whitened pair/carrier, real F64 versus original F32 norm/head; quality/precision/conditioning gates frozen. Fit900s/OS6GiB/GPU4-5GiB/output5GiB; full audit900s/OS3GiB. No source history/training/DEV/T4. Last qualified FIT capture remains PASS; goal incomplete. Older state below superseded.
-
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Coherent FIT capture and full audit](SOURCE_CACHED_FIT_RESULT_20261010.md)
-COMPLETE/PASS:24 FIT/4422 exact paired labels; all owned sessions/PIDs CLOSED.
-Next ONE paired output codec; no codec fit or T4 allocated.
+[One paired codec and complete audit](PAIRED_OUTPUT_CODEC_RESULT_20261010.md)
+COMPLETE/numeric PASS, FIT quality FAIL. All owned sessions/PIDs CLOSED.
+Next fixed-head/domain KL versus encoder diagnosis; no T4 allocated.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -31,6 +29,15 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
 
 ## Latest decisive evidence
+
+[Paired rank255/carrier codec](PAIRED_OUTPUT_CODEC_RESULT_20261010.md): one FIT
+encoder/head constructed; original F32 norm/head injected, all numeric gates
+PASS. FIT24/4422 caseKL.804121205/dis22.1684% (1102 wrong), all quality flags
+FAIL. F32/F64 zero argmax changes/precision KL5.86e-13. The fixed quadratic
+optimum retains97.95% metric energy yet categorical fidelity fails. Full audit
+all301 inputs/162 outputs, eigensystems/decoder/8844 stored head rows/metrics
+PASS. Held222.297s+140.047s, no donor history/training/full engine or DEV call.
+This fixed linear pair fails; not an irreducible D256 head-image conclusion.
 
 [Coherent cached FIT final states](SOURCE_CACHED_FIT_RESULT_20261010.md): all24
 cases/4422 original tokens/logits and own-state norm/head EXACT. All411 source
@@ -72,20 +79,22 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 
 ## Exact resumption
 
-Freeze ONE FIT-only paired codec algorithm/conditioning/precision/quality/cost
-protocol, then fit using the now-qualified cached FIT final features. The
-[output-weighted rank derivation](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md)
-provides a precise surrogate optimum and paired encoder/head; [original RMS
-geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md) supplies a255-direction carrier
-construction. Both prospective, unmeasured. Actual original state/norm/head F32.
-Do not substitute Euclidean feature energy or surrogate optimum for full-V KL/IDs.
+[Next head-image versus encoder diagnosis](PAIRED_CODEC_HEAD_IMAGE_NEXT_20261010.md):
+implement/freeze one new-head fixed-domain forward-KL certificate probe, warm
+starting at this artifact's Bf/a on72 metadata-selected FIT labels. New K/gain,
+not old Adam1 heads or another scale arm. Feasible improvements identify
+encoder room; valid lower bounds use actual case label counts before rejecting
+whole-case/cohort gates. Finite unresolved optimization is not a rank theorem.
+No new probe launched yet; proposed costs must be frozen with actual code.
 
-[Custody and codec next](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md): freeze the
-pair before matching DEV capture; reuse completed53-label DEV state/control if
-operators/custody match. No DEV refit, repeated FIT/source capture, rank/scale
-sweep or unchanged long recovery. Complete validation remains in force.
-Capture session90559 and audit6122 CLOSED/exit0; launchers20972/13068 and
-workers22192/26704 gone at12:37:11. Exact commands/SHA/costs in linked report.
+Codec fit session23652 and audit40785 CLOSED/exit0; launchers26956/25468 and
+workers23292/19648 gone at13:04:19. Exact commands/hash/costs in linked result.
+[Matched DEV custody](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md) still missing
+except qualified53-label case: reuse it when operators match, no DEV refit.
+[Output rank derivation](OUTPUT_WEIGHTED_RANK_CODEC_DERIVATION_20261010.md) and
+[original RMS geometry](RMS_COMPATIBLE_OUTPUT_CODEC_20261010.md) now have one
+measured pair with explicit failure. Actual native state/norm/head are F32.
+No repeated FIT/source capture, width/rank/scale sweep or unchanged training.
 
 [Operator/readout algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates norm,
 projection/head and missing SwiGLU sigmoid; [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md)

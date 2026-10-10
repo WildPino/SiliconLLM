@@ -1,5 +1,11 @@
 # Next: consistent FIT output features, then one paired original-engine codec
 
+**Current:** [paired FIT codec/full audit](PAIRED_OUTPUT_CODEC_RESULT_20261010.md)
+COMPLETE: numeric PASS/quality FAIL. One representation now fitted/frozen;
+older no-fit preparation below historical. Next [head image versus encoder](PAIRED_CODEC_HEAD_IMAGE_NEXT_20261010.md),
+then held-out custody/evaluation under a frozen method. No DEV refit/source
+capture replay or unchanged recovery dose. All owned workers gone.
+
 10 October2026. [FIT capture/full audit](SOURCE_CACHED_FIT_RESULT_20261010.md)
 COMPLETE/PASS under frozen f2f4011 protocol/binding4116baa7; sessions90559/6122
 CLOSED. No codec fit. Goal ACTIVE/INCOMPLETE; all owned workers gone/no T4.
