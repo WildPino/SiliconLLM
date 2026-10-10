@@ -1,11 +1,11 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Shared categorical fit/full audit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md)
-COMPLETE/quality FAIL: KL5.26002 ->2.92084,case dis56.8142%; full audit PASS.
-All owned processes CLOSED; offline packed head export real/109 other fields exact.
-[Native protocol](CATEGORICAL_NATIVE_ASSESSMENT_PROTOCOL_20261010.md) prepared/bound,
-not launched. One new artifact,all48+16 tasks;900s capture+600s full audit.
+[Categorical native/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md)
+COMPLETE/numeric PASS/quality FAIL: FITKL2.92084/DEV6.25897,task0/16.
+[Onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md):14/14 donor-correct first
+responses wrong; FIT first-response objective weight1.17535%. All owned CLOSED.
+Next24-first-state controllability: algebra/specification, not executed.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -31,6 +31,21 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
 
 ## Latest decisive evidence
+
+[Actual new head in original C](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md):
+old->new FITKL7.83019->2.92084,DEV8.76437->6.25897;task0/16 vs source14/16.
+All200 inputs/485 outputs6.108GB/8808 labels/forced routes/ternary witnesses/
+21 stream requests/679 greedy IDs/packed/kernel/proxy bounds audit PASS.
+Max score discrepancy2.097e-5. Held812.953s; raw timing contaminated by foreign
+pytest, no useful50 claim. [Shared fit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md)
+32updates/75FG/331650 label FG,upper2.92084/lower0, no optimal-floor claim.
+
+[Stored response onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md):all16
+chatbot responses firstID1563;14/14 donor-correct first IDs disagree before
+candidate feedback,mean firstKL9.10092. FIT onsetKL4.57825/continuation2.89729,
+onset loss mass1.17535%. Numeric/hash/scalar checks PASS,no model/history/fit.
+[Information decomposition](CAUSAL_CATEGORICAL_INFORMATION_DECOMPOSITION_20261010.md)
+separates fixed vocabulary image,shared readout and causal construction.
 
 [Native causal coordinates](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md):
 all8808 original C states recovered, rank256/condition22.9684, full-score max
@@ -95,36 +110,20 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 
 ## Exact resumption
 
-Freeze prepared native worker/protocol/bindingbd71419b then launch once. No
-old head/history/optimizer replay. Fit/audit terminal; same new artifact requires
-all48 FIT/DEV/full-V native labels and16 chatbot tasks with complete stored audit.
-Native result and quality/raw rates not yet observed. Existing later notes below
-are historical prerequisites.
+All owned sessions CLOSED/exit0: shared fit37190/audit76620, native74583/
+audit50029, stored onset direct exit0. Never restart completed history/optimizer.
+[Next24-first-state controllability](CATEGORICAL_ONSET_CONTROLLABILITY_NEXT_20261010.md):
+implement/freeze/bind ONE24x256 SVD and minimum-norm map/correction using existing
+first-label per-code upper points and native whitened features; propagate old
+state uncertainty to rank and dual radius bound,full stored audit/no SVD replay.
+UNIMPLEMENTED/UNEXECUTED. No new weighting/optimizer/observer/native/T4 call.
+This can distinguish feasible local readout correction from ill-conditioned
+state control before a new compact causal-code/SSM/SWA/ternary-function campaign.
+It does not certify a general KL/information ceiling or useful chatbot.
 
-
-
-[Shared categorical readout next](CAUSAL_CATEGORICAL_READOUT_NEXT_20261010.md):
-implement/freeze one FIT-only covariance/whitening/least-squares warm shared
-convex encoder, projected accelerated full-gradient probe and offline head fusion.
-Then qualify the ACTUAL unchanged packed C artifact on held-out probabilities,
-own-history generation/tasks and speed. No new fit or native evaluation yet.
-Seal actual features/teacher/phi files; propagate recovered-feature uncertainty.
-Approximate upstream states cannot establish new-head native arithmetic identity.
-
-Recovery68256/audit88609 CLOSED/exit0; launchers19344/18296 and workers13052/8708
-gone. Bound-only correction and Decimal50 audit also terminal; exact receipts,
-proofs/hashes/costs in result. Fixed-head radius16 is a code domain; proposed
-shared Theta Frobenius16 is a different domain. No unchanged dose/scale/width
-sweep, inference inversion, added runtime matrix, or generic donor port.
-Matched DEV source final states still missing except53 paired labels; this
-native-coordinate branch can use existing cached teacher logits with FIT-only
-head selection. SSM/SWA/ternary/LUT core remains original; all goal gates open.
-
-[Operator/readout algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates norm,
-projection/head and missing SwiGLU sigmoid; [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md)
-and [structured router reuse](STRUCTURED_ROUTER_REUSE_20261010.md) support
-specific hypotheses, not quality admission. METH54 historical synthetic
-273408-expert routing .44049ms/10x ratio1.392, no demonstrated useful n.
-Useful same-artifact50, CPU IDs/mass/physical DRAM and family scaling remain open.
-Longalign8186-20874 unqueried;104 new+64 old RESERVED untouched. Consumed NEXT
-bytes retained in [archive](original_engine_transfer_next_frozen_20261009.md.txt).
+[Operator algebra](TARGET_READOUT_GEOMETRY_20261010.md),
+[13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) and
+[router reuse](STRUCTURED_ROUTER_REUSE_20261010.md) remain reusable. Useful50/CPU
+structured ID+mass/physical DRAM/RAM-driven useful n/families are required/open.
+Longalign8186-20874 and104 new+64 old RESERVED unqueried. Donor-adaptation frozen;
+routine Graphify off. Foreign work preserved; exact raw timing caveats in report.

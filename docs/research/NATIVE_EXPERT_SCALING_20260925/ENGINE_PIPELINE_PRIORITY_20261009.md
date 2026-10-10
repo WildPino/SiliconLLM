@@ -1,5 +1,8 @@
 # Engine-first chatbot pipeline: priority and algebraic gaps
 
+**Current, 10 October:** [new categorical packed native/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) COMPLETE/numeric PASS/quality FAIL. Actual FITKL2.92084/DEV6.25897 versus old7.83019/8.76437; tasks0/16 vs donor14/16. All8808 proxy/native bounds/old routes/ternary witnesses/679 greedy IDs PASS; held812.953s. Raw timings foreign-test-contaminated, no useful50 admission. [Stored onset diagnosis](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md): all16 first IDs1563,14/14 donor-correct first replies wrong; FIT first response only1.17535% objective mass. All owned processes CLOSED. Next [24-first-state controllability](CATEGORICAL_ONSET_CONTROLLABILITY_NEXT_20261010.md) algebra/specification UNIMPLEMENTED/UNEXECUTED, no new optimizer/native/T4. Full goal incomplete; no information ceiling established. Older statuses historical.
+
+
 **Current, 10 October:** [shared categorical head/full audit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md) COMPLETE/quality FAIL: same FIT warmKL5.26002 ->2.92084,case dis56.8142%,2857 wrong/4422; lower0/gap2.92084, no positive-floor claim. All141 inputs/outputs/SVD/teacher/gradients/5 checkpoints/packed byte export/uncertainty PASS. Held455.281s, all owned fit/audit processes CLOSED. Next native assessment implemented/AST PASS/bindingbd71419b, not launched;900s+600s full audit on SAME new artifact. No native/source/T4/goal admission yet. Older statuses historical.
 
 

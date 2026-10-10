@@ -1,0 +1,69 @@
+{
+  "schema": "CATEGORICAL_NATIVE_ASSESSMENT_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_native_assessment_result_20261010.json",
+    "bytes": 525004,
+    "sha256": "5c5034e20773ea8f2852335327b870c50ec26e5e151ceeadf6f9a1b21a37f966"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_native_assessment_binding_20261010.json",
+    "bytes": 3173501,
+    "sha256": "bd71419b7a6c2e169f124ca46447e2111977820c7ddbc3011ca29171e2ed2951"
+  },
+  "input_hashes": 200,
+  "output_hashes": 485,
+  "original_computational_bodies": 20,
+  "adopted_request_identity": true,
+  "independent_F64_labels": 8808,
+  "max_case_KL_delta": 5.5644377994212846e-12,
+  "max_label_KL_delta": 8.874323498275771e-11,
+  "max_aggregate_delta": 3.964828465541359e-12,
+  "all_integer_witnesses_exact": true,
+  "max_native_mass_defect": 1.9371509552001953e-07,
+  "max_stream_mass_defect": 1.7881393432617188e-07,
+  "all_prefix_heads_routes_bit_exact": true,
+  "all_generated_ID_argmax_exact": 679,
+  "tasks_exact": true,
+  "followup_candidate_answer_exact": true,
+  "task_correct": 0,
+  "categories": {
+    "arithmetic": 0,
+    "extraction": 0,
+    "history": 0,
+    "instruction": 0
+  },
+  "raw_rates_exact": true,
+  "conservative_held_OS_union": 1068126208,
+  "nested_linker_peak_missing": true,
+  "source_calls": 0,
+  "model_calls": 0,
+  "GPU_calls": 0,
+  "optimizer_updates": 0,
+  "seconds": 133.0,
+  "proxy_case_KL": {
+    "FIT": 2.9208417425057984,
+    "DEV": 6.258966812070874
+  },
+  "strict_readout_flags": {
+    "FIT": {
+      "mean_KL": false,
+      "mean_disagreement": false,
+      "every_case_KL": false,
+      "every_case_disagreement": false,
+      "domains": false
+    },
+    "DEV": {
+      "mean_KL": false,
+      "mean_disagreement": false,
+      "every_case_KL": false,
+      "every_case_disagreement": false,
+      "domains": false
+    }
+  },
+  "proxy_labels_verified": 8808,
+  "max_proxy_native_score_absolute": 2.097093226893776e-05,
+  "max_bound_utilization": 0.0005009409909296117,
+  "max_proxy_native_KL_absolute": 5.394164240613009e-06,
+  "old_forced_routes_bit_exact": true,
+  "scope": "Full stored audit of actual new head; all8808 proxy/native labels and uncertainty bounds, no model/core/SVD/optimizer replay. Not useful50/n/DRAM/family admission."
+}

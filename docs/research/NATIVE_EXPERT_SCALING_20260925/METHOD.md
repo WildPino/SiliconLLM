@@ -1,5 +1,8 @@
 # Pretrained-to-native conditional-capacity method
 
+**Current, 10 October:** [new categorical packed native/full audit](CATEGORICAL_NATIVE_ASSESSMENT_RESULT_20261010.md) COMPLETE/numeric PASS/quality FAIL. Actual FITKL2.92084/DEV6.25897 versus old7.83019/8.76437; tasks0/16 vs donor14/16. All8808 proxy/native bounds/old routes/ternary witnesses/679 greedy IDs PASS; held812.953s. Raw timings foreign-test-contaminated, no useful50 admission. [Stored onset diagnosis](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md): all16 first IDs1563,14/14 donor-correct first replies wrong; FIT first response only1.17535% objective mass. All owned processes CLOSED. Next [24-first-state controllability](CATEGORICAL_ONSET_CONTROLLABILITY_NEXT_20261010.md) algebra/specification UNIMPLEMENTED/UNEXECUTED, no new optimizer/native/T4. Full goal incomplete; no information ceiling established. Older statuses historical.
+
+
 **Current, 10 October:** [shared categorical head/full audit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md) COMPLETE/quality FAIL: same FIT warmKL5.26002 ->2.92084,case dis56.8142%,2857 wrong/4422; lower0/gap2.92084, no positive-floor claim. All141 inputs/outputs/SVD/teacher/gradients/5 checkpoints/packed byte export/uncertainty PASS. Held455.281s, all owned fit/audit processes CLOSED. Next native assessment implemented/AST PASS/bindingbd71419b, not launched;900s+600s full audit on SAME new artifact. No native/source/T4/goal admission yet. Older statuses historical.
 
 
@@ -627,6 +630,38 @@ resource gates pass;completed cases/updates must not be replayed for confirmatio
 Reuse checkpoint286/Adam294 after audited new supervision; retain original
 inference geometry/ternary/AQ63/C kernels. Old nativeFAIL remains;the actual
 new export requires whole native and own-history checks before long adaptation.
+
+### 5.1 Available readout-only conversion stage (10 October)
+
+Input: immutable actual27 packed C artifact, qualified approximate original
+normalized states at24FIT/4422 labels, coherent BF16 cached teacher logits,
+paired rank255 vocabulary decoder A and warm source codes. Feature recovery
+uses old native score inversion ONLY during offline analysis, not inference.
+`causal_categorical_readout.py` performs one weighted feature SVD/whitening and
+one shared categorical convex fit. Export H=A Theta W as an ordinary F32Vx256
+head in a NEW packed artifact; exactly109 other fields/header/table unchanged.
+No extra runtime transform, core/expert/router/kernel change or donor read.
+
+Available/reproducible: binding88c095e6,freeze03977fb,full independent CPU audit.
+32 accepted updates/75 FG calls/331650 label FG evaluations; actual emitted
+artifact520029440 bytes. Held455.281s fit+audit, local RTX3060 GPU peak393388032
+allocated/425721856 reserved. ALL numeric/hash/fusion/uncertainty gates PASS.
+FIT KL5.26002->2.92084,case disagreement56.8142%; strict quality FAIL. Tangent
+lower0/gap2.92084, so no irreducible information or rank ceiling established.
+[Exact inputs/output/costs/limits](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md).
+
+Native assessment of SAME new artifact COMPLETE/numeric PASS/quality FAIL:
+reuse exact baseline executable,all48 forced histories and16 original chat tasks
+plus candidate-answer followup, then full stored audit. All old forced routes and
+integer witnesses match; all8808 native logits satisfy propagated proxy bounds.
+FITKL2.92084/DEV6.25897,task0/16; held812.953s/no GPU/T4/source calls. Raw
+timing retains the foreign-test caveat and quality admission fails.
+This stage is a measured readout intervention, not a useful pretrained chatbot
+conversion yet. Stored first-response control shows14/14 donor-correct cases
+already wrong before own-answer feedback; FIT onset has1.17535% of loss mass.
+Next24-row controllability/algebra diagnosis is prospective, not another dose. Useful expert capacity/scaling and other-family prerequisites
+remain distinct required stages. No repeated unchanged32-update dose authorized
+by a passing local numeric check.
 
 ## 6. Required fresh quality, physical rate, useful n and variants
 
