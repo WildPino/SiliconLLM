@@ -1,5 +1,8 @@
 # Native expert-count scaling: prior evidence
 
+**Current, 10 October:** [shared categorical head/full audit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md) COMPLETE/quality FAIL: same FIT warmKL5.26002 ->2.92084,case dis56.8142%,2857 wrong/4422; lower0/gap2.92084, no positive-floor claim. All141 inputs/outputs/SVD/teacher/gradients/5 checkpoints/packed byte export/uncertainty PASS. Held455.281s, all owned fit/audit processes CLOSED. Next native assessment implemented/AST PASS/bindingbd71419b, not launched;900s+600s full audit on SAME new artifact. No native/source/T4/goal admission yet. Older statuses historical.
+
+
 **Current preparation, 10 October:** [categorical head protocol](CAUSAL_CATEGORICAL_READOUT_PROTOCOL_20261010.md) implemented/AST PASS/exact binding sealed. One FIT-only shared convex map, max32 accepted updates; unchanged original packed ABI/core, head fused offline. Capture1200s (reserve120), OS4GiB/GPU4-5GiB/output1GiB, complete CPU audit600s. No new fit/native/source/T4 call yet; full goal incomplete. Older statuses historical.
 
 

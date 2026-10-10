@@ -1,0 +1,45 @@
+{
+  "schema": "CAUSAL_CATEGORICAL_READOUT_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\causal_categorical_readout_result_20261010.json",
+    "bytes": 1349474,
+    "sha256": "5e35ade79058d74c4af7ddeeed2b54c0e7b7067067c4158ff71782741f89af13"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\causal_categorical_readout_binding_20261010.json",
+    "bytes": 352554,
+    "sha256": "88c095e6980df2bbf89c20e4acfa8bfc15a50a867e39b832d69cb9ea4333665f"
+  },
+  "decision": "SHARED_HEAD_FIT_QUALITY_FAIL",
+  "quality_flags": {
+    "mean_KL": false,
+    "mean_disagreement": false,
+    "every_case_KL": false,
+    "every_case_disagreement": false,
+    "domains": false
+  },
+  "complete_input_output_hashes": true,
+  "all_FIT_teacher_moments_entropy_argmax_verified": true,
+  "full_weighted_SVD_whitening_initializer_verified": true,
+  "factor_relative": 2.417388497495565e-15,
+  "orthogonal_Frobenius": 3.616613133918676e-14,
+  "max_teacher_moment_absolute_delta": 1.113775738303957e-11,
+  "max_teacher_entropy_absolute_delta": 2.8421709430404007e-13,
+  "max_metric_absolute_delta": 3.907985046680551e-14,
+  "max_gradient_absolute_delta": 4.746203430272544e-15,
+  "scalar_gradient_witnesses": 4,
+  "scalar_gradient_absolute_delta": 8.881784197001252e-16,
+  "all_checkpoint_Y_objectives_gradients_verified": true,
+  "final_feasible_upper_and_tangent_lower_verified": true,
+  "full_fusion_absolute_delta": 1.3877787807814457e-16,
+  "packed_all_bytes_except_head_exact": true,
+  "forced_native_uncertainty_bounds_verified": true,
+  "stored_objective_gradient_evaluations": 8,
+  "stored_linear_head_labels_reconstructed": 35376,
+  "source_calls": 0,
+  "native_calls": 0,
+  "optimizer_updates": 0,
+  "SVD_factorizations": 0,
+  "seconds": 169.75,
+  "scope": "Complete CPU stored audit, no descent/SVD/model/history replay; proxy FIT quality never native/DEV admission."
+}

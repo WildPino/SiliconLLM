@@ -1,10 +1,11 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Categorical shared head protocol](CAUSAL_CATEGORICAL_READOUT_PROTOCOL_20261010.md)
-PREPARED/AST PASS/binding sealed, not consumed. Max32 FIT-only updates, offline
-fused unchanged original C head;1200s capture+600s complete stored audit.
-All owned processes CLOSED; no new fit/native/source/T4 call yet.
+[Shared categorical fit/full audit](CAUSAL_CATEGORICAL_READOUT_RESULT_20261010.md)
+COMPLETE/quality FAIL: KL5.26002 ->2.92084,case dis56.8142%; full audit PASS.
+All owned processes CLOSED; offline packed head export real/109 other fields exact.
+[Native protocol](CATEGORICAL_NATIVE_ASSESSMENT_PROTOCOL_20261010.md) prepared/bound,
+not launched. One new artifact,all48+16 tasks;900s capture+600s full audit.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -93,6 +94,14 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 | Older whole/native paths | [Prior ledger](PRIOR_EVIDENCE.md):matched2+6 preference FAIL, local FFN underfit/mean-only repair, D512/L12 own-history outputs degenerate; completed old doses not to restart |
 
 ## Exact resumption
+
+Freeze prepared native worker/protocol/bindingbd71419b then launch once. No
+old head/history/optimizer replay. Fit/audit terminal; same new artifact requires
+all48 FIT/DEV/full-V native labels and16 chatbot tasks with complete stored audit.
+Native result and quality/raw rates not yet observed. Existing later notes below
+are historical prerequisites.
+
+
 
 [Shared categorical readout next](CAUSAL_CATEGORICAL_READOUT_NEXT_20261010.md):
 implement/freeze one FIT-only covariance/whitening/least-squares warm shared
