@@ -1,0 +1,38 @@
+{
+  "stage": "held_prelaunch",
+  "error": "AssertionError: ('overlap', 18752, 'python.exe')",
+  "exit_code": 1,
+  "worker_created": false,
+  "worker_log_exists": false,
+  "original_launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_audit_scalar_launch_binding_20261010.json",
+    "bytes": 2495,
+    "sha256": "bcaaad16ea794999e5c534ff57242287cda745e79659c766577fd9c3c8938252"
+  },
+  "observed_foreign": [
+    {
+      "pid": 23300,
+      "creation_time": 1791645408.5686436,
+      "cmdline": [
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\python.exe",
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\tools\\country_tournament\\youtube_uploader.py",
+        "--video",
+        "E:\\Volume E\\TikTokVideo\\tournament_elaborati\\tournament_20260929_091958.mp4",
+        "--schedule",
+        "2026-10-10T21:00:00"
+      ]
+    },
+    {
+      "pid": 18752,
+      "creation_time": 1791645408.5946991,
+      "cmdline": [
+        "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+        "D:\\_THINGS\\Progetti\\tiktok_publisher\\tools\\country_tournament\\youtube_uploader.py",
+        "--video",
+        "E:\\Volume E\\TikTokVideo\\tournament_elaborati\\tournament_20260929_091958.mp4",
+        "--schedule",
+        "2026-10-10T21:00:00"
+      ]
+    }
+  ]
+}

@@ -128,7 +128,9 @@ no unfinished numerical worker, no completed SVD/optimizer/head-export replay.
 Next [fixed-head categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
 Compiler producer50027 CLOSED/exit0/80.359s; first audit89422 CLOSED/exit1/72.125s
 at final NumPy bool JSON serialization. Final maxima not saved, original fault retained.
-New adapter/holderbcaaad16 preflight PASS/UNEXECUTED; freeze then full300s
+Scalar adapter61c2057 preflight PASS; holderbcaaad16 rejected uploader18752
+before any worker/log. New exact-foreign holder binding prepared/UNEXECUTED;
+freeze it then full300s
 stored audit with unchanged numeric binding/tolerances, charge extra8808 pass.
 Freeze4ea205b542ab448d86be065fcfe6cdcb31b40266/bindingbcb329de/holder8cbfcfa9.
 Freeze and launch loss compiler for all48 stored source cohorts
