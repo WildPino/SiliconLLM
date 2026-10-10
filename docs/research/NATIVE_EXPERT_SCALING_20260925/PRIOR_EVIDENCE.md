@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE11 October01:28:** v2 recovery seal CLOSED exit0,all5742
+outputs138.619GB/current input-before-after exact; no original successful
+custody. [Actual boundary](CATEGORICAL_RECOVERY_SEAL_V2_RESULT_20261011.md),
+sealSHA2a207ae38ca3820640f9f741648eee4edda684afed26562afd761a2eba0b74eb.
+FULL recovered stored numerical audit now LIVE session26264/holder17412,
+creation01:27:45.02565+02:00; source/protocol30a78a0, exact binding/invocation
+3a59fbe, numericSHA14d20fdf33afaa4bb80ab68c95e8a760565c22da35f856f47abb4cd11ba1a801.
+Initial holder full before-hash occurs BEFORE worker/live JSON creation;
+worker identity appears later in recovered_categorical_campaign_stored_adjudication_20261011.live.json.
+Hard9h/24GiB/CPU-only,all24directions/48proposals/48final forced cases; full
+input/output after-check still required. GPT-6 Luna `/root/recovery_monitor`
+owns read-only monitoring; root stops substantive work until meaningful
+closure/fault/intervention alert. A worker result alone is not holder closure.
+Original capture/faults preserved; lost GPU/custody/transient counters UNKNOWN.
+Missing16 tasks/own-answer followup require a new actual native job and audit;
+no useful-chatbot/same-artifact50/useful-n/general-conversion admission.
+Prior LIVE/status paragraphs below are historical. Full goal ACTIVE/INCOMPLETE.
+
 **AUTHORITATIVE11 October00:37:** First recovery seal CLOSED exit1 at1800s,
 no valid seal; fault retained. [Fault/v2 protocol](CATEGORICAL_RECOVERY_SEAL_V1_FAULT_AND_V2_PROTOCOL_20261011.md).
 Separate v2 source/protocol frozen d89e9d3, exact launch7fc130d, LIVE session17973/
