@@ -1,0 +1,74 @@
+{"stage": "independent_compile_case", "id": "broad_fit_apigen_80k_023", "labels_verified": 118}
+{"stage": "independent_compile_case", "id": "broad_fit_apigen_80k_002", "labels_verified": 151}
+{"stage": "independent_compile_case", "id": "broad_dev_apigen_80k_034", "labels_verified": 251}
+{"stage": "independent_compile_case", "id": "broad_dev_apigen_80k_033", "labels_verified": 362}
+{"stage": "independent_compile_case", "id": "broad_fit_everyday_conversations_002", "labels_verified": 562}
+{"stage": "independent_compile_case", "id": "broad_fit_everyday_conversations_010", "labels_verified": 736}
+{"stage": "independent_compile_case", "id": "broad_dev_everyday_conversations_036", "labels_verified": 789}
+{"stage": "independent_compile_case", "id": "broad_dev_everyday_conversations_033", "labels_verified": 961}
+{"stage": "independent_compile_case", "id": "broad_fit_explore_instruct_rewriting_008", "labels_verified": 979}
+{"stage": "independent_compile_case", "id": "broad_fit_explore_instruct_rewriting_009", "labels_verified": 992}
+{"stage": "independent_compile_case", "id": "broad_dev_explore_instruct_rewriting_035", "labels_verified": 1004}
+{"stage": "independent_compile_case", "id": "broad_dev_explore_instruct_rewriting_038", "labels_verified": 1260}
+{"stage": "independent_compile_case", "id": "broad_fit_metamathqa_50k_015", "labels_verified": 1415}
+{"stage": "independent_compile_case", "id": "broad_fit_metamathqa_50k_023", "labels_verified": 1671}
+{"stage": "independent_compile_case", "id": "broad_dev_metamathqa_50k_035", "labels_verified": 1862}
+{"stage": "independent_compile_case", "id": "broad_dev_metamathqa_50k_037", "labels_verified": 2118}
+{"stage": "independent_compile_case", "id": "broad_fit_numina_cot_100k_015", "labels_verified": 2374}
+{"stage": "independent_compile_case", "id": "broad_fit_numina_cot_100k_016", "labels_verified": 2630}
+{"stage": "independent_compile_case", "id": "broad_dev_numina_cot_100k_038", "labels_verified": 2886}
+{"stage": "independent_compile_case", "id": "broad_dev_numina_cot_100k_035", "labels_verified": 3142}
+{"stage": "independent_compile_case", "id": "broad_fit_openhermes_100k_004", "labels_verified": 3398}
+{"stage": "independent_compile_case", "id": "broad_fit_openhermes_100k_028", "labels_verified": 3654}
+{"stage": "independent_compile_case", "id": "broad_dev_openhermes_100k_034", "labels_verified": 3910}
+{"stage": "independent_compile_case", "id": "broad_dev_openhermes_100k_037", "labels_verified": 4166}
+{"stage": "independent_compile_case", "id": "broad_fit_self_oss_instruct_012", "labels_verified": 4422}
+{"stage": "independent_compile_case", "id": "broad_fit_self_oss_instruct_006", "labels_verified": 4678}
+{"stage": "independent_compile_case", "id": "broad_dev_self_oss_instruct_036", "labels_verified": 4934}
+{"stage": "independent_compile_case", "id": "broad_dev_self_oss_instruct_033", "labels_verified": 5190}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_constraints_005", "labels_verified": 5370}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_constraints_021", "labels_verified": 5559}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_constraints_035", "labels_verified": 5609}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_constraints_034", "labels_verified": 5702}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_magpie_ultra_000", "labels_verified": 5958}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_magpie_ultra_022", "labels_verified": 6214}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_magpie_ultra_034", "labels_verified": 6470}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_magpie_ultra_036", "labels_verified": 6726}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_rewrite_004", "labels_verified": 6816}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_rewrite_015", "labels_verified": 7072}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_rewrite_036", "labels_verified": 7297}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_rewrite_032", "labels_verified": 7472}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_summarize_024", "labels_verified": 7533}
+{"stage": "independent_compile_case", "id": "broad_fit_smol_summarize_003", "labels_verified": 7652}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_summarize_034", "labels_verified": 7686}
+{"stage": "independent_compile_case", "id": "broad_dev_smol_summarize_039", "labels_verified": 7784}
+{"stage": "independent_compile_case", "id": "broad_fit_systemchats_30k_024", "labels_verified": 8040}
+{"stage": "independent_compile_case", "id": "broad_fit_systemchats_30k_010", "labels_verified": 8296}
+{"stage": "independent_compile_case", "id": "broad_dev_systemchats_30k_039", "labels_verified": 8552}
+{"stage": "independent_compile_case", "id": "broad_dev_systemchats_30k_034", "labels_verified": 8808}
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_categorical_loss_compile.py", line 326, in <module>
+    audit(a)
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\original_categorical_loss_compile.py", line 299, in audit
+    write(a.out, dict(schema='ORIGINAL_CATEGORICAL_LOSS_AUDIT_V1', freeze=a.freeze, result=extent(a.source_result), binding=extent(a.binding),
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\chatbot_falcon_usability.py", line 36, in write
+    raw = json.dumps(json_safe(value), ensure_ascii=False, allow_nan=False, indent=2) + '\n'
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

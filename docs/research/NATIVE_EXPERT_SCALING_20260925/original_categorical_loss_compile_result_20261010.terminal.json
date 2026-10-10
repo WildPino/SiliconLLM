@@ -1,0 +1,801 @@
+{
+  "freeze": "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+  "binding_sha256": "bcb329defd685e5327af892e9078a3728472bdbcd0601535435d9251e7cd23c7",
+  "launcher_freeze": "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_launch_binding_20261010.json",
+    "bytes": 1632,
+    "sha256": "8cbfcfa9ecff51a43d10af6e557176414ccf854e7ad8947983aba2ed6fb5a246"
+  },
+  "launcher_pid": 29456,
+  "limits": {
+    "seconds": 300,
+    "reserve_seconds": 30,
+    "OS_bytes": 2147483648,
+    "output_bytes": 134217728,
+    "log_bytes": 4194304
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_loss_compile.py",
+    "--capture-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_binding_20261010.json",
+    "--binding-sha",
+    "bcb329defd685e5327af892e9078a3728472bdbcd0601535435d9251e7cd23c7",
+    "--freeze",
+    "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 12192,
+  "worker_creation_time": 1791645030.5357125,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.json",
+    "bytes": 195317,
+    "sha256": "86b35caa2b9f3b15d40909776a5b2c09d1c491d5644146bed144e0e0563a1d74"
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_apigen_80k_033.moments.f64",
+      "bytes": 227328,
+      "sha256": "1588a98414f9d8ce64ec420b20a843c90ecac0e97c2a58d25c0a57083f2823e6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_apigen_80k_033.negative_entropy.f64",
+      "bytes": 888,
+      "sha256": "af4741b87423f4123a5b01728d1941f9eb324ab597b46b2b3c98191d65fba1fe"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_apigen_80k_033.source_argmax.i32",
+      "bytes": 444,
+      "sha256": "8d77b59d80af77aea476577622296f82dfb8b45ddfe6ea6b6ca9554e0cfff40d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_apigen_80k_034.moments.f64",
+      "bytes": 204800,
+      "sha256": "ff1627c4e783bdd7be5cfa2a996671027231f12964eb399804194abfee65240e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_apigen_80k_034.negative_entropy.f64",
+      "bytes": 800,
+      "sha256": "af6111c2f69b47cb21003d81edabb1a9932f2c2722d9c58bf7ed9502b1c0a6b4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_apigen_80k_034.source_argmax.i32",
+      "bytes": 400,
+      "sha256": "5e531e200b2a692867860e7f76e5b789c333cb0e3e85d946316afec20632d2fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_everyday_conversations_033.moments.f64",
+      "bytes": 352256,
+      "sha256": "84d43a0f58aa5e903de602bc651645670fe1e91d9356a0c2737bdd19b039b8b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_everyday_conversations_033.negative_entropy.f64",
+      "bytes": 1376,
+      "sha256": "8f58808ae1931b4dc454b1de3576a7f323edf0723e97b6d53c321ebe3503b877"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_everyday_conversations_033.source_argmax.i32",
+      "bytes": 688,
+      "sha256": "50b9e6bf495d84c2ef1aad6a45cc5ca4e741cd9f87214e7783b7b6d25be38f81"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_everyday_conversations_036.moments.f64",
+      "bytes": 108544,
+      "sha256": "5ad49ae5b07d849c152010896611114919ddb7e65916714e384d36338d9af501"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_everyday_conversations_036.negative_entropy.f64",
+      "bytes": 424,
+      "sha256": "d425ba41759af3e53b1e77a0bad582c9d8514e473130f1887d60d9ae77347449"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_everyday_conversations_036.source_argmax.i32",
+      "bytes": 212,
+      "sha256": "5ab0f85a2b7dae9b910db99357ea7f021f7841840009c9ae31c5f149356fcc87"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_explore_instruct_rewriting_035.moments.f64",
+      "bytes": 24576,
+      "sha256": "88f45231983b23ffc4e280b2ce416be2d90563b3340c56882bac8e25bdb049f6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_explore_instruct_rewriting_035.negative_entropy.f64",
+      "bytes": 96,
+      "sha256": "6b568c6fd39c4d7074d2812751f22ee5c3c21a93c3f1ea56448c7759bcba0290"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_explore_instruct_rewriting_035.source_argmax.i32",
+      "bytes": 48,
+      "sha256": "37fbff54a2eb65384c713d3b7014a5021b0affc906ac132a992e86447f0c331f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_explore_instruct_rewriting_038.moments.f64",
+      "bytes": 524288,
+      "sha256": "772678ea1630a6bcfc786f4eba9abf2f7b2b2788989470b17c92b6810eb488d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_explore_instruct_rewriting_038.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "32d344e20895d2216d31f4012007b623ec451c250d209cd1dca03c51daec636a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_explore_instruct_rewriting_038.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "7e09f7aad1cf954f287e77e1a237173a13862ed245fd96c92f2cd3de3a6bf785"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_metamathqa_50k_035.moments.f64",
+      "bytes": 391168,
+      "sha256": "e37bb749076be04b443de2607748ff72cd1e247390dd0beb27f7a06aa28e7183"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_metamathqa_50k_035.negative_entropy.f64",
+      "bytes": 1528,
+      "sha256": "aa242e2ca9cf7ab52cb42a00b0ba6a47186f676f8e0467ee97a368a6e3de59eb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_metamathqa_50k_035.source_argmax.i32",
+      "bytes": 764,
+      "sha256": "b25c99ab16a95daaa38b09d8479660dd0bcfa21db109d7bc293ba9d00850ec1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_metamathqa_50k_037.moments.f64",
+      "bytes": 524288,
+      "sha256": "9e40be09ddebdaf2777cfdfa3baf5af62b7f7e24846effe8a7542e884184967d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_metamathqa_50k_037.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "07d20b876c4076124ddfdf4faeec8d5da28e382da022ca14d3a7d45966ded064"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_metamathqa_50k_037.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "ee68b3c81b6026208cad706355586e3b9c86680ef2bc16dc8362884ca82c43d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_numina_cot_100k_035.moments.f64",
+      "bytes": 524288,
+      "sha256": "54d5cb262abfbc2ca507334d07d5d707d36aeb963de0b063ec2cbc25e2f40a2f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_numina_cot_100k_035.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "cea6e79812f9fa88c4b1637d38ede8e6bdda8f49a0c62559e852e58432dc4431"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_numina_cot_100k_035.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "bbcec29f12f323a81386ede9ebbd016e83c5107f194acaf5f40d97cad2220c7d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_numina_cot_100k_038.moments.f64",
+      "bytes": 524288,
+      "sha256": "97ccae6782bd74f6cfd76b63daf8b7be47d4e4a4d3316ce4f3919765d32ff3fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_numina_cot_100k_038.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "75ab852b5492a4b3b1c1ccb23053683c53194fd098d1f6eb007e9979bd24700f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_numina_cot_100k_038.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "e26ca7b1c96542d170c6b9d4b2f4ad93fddc3033875b6daaedee853cdc592c74"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_openhermes_100k_034.moments.f64",
+      "bytes": 524288,
+      "sha256": "427996307c44e1c99b28e9ae52c9060e98f5daae9673ff6f8338deb70b951796"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_openhermes_100k_034.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "3ca52067dc80eb8174ac4a6c79a3364b1beadf40c622b5adbc7a423432550c7c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_openhermes_100k_034.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "67dad8f41043afd9b421c4ad2b00766a787a64095f953faef66eab3c874e0d7f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_openhermes_100k_037.moments.f64",
+      "bytes": 524288,
+      "sha256": "642bc4ee9aaeaeb80d47b513da621f94784ec0b9ba61813ff4be730f148c9828"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_openhermes_100k_037.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "491b38216a7345007f0ead65c2fa9c2328ca40fb1b56d4193f9da80495725d09"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_openhermes_100k_037.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "f1a585f79e238c83e06ace9bf3fd77143ead372dfab1ce00530d61eeabd2d304"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_self_oss_instruct_033.moments.f64",
+      "bytes": 524288,
+      "sha256": "f6acbda0864fd3472d306501149f0e21280e37e52c25b798381414b904e4d8cb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_self_oss_instruct_033.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "fa0e41f1a45f02ca6ccbcea7714e92261f1343c62b5920dce89d7bf7820939fd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_self_oss_instruct_033.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "a3ca7991c8d4ed9f6acfb83fab4ce96ec01c492bd08ab4d5e137a7e889f6a096"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_self_oss_instruct_036.moments.f64",
+      "bytes": 524288,
+      "sha256": "114126251d7df88c0546a62ae8e9eaa91d73ec1d6af0f0332cdc0acd752cbd1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_self_oss_instruct_036.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "13e019c932ed75ebd4c587bdd35efdd757ffbb7bb0ced5be9a04045a55449aba"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_self_oss_instruct_036.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "998ee4e205adeba3ffe273a1fa7bd3f3fffbce0422d1494bf98d2e7725bab402"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_constraints_034.moments.f64",
+      "bytes": 190464,
+      "sha256": "71a1ce4e2da83b65a9ed5c83b75d39ac2b3a485b9cf507059922483840e3f030"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_constraints_034.negative_entropy.f64",
+      "bytes": 744,
+      "sha256": "37df0e1d57f0ce9d4a76cadffd0fc18680ffd822b2fd9751e5ba5966df561867"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_constraints_034.source_argmax.i32",
+      "bytes": 372,
+      "sha256": "ecfab2fce798a53ad98daa02aa24d5e040f36b12fc29a1cc545acf590e55e3c3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_constraints_035.moments.f64",
+      "bytes": 102400,
+      "sha256": "99082e099e5d47f21f04b9f95652cdb0a5f1de95680410784a428b2c63ed92ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_constraints_035.negative_entropy.f64",
+      "bytes": 400,
+      "sha256": "368ca0f959ffc89439fb822168f04a915b86b64d52df662e74a8ecccb4336f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_constraints_035.source_argmax.i32",
+      "bytes": 200,
+      "sha256": "5d3ca1d6acdd8045f8bea315f2ff97250e967cc3dac08732d02b007958c850c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_magpie_ultra_034.moments.f64",
+      "bytes": 524288,
+      "sha256": "4cc9bc2d16bc8f46f5eef49e4399b77401c1f92d53ceb7ca0ace0af358062a33"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_magpie_ultra_034.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "9f44167a609d3973fc6acfc114b9c83ed2f72ae14a41cf8bb76994e81f14406d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_magpie_ultra_034.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "358e8a4b24d5066b5b046a2d4ce0790085b9606f276c7e613fb444510400ef57"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_magpie_ultra_036.moments.f64",
+      "bytes": 524288,
+      "sha256": "dd29939c921b746dd595d5d602f8b977da61026193de636de30ce703d6a5b189"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_magpie_ultra_036.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "6777eda0d0938c8dfa94e6ab3c9303594b4faee59dda82a7473ac56ba96841cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_magpie_ultra_036.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "1f73f9b701e274f6c3ec63e92dc8a87cb3c74cada03d391a04ae2f5974fbd9ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_rewrite_032.moments.f64",
+      "bytes": 358400,
+      "sha256": "77de14bca62cd393b4fb9f4e2e04364b6f7aafb9e229432e916cd245ee2e0849"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_rewrite_032.negative_entropy.f64",
+      "bytes": 1400,
+      "sha256": "dc622b8d25ab70f528b8b21cacd6313b499dc1c5126ab955e8f76fa8822005c2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_rewrite_032.source_argmax.i32",
+      "bytes": 700,
+      "sha256": "7560f5b46ae8e5abffbde1bb5bfa24e60dc3cfe4a6f7a0f28f778b3e083531e8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_rewrite_036.moments.f64",
+      "bytes": 460800,
+      "sha256": "f72cda6381cf771d8490e5303aba50760cda8a1ba9b250d115d4941477b37169"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_rewrite_036.negative_entropy.f64",
+      "bytes": 1800,
+      "sha256": "da3f374d7bfd00205a6a92296b57ac7d98f2d7ba778d5b2fa421221bfe33bd64"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_rewrite_036.source_argmax.i32",
+      "bytes": 900,
+      "sha256": "543646125390eb3556c2751da1e43f001f7e4cc98079c02d762d336db1cba278"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_summarize_034.moments.f64",
+      "bytes": 69632,
+      "sha256": "c4b6beae86512a42fcd571427b1ecd2670a0483144d1547815c62c259d9775b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_summarize_034.negative_entropy.f64",
+      "bytes": 272,
+      "sha256": "a65460882518f609b3d1ff644646043d9aac12917a1a5423eeeb4a4e555e5af6"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_summarize_034.source_argmax.i32",
+      "bytes": 136,
+      "sha256": "dcad9304dc5f03b1533dbee4c4c7e8e1ca25c8f6c9c73e0e134a104b8b0c2472"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_summarize_039.moments.f64",
+      "bytes": 200704,
+      "sha256": "bfb5f718cefa3bbdb1bdc36dca7fe048be03ff9cc3879b45266f2a75b4095609"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_summarize_039.negative_entropy.f64",
+      "bytes": 784,
+      "sha256": "224edc2421a3d2a6c09ea68dd63527d8f58c2689d9aee5b354499fe2e3ac8977"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_smol_summarize_039.source_argmax.i32",
+      "bytes": 392,
+      "sha256": "b12407b87c02e4346be408565c7d7fce833aa1afa254a373d49fcb506f92977d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_systemchats_30k_034.moments.f64",
+      "bytes": 524288,
+      "sha256": "77c387b0081d98ce88d58efd70b39259478a4562a92cb67bc77c6cd46e5ed465"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_systemchats_30k_034.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "d5220e5924f99e5fca71c80c27ec9f13ec911ccf85630f36cebc7aa44bd5653d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_systemchats_30k_034.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "294cc70a541bd6f0fa5789e2db88676378b15bfc935c7288db792ae8597eb4f8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_systemchats_30k_039.moments.f64",
+      "bytes": 524288,
+      "sha256": "af9cb9ddc3d63ee3db2b85b3e08438bb6e4caa44c9f931cb111b82570b06936f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_systemchats_30k_039.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "8a42e45f038796cefefae731e6952122afc6f168aa038dff2c877c437fcf8e8d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_dev_systemchats_30k_039.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "abe91646cd3a5155ee9087c5f4c8a251a1089b3e54319f1097668631fac2e7e0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_002.moments.f64",
+      "bytes": 67584,
+      "sha256": "8712919ca6699d90b61fabe1e187c15eef35751ef0a609b1f1bd31e06afb104e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_002.negative_entropy.f64",
+      "bytes": 264,
+      "sha256": "2b996fe08478609c73e80a8b6d408863d15a386067c6d3f5a60a0b47766f60d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_002.source_argmax.i32",
+      "bytes": 132,
+      "sha256": "b55d1cf7a7a298cb4c80c86444558b15e8fc638855a42ab7b4c650221b4f7e18"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_023.moments.f64",
+      "bytes": 241664,
+      "sha256": "80ce9bc540e89c4190c79f7a6090618a19aaf50abed99bdcf209ee924fd3c911"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_023.negative_entropy.f64",
+      "bytes": 944,
+      "sha256": "5cfea98c170612f8832b16cf7836462dfe38ee08cf9a342a1a6a2ac87dd15583"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_apigen_80k_023.source_argmax.i32",
+      "bytes": 472,
+      "sha256": "f4ad8ea06fda4ae776fbdcfca317bc5950597c735fcd6b681b69f724a2bc60be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_002.moments.f64",
+      "bytes": 409600,
+      "sha256": "b7a1e263031254fe70b73b369cc22df7f2d3297d803c48b568a9fd3c4452269d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_002.negative_entropy.f64",
+      "bytes": 1600,
+      "sha256": "05bef6a43615536045543cd0f2d2285bb2fbedd24988338bd585939ab4cd8090"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_002.source_argmax.i32",
+      "bytes": 800,
+      "sha256": "aebc007082be9f7f80ea1467cb278c379c6131cf74c5d33d1c43558bd7302d0e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_010.moments.f64",
+      "bytes": 356352,
+      "sha256": "48f1a247012a106e16a0f91295d7e491096b47585a69371725c6dd5e6ec25e50"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_010.negative_entropy.f64",
+      "bytes": 1392,
+      "sha256": "2cc045cf400f40e842581fea25cb2e46749bb80640df3c992c9426f57b5abb67"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_everyday_conversations_010.source_argmax.i32",
+      "bytes": 696,
+      "sha256": "e902a26f80357bb0c3b029cef738ad05964517427c7309155babdf393de9abc9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_008.moments.f64",
+      "bytes": 36864,
+      "sha256": "c756bbdf084b1bf8f118c1b42d15d3a561106cee41416a00d471a6a9119e068d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_008.negative_entropy.f64",
+      "bytes": 144,
+      "sha256": "d624f496b30df7e0fc9a7ff5cbb0b291b05f13cc1e525ceb65b49d20995d6513"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_008.source_argmax.i32",
+      "bytes": 72,
+      "sha256": "36846f51287d31de79c46d7dcb7387f2f1815f142790205d700213f863d60ac1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_009.moments.f64",
+      "bytes": 26624,
+      "sha256": "0607e4395ebaff89daa9e58626eb03ab676dd08818dd3e2498ff4e8c5aeb0d35"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_009.negative_entropy.f64",
+      "bytes": 104,
+      "sha256": "3f7578a4f7e7649e40af017965d9c3863304af5c809986522b4859ed9f10121a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_explore_instruct_rewriting_009.source_argmax.i32",
+      "bytes": 52,
+      "sha256": "d397a1d5a9e6748ced7321445a18ca122df235c304f5c6290d54a7b36aba188a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_015.moments.f64",
+      "bytes": 317440,
+      "sha256": "c2e97efc9489a862fb77c4d2a4e67120a7bdc40a4ab459d7e7e7d62916ba2737"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_015.negative_entropy.f64",
+      "bytes": 1240,
+      "sha256": "ca389fa798dab595e98d6fca622b0eab39ff59c093eeced8ae1596e8fcdbe2da"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_015.source_argmax.i32",
+      "bytes": 620,
+      "sha256": "babd125b07a829063b6890269e1747c0eaa1fbbe375e2c0104c53430549c94c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_023.moments.f64",
+      "bytes": 524288,
+      "sha256": "79d2d49181529cee0dcc4e11891a2536cecb458bcc1742d3e404264b002c2986"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_023.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "bb7133bee2c89143857b7d7c15932f595b5fc9af428e057f439d7de5c5d62106"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_metamathqa_50k_023.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "ee32353335f4a418e210192bd7dcd5656f166919b5205cd2de8340dfacbccf2d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_015.moments.f64",
+      "bytes": 524288,
+      "sha256": "a0303ad85edb004a591e984c4ae1a3321b5cddd15c9cb6c1fd95e14bf08332d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_015.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "5eb32159a2264865128e9a0677c8eaaab02d24d99e9b7a136663992f3fd74c90"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_015.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "caa24305eebb3a0b25ad1e69bce9ed346fcb3607fb390baa5cae41bacabf44e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_016.moments.f64",
+      "bytes": 524288,
+      "sha256": "2d74e523a8fd6ce2a48cfe3ab2a6c1c43ee11f3e036fc1c93e0042e2b17fcdfd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_016.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "2ea5fef3b196c670dab83aea8703f2093cb2fc5180d75b7cf6a783ad844e58b5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_numina_cot_100k_016.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "22663a4854f91f2e20e0638029f07109654e6c1bfc8f0351a5be191ce9b28e1e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_004.moments.f64",
+      "bytes": 524288,
+      "sha256": "a4fb11f7032b38369e030fdc61bf7d1dcecf9b205b39a5c9e7777c4823d7ae7a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_004.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "d5c3e149cbb3bcf631525734af08ed9281cdce650e22cb76e7e2fed14fc2b22b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_004.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "6b43a4ba492cc388185a8708fdb35960f2900f27e2d79bc9605b5a02dcb5ba1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_028.moments.f64",
+      "bytes": 524288,
+      "sha256": "550d83cf8f7993228b8c7aa66e834801711de62b751a9b7df902607e081594d4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_028.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "548969a0ca7eff646436d71e98855a8dacfc69f1289b45d696e952ed849c8ba5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_openhermes_100k_028.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "c84341ed296660961456fbfce18aaed4a17ca11363c248bb87fc22e99a3db299"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_006.moments.f64",
+      "bytes": 524288,
+      "sha256": "70beb911f5af4323783a26fe15b21abdc49b50edfad2c08802be1c6dc6ee0f30"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_006.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "a7e14e919a1cb52de1f30030c706cc7885586bd6b9b0ef3235e4dabdc6e5b3aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_006.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "36c4de9f3ae4c1fe9aca21a6147d6af13ddb9c96bc6a203fa066fbd2309e8576"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_012.moments.f64",
+      "bytes": 524288,
+      "sha256": "beeca8d5de6fe87130e104ac633b5cb2d6a3d0eb116ca209584611f7cd99505f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_012.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "2cf1cd32d4d323a75527841692a07df162c6259288a0f6fdbe7affbf91a5f1d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_self_oss_instruct_012.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "cb4c895810ed7d51e6a412f44dfdd70e55ef0aaf1843d7016566757adc5009d1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_005.moments.f64",
+      "bytes": 368640,
+      "sha256": "5a8b9ed9e649198fc356c5b9ab7417ef4725576932dcfb29cd75759c2914310a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_005.negative_entropy.f64",
+      "bytes": 1440,
+      "sha256": "310b888586d657084505f1b91bb1b9a9e3c85211a432cf56ea63be0d3c16d452"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_005.source_argmax.i32",
+      "bytes": 720,
+      "sha256": "c755bc688d240d04f3c1187e8abfd18ba42ee4334a6aaf6727fa645fa540fe78"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_021.moments.f64",
+      "bytes": 387072,
+      "sha256": "c15f18be82978ceebaa60eb88e6767784f8ed498dabee6c7f6756ca3aafa69c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_021.negative_entropy.f64",
+      "bytes": 1512,
+      "sha256": "0e96444ed60259542f3e6fe5fbf3216ceabe19a5f9ea61c75828c68a4481c8ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_constraints_021.source_argmax.i32",
+      "bytes": 756,
+      "sha256": "076db0426bcc158a4a56c9a694b212424249dbe92efa6993a0eb91c4a14ae128"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_000.moments.f64",
+      "bytes": 524288,
+      "sha256": "f54bcc378b5e4657f66585f586c1431df3798940b343588c0e782e73301c28ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_000.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "40d0dff040c4f2916b951eec537e1e3df865c9d4cd2d2e889b6d0a0608df9b55"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_000.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "22aaed196a0b6da00af8374e2236efbcb7e0cf68fc9d8cd6087eab1cefaafc37"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_022.moments.f64",
+      "bytes": 524288,
+      "sha256": "f60cceb0ed5ca2c6d21c4518ae61e4866416bc776ff503c2b2e4792073017878"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_022.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "9763f318a468f79ef381672a5b1dc99fafb5f3f165701770321cb689b874b66e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_magpie_ultra_022.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "786a88c6b956ac5aa6256d271fd6af2a150c65c6e0d839ffffdf51254e6dc7ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_004.moments.f64",
+      "bytes": 184320,
+      "sha256": "f45c23b7162fc9b916e6b045e9d87154fcf41f131480a3e7638823604262ad4f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_004.negative_entropy.f64",
+      "bytes": 720,
+      "sha256": "0d0d9b1d1ff48bd2b1c514e38e0ec64c5f1c0dc3dacb02ffc3392e8d9bdfca76"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_004.source_argmax.i32",
+      "bytes": 360,
+      "sha256": "64f3f00de79c9fe071b07a72bd4b41974829cc43898031ea84bff4c909cadc8d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_015.moments.f64",
+      "bytes": 524288,
+      "sha256": "496301cb6597370f1995399a145e70ccbc6f2b22225af84dfef4359dd5055fe7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_015.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "3c83c31e0cb1b7cbef567de38c939a89b8c0157c3161f1942f0ffafe4d1fa9ad"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_rewrite_015.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "c3f70a9aaba453a92bd7a272405cc50245b8098f52287b376707b944089b6cf7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_003.moments.f64",
+      "bytes": 243712,
+      "sha256": "68aac8108c3385c00bc15b55a79e42d3e64646204d8472fbc77c55668dea1062"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_003.negative_entropy.f64",
+      "bytes": 952,
+      "sha256": "1206cf4a00b36bb8ae863990ef6630e9cc8d223ce5f3559233aa3a35e98a3194"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_003.source_argmax.i32",
+      "bytes": 476,
+      "sha256": "e46cd02988543315614bc8026dfef9303dcaf7c024a088265364d8ec7d5d11ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_024.moments.f64",
+      "bytes": 124928,
+      "sha256": "5f3fecc264ce5a7ecbd6e04bfc5e39a5339894caa13076a29e5c37063a8469d5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_024.negative_entropy.f64",
+      "bytes": 488,
+      "sha256": "8e84c609da0314b1705966288cbc80938a08076eef5736f1940e9213306e94c0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_smol_summarize_024.source_argmax.i32",
+      "bytes": 244,
+      "sha256": "79d691696740a7c835139c8938f70468e8f455cd35f34b0500ec286755b6a564"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_010.moments.f64",
+      "bytes": 524288,
+      "sha256": "367c64f121fb943f7bfb11cd5e660b5a4c8ffec1fd2464cbf296f8ab6f6df2cc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_010.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "999d9ae284d745dbabb91a486055a2640e358550eb23dfa5d8a2694797f64566"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_010.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "e768af4d5822f24462214bfc5a2ed6bc5c9cc5e45c55dcb43054aa3e1a0eaa97"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_024.moments.f64",
+      "bytes": 524288,
+      "sha256": "62e797deb3e73fb70971bcadb7fc285b17e7890f2791a8c2f6f8e1eeae48c9cf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_024.negative_entropy.f64",
+      "bytes": 2048,
+      "sha256": "5e3755747282b1bcec39c1f69e8aecf83833271335a1096f27d217cae935d47c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\broad_fit_systemchats_30k_024.source_argmax.i32",
+      "bytes": 1024,
+      "sha256": "cc4a00535c7da5eaff42e7b13b745677635eb51e68b1470b62391925381f8e91"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\witness_compiled_gradient.f64",
+      "bytes": 147456,
+      "sha256": "ac05855bd472247d74bf1429c5cdc7d9d12d9855edff5003852d3f93bd61d23c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\witness_compiled_loss.f64",
+      "bytes": 576,
+      "sha256": "ef7925d0f18e757a6a3d5e3b0ac70e5e3671b84a2c654c13ae6fa1c82fbf7262"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\witness_direct_gradient.f64",
+      "bytes": 147456,
+      "sha256": "fbabec77a1304007c2ae8c08e2bc40ed0c75168b84921a438969ea832f76fa5c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010\\witness_direct_loss.f64",
+      "bytes": 576,
+      "sha256": "3cdd5dac24295884616aef01aced2711fc0d16489bb29c324631d2d4df9edc3b"
+    }
+  ],
+  "extra_inputs": [],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 80.35899999999674,
+  "worker_OS_peak_through_exit": 572178432,
+  "launcher_OS_peak_snapshot": 29888512,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.worker.log",
+    "bytes": 5076,
+    "sha256": "582b39628045e5f8f6c7ee362d5f6ff0ce10ae144d99857a733ad390d1bfefb1"
+  }
+}

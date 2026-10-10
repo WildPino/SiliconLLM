@@ -1,0 +1,53 @@
+{
+  "freeze": "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+  "binding_sha256": "bcb329defd685e5327af892e9078a3728472bdbcd0601535435d9251e7cd23c7",
+  "launcher_freeze": "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_launch_binding_20261010.json",
+    "bytes": 1632,
+    "sha256": "8cbfcfa9ecff51a43d10af6e557176414ccf854e7ad8947983aba2ed6fb5a246"
+  },
+  "launcher_pid": 19368,
+  "limits": {
+    "seconds": 300,
+    "OS_bytes": 2147483648,
+    "output_bytes": 1048576,
+    "log_bytes": 4194304
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_loss_compile.py",
+    "--audit-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_binding_20261010.json",
+    "--binding-sha",
+    "bcb329defd685e5327af892e9078a3728472bdbcd0601535435d9251e7cd23c7",
+    "--freeze",
+    "4ea205b542ab448d86be065fcfe6cdcb31b40266",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_loss_compile_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_stored_adjudication_20261010.json",
+    "--source-result",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 19592,
+  "worker_creation_time": 1791645120.5089204,
+  "exit_code": 1,
+  "error": "AssertionError('1}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_explore_instruct_rewriting_008\", \"labels_verified\": 979}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_explore_instruct_rewriting_009\", \"labels_verified\": 992}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_explore_instruct_rewriting_035\", \"labels_verified\": 1004}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_explore_instruct_rewriting_038\", \"labels_verified\": 1260}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_metamathqa_50k_015\", \"labels_verified\": 1415}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_metamathqa_50k_023\", \"labels_verified\": 1671}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_metamathqa_50k_035\", \"labels_verified\": 1862}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_metamathqa_50k_037\", \"labels_verified\": 2118}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_numina_cot_100k_015\", \"labels_verified\": 2374}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_numina_cot_100k_016\", \"labels_verified\": 2630}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_numina_cot_100k_038\", \"labels_verified\": 2886}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_numina_cot_100k_035\", \"labels_verified\": 3142}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_openhermes_100k_004\", \"labels_verified\": 3398}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_openhermes_100k_028\", \"labels_verified\": 3654}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_openhermes_100k_034\", \"labels_verified\": 3910}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_openhermes_100k_037\", \"labels_verified\": 4166}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_self_oss_instruct_012\", \"labels_verified\": 4422}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_self_oss_instruct_006\", \"labels_verified\": 4678}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_self_oss_instruct_036\", \"labels_verified\": 4934}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_self_oss_instruct_033\", \"labels_verified\": 5190}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_constraints_005\", \"labels_verified\": 5370}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_constraints_021\", \"labels_verified\": 5559}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_constraints_035\", \"labels_verified\": 5609}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_constraints_034\", \"labels_verified\": 5702}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_magpie_ultra_000\", \"labels_verified\": 5958}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_magpie_ultra_022\", \"labels_verified\": 6214}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_magpie_ultra_034\", \"labels_verified\": 6470}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_magpie_ultra_036\", \"labels_verified\": 6726}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_rewrite_004\", \"labels_verified\": 6816}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_rewrite_015\", \"labels_verified\": 7072}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_rewrite_036\", \"labels_verified\": 7297}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_rewrite_032\", \"labels_verified\": 7472}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_summarize_024\", \"labels_verified\": 7533}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_smol_summarize_003\", \"labels_verified\": 7652}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_summarize_034\", \"labels_verified\": 7686}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_smol_summarize_039\", \"labels_verified\": 7784}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_systemchats_30k_024\", \"labels_verified\": 8040}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_fit_systemchats_30k_010\", \"labels_verified\": 8296}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_systemchats_30k_039\", \"labels_verified\": 8552}\\n{\"stage\": \"independent_compile_case\", \"id\": \"broad_dev_systemchats_30k_034\", \"labels_verified\": 8808}\\nTraceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_categorical_loss_compile.py\", line 326, in <module>\\n    audit(a)\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\original_categorical_loss_compile.py\", line 299, in audit\\n    write(a.out, dict(schema=\\'ORIGINAL_CATEGORICAL_LOSS_AUDIT_V1\\', freeze=a.freeze, result=extent(a.source_result), binding=extent(a.binding),\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\chatbot_falcon_usability.py\", line 36, in write\\n    raw = json.dumps(json_safe(value), ensure_ascii=False, allow_nan=False, indent=2) + \\'\\\\n\\'\\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\__init__.py\", line 238, in dumps\\n    **kw).encode(obj)\\n          ^^^^^^^^^^^\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 202, in encode\\n    chunks = list(chunks)\\n             ^^^^^^^^^^^^\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 432, in _iterencode\\n    yield from _iterencode_dict(o, _current_indent_level)\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 406, in _iterencode_dict\\n    yield from chunks\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 406, in _iterencode_dict\\n    yield from chunks\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 439, in _iterencode\\n    o = _default(o)\\n        ^^^^^^^^^^^\\n  File \"C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\Lib\\\\json\\\\encoder.py\", line 180, in default\\n    raise TypeError(f\\'Object of type {o.__class__.__name__} \\'\\nTypeError: Object of type bool is not JSON serializable\\n')",
+  "elapsed_seconds": 72.125,
+  "worker_OS_peak_through_exit": 572133376,
+  "launcher_OS_peak_snapshot": 29118464,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_loss_compile_stored_adjudication_20261010.worker.log",
+    "bytes": 6887,
+    "sha256": "93c3de7e39df673e2631981d6e0fc21c4c62c5fd42e9b8ae291ab82347531a41"
+  }
+}

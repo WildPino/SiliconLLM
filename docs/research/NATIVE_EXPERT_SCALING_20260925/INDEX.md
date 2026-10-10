@@ -6,7 +6,8 @@ COMPLETE/numeric PASS/proxy quality FAIL: FITKL49.3213/DEV63.3742,
 FITfirst0 errors/DEVfirst19 of24. First unshifted audit fault preserved;
 new shifted algorithm passes SAME tolerances. All owned CLOSED.
 [Next causal converter component](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
-Compiler IMPLEMENTED/AST PASS/bound UNEXECUTED; then
+Compiler producer CLOSED/exit0; first audit CLOSED/exit1 JSON scalar fault.
+Serialization adapter bound UNEXECUTED; then
 qualified NEW original core/bank training with explicit onset weight.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
 
@@ -125,7 +126,11 @@ All owned81330/95580/92911 CLOSED. Producer and shifted complete audit exit0;
 first unshifted audit exit1 retained. Exact receipts/artifacts in analytic report;
 no unfinished numerical worker, no completed SVD/optimizer/head-export replay.
 Next [fixed-head categorical causal transfer](ORIGINAL_CATEGORICAL_CAUSAL_TRANSFER_NEXT_20261010.md)
-Compiler IMPLEMENTED/AST PASS/bindingbcb329de/holder sealed, UNEXECUTED.
+Compiler producer50027 CLOSED/exit0/80.359s; first audit89422 CLOSED/exit1/72.125s
+at final NumPy bool JSON serialization. Final maxima not saved, original fault retained.
+New adapter/holderbcaaad16 preflight PASS/UNEXECUTED; freeze then full300s
+stored audit with unchanged numeric binding/tolerances, charge extra8808 pass.
+Freeze4ea205b542ab448d86be065fcfe6cdcb31b40266/bindingbcb329de/holder8cbfcfa9.
 Freeze and launch loss compiler for all48 stored source cohorts
 and existing paired F32 head (FIT/DEV separately); freeze new code/runtime/inputs/
 criteria/caps. Store moments/entropy and independently qualify all8808 statistics
