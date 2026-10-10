@@ -1,6 +1,7 @@
 # Matched source-history recovery in the original engine
 
-10 October2026. ASSESSMENT COMPLETE; STORED AUDIT RUNNING. Goal INCOMPLETE.
+10 October2026. ASSESSMENT COMPLETE; STORED AUDIT DEADLINE FAIL,
+MISSING-ONLY AUDIT COMPLETION RUNNING. Goal INCOMPLETE.
 Original [protocol](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md),
 missing-only [completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md),
 prospective [input custody](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_INPUT_CUSTODY_20261010.md).
@@ -77,11 +78,26 @@ accepted50. All16 tasks perarm failed. No training replay occurred.
 
 Initial metadata validation maps all110 packed fields to all92 checkpoint
 masters at actual51, without reading model trajectories or optimizer updates.
-Stored-only adjudication is RUNNING, session16603/launcher5596/worker2764,
-created2026-10-10T09:22:25+02:00. It must independently verify all input/output
+Stored-only adjudication session16603/launcher5596/worker2764 terminated at
+2401.312s deadline, held OS peak9,203,138,560B/launcher27,181,056B. Its immutable
+194B log marks A33/A39/A51 PASS at1506.765/1830.812/2177.828s after complete
+initial hashes. B has no completed audit marker, and no final result exists.
+New [missing-only audit completion](ORIGINAL_JOINT_HISTORY_AUDIT_FINISH_PROTOCOL_20261010.md)
+freeze e8b17a5/bind7493e7ac adopts these successes without fabricating exact A
+numeric deltas and completes B plus full end hashes. First audit deadline FAIL
+is retained. Prelaunch rejected foreign uploader overlap before worker creation;
+preserve foreign job and retry identical frozen launcher only after its exit.
+Uploader exited naturally; identical frozen launch is LIVE session85445,
+launcher12840 created2026-10-10T10:12:01.770723+02:00 and worker21208 created
+10:12:02.207490. All three B checks have durable records at157.140/504.796/
+848.046s. Pending scientific assembly is complete;1890 final hashes87.519GB
+are being traversed before publishing a qualified result. No optimizer or
+native inference is being replayed.
+Final adjudication must independently verify or explicitly adopt all input/output
 hashes, six actual durable states/moments/counters/lineage/export fields,
 26316 native label distributions/routing/mass/integer witnesses, gradient
-witnesses/tasks/raw rates and decisions, with held2400s/20GiB receipt.
+witnesses/tasks/raw rates and decisions. First audit had2400s/20GiB caps;
+missing-only audit has prospective4200s/20GiB caps, retaining first deadline FAIL.
 
 ## Interpretation and selected next uncertainty
 

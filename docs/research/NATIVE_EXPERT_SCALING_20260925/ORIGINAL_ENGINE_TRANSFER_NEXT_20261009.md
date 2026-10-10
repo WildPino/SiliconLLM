@@ -10,6 +10,16 @@ Useful chatbot conversion remains missing; strict numerical FAIL is retained.
 
 ### Current resumption: qualified teacher histories and finite joint recovery
 
+**Latest resumption, 10 October10:28:** both assessments complete/tasks0/16,
+B preference FAIL. First stored audit deadline FAIL2401.312s after all A checks.
+Missing-only audit LIVE session85445, launcher12840/worker21208, freeze e8b17a5/
+bind7493e7ac; B33/B39/B51 verified, all1890 final hashes87.519GB pending.
+Use SAME handle; never replay completed updates or native histories. Preserve
+first faults. Next [executable attribution protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
+and four tools are prepared/AST parsed, unbound/unexecuted pending qualified audit.
+F64 storage4,599,124,512B corrects prior F32 price prospectively; two heads/same
+labels/interpretation unchanged. Older current-status text below is historical.
+
 **Current override:** original family terminated exit1 at6600s reserve, BOTH
 actual51/24 NEW updates each/all six24DEV native milestones durable. A KL6.5193073/
 tasks0/16; B KL6.5161150.16 final B auxiliary cases saved; eight/task assessment

@@ -6,6 +6,17 @@ reuses the [8 October review](CHATBOT_ENGINE_TARGET_REASSESSMENT_20261008.md),
 
 ## Current priority override
 
+**Latest, 10 October10:28:** all assessments complete, both tasks0/16, frozen
+B preference FAIL. First independent audit deadline FAIL at2401.312s; missing-only
+audit LIVE session85445/launcher12840/worker21208, freeze e8b17a5/bind7493e7ac.
+All three B numerical milestones verified;1890 end hashes87.519GB remain.
+Preserve original first faults, no training/native replay. Next
+[target/readout protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
+has four prepared tools, unbound/unexecuted until audit success. Same two
+actual51 heads and existing labels; F64 storage4,599,124,512B, finite900s/4GiBOS/
+5GiB outputs plus600s stored audit. No new engine/T4 or quality admission.
+Earlier RUNNING text below is historical; [INDEX](INDEX.md) is current.
+
 10 October: BOTH matched24-step forks/durable51/six native24DEV milestones are
 complete. Original family terminated exit1 at6600s reserve during B auxiliary;
 16 cases durable/eight and Btasks missing. A nativeKL6.51931/tasks0/16; B6.51611,

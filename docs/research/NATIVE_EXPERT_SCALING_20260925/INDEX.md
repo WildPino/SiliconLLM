@@ -1,7 +1,8 @@
 # Native expert scaling: research control index
 
 10 October2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-Matched recovery training and missing assessment COMPLETE; stored audit RUNNING.
+Matched recovery training and missing assessment COMPLETE. First stored audit
+deadline FAIL; missing-only audit completion RUNNING, B33/B39/B51 verified.
 No T4 allocation. [METHOD](METHOD.md),
 [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md), [exact next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -28,22 +29,21 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 
 ## Latest decisive evidence
 
-[Actual27 original native/chat baseline](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md)
-COMPLETE:45 new+3 adopted histories/all22547 positions/8808 full-V labels.
-Native DEV caseKL8.76437/disagreement95.854%;all absolute/domain gates FAIL.
-Original20 bodies retained, prefix/split/reuse heads and ALL IDs/mass byte-exact;
-16 canonical task answers0/16 versus source14/16. One own-answer followup FAIL,
-exact113-ID state reuse PASS.1088 generated IDs match saved full-head argmax.
-Raw decode137.19/C request95.41/pipe62.73 IDs/s;incorrect content, no accepted50.
-Held414.093s/471outputs5.335GB/direct OS caps PASS; nested linker peak gap.
-Source/optimizer/GPU/RESERVED/T4 zero. First stored-audit reference fault retained;
-stable stored-only completion preserves1e-10 gate. Transfer quality is the priority.
+[Matched actual51](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md):48 actual
+new updates complete,24 perarm. A native DEV caseKL6.519307/disagreement89.789%;
+B6.516115/89.681%, both tasks0/16 versus useful source14/16. B centered-relative
+boundary error0.903887 versus A0.904681; the frozen preference FAIL. Relative
+KL recovery has not preserved useful chatbot behavior. Independent stored
+adjudication is still finishing; numerical/source/resource gaps are explicit.
+No accepted50/useful-n/DRAM/family admission. Next uncertainty is whether the
+retained projected donor target is compatible with the learned final head.
 
 ## Key completed evidence and closed routes
 
 | Evidence | Result and limit |
 |---|---|
 | Useful source | [Falcon1.5B](CHATBOT_HYBRID_TEACHER_RESULT_20261008.md):14/16 source usefulness; Tiny5/16 fails; not converted target quality |
+| Original native/chat baseline | [Actual27](ORIGINAL_ENGINE_BASELINE_RESULT_20261009.md):DEV KL8.76437/tasks0/16; exact prefix/split/reuse/full-V/routing bridge; raw rates not useful50 |
 | Packed original capacity | [Runtime-n](ORIGINAL_PACKED_CAPACITY_RESULT_20261009.md), [direct learner/export](ORIGINAL_TENSOR_LEARNER_RESULT_20261009.md):operator bridge real; copied banks are not useful capacity |
 | Source-informed original whole recovery | [Actual25](ORIGINAL_FALCON_WHOLE_RECOVERY_RESULT_20261009.md):relative DEV KL recovery; five of six quality gates FAIL, fresh core |
 | Source history maps | [Dual96](ORIGINAL_FALCON_RECURRENT_PROJECTION_RESULT_20261009.md):local state projection PASS; [weighted384](ORIGINAL_FALCON_BALANCED_HEADS_RESULT_20261009.md):decoder budget FAIL; fixed/mixed/channel384 routes closed, no universal ceiling |
@@ -55,33 +55,33 @@ stable stored-only completion preserves1e-10 gate. Transfer quality is the prior
 
 ## Exact resumption
 
-Use actual27 and qualified teacher boundaries. [Next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md)
-fixes B auxiliary weight1/normalized six-boundary loss versus A final KL only.
-Original [family](ORIGINAL_JOINT_HISTORY_RECOVERY_PROTOCOL_20261009.md) exit1/
-completion reserve FAIL at6600s; both24-step forks/all48 updates/durable51 and
-six native24DEV milestones complete. A KL6.5193073/disagreement89.7893%, tasks0/16;
-B KL6.5161150/disagreement89.6814%, tasks0/16 after missing-only completion.
-No original process live. Preserve first fault/failure/1397 outputs75.134GB;
-never restart completed updates or native milestones. Missing-only
-[completion](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_PROTOCOL_20261010.md) executes
-16 adopted/eight new B auxiliary cases plus B16 tasks/own-answer followup from
-immutable B51, zero optimizer/source/DEV replay.1200s/12GiBOS/5-6GiBGPU/1GiBoutputs.
-Completion exit0/265.656s, resources PASS; B centered-relative0.903887 versus
-A0.904681, below frozen10% advantage. B preference FAIL, both tasks0/16.
-Independent stored audit RUNNING with held receipts, session16603/
-launcher5596/worker2764 created2026-10-10T09:22:25+02:00;
-original numerical/source-capture/reserve gaps remain. Source/RESERVED/T4 zero.
-Completion freeze f309ba52/bind2ff6afc9. Re-poll SAME audit handle or exact PID/time;
-414 consumed inputs checked before/after;1791 whole inputs for stored audit.
-[Custody](ORIGINAL_JOINT_HISTORY_RECOVERY_FINISH_INPUT_CUSTODY_20261010.md)
-keeps the whole75GB parent seal while avoiding repeated unused reads during
-completion. [Report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md) pending
-independent adjudication; [next attribution](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md)
-is proposed/unexecuted. No other owned benchmark while stored audit live.
+Original48 updates/native milestones/assessments are complete: never replay.
+Parent training reserve FAIL at6600s; missing B assessment completion exit0/
+265.656s, freeze f309ba52/bind2ff6afc9, parent fault preserved.
+First stored audit exit1 at2401.312s deadline after all A milestones/hashes.
+Missing-only [audit completion](ORIGINAL_JOINT_HISTORY_AUDIT_FINISH_PROTOCOL_20261010.md)
+freeze e8b17a5/bind7493e7ac is LIVE session85445, launcher12840 created
+2026-10-10T10:12:01.770723+02:00, worker21208 created10:12:02.207490.
+Re-poll SAME session or exact Win32 PID/time; observation timeout is not exit.
+B33/B39/B51 have durable audit receipts at157.140/504.796/848.046s.
+End hash traversal is running; all1890 sealed extents87.519GB must pass before
+publication. Task/decision assembly has reached the pre-seal pending result.
+First overlap rejection was prelaunch only; foreign uploader exited naturally.
+Keep all first faults; no other owned benchmark while this worker is live.
+
+[Target/readout protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
+and four Python tools are prepared/AST parsed, UNEXECUTED. Bind/freeze only
+after successful audit completion. Exactly two actual51 heads, same24 DEV/
+4386 labels; F64 lossless score storage4,599,124,512B, held900s/4GiB/5GiB outputs,
+independent stored audit600s. Same prospective interpretation as the
+[prior proposal](ORIGINAL_LATENT_READOUT_ATTRIBUTION_NEXT_20261010.md). No fitting,
+source/student history, optimizer, native calls or T4; injected control is
+diagnostic, not a converted chatbot or global compact-state ceiling.
 [Literature follow-up](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) adds13 primary
 papers/coverage algebra/product-key selection; provenance ledger retained,
 no new model observation or substitute for original-engine quality.
-No further boundary capture/delta repair/numerical trace selected; no T4.
+No further boundary capture/delta repair/numerical trace or unchanged long
+training dose selected; no T4. Original numerical/source/full-runtime/DRAM gaps remain.
 
 Keep full scope: useful chatbot ANDsame-artifact50, useful n/CPU IDs-mass/DRAM/
 family~10B~100B remain missing. Longalign8186-20874 unqueried;104 new+64 old

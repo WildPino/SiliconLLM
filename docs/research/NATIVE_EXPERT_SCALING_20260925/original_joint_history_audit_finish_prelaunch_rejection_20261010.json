@@ -1,0 +1,16 @@
+{
+  "observed_at": "2026-10-10T10:10:25+02:00",
+  "freeze": "e8b17a5",
+  "binding_sha256": "7493e7ac1d3312f25d6c3449381578b238b45f23bff7d4f277a1943ea14f374c",
+  "launcher_exit_code": 1,
+  "phase": "prelaunch process overlap gate, before worker creation",
+  "error": "AssertionError: ('overlap', 9984, 'pythonw.exe')",
+  "foreign_PID": 9984,
+  "foreign_created_at": "2026-10-10T10:09:32.661066+02:00",
+  "foreign_job": "tiktok_android_uploader.py --account franklin --schedule auto --limit 3",
+  "worker_started": false,
+  "new_model_calls": 0,
+  "new_audit_milestones": 0,
+  "outputs_created": false,
+  "action": "Preserve foreign job; retry identical frozen launcher only after authoritative process absence. No scientific replay."
+}

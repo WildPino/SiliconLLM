@@ -1,5 +1,16 @@
 # Native expert-count scaling: prior evidence
 
+**Current override, 10 October10:28:** training/assessments COMPLETE, both final
+tasks0/16 and B preference FAIL. First stored audit deadline FAIL at2401.312s
+after all A checks; new missing-only audit LIVE session85445, launcher12840/
+worker21208, freeze e8b17a5/bind7493e7ac. B33/B39/B51 numerical checks complete;
+1890 final hashes87.519GB pending. No optimizer/inference replay; original
+faults remain. [Current report](ORIGINAL_JOINT_HISTORY_RECOVERY_RESULT_20261010.md).
+[Target/readout protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
+and four tools prepared/AST parsed, UNEXECUTED. Bind only after qualified audit;
+F64 output4,599,124,512B priced prospectively. Earlier status paragraphs below
+are historical; [INDEX](INDEX.md) gives the actual handle and next step.
+
 **10 October matched family terminated, assessment incomplete:** both24-update
 forks/durable51/six24DEV native milestones COMPLETE. A KL6.5193073/disagreement
 89.7893%/tasks0/16; B KL6.5161150/disagreement89.6814%. Bfirst auxiliary core

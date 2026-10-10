@@ -8,6 +8,19 @@ and [method through498](METHOD_THROUGH_498_20261006.md); old NEXTs are historica
 
 ## Required result and actual scope
 
+**Current override, 10 October10:28:** all matched updates and assessments are
+complete; both actual51 tasks0/16, frozen B preference FAIL. First stored audit
+terminated1 at2401.312s deadline after all A checks. Missing-only completion
+freeze e8b17a5/bind7493e7ac is LIVE session85445, launcher12840/worker21208;
+all B33/B39/B51 numerical checks now complete. Final1890 extent hashes87.519GB
+remain before adjudication. Preserve both first deadlines; no training replay.
+[Executable target/readout control](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
+and four tools are prepared/AST parsed, unbound/unexecuted until this audit passes.
+Two existing heads/4386 labels each, lossless F64 outputs4,599,124,512B;
+prospective900s/4GiBOS/5GiB outputs and separate600s stored audit. Storage estimate
+corrected before any contraction, scientific interpretation unchanged. All older
+RUNNING descriptions below are historical; [INDEX](INDEX.md) is authoritative.
+
 **10 October status:** matched family terminated exit1 at6600s completion
 reserve after BOTH24 new-update onepasses/durable51/all six native24DEV
 milestones/A auxiliary/tasks/16 B auxiliary cases. A finalKL6.5193073/tasks0/16;

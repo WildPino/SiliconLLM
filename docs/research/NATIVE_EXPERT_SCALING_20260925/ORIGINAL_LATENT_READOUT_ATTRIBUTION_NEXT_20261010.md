@@ -3,6 +3,12 @@
 10 October2026. PROPOSED, UNEXECUTED. Finish/audit the matched actual51 family
 first. No source inference/new labels/optimizer/RESERVED/T4 or native replay.
 
+Implementation preparation: [executable protocol](ORIGINAL_LATENT_READOUT_ATTRIBUTION_PROTOCOL_20261010.md)
+and worker/held launcher/stored auditor/audit launcher are prepared and AST
+parsed, still UNEXECUTED/unbound. The protocol corrects only storage pricing:
+lossless F64 full-V scores require4,599,124,512B and a5GiB output cap; the
+original2.3GB estimate corresponded to F32. Same two heads/labels/decisions.
+
 ## Why this uncertainty matters
 
 After24 new updates A native DEV KL8.76437->6.51931, tasks0/16; B6.51611.
@@ -67,7 +73,8 @@ quality and same-artifact accepted50 remain decisive for a converted model.
 
 Pure stored CPU matrix contractions, two label-only head controls/no history
 learner. Reuse2x67.1MB F32 heads,24 projected histories and BF16 labels; expected
-score outputs~2.3GB. Price~2–5min plus IO, hard900s/4GiBOS/3GiBoutputs/log8MiB,
+lossless F64 score outputs4,599,124,512B. Price~2–5min plus IO,
+hard900s/4GiBOS/5GiBoutputs/log8MiB,
 six CPU threads/no owned timing overlap, no GPU/source/optimizer. Freeze a new
 worker/binding/held launcher before executing. Preserve first faults and adopt
 only durable outputs. This file is a plan; no such controls have run yet.
