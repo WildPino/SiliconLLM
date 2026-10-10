@@ -1,11 +1,10 @@
 # Native expert scaling: research control index
 
 10 October 2026. Branch `research/native-expert-scaling`. Goal INCOMPLETE.
-[Stored causal coordinates](CAUSAL_READOUT_COORDINATES_PROTOCOL_20261010.md)
-COMPLETE/audit PASS, NOT_QUALIFIED solely conservative absolute error bound.
-[Exact dot-path refinement](CAUSAL_COORDINATE_DOT_BOUND_PROTOCOL_20261010.md)
-implemented/binding66a62c71; freeze then60s+60s, no recovery/history replay.
-All owned sessions/PIDs CLOSED; no fit/teacher/source/native/GPU/T4.
+[Native coordinate recovery/full audits](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md)
+COMPLETE/QUALIFIED_APPROXIMATE,8808 states; same thresholds/error bound.0147187%.
+All owned processes CLOSED; no new source/history/native/GPU/optimizer/T4 call.
+Next FIT-only categorical map and offline fused original C head; no fit yet.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -31,6 +30,13 @@ evidence reusable. Communicate T4 reason/budget/stops before allocating it.
 | Pretrained chatbot conversion | Useful pinned Falcon1.5B; source-informed learner/export; actual27 Adam state; qualified teacher boundaries; original native chat consumer | Useful joint compact history/functions and own-history chatbot; family/scale variants |
 
 ## Latest decisive evidence
+
+[Native causal coordinates](CAUSAL_READOUT_COORDINATES_RESULT_20261010.md):
+all8808 original C states recovered, rank256/condition22.9684, full-score max
+residual1.53e-5. Complete70-input/102-output/factor/8808-state/384-scalar audit
+PASS; original loose-bound FAIL retained. Exact dot path39 gives relative
+error upper.0147187%; all8808 Decimal50 rechecks PASS without state replay.
+Held109.390s; approximate coordinates, no new quality or native history claim.
 
 [Head/domain probe](PAIRED_HEAD_IMAGE_RESULT_20261010.md): SAME72 FIT codes
 meanKL.871596171 -> .006529733,17 ->0 argmax disagreements, including original
@@ -88,22 +94,22 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 
 ## Exact resumption
 
-[Next causal-coordinate qualification](CAUSAL_READOUT_COORDINATE_NEXT_20261010.md):
-CPU stored-feature recovery implemented/bound, freeze before launch. Audited actual27 native
-FIT/DEV logits and exact old head. Qualify rank/conditioning/rounding uncertainty,
-then a FIT-only categorical encoder J and offline fused native head A J; no extra
-runtime operator or donor history. No feature recovery/fit launched yet.
-[Exact categorical algebra](PAIRED_HEAD_IMAGE_ENCODER_ALGEBRA_20261010.md).
+[Shared categorical readout next](CAUSAL_CATEGORICAL_READOUT_NEXT_20261010.md):
+implement/freeze one FIT-only covariance/whitening/least-squares warm shared
+convex encoder, projected accelerated full-gradient probe and offline head fusion.
+Then qualify the ACTUAL unchanged packed C artifact on held-out probabilities,
+own-history generation/tasks and speed. No new fit or native evaluation yet.
+Seal actual features/teacher/phi files; propagate recovered-feature uncertainty.
+Approximate upstream states cannot establish new-head native arithmetic identity.
 
-Head-image capture70152 and audit68070 CLOSED/exit0; launchers19436/28500 and
-workers25972/20028 gone. Full result/hash/costs in linked report. Fixed-head
-radius16 conclusions do not extend silently to a changed J/domain. The current
-quadratic linear encoder fails; categorical linear correction remains possible.
-[Matched DEV final-state custody](PAIRED_OUTPUT_CODEC_CUSTODY_NEXT_20261010.md)
-still missing except53 paired labels; a native-coordinate correction can use
-existing cached teacher logits without refitting the codec on DEV. No new source
-capture, width/rank/scale sweep or unchanged training replay. Native F32 remains
-authoritative; eventual own-history chatbot and all goal gates remain open.
+Recovery68256/audit88609 CLOSED/exit0; launchers19344/18296 and workers13052/8708
+gone. Bound-only correction and Decimal50 audit also terminal; exact receipts,
+proofs/hashes/costs in result. Fixed-head radius16 is a code domain; proposed
+shared Theta Frobenius16 is a different domain. No unchanged dose/scale/width
+sweep, inference inversion, added runtime matrix, or generic donor port.
+Matched DEV source final states still missing except53 paired labels; this
+native-coordinate branch can use existing cached teacher logits with FIT-only
+head selection. SSM/SWA/ternary/LUT core remains original; all goal gates open.
 
 [Operator/readout algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates norm,
 projection/head and missing SwiGLU sigmoid; [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md)
