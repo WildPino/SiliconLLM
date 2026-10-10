@@ -83,6 +83,10 @@ no new model observation or substitute for original-engine quality.
 [Readout/operator algebra](TARGET_READOUT_GEOMETRY_20261010.md) separates
 projection/norm/head terms and the missing sigmoid in signed dReLU replicas;
 derived error conditions are not measurements or a capacity ceiling.
+[Existing structured routing](STRUCTURED_ROUTER_REUSE_20261010.md) reconnects
+METH53/54/58/104 with the papers; reuse their code, no new synthetic prototype.
+METH54 cost0.44049ms/273408 synthetic experts/10x ratio1.392 is historical
+component evidence; actual flat-router additive fidelity/useful n remain open.
 No further boundary capture/delta repair/numerical trace or unchanged long
 training dose selected; no T4. Original numerical/source/full-runtime/DRAM gaps remain.
 
