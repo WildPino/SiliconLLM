@@ -1,0 +1,39 @@
+{
+  "schema": "CATEGORICAL_ONSET_CONTROL_AUDIT_V1",
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_result_20261010.json",
+    "bytes": 15283,
+    "sha256": "248a11c5e4810480b372bfe9462d30c8b4eedc05158a9c60900c858453d5e12e"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_runtime_binding_20261010.json",
+    "bytes": 59826,
+    "sha256": "4a60d8e6c68879a1b5f3154baa84fd6370b982a2b2e7a5db906ac28bac9cf301"
+  },
+  "decision": "FIRST_CODE_MATCH_ROBUSTLY_OUTSIDE_RADIUS",
+  "numeric_flags": {
+    "SVD": true,
+    "orthogonality": true,
+    "left_inverse": true,
+    "exact_code_residual": true,
+    "projection_identities": true,
+    "dual_identity": true
+  },
+  "complete_input_output_hashes": true,
+  "all24_first_label_provenance_verified": true,
+  "full_SVD_factor_orthogonality_verified": true,
+  "minimum_maps_projection_dual_verified": true,
+  "native_uncertainty_verified": true,
+  "independent_scalar_witnesses": 24,
+  "max_scalar_absolute_delta": 2.7755575615628914e-16,
+  "max_identity_relative_delta": 1.359272548552154e-15,
+  "SVD_replays": 0,
+  "optimizer_updates": 0,
+  "source_calls": 0,
+  "native_calls": 0,
+  "head_FG_calls": 0,
+  "GPU_calls": 0,
+  "seconds": 0.2649999999994179,
+  "OS_peak": 51646464,
+  "scope": "Complete stored CPU geometry audit; no SVD/model/history/optimizer replay or quality admission."
+}

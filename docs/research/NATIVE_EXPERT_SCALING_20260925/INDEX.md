@@ -5,7 +5,9 @@
 COMPLETE/numeric PASS/quality FAIL: FITKL2.92084/DEV6.25897,task0/16.
 [Onset](CATEGORICAL_RESPONSE_ONSET_RESULT_20261010.md):14/14 donor-correct first
 responses wrong; FIT first-response objective weight1.17535%. All owned CLOSED.
-First-state controllability implemented/AST PASS/binding4a60d8e6, no SVD yet.
+[First-state control/full audit](CATEGORICAL_ONSET_CONTROL_RESULT_20261010.md) PASS:
+minimum31.2699/preserved31.3308/robust lower28.9436>old fit radius16.
+[Analytic head protocol](ANALYTIC_ONSET_HEAD_PROTOCOL_20261010.md) bound, UNEXECUTED.
 [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md),
 [exact converter next](ORIGINAL_ENGINE_TRANSFER_NEXT_20261009.md).
 
@@ -110,16 +112,15 @@ worse than native6.52/uniform10.574. TARGET_DECODER_COUPLING; not a D256 ceiling
 
 ## Exact resumption
 
-All owned sessions CLOSED/exit0: shared fit37190/audit76620, native74583/
-audit50029, stored onset direct exit0. Never restart completed history/optimizer.
-[Next24-first-state controllability](CATEGORICAL_ONSET_CONTROLLABILITY_NEXT_20261010.md):
-implement/freeze/bind ONE24x256 SVD and minimum-norm map/correction using existing
-first-label per-code upper points and native whitened features; propagate old
-state uncertainty to rank and dual radius bound,full stored audit/no SVD replay.
-UNIMPLEMENTED/UNEXECUTED. No new weighting/optimizer/observer/native/T4 call.
-This can distinguish feasible local readout correction from ill-conditioned
-state control before a new compact causal-code/SSM/SWA/ternary-function campaign.
-It does not certify a general KL/information ceiling or useful chatbot.
+All owned workers CLOSED/exit0. First-state control/audit completed, all numeric
+checks PASS; no completed SVD/optimizer/history replay. New analytic head code,
+protocol and binding43732ba8 frozen next before observation. Existing separately
+bound holder exports one preserved-map F32 head, then all8808 stored FIT/DEV
+labels and uncertainty; full independent audit even on quality failure.
+Producer300s/reserve30/OS2GiB/output1GiB; audit300s/OS2GiB. No native/source/model/
+optimizer/GPU/T4/RESERVED call. Whole proxy strict gates decide pass pending
+actual C versus failed global onset correction. Useful chatbot/native50/n/DRAM/
+structured CPU mass/family gates remain open. No general information ceiling.
 
 [Operator algebra](TARGET_READOUT_GEOMETRY_20261010.md),
 [13 primary papers](LITERATURE_CONVERSION_FOLLOWUP_20261010.md) and

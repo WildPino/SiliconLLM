@@ -1,0 +1,72 @@
+{
+  "freeze": "6f3462cc5d0a3d016d2da9bd609366c9ae067e2d",
+  "binding_sha256": "4a60d8e6c68879a1b5f3154baa84fd6370b982a2b2e7a5db906ac28bac9cf301",
+  "launcher_freeze": "e5ef334f62f9493a676231312f26adacd6ce3b8c",
+  "launch_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_launch_binding_20261010.json",
+    "bytes": 1935,
+    "sha256": "9e89e5371ddfa1296a2e56e2ec152fe3ca1818aa36d7e14c1fa6e71f18a458aa"
+  },
+  "launcher_pid": 23272,
+  "limits": {
+    "seconds": 120,
+    "OS_bytes": 268435456,
+    "output_bytes": 1048576,
+    "log_bytes": 1048576
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\categorical_onset_control.py",
+    "--audit-worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_runtime_binding_20261010.json",
+    "--binding-sha",
+    "4a60d8e6c68879a1b5f3154baa84fd6370b982a2b2e7a5db906ac28bac9cf301",
+    "--freeze",
+    "6f3462cc5d0a3d016d2da9bd609366c9ae067e2d",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_stored_adjudication_20261010.json",
+    "--source-result",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_result_20261010.json"
+  ],
+  "allowed_foreign_observed": [],
+  "timing_control_admitted": false,
+  "worker_pid": 29424,
+  "worker_creation_time": 1791642550.5612683,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_stored_adjudication_20261010.json",
+    "bytes": 1550,
+    "sha256": "3482b85bef799571c99a8d0ff3d4a632f2c8371e74094eef7aeca79174ca2675"
+  },
+  "outputs": [],
+  "extra_inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_result_20261010.json",
+      "bytes": 15283,
+      "sha256": "248a11c5e4810480b372bfe9462d30c8b4eedc05158a9c60900c858453d5e12e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_result_20261010.terminal.json",
+      "bytes": 6089,
+      "sha256": "62d40212e3b443caae45ffdb89111e0fbcd0445da1a79aa70b881beb61d42e18"
+    }
+  ],
+  "exit_code": 0,
+  "error": null,
+  "elapsed_seconds": 1.2339999999967404,
+  "worker_OS_peak_through_exit": 51646464,
+  "launcher_OS_peak_snapshot": 29069312,
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\categorical_onset_control_stored_adjudication_20261010.worker.log",
+    "bytes": 116,
+    "sha256": "75a6ed688f65eea48222a84a3ff11b416f640f48e51c25caa99570ef9cfb7c0b"
+  }
+}

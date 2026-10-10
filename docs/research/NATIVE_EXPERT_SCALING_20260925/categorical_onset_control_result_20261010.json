@@ -1,0 +1,464 @@
+{
+  "schema": "CATEGORICAL_ONSET_CONTROL_RESULT_V1",
+  "freeze": "6f3462cc5d0a3d016d2da9bd609366c9ae067e2d",
+  "binding_sha256": "4a60d8e6c68879a1b5f3154baa84fd6370b982a2b2e7a5db906ac28bac9cf301",
+  "metrics": {
+    "rank": 24,
+    "condition": 82.81603194629362,
+    "SVD_relative": 9.851704009959376e-16,
+    "orthogonal_Frobenius_sum": 1.3130915467381891e-14,
+    "W_spectral_upper": 0.2290595085509284,
+    "old_VT_orthogonal_Frobenius": 3.5470250740717745e-14,
+    "feature_uncertainty_L2": 0.18278226160827127,
+    "first_matrix_uncertainty_spectral_upper": 0.04186801501581785,
+    "first_min_singular_value_lower": 0.3292240204976184,
+    "approx_min_singular_value": 0.3710920355134362,
+    "reference_mean_KL": 0.004127004832725049,
+    "reference_max_KL": 0.03119346163357717,
+    "reference_native_disagreements": 0,
+    "left_inverse_relative": 2.871422693487172e-15,
+    "minimum_norm": 31.269885992010938,
+    "correction_norm": 31.279078756389197,
+    "preserved_norm": 31.33077969598462,
+    "base_norm": 2.0354791259319356,
+    "null_base_norm": 1.9524308963340078,
+    "minimum_code_absolute": 5.551115123125783e-15,
+    "preserved_code_absolute": 5.467848396278896e-15,
+    "preserve_identity_relative": 4.2177862870635402e-16,
+    "norm_decomposition_relative": 6.894658857051528e-16,
+    "minimum_row_support_relative": 1.326754346740041e-15,
+    "correction_row_support_relative": 1.3259146552440186e-15,
+    "dual_pairing": 977.8057699533616,
+    "dual_pairing_norm_identity_relative": 2.3253460189141355e-16,
+    "dual_denominator": 33.78311376142141,
+    "dual_true_exact_code_norm_lower": 28.943624819745473
+  },
+  "numeric_flags": {
+    "SVD": true,
+    "orthogonality": true,
+    "left_inverse": true,
+    "exact_code_residual": true,
+    "projection_identities": true,
+    "dual_identity": true
+  },
+  "decision": "FIRST_CODE_MATCH_ROBUSTLY_OUTSIDE_RADIUS",
+  "artifacts": {
+    "T0": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\T0.f64",
+      "bytes": 49152,
+      "sha256": "6c693aa5e83901b3062c25b9e245da48a44323dfab9605f70054e81f3c2ad43e",
+      "shape": [
+        24,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "Y0": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\Y0.f64",
+      "bytes": 48960,
+      "sha256": "64cda87c9bebab0f6f3bb684767d4d46fa1665b5003b6646a2cd8f56af339dc3",
+      "shape": [
+        24,
+        255
+      ],
+      "dtype": "float64"
+    },
+    "base_theta": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\base_theta.f64",
+      "bytes": 522240,
+      "sha256": "b3624cd8502dfd29504e9ec8fa4c6b9980d102c1c64768105c30dba4803e24c6",
+      "shape": [
+        255,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "first_errors": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\first_errors.f64",
+      "bytes": 192,
+      "sha256": "c16f03b2ccd38d2bc37145924ecd4402370caffb9c80eb3317eaf190e8131ff0",
+      "shape": [
+        24
+      ],
+      "dtype": "float64"
+    },
+    "U": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\U.f64",
+      "bytes": 4608,
+      "sha256": "0744de568a1540bf87b505fd7362da44f3237b66cf8246475601301aca44e1db",
+      "shape": [
+        24,
+        24
+      ],
+      "dtype": "float64"
+    },
+    "s": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\s.f64",
+      "bytes": 192,
+      "sha256": "f06bce2a70018d1e37b89aa406d30510f93641d9df6ff05a8ecf04ee3f540865",
+      "shape": [
+        24
+      ],
+      "dtype": "float64"
+    },
+    "VT": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\VT.f64",
+      "bytes": 49152,
+      "sha256": "08fd11daed793029a8d2529d7ea252e7cd0d73fca0f332b3869df3af698d8766",
+      "shape": [
+        24,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "pseudoinverse_transpose": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\pseudoinverse_transpose.f64",
+      "bytes": 49152,
+      "sha256": "d68131367f38119c532c71617f76f07e5fe566d9a3a69161045a4477d7e93d2d",
+      "shape": [
+        24,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "minimum_theta": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\minimum_theta.f64",
+      "bytes": 522240,
+      "sha256": "c497ee36d1014a90a5e932518c1b07e3cfaa8c00f104e66950bb30ab802b6fa1",
+      "shape": [
+        255,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "minimum_delta": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\minimum_delta.f64",
+      "bytes": 522240,
+      "sha256": "1200c2c15494bc7d0f2b853d6cc06844ae671004f3137d1ded996b77e94076d9",
+      "shape": [
+        255,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "preserved_theta": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\preserved_theta.f64",
+      "bytes": 522240,
+      "sha256": "d9b79a1962acf27ecbc27736872d7ef2ff85d4f1ac65b97fa03dc9c459ddbbec",
+      "shape": [
+        255,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "first_row_projector": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\first_row_projector.f64",
+      "bytes": 524288,
+      "sha256": "ed1e3040207a5dc3aef27436543801a13e0ad908a4a9b998e14be30e1a15307a",
+      "shape": [
+        256,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "null_base": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\null_base.f64",
+      "bytes": 522240,
+      "sha256": "fd306ca089058a3ba1f2d8ee1fa493e550a823a5e56543821d288e7df0d3481f",
+      "shape": [
+        255,
+        256
+      ],
+      "dtype": "float64"
+    },
+    "dual_Lambda": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\categorical_onset_control_20261010\\dual_Lambda.f64",
+      "bytes": 48960,
+      "sha256": "cb2f6890ba223c1e756a52840617abed4e070747a50e963390eabfc0907fa7b5",
+      "shape": [
+        255,
+        24
+      ],
+      "dtype": "float64"
+    }
+  },
+  "selected": [
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "position": 361,
+      "native_row": 0,
+      "code_row": 0,
+      "feature_error": 0.0373106548668277,
+      "reference_KL": 0.00023391538606584716,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "position": 740,
+      "native_row": 118,
+      "code_row": 3,
+      "feature_error": 0.037310652904194226,
+      "reference_KL": 0.0001819813430759959,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "position": 163,
+      "native_row": 151,
+      "code_row": 6,
+      "feature_error": 0.03731200413473506,
+      "reference_KL": 0.008128155713616803,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "position": 193,
+      "native_row": 351,
+      "code_row": 9,
+      "feature_error": 0.03731245738660867,
+      "reference_KL": 0.010281447241478947,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "position": 40,
+      "native_row": 525,
+      "code_row": 12,
+      "feature_error": 0.03730708757903927,
+      "reference_KL": 0.0009295712976031267,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "position": 77,
+      "native_row": 543,
+      "code_row": 15,
+      "feature_error": 0.03730869136647127,
+      "reference_KL": 0.0010324692443515193,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "position": 54,
+      "native_row": 556,
+      "code_row": 18,
+      "feature_error": 0.03730972922166682,
+      "reference_KL": 0.000400854390491423,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "position": 81,
+      "native_row": 711,
+      "code_row": 21,
+      "feature_error": 0.037308783820283575,
+      "reference_KL": 2.5514373150639647e-05,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "position": 62,
+      "native_row": 967,
+      "code_row": 24,
+      "feature_error": 0.037308334060359404,
+      "reference_KL": 6.515186520090338e-05,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "position": 125,
+      "native_row": 1223,
+      "code_row": 27,
+      "feature_error": 0.03730975329256814,
+      "reference_KL": 0.002474751740880188,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "position": 60,
+      "native_row": 1479,
+      "code_row": 30,
+      "feature_error": 0.03730873691643579,
+      "reference_KL": 0.000681956091573066,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "position": 179,
+      "native_row": 1735,
+      "code_row": 33,
+      "feature_error": 0.03731222260654226,
+      "reference_KL": 0.003257734812734059,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "position": 81,
+      "native_row": 1991,
+      "code_row": 36,
+      "feature_error": 0.03730963977530104,
+      "reference_KL": 0.0008433845886024471,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "position": 175,
+      "native_row": 2247,
+      "code_row": 39,
+      "feature_error": 0.03731208084757793,
+      "reference_KL": 0.000617812473707291,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "position": 58,
+      "native_row": 2503,
+      "code_row": 42,
+      "feature_error": 0.03731035959752252,
+      "reference_KL": 0.0006528061317118694,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "position": 105,
+      "native_row": 2683,
+      "code_row": 45,
+      "feature_error": 0.03730955377544845,
+      "reference_KL": 3.09473074605436e-07,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "position": 778,
+      "native_row": 2872,
+      "code_row": 48,
+      "feature_error": 0.03731219482662802,
+      "reference_KL": 0.0009583737200430376,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "position": 1251,
+      "native_row": 3128,
+      "code_row": 51,
+      "feature_error": 0.03731320396612415,
+      "reference_KL": 0.03119346163357717,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "position": 162,
+      "native_row": 3384,
+      "code_row": 54,
+      "feature_error": 0.03731214945240314,
+      "reference_KL": 0.0018389547166248743,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "position": 298,
+      "native_row": 3474,
+      "code_row": 57,
+      "feature_error": 0.037311183877937686,
+      "reference_KL": 0.015673764914336807,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "position": 203,
+      "native_row": 3730,
+      "code_row": 60,
+      "feature_error": 0.037309294745883015,
+      "reference_KL": 0.003364501884803195,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "position": 655,
+      "native_row": 3791,
+      "code_row": 63,
+      "feature_error": 0.03730929151442032,
+      "reference_KL": 0.00616317091327695,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "position": 61,
+      "native_row": 3910,
+      "code_row": 66,
+      "feature_error": 0.03730774260360926,
+      "reference_KL": 0.00043712078236951557,
+      "reference_native_disagreement": 0
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "position": 764,
+      "native_row": 4166,
+      "code_row": 69,
+      "feature_error": 0.03731074596435036,
+      "reference_KL": 0.009610951253050892,
+      "reference_native_disagreement": 0
+    }
+  ],
+  "SVD_factorizations": 1,
+  "first_labels": 24,
+  "prior_whitening_SVD_replays": 0,
+  "source_calls": 0,
+  "native_calls": 0,
+  "head_FG_calls": 0,
+  "optimizer_updates": 0,
+  "DEV_queries": 0,
+  "reserved_queries": 0,
+  "GPU_calls": 0,
+  "OS_peak": 52555776,
+  "seconds": 1.3439999999973224,
+  "scope": "One new24x256 SVD and minimum-norm code maps from stored FIT evidence. No model/history/head FG/GPU/optimizer/DEV/RESERVED/T4/native call. Original numeric model conditional, not interval or global KL proof."
+}
