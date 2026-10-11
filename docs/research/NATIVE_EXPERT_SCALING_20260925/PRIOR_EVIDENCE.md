@@ -1,5 +1,14 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE 11 October:** recovered audit v1 CLOSED exit1 after24709.875s;
+first milestone checked against the wrong (new audit) binding. No final result
+or holder after-check. [Fault and separate v2](RECOVERED_CATEGORICAL_AUDIT_V1_FAULT_AND_V2_PROTOCOL_20261011.md).
+V2 fixes producer provenance, retains the complete mathematical audit and adds
+upfront milestone headers;17 preflight flags PASS/7.922s. Actual v2 full audit
+not yet launched. Original custody remains false; chatbot/useful speed/general
+conversion unproved. Luna monitoring revoked; root handles work and pauses the
+goal during announced hours-long runs. Older status entries are historical.
+
 **AUTHORITATIVE11 October01:28:** v2 recovery seal CLOSED exit0,all5742
 outputs138.619GB/current input-before-after exact; no original successful
 custody. [Actual boundary](CATEGORICAL_RECOVERY_SEAL_V2_RESULT_20261011.md),

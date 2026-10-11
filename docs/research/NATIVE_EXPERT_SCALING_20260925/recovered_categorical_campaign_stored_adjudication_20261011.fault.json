@@ -1,0 +1,5 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_AUDIT_FAULT_V1",
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit.py\", line 272, in <module>\n    try:audit(a)\n        ^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit.py\", line 186, in audit\n    assert s['schema']=='ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1' and s['binding_sha256']==a.binding_sha and s['directions']==snapshot['ordinal']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

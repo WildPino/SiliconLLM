@@ -1,54 +1,13 @@
 # Native expert scaling: research control index
 
-**AUTHORITATIVE11 October01:28:** v2 recovery seal CLOSED exit0,all5742
-outputs138.619GB/current input-before-after exact; no original successful
-custody. [Actual boundary](CATEGORICAL_RECOVERY_SEAL_V2_RESULT_20261011.md),
-sealSHA2a207ae38ca3820640f9f741648eee4edda684afed26562afd761a2eba0b74eb.
-FULL recovered stored numerical audit now LIVE session26264/holder17412,
-creation01:27:45.02565+02:00; source/protocol30a78a0, exact binding/invocation
-3a59fbe, numericSHA14d20fdf33afaa4bb80ab68c95e8a760565c22da35f856f47abb4cd11ba1a801.
-Initial holder full before-hash occurs BEFORE worker/live JSON creation;
-worker identity appears later in recovered_categorical_campaign_stored_adjudication_20261011.live.json.
-Hard9h/24GiB/CPU-only,all24directions/48proposals/48final forced cases; full
-input/output after-check still required. GPT-6 Luna `/root/recovery_monitor`
-owns read-only monitoring; root stops substantive work until meaningful
-closure/fault/intervention alert. A worker result alone is not holder closure.
-Original capture/faults preserved; lost GPU/custody/transient counters UNKNOWN.
-Missing16 tasks/own-answer followup require a new actual native job and audit;
-no useful-chatbot/same-artifact50/useful-n/general-conversion admission.
-Prior LIVE/status paragraphs below are historical. Full goal ACTIVE/INCOMPLETE.
-
-**AUTHORITATIVE11 October00:37:** First recovery seal CLOSED exit1 at1800s,
-no valid seal; fault retained. [Fault/v2 protocol](CATEGORICAL_RECOVERY_SEAL_V1_FAULT_AND_V2_PROTOCOL_20261011.md).
-Separate v2 source/protocol frozen d89e9d3, exact launch7fc130d, LIVE session17973/
-PID27196 creation00:36:49.017935+02:00, cap3600s/256MiB. GPT-6 Luna
-`/root/recovery_monitor` owns read-only monitoring; root stops substantive work
-pending its closure/fault alert. All hashes/custody checks retained; no original
-restart or failed receipt overwritten. Recovered numerical auditor ready30a78a0/
-8 preflight flags PASS, but exact binding/9h audit NOT launched. On v2 PASS use
-its exact new SHA for `recovered_categorical_campaign_launch.py --prepare`, then
-freeze/launch the CPU holder and hand it to the same Luna monitor. Missing chat
-tasks and original GPU/custody measurements remain unassessed/UNKNOWN. Prior
-LIVE/status paragraphs below are historical. Full goal ACTIVE/INCOMPLETE.
-
-**11 October preparation:** Separately bound recovered auditor IMPLEMENTED,
-source/protocol freeze30a78a0,8 small preflight flags PASS/1.344s.
-[Protocol](RECOVERED_CATEGORICAL_CAMPAIGN_AUDIT_PROTOCOL_20261011.md): original
-independent mathematical core unchanged except internal index name, all24
-steps/48 proposals/48 final forced cases, missing original GPU peaks/custody
-UNKNOWN. Actual binding/9h CPU holder NOT launched while recovery seal LIVE.
-[Fixed support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
-PROPOSED/UNIMPLEMENTED, no new backward or numeric job. Latest user authorizes
-ordered/traced E: artifacts and GPT-6 Luna read-only monitor for long runs;
-root stops substantive work until completion/fault/intervention alert.
-
-10 October2026. Branch `research/native-expert-scaling`. Goal ACTIVE/INCOMPLETE.
-[Latest lossless master-transition custody](ORIGINAL_MASTER_TRANSITION_RESULT_20261010.md):
-COMPLETE/full independent audit/all721008128 F32 words exact; prior qualityFAIL.
-11 October00:00: full24-FIT producer CLOSED/holder failure, result missing.
-[Recovery protocol](CATEGORICAL_CAMPAIGN_RECOVERY_PROTOCOL_20261011.md).
-Original complete audit NOT launched; recovered boundary/missing chat assessment
-required. [METHOD](METHOD.md), [PRIOR_EVIDENCE](PRIOR_EVIDENCE.md).
+**AUTHORITATIVE 11 October:** recovered audit v1 CLOSED exit1 after24709.875s;
+first milestone checked against the wrong (new audit) binding. No final result
+or holder after-check. [Fault and separate v2](RECOVERED_CATEGORICAL_AUDIT_V1_FAULT_AND_V2_PROTOCOL_20261011.md).
+V2 fixes producer provenance, retains the complete mathematical audit and adds
+upfront milestone headers;17 preflight flags PASS/7.922s. Actual v2 full audit
+not yet launched. Original custody remains false; chatbot/useful speed/general
+conversion unproved. Luna monitoring revoked; root handles work and pauses the
+goal during announced hours-long runs. Older status entries are historical.
 
 ## Goal and constraints
 

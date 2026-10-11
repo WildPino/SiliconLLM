@@ -1,0 +1,99 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_PREFLIGHT_V2",
+  "flags": {
+    "AST_PASS": true,
+    "original_math_core_only_index_and_original_provenance_adapter": true,
+    "distinct_original_and_audit_binding_accepted": true,
+    "snapshot_binding_sha256_fault_rejected": true,
+    "snapshot_schema_fault_rejected": true,
+    "snapshot_directions_fault_rejected": true,
+    "snapshot_optimizer_updates_fault_rejected": true,
+    "snapshot_accepted_displacements_fault_rejected": true,
+    "snapshot_model_fault_rejected": true,
+    "complete_durable_index_without_invented_runtime_receipt": true,
+    "wrong_ordinal_rejected": true,
+    "inconsistent_duplicate_trial_rejected": true,
+    "missing_final_step_rejected": true,
+    "unexpected_stream_receipt_rejected": true,
+    "changed_sealed_extent_rejected": true,
+    "all_four_actual_snapshot_headers_match_original_binding": true,
+    "actual_completed_prefix_receipt_identities_match_original_observations": true
+  },
+  "sources": {
+    "recovered_categorical_campaign_audit_v2.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit_v2.py",
+      "bytes": 23758,
+      "sha256": "b2a4cd8722f7c7aef7ee301865a9eb4ade628dcd395aecf887a65dc85b4f3ae4"
+    },
+    "recovered_categorical_campaign_launch_v2.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_launch_v2.py",
+      "bytes": 10290,
+      "sha256": "4d841ddcb2c8a9154fd272027c787675b83806bea357d872602acc073f742d1f"
+    },
+    "recovered_categorical_campaign_preflight_v2.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_preflight_v2.py",
+      "bytes": 9555,
+      "sha256": "573050340eae128d8114d72cf9857c92d21fdc077a8a7006d0c3aa3638fa5cb5"
+    },
+    "original_mathematical_auditor": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_campaign_audit.py",
+      "bytes": 26559,
+      "sha256": "405bec757d0ea17ceb711f08f7e6634298ab3940a95c4578fe21baf8cec343fb"
+    }
+  },
+  "independent_math_core_sha256": "93c3288c4cf9675e6ecd95346d13c73c831038afddd07b341b694b140561f5ca",
+  "seconds": 7.922000000005937,
+  "actual_snapshot_headers": [
+    {
+      "ordinal": 6,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 6,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 3,
+      "optimizer_updates": 0
+    },
+    {
+      "ordinal": 12,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 12,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 3,
+      "optimizer_updates": 0
+    },
+    {
+      "ordinal": 18,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 18,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 3,
+      "optimizer_updates": 0
+    },
+    {
+      "ordinal": 24,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 24,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 5,
+      "optimizer_updates": 0
+    }
+  ],
+  "original_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_binding_20261010.json",
+    "bytes": 3467069,
+    "sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f"
+  },
+  "OS_peak": 423059456,
+  "full_snapshot_hashes_checked": false,
+  "snapshot_parameter_bits_checked": false,
+  "model_loads": 0,
+  "history_forwards": 0,
+  "backwards": 0,
+  "native_calls": 0,
+  "GPU_calls": 0,
+  "optimizer_updates": 0,
+  "scope": "Small format and inherited-source checks only; actual complete audit remains unexecuted."
+}
