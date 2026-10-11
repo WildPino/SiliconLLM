@@ -1,15 +1,21 @@
 # Pretrained-to-native conditional-capacity method
 
-**AUTHORITATIVE 11 October16:59:** v2 audit CLOSED exit1/26839.39s; duplicate
-`metrics` in final-row construction. No complete result/holder after-check.
-[Preserved faults and V4 protocol](RECOVERED_CATEGORICAL_AUDIT_V2_FAULT_AND_V4_PROTOCOL_20261011.md).
-V3 preflight time-cap failure preserved; no V3 full audit. Separate V4 preflight
-21 flags PASS/5.047s, all48 saved-record merges/full115-receipt/report tail
-exercised. Saved metrics are fixture inputs; no numerical recomputation there.
-V4 full audit not yet launched; all numeric checks/thresholds retained. Original
-custody remains false; missing canonical chat/followup/useful same-artifact50/
-useful-n/general conversion. No Luna; root announces long runs and pauses goal.
-Older status entries below are historical.
+**AUTHORITATIVE 11 October17:09:** V4 complete recovered audit LIVE session30762,
+holder31240 created2026-10-11T17:08:43.125910+02:00; source36a9d96, exact
+binding/invocation955537d, SHA745f662c7527a2b1bc652660ea6a8e77770dc9471eddc9158a2eef9fdf05c1c5.
+3997 inputs11,388,737,601B/preparation184.015s;21 preflight flags PASS/5.047s.
+[Faults and V4 protocol](RECOVERED_CATEGORICAL_AUDIT_V2_FAULT_AND_V4_PROTOCOL_20261011.md).
+V1/V2 failed numerical audits and V3 preflight cap fault preserved; no partial
+numeric replay substituted. Actual V4 full numerical audit not yet complete.
+Expected8-9h; unchanged hard32400s/24GiB/CPU-only; approximate cutoff
+12 October02:09 Europe/Rome. Initial full input/output before-hash precedes
+worker/live JSON creation. Output base `recovered_categorical_campaign_stored_adjudication_v4_20261011`.
+On next human continuation poll session30762 and exact holder PID/create,
+then finalized terminal/result/fault. Worker result alone is not full closure;
+require holder after-hashes/tree checks and absence. Never restart on timeout.
+No Luna; user-requested goal PAUSE during this run. Original custody false,
+missing chat/followup/useful same-artifact50/useful-n/general conversion remain
+unproved. Older status entries below are historical.
 **AUTHORITATIVE11 October01:28:** v2 recovery seal CLOSED exit0,all5742
 outputs138.619GB/current input-before-after exact; no original successful
 custody. [Actual boundary](CATEGORICAL_RECOVERY_SEAL_V2_RESULT_20261011.md),
