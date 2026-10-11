@@ -1,0 +1,34 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_LAUNCH_RECORD_V2",
+  "source_freeze": "6d8a3011a9b08b15d1f93939782fc70af0653bc4",
+  "binding_sha256": "ca987f1d0a97c093dff9e825a9ecccae5f7cd881f4dbc31bab9997633c8197cd",
+  "inputs": 3993,
+  "input_bytes": 11387717818.0,
+  "command": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/recovered_categorical_campaign_launch_v2.py",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_categorical_campaign_binding_v2_20261011.json",
+    "--binding-sha",
+    "ca987f1d0a97c093dff9e825a9ecccae5f7cd881f4dbc31bab9997633c8197cd",
+    "--directory",
+    "results/native_expert_scaling/original_categorical_campaign_20261010",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recovered_categorical_campaign_stored_adjudication_v2_20261011.json",
+    "--freeze",
+    "6d8a3011a9b08b15d1f93939782fc70af0653bc4"
+  ],
+  "expected_hours": "7-9, uncertain I/O",
+  "limits": {
+    "seconds": 32400,
+    "OS_bytes": 25769803776,
+    "output_bytes": 4194304,
+    "log_bytes": 8388608
+  },
+  "monitor": "root; goal pauses after launch; no subagent"
+}
