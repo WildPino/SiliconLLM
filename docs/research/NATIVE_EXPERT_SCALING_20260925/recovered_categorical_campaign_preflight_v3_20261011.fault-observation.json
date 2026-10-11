@@ -1,0 +1,33 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_PREFLIGHT_FAULT_OBSERVATION_V1",
+  "session": 42788,
+  "observed_exit_code": 1,
+  "pid": 25112,
+  "creation": "2026-10-11T16:54:05.515395+02:00",
+  "last_alive_observation": "2026-10-11T16:57:07.7788199+02:00",
+  "last_alive_elapsed_seconds": 182.2634249,
+  "last_alive_working_set_snapshot": 421371904,
+  "final_OS_peak": null,
+  "final_elapsed_seconds": null,
+  "fault": "AssertionError at preflight_v3.py:166: time.monotonic()-start<120 and proc.memory_info().peak_wset<=2<<30",
+  "time_limit_certainly_crossed": true,
+  "full_numerical_audit_started": false,
+  "output_exists": false,
+  "sources": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit_v3.py",
+      "bytes": 23756,
+      "sha256": "d806ca573306682dcaf147b46620ddf4404677bb3904c2178d9d3f0ce62bdf51"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_launch_v3.py",
+      "bytes": 10644,
+      "sha256": "55d7c74ec0a43dc5e8524eece16e3fde27cb234ad3351ff3c7c232895aee2e1c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_preflight_v3.py",
+      "bytes": 14287,
+      "sha256": "6ba0002de73f3c2f58b9194d0cee845f46bba0b93ea23807c20a89976e0948dc"
+    }
+  ]
+}

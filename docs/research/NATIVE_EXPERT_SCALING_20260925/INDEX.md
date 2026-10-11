@@ -1,21 +1,15 @@
 # Native expert scaling: research control index
 
-**AUTHORITATIVE 11 October09:17:** v1 audit CLOSED exit1/24709.875s; wrong
-snapshot provenance adapter preserved. [Fault/v2 protocol](RECOVERED_CATEGORICAL_AUDIT_V1_FAULT_AND_V2_PROTOCOL_20261011.md).
-Separate full v2 audit LIVE session96174, holder22428 created
-2026-10-11T09:16:59.129179+02:00; source6d8a301, exact binding/invocation36c5980,
-bindingSHAca987f1d0a97c093dff9e825a9ecccae5f7cd881f4dbc31bab9997633c8197cd.
-17 preflight flags PASS;3993 bound inputs11,387,717,818B; preparation375.328s.
-Expected7-9h, hard32400s/24GiB/CPU-only; approximate cutoff18:17 local.
-Initial full before-hash precedes worker creation/live JSON. Worker result alone
-is not closure: require exact holder absence and finalized terminal with full
-after-hashes/tree checks plus result, or retain the fault. Output base
-`recovered_categorical_campaign_stored_adjudication_v2_20261011` in this directory.
-Latest human instruction: no Luna; root performs work and goal PAUSES during
-this announced long run. On human continuation poll session96174/exact holder;
-never restart on observation timeout. Original custody remains false, missing
-chat tasks/own-answer followup and useful quality/same-artifact50/useful-n/general
-conversion unproved. Older status entries below are historical.
+**AUTHORITATIVE 11 October16:59:** v2 audit CLOSED exit1/26839.39s; duplicate
+`metrics` in final-row construction. No complete result/holder after-check.
+[Preserved faults and V4 protocol](RECOVERED_CATEGORICAL_AUDIT_V2_FAULT_AND_V4_PROTOCOL_20261011.md).
+V3 preflight time-cap failure preserved; no V3 full audit. Separate V4 preflight
+21 flags PASS/5.047s, all48 saved-record merges/full115-receipt/report tail
+exercised. Saved metrics are fixture inputs; no numerical recomputation there.
+V4 full audit not yet launched; all numeric checks/thresholds retained. Original
+custody remains false; missing canonical chat/followup/useful same-artifact50/
+useful-n/general conversion. No Luna; root announces long runs and pauses goal.
+Older status entries below are historical.
 ## Goal and constraints
 
 Useful pretrained CHATBOT -> compact original SSM/SWA + selectively consulted

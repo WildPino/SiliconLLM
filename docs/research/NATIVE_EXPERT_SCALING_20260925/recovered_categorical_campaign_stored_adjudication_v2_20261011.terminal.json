@@ -1,0 +1,54 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_HOLDER_V2",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_binding_v2_20261011.json",
+    "bytes": 1006344,
+    "sha256": "ca987f1d0a97c093dff9e825a9ecccae5f7cd881f4dbc31bab9997633c8197cd"
+  },
+  "binding_sha256": "ca987f1d0a97c093dff9e825a9ecccae5f7cd881f4dbc31bab9997633c8197cd",
+  "source_freeze": "6d8a3011a9b08b15d1f93939782fc70af0653bc4",
+  "original_freeze": "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+  "original_successful_custody": false,
+  "launcher_pid": 22428,
+  "limits": {
+    "seconds": 32400,
+    "OS_bytes": 25769803776,
+    "output_bytes": 4194304,
+    "log_bytes": 8388608
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit_v2.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_binding_v2_20261011.json",
+    "--binding-sha",
+    "ca987f1d0a97c093dff9e825a9ecccae5f7cd881f4dbc31bab9997633c8197cd",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_stored_adjudication_v2_20261011.json"
+  ],
+  "timing_control_admitted": false,
+  "worker_pid": 4864,
+  "worker_creation_time": 1791705282.959416,
+  "exit_code": 1,
+  "error": {
+    "error": "AssertionError(('worker_exit', 1))",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_launch_v2.py\", line 114, in launch\n    assert child.returncode==0,('worker_exit',child.returncode)\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: ('worker_exit', 1)\n",
+    "stage": "worker_running"
+  },
+  "elapsed_seconds": 26839.39,
+  "worker_OS_peak_through_exit": 13156204544,
+  "launcher_OS_peak_snapshot": 45211648,
+  "unexpected_child_observations": [],
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_stored_adjudication_v2_20261011.worker.log",
+    "bytes": 3615,
+    "sha256": "43bb0c0691ac603a88621ed36e8bd338daf103393580be813acce7d2278ab134"
+  }
+}

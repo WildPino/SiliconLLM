@@ -1,0 +1,5 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_AUDIT_FAULT_V2",
+  "error": "TypeError(\"dict() got multiple values for keyword argument 'metrics'\")",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit_v2.py\", line 287, in <module>\n    try:audit(a)\n        ^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit_v2.py\", line 207, in audit\n    met=check_native(rec,row['native'],packed);check_metrics(met,row['metrics']);final.append(dict(**row,metrics=met));guard()\n                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: dict() got multiple values for keyword argument 'metrics'\n"
+}

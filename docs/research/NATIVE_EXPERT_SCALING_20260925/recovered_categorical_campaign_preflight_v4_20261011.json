@@ -1,0 +1,108 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_PREFLIGHT_V4",
+  "flags": {
+    "AST_PASS": true,
+    "original_math_core_only_index_provenance_and_report_merge_fixes": true,
+    "distinct_original_and_audit_binding_accepted": true,
+    "snapshot_binding_sha256_fault_rejected": true,
+    "snapshot_schema_fault_rejected": true,
+    "snapshot_directions_fault_rejected": true,
+    "snapshot_optimizer_updates_fault_rejected": true,
+    "snapshot_accepted_displacements_fault_rejected": true,
+    "snapshot_model_fault_rejected": true,
+    "complete_durable_index_without_invented_runtime_receipt": true,
+    "wrong_ordinal_rejected": true,
+    "inconsistent_duplicate_trial_rejected": true,
+    "missing_final_step_rejected": true,
+    "unexpected_stream_receipt_rejected": true,
+    "changed_sealed_extent_rejected": true,
+    "all_four_actual_snapshot_headers_match_original_binding": true,
+    "actual_completed_prefix_receipt_identities_match_original_observations": true,
+    "original_duplicate_metrics_failure_reproduced": true,
+    "actual_all48_final_record_merges_and_aggregates_exercised": true,
+    "actual_full_receipt_resource_and_report_tail_exercised": true,
+    "report_JSON_serialization_and_nonadmission_flags_pass": true
+  },
+  "sources": {
+    "recovered_categorical_campaign_audit_v4.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit_v4.py",
+      "bytes": 23756,
+      "sha256": "0469dc65b75b2282861ef1d5732e5a0d559f271053f99f762baf3c58b2b20592"
+    },
+    "recovered_categorical_campaign_launch_v4.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_launch_v4.py",
+      "bytes": 10644,
+      "sha256": "0502542f7c9329982fd6a65e9df48cf5d11d03cd7d62d51d7929d126878aece4"
+    },
+    "recovered_categorical_campaign_preflight_v4.py": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_preflight_v4.py",
+      "bytes": 14328,
+      "sha256": "8289a19e4f60e14c9673d3bbdf175a9bbd181ca7573540261f91a56ef01717ee"
+    },
+    "original_mathematical_auditor": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_categorical_campaign_audit.py",
+      "bytes": 26559,
+      "sha256": "405bec757d0ea17ceb711f08f7e6634298ab3940a95c4578fe21baf8cec343fb"
+    }
+  },
+  "independent_math_core_sha256": "0c4eab8cf34f3f706c46343e537610981985cdc39f0f686b5dc502e5da2fa30a",
+  "seconds": 5.046999999991385,
+  "actual_snapshot_headers": [
+    {
+      "ordinal": 6,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 6,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 3,
+      "optimizer_updates": 0
+    },
+    {
+      "ordinal": 12,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 12,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 3,
+      "optimizer_updates": 0
+    },
+    {
+      "ordinal": 18,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 18,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 3,
+      "optimizer_updates": 0
+    },
+    {
+      "ordinal": 24,
+      "parameters": 92,
+      "schema": "ORIGINAL_CATEGORICAL_CAMPAIGN_STATE_V1",
+      "directions": 24,
+      "binding_sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f",
+      "accepted_displacements": 5,
+      "optimizer_updates": 0
+    }
+  ],
+  "original_binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_categorical_campaign_binding_20261010.json",
+    "bytes": 3467069,
+    "sha256": "7b515d1308e8361837c023789710330fb504be16bde90f24c6a260d400b3929f"
+  },
+  "OS_peak": 450019328,
+  "full_snapshot_hashes_checked": false,
+  "snapshot_parameter_bits_checked": false,
+  "final_tail_fixture_cases": 48,
+  "final_tail_fixture_numeric_recomputation": false,
+  "final_tail_fixture_native_receipts": 115,
+  "final_tail_fixture_serialized_bytes": 29210,
+  "checkpoint_header_loads": 4,
+  "neural_model_constructions": 0,
+  "history_forwards": 0,
+  "backwards": 0,
+  "native_calls": 0,
+  "GPU_calls": 0,
+  "optimizer_updates": 0,
+  "scope": "Small format and inherited-source checks only; actual complete audit remains unexecuted."
+}
