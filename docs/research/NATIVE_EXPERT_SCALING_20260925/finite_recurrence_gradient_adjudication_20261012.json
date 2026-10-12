@@ -1,0 +1,55 @@
+{
+  "schema": "FINITE_RECURRENCE_GRADIENT_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\finite_recurrence_gradient_audit.py",
+    "bytes": 18936,
+    "sha256": "6f8a0fd840c7dc5bcf35b1d37705cdf3f3324ba39933035a4062f32e0039b479"
+  },
+  "freeze": "072c2520d4bb00de8d5e97433d96f838588c2b37",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\finite_recurrence_gradient_v3_result_20261012.json",
+    "bytes": 413422,
+    "sha256": "747146c89b237723a94350024b25529bbeda384837b9b81347b15720697f2d8e"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\finite_recurrence_gradient_v3_result_20261012.terminal.json",
+    "bytes": 1370,
+    "sha256": "dd14dc138dafec991f5280f4d9f93f0f70d345e6747642ab563cc44d80167927"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\finite_recurrence_gradient_v3_binding_20261012.json",
+    "bytes": 125802,
+    "sha256": "583002ffd2d661e901cd76ba2843eabd97308eaae3ca8342570498929d73c71f"
+  },
+  "full_autograd_FIT_cases": 24,
+  "full_GY_words_verified": 34246656,
+  "V1_V2_prefix_arrays_bit_exact": true,
+  "independent_Kronecker_tangent_verified": true,
+  "parameter_replay_words": 1130496,
+  "all_output_words_verified": 184705024,
+  "full_sequential_scan_words_verified": 8658048,
+  "selected_alpha": 0.0003,
+  "maximum": {
+    "gauge_projector": 4.494405788448502e-14,
+    "RMS_autograd_vs_radial": 1.4649422755183446e-15,
+    "baseline_output": 1.8861066257777656e-15,
+    "full_GY": 2.2888664637870706e-15,
+    "GV": 2.048962251274711e-15,
+    "GW": 3.600427807590232e-15,
+    "scalar": 2.96156896219273e-11,
+    "total_GV": 6.542089635744087e-16,
+    "total_GW": 8.466439169485148e-16,
+    "independent_tangent_V": 3.2377295624186538e-15,
+    "independent_tangent_W": 5.474937078972912e-15,
+    "ideal_baseline": 1.9222591921925615e-15,
+    "ideal_selected": 1.9241360602031775e-15,
+    "projected_input": 1.2103797311073652e-07,
+    "full_sequential_scan": 4.021190872447898e-07,
+    "machine_output": 0.0
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 186.32146610000018,
+  "OS_peak": 1624571904,
+  "scope": "All backward/constraint/FD/FIT candidate selection/parameter replay/ideal and actual compact scan/BF16 output qualification. Parameter replay uses frozen helper and stored qualified direction;independent math checks are distinct. No native/model/n/50 admission."
+}

@@ -61,8 +61,14 @@ now IMPLEMENTED/INDEPENDENTLY VERIFIED:all554,115,072 finite/J vectors,raw/head
 statistics/FIT Grams/proxies/450 controls. Site12 adaptive finite remainder
 .30044FIT/.33078DEV selects a finite-output objective;correcting mean Gram alone
 not selected. Source-injected/F64 smooth operator,no BF16/native derivative.
-Next [finite backward/retraction/one bounded FIT update](COUPLED_FINITE_RECURRENCE_GRADIENT_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED;qualify gradient/constraint and new actual scans.
+[Finite backward/retraction/one bounded FIT update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED:24 full CPU autograd cases/all GY/parameter
+gradients,independent tangent,all FD/candidate/selection/parameter bits/all48
+actual compact scans. Alpha.0003 FITloss.537006->.533005,DEV ownnorm.792727->
+.789261;all local qualityFAIL. Original algebra/control/metadata faults retained;
+fine derivative qualification separate,original coarse flags false. Next
+[exact coordinate whitening](RECURRENT_WHITENED_COORDINATES_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED;test conditioning before more unchanged epochs.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

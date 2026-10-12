@@ -1,6 +1,10 @@
 # Coupled finite-output recurrence gradient and one bounded FIT update
 
-12 October2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+12 October2026. **HISTORICAL SELECTION; full implementation/update/independent audit COMPLETE/PASS**.
+See [result](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md). One FIT-selected
+alpha.0003,small improvement/local qualityFAIL. Earlier transpose/coarse-FD/
+metadata faults retained. Next [exact coordinate whitening](RECURRENT_WHITENED_COORDINATES_NEXT_20261012.md).
+Original selected design follows.
 Selection follows the predeclared sensitivity rule on FIT:both site12 layouts
 have first-order remainder>.25. Full sensitivity audit now qualifies all vectors/
 statistics PASS. No unchanged corrected-average-GM fit selected.

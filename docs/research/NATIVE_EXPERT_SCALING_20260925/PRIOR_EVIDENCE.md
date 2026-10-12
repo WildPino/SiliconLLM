@@ -1,6 +1,16 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Full finite recurrence gradient/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:24 autograd cases/all34,246,656 GY words,
+parameter gradients/Kronecker tangent/all FD/candidates/selection/parameter bits,
+184,705,024 ideal+machine output words/8,658,048 actual sequential scan words.
+One FIT-only alpha.0003,.537006->.533005;DEV ownnorm.792727->.789261,all local
+qualityFAIL. Original transpose/coarse-FD/partial-audit metadata faults retained;
+full failed-prefix qualificationPASS,original coarse flags false. Fine steps
+1e-6/7/8 passsame1e-6 threshold.46933/9123CLOSED0;new1.471GB arrays on E.
+Next [exact whitening/conditioning](RECURRENT_WHITENED_COORDINATES_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Source-injected local component,no full model.
 [Coupled finite recurrence sensitivity](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all144 records/554,115,072 finite/J vector
 words/1,488,102 raw stats/19,480,608 head energies-rho/FIT Grams/proxies/450
@@ -8,8 +18,8 @@ controls,vector5.63e-14/scalar1.33e-14/all hashesPASS. Site12 adaptive tangent
 remainder30%FIT/33%DEV,radial head-energy effect3.13%,paired/trace1.20791;
 FIT-only heuristic selects finite objective. No new fit/scan/source/native call.
 4.611GB immutable arrays on E with tracked extents;5814/77109CLOSED0.
-Next [finite gradient/projector retraction/one bounded FIT step](COUPLED_FINITE_RECURRENCE_GRADIENT_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND. No unchanged averaged-GM fit selected.
+Subsequent finite gradient/retraction/bounded FIT update complete above.
+No unchanged averaged-GM fit selected.
 [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all FIT GY_rec,unchanged GM,288 head/layout
 bases,51,948,288 projected input+51,948,288 scan values checked via full CPU
