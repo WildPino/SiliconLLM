@@ -1,0 +1,40 @@
+{
+  "limits": {
+    "OS_bytes": 4294967296,
+    "output_bytes": 100663296,
+    "seconds": 900
+  },
+  "env": {
+    "MKL_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_domain_preflight.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_binding_20261012.json",
+    "--binding-sha",
+    "43e5c36f87e80ba6da7a3cc0c8638c7af1f7f66484b15119661d7f74fef48e30",
+    "--freeze",
+    "6505bae033e91dddeea1aa019c5942cdb4ac5ca4",
+    "--directory",
+    "results/native_expert_scaling/native_head_domain_preflight_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_result_20261012.json"
+  ],
+  "schema": "NATIVE_HEAD_DOMAIN_PREFLIGHT_INVOCATION_V1",
+  "preparation": {
+    "exit_code": 0,
+    "seconds": 3.594
+  },
+  "freeze": "6505bae033e91dddeea1aa019c5942cdb4ac5ca4"
+}
