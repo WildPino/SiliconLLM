@@ -1,0 +1,40 @@
+{
+  "schema": "FULL_CHANNEL_NATIVE_TIMING_LAUNCH_V1",
+  "created_at": "2026-10-13T01:44:59.8963325+02:00",
+  "freeze": "58a773c6869f410676a89a0c9a93383b2912992b",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/full_channel_native_timing.py",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/full_channel_native_binding_20261013.json",
+    "--binding-sha",
+    "288b9ff3f565ebf8f11a169f54dc0f604d2857c2717e299029936fbaddd144e2",
+    "--adjudication",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/full_channel_native_adjudication_20261013.json",
+    "--adjudication-sha",
+    "0a476d816404b656060e7ea1dbbbcea56302a50ab73f1ec73d852855de55ef23",
+    "--freeze",
+    "58a773c6869f410676a89a0c9a93383b2912992b",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/full_channel_native_timing_result_20261013.json"
+  ],
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "native_threads": 1,
+  "affinity": [
+    0
+  ],
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 900
+  },
+  "whole_model_timing_admitted": false
+}
