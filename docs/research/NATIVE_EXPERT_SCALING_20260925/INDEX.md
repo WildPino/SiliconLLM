@@ -1,11 +1,11 @@
 # Native expert scaling: research control index
 
-**12 October 2026: goal ACTIVE/INCOMPLETE; all-label oracle capture LIVE.**
-Exact session10400,PID11508/create2026-10-12T18:53:12.060558+02,source/protocol
-99d0d37,[binding/launch](all_label_native_probability_gap_launch_20261012.json)
-331609d. Checkpoint16 observed at503.641s:equal FIT/DEV weighted real upper
-1.96569->.053788,lower0. Provisional oracle diagnostic,not native/source quality
-admission. Preserve exact live handle on timeout;do not restart.
+**12 October 2026: goal ACTIVE/INCOMPLETE; full oracle AUDIT13729 LIVE.**
+Capture10400 CLOSED0,PID11508/create1791823992.0605588,1391.396s;solver budget
+stop36 completed outer/partial37. Native DEVcaseKL2.93425->.0483465/dis41.09%->
+2.3003%,all quality gates FAIL/lower0. PROVISIONAL until full independent audit.
+Audit source59c9c87,[launch](all_label_native_probability_gap_audit_launch_20261012.json)
+910eb10,1200s/OS6GiB. Preserve same live handle on timeout;do not restart.
 
 ## Goal and constraints
 
@@ -62,24 +62,24 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Finish the LIVE all8808-label probability-image capture and full audit**,
+**Finish the LIVE all8808-label probability-image independent audit**,
 [selected bounded design](ALL_LABEL_NATIVE_PROBABILITY_GAP_DESIGN_20261012.md),
 Source/protocol/binding now IMPLEMENTED/FROZEN;GPUF64 qualification COMPLETE.
 Selected design:128 max round-robin updates,1200s solver budget/1800s capture,
 projected half-ball descent plus separately evaluated executable sphere codes,
 actual native full source-probability capture,all stored-point/native full audit.
-Capture LIVE,1800s/solver1200s/OS6GiB/GPU2GiB/output4GiB. The prospective4GiB
+Capture CLOSED0,1800s/solver1200s/OS6GiB/GPU2GiB/output4GiB. The prospective4GiB
 OS cap was raised before execution for simultaneous runtime/source head/mapping.
 Audit source/protocol [59c9c87](ALL_LABEL_NATIVE_PROBABILITY_GAP_AUDIT_PROTOCOL_20261012.md)
-frozen,1200s/OS6GiB;bind completed report/terminal hashes before executing.
+frozen,1200s/OS6GiB;bound completed report/terminal hashes,session13729 LIVE.
 Relaxed half-ball lowers and actual positive-sphere native uppers are different;
 moment matching separates information projection and encoder loss only under
 the stated stationarity/residual identity. Do not extend winner-only rays.
 Moment/cost compilation,affine ray probe AND GPU backend complete;full distribution
-search running;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
+search stopped on budget/audit running;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
 separates emission-code supervision from full recurrent state/closure/future information.
 [GPU closure](native_head_gpu_preflight_session_closure_20261012.json) records
-15890 prepare CLOSED0,24009 capture CLOSED0,42536 audit CLOSED0;new10400 capture live.
+15890 prepare CLOSED0,24009 capture CLOSED0,42536 audit CLOSED0;new13729 audit live.
 Historical native precision failures remain in
 [preflight closure](native_head_domain_preflight_session_closure_20261012.json).
 

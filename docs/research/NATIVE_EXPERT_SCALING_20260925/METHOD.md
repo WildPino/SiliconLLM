@@ -29,9 +29,14 @@ Winner availability does not preserve probabilities/establish causal encoding.
 now IMPLEMENTED/INDEPENDENTLY VERIFIED for all8808 full-vocabulary losses/
 257-gradients/IDs,CPU/GPU errors~2.5e-14. Approximate component pass4.3s;
 clock15.625ms/desktop sharing,timing admission false. No model/code optimization.
-Next [all-label probability-gap selected design](ALL_LABEL_NATIVE_PROBABILITY_GAP_DESIGN_20261012.md)
-UNIMPLEMENTED/UNBOUND:128 max updates/1200s solver/1800s capture,half-ball
-lower points and actual native sphere codes;full stored-point/native audit.
+[All-label probability gap](ALL_LABEL_NATIVE_PROBABILITY_GAP_PROTOCOL_20261012.md)
+now IMPLEMENTED/FROZEN;capture10400 CLOSED0 after1391.396s,budget36 completed/
+partial37 updates. All8808 final native codes/source q computed;provisional
+DEVcaseKL.0483465/dis2.3003%,all original budgetsFAIL,lower0. Full four stored-
+point/native independent audit13729 LIVE. No image-optimum/convergence admission.
+[Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
+history-to-code categorical supervision and full-state closure/future-information
+requirements;oracle code regression is not a pretrained-to-engine converter.
 No repeated winner-only ray optimization or smaller successful cohort substitution.
 [Exact categorical V/W/center correction and independent Jacobian audit](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 now IMPLEMENTED/LOCALLY VERIFIED. Actual source FIT72 final states/full trained
