@@ -1,6 +1,9 @@
 # Actual exported native head domain: prospective next
 
-12 October2026. **PROPOSED/UNIMPLEMENTED/UNBOUND**. New fixed head/domain is the
+12 October2026. **Optimization PROPOSED/UNIMPLEMENTED/UNBOUND**. Initial exact
+moment/cost compilation implemented separately in
+[preflight protocol](NATIVE_HEAD_DOMAIN_PREFLIGHT_PROTOCOL_V2_20261012.md);
+its audit/result determine whether those inputs are qualified. New fixed head/domain is the
 just qualified QR-gauged source-factor export,not the older paired255 head/gain.
 Old paired-head free-code FIT72 optimization(.00653 meanKL,zero IDs,worst.2308,
 weak lower bounds) remains evidence of encoder room for THAT different image.
@@ -45,6 +48,36 @@ project an interior relaxed solution and claim its original objective. Actual
 F32 native outputs must be checked for any claimed native upper or ID agreement.
 
 ## Scope, costs and execution requirements
+
+### Separate decision feasibility from distribution feasibility
+
+Because r>0 divides every logit identically, teacher winner j is achievable in
+real arithmetic exactly when there exists finite t satisfying, for every k,
+`(C_j-C_k)^T t >= beta_k-beta_j`. Strict winner adds a strictly positive raw
+margin; ties require the actual native argmax rule. The RMS radius is absent from
+these affine inequalities. A feasible real t must still survive the actual F32
+normalizer/head and a suitable normalized margin before native ID admission.
+
+This is a finite linear feasibility problem,not a claim that a causal encoder
+can find its solution or that the resulting probabilities are close. An
+infeasibility certificate could use nonnegative lambda with
+`sum_k lambda_k(C_j-C_k)=0` and
+`sum_k lambda_k(beta_k-beta_j)>0`; numerical solver failure or approximate
+equalities do not prove such a certificate. Exact dyadic source coefficients or
+independently controlled residuals/margins would be needed for a certified floor.
+
+Cheap sufficient probe before a large solver: freeze a direction d_j from the
+actual head (e.g. C_j minus the vocabulary mean). Codes t=s d_j reduce all raw
+winner inequalities to a one-dimensional interval: a_k s>=b_k, where
+a_k=(C_j-C_k)^T d_j and b_k=beta_k-beta_j. Intersect lower/upper bounds and check
+zero coefficients explicitly. An empty interval only rejects that ray,not the
+full256-dimensional image. Choosing the ray/scalar from teacher j is an oracle,
+not native routing. No code/protocol/solver for this probe is implemented yet.
+
+Choose this decision probe or full convex/hemisphere distribution search with
+an explicit question/budget before executing. Avoid treating improved IDs alone
+as preserved categorical quality. Return to causal compact-core acquisition
+after a bounded image diagnostic;do not indefinitely tune the output oracle.
 
 Use all existing FIT/DEV8808 labels if bounded resources allow,or freeze any
 finite diagnostic subset/cohort scope explicitly before execution. Oracle

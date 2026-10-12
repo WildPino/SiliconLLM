@@ -1,0 +1,64 @@
+{
+  "schema": "NATIVE_HEAD_DOMAIN_PREFLIGHT_AUDIT_V1",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_domain_preflight_result_v2_20261012.json",
+    "bytes": 3869,
+    "sha256": "a091f54cdd157fa6d97cec9422b66d5193afcea80da1ef368d64c891902e6251"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_domain_preflight_result_v2_20261012.terminal.json",
+    "bytes": 1284,
+    "sha256": "95b3b4043ce048a34f6d74807a8d169e76edd51d798bdc9f0f0783b3722e7142"
+  },
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_head_domain_preflight_audit_v2.py",
+    "bytes": 13466,
+    "sha256": "6ccf8bd9be76d75262fee6bbb9741c3cb02b997f9ae21eca78e7862d9a21e4aa"
+  },
+  "freeze": "e9a6342ae99a25de0f30c8f244c699068451a061",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_domain_preflight_binding_v2_20261012.json",
+    "bytes": 407010,
+    "sha256": "e7d232c4cf55aebab3cbd0735a2723f2db49db0c9ce3f787b911ff179eb54f4a"
+  },
+  "independent_rows": 8808,
+  "all_source_moments_entropies_ids_codes_losses_gradients_support_minima_verified": true,
+  "derivative_checks": [
+    {
+      "step": 2e-06,
+      "independent_error": 1.44185585432971e-09
+    },
+    {
+      "step": 2e-07,
+      "independent_error": 2.342427174190781e-08
+    }
+  ],
+  "max_relative": 1.712474634706978e-11,
+  "max_absolute": 7.68636709835846e-10,
+  "native_score_comparisons": [
+    {
+      "split": "FIT",
+      "score_words": 289804614,
+      "maximum_score_absolute": 5.479735987989898e-05,
+      "maximum_KL_absolute": 1.3247946735184257e-05,
+      "positive_bound_violation": 0.0,
+      "argmax_changes": 0,
+      "all_KL_deltas_within_real_score_range_bound": true
+    },
+    {
+      "split": "DEV",
+      "score_words": 287445282,
+      "maximum_score_absolute": 5.7813274324303165e-05,
+      "maximum_KL_absolute": 1.2175204724407251e-05,
+      "positive_bound_violation": 0.0,
+      "argmax_changes": 0,
+      "all_KL_deltas_within_real_score_range_bound": true
+    }
+  ],
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "initial_gates_pass": false,
+  "scope": "Initial actual-head/domain preflight only;no optimized oracle code/native upper or interval-certified floor/causal model/useful-n/50 admission.",
+  "seconds": 143.28100000001723,
+  "OS_peak": 3067551744
+}

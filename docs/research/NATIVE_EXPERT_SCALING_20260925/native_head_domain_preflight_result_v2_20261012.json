@@ -1,0 +1,102 @@
+{
+  "schema": "NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_domain_preflight_binding_v2_20261012.json",
+    "bytes": 407010,
+    "sha256": "e7d232c4cf55aebab3cbd0735a2723f2db49db0c9ce3f787b911ff179eb54f4a"
+  },
+  "freeze": "01c746ebc5233e87b7a76674edd87a156d339a85",
+  "augmented_head_shape": [
+    65537,
+    257
+  ],
+  "epsilon_F32_promoted": 0.0001319636357948184,
+  "last_scale": 0.18380068216269904,
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_domain_preflight_v2_20261012\\FIT_moments.npz",
+      "bytes": 27525014,
+      "sha256": "ceb353e110b4240e521b641557310f94cd4366b86af6ea0a7fa6a03da61e1b0d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_domain_preflight_v2_20261012\\DEV_moments.npz",
+      "bytes": 27300950,
+      "sha256": "6c1cd14604c6b73b5aea79310b441804bbb6617bae9189a5847edef80e153c8c"
+    }
+  ],
+  "splits": [
+    {
+      "split": "FIT",
+      "rows": 4422,
+      "file": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_domain_preflight_v2_20261012\\FIT_moments.npz",
+        "bytes": 27525014,
+        "sha256": "ceb353e110b4240e521b641557310f94cd4366b86af6ea0a7fa6a03da61e1b0d"
+      },
+      "sphere_absolute": 2.8421709430404007e-13,
+      "native_KL_max_delta": 1.3247946734296079e-05,
+      "native_KL_gate": false,
+      "compile_seconds": 19.911999999952968,
+      "evaluate_seconds": 11.26500000001397,
+      "case_KL": 0.9971403249301789,
+      "case_disagreement": 0.22609335963032007,
+      "maximum_raw_lower": -8.542399282585648e-06,
+      "positive_raw_lower_rows": 0
+    },
+    {
+      "split": "DEV",
+      "rows": 4386,
+      "file": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_domain_preflight_v2_20261012\\DEV_moments.npz",
+        "bytes": 27300950,
+        "sha256": "6c1cd14604c6b73b5aea79310b441804bbb6617bae9189a5847edef80e153c8c"
+      },
+      "sphere_absolute": 2.2737367544323206e-13,
+      "native_KL_max_delta": 1.2175204693321007e-05,
+      "native_KL_gate": false,
+      "compile_seconds": 19.701000000030035,
+      "evaluate_seconds": 11.88900000002468,
+      "case_KL": 2.934245647901672,
+      "case_disagreement": 0.41088307173819155,
+      "maximum_raw_lower": -8.738522429069408e-06,
+      "positive_raw_lower_rows": 0
+    }
+  ],
+  "benchmark": {
+    "batch": 64,
+    "CPU_seconds": [
+      0.20300000000861473,
+      0.28099999998812564,
+      0.20300000000861473,
+      0.1870000000053551,
+      0.2029999999795109
+    ],
+    "median_seconds": 0.20300000000861473,
+    "nominal139_batch_evaluations_seconds": 28.217000001197448,
+    "admission": false,
+    "note": "Component cost estimate,not optimizer or end-to-end throughput."
+  },
+  "derivative_checks": [
+    {
+      "step": 2e-06,
+      "analytic": -0.002081975812483423,
+      "finite": -0.002081972372280916,
+      "relative_error": 3.440202506980322e-09,
+      "passed": true
+    },
+    {
+      "step": 2e-07,
+      "analytic": -0.002081975812483423,
+      "finite": -0.002081981254065113,
+      "relative_error": 5.44158169002093e-09,
+      "passed": true
+    }
+  ],
+  "decision": "COMPLETED_INITIAL_GATE_FAILURE_PENDING_AUDIT",
+  "optimization_implemented": false,
+  "numeric_lower_interval_certified": false,
+  "seconds": 75.09400000001187,
+  "OS_peak": 1749000192,
+  "scope": "All8808 existing raw source labels and qualified actual F32 head image. Exact categorical moments/full initial loss+gradient+support lower and CPU cost;no optimization/GPU/native replay/source model/causal code/useful-n/same-artifact50 claim. Existing DEV,not pristine.",
+  "before_after_hashes_exact": true
+}

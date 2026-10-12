@@ -14,8 +14,16 @@ bit exact with independent scalar FMA reference;all gauge/source maps audited.
 Scalar epsilon includes perpendicular center energy;normalized head bias is an
 explicit engine extension. Zero predictor argmax changes;source-relative DEV
 case disagreement41.09%/all qualityFAIL. Teacher-injected code,not causal core.
-Next [fixed native head domain](NATIVE_HEAD_DOMAIN_FEASIBILITY_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED:qualify moments and cost before bounded oracle-code study.
+[Fixed native head moment/cost preflight](NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED for all8808 exact full-vocabulary moments,
+initial losses/gradients/positive-sphere codes/support lowers. First precision
+guard failure retained;V2 same1e-5 guard remains false. Complete source/native
+score audit verifies equations and rounds within score-range KL bound,zero ID
+changes. No positive floor,optimized code or causal core. CPU pass estimate28.2s.
+Next [bounded affine-ray decision probe](NATIVE_HEAD_DOMAIN_FEASIBILITY_NEXT_20261012.md)
+UNIMPLEMENTED:positive RMS cancels from argmax,all winner constraints are affine
+in t;fixed rays reduce them to scalar intervals. Feasible oracle IDs alone do
+not preserve probabilities or establish a trainable causal encoder.
 [Exact categorical V/W/center correction and independent Jacobian audit](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 now IMPLEMENTED/LOCALLY VERIFIED. Actual source FIT72 final states/full trained
 head,complete RMS derivative and both center paths;full gradient/differences/
