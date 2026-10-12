@@ -1,0 +1,38 @@
+{
+  "schema": "WHITENED_CANDIDATE_LAUNCH_V1",
+  "preparation_seconds": 4.9057192,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/whitened_recurrence_candidate.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/whitened_candidate_binding_20261012.json",
+    "--binding-sha",
+    "30ff219384078becf0b593f0862587a6bac2933280d8e76ed73ddeec7baed72d",
+    "--freeze",
+    "dbdcd06245c9a93acbd46fe6842fe5b96719046b",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/whitened_recurrence_candidate_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/whitened_candidate_result_20261012.json"
+  ],
+  "limits": {
+    "output_bytes": 2147483648,
+    "GPU_allocated_bytes": 4294967296,
+    "GPU_reserved_bytes": 5368709120,
+    "OS_bytes": 6442450944,
+    "seconds": 900
+  },
+  "freeze": "dbdcd06245c9a93acbd46fe6842fe5b96719046b"
+}
