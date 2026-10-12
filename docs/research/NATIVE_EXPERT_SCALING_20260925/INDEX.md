@@ -29,6 +29,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Affine native decision rays](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md): all2361 distinct donor-winner full constraints/8808 label associations audited;2342 actual native codes choose their target. All153487654 F32 logits bit exact with independent scalar reference. DEV mean case coverage98.6616%,but available KL contribution9.6007 versus existing2.93425. Winner availability is oracle evidence,not probability preservation/causal encoding. No general head infeasibility or throughput claim.
 - [Actual native head moments/cost/guard diagnosis](NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_20261012.md): all8808 source moments/IDs/codes/losses/gradients/support bounds independently audited PASS; no positive initial floor. First run CLOSED1, diagnostic V2 CLOSED0 retains both false1e-5 KL flags. All577249896 original logits compared; KL deltas<=1.325e-5 fit the score-range rounding bound,zero ID changes. CPU pass estimate28.2s; no clean timing admission. No optimization implemented.
 - [Exact QR gauge/native scalar-norm export](GAUGED_NATIVE_READOUT_RESULT_20261012.md): all8808 labels/577249896 actual F32 logits bit exact with separate scalar FMA reference. Explicit scalar epsilon/normalized bias preserve same poor predictor; DEV case disagreement41.09%,all quality gates FAIL. Original interruption retained; replay/audit CLOSED0. Original engine.c unchanged.
 - [Broad full categorical gradient](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md): all4422 FIT/4386 DEV,11 points/48570 full-vocabulary rows/4422 explicit RMS Jacobians audited. One FIT-only alpha.0001 improves FIT3.10%,DEV~.97%;all qualityFAIL. V1 audit deadline900s failed; budget-only V2 closes925s/1200s,first fault retained. No long plain-gradient epoch selected.
@@ -55,17 +56,20 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind a bounded affine-ray decision feasibility probe**,
-[mathematical specification](NATIVE_HEAD_DOMAIN_FEASIBILITY_NEXT_20261012.md).
-Positive scalar RMS cancels from argmax: teacher j needs finite t satisfying
-(C_j-C_k)^T t>=beta_k-beta_j for every k. Freeze d_j from actual exported head,
-set t=s d_j and intersect scalar intervals;deduplicate audited teacher IDs and
-retain all8808 associations. Empty interval rejects ONLY that ray. Verify any
-claimed feasible codes with actual F32 C;oracle IDs are not causal encoding or
-preserved probabilities. Code/protocol for ray probe remain UNIMPLEMENTED.
-Moment/cost compilation is complete;full hemisphere/half-ball search unimplemented.
-[Preflight closure](native_head_domain_preflight_session_closure_20261012.json)
-records79398 CLOSED1,79763 CLOSED0,37970 CLOSED0;no owned process live.
+**Implement/freeze/bind local GPUF64 loss/gradient qualification and cost only**,
+[next probability-gap specification](NATIVE_HEAD_PROBABILITY_GAP_NEXT_20261012.md).
+All8808 existing moment packets/initial v/full65537 current head;compare complete
+GPU outputs with independently qualified CPU loss/gradients. No optimization/
+new source acquisition in that prerequisite. CPU nominal pass28.217s available;
+backend/cohort/steps/caps of a bounded full-probability image study remain unbound.
+Relaxed half-ball lowers and actual positive-sphere native uppers are different;
+moment matching separates information projection and encoder loss only under
+the stated stationarity/residual identity. Do not extend winner-only rays.
+Moment/cost compilation AND affine ray probe complete;full distribution search
+and causal code acquisition remain unimplemented.
+[Ray closure](native_head_affine_rays_session_closure_20261012.json) records94685
+CLOSED0,75477 CLOSED0;no owned process live. Historical preflight guard failures
+remain in [preflight closure](native_head_domain_preflight_session_closure_20261012.json).
 
 [Router-support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED,a numerical branch insufficient for capacity repair.

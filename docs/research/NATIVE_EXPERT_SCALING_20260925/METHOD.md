@@ -20,10 +20,14 @@ initial losses/gradients/positive-sphere codes/support lowers. First precision
 guard failure retained;V2 same1e-5 guard remains false. Complete source/native
 score audit verifies equations and rounds within score-range KL bound,zero ID
 changes. No positive floor,optimized code or causal core. CPU pass estimate28.2s.
-Next [bounded affine-ray decision probe](NATIVE_HEAD_DOMAIN_FEASIBILITY_NEXT_20261012.md)
-UNIMPLEMENTED:positive RMS cancels from argmax,all winner constraints are affine
-in t;fixed rays reduce them to scalar intervals. Feasible oracle IDs alone do
-not preserve probabilities or establish a trainable causal encoder.
+[Affine-ray decision assay](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md) now
+IMPLEMENTED/INDEPENDENTLY VERIFIED:all2361 full constraints/8808 associations,
+2342 actual native target codes,153487654 logits bit exact with scalar reference.
+DEV mean case oracle coverage98.6616%,but available KL contribution9.6007.
+Winner availability does not preserve probabilities/establish causal encoding.
+Next [bounded full-probability image gap](NATIVE_HEAD_PROBABILITY_GAP_NEXT_20261012.md)
+UNIMPLEMENTED;GPUF64 whole initial loss/gradient qualification/cost prerequisite
+before selecting backend/cohort/steps. No repeated winner-only ray optimization.
 [Exact categorical V/W/center correction and independent Jacobian audit](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 now IMPLEMENTED/LOCALLY VERIFIED. Actual source FIT72 final states/full trained
 head,complete RMS derivative and both center paths;full gradient/differences/

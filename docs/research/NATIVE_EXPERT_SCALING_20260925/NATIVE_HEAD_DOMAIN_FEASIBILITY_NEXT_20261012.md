@@ -72,7 +72,10 @@ winner inequalities to a one-dimensional interval: a_k s>=b_k, where
 a_k=(C_j-C_k)^T d_j and b_k=beta_k-beta_j. Intersect lower/upper bounds and check
 zero coefficients explicitly. An empty interval only rejects that ray,not the
 full256-dimensional image. Choosing the ray/scalar from teacher j is an oracle,
-not native routing. No code/protocol/solver for this probe is implemented yet.
+not native routing. The ray probe is now COMPLETE with
+[actual native codes/full audit](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md).
+This paragraph retains its mathematical scope;next full-probability search is
+[prospective](NATIVE_HEAD_PROBABILITY_GAP_NEXT_20261012.md).
 
 Choose this decision probe or full convex/hemisphere distribution search with
 an explicit question/budget before executing. Avoid treating improved IDs alone

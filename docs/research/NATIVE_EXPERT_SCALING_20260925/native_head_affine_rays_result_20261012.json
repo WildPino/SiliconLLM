@@ -1,0 +1,396 @@
+{
+  "schema": "NATIVE_HEAD_AFFINE_RAYS_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_affine_rays_binding_20261012.json",
+    "bytes": 487027,
+    "sha256": "f1966c68301769d94b3ebed80d61753700deeb0d1e90aa713289dc75dc862f55"
+  },
+  "freeze": "a52e69e297a058d24cf3c22e575984e5f9089000",
+  "targets": 2361,
+  "zero_interval_nonempty": 2350,
+  "margin1_interval_nonempty": 2342,
+  "candidate_codes": 2342,
+  "native_target_winners": 2342,
+  "native_to_real_ID_changes": 0,
+  "minimum_raw_margin": 1.0083099853228354,
+  "minimum_native_margin": 0.19953155517578125,
+  "maximum_score_absolute": 6.910192561804251e-05,
+  "native_calls": 37,
+  "batches": [
+    {
+      "lo": 0,
+      "hi": 64,
+      "seconds": 0.2029999999795109,
+      "norm_relative": 1.247973803894322e-07,
+      "inverse_relative": 3.964679962109585e-07,
+      "score_absolute": 4.2608624610807055e-05
+    },
+    {
+      "lo": 64,
+      "hi": 128,
+      "seconds": 0.20300000000861473,
+      "norm_relative": 1.3839995240753358e-07,
+      "inverse_relative": 3.32700377914108e-07,
+      "score_absolute": 4.045751384751384e-05
+    },
+    {
+      "lo": 128,
+      "hi": 192,
+      "seconds": 0.21799999999348074,
+      "norm_relative": 1.1748724675115167e-07,
+      "inverse_relative": 2.893484716270933e-07,
+      "score_absolute": 2.690906237035051e-05
+    },
+    {
+      "lo": 192,
+      "hi": 256,
+      "seconds": 0.1870000000053551,
+      "norm_relative": 1.2164556891401925e-07,
+      "inverse_relative": 2.9802122381017426e-07,
+      "score_absolute": 2.744763119721938e-05
+    },
+    {
+      "lo": 256,
+      "hi": 320,
+      "seconds": 0.23399999999674037,
+      "norm_relative": 1.1787992877648217e-07,
+      "inverse_relative": 3.0636777914594404e-07,
+      "score_absolute": 3.399205832010921e-05
+    },
+    {
+      "lo": 320,
+      "hi": 384,
+      "seconds": 0.21799999999348074,
+      "norm_relative": 1.354542047293566e-07,
+      "inverse_relative": 3.4540852333897476e-07,
+      "score_absolute": 3.786284314344357e-05
+    },
+    {
+      "lo": 384,
+      "hi": 448,
+      "seconds": 0.17100000000209548,
+      "norm_relative": 1.1199259099515886e-07,
+      "inverse_relative": 2.781220163061704e-07,
+      "score_absolute": 2.8690664933606058e-05
+    },
+    {
+      "lo": 448,
+      "hi": 512,
+      "seconds": 0.17199999999138527,
+      "norm_relative": 1.34893496834952e-07,
+      "inverse_relative": 3.4849528751657033e-07,
+      "score_absolute": 3.998679606809219e-05
+    },
+    {
+      "lo": 512,
+      "hi": 576,
+      "seconds": 0.1870000000053551,
+      "norm_relative": 1.2490094034913902e-07,
+      "inverse_relative": 3.025711146076304e-07,
+      "score_absolute": 3.8234634189393546e-05
+    },
+    {
+      "lo": 576,
+      "hi": 640,
+      "seconds": 0.1870000000053551,
+      "norm_relative": 1.2423680143907935e-07,
+      "inverse_relative": 2.8673107399512787e-07,
+      "score_absolute": 3.452865941255823e-05
+    },
+    {
+      "lo": 640,
+      "hi": 704,
+      "seconds": 0.2029999999795109,
+      "norm_relative": 1.1330656095282682e-07,
+      "inverse_relative": 2.676455319594595e-07,
+      "score_absolute": 3.251105708557134e-05
+    },
+    {
+      "lo": 704,
+      "hi": 768,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.2442338964160963e-07,
+      "inverse_relative": 3.2919567638511893e-07,
+      "score_absolute": 3.377295092832355e-05
+    },
+    {
+      "lo": 768,
+      "hi": 832,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.1567501614645192e-07,
+      "inverse_relative": 2.90397538016407e-07,
+      "score_absolute": 3.283921412844393e-05
+    },
+    {
+      "lo": 832,
+      "hi": 896,
+      "seconds": 0.20300000000861473,
+      "norm_relative": 1.5506928996415575e-07,
+      "inverse_relative": 3.656525795481258e-07,
+      "score_absolute": 3.414739384766108e-05
+    },
+    {
+      "lo": 896,
+      "hi": 960,
+      "seconds": 0.2029999999795109,
+      "norm_relative": 1.2738472588382616e-07,
+      "inverse_relative": 2.7522428158732737e-07,
+      "score_absolute": 3.903870958765765e-05
+    },
+    {
+      "lo": 960,
+      "hi": 1024,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.4541817360764548e-07,
+      "inverse_relative": 3.508863294365838e-07,
+      "score_absolute": 4.094805602505858e-05
+    },
+    {
+      "lo": 1024,
+      "hi": 1088,
+      "seconds": 0.23499999998603016,
+      "norm_relative": 1.3141129017476286e-07,
+      "inverse_relative": 3.2083183132414206e-07,
+      "score_absolute": 3.904530819909269e-05
+    },
+    {
+      "lo": 1088,
+      "hi": 1152,
+      "seconds": 0.1870000000053551,
+      "norm_relative": 1.310229509690152e-07,
+      "inverse_relative": 3.305258646779663e-07,
+      "score_absolute": 4.2480425136659505e-05
+    },
+    {
+      "lo": 1152,
+      "hi": 1216,
+      "seconds": 0.21799999999348074,
+      "norm_relative": 1.283561944298017e-07,
+      "inverse_relative": 3.408440840679816e-07,
+      "score_absolute": 4.351521127432534e-05
+    },
+    {
+      "lo": 1216,
+      "hi": 1280,
+      "seconds": 0.2029999999795109,
+      "norm_relative": 1.2855993780048308e-07,
+      "inverse_relative": 2.999140434889469e-07,
+      "score_absolute": 3.0827171173086754e-05
+    },
+    {
+      "lo": 1280,
+      "hi": 1344,
+      "seconds": 0.2659999999741558,
+      "norm_relative": 1.5344849077059832e-07,
+      "inverse_relative": 4.45011831939901e-07,
+      "score_absolute": 4.8147085578875704e-05
+    },
+    {
+      "lo": 1344,
+      "hi": 1408,
+      "seconds": 0.23399999999674037,
+      "norm_relative": 1.2242763826329408e-07,
+      "inverse_relative": 3.3896880968775633e-07,
+      "score_absolute": 3.7690406628598794e-05
+    },
+    {
+      "lo": 1408,
+      "hi": 1472,
+      "seconds": 0.1870000000053551,
+      "norm_relative": 1.3955439999831144e-07,
+      "inverse_relative": 4.675640175033635e-07,
+      "score_absolute": 6.910192561804251e-05
+    },
+    {
+      "lo": 1472,
+      "hi": 1536,
+      "seconds": 0.1870000000053551,
+      "norm_relative": 1.200700518424011e-07,
+      "inverse_relative": 3.850362291224485e-07,
+      "score_absolute": 3.9859924626739485e-05
+    },
+    {
+      "lo": 1536,
+      "hi": 1600,
+      "seconds": 0.2029999999795109,
+      "norm_relative": 1.1166943588416978e-07,
+      "inverse_relative": 3.42713930012728e-07,
+      "score_absolute": 3.4443211433199394e-05
+    },
+    {
+      "lo": 1600,
+      "hi": 1664,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.3225469959923873e-07,
+      "inverse_relative": 3.1980579828783107e-07,
+      "score_absolute": 3.224904601495382e-05
+    },
+    {
+      "lo": 1664,
+      "hi": 1728,
+      "seconds": 0.2029999999795109,
+      "norm_relative": 1.3103172298139117e-07,
+      "inverse_relative": 3.4512150715038103e-07,
+      "score_absolute": 3.42168859361891e-05
+    },
+    {
+      "lo": 1728,
+      "hi": 1792,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.1270812991677397e-07,
+      "inverse_relative": 2.150510509668635e-07,
+      "score_absolute": 3.0151855298754526e-05
+    },
+    {
+      "lo": 1792,
+      "hi": 1856,
+      "seconds": 0.17199999999138527,
+      "norm_relative": 1.248332890674219e-07,
+      "inverse_relative": 3.8437086802289855e-07,
+      "score_absolute": 4.0432777979049206e-05
+    },
+    {
+      "lo": 1856,
+      "hi": 1920,
+      "seconds": 0.20300000000861473,
+      "norm_relative": 1.447318462812482e-07,
+      "inverse_relative": 4.3991670273246797e-07,
+      "score_absolute": 3.507849876882574e-05
+    },
+    {
+      "lo": 1920,
+      "hi": 1984,
+      "seconds": 0.1720000000204891,
+      "norm_relative": 1.398384581861185e-07,
+      "inverse_relative": 3.309647846894137e-07,
+      "score_absolute": 3.465444089556513e-05
+    },
+    {
+      "lo": 1984,
+      "hi": 2048,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.3042089805911162e-07,
+      "inverse_relative": 3.644659953838669e-07,
+      "score_absolute": 3.549992545970326e-05
+    },
+    {
+      "lo": 2048,
+      "hi": 2112,
+      "seconds": 0.1870000000053551,
+      "norm_relative": 1.374866104531141e-07,
+      "inverse_relative": 3.8042134464788546e-07,
+      "score_absolute": 3.324537097171287e-05
+    },
+    {
+      "lo": 2112,
+      "hi": 2176,
+      "seconds": 0.17100000000209548,
+      "norm_relative": 1.24026821045777e-07,
+      "inverse_relative": 4.3367998903143246e-07,
+      "score_absolute": 4.1435144098045384e-05
+    },
+    {
+      "lo": 2176,
+      "hi": 2240,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.289675808495514e-07,
+      "inverse_relative": 2.7148519454733844e-07,
+      "score_absolute": 3.317904021571394e-05
+    },
+    {
+      "lo": 2240,
+      "hi": 2304,
+      "seconds": 0.1879999999946449,
+      "norm_relative": 1.2951580269430282e-07,
+      "inverse_relative": 3.014732237183182e-07,
+      "score_absolute": 3.309318084632196e-05
+    },
+    {
+      "lo": 2304,
+      "hi": 2342,
+      "seconds": 0.11000000001513399,
+      "norm_relative": 1.1411798315094363e-07,
+      "inverse_relative": 2.8032192889160257e-07,
+      "score_absolute": 2.8961919269931968e-05
+    }
+  ],
+  "precision_flags": {
+    "score_absolute": true,
+    "norm_relative": true,
+    "inverse_relative": true
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\ray_codes.npz",
+      "bytes": 19712102,
+      "sha256": "e90d8dc0bcf844ed5afdbe31b12e11e6577a1ec78cdbf04ee702e3bececea28b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\native_scores.f32",
+      "bytes": 613950616,
+      "sha256": "21c363770c6006c4b6d1d0510ecbb242c99db3d3de7115f00a07c2fe5cfcb6be"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\FIT_associations.npz",
+      "bytes": 289734,
+      "sha256": "77151167ce34976dd866d41570548d374ee99366f6896e8a209db862a9ba3d52"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\DEV_associations.npz",
+      "bytes": 287394,
+      "sha256": "c9eca73bc466f22ab6d1ff9f2ef949eafdcc429ba82404a90d134070e38ef3b7"
+    }
+  ],
+  "codes": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\ray_codes.npz",
+    "bytes": 19712102,
+    "sha256": "e90d8dc0bcf844ed5afdbe31b12e11e6577a1ec78cdbf04ee702e3bececea28b"
+  },
+  "scores": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\native_scores.f32",
+    "bytes": 613950616,
+    "sha256": "21c363770c6006c4b6d1d0510ecbb242c99db3d3de7115f00a07c2fe5cfcb6be"
+  },
+  "splits": [
+    {
+      "split": "FIT",
+      "rows": 4422,
+      "file": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\FIT_associations.npz",
+        "bytes": 289734,
+        "sha256": "77151167ce34976dd866d41570548d374ee99366f6896e8a209db862a9ba3d52"
+      },
+      "candidate_labels": 4399,
+      "native_winner_labels": 4399,
+      "case_candidate_fraction": 0.9871190287128202,
+      "case_native_winner_fraction": 0.9871190287128202,
+      "available_weighted_real_KL": 7.822775884438892,
+      "available_weighted_native_KL_lower": 7.822751368801876,
+      "available_weighted_native_KL_upper": 7.822800400075911
+    },
+    {
+      "split": "DEV",
+      "rows": 4386,
+      "file": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_head_affine_rays_20261012\\DEV_associations.npz",
+        "bytes": 287394,
+        "sha256": "c9eca73bc466f22ab6d1ff9f2ef949eafdcc429ba82404a90d134070e38ef3b7"
+      },
+      "candidate_labels": 4351,
+      "native_winner_labels": 4351,
+      "case_candidate_fraction": 0.9866161675521621,
+      "case_native_winner_fraction": 0.9866161675521621,
+      "available_weighted_real_KL": 9.600702680086895,
+      "available_weighted_native_KL_lower": 9.600677095325247,
+      "available_weighted_native_KL_upper": 9.600728264848552
+    }
+  ],
+  "decision": "COMPLETED_RAY_ORACLE_PENDING_INDEPENDENT_AUDIT",
+  "before_after_hashes_exact": true,
+  "seconds": 31.01600000000326,
+  "OS_peak": 1246187520,
+  "scope": "All2361 distinct donor winners/all8808 existing-label associations. Head-derived fixed positive rays,full affine0/1-margin intervals and actual F32 kernel codes. Oracle target lookup,not causal routing/encoder/chatbot;empty interval excludes this ray only. Full real categorical KL with audited sufficient moments and native score-range bounds,not exact native teacher KL.",
+  "general_head_infeasibility_proved": false,
+  "causal_encoder_implemented": false,
+  "timing_admitted": false
+}

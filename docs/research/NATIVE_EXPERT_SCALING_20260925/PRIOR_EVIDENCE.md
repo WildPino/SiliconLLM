@@ -1,13 +1,20 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Actual native affine-ray winner assay](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md)
+COMPLETE/full audit PASS:2361 distinct source winners/all8808 associations,
+2342 target native codes/all153487654 F32 scores bit exact with scalar reference.
+DEV case coverage98.6616%,but available KL contribution9.6007 versus2.93425;
+winner-only codes lose distributions. Eleven zero-margin/eight additional unit-
+margin ray failures do not prove general head infeasibility. Next qualified
+GPUF64 cost before full-probability gap study,UNIMPLEMENTED;causal core still open.
 [Current native head moments/cost and guard diagnosis](NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all8808 exact source moments/IDs/code/loss/
 gradient/support rows verified. Original run CLOSED1;V2 CLOSED0 retains BOTH
 false1e-5 precision flags. Complete577249896 score comparison bounds KL changes
 by score ranges with no ID changes;no formula/data drift. No positive initial
-floor or optimized codes. Next bounded affine-ray winner-feasibility probe,
-UNIMPLEMENTED;empty interval only excludes chosen ray. Causal acquisition open.
+floor or optimized probability codes. Subsequent affine-ray winner probe now
+complete as linked above;empty interval only excludes chosen ray. Causal acquisition open.
 [Broad full categorical correction/factor storage/direct source audit](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
 COMPLETE:all4422 FIT/4386 DEV labels,equal-case weights;all11 full-V points/48570
 rows/4422 full Jacobians audited. V1 deadline failed900s;budget-only V2 closes
