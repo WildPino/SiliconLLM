@@ -1,0 +1,40 @@
+{
+  "schema": "DUAL_ENTROPY_MIXTURE_INVOCATION_V1",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/dual_entropy_mixture_witness.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/dual_entropy_mixture_binding_20261012.json",
+    "--binding-sha",
+    "068525a07392f90fdd9aeb4f4766fdfdf91df453c0418cf90f42bb6d1f1662b8",
+    "--freeze",
+    "ee9601728d8f1671891c86182b3186790e30fee6",
+    "--directory",
+    "results/native_expert_scaling/dual_entropy_mixture_witness_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/dual_entropy_mixture_result_20261012.json"
+  ],
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 900,
+    "output_bytes": 536870912
+  },
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "preparation": {
+    "seconds": 5.516,
+    "exit_code": 0
+  },
+  "freeze": "ee9601728d8f1671891c86182b3186790e30fee6"
+}
