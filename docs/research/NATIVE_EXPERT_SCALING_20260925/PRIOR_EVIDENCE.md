@@ -1,6 +1,21 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Actual mixed C operator/cost](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md)
+COMPLETE/full independent audit PASS:all48 new native384x96 histories/every
+direct CPU timestep/full final states/export bits/normalized/score/output/source
+metrics and hashes. ALL92,352,512 raw F32 scores bitexact scalar reference,
+normalized inputs difference0. Local DEVmean.068813/worst.096949,all gatesPASS.
+[V1](COMPOSED_OPERATOR_NATIVE_V1_RESULT_20261013.md) complete/full audit retains
+one false1e-4 normalized-input flag;V1 timing never launched. Mixed F64
+decode/gate/RMS->BF16->AVX F32 output passes unchanged controls.
+Same mixed artifact/two all48 timing passes:scan~10us,normalize+out~1157us,
+total supplied-operand~1248us,source input GEMV separately~2535us;
+no joined layer/clean-system/actual DRAM/native chatbot/n/50 admission.
+Native closure retains all seven sessions CLOSED0,V1/mixed immutable E
+families1.837GB/1.006GB. Next [state width and source-function costs](SOURCE_FUNCTION_COST_AND_STATE_WIDTH_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Earlier prospective statuses below are historical;
+the current index and this leading evidence determine resumption.
 [Fixed channel384/state96 composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md)
 COMPLETE/full independent audit PASS/site23 local budgets PASS/both norm modes.
 All48 histories/77,922,432 full CPU scan values/every timestep,

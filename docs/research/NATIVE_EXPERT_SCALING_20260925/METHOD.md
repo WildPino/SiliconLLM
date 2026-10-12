@@ -3,6 +3,18 @@
 13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Actual C mixed384x96 operator](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) now
+IMPLEMENTED/INDEPENDENTLY VERIFIED for all48 source-injected site23 histories,
+including all rawF32 score bits (92,352,512) with separate scalar FMA reference.
+F32 state/F64 decode-gate-RMS/BF16/AVX F32 output boundary;local gates PASS,
+DEVmean.068813/worst.096949. Original V1 normalized-input failure fully retained;
+no threshold relaxation/subset. Source generators/conv/hidden inputs still supplied.
+Same qualified component/two batch1 passes:scan~10us,normalize+out~1157us,
+total supplied-operand~1248us;source input generator kernel separately~2535us.
+These are measured component costs,not complete layer/clean-system/expert-DRAM/
+whole-chatbot speed. [Next state width/source-function investigation](SOURCE_FUNCTION_COST_AND_STATE_WIDTH_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Preserve trained functions where actual active
+cost permits;compact CAUSAL hidden/generator/readout transfer remains missing.
 [All-label exact categorical factors/gradient/source audit](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
 now IMPLEMENTED/LOCALLY VERIFIED on4422 FIT/4386 DEV,all48570 full-V point rows,
 all4422 explicit RMS Jacobians and parameter bits. Compact head/Z/radius factors
@@ -85,9 +97,10 @@ Joint DEV ownnorm mean.068813/worst.096949,all local gates PASS/both modes;
 3584 conv channels,3072 gates/fullskip/norm/out and source hidden inputs.
 Scalar source head decay permits axis composition;it does not close the compact
 causal generator or commute mixed maps through source SiLU/dynamic gates.
-Next [native operator qualification/cost pilot](COMPOSED_OPERATOR_NATIVE_COST_NEXT_20261013.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND. Count/measure all retained source functions
-before considering an engine extension;no21.33x whole-model speed admission.
+The [native operator qualification/cost pilot](COMPOSED_OPERATOR_NATIVE_COST_NEXT_20261013.md)
+is subsequently COMPLETE as linked above. Input-generator GEMV measured
+separately;full source convolution/hidden generation is not an autonomous
+native path. No21.33x whole-model speed admission.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

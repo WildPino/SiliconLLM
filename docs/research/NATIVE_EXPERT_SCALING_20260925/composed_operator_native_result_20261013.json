@@ -1,0 +1,3638 @@
+{
+  "schema": "COMPOSED_OPERATOR_NATIVE_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\composed_operator_native_binding_20261013.json",
+    "bytes": 293488,
+    "sha256": "0e7b949e07f07be1973eeeaaada7b17236c6d8226e4c2271c11d1d2afe77e2e1"
+  },
+  "freeze": "a9f35de0a7592421ed4ce25c6655e305e9301398",
+  "records": [
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "history": 773,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.054259964470103235,
+            "centered_output_relative_RMS": 0.05995351336182978,
+            "label_output_relative_RMS": 0.046115784322299756
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05319635445504635,
+            "centered_output_relative_RMS": 0.05878652116507886,
+            "label_output_relative_RMS": 0.0444120625575897
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.054259910974279756,
+            "centered_output_relative_RMS": 0.059953465651468904,
+            "label_output_relative_RMS": 0.04611576392651887
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.053196413907331076,
+            "centered_output_relative_RMS": 0.05878656834169392,
+            "label_output_relative_RMS": 0.044411875125212524
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0124986049437827e-07,
+        "state96_B": 1.5848643296265116e-07,
+        "state96_C": 1.6708793978104496e-07,
+        "latent": 3.6169921145779776e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00019256083782979142,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001993635305912065,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00019192262395437785,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00020354566728654957,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_apigen_80k_002.npz",
+        "bytes": 25134364,
+        "sha256": "bb9ce92b5131e846e63e1a6580e52cda4e6350a705fe9fccbb15e952cf88dee5"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_apigen_80k_002.npz",
+        "bytes": 60112718,
+        "sha256": "42016c36483030186b51e15d81dfdec60f94b13b86fa57b7d47d7d4855d55042"
+      },
+      "native_call_seconds": 4.95386359999975
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "history": 479,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06256296014150473,
+            "centered_output_relative_RMS": 0.06895981657236995,
+            "label_output_relative_RMS": 0.040994124879965115
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06184337549610202,
+            "centered_output_relative_RMS": 0.06818487201806181,
+            "label_output_relative_RMS": 0.040553316746666054
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06256304508685283,
+            "centered_output_relative_RMS": 0.0689599003178401,
+            "label_output_relative_RMS": 0.04099434494327676
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06184344562443826,
+            "centered_output_relative_RMS": 0.0681849421191124,
+            "label_output_relative_RMS": 0.04055444720747815
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 1.960883802388553e-07,
+        "state96_B": 1.5775861421127366e-07,
+        "state96_C": 1.6493379018583603e-07,
+        "latent": 3.2455673304029335e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001666670045591725,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00015684552942981647,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00016873131591517464,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00023529733724995307,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_apigen_80k_023.npz",
+        "bytes": 15575836,
+        "sha256": "3ce77ec234223ddbbc3842d0432b2a97e5f9081cf0d2ed61e2b5d729ad1ff7c8"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_apigen_80k_023.npz",
+        "bytes": 37307726,
+        "sha256": "d820fa9a70d4207728bdb64c53207e6cf200be352c68f170289e6e9d79f2cbb9"
+      },
+      "native_call_seconds": 3.0573315999999977
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "history": 363,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04663995714803842,
+            "centered_output_relative_RMS": 0.04972083641628594,
+            "label_output_relative_RMS": 0.04117533379620574
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04589291082620271,
+            "centered_output_relative_RMS": 0.048550014527923575,
+            "label_output_relative_RMS": 0.041387449582109895
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04663996843210577,
+            "centered_output_relative_RMS": 0.04972086879490257,
+            "label_output_relative_RMS": 0.041175405286629455
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04589185789982248,
+            "centered_output_relative_RMS": 0.04854876743456583,
+            "label_output_relative_RMS": 0.041386141922444775
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0812262000894437e-07,
+        "state96_B": 1.3925888639369694e-07,
+        "state96_C": 1.511612270926896e-07,
+        "latent": 3.3020770518604563e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00016382130916913485,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001910604134891073,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00016148473024202864,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002022622555838027,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_everyday_conversations_002.npz",
+        "bytes": 11804444,
+        "sha256": "16d6e540e6077b74a239fd3d8182bbd2c4d16c78fc8719505ed6c74a38f88dc6"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_everyday_conversations_002.npz",
+        "bytes": 28309838,
+        "sha256": "c294af2ca671015f035acae0424af54769ac9b5c341e2f6d611aa254004c86a1"
+      },
+      "native_call_seconds": 2.317880600000535
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "history": 367,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04887870295785339,
+            "centered_output_relative_RMS": 0.05204679803618185,
+            "label_output_relative_RMS": 0.0441795477430793
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04861048806309054,
+            "centered_output_relative_RMS": 0.051586243757932145,
+            "label_output_relative_RMS": 0.04580264891918816
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04887868708967757,
+            "centered_output_relative_RMS": 0.052046843400587496,
+            "label_output_relative_RMS": 0.044179447577302765
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.048610190933430615,
+            "centered_output_relative_RMS": 0.051585846028747384,
+            "label_output_relative_RMS": 0.04580276340216029
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0852666315273872e-07,
+        "state96_B": 1.3936146599340344e-07,
+        "state96_C": 1.4919539963075221e-07,
+        "latent": 3.1841790306323104e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00019204393442621688,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00018125675072595693,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001921875433348965,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.000193343014622582,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_everyday_conversations_010.npz",
+        "bytes": 11934492,
+        "sha256": "b3410aa7e9842003c42919b6aaeb359fa58871b4eac34870b68bf0980f26e26c"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_everyday_conversations_010.npz",
+        "bytes": 28620110,
+        "sha256": "fd61a5cbc9170136e788656ed7fa17943d6c10b94cbfa4d0f9418e92d3e9e4d1"
+      },
+      "native_call_seconds": 2.342023100000006
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "history": 58,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.0711026111690194,
+            "centered_output_relative_RMS": 0.07563557657405093,
+            "label_output_relative_RMS": 0.06215194616359315
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0670733229526495,
+            "centered_output_relative_RMS": 0.07096812016498613,
+            "label_output_relative_RMS": 0.061877925090205184
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07110281744456068,
+            "centered_output_relative_RMS": 0.07563587713555618,
+            "label_output_relative_RMS": 0.062152078554052886
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06707681580790921,
+            "centered_output_relative_RMS": 0.07097184556960966,
+            "label_output_relative_RMS": 0.061877895971495046
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.149839816018539e-07,
+        "state96_B": 1.5816073247815525e-07,
+        "state96_C": 1.6482069588176876e-07,
+        "latent": 2.6085554593356123e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 9.371414665495583e-05,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001238152910152006,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00011448131535203762,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019927511251032496,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_explore_instruct_rewriting_008.npz",
+        "bytes": 1888284,
+        "sha256": "d32464a57325b82062a5d761a92f24309f309d071ba0749c2642f7f7eaba79d5"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_explore_instruct_rewriting_008.npz",
+        "bytes": 4651598,
+        "sha256": "bbe43d0f1bca16615514722619c35de3e4ac7f21d02af4ae5d538473d225ac7e"
+      },
+      "native_call_seconds": 0.3660381999998208
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "history": 90,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.08005044823845207,
+            "centered_output_relative_RMS": 0.08616371334986968,
+            "label_output_relative_RMS": 0.05823146056204656
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07649725635387004,
+            "centered_output_relative_RMS": 0.08215609035181193,
+            "label_output_relative_RMS": 0.05816835978954431
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.08005082914858576,
+            "centered_output_relative_RMS": 0.0861640709910124,
+            "label_output_relative_RMS": 0.05823146231071387
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0764973867693534,
+            "centered_output_relative_RMS": 0.08215614020103802,
+            "label_output_relative_RMS": 0.05816893242185845
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.061191283540051e-07,
+        "state96_B": 1.2476647640922057e-07,
+        "state96_C": 1.397791097141291e-07,
+        "latent": 2.5319977531475405e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00011204251603161227,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00013694102753844634,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00010092205741607761,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00014014865939045084,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_explore_instruct_rewriting_009.npz",
+        "bytes": 2928668,
+        "sha256": "b60c5758ab13195883de6357f5798128aefad30f7f0bdd14f527a176cffed413"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_explore_instruct_rewriting_009.npz",
+        "bytes": 7133774,
+        "sha256": "2c05449c36365dd8404b1165e13ca0207ab00c60944d7103b3d6beebd82994db"
+      },
+      "native_call_seconds": 0.5732419000005393
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "history": 209,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05293887810690459,
+            "centered_output_relative_RMS": 0.056493323463850234,
+            "label_output_relative_RMS": 0.044006719704467075
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05140645130616534,
+            "centered_output_relative_RMS": 0.0547984999581103,
+            "label_output_relative_RMS": 0.043502997703226916
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05293869080564097,
+            "centered_output_relative_RMS": 0.05649303383730249,
+            "label_output_relative_RMS": 0.0440067432749724
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.051407275414816454,
+            "centered_output_relative_RMS": 0.05479946979185612,
+            "label_output_relative_RMS": 0.04350312399842477
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0672569520653702e-07,
+        "state96_B": 1.453592326782673e-07,
+        "state96_C": 1.5568477989509248e-07,
+        "latent": 2.7988566472301805e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00011937157415720386,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00014565010258502304,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00013616744555596533,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00020792005364951213,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_metamathqa_50k_015.npz",
+        "bytes": 6797596,
+        "sha256": "0031c0dfe39542dd2946586c5aa894e59f6deb4a0ff64c4ae38eccb83f4ecf59"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_metamathqa_50k_015.npz",
+        "bytes": 16364366,
+        "sha256": "a888d76cfe7f68522390881d92f1302a2a27b7628986bd1fc0693b54342e1c5d"
+      },
+      "native_call_seconds": 1.3428700000004028
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "history": 337,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07104798274978634,
+            "centered_output_relative_RMS": 0.07761235568861782,
+            "label_output_relative_RMS": 0.05553876541168714
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06911768019987034,
+            "centered_output_relative_RMS": 0.07545342372480456,
+            "label_output_relative_RMS": 0.05437805381119392
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07104787392306311,
+            "centered_output_relative_RMS": 0.07761218691865614,
+            "label_output_relative_RMS": 0.05553874898271106
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0691179886401875,
+            "centered_output_relative_RMS": 0.07545370358569695,
+            "label_output_relative_RMS": 0.05437818430169876
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0507543580600822e-07,
+        "state96_B": 1.3775895260285272e-07,
+        "state96_C": 1.5223856542805355e-07,
+        "latent": 2.981257951705293e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00014126972134575675,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00012265024096318877,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00014916270605996195,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001732444295465313,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_metamathqa_50k_023.npz",
+        "bytes": 10959132,
+        "sha256": "1b9302c90dd52f24a3f0a956ce6ec3f689ace361b81bc47cebf2ca8eb72958fe"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_metamathqa_50k_023.npz",
+        "bytes": 26293070,
+        "sha256": "0154f70a8adef076d3872e155e1ec6b09370cacb63800620afb08d5cd2453829"
+      },
+      "native_call_seconds": 2.15080880000005
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "history": 318,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06368294707965025,
+            "centered_output_relative_RMS": 0.07348079596819997,
+            "label_output_relative_RMS": 0.057767916283036125
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05775034034178658,
+            "centered_output_relative_RMS": 0.06652499236485238,
+            "label_output_relative_RMS": 0.05121300230245924
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06368274595746887,
+            "centered_output_relative_RMS": 0.07348055049469752,
+            "label_output_relative_RMS": 0.05776793855579469
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05775032099790435,
+            "centered_output_relative_RMS": 0.06652498510086494,
+            "label_output_relative_RMS": 0.05121300372758066
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.059949153769927e-07,
+        "state96_B": 1.3980930307867556e-07,
+        "state96_C": 1.5125990399786896e-07,
+        "latent": 3.01110427926336e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00014528764617960526,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001581448102277084,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001510244012615735,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001738305787413655,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_numina_cot_100k_015.npz",
+        "bytes": 10341404,
+        "sha256": "e004da8e10e8e348dcfa80054e5acf670b5115f27f6cbe0f7fe88a66695df948"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_numina_cot_100k_015.npz",
+        "bytes": 24819278,
+        "sha256": "a89bd7582e8e2afb2c13603e1c56c54e84942e0a93d96336ab7cfc67e6dab90f"
+      },
+      "native_call_seconds": 2.00958989999981
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "history": 381,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05483387249637802,
+            "centered_output_relative_RMS": 0.0613729126432892,
+            "label_output_relative_RMS": 0.05042112704164361
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0541793245936824,
+            "centered_output_relative_RMS": 0.06060980478771829,
+            "label_output_relative_RMS": 0.05052290002042672
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05483404598659803,
+            "centered_output_relative_RMS": 0.061373103243792804,
+            "label_output_relative_RMS": 0.05042131778352125
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.054179617620514375,
+            "centered_output_relative_RMS": 0.06061015132358649,
+            "label_output_relative_RMS": 0.05052331477086106
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1003962037701843e-07,
+        "state96_B": 1.363701514299879e-07,
+        "state96_C": 1.516270715692159e-07,
+        "latent": 3.0063129259062113e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.000145239376736054,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00014932052698082623,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00016059136814168155,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001882506824722421,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_numina_cot_100k_016.npz",
+        "bytes": 12389660,
+        "sha256": "0bb986d34f697337782f3b55c47d78ab8ced4ed5e855283ad85a94f189f50ab0"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_numina_cot_100k_016.npz",
+        "bytes": 29706062,
+        "sha256": "2af8b473bd99f72cef0f7f08bda5f7a745c686862a7ed653b482c93c48d2dbac"
+      },
+      "native_call_seconds": 2.429272999999739
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "history": 316,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.060570184164597037,
+            "centered_output_relative_RMS": 0.06720593233158816,
+            "label_output_relative_RMS": 0.054535772998203454
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05833000095129635,
+            "centered_output_relative_RMS": 0.06476588667706197,
+            "label_output_relative_RMS": 0.052767058852615685
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.060570284956071176,
+            "centered_output_relative_RMS": 0.06720602222214794,
+            "label_output_relative_RMS": 0.05453589224270256
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0583301318482758,
+            "centered_output_relative_RMS": 0.06476601550326756,
+            "label_output_relative_RMS": 0.052766993696527945
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0961654849992916e-07,
+        "state96_B": 1.472097950426309e-07,
+        "state96_C": 1.545307166921904e-07,
+        "latent": 2.999444871861335e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00016538089456608467,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001602211100088818,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00016511084352630224,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00020430177629101868,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_openhermes_100k_004.npz",
+        "bytes": 10276380,
+        "sha256": "8484916449913fc0032f716d4b918d3b95633039fccec294a2597df93545e623"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_openhermes_100k_004.npz",
+        "bytes": 24664142,
+        "sha256": "4107ae29b54a6313bbf47ac14654e17bd2bab5ab1061747d511173e5d26a5db8"
+      },
+      "native_call_seconds": 1.9996197999998913
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "history": 435,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04782640953818113,
+            "centered_output_relative_RMS": 0.052397762455867074,
+            "label_output_relative_RMS": 0.0462559491792677
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04647504704423257,
+            "centered_output_relative_RMS": 0.050867044477734324,
+            "label_output_relative_RMS": 0.04509051682291958
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04782645356440469,
+            "centered_output_relative_RMS": 0.052397808632226504,
+            "label_output_relative_RMS": 0.046255999127765055
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.046475083207645644,
+            "centered_output_relative_RMS": 0.05086717100428359,
+            "label_output_relative_RMS": 0.04509051327786775
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.04625011128566e-07,
+        "state96_B": 1.547305461865244e-07,
+        "state96_C": 1.68783239425786e-07,
+        "latent": 2.92139202370285e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001461358678083967,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00015771974961775856,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001498432223650558,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019178246244358062,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_openhermes_100k_028.npz",
+        "bytes": 14145308,
+        "sha256": "e1a8d6643ef8cb4f9a8e9eb850550d0797cf70fa53f3879913f9a7caa3186a05"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_openhermes_100k_028.npz",
+        "bytes": 33894734,
+        "sha256": "79138e199d6f8c3ccb43c9d7febd9eb346e945a7c076437ec1b290909d31b16b"
+      },
+      "native_call_seconds": 2.78203670000039
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "history": 431,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05418433201561083,
+            "centered_output_relative_RMS": 0.05802445821121955,
+            "label_output_relative_RMS": 0.05016087896802633
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.052984253032646915,
+            "centered_output_relative_RMS": 0.056689896924254954,
+            "label_output_relative_RMS": 0.04961120297966886
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05418433678830973,
+            "centered_output_relative_RMS": 0.05802442158872185,
+            "label_output_relative_RMS": 0.05016089773525766
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.052984334274226254,
+            "centered_output_relative_RMS": 0.0566900909453314,
+            "label_output_relative_RMS": 0.04961122381447235
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.056444914642483e-07,
+        "state96_B": 1.4872149521191856e-07,
+        "state96_C": 1.7107541488116182e-07,
+        "latent": 3.2433073454562015e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00017463005986768297,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001881566856581518,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001943412400463359,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002165031644319714,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_self_oss_instruct_006.npz",
+        "bytes": 14015260,
+        "sha256": "08c892d1e2f6d8f66b74edcaee2407852004c66a7dd6f96116fec25566dcfcab"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_self_oss_instruct_006.npz",
+        "bytes": 33584462,
+        "sha256": "d4a7b2ce4f146a11f8d085227636941cc9207a69e67d3b88cf05dabedbaca4ca"
+      },
+      "native_call_seconds": 2.753552000000127
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "history": 337,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05691004778588753,
+            "centered_output_relative_RMS": 0.060656898809610935,
+            "label_output_relative_RMS": 0.0526561281059008
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05569196670631127,
+            "centered_output_relative_RMS": 0.059085359482622994,
+            "label_output_relative_RMS": 0.05219267138350648
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.056910237190696565,
+            "centered_output_relative_RMS": 0.060657075559670016,
+            "label_output_relative_RMS": 0.05265633696106598
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05569196034632667,
+            "centered_output_relative_RMS": 0.05908525299477844,
+            "label_output_relative_RMS": 0.0521930737845987
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0012910245635192e-07,
+        "state96_B": 1.4309843651476156e-07,
+        "state96_C": 1.498193618017134e-07,
+        "latent": 3.363149782040265e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001626026684479367,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021398035367856615,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00015990373529887098,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002394126042363037,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_self_oss_instruct_012.npz",
+        "bytes": 10959132,
+        "sha256": "54377e1d293e530111afa922ad3661614a73304869869e816f550d16d24cd503"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_self_oss_instruct_012.npz",
+        "bytes": 26293070,
+        "sha256": "3500416e4ae93245ee426c66fdaaa2447f9e9375f6757c06b73b43d95e0f519a"
+      },
+      "native_call_seconds": 2.1737042000004294
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "history": 238,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06879337709631315,
+            "centered_output_relative_RMS": 0.07285367552287014,
+            "label_output_relative_RMS": 0.0651670354128478
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06844908666427031,
+            "centered_output_relative_RMS": 0.07246768207256943,
+            "label_output_relative_RMS": 0.06596229389785944
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06879344386291279,
+            "centered_output_relative_RMS": 0.07285370169443293,
+            "label_output_relative_RMS": 0.06516714389840395
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06844813430237266,
+            "centered_output_relative_RMS": 0.07246668893482723,
+            "label_output_relative_RMS": 0.06596146569359737
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1027811635468258e-07,
+        "state96_B": 1.404030686124326e-07,
+        "state96_C": 1.5028363305578878e-07,
+        "latent": 3.0945875201069e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00017129616151009562,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002078812611892496,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001629406337518238,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002299960513246026,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_constraints_005.npz",
+        "bytes": 7740444,
+        "sha256": "32d5f9c4d32b20d534d52866234b87d6ace0f59e29c9123ee9f1af0cc12ca426"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_constraints_005.npz",
+        "bytes": 18613838,
+        "sha256": "332ff16be10a10ad9ea4e104da1328e4185c5f9a321db62d4a69bde7d557a8ea"
+      },
+      "native_call_seconds": 1.5184904999996434
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "history": 294,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06852666150336946,
+            "centered_output_relative_RMS": 0.07142728228469802,
+            "label_output_relative_RMS": 0.05993261159444373
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0673009790423846,
+            "centered_output_relative_RMS": 0.07012790795942328,
+            "label_output_relative_RMS": 0.05957191474321093
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06852661950336997,
+            "centered_output_relative_RMS": 0.07142723309674599,
+            "label_output_relative_RMS": 0.0599325591342102
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0673013991940691,
+            "centered_output_relative_RMS": 0.07012842160872462,
+            "label_output_relative_RMS": 0.059572867677991664
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.100838454198478e-07,
+        "state96_B": 1.368602068050875e-07,
+        "state96_C": 1.5046564666488503e-07,
+        "latent": 3.041662282996616e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00018871448774837566,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001719474894441632,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00017975577744884386,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00017503710469844746,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_constraints_021.npz",
+        "bytes": 9561116,
+        "sha256": "36246bc2748f07bd7be6cf298045e2f2c14608e5b92ac88f3a0117d2abf73f22"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_constraints_021.npz",
+        "bytes": 22957646,
+        "sha256": "702f9ae3c6fc89ba5efdbc93873f5e45f299f2ddff894b656cec874383657e97"
+      },
+      "native_call_seconds": 1.8838045999991664
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "history": 1034,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06654265775721313,
+            "centered_output_relative_RMS": 0.07230383946190724,
+            "label_output_relative_RMS": 0.05517178032300289
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06598706404677734,
+            "centered_output_relative_RMS": 0.0717876978466614,
+            "label_output_relative_RMS": 0.05497547734022908
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06654259487981015,
+            "centered_output_relative_RMS": 0.07230373225396226,
+            "label_output_relative_RMS": 0.05517177915799438
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06598708376969735,
+            "centered_output_relative_RMS": 0.07178777877224508,
+            "label_output_relative_RMS": 0.0549750573601052
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0950747892657737e-07,
+        "state96_B": 1.9826366617784737e-07,
+        "state96_C": 2.0853947113408897e-07,
+        "latent": 3.642100360209084e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00021708089327026977,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00022404168906325008,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00020907102823405522,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00024186211239977498,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_magpie_ultra_000.npz",
+        "bytes": 33619996,
+        "sha256": "b89b90b9bc22bfa9f4cba28fad45128062f2fa62e149bf732f6da959aa54d8d5"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_magpie_ultra_000.npz",
+        "bytes": 80357966,
+        "sha256": "2b7ca6cab5c63282b307b1489c3b0be6990df66c7dea6950ddd7e13151ce4778"
+      },
+      "native_call_seconds": 6.623461700000007
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "history": 1507,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06679512784726176,
+            "centered_output_relative_RMS": 0.07193350162397935,
+            "label_output_relative_RMS": 0.05880234481319256
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06498572054653341,
+            "centered_output_relative_RMS": 0.06977014565802198,
+            "label_output_relative_RMS": 0.060519206934541915
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06679516869592733,
+            "centered_output_relative_RMS": 0.07193354972751184,
+            "label_output_relative_RMS": 0.05880236613710034
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06498570155065414,
+            "centered_output_relative_RMS": 0.06977011050599996,
+            "label_output_relative_RMS": 0.0605193018703549
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.081324364905622e-07,
+        "state96_B": 1.9944764756807142e-07,
+        "state96_C": 2.0791807785544879e-07,
+        "latent": 5.281065271136747e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00026617529750567743,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00026421767884393524,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00026287204805442745,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002908010720019419,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_magpie_ultra_022.npz",
+        "bytes": 48998172,
+        "sha256": "8e44f7581afacab8777ce68fe92c4f5147eaa66fdf3baab6c4e3e71d35d37ce0"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_magpie_ultra_022.npz",
+        "bytes": 117047630,
+        "sha256": "8ecdee5fbe14f01875722fd44f3eced130f91aeb8cf4dac6e1f4b4be5e67ac94"
+      },
+      "native_call_seconds": 9.635911299999862
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "history": 252,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.0686156526817013,
+            "centered_output_relative_RMS": 0.07570324553925964,
+            "label_output_relative_RMS": 0.05180989881007759
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06656650791583135,
+            "centered_output_relative_RMS": 0.07351262050302461,
+            "label_output_relative_RMS": 0.05120791210577156
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06861539752785314,
+            "centered_output_relative_RMS": 0.07570291604762823,
+            "label_output_relative_RMS": 0.051809429772818515
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06656644343753232,
+            "centered_output_relative_RMS": 0.07351252853761837,
+            "label_output_relative_RMS": 0.05120805443966649
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1291253869813455e-07,
+        "state96_B": 1.3149296062867205e-07,
+        "state96_C": 1.5044471530209022e-07,
+        "latent": 2.959638999494902e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00020266815088719679,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00016819172715468205,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00018583258342335846,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00020673547796568536,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_rewrite_004.npz",
+        "bytes": 8195612,
+        "sha256": "2fc3ef9b7eb4721e6aa5192c779cca21a1d4c85e3c57afbef9339a50dea696cc"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_rewrite_004.npz",
+        "bytes": 19699790,
+        "sha256": "d0f3e3ed16ddd51d036afb8c7ec5c5dced4bb9f566865a62a13a8a95c209825c"
+      },
+      "native_call_seconds": 1.606345600000168
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "history": 554,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06834543520106343,
+            "centered_output_relative_RMS": 0.07468401910384471,
+            "label_output_relative_RMS": 0.062320369636557106
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0669882468642171,
+            "centered_output_relative_RMS": 0.07330451797568203,
+            "label_output_relative_RMS": 0.061941535124689605
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.0683454728889438,
+            "centered_output_relative_RMS": 0.07468403452626228,
+            "label_output_relative_RMS": 0.062320432616799176
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0669877905179075,
+            "centered_output_relative_RMS": 0.0733039635187518,
+            "label_output_relative_RMS": 0.06194132547407642
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0771286909249095e-07,
+        "state96_B": 1.494906755320508e-07,
+        "state96_C": 1.6546020981913607e-07,
+        "latent": 3.8933606921851867e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00022975883429781493,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002011088489375353,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00023269976047830956,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00022205946314810627,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_rewrite_015.npz",
+        "bytes": 18014236,
+        "sha256": "4d8fbe74056c930c6d82519a856ef9a0446f8927a0bbe208d4cec8605ca1cb3b"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_rewrite_015.npz",
+        "bytes": 43125326,
+        "sha256": "f9b7aa85695cb7a822a9c2b1049d8d70e9bfcaae77454849b36124d50311ed90"
+      },
+      "native_call_seconds": 3.546554199999264
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "history": 774,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.08264528503386208,
+            "centered_output_relative_RMS": 0.08857807527118307,
+            "label_output_relative_RMS": 0.06875846185061787
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.08083000411707833,
+            "centered_output_relative_RMS": 0.08694264162971391,
+            "label_output_relative_RMS": 0.06727124755543602
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.08264524426973689,
+            "centered_output_relative_RMS": 0.08857801279277014,
+            "label_output_relative_RMS": 0.06875843829857492
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.08082998168291525,
+            "centered_output_relative_RMS": 0.08694251528150554,
+            "label_output_relative_RMS": 0.06727125965320047
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.105530723875128e-07,
+        "state96_B": 1.4507029862311855e-07,
+        "state96_C": 1.6264515627160357e-07,
+        "latent": 4.5409297686675945e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00020959192113023458,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021047617678997548,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00021270014130160173,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002485335090783712,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_summarize_003.npz",
+        "bytes": 25166876,
+        "sha256": "0c667aa5310dcc5643cd18eb2b33ae4e42e633f32fda24fee7d527b07294127a"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_summarize_003.npz",
+        "bytes": 60190286,
+        "sha256": "4eba7123816e08bcb434e0af0eb11c1696ff1b0b1d815987c2c06142659858e6"
+      },
+      "native_call_seconds": 4.936058299999786
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "history": 264,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07538450722543272,
+            "centered_output_relative_RMS": 0.08267282306823583,
+            "label_output_relative_RMS": 0.056235038301382226
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07330400156919847,
+            "centered_output_relative_RMS": 0.08018903391452085,
+            "label_output_relative_RMS": 0.055931473484810604
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07538442136937512,
+            "centered_output_relative_RMS": 0.08267274000531423,
+            "label_output_relative_RMS": 0.05623475766502931
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0733037927012773,
+            "centered_output_relative_RMS": 0.08018883650779024,
+            "label_output_relative_RMS": 0.05593176741758012
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0911002974304512e-07,
+        "state96_B": 1.3557609041922237e-07,
+        "state96_C": 1.4903231013855156e-07,
+        "latent": 3.0887082440945394e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00018528575759315462,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00013675249574904533,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00018919026943139955,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00017994457533118064,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_smol_summarize_024.npz",
+        "bytes": 8585756,
+        "sha256": "57403d27857a89402854eb351460ade14091e90a1d43cda973201d6d49a4c6e1"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_smol_summarize_024.npz",
+        "bytes": 20630606,
+        "sha256": "cdae9f6b38cd96708cd0d1f5f0a5df1d8aac39157f19f19d396dc765ae754527"
+      },
+      "native_call_seconds": 1.687127700000019
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "history": 1020,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05311385771152642,
+            "centered_output_relative_RMS": 0.05649935097834293,
+            "label_output_relative_RMS": 0.05784383367951693
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.052287827149205386,
+            "centered_output_relative_RMS": 0.05564514757988661,
+            "label_output_relative_RMS": 0.05693996008824114
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05311389535570589,
+            "centered_output_relative_RMS": 0.0564993766859516,
+            "label_output_relative_RMS": 0.05784396508318311
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05228799391063777,
+            "centered_output_relative_RMS": 0.05564527428658786,
+            "label_output_relative_RMS": 0.056939980771661236
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0605356426974953e-07,
+        "state96_B": 1.997736873417575e-07,
+        "state96_C": 2.1494175465291356e-07,
+        "latent": 4.24859985562786e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0002192602469405083,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002095186646468149,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00022278838615515662,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021620974815981462,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_systemchats_30k_010.npz",
+        "bytes": 33164828,
+        "sha256": "698ea82c9e6d7f26acb9e23ed92e2b9d84900ca50a2ec4d9ee10c2cc4dbaf9ef"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_systemchats_30k_010.npz",
+        "bytes": 79272014,
+        "sha256": "e8862171e1960d9cbb30d7a92277181aacdfdddcec8633e085fdae71f4b9482a"
+      },
+      "native_call_seconds": 6.51856620000035
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "history": 317,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06870992061783313,
+            "centered_output_relative_RMS": 0.07275925824978952,
+            "label_output_relative_RMS": 0.05799735204938492
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.067333259849176,
+            "centered_output_relative_RMS": 0.071136758544332,
+            "label_output_relative_RMS": 0.05810658449534208
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06870992976998919,
+            "centered_output_relative_RMS": 0.07275926918921173,
+            "label_output_relative_RMS": 0.057997268234839236
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06733291120670098,
+            "centered_output_relative_RMS": 0.0711364599393698,
+            "label_output_relative_RMS": 0.05810623924323785
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0707430518335718e-07,
+        "state96_B": 1.3761056856798628e-07,
+        "state96_C": 1.50270709939485e-07,
+        "latent": 3.293429473204841e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001773343527731634,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00017085862248791635,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001784879467764299,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019764846161957351,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_fit_systemchats_30k_024.npz",
+        "bytes": 10308892,
+        "sha256": "a9d1a9af85bc56b6f15d69e87bc35b2313e2b35124935398141dbfa3e1c16645"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_fit_systemchats_30k_024.npz",
+        "bytes": 24741710,
+        "sha256": "2a3a675708784c5e73c77552de6ccd39d8e13fcde0c32d08219b7dbf738c2f70"
+      },
+      "native_call_seconds": 2.022430899999563
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "history": 918,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.056182644724119504,
+            "centered_output_relative_RMS": 0.06147774154879815,
+            "label_output_relative_RMS": 0.04117331654734059
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05518756110320663,
+            "centered_output_relative_RMS": 0.060473704115120284,
+            "label_output_relative_RMS": 0.03970396865834502
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.056182705875481166,
+            "centered_output_relative_RMS": 0.06147778380795386,
+            "label_output_relative_RMS": 0.04117329414420621
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05518765915535426,
+            "centered_output_relative_RMS": 0.060473797399450024,
+            "label_output_relative_RMS": 0.03970437276269857
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 1.9810592414766696e-07,
+        "state96_B": 1.5515901284769084e-07,
+        "state96_C": 1.6461019648168613e-07,
+        "latent": 3.9176752107876144e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001871246579588399,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019022001215559194,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00019032711611446714,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002029917249145093,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_apigen_80k_033.npz",
+        "bytes": 29848604,
+        "sha256": "99b31911126946257465cac1438b0d659619f5664fb228d55b1342bb2ce78dd8"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_apigen_80k_033.npz",
+        "bytes": 71360078,
+        "sha256": "57e0ad664318f79f8508b0803c1ca924c1b42efe54e5ce2dca2e6372b682c657"
+      },
+      "native_call_seconds": 5.884898299999804
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "history": 462,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.05494849510614519,
+            "centered_output_relative_RMS": 0.06037076940109576,
+            "label_output_relative_RMS": 0.035525558797116684
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.054115179968066654,
+            "centered_output_relative_RMS": 0.05950284272355418,
+            "label_output_relative_RMS": 0.03491611392985922
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.054948686433878714,
+            "centered_output_relative_RMS": 0.06037100484439853,
+            "label_output_relative_RMS": 0.035525646441638394
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05411518291918204,
+            "centered_output_relative_RMS": 0.05950285558686415,
+            "label_output_relative_RMS": 0.034915560411999995
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 1.997270612033771e-07,
+        "state96_B": 1.5678729702901398e-07,
+        "state96_C": 1.673631681167486e-07,
+        "latent": 3.080525669317785e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00016841000443231662,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00015629357314019595,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00015951385819401164,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00017252205599535496,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_apigen_80k_034.npz",
+        "bytes": 15023132,
+        "sha256": "2fdc84c0ccb3cf0df48e11e465716b11326f78c8ca42b4ac7d555aa2bd0eec4d"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_apigen_80k_034.npz",
+        "bytes": 35989070,
+        "sha256": "bb17767adcbdab34cd3f180f52934807c6d62a80fdbe150daabc25882e7e1a7b"
+      },
+      "native_call_seconds": 2.9554783000003226
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "history": 378,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06387012710701981,
+            "centered_output_relative_RMS": 0.06839127657626504,
+            "label_output_relative_RMS": 0.07092941267948524
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05944674013546859,
+            "centered_output_relative_RMS": 0.06336810659328117,
+            "label_output_relative_RMS": 0.0618621877107534
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06387015395299885,
+            "centered_output_relative_RMS": 0.06839129622340286,
+            "label_output_relative_RMS": 0.07092930979603757
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0594465631531863,
+            "centered_output_relative_RMS": 0.06336791823779117,
+            "label_output_relative_RMS": 0.06186227560749053
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.064707037744885e-07,
+        "state96_B": 1.3828744692098155e-07,
+        "state96_C": 1.4901835090844974e-07,
+        "latent": 3.400740784649515e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001435184827091355,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00015983463692983217,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001517170588814952,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00018147499574960817,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_everyday_conversations_033.npz",
+        "bytes": 12292124,
+        "sha256": "34347dceb6444a4ddec23b786670b3dc7f34a00687a27f99797e079982cbab96"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_everyday_conversations_033.npz",
+        "bytes": 29473358,
+        "sha256": "c96e484b78c3b821971300ded3227ec68c08dbff01781e1e8672d4df9555780b"
+      },
+      "native_call_seconds": 2.416025399999853
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "history": 200,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04923108925024201,
+            "centered_output_relative_RMS": 0.051262366740557966,
+            "label_output_relative_RMS": 0.042049967564054956
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04811004782831396,
+            "centered_output_relative_RMS": 0.04984867798818856,
+            "label_output_relative_RMS": 0.04262941156652663
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04923121452934826,
+            "centered_output_relative_RMS": 0.051262557264473846,
+            "label_output_relative_RMS": 0.042049996275707366
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04810968545401963,
+            "centered_output_relative_RMS": 0.049848312051027806,
+            "label_output_relative_RMS": 0.042629187171289995
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1458765095150357e-07,
+        "state96_B": 1.3681410257326438e-07,
+        "state96_C": 1.5207223838991418e-07,
+        "latent": 2.720033123908733e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001807975536626482,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001187814180912384,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00018080762060679523,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021998916255535822,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_everyday_conversations_036.npz",
+        "bytes": 6504988,
+        "sha256": "235d05ba654ec4f986c907f101b483e427e8524dc2a5a789c268fba22d0b16ce"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_everyday_conversations_036.npz",
+        "bytes": 15666254,
+        "sha256": "868b531237abcff6a891127ebfddf371c0617c4c755fe67aaa2d46acf7bb43df"
+      },
+      "native_call_seconds": 1.27935079999952
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "history": 61,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07167006560448103,
+            "centered_output_relative_RMS": 0.076933730852886,
+            "label_output_relative_RMS": 0.057041068325682585
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06816069202797638,
+            "centered_output_relative_RMS": 0.07266249974545241,
+            "label_output_relative_RMS": 0.057190922820877
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07167015400550182,
+            "centered_output_relative_RMS": 0.07693369595958853,
+            "label_output_relative_RMS": 0.05704090811492505
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06816332755044331,
+            "centered_output_relative_RMS": 0.07266611830792606,
+            "label_output_relative_RMS": 0.05718999870878094
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1172856627778675e-07,
+        "state96_B": 1.4526047774212715e-07,
+        "state96_C": 1.7683661596024733e-07,
+        "latent": 2.7662162794061873e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00017667583349932763,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 8.435483816912158e-05,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00017190645968667123,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00026479470392053476,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_explore_instruct_rewriting_035.npz",
+        "bytes": 1985820,
+        "sha256": "35397457cf598ff0a92bbc2e419475c383e917401895d9ffa6ec5779a6e12be3"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_explore_instruct_rewriting_035.npz",
+        "bytes": 4884302,
+        "sha256": "9574a47401bc136df70b8d82d367b53b722a3ddb50d6fddf399fd9eb44439fa3"
+      },
+      "native_call_seconds": 0.39471770000000106
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "history": 323,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06900115647130323,
+            "centered_output_relative_RMS": 0.07280385598877008,
+            "label_output_relative_RMS": 0.05957783625036267
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06691374358603178,
+            "centered_output_relative_RMS": 0.07057293914406744,
+            "label_output_relative_RMS": 0.05884444470250934
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06900105294772918,
+            "centered_output_relative_RMS": 0.07280381507695048,
+            "label_output_relative_RMS": 0.05957767134757875
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06691304611424588,
+            "centered_output_relative_RMS": 0.07057222926964984,
+            "label_output_relative_RMS": 0.05884405999020787
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0668922854685195e-07,
+        "state96_B": 1.3819982132722174e-07,
+        "state96_C": 1.534696485851518e-07,
+        "latent": 3.2698661888659013e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00019559465047281659,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002018776395093673,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00019718834549513404,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021218240102687522,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_explore_instruct_rewriting_038.npz",
+        "bytes": 10503964,
+        "sha256": "22732eeb2f504399a6007a23c931e0d4fb9077ff8538342d56328bcba3771765"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_explore_instruct_rewriting_038.npz",
+        "bytes": 25207118,
+        "sha256": "7c3cdbadc6e61f3adeb245ea08e987cd7b5f90621a9db73c493c5b4989cb754a"
+      },
+      "native_call_seconds": 2.047783099999833
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "history": 243,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06810255793904166,
+            "centered_output_relative_RMS": 0.07238421229393019,
+            "label_output_relative_RMS": 0.06176230855507331
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06674048891806512,
+            "centered_output_relative_RMS": 0.07100914890355829,
+            "label_output_relative_RMS": 0.06127516538580838
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06810257842379983,
+            "centered_output_relative_RMS": 0.07238423397679526,
+            "label_output_relative_RMS": 0.06176230977960093
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06674064109753987,
+            "centered_output_relative_RMS": 0.07100925837754701,
+            "label_output_relative_RMS": 0.061275205715574745
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.103458078450781e-07,
+        "state96_B": 1.4099355084235225e-07,
+        "state96_C": 1.5174048896333134e-07,
+        "latent": 3.175615132085032e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00016433581064070242,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001866680158945542,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00016352072147627052,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00020170401681902296,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_metamathqa_50k_035.npz",
+        "bytes": 7903004,
+        "sha256": "a958d88a2f31375a5dfc06a20fe333ff8ee53e7756028a6eefbca80baad60205"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_metamathqa_50k_035.npz",
+        "bytes": 19001678,
+        "sha256": "a395bb6a6d73d0fd1854aaaa83bf6eefc6db2aa7eab9515aeeb6fffbc270e1df"
+      },
+      "native_call_seconds": 1.5523911999998745
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "history": 352,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07936692005148992,
+            "centered_output_relative_RMS": 0.08630610233640956,
+            "label_output_relative_RMS": 0.06560539127149785
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07815849999204538,
+            "centered_output_relative_RMS": 0.08512701069961107,
+            "label_output_relative_RMS": 0.0655232045251065
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07936689180827161,
+            "centered_output_relative_RMS": 0.08630608288329791,
+            "label_output_relative_RMS": 0.06560544180537091
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07815915852182567,
+            "centered_output_relative_RMS": 0.08512775578658999,
+            "label_output_relative_RMS": 0.06552410660467918
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0793794185933847e-07,
+        "state96_B": 1.396735172839902e-07,
+        "state96_C": 1.4682285992673375e-07,
+        "latent": 3.009722566315189e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001846027930146671,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00014524999365613263,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001801627070902129,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019690521630053227,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_metamathqa_50k_037.npz",
+        "bytes": 11446812,
+        "sha256": "9270af651fcf3278e3ab60f4743ed7a07d54bb573a49daed2a72c395b4cf7350"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_metamathqa_50k_037.npz",
+        "bytes": 27456590,
+        "sha256": "064620d98e84dcc1be20774dacf192c862ba62c9dade3782ef4e761c24f153e0"
+      },
+      "native_call_seconds": 2.248967800000173
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "history": 387,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.09763660026038805,
+            "centered_output_relative_RMS": 0.10851634053548645,
+            "label_output_relative_RMS": 0.10028340905533317
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.09694933180038452,
+            "centered_output_relative_RMS": 0.10784996595470932,
+            "label_output_relative_RMS": 0.09983600434497661
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.09763656222145381,
+            "centered_output_relative_RMS": 0.10851626465842312,
+            "label_output_relative_RMS": 0.1002833657336127
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.09694959819749058,
+            "centered_output_relative_RMS": 0.10785027222777355,
+            "label_output_relative_RMS": 0.09983627610403245
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0999845356665165e-07,
+        "state96_B": 1.418466906977833e-07,
+        "state96_C": 1.4863487030284108e-07,
+        "latent": 3.215818869721182e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00017540665113534122,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00013484428383600002,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.000178371057413246,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019098681675246593,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_numina_cot_100k_035.npz",
+        "bytes": 12584732,
+        "sha256": "ff64422fddd0442e5700afe544dd41f81d8990a8f2bcac541bfd7324a100a807"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_numina_cot_100k_035.npz",
+        "bytes": 30171470,
+        "sha256": "e5fbc20edc4c7a307c618a55b04339c9545d317809a8dbdfe932c0c7b8ac6ae7"
+      },
+      "native_call_seconds": 2.4754228000001604
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "history": 318,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.060520607968049214,
+            "centered_output_relative_RMS": 0.07184913570583806,
+            "label_output_relative_RMS": 0.05795439428002816
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06055224428036703,
+            "centered_output_relative_RMS": 0.0719763821439691,
+            "label_output_relative_RMS": 0.0581953919831684
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.060520622850394584,
+            "centered_output_relative_RMS": 0.07184911043466681,
+            "label_output_relative_RMS": 0.057954390514972934
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06055231928957152,
+            "centered_output_relative_RMS": 0.07197634638079241,
+            "label_output_relative_RMS": 0.05819552924012036
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1303306627213292e-07,
+        "state96_B": 1.3958428201903403e-07,
+        "state96_C": 1.5795142355111244e-07,
+        "latent": 2.757485086063266e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001269566598469055,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00011890493465954061,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001333116046200847,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00015103527831655106,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_numina_cot_100k_038.npz",
+        "bytes": 10341404,
+        "sha256": "54938c7f2201e4b675324d396226077ea580d406a8fdac67edae7f3063a9922b"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_numina_cot_100k_038.npz",
+        "bytes": 24819278,
+        "sha256": "d3a6fc96f94e5896e7f1b58c340f6cb8dde83c50aa98cc6091c86972606642be"
+      },
+      "native_call_seconds": 2.0391836999997395
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "history": 289,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07389212966435772,
+            "centered_output_relative_RMS": 0.07440380363476178,
+            "label_output_relative_RMS": 0.07233672757391899
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07317937852307806,
+            "centered_output_relative_RMS": 0.07345710652051188,
+            "label_output_relative_RMS": 0.07215272038616641
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07389187450116305,
+            "centered_output_relative_RMS": 0.07440367605722767,
+            "label_output_relative_RMS": 0.0723364242874552
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07317910377540933,
+            "centered_output_relative_RMS": 0.07345683085261195,
+            "label_output_relative_RMS": 0.07215285832640024
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0841400538058643e-07,
+        "state96_B": 1.3939910347718966e-07,
+        "state96_C": 1.483745844208856e-07,
+        "latent": 3.1251041005638184e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00017395338261823803,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00016427013352863197,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.0001862846899226053,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021095805262018514,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_openhermes_100k_034.npz",
+        "bytes": 9398556,
+        "sha256": "fc57ba2d99f492d8b95392cbb3f74c7a0c0f6c7c4c3afa57aa485b0ec77cdbc9"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_openhermes_100k_034.npz",
+        "bytes": 22569806,
+        "sha256": "4dc7f1809f7fc5fac5f4eefa8a66ca266c642b4ba1834c30f4b9da4d850471cb"
+      },
+      "native_call_seconds": 1.834535799999685
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "history": 356,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07514876882198462,
+            "centered_output_relative_RMS": 0.07944468978109233,
+            "label_output_relative_RMS": 0.06291978332155813
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07393347801256656,
+            "centered_output_relative_RMS": 0.07851167158243243,
+            "label_output_relative_RMS": 0.06317265696203855
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07514873705248197,
+            "centered_output_relative_RMS": 0.0794446589259742,
+            "label_output_relative_RMS": 0.06291976353829257
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07393300218250821,
+            "centered_output_relative_RMS": 0.07851118649838917,
+            "label_output_relative_RMS": 0.06317243501348709
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.074953622114965e-07,
+        "state96_B": 1.4261768985918853e-07,
+        "state96_C": 1.4969779445011645e-07,
+        "latent": 3.2795570813515493e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00016579038057323972,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00018325653650927827,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00017372081222405273,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021644855501754866,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_openhermes_100k_037.npz",
+        "bytes": 11576860,
+        "sha256": "47073f5521145e1b6d01784237d1cb3666287dc32f12e221a24af130c4863cff"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_openhermes_100k_037.npz",
+        "bytes": 27766862,
+        "sha256": "1216d1d455a7db9260bc0785dcd3a90435745aca90083fb33bdb73c9dffe5f88"
+      },
+      "native_call_seconds": 2.272160299999996
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "history": 418,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.052659691347570814,
+            "centered_output_relative_RMS": 0.0563018271487439,
+            "label_output_relative_RMS": 0.049148772702749165
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.051634202736505215,
+            "centered_output_relative_RMS": 0.05522365957718443,
+            "label_output_relative_RMS": 0.04824825424788187
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.052659562376957694,
+            "centered_output_relative_RMS": 0.056301757087392386,
+            "label_output_relative_RMS": 0.04914859795158528
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.05163415386787103,
+            "centered_output_relative_RMS": 0.05522363439559833,
+            "label_output_relative_RMS": 0.04824825735565995
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.05879558572743e-07,
+        "state96_B": 1.5371715470791218e-07,
+        "state96_C": 1.6708270490628256e-07,
+        "latent": 3.097840603890347e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00015579519837424031,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001622570898206538,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00016152977902309965,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001587263275536567,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_self_oss_instruct_033.npz",
+        "bytes": 13592604,
+        "sha256": "68c16cc55a14268a98713f833a0fce32f3ee5060a8db2496f7aae7bcffd10308"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_self_oss_instruct_033.npz",
+        "bytes": 32576078,
+        "sha256": "83a7e146218b8c765cae1b21e33ae9d683c8c5e8fc6e64679aa935fa780e2a7e"
+      },
+      "native_call_seconds": 2.6698412999994616
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "history": 357,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04875086277385628,
+            "centered_output_relative_RMS": 0.0527164644212003,
+            "label_output_relative_RMS": 0.04495240476700235
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04764594212076636,
+            "centered_output_relative_RMS": 0.05136090730751209,
+            "label_output_relative_RMS": 0.044103704478450266
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.04875071952395302,
+            "centered_output_relative_RMS": 0.052716297531285844,
+            "label_output_relative_RMS": 0.044952417058584083
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.04764553442687453,
+            "centered_output_relative_RMS": 0.051360487764500876,
+            "label_output_relative_RMS": 0.044103476816795946
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.023009775654952e-07,
+        "state96_B": 1.41411420720811e-07,
+        "state96_C": 1.5271621710126646e-07,
+        "latent": 2.8801714882229523e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001458619190766202,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00015441073855447003,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00015071550073367064,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0001908738799438708,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_self_oss_instruct_036.npz",
+        "bytes": 11609372,
+        "sha256": "2ce6006104404703047e1caaa92de8e4705cdb85dd44e5a7366b624d227bf7d4"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_self_oss_instruct_036.npz",
+        "bytes": 27844430,
+        "sha256": "b47a74758aaf096681f998596e9e7a0bedb39fc83c0f48696e758775769b4716"
+      },
+      "native_call_seconds": 2.2751812000005884
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "history": 188,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07647573921189521,
+            "centered_output_relative_RMS": 0.07980866554696829,
+            "label_output_relative_RMS": 0.07376118864953804
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07448277741737466,
+            "centered_output_relative_RMS": 0.07769690001267297,
+            "label_output_relative_RMS": 0.07304575062130247
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07647573705706007,
+            "centered_output_relative_RMS": 0.07980870544411645,
+            "label_output_relative_RMS": 0.07376138386236564
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0744833860152527,
+            "centered_output_relative_RMS": 0.07769771712578095,
+            "label_output_relative_RMS": 0.07304569616378767
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0710283198368437e-07,
+        "state96_B": 1.3924563589335318e-07,
+        "state96_C": 1.458604219137442e-07,
+        "latent": 2.641108539203094e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0001948435974150273,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00014850237220984518,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00019495909946853955,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021645726016662203,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_constraints_034.npz",
+        "bytes": 6114844,
+        "sha256": "407796117e1759d068a0d5440ddcd5862cc728d32f4170aae846861e1053f36a"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_constraints_034.npz",
+        "bytes": 14735438,
+        "sha256": "656668d6389930aeda52cc174a382055ac683421ac1dd062bce3811bddd1e247"
+      },
+      "native_call_seconds": 1.2011240000001635
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "history": 107,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.09409810862590683,
+            "centered_output_relative_RMS": 0.10104720057556091,
+            "label_output_relative_RMS": 0.10820819570017949
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.09191341941978458,
+            "centered_output_relative_RMS": 0.09852098155178417,
+            "label_output_relative_RMS": 0.10531278130163219
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.09409822060097389,
+            "centered_output_relative_RMS": 0.1010473668346342,
+            "label_output_relative_RMS": 0.10820836963877359
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0919140297247184,
+            "centered_output_relative_RMS": 0.09852174640012283,
+            "label_output_relative_RMS": 0.10531288327832071
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1065237321048925e-07,
+        "state96_B": 1.33615038713496e-07,
+        "state96_C": 1.500359093514611e-07,
+        "latent": 2.62137335595845e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00010465811122812662,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002287275872104221,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.000102508970601003,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002144014576826999,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_constraints_035.npz",
+        "bytes": 3481372,
+        "sha256": "ec5fe35a2d705845ebd34fec2f67e82f7d41a1ce564a71c81a4e51b9539db817"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_constraints_035.npz",
+        "bytes": 8452430,
+        "sha256": "1ed95e7c0ad287159358d0af1cd6540ea2a93157b4eec8d14901d99c3315e020"
+      },
+      "native_call_seconds": 0.6856859999998051
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "history": 1268,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07826979666546639,
+            "centered_output_relative_RMS": 0.0831965137919616,
+            "label_output_relative_RMS": 0.06547387483706324
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0754893605604661,
+            "centered_output_relative_RMS": 0.08051804786245415,
+            "label_output_relative_RMS": 0.06396663345322594
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07826987162623,
+            "centered_output_relative_RMS": 0.08319661825289704,
+            "label_output_relative_RMS": 0.06547406865397543
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.07548938280171655,
+            "centered_output_relative_RMS": 0.08051799712691213,
+            "label_output_relative_RMS": 0.06396587148831298
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.079368140325589e-07,
+        "state96_B": 1.5417268100085515e-07,
+        "state96_C": 1.628305729311237e-07,
+        "latent": 4.6712749729986687e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00024707604875038783,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00023206788666554968,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.000246546444731738,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002538455367287493,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_magpie_ultra_034.npz",
+        "bytes": 41227804,
+        "sha256": "cf56e5ff533843d71e5c81e2665adf20413b21dc92a067bb92474d387ec90591"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_magpie_ultra_034.npz",
+        "bytes": 98508878,
+        "sha256": "46486fbe468f8bf21f4eed0ffa36dbba2a313b75f0ccb7444aff5a609ca2d795"
+      },
+      "native_call_seconds": 8.100868000000446
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "history": 1488,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06145860487584709,
+            "centered_output_relative_RMS": 0.06328305344878861,
+            "label_output_relative_RMS": 0.060451158274162614
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.060907090698325825,
+            "centered_output_relative_RMS": 0.06258443323475277,
+            "label_output_relative_RMS": 0.060259287085670694
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06145864939269726,
+            "centered_output_relative_RMS": 0.0632830992574661,
+            "label_output_relative_RMS": 0.060451136408563276
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06090694327568779,
+            "centered_output_relative_RMS": 0.06258429596714689,
+            "label_output_relative_RMS": 0.06025890369216631
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.058328495988746e-07,
+        "state96_B": 1.986715433789219e-07,
+        "state96_C": 2.030935911778088e-07,
+        "latent": 5.723526168828877e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0002694628570890978,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002795670937427486,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00027392717568489657,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002906468263519962,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_magpie_ultra_036.npz",
+        "bytes": 48380444,
+        "sha256": "27d8ee506d7b263000a09090a79c7f3ef47bc1d975b2fbd1fb1fe09403cb6e97"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_magpie_ultra_036.npz",
+        "bytes": 115573838,
+        "sha256": "f03e93238c964b62c98e07c6b218a0f740902f045ca7a118ab725d015c82254e"
+      },
+      "native_call_seconds": 9.95696720000069
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "history": 502,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07037220129779487,
+            "centered_output_relative_RMS": 0.07621974005741616,
+            "label_output_relative_RMS": 0.06024660482009098
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06845338803963429,
+            "centered_output_relative_RMS": 0.07451226688875989,
+            "label_output_relative_RMS": 0.0588007544116604
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.07037228500461083,
+            "centered_output_relative_RMS": 0.07621986758230026,
+            "label_output_relative_RMS": 0.060246550458624655
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06845337030157114,
+            "centered_output_relative_RMS": 0.07451231434006594,
+            "label_output_relative_RMS": 0.05880065169616316
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0769283807379878e-07,
+        "state96_B": 1.5370130693761336e-07,
+        "state96_C": 1.648107154359378e-07,
+        "latent": 3.9160410288376743e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00022026558301043738,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00018482818971558282,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00022171035889831739,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002318341086982622,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_rewrite_032.npz",
+        "bytes": 16323612,
+        "sha256": "be118a9f1e0d1ab7189719740a8d8617388802afd2b5b02d227baf88f07e446c"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_rewrite_032.npz",
+        "bytes": 39091790,
+        "sha256": "f747c7ce0216a5191df4633c34319fe32e82303ab2162204bb443f35131aab73"
+      },
+      "native_call_seconds": 3.214899000000514
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "history": 374,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06343430058652365,
+            "centered_output_relative_RMS": 0.0679922476129783,
+            "label_output_relative_RMS": 0.05606525282997157
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06167007728859786,
+            "centered_output_relative_RMS": 0.06619032035725517,
+            "label_output_relative_RMS": 0.05530667236932719
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06343428546795378,
+            "centered_output_relative_RMS": 0.0679922512525796,
+            "label_output_relative_RMS": 0.056065212142253476
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.061669939553620934,
+            "centered_output_relative_RMS": 0.06619014877542884,
+            "label_output_relative_RMS": 0.055306389943412755
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1148970154524908e-07,
+        "state96_B": 1.3715656887278871e-07,
+        "state96_C": 1.4468237829253209e-07,
+        "latent": 3.2802672732723386e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00016235032183834733,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019067829982991278,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00016259950531970086,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021857414514085035,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_rewrite_036.npz",
+        "bytes": 12162076,
+        "sha256": "8722f521596311053e8318cdfe1e75021275b42b555b327452f8faba6f226355"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_rewrite_036.npz",
+        "bytes": 29163086,
+        "sha256": "6e8ec9f1dab9682edc9b901533065851bb8ee1cda9a5bbabb069878a00bd1f91"
+      },
+      "native_call_seconds": 2.549567900000511
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "history": 243,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.0893555074500249,
+            "centered_output_relative_RMS": 0.09744990016120292,
+            "label_output_relative_RMS": 0.0579097610541945
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.086939300057048,
+            "centered_output_relative_RMS": 0.09482382557279229,
+            "label_output_relative_RMS": 0.057588073654793834
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.08935629893468083,
+            "centered_output_relative_RMS": 0.09745076385158719,
+            "label_output_relative_RMS": 0.057909757740032757
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.08693935569120498,
+            "centered_output_relative_RMS": 0.0948238814268564,
+            "label_output_relative_RMS": 0.05758882814904878
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.1012518721392392e-07,
+        "state96_B": 1.3288999464302763e-07,
+        "state96_C": 1.4575236320403458e-07,
+        "latent": 3.180212501128423e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.0002679116064603277,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00018503594000802574,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00019126281068474653,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00021385405880024853,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_summarize_034.npz",
+        "bytes": 7903004,
+        "sha256": "9175bf118b18a4405416ece56cbf8b76504c83809839bd6794af5214398ebe5e"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_summarize_034.npz",
+        "bytes": 19001678,
+        "sha256": "88db5a887a628921a445f999a0f68b71734c6a431ac85cefdbe1a5defbac062e"
+      },
+      "native_call_seconds": 1.6351174000001265
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "history": 980,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.0811499608771502,
+            "centered_output_relative_RMS": 0.08426481919357684,
+            "label_output_relative_RMS": 0.06960234698645622
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.079076757723512,
+            "centered_output_relative_RMS": 0.08237168303082526,
+            "label_output_relative_RMS": 0.0690970419545103
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.08114997302075098,
+            "centered_output_relative_RMS": 0.08426482394151774,
+            "label_output_relative_RMS": 0.06960252989150643
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.0790771289251154,
+            "centered_output_relative_RMS": 0.08237191558995738,
+            "label_output_relative_RMS": 0.06909698685484898
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0877526480944657e-07,
+        "state96_B": 1.928840294518156e-07,
+        "state96_C": 2.030753513582682e-07,
+        "latent": 4.6554909537393607e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00024512269551753063,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.0002428524798231406,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00024708009803066876,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00027917850170966474,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_smol_summarize_039.npz",
+        "bytes": 31864348,
+        "sha256": "274adbd219db64311ac488db74d9bcdc0a2d1001db3051c900240172e334af9e"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_smol_summarize_039.npz",
+        "bytes": 76169294,
+        "sha256": "ede61c047ca6411fd7b17bf4c4c920717d57fa239827a8c8b9f11abc1ef29b5a"
+      },
+      "native_call_seconds": 6.469211200000245
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "history": 890,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06316574732440991,
+            "centered_output_relative_RMS": 0.06869246519416448,
+            "label_output_relative_RMS": 0.056991773976563756
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.06086177337158319,
+            "centered_output_relative_RMS": 0.06580947908093816,
+            "label_output_relative_RMS": 0.054392715509360784
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.06316567443494694,
+            "centered_output_relative_RMS": 0.06869237377475308,
+            "label_output_relative_RMS": 0.05699171346352567
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.060861794782104316,
+            "centered_output_relative_RMS": 0.06580946900473555,
+            "label_output_relative_RMS": 0.05439300028609735
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0987841451659855e-07,
+        "state96_B": 1.5519774265636864e-07,
+        "state96_C": 1.669886727527035e-07,
+        "latent": 4.0896807034592326e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00021671860745477685,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00019972875864276854,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00022391780766773298,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00023579654271295759,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_systemchats_30k_034.npz",
+        "bytes": 28938268,
+        "sha256": "ed54c707a8851835f79261723e8f9cf1c236156ffc21bd7fbc1da4ff65b66bb9"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_systemchats_30k_034.npz",
+        "bytes": 69188174,
+        "sha256": "8f498e2b81627d42ca0cbd8c6582bcf79911bb7aec727c611c2a13d387e39fa8"
+      },
+      "native_call_seconds": 5.7399811000004775
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "history": 297,
+      "metrics": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.09138992341606582,
+            "centered_output_relative_RMS": 0.09705065837681262,
+            "label_output_relative_RMS": 0.09113789222585912
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.09098407893576689,
+            "centered_output_relative_RMS": 0.0965155103165043,
+            "label_output_relative_RMS": 0.09166718382641736
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "output_relative_RMS": 0.09139000954839957,
+            "centered_output_relative_RMS": 0.09705068419465318,
+            "label_output_relative_RMS": 0.09113801229521033
+          },
+          "reconstructed_denominator": {
+            "output_relative_RMS": 0.09098383175048834,
+            "centered_output_relative_RMS": 0.09651543053735398,
+            "label_output_relative_RMS": 0.09166708013371659
+          }
+        }
+      },
+      "prior_comparison": {
+        "projected_input": 2.0798044576578347e-07,
+        "state96_B": 1.355942901650543e-07,
+        "state96_C": 1.458585369953968e-07,
+        "latent": 3.224432909054559e-07
+      },
+      "old_bridge": {
+        "controlled_F64": {
+          "full_source_denominator": {
+            "relative": 0.00019922538122117833,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00016506362098908601,
+            "pass_original_1e3": true
+          }
+        },
+        "AVX_F32": {
+          "full_source_denominator": {
+            "relative": 0.00020843149211272855,
+            "pass_original_1e3": true
+          },
+          "reconstructed_denominator": {
+            "relative": 0.00020151883327421268,
+            "pass_original_1e3": true
+          }
+        }
+      },
+      "prior": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\recurrent_axis_composition_20261013\\broad_dev_systemchats_30k_039.npz",
+        "bytes": 9658652,
+        "sha256": "12b984299362bb584e117aa22611fbd731a0c1dd87096d8aa67db8e6eb0f6fb5"
+      },
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_native_20261013\\run\\broad_dev_systemchats_30k_039.npz",
+        "bytes": 23190350,
+        "sha256": "a8d92eb54a414eb4e36cb20fab9bfa52724ea9a272719f27d0a3988e6e6d461f"
+      },
+      "native_call_seconds": 1.9027920000007725
+    }
+  ],
+  "aggregates": {
+    "controlled_F64": {
+      "full_source_denominator": {
+        "FIT": {
+          "mean": 0.06304007419739766,
+          "worst": 0.08264528503386208,
+          "centered_mean": 0.06829749020778923,
+          "worst_domain_mean": 0.0790148961296474,
+          "domain_means": {
+            "smol-summarize": 0.0790148961296474,
+            "systemchats-30k": 0.060911889164679774,
+            "numina-cot-100k": 0.05925840978801414,
+            "smol-rewrite": 0.06848054394138237,
+            "openhermes-100k": 0.054198296851389084,
+            "smol-magpie-ultra": 0.06666889280223745,
+            "explore-instruct-rewriting": 0.07557652970373574,
+            "self-oss-instruct": 0.05554718990074918,
+            "metamathqa-50k": 0.061993430428345465,
+            "smol-constraints": 0.06866001929984131,
+            "apigen-80k": 0.05841146230580398,
+            "everyday-conversations": 0.0477593300529459
+          }
+        },
+        "DEV": {
+          "mean": 0.07042298364254725,
+          "worst": 0.09763660026038805,
+          "centered_mean": 0.07550698253855276,
+          "worst_domain_mean": 0.08528692391890103,
+          "domain_means": {
+            "smol-summarize": 0.08525273416358756,
+            "systemchats-30k": 0.07727783537023786,
+            "numina-cot-100k": 0.07907860411421863,
+            "smol-rewrite": 0.06690325094215926,
+            "openhermes-100k": 0.07452044924317117,
+            "smol-magpie-ultra": 0.06986420077065675,
+            "explore-instruct-rewriting": 0.07033561103789213,
+            "self-oss-instruct": 0.050705277060713545,
+            "metamathqa-50k": 0.07373473899526578,
+            "smol-constraints": 0.08528692391890103,
+            "apigen-80k": 0.05556556991513235,
+            "everyday-conversations": 0.05655060817863091
+          }
+        }
+      },
+      "reconstructed_denominator": {
+        "FIT": {
+          "mean": 0.06137839458698439,
+          "worst": 0.08083000411707833,
+          "centered_mean": 0.0664129551694496,
+          "worst_domain_mean": 0.0770670028431384,
+          "domain_means": {
+            "smol-summarize": 0.0770670028431384,
+            "systemchats-30k": 0.059810543499190696,
+            "numina-cot-100k": 0.055964832467734496,
+            "smol-rewrite": 0.06677737739002423,
+            "openhermes-100k": 0.05240252399776446,
+            "smol-magpie-ultra": 0.06548639229665537,
+            "explore-instruct-rewriting": 0.07178528965325978,
+            "self-oss-instruct": 0.054338109869479095,
+            "metamathqa-50k": 0.060262065753017846,
+            "smol-constraints": 0.06787503285332747,
+            "apigen-80k": 0.05751986497557418,
+            "everyday-conversations": 0.047251699444646626
+          }
+        },
+        "DEV": {
+          "mean": 0.06881273143937232,
+          "worst": 0.09694933180038452,
+          "centered_mean": 0.07377033628782882,
+          "worst_domain_mean": 0.08319809841857961,
+          "domain_means": {
+            "smol-summarize": 0.08300802889028,
+            "systemchats-30k": 0.07592292615367505,
+            "numina-cot-100k": 0.07875078804037577,
+            "smol-rewrite": 0.06506173266411608,
+            "openhermes-100k": 0.0735564282678223,
+            "smol-magpie-ultra": 0.06819822562939595,
+            "explore-instruct-rewriting": 0.06753721780700409,
+            "self-oss-instruct": 0.04964007242863579,
+            "metamathqa-50k": 0.07244949445505525,
+            "smol-constraints": 0.08319809841857961,
+            "apigen-80k": 0.05465137053563664,
+            "everyday-conversations": 0.05377839398189128
+          }
+        }
+      }
+    },
+    "AVX_F32": {
+      "full_source_denominator": {
+        "FIT": {
+          "mean": 0.06304008814466416,
+          "worst": 0.08264524426973689,
+          "centered_mean": 0.06829749145034893,
+          "worst_domain_mean": 0.07901483281955601,
+          "domain_means": {
+            "smol-summarize": 0.07901483281955601,
+            "systemchats-30k": 0.06091191256284754,
+            "numina-cot-100k": 0.059258395972033445,
+            "smol-rewrite": 0.06848043520839847,
+            "openhermes-100k": 0.05419836926023793,
+            "smol-magpie-ultra": 0.06666888178786874,
+            "explore-instruct-rewriting": 0.07557682329657323,
+            "self-oss-instruct": 0.05554728698950315,
+            "metamathqa-50k": 0.06199328236435204,
+            "smol-constraints": 0.06866003168314139,
+            "apigen-80k": 0.05841147803056629,
+            "everyday-conversations": 0.04775932776089167
+          }
+        },
+        "DEV": {
+          "mean": 0.07042302173298824,
+          "worst": 0.09763656222145381,
+          "centered_mean": 0.07550703287993067,
+          "worst_domain_mean": 0.08528697882901698,
+          "domain_means": {
+            "smol-summarize": 0.08525313597771592,
+            "systemchats-30k": 0.07727784199167326,
+            "numina-cot-100k": 0.0790785925359242,
+            "smol-rewrite": 0.0669032852362823,
+            "openhermes-100k": 0.0745203057768225,
+            "smol-magpie-ultra": 0.06986426050946364,
+            "explore-instruct-rewriting": 0.0703356034766155,
+            "self-oss-instruct": 0.050705140950455356,
+            "metamathqa-50k": 0.07373473511603572,
+            "smol-constraints": 0.08528697882901698,
+            "apigen-80k": 0.05556569615467994,
+            "everyday-conversations": 0.05655068424117356
+          }
+        }
+      },
+      "reconstructed_denominator": {
+        "FIT": {
+          "mean": 0.061378502315247774,
+          "worst": 0.08082998168291525,
+          "centered_mean": 0.06641306365991055,
+          "worst_domain_mean": 0.07706688719209628,
+          "domain_means": {
+            "smol-summarize": 0.07706688719209628,
+            "systemchats-30k": 0.059810452558669375,
+            "numina-cot-100k": 0.05596496930920936,
+            "smol-rewrite": 0.0667771169777199,
+            "openhermes-100k": 0.05240260752796072,
+            "smol-magpie-ultra": 0.06548639266017575,
+            "explore-instruct-rewriting": 0.0717871012886313,
+            "self-oss-instruct": 0.05433814731027646,
+            "metamathqa-50k": 0.06026263202750198,
+            "smol-constraints": 0.06787476674822088,
+            "apigen-80k": 0.05751992976588467,
+            "everyday-conversations": 0.04725102441662655
+          }
+        },
+        "DEV": {
+          "mean": 0.06881283910529178,
+          "worst": 0.09694959819749058,
+          "centered_mean": 0.07377049664295306,
+          "worst_domain_mean": 0.08319870786998555,
+          "domain_means": {
+            "smol-summarize": 0.08300824230816019,
+            "systemchats-30k": 0.07592281326629632,
+            "numina-cot-100k": 0.07875095874353105,
+            "smol-rewrite": 0.06506165492759604,
+            "openhermes-100k": 0.07355605297895877,
+            "smol-magpie-ultra": 0.06819816303870217,
+            "explore-instruct-rewriting": 0.0675381868323446,
+            "self-oss-instruct": 0.04963984414737278,
+            "metamathqa-50k": 0.07244989980968278,
+            "smol-constraints": 0.08319870786998555,
+            "apigen-80k": 0.05465142103726815,
+            "everyday-conversations": 0.05377812430360296
+          }
+        }
+      }
+    }
+  },
+  "gates": {
+    "controlled_F64": {
+      "full_source_denominator": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "reconstructed_denominator": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    },
+    "AVX_F32": {
+      "full_source_denominator": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      },
+      "reconstructed_denominator": {
+        "mean": true,
+        "worst": true,
+        "centered": true,
+        "domain": true
+      }
+    }
+  },
+  "before_after_hashes_exact": true,
+  "source_forwards": 0,
+  "optimizer_updates": 0,
+  "basis_fits": 0,
+  "native_history_calls": 48,
+  "new_native_scans": 48,
+  "native_component_timing_admitted": false,
+  "whole_model_quality_admitted": false,
+  "whole_model_speed_admitted": false,
+  "decision": "COMPLETE_PENDING_FULL_INDEPENDENT_AUDIT",
+  "output_bytes": 1756253088,
+  "family_output_bytes": 1836894098,
+  "seconds": 225.48968700000023,
+  "OS_peak": 549408768,
+  "scope": "Actual separate native384x96 CPU supplied-operand operator,two decode precisions/BF16 input-output boundaries/all48 histories. Retained source generator/gate/conv/fullskip/norm/out costs;no native chatbot/own-history/n/DRAM/full-model50 admission."
+}

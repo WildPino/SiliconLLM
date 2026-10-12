@@ -1,0 +1,4998 @@
+{
+  "schema": "COMPOSED_OPERATOR_NATIVE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\composed_operator_native_audit.py",
+    "bytes": 12598,
+    "sha256": "9b805287d146918072a08702742787b3c74159fdfcf5b5792c956ad669c27468"
+  },
+  "freeze": "bf8e11773b10015ff0c31d9a1e51fc649b288051",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\composed_operator_native_result_20261013.json",
+    "bytes": 136241,
+    "sha256": "b7f1527f1f30c59219c1a5bdc3e8711d075114cc908adbb685bfad75d87e8719"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\composed_operator_native_result_20261013.terminal.json",
+    "bytes": 1281,
+    "sha256": "a57f09eae586bbe6d56d82d083a33aa01776ac8e2976ac0d70d75970119f3011"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\composed_operator_native_binding_20261013.json",
+    "bytes": 293488,
+    "sha256": "0e7b949e07f07be1973eeeaaada7b17236c6d8226e4c2271c11d1d2afe77e2e1"
+  },
+  "cases_verified": 48,
+  "counts": {
+    "projected": 12987072,
+    "scan": 8658048,
+    "final_state": 1769472,
+    "normalized": 277057536,
+    "raw_scores": 184705024,
+    "BF16_outputs": 184705024,
+    "F32_scores_bit_verified": 92352512
+  },
+  "maximum": {
+    "input_projection": 1.1655092199645456e-07,
+    "B_projection": 1.0644043368475917e-07,
+    "C_projection": 1.1295383382901633e-07,
+    "sequential_scan": 5.222883131752733e-07,
+    "final_state": 1.3906398959241302e-06,
+    "scalar": 0.0,
+    "controlled_F64_normalized_smooth": 0.0,
+    "controlled_raw_scores": 0.0,
+    "controlled_BF16_scores": 0.0,
+    "AVX_F32_normalized_smooth": 0.00012641131007474777,
+    "F32_score_bit_mismatches": 0
+  },
+  "numeric_flags": [
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "input_projection",
+      "relative": 1.071041178575686e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "B_projection",
+      "relative": 1.0348599917518695e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "C_projection",
+      "relative": 1.0683483151081263e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "sequential_scan",
+      "relative": 2.7567220628893367e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "final_state",
+      "relative": 4.91823270903295e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.2987815883250691e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.085120477014446e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_002",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "input_projection",
+      "relative": 1.0681373085215364e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "B_projection",
+      "relative": 1.0303144040466106e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "C_projection",
+      "relative": 1.0892375556206526e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "sequential_scan",
+      "relative": 2.2872501834307814e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "final_state",
+      "relative": 4.810117430638394e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.3783228919431964e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.742202553905485e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_apigen_80k_023",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "input_projection",
+      "relative": 1.1382216532996776e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "B_projection",
+      "relative": 1.0025905912854405e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "C_projection",
+      "relative": 1.079562988333928e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "sequential_scan",
+      "relative": 2.2522810033193871e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "final_state",
+      "relative": 6.035565204028377e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.787295121648182e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.174460882846587e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_002",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "input_projection",
+      "relative": 1.1420640367117115e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "B_projection",
+      "relative": 1.0038206782901559e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "C_projection",
+      "relative": 1.0818784264398374e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "sequential_scan",
+      "relative": 2.1314571037468455e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "final_state",
+      "relative": 6.822635836920776e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 9.423095959045874e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.062809291743691e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_everyday_conversations_010",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "input_projection",
+      "relative": 1.1595676425308093e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "B_projection",
+      "relative": 1.0443262027012703e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "C_projection",
+      "relative": 1.073035689191759e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "sequential_scan",
+      "relative": 1.0212605904723948e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "final_state",
+      "relative": 1.4370358389680484e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.522022544147695e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.946668199664393e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_008",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "input_projection",
+      "relative": 1.1537557346988562e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "B_projection",
+      "relative": 9.822684825767326e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "C_projection",
+      "relative": 1.1169828336889694e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "sequential_scan",
+      "relative": 1.0631344114641546e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "final_state",
+      "relative": 1.7955228546909219e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.0427117222575654e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.4086337377602373e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_explore_instruct_rewriting_009",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "input_projection",
+      "relative": 1.1239141053942352e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "B_projection",
+      "relative": 1.0644043368475917e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "C_projection",
+      "relative": 1.1062487895408001e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "sequential_scan",
+      "relative": 1.4227106847401848e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "final_state",
+      "relative": 3.426377951474338e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.234297202432208e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.432894471097354e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_015",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "input_projection",
+      "relative": 1.1262789765108411e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "B_projection",
+      "relative": 1.0136118227983687e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "C_projection",
+      "relative": 1.0849326170227777e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "sequential_scan",
+      "relative": 1.8680572206335844e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "final_state",
+      "relative": 5.17700739175131e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.1694650785821903e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.076539094483713e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_metamathqa_50k_023",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "input_projection",
+      "relative": 1.1239954471757283e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "B_projection",
+      "relative": 1.031975791309084e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "C_projection",
+      "relative": 1.1132027419150708e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "sequential_scan",
+      "relative": 1.9037519975190706e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "final_state",
+      "relative": 3.464786072800357e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.349364191319106e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.70988524653955e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_015",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "input_projection",
+      "relative": 1.1476249760280051e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "B_projection",
+      "relative": 9.943336932131447e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "C_projection",
+      "relative": 1.1121428606777075e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "sequential_scan",
+      "relative": 2.0731943598231943e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "final_state",
+      "relative": 6.87644677393607e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.9430787813926404e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.5680906749765416e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_numina_cot_100k_016",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "input_projection",
+      "relative": 1.1437629434777755e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "B_projection",
+      "relative": 1.0533214216024378e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "C_projection",
+      "relative": 1.105696861798834e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "sequential_scan",
+      "relative": 1.7666357713671043e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "final_state",
+      "relative": 4.005270282588231e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 7.248483540463841e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.430071378394044e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_004",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "input_projection",
+      "relative": 1.119670065262933e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "B_projection",
+      "relative": 1.0465182248942513e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "C_projection",
+      "relative": 1.109304879598332e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "sequential_scan",
+      "relative": 1.9296207282844857e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "final_state",
+      "relative": 4.599815263008371e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.632507303747405e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.106534987507743e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_openhermes_100k_028",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "input_projection",
+      "relative": 1.1235646622587061e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "B_projection",
+      "relative": 9.90489131946501e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "C_projection",
+      "relative": 1.0976852699377543e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "sequential_scan",
+      "relative": 2.1750443606113458e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "final_state",
+      "relative": 5.122163495058462e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.8892158553954388e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.2440947972526474e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_006",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "input_projection",
+      "relative": 1.1061759128560073e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "B_projection",
+      "relative": 1.0278564644722615e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "C_projection",
+      "relative": 1.0595003062668064e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "sequential_scan",
+      "relative": 2.3236919302613228e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "final_state",
+      "relative": 5.98302903016465e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.217615128977974e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.281223504062419e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_self_oss_instruct_012",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "input_projection",
+      "relative": 1.1370126770606915e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "B_projection",
+      "relative": 1.0365850956963626e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "C_projection",
+      "relative": 1.1026752283957579e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "sequential_scan",
+      "relative": 1.964642307532888e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "final_state",
+      "relative": 4.7408634750534014e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.0935997613776889e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.287198507302757e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_005",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "input_projection",
+      "relative": 1.1442764534139247e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "B_projection",
+      "relative": 1.0125327240945883e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "C_projection",
+      "relative": 1.0940580205229334e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "sequential_scan",
+      "relative": 1.8868698452667283e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "final_state",
+      "relative": 5.396076311589324e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.1509332607122782e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.505592068953106e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_constraints_021",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "input_projection",
+      "relative": 1.1252555961723603e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "B_projection",
+      "relative": 9.946997422564775e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "C_projection",
+      "relative": 1.0608743966157588e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "sequential_scan",
+      "relative": 2.842233682431161e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "final_state",
+      "relative": 6.120451386499419e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.358924123828252e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.069025780179414e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_000",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "input_projection",
+      "relative": 1.1041463312952812e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "B_projection",
+      "relative": 9.979688503558423e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "C_projection",
+      "relative": 1.0575617935236585e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "sequential_scan",
+      "relative": 4.70672824526884e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "final_state",
+      "relative": 1.3906398959241302e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.5422409385217738e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.347924794773527e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_magpie_ultra_022",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "input_projection",
+      "relative": 1.1655092199645456e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "B_projection",
+      "relative": 9.53532875155458e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "C_projection",
+      "relative": 1.0736578830876246e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "sequential_scan",
+      "relative": 1.74542228969915e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "final_state",
+      "relative": 3.755720077260056e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.7803490152424764e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.820954516647652e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_004",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "input_projection",
+      "relative": 1.122551150806968e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "B_projection",
+      "relative": 9.749307981894283e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "C_projection",
+      "relative": 1.0669707712486256e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "sequential_scan",
+      "relative": 2.641497002968448e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "final_state",
+      "relative": 6.042588971835786e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.1817714500470187e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.1985416608880883e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_rewrite_015",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "input_projection",
+      "relative": 1.1291015946365471e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "B_projection",
+      "relative": 9.766347404233832e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "C_projection",
+      "relative": 1.0491254588364477e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "sequential_scan",
+      "relative": 3.6294132714981847e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "final_state",
+      "relative": 8.615074571669006e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 9.86902218699472e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.614321321549925e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_003",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "input_projection",
+      "relative": 1.1445415151292672e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "B_projection",
+      "relative": 9.708686807467441e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "C_projection",
+      "relative": 1.0754639226200288e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "sequential_scan",
+      "relative": 1.9378016511386428e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "final_state",
+      "relative": 4.0267734435098065e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.1968449887455953e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.8044063651472654e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_smol_summarize_024",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "input_projection",
+      "relative": 1.1090001764573925e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "B_projection",
+      "relative": 1.0090559900466558e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "C_projection",
+      "relative": 1.0872968114154557e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "sequential_scan",
+      "relative": 3.619413867754147e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "final_state",
+      "relative": 9.086219623723039e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.478705610837546e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.924313131657289e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_010",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "input_projection",
+      "relative": 1.1243352650649316e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "B_projection",
+      "relative": 9.795071708414491e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "C_projection",
+      "relative": 1.1040438533637967e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "sequential_scan",
+      "relative": 2.111909932895042e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "final_state",
+      "relative": 5.475230200416253e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.281031034950078e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.3385949485772264e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_fit_systemchats_30k_024",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "input_projection",
+      "relative": 1.0588999943343441e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "B_projection",
+      "relative": 1.0161330622810486e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "C_projection",
+      "relative": 1.0660156749712687e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "sequential_scan",
+      "relative": 3.1778050089572823e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "final_state",
+      "relative": 5.582236168703153e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 8.615980345758636e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.2988487092501665e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_033",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "input_projection",
+      "relative": 1.0801272404917548e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "B_projection",
+      "relative": 1.0193845318163011e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "C_projection",
+      "relative": 1.0679612754022001e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "sequential_scan",
+      "relative": 2.1074774208649566e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "final_state",
+      "relative": 4.6783442135164925e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.1373380605448732e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.0086336884466294e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_apigen_80k_034",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "input_projection",
+      "relative": 1.1367545749318476e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "B_projection",
+      "relative": 1.02161139796391e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "C_projection",
+      "relative": 1.0639672812339826e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "sequential_scan",
+      "relative": 2.49395519453366e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "final_state",
+      "relative": 7.438679607405878e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 8.399902928050245e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.4060180616969443e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_033",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "input_projection",
+      "relative": 1.1572827906739784e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "B_projection",
+      "relative": 9.77641451696562e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "C_projection",
+      "relative": 1.0936893951305326e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "sequential_scan",
+      "relative": 1.3737603899895554e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "final_state",
+      "relative": 3.6305503322171633e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.926725040775346e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.427389819716056e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_everyday_conversations_036",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "input_projection",
+      "relative": 1.1393652388724177e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "B_projection",
+      "relative": 9.449298880111452e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "C_projection",
+      "relative": 1.0947351712498114e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "sequential_scan",
+      "relative": 1.0891855475545942e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "final_state",
+      "relative": 1.3040692211063573e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 7.172506782742285e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.774140697318627e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_035",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "input_projection",
+      "relative": 1.1365525574581111e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "B_projection",
+      "relative": 1.0008985747720931e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "C_projection",
+      "relative": 1.095847916149325e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "sequential_scan",
+      "relative": 2.1156991229064e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "final_state",
+      "relative": 6.531481816447977e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 8.593218316404431e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.944882833658767e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_explore_instruct_rewriting_038",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "input_projection",
+      "relative": 1.122990665667035e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "B_projection",
+      "relative": 1.0003849244444243e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "C_projection",
+      "relative": 1.0850445342994607e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "sequential_scan",
+      "relative": 1.7031268719568616e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "final_state",
+      "relative": 4.2463736988156183e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.6836024539778607e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.9020255913919874e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_035",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "input_projection",
+      "relative": 1.1429023949306543e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "B_projection",
+      "relative": 1.0241492422588231e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "C_projection",
+      "relative": 1.0462845598999034e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "sequential_scan",
+      "relative": 1.9231891708717227e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "final_state",
+      "relative": 5.792571914907971e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 7.618295447873077e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.690927642738872e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_metamathqa_50k_037",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "input_projection",
+      "relative": 1.1448867415893654e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "B_projection",
+      "relative": 1.0352373683784865e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "C_projection",
+      "relative": 1.066786661966701e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "sequential_scan",
+      "relative": 2.2135847572871382e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "final_state",
+      "relative": 5.304007043754191e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.0065468661232372e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.557088098078867e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_035",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "input_projection",
+      "relative": 1.1612784783102365e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "B_projection",
+      "relative": 1.0198911425309181e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "C_projection",
+      "relative": 1.1295383382901633e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "sequential_scan",
+      "relative": 1.6450391564887204e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "final_state",
+      "relative": 3.9568551648195815e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.75660473790391e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.2673359746368638e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_numina_cot_100k_038",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "input_projection",
+      "relative": 1.1193422269198128e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "B_projection",
+      "relative": 9.89404100009599e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "C_projection",
+      "relative": 1.0766866820156648e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "sequential_scan",
+      "relative": 1.9251965183800213e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "final_state",
+      "relative": 5.139765561326963e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.554925799687519e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.617878683873395e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_034",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "input_projection",
+      "relative": 1.1137888721536495e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "B_projection",
+      "relative": 1.0110541995464385e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "C_projection",
+      "relative": 1.1008735877900577e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "sequential_scan",
+      "relative": 2.235060291262223e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "final_state",
+      "relative": 6.68191366423889e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.2761131274799802e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.212290678292114e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_openhermes_100k_037",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "input_projection",
+      "relative": 1.136249923692758e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "B_projection",
+      "relative": 1.0162050010743677e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "C_projection",
+      "relative": 1.0894231327124997e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "sequential_scan",
+      "relative": 2.1164589531080392e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "final_state",
+      "relative": 3.9412039574142164e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.4761981619056498e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.581128776791369e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_033",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "input_projection",
+      "relative": 1.1247479626836581e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "B_projection",
+      "relative": 9.820745243053639e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "C_projection",
+      "relative": 1.0982226284860482e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "sequential_scan",
+      "relative": 1.885618176881661e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "final_state",
+      "relative": 5.25564563212765e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.1104292050274749e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.024602661234287e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_self_oss_instruct_036",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "input_projection",
+      "relative": 1.124087349836793e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "B_projection",
+      "relative": 1.0119999625528025e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "C_projection",
+      "relative": 1.0574666816322304e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "sequential_scan",
+      "relative": 1.4023166589611007e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "final_state",
+      "relative": 3.0176358948477074e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.04726385082356e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.000560172532959e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_034",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "input_projection",
+      "relative": 1.1589230932271991e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "B_projection",
+      "relative": 9.949565688445853e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "C_projection",
+      "relative": 1.0730792841756829e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "sequential_scan",
+      "relative": 1.0780154040723859e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "final_state",
+      "relative": 1.9653250043599908e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.455409421729001e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 9.334595680758476e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_constraints_035",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "input_projection",
+      "relative": 1.1087698996189864e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "B_projection",
+      "relative": 9.973922151490091e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "C_projection",
+      "relative": 1.04920223427277e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "sequential_scan",
+      "relative": 3.9715699570522237e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "final_state",
+      "relative": 9.63630334647752e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.6566937349929985e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.681321785553232e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_034",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "input_projection",
+      "relative": 1.0909021490650205e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "B_projection",
+      "relative": 1.0243667218415295e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "C_projection",
+      "relative": 1.0446033702816148e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "sequential_scan",
+      "relative": 5.222883131752733e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "final_state",
+      "relative": 1.2391251787883475e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 2.686276580389562e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 4.550607824024212e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_magpie_ultra_036",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "input_projection",
+      "relative": 1.1313376379206081e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "B_projection",
+      "relative": 1.01813942303656e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "C_projection",
+      "relative": 1.0704075160054778e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "sequential_scan",
+      "relative": 2.662997600113146e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "final_state",
+      "relative": 6.122784748232341e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 9.685233596495918e-06,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 6.0441676572475656e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_032",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "input_projection",
+      "relative": 1.1307111440477154e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "B_projection",
+      "relative": 1.001954844532387e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "C_projection",
+      "relative": 1.0565077755385671e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "sequential_scan",
+      "relative": 2.1102886841583013e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "final_state",
+      "relative": 5.850493326438021e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.692866837544804e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.6007083122239834e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_rewrite_036",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "input_projection",
+      "relative": 1.1528289011997523e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "B_projection",
+      "relative": 9.613454966927309e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "C_projection",
+      "relative": 1.0589554289801835e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "sequential_scan",
+      "relative": 1.9338397893894802e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "final_state",
+      "relative": 4.2228811866099106e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 0.00012641131007474777,
+      "threshold": 0.0001,
+      "passed": false
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.110529523838584e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_034",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "input_projection",
+      "relative": 1.1149326973956177e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "B_projection",
+      "relative": 9.683151220068826e-08,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "C_projection",
+      "relative": 1.0445195528447401e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "sequential_scan",
+      "relative": 3.8581950936975044e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "final_state",
+      "relative": 7.198052749061224e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.181972290384719e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.065894134371041e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_smol_summarize_039",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "input_projection",
+      "relative": 1.1353621857119093e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "B_projection",
+      "relative": 1.0220224507850219e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "C_projection",
+      "relative": 1.0911379250114832e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "sequential_scan",
+      "relative": 3.271476926074421e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "final_state",
+      "relative": 5.057852679751029e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 1.7326374880380163e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 5.329287291091845e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_034",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "input_projection",
+      "relative": 1.125373538622472e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "B_projection",
+      "relative": 1.00241888490411e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "C_projection",
+      "relative": 1.0489285319714734e-07,
+      "threshold": 1e-06,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "sequential_scan",
+      "relative": 2.0269153416284166e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "final_state",
+      "relative": 5.836537654649691e-07,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "controlled_F64_normalized_smooth",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "controlled_raw_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "controlled_BF16_scores",
+      "relative": 0.0,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.0239221140642192e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "F32_scalar_raw_score_bits_full_source_denominator",
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "AVX_F32_normalized_smooth",
+      "relative": 3.278750610664578e-05,
+      "threshold": 0.0001,
+      "passed": true
+    },
+    {
+      "case": "broad_dev_systemchats_30k_039",
+      "control": "F32_scalar_raw_score_bits_reconstructed_denominator",
+      "mismatches": 0,
+      "passed": true
+    }
+  ],
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_NUMERIC_FAILURE",
+  "seconds": 139.05145730000004,
+  "OS_peak": 894939136,
+  "scope": "Full parameter export/source custody,all actual native projected inputs and explicit CPU96-state recurrence/final states,all normalized vectors/controlled outputs/every F32 scalar-reference score bit/all BF16 outputs/metrics/domains/bridges/gates. Full audit even failed control flags;quality and old precision bridges separate. No whole chatbot/speed/n admission."
+}

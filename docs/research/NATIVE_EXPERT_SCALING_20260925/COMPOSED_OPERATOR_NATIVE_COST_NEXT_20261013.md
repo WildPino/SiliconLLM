@@ -1,6 +1,11 @@
 # From composed recurrent coordinates to a cheap causal operator
 
-13 October2026. **PROPOSED / UNIMPLEMENTED / UNBOUND.** Native implementation
+13 October2026. **SUBSEQUENTLY IMPLEMENTED / QUALIFIED COMPONENT / COST MEASURED.**
+[Actual result](COMPOSED_OPERATOR_MIXED_RESULT_20261013.md) supersedes the
+prospective pilot status. Original native F32 input control failure fully retained;
+mixed precision qualified/same component timed. No whole chatbot/50 admission.
+[Current next](SOURCE_FUNCTION_COST_AND_STATE_WIDTH_NEXT_20261013.md) targets
+source-function active costs/information and useful state width. Native implementation
 requires completed independent [composition qualification](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md).
 This is a step toward the chatbot-to-engine pipeline, not a selected complete
 student or an hours-long adaptation allocation.

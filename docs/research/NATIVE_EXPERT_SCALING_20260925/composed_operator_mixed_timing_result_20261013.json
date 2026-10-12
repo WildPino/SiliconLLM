@@ -1,0 +1,3876 @@
+{
+  "schema": "COMPOSED_OPERATOR_MIXED_TIMING_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\composed_operator_mixed_timing.py",
+    "bytes": 8675,
+    "sha256": "6bf8201f91e0b42d9ee4881b5eac35fbcba39a1c50828c3e6b33530ef58959d8"
+  },
+  "freeze": "3a23ab99774de0e3429ae26a0100bf8930b11ed1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\composed_operator_mixed_binding_20261013.json",
+    "bytes": 293994,
+    "sha256": "3d3cde52f4490c53dc2bb7c80b1970e5d3a0f5aa7983883d2b9d63b54aecf0b5"
+  },
+  "adjudication": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\composed_operator_mixed_adjudication_20261013.json",
+    "bytes": 117996,
+    "sha256": "582005808eba532af7067a70cb4e3ca7de430c908fb33d1485462ca10d121c50"
+  },
+  "quality_report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\composed_operator_mixed_result_20261013.json",
+    "bytes": 94008,
+    "sha256": "9e70bdc63486a741ef8ff777e7f244bef0ba489e1225e48f273acc950cacbfff"
+  },
+  "affinity": [
+    0
+  ],
+  "native_threads": 1,
+  "QPC_frequency": 10000000,
+  "python_perf_counter": {
+    "implementation": "QueryPerformanceCounter()",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-07
+  },
+  "warmup_case": "broad_fit_explore_instruct_rewriting_008",
+  "warmup_histories": 3,
+  "reps": 2,
+  "operator_records": [
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 0.9702287000000069,
+      "stage_seconds": {
+        "projection": 0.01014220000433852,
+        "scan": 0.007975100003022817,
+        "decode": 0.011685799992847024,
+        "gate_RMS": 0.04137129999071476,
+        "normalize_output": 0.8986180999982025
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.5987683999992441,
+      "stage_seconds": {
+        "projection": 0.006463399982749252,
+        "scan": 0.005112399971039849,
+        "decode": 0.007154499977332307,
+        "gate_RMS": 0.025425999998333282,
+        "normalize_output": 0.554298299988659
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.4514069999986532,
+      "stage_seconds": {
+        "projection": 0.004489600005399552,
+        "scan": 0.003700000004755566,
+        "decode": 0.005348099990442279,
+        "gate_RMS": 0.01919360000101733,
+        "normalize_output": 0.41844669999227335
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.4645438000006834,
+      "stage_seconds": {
+        "projection": 0.005164600010175491,
+        "scan": 0.0037366999986261362,
+        "decode": 0.005400900005042786,
+        "gate_RMS": 0.019656900005429634,
+        "normalize_output": 0.43033260000447626
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.07292550000056508,
+      "stage_seconds": {
+        "projection": 0.0007213000008050585,
+        "scan": 0.0005520000049727969,
+        "decode": 0.0008639000097900862,
+        "gate_RMS": 0.003088000008574454,
+        "normalize_output": 0.0676075999999739
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.1153206000017235,
+      "stage_seconds": {
+        "projection": 0.0011076000082539394,
+        "scan": 0.0008810999916022411,
+        "decode": 0.0013096000075165648,
+        "gate_RMS": 0.0048887000029935734,
+        "normalize_output": 0.10704309998618555
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.26380059999974037,
+      "stage_seconds": {
+        "projection": 0.0027631000157271046,
+        "scan": 0.0021796000037284102,
+        "decode": 0.0031008999903860968,
+        "gate_RMS": 0.011290399981589871,
+        "normalize_output": 0.2442626000065502
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.4211321999991924,
+      "stage_seconds": {
+        "projection": 0.004506799985392718,
+        "scan": 0.003387699985978543,
+        "decode": 0.004949699985445477,
+        "gate_RMS": 0.017950000012206146,
+        "normalize_output": 0.390102500006833
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.395247800001016,
+      "stage_seconds": {
+        "projection": 0.003892400003678631,
+        "scan": 0.0033372000161762116,
+        "decode": 0.00469299997894268,
+        "gate_RMS": 0.016863899993040832,
+        "normalize_output": 0.3662579000192636
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.4741555000000517,
+      "stage_seconds": {
+        "projection": 0.004925100007312722,
+        "scan": 0.0038459000115835806,
+        "decode": 0.0056322000182262855,
+        "gate_RMS": 0.02001469998685934,
+        "normalize_output": 0.4395077000153833
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.39266440000028524,
+      "stage_seconds": {
+        "projection": 0.003982199985330226,
+        "scan": 0.0032361000103264814,
+        "decode": 0.004637199996068375,
+        "gate_RMS": 0.01702089999707823,
+        "normalize_output": 0.3635836000121344
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5417711999998573,
+      "stage_seconds": {
+        "projection": 0.00573290001557325,
+        "scan": 0.0044463000103860395,
+        "decode": 0.006437800007915939,
+        "gate_RMS": 0.02299210000637686,
+        "normalize_output": 0.501867199964181
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5333295000000362,
+      "stage_seconds": {
+        "projection": 0.005321099984939792,
+        "scan": 0.00457969997296459,
+        "decode": 0.006277800011957879,
+        "gate_RMS": 0.022613100032685907,
+        "normalize_output": 0.49425729998802126
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.4216870000000199,
+      "stage_seconds": {
+        "projection": 0.004162799999903655,
+        "scan": 0.0035553999896364985,
+        "decode": 0.0049858999973366736,
+        "gate_RMS": 0.018050199980280013,
+        "normalize_output": 0.3907144000422704
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.29501259999960894,
+      "stage_seconds": {
+        "projection": 0.003035199984879,
+        "scan": 0.0023552000038762344,
+        "decode": 0.003451900005529751,
+        "gate_RMS": 0.012611400008609053,
+        "normalize_output": 0.27336719997583714
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.36916890000065905,
+      "stage_seconds": {
+        "projection": 0.00402879999455763,
+        "scan": 0.00300319999223575,
+        "decode": 0.00432639999598905,
+        "gate_RMS": 0.015575599985822919,
+        "normalize_output": 0.3420122999978048
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.2871494000009989,
+      "stage_seconds": {
+        "projection": 0.01337669997519697,
+        "scan": 0.011578100000406266,
+        "decode": 0.015465300004507299,
+        "gate_RMS": 0.054716700011340436,
+        "normalize_output": 1.191429699994842
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.870594699999856,
+      "stage_seconds": {
+        "projection": 0.019417800029259524,
+        "scan": 0.014989299976150505,
+        "decode": 0.022251400016102707,
+        "gate_RMS": 0.08047539999824949,
+        "normalize_output": 1.7326399000012316
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.3137735000000248,
+      "stage_seconds": {
+        "projection": 0.003173100007188623,
+        "scan": 0.0025371999945491552,
+        "decode": 0.0036839999884250574,
+        "gate_RMS": 0.013577999980043387,
+        "normalize_output": 0.29060769999159675
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.690940500000579,
+      "stage_seconds": {
+        "projection": 0.007287899969014688,
+        "scan": 0.005667199982781312,
+        "decode": 0.008478800013108412,
+        "gate_RMS": 0.029299599995283643,
+        "normalize_output": 0.6398490999981732
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 0.9630065000001196,
+      "stage_seconds": {
+        "projection": 0.009656699980041594,
+        "scan": 0.0076719999760825885,
+        "decode": 0.01126989999829675,
+        "gate_RMS": 0.042220499981340254,
+        "normalize_output": 0.8917531000261079
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.3298154000003706,
+      "stage_seconds": {
+        "projection": 0.0034444000193616375,
+        "scan": 0.002829500006555463,
+        "decode": 0.00394519998189935,
+        "gate_RMS": 0.014902000008078176,
+        "normalize_output": 0.30449070000395295
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.2732294999987062,
+      "stage_seconds": {
+        "projection": 0.013356299978113384,
+        "scan": 0.010099200015247334,
+        "decode": 0.014934799981347169,
+        "gate_RMS": 0.053937800013954984,
+        "normalize_output": 1.1803123000026972
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.3953535999989981,
+      "stage_seconds": {
+        "projection": 0.004153300009420491,
+        "scan": 0.0034013999938906636,
+        "decode": 0.0048723999916546745,
+        "gate_RMS": 0.016985299973384826,
+        "normalize_output": 0.36569580000468704
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.1431833999995433,
+      "stage_seconds": {
+        "projection": 0.01167909999458061,
+        "scan": 0.009066900051038829,
+        "decode": 0.013539299989133724,
+        "gate_RMS": 0.04900410000300326,
+        "normalize_output": 1.0593745999904058
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.579490000000078,
+      "stage_seconds": {
+        "projection": 0.005957399978797184,
+        "scan": 0.004766899990499951,
+        "decode": 0.006773200020688819,
+        "gate_RMS": 0.024650399984238902,
+        "normalize_output": 0.5370458000088547
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.4761439000012615,
+      "stage_seconds": {
+        "projection": 0.004834499979551765,
+        "scan": 0.0038635000000795117,
+        "decode": 0.005720500008465024,
+        "gate_RMS": 0.020253300011972897,
+        "normalize_output": 0.44121840000480006
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.2551081999990856,
+      "stage_seconds": {
+        "projection": 0.0025912000019161496,
+        "scan": 0.002132299996446818,
+        "decode": 0.0029819999981555156,
+        "gate_RMS": 0.010776300017823814,
+        "normalize_output": 0.23644120000062685
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.07705189999978757,
+      "stage_seconds": {
+        "projection": 0.0008477000046696048,
+        "scan": 0.0006292999951256206,
+        "decode": 0.00091319998682593,
+        "gate_RMS": 0.003252100004829117,
+        "normalize_output": 0.07130559999495745
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.4018136000013328,
+      "stage_seconds": {
+        "projection": 0.0040733999776421115,
+        "scan": 0.003566999970644247,
+        "decode": 0.004737800014481763,
+        "gate_RMS": 0.017120700011219014,
+        "normalize_output": 0.3720859999921231
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.3079610999993747,
+      "stage_seconds": {
+        "projection": 0.0031003000112832524,
+        "scan": 0.002587199998743017,
+        "decode": 0.0036144999976386316,
+        "gate_RMS": 0.013095000007524504,
+        "normalize_output": 0.28536679999524495
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.4381806000001234,
+      "stage_seconds": {
+        "projection": 0.004435899991221959,
+        "scan": 0.003645699978733319,
+        "decode": 0.005451800012451713,
+        "gate_RMS": 0.018843600000764127,
+        "normalize_output": 0.40558119998422626
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.4846760999989783,
+      "stage_seconds": {
+        "projection": 0.004870499989920063,
+        "scan": 0.003965700014305185,
+        "decode": 0.005729800008339225,
+        "gate_RMS": 0.020561099987389753,
+        "normalize_output": 0.44928419998905156
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.39543439999943075,
+      "stage_seconds": {
+        "projection": 0.003931299985197256,
+        "scan": 0.0031262000011338387,
+        "decode": 0.0046485000111715635,
+        "gate_RMS": 0.016926099986449117,
+        "normalize_output": 0.3665020000134973
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.3596950999999535,
+      "stage_seconds": {
+        "projection": 0.0036691000077553326,
+        "scan": 0.003109799987214501,
+        "decode": 0.004253000017342856,
+        "gate_RMS": 0.01537469998584129,
+        "normalize_output": 0.33310200001869816
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.44227090000094904,
+      "stage_seconds": {
+        "projection": 0.004536499985988485,
+        "scan": 0.0035590999668784207,
+        "decode": 0.005250900034297956,
+        "gate_RMS": 0.01978699999381206,
+        "normalize_output": 0.408912800006874
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.522422900001402,
+      "stage_seconds": {
+        "projection": 0.005179800036785309,
+        "scan": 0.004404999986945768,
+        "decode": 0.0060995000294497,
+        "gate_RMS": 0.02222409998103103,
+        "normalize_output": 0.4842398000037065
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.44023290000041015,
+      "stage_seconds": {
+        "projection": 0.004510099994149641,
+        "scan": 0.0035047000128543004,
+        "decode": 0.005245200030913111,
+        "gate_RMS": 0.018973900001583388,
+        "normalize_output": 0.4077800000050047
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.23362900000029185,
+      "stage_seconds": {
+        "projection": 0.002505400005247793,
+        "scan": 0.0018373000002611661,
+        "decode": 0.0027503999899636256,
+        "gate_RMS": 0.009878200013190508,
+        "normalize_output": 0.21649949998754892
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.13539789999958884,
+      "stage_seconds": {
+        "projection": 0.0013807000050292118,
+        "scan": 0.0011985000091954134,
+        "decode": 0.0015587999987474177,
+        "gate_RMS": 0.0057746999937080545,
+        "normalize_output": 0.12534850000520237
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.5892935000010766,
+      "stage_seconds": {
+        "projection": 0.01653539998733322,
+        "scan": 0.013031100017542485,
+        "decode": 0.018883999977333588,
+        "gate_RMS": 0.06760349999058235,
+        "normalize_output": 1.472568900011538
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.8620262999993429,
+      "stage_seconds": {
+        "projection": 0.01940320001631335,
+        "scan": 0.015175200011071865,
+        "decode": 0.02202989995930693,
+        "gate_RMS": 0.07943690001957293,
+        "normalize_output": 1.7251834000326198
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6237139999993815,
+      "stage_seconds": {
+        "projection": 0.006117400031143916,
+        "scan": 0.005162099998415215,
+        "decode": 0.007455599990862538,
+        "gate_RMS": 0.02675039998757711,
+        "normalize_output": 0.5779192000009061
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.4663316999995004,
+      "stage_seconds": {
+        "projection": 0.004891700002190191,
+        "scan": 0.0038256000116234645,
+        "decode": 0.005705099994884222,
+        "gate_RMS": 0.019692200010467786,
+        "normalize_output": 0.4319547999821225
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.30286159999923257,
+      "stage_seconds": {
+        "projection": 0.0032210000081249746,
+        "scan": 0.002482299982148106,
+        "decode": 0.00355590000981465,
+        "gate_RMS": 0.013064599999779603,
+        "normalize_output": 0.28035049999198236
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.2206662000007782,
+      "stage_seconds": {
+        "projection": 0.013270500001453911,
+        "scan": 0.009699300020656665,
+        "decode": 0.014577699992514681,
+        "gate_RMS": 0.05216240001027472,
+        "normalize_output": 1.130413899973064
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.1061589999990247,
+      "stage_seconds": {
+        "projection": 0.011247500000536093,
+        "scan": 0.008995400048661395,
+        "decode": 0.013119300001562806,
+        "gate_RMS": 0.046999200007121544,
+        "normalize_output": 1.0252875000060158
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.36891040000045905,
+      "stage_seconds": {
+        "projection": 0.004041000018332852,
+        "scan": 0.0030193000129656866,
+        "decode": 0.004315199998018215,
+        "gate_RMS": 0.015549099989584647,
+        "normalize_output": 0.34175739999773214
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 0
+    },
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "positions": 773,
+      "native_call_seconds": 0.9704948999988119,
+      "stage_seconds": {
+        "projection": 0.009960799980035517,
+        "scan": 0.007760599986795569,
+        "decode": 0.011379099974874407,
+        "gate_RMS": 0.041041600015887525,
+        "normalize_output": 0.8998844999896392
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "positions": 479,
+      "native_call_seconds": 0.6047371999993629,
+      "stage_seconds": {
+        "projection": 0.006193400004121941,
+        "scan": 0.004887099994448363,
+        "decode": 0.0071115999890025705,
+        "gate_RMS": 0.02577249999740161,
+        "normalize_output": 0.5604778999986593
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "positions": 363,
+      "native_call_seconds": 0.44979419999981474,
+      "stage_seconds": {
+        "projection": 0.004913700011456967,
+        "scan": 0.00378509998699883,
+        "decode": 0.005428500004200032,
+        "gate_RMS": 0.019844700005705818,
+        "normalize_output": 0.4155779000266193
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "positions": 367,
+      "native_call_seconds": 0.46290330000010727,
+      "stage_seconds": {
+        "projection": 0.0048021000056905905,
+        "scan": 0.0039526999953523045,
+        "decode": 0.005547900002056849,
+        "gate_RMS": 0.019472300011329935,
+        "normalize_output": 0.428892400006589
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "positions": 58,
+      "native_call_seconds": 0.07480880000002799,
+      "stage_seconds": {
+        "projection": 0.0007655999943381175,
+        "scan": 0.0007147999986045761,
+        "decode": 0.0008812999949441291,
+        "gate_RMS": 0.0031785000046511414,
+        "normalize_output": 0.06917570001132844
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "positions": 90,
+      "native_call_seconds": 0.11672250000083295,
+      "stage_seconds": {
+        "projection": 0.001243100003193831,
+        "scan": 0.0009741999965626746,
+        "decode": 0.001376299998810282,
+        "gate_RMS": 0.004816999989998294,
+        "normalize_output": 0.10821709999800078
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "positions": 209,
+      "native_call_seconds": 0.2665424000006169,
+      "stage_seconds": {
+        "projection": 0.0027394000007916475,
+        "scan": 0.002134400010618265,
+        "decode": 0.00321679998342006,
+        "gate_RMS": 0.011118999993414036,
+        "normalize_output": 0.2471442000114621
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "positions": 337,
+      "native_call_seconds": 0.419666399999187,
+      "stage_seconds": {
+        "projection": 0.00429660000372678,
+        "scan": 0.003385000007256167,
+        "decode": 0.004989599989130511,
+        "gate_RMS": 0.018178500004069065,
+        "normalize_output": 0.38856359998681
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "positions": 318,
+      "native_call_seconds": 0.3953830000009475,
+      "stage_seconds": {
+        "projection": 0.004092699995453586,
+        "scan": 0.003339399974720436,
+        "decode": 0.004856400026255869,
+        "gate_RMS": 0.017012000000249827,
+        "normalize_output": 0.36585339997873234
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "positions": 381,
+      "native_call_seconds": 0.47604150000006484,
+      "stage_seconds": {
+        "projection": 0.005304999975123792,
+        "scan": 0.0038210999828152126,
+        "decode": 0.005562800022744341,
+        "gate_RMS": 0.020169900004475494,
+        "normalize_output": 0.4409230999972351
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "positions": 316,
+      "native_call_seconds": 0.3912538999993558,
+      "stage_seconds": {
+        "projection": 0.003964099983932101,
+        "scan": 0.0032974000096146483,
+        "decode": 0.004614599978594924,
+        "gate_RMS": 0.01678830001037568,
+        "normalize_output": 0.3623699999970995
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "positions": 435,
+      "native_call_seconds": 0.5365560000009282,
+      "stage_seconds": {
+        "projection": 0.005475299996760441,
+        "scan": 0.004490799985433114,
+        "decode": 0.006384600019373465,
+        "gate_RMS": 0.02305500000693428,
+        "normalize_output": 0.4968782000069041
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "positions": 431,
+      "native_call_seconds": 0.5374916999990091,
+      "stage_seconds": {
+        "projection": 0.0053411000062624225,
+        "scan": 0.004413599996041739,
+        "decode": 0.006447200032198452,
+        "gate_RMS": 0.022907799981112476,
+        "normalize_output": 0.4981029000100534
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "positions": 337,
+      "native_call_seconds": 0.41911480000089796,
+      "stage_seconds": {
+        "projection": 0.004365800012237742,
+        "scan": 0.0034660999990592245,
+        "decode": 0.005193999999391963,
+        "gate_RMS": 0.018263000012666453,
+        "normalize_output": 0.3875906000048417
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "positions": 238,
+      "native_call_seconds": 0.2969434000006004,
+      "stage_seconds": {
+        "projection": 0.0031607000128133222,
+        "scan": 0.002447800003210432,
+        "decode": 0.0036351999879116192,
+        "gate_RMS": 0.012771000012435252,
+        "normalize_output": 0.2747301999988849
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "positions": 294,
+      "native_call_seconds": 0.36795970000093803,
+      "stage_seconds": {
+        "projection": 0.00391280002440908,
+        "scan": 0.0029868000074202428,
+        "decode": 0.004391099993881653,
+        "gate_RMS": 0.015856299998631584,
+        "normalize_output": 0.3405985000117653
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "positions": 1034,
+      "native_call_seconds": 1.2894268999989436,
+      "stage_seconds": {
+        "projection": 0.013037000016993261,
+        "scan": 0.010358999996242346,
+        "decode": 0.015245099959429353,
+        "gate_RMS": 0.05467050003062468,
+        "normalize_output": 1.1942652000252565
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "positions": 1507,
+      "native_call_seconds": 1.8687121000002662,
+      "stage_seconds": {
+        "projection": 0.01871400001255097,
+        "scan": 0.01467310001498845,
+        "decode": 0.022220200011361158,
+        "gate_RMS": 0.07967289999942295,
+        "normalize_output": 1.732628800045859
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "positions": 252,
+      "native_call_seconds": 0.3138684999994439,
+      "stage_seconds": {
+        "projection": 0.0031722000039735576,
+        "scan": 0.002597800017611007,
+        "decode": 0.003707299985762802,
+        "gate_RMS": 0.013337499989575008,
+        "normalize_output": 0.29088160000173957
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "positions": 554,
+      "native_call_seconds": 0.6896594999998342,
+      "stage_seconds": {
+        "projection": 0.007025199996860465,
+        "scan": 0.005754499959948589,
+        "decode": 0.008113500023682718,
+        "gate_RMS": 0.029471399982867297,
+        "normalize_output": 0.6389492000234895
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "positions": 774,
+      "native_call_seconds": 0.9608255999992252,
+      "stage_seconds": {
+        "projection": 0.009866500056887162,
+        "scan": 0.007699899992076098,
+        "decode": 0.011386800055333879,
+        "gate_RMS": 0.04105499999059248,
+        "normalize_output": 0.8903300000238232
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "positions": 264,
+      "native_call_seconds": 0.3280165999985911,
+      "stage_seconds": {
+        "projection": 0.0033636999942245893,
+        "scan": 0.00266960001863481,
+        "decode": 0.003847499983749003,
+        "gate_RMS": 0.01408770001035009,
+        "normalize_output": 0.303875399984463
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "positions": 1020,
+      "native_call_seconds": 1.2740158999986306,
+      "stage_seconds": {
+        "projection": 0.013008499992793077,
+        "scan": 0.010277799985487945,
+        "decode": 0.015188399989710888,
+        "gate_RMS": 0.05437810002331389,
+        "normalize_output": 1.18060419997164
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "positions": 317,
+      "native_call_seconds": 0.39920640000127605,
+      "stage_seconds": {
+        "projection": 0.00394840000262775,
+        "scan": 0.003305900003397255,
+        "decode": 0.0049474999905214645,
+        "gate_RMS": 0.01694280000810977,
+        "normalize_output": 0.3697620999901119
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "positions": 918,
+      "native_call_seconds": 1.1445543999998335,
+      "stage_seconds": {
+        "projection": 0.011652200017124414,
+        "scan": 0.00902729996414564,
+        "decode": 0.01354399997035216,
+        "gate_RMS": 0.048814200034030364,
+        "normalize_output": 1.0609951999922487
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "positions": 462,
+      "native_call_seconds": 0.5809301999997842,
+      "stage_seconds": {
+        "projection": 0.005832600003486732,
+        "scan": 0.0048501000073883915,
+        "decode": 0.006815499977165018,
+        "gate_RMS": 0.024584199980381527,
+        "normalize_output": 0.5385501000382646
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "positions": 378,
+      "native_call_seconds": 0.474386300000333,
+      "stage_seconds": {
+        "projection": 0.004981300011422718,
+        "scan": 0.00394560000677302,
+        "decode": 0.0056389000037597725,
+        "gate_RMS": 0.020142700006545056,
+        "normalize_output": 0.43934889998854487
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "positions": 200,
+      "native_call_seconds": 0.24870289999853412,
+      "stage_seconds": {
+        "projection": 0.0025994999959948473,
+        "scan": 0.0020479999875533395,
+        "decode": 0.0030223000121623045,
+        "gate_RMS": 0.010639999991326476,
+        "normalize_output": 0.23022920000585145
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "positions": 61,
+      "native_call_seconds": 0.07584959999985585,
+      "stage_seconds": {
+        "projection": 0.0008128000044962391,
+        "scan": 0.0006852000005892478,
+        "decode": 0.0008888000047591049,
+        "gate_RMS": 0.0033816000086517306,
+        "normalize_output": 0.07000479999624076
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "positions": 323,
+      "native_call_seconds": 0.40332649999982095,
+      "stage_seconds": {
+        "projection": 0.003958299974328838,
+        "scan": 0.003337299971462926,
+        "decode": 0.004740599995784578,
+        "gate_RMS": 0.01726819999021245,
+        "normalize_output": 0.3737942000025214
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "positions": 243,
+      "native_call_seconds": 0.3055768000012904,
+      "stage_seconds": {
+        "projection": 0.0030646000031993026,
+        "scan": 0.002514099978725426,
+        "decode": 0.0036093999897275353,
+        "gate_RMS": 0.012914900000396301,
+        "normalize_output": 0.283284300016021
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "positions": 352,
+      "native_call_seconds": 0.43709839999974065,
+      "stage_seconds": {
+        "projection": 0.00454500001433189,
+        "scan": 0.0036689000007754657,
+        "decode": 0.0052150000010442454,
+        "gate_RMS": 0.01855979996798851,
+        "normalize_output": 0.4048816999729752
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "positions": 387,
+      "native_call_seconds": 0.4854119999999966,
+      "stage_seconds": {
+        "projection": 0.004871799988904968,
+        "scan": 0.003933399995730724,
+        "decode": 0.005776600002718624,
+        "gate_RMS": 0.020506099979684222,
+        "normalize_output": 0.4500423999688792
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "positions": 318,
+      "native_call_seconds": 0.39404780000040773,
+      "stage_seconds": {
+        "projection": 0.0040599000076326774,
+        "scan": 0.0031376999995700317,
+        "decode": 0.00478900001871807,
+        "gate_RMS": 0.01686020001397992,
+        "normalize_output": 0.36498049999499926
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "positions": 289,
+      "native_call_seconds": 0.362937800000509,
+      "stage_seconds": {
+        "projection": 0.004009599999335478,
+        "scan": 0.002982299987706938,
+        "decode": 0.004290099986974383,
+        "gate_RMS": 0.01566190002085932,
+        "normalize_output": 0.33579089998784184
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "positions": 356,
+      "native_call_seconds": 0.44287939999958326,
+      "stage_seconds": {
+        "projection": 0.00456500000655069,
+        "scan": 0.003755299991098582,
+        "decode": 0.005219200002102298,
+        "gate_RMS": 0.019002200015165727,
+        "normalize_output": 0.41007830000671674
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "positions": 418,
+      "native_call_seconds": 0.5212578999999096,
+      "stage_seconds": {
+        "projection": 0.005361799974707537,
+        "scan": 0.004209999971862999,
+        "decode": 0.006423200011340668,
+        "gate_RMS": 0.022128700009488966,
+        "normalize_output": 0.4828365999765083
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "positions": 357,
+      "native_call_seconds": 0.44802660000095784,
+      "stage_seconds": {
+        "projection": 0.0044695000106003135,
+        "scan": 0.003652899991720915,
+        "decode": 0.0052580000046873465,
+        "gate_RMS": 0.018852300014259527,
+        "normalize_output": 0.4155536999969627
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "positions": 188,
+      "native_call_seconds": 0.2390921000005619,
+      "stage_seconds": {
+        "projection": 0.0024874000137060648,
+        "scan": 0.0020766000143339625,
+        "decode": 0.002783600009934162,
+        "gate_RMS": 0.010028399998191162,
+        "normalize_output": 0.22154990000308317
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "positions": 107,
+      "native_call_seconds": 0.13306499999998778,
+      "stage_seconds": {
+        "projection": 0.001367200018648873,
+        "scan": 0.0011594000025070272,
+        "decode": 0.0015919999950710917,
+        "gate_RMS": 0.005654500006130547,
+        "normalize_output": 0.12316409999948519
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "positions": 1268,
+      "native_call_seconds": 1.5763044000013906,
+      "stage_seconds": {
+        "projection": 0.016233199996349867,
+        "scan": 0.012613299999429728,
+        "decode": 0.018793399993228377,
+        "gate_RMS": 0.06860539998888271,
+        "normalize_output": 1.4593828999877587
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "positions": 1488,
+      "native_call_seconds": 1.8682454000008875,
+      "stage_seconds": {
+        "projection": 0.019160800035024295,
+        "scan": 0.014999000066381996,
+        "decode": 0.02204590000292228,
+        "gate_RMS": 0.08021049993840279,
+        "normalize_output": 1.731046700009756
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "positions": 502,
+      "native_call_seconds": 0.6229788000000553,
+      "stage_seconds": {
+        "projection": 0.006137600012152689,
+        "scan": 0.005133099979502731,
+        "decode": 0.007498000026316731,
+        "gate_RMS": 0.0264182000009896,
+        "normalize_output": 0.5774925999903644
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "positions": 374,
+      "native_call_seconds": 0.46947110000110115,
+      "stage_seconds": {
+        "projection": 0.004918300022836775,
+        "scan": 0.003918900030839723,
+        "decode": 0.005524799991690088,
+        "gate_RMS": 0.019832099987979745,
+        "normalize_output": 0.43501000000287604
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "positions": 243,
+      "native_call_seconds": 0.30114250000042375,
+      "stage_seconds": {
+        "projection": 0.0030366000028152484,
+        "scan": 0.0024689000092621427,
+        "decode": 0.003505899992887862,
+        "gate_RMS": 0.012950800015460118,
+        "normalize_output": 0.278991600001973
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "positions": 980,
+      "native_call_seconds": 1.2217145999984496,
+      "stage_seconds": {
+        "projection": 0.012649600010263384,
+        "scan": 0.00992289998976048,
+        "decode": 0.01432199998635042,
+        "gate_RMS": 0.052404700003535254,
+        "normalize_output": 1.13186160000987
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "positions": 890,
+      "native_call_seconds": 1.116066900000078,
+      "stage_seconds": {
+        "projection": 0.011436100023274776,
+        "scan": 0.008792099994025193,
+        "decode": 0.01333819997671526,
+        "gate_RMS": 0.04758130000482197,
+        "normalize_output": 1.0344224000000395
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "positions": 297,
+      "native_call_seconds": 0.3771963999988657,
+      "stage_seconds": {
+        "projection": 0.0037724999856436625,
+        "scan": 0.0032204999988607597,
+        "decode": 0.004669900003136718,
+        "gate_RMS": 0.01643429998875945,
+        "normalize_output": 0.348876800004291
+      },
+      "every_raw_score_output_and_final_state_bit_exact": true,
+      "rep": 1
+    }
+  ],
+  "operator_totals": [
+    {
+      "rep": 0,
+      "positions": 22547,
+      "seconds": 28.137681400001384,
+      "us_per_supplied_position": 1247.956774737277,
+      "stage_us_per_supplied_position": {
+        "projection": 12.912400761599223,
+        "scan": 10.245837582816332,
+        "decode": 14.816538786467152,
+        "gate_RMS": 53.3319599038732,
+        "normalize_output": 1156.011061339342
+      },
+      "instrumentation_and_call_remainder_us": 0.6389763631791677
+    },
+    {
+      "rep": 1,
+      "positions": 22547,
+      "seconds": 28.160409000000072,
+      "us_per_supplied_position": 1248.9647846720216,
+      "stage_us_per_supplied_position": {
+        "projection": 12.802186553425777,
+        "scan": 10.167530042282596,
+        "decode": 14.856859003676387,
+        "gate_RMS": 53.36854127158016,
+        "normalize_output": 1157.069503705818
+      },
+      "instrumentation_and_call_remainder_us": 0.7001640952386632
+    }
+  ],
+  "retained_generator": [
+    {
+      "rep": 0,
+      "positions": 128,
+      "seconds": 0.3252312000004167,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "input_shape": [
+        128,
+        2048
+      ],
+      "output_shape": [
+        128,
+        6704
+      ],
+      "all_coefficients": 13729792,
+      "checksum": 824.7079659588635,
+      "full_reference_relative": 5.347918276127493e-08,
+      "reference_threshold": 1e-05
+    },
+    {
+      "rep": 1,
+      "positions": 128,
+      "seconds": 0.3240542999992613,
+      "input_formula": "ldexp((arange(128*2048)%31)-15,-4)",
+      "input_shape": [
+        128,
+        2048
+      ],
+      "output_shape": [
+        128,
+        6704
+      ],
+      "all_coefficients": 13729792,
+      "checksum": 824.7079659588635,
+      "full_reference_relative": 5.347918276127493e-08,
+      "reference_threshold": 1e-05
+    }
+  ],
+  "source_generator_weight_bytes": 54919168,
+  "source_out_weight_bytes": 25165824,
+  "processes_before": [
+    {
+      "pid": 0,
+      "name": "System Idle Process",
+      "cpu_seconds": 91031.49999999999
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "cpu_seconds": 694.78125
+    },
+    {
+      "pid": 188,
+      "name": "",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 232,
+      "name": "Registry",
+      "cpu_seconds": 2.5
+    },
+    {
+      "pid": 776,
+      "name": "smss.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 784,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 1056,
+      "name": "csrss.exe",
+      "cpu_seconds": 2.1875
+    },
+    {
+      "pid": 1148,
+      "name": "wininit.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 1172,
+      "name": "csrss.exe",
+      "cpu_seconds": 7.75
+    },
+    {
+      "pid": 1192,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.28125
+    },
+    {
+      "pid": 1200,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.640625
+    },
+    {
+      "pid": 1240,
+      "name": "services.exe",
+      "cpu_seconds": 15.03125
+    },
+    {
+      "pid": 1268,
+      "name": "winlogon.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 1304,
+      "name": "LsaIso.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 1312,
+      "name": "lsass.exe",
+      "cpu_seconds": 9.046875
+    },
+    {
+      "pid": 1392,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1476,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.5625
+    },
+    {
+      "pid": 1508,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1516,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 1596,
+      "name": "svchost.exe",
+      "cpu_seconds": 12.765625
+    },
+    {
+      "pid": 1644,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.046875
+    },
+    {
+      "pid": 1700,
+      "name": "dwm.exe",
+      "cpu_seconds": 130.78125
+    },
+    {
+      "pid": 1844,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 1860,
+      "name": "svchost.exe",
+      "cpu_seconds": 16.453125
+    },
+    {
+      "pid": 1936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1952,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.171875
+    },
+    {
+      "pid": 1992,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 2028,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 2032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 2064,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 2152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.71875
+    },
+    {
+      "pid": 2188,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.625
+    },
+    {
+      "pid": 2248,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.21875
+    },
+    {
+      "pid": 2264,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 2436,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.546875
+    },
+    {
+      "pid": 2464,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 2572,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 2676,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.84375
+    },
+    {
+      "pid": 2684,
+      "name": "FanControl.exe",
+      "cpu_seconds": 37.734375
+    },
+    {
+      "pid": 2744,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 2752,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 2796,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.4375
+    },
+    {
+      "pid": 2832,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 2904,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.078125
+    },
+    {
+      "pid": 2936,
+      "name": "WUDFHost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 2948,
+      "name": "codex-computer-use-swift.exe",
+      "cpu_seconds": 4.8125
+    },
+    {
+      "pid": 2984,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 27.53125
+    },
+    {
+      "pid": 3020,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 3052,
+      "name": "svchost.exe",
+      "cpu_seconds": 3.75
+    },
+    {
+      "pid": 3080,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 338.5625
+    },
+    {
+      "pid": 3144,
+      "name": "MemCompression",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 3172,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 3228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.671875
+    },
+    {
+      "pid": 3236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 3252,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 3288,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 3300,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.375
+    },
+    {
+      "pid": 3416,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.3125
+    },
+    {
+      "pid": 3640,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 3648,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 3696,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 3704,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 3792,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 3892,
+      "name": "spoolsv.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 3976,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 6.734375
+    },
+    {
+      "pid": 4064,
+      "name": "svchost.exe",
+      "cpu_seconds": 7.421875
+    },
+    {
+      "pid": 4112,
+      "name": "taskhostw.exe",
+      "cpu_seconds": 0.953125
+    },
+    {
+      "pid": 4152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 4180,
+      "name": "Everything.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 4188,
+      "name": "svchost.exe",
+      "cpu_seconds": 6.6875
+    },
+    {
+      "pid": 4196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 4204,
+      "name": "updatesvc.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4212,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 4220,
+      "name": "svchost.exe",
+      "cpu_seconds": 9.765625
+    },
+    {
+      "pid": 4228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 4244,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4272,
+      "name": "spacedeskService.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 4284,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4292,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 4300,
+      "name": "MpDefenderCoreService.exe",
+      "cpu_seconds": 1.609375
+    },
+    {
+      "pid": 4308,
+      "name": "sqlwriter.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4324,
+      "name": "MsMpEng.exe",
+      "cpu_seconds": 339.5625
+    },
+    {
+      "pid": 4332,
+      "name": "WindscribeService.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4340,
+      "name": "wslservice.exe",
+      "cpu_seconds": 0.3125
+    },
+    {
+      "pid": 4352,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 4364,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 1.03125
+    },
+    {
+      "pid": 4840,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 0.28125
+    },
+    {
+      "pid": 5140,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 5288,
+      "name": "NgcIso.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 5296,
+      "name": "node.exe",
+      "cpu_seconds": 0.234375
+    },
+    {
+      "pid": 5452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 12.625
+    },
+    {
+      "pid": 5668,
+      "name": "python.exe",
+      "cpu_seconds": 9.265625
+    },
+    {
+      "pid": 5864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 6012,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 5.3125
+    },
+    {
+      "pid": 6152,
+      "name": "svchost.exe",
+      "cpu_seconds": 14.21875
+    },
+    {
+      "pid": 6160,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.546875
+    },
+    {
+      "pid": 6284,
+      "name": "gamingservicesnet.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 6292,
+      "name": "codex-windows-sandbox-service.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 6304,
+      "name": "gamingservices.exe",
+      "cpu_seconds": 6.203125
+    },
+    {
+      "pid": 6400,
+      "name": "cowork-svc.exe",
+      "cpu_seconds": 0.640625
+    },
+    {
+      "pid": 6408,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 6528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.359375
+    },
+    {
+      "pid": 6712,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.796875
+    },
+    {
+      "pid": 6748,
+      "name": "SecurityHealthService.exe",
+      "cpu_seconds": 0.46875
+    },
+    {
+      "pid": 6812,
+      "name": "AggregatorHost.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 6888,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 6952,
+      "name": "codex.exe",
+      "cpu_seconds": 72.875
+    },
+    {
+      "pid": 7144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 7172,
+      "name": "WmiPrvSE.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 7380,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 7592,
+      "name": "explorer.exe",
+      "cpu_seconds": 10.96875
+    },
+    {
+      "pid": 7700,
+      "name": "ShellHost.exe",
+      "cpu_seconds": 0.46875
+    },
+    {
+      "pid": 7708,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.5
+    },
+    {
+      "pid": 7844,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 21.71875
+    },
+    {
+      "pid": 7944,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 7960,
+      "name": "spacedeskServiceTray.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8104,
+      "name": "DefenderSessionHelper.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 8160,
+      "name": "sihost.exe",
+      "cpu_seconds": 4.671875
+    },
+    {
+      "pid": 8300,
+      "name": "CrossDeviceService.exe",
+      "cpu_seconds": 55.28125
+    },
+    {
+      "pid": 8436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.25
+    },
+    {
+      "pid": 8560,
+      "name": "CrossDeviceResume.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 8644,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.484375
+    },
+    {
+      "pid": 8804,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8844,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.34375
+    },
+    {
+      "pid": 8940,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 9044,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 9064,
+      "name": "wallpaper64.exe",
+      "cpu_seconds": 2.328125
+    },
+    {
+      "pid": 9176,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 9196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 9208,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 9292,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 9496,
+      "name": "SearchHost.exe",
+      "cpu_seconds": 3.1875
+    },
+    {
+      "pid": 9520,
+      "name": "StartMenuExperienceHost.exe",
+      "cpu_seconds": 5.21875
+    },
+    {
+      "pid": 9780,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 9832,
+      "name": "pythonw.exe",
+      "cpu_seconds": 4.625
+    },
+    {
+      "pid": 9836,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 1.9375
+    },
+    {
+      "pid": 10040,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 10144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 10160,
+      "name": "node.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 10204,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 10736,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 2.171875
+    },
+    {
+      "pid": 10824,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.859375
+    },
+    {
+      "pid": 10848,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 10888,
+      "name": "PowerToys.CropAndLock.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 10980,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 11428,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 11476,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 11540,
+      "name": "PowerToys.exe",
+      "cpu_seconds": 9.453125
+    },
+    {
+      "pid": 11664,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 1.59375
+    },
+    {
+      "pid": 11688,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 11836,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 11948,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 12072,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12144,
+      "name": "ApplicationFrameHost.exe",
+      "cpu_seconds": 0.75
+    },
+    {
+      "pid": 12332,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 12344,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.421875
+    },
+    {
+      "pid": 12436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.484375
+    },
+    {
+      "pid": 12528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 12796,
+      "name": "vmcompute.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 13028,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 13188,
+      "name": "SearchIndexer.exe",
+      "cpu_seconds": 5.515625
+    },
+    {
+      "pid": 13380,
+      "name": "NisSrv.exe",
+      "cpu_seconds": 0.5625
+    },
+    {
+      "pid": 13556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 13748,
+      "name": "svchost.exe",
+      "cpu_seconds": 3.859375
+    },
+    {
+      "pid": 13840,
+      "name": "PowerToys.ColorPickerUI.exe",
+      "cpu_seconds": 1.953125
+    },
+    {
+      "pid": 13864,
+      "name": "SystemSettings.exe",
+      "cpu_seconds": 3.390625
+    },
+    {
+      "pid": 13948,
+      "name": "ctfmon.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 13976,
+      "name": "TabTip.exe",
+      "cpu_seconds": 0.65625
+    },
+    {
+      "pid": 14148,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 11.671875
+    },
+    {
+      "pid": 14232,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 4.40625
+    },
+    {
+      "pid": 14264,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 17.703125
+    },
+    {
+      "pid": 14492,
+      "name": "nvsphelper64.exe",
+      "cpu_seconds": 16.8125
+    },
+    {
+      "pid": 14516,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 13.828125
+    },
+    {
+      "pid": 14588,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 1.65625
+    },
+    {
+      "pid": 14632,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 10.9375
+    },
+    {
+      "pid": 14916,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 14920,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.546875
+    },
+    {
+      "pid": 15092,
+      "name": "PowerToys.AlwaysOnTop.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 15144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 15152,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 15184,
+      "name": "codex.exe",
+      "cpu_seconds": 1.3125
+    },
+    {
+      "pid": 15204,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 15296,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 2.234375
+    },
+    {
+      "pid": 15480,
+      "name": "Microsoft.CmdPal.UI.exe",
+      "cpu_seconds": 35.625
+    },
+    {
+      "pid": 15504,
+      "name": "TextInputHost.exe",
+      "cpu_seconds": 3.734375
+    },
+    {
+      "pid": 15800,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 15804,
+      "name": "PowerToys.Awake.exe",
+      "cpu_seconds": 0.84375
+    },
+    {
+      "pid": 15820,
+      "name": "PhoneExperienceHost.exe",
+      "cpu_seconds": 4.5
+    },
+    {
+      "pid": 15864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16048,
+      "name": "PowerToys.FancyZones.exe",
+      "cpu_seconds": 9.046875
+    },
+    {
+      "pid": 16088,
+      "name": "Taskmgr.exe",
+      "cpu_seconds": 254.5
+    },
+    {
+      "pid": 16144,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16796,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 16808,
+      "name": "PowerToys.Peek.UI.exe",
+      "cpu_seconds": 4.65625
+    },
+    {
+      "pid": 16908,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 16964,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16968,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 167.125
+    },
+    {
+      "pid": 17016,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 17108,
+      "name": "PowerToys.PowerLauncher.exe",
+      "cpu_seconds": 33.234375
+    },
+    {
+      "pid": 17440,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 206.59375
+    },
+    {
+      "pid": 17452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 9.71875
+    },
+    {
+      "pid": 17544,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.390625
+    },
+    {
+      "pid": 17832,
+      "name": "codex-code-mode-host.exe",
+      "cpu_seconds": 0.734375
+    },
+    {
+      "pid": 18016,
+      "name": "WindowsPackageManagerServer.exe",
+      "cpu_seconds": 0.71875
+    },
+    {
+      "pid": 18184,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 2.375
+    },
+    {
+      "pid": 18440,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 18476,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 18568,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 53.578125
+    },
+    {
+      "pid": 18592,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 14.265625
+    },
+    {
+      "pid": 18644,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 18652,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 18700,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 18836,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 19056,
+      "name": "node.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 19172,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 19368,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 19868,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.109375
+    },
+    {
+      "pid": 19960,
+      "name": "powershell.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 20120,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 20156,
+      "name": "UserOOBEBroker.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 20312,
+      "name": "adb.exe",
+      "cpu_seconds": 4.1875
+    },
+    {
+      "pid": 20328,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 20508,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 20728,
+      "name": "tailscale-ipn.exe",
+      "cpu_seconds": 4.90625
+    },
+    {
+      "pid": 20988,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 21228,
+      "name": "ShellExperienceHost.exe",
+      "cpu_seconds": 0.59375
+    },
+    {
+      "pid": 21428,
+      "name": "svchost.exe",
+      "cpu_seconds": 10.21875
+    },
+    {
+      "pid": 21500,
+      "name": "MoNotificationUx.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21640,
+      "name": "pythonw.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21660,
+      "name": "dasHost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 21804,
+      "name": "pwsh.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 21980,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 22088,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 22144,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 22356,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 22508,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 22516,
+      "name": "conhost.exe",
+      "cpu_seconds": 1.109375
+    }
+  ],
+  "processes_after": [
+    {
+      "pid": 0,
+      "name": "System Idle Process",
+      "cpu_seconds": 91791.921875
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "cpu_seconds": 701.53125
+    },
+    {
+      "pid": 188,
+      "name": "",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 232,
+      "name": "Registry",
+      "cpu_seconds": 2.5
+    },
+    {
+      "pid": 776,
+      "name": "smss.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 784,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 1056,
+      "name": "csrss.exe",
+      "cpu_seconds": 2.1875
+    },
+    {
+      "pid": 1148,
+      "name": "wininit.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 1172,
+      "name": "csrss.exe",
+      "cpu_seconds": 7.75
+    },
+    {
+      "pid": 1192,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.3125
+    },
+    {
+      "pid": 1200,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.640625
+    },
+    {
+      "pid": 1240,
+      "name": "services.exe",
+      "cpu_seconds": 15.15625
+    },
+    {
+      "pid": 1268,
+      "name": "winlogon.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 1304,
+      "name": "LsaIso.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 1312,
+      "name": "lsass.exe",
+      "cpu_seconds": 9.0625
+    },
+    {
+      "pid": 1392,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1476,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.5625
+    },
+    {
+      "pid": 1508,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 1516,
+      "name": "fontdrvhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 1596,
+      "name": "svchost.exe",
+      "cpu_seconds": 12.96875
+    },
+    {
+      "pid": 1644,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.046875
+    },
+    {
+      "pid": 1700,
+      "name": "dwm.exe",
+      "cpu_seconds": 130.78125
+    },
+    {
+      "pid": 1844,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 1860,
+      "name": "svchost.exe",
+      "cpu_seconds": 16.453125
+    },
+    {
+      "pid": 1936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 1952,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.171875
+    },
+    {
+      "pid": 1992,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 2028,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 2032,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 2064,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 2152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.71875
+    },
+    {
+      "pid": 2188,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.625
+    },
+    {
+      "pid": 2248,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.21875
+    },
+    {
+      "pid": 2264,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 2436,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.546875
+    },
+    {
+      "pid": 2464,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 2572,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 2676,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.859375
+    },
+    {
+      "pid": 2684,
+      "name": "FanControl.exe",
+      "cpu_seconds": 38.03125
+    },
+    {
+      "pid": 2744,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 2752,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 2796,
+      "name": "svchost.exe",
+      "cpu_seconds": 5.4375
+    },
+    {
+      "pid": 2832,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 2904,
+      "name": "svchost.exe",
+      "cpu_seconds": 2.078125
+    },
+    {
+      "pid": 2936,
+      "name": "WUDFHost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 2948,
+      "name": "codex-computer-use-swift.exe",
+      "cpu_seconds": 4.828125
+    },
+    {
+      "pid": 2984,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 27.765625
+    },
+    {
+      "pid": 3020,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 3052,
+      "name": "svchost.exe",
+      "cpu_seconds": 3.78125
+    },
+    {
+      "pid": 3080,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 339.15625
+    },
+    {
+      "pid": 3144,
+      "name": "MemCompression",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 3172,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 3228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.671875
+    },
+    {
+      "pid": 3236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 3252,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 3288,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 3300,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.375
+    },
+    {
+      "pid": 3416,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.3125
+    },
+    {
+      "pid": 3640,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 3648,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 3696,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 3704,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 3792,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 3892,
+      "name": "spoolsv.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 3976,
+      "name": "NVDisplay.Container.exe",
+      "cpu_seconds": 6.765625
+    },
+    {
+      "pid": 4064,
+      "name": "svchost.exe",
+      "cpu_seconds": 7.421875
+    },
+    {
+      "pid": 4112,
+      "name": "taskhostw.exe",
+      "cpu_seconds": 0.953125
+    },
+    {
+      "pid": 4152,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 4180,
+      "name": "Everything.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 4188,
+      "name": "svchost.exe",
+      "cpu_seconds": 6.6875
+    },
+    {
+      "pid": 4196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 4204,
+      "name": "updatesvc.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4212,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 4220,
+      "name": "svchost.exe",
+      "cpu_seconds": 9.765625
+    },
+    {
+      "pid": 4228,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4236,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 4244,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4272,
+      "name": "spacedeskService.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 4284,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 4292,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 4300,
+      "name": "MpDefenderCoreService.exe",
+      "cpu_seconds": 1.609375
+    },
+    {
+      "pid": 4308,
+      "name": "sqlwriter.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4324,
+      "name": "MsMpEng.exe",
+      "cpu_seconds": 339.953125
+    },
+    {
+      "pid": 4332,
+      "name": "WindscribeService.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 4340,
+      "name": "wslservice.exe",
+      "cpu_seconds": 0.3125
+    },
+    {
+      "pid": 4352,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 4364,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 1.03125
+    },
+    {
+      "pid": 4840,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 0.28125
+    },
+    {
+      "pid": 5140,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 5288,
+      "name": "NgcIso.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 5296,
+      "name": "node.exe",
+      "cpu_seconds": 0.234375
+    },
+    {
+      "pid": 5452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 12.765625
+    },
+    {
+      "pid": 5668,
+      "name": "python.exe",
+      "cpu_seconds": 78.59375
+    },
+    {
+      "pid": 5864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 6012,
+      "name": "tailscaled.exe",
+      "cpu_seconds": 5.375
+    },
+    {
+      "pid": 6152,
+      "name": "svchost.exe",
+      "cpu_seconds": 14.21875
+    },
+    {
+      "pid": 6160,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.546875
+    },
+    {
+      "pid": 6284,
+      "name": "gamingservicesnet.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 6292,
+      "name": "codex-windows-sandbox-service.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 6304,
+      "name": "gamingservices.exe",
+      "cpu_seconds": 6.296875
+    },
+    {
+      "pid": 6400,
+      "name": "cowork-svc.exe",
+      "cpu_seconds": 0.640625
+    },
+    {
+      "pid": 6408,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 6528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.359375
+    },
+    {
+      "pid": 6712,
+      "name": "svchost.exe",
+      "cpu_seconds": 4.796875
+    },
+    {
+      "pid": 6748,
+      "name": "SecurityHealthService.exe",
+      "cpu_seconds": 0.46875
+    },
+    {
+      "pid": 6812,
+      "name": "AggregatorHost.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 6888,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 6952,
+      "name": "codex.exe",
+      "cpu_seconds": 73.1875
+    },
+    {
+      "pid": 7144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 7172,
+      "name": "WmiPrvSE.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 7380,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.53125
+    },
+    {
+      "pid": 7592,
+      "name": "explorer.exe",
+      "cpu_seconds": 10.96875
+    },
+    {
+      "pid": 7700,
+      "name": "ShellHost.exe",
+      "cpu_seconds": 0.46875
+    },
+    {
+      "pid": 7708,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.5
+    },
+    {
+      "pid": 7844,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 21.84375
+    },
+    {
+      "pid": 7944,
+      "name": "GameInputRedistService.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 7960,
+      "name": "spacedeskServiceTray.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8104,
+      "name": "DefenderSessionHelper.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 8160,
+      "name": "sihost.exe",
+      "cpu_seconds": 4.671875
+    },
+    {
+      "pid": 8300,
+      "name": "CrossDeviceService.exe",
+      "cpu_seconds": 55.65625
+    },
+    {
+      "pid": 8436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.25
+    },
+    {
+      "pid": 8560,
+      "name": "CrossDeviceResume.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 8644,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.484375
+    },
+    {
+      "pid": 8804,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 8844,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.34375
+    },
+    {
+      "pid": 8940,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 9044,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 9064,
+      "name": "wallpaper64.exe",
+      "cpu_seconds": 2.359375
+    },
+    {
+      "pid": 9176,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 9196,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 9208,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 9292,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 9496,
+      "name": "SearchHost.exe",
+      "cpu_seconds": 3.1875
+    },
+    {
+      "pid": 9520,
+      "name": "StartMenuExperienceHost.exe",
+      "cpu_seconds": 5.21875
+    },
+    {
+      "pid": 9780,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.203125
+    },
+    {
+      "pid": 9832,
+      "name": "pythonw.exe",
+      "cpu_seconds": 4.625
+    },
+    {
+      "pid": 9836,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 1.9375
+    },
+    {
+      "pid": 10040,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 10144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.140625
+    },
+    {
+      "pid": 10160,
+      "name": "node.exe",
+      "cpu_seconds": 0.578125
+    },
+    {
+      "pid": 10204,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 10736,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 2.171875
+    },
+    {
+      "pid": 10824,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.859375
+    },
+    {
+      "pid": 10848,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.34375
+    },
+    {
+      "pid": 10888,
+      "name": "PowerToys.CropAndLock.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 10980,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 11428,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 11476,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 11540,
+      "name": "PowerToys.exe",
+      "cpu_seconds": 9.484375
+    },
+    {
+      "pid": 11664,
+      "name": "msedgewebview2.exe",
+      "cpu_seconds": 1.59375
+    },
+    {
+      "pid": 11688,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 11836,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 11948,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 12072,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12144,
+      "name": "ApplicationFrameHost.exe",
+      "cpu_seconds": 0.75
+    },
+    {
+      "pid": 12332,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 12344,
+      "name": "svchost.exe",
+      "cpu_seconds": 1.4375
+    },
+    {
+      "pid": 12436,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.484375
+    },
+    {
+      "pid": 12528,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.109375
+    },
+    {
+      "pid": 12796,
+      "name": "vmcompute.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 12936,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 13028,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.125
+    },
+    {
+      "pid": 13188,
+      "name": "SearchIndexer.exe",
+      "cpu_seconds": 5.53125
+    },
+    {
+      "pid": 13380,
+      "name": "NisSrv.exe",
+      "cpu_seconds": 0.5625
+    },
+    {
+      "pid": 13556,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 13748,
+      "name": "svchost.exe",
+      "cpu_seconds": 3.859375
+    },
+    {
+      "pid": 13840,
+      "name": "PowerToys.ColorPickerUI.exe",
+      "cpu_seconds": 1.953125
+    },
+    {
+      "pid": 13864,
+      "name": "SystemSettings.exe",
+      "cpu_seconds": 3.390625
+    },
+    {
+      "pid": 13948,
+      "name": "ctfmon.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 13976,
+      "name": "TabTip.exe",
+      "cpu_seconds": 0.65625
+    },
+    {
+      "pid": 14148,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 11.75
+    },
+    {
+      "pid": 14232,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 4.421875
+    },
+    {
+      "pid": 14264,
+      "name": "nvcontainer.exe",
+      "cpu_seconds": 17.765625
+    },
+    {
+      "pid": 14492,
+      "name": "nvsphelper64.exe",
+      "cpu_seconds": 16.984375
+    },
+    {
+      "pid": 14516,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 13.84375
+    },
+    {
+      "pid": 14588,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 1.703125
+    },
+    {
+      "pid": 14632,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 11.03125
+    },
+    {
+      "pid": 14916,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 0.4375
+    },
+    {
+      "pid": 14920,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.546875
+    },
+    {
+      "pid": 15092,
+      "name": "PowerToys.AlwaysOnTop.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 15144,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 15152,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 15184,
+      "name": "codex.exe",
+      "cpu_seconds": 1.328125
+    },
+    {
+      "pid": 15204,
+      "name": "GameInputSvc.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 15296,
+      "name": "NVIDIA Overlay.exe",
+      "cpu_seconds": 2.234375
+    },
+    {
+      "pid": 15480,
+      "name": "Microsoft.CmdPal.UI.exe",
+      "cpu_seconds": 35.671875
+    },
+    {
+      "pid": 15504,
+      "name": "TextInputHost.exe",
+      "cpu_seconds": 3.75
+    },
+    {
+      "pid": 15800,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 15804,
+      "name": "PowerToys.Awake.exe",
+      "cpu_seconds": 0.84375
+    },
+    {
+      "pid": 15820,
+      "name": "PhoneExperienceHost.exe",
+      "cpu_seconds": 4.5
+    },
+    {
+      "pid": 15864,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16048,
+      "name": "PowerToys.FancyZones.exe",
+      "cpu_seconds": 9.046875
+    },
+    {
+      "pid": 16088,
+      "name": "Taskmgr.exe",
+      "cpu_seconds": 255.375
+    },
+    {
+      "pid": 16144,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16796,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 16808,
+      "name": "PowerToys.Peek.UI.exe",
+      "cpu_seconds": 4.6875
+    },
+    {
+      "pid": 16908,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.0625
+    },
+    {
+      "pid": 16964,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 16968,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 167.796875
+    },
+    {
+      "pid": 17016,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 17108,
+      "name": "PowerToys.PowerLauncher.exe",
+      "cpu_seconds": 33.234375
+    },
+    {
+      "pid": 17440,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 207.203125
+    },
+    {
+      "pid": 17452,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 9.78125
+    },
+    {
+      "pid": 17544,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.421875
+    },
+    {
+      "pid": 17832,
+      "name": "codex-code-mode-host.exe",
+      "cpu_seconds": 0.734375
+    },
+    {
+      "pid": 18016,
+      "name": "WindowsPackageManagerServer.exe",
+      "cpu_seconds": 0.71875
+    },
+    {
+      "pid": 18184,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 2.40625
+    },
+    {
+      "pid": 18440,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.0
+    },
+    {
+      "pid": 18476,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 18568,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 53.734375
+    },
+    {
+      "pid": 18592,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 14.3125
+    },
+    {
+      "pid": 18644,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 18652,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.296875
+    },
+    {
+      "pid": 18700,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 18836,
+      "name": "RtkAudUService64.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 19056,
+      "name": "node.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 19172,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 19368,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 19868,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 1.109375
+    },
+    {
+      "pid": 19960,
+      "name": "powershell.exe",
+      "cpu_seconds": 0.21875
+    },
+    {
+      "pid": 20120,
+      "name": "ChatGPT.exe",
+      "cpu_seconds": 0.1875
+    },
+    {
+      "pid": 20156,
+      "name": "UserOOBEBroker.exe",
+      "cpu_seconds": 0.046875
+    },
+    {
+      "pid": 20312,
+      "name": "adb.exe",
+      "cpu_seconds": 4.21875
+    },
+    {
+      "pid": 20328,
+      "name": "conhost.exe",
+      "cpu_seconds": 0.015625
+    },
+    {
+      "pid": 20508,
+      "name": "node_repl.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 20728,
+      "name": "tailscale-ipn.exe",
+      "cpu_seconds": 5.046875
+    },
+    {
+      "pid": 20988,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.15625
+    },
+    {
+      "pid": 21228,
+      "name": "ShellExperienceHost.exe",
+      "cpu_seconds": 0.59375
+    },
+    {
+      "pid": 21428,
+      "name": "svchost.exe",
+      "cpu_seconds": 10.21875
+    },
+    {
+      "pid": 21500,
+      "name": "MoNotificationUx.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21640,
+      "name": "pythonw.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 21660,
+      "name": "dasHost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 21804,
+      "name": "pwsh.exe",
+      "cpu_seconds": 0.59375
+    },
+    {
+      "pid": 21980,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.171875
+    },
+    {
+      "pid": 22088,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.078125
+    },
+    {
+      "pid": 22144,
+      "name": "RuntimeBroker.exe",
+      "cpu_seconds": 0.09375
+    },
+    {
+      "pid": 22356,
+      "name": "svchost.exe",
+      "cpu_seconds": 0.328125
+    },
+    {
+      "pid": 22508,
+      "name": "cmd.exe",
+      "cpu_seconds": 0.03125
+    },
+    {
+      "pid": 22516,
+      "name": "conhost.exe",
+      "cpu_seconds": 1.109375
+    }
+  ],
+  "all_timed_outputs_match_qualified_artifact": true,
+  "inputs_before_after_exact": true,
+  "clean_system_isolation_admitted": false,
+  "actual_DRAM_bytes_measured": false,
+  "whole_model_speed_admitted": false,
+  "seconds": 88.44727299999977,
+  "OS_peak": 315813888,
+  "scope": "Actual1-thread batch1 ownnorm mixed_decode64_out32 supplied-source-operand composed operator,all48 histories/two passes/output bit checks. Stage instrumentation and retained generator GEMV on arbitrary vectors separately. Data loading,metrics/checks/hashes outside native call;source inputgen/conv/attention/MLP/head absent from operator time. No end-to-end useful token/s/actual expert DRAM/n admission."
+}
