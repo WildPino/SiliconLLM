@@ -1,0 +1,38 @@
+{
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "MKL_NUM_THREADS": "6"
+  },
+  "schema": "FINITE_RECURRENCE_GRADIENT_LAUNCH_V1",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/finite_recurrence_gradient.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/finite_recurrence_gradient_binding_20261012.json",
+    "--binding-sha",
+    "6f39db72612c57230f3fd182bcacf8950ce91c63313e017784a18fec52f8e0ff",
+    "--freeze",
+    "28f1602ae219905eff41a51e1d2100c57ec0ab90",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/finite_recurrence_gradient_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/finite_recurrence_gradient_result_20261012.json"
+  ],
+  "freeze": "28f1602ae219905eff41a51e1d2100c57ec0ab90",
+  "limits": {
+    "GPU_allocated_bytes": 4294967296,
+    "seconds": 1800,
+    "GPU_reserved_bytes": 5368709120,
+    "OS_bytes": 6442450944,
+    "output_bytes": 4294967296
+  },
+  "preparation_seconds": 4.2229554
+}
