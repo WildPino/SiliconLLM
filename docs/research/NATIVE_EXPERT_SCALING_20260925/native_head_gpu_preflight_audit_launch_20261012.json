@@ -1,0 +1,36 @@
+{
+  "limits": {
+    "seconds": 600,
+    "OS_bytes": 4294967296
+  },
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_gpu_preflight_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_gpu_preflight_result_20261012.json",
+    "--report-sha",
+    "a5d87cedad1bc90636a1e18e611541617251d3e15c944164db8704df7b7d4aa2",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_gpu_preflight_result_20261012.terminal.json",
+    "--terminal-sha",
+    "6653f839032cdda1eb1cd64bc93336e38cb0243b295e6ccf534c981f1475cd6c",
+    "--freeze",
+    "29699cef89ba0bddaa24f58e78ecc6e110e415d8",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_gpu_preflight_adjudication_20261012.json"
+  ],
+  "freeze": "29699cef89ba0bddaa24f58e78ecc6e110e415d8",
+  "schema": "NATIVE_HEAD_GPU_PREFLIGHT_AUDIT_INVOCATION_V1"
+}
