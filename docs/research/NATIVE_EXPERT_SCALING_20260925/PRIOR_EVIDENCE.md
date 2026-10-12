@@ -1,18 +1,26 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Source-head2048 moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all8808 source rows,18,038,784 moments,
+three complete feature/RMS decoder gradient controls;max relative5.43e-12.
+144.31MB moment payload;all outputs1.012GB with full derivative controls.
+Capture32508/audit86463 CLOSED0. Changing source-derived decoder supervision
+available;no optimization/native quantized export/causal quality admission.
+Next [recurrent-only channel projection/full skip](RECURRENT_ONLY_CHANNEL_SKIP_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND; full source generators/gates remain injected.
 [Entropy-mixture dual witnesses](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:8808 source rows/140928 family-lambda direct
 moment/entropy/support rows. Ten positive lows,worstFIT.001183/DEV.000626,mean
 6.93e-7/1.66e-7;no budget obstruction. Both source/candidate zero words0. Capt26766/
-audit22384 CLOSED0. Next2048 source-head moment compiler for changing decoder/
-causal transfer,UNIMPLEMENTED. No unchanged long primal rerun selected.
+audit22384 CLOSED0. Source-head moment compiler subsequently complete above.
+No unchanged long primal rerun selected.
 [All-label native probability oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:4 full checkpoints/35232 point rows/all
 577249896 native logits bit exact/source q and quality. Native DEVcaseKL.0483465/
 dis2.3003% versus2.93425/41.09%;all budgetsFAIL/lower0. Budget36 completed/partial37,
-not optimum or causal model. New entropy-mixture dual family proposed before
-long unchanged primal repeat;UNIMPLEMENTED. Capt10400/audit13729 CLOSED0.
+not optimum or causal model. Subsequent entropy-mixture dual family complete
+above. Capt10400/audit13729 CLOSED0.
 [GPUF64 all-label initial loss/gradient/cost](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md)
 COMPLETE/full independent CPU probability audit PASS:8808 complete losses/
 257-gradients/IDs,CPU/GPU errors~2.5e-14/zeroID changes. Component nominal pass

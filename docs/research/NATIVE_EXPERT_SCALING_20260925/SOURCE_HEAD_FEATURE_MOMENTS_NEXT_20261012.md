@@ -1,6 +1,9 @@
 # Source-head moments for a changing decoder and causal transfer
 
-12 October2026. **PROPOSED/UNIMPLEMENTED/UNBOUND**. Selected next after complete
+12 October2026. **HISTORICAL SELECTION; implementation and full audit now COMPLETE/PASS**.
+See [result and custody](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md).
+Current next is [recurrent-only projection/full skip](RECURRENT_ONLY_CHANNEL_SKIP_NEXT_20261012.md).
+Originally selected after complete
 all-label oracle and entropy-mixture audits. Current upper budgets fail;dual
 family gives only tiny positive lowers below budgets. Neither head adequacy nor
 head obstruction proved. Avoid indefinitely optimizing fixed per-label oracles;

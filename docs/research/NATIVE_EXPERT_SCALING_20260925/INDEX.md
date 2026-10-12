@@ -8,7 +8,10 @@ logits bit exact/source probabilities and quality verified. Native DEVcaseKL
 36 completed outer/partial37,not convergence. Subsequent
 [entropy-mixture dual witness](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md) now COMPLETE/
 full audit PASS:all140928 grid rows,ten tiny positive lowers below quality budgets.
-Reader-capacity question unresolved;next source-head moments for flexible decoder.
+Reader-capacity question unresolved. [Source-head2048 moments](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
+now COMPLETE/full audit PASS: all8808 source rows and three full decoder controls;
+144.31MB moments, full feature/RMS derivatives. Next isolate recurrent channel
+loss from projected instantaneous skip; no causal model admitted.
 
 ## Goal and constraints
 
@@ -37,6 +40,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Source-head feature moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md): all18,038,784 moments and full gradients for three different decoders independently audited PASS (max relative5.43e-12). Changing source-derived decoder supervision available;native F32 rounding remains separate. Capture32508/audit86463 CLOSED0. Next recurrent-only channel projection with full stateless skip.
 - [Entropy-mixture dual family](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md): all8808 source rows/140928 direct moment-entropy-support rows fully audited PASS. Five FIT/five DEV positive lowers,worst.001183/.000626,case means6.93e-7/1.66e-7;no budget obstruction. Zero probability words0. No more primal iterations or causal model. Next compile2048 source-head moments instead of freezing decoder during causal transfer.
 - [All-label native probability oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md): fully audited native code room;FITcaseKL.01725/DEV.04835,case disagreement1.53%/2.30%,worst label1.005/2.011. Quality fails,lower0/no reader obstruction proved. Source-operator/per-label oracle evidence,not causal model/own-history/family/n/same50 admission.
 - [Full GPUF64 loss/gradient qualification](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md): all8808 initial losses/gradients/IDs independently audited on CPU PASS;GPU/CPU max differences~2.5e-14,zeroIDs. Local component nominal pass~4.3s versus CPU28.2s;Windows clock15.625ms/desktop sharing,no clean timing admission. No optimizer/new native code yet. Backend now available for full probability-image study.
@@ -67,12 +71,15 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind source-head2048-feature moment compilation**,
-[selected next](SOURCE_HEAD_FEATURE_MOMENTS_NEXT_20261012.md),
-PROPOSED/UNIMPLEMENTED/UNBOUND. m_source=A_source^T q,H(q) supports changing
-source-derived decoder y,not arbitrary readers outside that column space.
-All8808 labels/full source probabilities;144.31MB F64 moments. Qualify losses/
-gradients for existing different decoder points with full direct q;native F32
+**Implement/freeze/bind recurrent-only channel projection with full instantaneous skip**,
+[selected next](RECURRENT_ONLY_CHANNEL_SKIP_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
+Reuse both frozen384-channel layouts and actual latents at0/12/23/all48 cases;
+correct only projected D*x loss, retain full source gates/generators, recompute
+joint postgate RMS. No new fit/model forward. Old output controls, decomposition
+and all new outputs require complete audit, even if local budgets fail.
+The [source-head moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
+and three full decoder controls are COMPLETE/INDEPENDENT_STORED_PASS.
+144.31MB source moments cover changing source-derived decoders;native F32
 coefficient rounding remains a separate export/probability gate.
 Relaxed half-ball lowers and actual positive-sphere native uppers are different;
 moment matching separates information projection and encoder loss only under
@@ -80,8 +87,10 @@ the stated stationarity/residual identity. Do not extend winner-only rays.
 Moment/cost compilation,affine ray probe,GPU backend AND bounded distribution
 search/entropy dual audit complete;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
 separates emission-code supervision from full recurrent state/closure/future information.
-[Dual closure](dual_entropy_mixture_session_closure_20261012.json) records26766
-capture CLOSED0/301.337s,22384 audit CLOSED0/440.055s;no owned live process.
+[Source-head closure](source_head_feature_moments_session_closure_20261012.json)
+records32508 capture CLOSED0/211.453s,86463 audit CLOSED0/332.155s;
+no owned live process. [Dual closure](dual_entropy_mixture_session_closure_20261012.json)
+retains the preceding complete dual witness family.
 Historical native precision failures remain in
 [preflight closure](native_head_domain_preflight_session_closure_20261012.json).
 

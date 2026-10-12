@@ -39,9 +39,14 @@ native logits bit exact/direct source q;no image-optimum/convergence admission.
 [Entropy-mixture dual witnesses](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md) now
 IMPLEMENTED/INDEPENDENTLY VERIFIED:all140928 entropy/direct moment/support rows,
 ten positive lowers below budgets;no relevant reader obstruction proved. No
-causal/model-quality admission. Next [2048 source-head moments](SOURCE_HEAD_FEATURE_MOMENTS_NEXT_20261012.md)
-UNIMPLEMENTED/UNBOUND,allowing a source-derived decoder to change while retaining
-full categorical supervision;current257-moments cannot cover that change.
+causal/model-quality admission. [2048 source-head moments](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED:all8808 source rows and three decoder
+controls, full feature/RMS derivatives;144.31MB moments. Allows a source-derived
+decoder to change while retaining full categorical supervision;fixed257-moments
+cannot cover that change. Native F32 coefficient rounding remains separate.
+Next [recurrent-only channels/full skip](RECURRENT_ONLY_CHANNEL_SKIP_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED:reuse old384 scans/maps, separate dynamic memory and
+stateless feedthrough loss. No causal model/native cost admission.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

@@ -1,0 +1,48 @@
+{
+  "schema": "SOURCE_HEAD_FEATURE_MOMENTS_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\source_head_feature_moments_audit.py",
+    "bytes": 9380,
+    "sha256": "e5eb179793f0f32ec8c68ae964f557735814768c2d4c547573173c688e208ff1"
+  },
+  "freeze": "15438cd6c26fe5b907eb27ea1fe1e1eb37c7e027",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_head_feature_moments_result_20261012.json",
+    "bytes": 44440,
+    "sha256": "c495df376d2c674dac5b38168bf604795aa62bc842dcb40d03c602c791a0b2e0"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_head_feature_moments_result_20261012.terminal.json",
+    "bytes": 1345,
+    "sha256": "fd358511bee66414d6149e2cfd06ca9a948f490d51c204a28103e0f5b0ec420a"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_head_feature_moments_binding_20261012.json",
+    "bytes": 1013368,
+    "sha256": "51cf7f03d5deab37a2b9a7e1ed8724953f8380e37b0ec9104847113cad154747"
+  },
+  "source_rows": 8808,
+  "control_rows": 26424,
+  "all18038784_source_feature_moment_words_verified": true,
+  "all54116352_feature_and54116352_normalized_decoder_gradient_words_verified": true,
+  "full_radial_tangent_RMS_Jacobian_actions_verified": true,
+  "split_checks": [
+    {
+      "split": "FIT",
+      "rows": 4422,
+      "all_source_moments_and3_decoder_gradients_verified": true
+    },
+    {
+      "split": "DEV",
+      "rows": 4386,
+      "all_source_moments_and3_decoder_gradients_verified": true
+    }
+  ],
+  "max_relative": 5.428207657861082e-12,
+  "max_scalar_delta": 0.0,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 332.1460438000213,
+  "OS_peak": 2371555328,
+  "scope": "Full changing-decoder source-head loss/moment/feature/RMS derivative qualification. GPU internal comparison maxima are bound observations,not exact GPU replay;no causal/native/model/n/50 admission."
+}
