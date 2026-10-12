@@ -1,0 +1,59 @@
+{
+  "schema": "NATIVE_HEAD_GPU_PREFLIGHT_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_head_gpu_preflight_audit.py",
+    "bytes": 7662,
+    "sha256": "6cae4c1c574e8479c90706f8cc07b62b1055be1a23e83715c97bbc403cdaa2d9"
+  },
+  "freeze": "29699cef89ba0bddaa24f58e78ecc6e110e415d8",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_gpu_preflight_result_20261012.json",
+    "bytes": 19153,
+    "sha256": "a5d87cedad1bc90636a1e18e611541617251d3e15c944164db8704df7b7d4aa2"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_gpu_preflight_result_20261012.terminal.json",
+    "bytes": 1333,
+    "sha256": "6653f839032cdda1eb1cd64bc93336e38cb0243b295e6ccf534c981f1475cd6c"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_gpu_preflight_binding_20261012.json",
+    "bytes": 459893,
+    "sha256": "ce9c84996482b22272f885c9a51949adf12d61a76f21c1a140167ec5ccef1fc2"
+  },
+  "rows": 8808,
+  "full_probability_words": 577249896,
+  "all8808_full_loss_gradients_and_ids_verified": true,
+  "split_checks": [
+    {
+      "split": "FIT",
+      "rows": 4422,
+      "flags": {
+        "loss_absolute": true,
+        "gradient_absolute": true,
+        "gradient_relative": true,
+        "argmax_changes": true
+      },
+      "probability_rows_full_v": true
+    },
+    {
+      "split": "DEV",
+      "rows": 4386,
+      "flags": {
+        "loss_absolute": true,
+        "gradient_absolute": true,
+        "gradient_relative": true,
+        "argmax_changes": true
+      },
+      "probability_rows_full_v": true
+    }
+  ],
+  "max_relative": 2.77690147660721e-11,
+  "max_scalar_delta": 0.0,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "GPU_numeric_pass": true,
+  "seconds": 57.35899999999674,
+  "OS_peak": 478359552,
+  "scope": "Independent CPU full-vocabulary moment objective/probability/gradient audit of stored GPUF64 output. No GPU replay/optimization/native-code/quality/speed admission."
+}

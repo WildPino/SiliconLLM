@@ -25,9 +25,14 @@ IMPLEMENTED/INDEPENDENTLY VERIFIED:all2361 full constraints/8808 associations,
 2342 actual native target codes,153487654 logits bit exact with scalar reference.
 DEV mean case oracle coverage98.6616%,but available KL contribution9.6007.
 Winner availability does not preserve probabilities/establish causal encoding.
-Next [bounded full-probability image gap](NATIVE_HEAD_PROBABILITY_GAP_NEXT_20261012.md)
-UNIMPLEMENTED;GPUF64 whole initial loss/gradient qualification/cost prerequisite
-before selecting backend/cohort/steps. No repeated winner-only ray optimization.
+[GPUF64 initial objective/gradient backend](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED for all8808 full-vocabulary losses/
+257-gradients/IDs,CPU/GPU errors~2.5e-14. Approximate component pass4.3s;
+clock15.625ms/desktop sharing,timing admission false. No model/code optimization.
+Next [all-label probability-gap selected design](ALL_LABEL_NATIVE_PROBABILITY_GAP_DESIGN_20261012.md)
+UNIMPLEMENTED/UNBOUND:128 max updates/1200s solver/1800s capture,half-ball
+lower points and actual native sphere codes;full stored-point/native audit.
+No repeated winner-only ray optimization or smaller successful cohort substitution.
 [Exact categorical V/W/center correction and independent Jacobian audit](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 now IMPLEMENTED/LOCALLY VERIFIED. Actual source FIT72 final states/full trained
 head,complete RMS derivative and both center paths;full gradient/differences/

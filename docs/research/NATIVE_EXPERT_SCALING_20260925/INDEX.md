@@ -29,6 +29,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Full GPUF64 loss/gradient qualification](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md): all8808 initial losses/gradients/IDs independently audited on CPU PASS;GPU/CPU max differences~2.5e-14,zeroIDs. Local component nominal pass~4.3s versus CPU28.2s;Windows clock15.625ms/desktop sharing,no clean timing admission. No optimizer/new native code yet. Backend now available for full probability-image study.
 - [Affine native decision rays](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md): all2361 distinct donor-winner full constraints/8808 label associations audited;2342 actual native codes choose their target. All153487654 F32 logits bit exact with independent scalar reference. DEV mean case coverage98.6616%,but available KL contribution9.6007 versus existing2.93425. Winner availability is oracle evidence,not probability preservation/causal encoding. No general head infeasibility or throughput claim.
 - [Actual native head moments/cost/guard diagnosis](NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_20261012.md): all8808 source moments/IDs/codes/losses/gradients/support bounds independently audited PASS; no positive initial floor. First run CLOSED1, diagnostic V2 CLOSED0 retains both false1e-5 KL flags. All577249896 original logits compared; KL deltas<=1.325e-5 fit the score-range rounding bound,zero ID changes. CPU pass estimate28.2s; no clean timing admission. No optimization implemented.
 - [Exact QR gauge/native scalar-norm export](GAUGED_NATIVE_READOUT_RESULT_20261012.md): all8808 labels/577249896 actual F32 logits bit exact with separate scalar FMA reference. Explicit scalar epsilon/normalized bias preserve same poor predictor; DEV case disagreement41.09%,all quality gates FAIL. Original interruption retained; replay/audit CLOSED0. Original engine.c unchanged.
@@ -56,20 +57,22 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind local GPUF64 loss/gradient qualification and cost only**,
-[next probability-gap specification](NATIVE_HEAD_PROBABILITY_GAP_NEXT_20261012.md).
-All8808 existing moment packets/initial v/full65537 current head;compare complete
-GPU outputs with independently qualified CPU loss/gradients. No optimization/
-new source acquisition in that prerequisite. CPU nominal pass28.217s available;
-backend/cohort/steps/caps of a bounded full-probability image study remain unbound.
+**Implement/freeze/bind the all8808-label probability-image study**,
+[selected bounded design](ALL_LABEL_NATIVE_PROBABILITY_GAP_DESIGN_20261012.md),
+PROPOSED/UNIMPLEMENTED/UNBOUND. GPUF64 initial qualification/cost is COMPLETE.
+Selected design:128 max round-robin updates,1200s solver budget/1800s capture,
+projected half-ball descent plus separately evaluated executable sphere codes,
+actual native full source-probability capture,all stored-point/native full audit.
+No optimization job started;finish source/protocol/binding/criteria before launch.
 Relaxed half-ball lowers and actual positive-sphere native uppers are different;
 moment matching separates information projection and encoder loss only under
 the stated stationarity/residual identity. Do not extend winner-only rays.
-Moment/cost compilation AND affine ray probe complete;full distribution search
-and causal code acquisition remain unimplemented.
-[Ray closure](native_head_affine_rays_session_closure_20261012.json) records94685
-CLOSED0,75477 CLOSED0;no owned process live. Historical preflight guard failures
-remain in [preflight closure](native_head_domain_preflight_session_closure_20261012.json).
+Moment/cost compilation,affine ray probe AND GPU backend complete;full distribution
+search and causal code acquisition remain unimplemented.
+[GPU closure](native_head_gpu_preflight_session_closure_20261012.json) records
+15890 prepare CLOSED0,24009 capture CLOSED0,42536 audit CLOSED0;no owned process live.
+Historical native precision failures remain in
+[preflight closure](native_head_domain_preflight_session_closure_20261012.json).
 
 [Router-support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED,a numerical branch insufficient for capacity repair.

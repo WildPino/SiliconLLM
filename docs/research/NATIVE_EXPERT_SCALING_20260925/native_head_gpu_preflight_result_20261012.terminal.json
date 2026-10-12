@@ -1,0 +1,38 @@
+{
+  "schema": "NATIVE_HEAD_GPU_PREFLIGHT_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_gpu_preflight.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_gpu_preflight_binding_20261012.json",
+    "--binding-sha",
+    "ce9c84996482b22272f885c9a51949adf12d61a76f21c1a140167ec5ccef1fc2",
+    "--freeze",
+    "d84a2de7719579d278d2d62eafec75fd975860d6",
+    "--directory",
+    "results/native_expert_scaling/native_head_gpu_preflight_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_gpu_preflight_result_20261012.json"
+  ],
+  "pid": 30420,
+  "creation_time": 1791821766.9565108,
+  "freeze": "d84a2de7719579d278d2d62eafec75fd975860d6",
+  "timing_admitted": false,
+  "exit_code": 0,
+  "error": null,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_head_gpu_preflight_result_20261012.json",
+    "bytes": 19153,
+    "sha256": "a5d87cedad1bc90636a1e18e611541617251d3e15c944164db8704df7b7d4aa2"
+  },
+  "seconds": 16.905999999988126,
+  "OS_peak": 1208004608,
+  "GPU_allocated_peak": 236201984,
+  "GPU_reserved_peak": 243269632
+}

@@ -1,6 +1,10 @@
 # Current native head probability gap: proposed next
 
-12 October2026. PROPOSED/UNIMPLEMENTED/UNBOUND. No optimizer/GPU preflight run.
+12 October2026. Optimizer PROPOSED/UNIMPLEMENTED/UNBOUND.
+[GPU preflight now COMPLETE](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md);
+[selected all-label design](ALL_LABEL_NATIVE_PROBABILITY_GAP_DESIGN_20261012.md)
+records next settings without claiming execution. Following text is mathematical
+specification and original prospective prerequisite,not current GPU status.
 Prior [complete affine-ray result](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md):
 2342/2361 actual native target codes,DEV case coverage98.6616%,but available KL
 contribution9.6007 versus current predictor2.93425. Winner availability does not

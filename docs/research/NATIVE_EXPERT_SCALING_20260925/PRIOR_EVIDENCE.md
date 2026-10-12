@@ -1,13 +1,19 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[GPUF64 all-label initial loss/gradient/cost](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/full independent CPU probability audit PASS:8808 complete losses/
+257-gradients/IDs,CPU/GPU errors~2.5e-14/zeroID changes. Component nominal pass
+~4.3s versus28.2s CPU;clock15.625ms/desktop sharing,no clean speed admission.
+Next all8808-label bounded probability-image study,selected design UNIMPLEMENTED/
+UNBOUND;no optimizer or new native code. Causal core/quality/n/same50 still open.
 [Actual native affine-ray winner assay](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md)
 COMPLETE/full audit PASS:2361 distinct source winners/all8808 associations,
 2342 target native codes/all153487654 F32 scores bit exact with scalar reference.
 DEV case coverage98.6616%,but available KL contribution9.6007 versus2.93425;
 winner-only codes lose distributions. Eleven zero-margin/eight additional unit-
-margin ray failures do not prove general head infeasibility. Next qualified
-GPUF64 cost before full-probability gap study,UNIMPLEMENTED;causal core still open.
+margin ray failures do not prove general head infeasibility. Subsequent GPUF64
+cost qualification now COMPLETE as above;probability optimization/causal core open.
 [Current native head moments/cost and guard diagnosis](NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all8808 exact source moments/IDs/code/loss/
 gradient/support rows verified. Original run CLOSED1;V2 CLOSED0 retains BOTH
