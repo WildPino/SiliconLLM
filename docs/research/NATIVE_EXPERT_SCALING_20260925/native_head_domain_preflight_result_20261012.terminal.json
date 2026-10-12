@@ -1,0 +1,32 @@
+{
+  "schema": "NATIVE_HEAD_DOMAIN_PREFLIGHT_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_domain_preflight.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_binding_20261012.json",
+    "--binding-sha",
+    "43e5c36f87e80ba6da7a3cc0c8638c7af1f7f66484b15119661d7f74fef48e30",
+    "--freeze",
+    "6505bae033e91dddeea1aa019c5942cdb4ac5ca4",
+    "--directory",
+    "results/native_expert_scaling/native_head_domain_preflight_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_result_20261012.json"
+  ],
+  "pid": 26848,
+  "creation_time": 1791818976.068844,
+  "freeze": "6505bae033e91dddeea1aa019c5942cdb4ac5ca4",
+  "timing_admitted": false,
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_head_domain_preflight.py\", line 182, in run\n    assert native_delta <= b['tolerance']['native_KL_delta']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 38.875,
+  "OS_peak": 1749098496
+}
