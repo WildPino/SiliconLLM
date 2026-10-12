@@ -67,8 +67,12 @@ gradients,independent tangent,all FD/candidate/selection/parameter bits/all48
 actual compact scans. Alpha.0003 FITloss.537006->.533005,DEV ownnorm.792727->
 .789261;all local qualityFAIL. Original algebra/control/metadata faults retained;
 fine derivative qualification separate,original coarse flags false. Next
-[exact coordinate whitening](RECURRENT_WHITENED_COORDINATES_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED;test conditioning before more unchanged epochs.
+[exact coordinate whitening](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED:all physical/white outputs initially
+identical~1e-14,dual autograd/chain/SPD/inverse/tangents/full matched-output curves.
+Whitened best FIT.520252 versusreference.530466 fromsame.533005 point;no capacity
+change,no installed update/new scan. Next [fixed candidate qualification](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED;exact stored FIT-only point/all48 held-out+actual scans.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

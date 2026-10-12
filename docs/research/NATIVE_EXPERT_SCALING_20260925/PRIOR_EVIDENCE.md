@@ -1,6 +1,15 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Invariant whitening/matched-output preflight](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all92,352,512 physical/white output words,
+34,246,656 GY/dual autograd24FIT cases,45,662,208 J-direction words/1,572,864
+parameter-replay words/SPD/inverse/projector/chain/full curves. Initial physical
+model identical~1e-14. Referencebest.530466/alpha.03,whitebest.520252/alpha.1 from
+.533005;2.393% versus.476% FIT decrease. Recommendation only,no update/newscan/
+DEV curve selection.90532/70170CLOSED0;1.419GB new arrays on E. Next
+[fixed candidate qualification](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. No model/n/50 admission.
 [Full finite recurrence gradient/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:24 autograd cases/all34,246,656 GY words,
 parameter gradients/Kronecker tangent/all FD/candidates/selection/parameter bits,
@@ -9,8 +18,8 @@ One FIT-only alpha.0003,.537006->.533005;DEV ownnorm.792727->.789261,all local
 qualityFAIL. Original transpose/coarse-FD/partial-audit metadata faults retained;
 full failed-prefix qualificationPASS,original coarse flags false. Fine steps
 1e-6/7/8 passsame1e-6 threshold.46933/9123CLOSED0;new1.471GB arrays on E.
-Next [exact whitening/conditioning](RECURRENT_WHITENED_COORDINATES_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND. Source-injected local component,no full model.
+Subsequent whitening/conditioning preflight complete above. Source-injected
+local component,no full model.
 [Coupled finite recurrence sensitivity](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all144 records/554,115,072 finite/J vector
 words/1,488,102 raw stats/19,480,608 head energies-rho/FIT Grams/proxies/450

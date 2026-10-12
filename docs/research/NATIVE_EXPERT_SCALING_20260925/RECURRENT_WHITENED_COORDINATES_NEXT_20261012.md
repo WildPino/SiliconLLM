@@ -1,6 +1,9 @@
 # Exact recurrent coordinate whitening before another finite update
 
-12 October2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+12 October2026. **HISTORICAL SELECTION; invariant/matched-direction preflight COMPLETE/full audit PASS**.
+See [result](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md). No installed update
+or new scan in that preflight. Next [fixed whitened candidate qualification](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md).
+Original selected design follows.
 The full finite-gradient/update/actual-scan audit passed. One selected step
 improves FIT loss only.745%,DEV operator RMS79.27%->78.93%;all local gates fail.
 Larger normalized parameter steps rapidly increase finite loss. This suggests

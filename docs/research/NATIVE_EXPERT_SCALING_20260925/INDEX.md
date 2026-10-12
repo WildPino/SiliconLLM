@@ -28,6 +28,12 @@ actual scans. Alpha.0003 FITloss.537006->.533005,DEV ownnorm.792727->.789261;
 all local gatesFAIL. Original transpose/coarse-FD/metadata faults retained;
 separate fine probes qualified,original false flags unchanged. Next exact
 coordinate whitening/conditioning control before another finite step.
+Newest [exact recurrent whitening](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/full audit PASS:physical projector/output initially identical~1e-14,
+dual autograd/chain/direction normalization/all FIT curves qualified. Matched
+output perturbation:referencebest.530466/alpha.03 versuswhitened.520252/alpha.1
+from.533005. Recommendation only,no installed update/new scan/DEV curve fit.
+Next fixed candidate held-out/actual compact scan qualification.
 No complete causal model/native speed admitted;no owned run live.
 
 ## Goal and constraints
@@ -57,6 +63,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Invariant whitening/matched directions](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md):all48 physical/white outputs/24 dual autograd cases/chain/inverse/SPD/projector/full FIT output-RMS-normalized curves audited PASS. Same representation/objective,white directionbest2.393% FIT reduction versusreference.476%. Fixed candidatewhitealpha.1 requires held-out/actual new scans;no useful model/n/50 admission.
 - [Full finite backward/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md): all34,246,656 GY words/24 CPU autograd cases,independent Sylvester tangent,all original/fine FD controls,ten FIT candidates,1,130,496 parameter-replay words/all48 actual scans qualified. One alpha.0003 reduces FIT.745%;all FIT/DEV cases improve slightly,local qualityFAIL. V1 algebra fault/V2 coarse failure and both partial-audit metadata faults retained;original coarse flags false. Next conditioning/coordinate qualification,no long repeated Euclidean epochs.
 - [Coupled finite sensitivity](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md): all144 records/two layouts/full F64 finite/J outputs and independent radial/tangent/head-vector audit PASS (vector5.63e-14). At12 adaptive remainder.30044FIT/.33078DEV;paired/trace1.20791,radial head-energy effect.03134. FIT-only rule chooses coupled finite objective;no corrected-averaged-GM rerun.4.611GB immutable arrays on E with repo receipts;no new fit/model/native call.
 - [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md): source GY_rec y-D*x with unchanged GM/two new384 layouts/all288 packed scans;full independent CPU recurrence/basis/output audit PASS. Site23 adaptive local budgets PASS,ownnorm mean.06357/worst.08701;fixed8.21257. Ranks58/63 at heads20/31 explain allocation change. Site0.27308/site12.79273 FAIL;no global quality admission. Next diagnose coupled sensitivity before more averaged fits.
@@ -92,13 +99,16 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind exact recurrent coordinate whitening/conditioning control**,
-[selected next](RECURRENT_WHITENED_COORDINATES_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
-FIT-only covariance,S invertible;physical projector/output/objective/ranks
-initially identical. Qualify transformed backward and comparable output
-perturbations before another bounded step;no long unchanged gradient epochs.
-The [finite backward/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md) is
-COMPLETE/INDEPENDENT_STORED_PASS/local qualityFAIL;not a causal chatbot.
+**Implement/freeze/bind FIXED whitened candidate held-out/actual scan qualification**,
+[selected next](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
+Exact stored physical whitealpha.1 point from FIT-only recommendation;no new
+rank/coordinate/step selection or DEV alternative. All48 ideal baseline/candidate
+outputs,newactual384F32 scans and fullCPU sequence/BF16/metric/hash audit.
+Original local gates unchanged;full source generator/gate/conv/state256/skip
+retained. [Whitening preflight](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/INDEPENDENT_STORED_PASS,no installed update. The
+[finite backward/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md) remains
+COMPLETE/local qualityFAIL;not a causal chatbot.
 Site23 local accepted representation remains a native layout/cost candidate;
 count all retained generators/gates/conv/skip. State96 composition separate.
 [Recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md) complete/
@@ -115,9 +125,10 @@ the stated stationarity/residual identity. Do not extend winner-only rays.
 Moment/cost compilation,affine ray probe,GPU backend AND bounded distribution
 search/entropy dual audit complete;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
 separates emission-code supervision from full recurrent state/closure/future information.
-[Finite-gradient closure](finite_recurrence_gradient_session_closure_20261012.json)
-records all original failed captures/partial audits,98434 complete prefix
-qualification,46933 selected update and9123 full audit CLOSED0;no owned run live.
+[Whitening closure](whitened_recurrence_session_closure_20261012.json)
+records90532 capture CLOSED0/166.676s,70170 audit CLOSED0/198.056s;
+no owned run live. [Finite-gradient closure](finite_recurrence_gradient_session_closure_20261012.json)
+retains all original failed captures/partial audits and qualified selected update.
 [Sensitivity closure](coupled_recurrence_sensitivity_session_closure_20261012.json)
 retains the complete finite/J diagnosis. [Recurrent-bases closure](recurrent_output_bases_session_closure_20261012.json)
 retains the qualified new scans/site23 local acceptance.

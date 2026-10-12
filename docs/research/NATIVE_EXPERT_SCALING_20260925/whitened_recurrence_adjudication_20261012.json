@@ -1,0 +1,64 @@
+{
+  "schema": "WHITENED_RECURRENCE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\whitened_recurrence_audit.py",
+    "bytes": 15554,
+    "sha256": "4a5136d001e7337ec5b09a06bc22e4ef771b9fcd2314d93298f76dbc76c8fa38"
+  },
+  "freeze": "267e49a3dc9b124b49065ffccb66aced64c28fa2",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\whitened_recurrence_result_20261012.json",
+    "bytes": 633846,
+    "sha256": "03691b9a754ccd64406dcf8ac0cc0bcaf426a44e891d2a3a77601dbf9aed0f9a"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\whitened_recurrence_result_20261012.terminal.json",
+    "bytes": 1332,
+    "sha256": "34b534f87ef87c3622c2203cafe94b7485cf9ff6c44963783db4e07b7299c10b"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\whitened_recurrence_binding_20261012.json",
+    "bytes": 51192,
+    "sha256": "372f0e284d0cd926380f5f48400c4f284bb2f590549b338c7f180f768372cc20"
+  },
+  "coordinate_case_count": 48,
+  "dual_autograd_FIT_cases": 24,
+  "output_words_verified": 92352512,
+  "GY_words_verified": 34246656,
+  "raw_J_direction_words_verified": 45662208,
+  "parameter_replay_words_verified": 1572864,
+  "maximum": {
+    "S": 0.0,
+    "inverse": 1.5758065443207867e-16,
+    "inverse_identity": 4.3678073477742945e-14,
+    "barV": 0.0,
+    "barW": 0.0,
+    "physical_projector": 1.4047169166831093e-14,
+    "physical_output": 1.9241360602031775e-15,
+    "white_output": 1.9278583744953334e-15,
+    "output_invariance": 7.543092306090313e-15,
+    "scalar": 5.551115123125783e-10,
+    "GY": 2.186457412505021e-15,
+    "GY_invariance": 1.0082241058969372e-14,
+    "GV": 2.3365057538172973e-15,
+    "GW": 3.757665898900554e-15,
+    "barGV": 2.10698858244241e-15,
+    "barGW": 2.894794233571144e-15,
+    "chainV": 9.786611884179202e-14,
+    "chainW": 1.8276748257158935e-13,
+    "total_V": 6.610403489458093e-16,
+    "total_W": 8.793384576592852e-16,
+    "total_barGV": 7.047629094431744e-16,
+    "total_barGW": 1.1129935576949298e-15,
+    "raw_J_direction": 3.083180009254015e-15,
+    "normalized_directionV": 3.3505522188102885e-14,
+    "normalized_directionW": 4.739335965500978e-15
+  },
+  "before_after_hashes_exact": true,
+  "recommended_coordinate": "whitened",
+  "recommended_alpha": 0.1,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 198.05586159999984,
+  "OS_peak": 1517088768,
+  "scope": "Full physical/whitened autograd,SPD/inverse/projector/output invariance,independent tangent/radial direction normalization/full FIT curves/replay/recommendation. No installed update,new scan,model/native/n/50 admission."
+}
