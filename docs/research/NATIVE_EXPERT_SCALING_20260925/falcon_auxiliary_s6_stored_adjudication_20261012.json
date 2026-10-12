@@ -1,0 +1,171 @@
+{
+  "schema": "FALCON_AUXILIARY_S6_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_auxiliary_s6_stored_audit.py",
+    "bytes": 6355,
+    "sha256": "ef50f146439dc5717eb4ffcff96203c22836933e38113e3b4305631ba151cd48"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_auxiliary_s6_transport_result_20261012.json",
+    "bytes": 7080,
+    "sha256": "8f9c20356ad3371f55d93a67ce45b49586ae624014a9c58e9f49889a3d1cc3f7"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_auxiliary_s6_transport_result_20261012.terminal.json",
+    "bytes": 2436,
+    "sha256": "ed3319b2a11379b63e5bea96f83a7d465c6faf80574d98c32b7497af2a7ee06f"
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/falcon_auxiliary_s6_stored_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_auxiliary_s6_transport_result_20261012.json",
+    "--report-sha",
+    "8f9c20356ad3371f55d93a67ce45b49586ae624014a9c58e9f49889a3d1cc3f7",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_auxiliary_s6_transport_result_20261012.terminal.json",
+    "--terminal-sha",
+    "ed3319b2a11379b63e5bea96f83a7d465c6faf80574d98c32b7497af2a7ee06f",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_auxiliary_s6_stored_adjudication_20261012.json"
+  ],
+  "all3_sites8_operand_metrics_39_positions_complete": true,
+  "all_saved_source_and_lifted_operand_elements_checked": true,
+  "independent_scalar_recurrence_3sites_complete": true,
+  "full_inputs_outputs_before_after_exact": true,
+  "max_report_metric_delta": 7.105427357601002e-15,
+  "records": [
+    {
+      "site": 0,
+      "components": {
+        "x": {
+          "relative_RMS": 1.9333376304387501e-16,
+          "max_abs": 7.105427357601002e-15
+        },
+        "B": {
+          "relative_RMS": 4.735118687983843e-16,
+          "max_abs": 1.0658141036401503e-14
+        },
+        "C": {
+          "relative_RMS": 2.2700470437555105e-16,
+          "max_abs": 8.881784197001252e-15
+        },
+        "delta": {
+          "relative_RMS": 1.1174912977139437e-16,
+          "max_abs": 8.881784197001252e-16
+        },
+        "gate": {
+          "relative_RMS": 4.4673885353587105e-16,
+          "max_abs": 1.7763568394002505e-15
+        },
+        "y": {
+          "relative_RMS": 2.3023328385534685e-16,
+          "max_abs": 3.410605131648481e-13
+        },
+        "denominator": {
+          "relative_RMS": 3.198202892267065e-16,
+          "max_abs": 1.0658141036401503e-14
+        },
+        "output": {
+          "relative_RMS": 6.74821669703365e-16,
+          "max_abs": 3.552713678800501e-14
+        }
+      },
+      "scalar_recurrence_relative": 1.9154450085918887e-16,
+      "omitted_negative_dt_pair_output_relative": 0.04413314650796413,
+      "omitted_postgate_norm_output_relative": 7.875342475179419
+    },
+    {
+      "site": 12,
+      "components": {
+        "x": {
+          "relative_RMS": 2.936343502603233e-16,
+          "max_abs": 7.993605777301127e-15
+        },
+        "B": {
+          "relative_RMS": 5.660274921115197e-16,
+          "max_abs": 1.4210854715202004e-14
+        },
+        "C": {
+          "relative_RMS": 2.7261949446146973e-16,
+          "max_abs": 7.105427357601002e-15
+        },
+        "delta": {
+          "relative_RMS": 1.723286701111103e-16,
+          "max_abs": 1.7763568394002505e-15
+        },
+        "gate": {
+          "relative_RMS": 5.495129409057591e-16,
+          "max_abs": 3.6637359812630166e-15
+        },
+        "y": {
+          "relative_RMS": 4.247931586257511e-16,
+          "max_abs": 1.8189894035458565e-12
+        },
+        "denominator": {
+          "relative_RMS": 2.6779132103950397e-16,
+          "max_abs": 4.263256414560601e-14
+        },
+        "output": {
+          "relative_RMS": 9.356490767547238e-16,
+          "max_abs": 6.394884621840902e-14
+        }
+      },
+      "scalar_recurrence_relative": 6.228380243828033e-17,
+      "omitted_negative_dt_pair_output_relative": 0.09905016994188637,
+      "omitted_postgate_norm_output_relative": 63.90308838031127
+    },
+    {
+      "site": 23,
+      "components": {
+        "x": {
+          "relative_RMS": 1.5663524586158807e-16,
+          "max_abs": 1.7763568394002505e-14
+        },
+        "B": {
+          "relative_RMS": 9.050940886834832e-16,
+          "max_abs": 8.526512829121202e-14
+        },
+        "C": {
+          "relative_RMS": 2.7135540274054487e-16,
+          "max_abs": 3.552713678800501e-14
+        },
+        "delta": {
+          "relative_RMS": 2.841548583398944e-16,
+          "max_abs": 6.661338147750939e-16
+        },
+        "gate": {
+          "relative_RMS": 5.662699761147885e-16,
+          "max_abs": 7.105427357601002e-15
+        },
+        "y": {
+          "relative_RMS": 1.9051385329433697e-16,
+          "max_abs": 2.8421709430404007e-13
+        },
+        "denominator": {
+          "relative_RMS": 1.0282138233992777e-16,
+          "max_abs": 3.552713678800501e-15
+        },
+        "output": {
+          "relative_RMS": 8.312880573518727e-16,
+          "max_abs": 1.1723955140041653e-13
+        }
+      },
+      "scalar_recurrence_relative": 0.0,
+      "omitted_negative_dt_pair_output_relative": 0.02493864466396107,
+      "omitted_postgate_norm_output_relative": 18.228457217903493
+    }
+  ],
+  "seconds": 6.812999999994645,
+  "OS_peak": 41795584,
+  "limits": {
+    "seconds": 120,
+    "OS_bytes": 536870912
+  },
+  "scope": "Independent Python fsum aggregate metrics and scalar first-channel recurrence from actual raw source A/D. No generator replay or independent full coefficient-map audit, no whole C/BF16/chatbot/speed/generality qualification."
+}

@@ -1,5 +1,23 @@
 # Native expert-count scaling: prior evidence
 
+**AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Complete recovery/native outcomes and exact operator transport](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
+V4 math worker complete; final holder known-publisher isolation failed and is
+preserved. Native16 tasks+followup fully captured/audited:0/16/false. Stored66,888
+route rows localize3 membership/16 order-only/159 common-ID mass discrepancies;
+short qualified GPU/C-equal histories already fail absolute quality.
+Actual three-site auxiliary S6 generator lift passes39 F64 injected positions,
+max output9.3565e-16, complete stored fsum audit and full before/after hashes.
+It needs608 auxiliary channels and primary-only postgate normalization, remains
+costly D2048/DN3680/N256, and is not a native/useful-chatbot admission.
+[Next](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md): implement/bind compact
+restricted pretrained operators with correct norm folding/metric/epsilon; then
+costed24-layer pretrained projected shadow behavior before more training.
+Older statuses/next steps below are HISTORICAL. No Luna/delegation; hours-long
+runs follow latest human announce/launch/pause instruction. Fail-Fast revoked;
+complete audits and preserved faults remain required. No new T4/RESERVED queries.
+
+
 **AUTHORITATIVE 11 October17:09:** V4 complete recovered audit LIVE session30762,
 holder31240 created2026-10-11T17:08:43.125910+02:00; source36a9d96, exact
 binding/invocation955537d, SHA745f662c7527a2b1bc652660ea6a8e77770dc9471eddc9158a2eef9fdf05c1c5.
