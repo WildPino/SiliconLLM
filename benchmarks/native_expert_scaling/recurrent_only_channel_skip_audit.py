@@ -10,7 +10,8 @@ START=time.monotonic();CLOCK=time.perf_counter()
 def main(a):
     import numpy as np,psutil
     assert extent(a.report)['sha256']==a.report_sha and extent(a.terminal)['sha256']==a.terminal_sha
-    r=json.loads(a.report.read_bytes());terminal=json.loads(a.terminal.read_bytes());assert terminal['exit_code']==0 and terminal['result']==extent(a.report)
+    report_extent=extent(a.report);terminal_extent=extent(a.terminal)
+    r=json.loads(a.report.read_bytes());terminal=json.loads(a.terminal.read_bytes());assert terminal['exit_code']==0 and terminal['result']==report_extent
     assert extent(r['binding']['path'])==r['binding'];b=json.loads(Path(r['binding']['path']).read_bytes());assert Path(sys.executable).resolve()==Path(b['python']).resolve()
     assert np.__version__==b['versions']['numpy'] and psutil.__version__==b['versions']['psutil']
     proc=psutil.Process();proc.cpu_affinity(list(range(6)));stream=None;maximum=dict(output_relative=0.,metric_delta=0.,energy_relative=0.);rows=[];words=0;stage='startup'
@@ -19,7 +20,7 @@ def main(a):
     failure_files=[extent(DOC/'recurrent_only_channel_skip_v2_result_20261012.terminal.json'),extent(ROOT/'results/native_expert_scaling/recurrent_only_channel_skip_v2_20261012/first_fault.json')]
     def guard():assert time.monotonic()-START<=b['limits']['audit_seconds'] and proc.memory_info().peak_wset<=b['limits']['OS_bytes'] and not proc.children(recursive=True)
     def check():
-        for e in b['inputs']+[r['binding'],extent(a.report),extent(a.terminal)]+sources+failure_files+[rr['output'] for rr in r['records']]:guard();assert extent(e['path'])==e,e['path']
+        for e in b['inputs']+[r['binding'],report_extent,terminal_extent]+sources+failure_files+[rr['output'] for rr in r['records']]:guard();assert extent(e['path'])==e,e['path']
     def raw(e):
         z=(np.fromfile(e['path'],'<u2').astype('<u4')<<16).view('<f4') if e['dtype']=='BF16' else np.fromfile(e['path'],'<f4')
         z=z.reshape(e['shape']).astype('f8');assert np.isfinite(z).all();return z
