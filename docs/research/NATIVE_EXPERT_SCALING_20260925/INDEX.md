@@ -1,6 +1,12 @@
 # Native expert scaling: research control index
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+Latest: [seven FIT-only angular bases plus actual source output probability/audits](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
+COMPLETE. New DEV angular errors37%-61% beat old P but fail every proxy;all336
+cases/spectra/transports audited. At fixed DEV72 actual source h24,new angular256
+still changes31 argmaxes with ORACLE source norm,meanKL2.7064;own normKL2.9971.
+Direction loss matters to actual probabilities;final scalar norm cannot repair
+argmax. Euclidean energy is not task information. Function-sensitive encoding NEXT.
 Newest: [ACTUAL fully trained24-layer projected shadow and full audit](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
 COMPLETE/mechanical PASS/quality FAIL0/16,followup false,DEV KL22.6229/dis100%.
 All411 coefficient maps/17 greedy traces/4386 labels/168 trajectories audited.
@@ -71,13 +77,14 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Bind a finite stored FIT-only residual-coordinate feasibility experiment**:
-source layer-specific bases/read-write metrics or conditional affine charts,
-explicit missing radius and residual transport. Use existing source boundaries
-and newly audited target trajectories; no model replay solely to collect states.
-[Measured gap and next algebra](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md).
-Predeclare proxy criteria/costs; spectral energy alone cannot admit composition.
-New runner/binding still required. No new long optimizer/T4 job selected.
+**Bind one source-function-sensitive residual read/write encoding**:FIT state
+covariance plus actual source normalized input projection/head reading metric,
+distinct decode/read bases and explicit non-Euclidean norm/residual skip map.
+Evaluate actual source observables/probabilities,not another angular-energy optimum.
+[Evidence/conditional or wider-active alternatives](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md).
+Use existing source states/spectra/weights;new code/proxy/native cost binding still
+required. Conditional affine charts must charge index/center/bias/radius information
+and learnable routing;oracle source selection is not a deployment. No T4 run selected.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient

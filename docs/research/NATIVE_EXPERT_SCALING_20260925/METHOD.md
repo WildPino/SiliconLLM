@@ -3,6 +3,10 @@
 12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Seven residual bases and actual probability sensitivity](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
+now COMPLETE/full audits PASS/proxies FAIL. Angular256 optimal FIT reconstruction
+still changes31/72 source-readout argmaxes with oracle norm. Function-sensitive
+read/write or conditional encoding is selected;energy/normalization alone insufficient.
 [Fully trained projected24-layer shadow](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
 and full audit now COMPLETE:local F32 operators/coefficient maps PASS,chatbot0/16,
 DEV KL22.6229/dis100%. Fixed global P does not preserve composed behavior; drift
@@ -42,9 +46,9 @@ be counted separately. Arbitrary source architectures are not supported yet.
 5. Choose new experiments to resolve the current measured defect, preserving
    earlier valid controls and all execution/scientific failures.
 
-Current decision: actual trained sequence transfer is real, but the fixed-P
-representation fails. Test FIT-only layer-specific/conditional state encoding,
-radial information and residual transport before another long epoch.
+Current decision: fixed-P and tested boundary-specific angular256 encodings fail.
+Test function-sensitive source read/write coordinates or conditional encoding,
+with explicit radial information/residual transport before another long epoch.
 [Exact prospective path](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md).
 No blindly continued donor-adaptation or new T4 job.
 
@@ -66,6 +70,8 @@ No blindly continued donor-adaptation or new T4 job.
 | falcon_projected_s6_transport | Actual source/P256/gamma -> restricted core and durable F32 fields |3 sites/all local gates PASS,13.047s/530.104MB OS; all-field audit8.094s; source feature/state widths costly, composed/native behavior untested |
 | falcon_pretrained_projected_shadow_v3 | All411 actual source fields ->24-layer projected F32 model/16 tasks+followup/24 DEV/168 residual streams | Capture312.406s/all resource gates PASS;full audit165.078s;quality0/16,DEV KL22.6229/dis100%;not native/selective deployment |
 | inspect_projected_shadow_trajectories | Source/shadow seven boundaries ->coordinate/cosine/energy localization |24 cases/168 pairs,25.110s,all hashes exact;initial.149% error,after4~194%;no information-capacity ceiling |
+| source_residual_coordinate_feasibility | Raw source FIT/DEV boundaries ->7 angular eigensystems/F64+F32 bases/6 transports |336 comparisons/capture93.125s/audit60.015s;numeric PASS,all reconstruction proxies FAIL;no model/optimizer call |
+| residual_basis_readout_probe | Actual source h24/head/gamma ->fixed DEV72 full-V reference+4 projection/norm modes |Capture17.735s/full dense audit19.719s;new31/72 wrong even oracle norm;no composed model or source generation |
 
 Detailed revisions/bindings/invocations/hashes/results and scope are linked in
 [latest report](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md) and

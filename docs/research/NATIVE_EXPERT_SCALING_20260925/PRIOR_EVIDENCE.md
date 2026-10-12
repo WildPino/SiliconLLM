@@ -1,6 +1,14 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Actual residual angular bases/readout probability/full audits](SOURCE_RESIDUAL_COORDINATE_AND_READOUT_RESULT_20261012.md)
+COMPLETE:7 FIT eigensystems/336 cases/6 skip transports numericPASS/proxyFAIL;
+DEV angular37%-61%. Source DEV72 readout:new angular256 changes31 decisions even
+oracle source norm/KL2.7064;reconstructed normKL2.9971. All full-V outputs/coefficient
+maps/probabilities audited. Positive final bias-free normalization scalar cannot
+repair argmax. Selected next:function-sensitive read/write residual encoding;
+conditional charts/wider-active geometry require actual cost/router/quality tests.
+Earlier angular-basis feasibility NEXT paragraphs below are historical. No T4.
 [Full trained24-layer projected shadow/final audit/geometry](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
 now COMPLETE:all411 source maps and local F32 controls PASS;0/16/followup false,
 DEV KL22.6229/dis100%. All17 greedy traces/4386 labels/168 trajectories audited.

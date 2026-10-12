@@ -1,0 +1,77 @@
+{
+  "schema": "RESIDUAL_BASIS_READOUT_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\residual_basis_readout_stored_audit.py",
+    "bytes": 6801,
+    "sha256": "4fd4846174cefba7768fb30494acdd745a5dabe20e79709d8275b051fdb619a3"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\residual_basis_readout_probe_result_20261012.json",
+    "bytes": 64105,
+    "sha256": "681d2437dd6981964126dc77fbdf56366d9e0ea11fb0c42e840cf5ae13651f67"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\residual_basis_readout_probe_result_20261012.terminal.json",
+    "bytes": 1545,
+    "sha256": "1d157d67cbd7e8ea161c100078f8545b6c87149527046998ae21e80a1141cd2d"
+  },
+  "all72_states5_full_vocab_arrays2_projected_heads_checked": true,
+  "all288_probability_rows_and_modes_checked": true,
+  "max_score_relative": 3.880255274825735e-15,
+  "max_projected_head_relative": 4.546954518614108e-16,
+  "max_metric_delta": 2.1316282072803006e-14,
+  "summary": [
+    {
+      "mode": "new_true_source_norm",
+      "mean_KL": 2.706407313747149,
+      "worst_KL": 13.345183647387866,
+      "disagreements": 31,
+      "disagreement_rate": 0.4305555555555556,
+      "proxy_gates": {
+        "mean_KL": false,
+        "worst_KL": false,
+        "disagreement_rate": false
+      }
+    },
+    {
+      "mode": "new_restricted_norm",
+      "mean_KL": 2.9970956216780493,
+      "worst_KL": 15.310935610494926,
+      "disagreements": 31,
+      "disagreement_rate": 0.4305555555555556,
+      "proxy_gates": {
+        "mean_KL": false,
+        "worst_KL": false,
+        "disagreement_rate": false
+      }
+    },
+    {
+      "mode": "old_true_source_norm",
+      "mean_KL": 13.365677190410736,
+      "worst_KL": 20.198831805919806,
+      "disagreements": 72,
+      "disagreement_rate": 1.0,
+      "proxy_gates": {
+        "mean_KL": false,
+        "worst_KL": false,
+        "disagreement_rate": false
+      }
+    },
+    {
+      "mode": "old_restricted_norm",
+      "mean_KL": 20.704768226375794,
+      "worst_KL": 33.713750289740325,
+      "disagreements": 72,
+      "disagreement_rate": 1.0,
+      "proxy_gates": {
+        "mean_KL": false,
+        "worst_KL": false,
+        "disagreement_rate": false
+      }
+    }
+  ],
+  "all_inputs_outputs_before_after_exact": true,
+  "seconds": 19.719000000011874,
+  "OS_peak": 618868736,
+  "scope": "Independent dense reconstruction/reduction order and fsum categorical audit; direct affine readout recomputed, no neural/source generation/eigensolver/optimizer/native/GPU replay; no oracle norm or whole pipeline admission."
+}
