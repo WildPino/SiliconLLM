@@ -1,0 +1,36 @@
+{
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_affine_rays_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_affine_rays_result_20261012.json",
+    "--report-sha",
+    "645bcee5f7cee2e29a42490e7d10bad9470e77a60f592e772cc4480ec007acd3",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_affine_rays_result_20261012.terminal.json",
+    "--terminal-sha",
+    "307f762c87a7a82821bd279056dca4089ab49ff4b5e866b92c55f2507bbea493",
+    "--freeze",
+    "da91f5c1a5529a99a49e8c6ca135c4868e987880",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_affine_rays_adjudication_20261012.json"
+  ],
+  "limits": {
+    "OS_bytes": 4294967296,
+    "seconds": 900
+  },
+  "freeze": "da91f5c1a5529a99a49e8c6ca135c4868e987880",
+  "schema": "NATIVE_HEAD_AFFINE_RAYS_AUDIT_INVOCATION_V1",
+  "env": {
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  }
+}
