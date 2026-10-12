@@ -1,0 +1,38 @@
+{
+  "schema": "GATE_INPUT_OPERATOR_LAUNCH_V1",
+  "created_at": "2026-10-13T01:54:43.1412418+02:00",
+  "freeze": "59fe6edc3881bf7af21510c3f7a239cf52cbd7bd",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/gate_input_operator_preflight_v2.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gate_input_operator_binding_v2_20261013.json",
+    "--binding-sha",
+    "33dfe5b9f774a6d55a54e556c2f35df75d8dd63ec2317156135f0b6ffd1ab1e0",
+    "--freeze",
+    "59fe6edc3881bf7af21510c3f7a239cf52cbd7bd",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/gate_input_operator_20261013",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gate_input_operator_result_20261013.json"
+  ],
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  },
+  "limits": {
+    "OS_bytes": 6442450944,
+    "audit_seconds": 1200,
+    "output_bytes": 536870912,
+    "seconds": 900
+  },
+  "prior_preparation": "V1_RUNTIME_FILTER_INCOMPLETE_NO_NUMERIC_RUN",
+  "execution_order": "Full-channel timing terminal0 confirmed before launch"
+}
