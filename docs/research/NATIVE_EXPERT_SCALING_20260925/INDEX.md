@@ -9,9 +9,12 @@ logits bit exact/source probabilities and quality verified. Native DEVcaseKL
 [entropy-mixture dual witness](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md) now COMPLETE/
 full audit PASS:all140928 grid rows,ten tiny positive lowers below quality budgets.
 Reader-capacity question unresolved. [Source-head2048 moments](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
-now COMPLETE/full audit PASS: all8808 source rows and three full decoder controls;
-144.31MB moments, full feature/RMS derivatives. Next isolate recurrent channel
-loss from projected instantaneous skip; no causal model admitted.
+COMPLETE/full audit PASS:all8808 source rows/three full decoder controls.
+Newest [recurrent-only384/full skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md)
+COMPLETE/full audit PASS:all1,108,230,144 output words,energies/cross terms/gates;
+DEV ownnorm mean~.57->.29 at0/~.56->.30 at23,but~.84->.80 at12/localFAIL.
+Original F32 precision bridge252/576FAIL retained. Next FIT recurrent-output
+bases y-D*x; no causal model/native speed admitted.
 
 ## Goal and constraints
 
@@ -40,6 +43,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Recurrent channels/full source skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md): all144 records/two layouts/two skip arms/two norm modes fully audited;relative output difference0,energy4.42e-15. All24DEV cases improve per site/layout/mode,local gates stillFAIL. At12 recurrent/skip errors cancel (negative cross23/24 and24/24). V2 first precision fault retained;V3 false1e-3 bridge flags retained252/576. Full source generators/gates/conv state injected;no compact chatbot. Next FIT-only recurrent-output basis change.
 - [Source-head feature moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md): all18,038,784 moments and full gradients for three different decoders independently audited PASS (max relative5.43e-12). Changing source-derived decoder supervision available;native F32 rounding remains separate. Capture32508/audit86463 CLOSED0. Next recurrent-only channel projection with full stateless skip.
 - [Entropy-mixture dual family](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md): all8808 source rows/140928 direct moment-entropy-support rows fully audited PASS. Five FIT/five DEV positive lowers,worst.001183/.000626,case means6.93e-7/1.66e-7;no budget obstruction. Zero probability words0. No more primal iterations or causal model. Next compile2048 source-head moments instead of freezing decoder during causal transfer.
 - [All-label native probability oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md): fully audited native code room;FITcaseKL.01725/DEV.04835,case disagreement1.53%/2.30%,worst label1.005/2.011. Quality fails,lower0/no reader obstruction proved. Source-operator/per-label oracle evidence,not causal model/own-history/family/n/same50 admission.
@@ -71,12 +75,14 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind recurrent-only channel projection with full instantaneous skip**,
-[selected next](RECURRENT_ONLY_CHANNEL_SKIP_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
-Reuse both frozen384-channel layouts and actual latents at0/12/23/all48 cases;
-correct only projected D*x loss, retain full source gates/generators, recompute
-joint postgate RMS. No new fit/model forward. Old output controls, decomposition
-and all new outputs require complete audit, even if local budgets fail.
+**Implement/freeze/bind FIT recurrent-only output bases with full skip retained**,
+[selected next](RECURRENT_OUTPUT_BASES_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
+Change GY from full y to y-D*x;initially retain GM/rank policies/local budgets.
+New encoder requires new actual compact scans, not old latents. All48 histories/
+sites0/12/23;full source generators/gates/conv4 remain injected. Complete audit
+and explicit combined RMS;state96/native/causal composition remains separate.
+[Full-skip comparison](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md) complete/
+INDEPENDENT_STORED_PASS/localFAIL;precision bridge failed,not admitted.
 The [source-head moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
 and three full decoder controls are COMPLETE/INDEPENDENT_STORED_PASS.
 144.31MB source moments cover changing source-derived decoders;native F32
@@ -87,9 +93,10 @@ the stated stationarity/residual identity. Do not extend winner-only rays.
 Moment/cost compilation,affine ray probe,GPU backend AND bounded distribution
 search/entropy dual audit complete;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
 separates emission-code supervision from full recurrent state/closure/future information.
-[Source-head closure](source_head_feature_moments_session_closure_20261012.json)
-records32508 capture CLOSED0/211.453s,86463 audit CLOSED0/332.155s;
-no owned live process. [Dual closure](dual_entropy_mixture_session_closure_20261012.json)
+[Full-skip closure](recurrent_only_channel_skip_session_closure_20261012.json)
+records13123 V2 CLOSED1/18.876s,97264 V3 CLOSED0/184.582s,12382 audit CLOSED0;
+no owned live process. [Source-head closure](source_head_feature_moments_session_closure_20261012.json)
+retains the completed changing-decoder compiler. [Dual closure](dual_entropy_mixture_session_closure_20261012.json)
 retains the preceding complete dual witness family.
 Historical native precision failures remain in
 [preflight closure](native_head_domain_preflight_session_closure_20261012.json).

@@ -1,14 +1,24 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Recurrent-only384/full source skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all144 records/1,108,230,144 BF16 output
+words/energies/cross terms/aggregates/gates,relative output0,energy4.42e-15.
+DEV ownnorm output mean~.57->.29 at0/~.56->.30 at23/~.84->.80 at12;all local
+budgetsFAIL. All24DEV cases improve per site/layout/mode. Recurrent/skip errors
+cancel at12;old bases fit entirey,notrecurrenceonly. V2first fault CLOSED1;
+V3CLOSED0 retains252/576false precision bridges(.001);audit12382CLOSED0.
+Full source generators/gates/conv buffers retained,no causal/native admission.
+Next [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND;GY_rec change and new actual compact scans.
 [Source-head2048 moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all8808 source rows,18,038,784 moments,
 three complete feature/RMS decoder gradient controls;max relative5.43e-12.
 144.31MB moment payload;all outputs1.012GB with full derivative controls.
 Capture32508/audit86463 CLOSED0. Changing source-derived decoder supervision
 available;no optimization/native quantized export/causal quality admission.
-Next [recurrent-only channel projection/full skip](RECURRENT_ONLY_CHANNEL_SKIP_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND; full source generators/gates remain injected.
+Subsequent recurrent-only/full-skip comparison complete above;full source
+generators/gates remain injected.
 [Entropy-mixture dual witnesses](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:8808 source rows/140928 family-lambda direct
 moment/entropy/support rows. Ten positive lows,worstFIT.001183/DEV.000626,mean

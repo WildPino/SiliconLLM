@@ -1,0 +1,49 @@
+{
+  "schema": "RECURRENT_ONLY_CHANNEL_SKIP_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recurrent_only_channel_skip_audit.py",
+    "bytes": 12291,
+    "sha256": "787de501d443359c1e2b5814906d1baad2687484de9e3c696433fea23b9a257d"
+  },
+  "freeze": "c1f1a0453093e7e7bffd0ec5025c5363b42f177f",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_only_channel_skip_v3_result_20261012.json",
+    "bytes": 1141465,
+    "sha256": "f806272f884d0a6bf63197d195dcde26dac45fcd9b4d675393461543d7f28b79"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_only_channel_skip_v3_result_20261012.terminal.json",
+    "bytes": 1362,
+    "sha256": "f1fe2234b2332c59aee79ccbbe697bb47425a247eec5fadcb5bc2050e9947078"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_only_channel_skip_v3_binding_20261012.json",
+    "bytes": 10151319,
+    "sha256": "6808d0b47090a78d2e2e0dbca9527b44814da426b0ca0fa74a7501af5bc01029"
+  },
+  "first_fault_custody": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_only_channel_skip_v2_result_20261012.terminal.json",
+      "bytes": 1806,
+      "sha256": "b2a2b78f923fc62aa62e2450c3f242c5fd48da3c2e70c0ceb92ec6eea58d73ca"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\recurrent_only_channel_skip_v2_20261012\\first_fault.json",
+      "bytes": 211,
+      "sha256": "64f4c39870c52f1ba12ccb2c79cfe1f21ecaa060b15820def612d0a8d57a0784"
+    }
+  ],
+  "records": 144,
+  "full_output_words_verified": 1108230144,
+  "maximum": {
+    "output_relative": 0.0,
+    "metric_delta": 1.4210854715202004e-14,
+    "energy_relative": 4.421504532053653e-15
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "precision_bridge_admitted": false,
+  "seconds": 292.91928289999487,
+  "OS_peak": 720818176,
+  "scope": "All stored F64-controlled BF16 outputs/decomposition/metrics/aggregates/gates independently verified. Original GPU F32 precision bridge magnitudes are bound observations, not exact CUDA replay. First V2 failure has no saved output arrays. No native/chatbot/n/50 admission."
+}

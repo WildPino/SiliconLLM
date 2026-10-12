@@ -44,9 +44,14 @@ now IMPLEMENTED/INDEPENDENTLY VERIFIED:all8808 source rows and three decoder
 controls, full feature/RMS derivatives;144.31MB moments. Allows a source-derived
 decoder to change while retaining full categorical supervision;fixed257-moments
 cannot cover that change. Native F32 coefficient rounding remains separate.
-Next [recurrent-only channels/full skip](RECURRENT_ONLY_CHANNEL_SKIP_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED:reuse old384 scans/maps, separate dynamic memory and
-stateless feedthrough loss. No causal model/native cost admission.
+[Recurrent-only channels/full skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED:all144 records/1,108,230,144 controlled
+BF16 output words/energies/cross terms;relative output difference0. Removing
+projected skip loss improves0/23 markedly,12 modestly;all local qualityFAIL.
+Original F32 precision bridge252/576FAIL retained,not precision admission.
+Full generators/gates/conv buffers retained;no compact causal/native model.
+Next [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED;change GY to y-D*x,not another unchanged basis replay.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

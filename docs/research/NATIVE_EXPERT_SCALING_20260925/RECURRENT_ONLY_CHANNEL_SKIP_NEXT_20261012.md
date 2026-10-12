@@ -1,6 +1,10 @@
 # Recurrent-only channel projection with full instantaneous skip
 
-12 October 2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+12 October 2026. **HISTORICAL SELECTION; comparison COMPLETE/full independent audit PASS,
+local quality gates FAIL.** See [result](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md).
+Current next: [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_NEXT_20261012.md).
+Original design follows;precision bridge failure and diagnostic continuation
+are retained separately in the result.
 
 ## Uncertainty and existing evidence
 

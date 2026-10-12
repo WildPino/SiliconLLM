@@ -1,0 +1,38 @@
+{
+  "schema": "RECURRENT_ONLY_CHANNEL_SKIP_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/recurrent_only_channel_skip_v3.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recurrent_only_channel_skip_v3_binding_20261012.json",
+    "--binding-sha",
+    "6808d0b47090a78d2e2e0dbca9527b44814da426b0ca0fa74a7501af5bc01029",
+    "--freeze",
+    "0cb4d907ae5e8f1b4c992b4b93db0a226667982e",
+    "--directory",
+    "results/native_expert_scaling/recurrent_only_channel_skip_v3_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recurrent_only_channel_skip_v3_result_20261012.json"
+  ],
+  "pid": 26020,
+  "creation_time": 1791832688.4927173,
+  "freeze": "0cb4d907ae5e8f1b4c992b4b93db0a226667982e",
+  "timing_admitted": false,
+  "exit_code": 0,
+  "error": null,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_only_channel_skip_v3_result_20261012.json",
+    "bytes": 1141465,
+    "sha256": "f806272f884d0a6bf63197d195dcde26dac45fcd9b4d675393461543d7f28b79"
+  },
+  "seconds": 184.58247330001905,
+  "OS_peak": 1348706304,
+  "GPU_allocated_peak": 647827968,
+  "GPU_reserved_peak": 757071872
+}
