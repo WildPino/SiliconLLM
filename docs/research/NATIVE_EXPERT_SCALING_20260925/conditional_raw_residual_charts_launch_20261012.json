@@ -1,0 +1,41 @@
+{
+  "schema": "CONDITIONAL_RAW_RESIDUAL_CHARTS_INVOCATION_V1",
+  "source_protocol_freeze": "d7df351374bd266cbac0e9658881c1d07c58b00c",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/conditional_raw_residual_charts.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/conditional_raw_residual_charts_binding_20261012.json",
+    "--binding-sha",
+    "0042e9af9c6f7f9aa9584db28c6bfeb869943ec0fbcb9f7b0b8a754bc69a8d08",
+    "--freeze",
+    "d7df351374bd266cbac0e9658881c1d07c58b00c",
+    "--directory",
+    "results/native_expert_scaling/conditional_raw_residual_charts_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/conditional_raw_residual_charts_result_20261012.json"
+  ],
+  "env": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "MKL_NUM_THREADS": "6"
+  },
+  "limits": {
+    "seconds": 1800,
+    "OS_bytes": 8589934592,
+    "output_bytes": 12884901888
+  },
+  "preparation": {
+    "seconds": 3.6089999999967404,
+    "exit_code": 0,
+    "wall_seconds": 3.8896183
+  }
+}
