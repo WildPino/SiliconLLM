@@ -1,0 +1,41 @@
+{
+  "schema": "COUPLED_RECURRENCE_SENSITIVITY_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\coupled_recurrence_sensitivity_audit.py",
+    "bytes": 15203,
+    "sha256": "a0822262f156559cb957ee028fad8f050589cb27199ebcfe81354f36db0fd694"
+  },
+  "freeze": "a1dfa2347c4b294cb26dfbe6e84127edda4331a9",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\coupled_recurrence_sensitivity_result_20261012.json",
+    "bytes": 303457,
+    "sha256": "45bb4c53e0fac0088e7bff8d31d101fe9e2d9258784981c06be0ec7fe5fdfaf7"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\coupled_recurrence_sensitivity_result_20261012.terminal.json",
+    "bytes": 1376,
+    "sha256": "24004913075b69082f6b0c900d718bdf1c674267b62ede47c9bcb68c4bbef0ef"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\coupled_recurrence_sensitivity_binding_20261012.json",
+    "bytes": 175634,
+    "sha256": "59ad6f9a1712cd618433784e8b31e645e323ffd6cbcc69b0429997a9fa10a931"
+  },
+  "records": 144,
+  "full_vector_words_verified": 554115072,
+  "raw_stat_words_verified": 1488102,
+  "head_energy_rho_words_verified": 19480608,
+  "derivative_Gram_controls_verified": 450,
+  "FIT_only_Grams_and_proxies_verified": true,
+  "maximum": {
+    "vector_relative": 5.634090803576771e-14,
+    "scalar_relative": 1.3272312898714004e-14,
+    "Gram_relative": 3.3514365846658865e-16,
+    "control_scalar_absolute": 6.295915162848728e-12
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 406.6465041000047,
+  "OS_peak": 1107787776,
+  "scope": "Full unrounded F64 finite outputs and independent radial/tangent Jacobian actions;explicit per-head vectors,all statistics/mean Grams/proxies/controls/decisions. No BF16 derivative/native/model/n/50 admission."
+}

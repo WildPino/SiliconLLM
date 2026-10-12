@@ -56,9 +56,13 @@ all288 new packed scans/51,948,288 values checked by full CPU state256 recurrenc
 all1,108,230,144 output values and bases/gates/hashes verified. Site23 adaptive
 ownnorm mean.06357/worst.08701,all local gates PASS/both norm modes. Sites0/12
 and global local gatesFAIL;source nonlinear work retained,no native model.
-Next [coupled sensitivity](COUPLED_RECURRENCE_SENSITIVITY_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED:full RMS Jacobian,same-time/cross-head dependence,finite
-remainder;choose an objective repair before more averaged fitting.
+[Coupled sensitivity](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED:all554,115,072 finite/J vectors,raw/head
+statistics/FIT Grams/proxies/450 controls. Site12 adaptive finite remainder
+.30044FIT/.33078DEV selects a finite-output objective;correcting mean Gram alone
+not selected. Source-injected/F64 smooth operator,no BF16/native derivative.
+Next [finite backward/retraction/one bounded FIT update](COUPLED_FINITE_RECURRENCE_GRADIENT_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED;qualify gradient/constraint and new actual scans.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

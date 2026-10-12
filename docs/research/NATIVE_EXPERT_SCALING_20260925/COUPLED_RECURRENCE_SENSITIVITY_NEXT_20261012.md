@@ -1,6 +1,9 @@
 # Coupled recurrence/output sensitivity before further basis fitting
 
-12 October2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+12 October2026. **HISTORICAL SELECTION; implementation/full independent audit COMPLETE/PASS**.
+See [result](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md). Next
+[finite-output gradient/one bounded FIT update](COUPLED_FINITE_RECURRENCE_GRADIENT_NEXT_20261012.md).
+Original selected design follows.
 Recurrent-only covariance plus adaptive allocation repairs the site23 local
 operator budget, but site12 remains severe. Do not infer a general384-channel
 capacity bound or proceed to long unchanged basis fitting. The current GM is

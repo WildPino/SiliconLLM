@@ -1,6 +1,15 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Coupled finite recurrence sensitivity](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all144 records/554,115,072 finite/J vector
+words/1,488,102 raw stats/19,480,608 head energies-rho/FIT Grams/proxies/450
+controls,vector5.63e-14/scalar1.33e-14/all hashesPASS. Site12 adaptive tangent
+remainder30%FIT/33%DEV,radial head-energy effect3.13%,paired/trace1.20791;
+FIT-only heuristic selects finite objective. No new fit/scan/source/native call.
+4.611GB immutable arrays on E with tracked extents;5814/77109CLOSED0.
+Next [finite gradient/projector retraction/one bounded FIT step](COUPLED_FINITE_RECURRENCE_GRADIENT_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. No unchanged averaged-GM fit selected.
 [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all FIT GY_rec,unchanged GM,288 head/layout
 bases,51,948,288 projected input+51,948,288 scan values checked via full CPU
@@ -9,8 +18,8 @@ kernel8.18e-13,full hashesPASS. Site23 adaptive ownnorm mean.06357/worst.08701,
 all local gates PASS/both norm modes;fixed8.21257. Site0.27308/site12.79273,
 global local gatesFAIL. Capture30075/audit54288CLOSED0. Full source work retained;
 no native/chatbot/n/50 admission. Next
-[coupled sensitivity diagnostic](COUPLED_RECURRENCE_SENSITIVITY_NEXT_20261012.md),
-PROPOSED/UNIMPLEMENTED/UNBOUND;no unchanged averaged fit selected.
+coupled sensitivity diagnostic subsequently complete above;no unchanged
+averaged fit selected.
 [Recurrent-only384/full source skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all144 records/1,108,230,144 BF16 output
 words/energies/cross terms/aggregates/gates,relative output0,energy4.42e-15.
