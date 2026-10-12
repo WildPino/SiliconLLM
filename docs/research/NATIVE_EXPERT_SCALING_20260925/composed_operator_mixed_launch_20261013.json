@@ -1,0 +1,42 @@
+{
+  "schema": "COMPOSED_OPERATOR_MIXED_LAUNCH_V1",
+  "created_at": "2026-10-13T00:55:33.0295694+02:00",
+  "freeze": "7ada11af1dddce70296428157aeac8505d53d951",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/composed_operator_mixed.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_mixed_binding_20261013.json",
+    "--binding-sha",
+    "3d3cde52f4490c53dc2bb7c80b1970e5d3a0f5aa7983883d2b9d63b54aecf0b5",
+    "--freeze",
+    "7ada11af1dddce70296428157aeac8505d53d951",
+    "--directory",
+    "E:\\SiliconLLM\\results\\native_expert_scaling\\composed_operator_mixed_20261013\\run",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_mixed_result_20261013.json"
+  ],
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "native_affinity": [
+    0
+  ],
+  "native_threads": 1,
+  "limits": {
+    "seconds": 900,
+    "audit_seconds": 1200,
+    "OS_bytes": 6442450944,
+    "output_bytes": 2147483648
+  },
+  "timing_admitted": false,
+  "preparation_session": 94820
+}
