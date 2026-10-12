@@ -1,0 +1,75 @@
+{
+  "schema": "FALCON_PROJECTED_S6_TRANSPORT_TERMINAL_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_projected_s6_transport_binding_20261012.json",
+    "bytes": 6474,
+    "sha256": "c3490181a801c4b9fb115dec40d756e74e7ba55c75570d6a54ee0ed8b1a11612"
+  },
+  "freeze": "bb9383af283e517a486722da7fde0d9aea49fd8b",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/falcon_projected_s6_transport.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_s6_transport_binding_20261012.json",
+    "--binding-sha",
+    "c3490181a801c4b9fb115dec40d756e74e7ba55c75570d6a54ee0ed8b1a11612",
+    "--freeze",
+    "bb9383af283e517a486722da7fde0d9aea49fd8b",
+    "--directory",
+    "results/native_expert_scaling/falcon_projected_s6_transport_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_s6_transport_result_20261012.json"
+  ],
+  "pid": 9760,
+  "creation_time": 1791786493.040542,
+  "timing_control_admitted": false,
+  "original_engine_modified": false,
+  "exit_code": 0,
+  "error": null,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_projected_s6_transport_result_20261012.json",
+    "bytes": 9504,
+    "sha256": "79d2d50f478853500f15d646704f37d358f3ec9c0722cd5394e9a2486938bb82"
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site00.coefficients.f32.npz",
+      "bytes": 24390960,
+      "sha256": "8359bf9dd09e70f8b82ce58be39c7b216a892452993044555046294e22332e28"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site00.frames.npz",
+      "bytes": 3270864,
+      "sha256": "76710b1e9ea7d0092b8be8debd884b57426f2f5dada259a6e663f3fcbcdde778"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site12.coefficients.f32.npz",
+      "bytes": 24390960,
+      "sha256": "fd051644411c39d0c730d143ce9d371502e930099b03f71a84da7c3bfa90dfdd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site12.frames.npz",
+      "bytes": 3270864,
+      "sha256": "fa111f0ef553e40fafc2811c7785938425385d19aa146cfb9b5beba4a005778a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site23.coefficients.f32.npz",
+      "bytes": 24390960,
+      "sha256": "d9dd0f1516f07743936024ffc868fbccf61551d2019e91bed2bdf234fa85a50b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site23.frames.npz",
+      "bytes": 3270864,
+      "sha256": "ca0d30c9ef7da879b36edefad144368c00ee2ab7876f4c70e4e84f0b2e385177"
+    }
+  ],
+  "seconds": 13.062999999994645,
+  "OS_peak": 530104320
+}

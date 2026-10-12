@@ -1,0 +1,265 @@
+{
+  "schema": "FALCON_PROJECTED_S6_TRANSPORT_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_projected_s6_transport_binding_20261012.json",
+    "bytes": 6474,
+    "sha256": "c3490181a801c4b9fb115dec40d756e74e7ba55c75570d6a54ee0ed8b1a11612"
+  },
+  "freeze": "bb9383af283e517a486722da7fde0d9aea49fd8b",
+  "decision": "RESTRICTED_D256_OPERATOR_AND_F32_COEFFICIENTS_QUALIFIED",
+  "basis": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\P256.f32",
+    "bytes": 2097152,
+    "sha256": "3dd96e0fd782833f51c005109e7ba1f95a98996bac1f5babb6a43ab3833e465d"
+  },
+  "basis_orthogonality_max": 7.697597101952169e-07,
+  "input_metric": "actual P^T P",
+  "source_D": 2048,
+  "target_D": 256,
+  "DN": 3680,
+  "N": 256,
+  "DT": 48,
+  "primary_channels": 3072,
+  "auxiliary_channels": 608,
+  "input_epsilon": 8e-05,
+  "postgate_epsilon": 1e-05,
+  "input_case": "broad_fit_explore_instruct_rewriting_008",
+  "input_ids": [
+    17,
+    227,
+    3793,
+    709,
+    14018,
+    842,
+    11522,
+    1448,
+    1418,
+    2288,
+    3682,
+    612,
+    1947
+  ],
+  "input_origin": "First13 existing FIT embeddings -> z=embedding@P, reference raw residual=Pz. All tested sites use injected subspace residuals, not actual intermediate histories.",
+  "records": [
+    {
+      "site": 0,
+      "positions": 13,
+      "exact_components": {
+        "x": {
+          "relative_RMS": 7.325251440417641e-16,
+          "max_abs": 7.105427357601002e-14
+        },
+        "B": {
+          "relative_RMS": 7.581549336075844e-16,
+          "max_abs": 1.4210854715202004e-14
+        },
+        "C": {
+          "relative_RMS": 7.869912321450862e-16,
+          "max_abs": 3.375077994860476e-14
+        },
+        "delta": {
+          "relative_RMS": 1.82638123736067e-16,
+          "max_abs": 1.3322676295501878e-15
+        },
+        "gate": {
+          "relative_RMS": 6.795103396489637e-16,
+          "max_abs": 6.217248937900877e-15
+        },
+        "y": {
+          "relative_RMS": 1.0168511760576977e-15,
+          "max_abs": 2.7284841053187847e-12
+        },
+        "denominator": {
+          "relative_RMS": 1.3148726613793108e-15,
+          "max_abs": 7.815970093361102e-14
+        },
+        "output": {
+          "relative_RMS": 8.736424785260567e-16,
+          "max_abs": 3.730349362740526e-14
+        }
+      },
+      "F32_coefficient_roundtrip_components": {
+        "x": 1.7584872465283335e-08,
+        "B": 2.428536677320287e-08,
+        "C": 2.074519340424884e-08,
+        "delta": 4.298115099548282e-09,
+        "gate": 2.0535800287634524e-08,
+        "y": 1.7060344216716942e-08,
+        "denominator": 1.2432678203616911e-08,
+        "output": 2.8663682012653014e-08
+      },
+      "scalar_recurrence_relative": 1.13701943825511e-16,
+      "identity_metric_output_relative": 5.1582515305385785e-08,
+      "wrong_input_epsilon_output_relative": 0.0004742880986866547,
+      "diagonal_gamma_output_relative": 0.28367686900493744,
+      "dense_coefficients": 6031520,
+      "F32_package_bytes": 24388228,
+      "auxiliary_output_columns_exact_zero": true,
+      "exact_gates": true,
+      "F32_coefficient_gates": true,
+      "scalar_gate": true
+    },
+    {
+      "site": 12,
+      "positions": 13,
+      "exact_components": {
+        "x": {
+          "relative_RMS": 8.726447508522891e-16,
+          "max_abs": 3.552713678800501e-14
+        },
+        "B": {
+          "relative_RMS": 7.35281262525042e-16,
+          "max_abs": 2.1094237467877974e-14
+        },
+        "C": {
+          "relative_RMS": 8.83995726548793e-16,
+          "max_abs": 2.4868995751603507e-14
+        },
+        "delta": {
+          "relative_RMS": 2.363908181299729e-16,
+          "max_abs": 2.220446049250313e-15
+        },
+        "gate": {
+          "relative_RMS": 9.007369195584847e-16,
+          "max_abs": 5.329070518200751e-15
+        },
+        "y": {
+          "relative_RMS": 1.2540683576307235e-15,
+          "max_abs": 5.4569682106375694e-12
+        },
+        "denominator": {
+          "relative_RMS": 1.400891880720503e-15,
+          "max_abs": 1.2079226507921703e-13
+        },
+        "output": {
+          "relative_RMS": 1.4093579706434496e-15,
+          "max_abs": 8.526512829121202e-14
+        }
+      },
+      "F32_coefficient_roundtrip_components": {
+        "x": 2.7755458456806337e-08,
+        "B": 2.0869277443743493e-08,
+        "C": 2.667167568838961e-08,
+        "delta": 7.062425431050376e-09,
+        "gate": 2.9152936265011555e-08,
+        "y": 2.8915547060390604e-08,
+        "denominator": 1.525867992824501e-08,
+        "output": 4.5538476288835714e-08
+      },
+      "scalar_recurrence_relative": 1.8864715767965352e-16,
+      "identity_metric_output_relative": 6.353934961828088e-08,
+      "wrong_input_epsilon_output_relative": 0.0010678490662664232,
+      "diagonal_gamma_output_relative": 0.9243340665169,
+      "dense_coefficients": 6031520,
+      "F32_package_bytes": 24388228,
+      "auxiliary_output_columns_exact_zero": true,
+      "exact_gates": true,
+      "F32_coefficient_gates": true,
+      "scalar_gate": true
+    },
+    {
+      "site": 23,
+      "positions": 13,
+      "exact_components": {
+        "x": {
+          "relative_RMS": 4.859146147107749e-16,
+          "max_abs": 6.750155989720952e-14
+        },
+        "B": {
+          "relative_RMS": 1.1969535158963982e-15,
+          "max_abs": 1.2079226507921703e-13
+        },
+        "C": {
+          "relative_RMS": 1.0256881394668019e-15,
+          "max_abs": 7.460698725481052e-14
+        },
+        "delta": {
+          "relative_RMS": 3.256161347881615e-16,
+          "max_abs": 8.881784197001252e-16
+        },
+        "gate": {
+          "relative_RMS": 8.050915266899051e-16,
+          "max_abs": 8.881784197001252e-15
+        },
+        "y": {
+          "relative_RMS": 5.712434584799817e-16,
+          "max_abs": 5.968558980384842e-13
+        },
+        "denominator": {
+          "relative_RMS": 6.334929767395449e-16,
+          "max_abs": 2.4868995751603507e-14
+        },
+        "output": {
+          "relative_RMS": 1.1937881414476664e-15,
+          "max_abs": 1.5987211554602254e-13
+        }
+      },
+      "F32_coefficient_roundtrip_components": {
+        "x": 1.731579464221593e-08,
+        "B": 3.058612205917285e-08,
+        "C": 3.119856636208768e-08,
+        "delta": 1.2664765777828014e-08,
+        "gate": 2.4567928248381326e-08,
+        "y": 1.796975496136737e-08,
+        "denominator": 4.273944153831322e-09,
+        "output": 3.692253798937636e-08
+      },
+      "scalar_recurrence_relative": 1.1866299656988046e-17,
+      "identity_metric_output_relative": 3.4754842281619514e-08,
+      "wrong_input_epsilon_output_relative": 0.0003633219126217551,
+      "diagonal_gamma_output_relative": 0.1905560424639088,
+      "dense_coefficients": 6031520,
+      "F32_package_bytes": 24388228,
+      "auxiliary_output_columns_exact_zero": true,
+      "exact_gates": true,
+      "F32_coefficient_gates": true,
+      "scalar_gate": true
+    }
+  ],
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site00.coefficients.f32.npz",
+      "bytes": 24390960,
+      "sha256": "8359bf9dd09e70f8b82ce58be39c7b216a892452993044555046294e22332e28"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site00.frames.npz",
+      "bytes": 3270864,
+      "sha256": "76710b1e9ea7d0092b8be8debd884b57426f2f5dada259a6e663f3fcbcdde778"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site12.coefficients.f32.npz",
+      "bytes": 24390960,
+      "sha256": "fd051644411c39d0c730d143ce9d371502e930099b03f71a84da7c3bfa90dfdd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site12.frames.npz",
+      "bytes": 3270864,
+      "sha256": "fa111f0ef553e40fafc2811c7785938425385d19aa146cfb9b5beba4a005778a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site23.coefficients.f32.npz",
+      "bytes": 24390960,
+      "sha256": "d9dd0f1516f07743936024ffc868fbccf61551d2019e91bed2bdf234fa85a50b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_projected_s6_transport_20261012\\site23.frames.npz",
+      "bytes": 3270864,
+      "sha256": "ca0d30c9ef7da879b36edefad144368c00ee2ab7876f4c70e4e84f0b2e385177"
+    }
+  ],
+  "inputs_before_after_exact": true,
+  "dense_linear_MAC_per_operator": 5063680,
+  "naive_states_per_operator": 942080,
+  "source_primary_states_per_operator": 786432,
+  "seconds": 13.046999999991385,
+  "OS_peak": 530104320,
+  "optimizer_GPU_model_native_calls": 0,
+  "engine_extension_implemented": false,
+  "F32_runtime_arithmetic_evaluated": false,
+  "composed_chatbot_evaluated": false,
+  "useful_chatbot_admission": false,
+  "speed_admission": false,
+  "generality_admission": false,
+  "scope": "F64 restricted operator with actual pretrained coefficients and P256. F32 coefficient export promoted to F64 to isolate coefficient rounding; not F32 arithmetic or packed/native parity, not full donor projection fidelity or sequential24-layer behavior. Source feature/state widths remain costly."
+}
