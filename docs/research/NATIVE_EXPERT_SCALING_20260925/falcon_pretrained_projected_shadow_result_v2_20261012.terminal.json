@@ -1,0 +1,42 @@
+{
+  "schema": "FALCON_PRETRAINED_PROJECTED_SHADOW_TERMINAL_V2",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_binding_v2_20261012.json",
+    "bytes": 1202851,
+    "sha256": "37892190295bd36bea945b69b4f57bcd41da291bcc20626c6073800f91bafab2"
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_pretrained_projected_shadow_v2.py",
+    "--worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_binding_v2_20261012.json",
+    "--binding-sha",
+    "37892190295bd36bea945b69b4f57bcd41da291bcc20626c6073800f91bafab2",
+    "--freeze",
+    "b9fe670990651e786ebc5786a982bb580a3ed1a2",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_pretrained_projected_shadow_v2_20261012",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_result_v2_20261012.json"
+  ],
+  "freeze": "b9fe670990651e786ebc5786a982bb580a3ed1a2",
+  "pid": 12060,
+  "creation_time": 1791791944.4272127,
+  "timing_control_admitted": false,
+  "exit_code": 1,
+  "error": "AttributeError(\"module 'transformers.models.falcon_h1.modeling_falcon_h1' has no attribute 'is_fast_path_available'\")",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_pretrained_projected_shadow_v2.py\", line 218, in worker\n    model,ledger,patch=assemble(b,torch,np,guard,event)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_pretrained_projected_shadow_v2.py\", line 93, in assemble\n    assert not code.is_fast_path_available\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'transformers.models.falcon_h1.modeling_falcon_h1' has no attribute 'is_fast_path_available'\n",
+  "stage": "trained_export",
+  "completed_tasks": 0,
+  "completed_DEV": 0,
+  "seconds": 28.96799999999348,
+  "OS_peak": 500912128,
+  "GPU_allocated_peak": 0,
+  "GPU_reserved_peak": 0
+}

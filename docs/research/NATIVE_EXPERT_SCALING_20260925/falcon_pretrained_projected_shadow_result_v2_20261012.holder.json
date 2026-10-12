@@ -1,0 +1,39 @@
+{
+  "schema": "FALCON_PROJECTED_SHADOW_HOLDER_V2",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_binding_v2_20261012.json",
+    "bytes": 1202851,
+    "sha256": "37892190295bd36bea945b69b4f57bcd41da291bcc20626c6073800f91bafab2"
+  },
+  "freeze": "b9fe670990651e786ebc5786a982bb580a3ed1a2",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_pretrained_projected_shadow_v2.py",
+    "--worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_binding_v2_20261012.json",
+    "--binding-sha",
+    "37892190295bd36bea945b69b4f57bcd41da291bcc20626c6073800f91bafab2",
+    "--freeze",
+    "b9fe670990651e786ebc5786a982bb580a3ed1a2",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_pretrained_projected_shadow_v2_20261012",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_result_v2_20261012.json"
+  ],
+  "holder_pid": 11540,
+  "holder_creation_time": 1791791944.2552016,
+  "timing_control_admitted": false,
+  "worker_pid": 12060,
+  "worker_creation_time": 1791791944.4272127,
+  "exit_code": 1,
+  "error": "AssertionError('Traceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\falcon_pretrained_projected_shadow_v2.py\", line 365, in <module>\\n    (launch if a.launch else worker)(a)\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\falcon_pretrained_projected_shadow_v2.py\", line 218, in worker\\n    model,ledger,patch=assemble(b,torch,np,guard,event)\\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\falcon_pretrained_projected_shadow_v2.py\", line 93, in assemble\\n    assert not code.is_fast_path_available\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAttributeError: module \\'transformers.models.falcon_h1.modeling_falcon_h1\\' has no attribute \\'is_fast_path_available\\'\\n')",
+  "seconds": 29.984000000025844,
+  "worker_OS_peak_through_exit": 501006336,
+  "holder_OS_peak": 33611776
+}

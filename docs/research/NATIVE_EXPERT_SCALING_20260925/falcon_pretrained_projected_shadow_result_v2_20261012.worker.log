@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\falcon_pretrained_projected_shadow_v2.py", line 365, in <module>
+    (launch if a.launch else worker)(a)
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\falcon_pretrained_projected_shadow_v2.py", line 218, in worker
+    model,ledger,patch=assemble(b,torch,np,guard,event)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\falcon_pretrained_projected_shadow_v2.py", line 93, in assemble
+    assert not code.is_fast_path_available
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'transformers.models.falcon_h1.modeling_falcon_h1' has no attribute 'is_fast_path_available'
