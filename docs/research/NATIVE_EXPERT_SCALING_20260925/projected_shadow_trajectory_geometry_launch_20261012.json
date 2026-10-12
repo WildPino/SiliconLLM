@@ -1,0 +1,30 @@
+{
+  "schema": "PROJECTED_SHADOW_TRAJECTORY_INVOCATION_V1",
+  "source_protocol_freeze": "01662fe7c183a3faa523627d34bec6e20e273e71",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/inspect_projected_shadow_trajectories.py",
+    "--audit",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_shadow_stored_adjudication_20261012.json",
+    "--audit-sha",
+    "97888ded2da2582a8f11a3be99d362c89805f781ae458cc590a5aa41cef2469e",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/projected_shadow_trajectory_geometry_result_20261012.json"
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "limits": {
+    "seconds": 120,
+    "OS_bytes": 536870912
+  }
+}
