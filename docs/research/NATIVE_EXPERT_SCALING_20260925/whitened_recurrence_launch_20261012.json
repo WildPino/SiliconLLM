@@ -1,0 +1,38 @@
+{
+  "preparation_seconds": 3.339103,
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/whitened_recurrence_preflight.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/whitened_recurrence_binding_20261012.json",
+    "--binding-sha",
+    "372f0e284d0cd926380f5f48400c4f284bb2f590549b338c7f180f768372cc20",
+    "--freeze",
+    "4538f721644b24efd3a2cdd52f406e6caf4610ed",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/whitened_recurrence_preflight_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/whitened_recurrence_result_20261012.json"
+  ],
+  "freeze": "4538f721644b24efd3a2cdd52f406e6caf4610ed",
+  "limits": {
+    "GPU_reserved_bytes": 5368709120,
+    "seconds": 900,
+    "GPU_allocated_bytes": 4294967296,
+    "output_bytes": 2147483648,
+    "OS_bytes": 6442450944
+  },
+  "schema": "WHITENED_RECURRENCE_LAUNCH_V1",
+  "environment": {
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OMP_NUM_THREADS": "6"
+  }
+}
