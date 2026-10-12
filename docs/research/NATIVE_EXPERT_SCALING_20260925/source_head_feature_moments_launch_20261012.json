@@ -1,0 +1,43 @@
+{
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "preparation": {
+    "exit_code": 0,
+    "seconds": 6.297
+  },
+  "freeze": "01a4ec1175fee262a5a76f0568b7720d108ec24f",
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OMP_NUM_THREADS": "6",
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 900,
+    "output_bytes": 2147483648,
+    "GPU_allocated_bytes": 2147483648,
+    "GPU_reserved_bytes": 2147483648
+  },
+  "schema": "SOURCE_HEAD_FEATURE_MOMENTS_INVOCATION_V1",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/source_head_feature_moments.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_head_feature_moments_binding_20261012.json",
+    "--binding-sha",
+    "51cf7f03d5deab37a2b9a7e1ed8724953f8380e37b0ec9104847113cad154747",
+    "--freeze",
+    "01a4ec1175fee262a5a76f0568b7720d108ec24f",
+    "--directory",
+    "results/native_expert_scaling/source_head_feature_moments_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_head_feature_moments_result_20261012.json"
+  ]
+}
