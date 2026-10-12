@@ -1,5 +1,10 @@
 # Broad exact residual categorical correction: prospective next
 
+**Superseded12 October2026:** all labels/full gradient/factor custody and full
+direct audit COMPLETE. [Result](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
+has small FIT/DEV descent,qualityFAIL and first audit deadline retained/repaired.
+Next exact orthonormal decoder/native scalar-norm reader;below is historical.
+
 12 October2026. **PROPOSED/UNIMPLEMENTED/UNBOUND**. Current verified one-step
 exact-loss correction uses72 FIT labels;fits42% better but DEV mean improves6%
 with26/72 source decisions still wrong. No qualified chatbot conversion.

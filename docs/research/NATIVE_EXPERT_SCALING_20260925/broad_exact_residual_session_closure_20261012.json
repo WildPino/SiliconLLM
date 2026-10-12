@@ -1,0 +1,96 @@
+{
+  "schema": "BROAD_EXACT_RESIDUAL_SESSION_CLOSURE_V1",
+  "observed_at": "2026-10-12T16:01:00.8822304+02:00",
+  "jobs": [
+    {
+      "name": "producer",
+      "session_id": 77358,
+      "exec_exit_code": 0,
+      "pid": 6056,
+      "creation_time": 1791809813.7174692,
+      "seconds": 435.4219999999914,
+      "OS_peak": 1924542464,
+      "result": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\broad_exact_residual_correction_result_20261012.json",
+        "bytes": 275158,
+        "sha256": "cd9a4664d5da5ee5bb6b26a842d0d5e211791d08d409b4d7f727b9dfc4b66c3f"
+      },
+      "error": null
+    },
+    {
+      "name": "audit_v1_deadline",
+      "session_id": 32943,
+      "exec_exit_code": 1,
+      "pid": 19388,
+      "creation_time": 1791811009.532863,
+      "seconds": 900.859999999986,
+      "OS_peak": 1991233536,
+      "result": null,
+      "error": "AssertionError()"
+    },
+    {
+      "name": "audit_v2",
+      "session_id": 79218,
+      "exec_exit_code": 0,
+      "pid": 11544,
+      "creation_time": 1791812084.1739216,
+      "seconds": 925.109999999986,
+      "OS_peak": 1992376320,
+      "result": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\broad_exact_residual_stored_adjudication_v2_20261012.json",
+        "bytes": 11863,
+        "sha256": "67940a682071e9129a551ef882a9190af253ecd71db60e739f0fb629d488cae0"
+      },
+      "error": null
+    }
+  ],
+  "extents": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\broad_exact_residual_correction_result_20261012.json",
+      "bytes": 275158,
+      "sha256": "cd9a4664d5da5ee5bb6b26a842d0d5e211791d08d409b4d7f727b9dfc4b66c3f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\broad_exact_residual_correction_result_20261012.terminal.json",
+      "bytes": 1581,
+      "sha256": "702fb987816a1bc6107a023a87d5bdb98ba5360b7d81b9e880c3406bf224fe78"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\broad_exact_residual_stored_adjudication_20261012.terminal.json",
+      "bytes": 2366,
+      "sha256": "a387ade89351e4325d9b35bb6d3d2f955ba050137c4df96860286b55b0275472"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\broad_exact_residual_stored_adjudication_v2_20261012.json",
+      "bytes": 11863,
+      "sha256": "67940a682071e9129a551ef882a9190af253ecd71db60e739f0fb629d488cae0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\broad_exact_residual_stored_adjudication_v2_20261012.terminal.json",
+      "bytes": 1674,
+      "sha256": "6f3228f1b0e5800644986df08f7c52caba512896403069e434edf15ddf03d5a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_scalar_readout_preparation_20261012.json",
+      "bytes": 4052,
+      "sha256": "dadf16a2ef7dfbd3947c0324a5aa6a89c02ee87fd24e974d4adf3622cf12f4fc"
+    }
+  ],
+  "python_processes": [
+    {
+      "ProcessId": 31440,
+      "CreationDate": "2026-10-11T22:11:32.518025+02:00",
+      "CommandLine": "\"D:\\_THINGS\\Progetti\\tiktok_publisher\\.venv\\Scripts\\python.exe\" d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+    },
+    {
+      "ProcessId": 7464,
+      "CreationDate": "2026-10-11T22:11:32.527924+02:00",
+      "CommandLine": "\"C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python311\\python.exe\" d:\\_THINGS\\Progetti\\tiktok_publisher\\daemon_workflow.py"
+    }
+  ],
+  "owned_live_runs": 0,
+  "original_engine_and_foreign3_hashes_unchanged": true,
+  "native_preparation": "Compile-only closed0,no DLL load/input/readout call",
+  "goal": "ACTIVE/INCOMPLETE",
+  "next": "ORTHONORMAL_DECODE_NATIVE_READOUT_NEXT_20261012.md gauge/F32 capture unimplemented"
+}

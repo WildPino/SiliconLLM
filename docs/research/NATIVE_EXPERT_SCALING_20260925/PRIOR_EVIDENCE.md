@@ -1,6 +1,14 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Broad full categorical correction/factor storage/direct source audit](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
+COMPLETE:all4422 FIT/4386 DEV labels,equal-case weights;all11 full-V points/48570
+rows/4422 full Jacobians audited. V1 deadline failed900s;budget-only V2 closes
+925s/1200s,first fault retained. FIT-selected.0001 improves FIT3.10%,DEV~.97%,
+wrong1756/4386 versus1792;quality allFAIL. Compact source score factors qualified.
+Next exact QR decode gauge removes dense norm metric via scalar epsilon and
+normalized reader bias,not information improvement. Original C bodies compiled
+with named scalar extension;DLL not loaded/called yet. No long epoch selected.
 [Exact categorical residual gradient/correction/full audits](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 COMPLETE:explicit72 RMS Jacobians/V/W/mu gradients/full34 points PASS. Original
 coarse joint finite gate false retained;separate2e-7 convergence qualifies same

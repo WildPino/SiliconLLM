@@ -1,6 +1,15 @@
 # Native expert scaling: research control index
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+Newest: [ALL-label exact categorical gradient and score-factor/full audit](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
+COMPLETE:4422 FIT/4386 DEV,equal-case weights,11 points/48570 full-V rows and
+all4422 explicit RMS Jacobians independently audited PASS. V1 deadline900s
+failed in last DEV point;V2 full identical replay1200s closes925s,original retained.
+Selected alpha.0001 FIT improves3.10%,DEV caseKL2.963->2.934/IDs41.98%->41.09%;
+ALL quality gates FAIL. Compact score factors verified against direct source
+readings,no lossy vocab substitution. No long plain-gradient epoch selected.
+Next:exact orthonormal decoder/native scalar-norm head export;compile-only
+original C kernel preparation available,not numerically called/qualified.
 Newest: [exact categorical factor/center gradient, separate convergence and correction](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 COMPLETE/full audits PASS. Explicit72 full RMS Jacobians/34 original full-V points
 verified;original13/14 finite flags keeps nonacceptance. Separate2e-7 study resolves
@@ -79,14 +88,16 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind broad exact categorical residual-factor correction**,
-[prospective specification](BROAD_EXACT_RESIDUAL_CATEGORICAL_NEXT_20261012.md)
-UNIMPLEMENTED:ALL existing FIT4422/DEV4386 labels,equal-case weights;one broad
-gradient/frozen ladder,FIT-only immutable selection. First validate compact
-reproducible score-factor storage against direct source-width probabilities;
-full-V loss/gradient and complete independent audit required. Keep corrected
-generic-factor norm/skip semantics explicit;no blind epoch or more fixed charts.
-Causal compact dynamics/ternary/native/physical costs and useful n still required.
+**Implement/freeze/bind exact orthonormal decoder/native readout export**,
+[prospective specification](ORTHONORMAL_DECODE_NATIVE_READOUT_NEXT_20261012.md)
+UNIMPLEMENTED source gauge/capture:V=QR,t=Rz+Q^T mu,orthogonal center residual;
+source map/probabilities unchanged,scalar targetepsilon/normalized reader bias.
+[Original C compile prerequisite](native_scalar_readout_preparation_20261012.json)
+AVAILABLE only:no DLL input/load/readout call or precision/speed admission.
+Bind selected fully audited point,derive/export actual F32 head/bias/code/norm,
+verify all8808 source labels and full coefficients/outputs against original
+factor predictor;price native component only. Generic skip not assumed identity.
+No long plain-gradient epoch. Causal core/ternary/useful n/same-artifact50 remain.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient

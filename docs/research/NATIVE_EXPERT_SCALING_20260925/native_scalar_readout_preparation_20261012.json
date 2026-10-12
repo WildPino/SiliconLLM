@@ -1,0 +1,88 @@
+{
+  "schema": "NATIVE_SCALAR_READOUT_PREPARATION_V1",
+  "source_tool": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\native_scalar_readout_preparation.py",
+    "bytes": 4507,
+    "sha256": "ffdf5cf928d61712547e42251d2c6c0bc8dceb94dc858e9b42cff05c5f48092f"
+  },
+  "freeze": "a36e3efbf8763512a7600dab2d0e0c90711b4ac9",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_scalar_readout_preparation.py",
+    "--freeze",
+    "a36e3efbf8763512a7600dab2d0e0c90711b4ac9",
+    "--directory",
+    "results/native_expert_scaling/native_scalar_readout_preparation_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_scalar_readout_preparation_20261012.json"
+  ],
+  "engine": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "bytes": 137439,
+    "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+  },
+  "compiler": {
+    "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+    "bytes": 16384,
+    "sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7"
+  },
+  "compile_command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+    "-O3",
+    "-mavx2",
+    "-mfma",
+    "-march=znver2",
+    "-shared",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_scalar_readout_preparation_20261012\\native_scalar_readout.c",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_scalar_readout_preparation_20261012\\native_scalar_readout.dll",
+    "-lm"
+  ],
+  "compile_exit_code": 0,
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_scalar_readout_preparation_20261012\\native_scalar_readout.c",
+    "bytes": 1872,
+    "sha256": "0a7ff029e5be654ae38f01c51eb4c15f7e1d88dfb99adc9131673feab9599068"
+  },
+  "dll": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_scalar_readout_preparation_20261012\\native_scalar_readout.dll",
+    "bytes": 71168,
+    "sha256": "0dc61dd85ed79af94b2a40806a39780dd6dbd0b81d33b278781bef621b07865e"
+  },
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_scalar_readout_preparation_20261012\\compile.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "functions": [
+    {
+      "name": "hsum256",
+      "original_body_sha256": "12d89b38e6414b60f6129a518f7c9a232ed21426c5a5b0fd03a109c25140fefb"
+    },
+    {
+      "name": "dotf",
+      "original_body_sha256": "25828cce39b821473d0b4002163d33acd6902fa03276d514e120e235738bca95"
+    },
+    {
+      "name": "matvec",
+      "original_body_sha256": "77d8f2503a714bad799a5a652d9bd96fb43ebc7d236182b9e17720c945eddaf7"
+    },
+    {
+      "name": "rmsnorm",
+      "original_body_sha256": "cb403c8095038fe343f5d7ffc9df3e37d3160ed531bf28b570d3369047387f25"
+    }
+  ],
+  "extension": {
+    "name": "scalar_rmsnorm",
+    "body_sha256": "36034c773010643fb53f4b4ff488624883642b45cabc8295ad6292be0fc98a94",
+    "changes": "Original scalar ms loop/gamma multiplication unchanged;epsilon becomes argument;return inverse RMS. Original rmsnorm also retained verbatim."
+  },
+  "additional_reader_bias": "scores+=bias*inverse_RMS;not constant postnorm bias.",
+  "seconds": 3.2969999999913853,
+  "scope": "Compile-only actual original hsum256/dotf/matvec/rmsnorm bodies unchanged and named epsilon/inverse RMS extension. No DLL load/readout input/call or source model/GPU/T4;no native precision or timing/quality admission yet. OMP_PFOR empty,original engine file immutable."
+}

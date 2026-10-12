@@ -3,6 +3,13 @@
 12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[All-label exact categorical factors/gradient/source audit](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
+now IMPLEMENTED/LOCALLY VERIFIED on4422 FIT/4386 DEV,all48570 full-V point rows,
+all4422 explicit RMS Jacobians and parameter bits. Compact head/Z/radius factors
+replace unnecessary dense score archives;independent direct2048 source reading
+verifies all outputs/probabilities. One selected.0001 step improves FIT3.10%,DEV
+~.97%,all qualityFAIL. Exact source-to-scalar-norm QR gauge/native head export
+NEXT;original C compile prerequisite complete,no readout input/precision run yet.
 [Exact categorical V/W/center correction and independent Jacobian audit](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 now IMPLEMENTED/LOCALLY VERIFIED. Actual source FIT72 final states/full trained
 head,complete RMS derivative and both center paths;full gradient/differences/
@@ -73,7 +80,9 @@ be counted separately. Arbitrary source architectures are not supported yet.
 Current decision:fixed-P,angular256,global source-function256 and tested conditional
 RAW charts fail. Exact finite categorical factor/center gradient is now verified;
 one FIT-only step improves loss modestly on DEV without restoring decisions.
-Broaden to all existing supervised labels/equal-case weighting before epochs.
+All existing supervised labels/equal-case weighting now tested/audited;improvement
+is small and quality still fails. Reconnect via exact decoder QR gauge/native
+scalar-norm head export before another plain-gradient epoch.
 Initial Fisher or more unchanged charts do not certify finite loss;available
 causal compact routing and composed own-history remain mandatory.
 [Exact prospective path](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md).
@@ -139,7 +148,9 @@ completed/audited and FAILED quality;new global/conditional raw state encodings
 also completed/audited and failed their local proxies. Do not repeat those same
 geometry objectives as if their qualification were still pending. Exact finite
 categorical residual-factor correction is now implemented/verified locally;
-broader actual labels/score-factor arithmetic is the next variable to bind.
+broader actual labels/score-factor arithmetic also complete/audited. Exact QR
+decoder gauge/scalar-norm native head export is the next variable to bind;
+source map/normalization must stay equivalent to the fully audited factor point.
 
 Then a cheap conditional nonlinear representation must replace costly source
 features/FFNs while preserving useful composed behavior. Original packed LUT/
