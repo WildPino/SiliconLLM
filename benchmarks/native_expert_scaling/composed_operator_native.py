@@ -88,4 +88,14 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();m=p.add_mutually_exclusive_group(required=True);m.add_argument('--prepare',action='store_true');m.add_argument('--run',action='store_true')
     for name in ['binding','directory','out']:p.add_argument('--'+name,type=Path)
     for name in ['binding-sha','freeze']:p.add_argument('--'+name)
-    a=p.parse_args();prepare(a) if a.prepare else run(a)
+    a=p.parse_args()
+    if a.run:run(a)
+    else:
+        import psutil
+        proc=psutil.Process();receipt=dict(schema='COMPOSED_OPERATOR_NATIVE_PREPARATION_TERMINAL_V1',command=sys.orig_argv,pid=proc.pid,creation_time=proc.create_time(),freeze=a.freeze,timing_admitted=False)
+        try:prepare(a);receipt.update(exit_code=0,error=None,result=extent(a.out))
+        except BaseException as e:
+            import traceback
+            receipt.update(exit_code=1,error=repr(e),traceback=traceback.format_exc());raise
+        finally:
+            receipt.update(seconds=time.perf_counter()-CLOCK,OS_peak=proc.memory_info().peak_wset);write(a.out.with_suffix('.preparation_terminal.json'),receipt)
