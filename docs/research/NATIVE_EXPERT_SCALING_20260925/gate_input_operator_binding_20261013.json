@@ -1,0 +1,101 @@
+{
+  "schema": "GATE_INPUT_OPERATOR_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "psutil": "7.2.2",
+    "cuda": "12.4"
+  },
+  "source_weights": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+  "source_config": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+  "sites": [
+    0,
+    12,
+    23
+  ],
+  "rows": 3072,
+  "columns": 2048,
+  "scaled_matrix": false,
+  "numeric": {
+    "Gram_relative": 1e-12,
+    "eigenvector_orthogonal_max": 1e-10,
+    "eigen_residual_relative": 1e-10,
+    "spectrum_sigma_max_relative": 1e-08,
+    "negative_eigenvalue_relative": 1e-10
+  },
+  "selection": {
+    "robust_sigma_relative": 1e-06,
+    "condition_max": 1000000.0
+  },
+  "limits": {
+    "seconds": 900,
+    "audit_seconds": 1200,
+    "OS_bytes": 6442450944,
+    "output_bytes": 536870912
+  },
+  "output_directory": "E:/SiliconLLM/results/native_expert_scaling/gate_input_operator_20261013",
+  "inputs": [
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll",
+      "bytes": 6945272,
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120"
+    },
+    {
+      "path": "C:\\Windows\\System32\\nvcuda.dll",
+      "bytes": 4714728,
+      "sha256": "b53d1e3e49b2d1bc33480243017af6847e4809b7acdd7c121ea294f05afe6fd3"
+    },
+    {
+      "path": "C:\\Windows\\System32\\nvml.dll",
+      "bytes": 1408232,
+      "sha256": "21e72408146f394bf2848bd52d147d5f9f9fb0f160dfeb6bee35d0967c419198"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\gate_input_operator_preflight.py",
+      "bytes": 7338,
+      "sha256": "312b61ee9ac499f7c8e4b6270dad3518e101120d1032c3bb8830247ebd196f72"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_auxiliary_s6_transport.py",
+      "bytes": 17798,
+      "sha256": "7e90bef086122e9c4f743cb768e4e9d17fd2c85864bceec408b04603bf3392e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\GATE_INPUT_OPERATOR_PROTOCOL_20261013.md",
+      "bytes": 1921,
+      "sha256": "b9fc9fc136681273bfa54e36a6d53785f6f4c18c9d21e7068943e4ecc37d30e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gate_input_operator_storage_20261013.json",
+      "bytes": 362,
+      "sha256": "35082e182f18457ef3ca4f75671cf548a5bf57e4cee16c7ebcf2babda8bfc1a1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\full_channel_native_binding_20261013.json",
+      "bytes": 321212,
+      "sha256": "288b9ff3f565ebf8f11a169f54dc0f604d2857c2717e299029936fbaddd144e2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+      "bytes": 3109773032,
+      "sha256": "1fb788513f2c58e3abb91af8730afe19e247bce7a7f01a46e452a084e98b2abd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+      "bytes": 1599,
+      "sha256": "2473f5e02854a2833df973277e6f109d94344e7860fbc78d5ff8b31d08dddaeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+      "bytes": 59285,
+      "sha256": "abfb007ace80bfd5584c457569605cf57f43778495e587c68df63a8f0ffa5346"
+    }
+  ],
+  "scope": "Exact BF16-promoted unscaled source in_proj gate row matrices3072x2048/all3 sites. Rank/condition/inverse noise-gain necessary geometry only;MuP nonzero scalar does not alter rank/condition. No reconstructed hidden/input/corpus fitting/source model/native/causal/quality/50 admission."
+}
