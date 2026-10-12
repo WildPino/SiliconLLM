@@ -1,0 +1,41 @@
+{
+  "limits": {
+    "OS_bytes": 4294967296,
+    "seconds": 900,
+    "output_bytes": 100663296
+  },
+  "freeze": "01c746ebc5233e87b7a76674edd87a156d339a85",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_domain_preflight_v2.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_binding_v2_20261012.json",
+    "--binding-sha",
+    "e7d232c4cf55aebab3cbd0735a2723f2db49db0c9ce3f787b911ff179eb54f4a",
+    "--freeze",
+    "01c746ebc5233e87b7a76674edd87a156d339a85",
+    "--directory",
+    "results/native_expert_scaling/native_head_domain_preflight_v2_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_result_v2_20261012.json"
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "reason": "Same equations and1e-5 guard;record all native KL deltas/flags instead of first-FIT rejection,no gate relaxation.",
+  "preparation": {
+    "exit_code": 0,
+    "seconds": 3.594
+  },
+  "schema": "NATIVE_HEAD_DOMAIN_PREFLIGHT_INVOCATION_V2"
+}
