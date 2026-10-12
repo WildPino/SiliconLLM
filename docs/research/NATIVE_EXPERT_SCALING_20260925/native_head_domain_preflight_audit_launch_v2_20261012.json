@@ -1,0 +1,36 @@
+{
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "MKL_NUM_THREADS": "6"
+  },
+  "freeze": "e9a6342ae99a25de0f30c8f244c699068451a061",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_domain_preflight_audit_v2.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_result_v2_20261012.json",
+    "--report-sha",
+    "a091f54cdd157fa6d97cec9422b66d5193afcea80da1ef368d64c891902e6251",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_result_v2_20261012.terminal.json",
+    "--terminal-sha",
+    "95b3b4043ce048a34f6d74807a8d169e76edd51d798bdc9f0f0783b3722e7142",
+    "--freeze",
+    "e9a6342ae99a25de0f30c8f244c699068451a061",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_domain_preflight_adjudication_v2_20261012.json"
+  ],
+  "limits": {
+    "OS_bytes": 4294967296,
+    "seconds": 900
+  },
+  "schema": "NATIVE_HEAD_DOMAIN_PREFLIGHT_AUDIT_INVOCATION_V2"
+}
