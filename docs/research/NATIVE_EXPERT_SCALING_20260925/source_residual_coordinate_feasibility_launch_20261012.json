@@ -1,0 +1,36 @@
+{
+  "schema": "SOURCE_RESIDUAL_COORDINATE_FEASIBILITY_INVOCATION_V1",
+  "source_protocol_freeze": "d01b33eee8c87177f11af19b46251c7b0cda7256",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/source_residual_coordinate_feasibility.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_residual_coordinate_feasibility_binding_20261012.json",
+    "--binding-sha",
+    "b95c92c87dbe5c13419b07c0de95d92d790a7909b0e312f50ce873b24f5bcf62",
+    "--freeze",
+    "d01b33eee8c87177f11af19b46251c7b0cda7256",
+    "--directory",
+    "results/native_expert_scaling/source_residual_coordinate_feasibility_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_residual_coordinate_feasibility_result_20261012.json"
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "limits": {
+    "seconds": 900,
+    "OS_bytes": 4294967296,
+    "output_bytes": 536870912
+  }
+}
