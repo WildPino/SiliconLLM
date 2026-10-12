@@ -1,0 +1,39 @@
+{
+  "freeze": "e409079496ca0f8cd6e8802ad398ce8b17f139db",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/recurrent_output_bases.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recurrent_output_bases_binding_20261012.json",
+    "--binding-sha",
+    "b9a4f56cca82a6970582ff7d069bc878b95b60bb8b00a62f04083aaf8f295c18",
+    "--freeze",
+    "e409079496ca0f8cd6e8802ad398ce8b17f139db",
+    "--directory",
+    "results/native_expert_scaling/recurrent_output_bases_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recurrent_output_bases_result_20261012.json"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "schema": "RECURRENT_OUTPUT_BASES_LAUNCH_V1",
+  "scope": "FIT recurrent covariance only; new actual compact scans, all48 histories, original quality gates",
+  "limits": {
+    "seconds": 1800,
+    "GPU_reserved_bytes": 5368709120,
+    "output_bytes": 3221225472,
+    "OS_bytes": 6442450944,
+    "GPU_allocated_bytes": 4294967296
+  },
+  "preparation_seconds": 23.7100331
+}
