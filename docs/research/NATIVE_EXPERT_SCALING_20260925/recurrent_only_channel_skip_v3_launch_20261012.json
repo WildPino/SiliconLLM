@@ -1,0 +1,43 @@
+{
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/recurrent_only_channel_skip_v3.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recurrent_only_channel_skip_v3_binding_20261012.json",
+    "--binding-sha",
+    "6808d0b47090a78d2e2e0dbca9527b44814da426b0ca0fa74a7501af5bc01029",
+    "--freeze",
+    "0cb4d907ae5e8f1b4c992b4b93db0a226667982e",
+    "--directory",
+    "results/native_expert_scaling/recurrent_only_channel_skip_v3_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/recurrent_only_channel_skip_v3_result_20261012.json"
+  ],
+  "binding_sha256": "6808d0b47090a78d2e2e0dbca9527b44814da426b0ca0fa74a7501af5bc01029",
+  "preparation_seconds": 6.5963317,
+  "unlaunched_V1_preparation_seconds": 73.5555133,
+  "freeze": "0cb4d907ae5e8f1b4c992b4b93db0a226667982e",
+  "limits": {
+    "GPU_reserved_bytes": 3221225472,
+    "OS_bytes": 6442450944,
+    "seconds": 900,
+    "GPU_allocated_bytes": 2147483648,
+    "output_bytes": 3221225472
+  },
+  "schema": "RECURRENT_ONLY_CHANNEL_SKIP_LAUNCH_V1",
+  "scope": "full384 recurrent/skip controlled operator; no new fit/source forward/native",
+  "precision_gate_retained": 0.001,
+  "precision_gate_enforcement": "record every flag including false; full diagnostic, no equivalence admission"
+}
