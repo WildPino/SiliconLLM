@@ -1,6 +1,11 @@
 # Native expert scaling: research control index
 
-**12 October 2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+**12 October 2026: goal ACTIVE/INCOMPLETE; all-label oracle capture LIVE.**
+Exact session10400,PID11508/create2026-10-12T18:53:12.060558+02,source/protocol
+99d0d37,[binding/launch](all_label_native_probability_gap_launch_20261012.json)
+331609d. Checkpoint16 observed at503.641s:equal FIT/DEV weighted real upper
+1.96569->.053788,lower0. Provisional oracle diagnostic,not native/source quality
+admission. Preserve exact live handle on timeout;do not restart.
 
 ## Goal and constraints
 
@@ -57,20 +62,24 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind the all8808-label probability-image study**,
+**Finish the LIVE all8808-label probability-image capture and full audit**,
 [selected bounded design](ALL_LABEL_NATIVE_PROBABILITY_GAP_DESIGN_20261012.md),
-PROPOSED/UNIMPLEMENTED/UNBOUND. GPUF64 initial qualification/cost is COMPLETE.
+Source/protocol/binding now IMPLEMENTED/FROZEN;GPUF64 qualification COMPLETE.
 Selected design:128 max round-robin updates,1200s solver budget/1800s capture,
 projected half-ball descent plus separately evaluated executable sphere codes,
 actual native full source-probability capture,all stored-point/native full audit.
-No optimization job started;finish source/protocol/binding/criteria before launch.
+Capture LIVE,1800s/solver1200s/OS6GiB/GPU2GiB/output4GiB. The prospective4GiB
+OS cap was raised before execution for simultaneous runtime/source head/mapping.
+Audit source/protocol [59c9c87](ALL_LABEL_NATIVE_PROBABILITY_GAP_AUDIT_PROTOCOL_20261012.md)
+frozen,1200s/OS6GiB;bind completed report/terminal hashes before executing.
 Relaxed half-ball lowers and actual positive-sphere native uppers are different;
 moment matching separates information projection and encoder loss only under
 the stated stationarity/residual identity. Do not extend winner-only rays.
 Moment/cost compilation,affine ray probe AND GPU backend complete;full distribution
-search and causal code acquisition remain unimplemented.
+search running;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
+separates emission-code supervision from full recurrent state/closure/future information.
 [GPU closure](native_head_gpu_preflight_session_closure_20261012.json) records
-15890 prepare CLOSED0,24009 capture CLOSED0,42536 audit CLOSED0;no owned process live.
+15890 prepare CLOSED0,24009 capture CLOSED0,42536 audit CLOSED0;new10400 capture live.
 Historical native precision failures remain in
 [preflight closure](native_head_domain_preflight_session_closure_20261012.json).
 

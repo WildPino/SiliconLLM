@@ -1,6 +1,9 @@
 # All-label native probability-image diagnostic: selected bounded design
 
-12 October2026. **PROPOSED/UNIMPLEMENTED/UNBOUND**. No optimizer job started.
+12 October2026. Historical selected design;implementation now FROZEN/capture LIVE.
+[Actual protocol](ALL_LABEL_NATIVE_PROBABILITY_GAP_PROTOCOL_20261012.md),source99d0d37,
+[launch](all_label_native_probability_gap_launch_20261012.json)331609d/session10400.
+Below records prospective settings;final OS6GiB chosen before execution.
 Reason: native rays reach2342 donor winners but their probability loss is worse;
 GPUF64 whole initial objective/gradient now independently qualified. Use all
 existing4422 FIT/4386 DEV labels,not a smaller selected successful cohort.

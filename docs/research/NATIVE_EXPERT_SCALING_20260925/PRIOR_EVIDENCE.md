@@ -1,6 +1,9 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+**AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; all-label capture10400 LIVE.**
+PID11508/create18:53:12.060558+02,source99d0d37/launch331609d. Checkpoint16 real
+weighted upper1.96569->.053788/lower0 after503.641s;provisional oracle only,not
+native quality/capacity or convergence. Full stored-point/native audit frozen59c9c87.
 [GPUF64 all-label initial loss/gradient/cost](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md)
 COMPLETE/full independent CPU probability audit PASS:8808 complete losses/
 257-gradients/IDs,CPU/GPU errors~2.5e-14/zeroID changes. Component nominal pass
