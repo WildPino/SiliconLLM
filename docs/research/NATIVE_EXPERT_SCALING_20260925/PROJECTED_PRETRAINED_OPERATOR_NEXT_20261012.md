@@ -1,5 +1,9 @@
 # Next: trained operators in compact residual coordinates
 
+**Update12 October:** [restricted compiler/control/export/full audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
+COMPLETE/PASS. Shadow model remains UNIMPLEMENTED/UNEXECUTED and is now the
+operational next step. Below is the preserved original staged proposal.
+
 12 October2026. PROPOSED; new compiler/shadow model UNIMPLEMENTED/UNEXECUTED.
 Full goal unchanged. This follows actual exact auxiliary generator transport,
 not a claim that D256 can already preserve donor quality.

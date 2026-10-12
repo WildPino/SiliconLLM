@@ -1,6 +1,15 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Restricted D256 trained operator compiler/export/full field audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
+now COMPLETE/PASS:39 injected positions, exact max1.4094e-15, F32 coefficient
+roundtrip4.5539e-8; three durable core packages/all fields independently checked.
+Projected diagonal gamma loses19%-92% output in the isolated trained-operator
+control; gamma folding fixes that local defect, not proof of composed capacity.
+Source feature/state widths remain costly; F32 arithmetic/native parity untested.
+Next implement/review/bind24-layer pretrained projected shadow behavior, with
+source attention/FFN/depth and each norm boundary preserved and costs declared.
+Earlier restricted-compiler UNIMPLEMENTED/next statements below are historical.
 [Complete recovery/native outcomes and exact operator transport](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
 V4 math worker complete; final holder known-publisher isolation failed and is
 preserved. Native16 tasks+followup fully captured/audited:0/16/false. Stored66,888

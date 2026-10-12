@@ -1,6 +1,10 @@
 # Native expert scaling: research control index
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+Latest: [restricted D256 trained compiler and full field audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
+PASS on three sites/39 injected positions; max exact1.4094e-15,
+F32 coefficient-roundtrip4.5539e-8. Diagonal norm control loses19%-92% output.
+Three F32 core packages available; source state/feature widths remain costly.
 Recovered numerical worker COMPLETE; final holder isolation FAILED and preserved.
 New native chatbot capture/audit COMPLETE: **0/16; own-answer followup false**.
 New trained generator transport component passes; compact conversion still open.
@@ -60,14 +64,13 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Implement/bind the restricted pretrained-operator compiler** from
-[projected source path](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md): actual
-P256, fold EACH source norm gamma into input matrices, correct metric/epsilon,
-copy trained sequence generators, preserve explicit source nonlinear functions.
-First300s CPU operator control +120s stored audit; no job launched yet.
-Then review/bind one full24-layer pretrained projected shadow chatbot to measure
+**Implement/review/bind one full24-layer pretrained projected shadow chatbot** to measure
 composed projection loss before more training. This changes transport/norm/depth,
 not the previous384 pruning objective or another epoch on the failed initializer.
+Restricted compiler/control and full stored field audit COMPLETE; reuse actual
+P/coefficient packages and corrected gamma/metric/epsilon relation. Shadow keeps
+source attention/FFN/parallel composition/depth as explicitly provisional costs.
+Actual runtime/budget still to be frozen; no next job launched.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient

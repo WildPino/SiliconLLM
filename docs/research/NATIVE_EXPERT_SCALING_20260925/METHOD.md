@@ -3,6 +3,9 @@
 12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Latest restricted D256 trained-operator export/audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
+COMPLETE: local norm-folding identity and three F32 packages. Composed pretrained
+projected shadow behavior remains unimplemented/unexecuted.
 [Operational index](INDEX.md), [latest actual outcomes](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
 Earlier method/status history is byte-preserved in
 [METHOD through V4 launch](METHOD_THROUGH_RECOVERED_V4_LIVE_20261011.md).
@@ -55,6 +58,7 @@ No blindly continued donor-adaptation or new T4 job.
 | inspect_recovered_categorical_route_divergence_v2 | Stored GPU/C ID/mass -> exact divergence locations |24 histories/.828s/49.795MB read;3 membership rows; hidden causal operands/margins unavailable |
 | initializer_quadrant_algebra | Exact initializer code+synthetic scalars -> reproducible even-function identity |100 cases/.016s; pre-learning all-expert real mixture only, not learned model/top8/quantization |
 | falcon_auxiliary_s6_transport | Actual source coefficients -> original-S6 field compiler+39 F64 operand frames |3 sites/all gates PASS,9.296s/440.009MB OS; independent stored fsum audit6.813s; not compact/native/BF16/chatbot qualification |
+| falcon_projected_s6_transport | Actual source/P256/gamma -> restricted core and durable F32 fields |3 sites/all local gates PASS,13.047s/530.104MB OS; all-field audit8.094s; source feature/state widths costly, composed/native behavior untested |
 
 Detailed revisions/bindings/invocations/hashes/results and scope are linked in
 [latest report](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md) and
@@ -85,7 +89,9 @@ more dose, router correction or a free-feature head will recover useful capacity
 
 ## Missing steps and selected experiment
 
-Restricted pretrained-operator compiler is UNIMPLEMENTED. Correct norm transfer
+Restricted pretrained-operator compiler is IMPLEMENTED/LOCALLY QUALIFIED on
+three sites/39 injected F64 inputs; F32 coefficient export and independent all-field
+audit complete. This is not F32 arithmetic/native/chatbot parity. Correct norm transfer
 requires folding gamma into each source input projection and accounting for
 G=P^T P and dimension-scaled epsilon; averaging a diagonal norm is insufficient
 for an exact restriction identity. Preserve source nonlinear generators and24

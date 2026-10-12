@@ -1,0 +1,145 @@
+{
+  "schema": "FALCON_PROJECTED_S6_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_projected_s6_stored_audit.py",
+    "bytes": 10036,
+    "sha256": "f0e1d73ced027e54da90705f939214af023c4bdfef33729290b28e47129b8105"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_projected_s6_transport_result_20261012.json",
+    "bytes": 9504,
+    "sha256": "79d2d50f478853500f15d646704f37d358f3ec9c0722cd5394e9a2486938bb82"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_projected_s6_transport_result_20261012.terminal.json",
+    "bytes": 3260,
+    "sha256": "698d41c13392394ac58351e24d1919d3e3b4aeb9c6ebccfdd5b053f9db1644d9"
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/falcon_projected_s6_stored_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_s6_transport_result_20261012.json",
+    "--report-sha",
+    "79d2d50f478853500f15d646704f37d358f3ec9c0722cd5394e9a2486938bb82",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_s6_transport_result_20261012.terminal.json",
+    "--terminal-sha",
+    "698d41c13392394ac58351e24d1919d3e3b4aeb9c6ebccfdd5b053f9db1644d9",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_s6_stored_adjudication_20261012.json"
+  ],
+  "records": [
+    {
+      "site": 0,
+      "exact_metrics": {
+        "x": 7.325251440417641e-16,
+        "B": 7.581549336075845e-16,
+        "C": 7.869912321450862e-16,
+        "delta": 1.82638123736067e-16,
+        "gate": 6.795103396489636e-16,
+        "y": 1.0168511760576985e-15,
+        "denominator": 1.3148726613793108e-15,
+        "output": 8.736424785260567e-16
+      },
+      "F32_coefficient_metrics": {
+        "x": 1.7584872465283328e-08,
+        "B": 2.428536677320287e-08,
+        "C": 2.0745193404248837e-08,
+        "delta": 4.298115099548282e-09,
+        "gate": 2.0535800287634504e-08,
+        "y": 1.7060344216716945e-08,
+        "denominator": 1.2432678203616911e-08,
+        "output": 2.8663682012653014e-08
+      },
+      "controls": {
+        "identity_metric_output_relative": 5.158251530538578e-08,
+        "wrong_input_epsilon_output_relative": 0.0004742880986866547,
+        "diagonal_gamma_output_relative": 0.28367686900493744
+      },
+      "input_map_sup_relative": 3.0859542820197944e-08,
+      "output_map_sup_relative": 3.9422954269381584e-08,
+      "control_fields_F32_exact": true,
+      "scalar_recurrence_relative": 1.1370194382551097e-16
+    },
+    {
+      "site": 12,
+      "exact_metrics": {
+        "x": 8.726447508522892e-16,
+        "B": 7.352812625250417e-16,
+        "C": 8.83995726548793e-16,
+        "delta": 2.363908181299729e-16,
+        "gate": 9.007369195584847e-16,
+        "y": 1.2540683576307233e-15,
+        "denominator": 1.400891880720503e-15,
+        "output": 1.4093579706434494e-15
+      },
+      "F32_coefficient_metrics": {
+        "x": 2.7755458456806327e-08,
+        "B": 2.0869277443743487e-08,
+        "C": 2.667167568838961e-08,
+        "delta": 7.062425431050376e-09,
+        "gate": 2.9152936265011545e-08,
+        "y": 2.8915547060390594e-08,
+        "denominator": 1.525867992824501e-08,
+        "output": 4.553847628883571e-08
+      },
+      "controls": {
+        "identity_metric_output_relative": 6.353934961828087e-08,
+        "wrong_input_epsilon_output_relative": 0.0010678490662664227,
+        "diagonal_gamma_output_relative": 0.9243340665168996
+      },
+      "input_map_sup_relative": 3.584448545213614e-08,
+      "output_map_sup_relative": 3.271805223828505e-08,
+      "control_fields_F32_exact": true,
+      "scalar_recurrence_relative": 1.886471576796535e-16
+    },
+    {
+      "site": 23,
+      "exact_metrics": {
+        "x": 4.85914614710775e-16,
+        "B": 1.1969535158963982e-15,
+        "C": 1.025688139466802e-15,
+        "delta": 3.256161347881615e-16,
+        "gate": 8.050915266899051e-16,
+        "y": 5.712434584799815e-16,
+        "denominator": 6.334929767395449e-16,
+        "output": 1.1937881414476664e-15
+      },
+      "F32_coefficient_metrics": {
+        "x": 1.7315794642215925e-08,
+        "B": 3.058612205917285e-08,
+        "C": 3.1198566362087686e-08,
+        "delta": 1.2664765777828017e-08,
+        "gate": 2.4567928248381313e-08,
+        "y": 1.7969754961367353e-08,
+        "denominator": 4.273944153831322e-09,
+        "output": 3.692253798937636e-08
+      },
+      "controls": {
+        "identity_metric_output_relative": 3.4754842281619514e-08,
+        "wrong_input_epsilon_output_relative": 0.00036332191262175497,
+        "diagonal_gamma_output_relative": 0.1905560424639088
+      },
+      "input_map_sup_relative": 3.876064338457881e-08,
+      "output_map_sup_relative": 2.8499628421110438e-08,
+      "control_fields_F32_exact": true,
+      "scalar_recurrence_relative": 1.1866299656988046e-17
+    }
+  ],
+  "max_report_metric_delta": 3.3306690738754696e-16,
+  "max_independent_weight_map_sup_relative": 3.9422954269381584e-08,
+  "weight_map_gate": 1e-06,
+  "all39_positions8_fields_exact_and_roundtrip_metrics_checked": true,
+  "all_exported_parameter_fields_checked": true,
+  "full_inputs_outputs_before_after_exact": true,
+  "source_or_generator_or_model_or_native_or_optimizer_replay": false,
+  "seconds": 8.094000000011874,
+  "OS_peak": 279605248,
+  "scope": "Independent direct source coefficient-map relations, exact control fields and fsum saved metrics; no independent generator prediction, F32 arithmetic/C parity, whole chatbot or speed qualification."
+}
