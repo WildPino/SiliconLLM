@@ -1,0 +1,2027 @@
+{
+  "schema": "FINITE_RECURRENCE_GRADIENT_PARTIAL_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\finite_recurrence_gradient_partial_audit_v3.py",
+    "bytes": 12017,
+    "sha256": "ffc8cc29681275fb0bc5f2543a035e630e9c96e14338b968d3c19f16e9dd4837"
+  },
+  "freeze": "767180bf3b8e5fd8ac07fc1122e508572a1d15ae",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\finite_recurrence_gradient_partial_report_20261012.json",
+    "bytes": 15857,
+    "sha256": "6671ffa62c7fe6df056f3d1824a5e06e3b612f5b009080c18c19c6d6802222c4"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\finite_recurrence_gradient_v2_result_20261012.terminal.json",
+    "bytes": 2293,
+    "sha256": "e03aa235dbc449fd6adc69ea6ff60740e81308b1fd26f219b1a8164325b45514"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\finite_recurrence_gradient_v2_binding_20261012.json",
+    "bytes": 125251,
+    "sha256": "e2cacceb2bd3288ce84749be6ddcb0df81a81de1c1500d0b1d1282554fa73d72"
+  },
+  "first_fault": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\first_fault.json",
+    "bytes": 14468,
+    "sha256": "c50ffc121e6b9b90c2ab9098bed35a47b7b343f3741158bab4862547ef34c7b4"
+  },
+  "full_autograd_FIT_cases": 24,
+  "full_GY_words_verified": 34246656,
+  "V1_V2_prefix_arrays_bit_exact": true,
+  "independent_Kronecker_tangent_verified": true,
+  "slope": -18.743832045415868,
+  "FIT_loss": 0.5370056415789635,
+  "FD": [
+    {
+      "step": 0.001,
+      "tolerance": 0.0001,
+      "plus_loss": 0.5359772016705228,
+      "minus_loss": 0.5743065702643413,
+      "derivative": -19.16468429690926,
+      "relative": 0.022452839444659877,
+      "original_gate_passed": false,
+      "plus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.4843166652325665,
+          "relative_RMS": 0.6959286351577771,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.7028595732024006
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.4720590819755238,
+          "relative_RMS": 0.687065558717306,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.6972289596761914
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5505864135620457,
+          "relative_RMS": 0.7420151033247543,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.7365497944086385
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.5857250835461582,
+          "relative_RMS": 0.7653267821957873,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7623254906677035
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.4433993472124282,
+          "relative_RMS": 0.6658823824163155,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.6821069653525181
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.46218534126892336,
+          "relative_RMS": 0.6798421443753861,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.6883543902329246
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.547826136486097,
+          "relative_RMS": 0.7401527791517756,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7468138624928419
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5507991842607326,
+          "relative_RMS": 0.7421584630392168,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.7392184236815946
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.48059844747651775,
+          "relative_RMS": 0.6932520807588808,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.6973846828460204
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.6867491160051801,
+          "relative_RMS": 0.8287032737989998,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.818273289287305
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5278103780469476,
+          "relative_RMS": 0.7265055939543396,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.723952424336146
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.5601748569191131,
+          "relative_RMS": 0.7484482994296353,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.7395441596687878
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5172770989628612,
+          "relative_RMS": 0.7192197848800193,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7235409776431166
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.5362898736453814,
+          "relative_RMS": 0.7323181505639345,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.7313604213303638
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.48420907062327473,
+          "relative_RMS": 0.6958513279596976,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.6972459089232643
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5048875891894155,
+          "relative_RMS": 0.710554423805394,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7102603414579747
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.7448501314661826,
+          "relative_RMS": 0.863047004204396,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8493809100081875
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.6816223432069706,
+          "relative_RMS": 0.8256042291600562,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.8107256845880931
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.43085468702780944,
+          "relative_RMS": 0.6563952216674108,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6652522620374208
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.5635237429995533,
+          "relative_RMS": 0.7506821850820448,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.7532889297997621
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.6062622315357366,
+          "relative_RMS": 0.7786284296991323,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.7816743830063163
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.46298818108607603,
+          "relative_RMS": 0.6804323486475904,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.6911263836483007
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.41028248122697153,
+          "relative_RMS": 0.6405329665419037,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.654956195234937
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.5681753571300799,
+          "relative_RMS": 0.7537740756553517,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.7537602999732631
+        }
+      ],
+      "minus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.5057866239157769,
+          "relative_RMS": 0.711186771471304,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.7095617630901895
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.4896626193379282,
+          "relative_RMS": 0.6997589723168458,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.7019626636622099
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5810690032837618,
+          "relative_RMS": 0.7622788225339608,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.744225356733219
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.6256473245446375,
+          "relative_RMS": 0.7909787130793328,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7729883930148544
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.4733062715106984,
+          "relative_RMS": 0.6879725804933641,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.6948951043178874
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.5070247665899227,
+          "relative_RMS": 0.7120567158519907,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.7089866628244046
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.5832882190662619,
+          "relative_RMS": 0.7637330810343768,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7564206940935305
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5963081486099124,
+          "relative_RMS": 0.7722099122712117,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.750554877058389
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.5207079487825834,
+          "relative_RMS": 0.7216009622932771,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.707068186928087
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.7652833326096272,
+          "relative_RMS": 0.8748047397045967,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.8401088853039765
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5552273047121866,
+          "relative_RMS": 0.7451357626044979,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.7324308242229727
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.5934336419689467,
+          "relative_RMS": 0.7703464428222841,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.7473509328346276
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5417232472881478,
+          "relative_RMS": 0.7360185101532078,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7295263229673882
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.5674908544121317,
+          "relative_RMS": 0.7533198885016456,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.7400049812384133
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.5181875360008872,
+          "relative_RMS": 0.7198524404354598,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.7058788016022566
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5387233349085015,
+          "relative_RMS": 0.7339777482379841,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7193718237365636
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.7922614789127915,
+          "relative_RMS": 0.8900907138672954,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8606086241339096
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.7611245624380717,
+          "relative_RMS": 0.8724245310845355,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.8274333825518243
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.4604833825613179,
+          "relative_RMS": 0.6785892590966334,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6737706487131851
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.5995119560796613,
+          "relative_RMS": 0.7742815741574001,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.7619456050130848
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.6539720828826775,
+          "relative_RMS": 0.8086854041484102,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.7972336388743211
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.4859953922464662,
+          "relative_RMS": 0.6971336975404834,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.6969384895586448
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.4480401216015853,
+          "relative_RMS": 0.6693579921100407,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.671824684728207
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.6190985320797081,
+          "relative_RMS": 0.7868281464714567,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.7673856891221926
+        }
+      ]
+    },
+    {
+      "step": 0.0001,
+      "tolerance": 1e-05,
+      "plus_loss": 0.5353123943099306,
+      "minus_loss": 0.5390620048850031,
+      "derivative": -18.748052875362518,
+      "relative": 0.000225185006802409,
+      "original_gate_passed": false,
+      "plus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.47888825870295465,
+          "relative_RMS": 0.6920175277425815,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.699138520911499
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.4675387551403124,
+          "relative_RMS": 0.6837680565369462,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.69386272196058
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5501649981873089,
+          "relative_RMS": 0.7417310821229679,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.7359605717927572
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.5881077880225903,
+          "relative_RMS": 0.7668818605382385,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7629019560889033
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.4398976537398093,
+          "relative_RMS": 0.6632478071880896,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.6810881314823127
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.4609723015202491,
+          "relative_RMS": 0.6789494101332213,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.6890166427020908
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.5417338495353402,
+          "relative_RMS": 0.7360257125504109,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7460115022448758
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5512070499420924,
+          "relative_RMS": 0.7424331956089332,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.7390260308885467
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.47218605114708045,
+          "relative_RMS": 0.6871579521093243,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.6927990800597086
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.6792844296156907,
+          "relative_RMS": 0.8241871326438497,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.8168386806488133
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5172414889204543,
+          "relative_RMS": 0.7191950284314084,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.721744635833671
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.5603559057216659,
+          "relative_RMS": 0.7485692390966021,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.7389150806761596
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5171598640073977,
+          "relative_RMS": 0.7191382787805122,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7224387689667787
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.5395143782033488,
+          "relative_RMS": 0.7345164247335445,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.7316630573680771
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.48660417471665185,
+          "relative_RMS": 0.6975701933975188,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.697471205192069
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5091234922898957,
+          "relative_RMS": 0.7135289008091373,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7108477321903994
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.7415964351699618,
+          "relative_RMS": 0.8611599358829705,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8483907731919353
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.6826863517741358,
+          "relative_RMS": 0.8262483596196338,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.8110799051562356
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.43390710153635076,
+          "relative_RMS": 0.6587162526736006,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6652635341658202
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.567289944947961,
+          "relative_RMS": 0.7531865273277005,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.7534495221148317
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.615094495370936,
+          "relative_RMS": 0.7842796028017915,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.7837894980614166
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.46449731544429906,
+          "relative_RMS": 0.6815403989818205,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.6904329169824074
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.4110981537175502,
+          "relative_RMS": 0.6411693643005335,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.6544422547591144
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.5713472260642969,
+          "relative_RMS": 0.7558751392024327,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.754406842532556
+        }
+      ],
+      "minus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.48095897175941676,
+          "relative_RMS": 0.6935120559582341,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.6997787460148637
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.46924566657534184,
+          "relative_RMS": 0.6850150849253919,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.6943158973257592
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5531506364716732,
+          "relative_RMS": 0.7437409740438354,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.7367148013169302
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.5920296768092252,
+          "relative_RMS": 0.7694346475232482,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7639553964399697
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.4428038950431067,
+          "relative_RMS": 0.6654351170798748,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.682345874949161
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.4653657010184545,
+          "relative_RMS": 0.6821771771456844,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.6910720821556354
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.5451758148348785,
+          "relative_RMS": 0.738360220241366,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7469551170348613
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5556636425820005,
+          "relative_RMS": 0.7454284959551791,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.7401443167378106
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.4760781442175976,
+          "relative_RMS": 0.689984162294757,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.6937406242774172
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.6869305585540599,
+          "relative_RMS": 0.8288127403425094,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.8189993280896195
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5198744175016714,
+          "relative_RMS": 0.7210231740392755,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.7225713764278605
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.5636072039138554,
+          "relative_RMS": 0.7507377730698352,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.7396792763360083
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5195529282062771,
+          "relative_RMS": 0.7208001999210857,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7230224160482893
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.542582185281184,
+          "relative_RMS": 0.7366017820241707,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.732513559749692
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.489944588721616,
+          "relative_RMS": 0.6999604193964227,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.6983234499522001
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5124600848421197,
+          "relative_RMS": 0.7158631746654661,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7117496232582052
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.74622124014893,
+          "relative_RMS": 0.863840980822819,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8494938779555037
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.6904779768535764,
+          "relative_RMS": 0.8309500447401013,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.8127359328657621
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.4368235140678801,
+          "relative_RMS": 0.6609262546365366,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6661032044513651
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.5708257193998556,
+          "relative_RMS": 0.7555300916574108,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.7542999655296544
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.6198008586881342,
+          "relative_RMS": 0.7872743223858721,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.7853295261444967
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.4667581783074617,
+          "relative_RMS": 0.6831970274433735,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.6910020601188216
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.4148104835454673,
+          "relative_RMS": 0.6440578262434727,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.656119056732838
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.5763460298962918,
+          "relative_RMS": 0.7591745714236561,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.755753665875627
+        }
+      ]
+    },
+    {
+      "step": 1e-05,
+      "tolerance": 1e-06,
+      "plus_loss": 0.5368200184362074,
+      "minus_loss": 0.5371948959213064,
+      "derivative": -18.743874254950608,
+      "relative": 2.2519159709738186e-06,
+      "original_gate_passed": false,
+      "plus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.4796684464925948,
+          "relative_RMS": 0.6925810035603018,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.6993585277411452
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.4681819633028474,
+          "relative_RMS": 0.6842382357796496,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.6940112185186215
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5513667988474199,
+          "relative_RMS": 0.7425407725151663,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.7362593366963813
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.5897164302039588,
+          "relative_RMS": 0.7679299643873514,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7633335770388632
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.44103543120880606,
+          "relative_RMS": 0.6641049850805263,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.6815859080253295
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.46273478466054657,
+          "relative_RMS": 0.6802461206508617,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.6898546487968973
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.543061642246417,
+          "relative_RMS": 0.7369271621038385,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7463845659674057
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5530112476590185,
+          "relative_RMS": 0.7436472602376872,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.7394760011516152
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.47367177000951594,
+          "relative_RMS": 0.688238163726421,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.69313230651432
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.6822955000637779,
+          "relative_RMS": 0.826011803828358,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.817697185336287
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5181965838559829,
+          "relative_RMS": 0.7198587249287063,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.7220560165856202
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.5616707583829895,
+          "relative_RMS": 0.7494469683593293,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.739217329683479
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5181252697592762,
+          "relative_RMS": 0.7198091898269126,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7226632489932312
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.5407864040089436,
+          "relative_RMS": 0.7353818083206461,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.7320096971509938
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.487978064262668,
+          "relative_RMS": 0.6985542672281574,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.6978179329637824
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5105147817708121,
+          "relative_RMS": 0.7145031712811443,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7112182892716726
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.7434308384986132,
+          "relative_RMS": 0.8622243550831844,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8488263030402438
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.6858441393733768,
+          "relative_RMS": 0.8281570740948705,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.8117528864567972
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.43511645747851785,
+          "relative_RMS": 0.6596335781921034,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6656029823880216
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.5687564494165545,
+          "relative_RMS": 0.754159432359335,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.7537946886629651
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.6170856734517204,
+          "relative_RMS": 0.7855480083685021,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.7844333949588947
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.46542605635312745,
+          "relative_RMS": 0.6822214129981025,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.6906557823008123
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.4126062555402153,
+          "relative_RMS": 0.6423443434328782,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.6551149185145551
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.573398695621277,
+          "relative_RMS": 0.7572309394242136,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.7549577280711602
+        }
+      ],
+      "minus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.4798754409164477,
+          "relative_RMS": 0.6927304244195196,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.6994225196288631
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.46835260073381635,
+          "relative_RMS": 0.6843629159545513,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.6940565155550148
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5516652999528039,
+          "relative_RMS": 0.7427417451259919,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.7363347462245815
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.5901085486392526,
+          "relative_RMS": 0.768185230682843,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7634389081354908
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.44132597076913027,
+          "relative_RMS": 0.6643236942704439,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.6817116611054832
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.4631740338483388,
+          "relative_RMS": 0.680568904555842,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.6900601849515583
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.5434057343463004,
+          "relative_RMS": 0.7371605892519624,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7464789102266441
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5534568124329715,
+          "relative_RMS": 0.7439467806456128,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.739587814242043
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.47406085984697643,
+          "relative_RMS": 0.6885207766269485,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.6932264335783516
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.6830599048115708,
+          "relative_RMS": 0.8264743824291052,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.8179132268216138
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5184597677101648,
+          "relative_RMS": 0.7200415041580345,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.7221386693210522
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.561995813515824,
+          "relative_RMS": 0.7496638003237344,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.7392937326481261
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5183645245285979,
+          "relative_RMS": 0.7199753638344842,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7227215986966213
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.5410931322691765,
+          "relative_RMS": 0.7355903291025355,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.7320947332962674
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.4883120481131834,
+          "relative_RMS": 0.6987932799570867,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.6979031463103297
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5108483939718415,
+          "relative_RMS": 0.7147365906205176,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7113084690631669
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.7438932022550016,
+          "relative_RMS": 0.8624924360566889,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8489365936163377
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.686623142611978,
+          "relative_RMS": 0.8286272639806018,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.811918474271662
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.4354080522342408,
+          "relative_RMS": 0.6598545690030803,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6656869371736741
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.5691099637337469,
+          "relative_RMS": 0.7543937723322925,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.753879717680284
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.6175562450837466,
+          "relative_RMS": 0.7858474693499665,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.7845873817651356
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.46565210273391217,
+          "relative_RMS": 0.6823870622556616,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.6907126844688553
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.41297742476125926,
+          "relative_RMS": 0.6426331961245538,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.6552825885257337
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.5738984822910731,
+          "relative_RMS": 0.7575608769538413,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.7550923945485007
+        }
+      ]
+    },
+    {
+      "step": 1e-06,
+      "tolerance": 1e-06,
+      "plus_loss": 0.5369869159024959,
+      "minus_loss": 0.537024403567431,
+      "derivative": -18.74383246752709,
+      "relative": 2.252000656114303e-08,
+      "original_gate_passed": true,
+      "plus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.47976007726713243,
+          "relative_RMS": 0.6926471520674379,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.6993866429484558
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.46825750086090073,
+          "relative_RMS": 0.6842934318411223,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.6940310477310571
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5514997066900107,
+          "relative_RMS": 0.7426302624388604,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.7362928645251383
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.5898913210982951,
+          "relative_RMS": 0.7680438275894775,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7633805516868521
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.44116447331391595,
+          "relative_RMS": 0.6642021328736576,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.6816418146973173
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.4629303008970867,
+          "relative_RMS": 0.6803898153978253,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.6899462705455531
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.5432142722926527,
+          "relative_RMS": 0.7370307132627871,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7464265051538931
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5532097386790803,
+          "relative_RMS": 0.7437807060411559,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.7395257843635671
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.4738442026111641,
+          "relative_RMS": 0.6883634233536556,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.6931737587925971
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.6826351843173185,
+          "relative_RMS": 0.8262173953127098,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.8177932659240787
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5183127188537323,
+          "relative_RMS": 0.7199393855414026,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.7220926036624778
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.5618155505372406,
+          "relative_RMS": 0.7495435614674044,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.7392512945380206
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5182318194355461,
+          "relative_RMS": 0.7198831984673251,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7226891246667504
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.5409233466069355,
+          "relative_RMS": 0.7354749122892877,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.7320476024750264
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.48812706376022924,
+          "relative_RMS": 0.6986609075654865,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.6978559110821001
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5106638052714527,
+          "relative_RMS": 0.7146074483738976,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7112585171844136
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.74363643403971,
+          "relative_RMS": 0.8623435707649881,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8488753250014175
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.686191205616001,
+          "relative_RMS": 0.8283665889061442,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.8118266785417151
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.4352466446108176,
+          "relative_RMS": 0.6597322522135912,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6656403779394638
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.5689142846323303,
+          "relative_RMS": 0.7542640682362711,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.7538325763103234
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.6172961635385739,
+          "relative_RMS": 0.7856819735354591,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.7845021977743062
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.46552689056841273,
+          "relative_RMS": 0.682295310381372,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.690681055720224
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.4127716568956475,
+          "relative_RMS": 0.6424730787322123,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.655189550920775
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.5736216192657148,
+          "relative_RMS": 0.7573781217236967,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.755017776038198
+        }
+      ],
+      "minus_cases": [
+        {
+          "id": "broad_fit_apigen_80k_002",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 773,
+          "loss": 0.47978077663262986,
+          "relative_RMS": 0.6926620941213903,
+          "teacher_energy": 20544515.953998275,
+          "centered_relative_RMS": 0.699393042106601
+        },
+        {
+          "id": "broad_fit_apigen_80k_023",
+          "split": "FIT",
+          "domain": "apigen-80k",
+          "history": 479,
+          "loss": 0.4682745645502824,
+          "relative_RMS": 0.684305899835945,
+          "teacher_energy": 13689229.755032156,
+          "centered_relative_RMS": 0.6940355774141933
+        },
+        {
+          "id": "broad_fit_everyday_conversations_002",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 363,
+          "loss": 0.5515295567378249,
+          "relative_RMS": 0.7426503596833606,
+          "teacher_energy": 6839059.632557552,
+          "centered_relative_RMS": 0.7363004054645347
+        },
+        {
+          "id": "broad_fit_everyday_conversations_010",
+          "split": "FIT",
+          "domain": "everyday-conversations",
+          "history": 367,
+          "loss": 0.5899305328713801,
+          "relative_RMS": 0.7680693542066238,
+          "teacher_energy": 6743714.957821889,
+          "centered_relative_RMS": 0.7633910847835752
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_008",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 58,
+          "loss": 0.44119352718537735,
+          "relative_RMS": 0.6642240037708494,
+          "teacher_energy": 804677.3775054005,
+          "centered_relative_RMS": 0.6816543899840648
+        },
+        {
+          "id": "broad_fit_explore_instruct_rewriting_009",
+          "split": "FIT",
+          "domain": "explore-instruct-rewriting",
+          "history": 90,
+          "loss": 0.46297422572510183,
+          "relative_RMS": 0.6804220937955364,
+          "teacher_energy": 1648425.9557470812,
+          "centered_relative_RMS": 0.6899668241532272
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_015",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 209,
+          "loss": 0.5432486813982091,
+          "relative_RMS": 0.7370540559539775,
+          "teacher_energy": 4137132.9364122255,
+          "centered_relative_RMS": 0.7464359395625978
+        },
+        {
+          "id": "broad_fit_metamathqa_50k_023",
+          "split": "FIT",
+          "domain": "metamathqa-50k",
+          "history": 337,
+          "loss": 0.5532542950619836,
+          "relative_RMS": 0.7438106580723239,
+          "teacher_energy": 6881473.84733803,
+          "centered_relative_RMS": 0.7395369656571125
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_015",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 318,
+          "loss": 0.4738831114754344,
+          "relative_RMS": 0.6883916846355964,
+          "teacher_energy": 6149507.177704449,
+          "centered_relative_RMS": 0.6931831714716408
+        },
+        {
+          "id": "broad_fit_numina_cot_100k_016",
+          "split": "FIT",
+          "domain": "numina-cot-100k",
+          "history": 381,
+          "loss": 0.6827116245839434,
+          "relative_RMS": 0.8262636531906408,
+          "teacher_energy": 6312667.089069951,
+          "centered_relative_RMS": 0.8178148700493397
+        },
+        {
+          "id": "broad_fit_openhermes_100k_004",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 316,
+          "loss": 0.5183390371301443,
+          "relative_RMS": 0.7199576634289994,
+          "teacher_energy": 6717250.006412242,
+          "centered_relative_RMS": 0.7221008689146945
+        },
+        {
+          "id": "broad_fit_openhermes_100k_028",
+          "split": "FIT",
+          "domain": "openhermes-100k",
+          "history": 435,
+          "loss": 0.5618480559758368,
+          "relative_RMS": 0.7495652446424106,
+          "teacher_energy": 8082580.958235705,
+          "centered_relative_RMS": 0.7392589348178833
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_006",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 431,
+          "loss": 0.5182557448608266,
+          "relative_RMS": 0.7198998158499741,
+          "teacher_energy": 9806561.249394456,
+          "centered_relative_RMS": 0.7226949596220829
+        },
+        {
+          "id": "broad_fit_self_oss_instruct_012",
+          "split": "FIT",
+          "domain": "self-oss-instruct",
+          "history": 337,
+          "loss": 0.5409540193805098,
+          "relative_RMS": 0.7354957643525283,
+          "teacher_energy": 6695303.853932474,
+          "centered_relative_RMS": 0.7320561060754582
+        },
+        {
+          "id": "broad_fit_smol_constraints_005",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 238,
+          "loss": 0.4881604620877296,
+          "relative_RMS": 0.6986848088285086,
+          "teacher_energy": 4703960.538669854,
+          "centered_relative_RMS": 0.6978644324056263
+        },
+        {
+          "id": "broad_fit_smol_constraints_021",
+          "split": "FIT",
+          "domain": "smol-constraints",
+          "history": 294,
+          "loss": 0.5106971664445006,
+          "relative_RMS": 0.7146307902997887,
+          "teacher_energy": 5560659.687761852,
+          "centered_relative_RMS": 0.7112675351542433
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_000",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1034,
+          "loss": 0.7436826702986035,
+          "relative_RMS": 0.8623703788388163,
+          "teacher_energy": 25473594.057606876,
+          "centered_relative_RMS": 0.8488863540391127
+        },
+        {
+          "id": "broad_fit_smol_magpie_ultra_022",
+          "split": "FIT",
+          "domain": "smol-magpie-ultra",
+          "history": 1507,
+          "loss": 0.6862691057805851,
+          "relative_RMS": 0.8284136079161092,
+          "teacher_energy": 28552483.79053063,
+          "centered_relative_RMS": 0.8118432373082383
+        },
+        {
+          "id": "broad_fit_smol_rewrite_004",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 252,
+          "loss": 0.435275804039892,
+          "relative_RMS": 0.6597543512853038,
+          "teacher_energy": 4600659.663581629,
+          "centered_relative_RMS": 0.6656487734057867
+        },
+        {
+          "id": "broad_fit_smol_rewrite_015",
+          "split": "FIT",
+          "domain": "smol-rewrite",
+          "history": 554,
+          "loss": 0.5689496360009209,
+          "relative_RMS": 0.7542875022171062,
+          "teacher_energy": 9743359.162073085,
+          "centered_relative_RMS": 0.7538410791967256
+        },
+        {
+          "id": "broad_fit_smol_summarize_003",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 774,
+          "loss": 0.6173432206370761,
+          "relative_RMS": 0.7857119196226287,
+          "teacher_energy": 12782486.257813329,
+          "centered_relative_RMS": 0.784517596438925
+        },
+        {
+          "id": "broad_fit_smol_summarize_024",
+          "split": "FIT",
+          "domain": "smol-summarize",
+          "history": 264,
+          "loss": 0.4655494951665851,
+          "relative_RMS": 0.6823118752935384,
+          "teacher_energy": 4714154.415775101,
+          "centered_relative_RMS": 0.6906867459248807
+        },
+        {
+          "id": "broad_fit_systemchats_30k_010",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 1020,
+          "loss": 0.41280877375398684,
+          "relative_RMS": 0.6425019640078828,
+          "teacher_energy": 24994970.797276862,
+          "centered_relative_RMS": 0.6552063179117009
+        },
+        {
+          "id": "broad_fit_systemchats_30k_024",
+          "split": "FIT",
+          "domain": "systemchats-30k",
+          "history": 317,
+          "loss": 0.573671597838979,
+          "relative_RMS": 0.75741111547097,
+          "teacher_energy": 5856614.299792367,
+          "centered_relative_RMS": 0.7550312426700753
+        }
+      ]
+    }
+  ],
+  "maximum": {
+    "gauge_projector": 4.494405788448502e-14,
+    "RMS_autograd_vs_radial": 1.4649422755183446e-15,
+    "baseline_output": 1.8861066257777656e-15,
+    "full_GY": 2.2888664637870706e-15,
+    "GV": 2.048962251274711e-15,
+    "GW": 3.600427807590232e-15,
+    "scalar": 6.5503158452884236e-15,
+    "total_GV": 6.542089635744087e-16,
+    "total_GW": 8.466439169485148e-16,
+    "independent_tangent_V": 3.2377295624186538e-15,
+    "independent_tangent_W": 5.474937078972912e-15
+  },
+  "before_after_hashes_exact": true,
+  "decision": "FULL_SAVED_BACKWARD_AND_TANGENT_PASS_FD_FLAGS_RETAINED",
+  "seconds": 71.69098980000012,
+  "OS_peak": 1623158784,
+  "scope": "All saved V1/V2 baseline output/GY/per-case and total gradients;CPU autograd plus radial/tangent,Kron Sylvester,full FIT FD-scale diagnosis. Every original false FD flag retained;no candidate update/model/native admission."
+}
