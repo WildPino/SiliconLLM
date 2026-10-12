@@ -1,0 +1,17 @@
+{
+  "schema": "INITIALIZER_UNIFORM_QUADRANT_IDENTITY_V1",
+  "initializer": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_learner.py",
+    "bytes": 10804,
+    "sha256": "d6b2464044e34db4f179d1a17101d37f7ad91274580637fe625d2e8bdea389a2"
+  },
+  "deterministic_seed": 120610,
+  "synthetic_cases": 100,
+  "max_even_identity_delta": 1.7763568394002505e-15,
+  "max_source_function_difference": 8.456124159128034,
+  "identity": "Uniform all-expert real initializer equals the mean even parts of four projected source FFNs on the SAME input",
+  "quantization": false,
+  "top8_runtime_evaluated": false,
+  "actual_donor_or_checkpoint_evaluated": false,
+  "scope": "Algebra diagnostic of pre-learning initialization only; not the current trained model, not sequential source-layer composition, not a capacity ceiling or completed conversion."
+}
