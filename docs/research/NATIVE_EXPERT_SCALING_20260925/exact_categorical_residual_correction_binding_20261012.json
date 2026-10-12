@@ -1,0 +1,1967 @@
+{
+  "schema": "EXACT_CATEGORICAL_RESIDUAL_CORRECTION_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008",
+  "basis": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\source_function_coordinates_v2_20261012\\boundary24.readwrite.npz",
+    "bytes": 180898436,
+    "sha256": "bc7a91f4514901346fb580d968ff917ab508d85553f76a7a0ab557848713cbbb"
+  },
+  "FIT": [
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "domain": "apigen-80k",
+      "history": 773,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_apigen_80k_002.h24.bf16",
+        "bytes": 3166208,
+        "sha256": "4effe31113d4a22e311aca35c3696fe2fe6efd508862a3e182cf693c12db1d5d",
+        "shape": [
+          773,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        16,
+        32
+      ],
+      "positions": [
+        740,
+        756,
+        772
+      ]
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "domain": "apigen-80k",
+      "history": 479,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_apigen_80k_023.h24.bf16",
+        "bytes": 1961984,
+        "sha256": "0941ab2b5282e3d6b0a7c19e336ca7ee0e281fd568d61f627a5e24f63ac60ad1",
+        "shape": [
+          479,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        59,
+        117
+      ],
+      "positions": [
+        361,
+        420,
+        478
+      ]
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "domain": "everyday-conversations",
+      "history": 363,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_everyday_conversations_002.h24.bf16",
+        "bytes": 1486848,
+        "sha256": "a0d5399998b5b8855a2e3e05bf56fa8cf15c34682a2b657f087671d92c44b69a",
+        "shape": [
+          363,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        100,
+        199
+      ],
+      "positions": [
+        163,
+        263,
+        362
+      ]
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "domain": "everyday-conversations",
+      "history": 367,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_everyday_conversations_010.h24.bf16",
+        "bytes": 1503232,
+        "sha256": "cb14ec5a6bfea03c2ec53fd5a98d41e8a1d5ad459383e1f8313f8bde03515ebb",
+        "shape": [
+          367,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        87,
+        173
+      ],
+      "positions": [
+        193,
+        280,
+        366
+      ]
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "domain": "explore-instruct-rewriting",
+      "history": 58,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_explore_instruct_rewriting_008.h24.bf16",
+        "bytes": 237568,
+        "sha256": "66e5246e9fccc1b7dd8605f55e9ed0ea4906e954c059db372c9115755668c436",
+        "shape": [
+          58,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        9,
+        17
+      ],
+      "positions": [
+        40,
+        49,
+        57
+      ]
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "domain": "explore-instruct-rewriting",
+      "history": 90,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_explore_instruct_rewriting_009.h24.bf16",
+        "bytes": 368640,
+        "sha256": "7847f47645140eccd272951fb6ac2b11d00ff52eee101710286cdd958e86a424",
+        "shape": [
+          90,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        6,
+        12
+      ],
+      "positions": [
+        77,
+        83,
+        89
+      ]
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "domain": "metamathqa-50k",
+      "history": 209,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_metamathqa_50k_015.h24.bf16",
+        "bytes": 856064,
+        "sha256": "cc4d7e8eac7aecf572144af6a3070b09ace8e646782072e94eef94514d4ef341",
+        "shape": [
+          209,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        77,
+        154
+      ],
+      "positions": [
+        54,
+        131,
+        208
+      ]
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "domain": "metamathqa-50k",
+      "history": 337,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_metamathqa_50k_023.h24.bf16",
+        "bytes": 1380352,
+        "sha256": "711c3aac9a10ac92eec0382e8609fa3a3df20c3777128cfc11cba10a1b20e0ce",
+        "shape": [
+          337,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        81,
+        209,
+        336
+      ]
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "domain": "numina-cot-100k",
+      "history": 318,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_numina_cot_100k_015.h24.bf16",
+        "bytes": 1302528,
+        "sha256": "041151003eadb26f89a8ae1c095ba9e9e7a639eb5630e55a2b3f13fa116ae1ff",
+        "shape": [
+          318,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        62,
+        190,
+        317
+      ]
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "domain": "numina-cot-100k",
+      "history": 381,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_numina_cot_100k_016.h24.bf16",
+        "bytes": 1560576,
+        "sha256": "4cf63b5301248c39c6fd001c876b646536898d0c4c7f19ad579eaf1b0614617b",
+        "shape": [
+          381,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        125,
+        253,
+        380
+      ]
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "domain": "openhermes-100k",
+      "history": 316,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_openhermes_100k_004.h24.bf16",
+        "bytes": 1294336,
+        "sha256": "99b2a80a385182243c2619f50eabdca14f04e411f7f77c964c50a26b825f2308",
+        "shape": [
+          316,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        60,
+        188,
+        315
+      ]
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "domain": "openhermes-100k",
+      "history": 435,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_openhermes_100k_028.h24.bf16",
+        "bytes": 1781760,
+        "sha256": "e40303fe06f164e1601dc2fedbfa517885be5fdffc950770de7e31fb10b58edf",
+        "shape": [
+          435,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        179,
+        307,
+        434
+      ]
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "domain": "self-oss-instruct",
+      "history": 431,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_self_oss_instruct_006.h24.bf16",
+        "bytes": 1765376,
+        "sha256": "b72b30ac83f1252e70ea8fc21475386c6acf5cc20be6103342c887a4eb1cbd0d",
+        "shape": [
+          431,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        175,
+        303,
+        430
+      ]
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "domain": "self-oss-instruct",
+      "history": 337,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_self_oss_instruct_012.h24.bf16",
+        "bytes": 1380352,
+        "sha256": "27c5ac13de16cdb405a1e0926fe2b15b331ed28ec69e75b83f5054481c51b0e8",
+        "shape": [
+          337,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        81,
+        209,
+        336
+      ]
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "domain": "smol-constraints",
+      "history": 238,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_smol_constraints_005.h24.bf16",
+        "bytes": 974848,
+        "sha256": "3f3811b4f28b33110fe8fd5a86edee827a5ef8132d66a215d23206bc37e89505",
+        "shape": [
+          238,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        90,
+        179
+      ],
+      "positions": [
+        58,
+        148,
+        237
+      ]
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "domain": "smol-constraints",
+      "history": 294,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_smol_constraints_021.h24.bf16",
+        "bytes": 1204224,
+        "sha256": "c544e34ff6e26ecbcdb3c2e037aaa36b91697fbada072008a05f6a7a9da48918",
+        "shape": [
+          294,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        94,
+        188
+      ],
+      "positions": [
+        105,
+        199,
+        293
+      ]
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "domain": "smol-magpie-ultra",
+      "history": 1034,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_smol_magpie_ultra_000.h24.bf16",
+        "bytes": 4235264,
+        "sha256": "a54dae9bef1b10e47a41df29a1df0f22cc481ea2dc5527f4896bf9de97ceb9ec",
+        "shape": [
+          1034,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        778,
+        906,
+        1033
+      ]
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "domain": "smol-magpie-ultra",
+      "history": 1507,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_magpie_ultra_022.h24.bf16",
+        "bytes": 6172672,
+        "sha256": "7ad22378129152d9ea02cb0e11eb3806c4d93172c3fe4cc14633427191592443",
+        "shape": [
+          1507,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        1251,
+        1379,
+        1506
+      ]
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "domain": "smol-rewrite",
+      "history": 252,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_rewrite_004.h24.bf16",
+        "bytes": 1032192,
+        "sha256": "e75890bc43b4780621a5cc9ec53adf264bf5473b4aea94666fe813b067edbb68",
+        "shape": [
+          252,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        45,
+        89
+      ],
+      "positions": [
+        162,
+        207,
+        251
+      ]
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "domain": "smol-rewrite",
+      "history": 554,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_rewrite_015.h24.bf16",
+        "bytes": 2269184,
+        "sha256": "689325ef16218e6303ae052e0d3edc5d293f843346fa5b471bdbb8566391718e",
+        "shape": [
+          554,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        298,
+        426,
+        553
+      ]
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "domain": "smol-summarize",
+      "history": 774,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_summarize_003.h24.bf16",
+        "bytes": 3170304,
+        "sha256": "a40623311a97d2d71a41124deaefebda9ac066d98788f9ef1a9ebb0c73c06fbb",
+        "shape": [
+          774,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        59,
+        118
+      ],
+      "positions": [
+        655,
+        714,
+        773
+      ]
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "domain": "smol-summarize",
+      "history": 264,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_summarize_024.h24.bf16",
+        "bytes": 1081344,
+        "sha256": "989bb68ddd1d1dc894d715dc8e9aa5e09ad35c29a9c4badae3b07402c2924929",
+        "shape": [
+          264,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        30,
+        60
+      ],
+      "positions": [
+        203,
+        233,
+        263
+      ]
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "domain": "systemchats-30k",
+      "history": 1020,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_systemchats_30k_010.h24.bf16",
+        "bytes": 4177920,
+        "sha256": "7a728a7c86ace4483cff835f79a8a92ceb2b0282d67736349d065dbfbc827974",
+        "shape": [
+          1020,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        764,
+        892,
+        1019
+      ]
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "domain": "systemchats-30k",
+      "history": 317,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_systemchats_30k_024.h24.bf16",
+        "bytes": 1298432,
+        "sha256": "360c5a7a90696fcc9562d14664915f9c15358dc4fd7048c4720c46a0258033ea",
+        "shape": [
+          317,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        61,
+        189,
+        316
+      ]
+    }
+  ],
+  "DEV": [
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "domain": "apigen-80k",
+      "history": 918,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_apigen_80k_033.h24.bf16",
+        "bytes": 3760128,
+        "sha256": "9c64cf176e51904dc0a9fc7355b9bf57def39d7ae1b6aadd6cd991eb34944db7",
+        "shape": [
+          918,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        55,
+        110
+      ],
+      "positions": [
+        807,
+        862,
+        917
+      ]
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "domain": "apigen-80k",
+      "history": 462,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_apigen_80k_034.h24.bf16",
+        "bytes": 1892352,
+        "sha256": "fba0182bb75af6cebf1be4d15042c0cd902fac94a93861649318649b0f444662",
+        "shape": [
+          462,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        50,
+        99
+      ],
+      "positions": [
+        362,
+        412,
+        461
+      ]
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "domain": "everyday-conversations",
+      "history": 378,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_everyday_conversations_033.h24.bf16",
+        "bytes": 1548288,
+        "sha256": "cbc341afc5f57ec04f0f336b4415f182e74ed115b95237255ef57045bce886a9",
+        "shape": [
+          378,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        86,
+        171
+      ],
+      "positions": [
+        206,
+        292,
+        377
+      ]
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "domain": "everyday-conversations",
+      "history": 200,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_everyday_conversations_036.h24.bf16",
+        "bytes": 819200,
+        "sha256": "b4c8d848ffa3f3ddee12c9afb1df5b179f7ca7ed56265f5f242525f3e16537d0",
+        "shape": [
+          200,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        26,
+        52
+      ],
+      "positions": [
+        147,
+        173,
+        199
+      ]
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "domain": "explore-instruct-rewriting",
+      "history": 61,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_explore_instruct_rewriting_035.h24.bf16",
+        "bytes": 249856,
+        "sha256": "6120afee800641ef681d5cef48a16405c5c2cbe1842fd05a19c8ef8ff8e4d296",
+        "shape": [
+          61,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        6,
+        11
+      ],
+      "positions": [
+        49,
+        55,
+        60
+      ]
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "domain": "explore-instruct-rewriting",
+      "history": 323,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_explore_instruct_rewriting_038.h24.bf16",
+        "bytes": 1323008,
+        "sha256": "670496231b6238cf40df722de8ab3570fbbbbb85a52189ed9f05f5fa0083591a",
+        "shape": [
+          323,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        67,
+        195,
+        322
+      ]
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "domain": "metamathqa-50k",
+      "history": 243,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_metamathqa_50k_035.h24.bf16",
+        "bytes": 995328,
+        "sha256": "f95fc9bbe5db3ae2e4162b5c6972af9ef27a7fcb663d9e822518d941fc23ee7a",
+        "shape": [
+          243,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        95,
+        190
+      ],
+      "positions": [
+        52,
+        147,
+        242
+      ]
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "domain": "metamathqa-50k",
+      "history": 352,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_metamathqa_50k_037.h24.bf16",
+        "bytes": 1441792,
+        "sha256": "f1fbf44fb1edacb9ef9270fd37d23876abd2e1b7327996bccf6f8c4abf5a52d0",
+        "shape": [
+          352,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        96,
+        224,
+        351
+      ]
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "domain": "numina-cot-100k",
+      "history": 387,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_numina_cot_100k_035.h24.bf16",
+        "bytes": 1585152,
+        "sha256": "f5d1706594afb31478539d35e529d31be2a1fe38078475a140d05e2f4da24d44",
+        "shape": [
+          387,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        131,
+        259,
+        386
+      ]
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "domain": "numina-cot-100k",
+      "history": 318,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_numina_cot_100k_038.h24.bf16",
+        "bytes": 1302528,
+        "sha256": "9975040169b813df20e05066cc2c8baefa1a2414af7501e77f842008e6a4e669",
+        "shape": [
+          318,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        62,
+        190,
+        317
+      ]
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "domain": "openhermes-100k",
+      "history": 289,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_openhermes_100k_034.h24.bf16",
+        "bytes": 1183744,
+        "sha256": "dc8656ae65796b9a776e8af41b96da590039de7ff6fc97ff72879b686b63bbcd",
+        "shape": [
+          289,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        33,
+        161,
+        288
+      ]
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "domain": "openhermes-100k",
+      "history": 356,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_openhermes_100k_037.h24.bf16",
+        "bytes": 1458176,
+        "sha256": "6122ec7555960c5674de106b4dce0e16ba46e2e8de1b284f5d3b5c0af36e7383",
+        "shape": [
+          356,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        100,
+        228,
+        355
+      ]
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "domain": "self-oss-instruct",
+      "history": 418,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_self_oss_instruct_033.h24.bf16",
+        "bytes": 1712128,
+        "sha256": "d5cc314ef60f5237b48a834a6918929a814332553728962ec9347acfcae5fa59",
+        "shape": [
+          418,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        162,
+        290,
+        417
+      ]
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "domain": "self-oss-instruct",
+      "history": 357,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_self_oss_instruct_036.h24.bf16",
+        "bytes": 1462272,
+        "sha256": "29f318aa93e7a254f864b855397215e04c959893523bdc1c344c817168a3f5e4",
+        "shape": [
+          357,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        101,
+        229,
+        356
+      ]
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "domain": "smol-constraints",
+      "history": 188,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_constraints_034.h24.bf16",
+        "bytes": 770048,
+        "sha256": "96be44938f935eb0be792623aea6962facca0afd113a351e2ea8d506b135edd5",
+        "shape": [
+          188,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        46,
+        92
+      ],
+      "positions": [
+        95,
+        141,
+        187
+      ]
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "domain": "smol-constraints",
+      "history": 107,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_constraints_035.h24.bf16",
+        "bytes": 438272,
+        "sha256": "ba6dbc04549aa88eb5032c381773d1de130b1a6241f0c2eaa1d3f25cada3a1c1",
+        "shape": [
+          107,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        25,
+        49
+      ],
+      "positions": [
+        57,
+        82,
+        106
+      ]
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "domain": "smol-magpie-ultra",
+      "history": 1268,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_magpie_ultra_034.h24.bf16",
+        "bytes": 5193728,
+        "sha256": "b0c2ec995e53e3bb6da6cffd3013ba52ba95057eb225b12fa66f23fd243e11fd",
+        "shape": [
+          1268,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        1012,
+        1140,
+        1267
+      ]
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "domain": "smol-magpie-ultra",
+      "history": 1488,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_magpie_ultra_036.h24.bf16",
+        "bytes": 6094848,
+        "sha256": "5a7e9ca720c4f79430090b8447f8702468e591848176d3448ed0b2fcad623be7",
+        "shape": [
+          1488,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        1232,
+        1360,
+        1487
+      ]
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "domain": "smol-rewrite",
+      "history": 502,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_rewrite_032.h24.bf16",
+        "bytes": 2056192,
+        "sha256": "e3a43bafc5b5dbab0283f1ede1c9cbbdc16e58095f3de6dbce9f45c62f6ee6a0",
+        "shape": [
+          502,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        87,
+        174
+      ],
+      "positions": [
+        327,
+        414,
+        501
+      ]
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "domain": "smol-rewrite",
+      "history": 374,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_rewrite_036.h24.bf16",
+        "bytes": 1531904,
+        "sha256": "e6c9d63b8b4dfcd76598c4c040a51a17fc274516a2d95aa7dcb517b1080fb302",
+        "shape": [
+          374,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        112,
+        224
+      ],
+      "positions": [
+        149,
+        261,
+        373
+      ]
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "domain": "smol-summarize",
+      "history": 243,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_summarize_034.h24.bf16",
+        "bytes": 995328,
+        "sha256": "ca8c9ba64db862df41f2195b3f4df8cd05655c9eccb337397452e1ac03f25f7b",
+        "shape": [
+          243,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        17,
+        33
+      ],
+      "positions": [
+        209,
+        226,
+        242
+      ]
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "domain": "smol-summarize",
+      "history": 980,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_summarize_039.h24.bf16",
+        "bytes": 4014080,
+        "sha256": "651525d1029d3b8047091d5019d814c9e127f1547eba30f6d7337a32115cfd1f",
+        "shape": [
+          980,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        49,
+        97
+      ],
+      "positions": [
+        882,
+        931,
+        979
+      ]
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "domain": "systemchats-30k",
+      "history": 890,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_systemchats_30k_034.h24.bf16",
+        "bytes": 3645440,
+        "sha256": "eda2ddadc0cd1a5eebf81e877a0169e175dfafd7a5dcbf1750ed83bc8c119045",
+        "shape": [
+          890,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        634,
+        762,
+        889
+      ]
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "domain": "systemchats-30k",
+      "history": 297,
+      "h": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_systemchats_30k_039.h24.bf16",
+        "bytes": 1216512,
+        "sha256": "23fc90048f0459528d12b3f848fef29e9d798b40f43c891d6e9d9bfe04dc47c9",
+        "shape": [
+          297,
+          2048
+        ],
+        "dtype": "uint16"
+      },
+      "label_indices": [
+        0,
+        128,
+        255
+      ],
+      "positions": [
+        41,
+        169,
+        296
+      ]
+    }
+  ],
+  "DEV_reference": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\residual_basis_readout_probe_20261012\\full_source.f64",
+    "bytes": 37749312,
+    "sha256": "95b4ccf6a3441a03ee60073f9cd22a0d088e3cbcc9a78b77fc51477671df6f88"
+  },
+  "DEV_labels": [
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "label_index": 0,
+      "position": 807
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "label_index": 55,
+      "position": 862
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "label_index": 110,
+      "position": 917
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "label_index": 0,
+      "position": 362
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "label_index": 50,
+      "position": 412
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "label_index": 99,
+      "position": 461
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "label_index": 0,
+      "position": 206
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "label_index": 86,
+      "position": 292
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "label_index": 171,
+      "position": 377
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "label_index": 0,
+      "position": 147
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "label_index": 26,
+      "position": 173
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "label_index": 52,
+      "position": 199
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "label_index": 0,
+      "position": 49
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "label_index": 6,
+      "position": 55
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "label_index": 11,
+      "position": 60
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "label_index": 0,
+      "position": 67
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "label_index": 128,
+      "position": 195
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "label_index": 255,
+      "position": 322
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "label_index": 0,
+      "position": 52
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "label_index": 95,
+      "position": 147
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "label_index": 190,
+      "position": 242
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "label_index": 0,
+      "position": 96
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "label_index": 128,
+      "position": 224
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "label_index": 255,
+      "position": 351
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "label_index": 0,
+      "position": 131
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "label_index": 128,
+      "position": 259
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "label_index": 255,
+      "position": 386
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "label_index": 0,
+      "position": 62
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "label_index": 128,
+      "position": 190
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "label_index": 255,
+      "position": 317
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "label_index": 0,
+      "position": 33
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "label_index": 128,
+      "position": 161
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "label_index": 255,
+      "position": 288
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "label_index": 0,
+      "position": 100
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "label_index": 128,
+      "position": 228
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "label_index": 255,
+      "position": 355
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "label_index": 0,
+      "position": 162
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "label_index": 128,
+      "position": 290
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "label_index": 255,
+      "position": 417
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "label_index": 0,
+      "position": 101
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "label_index": 128,
+      "position": 229
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "label_index": 255,
+      "position": 356
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "label_index": 0,
+      "position": 95
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "label_index": 46,
+      "position": 141
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "label_index": 92,
+      "position": 187
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "label_index": 0,
+      "position": 57
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "label_index": 25,
+      "position": 82
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "label_index": 49,
+      "position": 106
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "label_index": 0,
+      "position": 1012
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "label_index": 128,
+      "position": 1140
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "label_index": 255,
+      "position": 1267
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "label_index": 0,
+      "position": 1232
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "label_index": 128,
+      "position": 1360
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "label_index": 255,
+      "position": 1487
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "label_index": 0,
+      "position": 327
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "label_index": 87,
+      "position": 414
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "label_index": 174,
+      "position": 501
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "label_index": 0,
+      "position": 149
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "label_index": 112,
+      "position": 261
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "label_index": 224,
+      "position": 373
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "label_index": 0,
+      "position": 209
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "label_index": 17,
+      "position": 226
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "label_index": 33,
+      "position": 242
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "label_index": 0,
+      "position": 882
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "label_index": 49,
+      "position": 931
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "label_index": 97,
+      "position": 979
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "label_index": 0,
+      "position": 634
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "label_index": 128,
+      "position": 762
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "label_index": 255,
+      "position": 889
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "label_index": 0,
+      "position": 41
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "label_index": 128,
+      "position": 169
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "label_index": 255,
+      "position": 296
+    }
+  ],
+  "prior_DEV": [
+    {
+      "mean_KL": 2.4290813646604956,
+      "worst_KL": 9.461745898899043,
+      "disagreement_rate": 0.3611111111111111,
+      "mode": "oracle_norm",
+      "proxy_gates": {
+        "mean_KL": false,
+        "worst_KL": false,
+        "disagreement_rate": false
+      }
+    },
+    {
+      "mean_KL": 2.727819790652425,
+      "worst_KL": 11.43662329639662,
+      "disagreement_rate": 0.3611111111111111,
+      "mode": "own_norm",
+      "proxy_gates": {
+        "mean_KL": false,
+        "worst_KL": false,
+        "disagreement_rate": false
+      }
+    }
+  ],
+  "epsilon": 1e-05,
+  "finite_epsilon": [
+    1e-05,
+    2e-06
+  ],
+  "finite_derivative_relative_absolute": 2e-06,
+  "alpha": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1
+  ],
+  "gradient_norm_floor": 1e-12,
+  "FIT_relative_improvement_required": 0.0001,
+  "probability_proxy": {
+    "mean_KL": 0.01,
+    "worst_KL": 0.1,
+    "disagreement_rate": 0.01
+  },
+  "limits": {
+    "seconds": 900,
+    "OS_bytes": 8589934592,
+    "output_bytes": 2147483648
+  },
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\exact_categorical_residual_correction.py",
+      "bytes": 13224,
+      "sha256": "264b07e44059d5e6271b3e753d18397f802fcca4347ebb47fef3a283068017a8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_auxiliary_s6_transport.py",
+      "bytes": 17798,
+      "sha256": "7e90bef086122e9c4f743cb768e4e9d17fd2c85864bceec408b04603bf3392e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_function_coordinates_result_v2_20261012.json",
+      "bytes": 511919,
+      "sha256": "b2f46e3655d2bfd9dfaafdd75ad39b93f1d12bd60f34a08f4baddf5b04d9786a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_function_coordinates_stored_adjudication_20261012.json",
+      "bytes": 2747,
+      "sha256": "66bdad4d06584cdbd03832b117c267bffe81d4f3dbfe8afeef0aff7bc72120e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_function_coordinates_binding_v2_20261012.json",
+      "bytes": 684719,
+      "sha256": "15c5b6df8ff58b6221ca6f02055a7029e7a1eda56f5bc7b8799cde0f5349e161"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\chatbot_broad_capture_repair1_20261009\\corpus.json",
+      "bytes": 1065224,
+      "sha256": "ac14f2082146e74e37253caffcca6866dab3548fff616aff8ea330bdf865f831"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\source_function_coordinates_v2_20261012\\boundary24.readwrite.npz",
+      "bytes": 180898436,
+      "sha256": "bc7a91f4514901346fb580d968ff917ab508d85553f76a7a0ab557848713cbbb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\EXACT_CATEGORICAL_RESIDUAL_CORRECTION_PROTOCOL_20261012.md",
+      "bytes": 4174,
+      "sha256": "5af965484642ccaa9a6481756b5ad3e0e1df9cc14971762100502429e27724f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+      "bytes": 3109773032,
+      "sha256": "1fb788513f2c58e3abb91af8730afe19e247bce7a7f01a46e452a084e98b2abd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+      "bytes": 1599,
+      "sha256": "2473f5e02854a2833df973277e6f109d94344e7860fbc78d5ff8b31d08dddaeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\residual_basis_readout_probe_20261012\\full_source.f64",
+      "bytes": 37749312,
+      "sha256": "95b4ccf6a3441a03ee60073f9cd22a0d088e3cbcc9a78b77fc51477671df6f88"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll",
+      "bytes": 6945272,
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+      "bytes": 3714560,
+      "sha256": "80e7dc34f51cf6cef24da060e1e8620936b2cf188bae0ea367dc8619b2316204"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_apigen_80k_002.h24.bf16",
+      "bytes": 3166208,
+      "sha256": "4effe31113d4a22e311aca35c3696fe2fe6efd508862a3e182cf693c12db1d5d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_apigen_80k_023.h24.bf16",
+      "bytes": 1961984,
+      "sha256": "0941ab2b5282e3d6b0a7c19e336ca7ee0e281fd568d61f627a5e24f63ac60ad1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_everyday_conversations_002.h24.bf16",
+      "bytes": 1486848,
+      "sha256": "a0d5399998b5b8855a2e3e05bf56fa8cf15c34682a2b657f087671d92c44b69a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_everyday_conversations_010.h24.bf16",
+      "bytes": 1503232,
+      "sha256": "cb14ec5a6bfea03c2ec53fd5a98d41e8a1d5ad459383e1f8313f8bde03515ebb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_explore_instruct_rewriting_008.h24.bf16",
+      "bytes": 237568,
+      "sha256": "66e5246e9fccc1b7dd8605f55e9ed0ea4906e954c059db372c9115755668c436"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_explore_instruct_rewriting_009.h24.bf16",
+      "bytes": 368640,
+      "sha256": "7847f47645140eccd272951fb6ac2b11d00ff52eee101710286cdd958e86a424"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_metamathqa_50k_015.h24.bf16",
+      "bytes": 856064,
+      "sha256": "cc4d7e8eac7aecf572144af6a3070b09ace8e646782072e94eef94514d4ef341"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_metamathqa_50k_023.h24.bf16",
+      "bytes": 1380352,
+      "sha256": "711c3aac9a10ac92eec0382e8609fa3a3df20c3777128cfc11cba10a1b20e0ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_numina_cot_100k_015.h24.bf16",
+      "bytes": 1302528,
+      "sha256": "041151003eadb26f89a8ae1c095ba9e9e7a639eb5630e55a2b3f13fa116ae1ff"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_numina_cot_100k_016.h24.bf16",
+      "bytes": 1560576,
+      "sha256": "4cf63b5301248c39c6fd001c876b646536898d0c4c7f19ad579eaf1b0614617b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_openhermes_100k_004.h24.bf16",
+      "bytes": 1294336,
+      "sha256": "99b2a80a385182243c2619f50eabdca14f04e411f7f77c964c50a26b825f2308"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_openhermes_100k_028.h24.bf16",
+      "bytes": 1781760,
+      "sha256": "e40303fe06f164e1601dc2fedbfa517885be5fdffc950770de7e31fb10b58edf"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_self_oss_instruct_006.h24.bf16",
+      "bytes": 1765376,
+      "sha256": "b72b30ac83f1252e70ea8fc21475386c6acf5cc20be6103342c887a4eb1cbd0d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_self_oss_instruct_012.h24.bf16",
+      "bytes": 1380352,
+      "sha256": "27c5ac13de16cdb405a1e0926fe2b15b331ed28ec69e75b83f5054481c51b0e8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_smol_constraints_005.h24.bf16",
+      "bytes": 974848,
+      "sha256": "3f3811b4f28b33110fe8fd5a86edee827a5ef8132d66a215d23206bc37e89505"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_smol_constraints_021.h24.bf16",
+      "bytes": 1204224,
+      "sha256": "c544e34ff6e26ecbcdb3c2e037aaa36b91697fbada072008a05f6a7a9da48918"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\broad_fit_smol_magpie_ultra_000.h24.bf16",
+      "bytes": 4235264,
+      "sha256": "a54dae9bef1b10e47a41df29a1df0f22cc481ea2dc5527f4896bf9de97ceb9ec"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_magpie_ultra_022.h24.bf16",
+      "bytes": 6172672,
+      "sha256": "7ad22378129152d9ea02cb0e11eb3806c4d93172c3fe4cc14633427191592443"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_rewrite_004.h24.bf16",
+      "bytes": 1032192,
+      "sha256": "e75890bc43b4780621a5cc9ec53adf264bf5473b4aea94666fe813b067edbb68"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_rewrite_015.h24.bf16",
+      "bytes": 2269184,
+      "sha256": "689325ef16218e6303ae052e0d3edc5d293f843346fa5b471bdbb8566391718e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_summarize_003.h24.bf16",
+      "bytes": 3170304,
+      "sha256": "a40623311a97d2d71a41124deaefebda9ac066d98788f9ef1a9ebb0c73c06fbb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_smol_summarize_024.h24.bf16",
+      "bytes": 1081344,
+      "sha256": "989bb68ddd1d1dc894d715dc8e9aa5e09ad35c29a9c4badae3b07402c2924929"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_systemchats_30k_010.h24.bf16",
+      "bytes": 4177920,
+      "sha256": "7a728a7c86ace4483cff835f79a8a92ceb2b0282d67736349d065dbfbc827974"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_fit_systemchats_30k_024.h24.bf16",
+      "bytes": 1298432,
+      "sha256": "360c5a7a90696fcc9562d14664915f9c15358dc4fd7048c4720c46a0258033ea"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_apigen_80k_033.h24.bf16",
+      "bytes": 3760128,
+      "sha256": "9c64cf176e51904dc0a9fc7355b9bf57def39d7ae1b6aadd6cd991eb34944db7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_apigen_80k_034.h24.bf16",
+      "bytes": 1892352,
+      "sha256": "fba0182bb75af6cebf1be4d15042c0cd902fac94a93861649318649b0f444662"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_everyday_conversations_033.h24.bf16",
+      "bytes": 1548288,
+      "sha256": "cbc341afc5f57ec04f0f336b4415f182e74ed115b95237255ef57045bce886a9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_everyday_conversations_036.h24.bf16",
+      "bytes": 819200,
+      "sha256": "b4c8d848ffa3f3ddee12c9afb1df5b179f7ca7ed56265f5f242525f3e16537d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_explore_instruct_rewriting_035.h24.bf16",
+      "bytes": 249856,
+      "sha256": "6120afee800641ef681d5cef48a16405c5c2cbe1842fd05a19c8ef8ff8e4d296"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_explore_instruct_rewriting_038.h24.bf16",
+      "bytes": 1323008,
+      "sha256": "670496231b6238cf40df722de8ab3570fbbbbb85a52189ed9f05f5fa0083591a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_metamathqa_50k_035.h24.bf16",
+      "bytes": 995328,
+      "sha256": "f95fc9bbe5db3ae2e4162b5c6972af9ef27a7fcb663d9e822518d941fc23ee7a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_metamathqa_50k_037.h24.bf16",
+      "bytes": 1441792,
+      "sha256": "f1fbf44fb1edacb9ef9270fd37d23876abd2e1b7327996bccf6f8c4abf5a52d0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_numina_cot_100k_035.h24.bf16",
+      "bytes": 1585152,
+      "sha256": "f5d1706594afb31478539d35e529d31be2a1fe38078475a140d05e2f4da24d44"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_numina_cot_100k_038.h24.bf16",
+      "bytes": 1302528,
+      "sha256": "9975040169b813df20e05066cc2c8baefa1a2414af7501e77f842008e6a4e669"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_openhermes_100k_034.h24.bf16",
+      "bytes": 1183744,
+      "sha256": "dc8656ae65796b9a776e8af41b96da590039de7ff6fc97ff72879b686b63bbcd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_openhermes_100k_037.h24.bf16",
+      "bytes": 1458176,
+      "sha256": "6122ec7555960c5674de106b4dce0e16ba46e2e8de1b284f5d3b5c0af36e7383"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_self_oss_instruct_033.h24.bf16",
+      "bytes": 1712128,
+      "sha256": "d5cc314ef60f5237b48a834a6918929a814332553728962ec9347acfcae5fa59"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_self_oss_instruct_036.h24.bf16",
+      "bytes": 1462272,
+      "sha256": "29f318aa93e7a254f864b855397215e04c959893523bdc1c344c817168a3f5e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_constraints_034.h24.bf16",
+      "bytes": 770048,
+      "sha256": "96be44938f935eb0be792623aea6962facca0afd113a351e2ea8d506b135edd5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_constraints_035.h24.bf16",
+      "bytes": 438272,
+      "sha256": "ba6dbc04549aa88eb5032c381773d1de130b1a6241f0c2eaa1d3f25cada3a1c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_magpie_ultra_034.h24.bf16",
+      "bytes": 5193728,
+      "sha256": "b0c2ec995e53e3bb6da6cffd3013ba52ba95057eb225b12fa66f23fd243e11fd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_magpie_ultra_036.h24.bf16",
+      "bytes": 6094848,
+      "sha256": "5a7e9ca720c4f79430090b8447f8702468e591848176d3448ed0b2fcad623be7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_rewrite_032.h24.bf16",
+      "bytes": 2056192,
+      "sha256": "e3a43bafc5b5dbab0283f1ede1c9cbbdc16e58095f3de6dbce9f45c62f6ee6a0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_rewrite_036.h24.bf16",
+      "bytes": 1531904,
+      "sha256": "e6c9d63b8b4dfcd76598c4c040a51a17fc274516a2d95aa7dcb517b1080fb302"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_summarize_034.h24.bf16",
+      "bytes": 995328,
+      "sha256": "ca8c9ba64db862df41f2195b3f4df8cd05655c9eccb337397452e1ac03f25f7b"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_smol_summarize_039.h24.bf16",
+      "bytes": 4014080,
+      "sha256": "651525d1029d3b8047091d5019d814c9e127f1547eba30f6d7337a32115cfd1f"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_systemchats_30k_034.h24.bf16",
+      "bytes": 3645440,
+      "sha256": "eda2ddadc0cd1a5eebf81e877a0169e175dfafd7a5dcbf1750ed83bc8c119045"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_finish_20261009\\broad_dev_systemchats_30k_039.h24.bf16",
+      "bytes": 1216512,
+      "sha256": "23fc90048f0459528d12b3f848fef29e9d798b40f43c891d6e9d9bfe04dc47c9"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "bytes": 20415488,
+      "sha256": "63c857e738469261263c764a36be9436ebdeaa272e340a828f42047a97131080"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "bytes": 575056,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+      "bytes": 70656,
+      "sha256": "0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78"
+    }
+  ],
+  "scope": "Exact full-V F64 categorical loss on actual raw source FIT72 states; source normalized trained head fixed. One normalized-group gradient, fixed4-step ladder, FIT-only selection sealed before semantic DEV evaluation. Generic rank<=256 factor correction is not an idempotent projector; not causal deployed state acquisition, internal source operator preservation, chatbot, ternary/native/speed/useful-n or family admission. No model/GPU/T4 call."
+}
