@@ -1,0 +1,36 @@
+{
+  "schema": "COMPOSED_OPERATOR_NATIVE_AUDIT_LAUNCH_V1",
+  "created_at": "2026-10-13T00:47:06.6552121+02:00",
+  "freeze": "bf8e11773b10015ff0c31d9a1e51fc649b288051",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/composed_operator_native_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_native_result_20261013.json",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_native_result_20261013.terminal.json",
+    "--report-sha",
+    "b7f1527f1f30c59219c1a5bdc3e8711d075114cc908adbb685bfad75d87e8719",
+    "--terminal-sha",
+    "a57f09eae586bbe6d56d82d083a33aa01776ac8e2976ac0d70d75970119f3011",
+    "--freeze",
+    "bf8e11773b10015ff0c31d9a1e51fc649b288051",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_native_adjudication_20261013.json"
+  ],
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "limits": {
+    "OS_bytes": 6442450944,
+    "seconds": 1200
+  },
+  "timing_admitted": false
+}
