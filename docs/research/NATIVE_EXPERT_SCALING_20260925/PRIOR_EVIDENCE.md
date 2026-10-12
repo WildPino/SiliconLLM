@@ -1,6 +1,12 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Entropy-mixture dual witnesses](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:8808 source rows/140928 family-lambda direct
+moment/entropy/support rows. Ten positive lows,worstFIT.001183/DEV.000626,mean
+6.93e-7/1.66e-7;no budget obstruction. Both source/candidate zero words0. Capt26766/
+audit22384 CLOSED0. Next2048 source-head moment compiler for changing decoder/
+causal transfer,UNIMPLEMENTED. No unchanged long primal rerun selected.
 [All-label native probability oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:4 full checkpoints/35232 point rows/all
 577249896 native logits bit exact/source q and quality. Native DEVcaseKL.0483465/

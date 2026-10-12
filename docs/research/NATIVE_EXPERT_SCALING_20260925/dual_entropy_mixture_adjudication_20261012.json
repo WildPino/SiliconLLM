@@ -1,0 +1,452 @@
+{
+  "schema": "DUAL_ENTROPY_MIXTURE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\dual_entropy_mixture_audit.py",
+    "bytes": 12291,
+    "sha256": "9d26088ab2c583a9842376b7c648bd7e65b48e03bc9da9afe8b0ae4e38785b78"
+  },
+  "freeze": "49779cd5cb2e48a9ec93680e072dd1020a9b58cc",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\dual_entropy_mixture_result_20261012.json",
+    "bytes": 14354,
+    "sha256": "aeb0530c989f2f85ea1fde5dba3e7360aa3738689ffe77cf0331b10f9074d50f"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\dual_entropy_mixture_result_20261012.terminal.json",
+    "bytes": 1249,
+    "sha256": "93349dd700ff7245ea1dbf958daa5792afeb5922c8277c08b71b502c0362e087"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\dual_entropy_mixture_binding_20261012.json",
+    "bytes": 710582,
+    "sha256": "068525a07392f90fdd9aeb4f4766fdfdf91df453c0418cf90f42bb6d1f1662b8"
+  },
+  "source_rows": 8808,
+  "direct_family_lambda_moment_rows": 140928,
+  "all_source_distributions_entropies_direct_grid_moments_supports_underflows_selections_summaries_verified": true,
+  "split_checks": [
+    {
+      "split": "FIT",
+      "rows": 4422,
+      "all_grid_verified": true,
+      "summary": {
+        "case_mean_lower": 6.932626251746139e-07,
+        "label_mean_lower": 4.264134216881114e-07,
+        "worst_label_lower": 0.0011829775298298466,
+        "positive_labels": 5,
+        "cases": [
+          {
+            "id": "broad_fit_apigen_80k_002",
+            "domain": "apigen-80k",
+            "labels": 33,
+            "lower": 8.417333317780041e-06
+          },
+          {
+            "id": "broad_fit_apigen_80k_023",
+            "domain": "apigen-80k",
+            "labels": 118,
+            "lower": 3.599565858717751e-06
+          },
+          {
+            "id": "broad_fit_everyday_conversations_002",
+            "domain": "everyday-conversations",
+            "labels": 200,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_everyday_conversations_010",
+            "domain": "everyday-conversations",
+            "labels": 174,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_explore_instruct_rewriting_008",
+            "domain": "explore-instruct-rewriting",
+            "labels": 18,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_explore_instruct_rewriting_009",
+            "domain": "explore-instruct-rewriting",
+            "labels": 13,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_metamathqa_50k_015",
+            "domain": "metamathqa-50k",
+            "labels": 155,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_metamathqa_50k_023",
+            "domain": "metamathqa-50k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_numina_cot_100k_015",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "lower": 1.2692711081238017e-10
+          },
+          {
+            "id": "broad_fit_numina_cot_100k_016",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_openhermes_100k_004",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_openhermes_100k_028",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_self_oss_instruct_006",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_self_oss_instruct_012",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_smol_constraints_005",
+            "domain": "smol-constraints",
+            "labels": 180,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_smol_constraints_021",
+            "domain": "smol-constraints",
+            "labels": 189,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_smol_magpie_ultra_000",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_smol_magpie_ultra_022",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "lower": 4.621276900582128e-06
+          },
+          {
+            "id": "broad_fit_smol_rewrite_004",
+            "domain": "smol-rewrite",
+            "labels": 90,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_smol_rewrite_015",
+            "domain": "smol-rewrite",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_smol_summarize_003",
+            "domain": "smol-summarize",
+            "labels": 119,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_smol_summarize_024",
+            "domain": "smol-summarize",
+            "labels": 61,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_systemchats_30k_010",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_fit_systemchats_30k_024",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "lower": 0.0
+          }
+        ],
+        "domains": [
+          {
+            "domain": "apigen-80k",
+            "lower": 6.008449588248896e-06
+          },
+          {
+            "domain": "everyday-conversations",
+            "lower": 0.0
+          },
+          {
+            "domain": "explore-instruct-rewriting",
+            "lower": 0.0
+          },
+          {
+            "domain": "metamathqa-50k",
+            "lower": 0.0
+          },
+          {
+            "domain": "numina-cot-100k",
+            "lower": 6.346355540619009e-11
+          },
+          {
+            "domain": "openhermes-100k",
+            "lower": 0.0
+          },
+          {
+            "domain": "self-oss-instruct",
+            "lower": 0.0
+          },
+          {
+            "domain": "smol-constraints",
+            "lower": 0.0
+          },
+          {
+            "domain": "smol-magpie-ultra",
+            "lower": 2.310638450291064e-06
+          },
+          {
+            "domain": "smol-rewrite",
+            "lower": 0.0
+          },
+          {
+            "domain": "smol-summarize",
+            "lower": 0.0
+          },
+          {
+            "domain": "systemchats-30k",
+            "lower": 0.0
+          }
+        ],
+        "real_domain_budget_violation": false
+      }
+    },
+    {
+      "split": "DEV",
+      "rows": 4386,
+      "all_grid_verified": true,
+      "summary": {
+        "case_mean_lower": 1.6644786144871743e-07,
+        "label_mean_lower": 2.1759371521535115e-07,
+        "worst_label_lower": 0.0006260460488063615,
+        "positive_labels": 5,
+        "cases": [
+          {
+            "id": "broad_dev_apigen_80k_033",
+            "domain": "apigen-80k",
+            "labels": 111,
+            "lower": 4.599434775781303e-07
+          },
+          {
+            "id": "broad_dev_apigen_80k_034",
+            "domain": "apigen-80k",
+            "labels": 100,
+            "lower": 1.0242445881799274e-08
+          },
+          {
+            "id": "broad_dev_everyday_conversations_033",
+            "domain": "everyday-conversations",
+            "labels": 172,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_everyday_conversations_036",
+            "domain": "everyday-conversations",
+            "labels": 53,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_explore_instruct_rewriting_035",
+            "domain": "explore-instruct-rewriting",
+            "labels": 12,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_explore_instruct_rewriting_038",
+            "domain": "explore-instruct-rewriting",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_metamathqa_50k_035",
+            "domain": "metamathqa-50k",
+            "labels": 191,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_metamathqa_50k_037",
+            "domain": "metamathqa-50k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_numina_cot_100k_035",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_numina_cot_100k_038",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_openhermes_100k_034",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_openhermes_100k_037",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_self_oss_instruct_033",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_self_oss_instruct_036",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_constraints_034",
+            "domain": "smol-constraints",
+            "labels": 93,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_constraints_035",
+            "domain": "smol-constraints",
+            "labels": 50,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_magpie_ultra_034",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_magpie_ultra_036",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_rewrite_032",
+            "domain": "smol-rewrite",
+            "labels": 175,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_rewrite_036",
+            "domain": "smol-rewrite",
+            "labels": 225,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_summarize_034",
+            "domain": "smol-summarize",
+            "labels": 34,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_smol_summarize_039",
+            "domain": "smol-summarize",
+            "labels": 98,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_systemchats_30k_034",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "lower": 0.0
+          },
+          {
+            "id": "broad_dev_systemchats_30k_039",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "lower": 3.524562751309288e-06
+          }
+        ],
+        "domains": [
+          {
+            "domain": "apigen-80k",
+            "lower": 2.3509296172996478e-07
+          },
+          {
+            "domain": "everyday-conversations",
+            "lower": 0.0
+          },
+          {
+            "domain": "explore-instruct-rewriting",
+            "lower": 0.0
+          },
+          {
+            "domain": "metamathqa-50k",
+            "lower": 0.0
+          },
+          {
+            "domain": "numina-cot-100k",
+            "lower": 0.0
+          },
+          {
+            "domain": "openhermes-100k",
+            "lower": 0.0
+          },
+          {
+            "domain": "self-oss-instruct",
+            "lower": 0.0
+          },
+          {
+            "domain": "smol-constraints",
+            "lower": 0.0
+          },
+          {
+            "domain": "smol-magpie-ultra",
+            "lower": 0.0
+          },
+          {
+            "domain": "smol-rewrite",
+            "lower": 0.0
+          },
+          {
+            "domain": "smol-summarize",
+            "lower": 0.0
+          },
+          {
+            "domain": "systemchats-30k",
+            "lower": 1.762281375654644e-06
+          }
+        ],
+        "real_domain_budget_violation": false
+      }
+    }
+  ],
+  "max_relative": 1.1837948555678566e-12,
+  "max_scalar_delta": 0.0,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 440.0552725000016,
+  "OS_peak": 3481612288,
+  "scope": "All entropy-mixture dual witnesses;numeric real-half-ball lower only,not interval/globalF32 or causal/model/n/50 admission."
+}

@@ -1,7 +1,9 @@
 # Strengthening the reader diagnostic with entropy-mixture dual witnesses
 
-12 October2026. **PROPOSED/UNIMPLEMENTED/UNBOUND**;current all-label audit must
-complete first. New variable:dual distributions outside the current exponential
+12 October2026. Historical proposal;now COMPLETE with
+[actual result/full independent audit](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md).
+Following text preserves its original mathematical specification.
+New variable:dual distributions outside the current exponential
 family,not more unchanged projected-descent iterations. Current native upper
 DEVcaseKL.04835 is useful encoder-room evidence,but all numerical lower bounds
 remain0. That does not establish whether further optimization can reach budgets.
