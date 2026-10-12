@@ -1,5 +1,11 @@
 # Source function coordinates: frozen protocol
 
+Preparation v1 (freeze7874154) exit1 before binding or observations: qbar's
+shape/dtype metadata was incorrectly included in a physical extent comparison.
+Preserved [fault record](source_function_coordinates_preparation_fault_20261012.json).
+Separate source v2 checks path/bytes/SHA and shape/dtype separately. Scientific
+construction, inputs, thresholds and budgets unchanged; v1 remains immutable.
+
 12 October 2026. New variable: raw residual read/write coordinates selected by
 source reading functions, rather than angular variance alone. Not a new donor
 runtime, recurrent channel pruning, or another paired final-feature codec fit.

@@ -1,0 +1,20 @@
+{
+  "schema": "SOURCE_FUNCTION_COORDINATES_PREPARATION_FAULT_V1",
+  "source_protocol_freeze": "7874154",
+  "command": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/source_function_coordinates.py",
+    "--prepare",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/source_function_coordinates_binding_20261012.json"
+  ],
+  "exit_code": 1,
+  "wall_seconds": 0.5394057,
+  "cause": "Line48 compared 3-field physical extent against 5-field qbar metadata containing shape and dtype. No binding, output namespace, fitted basis or scientific observation created.",
+  "repair": "v2 compare physical path/bytes/sha256 fields and assert shape/dtype separately; no mathematics, criteria or budget changed."
+}
