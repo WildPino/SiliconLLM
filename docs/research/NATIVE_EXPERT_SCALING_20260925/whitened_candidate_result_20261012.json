@@ -1,0 +1,2055 @@
+{
+  "schema": "WHITENED_CANDIDATE_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\whitened_candidate_binding_20261012.json",
+    "bytes": 109755,
+    "sha256": "30ff219384078becf0b593f0862587a6bac2933280d8e76ed73ddeec7baed72d"
+  },
+  "freeze": "dbdcd06245c9a93acbd46fe6842fe5b96719046b",
+  "records": [
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "history": 773,
+      "ideal": {
+        "baseline": {
+          "loss": 0.47803357584387624,
+          "relative_RMS": 0.6913997221896145,
+          "output_relative_RMS": 0.6913997221896147,
+          "centered_output_relative_RMS": 0.6990445397991684,
+          "label_output_relative_RMS": 0.538990038619014
+        },
+        "candidate": {
+          "loss": 0.47642127786841737,
+          "relative_RMS": 0.6902327707870856,
+          "output_relative_RMS": 0.6902327707870856,
+          "centered_output_relative_RMS": 0.6990896043464587,
+          "label_output_relative_RMS": 0.540938136422822
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.680114279797851,
+          "centered_output_relative_RMS": 0.6881055163181232,
+          "label_output_relative_RMS": 0.5407548108083825
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6902379569021019,
+          "centered_output_relative_RMS": 0.6990953303772804,
+          "label_output_relative_RMS": 0.5407719847539749
+        }
+      },
+      "full_scan_relative": 2.723308259552875e-07,
+      "recurrent_scan_relative": 1.681045785165972e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_apigen_80k_002.npz",
+        "bytes": 34038374,
+        "sha256": "7964ad0f11a52bc9e59bc88a7c77b04859607ba7e9b4f0c0305add3abc0f4969"
+      }
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "history": 479,
+      "ideal": {
+        "baseline": {
+          "loss": 0.4668346852252506,
+          "relative_RMS": 0.6832530169894976,
+          "output_relative_RMS": 0.6832530169894976,
+          "centered_output_relative_RMS": 0.6938548093768234,
+          "label_output_relative_RMS": 0.6241630870639565
+        },
+        "candidate": {
+          "loss": 0.46564789556538383,
+          "relative_RMS": 0.6823839795638404,
+          "output_relative_RMS": 0.6823839795638404,
+          "centered_output_relative_RMS": 0.6941714914339938,
+          "label_output_relative_RMS": 0.6233160235562728
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6697542085613472,
+          "centered_output_relative_RMS": 0.6804290890214787,
+          "label_output_relative_RMS": 0.6151355491929952
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6823621913038784,
+          "centered_output_relative_RMS": 0.6941511743033498,
+          "label_output_relative_RMS": 0.6233059810125381
+        }
+      },
+      "full_scan_relative": 3.377624205976004e-07,
+      "recurrent_scan_relative": 1.998235948389426e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_apigen_80k_023.npz",
+        "bytes": 21092966,
+        "sha256": "15506a13fd577e8ef9a0716a1162c8fe68849d6a5aa29473ceaeea2d19108f30"
+      }
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "history": 363,
+      "ideal": {
+        "baseline": {
+          "loss": 0.548317307521112,
+          "relative_RMS": 0.7404845086300671,
+          "output_relative_RMS": 0.7404845086300671,
+          "centered_output_relative_RMS": 0.7355330546082813,
+          "label_output_relative_RMS": 0.7533654690220746
+        },
+        "candidate": {
+          "loss": 0.5387339572899739,
+          "relative_RMS": 0.7339849843763657,
+          "output_relative_RMS": 0.7339849843763657,
+          "centered_output_relative_RMS": 0.7320000576997101,
+          "label_output_relative_RMS": 0.7493861747193004
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7265124689521616,
+          "centered_output_relative_RMS": 0.7240755398798344,
+          "label_output_relative_RMS": 0.7421845581738937
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.734000516005031,
+          "centered_output_relative_RMS": 0.7320159773082909,
+          "label_output_relative_RMS": 0.7494046529788994
+        }
+      },
+      "full_scan_relative": 2.0221246574558869e-07,
+      "recurrent_scan_relative": 1.0563900197861811e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_everyday_conversations_002.npz",
+        "bytes": 15985254,
+        "sha256": "018a7752a016ae00d647c9189170d54e7fc23dd4a307151ff34cd0a74ad06dce"
+      }
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "history": 367,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5854398818877692,
+          "relative_RMS": 0.7651404327884974,
+          "output_relative_RMS": 0.7651404327884974,
+          "centered_output_relative_RMS": 0.7621897365270959,
+          "label_output_relative_RMS": 0.787560500959546
+        },
+        "candidate": {
+          "loss": 0.5701995677184704,
+          "relative_RMS": 0.7551155989108359,
+          "output_relative_RMS": 0.7551155989108359,
+          "centered_output_relative_RMS": 0.7545726018110943,
+          "label_output_relative_RMS": 0.7781095608022727
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7447212549364145,
+          "centered_output_relative_RMS": 0.7450685265369738,
+          "label_output_relative_RMS": 0.7656622824920452
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.755127162378028,
+          "centered_output_relative_RMS": 0.7545839063222224,
+          "label_output_relative_RMS": 0.7781203441291669
+        }
+      },
+      "full_scan_relative": 2.3657724254530678e-07,
+      "recurrent_scan_relative": 1.0965782832669927e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_everyday_conversations_010.npz",
+        "bytes": 16161382,
+        "sha256": "111c8d4e1f43c72ce37765611a1dd69da46ad198ee59cf309abe00b70ab89b19"
+      }
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "history": 58,
+      "ideal": {
+        "baseline": {
+          "loss": 0.4383554548611174,
+          "relative_RMS": 0.662084175057158,
+          "output_relative_RMS": 0.6620841750571579,
+          "centered_output_relative_RMS": 0.6803787968611151,
+          "label_output_relative_RMS": 0.6306772287574978
+        },
+        "candidate": {
+          "loss": 0.4245849884313124,
+          "relative_RMS": 0.6516018634344998,
+          "output_relative_RMS": 0.6516018634344997,
+          "centered_output_relative_RMS": 0.672629134827009,
+          "label_output_relative_RMS": 0.6220904478199691
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.62635019081258,
+          "centered_output_relative_RMS": 0.6443208951657271,
+          "label_output_relative_RMS": 0.6059966990570569
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6516444648024767,
+          "centered_output_relative_RMS": 0.6726756352952356,
+          "label_output_relative_RMS": 0.6221946388361196
+        }
+      },
+      "full_scan_relative": 1.442011300312575e-07,
+      "recurrent_scan_relative": 7.005888286353373e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_explore_instruct_rewriting_008.npz",
+        "bytes": 2555494,
+        "sha256": "b0c9bcf1032ce2025294c75a58b93b53cb1fb4bba3f6a09e40bbdd01e8a4290a"
+      }
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "history": 90,
+      "ideal": {
+        "baseline": {
+          "loss": 0.4583018113277491,
+          "relative_RMS": 0.6769799194420386,
+          "output_relative_RMS": 0.6769799194420387,
+          "centered_output_relative_RMS": 0.687662346447028,
+          "label_output_relative_RMS": 0.8108113391267122
+        },
+        "candidate": {
+          "loss": 0.4360539730405402,
+          "relative_RMS": 0.6603438294105126,
+          "output_relative_RMS": 0.6603438294105126,
+          "centered_output_relative_RMS": 0.6730629869443661,
+          "label_output_relative_RMS": 0.7657932514032406
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6288526072172097,
+          "centered_output_relative_RMS": 0.6400536440768098,
+          "label_output_relative_RMS": 0.6480307177213895
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6603564399181912,
+          "centered_output_relative_RMS": 0.6730835158238773,
+          "label_output_relative_RMS": 0.7658600374145905
+        }
+      },
+      "full_scan_relative": 1.6021850562311988e-07,
+      "recurrent_scan_relative": 8.660092291493103e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_explore_instruct_rewriting_009.npz",
+        "bytes": 3964518,
+        "sha256": "6509a348d66f12db7b39fa2269419df4a3d8cbae8ec8ea5618e5e1e35f2e09c6"
+      }
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "history": 209,
+      "ideal": {
+        "baseline": {
+          "loss": 0.540066161931782,
+          "relative_RMS": 0.7348919389487015,
+          "output_relative_RMS": 0.7348919389487015,
+          "centered_output_relative_RMS": 0.7454823720897011,
+          "label_output_relative_RMS": 0.7093435605976095
+        },
+        "candidate": {
+          "loss": 0.5216267579914552,
+          "relative_RMS": 0.7222373280241442,
+          "output_relative_RMS": 0.7222373280241443,
+          "centered_output_relative_RMS": 0.7340282904100638,
+          "label_output_relative_RMS": 0.7030155406227576
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6995906618175404,
+          "centered_output_relative_RMS": 0.7096797460659794,
+          "label_output_relative_RMS": 0.6904860396973002
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7222054360796214,
+          "centered_output_relative_RMS": 0.7339938329621862,
+          "label_output_relative_RMS": 0.7029761846165725
+        }
+      },
+      "full_scan_relative": 1.7647912476322896e-07,
+      "recurrent_scan_relative": 1.0047644681204613e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_metamathqa_50k_015.npz",
+        "bytes": 9204326,
+        "sha256": "62bf7fd8ac0ad7e63dc4fe4a567ac5445920ca6d3a288cb9e7d561776510d3ec"
+      }
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "history": 337,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5483657070552899,
+          "relative_RMS": 0.7405171888992786,
+          "output_relative_RMS": 0.7405171888992785,
+          "centered_output_relative_RMS": 0.7383361178152289,
+          "label_output_relative_RMS": 0.7156528461970906
+        },
+        "candidate": {
+          "loss": 0.527528025766785,
+          "relative_RMS": 0.7263112457939674,
+          "output_relative_RMS": 0.7263112457939674,
+          "centered_output_relative_RMS": 0.7278160111651002,
+          "label_output_relative_RMS": 0.7039784852885019
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7126683591824161,
+          "centered_output_relative_RMS": 0.7156689679276157,
+          "label_output_relative_RMS": 0.6952508815517444
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7263060962693092,
+          "centered_output_relative_RMS": 0.7278119958346141,
+          "label_output_relative_RMS": 0.7039844246113266
+        }
+      },
+      "full_scan_relative": 2.356997817155084e-07,
+      "recurrent_scan_relative": 1.3979080490850913e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_metamathqa_50k_023.npz",
+        "bytes": 14840422,
+        "sha256": "e64f0c423f2b3eb72e44f8843723abae17c495d93811b7df05a9a16d77a207b3"
+      }
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "history": 318,
+      "ideal": {
+        "baseline": {
+          "loss": 0.4704268061346579,
+          "relative_RMS": 0.6858766697699069,
+          "output_relative_RMS": 0.6858766697699069,
+          "centered_output_relative_RMS": 0.6925847198193096,
+          "label_output_relative_RMS": 0.661023758452675
+        },
+        "candidate": {
+          "loss": 0.46879499840689504,
+          "relative_RMS": 0.6846860582828418,
+          "output_relative_RMS": 0.6846860582828419,
+          "centered_output_relative_RMS": 0.6934631659377458,
+          "label_output_relative_RMS": 0.6650592021380094
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6701458161991697,
+          "centered_output_relative_RMS": 0.6780860228241155,
+          "label_output_relative_RMS": 0.6551151532699906
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6846870293366356,
+          "centered_output_relative_RMS": 0.6934585584974361,
+          "label_output_relative_RMS": 0.6650539619858676
+        }
+      },
+      "full_scan_relative": 3.579194993231888e-07,
+      "recurrent_scan_relative": 2.0548118691592476e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_numina_cot_100k_015.npz",
+        "bytes": 14003814,
+        "sha256": "a8ed793a1b06ed9c6debcd61a6ba6b2594d6a175311977e81a395471f5ca65dd"
+      }
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "history": 381,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6750856313672771,
+          "relative_RMS": 0.8216359481955966,
+          "output_relative_RMS": 0.8216359481955967,
+          "centered_output_relative_RMS": 0.8155940066096076,
+          "label_output_relative_RMS": 0.811234093565824
+        },
+        "candidate": {
+          "loss": 0.6421695047438487,
+          "relative_RMS": 0.801354793299353,
+          "output_relative_RMS": 0.8013547932993531,
+          "centered_output_relative_RMS": 0.7992400621800587,
+          "label_output_relative_RMS": 0.7943673585730393
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7615221515410419,
+          "centered_output_relative_RMS": 0.7608798282246068,
+          "label_output_relative_RMS": 0.7659779937861089
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8013731272458796,
+          "centered_output_relative_RMS": 0.799259517524255,
+          "label_output_relative_RMS": 0.7943934733688254
+        }
+      },
+      "full_scan_relative": 2.6114281654112855e-07,
+      "recurrent_scan_relative": 1.260867226485172e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_numina_cot_100k_016.npz",
+        "bytes": 16777830,
+        "sha256": "92c600ecd60138e0d125c83cef7c9a3a153891a4c44381c9d00c3ef6455d8afe"
+      }
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "history": 316,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5164520151935056,
+          "relative_RMS": 0.718645959561108,
+          "output_relative_RMS": 0.718645959561108,
+          "centered_output_relative_RMS": 0.7214052810678119,
+          "label_output_relative_RMS": 0.7249205730574778
+        },
+        "candidate": {
+          "loss": 0.5080172804320682,
+          "relative_RMS": 0.7127533096605502,
+          "output_relative_RMS": 0.7127533096605502,
+          "centered_output_relative_RMS": 0.7178908427684305,
+          "label_output_relative_RMS": 0.7207456834243513
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7012271613638794,
+          "centered_output_relative_RMS": 0.7061032109435386,
+          "label_output_relative_RMS": 0.7099373927687485
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7127439020758684,
+          "centered_output_relative_RMS": 0.7178790880613146,
+          "label_output_relative_RMS": 0.7207400661446769
+        }
+      },
+      "full_scan_relative": 3.2998086070157737e-07,
+      "recurrent_scan_relative": 1.865657598165096e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_openhermes_100k_004.npz",
+        "bytes": 13915750,
+        "sha256": "32e21e3b6a5be99183e5993241c2f52abc1df7ca029b6ee82710258327a94d86"
+      }
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "history": 435,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5582936576547155,
+          "relative_RMS": 0.747190509612318,
+          "output_relative_RMS": 0.747190509612318,
+          "centered_output_relative_RMS": 0.7384853133191921,
+          "label_output_relative_RMS": 0.745029300394745
+        },
+        "candidate": {
+          "loss": 0.5435042267445636,
+          "relative_RMS": 0.7372273914773946,
+          "output_relative_RMS": 0.7372273914773946,
+          "centered_output_relative_RMS": 0.7323068035760002,
+          "label_output_relative_RMS": 0.7381018084057512
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7298170872595371,
+          "centered_output_relative_RMS": 0.725397594600885,
+          "label_output_relative_RMS": 0.7313178020987047
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7372176715417575,
+          "centered_output_relative_RMS": 0.732296030666111,
+          "label_output_relative_RMS": 0.7381027253476564
+        }
+      },
+      "full_scan_relative": 2.5028710001283e-07,
+      "recurrent_scan_relative": 1.3653582665042212e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_openhermes_100k_028.npz",
+        "bytes": 19155558,
+        "sha256": "d21cb0eef35822028e953969ad62c332715cdb48edb47e719880e6839b3d6627"
+      }
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "history": 431,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5156614974707311,
+          "relative_RMS": 0.7180957439441701,
+          "output_relative_RMS": 0.7180957439441701,
+          "centered_output_relative_RMS": 0.7221616372337112,
+          "label_output_relative_RMS": 0.6890385651710338
+        },
+        "candidate": {
+          "loss": 0.510064896855968,
+          "relative_RMS": 0.7141882782963943,
+          "output_relative_RMS": 0.7141882782963944,
+          "centered_output_relative_RMS": 0.7209706341689913,
+          "label_output_relative_RMS": 0.6899066312978831
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6998438623418799,
+          "centered_output_relative_RMS": 0.7053819866320369,
+          "label_output_relative_RMS": 0.675599011668945
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7142061212041424,
+          "centered_output_relative_RMS": 0.720988230611507,
+          "label_output_relative_RMS": 0.6899333714412218
+        }
+      },
+      "full_scan_relative": 2.595770115862719e-07,
+      "recurrent_scan_relative": 1.4281163051233934e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_self_oss_instruct_006.npz",
+        "bytes": 18979430,
+        "sha256": "cfe5149a1b90efe8bd2e0a55f787e73ffa6699029891e56318902839ae7d600b"
+      }
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "history": 337,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5373170255762348,
+          "relative_RMS": 0.7330191167877103,
+          "output_relative_RMS": 0.7330191167877104,
+          "centered_output_relative_RMS": 0.731102402430794,
+          "label_output_relative_RMS": 0.720042606477242
+        },
+        "candidate": {
+          "loss": 0.5254864631299082,
+          "relative_RMS": 0.724904451034692,
+          "output_relative_RMS": 0.724904451034692,
+          "centered_output_relative_RMS": 0.7258551993918206,
+          "label_output_relative_RMS": 0.7149508397953447
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7073503341833353,
+          "centered_output_relative_RMS": 0.7082782788667304,
+          "label_output_relative_RMS": 0.7009343044380221
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7249098293235534,
+          "centered_output_relative_RMS": 0.725864511280106,
+          "label_output_relative_RMS": 0.7149505147245677
+        }
+      },
+      "full_scan_relative": 2.439914127317292e-07,
+      "recurrent_scan_relative": 1.4074669389704715e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_self_oss_instruct_012.npz",
+        "bytes": 14840422,
+        "sha256": "eb3121da2b65401a47d31a4b1b01bc029b82fe79a6dbf92c3ea8cc3566e9d012"
+      }
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "history": 238,
+      "ideal": {
+        "baseline": {
+          "loss": 0.48430177830737575,
+          "relative_RMS": 0.695917939348725,
+          "output_relative_RMS": 0.6959179393487251,
+          "centered_output_relative_RMS": 0.6969147880619782,
+          "label_output_relative_RMS": 0.6939451778355432
+        },
+        "candidate": {
+          "loss": 0.48290296940561517,
+          "relative_RMS": 0.6949122026598865,
+          "output_relative_RMS": 0.6949122026598865,
+          "centered_output_relative_RMS": 0.6984606760402011,
+          "label_output_relative_RMS": 0.6920499496663821
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6802316139029468,
+          "centered_output_relative_RMS": 0.6826410364415613,
+          "label_output_relative_RMS": 0.6763001301994356
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6949095670227122,
+          "centered_output_relative_RMS": 0.6984559436230412,
+          "label_output_relative_RMS": 0.6920731050899025
+        }
+      },
+      "full_scan_relative": 3.473100964835826e-07,
+      "recurrent_scan_relative": 1.712366753964993e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_constraints_005.npz",
+        "bytes": 10481254,
+        "sha256": "e202a607a7742d0bad55f4dabc0f03786110fe2e4b4caeb1f2e49393a3f0cc0b"
+      }
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "history": 294,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5066716611331283,
+          "relative_RMS": 0.71180872510326,
+          "output_relative_RMS": 0.71180872510326,
+          "centered_output_relative_RMS": 0.7102298625836297,
+          "label_output_relative_RMS": 0.7213643536035036
+        },
+        "candidate": {
+          "loss": 0.4999137408460997,
+          "relative_RMS": 0.7070457841229941,
+          "output_relative_RMS": 0.7070457841229942,
+          "centered_output_relative_RMS": 0.7076773882700402,
+          "label_output_relative_RMS": 0.7140880263851086
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6975423267975714,
+          "centered_output_relative_RMS": 0.6977876722569872,
+          "label_output_relative_RMS": 0.7037364726525931
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.707033067197223,
+          "centered_output_relative_RMS": 0.7076629353280599,
+          "label_output_relative_RMS": 0.7140877469339307
+        }
+      },
+      "full_scan_relative": 2.8525916030993547e-07,
+      "recurrent_scan_relative": 1.2755476379586657e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_constraints_021.npz",
+        "bytes": 12947046,
+        "sha256": "656dd2efea9dd698b007435b5ccb2af0f02fa4df49257b44a1b2f76cda1425e5"
+      }
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "history": 1034,
+      "ideal": {
+        "baseline": {
+          "loss": 0.7389517143298713,
+          "relative_RMS": 0.8596230070966407,
+          "output_relative_RMS": 0.8596230070966409,
+          "centered_output_relative_RMS": 0.8477769379330118,
+          "label_output_relative_RMS": 0.8541649581273282
+        },
+        "candidate": {
+          "loss": 0.7105903960161923,
+          "relative_RMS": 0.8429652400996095,
+          "output_relative_RMS": 0.8429652400996095,
+          "centered_output_relative_RMS": 0.8348560397899334,
+          "label_output_relative_RMS": 0.8376879609678165
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.8215573766684245,
+          "centered_output_relative_RMS": 0.8170366401362363,
+          "label_output_relative_RMS": 0.8161592307966381
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8429605633482967,
+          "centered_output_relative_RMS": 0.8348512620913195,
+          "label_output_relative_RMS": 0.8376946525855903
+        }
+      },
+      "full_scan_relative": 2.1230114008894727e-07,
+      "recurrent_scan_relative": 9.907474958186008e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_magpie_ultra_000.npz",
+        "bytes": 45530726,
+        "sha256": "b43218a7c6b7e06403d89a8a3413f733a5e19b1003ec6ceb3702402d450261fc"
+      }
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "history": 1507,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6776913343901121,
+          "relative_RMS": 0.8232201008175833,
+          "output_relative_RMS": 0.8232201008175835,
+          "centered_output_relative_RMS": 0.810005430450142,
+          "label_output_relative_RMS": 0.8442531692777239
+        },
+        "candidate": {
+          "loss": 0.6485994611685293,
+          "relative_RMS": 0.8053567291384168,
+          "output_relative_RMS": 0.8053567291384168,
+          "centered_output_relative_RMS": 0.7970276057146876,
+          "label_output_relative_RMS": 0.8251909658857706
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7853967643876713,
+          "centered_output_relative_RMS": 0.7799164657643417,
+          "label_output_relative_RMS": 0.8062141779451729
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8053575563105903,
+          "centered_output_relative_RMS": 0.7970299288463538,
+          "label_output_relative_RMS": 0.8252122335361477
+        }
+      },
+      "full_scan_relative": 2.503252501723509e-07,
+      "recurrent_scan_relative": 1.1278979609986e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_magpie_ultra_022.npz",
+        "bytes": 66357862,
+        "sha256": "d31de2f5d4f670f71c9fa92499fc2ef3aa2a44df7d094022196f701f81766a6a"
+      }
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "history": 252,
+      "ideal": {
+        "baseline": {
+          "loss": 0.43181779308338436,
+          "relative_RMS": 0.6571284448898741,
+          "output_relative_RMS": 0.6571284448898741,
+          "centered_output_relative_RMS": 0.6647326667517367,
+          "label_output_relative_RMS": 0.6428987781742579
+        },
+        "candidate": {
+          "loss": 0.4268120445357012,
+          "relative_RMS": 0.6533085370142512,
+          "output_relative_RMS": 0.6533085370142512,
+          "centered_output_relative_RMS": 0.6627621809038398,
+          "label_output_relative_RMS": 0.6446652850428399
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6411146761766733,
+          "centered_output_relative_RMS": 0.6486474397267841,
+          "label_output_relative_RMS": 0.6349108645119896
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6533484619669129,
+          "centered_output_relative_RMS": 0.6628012614773613,
+          "label_output_relative_RMS": 0.6447116920662093
+        }
+      },
+      "full_scan_relative": 1.8934323313633046e-07,
+      "recurrent_scan_relative": 9.849804870803967e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_rewrite_004.npz",
+        "bytes": 11097702,
+        "sha256": "99eaa07bd998f3ee812dbe30ae4291c7db44d40511b20ec461e66e40b5819b4a"
+      }
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "history": 554,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5647535766093862,
+          "relative_RMS": 0.7515008826404572,
+          "output_relative_RMS": 0.7515008826404571,
+          "centered_output_relative_RMS": 0.7529004968964469,
+          "label_output_relative_RMS": 0.7495999518109608
+        },
+        "candidate": {
+          "loss": 0.5587283892273153,
+          "relative_RMS": 0.7474813637993359,
+          "output_relative_RMS": 0.747481363799336,
+          "centered_output_relative_RMS": 0.7520838742809266,
+          "label_output_relative_RMS": 0.7497252416610205
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7311333011600727,
+          "centered_output_relative_RMS": 0.7335176321653135,
+          "label_output_relative_RMS": 0.7332868414819795
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7474115995278888,
+          "centered_output_relative_RMS": 0.7520137898599151,
+          "label_output_relative_RMS": 0.749631552172663
+        }
+      },
+      "full_scan_relative": 2.702803401401304e-07,
+      "recurrent_scan_relative": 1.5347542847417146e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_rewrite_015.npz",
+        "bytes": 24395366,
+        "sha256": "a1ab1e18f216e12915915692057081c0709759f1cea77e104e730334e93cccc2"
+      }
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "history": 774,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6114042557846626,
+          "relative_RMS": 0.7819234334541091,
+          "output_relative_RMS": 0.7819234334541092,
+          "centered_output_relative_RMS": 0.7826443603956901,
+          "label_output_relative_RMS": 0.7329697626900488
+        },
+        "candidate": {
+          "loss": 0.5853687405140401,
+          "relative_RMS": 0.765093942280319,
+          "output_relative_RMS": 0.765093942280319,
+          "centered_output_relative_RMS": 0.7703380976463714,
+          "label_output_relative_RMS": 0.7286119223313304
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7182810064642474,
+          "centered_output_relative_RMS": 0.7213361399055305,
+          "label_output_relative_RMS": 0.7056637625573502
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7651089678762395,
+          "centered_output_relative_RMS": 0.7703528066893867,
+          "label_output_relative_RMS": 0.7286425493894733
+        }
+      },
+      "full_scan_relative": 2.1061930740181905e-07,
+      "recurrent_scan_relative": 1.1848151969352067e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_summarize_003.npz",
+        "bytes": 34082406,
+        "sha256": "08aadce729e34d34b66a59d5064f602db8591b73e07230841bea171fe167e9b6"
+      }
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "history": 264,
+      "ideal": {
+        "baseline": {
+          "loss": 0.46294810016498467,
+          "relative_RMS": 0.6804028954707532,
+          "output_relative_RMS": 0.6804028954707532,
+          "centered_output_relative_RMS": 0.6901309539827177,
+          "label_output_relative_RMS": 0.6681324433788663
+        },
+        "candidate": {
+          "loss": 0.46127985694615187,
+          "relative_RMS": 0.6791758659921242,
+          "output_relative_RMS": 0.6791758659921243,
+          "centered_output_relative_RMS": 0.6911905726203711,
+          "label_output_relative_RMS": 0.6688703799184919
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6650976132214794,
+          "centered_output_relative_RMS": 0.6744968726144768,
+          "label_output_relative_RMS": 0.6605367434236791
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6791826910809132,
+          "centered_output_relative_RMS": 0.6911982745451046,
+          "label_output_relative_RMS": 0.6689011327414409
+        }
+      },
+      "full_scan_relative": 2.035352041560287e-07,
+      "recurrent_scan_relative": 1.3907761867270598e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_smol_summarize_024.npz",
+        "bytes": 11626086,
+        "sha256": "b57ddb68b3eb4ff4545d5fee227e3bd4da9bf23c79bac3fd9d420299fb046d4e"
+      }
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "history": 1020,
+      "ideal": {
+        "baseline": {
+          "loss": 0.4086907576765156,
+          "relative_RMS": 0.6392892597850488,
+          "output_relative_RMS": 0.6392892597850488,
+          "centered_output_relative_RMS": 0.6534254633983807,
+          "label_output_relative_RMS": 0.794165384921817
+        },
+        "candidate": {
+          "loss": 0.4038889097630623,
+          "relative_RMS": 0.63552254858743,
+          "output_relative_RMS": 0.6355225485874301,
+          "centered_output_relative_RMS": 0.6503439825265596,
+          "label_output_relative_RMS": 0.7748203222965365
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6176326068295324,
+          "centered_output_relative_RMS": 0.6311338515516589,
+          "label_output_relative_RMS": 0.7457167139546595
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6355573193454206,
+          "centered_output_relative_RMS": 0.6503810726936643,
+          "label_output_relative_RMS": 0.7748745240461141
+        }
+      },
+      "full_scan_relative": 2.0977521836205783e-07,
+      "recurrent_scan_relative": 1.2600169991615392e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_systemchats_30k_010.npz",
+        "bytes": 44914278,
+        "sha256": "703fb5daa6ba3773dac31343a3da2d11188ee73e07dc03acf9ea59ec4ef4fae9"
+      }
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "history": 317,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5679372818451336,
+          "relative_RMS": 0.7536161369325458,
+          "output_relative_RMS": 0.7536161369325458,
+          "centered_output_relative_RMS": 0.7535039076582207,
+          "label_output_relative_RMS": 0.7662967962123146
+        },
+        "candidate": {
+          "loss": 0.5491293659953441,
+          "relative_RMS": 0.7410326349057402,
+          "output_relative_RMS": 0.7410326349057401,
+          "centered_output_relative_RMS": 0.7441237317164661,
+          "label_output_relative_RMS": 0.7530406222726931
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7297800378966388,
+          "centered_output_relative_RMS": 0.7329296038938521,
+          "label_output_relative_RMS": 0.7413286999687615
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.741037684620775,
+          "centered_output_relative_RMS": 0.7441284746527905,
+          "label_output_relative_RMS": 0.7530565588425389
+        }
+      },
+      "full_scan_relative": 2.4323760105729255e-07,
+      "recurrent_scan_relative": 1.188982792615212e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_fit_systemchats_30k_024.npz",
+        "bytes": 13959782,
+        "sha256": "85f324f0aa8d54325943df96e374b993d351da6c538d15c639d54e6aea8e53e3"
+      }
+    },
+    {
+      "id": "broad_dev_apigen_80k_033",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "history": 918,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5219443906452512,
+          "relative_RMS": 0.7224571894896272,
+          "output_relative_RMS": 0.7224571894896273,
+          "centered_output_relative_RMS": 0.7290204795972413,
+          "label_output_relative_RMS": 0.6468697703857876
+        },
+        "candidate": {
+          "loss": 0.5211187368827568,
+          "relative_RMS": 0.7218855427855283,
+          "output_relative_RMS": 0.7218855427855283,
+          "centered_output_relative_RMS": 0.7299775905837158,
+          "label_output_relative_RMS": 0.6441117137188027
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7149216420758928,
+          "centered_output_relative_RMS": 0.7222796855258365,
+          "label_output_relative_RMS": 0.6358326587585336
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7218774179622924,
+          "centered_output_relative_RMS": 0.7299695226274445,
+          "label_output_relative_RMS": 0.6441719664732932
+        }
+      },
+      "full_scan_relative": 2.1234236046855337e-07,
+      "recurrent_scan_relative": 1.1412473938596625e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_apigen_80k_033.npz",
+        "bytes": 40423014,
+        "sha256": "43127c37bd41fb2893a2e9d80b63270b8d8172fb7504c7b72b0d7bd0db714325"
+      }
+    },
+    {
+      "id": "broad_dev_apigen_80k_034",
+      "split": "DEV",
+      "domain": "apigen-80k",
+      "history": 462,
+      "ideal": {
+        "baseline": {
+          "loss": 0.49167899576066443,
+          "relative_RMS": 0.7011982571004184,
+          "output_relative_RMS": 0.7011982571004184,
+          "centered_output_relative_RMS": 0.708541591196853,
+          "label_output_relative_RMS": 0.6246503410401891
+        },
+        "candidate": {
+          "loss": 0.4896055149079464,
+          "relative_RMS": 0.6997181681991304,
+          "output_relative_RMS": 0.6997181681991302,
+          "centered_output_relative_RMS": 0.708631915975383,
+          "label_output_relative_RMS": 0.620310076329752
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6887538855384833,
+          "centered_output_relative_RMS": 0.6972422402400436,
+          "label_output_relative_RMS": 0.6120300223746693
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.699719714317203,
+          "centered_output_relative_RMS": 0.708635653040381,
+          "label_output_relative_RMS": 0.6203071416670499
+        }
+      },
+      "full_scan_relative": 2.4307427935537376e-07,
+      "recurrent_scan_relative": 1.478451653257778e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_apigen_80k_034.npz",
+        "bytes": 20344422,
+        "sha256": "9c4f8bde73147b46b883ecdcb7e8fde7a7e8813317151be6cbcb04de48a771b3"
+      }
+    },
+    {
+      "id": "broad_dev_everyday_conversations_033",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "history": 378,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6694441727878795,
+          "relative_RMS": 0.8181956812327229,
+          "output_relative_RMS": 0.8181956812327228,
+          "centered_output_relative_RMS": 0.7993913261933492,
+          "label_output_relative_RMS": 0.8334102057812761
+        },
+        "candidate": {
+          "loss": 0.6385210950583792,
+          "relative_RMS": 0.7990751498190762,
+          "output_relative_RMS": 0.7990751498190762,
+          "centered_output_relative_RMS": 0.7857027085955528,
+          "label_output_relative_RMS": 0.8165796436854529
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7751514425898279,
+          "centered_output_relative_RMS": 0.7652624969449756,
+          "label_output_relative_RMS": 0.8005461264997066
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7990894640654049,
+          "centered_output_relative_RMS": 0.7857175300044055,
+          "label_output_relative_RMS": 0.8166055871422403
+        }
+      },
+      "full_scan_relative": 2.729334450317505e-07,
+      "recurrent_scan_relative": 1.191895040332526e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_everyday_conversations_033.npz",
+        "bytes": 16645734,
+        "sha256": "75b9fb1963eef5c94fa2e05c91c1bbb8fb3e391ec0cf34c08f48d50c90a0e70c"
+      }
+    },
+    {
+      "id": "broad_dev_everyday_conversations_036",
+      "split": "DEV",
+      "domain": "everyday-conversations",
+      "history": 200,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6438443935256954,
+          "relative_RMS": 0.8023991485075838,
+          "output_relative_RMS": 0.8023991485075838,
+          "centered_output_relative_RMS": 0.791495844920082,
+          "label_output_relative_RMS": 0.8690641747866996
+        },
+        "candidate": {
+          "loss": 0.616311550569488,
+          "relative_RMS": 0.7850551258156895,
+          "output_relative_RMS": 0.7850551258156894,
+          "centered_output_relative_RMS": 0.7778386583503069,
+          "label_output_relative_RMS": 0.8469931714428827
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.766478226885361,
+          "centered_output_relative_RMS": 0.7620049972664308,
+          "label_output_relative_RMS": 0.8263439241595408
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7850514369158608,
+          "centered_output_relative_RMS": 0.7778317702464808,
+          "label_output_relative_RMS": 0.8470291064227938
+        }
+      },
+      "full_scan_relative": 1.9014762633353334e-07,
+      "recurrent_scan_relative": 9.83579195696171e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_everyday_conversations_036.npz",
+        "bytes": 8808038,
+        "sha256": "0485898c0c7ac8f806d0f7d94587374be99a04aadc0a40f3391171b527ed4ac8"
+      }
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_035",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "history": 61,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5278789568716779,
+          "relative_RMS": 0.7265527901478859,
+          "output_relative_RMS": 0.726552790147886,
+          "centered_output_relative_RMS": 0.7315686430567576,
+          "label_output_relative_RMS": 0.7573551255725648
+        },
+        "candidate": {
+          "loss": 0.5094383932413163,
+          "relative_RMS": 0.7137495311671429,
+          "output_relative_RMS": 0.713749531167143,
+          "centered_output_relative_RMS": 0.7219877151369853,
+          "label_output_relative_RMS": 0.7375783367115162
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6814948871531581,
+          "centered_output_relative_RMS": 0.6876790940097034,
+          "label_output_relative_RMS": 0.699266393129949
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7137772779682234,
+          "centered_output_relative_RMS": 0.7220135669777924,
+          "label_output_relative_RMS": 0.7375945127251207
+        }
+      },
+      "full_scan_relative": 1.4480511640643148e-07,
+      "recurrent_scan_relative": 8.391679039182969e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_explore_instruct_rewriting_035.npz",
+        "bytes": 2687590,
+        "sha256": "d7ea53cd2e55b2b19ebb775427f50fb54615cb6bd5b58b7dd126cf54c78213dd"
+      }
+    },
+    {
+      "id": "broad_dev_explore_instruct_rewriting_038",
+      "split": "DEV",
+      "domain": "explore-instruct-rewriting",
+      "history": 323,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5669581282178333,
+          "relative_RMS": 0.7529662198384688,
+          "output_relative_RMS": 0.7529662198384689,
+          "centered_output_relative_RMS": 0.7441230003247711,
+          "label_output_relative_RMS": 0.7715739271431201
+        },
+        "candidate": {
+          "loss": 0.5492164133458017,
+          "relative_RMS": 0.7410913663954005,
+          "output_relative_RMS": 0.7410913663954005,
+          "centered_output_relative_RMS": 0.7362071856598013,
+          "label_output_relative_RMS": 0.7590666157721453
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7243446248817682,
+          "centered_output_relative_RMS": 0.7192683201706486,
+          "label_output_relative_RMS": 0.7439691641641232
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.74109596298129,
+          "centered_output_relative_RMS": 0.7362121657107014,
+          "label_output_relative_RMS": 0.7590669264555878
+        }
+      },
+      "full_scan_relative": 3.1719219029298086e-07,
+      "recurrent_scan_relative": 1.8125729547117193e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_explore_instruct_rewriting_038.npz",
+        "bytes": 14223974,
+        "sha256": "cf6abf19f329b13a5bf33212318aad719dbbada9df394a515ebb229ad504eb6c"
+      }
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_035",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "history": 243,
+      "ideal": {
+        "baseline": {
+          "loss": 0.706187472097462,
+          "relative_RMS": 0.840349613016786,
+          "output_relative_RMS": 0.840349613016786,
+          "centered_output_relative_RMS": 0.8370318010430446,
+          "label_output_relative_RMS": 0.8308960448083205
+        },
+        "candidate": {
+          "loss": 0.6656774080704706,
+          "relative_RMS": 0.8158905613318925,
+          "output_relative_RMS": 0.8158905613318924,
+          "centered_output_relative_RMS": 0.8157359071933381,
+          "label_output_relative_RMS": 0.8094743301901381
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7736054892249222,
+          "centered_output_relative_RMS": 0.7758544193539357,
+          "label_output_relative_RMS": 0.7735508235791033
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8158919719722364,
+          "centered_output_relative_RMS": 0.8157376490678899,
+          "label_output_relative_RMS": 0.8094666603589751
+        }
+      },
+      "full_scan_relative": 4.021123305830464e-07,
+      "recurrent_scan_relative": 2.31172914610497e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_metamathqa_50k_035.npz",
+        "bytes": 10701414,
+        "sha256": "585be949de38575829ccf17d42ab2b834e9bec71234a2e37f5471777388d62ad"
+      }
+    },
+    {
+      "id": "broad_dev_metamathqa_50k_037",
+      "split": "DEV",
+      "domain": "metamathqa-50k",
+      "history": 352,
+      "ideal": {
+        "baseline": {
+          "loss": 0.571214985321563,
+          "relative_RMS": 0.7557876588841359,
+          "output_relative_RMS": 0.7557876588841359,
+          "centered_output_relative_RMS": 0.7488586508611673,
+          "label_output_relative_RMS": 0.7469967715155215
+        },
+        "candidate": {
+          "loss": 0.554170479747548,
+          "relative_RMS": 0.7444262755622937,
+          "output_relative_RMS": 0.7444262755622937,
+          "centered_output_relative_RMS": 0.7409549539512719,
+          "label_output_relative_RMS": 0.7372991263033768
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7342219129930675,
+          "centered_output_relative_RMS": 0.7311081582586452,
+          "label_output_relative_RMS": 0.7304690772058023
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.744417599616839,
+          "centered_output_relative_RMS": 0.7409450067414826,
+          "label_output_relative_RMS": 0.7372902026537179
+        }
+      },
+      "full_scan_relative": 2.3529882942335785e-07,
+      "recurrent_scan_relative": 1.1217036110364818e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_metamathqa_50k_037.npz",
+        "bytes": 15500902,
+        "sha256": "46f32e72ec85dfdc2587f853cc569dd4e81ae04461688a238d32f49c53dd92fb"
+      }
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_035",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "history": 387,
+      "ideal": {
+        "baseline": {
+          "loss": 0.7241302429550113,
+          "relative_RMS": 0.8509584261025983,
+          "output_relative_RMS": 0.8509584261025982,
+          "centered_output_relative_RMS": 0.8363531384599588,
+          "label_output_relative_RMS": 0.8486243476382951
+        },
+        "candidate": {
+          "loss": 0.6888652882527103,
+          "relative_RMS": 0.8299790890454471,
+          "output_relative_RMS": 0.8299790890454471,
+          "centered_output_relative_RMS": 0.81928954698122,
+          "label_output_relative_RMS": 0.8284534743119725
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7970578349540571,
+          "centered_output_relative_RMS": 0.7891672189048515,
+          "label_output_relative_RMS": 0.7939173141036323
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8299800355126896,
+          "centered_output_relative_RMS": 0.8192927609748999,
+          "label_output_relative_RMS": 0.8284680868528379
+        }
+      },
+      "full_scan_relative": 2.302241945679708e-07,
+      "recurrent_scan_relative": 1.1057925507942056e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_numina_cot_100k_035.npz",
+        "bytes": 17042022,
+        "sha256": "8b038324f780f11d38d40611b83e8a0b290fc4f4f244e536dfa60816b29878b8"
+      }
+    },
+    {
+      "id": "broad_dev_numina_cot_100k_038",
+      "split": "DEV",
+      "domain": "numina-cot-100k",
+      "history": 318,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6674961976747882,
+          "relative_RMS": 0.817004404929856,
+          "output_relative_RMS": 0.817004404929856,
+          "centered_output_relative_RMS": 0.8031674563728991,
+          "label_output_relative_RMS": 0.798374723053262
+        },
+        "candidate": {
+          "loss": 0.6452398442364099,
+          "relative_RMS": 0.8032682268311189,
+          "output_relative_RMS": 0.803268226831119,
+          "centered_output_relative_RMS": 0.7928332084433355,
+          "label_output_relative_RMS": 0.7902875683582689
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7734551912714996,
+          "centered_output_relative_RMS": 0.7628931795025446,
+          "label_output_relative_RMS": 0.7726318958953783
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8032558917972139,
+          "centered_output_relative_RMS": 0.7928243666252716,
+          "label_output_relative_RMS": 0.7902870849309972
+        }
+      },
+      "full_scan_relative": 3.090772140387804e-07,
+      "recurrent_scan_relative": 1.5947971003012754e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_numina_cot_100k_038.npz",
+        "bytes": 14003814,
+        "sha256": "bf8f14e652713d25b0d496439a82e1955e80e91a67653ac48327c74019201203"
+      }
+    },
+    {
+      "id": "broad_dev_openhermes_100k_034",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "history": 289,
+      "ideal": {
+        "baseline": {
+          "loss": 0.8789577570076558,
+          "relative_RMS": 0.9375274700016292,
+          "output_relative_RMS": 0.9375274700016293,
+          "centered_output_relative_RMS": 0.8797797139398338,
+          "label_output_relative_RMS": 0.9363946988728326
+        },
+        "candidate": {
+          "loss": 0.8187913562973756,
+          "relative_RMS": 0.9048709058740786,
+          "output_relative_RMS": 0.9048709058740787,
+          "centered_output_relative_RMS": 0.8563819173679045,
+          "label_output_relative_RMS": 0.9046851349527436
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.8619886924540312,
+          "centered_output_relative_RMS": 0.8258314925313777,
+          "label_output_relative_RMS": 0.8639138995008928
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.9049054872547743,
+          "centered_output_relative_RMS": 0.8564185703582972,
+          "label_output_relative_RMS": 0.9047267375535893
+        }
+      },
+      "full_scan_relative": 2.026517556056275e-07,
+      "recurrent_scan_relative": 1.2353335621956793e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_openhermes_100k_034.npz",
+        "bytes": 12726886,
+        "sha256": "a9de8ea03afe36181fb39c1493e24a780e842fcc510dd97aa25b1e9d78b3c0a5"
+      }
+    },
+    {
+      "id": "broad_dev_openhermes_100k_037",
+      "split": "DEV",
+      "domain": "openhermes-100k",
+      "history": 356,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6479094045277747,
+          "relative_RMS": 0.8049281983678884,
+          "output_relative_RMS": 0.8049281983678884,
+          "centered_output_relative_RMS": 0.7830248871698791,
+          "label_output_relative_RMS": 0.8139979981335842
+        },
+        "candidate": {
+          "loss": 0.6261001769039655,
+          "relative_RMS": 0.7912649220734895,
+          "output_relative_RMS": 0.7912649220734894,
+          "centered_output_relative_RMS": 0.7738300232200007,
+          "label_output_relative_RMS": 0.8024572142617832
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.771073552637396,
+          "centered_output_relative_RMS": 0.7533107142011014,
+          "label_output_relative_RMS": 0.7904560708358963
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7912750806901175,
+          "centered_output_relative_RMS": 0.7738473003982665,
+          "label_output_relative_RMS": 0.8024757372847212
+        }
+      },
+      "full_scan_relative": 2.7076291349215383e-07,
+      "recurrent_scan_relative": 1.2049111025712526e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_openhermes_100k_037.npz",
+        "bytes": 15677030,
+        "sha256": "dda4298aba970628ef12bc02dc2e6b5e493b4de59819883a8f88c88aca6bb2e9"
+      }
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_033",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "history": 418,
+      "ideal": {
+        "baseline": {
+          "loss": 0.626189246751229,
+          "relative_RMS": 0.7913212032741376,
+          "output_relative_RMS": 0.7913212032741377,
+          "centered_output_relative_RMS": 0.7852884398579779,
+          "label_output_relative_RMS": 0.7963616701844477
+        },
+        "candidate": {
+          "loss": 0.608288599507229,
+          "relative_RMS": 0.7799285861585207,
+          "output_relative_RMS": 0.7799285861585207,
+          "centered_output_relative_RMS": 0.777110902958682,
+          "label_output_relative_RMS": 0.787495878452834
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7702695299336592,
+          "centered_output_relative_RMS": 0.7691276566552563,
+          "label_output_relative_RMS": 0.7811649378071553
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.779943322770925,
+          "centered_output_relative_RMS": 0.7771256989515273,
+          "label_output_relative_RMS": 0.7875085780581453
+        }
+      },
+      "full_scan_relative": 2.495803028862729e-07,
+      "recurrent_scan_relative": 1.2655339233094096e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_self_oss_instruct_033.npz",
+        "bytes": 18407014,
+        "sha256": "6a77556a5242523e35cb792dae68453860eb5118030935faeccc7a972e8342ce"
+      }
+    },
+    {
+      "id": "broad_dev_self_oss_instruct_036",
+      "split": "DEV",
+      "domain": "self-oss-instruct",
+      "history": 357,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6094138525761791,
+          "relative_RMS": 0.780649634968325,
+          "output_relative_RMS": 0.7806496349683251,
+          "centered_output_relative_RMS": 0.7691568435329513,
+          "label_output_relative_RMS": 0.7664898345830993
+        },
+        "candidate": {
+          "loss": 0.5912589535997043,
+          "relative_RMS": 0.7689336470721673,
+          "output_relative_RMS": 0.7689336470721673,
+          "centered_output_relative_RMS": 0.7613252546211391,
+          "label_output_relative_RMS": 0.7558144126758793
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7573652704921555,
+          "centered_output_relative_RMS": 0.751438607747348,
+          "label_output_relative_RMS": 0.7446783378398396
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7689530725036963,
+          "centered_output_relative_RMS": 0.7613419891651633,
+          "label_output_relative_RMS": 0.7558301471103649
+        }
+      },
+      "full_scan_relative": 2.609071612323169e-07,
+      "recurrent_scan_relative": 1.345318359237586e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_self_oss_instruct_036.npz",
+        "bytes": 15721062,
+        "sha256": "9af58c1ec954f2420ebfb441fbe281df670d335fb9814eb69b0e2ca783aefe95"
+      }
+    },
+    {
+      "id": "broad_dev_smol_constraints_034",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "history": 188,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5000161307857429,
+          "relative_RMS": 0.7071181872825383,
+          "output_relative_RMS": 0.7071181872825384,
+          "centered_output_relative_RMS": 0.7021954618377297,
+          "label_output_relative_RMS": 0.6600859361209784
+        },
+        "candidate": {
+          "loss": 0.48713870834682976,
+          "relative_RMS": 0.6979532279077372,
+          "output_relative_RMS": 0.6979532279077372,
+          "centered_output_relative_RMS": 0.6955307154572243,
+          "label_output_relative_RMS": 0.6540301468558222
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6894259881840299,
+          "centered_output_relative_RMS": 0.6870200791587826,
+          "label_output_relative_RMS": 0.6471418860751282
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.6979339431763508,
+          "centered_output_relative_RMS": 0.6955117334450113,
+          "label_output_relative_RMS": 0.6539961177430919
+        }
+      },
+      "full_scan_relative": 2.1063367418954526e-07,
+      "recurrent_scan_relative": 9.038074532492935e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_constraints_034.npz",
+        "bytes": 8279654,
+        "sha256": "4a10fe0661e093c3efe1d1c7157ed5da3aeb455520350ea01919ad0091004f1a"
+      }
+    },
+    {
+      "id": "broad_dev_smol_constraints_035",
+      "split": "DEV",
+      "domain": "smol-constraints",
+      "history": 107,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5409001007731205,
+          "relative_RMS": 0.735459108838228,
+          "output_relative_RMS": 0.735459108838228,
+          "centered_output_relative_RMS": 0.726563843347519,
+          "label_output_relative_RMS": 0.7310761748879049
+        },
+        "candidate": {
+          "loss": 0.524313310498356,
+          "relative_RMS": 0.7240948214829022,
+          "output_relative_RMS": 0.7240948214829023,
+          "centered_output_relative_RMS": 0.717941520230423,
+          "label_output_relative_RMS": 0.7173461294974367
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7139786725010714,
+          "centered_output_relative_RMS": 0.7072450699375222,
+          "label_output_relative_RMS": 0.7069281026205348
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7242256016705926,
+          "centered_output_relative_RMS": 0.7180785987993797,
+          "label_output_relative_RMS": 0.7174028281158028
+        }
+      },
+      "full_scan_relative": 1.7105683685455633e-07,
+      "recurrent_scan_relative": 7.48337144419108e-08,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_constraints_035.npz",
+        "bytes": 4713062,
+        "sha256": "b044b1d23f09dad0d038622a2dea9a4fde298dea8ffe7fa3729139e550daaa74"
+      }
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_034",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "history": 1268,
+      "ideal": {
+        "baseline": {
+          "loss": 0.7709090178002196,
+          "relative_RMS": 0.8780142469232601,
+          "output_relative_RMS": 0.8780142469232601,
+          "centered_output_relative_RMS": 0.8545484913938126,
+          "label_output_relative_RMS": 0.8509207471792392
+        },
+        "candidate": {
+          "loss": 0.7358516833475618,
+          "relative_RMS": 0.8578179779810876,
+          "output_relative_RMS": 0.8578179779810876,
+          "centered_output_relative_RMS": 0.8399727705391712,
+          "label_output_relative_RMS": 0.8341683052103183
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.835713180786477,
+          "centered_output_relative_RMS": 0.8228924507996425,
+          "label_output_relative_RMS": 0.8181872501197608
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8578241084822679,
+          "centered_output_relative_RMS": 0.839976229617391,
+          "label_output_relative_RMS": 0.834200479118697
+        }
+      },
+      "full_scan_relative": 2.2781893395478576e-07,
+      "recurrent_scan_relative": 1.0130952827090648e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_magpie_ultra_034.npz",
+        "bytes": 55834214,
+        "sha256": "9d1fd3c895291fb3a15509e33f47873ae0f7a2cc3e6e7543d8737ccaf3168403"
+      }
+    },
+    {
+      "id": "broad_dev_smol_magpie_ultra_036",
+      "split": "DEV",
+      "domain": "smol-magpie-ultra",
+      "history": 1488,
+      "ideal": {
+        "baseline": {
+          "loss": 0.756910560709711,
+          "relative_RMS": 0.8700060693522264,
+          "output_relative_RMS": 0.8700060693522264,
+          "centered_output_relative_RMS": 0.8486932487196176,
+          "label_output_relative_RMS": 0.8368834143145328
+        },
+        "candidate": {
+          "loss": 0.7230105500519038,
+          "relative_RMS": 0.8503002705232451,
+          "output_relative_RMS": 0.8503002705232451,
+          "centered_output_relative_RMS": 0.8348019388941534,
+          "label_output_relative_RMS": 0.8295970995734828
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.8227165302863556,
+          "centered_output_relative_RMS": 0.8115241044894166,
+          "label_output_relative_RMS": 0.8253305755173952
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8503029394548496,
+          "centered_output_relative_RMS": 0.8348051662638969,
+          "label_output_relative_RMS": 0.829595217833483
+        }
+      },
+      "full_scan_relative": 2.5571748520913804e-07,
+      "recurrent_scan_relative": 1.0935754835811318e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_magpie_ultra_036.npz",
+        "bytes": 65521254,
+        "sha256": "18ae561125d06aca8eba1124e3a05351528457ae082e85cc6fbf6d48136d5b65"
+      }
+    },
+    {
+      "id": "broad_dev_smol_rewrite_032",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "history": 502,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5727558108464101,
+          "relative_RMS": 0.7568063232072061,
+          "output_relative_RMS": 0.7568063232072062,
+          "centered_output_relative_RMS": 0.759662778164412,
+          "label_output_relative_RMS": 0.736172372771213
+        },
+        "candidate": {
+          "loss": 0.5676899742299503,
+          "relative_RMS": 0.753452038440371,
+          "output_relative_RMS": 0.753452038440371,
+          "centered_output_relative_RMS": 0.7586963102940523,
+          "label_output_relative_RMS": 0.7363633184803585
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7385914562730856,
+          "centered_output_relative_RMS": 0.7423092839335466,
+          "label_output_relative_RMS": 0.7167673051375884
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7533947511961673,
+          "centered_output_relative_RMS": 0.7586381180600994,
+          "label_output_relative_RMS": 0.736280410110816
+        }
+      },
+      "full_scan_relative": 3.0444270086324086e-07,
+      "recurrent_scan_relative": 1.8781318490314877e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_rewrite_032.npz",
+        "bytes": 22105702,
+        "sha256": "3c98a89e564e33fb9d43a1100a7d3f254a6347bab437f956055ef9488b01e1da"
+      }
+    },
+    {
+      "id": "broad_dev_smol_rewrite_036",
+      "split": "DEV",
+      "domain": "smol-rewrite",
+      "history": 374,
+      "ideal": {
+        "baseline": {
+          "loss": 0.58769619746936,
+          "relative_RMS": 0.7666134602714461,
+          "output_relative_RMS": 0.7666134602714461,
+          "centered_output_relative_RMS": 0.7615953234284765,
+          "label_output_relative_RMS": 0.7913620065929458
+        },
+        "candidate": {
+          "loss": 0.5772939524466671,
+          "relative_RMS": 0.7597986262468939,
+          "output_relative_RMS": 0.7597986262468939,
+          "centered_output_relative_RMS": 0.7580973308560877,
+          "label_output_relative_RMS": 0.7837376952662024
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7503056782154349,
+          "centered_output_relative_RMS": 0.7484693759144778,
+          "label_output_relative_RMS": 0.7732564609927199
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7597893138458331,
+          "centered_output_relative_RMS": 0.7580914647556797,
+          "label_output_relative_RMS": 0.7837517286567516
+        }
+      },
+      "full_scan_relative": 2.2230173583440018e-07,
+      "recurrent_scan_relative": 1.0887591600614103e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_rewrite_036.npz",
+        "bytes": 16469606,
+        "sha256": "21d3b3c7ea896a13f7bb7137ccd29511612e23bcaf27616bec7aeec2bf332536"
+      }
+    },
+    {
+      "id": "broad_dev_smol_summarize_034",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "history": 243,
+      "ideal": {
+        "baseline": {
+          "loss": 0.5029712860880118,
+          "relative_RMS": 0.7092046856077671,
+          "output_relative_RMS": 0.7092046856077672,
+          "centered_output_relative_RMS": 0.717857893332533,
+          "label_output_relative_RMS": 0.7295501723258621
+        },
+        "candidate": {
+          "loss": 0.4888955753237532,
+          "relative_RMS": 0.6992106802128764,
+          "output_relative_RMS": 0.6992106802128764,
+          "centered_output_relative_RMS": 0.7104200325163411,
+          "label_output_relative_RMS": 0.7102978617186427
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.6786200881178087,
+          "centered_output_relative_RMS": 0.6878547613219833,
+          "label_output_relative_RMS": 0.6719691404287427
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.699227241471552,
+          "centered_output_relative_RMS": 0.7104386454995935,
+          "label_output_relative_RMS": 0.71034037437342
+        }
+      },
+      "full_scan_relative": 1.8865958578642605e-07,
+      "recurrent_scan_relative": 1.2483114748907388e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_summarize_034.npz",
+        "bytes": 10701414,
+        "sha256": "7f9fad2299faabb7a7aea6d0f55343baa035974e3edbb53b0513d91bd3134492"
+      }
+    },
+    {
+      "id": "broad_dev_smol_summarize_039",
+      "split": "DEV",
+      "domain": "smol-summarize",
+      "history": 980,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6333689672264301,
+          "relative_RMS": 0.795844813532406,
+          "output_relative_RMS": 0.795844813532406,
+          "centered_output_relative_RMS": 0.7944114951226424,
+          "label_output_relative_RMS": 0.816482290725384
+        },
+        "candidate": {
+          "loss": 0.5925811272284104,
+          "relative_RMS": 0.769792911910996,
+          "output_relative_RMS": 0.769792911910996,
+          "centered_output_relative_RMS": 0.7741745443951265,
+          "label_output_relative_RMS": 0.7932998963710012
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7286892304621946,
+          "centered_output_relative_RMS": 0.7346975108503976,
+          "label_output_relative_RMS": 0.758933621670919
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7697982248856263,
+          "centered_output_relative_RMS": 0.7741819852983255,
+          "label_output_relative_RMS": 0.7933393224146863
+        }
+      },
+      "full_scan_relative": 2.2305952158737325e-07,
+      "recurrent_scan_relative": 1.2696927208861424e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_smol_summarize_039.npz",
+        "bytes": 43152998,
+        "sha256": "3c9214c074d599308d34595f237d5f5b3f08f090f987c56d54ad1a7cd10f50b6"
+      }
+    },
+    {
+      "id": "broad_dev_systemchats_30k_034",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "history": 890,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6203900009969524,
+          "relative_RMS": 0.7876483993489433,
+          "output_relative_RMS": 0.7876483993489432,
+          "centered_output_relative_RMS": 0.7762455944404886,
+          "label_output_relative_RMS": 0.757580417536038
+        },
+        "candidate": {
+          "loss": 0.6103010592900217,
+          "relative_RMS": 0.7812176772769684,
+          "output_relative_RMS": 0.7812176772769684,
+          "centered_output_relative_RMS": 0.7730311450121852,
+          "label_output_relative_RMS": 0.7585403849325627
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.7669211026015148,
+          "centered_output_relative_RMS": 0.757988357816434,
+          "label_output_relative_RMS": 0.7434753637776207
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.7812088636573689,
+          "centered_output_relative_RMS": 0.7730216472532365,
+          "label_output_relative_RMS": 0.7585823561998348
+        }
+      },
+      "full_scan_relative": 2.2200887315794248e-07,
+      "recurrent_scan_relative": 1.1125250642638924e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_systemchats_30k_034.npz",
+        "bytes": 39190118,
+        "sha256": "7b1086d225bb7b9a37b9600f1c8c381de0dd8d77b668dbe79f17cb684fb5a0c3"
+      }
+    },
+    {
+      "id": "broad_dev_systemchats_30k_039",
+      "split": "DEV",
+      "domain": "systemchats-30k",
+      "history": 297,
+      "ideal": {
+        "baseline": {
+          "loss": 0.6942713992229315,
+          "relative_RMS": 0.8332294997315755,
+          "output_relative_RMS": 0.8332294997315755,
+          "centered_output_relative_RMS": 0.7990529206071348,
+          "label_output_relative_RMS": 0.8486594512977024
+        },
+        "candidate": {
+          "loss": 0.6788277726926422,
+          "relative_RMS": 0.8239100513360923,
+          "output_relative_RMS": 0.8239100513360922,
+          "centered_output_relative_RMS": 0.7946985180889354,
+          "label_output_relative_RMS": 0.8389515432795279
+        }
+      },
+      "machine": {
+        "full_source_denominator": {
+          "output_relative_RMS": 0.8180597991365244,
+          "centered_output_relative_RMS": 0.7885153308212252,
+          "label_output_relative_RMS": 0.8335711323076963
+        },
+        "reconstructed_denominator": {
+          "output_relative_RMS": 0.8239116789101621,
+          "centered_output_relative_RMS": 0.7946975295505565,
+          "label_output_relative_RMS": 0.8389542534699501
+        }
+      },
+      "full_scan_relative": 2.616959833105277e-07,
+      "recurrent_scan_relative": 1.3410985889309978e-07,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\whitened_recurrence_candidate_20261012\\broad_dev_systemchats_30k_039.npz",
+        "bytes": 13079142,
+        "sha256": "3e6f750dd2e07d038163c072820dc42bca72ba2d357bebfe0f21473a39cfde24"
+      }
+    }
+  ],
+  "ideal_aggregates": {
+    "FIT": {
+      "baseline": {
+        "loss": 0.5330049780156509,
+        "relative_RMS": 0.7280685698481109,
+        "output_relative_RMS": 0.7280685698481109,
+        "centered_output_relative_RMS": 0.7302533334215343,
+        "label_output_relative_RMS": 0.7245684893122859
+      },
+      "candidate": {
+        "loss": 0.5202519870168184,
+        "relative_RMS": 0.7195508637896911,
+        "output_relative_RMS": 0.7195508637896911,
+        "centered_output_relative_RMS": 0.72441504317376,
+        "label_output_relative_RMS": 0.7166045758623961
+      }
+    },
+    "DEV": {
+      "baseline": {
+        "loss": 0.6263932361933148,
+        "relative_RMS": 0.7892600287482359,
+        "output_relative_RMS": 0.7892600287482359,
+        "centered_output_relative_RMS": 0.7786512027883804,
+        "label_output_relative_RMS": 0.7833263590521167
+      },
+      "candidate": {
+        "loss": 0.6045211468365499,
+        "relative_RMS": 0.7756952242270895,
+        "output_relative_RMS": 0.7756952242270895,
+        "centered_output_relative_RMS": 0.7689655131384306,
+        "label_output_relative_RMS": 0.7707057949313709
+      }
+    }
+  },
+  "machine_aggregates": {
+    "full_source_denominator": {
+      "mean": 0.755550162902074,
+      "worst": 0.8619886924540312,
+      "centered_mean": 0.7500410252648386,
+      "worst_domain_mean": 0.8292148555364163
+    },
+    "reconstructed_denominator": {
+      "mean": 0.7757021001283141,
+      "worst": 0.9049054872547743,
+      "centered_mean": 0.7689731112263822,
+      "worst_domain_mean": 0.8540635239685588
+    }
+  },
+  "gates": {
+    "full_source_denominator": {
+      "mean": false,
+      "worst": false,
+      "centered": false,
+      "domain": false
+    },
+    "reconstructed_denominator": {
+      "mean": false,
+      "worst": false,
+      "centered": false,
+      "domain": false
+    }
+  },
+  "decision": "FIXED_LOCAL_CANDIDATE_COMPLETE_PENDING_AUDIT",
+  "before_after_hashes_exact": true,
+  "optimizer_updates": 0,
+  "new_packed_scans": 48,
+  "source_forwards": 0,
+  "native_calls": 0,
+  "quality_admission": false,
+  "speed_admission": false,
+  "output_bytes": 992868128,
+  "seconds": 68.80243120000068,
+  "OS_peak": 1336381440,
+  "GPU_allocated_peak": 775777792,
+  "GPU_reserved_peak": 1394606080,
+  "scope": "Fixed physical whitened alpha.1 FIT-only point,all48 source-injected histories/site12,ideal and actual newF32 scans/fullskip/source state256/gate/generator/conv retained. No new search/gradient/source forward/native/model/n/50 admission."
+}

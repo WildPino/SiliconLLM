@@ -1,6 +1,6 @@
 # Pretrained-to-native conditional-capacity method
 
-12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
+13 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
 [All-label exact categorical factors/gradient/source audit](BROAD_EXACT_RESIDUAL_CORRECTION_RESULT_20261012.md)
@@ -71,8 +71,17 @@ fine derivative qualification separate,original coarse flags false. Next
 now IMPLEMENTED/INDEPENDENTLY VERIFIED:all physical/white outputs initially
 identical~1e-14,dual autograd/chain/SPD/inverse/tangents/full matched-output curves.
 Whitened best FIT.520252 versusreference.530466 fromsame.533005 point;no capacity
-change,no installed update/new scan. Next [fixed candidate qualification](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED;exact stored FIT-only point/all48 held-out+actual scans.
+change,no installed update/new scan in that preflight.
+[Fixed candidate qualification](WHITENED_CANDIDATE_RESULT_20261012.md) now
+IMPLEMENTED/INDEPENDENTLY VERIFIED:all48 ideal outputs/new actual384 state256
+scans/all BF16 outputs, every CPU timestep. Fixed FIT alpha.1;no DEV reselection.
+All48 ideal losses improve,DEV actual mean.775702 versus.789261;all local quality
+gatesFAIL. Numerical transport verified,quality repair remains research.
+Next compose site23 accepted adaptive384 channel and dual96 state maps before
+native cost pilot. Scalar source head decay permits separate axis maps;
+nonlinear gate/full joint RMS/output quality must be measured after composition.
+Full source generator/gate/conv/skip costs remain;21.33x state reduction, if
+qualified, would not establish an equal whole-model speed gain.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

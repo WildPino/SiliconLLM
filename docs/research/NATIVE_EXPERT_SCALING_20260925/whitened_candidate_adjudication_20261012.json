@@ -1,0 +1,42 @@
+{
+  "schema": "WHITENED_CANDIDATE_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\whitened_candidate_audit.py",
+    "bytes": 10836,
+    "sha256": "208f45ca09f4eb076bc67bc23b77781e29af92806a088a9f7a32cd542b983091"
+  },
+  "freeze": "987a3ecba1fbff8f10ad5505c0e5bc2f04d23b6f",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\whitened_candidate_result_20261012.json",
+    "bytes": 79727,
+    "sha256": "9a7204dad01671d831eaaaa4604fd1b11540233100d22686ce61582fe4cf901c"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\whitened_candidate_result_20261012.terminal.json",
+    "bytes": 1326,
+    "sha256": "1bfb4dbecba4f3d2c4753992a7da1bb496dc5b023e0583009a23360fe47df2db"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\whitened_candidate_binding_20261012.json",
+    "bytes": 109755,
+    "sha256": "30ff219384078becf0b593f0862587a6bac2933280d8e76ed73ddeec7baed72d"
+  },
+  "case_count": 48,
+  "ideal_output_words_verified": 92352512,
+  "machine_output_words_verified": 92352512,
+  "full_sequential_scan_words_verified": 8658048,
+  "maximum": {
+    "ideal_baseline": 1.922028617425827e-15,
+    "scalar": 6.661338147750939e-16,
+    "ideal_candidate": 1.924342268857751e-15,
+    "projected_input": 1.20237853121716e-07,
+    "sequential_scan": 4.0368586854960027e-07,
+    "machine_full_source_denominator": 0.0,
+    "machine_reconstructed_denominator": 0.0
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 49.5076538000003,
+  "OS_peak": 875679744,
+  "scope": "Fixed FIT point parameters/no new selection,all48 ideal and actual sequential/BF16 output/metric/domain/gate/source qualification. Source injection retained;no native/model/n/50 admission."
+}

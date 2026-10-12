@@ -1,6 +1,10 @@
 # Fixed whitened candidate: held-out and actual compressed-scan qualification
 
-12 October2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+12 October2026 selection; completed13 October2026.
+**COMPLETE / INDEPENDENT_STORED_PASS / LOCAL QUALITY FAIL.**
+[Actual qualification](WHITENED_CANDIDATE_RESULT_20261012.md) supersedes the
+prospective status below. All48 cases/new scans qualified; next state/channel
+composition at site23, not another unchanged short gradient step.
 Whitening preflight and full independent audit COMPLETE/PASS. Exact physical
 initial model unchanged;matched first-order output-RMS directions compared.
 FIT-only minimum chooses whitened alpha.1,loss.520251987 from.533004978;

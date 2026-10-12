@@ -1,6 +1,14 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+**AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Fixed whitened candidate](WHITENED_CANDIDATE_RESULT_20261012.md) COMPLETE/full
+independent audit PASS:all48 cases,92,352,512 ideal+92,352,512 BF16 output words,
+8,658,048 scan values/every384x256 state timestep. BF16 differences0;
+all24 FIT/24 DEV ideal losses improve. FITloss.533005->.520252,
+DEVloss.626393->.604521;actual DEV ownnorm.789261->.775702,
+all local quality gatesFAIL. Fixed FIT alpha.1,no DEV reselection;captures86761/
+audit61517 CLOSED0,992.868MB on E. Next fixed site23 state/channel composition;
+no unchanged further gradient epoch or native/chatbot/n/50 admission.
 [Invariant whitening/matched-output preflight](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all92,352,512 physical/white output words,
 34,246,656 GY/dual autograd24FIT cases,45,662,208 J-direction words/1,572,864
@@ -9,7 +17,7 @@ model identical~1e-14. Referencebest.530466/alpha.03,whitebest.520252/alpha.1 fr
 .533005;2.393% versus.476% FIT decrease. Recommendation only,no update/newscan/
 DEV curve selection.90532/70170CLOSED0;1.419GB new arrays on E. Next
 [fixed candidate qualification](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND. No model/n/50 admission.
+subsequently COMPLETE above; local qualityFAIL. No model/n/50 admission.
 [Full finite recurrence gradient/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:24 autograd cases/all34,246,656 GY words,
 parameter gradients/Kronecker tangent/all FD/candidates/selection/parameter bits,

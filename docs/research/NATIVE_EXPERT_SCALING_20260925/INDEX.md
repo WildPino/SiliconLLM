@@ -1,6 +1,12 @@
 # Native expert scaling: research control index
 
-**12 October 2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+**13 October 2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Fixed whitened candidate](WHITENED_CANDIDATE_RESULT_20261012.md) COMPLETE/full
+independent audit PASS:all48 histories,92,352,512 ideal+92,352,512 BF16 output
+words and8,658,048 sequential scan values. All24 FIT/24 DEV ideal losses improve;
+DEV actual reconstructed mean.789261->.775702,all local gatesFAIL. Fixed FIT
+alpha.1/no DEV reselection. Next fixed site23 channel384/state96 composition,
+before a native cost pilot; no further unchanged gradient epoch selected.
 Newest [all-label probability-image oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md)
 COMPLETE/full audit PASS:4 checkpoints/35232 point rows/all577249896 native F32
 logits bit exact/source probabilities and quality verified. Native DEVcaseKL
@@ -63,6 +69,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Fixed whitened point](WHITENED_CANDIDATE_RESULT_20261012.md):independent full actual scan/output audit PASS, BF16 vector differences0. FITloss.533005->.520252, DEVloss.626393->.604521,all48 ideal cases improve. Actual DEV ownnorm mean.775702/worst.904905,source-den mean.755550;all local gatesFAIL. Numeric transport qualified,representation quality unresolved. Next compose accepted site23 channel/state reductions without refitting.
 - [Invariant whitening/matched directions](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md):all48 physical/white outputs/24 dual autograd cases/chain/inverse/SPD/projector/full FIT output-RMS-normalized curves audited PASS. Same representation/objective,white directionbest2.393% FIT reduction versusreference.476%. Fixed candidatewhitealpha.1 requires held-out/actual new scans;no useful model/n/50 admission.
 - [Full finite backward/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md): all34,246,656 GY words/24 CPU autograd cases,independent Sylvester tangent,all original/fine FD controls,ten FIT candidates,1,130,496 parameter-replay words/all48 actual scans qualified. One alpha.0003 reduces FIT.745%;all FIT/DEV cases improve slightly,local qualityFAIL. V1 algebra fault/V2 coarse failure and both partial-audit metadata faults retained;original coarse flags false. Next conditioning/coordinate qualification,no long repeated Euclidean epochs.
 - [Coupled finite sensitivity](COUPLED_RECURRENCE_SENSITIVITY_RESULT_20261012.md): all144 records/two layouts/full F64 finite/J outputs and independent radial/tangent/head-vector audit PASS (vector5.63e-14). At12 adaptive remainder.30044FIT/.33078DEV;paired/trace1.20791,radial head-energy effect.03134. FIT-only rule chooses coupled finite objective;no corrected-averaged-GM rerun.4.611GB immutable arrays on E with repo receipts;no new fit/model/native call.
@@ -99,14 +106,16 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind FIXED whitened candidate held-out/actual scan qualification**,
-[selected next](WHITENED_RECURRENCE_CANDIDATE_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
-Exact stored physical whitealpha.1 point from FIT-only recommendation;no new
-rank/coordinate/step selection or DEV alternative. All48 ideal baseline/candidate
-outputs,newactual384F32 scans and fullCPU sequence/BF16/metric/hash audit.
-Original local gates unchanged;full source generator/gate/conv/state256/skip
-retained. [Whitening preflight](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
-COMPLETE/INDEPENDENT_STORED_PASS,no installed update. The
+**Compose fixed site23 adaptive384 channel and dual96 state maps**, without
+refit/DEV selection. Full all48 actual scans and independent CPU state/output
+qualification required before native cost pilot. This tests composition, not
+automatic multiplication of separately measured quality gains. Full source
+generators/gates/conv/skip remain and must be included in any cost accounting.
+[Fixed whitened candidate](WHITENED_CANDIDATE_RESULT_20261012.md) COMPLETE/full
+audit PASS/local qualityFAIL; [closure](whitened_candidate_session_closure_20261012.json)
+records capture86761/audit61517 CLOSED0,992.868MB on E,no owned run live.
+[Whitening preflight](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md)
+COMPLETE/INDEPENDENT_STORED_PASS. The
 [finite backward/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md) remains
 COMPLETE/local qualityFAIL;not a causal chatbot.
 Site23 local accepted representation remains a native layout/cost candidate;
