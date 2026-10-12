@@ -1,0 +1,44 @@
+{
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_gpu_preflight.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_gpu_preflight_binding_20261012.json",
+    "--binding-sha",
+    "ce9c84996482b22272f885c9a51949adf12d61a76f21c1a140167ec5ccef1fc2",
+    "--freeze",
+    "d84a2de7719579d278d2d62eafec75fd975860d6",
+    "--directory",
+    "results/native_expert_scaling/native_head_gpu_preflight_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_gpu_preflight_result_20261012.json"
+  ],
+  "preparation": {
+    "seconds": 10.156,
+    "handle": 15890,
+    "exit_code": 0
+  },
+  "freeze": "d84a2de7719579d278d2d62eafec75fd975860d6",
+  "limits": {
+    "GPU_reserved_bytes": 2147483648,
+    "OS_bytes": 4294967296,
+    "seconds": 600,
+    "output_bytes": 67108864,
+    "GPU_allocated_bytes": 2147483648
+  },
+  "schema": "NATIVE_HEAD_GPU_PREFLIGHT_INVOCATION_V1",
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "MKL_NUM_THREADS": "6"
+  }
+}
