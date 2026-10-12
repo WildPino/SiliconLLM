@@ -1,0 +1,40 @@
+{
+  "schema": "EXACT_CATEGORICAL_RESIDUAL_REFINEMENT_INVOCATION_V1",
+  "source_protocol_freeze": "3c1fe431ae3d5e05249e5dddf497d1e3b1488457",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/exact_categorical_residual_refinement.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/exact_categorical_residual_refinement_binding_20261012.json",
+    "--binding-sha",
+    "b6319aa6b24fb5b2b2eb84fd8f30e74e97f45b2bdfecf2a8d4265549ab3be4fd",
+    "--freeze",
+    "3c1fe431ae3d5e05249e5dddf497d1e3b1488457",
+    "--directory",
+    "results/native_expert_scaling/exact_categorical_residual_refinement_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/exact_categorical_residual_refinement_result_20261012.json"
+  ],
+  "env": {
+    "MKL_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  },
+  "limits": {
+    "OS_bytes": 4294967296,
+    "seconds": 300,
+    "output_bytes": 1073741824
+  },
+  "preparation": {
+    "seconds": 4.827999999979511,
+    "exit_code": 0
+  }
+}
