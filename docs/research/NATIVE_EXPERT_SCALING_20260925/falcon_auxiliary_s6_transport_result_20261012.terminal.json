@@ -1,0 +1,57 @@
+{
+  "schema": "FALCON_AUXILIARY_S6_TRANSPORT_TERMINAL_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_auxiliary_s6_transport_binding_20261012.json",
+    "bytes": 4696,
+    "sha256": "e52b539f37193d402b685e57354689f1d935935dcce3d026b4ea9f59a4f2be71"
+  },
+  "freeze": "da0ac00f9b715fd84782f64812c5972257b0d9b0",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "benchmarks/native_expert_scaling/falcon_auxiliary_s6_transport.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_auxiliary_s6_transport_binding_20261012.json",
+    "--binding-sha",
+    "e52b539f37193d402b685e57354689f1d935935dcce3d026b4ea9f59a4f2be71",
+    "--freeze",
+    "da0ac00f9b715fd84782f64812c5972257b0d9b0",
+    "--directory",
+    "results/native_expert_scaling/falcon_auxiliary_s6_transport_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_auxiliary_s6_transport_result_20261012.json"
+  ],
+  "pid": 28992,
+  "creation_time": 1791785087.2569406,
+  "original_engine_modified": false,
+  "GPU_or_model_or_optimizer_calls": 0,
+  "process_isolation_admitted": false,
+  "timing_control_admitted": false,
+  "exit_code": 0,
+  "error": null,
+  "inputs_before_after_exact": true,
+  "result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_auxiliary_s6_transport_result_20261012.json",
+    "bytes": 7080,
+    "sha256": "8f9c20356ad3371f55d93a67ce45b49586ae624014a9c58e9f49889a3d1cc3f7"
+  },
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_auxiliary_s6_transport_20261012\\site00.npz",
+      "bytes": 3103422,
+      "sha256": "f0b889ac258f539c35b35e757f3bc59e0c0f2acb794bf56e947b2ec2189d3df0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_auxiliary_s6_transport_20261012\\site12.npz",
+      "bytes": 3103422,
+      "sha256": "973a1d69173a5946a8b1814a7bcb8dd5aee00a9ad4bdae178b82a63abaa62734"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_auxiliary_s6_transport_20261012\\site23.npz",
+      "bytes": 3103422,
+      "sha256": "4dd04a0c51fc279d7fe46012bd38f3efa031032465d0c09e945a83a1add5211f"
+    }
+  ],
+  "seconds": 9.875,
+  "OS_peak": 440008704
+}

@@ -1,0 +1,207 @@
+{
+  "schema": "FALCON_AUXILIARY_S6_TRANSPORT_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_auxiliary_s6_transport_binding_20261012.json",
+    "bytes": 4696,
+    "sha256": "e52b539f37193d402b685e57354689f1d935935dcce3d026b4ea9f59a4f2be71"
+  },
+  "freeze": "da0ac00f9b715fd84782f64812c5972257b0d9b0",
+  "decision": "EXACT_GENERATOR_LIFT_WITH_REQUIRED_POSTGATE_SCALAR_COMPONENT_QUALIFIED",
+  "source_input_D": 2048,
+  "primary_channels": 3072,
+  "auxiliary_channels": 608,
+  "lifted_DN": 3680,
+  "N": 256,
+  "DT": 48,
+  "input_case": "broad_fit_explore_instruct_rewriting_008",
+  "input_ids": [
+    17,
+    227,
+    3793,
+    709,
+    14018,
+    842,
+    11522,
+    1448,
+    1418,
+    2288,
+    3682,
+    612,
+    1947
+  ],
+  "input_origin": "First13 FIT token embeddings, normalized with each tested site gamma; these are injected operator inputs, NOT captured intermediate states at sites12/23.",
+  "records": [
+    {
+      "site": 0,
+      "positions": 13,
+      "components": {
+        "x": {
+          "relative_RMS": 1.9333376304387492e-16,
+          "max_abs": 7.105427357601002e-15
+        },
+        "B": {
+          "relative_RMS": 4.735118687983844e-16,
+          "max_abs": 1.0658141036401503e-14
+        },
+        "C": {
+          "relative_RMS": 2.2700470437555105e-16,
+          "max_abs": 8.881784197001252e-15
+        },
+        "delta": {
+          "relative_RMS": 1.1174912977139435e-16,
+          "max_abs": 8.881784197001252e-16
+        },
+        "gate": {
+          "relative_RMS": 4.46738853535871e-16,
+          "max_abs": 1.7763568394002505e-15
+        },
+        "y": {
+          "relative_RMS": 2.302332838553468e-16,
+          "max_abs": 3.410605131648481e-13
+        },
+        "denominator": {
+          "relative_RMS": 3.198202892267065e-16,
+          "max_abs": 1.0658141036401503e-14
+        },
+        "output": {
+          "relative_RMS": 6.748216697033652e-16,
+          "max_abs": 3.552713678800501e-14
+        }
+      },
+      "scalar_recurrence_relative": 1.9154450085918882e-16,
+      "omitted_negative_dt_pair_output_relative": 0.044133146507964134,
+      "omitted_postgate_norm_output_relative": 7.875342475179422,
+      "compiled_dense_coefficients": 25815200,
+      "compiled_F64_coefficient_bytes": 206521600,
+      "auxiliary_out_columns_exact_zero": true,
+      "auxiliary_gate_rows_exact_zero": true,
+      "numeric_gates": true
+    },
+    {
+      "site": 12,
+      "positions": 13,
+      "components": {
+        "x": {
+          "relative_RMS": 2.936343502603232e-16,
+          "max_abs": 7.993605777301127e-15
+        },
+        "B": {
+          "relative_RMS": 5.660274921115197e-16,
+          "max_abs": 1.4210854715202004e-14
+        },
+        "C": {
+          "relative_RMS": 2.7261949446146973e-16,
+          "max_abs": 7.105427357601002e-15
+        },
+        "delta": {
+          "relative_RMS": 1.723286701111103e-16,
+          "max_abs": 1.7763568394002505e-15
+        },
+        "gate": {
+          "relative_RMS": 5.495129409057591e-16,
+          "max_abs": 3.6637359812630166e-15
+        },
+        "y": {
+          "relative_RMS": 4.2479315862575107e-16,
+          "max_abs": 1.8189894035458565e-12
+        },
+        "denominator": {
+          "relative_RMS": 2.6779132103950397e-16,
+          "max_abs": 4.263256414560601e-14
+        },
+        "output": {
+          "relative_RMS": 9.356490767547236e-16,
+          "max_abs": 6.394884621840902e-14
+        }
+      },
+      "scalar_recurrence_relative": 6.228380243828033e-17,
+      "omitted_negative_dt_pair_output_relative": 0.09905016994188635,
+      "omitted_postgate_norm_output_relative": 63.90308838031126,
+      "compiled_dense_coefficients": 25815200,
+      "compiled_F64_coefficient_bytes": 206521600,
+      "auxiliary_out_columns_exact_zero": true,
+      "auxiliary_gate_rows_exact_zero": true,
+      "numeric_gates": true
+    },
+    {
+      "site": 23,
+      "positions": 13,
+      "components": {
+        "x": {
+          "relative_RMS": 1.5663524586158802e-16,
+          "max_abs": 1.7763568394002505e-14
+        },
+        "B": {
+          "relative_RMS": 9.050940886834832e-16,
+          "max_abs": 8.526512829121202e-14
+        },
+        "C": {
+          "relative_RMS": 2.713554027405449e-16,
+          "max_abs": 3.552713678800501e-14
+        },
+        "delta": {
+          "relative_RMS": 2.841548583398944e-16,
+          "max_abs": 6.661338147750939e-16
+        },
+        "gate": {
+          "relative_RMS": 5.662699761147887e-16,
+          "max_abs": 7.105427357601002e-15
+        },
+        "y": {
+          "relative_RMS": 1.9051385329433692e-16,
+          "max_abs": 2.8421709430404007e-13
+        },
+        "denominator": {
+          "relative_RMS": 1.0282138233992777e-16,
+          "max_abs": 3.552713678800501e-15
+        },
+        "output": {
+          "relative_RMS": 8.312880573518726e-16,
+          "max_abs": 1.1723955140041653e-13
+        }
+      },
+      "scalar_recurrence_relative": 0.0,
+      "omitted_negative_dt_pair_output_relative": 0.024938644663961063,
+      "omitted_postgate_norm_output_relative": 18.228457217903493,
+      "compiled_dense_coefficients": 25815200,
+      "compiled_F64_coefficient_bytes": 206521600,
+      "auxiliary_out_columns_exact_zero": true,
+      "auxiliary_gate_rows_exact_zero": true,
+      "numeric_gates": true
+    }
+  ],
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_auxiliary_s6_transport_20261012\\site00.npz",
+      "bytes": 3103422,
+      "sha256": "f0b889ac258f539c35b35e757f3bc59e0c0f2acb794bf56e947b2ec2189d3df0"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_auxiliary_s6_transport_20261012\\site12.npz",
+      "bytes": 3103422,
+      "sha256": "973a1d69173a5946a8b1814a7bcb8dd5aee00a9ad4bdae178b82a63abaa62734"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_auxiliary_s6_transport_20261012\\site23.npz",
+      "bytes": 3103422,
+      "sha256": "4dd04a0c51fc279d7fe46012bd38f3efa031032465d0c09e945a83a1add5211f"
+    }
+  ],
+  "source_active_states": 786432,
+  "naive_lift_states": 942080,
+  "original_wide_active_states": 98304,
+  "dense_linear_MAC_per_operator": 24847360,
+  "source_layer_count": 24,
+  "compact_original_layer_count": 6,
+  "extension": "Primary-only postgate RMS denominator; gamma folded into out_proj columns.",
+  "engine_extension_implemented": false,
+  "compact_generator_conversion": false,
+  "source_attention_FFN_depth_composition_transferred": false,
+  "useful_chatbot_admission": false,
+  "speed_admission": false,
+  "generality_admission": false,
+  "inputs_before_after_exact": true,
+  "seconds": 9.296000000002095,
+  "OS_peak": 440008704,
+  "scope": "Actual coefficients on39 injected F64 operator positions. Real-arithmetic lift; not BF16 source/cache parity, quantized original C parity, compact conversion, held-out chatbot behavior, training dose, or generic donor runtime adoption."
+}
