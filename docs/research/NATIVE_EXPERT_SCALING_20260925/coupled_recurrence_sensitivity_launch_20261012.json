@@ -1,0 +1,38 @@
+{
+  "limits": {
+    "OS_bytes": 6442450944,
+    "output_bytes": 6442450944,
+    "GPU_reserved_bytes": 5368709120,
+    "GPU_allocated_bytes": 4294967296,
+    "seconds": 1800
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  },
+  "preparation_seconds": 7.4433268,
+  "schema": "COUPLED_RECURRENCE_SENSITIVITY_LAUNCH_V1",
+  "freeze": "74bedd2fdc0633abf7ddf3f0af9f2d8707cd039c",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/coupled_recurrence_sensitivity.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/coupled_recurrence_sensitivity_binding_20261012.json",
+    "--binding-sha",
+    "59ad6f9a1712cd618433784e8b31e645e323ffd6cbcc69b0429997a9fa10a931",
+    "--freeze",
+    "74bedd2fdc0633abf7ddf3f0af9f2d8707cd039c",
+    "--directory",
+    "E:/SiliconLLM/results/native_expert_scaling/coupled_recurrence_sensitivity_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/coupled_recurrence_sensitivity_result_20261012.json"
+  ]
+}
