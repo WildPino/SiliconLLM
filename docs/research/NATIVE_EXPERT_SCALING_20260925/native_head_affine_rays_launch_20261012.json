@@ -1,0 +1,40 @@
+{
+  "schema": "NATIVE_HEAD_AFFINE_RAYS_INVOCATION_V1",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/native_head_affine_rays.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_affine_rays_binding_20261012.json",
+    "--binding-sha",
+    "f1966c68301769d94b3ebed80d61753700deeb0d1e90aa713289dc75dc862f55",
+    "--freeze",
+    "a52e69e297a058d24cf3c22e575984e5f9089000",
+    "--directory",
+    "results/native_expert_scaling/native_head_affine_rays_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/native_head_affine_rays_result_20261012.json"
+  ],
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "preparation": {
+    "seconds": 0.391,
+    "exit_code": 0
+  },
+  "freeze": "a52e69e297a058d24cf3c22e575984e5f9089000",
+  "env": {
+    "MKL_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  },
+  "limits": {
+    "output_bytes": 1073741824,
+    "seconds": 900,
+    "OS_bytes": 4294967296
+  }
+}
