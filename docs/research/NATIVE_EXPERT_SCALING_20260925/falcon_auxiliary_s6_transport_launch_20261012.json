@@ -1,0 +1,36 @@
+{
+  "schema": "FALCON_AUXILIARY_S6_TRANSPORT_INVOCATION_V1",
+  "source_protocol_freeze": "da0ac00f9b715fd84782f64812c5972257b0d9b0",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/falcon_auxiliary_s6_transport.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_auxiliary_s6_transport_binding_20261012.json",
+    "--binding-sha",
+    "e52b539f37193d402b685e57354689f1d935935dcce3d026b4ea9f59a4f2be71",
+    "--freeze",
+    "da0ac00f9b715fd84782f64812c5972257b0d9b0",
+    "--directory",
+    "results/native_expert_scaling/falcon_auxiliary_s6_transport_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_auxiliary_s6_transport_result_20261012.json"
+  ],
+  "env": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "limits": {
+    "seconds": 300,
+    "OS_bytes": 4294967296,
+    "output_bytes": 16777216
+  }
+}
