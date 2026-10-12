@@ -8,8 +8,14 @@ failed in last DEV point;V2 full identical replay1200s closes925s,original retai
 Selected alpha.0001 FIT improves3.10%,DEV caseKL2.963->2.934/IDs41.98%->41.09%;
 ALL quality gates FAIL. Compact score factors verified against direct source
 readings,no lossy vocab substitution. No long plain-gradient epoch selected.
-Next:exact orthonormal decoder/native scalar-norm head export;compile-only
-original C kernel preparation available,not numerically called/qualified.
+Latest: [exact QR gauge and native scalar-norm head](GAUGED_NATIVE_READOUT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS: all8808 labels,577249896 F32 logits bit
+exact against separate scalar FMA reference;zero factor-predictor argmax changes.
+Explicit scalar epsilon/normalized bias preserve the existing poor predictor;
+DEV case disagreement41.09%,all quality gates FAIL. Original interrupted capture
+retained;replay and audit CLOSED0. No causal core or useful throughput admission.
+Next: [actual native head domain feasibility](NATIVE_HEAD_DOMAIN_FEASIBILITY_NEXT_20261012.md),
+PROPOSED/UNIMPLEMENTED;price exact teacher moments/objective before optimization.
 Newest: [exact categorical factor/center gradient, separate convergence and correction](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 COMPLETE/full audits PASS. Explicit72 full RMS Jacobians/34 original full-V points
 verified;original13/14 finite flags keeps nonacceptance. Separate2e-7 study resolves
@@ -88,16 +94,17 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind exact orthonormal decoder/native readout export**,
-[prospective specification](ORTHONORMAL_DECODE_NATIVE_READOUT_NEXT_20261012.md)
-UNIMPLEMENTED source gauge/capture:V=QR,t=Rz+Q^T mu,orthogonal center residual;
-source map/probabilities unchanged,scalar targetepsilon/normalized reader bias.
-[Original C compile prerequisite](native_scalar_readout_preparation_20261012.json)
-AVAILABLE only:no DLL input/load/readout call or precision/speed admission.
-Bind selected fully audited point,derive/export actual F32 head/bias/code/norm,
-verify all8808 source labels and full coefficients/outputs against original
-factor predictor;price native component only. Generic skip not assumed identity.
-No long plain-gradient epoch. Causal core/ternary/useful n/same-artifact50 remain.
+**Price and qualify the current native head-domain diagnostic**,
+[prospective specification](NATIVE_HEAD_DOMAIN_FEASIBILITY_NEXT_20261012.md).
+Current fixed exported C/beta/epsilon defines a positive hemisphere;the convex
+half-ball supplies supporting lower bounds,while only spherical positive-last
+codes supply actual native feasible uppers. Compile exact source teacher moments
+and measure one loss/gradient before freezing an optimization algorithm/budget.
+No unchanged repeat of old paired255 descent,no long epoch selected. A feasible
+oracle code still needs causal SSM/SWA/ternary acquisition and useful-n/same50.
+[Native export closure](gauged_native_session_closure_20261012.json) records
+original83696 interrupted/exit unknown,replay47035 CLOSED0,audit81538 CLOSED0.
+No owned process live;no source model/GPU/T4/RESERVED or longalign touched.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient

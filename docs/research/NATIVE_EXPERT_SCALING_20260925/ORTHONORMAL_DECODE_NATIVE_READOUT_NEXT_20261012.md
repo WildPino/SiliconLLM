@@ -1,6 +1,9 @@
 # Exact orthonormal decoding and native scalar-norm readout: next record
 
-12 October2026. **PROPOSED/UNIMPLEMENTED/UNBOUND**. Follow broad exact residual
+12 October2026. **Historical prospective record; now COMPLETE**, see
+[actual result and full independent audit](GAUGED_NATIVE_READOUT_RESULT_20261012.md).
+The following text records the original proposal,not current execution status.
+Originally **PROPOSED/UNIMPLEMENTED/UNBOUND**. Follow broad exact residual
 coverage/gradient audit. No new epoch or native artifact yet. Selected to connect
 the actual trained-source factorization back to original engine.c normalization
 and head kernels before spending more optimization time on the poor fit.

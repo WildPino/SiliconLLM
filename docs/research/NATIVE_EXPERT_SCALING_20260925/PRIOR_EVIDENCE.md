@@ -6,16 +6,20 @@ COMPLETE:all4422 FIT/4386 DEV labels,equal-case weights;all11 full-V points/4857
 rows/4422 full Jacobians audited. V1 deadline failed900s;budget-only V2 closes
 925s/1200s,first fault retained. FIT-selected.0001 improves FIT3.10%,DEV~.97%,
 wrong1756/4386 versus1792;quality allFAIL. Compact source score factors qualified.
-Next exact QR decode gauge removes dense norm metric via scalar epsilon and
-normalized reader bias,not information improvement. Original C bodies compiled
-with named scalar extension;DLL not loaded/called yet. No long epoch selected.
+[Exact QR gauge/native scalar-norm export](GAUGED_NATIVE_READOUT_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:8808 labels/577249896 F32 logits bit exact
+with separate scalar reference,all source/gauge/coefficient maps verified.
+Scalar epsilon and normalized bias preserve same poor predictor,not information
+improvement;DEV case disagreement41.09%/all qualityFAIL. Original interruption
+retained;replay/audit CLOSED0. Next current-head half-ball feasibility/cost study
+PROPOSED/UNIMPLEMENTED;not unchanged old paired255 oracle experiment.
 [Exact categorical residual gradient/correction/full audits](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 COMPLETE:explicit72 RMS Jacobians/V/W/mu gradients/full34 points PASS. Original
 coarse joint finite gate false retained;separate2e-7 convergence qualifies same
 FIT-selected alpha.001,unchanged tolerance. FIT1.114->.645;DEV2.728->2.554,
 still26/72 wrong/all quality gates FAIL. Generic W^T V defect.328,not idempotent.
-Next broad4422 FIT/4386 DEV labels with equal-case exact loss before more dose;
-reproducible score factors need direct independent full-V verification first.
+Broad4422 FIT/4386 DEV labels and direct independent full-V verification are now
+complete as linked above. No long plain-gradient epoch selected.
 [Raw affine charts and exhaustive fixed decoder choice](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
 COMPLETE/full independent audits PASS/proxies FAIL. K4/16 at0/12/24,60 chart
 spectra/288 histories/544 affine offsets/maps;all2880 output candidates audited.

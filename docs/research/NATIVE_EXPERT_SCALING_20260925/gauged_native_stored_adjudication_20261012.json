@@ -1,0 +1,78 @@
+{
+  "schema": "GAUGED_NATIVE_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\gauged_native_stored_audit.py",
+    "bytes": 14111,
+    "sha256": "7575097a9419e0d41038a9e9eac87cdcebb68dd7b4010101efd4931b59bfd1a4"
+  },
+  "freeze": "5a909565d354b783cea2bd097bb699052f3734e0",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gauged_native_readout_result_replay1_20261012.json",
+    "bytes": 92638,
+    "sha256": "cccfed401c0a4b102092ec220713573a30b0b4ce6071404de38494f175c8cca6"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gauged_native_readout_result_replay1_20261012.terminal.json",
+    "bytes": 1536,
+    "sha256": "23bf2d756e794c7d08a5db5b50982ed2d61a0926713ae5920e249ed8686dca8b"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gauged_native_readout_binding_20261012.json",
+    "bytes": 316167,
+    "sha256": "b8c2664da38a61305fc13b915fdb8620fe59bc4f74adaa22782bccd7b70da540"
+  },
+  "reference_preparation": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gauged_native_reference_preparation_20261012.json",
+    "bytes": 4749,
+    "sha256": "d62a9398be839a875e50edad502d433d35959894d5785765b92a2b85b8375ad5"
+  },
+  "all_gauge_source_coefficients_F32_casts_and8808_source_code_probability_rows_checked": true,
+  "all577249896_native_scores_and2254848_normalized_state_words8808_inverse_words_bit_exact": true,
+  "independent_scalar_reference_calls": 139,
+  "split_checks": [
+    {
+      "split": "FIT",
+      "rows": 4422,
+      "all_native_bits_exact": true,
+      "numeric_gates": {
+        "orthogonal_max": true,
+        "gauge_vector_relative": true,
+        "gauge_radius_relative": true,
+        "gauge_score_sup_relative": true,
+        "gauge_source_KL_delta": true,
+        "gauge_argmax_changes": true,
+        "native_norm_relative": true,
+        "native_inverse_relative": true,
+        "native_score_absolute": true,
+        "native_to_factor_mean_KL": true,
+        "native_argmax_changes": true
+      }
+    },
+    {
+      "split": "DEV",
+      "rows": 4386,
+      "all_native_bits_exact": true,
+      "numeric_gates": {
+        "orthogonal_max": true,
+        "gauge_vector_relative": true,
+        "gauge_radius_relative": true,
+        "gauge_score_sup_relative": true,
+        "gauge_source_KL_delta": true,
+        "gauge_argmax_changes": true,
+        "native_norm_relative": true,
+        "native_inverse_relative": true,
+        "native_score_absolute": true,
+        "native_to_factor_mean_KL": true,
+        "native_argmax_changes": true
+      }
+    }
+  ],
+  "max_numeric_relative": 2.805795899478468e-12,
+  "max_scalar_delta": 7.80495668095682e-11,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "scientific_decision": "GAUGE_AND_NATIVE_PRECISION_PASS",
+  "seconds": 406.89100000000326,
+  "OS_peak": 3205128192,
+  "scope": "Independent scalar explicit FMA native output replay,actual source coefficients and direct2048-feature reference/old predictor probabilities. No producer DLL replay/QR refit/source model/GPU/T4. Preserves poor predictor;not whole-engine/source causality/quality/n/50 admission."
+}

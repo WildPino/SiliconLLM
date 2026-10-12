@@ -8,8 +8,14 @@ now IMPLEMENTED/LOCALLY VERIFIED on4422 FIT/4386 DEV,all48570 full-V point rows,
 all4422 explicit RMS Jacobians and parameter bits. Compact head/Z/radius factors
 replace unnecessary dense score archives;independent direct2048 source reading
 verifies all outputs/probabilities. One selected.0001 step improves FIT3.10%,DEV
-~.97%,all qualityFAIL. Exact source-to-scalar-norm QR gauge/native head export
-NEXT;original C compile prerequisite complete,no readout input/precision run yet.
+~.97%,all qualityFAIL. [QR gauge/native scalar-norm export](GAUGED_NATIVE_READOUT_RESULT_20261012.md)
+now IMPLEMENTED/LOCALLY VERIFIED on all8808 labels:577249896 actual F32 logits
+bit exact with independent scalar FMA reference;all gauge/source maps audited.
+Scalar epsilon includes perpendicular center energy;normalized head bias is an
+explicit engine extension. Zero predictor argmax changes;source-relative DEV
+case disagreement41.09%/all qualityFAIL. Teacher-injected code,not causal core.
+Next [fixed native head domain](NATIVE_HEAD_DOMAIN_FEASIBILITY_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED:qualify moments and cost before bounded oracle-code study.
 [Exact categorical V/W/center correction and independent Jacobian audit](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
 now IMPLEMENTED/LOCALLY VERIFIED. Actual source FIT72 final states/full trained
 head,complete RMS derivative and both center paths;full gradient/differences/
@@ -17,9 +23,9 @@ candidate parameter bits/selection/DEV audited. Original coarse nonacceptance
 retained;separate smaller-scale check qualifies one FIT-selected step. FIT improves
 42%,DEV mean6%,still26/72 wrong. Generic factors not idempotent (.328 defect).
 This is a teacher-injected readout fit,not deployed causal encoding or core repair.
-Next [broader existing supervised labels](BROAD_EXACT_RESIDUAL_CATEGORICAL_NEXT_20261012.md)
-UNIMPLEMENTED:equal-case full categorical gradient/one bounded ladder;compact
-score custody requires independent direct full-V arithmetic qualification.
+The [broader existing supervised labels](BROAD_EXACT_RESIDUAL_CATEGORICAL_NEXT_20261012.md)
+follow-up is now COMPLETE as linked above;compact score custody has independent
+direct full-V arithmetic qualification. Earlier prospective records are historical.
 [Conditional RAW affine charts and all fixed-decoder choices](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
 now COMPLETE/full audits PASS/quality proxies FAIL. FIT-only4/16 charts at0/12/24,
 <=256 active directions,required norm cross/bias/skip offsets are implemented and

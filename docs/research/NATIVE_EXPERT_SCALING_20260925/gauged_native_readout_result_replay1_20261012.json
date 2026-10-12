@@ -1,0 +1,2379 @@
+{
+  "schema": "GAUGED_NATIVE_READOUT_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\gauged_native_readout_binding_20261012.json",
+    "bytes": 316167,
+    "sha256": "b8c2664da38a61305fc13b915fdb8620fe59bc4f74adaa22782bccd7b70da540"
+  },
+  "freeze": "8318bfa72f69b2f635ea3f70ceb825aa3b391e8b",
+  "gauge": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\gauge.npz",
+    "bytes": 8935394,
+    "sha256": "575577d1e93727923d971eff1d4977bf6ca542e786d5866ae17b97169873f03d"
+  },
+  "head_F64": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\head_F64.npz",
+    "bytes": 134744574,
+    "sha256": "bbe1c107da471ff205ae1297a41f7d077a6d806503d8ddaa9e84a6d3a5ff1661"
+  },
+  "head_F32": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\head.f32",
+    "bytes": 67109888,
+    "sha256": "308187329a38303121892894418fdd7ba903ae7a4c70d019668ee23efbe4e1f3"
+  },
+  "bias_F32": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\bias.f32",
+    "bytes": 262148,
+    "sha256": "ef316320fa653103d55372b0321d5335631f7e7fd0d4ab1df0e6c39f640fd304"
+  },
+  "epsilon_F32": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\epsilon.f32",
+    "bytes": 4,
+    "sha256": "c5a21c96c101202939e0b5725a84efd8cd2bc1c220ddfbf798cae8f70d710c48"
+  },
+  "orthogonal_max": 1.3322676295501878e-15,
+  "QR_reconstruction_relative": 5.324277938840594e-16,
+  "perpendicular_defect_relative": 3.403754903028579e-17,
+  "epsilon": 0.00013196362901973118,
+  "epsilon_f32": 0.0001319636357948184,
+  "source_reencoding_identity_defect": 0.07007282042172558,
+  "splits": [
+    {
+      "split": "FIT",
+      "labels": 4422,
+      "codes": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\FIT_codes.npz",
+        "bytes": 18556514,
+        "sha256": "33240ea251bf0ef6512df52597a130711483185dfe5610267aecd40315e3d397"
+      },
+      "scores": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\FIT_scores.f32",
+        "bytes": 1159218456,
+        "sha256": "ccfd00283eaa45a167fc06135f5942b2a326da3e7f46bde92a38e55c3155a9b1"
+      },
+      "decoded_vector_relative": 1.0621281819379606e-15,
+      "code_relation_relative": 1.1409826155198938e-15,
+      "radius_relative": 2.652043612003985e-15,
+      "preservation_mean_KL": 7.944732552778147e-13,
+      "batches": [
+        {
+          "lo": 0,
+          "hi": 64,
+          "native_seconds": 0.375,
+          "gauge_score_sup_relative": 4.3705004809786374e-15,
+          "gauge_source_KL_delta": 8.881784197001252e-15,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.008195072097314e-07,
+          "native_inverse_relative": 7.46987042443692e-07,
+          "native_score_absolute": 5.160774128398771e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 64,
+          "hi": 128,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.215879420535636e-15,
+          "gauge_source_KL_delta": 1.1324274851176597e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.4974469995783106e-07,
+          "native_inverse_relative": 8.514168898798857e-07,
+          "native_score_absolute": 5.5018001319240284e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 128,
+          "hi": 192,
+          "native_seconds": 0.21899999998277053,
+          "gauge_score_sup_relative": 4.306268368768536e-15,
+          "gauge_source_KL_delta": 4.973799150320701e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0634922502553017e-07,
+          "native_inverse_relative": 5.079906503224763e-07,
+          "native_score_absolute": 4.3316496601164545e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 192,
+          "hi": 256,
+          "native_seconds": 0.28099999998812564,
+          "gauge_score_sup_relative": 3.9988752289555325e-15,
+          "gauge_source_KL_delta": 3.4638958368304884e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2178475398903702e-07,
+          "native_inverse_relative": 5.702258623063727e-07,
+          "native_score_absolute": 4.388821816547761e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 256,
+          "hi": 320,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.280886405937114e-15,
+          "gauge_source_KL_delta": 6.128431095930864e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9560084039365028e-07,
+          "native_inverse_relative": 4.249079645912701e-07,
+          "native_score_absolute": 4.491972460840543e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 320,
+          "hi": 384,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 3.831506702247609e-15,
+          "gauge_source_KL_delta": 1.887379141862766e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8868416798708042e-07,
+          "native_inverse_relative": 5.948344359296698e-07,
+          "native_score_absolute": 4.35474517743728e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 384,
+          "hi": 448,
+          "native_seconds": 0.21799999999348074,
+          "gauge_score_sup_relative": 3.647213933742901e-15,
+          "gauge_source_KL_delta": 2.2648549702353193e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8935539717446764e-07,
+          "native_inverse_relative": 4.046992420070339e-07,
+          "native_score_absolute": 4.149462361624501e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 448,
+          "hi": 512,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.321155533326243e-15,
+          "gauge_source_KL_delta": 2.220446049250313e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1914222114879076e-07,
+          "native_inverse_relative": 6.739629243579515e-07,
+          "native_score_absolute": 4.771205179565641e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 512,
+          "hi": 576,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.00226661014987e-15,
+          "gauge_source_KL_delta": 1.8207657603852567e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2384478976238474e-07,
+          "native_inverse_relative": 5.121168580313196e-07,
+          "native_score_absolute": 4.114703610014203e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 576,
+          "hi": 640,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 3.893022542393572e-15,
+          "gauge_source_KL_delta": 1.509903313490213e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9057673805444916e-07,
+          "native_inverse_relative": 5.123982669275051e-07,
+          "native_score_absolute": 4.3547443567604205e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 640,
+          "hi": 704,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.991755325101967e-15,
+          "gauge_source_KL_delta": 1.0880185641326534e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0661718516044923e-07,
+          "native_inverse_relative": 5.896702564012202e-07,
+          "native_score_absolute": 4.8313697774915454e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 704,
+          "hi": 768,
+          "native_seconds": 0.1879999999946449,
+          "gauge_score_sup_relative": 4.254078194883638e-15,
+          "gauge_source_KL_delta": 3.019806626980426e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8714893943346656e-07,
+          "native_inverse_relative": 4.1613266166251606e-07,
+          "native_score_absolute": 4.178233681528809e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 768,
+          "hi": 832,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.779226192944936e-15,
+          "gauge_source_KL_delta": 1.2434497875801753e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9061038521404568e-07,
+          "native_inverse_relative": 5.150029780409682e-07,
+          "native_score_absolute": 4.214715966810445e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 832,
+          "hi": 896,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.011645202938726e-15,
+          "gauge_source_KL_delta": 1.6431300764452317e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.292063405084357e-07,
+          "native_inverse_relative": 5.856436730011794e-07,
+          "native_score_absolute": 5.440663134237411e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 896,
+          "hi": 960,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.773780895917913e-15,
+          "gauge_source_KL_delta": 8.43769498715119e-15,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1643116015464165e-07,
+          "native_inverse_relative": 5.460003204005304e-07,
+          "native_score_absolute": 4.511716397104237e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 960,
+          "hi": 1024,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 3.8432382473226645e-15,
+          "gauge_source_KL_delta": 2.808864252301646e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.96073375316177e-07,
+          "native_inverse_relative": 5.824584086155937e-07,
+          "native_score_absolute": 4.494898030316108e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1024,
+          "hi": 1088,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 3.791282246415859e-15,
+          "gauge_source_KL_delta": 1.0658141036401503e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.6802610221298638e-07,
+          "native_inverse_relative": 5.574445081091284e-07,
+          "native_score_absolute": 4.4002531787157295e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1088,
+          "hi": 1152,
+          "native_seconds": 0.23499999998603016,
+          "gauge_score_sup_relative": 4.265320419564244e-15,
+          "gauge_source_KL_delta": 2.4980018054066022e-15,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0978142532606377e-07,
+          "native_inverse_relative": 5.402381018093649e-07,
+          "native_score_absolute": 4.559620040112122e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1152,
+          "hi": 1216,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.033165064998526e-15,
+          "gauge_source_KL_delta": 1.4210854715202004e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7672950475879022e-07,
+          "native_inverse_relative": 5.660969577547803e-07,
+          "native_score_absolute": 4.3003713578571023e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1216,
+          "hi": 1280,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.55103811621411e-15,
+          "gauge_source_KL_delta": 2.1316282072803006e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.3211888135901603e-07,
+          "native_inverse_relative": 5.769780011544157e-07,
+          "native_score_absolute": 4.764478207874845e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1280,
+          "hi": 1344,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.05106572807337e-15,
+          "gauge_source_KL_delta": 3.2862601528904634e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8012374034345385e-07,
+          "native_inverse_relative": 4.239743736089707e-07,
+          "native_score_absolute": 4.194235890508935e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1344,
+          "hi": 1408,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.7151523497794834e-15,
+          "gauge_source_KL_delta": 1.2434497875801753e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8623232586536873e-07,
+          "native_inverse_relative": 5.64744587983057e-07,
+          "native_score_absolute": 4.72762307595076e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1408,
+          "hi": 1472,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 3.8072388635004844e-15,
+          "gauge_source_KL_delta": 2.353672812205332e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.710398814658138e-07,
+          "native_inverse_relative": 4.436822601538992e-07,
+          "native_score_absolute": 4.9257454520557076e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1472,
+          "hi": 1536,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 4.102364818076898e-15,
+          "gauge_source_KL_delta": 2.4868995751603507e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0564003390864715e-07,
+          "native_inverse_relative": 5.939349536632221e-07,
+          "native_score_absolute": 4.524167488284547e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1536,
+          "hi": 1600,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.779273092863909e-15,
+          "gauge_source_KL_delta": 3.019806626980426e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9977857423527298e-07,
+          "native_inverse_relative": 4.1818395257742225e-07,
+          "native_score_absolute": 4.57824387822825e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1600,
+          "hi": 1664,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.2440284155091395e-15,
+          "gauge_source_KL_delta": 3.375077994860476e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7858029595759503e-07,
+          "native_inverse_relative": 3.986581131876221e-07,
+          "native_score_absolute": 4.214358887821845e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1664,
+          "hi": 1728,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.1185885052366464e-15,
+          "gauge_source_KL_delta": 2.220446049250313e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1995762243325862e-07,
+          "native_inverse_relative": 6.010681207202495e-07,
+          "native_score_absolute": 4.870412725921369e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1728,
+          "hi": 1792,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 4.140495992739467e-15,
+          "gauge_source_KL_delta": 2.8199664825478976e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8495776745799673e-07,
+          "native_inverse_relative": 7.081275301690226e-07,
+          "native_score_absolute": 4.951491207094705e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1792,
+          "hi": 1856,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.2065903768279535e-15,
+          "gauge_source_KL_delta": 2.4868995751603507e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0784013038369664e-07,
+          "native_inverse_relative": 4.69088878296553e-07,
+          "native_score_absolute": 4.268093355364044e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1856,
+          "hi": 1920,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.024034941668588e-15,
+          "gauge_source_KL_delta": 4.1744385725905886e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8763295151722908e-07,
+          "native_inverse_relative": 5.240105673820494e-07,
+          "native_score_absolute": 4.432334162629559e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1920,
+          "hi": 1984,
+          "native_seconds": 0.1870000000053551,
+          "gauge_score_sup_relative": 3.825207142241093e-15,
+          "gauge_source_KL_delta": 1.9984014443252818e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0477061160274263e-07,
+          "native_inverse_relative": 5.160409982662983e-07,
+          "native_score_absolute": 4.7008895037947696e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1984,
+          "hi": 2048,
+          "native_seconds": 0.23499999998603016,
+          "gauge_score_sup_relative": 4.3667378552662556e-15,
+          "gauge_source_KL_delta": 2.398081733190338e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9446755151531595e-07,
+          "native_inverse_relative": 3.6634568101323595e-07,
+          "native_score_absolute": 4.080164290343191e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2048,
+          "hi": 2112,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 4.017759437445485e-15,
+          "gauge_source_KL_delta": 2.708944180085382e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1889050692722273e-07,
+          "native_inverse_relative": 6.628932081031991e-07,
+          "native_score_absolute": 4.845169134171101e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2112,
+          "hi": 2176,
+          "native_seconds": 0.2340000000258442,
+          "gauge_score_sup_relative": 4.343531057313809e-15,
+          "gauge_source_KL_delta": 1.7319479184152442e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1209354067276168e-07,
+          "native_inverse_relative": 5.506884476202956e-07,
+          "native_score_absolute": 4.621397266646454e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2176,
+          "hi": 2240,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.894661343556516e-15,
+          "gauge_source_KL_delta": 2.7977620220553945e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1410054234587476e-07,
+          "native_inverse_relative": 6.087261372744734e-07,
+          "native_score_absolute": 4.7402558692510866e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2240,
+          "hi": 2304,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 4.43438196397967e-15,
+          "gauge_source_KL_delta": 2.3314683517128287e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9516197239190898e-07,
+          "native_inverse_relative": 6.373230105882755e-07,
+          "native_score_absolute": 4.837250442335517e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2304,
+          "hi": 2368,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.425071112516006e-15,
+          "gauge_source_KL_delta": 3.6637359812630166e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2562772940297583e-07,
+          "native_inverse_relative": 7.56926876177566e-07,
+          "native_score_absolute": 5.2302613518406815e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2368,
+          "hi": 2432,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.2452307146830385e-15,
+          "gauge_source_KL_delta": 1.3100631690576847e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8591826648248505e-07,
+          "native_inverse_relative": 5.189188594378891e-07,
+          "native_score_absolute": 4.444602659248176e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2432,
+          "hi": 2496,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 3.768848152466238e-15,
+          "gauge_source_KL_delta": 1.7763568394002505e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0204715033476243e-07,
+          "native_inverse_relative": 5.801433735630468e-07,
+          "native_score_absolute": 4.578769548402306e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2496,
+          "hi": 2560,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.034442443627063e-15,
+          "gauge_source_KL_delta": 1.7319479184152442e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.839821519778572e-07,
+          "native_inverse_relative": 4.968600876287255e-07,
+          "native_score_absolute": 4.236420359404747e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2560,
+          "hi": 2624,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 3.9576665266441874e-15,
+          "gauge_source_KL_delta": 3.197442310920451e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9309556967057713e-07,
+          "native_inverse_relative": 4.571879395065537e-07,
+          "native_score_absolute": 4.218701084823806e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2624,
+          "hi": 2688,
+          "native_seconds": 0.21899999998277053,
+          "gauge_score_sup_relative": 4.159032417091698e-15,
+          "gauge_source_KL_delta": 2.1316282072803006e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1775862840513907e-07,
+          "native_inverse_relative": 6.044195948184949e-07,
+          "native_score_absolute": 4.38061730179129e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2688,
+          "hi": 2752,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.7621326829700745e-15,
+          "gauge_source_KL_delta": 2.4868995751603507e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1999013616901554e-07,
+          "native_inverse_relative": 5.104913827214119e-07,
+          "native_score_absolute": 4.322428881664564e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2752,
+          "hi": 2816,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 3.715391511417906e-15,
+          "gauge_source_KL_delta": 2.1316282072803006e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.04806127991681e-07,
+          "native_inverse_relative": 5.272667757960647e-07,
+          "native_score_absolute": 3.9880858778928996e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2816,
+          "hi": 2880,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 3.772480212142697e-15,
+          "gauge_source_KL_delta": 3.108624468950438e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8441865299178308e-07,
+          "native_inverse_relative": 5.690114279754965e-07,
+          "native_score_absolute": 4.2958758662337004e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2880,
+          "hi": 2944,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 3.880614283584942e-15,
+          "gauge_source_KL_delta": 3.552713678800501e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0193245182394564e-07,
+          "native_inverse_relative": 7.438915954338654e-07,
+          "native_score_absolute": 4.764097189280392e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2944,
+          "hi": 3008,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.481977599339361e-15,
+          "gauge_source_KL_delta": 4.1744385725905886e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1834361055892983e-07,
+          "native_inverse_relative": 5.951251220714937e-07,
+          "native_score_absolute": 4.3157473449184636e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3008,
+          "hi": 3072,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.023804465485253e-15,
+          "gauge_source_KL_delta": 3.3306690738754696e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0182545828891665e-07,
+          "native_inverse_relative": 6.672340182589664e-07,
+          "native_score_absolute": 4.7620164615125304e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3072,
+          "hi": 3136,
+          "native_seconds": 0.21799999999348074,
+          "gauge_score_sup_relative": 3.692762920961261e-15,
+          "gauge_source_KL_delta": 4.440892098500626e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9714200850306863e-07,
+          "native_inverse_relative": 5.52158307187689e-07,
+          "native_score_absolute": 4.238729206917924e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3136,
+          "hi": 3200,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.107550532645065e-15,
+          "gauge_source_KL_delta": 2.842170943040401e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7534565811327143e-07,
+          "native_inverse_relative": 5.326295231533607e-07,
+          "native_score_absolute": 4.668451806111307e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3200,
+          "hi": 3264,
+          "native_seconds": 0.26500000001396984,
+          "gauge_score_sup_relative": 4.334120881927544e-15,
+          "gauge_source_KL_delta": 3.4638958368304884e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9648059634179816e-07,
+          "native_inverse_relative": 5.346142327722347e-07,
+          "native_score_absolute": 4.747995125597981e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3264,
+          "hi": 3328,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.46189626465488e-15,
+          "gauge_source_KL_delta": 3.019806626980426e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8600923835582266e-07,
+          "native_inverse_relative": 6.150574712870949e-07,
+          "native_score_absolute": 4.671238111342291e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3328,
+          "hi": 3392,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.996063522815443e-15,
+          "gauge_source_KL_delta": 2.5757174171303632e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.946660767745625e-07,
+          "native_inverse_relative": 6.160680270372865e-07,
+          "native_score_absolute": 4.4437280685372116e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3392,
+          "hi": 3456,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.875461747331445e-15,
+          "gauge_source_KL_delta": 1.5987211554602254e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0143875931126868e-07,
+          "native_inverse_relative": 6.25027710920989e-07,
+          "native_score_absolute": 4.705424100848177e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3456,
+          "hi": 3520,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.866534036755144e-15,
+          "gauge_source_KL_delta": 2.3092638912203256e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.395745053636087e-07,
+          "native_inverse_relative": 6.396747243009315e-07,
+          "native_score_absolute": 5.1391832371905366e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3520,
+          "hi": 3584,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.8269439543785716e-15,
+          "gauge_source_KL_delta": 3.9968028886505635e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0678375916119228e-07,
+          "native_inverse_relative": 6.034972388491155e-07,
+          "native_score_absolute": 4.339808670295042e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3584,
+          "hi": 3648,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 3.804132210327025e-15,
+          "gauge_source_KL_delta": 3.197442310920451e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0133252032690392e-07,
+          "native_inverse_relative": 5.096259962922289e-07,
+          "native_score_absolute": 4.470071231565953e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3648,
+          "hi": 3712,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.831368386490792e-15,
+          "gauge_source_KL_delta": 3.197442310920451e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.177115409779544e-07,
+          "native_inverse_relative": 6.547484264762815e-07,
+          "native_score_absolute": 4.336375020130845e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3712,
+          "hi": 3776,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.920090004208368e-15,
+          "gauge_source_KL_delta": 2.5757174171303632e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2258578139285958e-07,
+          "native_inverse_relative": 8.351856137789326e-07,
+          "native_score_absolute": 5.4086928066965356e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3776,
+          "hi": 3840,
+          "native_seconds": 0.28099999998812564,
+          "gauge_score_sup_relative": 3.732526335341559e-15,
+          "gauge_source_KL_delta": 3.552713678800501e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.537105123357387e-07,
+          "native_inverse_relative": 6.213537961929916e-07,
+          "native_score_absolute": 4.648704953069682e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3840,
+          "hi": 3904,
+          "native_seconds": 0.29699999999138527,
+          "gauge_score_sup_relative": 3.899937108187675e-15,
+          "gauge_source_KL_delta": 1.2434497875801753e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.932446451109991e-07,
+          "native_inverse_relative": 6.203536064841586e-07,
+          "native_score_absolute": 4.614415359327495e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3904,
+          "hi": 3968,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.048095157018241e-15,
+          "gauge_source_KL_delta": 2.398081733190338e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7531871537157192e-07,
+          "native_inverse_relative": 5.09303315965326e-07,
+          "native_score_absolute": 4.201655482205524e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3968,
+          "hi": 4032,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.930188222565407e-15,
+          "gauge_source_KL_delta": 2.6645352591003757e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0835340805182037e-07,
+          "native_inverse_relative": 5.235739042319665e-07,
+          "native_score_absolute": 4.311157059078141e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4032,
+          "hi": 4096,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.80630110005351e-15,
+          "gauge_source_KL_delta": 4.618527782440651e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9861091008374638e-07,
+          "native_inverse_relative": 4.959778834301432e-07,
+          "native_score_absolute": 4.400808072091422e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4096,
+          "hi": 4160,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 5.546418758749985e-15,
+          "gauge_source_KL_delta": 4.796163466380676e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7974926272369553e-07,
+          "native_inverse_relative": 5.270380215582904e-07,
+          "native_score_absolute": 4.031936218495957e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4160,
+          "hi": 4224,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.778153325598693e-15,
+          "gauge_source_KL_delta": 2.7533531010703882e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0029971990125603e-07,
+          "native_inverse_relative": 5.257801820590657e-07,
+          "native_score_absolute": 4.097548364256909e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4224,
+          "hi": 4288,
+          "native_seconds": 0.21899999998277053,
+          "gauge_score_sup_relative": 3.883379362846866e-15,
+          "gauge_source_KL_delta": 3.8191672047105385e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7302622325688889e-07,
+          "native_inverse_relative": 5.606993298545859e-07,
+          "native_score_absolute": 4.122047646859528e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4288,
+          "hi": 4352,
+          "native_seconds": 0.21799999999348074,
+          "gauge_score_sup_relative": 4.268542767501469e-15,
+          "gauge_source_KL_delta": 2.042810365310288e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0628858461280131e-07,
+          "native_inverse_relative": 5.900094204314144e-07,
+          "native_score_absolute": 4.3051482506939465e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4352,
+          "hi": 4416,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.861734953615227e-15,
+          "gauge_source_KL_delta": 3.241851231905457e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.909303954101481e-07,
+          "native_inverse_relative": 5.007333265805158e-07,
+          "native_score_absolute": 4.541185215956034e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4416,
+          "hi": 4422,
+          "native_seconds": 0.031000000017229468,
+          "gauge_score_sup_relative": 3.4052931628402996e-15,
+          "gauge_source_KL_delta": 1.0658141036401503e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.6433156960219494e-07,
+          "native_inverse_relative": 2.937380465528605e-07,
+          "native_score_absolute": 3.408520946379667e-05,
+          "native_argmax_changes": 0
+        }
+      ],
+      "numeric_gates": {
+        "orthogonal_max": true,
+        "gauge_vector_relative": true,
+        "gauge_radius_relative": true,
+        "gauge_score_sup_relative": true,
+        "gauge_source_KL_delta": true,
+        "gauge_argmax_changes": true,
+        "native_norm_relative": true,
+        "native_inverse_relative": true,
+        "native_score_absolute": true,
+        "native_to_factor_mean_KL": true,
+        "native_argmax_changes": true
+      },
+      "quality": {
+        "summary": {
+          "case_mean_KL": 0.9971403105062593,
+          "case_mean_disagreement": 0.2260933596303202,
+          "label_mean_KL": 1.1483106124394522,
+          "label_disagreement": 0.24853007688828585,
+          "worst_label_KL": 14.678964033657268,
+          "worst_case_KL": 2.1887616250713706
+        },
+        "cases": [
+          {
+            "id": "broad_fit_apigen_80k_002",
+            "domain": "apigen-80k",
+            "labels": 33,
+            "KL": 0.08914098034484154,
+            "disagreement_rate": 0.030303030303030304,
+            "worst_KL": 2.879825674829298
+          },
+          {
+            "id": "broad_fit_apigen_80k_023",
+            "domain": "apigen-80k",
+            "labels": 118,
+            "KL": 0.07579975054326663,
+            "disagreement_rate": 0.00847457627118644,
+            "worst_KL": 3.053460448446742
+          },
+          {
+            "id": "broad_fit_everyday_conversations_002",
+            "domain": "everyday-conversations",
+            "labels": 200,
+            "KL": 1.3909594191398549,
+            "disagreement_rate": 0.36,
+            "worst_KL": 8.55149248299758
+          },
+          {
+            "id": "broad_fit_everyday_conversations_010",
+            "domain": "everyday-conversations",
+            "labels": 174,
+            "KL": 1.2399301033533632,
+            "disagreement_rate": 0.26436781609195403,
+            "worst_KL": 10.38203958884211
+          },
+          {
+            "id": "broad_fit_explore_instruct_rewriting_008",
+            "domain": "explore-instruct-rewriting",
+            "labels": 18,
+            "KL": 0.07319973334096638,
+            "disagreement_rate": 0.0,
+            "worst_KL": 0.6438223148008151
+          },
+          {
+            "id": "broad_fit_explore_instruct_rewriting_009",
+            "domain": "explore-instruct-rewriting",
+            "labels": 13,
+            "KL": 0.09052074810129508,
+            "disagreement_rate": 0.07692307692307693,
+            "worst_KL": 0.3750406060255043
+          },
+          {
+            "id": "broad_fit_metamathqa_50k_015",
+            "domain": "metamathqa-50k",
+            "labels": 155,
+            "KL": 0.3088973088299352,
+            "disagreement_rate": 0.10967741935483871,
+            "worst_KL": 7.503830771764793
+          },
+          {
+            "id": "broad_fit_metamathqa_50k_023",
+            "domain": "metamathqa-50k",
+            "labels": 256,
+            "KL": 0.35608197187491836,
+            "disagreement_rate": 0.07421875,
+            "worst_KL": 10.492762048695813
+          },
+          {
+            "id": "broad_fit_numina_cot_100k_015",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "KL": 0.40542197088496124,
+            "disagreement_rate": 0.0625,
+            "worst_KL": 9.350143699250374
+          },
+          {
+            "id": "broad_fit_numina_cot_100k_016",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "KL": 0.6572560058451957,
+            "disagreement_rate": 0.1640625,
+            "worst_KL": 13.329291718718883
+          },
+          {
+            "id": "broad_fit_openhermes_100k_004",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "KL": 0.5443677610640117,
+            "disagreement_rate": 0.15234375,
+            "worst_KL": 5.705581303340943
+          },
+          {
+            "id": "broad_fit_openhermes_100k_028",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "KL": 0.6019316292271643,
+            "disagreement_rate": 0.12109375,
+            "worst_KL": 7.270584068120701
+          },
+          {
+            "id": "broad_fit_self_oss_instruct_006",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "KL": 0.9446497102346427,
+            "disagreement_rate": 0.18359375,
+            "worst_KL": 13.048480657796503
+          },
+          {
+            "id": "broad_fit_self_oss_instruct_012",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "KL": 0.6058921101220748,
+            "disagreement_rate": 0.16015625,
+            "worst_KL": 7.906027762438385
+          },
+          {
+            "id": "broad_fit_smol_constraints_005",
+            "domain": "smol-constraints",
+            "labels": 180,
+            "KL": 1.1677211904613551,
+            "disagreement_rate": 0.2777777777777778,
+            "worst_KL": 7.8486056267767825
+          },
+          {
+            "id": "broad_fit_smol_constraints_021",
+            "domain": "smol-constraints",
+            "labels": 189,
+            "KL": 1.5661942208105963,
+            "disagreement_rate": 0.3544973544973545,
+            "worst_KL": 8.387316956960492
+          },
+          {
+            "id": "broad_fit_smol_magpie_ultra_000",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "KL": 2.1887616250713706,
+            "disagreement_rate": 0.36328125,
+            "worst_KL": 13.051084309732852
+          },
+          {
+            "id": "broad_fit_smol_magpie_ultra_022",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "KL": 2.0854941934705566,
+            "disagreement_rate": 0.48046875,
+            "worst_KL": 11.679097998311207
+          },
+          {
+            "id": "broad_fit_smol_rewrite_004",
+            "domain": "smol-rewrite",
+            "labels": 90,
+            "KL": 0.965890373430665,
+            "disagreement_rate": 0.3111111111111111,
+            "worst_KL": 7.074288493661518
+          },
+          {
+            "id": "broad_fit_smol_rewrite_015",
+            "domain": "smol-rewrite",
+            "labels": 256,
+            "KL": 2.060352574852798,
+            "disagreement_rate": 0.453125,
+            "worst_KL": 10.344552804197686
+          },
+          {
+            "id": "broad_fit_smol_summarize_003",
+            "domain": "smol-summarize",
+            "labels": 119,
+            "KL": 1.649644098890615,
+            "disagreement_rate": 0.31932773109243695,
+            "worst_KL": 11.107575056428107
+          },
+          {
+            "id": "broad_fit_smol_summarize_024",
+            "domain": "smol-summarize",
+            "labels": 61,
+            "KL": 0.9643905952925926,
+            "disagreement_rate": 0.36065573770491804,
+            "worst_KL": 6.33183766016276
+          },
+          {
+            "id": "broad_fit_systemchats_30k_010",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "KL": 1.881876020576944,
+            "disagreement_rate": 0.32421875,
+            "worst_KL": 14.432719810934799
+          },
+          {
+            "id": "broad_fit_systemchats_30k_024",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "KL": 2.016993356386238,
+            "disagreement_rate": 0.4140625,
+            "worst_KL": 14.678964033657268
+          }
+        ],
+        "domains": [
+          {
+            "domain": "apigen-80k",
+            "KL": 0.08247036544405409,
+            "disagreement_rate": 0.01938880328710837
+          },
+          {
+            "domain": "everyday-conversations",
+            "KL": 1.3154447612466091,
+            "disagreement_rate": 0.312183908045977
+          },
+          {
+            "domain": "explore-instruct-rewriting",
+            "KL": 0.08186024072113074,
+            "disagreement_rate": 0.038461538461538464
+          },
+          {
+            "domain": "metamathqa-50k",
+            "KL": 0.3324896403524268,
+            "disagreement_rate": 0.09194808467741936
+          },
+          {
+            "domain": "numina-cot-100k",
+            "KL": 0.5313389883650785,
+            "disagreement_rate": 0.11328125
+          },
+          {
+            "domain": "openhermes-100k",
+            "KL": 0.573149695145588,
+            "disagreement_rate": 0.13671875
+          },
+          {
+            "domain": "self-oss-instruct",
+            "KL": 0.7752709101783588,
+            "disagreement_rate": 0.171875
+          },
+          {
+            "domain": "smol-constraints",
+            "KL": 1.3669577056359756,
+            "disagreement_rate": 0.31613756613756616
+          },
+          {
+            "domain": "smol-magpie-ultra",
+            "KL": 2.137127909270964,
+            "disagreement_rate": 0.421875
+          },
+          {
+            "domain": "smol-rewrite",
+            "KL": 1.5131214741417316,
+            "disagreement_rate": 0.38211805555555556
+          },
+          {
+            "domain": "smol-summarize",
+            "KL": 1.3070173470916038,
+            "disagreement_rate": 0.33999173439867747
+          },
+          {
+            "domain": "systemchats-30k",
+            "KL": 1.949434688481591,
+            "disagreement_rate": 0.369140625
+          }
+        ],
+        "quality_gates": {
+          "case_mean_KL": false,
+          "case_mean_disagreement": false,
+          "worst_label_KL": false,
+          "every_case_KL": false,
+          "every_case_disagreement": false,
+          "domains": false
+        }
+      }
+    },
+    {
+      "split": "DEV",
+      "labels": 4386,
+      "codes": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\DEV_codes.npz",
+        "bytes": 18405458,
+        "sha256": "1823584a6aa37f51b84c3d365a40f33166508eab9cb1c0082f2e1829f574b693"
+      },
+      "scores": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\DEV_scores.f32",
+        "bytes": 1149781128,
+        "sha256": "dae81d16d0938079b02edf15c594957c22e26edd4ef7422465f085a056ca5790"
+      },
+      "decoded_vector_relative": 1.0820440814515494e-15,
+      "code_relation_relative": 1.1338367126486223e-15,
+      "radius_relative": 2.8812791159562046e-15,
+      "preservation_mean_KL": 1.1893625646069542e-12,
+      "batches": [
+        {
+          "lo": 0,
+          "hi": 64,
+          "native_seconds": 0.264999999984866,
+          "gauge_score_sup_relative": 4.501187396329238e-15,
+          "gauge_source_KL_delta": 3.907985046680551e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.920848471921516e-07,
+          "native_inverse_relative": 4.1454729937662194e-07,
+          "native_score_absolute": 4.27857445401969e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 64,
+          "hi": 128,
+          "native_seconds": 0.29699999999138527,
+          "gauge_score_sup_relative": 4.6034769408381665e-15,
+          "gauge_source_KL_delta": 4.263256414560601e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.999147683549654e-07,
+          "native_inverse_relative": 4.973143366004962e-07,
+          "native_score_absolute": 4.6952950725653864e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 128,
+          "hi": 192,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 4.381634506509104e-15,
+          "gauge_source_KL_delta": 3.019806626980426e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9905454955850767e-07,
+          "native_inverse_relative": 7.72468232490553e-07,
+          "native_score_absolute": 5.3351707251181324e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 192,
+          "hi": 256,
+          "native_seconds": 0.21799999999348074,
+          "gauge_score_sup_relative": 4.1811924718240846e-15,
+          "gauge_source_KL_delta": 4.440892098500626e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0131619219635283e-07,
+          "native_inverse_relative": 4.859461614215022e-07,
+          "native_score_absolute": 4.290178570443004e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 256,
+          "hi": 320,
+          "native_seconds": 0.34399999998277053,
+          "gauge_score_sup_relative": 3.8754214773126285e-15,
+          "gauge_source_KL_delta": 3.552713678800501e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.479733491773621e-07,
+          "native_inverse_relative": 6.112320281026484e-07,
+          "native_score_absolute": 4.785083341118934e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 320,
+          "hi": 384,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 4.192593401118758e-15,
+          "gauge_source_KL_delta": 4.973799150320701e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1342392495433038e-07,
+          "native_inverse_relative": 7.702132820419649e-07,
+          "native_score_absolute": 4.777179053050418e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 384,
+          "hi": 448,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.1850073783647144e-15,
+          "gauge_source_KL_delta": 5.773159728050814e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8034500756786525e-07,
+          "native_inverse_relative": 4.3004331340412705e-07,
+          "native_score_absolute": 4.51987997962533e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 448,
+          "hi": 512,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.627569024335959e-15,
+          "gauge_source_KL_delta": 2.7533531010703882e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1197946079727852e-07,
+          "native_inverse_relative": 6.820938214247008e-07,
+          "native_score_absolute": 4.4570085464101794e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 512,
+          "hi": 576,
+          "native_seconds": 0.23499999998603016,
+          "gauge_score_sup_relative": 4.050944121631351e-15,
+          "gauge_source_KL_delta": 3.730349362740526e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9538754847890102e-07,
+          "native_inverse_relative": 3.928883122172877e-07,
+          "native_score_absolute": 4.1821541543640706e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 576,
+          "hi": 640,
+          "native_seconds": 0.2340000000258442,
+          "gauge_score_sup_relative": 3.784746241468157e-15,
+          "gauge_source_KL_delta": 3.375077994860476e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2016910293951504e-07,
+          "native_inverse_relative": 5.511735086116687e-07,
+          "native_score_absolute": 4.354506782533463e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 640,
+          "hi": 704,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 3.779440345194537e-15,
+          "gauge_source_KL_delta": 4.884981308350689e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.856172386760685e-07,
+          "native_inverse_relative": 5.702292639186979e-07,
+          "native_score_absolute": 4.2902376840459056e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 704,
+          "hi": 768,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.118076196792771e-15,
+          "gauge_source_KL_delta": 3.4638958368304884e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7349459268744755e-07,
+          "native_inverse_relative": 4.3949715511359955e-07,
+          "native_score_absolute": 4.096318055246684e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 768,
+          "hi": 832,
+          "native_seconds": 0.26600000000325963,
+          "gauge_score_sup_relative": 4.112676267109857e-15,
+          "gauge_source_KL_delta": 3.68594044175552e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9386803214295212e-07,
+          "native_inverse_relative": 6.43021362378704e-07,
+          "native_score_absolute": 4.511676743845783e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 832,
+          "hi": 896,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 3.891910058484561e-15,
+          "gauge_source_KL_delta": 3.108624468950438e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7694201024666455e-07,
+          "native_inverse_relative": 5.346083383761524e-07,
+          "native_score_absolute": 4.2660869823407666e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 896,
+          "hi": 960,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.239330221241754e-15,
+          "gauge_source_KL_delta": 2.842170943040401e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9561134581371644e-07,
+          "native_inverse_relative": 4.525248316067376e-07,
+          "native_score_absolute": 4.466551749260361e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 960,
+          "hi": 1024,
+          "native_seconds": 0.21899999998277053,
+          "gauge_score_sup_relative": 3.8714225327350656e-15,
+          "gauge_source_KL_delta": 2.6201263381153694e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.054387761887107e-07,
+          "native_inverse_relative": 5.940109211177713e-07,
+          "native_score_absolute": 4.4853344462580935e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1024,
+          "hi": 1088,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.099205602223823e-15,
+          "gauge_source_KL_delta": 3.907985046680551e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9124327812711473e-07,
+          "native_inverse_relative": 5.042534709787105e-07,
+          "native_score_absolute": 4.349460856900578e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1088,
+          "hi": 1152,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 4.209286817434202e-15,
+          "gauge_source_KL_delta": 3.108624468950438e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0098588842560403e-07,
+          "native_inverse_relative": 7.486565544168045e-07,
+          "native_score_absolute": 5.5970290233631204e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1152,
+          "hi": 1216,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.013683798834138e-15,
+          "gauge_source_KL_delta": 2.6645352591003757e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.3335426253041228e-07,
+          "native_inverse_relative": 6.76613153838268e-07,
+          "native_score_absolute": 4.6964190580922605e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1216,
+          "hi": 1280,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.953209356853201e-15,
+          "gauge_source_KL_delta": 4.973799150320701e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.868739269588415e-07,
+          "native_inverse_relative": 4.5349623334356437e-07,
+          "native_score_absolute": 4.461807974109888e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1280,
+          "hi": 1344,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.999366507326666e-15,
+          "gauge_source_KL_delta": 2.842170943040401e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0280819138411994e-07,
+          "native_inverse_relative": 4.731131174606773e-07,
+          "native_score_absolute": 4.179136206516887e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1344,
+          "hi": 1408,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 4.773483753036093e-15,
+          "gauge_source_KL_delta": 3.5083047578154947e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.12886623380685e-07,
+          "native_inverse_relative": 5.753459044743892e-07,
+          "native_score_absolute": 5.0960714034431476e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1408,
+          "hi": 1472,
+          "native_seconds": 0.235000000015134,
+          "gauge_score_sup_relative": 4.3078639340956765e-15,
+          "gauge_source_KL_delta": 2.220446049250313e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.872655365940687e-07,
+          "native_inverse_relative": 4.757684965994713e-07,
+          "native_score_absolute": 4.638809505763675e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1472,
+          "hi": 1536,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.178381609993378e-15,
+          "gauge_source_KL_delta": 1.4210854715202004e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7696641110700523e-07,
+          "native_inverse_relative": 4.983160029059519e-07,
+          "native_score_absolute": 4.2078363691189224e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1536,
+          "hi": 1600,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.312198220932912e-15,
+          "gauge_source_KL_delta": 2.4868995751603507e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8681472666998705e-07,
+          "native_inverse_relative": 4.477807984404336e-07,
+          "native_score_absolute": 4.1440992546881716e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1600,
+          "hi": 1664,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 4.435761539154294e-15,
+          "gauge_source_KL_delta": 3.197442310920451e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2236332422283576e-07,
+          "native_inverse_relative": 5.580499051749399e-07,
+          "native_score_absolute": 4.614047023920875e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1664,
+          "hi": 1728,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 5.552158842486686e-15,
+          "gauge_source_KL_delta": 4.796163466380676e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.866516519374133e-07,
+          "native_inverse_relative": 5.046508173567332e-07,
+          "native_score_absolute": 4.1353589956827363e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1728,
+          "hi": 1792,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 3.796172433934436e-15,
+          "gauge_source_KL_delta": 3.419486915845482e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9003731554279817e-07,
+          "native_inverse_relative": 4.586792781147153e-07,
+          "native_score_absolute": 4.4010875910771574e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1792,
+          "hi": 1856,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 5.918698974366202e-15,
+          "gauge_source_KL_delta": 4.973799150320701e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1040725048025952e-07,
+          "native_inverse_relative": 5.605469344249769e-07,
+          "native_score_absolute": 4.231848778601943e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1856,
+          "hi": 1920,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 5.757479935575085e-15,
+          "gauge_source_KL_delta": 3.907985046680551e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2584650103646243e-07,
+          "native_inverse_relative": 6.317515874876278e-07,
+          "native_score_absolute": 4.946001334360517e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1920,
+          "hi": 1984,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 3.764294679124864e-15,
+          "gauge_source_KL_delta": 3.197442310920451e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.902672423912413e-07,
+          "native_inverse_relative": 5.13945317082154e-07,
+          "native_score_absolute": 4.21047233913896e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 1984,
+          "hi": 2048,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.807778576906066e-15,
+          "gauge_source_KL_delta": 4.263256414560601e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2130099088817788e-07,
+          "native_inverse_relative": 7.150184364590473e-07,
+          "native_score_absolute": 4.828053030081492e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2048,
+          "hi": 2112,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 4.023952355339691e-15,
+          "gauge_source_KL_delta": 4.085620730620576e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.08573532998371e-07,
+          "native_inverse_relative": 5.389326145355255e-07,
+          "native_score_absolute": 4.3924303298581435e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2112,
+          "hi": 2176,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.793419067983e-15,
+          "gauge_source_KL_delta": 3.019806626980426e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.212079678430434e-07,
+          "native_inverse_relative": 5.281288519842775e-07,
+          "native_score_absolute": 4.386160636471459e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2176,
+          "hi": 2240,
+          "native_seconds": 0.20399999999790452,
+          "gauge_score_sup_relative": 3.9503837899689735e-15,
+          "gauge_source_KL_delta": 3.6415315207705135e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.446069152336868e-07,
+          "native_inverse_relative": 6.945141728387227e-07,
+          "native_score_absolute": 4.948115869041203e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2240,
+          "hi": 2304,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.34101381941488e-15,
+          "gauge_source_KL_delta": 2.842170943040401e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.503639519571579e-07,
+          "native_inverse_relative": 7.267252410958491e-07,
+          "native_score_absolute": 5.208633507436389e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2304,
+          "hi": 2368,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.195243884888267e-15,
+          "gauge_source_KL_delta": 4.440892098500626e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9371163167689904e-07,
+          "native_inverse_relative": 6.098213336525049e-07,
+          "native_score_absolute": 4.776554794716503e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2368,
+          "hi": 2432,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.295768877764482e-15,
+          "gauge_source_KL_delta": 4.085620730620576e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0139408077155335e-07,
+          "native_inverse_relative": 5.465097872026092e-07,
+          "native_score_absolute": 4.729386581914241e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2432,
+          "hi": 2496,
+          "native_seconds": 0.1879999999946449,
+          "gauge_score_sup_relative": 3.775395994421356e-15,
+          "gauge_source_KL_delta": 2.6645352591003757e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1618897980286755e-07,
+          "native_inverse_relative": 5.096974065033066e-07,
+          "native_score_absolute": 4.3643700500695104e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2496,
+          "hi": 2560,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.028793907173447e-15,
+          "gauge_source_KL_delta": 4.440892098500626e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0213067964552413e-07,
+          "native_inverse_relative": 5.19732902048986e-07,
+          "native_score_absolute": 4.667469148245118e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2560,
+          "hi": 2624,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.1452345227665964e-15,
+          "gauge_source_KL_delta": 4.884981308350689e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2046009561481514e-07,
+          "native_inverse_relative": 6.609617333452888e-07,
+          "native_score_absolute": 4.930868868058269e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2624,
+          "hi": 2688,
+          "native_seconds": 0.23499999998603016,
+          "gauge_score_sup_relative": 4.151061478935007e-15,
+          "gauge_source_KL_delta": 2.5757174171303632e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1577804592457775e-07,
+          "native_inverse_relative": 6.650693868959223e-07,
+          "native_score_absolute": 4.68999116520763e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2688,
+          "hi": 2752,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.1696403280640056e-15,
+          "gauge_source_KL_delta": 3.597122599785507e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.738976336438283e-07,
+          "native_inverse_relative": 3.812014788273643e-07,
+          "native_score_absolute": 3.814134601043406e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2752,
+          "hi": 2816,
+          "native_seconds": 0.21799999999348074,
+          "gauge_score_sup_relative": 3.814144981122128e-15,
+          "gauge_source_KL_delta": 4.973799150320701e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9631756916772954e-07,
+          "native_inverse_relative": 5.037349188885543e-07,
+          "native_score_absolute": 4.572864647656161e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2816,
+          "hi": 2880,
+          "native_seconds": 0.23499999998603016,
+          "gauge_score_sup_relative": 3.87379811651018e-15,
+          "gauge_source_KL_delta": 5.0182080713057076e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8889508037697153e-07,
+          "native_inverse_relative": 5.009465620098297e-07,
+          "native_score_absolute": 4.1417963871026586e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2880,
+          "hi": 2944,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.936995521137798e-15,
+          "gauge_source_KL_delta": 3.197442310920451e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.053032667516912e-07,
+          "native_inverse_relative": 6.630481446112668e-07,
+          "native_score_absolute": 4.647276966807112e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 2944,
+          "hi": 3008,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 5.261471342772046e-15,
+          "gauge_source_KL_delta": 5.5067062021407764e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.039766211156256e-07,
+          "native_inverse_relative": 4.942729419088465e-07,
+          "native_score_absolute": 4.072545094402358e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3008,
+          "hi": 3072,
+          "native_seconds": 0.21899999998277053,
+          "gauge_score_sup_relative": 3.957197659883263e-15,
+          "gauge_source_KL_delta": 3.730349362740526e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9608660471099498e-07,
+          "native_inverse_relative": 5.281154589198422e-07,
+          "native_score_absolute": 4.441584538739107e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3072,
+          "hi": 3136,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.7320782430985565e-15,
+          "gauge_source_KL_delta": 3.4638958368304884e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.6470798562350455e-07,
+          "native_inverse_relative": 4.3852306408354025e-07,
+          "native_score_absolute": 4.421456314673833e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3136,
+          "hi": 3200,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.836294557956982e-15,
+          "gauge_source_KL_delta": 2.220446049250313e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0301576231047422e-07,
+          "native_inverse_relative": 5.139960108646591e-07,
+          "native_score_absolute": 3.8280003835211573e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3200,
+          "hi": 3264,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 4.782161488116962e-15,
+          "gauge_source_KL_delta": 3.552713678800501e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.5097439663308237e-07,
+          "native_inverse_relative": 4.247042837413062e-07,
+          "native_score_absolute": 4.0696852565247355e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3264,
+          "hi": 3328,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.909293886267242e-15,
+          "gauge_source_KL_delta": 3.375077994860476e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7917467913118956e-07,
+          "native_inverse_relative": 5.126760098672634e-07,
+          "native_score_absolute": 4.018619385703914e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3328,
+          "hi": 3392,
+          "native_seconds": 0.25,
+          "gauge_score_sup_relative": 4.170680299525556e-15,
+          "gauge_source_KL_delta": 3.4638958368304884e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.859279823547567e-07,
+          "native_inverse_relative": 5.995439702477512e-07,
+          "native_score_absolute": 4.415260868029236e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3392,
+          "hi": 3456,
+          "native_seconds": 0.23499999998603016,
+          "gauge_score_sup_relative": 3.586031576011609e-15,
+          "gauge_source_KL_delta": 3.907985046680551e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0672728278891014e-07,
+          "native_inverse_relative": 4.6802873177043125e-07,
+          "native_score_absolute": 4.373414989089497e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3456,
+          "hi": 3520,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.0854891693130514e-15,
+          "gauge_source_KL_delta": 2.842170943040401e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.1079697307769297e-07,
+          "native_inverse_relative": 6.200677304946112e-07,
+          "native_score_absolute": 5.016938334989618e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3520,
+          "hi": 3584,
+          "native_seconds": 0.1870000000053551,
+          "gauge_score_sup_relative": 3.774337928448617e-15,
+          "gauge_source_KL_delta": 3.197442310920451e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.001386978775782e-07,
+          "native_inverse_relative": 5.591715689368115e-07,
+          "native_score_absolute": 4.384459211337344e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3584,
+          "hi": 3648,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.9578195965493624e-15,
+          "gauge_source_KL_delta": 4.085620730620576e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8346191054938956e-07,
+          "native_inverse_relative": 4.917409429650021e-07,
+          "native_score_absolute": 4.2691187537968744e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3648,
+          "hi": 3712,
+          "native_seconds": 0.20300000000861473,
+          "gauge_score_sup_relative": 3.4476246595258553e-15,
+          "gauge_source_KL_delta": 3.019806626980426e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.187193647311438e-07,
+          "native_inverse_relative": 6.154633345190064e-07,
+          "native_score_absolute": 4.665123291403006e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3712,
+          "hi": 3776,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 3.679032002206396e-15,
+          "gauge_source_KL_delta": 2.842170943040401e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8103749653374713e-07,
+          "native_inverse_relative": 4.09446043958539e-07,
+          "native_score_absolute": 3.984045892480026e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3776,
+          "hi": 3840,
+          "native_seconds": 0.21799999999348074,
+          "gauge_score_sup_relative": 3.7738651174634785e-15,
+          "gauge_source_KL_delta": 4.085620730620576e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9756590705229228e-07,
+          "native_inverse_relative": 5.732990669971016e-07,
+          "native_score_absolute": 4.308031984834315e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3840,
+          "hi": 3904,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 4.121170783573881e-15,
+          "gauge_source_KL_delta": 4.440892098500626e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.209973594527415e-07,
+          "native_inverse_relative": 5.848042128331343e-07,
+          "native_score_absolute": 4.416498740766883e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3904,
+          "hi": 3968,
+          "native_seconds": 0.1870000000053551,
+          "gauge_score_sup_relative": 4.583960786184569e-15,
+          "gauge_source_KL_delta": 4.529709940470639e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7864936192367666e-07,
+          "native_inverse_relative": 5.213774951773331e-07,
+          "native_score_absolute": 4.411109681967673e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 3968,
+          "hi": 4032,
+          "native_seconds": 0.1879999999946449,
+          "gauge_score_sup_relative": 4.3598307473541774e-15,
+          "gauge_source_KL_delta": 3.019806626980426e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.2453810690453056e-07,
+          "native_inverse_relative": 6.421325030592229e-07,
+          "native_score_absolute": 4.969356541550951e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4032,
+          "hi": 4096,
+          "native_seconds": 0.21799999999348074,
+          "gauge_score_sup_relative": 4.15569498326807e-15,
+          "gauge_source_KL_delta": 4.973799150320701e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.103085662688432e-07,
+          "native_inverse_relative": 5.704480268153844e-07,
+          "native_score_absolute": 4.7875144765896493e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4096,
+          "hi": 4160,
+          "native_seconds": 0.23399999999674037,
+          "gauge_score_sup_relative": 4.441009323238449e-15,
+          "gauge_source_KL_delta": 2.220446049250313e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.8947059470027303e-07,
+          "native_inverse_relative": 5.517341615801641e-07,
+          "native_score_absolute": 4.507670374209738e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4160,
+          "hi": 4224,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.86202133914974e-15,
+          "gauge_source_KL_delta": 4.263256414560601e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.7358992420831894e-07,
+          "native_inverse_relative": 4.296177005258528e-07,
+          "native_score_absolute": 4.52285630316851e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4224,
+          "hi": 4288,
+          "native_seconds": 0.2029999999795109,
+          "gauge_score_sup_relative": 4.8627978566784014e-15,
+          "gauge_source_KL_delta": 4.973799150320701e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 2.0811201586911158e-07,
+          "native_inverse_relative": 5.044052679981093e-07,
+          "native_score_absolute": 4.236078588348846e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4288,
+          "hi": 4352,
+          "native_seconds": 0.21900000001187436,
+          "gauge_score_sup_relative": 6.7283201461133955e-15,
+          "gauge_source_KL_delta": 5.684341886080802e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.9875345150890544e-07,
+          "native_inverse_relative": 4.927667884846443e-07,
+          "native_score_absolute": 4.5005741419856804e-05,
+          "native_argmax_changes": 0
+        },
+        {
+          "lo": 4352,
+          "hi": 4386,
+          "native_seconds": 0.11000000001513399,
+          "gauge_score_sup_relative": 6.9127241582277815e-15,
+          "gauge_source_KL_delta": 4.085620730620576e-14,
+          "gauge_argmax_changes": 0,
+          "native_norm_relative": 1.5000359646384034e-07,
+          "native_inverse_relative": 3.4047244179546965e-07,
+          "native_score_absolute": 3.680525903604348e-05,
+          "native_argmax_changes": 0
+        }
+      ],
+      "numeric_gates": {
+        "orthogonal_max": true,
+        "gauge_vector_relative": true,
+        "gauge_radius_relative": true,
+        "gauge_score_sup_relative": true,
+        "gauge_source_KL_delta": true,
+        "gauge_argmax_changes": true,
+        "native_norm_relative": true,
+        "native_inverse_relative": true,
+        "native_score_absolute": true,
+        "native_to_factor_mean_KL": true,
+        "native_argmax_changes": true
+      },
+      "quality": {
+        "summary": {
+          "case_mean_KL": 2.934245656214521,
+          "case_mean_disagreement": 0.41088307173819144,
+          "label_mean_KL": 2.914119996946257,
+          "label_disagreement": 0.40036479708162337,
+          "worst_label_KL": 25.414241422955048,
+          "worst_case_KL": 5.643433939133022
+        },
+        "cases": [
+          {
+            "id": "broad_dev_apigen_80k_033",
+            "domain": "apigen-80k",
+            "labels": 111,
+            "KL": 1.5299666267483927,
+            "disagreement_rate": 0.21621621621621623,
+            "worst_KL": 18.225985943464444
+          },
+          {
+            "id": "broad_dev_apigen_80k_034",
+            "domain": "apigen-80k",
+            "labels": 100,
+            "KL": 0.8931899897321061,
+            "disagreement_rate": 0.15,
+            "worst_KL": 11.764510879806274
+          },
+          {
+            "id": "broad_dev_everyday_conversations_033",
+            "domain": "everyday-conversations",
+            "labels": 172,
+            "KL": 3.0460016781192065,
+            "disagreement_rate": 0.4418604651162791,
+            "worst_KL": 16.43293818033579
+          },
+          {
+            "id": "broad_dev_everyday_conversations_036",
+            "domain": "everyday-conversations",
+            "labels": 53,
+            "KL": 2.9851431110188336,
+            "disagreement_rate": 0.5849056603773585,
+            "worst_KL": 10.202437012148575
+          },
+          {
+            "id": "broad_dev_explore_instruct_rewriting_035",
+            "domain": "explore-instruct-rewriting",
+            "labels": 12,
+            "KL": 1.7169244439379223,
+            "disagreement_rate": 0.3333333333333333,
+            "worst_KL": 9.011384118685987
+          },
+          {
+            "id": "broad_dev_explore_instruct_rewriting_038",
+            "domain": "explore-instruct-rewriting",
+            "labels": 256,
+            "KL": 3.6537733884767305,
+            "disagreement_rate": 0.57421875,
+            "worst_KL": 19.47523356579338
+          },
+          {
+            "id": "broad_dev_metamathqa_50k_035",
+            "domain": "metamathqa-50k",
+            "labels": 191,
+            "KL": 1.9527317346487343,
+            "disagreement_rate": 0.28272251308900526,
+            "worst_KL": 15.332890869322076
+          },
+          {
+            "id": "broad_dev_metamathqa_50k_037",
+            "domain": "metamathqa-50k",
+            "labels": 256,
+            "KL": 1.7732507370200836,
+            "disagreement_rate": 0.23828125,
+            "worst_KL": 12.635245276671066
+          },
+          {
+            "id": "broad_dev_numina_cot_100k_035",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "KL": 2.2837661104581195,
+            "disagreement_rate": 0.3046875,
+            "worst_KL": 15.910923101269548
+          },
+          {
+            "id": "broad_dev_numina_cot_100k_038",
+            "domain": "numina-cot-100k",
+            "labels": 256,
+            "KL": 0.964754809012056,
+            "disagreement_rate": 0.16015625,
+            "worst_KL": 13.3481505982601
+          },
+          {
+            "id": "broad_dev_openhermes_100k_034",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "KL": 5.643433939133022,
+            "disagreement_rate": 0.62109375,
+            "worst_KL": 21.78127692139647
+          },
+          {
+            "id": "broad_dev_openhermes_100k_037",
+            "domain": "openhermes-100k",
+            "labels": 256,
+            "KL": 3.124380703721876,
+            "disagreement_rate": 0.46484375,
+            "worst_KL": 16.088874210579736
+          },
+          {
+            "id": "broad_dev_self_oss_instruct_033",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "KL": 1.8019733694809843,
+            "disagreement_rate": 0.28125,
+            "worst_KL": 15.196319875785077
+          },
+          {
+            "id": "broad_dev_self_oss_instruct_036",
+            "domain": "self-oss-instruct",
+            "labels": 256,
+            "KL": 1.369572220721913,
+            "disagreement_rate": 0.19921875,
+            "worst_KL": 13.85820926642209
+          },
+          {
+            "id": "broad_dev_smol_constraints_034",
+            "domain": "smol-constraints",
+            "labels": 93,
+            "KL": 3.579687281904717,
+            "disagreement_rate": 0.43010752688172044,
+            "worst_KL": 16.700143168075844
+          },
+          {
+            "id": "broad_dev_smol_constraints_035",
+            "domain": "smol-constraints",
+            "labels": 50,
+            "KL": 3.7713143818592734,
+            "disagreement_rate": 0.52,
+            "worst_KL": 19.25377562217646
+          },
+          {
+            "id": "broad_dev_smol_magpie_ultra_034",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "KL": 3.840898646626413,
+            "disagreement_rate": 0.50390625,
+            "worst_KL": 14.024203519096295
+          },
+          {
+            "id": "broad_dev_smol_magpie_ultra_036",
+            "domain": "smol-magpie-ultra",
+            "labels": 256,
+            "KL": 3.986321534969907,
+            "disagreement_rate": 0.5625,
+            "worst_KL": 13.525899307624506
+          },
+          {
+            "id": "broad_dev_smol_rewrite_032",
+            "domain": "smol-rewrite",
+            "labels": 175,
+            "KL": 3.711347661615347,
+            "disagreement_rate": 0.5428571428571428,
+            "worst_KL": 14.669116216277498
+          },
+          {
+            "id": "broad_dev_smol_rewrite_036",
+            "domain": "smol-rewrite",
+            "labels": 225,
+            "KL": 2.8151115970042238,
+            "disagreement_rate": 0.4666666666666667,
+            "worst_KL": 11.969420094041652
+          },
+          {
+            "id": "broad_dev_smol_summarize_034",
+            "domain": "smol-summarize",
+            "labels": 34,
+            "KL": 4.612799240043161,
+            "disagreement_rate": 0.5882352941176471,
+            "worst_KL": 14.872083663597316
+          },
+          {
+            "id": "broad_dev_smol_summarize_039",
+            "domain": "smol-summarize",
+            "labels": 98,
+            "KL": 4.46505091978555,
+            "disagreement_rate": 0.5816326530612245,
+            "worst_KL": 13.594993851492365
+          },
+          {
+            "id": "broad_dev_systemchats_30k_034",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "KL": 1.9829196488485026,
+            "disagreement_rate": 0.3125,
+            "worst_KL": 11.818900591583676
+          },
+          {
+            "id": "broad_dev_systemchats_30k_039",
+            "domain": "systemchats-30k",
+            "labels": 256,
+            "KL": 4.917581974261432,
+            "disagreement_rate": 0.5,
+            "worst_KL": 25.414241422955048
+          }
+        ],
+        "domains": [
+          {
+            "domain": "apigen-80k",
+            "KL": 1.2115783082402494,
+            "disagreement_rate": 0.18310810810810813
+          },
+          {
+            "domain": "everyday-conversations",
+            "KL": 3.01557239456902,
+            "disagreement_rate": 0.5133830627468188
+          },
+          {
+            "domain": "explore-instruct-rewriting",
+            "KL": 2.6853489162073263,
+            "disagreement_rate": 0.45377604166666663
+          },
+          {
+            "domain": "metamathqa-50k",
+            "KL": 1.862991235834409,
+            "disagreement_rate": 0.2605018815445026
+          },
+          {
+            "domain": "numina-cot-100k",
+            "KL": 1.6242604597350878,
+            "disagreement_rate": 0.232421875
+          },
+          {
+            "domain": "openhermes-100k",
+            "KL": 4.383907321427449,
+            "disagreement_rate": 0.54296875
+          },
+          {
+            "domain": "self-oss-instruct",
+            "KL": 1.5857727951014486,
+            "disagreement_rate": 0.240234375
+          },
+          {
+            "domain": "smol-constraints",
+            "KL": 3.6755008318819953,
+            "disagreement_rate": 0.47505376344086025
+          },
+          {
+            "domain": "smol-magpie-ultra",
+            "KL": 3.91361009079816,
+            "disagreement_rate": 0.533203125
+          },
+          {
+            "domain": "smol-rewrite",
+            "KL": 3.2632296293097856,
+            "disagreement_rate": 0.5047619047619047
+          },
+          {
+            "domain": "smol-summarize",
+            "KL": 4.538925079914355,
+            "disagreement_rate": 0.5849339735894358
+          },
+          {
+            "domain": "systemchats-30k",
+            "KL": 3.4502508115549673,
+            "disagreement_rate": 0.40625
+          }
+        ],
+        "quality_gates": {
+          "case_mean_KL": false,
+          "case_mean_disagreement": false,
+          "worst_label_KL": false,
+          "every_case_KL": false,
+          "every_case_disagreement": false,
+          "domains": false
+        }
+      }
+    }
+  ],
+  "native_calls": 139,
+  "native_component_call_seconds": 30.317999999941094,
+  "component_timing_admitted": false,
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\bias.f32",
+      "bytes": 262148,
+      "sha256": "ef316320fa653103d55372b0321d5335631f7e7fd0d4ab1df0e6c39f640fd304"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\DEV_codes.npz",
+      "bytes": 18405458,
+      "sha256": "1823584a6aa37f51b84c3d365a40f33166508eab9cb1c0082f2e1829f574b693"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\DEV_scores.f32",
+      "bytes": 1149781128,
+      "sha256": "dae81d16d0938079b02edf15c594957c22e26edd4ef7422465f085a056ca5790"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\epsilon.f32",
+      "bytes": 4,
+      "sha256": "c5a21c96c101202939e0b5725a84efd8cd2bc1c220ddfbf798cae8f70d710c48"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\FIT_codes.npz",
+      "bytes": 18556514,
+      "sha256": "33240ea251bf0ef6512df52597a130711483185dfe5610267aecd40315e3d397"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\FIT_scores.f32",
+      "bytes": 1159218456,
+      "sha256": "ccfd00283eaa45a167fc06135f5942b2a326da3e7f46bde92a38e55c3155a9b1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\gauge.npz",
+      "bytes": 8935394,
+      "sha256": "575577d1e93727923d971eff1d4977bf6ca542e786d5866ae17b97169873f03d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\head.f32",
+      "bytes": 67109888,
+      "sha256": "308187329a38303121892894418fdd7ba903ae7a4c70d019668ee23efbe4e1f3"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_readout_replay1_20261012\\head_F64.npz",
+      "bytes": 134744574,
+      "sha256": "bbe1c107da471ff205ae1297a41f7d077a6d806503d8ddaa9e84a6d3a5ff1661"
+    }
+  ],
+  "inputs_before_after_exact": true,
+  "seconds": 241.21799999999348,
+  "OS_peak": 3132416000,
+  "scope": "Actual selected fully audited source-factor predictor,all8808 source labels. Exact-real QR gauge/scalar epsilon/normalized bias and F32 original-engine head kernels. Teacher-injected codes,not causal source acquisition/whole engine/chatbot or useful-n/same-artifact50 admission. No source model/GPU/T4/RESERVED/longalign.",
+  "decision": "GAUGE_AND_NATIVE_PRECISION_PASS"
+}
