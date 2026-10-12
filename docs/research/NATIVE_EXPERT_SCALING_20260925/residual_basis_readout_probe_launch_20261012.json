@@ -1,0 +1,36 @@
+{
+  "schema": "RESIDUAL_BASIS_READOUT_INVOCATION_V1",
+  "source_protocol_freeze": "3f34867d479ab6019b5fe9dd6208be08ac1af9e9",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/residual_basis_readout_probe.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/residual_basis_readout_probe_binding_20261012.json",
+    "--binding-sha",
+    "3b61b5556f7bcef83424282cc1146f0d1865365d94c3e5bd80deb22882079704",
+    "--freeze",
+    "3f34867d479ab6019b5fe9dd6208be08ac1af9e9",
+    "--directory",
+    "results/native_expert_scaling/residual_basis_readout_probe_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/residual_basis_readout_probe_result_20261012.json"
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "limits": {
+    "seconds": 600,
+    "OS_bytes": 4294967296,
+    "output_bytes": 536870912
+  }
+}
