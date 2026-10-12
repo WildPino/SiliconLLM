@@ -1,0 +1,36 @@
+{
+  "limits": {
+    "seconds": 900,
+    "OS_bytes": 6442450944
+  },
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6"
+  },
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/dual_entropy_mixture_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/dual_entropy_mixture_result_20261012.json",
+    "--report-sha",
+    "aeb0530c989f2f85ea1fde5dba3e7360aa3738689ffe77cf0331b10f9074d50f",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/dual_entropy_mixture_result_20261012.terminal.json",
+    "--terminal-sha",
+    "93349dd700ff7245ea1dbf958daa5792afeb5922c8277c08b71b502c0362e087",
+    "--freeze",
+    "49779cd5cb2e48a9ec93680e072dd1020a9b58cc",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/dual_entropy_mixture_adjudication_20261012.json"
+  ],
+  "schema": "DUAL_ENTROPY_MIXTURE_AUDIT_INVOCATION_V1",
+  "freeze": "49779cd5cb2e48a9ec93680e072dd1020a9b58cc"
+}
