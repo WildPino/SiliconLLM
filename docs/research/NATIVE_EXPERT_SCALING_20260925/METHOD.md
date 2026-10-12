@@ -3,6 +3,16 @@
 12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Exact categorical V/W/center correction and independent Jacobian audit](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
+now IMPLEMENTED/LOCALLY VERIFIED. Actual source FIT72 final states/full trained
+head,complete RMS derivative and both center paths;full gradient/differences/
+candidate parameter bits/selection/DEV audited. Original coarse nonacceptance
+retained;separate smaller-scale check qualifies one FIT-selected step. FIT improves
+42%,DEV mean6%,still26/72 wrong. Generic factors not idempotent (.328 defect).
+This is a teacher-injected readout fit,not deployed causal encoding or core repair.
+Next [broader existing supervised labels](BROAD_EXACT_RESIDUAL_CATEGORICAL_NEXT_20261012.md)
+UNIMPLEMENTED:equal-case full categorical gradient/one bounded ladder;compact
+score custody requires independent direct full-V arithmetic qualification.
 [Conditional RAW affine charts and all fixed-decoder choices](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
 now COMPLETE/full audits PASS/quality proxies FAIL. FIT-only4/16 charts at0/12/24,
 <=256 active directions,required norm cross/bias/skip offsets are implemented and
@@ -61,10 +71,11 @@ be counted separately. Arbitrary source architectures are not supported yet.
    earlier valid controls and all execution/scientific failures.
 
 Current decision:fixed-P,angular256,global source-function256 and tested conditional
-RAW charts fail. Correct the finite categorical objective/read-write factors:
-complete source head/RMS/center Jacobian and a checked bounded FIT update before
-another epoch. Initial Fisher or more unchanged charts do not certify finite loss;
-available causal compact routing and composed own-history remain mandatory.
+RAW charts fail. Exact finite categorical factor/center gradient is now verified;
+one FIT-only step improves loss modestly on DEV without restoring decisions.
+Broaden to all existing supervised labels/equal-case weighting before epochs.
+Initial Fisher or more unchanged charts do not certify finite loss;available
+causal compact routing and composed own-history remain mandatory.
 [Exact prospective path](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md).
 No blindly continued donor-adaptation or new T4 job.
 
@@ -127,7 +138,8 @@ for an exact restriction identity. The costed24-layer trained shadow has now bee
 completed/audited and FAILED quality;new global/conditional raw state encodings
 also completed/audited and failed their local proxies. Do not repeat those same
 geometry objectives as if their qualification were still pending. Exact finite
-categorical residual-factor correction is the next new variable to bind.
+categorical residual-factor correction is now implemented/verified locally;
+broader actual labels/score-factor arithmetic is the next variable to bind.
 
 Then a cheap conditional nonlinear representation must replace costly source
 features/FFNs while preserving useful composed behavior. Original packed LUT/

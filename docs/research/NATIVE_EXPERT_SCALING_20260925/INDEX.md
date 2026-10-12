@@ -1,6 +1,13 @@
 # Native expert scaling: research control index
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+Newest: [exact categorical factor/center gradient, separate convergence and correction](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
+COMPLETE/full audits PASS. Explicit72 full RMS Jacobians/34 original full-V points
+verified;original13/14 finite flags keeps nonacceptance. Separate2e-7 study resolves
+joint truncation at unchanged tolerance;original FIT-selected alpha.001 qualifies.
+FIT mean1.114->.645 (-42%);DEV2.728->2.554,still26/72 wrong/all proxies FAIL.
+W^T V-I defect.328,not an idempotent projector. New gradient primitive validated;
+causal dynamics/native quality remain open. Next ALL existing FIT/DEV labels.
 Latest: [conditional raw charts AND every-decoder output choice](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
 COMPLETE/full audits PASS/all quality proxies FAIL. K4/16,active<=256 at0/12/24;
 60 chart constructions/288 histories/544 affine skips audited. Nearest-center
@@ -72,15 +79,14 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind exact categorical residual-factor correction**,
-[prospective specification](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_NEXT_20261012.md)
-UNIMPLEMENTED:actual source FIT72 RAW h24 and normalized fixed trained head;
-global256 V/W plus raw center,exact full KL and complete RMS/factor Jacobian.
-Verify directional derivatives before one bounded FIT-selected correction;
-DEV72 only after immutable selection. Generic corrected factors need not remain
-idempotent;do not silently orthogonalize or claim the old quadratic optimum.
-No chart-count expansion,router training or long dose on the unchanged failed
-bank. Causal compact dynamics/ternary/native/physical costs still required.
+**Implement/freeze/bind broad exact categorical residual-factor correction**,
+[prospective specification](BROAD_EXACT_RESIDUAL_CATEGORICAL_NEXT_20261012.md)
+UNIMPLEMENTED:ALL existing FIT4422/DEV4386 labels,equal-case weights;one broad
+gradient/frozen ladder,FIT-only immutable selection. First validate compact
+reproducible score-factor storage against direct source-width probabilities;
+full-V loss/gradient and complete independent audit required. Keep corrected
+generic-factor norm/skip semantics explicit;no blind epoch or more fixed charts.
+Causal compact dynamics/ternary/native/physical costs and useful n still required.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient

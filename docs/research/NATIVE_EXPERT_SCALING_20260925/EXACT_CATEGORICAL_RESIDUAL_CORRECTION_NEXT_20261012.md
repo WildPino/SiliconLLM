@@ -1,5 +1,10 @@
 # Exact categorical residual correction: prospective next
 
+**Superseded12 October2026:** actual gradient/finite correction plus separate
+convergence and full audits are COMPLETE. [Result](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
+keeps original coarse nonacceptance and qualifies a separate FIT step;quality
+still FAIL. Next broaden existing supervised labels. Text below is historical.
+
 12 October2026. **PROPOSED/UNIMPLEMENTED/UNBOUND**. Selected after completed
 global/conditional quadratic geometry and exhaustive frozen-chart output choice.
 No long training, T4 or new expert-count expansion selected.

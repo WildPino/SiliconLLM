@@ -1,6 +1,13 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Exact categorical residual gradient/correction/full audits](EXACT_CATEGORICAL_RESIDUAL_CORRECTION_RESULT_20261012.md)
+COMPLETE:explicit72 RMS Jacobians/V/W/mu gradients/full34 points PASS. Original
+coarse joint finite gate false retained;separate2e-7 convergence qualifies same
+FIT-selected alpha.001,unchanged tolerance. FIT1.114->.645;DEV2.728->2.554,
+still26/72 wrong/all quality gates FAIL. Generic W^T V defect.328,not idempotent.
+Next broad4422 FIT/4386 DEV labels with equal-case exact loss before more dose;
+reproducible score factors need direct independent full-V verification first.
 [Raw affine charts and exhaustive fixed decoder choice](CONDITIONAL_RAW_CHARTS_AND_CHOICE_RESULT_20261012.md)
 COMPLETE/full independent audits PASS/proxies FAIL. K4/16 at0/12/24,60 chart
 spectra/288 histories/544 affine offsets/maps;all2880 output candidates audited.

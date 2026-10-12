@@ -1,0 +1,781 @@
+{
+  "schema": "EXACT_CATEGORICAL_RESIDUAL_REFINEMENT_RESULT_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_categorical_residual_refinement_binding_20261012.json",
+    "bytes": 158898,
+    "sha256": "b6319aa6b24fb5b2b2eb84fd8f30e74e97f45b2bdfecf2a8d4265549ab3be4fd"
+  },
+  "freeze": "3c1fe431ae3d5e05249e5dddf497d1e3b1488457",
+  "rows": [
+    {
+      "name": "V_0.0",
+      "direction": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\direction_V_0.0.npz",
+        "bytes": 8405718,
+        "sha256": "7a5b2a7c79649e8e34faabd0be5c31570049fcdd28b2acbee7574d4eaf48545e"
+      },
+      "epsilon": 2e-07,
+      "minus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.0_-1.npz",
+          "bytes": 39078794,
+          "sha256": "70d3e92eb4ae440ad6969afedc98d1e41443120d752601f91e9e9ff22f68626d"
+        },
+        "summary": {
+          "mean_KL": 1.113955670685518,
+          "worst_KL": 9.423735590028745,
+          "disagreement_rate": 0.25
+        }
+      },
+      "plus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.0_1.npz",
+          "bytes": 39078794,
+          "sha256": "09002db8116c3611b472c36f88fd1a0906b9b2c5a393e18019cb03cd84b87c4c"
+        },
+        "summary": {
+          "mean_KL": 1.113955858198437,
+          "worst_KL": 9.423730835117144,
+          "disagreement_rate": 0.25
+        }
+      },
+      "analytic": 0.46878229581232617,
+      "finite": 0.4687822974247524,
+      "delta": 1.6124262480765594e-09,
+      "gate": true,
+      "prior_fine_gate": true,
+      "Richardson_two_prior_scales": 0.46878229588801873,
+      "Richardson_relative_absolute_delta": 7.5692563328289e-11
+    },
+    {
+      "name": "V_0.7",
+      "direction": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\direction_V_0.7.npz",
+        "bytes": 8405718,
+        "sha256": "b699d7ece27825ac935feac676e4c21e87cb52a3c6a705c259b30ef75ddbe43f"
+      },
+      "epsilon": 2e-07,
+      "minus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.7_-1.npz",
+          "bytes": 39078794,
+          "sha256": "4eff548a7a9e16b7d53e0ff27a210015a2a8f4c3a1bb917c1cfb0f8095933c95"
+        },
+        "summary": {
+          "mean_KL": 1.113955712586172,
+          "worst_KL": 9.423735324375109,
+          "disagreement_rate": 0.25
+        }
+      },
+      "plus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.7_1.npz",
+          "bytes": 39078794,
+          "sha256": "93e5c6fd5dac5700015659389daaf4adc4a7fce5940afa7afca564a5e230cb24"
+        },
+        "summary": {
+          "mean_KL": 1.1139558162977865,
+          "worst_KL": 9.423731100770809,
+          "disagreement_rate": 0.25
+        }
+      },
+      "analytic": 0.25927903579175604,
+      "finite": 0.25927903601896674,
+      "delta": 2.2721069470321709e-10,
+      "gate": true,
+      "prior_fine_gate": true,
+      "Richardson_two_prior_scales": 0.25927903586307294,
+      "Richardson_relative_absolute_delta": 7.13168968324851e-11
+    },
+    {
+      "name": "W_0.0",
+      "direction": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\direction_W_0.0.npz",
+        "bytes": 8405718,
+        "sha256": "8d44e89a713d70e401bc94326feb2d28a491e9d1f143357c2216fe3dfb7ca86c"
+      },
+      "epsilon": 2e-07,
+      "minus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.0_-1.npz",
+          "bytes": 39078794,
+          "sha256": "980ab60b56c9413f16cf507e802e355203d5c908411f27d6bb450c7c1d2c834c"
+        },
+        "summary": {
+          "mean_KL": 1.1139557589992988,
+          "worst_KL": 9.42373376315941,
+          "disagreement_rate": 0.25
+        }
+      },
+      "plus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.0_1.npz",
+          "bytes": 39078794,
+          "sha256": "5caf105500d58dba14c27719c819b6c945cd9e634534ce7142d62fb7e9e007c1"
+        },
+        "summary": {
+          "mean_KL": 1.113955769885015,
+          "worst_KL": 9.423732661984138,
+          "disagreement_rate": 0.25
+        }
+      },
+      "analytic": 0.027214291101493787,
+      "finite": 0.027214290820865017,
+      "delta": 2.806287702217247e-10,
+      "gate": true,
+      "prior_fine_gate": true,
+      "Richardson_two_prior_scales": 0.0272142910378211,
+      "Richardson_relative_absolute_delta": 6.367268864937436e-11
+    },
+    {
+      "name": "W_0.7",
+      "direction": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\direction_W_0.7.npz",
+        "bytes": 8405718,
+        "sha256": "2262e7260a2a9ed7a1d79ac763dcbf6eb1872deb8de87481232b7d7aea5cea36"
+      },
+      "epsilon": 2e-07,
+      "minus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.7_-1.npz",
+          "bytes": 39078794,
+          "sha256": "c01e60b7a9e95197810c8b58bd46ef76a5097da3645f7644760e4978acb28148"
+        },
+        "summary": {
+          "mean_KL": 1.1139557579483936,
+          "worst_KL": 9.42373395506298,
+          "disagreement_rate": 0.25
+        }
+      },
+      "plus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.7_1.npz",
+          "bytes": 39078794,
+          "sha256": "c7e80eb0513f32bc478ef81cd8d2328020d85f5016a14966893f3234bb2dbbab"
+        },
+        "summary": {
+          "mean_KL": 1.1139557709363384,
+          "worst_KL": 9.423732470078669,
+          "disagreement_rate": 0.25
+        }
+      },
+      "analytic": 0.032469862471733946,
+      "finite": 0.03246986179927802,
+      "delta": 6.724559242776706e-10,
+      "gate": true,
+      "prior_fine_gate": true,
+      "Richardson_two_prior_scales": 0.032469862643972704,
+      "Richardson_relative_absolute_delta": 1.7223875797833799e-10
+    },
+    {
+      "name": "mu_0.0",
+      "direction": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\direction_mu_0.0.npz",
+        "bytes": 8405718,
+        "sha256": "7010b5ef251f1690cef3ac98b1793ddbf553324e15ffa115ad7c238637bed1bb"
+      },
+      "epsilon": 2e-07,
+      "minus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.0_-1.npz",
+          "bytes": 39078794,
+          "sha256": "f02048c0aeb3f9c24c53a1af92a21a85c5b57721218586cec6ae5c78c7f15736"
+        },
+        "summary": {
+          "mean_KL": 1.113955763372551,
+          "worst_KL": 9.423732207844065,
+          "disagreement_rate": 0.25
+        }
+      },
+      "plus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.0_1.npz",
+          "bytes": 39078794,
+          "sha256": "67130799c6264a5ad015bfd80db85d7cadcc91e8f7cb8f55c03d8f86b4a914e4"
+        },
+        "summary": {
+          "mean_KL": 1.1139557655113426,
+          "worst_KL": 9.42373421729724,
+          "disagreement_rate": 0.25
+        }
+      },
+      "analytic": 0.005346979784192907,
+      "finite": 0.0053469789706994675,
+      "delta": 8.134934392778348e-10,
+      "gate": true,
+      "prior_fine_gate": true,
+      "Richardson_two_prior_scales": 0.005346979806604886,
+      "Richardson_relative_absolute_delta": 2.241197939040207e-11
+    },
+    {
+      "name": "mu_0.7",
+      "direction": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\direction_mu_0.7.npz",
+        "bytes": 8405718,
+        "sha256": "69ee6bf246686e4db2967d5aa53d11df8662d208f299dda44d57f9410d867cac"
+      },
+      "epsilon": 2e-07,
+      "minus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.7_-1.npz",
+          "bytes": 39078794,
+          "sha256": "815117cc7a5851f70a84368336364c962bc1e7b84f435c3f9263816eeb15c616"
+        },
+        "summary": {
+          "mean_KL": 1.1139557740819153,
+          "worst_KL": 9.42373432495927,
+          "disagreement_rate": 0.25
+        }
+      },
+      "plus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.7_1.npz",
+          "bytes": 39078794,
+          "sha256": "ba6505f8db49747f1ef3084bcc594cb71e68aa55a842a8851e643427a258fe45"
+        },
+        "summary": {
+          "mean_KL": 1.1139557548019556,
+          "worst_KL": 9.423732100181654,
+          "disagreement_rate": 0.25
+        }
+      },
+      "analytic": -0.04819990079815541,
+      "finite": -0.048199899072010055,
+      "delta": 1.7261453516548286e-09,
+      "gate": true,
+      "prior_fine_gate": true,
+      "Richardson_two_prior_scales": -0.04819990067396936,
+      "Richardson_relative_absolute_delta": 1.2418604339314854e-10
+    },
+    {
+      "name": "joint_trust",
+      "direction": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\direction_joint_trust.npz",
+        "bytes": 8405718,
+        "sha256": "876ff19e0f123c0a75d614c97946a33c76a74e9d0838e5b786ea0b0bdb7ca98e"
+      },
+      "epsilon": 2e-07,
+      "minus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_joint_trust_-1.npz",
+          "bytes": 39078794,
+          "sha256": "33a15d8732d3dd6a5baea1c08de9dc3b57d10d569de709c4b88876d09bd3d6d7"
+        },
+        "summary": {
+          "mean_KL": 1.1140715537174883,
+          "worst_KL": 9.425976715947076,
+          "disagreement_rate": 0.25
+        }
+      },
+      "plus": {
+        "file": {
+          "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_joint_trust_1.npz",
+          "bytes": 39078794,
+          "sha256": "ab71d7552829c267cb0abd9559364d7c372d5cef06645a83e4ab32e02864162d"
+        },
+        "summary": {
+          "mean_KL": 1.1138399810477166,
+          "worst_KL": 9.421489919543303,
+          "disagreement_rate": 0.25
+        }
+      },
+      "analytic": -578.9316751364058,
+      "finite": -578.9316744292395,
+      "delta": 1.2215022613851382e-09,
+      "gate": true,
+      "prior_fine_gate": true,
+      "Richardson_two_prior_scales": -578.9316751387464,
+      "Richardson_relative_absolute_delta": 4.0429375616062995e-12
+    }
+  ],
+  "parent_acceptance_stays_false": true,
+  "refined_acceptance": true,
+  "selected_parameters": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_correction_20261012\\candidate_0.001_parameters.npz",
+    "bytes": 8405718,
+    "sha256": "26cecb80d47635636bd99ee80a9d24b96c1b791e8b6a7a2025c618086d7154fb"
+  },
+  "selected_alpha": 0.001,
+  "selection": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\selection.json",
+    "bytes": 517,
+    "sha256": "9494a587631df792b383d1809452516d7627e39b633a0dc938dd637f4bcc08c4"
+  },
+  "FIT_before": {
+    "mean_KL": 1.1139557644419646,
+    "worst_KL": 9.423733212573259,
+    "disagreement_rate": 0.25
+  },
+  "FIT_selected": {
+    "mean_KL": 0.6451858475443607,
+    "worst_KL": 5.898985503152534,
+    "disagreement_rate": 0.18055555555555555
+  },
+  "DEV": {
+    "file": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\DEV_selected.npz",
+      "bytes": 40258676,
+      "sha256": "2125ec5c5eb8fd070a7098bda75dfcf3690741c1bd87841a504965efc41041e5"
+    },
+    "labels": [
+      {
+        "id": "broad_dev_apigen_80k_033",
+        "label_index": 0,
+        "position": 807
+      },
+      {
+        "id": "broad_dev_apigen_80k_033",
+        "label_index": 55,
+        "position": 862
+      },
+      {
+        "id": "broad_dev_apigen_80k_033",
+        "label_index": 110,
+        "position": 917
+      },
+      {
+        "id": "broad_dev_apigen_80k_034",
+        "label_index": 0,
+        "position": 362
+      },
+      {
+        "id": "broad_dev_apigen_80k_034",
+        "label_index": 50,
+        "position": 412
+      },
+      {
+        "id": "broad_dev_apigen_80k_034",
+        "label_index": 99,
+        "position": 461
+      },
+      {
+        "id": "broad_dev_everyday_conversations_033",
+        "label_index": 0,
+        "position": 206
+      },
+      {
+        "id": "broad_dev_everyday_conversations_033",
+        "label_index": 86,
+        "position": 292
+      },
+      {
+        "id": "broad_dev_everyday_conversations_033",
+        "label_index": 171,
+        "position": 377
+      },
+      {
+        "id": "broad_dev_everyday_conversations_036",
+        "label_index": 0,
+        "position": 147
+      },
+      {
+        "id": "broad_dev_everyday_conversations_036",
+        "label_index": 26,
+        "position": 173
+      },
+      {
+        "id": "broad_dev_everyday_conversations_036",
+        "label_index": 52,
+        "position": 199
+      },
+      {
+        "id": "broad_dev_explore_instruct_rewriting_035",
+        "label_index": 0,
+        "position": 49
+      },
+      {
+        "id": "broad_dev_explore_instruct_rewriting_035",
+        "label_index": 6,
+        "position": 55
+      },
+      {
+        "id": "broad_dev_explore_instruct_rewriting_035",
+        "label_index": 11,
+        "position": 60
+      },
+      {
+        "id": "broad_dev_explore_instruct_rewriting_038",
+        "label_index": 0,
+        "position": 67
+      },
+      {
+        "id": "broad_dev_explore_instruct_rewriting_038",
+        "label_index": 128,
+        "position": 195
+      },
+      {
+        "id": "broad_dev_explore_instruct_rewriting_038",
+        "label_index": 255,
+        "position": 322
+      },
+      {
+        "id": "broad_dev_metamathqa_50k_035",
+        "label_index": 0,
+        "position": 52
+      },
+      {
+        "id": "broad_dev_metamathqa_50k_035",
+        "label_index": 95,
+        "position": 147
+      },
+      {
+        "id": "broad_dev_metamathqa_50k_035",
+        "label_index": 190,
+        "position": 242
+      },
+      {
+        "id": "broad_dev_metamathqa_50k_037",
+        "label_index": 0,
+        "position": 96
+      },
+      {
+        "id": "broad_dev_metamathqa_50k_037",
+        "label_index": 128,
+        "position": 224
+      },
+      {
+        "id": "broad_dev_metamathqa_50k_037",
+        "label_index": 255,
+        "position": 351
+      },
+      {
+        "id": "broad_dev_numina_cot_100k_035",
+        "label_index": 0,
+        "position": 131
+      },
+      {
+        "id": "broad_dev_numina_cot_100k_035",
+        "label_index": 128,
+        "position": 259
+      },
+      {
+        "id": "broad_dev_numina_cot_100k_035",
+        "label_index": 255,
+        "position": 386
+      },
+      {
+        "id": "broad_dev_numina_cot_100k_038",
+        "label_index": 0,
+        "position": 62
+      },
+      {
+        "id": "broad_dev_numina_cot_100k_038",
+        "label_index": 128,
+        "position": 190
+      },
+      {
+        "id": "broad_dev_numina_cot_100k_038",
+        "label_index": 255,
+        "position": 317
+      },
+      {
+        "id": "broad_dev_openhermes_100k_034",
+        "label_index": 0,
+        "position": 33
+      },
+      {
+        "id": "broad_dev_openhermes_100k_034",
+        "label_index": 128,
+        "position": 161
+      },
+      {
+        "id": "broad_dev_openhermes_100k_034",
+        "label_index": 255,
+        "position": 288
+      },
+      {
+        "id": "broad_dev_openhermes_100k_037",
+        "label_index": 0,
+        "position": 100
+      },
+      {
+        "id": "broad_dev_openhermes_100k_037",
+        "label_index": 128,
+        "position": 228
+      },
+      {
+        "id": "broad_dev_openhermes_100k_037",
+        "label_index": 255,
+        "position": 355
+      },
+      {
+        "id": "broad_dev_self_oss_instruct_033",
+        "label_index": 0,
+        "position": 162
+      },
+      {
+        "id": "broad_dev_self_oss_instruct_033",
+        "label_index": 128,
+        "position": 290
+      },
+      {
+        "id": "broad_dev_self_oss_instruct_033",
+        "label_index": 255,
+        "position": 417
+      },
+      {
+        "id": "broad_dev_self_oss_instruct_036",
+        "label_index": 0,
+        "position": 101
+      },
+      {
+        "id": "broad_dev_self_oss_instruct_036",
+        "label_index": 128,
+        "position": 229
+      },
+      {
+        "id": "broad_dev_self_oss_instruct_036",
+        "label_index": 255,
+        "position": 356
+      },
+      {
+        "id": "broad_dev_smol_constraints_034",
+        "label_index": 0,
+        "position": 95
+      },
+      {
+        "id": "broad_dev_smol_constraints_034",
+        "label_index": 46,
+        "position": 141
+      },
+      {
+        "id": "broad_dev_smol_constraints_034",
+        "label_index": 92,
+        "position": 187
+      },
+      {
+        "id": "broad_dev_smol_constraints_035",
+        "label_index": 0,
+        "position": 57
+      },
+      {
+        "id": "broad_dev_smol_constraints_035",
+        "label_index": 25,
+        "position": 82
+      },
+      {
+        "id": "broad_dev_smol_constraints_035",
+        "label_index": 49,
+        "position": 106
+      },
+      {
+        "id": "broad_dev_smol_magpie_ultra_034",
+        "label_index": 0,
+        "position": 1012
+      },
+      {
+        "id": "broad_dev_smol_magpie_ultra_034",
+        "label_index": 128,
+        "position": 1140
+      },
+      {
+        "id": "broad_dev_smol_magpie_ultra_034",
+        "label_index": 255,
+        "position": 1267
+      },
+      {
+        "id": "broad_dev_smol_magpie_ultra_036",
+        "label_index": 0,
+        "position": 1232
+      },
+      {
+        "id": "broad_dev_smol_magpie_ultra_036",
+        "label_index": 128,
+        "position": 1360
+      },
+      {
+        "id": "broad_dev_smol_magpie_ultra_036",
+        "label_index": 255,
+        "position": 1487
+      },
+      {
+        "id": "broad_dev_smol_rewrite_032",
+        "label_index": 0,
+        "position": 327
+      },
+      {
+        "id": "broad_dev_smol_rewrite_032",
+        "label_index": 87,
+        "position": 414
+      },
+      {
+        "id": "broad_dev_smol_rewrite_032",
+        "label_index": 174,
+        "position": 501
+      },
+      {
+        "id": "broad_dev_smol_rewrite_036",
+        "label_index": 0,
+        "position": 149
+      },
+      {
+        "id": "broad_dev_smol_rewrite_036",
+        "label_index": 112,
+        "position": 261
+      },
+      {
+        "id": "broad_dev_smol_rewrite_036",
+        "label_index": 224,
+        "position": 373
+      },
+      {
+        "id": "broad_dev_smol_summarize_034",
+        "label_index": 0,
+        "position": 209
+      },
+      {
+        "id": "broad_dev_smol_summarize_034",
+        "label_index": 17,
+        "position": 226
+      },
+      {
+        "id": "broad_dev_smol_summarize_034",
+        "label_index": 33,
+        "position": 242
+      },
+      {
+        "id": "broad_dev_smol_summarize_039",
+        "label_index": 0,
+        "position": 882
+      },
+      {
+        "id": "broad_dev_smol_summarize_039",
+        "label_index": 49,
+        "position": 931
+      },
+      {
+        "id": "broad_dev_smol_summarize_039",
+        "label_index": 97,
+        "position": 979
+      },
+      {
+        "id": "broad_dev_systemchats_30k_034",
+        "label_index": 0,
+        "position": 634
+      },
+      {
+        "id": "broad_dev_systemchats_30k_034",
+        "label_index": 128,
+        "position": 762
+      },
+      {
+        "id": "broad_dev_systemchats_30k_034",
+        "label_index": 255,
+        "position": 889
+      },
+      {
+        "id": "broad_dev_systemchats_30k_039",
+        "label_index": 0,
+        "position": 41
+      },
+      {
+        "id": "broad_dev_systemchats_30k_039",
+        "label_index": 128,
+        "position": 169
+      },
+      {
+        "id": "broad_dev_systemchats_30k_039",
+        "label_index": 255,
+        "position": 296
+      }
+    ],
+    "summary": {
+      "mean_KL": 2.554331210082517,
+      "worst_KL": 11.648466320962322,
+      "disagreement_rate": 0.3611111111111111,
+      "proxy_gates": {
+        "mean_KL": false,
+        "worst_KL": false,
+        "disagreement_rate": false
+      }
+    }
+  },
+  "selected_WtV_identity_defect": 0.3280169822504073,
+  "outputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\DEV_selected.npz",
+      "bytes": 40258676,
+      "sha256": "2125ec5c5eb8fd070a7098bda75dfcf3690741c1bd87841a504965efc41041e5"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_joint_trust_-1.npz",
+      "bytes": 39078794,
+      "sha256": "33a15d8732d3dd6a5baea1c08de9dc3b57d10d569de709c4b88876d09bd3d6d7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_joint_trust_1.npz",
+      "bytes": 39078794,
+      "sha256": "ab71d7552829c267cb0abd9559364d7c372d5cef06645a83e4ab32e02864162d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.0_-1.npz",
+      "bytes": 39078794,
+      "sha256": "f02048c0aeb3f9c24c53a1af92a21a85c5b57721218586cec6ae5c78c7f15736"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.0_1.npz",
+      "bytes": 39078794,
+      "sha256": "67130799c6264a5ad015bfd80db85d7cadcc91e8f7cb8f55c03d8f86b4a914e4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.7_-1.npz",
+      "bytes": 39078794,
+      "sha256": "815117cc7a5851f70a84368336364c962bc1e7b84f435c3f9263816eeb15c616"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_mu_0.7_1.npz",
+      "bytes": 39078794,
+      "sha256": "ba6505f8db49747f1ef3084bcc594cb71e68aa55a842a8851e643427a258fe45"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.0_-1.npz",
+      "bytes": 39078794,
+      "sha256": "70d3e92eb4ae440ad6969afedc98d1e41443120d752601f91e9e9ff22f68626d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.0_1.npz",
+      "bytes": 39078794,
+      "sha256": "09002db8116c3611b472c36f88fd1a0906b9b2c5a393e18019cb03cd84b87c4c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.7_-1.npz",
+      "bytes": 39078794,
+      "sha256": "4eff548a7a9e16b7d53e0ff27a210015a2a8f4c3a1bb917c1cfb0f8095933c95"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_V_0.7_1.npz",
+      "bytes": 39078794,
+      "sha256": "93e5c6fd5dac5700015659389daaf4adc4a7fce5940afa7afca564a5e230cb24"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.0_-1.npz",
+      "bytes": 39078794,
+      "sha256": "980ab60b56c9413f16cf507e802e355203d5c908411f27d6bb450c7c1d2c834c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.0_1.npz",
+      "bytes": 39078794,
+      "sha256": "5caf105500d58dba14c27719c819b6c945cd9e634534ce7142d62fb7e9e007c1"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.7_-1.npz",
+      "bytes": 39078794,
+      "sha256": "c01e60b7a9e95197810c8b58bd46ef76a5097da3645f7644760e4978acb28148"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\finite_W_0.7_1.npz",
+      "bytes": 39078794,
+      "sha256": "c7e80eb0513f32bc478ef81cd8d2328020d85f5016a14966893f3234bb2dbbab"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\exact_categorical_residual_refinement_20261012\\selection.json",
+      "bytes": 517,
+      "sha256": "9494a587631df792b383d1809452516d7627e39b633a0dc938dd637f4bcc08c4"
+    }
+  ],
+  "inputs_before_after_exact": true,
+  "seconds": 30.70299999997951,
+  "OS_peak": 1493495808,
+  "decision": "REFINED_DERIVATIVE_VERIFIED_FIT_DESCENT",
+  "scope": "Separate derivative convergence study; parent13/14 original gates and NONacceptance remain unchanged. Require all7 parent2e-6 and all7 new2e-7 controls at unchanged2e-6 tolerance; reuse original4 frozen FIT candidates only. One independently qualified correction, no new gradient/alpha/epoch, no source model/GPU/native/T4 or causal admission."
+}

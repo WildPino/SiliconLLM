@@ -1,0 +1,36 @@
+{
+  "schema": "EXACT_CATEGORICAL_RESIDUAL_CORRECTION_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\exact_categorical_residual_correction_stored_audit.py",
+    "bytes": 11731,
+    "sha256": "53686d2d450339029fa90a4bbae7ca5ae399a4c348ec4d8c596fdf38b7d15635"
+  },
+  "freeze": "eb5e4cf7fb67a27508e4beeef9339c05b582df47",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_categorical_residual_correction_result_20261012.json",
+    "bytes": 57730,
+    "sha256": "d35583c9cf0eed09f6479b75511b8a390cf6bda1592c6666ba93825dd5795a40"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_categorical_residual_correction_result_20261012.terminal.json",
+    "bytes": 1621,
+    "sha256": "f7a2379708ef3ceac26df33d1a64f6da6970e2f98a42c17165042a9a011b997d"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_categorical_residual_correction_binding_20261012.json",
+    "bytes": 59296,
+    "sha256": "bbb6cb1f2bfd6fa69e006a82c57ef9b1b0e1e4b0e21453ce9cf0e6ff319ad301"
+  },
+  "all_actual_source_FIT_DEV_references_and34_full_vocab_points_checked": true,
+  "all_full_RMS_Jacobians72_outer_product_gradients14_difference_controls_and4_parameter_updates_checked": true,
+  "FIT_only_selection_parameters_and_DEV_quality_checked": true,
+  "selection_order_scope": "Actual before-DEV order follows bound source control flow and immutable selection receipt; stored artifacts alone cannot timestamp semantic reads.",
+  "max_numeric_relative": 4.288318527014207e-12,
+  "max_scalar_delta": 1.7273293906328036e-11,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "scientific_decision": "COMPLETED_NO_VERIFIED_FIT_DESCENT",
+  "seconds": 61.10899999999674,
+  "OS_peak": 1743695872,
+  "scope": "Independent full RMS Jacobian/per-state outer-product gradients, source-width encoding/head sums, logaddexp probabilities and exact bit update audit; stored derivative subtraction reuses independently verified point means. No source model/refit/optimizer/GPU/native/T4 replay."
+}

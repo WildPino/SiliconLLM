@@ -1,0 +1,34 @@
+{
+  "schema": "EXACT_CATEGORICAL_RESIDUAL_REFINEMENT_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\exact_categorical_residual_refinement_stored_audit.py",
+    "bytes": 8771,
+    "sha256": "750515fce6acb74c312de6f578270e5dd4f66134ad9e5fd5b96109fce5da6bd3"
+  },
+  "freeze": "02e71b22e28b9d28a80e5ecdab10c83e85b73e52",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_categorical_residual_refinement_result_20261012.json",
+    "bytes": 26415,
+    "sha256": "c508d0fdf69a9f87c530580e799cd337f73db5f86f77e4fd07135a100e4610dc"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_categorical_residual_refinement_result_20261012.terminal.json",
+    "bytes": 1622,
+    "sha256": "a649043795fa908be406bf6707450d3a64032909f739623545f88d41805d6882"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\exact_categorical_residual_refinement_binding_20261012.json",
+    "bytes": 158898,
+    "sha256": "b6319aa6b24fb5b2b2eb84fd8f30e74e97f45b2bdfecf2a8d4265549ab3be4fd"
+  },
+  "all14_refined_FIT_and_selected_DEV_full_vocab_packets7_derivatives_and_selection_checked": true,
+  "parent_nonacceptance_and_all_original_inputs_outputs_unchanged": true,
+  "max_numeric_relative": 4.667597749817504e-13,
+  "max_scalar_delta": 1.3628209671878722e-11,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "scientific_decision": "REFINED_DERIVATIVE_VERIFIED_FIT_DESCENT",
+  "seconds": 32.14100000000326,
+  "OS_peak": 1540100096,
+  "scope": "Reuse fully audited parent Jacobian/gradient/candidates; source-width point encoding/head, independent logaddexp probabilities, frozen derivative subtraction and FIT seal/DEV audit. No refit/source model/GPU/native/T4."
+}
