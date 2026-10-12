@@ -1,0 +1,54 @@
+{
+  "schema": "RECOVERED_CATEGORICAL_CAMPAIGN_HOLDER_V4",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_binding_v4_20261011.json",
+    "bytes": 1007516,
+    "sha256": "745f662c7527a2b1bc652660ea6a8e77770dc9471eddc9158a2eef9fdf05c1c5"
+  },
+  "binding_sha256": "745f662c7527a2b1bc652660ea6a8e77770dc9471eddc9158a2eef9fdf05c1c5",
+  "source_freeze": "36a9d96172062eaab69053170d97cbfa71871ddc",
+  "original_freeze": "c9c04dfe27285a578d9c42c7b333e41eecd110a7",
+  "original_successful_custody": false,
+  "launcher_pid": 31240,
+  "limits": {
+    "seconds": 32400,
+    "OS_bytes": 25769803776,
+    "output_bytes": 4194304,
+    "log_bytes": 8388608
+  },
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_audit_v4.py",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_binding_v4_20261011.json",
+    "--binding-sha",
+    "745f662c7527a2b1bc652660ea6a8e77770dc9471eddc9158a2eef9fdf05c1c5",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_categorical_campaign_20261010",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_stored_adjudication_v4_20261011.json"
+  ],
+  "timing_control_admitted": false,
+  "worker_pid": 31320,
+  "worker_creation_time": 1791733164.3068902,
+  "exit_code": 0,
+  "error": {
+    "error": "AssertionError(('overlap', 7464, 'python.exe', ['C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python311\\\\python.exe', 'd:\\\\_THINGS\\\\Progetti\\\\tiktok_publisher\\\\daemon_workflow.py']))",
+    "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_launch_v4.py\", line 121, in launch\n    quiet(proc);guard()\n    ^^^^^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recovered_categorical_campaign_launch_v4.py\", line 21, in quiet\n    assert not name.startswith(('python','native','original_engine','clang','lld','packed_original')),('overlap',p.pid,name,argv)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('overlap', 7464, 'python.exe', ['C:\\\\Users\\\\giosa\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python311\\\\python.exe', 'd:\\\\_THINGS\\\\Progetti\\\\tiktok_publisher\\\\daemon_workflow.py'])\n",
+    "stage": "input_hash_after"
+  },
+  "elapsed_seconds": 28661.31199999999,
+  "worker_OS_peak_through_exit": 13156823040,
+  "launcher_OS_peak_snapshot": 47153152,
+  "unexpected_child_observations": [],
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recovered_categorical_campaign_stored_adjudication_v4_20261011.worker.log",
+    "bytes": 2915,
+    "sha256": "9269bf38c6c2d7f236d43f49caa7adbbed8509c7548ee34a7eccd3530edea1e0"
+  }
+}
