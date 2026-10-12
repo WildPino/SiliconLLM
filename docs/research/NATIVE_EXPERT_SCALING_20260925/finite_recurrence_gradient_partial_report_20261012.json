@@ -1,0 +1,395 @@
+{
+  "schema": "FINITE_RECURRENCE_GRADIENT_FAILED_PREFIX_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\finite_recurrence_gradient_v2_binding_20261012.json",
+    "bytes": 125251,
+    "sha256": "e2cacceb2bd3288ce84749be6ddcb0df81a81de1c1500d0b1d1282554fa73d72"
+  },
+  "initial": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\initial_gauge.npz",
+    "bytes": 833222,
+    "sha256": "336acee2fb989d516c3ed148c114b0a9294e9694f27997103cd4038adfe05f11"
+  },
+  "gradient": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\full_gradient_direction.npz",
+    "bytes": 832646,
+    "sha256": "6b1c8c17bbb4fc21a385ac501df61e66e059b5fa8de6f7354e18c11ea5927b78"
+  },
+  "gradient_cases": [
+    {
+      "id": "broad_fit_apigen_80k_002",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "history": 773,
+      "loss": 0.47977041162912315,
+      "relative_RMS": 0.6926546120752558,
+      "teacher_energy": 20544515.95399828,
+      "centered_relative_RMS": 0.6993898356471427,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_apigen_80k_002.gradient.npz",
+        "bytes": 32078990,
+        "sha256": "0c9934bff6a2455a3020310acbea0d9e028db206b79997a7e69171247972de9f"
+      }
+    },
+    {
+      "id": "broad_fit_apigen_80k_023",
+      "split": "FIT",
+      "domain": "apigen-80k",
+      "history": 479,
+      "loss": 0.46826602008626855,
+      "relative_RMS": 0.6842996566463179,
+      "teacher_energy": 13689229.755032158,
+      "centered_relative_RMS": 0.694033306971975,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_apigen_80k_023.gradient.npz",
+        "bytes": 20036750,
+        "sha256": "4368863b1c95538764e1d04c12e7401f5d8484a4fef15650b91e5a33efc93de1"
+      }
+    },
+    {
+      "id": "broad_fit_everyday_conversations_002",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "history": 363,
+      "loss": 0.5515146173938545,
+      "relative_RMS": 0.7426403014877758,
+      "teacher_energy": 6839059.632557552,
+      "centered_relative_RMS": 0.7362966308891212,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_everyday_conversations_002.gradient.npz",
+        "bytes": 15285390,
+        "sha256": "9ee481cf7c68a969ae177c90d834d1cf116102b0450c06cf746f0b316a904108"
+      }
+    },
+    {
+      "id": "broad_fit_everyday_conversations_010",
+      "split": "FIT",
+      "domain": "everyday-conversations",
+      "history": 367,
+      "loss": 0.5899109112026474,
+      "relative_RMS": 0.7680565807299924,
+      "teacher_energy": 6743714.95782189,
+      "centered_relative_RMS": 0.7633858139488306,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_everyday_conversations_010.gradient.npz",
+        "bytes": 15449230,
+        "sha256": "375077720b6b8c3b145cbd831baae0786541112601fa8c18fb6ba7a421969d45"
+      }
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_008",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "history": 58,
+      "loss": 0.4411789830704609,
+      "relative_RMS": 0.6642130554802885,
+      "teacher_energy": 804677.3775054007,
+      "centered_relative_RMS": 0.6816480954495266,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_explore_instruct_rewriting_008.gradient.npz",
+        "bytes": 2792590,
+        "sha256": "fdffedd7a7d5395de40d8e73e44b6500906d8502a66d9be8b43be24ea48fbdb5"
+      }
+    },
+    {
+      "id": "broad_fit_explore_instruct_rewriting_009",
+      "split": "FIT",
+      "domain": "explore-instruct-rewriting",
+      "history": 90,
+      "loss": 0.46295224163489657,
+      "relative_RMS": 0.68040593885922,
+      "teacher_energy": 1648425.955747081,
+      "centered_relative_RMS": 0.6899565385663039,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_explore_instruct_rewriting_009.gradient.npz",
+        "bytes": 4103310,
+        "sha256": "ac4d88acad56381eb35dbbd697113b0396c6a2dcb6277e5b2dcc3d4119b2f15a"
+      }
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_015",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "history": 209,
+      "loss": 0.5432314545075415,
+      "relative_RMS": 0.7370423695470577,
+      "teacher_energy": 4137132.9364122255,
+      "centered_relative_RMS": 0.7464312171487598,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_metamathqa_50k_015.gradient.npz",
+        "bytes": 8977550,
+        "sha256": "05cb224bdfe787615b134f560225ae770d5cf288bb8b02324ab26231b37b053c"
+      }
+    },
+    {
+      "id": "broad_fit_metamathqa_50k_023",
+      "split": "FIT",
+      "domain": "metamathqa-50k",
+      "history": 337,
+      "loss": 0.5532319965354249,
+      "relative_RMS": 0.7437956685376871,
+      "teacher_energy": 6881473.847338031,
+      "centered_relative_RMS": 0.7395313696296695,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_metamathqa_50k_023.gradient.npz",
+        "bytes": 14220430,
+        "sha256": "047c59792ec0c7c3af7cee3375fc903be15a7c2d4a0ecc3d62f1b7236e864382"
+      }
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_015",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "history": 318,
+      "loss": 0.47386363019597083,
+      "relative_RMS": 0.6883775346392202,
+      "teacher_energy": 6149507.177704448,
+      "centered_relative_RMS": 0.6931784559915639,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_numina_cot_100k_015.gradient.npz",
+        "bytes": 13442190,
+        "sha256": "266f28ae4eab9f2024b1f2024d83c65ec94f6eb9da16d16e74771571721cf0d9"
+      }
+    },
+    {
+      "id": "broad_fit_numina_cot_100k_016",
+      "split": "FIT",
+      "domain": "numina-cot-100k",
+      "history": 381,
+      "loss": 0.6826733610366132,
+      "relative_RMS": 0.8262404983033773,
+      "teacher_energy": 6312667.089069951,
+      "centered_relative_RMS": 0.8178040564908154,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_numina_cot_100k_016.gradient.npz",
+        "bytes": 16022670,
+        "sha256": "146e8a02c414c09d2bc33dc35398cf942fd6fb5b715f6c7d6c45d7f59d71c0bb"
+      }
+    },
+    {
+      "id": "broad_fit_openhermes_100k_004",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "history": 316,
+      "loss": 0.5183258547819249,
+      "relative_RMS": 0.7199485084239878,
+      "teacher_energy": 6717250.0064122435,
+      "centered_relative_RMS": 0.7220967301606536,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_openhermes_100k_004.gradient.npz",
+        "bytes": 13360270,
+        "sha256": "e9695069446884e235e277b9b9cbb8364ae430ed931ec957ab28bc545d86e6f7"
+      }
+    },
+    {
+      "id": "broad_fit_openhermes_100k_028",
+      "split": "FIT",
+      "domain": "openhermes-100k",
+      "history": 435,
+      "loss": 0.5618317882798427,
+      "relative_RMS": 0.7495543931429144,
+      "teacher_energy": 8082580.958235704,
+      "centered_relative_RMS": 0.739255110471005,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_openhermes_100k_028.gradient.npz",
+        "bytes": 18234510,
+        "sha256": "76bde7764cd65cd7eb9d91e6525eac23e4358e343fc00c82150949083fe82050"
+      }
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_006",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "history": 431,
+      "loss": 0.5182437708856024,
+      "relative_RMS": 0.7198914993841796,
+      "teacher_energy": 9806561.249394456,
+      "centered_relative_RMS": 0.7226920382888543,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_self_oss_instruct_006.gradient.npz",
+        "bytes": 18070670,
+        "sha256": "5e6c64526d66791e18a4c934933627aed1ab1571238f52f0a9356f4528ef7841"
+      }
+    },
+    {
+      "id": "broad_fit_self_oss_instruct_012",
+      "split": "FIT",
+      "domain": "self-oss-instruct",
+      "history": 337,
+      "loss": 0.5409386720326578,
+      "relative_RMS": 0.73548533094322,
+      "teacher_energy": 6695303.853932474,
+      "centered_relative_RMS": 0.7320518506293,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_self_oss_instruct_012.gradient.npz",
+        "bytes": 14220430,
+        "sha256": "322efcf730cef7c3cede903c69c2118882c97ed8b1b53777a655d3c7c6116bc9"
+      }
+    },
+    {
+      "id": "broad_fit_smol_constraints_005",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "history": 238,
+      "loss": 0.4881437498607063,
+      "relative_RMS": 0.6986728489505702,
+      "teacher_energy": 4703960.538669855,
+      "centered_relative_RMS": 0.6978601680277687,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_constraints_005.gradient.npz",
+        "bytes": 10165390,
+        "sha256": "70a4a2096560725cae97e006f62aea5e4d9fe66d3edf8e1a4b19ea3803ca971d"
+      }
+    },
+    {
+      "id": "broad_fit_smol_constraints_021",
+      "split": "FIT",
+      "domain": "smol-constraints",
+      "history": 294,
+      "loss": 0.5106804747265279,
+      "relative_RMS": 0.7146191116437678,
+      "teacher_energy": 5560659.687761852,
+      "centered_relative_RMS": 0.7112630226036903,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_constraints_021.gradient.npz",
+        "bytes": 12459150,
+        "sha256": "9067c115c75df9cee6a376e2d0a386c508295fafd94ec5cf7a8c9426eb02bdc7"
+      }
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_000",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "history": 1034,
+      "loss": 0.7436595272377625,
+      "relative_RMS": 0.8623569604506955,
+      "teacher_energy": 25473594.057606883,
+      "centered_relative_RMS": 0.8488808333706762,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_magpie_ultra_000.gradient.npz",
+        "bytes": 42769550,
+        "sha256": "95105c7b41f1078e6f31b36750ad9ba555f13b0ad62c62fb29e99e51d52e8c0e"
+      }
+    },
+    {
+      "id": "broad_fit_smol_magpie_ultra_022",
+      "split": "FIT",
+      "domain": "smol-magpie-ultra",
+      "history": 1507,
+      "loss": 0.6862301204932931,
+      "relative_RMS": 0.8283900774956766,
+      "teacher_energy": 28552483.79053063,
+      "centered_relative_RMS": 0.8118349506276017,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_magpie_ultra_022.gradient.npz",
+        "bytes": 62143630,
+        "sha256": "027592b431209ce48ffec5bb75bb5c4f94388ca33164e31b25c57080a022f464"
+      }
+    },
+    {
+      "id": "broad_fit_smol_rewrite_004",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "history": 252,
+      "loss": 0.43526121391595024,
+      "relative_RMS": 0.6597432939529967,
+      "teacher_energy": 4600659.66358163,
+      "centered_relative_RMS": 0.6656445717927433,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_rewrite_004.gradient.npz",
+        "bytes": 10738830,
+        "sha256": "93b1db37ce0125f8abec5cb46cfc3649f52f5a548835a0c574948da458998d41"
+      }
+    },
+    {
+      "id": "broad_fit_smol_rewrite_015",
+      "split": "FIT",
+      "domain": "smol-rewrite",
+      "history": 554,
+      "loss": 0.5689319477281553,
+      "relative_RMS": 0.7542757769729552,
+      "teacher_energy": 9743359.162073087,
+      "centered_relative_RMS": 0.7538368239614234,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_rewrite_015.gradient.npz",
+        "bytes": 23108750,
+        "sha256": "d37f18519660eb7240e80ccaf6572bdcee1a59ee21dffd52337a25456c2d9e49"
+      }
+    },
+    {
+      "id": "broad_fit_smol_summarize_003",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "history": 774,
+      "loss": 0.6173196792880276,
+      "relative_RMS": 0.7856969385762093,
+      "teacher_energy": 12782486.25781333,
+      "centered_relative_RMS": 0.7845098921444338,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_summarize_003.gradient.npz",
+        "bytes": 32119950,
+        "sha256": "5afc7128f04808832a7537b595d5633d11ab969655dab4b1dd26e9b239ad7829"
+      }
+    },
+    {
+      "id": "broad_fit_smol_summarize_024",
+      "split": "FIT",
+      "domain": "smol-summarize",
+      "history": 264,
+      "loss": 0.4655381839111752,
+      "relative_RMS": 0.6823035863244272,
+      "teacher_energy": 4714154.415775101,
+      "centered_relative_RMS": 0.6906838974633374,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_smol_summarize_024.gradient.npz",
+        "bytes": 11230350,
+        "sha256": "7a4a77694cef1eec3d99e178cae236e0f828f07903ed3995cd736181dc6f66e3"
+      }
+    },
+    {
+      "id": "broad_fit_systemchats_30k_010",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "history": 1020,
+      "loss": 0.41279019891243,
+      "relative_RMS": 0.6424875087598435,
+      "teacher_energy": 24994970.797276862,
+      "centered_relative_RMS": 0.6551979261424585,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_systemchats_30k_010.gradient.npz",
+        "bytes": 42196110,
+        "sha256": "6644a7f6ee0aebad6217244d04ca4621dd762e02ea695cfaad5c171186c8b309"
+      }
+    },
+    {
+      "id": "broad_fit_systemchats_30k_024",
+      "split": "FIT",
+      "domain": "systemchats-30k",
+      "history": 317,
+      "loss": 0.5736465885482663,
+      "relative_RMS": 0.7573946055711424,
+      "teacher_energy": 5856614.299792368,
+      "centered_relative_RMS": 0.7550245037788224,
+      "file": {
+        "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\broad_fit_systemchats_30k_024.gradient.npz",
+        "bytes": 13401230,
+        "sha256": "43d94d923e3d1522eaef9237b9b182ca666df768f81ca7a1f33ac1004b917a4d"
+      }
+    }
+  ],
+  "selected": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\initial_gauge.npz",
+    "bytes": 833222,
+    "sha256": "336acee2fb989d516c3ed148c114b0a9294e9694f27997103cd4038adfe05f11"
+  },
+  "ideal": [],
+  "machine_records": [],
+  "points": [],
+  "FD": [],
+  "first_fault": {
+    "path": "E:\\SiliconLLM\\results\\native_expert_scaling\\finite_recurrence_gradient_v2_20261012\\first_fault.json",
+    "bytes": 14468,
+    "sha256": "c50ffc121e6b9b90c2ab9098bed35a47b7b343f3741158bab4862547ef34c7b4"
+  },
+  "source_scope": "Complete V2 failed-run saved baseline backward and direction;V1 full prefix also verified;no candidate update exists"
+}
