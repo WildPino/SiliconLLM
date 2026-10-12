@@ -1,0 +1,36 @@
+{
+  "schema": "FALCON_PRETRAINED_PROJECTED_SHADOW_INVOCATION_V3",
+  "source_protocol_freeze": "7a7ad460c83849f54f67a803317ccfb007bd1403",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/falcon_pretrained_projected_shadow_v3.py",
+    "--launch",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_pretrained_projected_shadow_binding_v3_20261012.json",
+    "--binding-sha",
+    "b3b754cfa5b8e5ed7c8615483e95fcf3fb4887cac96fa4d022872e1b1ba13c03",
+    "--freeze",
+    "7a7ad460c83849f54f67a803317ccfb007bd1403",
+    "--directory",
+    "results/native_expert_scaling/falcon_pretrained_projected_shadow_v3_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_pretrained_projected_shadow_result_v3_20261012.json"
+  ],
+  "hard_seconds": 1200,
+  "creationflags": 8,
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "1",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "TOKENIZERS_PARALLELISM": "false",
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  }
+}
