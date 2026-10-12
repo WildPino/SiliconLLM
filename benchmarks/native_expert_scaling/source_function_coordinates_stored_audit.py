@@ -18,11 +18,13 @@ def main(a):
     proc=psutil.Process();proc.cpu_affinity(list(range(6)));stream=None;maxdelta=0.;maxnumeric=0.;maxscore=0.
     receipt=dict(schema='SOURCE_FUNCTION_COORDINATES_AUDIT_TERMINAL_V1',command=sys.orig_argv,
         pid=proc.pid,creation_time=proc.create_time(),freeze=a.freeze,source=extent(__file__),timing_control_admitted=False)
+    audit_inputs=[extent(a.report),extent(a.terminal),extent(__file__),
+        extent(DOC/'SOURCE_FUNCTION_COORDINATES_STORED_AUDIT_PROTOCOL_20261012.md')]
     def guard():
         assert time.monotonic()-START<1200 and proc.memory_info().peak_wset<=6<<30
         assert not proc.children(recursive=True)
     def check():
-        for x in b['inputs']+r['outputs']+[r['binding'],extent(a.report),extent(a.terminal)]:
+        for x in b['inputs']+r['outputs']+[r['binding']]+audit_inputs:
             guard();assert extent(x['path'])==x,x['path']
     def compare(x,y,tol=1e-10):
         nonlocal maxnumeric
