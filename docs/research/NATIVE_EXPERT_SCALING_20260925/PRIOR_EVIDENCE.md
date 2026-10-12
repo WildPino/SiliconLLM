@@ -1,6 +1,14 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Full trained24-layer projected shadow/final audit/geometry](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
+now COMPLETE:all411 source maps and local F32 controls PASS;0/16/followup false,
+DEV KL22.6229/dis100%. All17 greedy traces/4386 labels/168 trajectories audited.
+Initial coordinate error.149%,after4~194%/cos.301;fixed P captures~12%-14%
+intermediate source energy, not a task-information fraction or capacity bound.
+Selected next: finite stored FIT-only state-coordinate feasibility with explicit
+radial information/residual transport; new source-function encoding before dose.
+Earlier shadow UNIMPLEMENTED/next entries below are historical. No new T4.
 [Restricted D256 trained operator compiler/export/full field audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
 now COMPLETE/PASS:39 injected positions, exact max1.4094e-15, F32 coefficient
 roundtrip4.5539e-8; three durable core packages/all fields independently checked.

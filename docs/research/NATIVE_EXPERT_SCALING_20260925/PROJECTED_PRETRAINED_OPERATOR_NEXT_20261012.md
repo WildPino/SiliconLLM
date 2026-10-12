@@ -1,5 +1,10 @@
 # Next: trained operators in compact residual coordinates
 
+**Newest update:** [actual full shadow/composition and audits](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
+COMPLETE,quality FAIL0/16. The fixed-global-P warm route is closed under this screen;
+new state-coordinate/radius/residual-transport feasibility is now operational NEXT.
+The proposals below describe completed/historical stages, not pending shadow runs.
+
 **Update12 October:** [restricted compiler/control/export/full audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
 COMPLETE/PASS. Shadow model remains UNIMPLEMENTED/UNEXECUTED and is now the
 operational next step. Below is the preserved original staged proposal.

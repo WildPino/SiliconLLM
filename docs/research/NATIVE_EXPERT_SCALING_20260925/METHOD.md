@@ -3,9 +3,13 @@
 12 October2026. **ACTIVE/INCOMPLETE**. This is the reproducible procedure under
 construction. It currently produces a failed chatbot and validated analysis/
 conversion components, not a capacity-preserving universal converter.
+[Fully trained projected24-layer shadow](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
+and full audit now COMPLETE:local F32 operators/coefficient maps PASS,chatbot0/16,
+DEV KL22.6229/dis100%. Fixed global P does not preserve composed behavior; drift
+already large at boundary4. New state encoding, not merely more dose, is selected.
 [Latest restricted D256 trained-operator export/audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
 COMPLETE: local norm-folding identity and three F32 packages. Composed pretrained
-projected shadow behavior remains unimplemented/unexecuted.
+shadow now also complete and failed; see the newer result above.
 [Operational index](INDEX.md), [latest actual outcomes](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md).
 Earlier method/status history is byte-preserved in
 [METHOD through V4 launch](METHOD_THROUGH_RECOVERED_V4_LIVE_20261011.md).
@@ -38,8 +42,9 @@ be counted separately. Arbitrary source architectures are not supported yet.
 5. Choose new experiments to resolve the current measured defect, preserving
    earlier valid controls and all execution/scientific failures.
 
-Current decision: transfer actual trained sequence operators in compact residual
-coordinates before another long epoch on the failed fresh-core initializer.
+Current decision: actual trained sequence transfer is real, but the fixed-P
+representation fails. Test FIT-only layer-specific/conditional state encoding,
+radial information and residual transport before another long epoch.
 [Exact prospective path](PROJECTED_PRETRAINED_OPERATOR_NEXT_20261012.md).
 No blindly continued donor-adaptation or new T4 job.
 
@@ -59,6 +64,8 @@ No blindly continued donor-adaptation or new T4 job.
 | initializer_quadrant_algebra | Exact initializer code+synthetic scalars -> reproducible even-function identity |100 cases/.016s; pre-learning all-expert real mixture only, not learned model/top8/quantization |
 | falcon_auxiliary_s6_transport | Actual source coefficients -> original-S6 field compiler+39 F64 operand frames |3 sites/all gates PASS,9.296s/440.009MB OS; independent stored fsum audit6.813s; not compact/native/BF16/chatbot qualification |
 | falcon_projected_s6_transport | Actual source/P256/gamma -> restricted core and durable F32 fields |3 sites/all local gates PASS,13.047s/530.104MB OS; all-field audit8.094s; source feature/state widths costly, composed/native behavior untested |
+| falcon_pretrained_projected_shadow_v3 | All411 actual source fields ->24-layer projected F32 model/16 tasks+followup/24 DEV/168 residual streams | Capture312.406s/all resource gates PASS;full audit165.078s;quality0/16,DEV KL22.6229/dis100%;not native/selective deployment |
+| inspect_projected_shadow_trajectories | Source/shadow seven boundaries ->coordinate/cosine/energy localization |24 cases/168 pairs,25.110s,all hashes exact;initial.149% error,after4~194%;no information-capacity ceiling |
 
 Detailed revisions/bindings/invocations/hashes/results and scope are linked in
 [latest report](RECOVERY_AND_OPERATOR_TRANSPORT_REASSESSMENT_20261012.md) and

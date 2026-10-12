@@ -1,6 +1,13 @@
 # Native expert scaling: research control index
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+Newest: [ACTUAL fully trained24-layer projected shadow and full audit](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md)
+COMPLETE/mechanical PASS/quality FAIL0/16,followup false,DEV KL22.6229/dis100%.
+All411 coefficient maps/17 greedy traces/4386 labels/168 trajectories audited.
+Stored source comparison:initial coordinate error.149%;by layer4~194%,cos.301;
+fixed P retains~12%-14% intermediate source energy, not a task-information bound.
+The fixed-P warm route is closed under this quality screen. Older NEXTs below
+are superseded by the exact resumption at the end; new coordinate encoding needed.
 Latest: [restricted D256 trained compiler and full field audit](FALCON_PROJECTED_S6_TRANSPORT_RESULT_20261012.md)
 PASS on three sites/39 injected positions; max exact1.4094e-15,
 F32 coefficient-roundtrip4.5539e-8. Diagonal norm control loses19%-92% output.
@@ -64,13 +71,13 @@ recovery remain available; dense converter masters/gradients still O(n).
 
 ## Next and exact resumption
 
-**Implement/review/bind one full24-layer pretrained projected shadow chatbot** to measure
-composed projection loss before more training. This changes transport/norm/depth,
-not the previous384 pruning objective or another epoch on the failed initializer.
-Restricted compiler/control and full stored field audit COMPLETE; reuse actual
-P/coefficient packages and corrected gamma/metric/epsilon relation. Shadow keeps
-source attention/FFN/parallel composition/depth as explicitly provisional costs.
-Actual runtime/budget still to be frozen; no next job launched.
+**Bind a finite stored FIT-only residual-coordinate feasibility experiment**:
+source layer-specific bases/read-write metrics or conditional affine charts,
+explicit missing radius and residual transport. Use existing source boundaries
+and newly audited target trajectories; no model replay solely to collect states.
+[Measured gap and next algebra](FALCON_PRETRAINED_PROJECTED_SHADOW_RESULT_20261012.md).
+Predeclare proxy criteria/costs; spectral energy alone cannot admit composition.
+New runner/binding still required. No new long optimizer/T4 job selected.
 
 [Router support counterfactual](ROUTER_SUPPORT_COUNTERFACTUAL_NEXT_20261011.md)
 remains UNIMPLEMENTED; address it as a numerical/gradient branch, not sufficient
