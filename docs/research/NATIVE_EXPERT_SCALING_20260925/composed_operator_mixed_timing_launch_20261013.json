@@ -1,0 +1,41 @@
+{
+  "schema": "COMPOSED_OPERATOR_MIXED_TIMING_LAUNCH_V1",
+  "created_at": "2026-10-13T01:01:14.7258052+02:00",
+  "freeze": "3a23ab99774de0e3429ae26a0100bf8930b11ed1",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/composed_operator_mixed_timing.py",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_mixed_binding_20261013.json",
+    "--binding-sha",
+    "3d3cde52f4490c53dc2bb7c80b1970e5d3a0f5aa7983883d2b9d63b54aecf0b5",
+    "--adjudication",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_mixed_adjudication_20261013.json",
+    "--adjudication-sha",
+    "582005808eba532af7067a70cb4e3ca7de430c908fb33d1485462ca10d121c50",
+    "--freeze",
+    "3a23ab99774de0e3429ae26a0100bf8930b11ed1",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/composed_operator_mixed_timing_result_20261013.json"
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "native_threads": 1,
+  "affinity": [
+    0
+  ],
+  "limits": {
+    "seconds": 900,
+    "OS_bytes": 6442450944
+  },
+  "whole_model_timing_admitted": false,
+  "original_V1_timing_launched": false
+}
