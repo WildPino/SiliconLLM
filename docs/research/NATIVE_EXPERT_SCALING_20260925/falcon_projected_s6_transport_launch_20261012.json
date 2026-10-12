@@ -1,0 +1,31 @@
+{
+  "schema": "FALCON_PROJECTED_S6_INVOCATION_V1",
+  "source_protocol_freeze": "bb9383af283e517a486722da7fde0d9aea49fd8b",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/falcon_projected_s6_transport.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_s6_transport_binding_20261012.json",
+    "--binding-sha",
+    "c3490181a801c4b9fb115dec40d756e74e7ba55c75570d6a54ee0ed8b1a11612",
+    "--freeze",
+    "bb9383af283e517a486722da7fde0d9aea49fd8b",
+    "--directory",
+    "results/native_expert_scaling/falcon_projected_s6_transport_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/falcon_projected_s6_transport_result_20261012.json"
+  ],
+  "env": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  }
+}

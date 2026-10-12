@@ -1,0 +1,151 @@
+{
+  "schema": "FALCON_PROJECTED_S6_TRANSPORT_BINDING_V1",
+  "python": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008",
+  "sites": [
+    0,
+    12,
+    23
+  ],
+  "input_case": "broad_fit_explore_instruct_rewriting_008",
+  "input_origin": "First13 existing FIT embeddings -> z=embedding@P, reference raw residual=Pz. All tested sites use injected subspace residuals, not actual intermediate histories.",
+  "input_ids": [
+    17,
+    227,
+    3793,
+    709,
+    14018,
+    842,
+    11522,
+    1448,
+    1418,
+    2288,
+    3682,
+    612,
+    1947
+  ],
+  "dtype": "F64",
+  "threads": 1,
+  "gates": {
+    "exact_relative_RMS": 1e-10,
+    "F32_coefficient_roundtrip_relative_RMS": 1e-05,
+    "scalar_relative": 1e-10
+  },
+  "limits": {
+    "seconds": 300,
+    "OS_bytes": 4294967296,
+    "output_bytes": 134217728
+  },
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_auxiliary_s6_transport.py",
+      "bytes": 17798,
+      "sha256": "7e90bef086122e9c4f743cb768e4e9d17fd2c85864bceec408b04603bf3392e4"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "bytes": 104952,
+      "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\config.json",
+      "bytes": 1599,
+      "sha256": "2473f5e02854a2833df973277e6f109d94344e7860fbc78d5ff8b31d08dddaeb"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_1p5b_source_repair1_20261008\\model.safetensors",
+      "bytes": 3109773032,
+      "sha256": "1fb788513f2c58e3abb91af8730afe19e247bce7a7f01a46e452a084e98b2abd"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_falcon_recurrent_adopted_result_20261009.json",
+      "bytes": 8582070,
+      "sha256": "bdec178a948e49bbec1d9eb4c01076bec9c182be8347306eb5dc02e0c873c849"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\FALCON_AUXILIARY_S6_TRANSPORT_PROTOCOL_20261012.md",
+      "bytes": 4447,
+      "sha256": "358ff5c87dc4047a97640347b59e8565351c2a9e684f6da7ec96b4bfcf148e85"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_tensor_learner.py",
+      "bytes": 10471,
+      "sha256": "701b500e607fec6e83614cd523315a5c18380cc0d80087d3a0868fa607ccc9a8"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\original_falcon_learner.py",
+      "bytes": 10804,
+      "sha256": "d6b2464044e34db4f179d1a17101d37f7ad91274580637fe625d2e8bdea389a2"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "bytes": 137439,
+      "sha256": "5f948fc0dcd28b1647a2a2c73067bdc0a76a7d41ae7f34395ede8120aeaa83ce"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py",
+      "bytes": 59285,
+      "sha256": "abfb007ace80bfd5584c457569605cf57f43778495e587c68df63a8f0ffa5346"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\transformers\\models\\falcon_h1\\configuration_falcon_h1.py",
+      "bytes": 6632,
+      "sha256": "bd996cf14c0eaf7307e939fb6579a3c47a95f11a47a45b91ab1750c186a052aa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\__init__.py",
+      "bytes": 27550,
+      "sha256": "65d5e777b6d662ba19cb80800bef3eb999eda7aee51eea62c308feabf679dba4"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp312-win_amd64.pyd",
+      "bytes": 3714560,
+      "sha256": "80e7dc34f51cf6cef24da060e1e8620936b2cf188bae0ea367dc8619b2316204"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Lib\\site-packages\\psutil\\_psutil_windows.pyd",
+      "bytes": 70656,
+      "sha256": "0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_projected_s6_transport.py",
+      "bytes": 11552,
+      "sha256": "c3f6577391b75195b94ed5d8e2b5a35242d73ada4f588d2e9c2131b144bcb0fa"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_auxiliary_s6_transport_binding_20261012.json",
+      "bytes": 4696,
+      "sha256": "e52b539f37193d402b685e57354689f1d935935dcce3d026b4ea9f59a4f2be71"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\original_history_boundaries_finish_result_20261009.json",
+      "bytes": 504380,
+      "sha256": "e39d38387f3c787475b4ceec806e86ae7b8af010c1b8b02f35a2083871883989"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\P256.f32",
+      "bytes": 2097152,
+      "sha256": "3dd96e0fd782833f51c005109e7ba1f95a98996bac1f5babb6a43ab3833e465d"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\FALCON_PROJECTED_S6_TRANSPORT_PROTOCOL_20261012.md",
+      "bytes": 3638,
+      "sha256": "60af644016eeefa645de5ffeed28a5f1451ca205f012ed88d0395e91bcc03f49"
+    }
+  ],
+  "runtime_scope": "Principal Python/NumPy/psutil binaries and actual HF source text, not full DLL tree; CPU-only arithmetic assay. External publisher preserved; no clean timing admission.",
+  "worker": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_projected_s6_transport.py",
+  "basis": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\original_history_boundaries_20261009\\P256.f32",
+    "bytes": 2097152,
+    "sha256": "3dd96e0fd782833f51c005109e7ba1f95a98996bac1f5babb6a43ab3833e465d"
+  },
+  "source_D": 2048,
+  "target_D": 256,
+  "rho": 8
+}
