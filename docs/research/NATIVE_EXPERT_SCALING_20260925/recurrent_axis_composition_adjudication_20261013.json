@@ -1,0 +1,47 @@
+{
+  "schema": "RECURRENT_AXIS_COMPOSITION_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recurrent_axis_composition_audit.py",
+    "bytes": 12711,
+    "sha256": "a1b697e607ae461bf1632756dedbcbf7e4e094ebee6e3657560f65cbf5a11c6a"
+  },
+  "freeze": "dce8d2db80fad194fa24c880635ae68c0ef8f9eb",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_axis_composition_result_20261013.json",
+    "bytes": 149280,
+    "sha256": "503f73de094c714fe6287fdd70f56d4655dac6ba196a6571e31715d603f5f4fc"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_axis_composition_result_20261013.terminal.json",
+    "bytes": 1356,
+    "sha256": "a88f6243fd7f84050dac672de953b3cb2696c49a9afabbca531560f9f51b9ee7"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_axis_composition_binding_20261013.json",
+    "bytes": 137360,
+    "sha256": "7a89930b161c05d7c23a2ff5e8e86f470de7b3c85c17d1988958a1cfd51240f3"
+  },
+  "cases_verified": 48,
+  "full_sequential_scan_words_verified": 77922432,
+  "all_output_words_verified": 277057536,
+  "projected_words_verified": 12987072,
+  "maximum": {
+    "state_B": 1.8101442137305025e-07,
+    "state_C": 1.915275710352789e-07,
+    "channel_input": 1.8639583991119346e-07,
+    "sequential_source96": 5.645279872580996e-07,
+    "sequential_joint96": 1.3871907052124608e-07,
+    "scalar": 2.5108001073123755e-14,
+    "output_channel384_state256_full_source_denominator": 0.0,
+    "output_channel384_state256_reconstructed_denominator": 0.0,
+    "output_channel3072_state96_full_source_denominator": 0.0,
+    "output_channel3072_state96_reconstructed_denominator": 0.0,
+    "output_channel384_state96_full_source_denominator": 0.0,
+    "output_channel384_state96_reconstructed_denominator": 0.0
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 100.97707660000015,
+  "OS_peak": 939237376,
+  "scope": "All fixed map identities,source3072x96 and joint384x96 states/every timestep,B/C/input projections,commutation,all six BF16 outputs per case incl prior baseline,error interaction energies/full metrics/domains/gates and algebraic state counts. No source F32/native/whole-model/n/50 admission."
+}

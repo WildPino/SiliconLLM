@@ -1,6 +1,16 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 13 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Fixed channel384/state96 composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md)
+COMPLETE/full independent audit PASS/site23 local budgets PASS/both norm modes.
+All48 histories/77,922,432 full CPU scan values/every timestep,
+277,057,536 BF16 output values incl prior baseline (differences0),12,987,072
+B/C/input values/energy interactions/gates/hashes qualified. Joint DEV ownnorm
+mean.068813/worst.096949 versus channel-only.063571/.087007;source denominator
+mean.070423. State21.33x smaller (144KiB versus3MiB),source nonlinear functions
+and20,021,248 dense source in/out coefficients per layer retained. Prepare56515/
+capture52306/audit67194 CLOSED0;733.172MB on E. Next separate native cost pilot,
+PROPOSED/UNIMPLEMENTED/UNBOUND;no whole causal/native chatbot/n/50 admission.
 [Fixed whitened candidate](WHITENED_CANDIDATE_RESULT_20261012.md) COMPLETE/full
 independent audit PASS:all48 cases,92,352,512 ideal+92,352,512 BF16 output words,
 8,658,048 scan values/every384x256 state timestep. BF16 differences0;

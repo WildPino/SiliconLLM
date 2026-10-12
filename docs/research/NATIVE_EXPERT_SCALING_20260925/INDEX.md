@@ -1,6 +1,14 @@
 # Native expert scaling: research control index
 
 **13 October 2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[Fixed channel384/state96 composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md)
+COMPLETE/full independent audit PASS/site23 local gates PASS/both norm modes.
+All48 histories/77,922,432 scan values/277,057,536 BF16 output values checked;
+BF16 differences0. DEV ownnorm mean.068813/worst.096949,full-source denominator
+mean.070423. State3MiB->144KiB (21.33x),not whole-model speedup. Next
+[separate native cost/qualification pilot](COMPOSED_OPERATOR_NATIVE_COST_NEXT_20261013.md),
+PROPOSED/UNIMPLEMENTED/UNBOUND;count full retained source generation/gate/skip/
+conv/norm/out costs. No complete causal chatbot/native speed/useful n admission.
 [Fixed whitened candidate](WHITENED_CANDIDATE_RESULT_20261012.md) COMPLETE/full
 independent audit PASS:all48 histories,92,352,512 ideal+92,352,512 BF16 output
 words and8,658,048 sequential scan values. All24 FIT/24 DEV ideal losses improve;
@@ -69,6 +77,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [Fixed state/channel composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md):source-injected site23 adaptive384 x dual96 independent all-coordinate/every-timestep scan audit PASS,all six output vectors per case exactly reproduced. Joint ownnorm DEV mean.068813/worst.096949 versus channel-only.063571/.087007;all original local gates PASS/both modes.36,864 state coordinates versus786,432 source;20,021,248 source in/out projection coefficients remain. Next actual native supplied-operand operator cost,followed by nonlinear causal generator transfer;no21.33x whole-speed claim.
 - [Fixed whitened point](WHITENED_CANDIDATE_RESULT_20261012.md):independent full actual scan/output audit PASS, BF16 vector differences0. FITloss.533005->.520252, DEVloss.626393->.604521,all48 ideal cases improve. Actual DEV ownnorm mean.775702/worst.904905,source-den mean.755550;all local gatesFAIL. Numeric transport qualified,representation quality unresolved. Next compose accepted site23 channel/state reductions without refitting.
 - [Invariant whitening/matched directions](WHITENED_RECURRENCE_PREFLIGHT_RESULT_20261012.md):all48 physical/white outputs/24 dual autograd cases/chain/inverse/SPD/projector/full FIT output-RMS-normalized curves audited PASS. Same representation/objective,white directionbest2.393% FIT reduction versusreference.476%. Fixed candidatewhitealpha.1 requires held-out/actual new scans;no useful model/n/50 admission.
 - [Full finite backward/update](FINITE_RECURRENCE_GRADIENT_RESULT_20261012.md): all34,246,656 GY words/24 CPU autograd cases,independent Sylvester tangent,all original/fine FD controls,ten FIT candidates,1,130,496 parameter-replay words/all48 actual scans qualified. One alpha.0003 reduces FIT.745%;all FIT/DEV cases improve slightly,local qualityFAIL. V1 algebra fault/V2 coarse failure and both partial-audit metadata faults retained;original coarse flags false. Next conditioning/coordinate qualification,no long repeated Euclidean epochs.
@@ -106,11 +115,16 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Compose fixed site23 adaptive384 channel and dual96 state maps**, without
-refit/DEV selection. Full all48 actual scans and independent CPU state/output
-qualification required before native cost pilot. This tests composition, not
-automatic multiplication of separately measured quality gains. Full source
-generators/gates/conv/skip remain and must be included in any cost accounting.
+**Implement/freeze/bind separate batch1 C composed-operator qualification/cost
+pilot**, [selected next](COMPOSED_OPERATOR_NATIVE_COST_NEXT_20261013.md),
+PROPOSED/UNIMPLEMENTED/UNBOUND. [Fixed composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md)
+COMPLETE/full independent audit PASS/site23 localPASS,both norm modes.
+[Closure](recurrent_axis_composition_session_closure_20261013.json):prepare56515,
+capture52306/audit67194 CLOSED0,733.172MB on E,no owned run live.
+All48 actual states and BF16 outputs qualified;no refit/DEV selection.
+Full source generators/gates/conv/skip/norm/out remain and must be included
+in cost accounting. Dynamic gate prevents a free fixed folded output map;
+linear mixed maps cannot simply commute with source SiLU/convolution.
 [Fixed whitened candidate](WHITENED_CANDIDATE_RESULT_20261012.md) COMPLETE/full
 audit PASS/local qualityFAIL; [closure](whitened_candidate_session_closure_20261012.json)
 records capture86761/audit61517 CLOSED0,992.868MB on E,no owned run live.

@@ -77,11 +77,17 @@ IMPLEMENTED/INDEPENDENTLY VERIFIED:all48 ideal outputs/new actual384 state256
 scans/all BF16 outputs, every CPU timestep. Fixed FIT alpha.1;no DEV reselection.
 All48 ideal losses improve,DEV actual mean.775702 versus.789261;all local quality
 gatesFAIL. Numerical transport verified,quality repair remains research.
-Next compose site23 accepted adaptive384 channel and dual96 state maps before
-native cost pilot. Scalar source head decay permits separate axis maps;
-nonlinear gate/full joint RMS/output quality must be measured after composition.
-Full source generator/gate/conv/skip costs remain;21.33x state reduction, if
-qualified, would not establish an equal whole-model speed gain.
+[Fixed site23 adaptive384/dual96 composition](RECURRENT_AXIS_COMPOSITION_RESULT_20261013.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED:all48 actualF32 scans,every CPU state
+timestep/all six BF16 outputs per case,projection/commutation/energy controls.
+Joint DEV ownnorm mean.068813/worst.096949,all local gates PASS/both modes;
+21.33x smaller recurrent state. This local component retains donor generators,
+3584 conv channels,3072 gates/fullskip/norm/out and source hidden inputs.
+Scalar source head decay permits axis composition;it does not close the compact
+causal generator or commute mixed maps through source SiLU/dynamic gates.
+Next [native operator qualification/cost pilot](COMPOSED_OPERATOR_NATIVE_COST_NEXT_20261013.md)
+PROPOSED/UNIMPLEMENTED/UNBOUND. Count/measure all retained source functions
+before considering an engine extension;no21.33x whole-model speed admission.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.
