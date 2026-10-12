@@ -1,0 +1,36 @@
+{
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "env": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "freeze": "59c9c87c0ad264da91266fb0cedcdbc4ab4db0aa",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/all_label_native_probability_gap_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/all_label_native_probability_gap_result_20261012.json",
+    "--report-sha",
+    "5f0de1e4fe6246f2f9c2c231d30db8b48fd1f76c1d1dd8d9fa1537df40b7379c",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/all_label_native_probability_gap_result_20261012.terminal.json",
+    "--terminal-sha",
+    "352ba338558ba32d35196b34ce885ab94d75d5b00fc1765e4b91bb10305f0172",
+    "--freeze",
+    "59c9c87c0ad264da91266fb0cedcdbc4ab4db0aa",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/all_label_native_probability_gap_adjudication_20261012.json"
+  ],
+  "limits": {
+    "seconds": 1200,
+    "OS_bytes": 6442450944
+  },
+  "schema": "ALL_LABEL_NATIVE_PROBABILITY_GAP_AUDIT_INVOCATION_V1"
+}
