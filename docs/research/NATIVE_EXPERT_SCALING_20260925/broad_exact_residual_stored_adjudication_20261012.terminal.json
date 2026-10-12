@@ -1,0 +1,38 @@
+{
+  "schema": "BROAD_EXACT_RESIDUAL_AUDIT_TERMINAL_V1",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/broad_exact_residual_stored_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/broad_exact_residual_correction_result_20261012.json",
+    "--report-sha",
+    "cd9a4664d5da5ee5bb6b26a842d0d5e211791d08d409b4d7f727b9dfc4b66c3f",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/broad_exact_residual_correction_result_20261012.terminal.json",
+    "--terminal-sha",
+    "702fb987816a1bc6107a023a87d5bdb98ba5360b7d81b9e880c3406bf224fe78",
+    "--freeze",
+    "7cdfcd3bb9fc54503c7842c7b3cf1afce084486e",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/broad_exact_residual_stored_adjudication_20261012.json"
+  ],
+  "freeze": "7cdfcd3bb9fc54503c7842c7b3cf1afce084486e",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\broad_exact_residual_stored_audit.py",
+    "bytes": 14200,
+    "sha256": "f576dce75247fdcc03116171b53f6b96291d9328c4af0e0472e87e66d457a02a"
+  },
+  "pid": 19388,
+  "creation_time": 1791811009.532863,
+  "timing_control_admitted": false,
+  "exit_code": 1,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\broad_exact_residual_stored_audit.py\", line 128, in main\n    auditpoint(p,H,weights,meta)\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\broad_exact_residual_stored_audit.py\", line 77, in auditpoint\n    guard();hi=min(lo+64,len(H));rr=np.sqrt(np.mean(H[lo:hi]**2,axis=1)+b['epsilon']);ref=full_head(H[lo:hi]/rr[:,None],A);direct=full_head(Y[lo:hi]/R[lo:hi,None],A)\n    ^^^^^^^\n  File \"D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\broad_exact_residual_stored_audit.py\", line 18, in guard\n    def guard():assert time.monotonic()-START<=900 and proc.memory_info().peak_wset<=6<<30 and not proc.children(recursive=True)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 900.859999999986,
+  "OS_peak": 1991233536
+}
