@@ -1,0 +1,41 @@
+{
+  "schema": "GAUGED_NATIVE_READOUT_INVOCATION_REPLAY1",
+  "source_protocol_freeze": "8318bfa72f69b2f635ea3f70ceb825aa3b391e8b",
+  "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/gauged_native_readout.py",
+    "--run",
+    "--binding",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gauged_native_readout_binding_20261012.json",
+    "--binding-sha",
+    "b8c2664da38a61305fc13b915fdb8620fe59bc4f74adaa22782bccd7b70da540",
+    "--freeze",
+    "8318bfa72f69b2f635ea3f70ceb825aa3b391e8b",
+    "--directory",
+    "results/native_expert_scaling/gauged_native_readout_replay1_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gauged_native_readout_result_replay1_20261012.json"
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "6",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "MKL_NUM_THREADS": "6",
+    "OPENBLAS_NUM_THREADS": "6"
+  },
+  "limits": {
+    "OS_bytes": 6442450944,
+    "output_bytes": 3221225472,
+    "seconds": 900
+  },
+  "preparation": {
+    "exit_code": 0,
+    "seconds": 4.25
+  },
+  "replay_reason": "83696 interrupted,handle/Python producer absent,result/terminal absent;new output namespace,same frozen code/input/numeric/resource gates."
+}

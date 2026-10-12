@@ -1,0 +1,94 @@
+{
+  "schema": "GAUGED_NATIVE_SCALAR_REFERENCE_PREPARATION_V1",
+  "freeze": "83aed8d301990be335754f4b40d67ba3a5bbc95a",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/gauged_native_reference_preparation.py",
+    "--freeze",
+    "83aed8d301990be335754f4b40d67ba3a5bbc95a",
+    "--directory",
+    "results/native_expert_scaling/gauged_native_reference_preparation_20261012",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/gauged_native_reference_preparation_20261012.json"
+  ],
+  "inputs": [
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\gauged_native_reference_preparation.py",
+      "bytes": 2684,
+      "sha256": "5d069065e39e5a9589b2a190f690b4929b86508de8cc2ab51aa884a6c417c235"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\gauged_native_scalar_reference.c",
+      "bytes": 1390,
+      "sha256": "d6f204e330f4c7cd7db28788761c5c3bad20cd9896e35d66944cd1a4e6eb172f"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+      "bytes": 16384,
+      "sha256": "8ba7ddd7fce5574275dec0302caa1eb9f3d9ae812c6e1f44276a27b6d14fb9b7"
+    },
+    {
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\llvm-objdump.exe",
+      "bytes": 773120,
+      "sha256": "4c2e96004a0f7ac3d4a5a5b381f24df245823de9ff12114b933f1b5ccea4e3a7"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\native_scalar_readout_preparation_20261012.json",
+      "bytes": 4052,
+      "sha256": "dadf16a2ef7dfbd3947c0324a5aa6a89c02ee87fd24e974d4adf3622cf12f4fc"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_scalar_readout_preparation_20261012\\native_scalar_readout.dll",
+      "bytes": 71168,
+      "sha256": "0dc61dd85ed79af94b2a40806a39780dd6dbd0b81d33b278781bef621b07865e"
+    },
+    {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\GAUGED_NATIVE_STORED_AUDIT_PROTOCOL_20261012.md",
+      "bytes": 2137,
+      "sha256": "05df24b06dbb38265b35fe8f1120f118113c5a041169324ddbe5c73ad7eb6fe2"
+    }
+  ],
+  "compile_command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.exe",
+    "-O3",
+    "-mavx2",
+    "-mfma",
+    "-march=znver2",
+    "-fno-vectorize",
+    "-fno-slp-vectorize",
+    "-ffp-contract=off",
+    "-shared",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\gauged_native_scalar_reference.c",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_reference_preparation_20261012\\scalar_reference.dll",
+    "-lm"
+  ],
+  "dump_command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\llvm-objdump.exe",
+    "--disassemble-symbols=scalar_readout",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\native_scalar_readout_preparation_20261012\\native_scalar_readout.dll"
+  ],
+  "dll": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_reference_preparation_20261012\\scalar_reference.dll",
+    "bytes": 69120,
+    "sha256": "7ec9f4ecafae756953d7688851d81092f7d25a656494cdad0e74caf078e726be"
+  },
+  "log": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_reference_preparation_20261012\\compile.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "assembly": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\gauged_native_reference_preparation_20261012\\original_scalar_readout.asm",
+    "bytes": 24028,
+    "sha256": "6eb9cca6eb5a8740e8605bdba200a06a544d2cd79899fdbf7ca5852c63f93fec"
+  },
+  "exit_code": 0,
+  "seconds": 0.6410000000032596,
+  "scope": "Independent scalar explicit FMA reference;no original bodies/SIMD/numeric input/call. Original disassembly confirms sequential norm FMA,eight dot lanes,and final fused bias. Compile-only;future full output bit audit,not native precision/source quality admission."
+}
