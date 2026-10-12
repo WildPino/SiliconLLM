@@ -1,0 +1,44 @@
+{
+  "schema": "RECURRENT_OUTPUT_BASES_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\recurrent_output_bases_audit.py",
+    "bytes": 15910,
+    "sha256": "31f2a60f0152571872161b358e9bf35d51e36816cd6acd5e28e1106b7fa9af62"
+  },
+  "freeze": "1f06599b09dabc74928df70965df82d8585b0ea2",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_output_bases_result_20261012.json",
+    "bytes": 1344468,
+    "sha256": "51571f4b39dfbf07e3dbc292951c130c91702e2e4613e5de6ac2971c07f903ca"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_output_bases_result_20261012.terminal.json",
+    "bytes": 1318,
+    "sha256": "0b5e6a49f5bab1d35ff8479d91bac821a1fa8bc2b9ca4a466314d1693ffae791"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\recurrent_output_bases_binding_20261012.json",
+    "bytes": 391580,
+    "sha256": "b9a4f56cca82a6970582ff7d069bc878b95b60bb8b00a62f04083aaf8f295c18"
+  },
+  "records": 144,
+  "basis_head_layouts_verified": 288,
+  "all_output_words_verified": 1108230144,
+  "all_projected_input_words_verified": 51948288,
+  "all_sequential_scan_words_verified": 51948288,
+  "maximum": {
+    "covariance_relative": 1.0765341832028313e-15,
+    "weighted_kernel_relative": 8.176057231155695e-13,
+    "weighted_tail_relative": 3.902423076337936e-13,
+    "projected_input_relative": 2.0441534415322019e-07,
+    "sequential_scan_relative": 2.9314118838412564e-07,
+    "output_relative": 0.0,
+    "metric_delta": 1.6542323066914832e-14,
+    "energy_relative": 2.4097726201763976e-15
+  },
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 379.7661450000014,
+  "OS_peak": 781139968,
+  "scope": "Full FIT recurrent covariance,unchanged stored GM,all balanced bases/ranks,all384-coordinate state256 sequential scans,all controlled BF16 outputs/energies/metrics/aggregates/gates verified. Prior-control deltas are bound observations versus independently audited prior outputs,not exact CUDA replay. No native/model/n/50 admission."
+}

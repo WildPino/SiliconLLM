@@ -1,6 +1,16 @@
 # Native expert-count scaling: prior evidence
 
 **AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:all FIT GY_rec,unchanged GM,288 head/layout
+bases,51,948,288 projected input+51,948,288 scan values checked via full CPU
+recurrence,1,108,230,144 output values. Stored outputrelative0,scan2.93e-7,
+kernel8.18e-13,full hashesPASS. Site23 adaptive ownnorm mean.06357/worst.08701,
+all local gates PASS/both norm modes;fixed8.21257. Site0.27308/site12.79273,
+global local gatesFAIL. Capture30075/audit54288CLOSED0. Full source work retained;
+no native/chatbot/n/50 admission. Next
+[coupled sensitivity diagnostic](COUPLED_RECURRENCE_SENSITIVITY_NEXT_20261012.md),
+PROPOSED/UNIMPLEMENTED/UNBOUND;no unchanged averaged fit selected.
 [Recurrent-only384/full source skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all144 records/1,108,230,144 BF16 output
 words/energies/cross terms/aggregates/gates,relative output0,energy4.42e-15.
@@ -9,8 +19,7 @@ budgetsFAIL. All24DEV cases improve per site/layout/mode. Recurrent/skip errors
 cancel at12;old bases fit entirey,notrecurrenceonly. V2first fault CLOSED1;
 V3CLOSED0 retains252/576false precision bridges(.001);audit12382CLOSED0.
 Full source generators/gates/conv buffers retained,no causal/native admission.
-Next [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED/UNBOUND;GY_rec change and new actual compact scans.
+Subsequent FIT GY_rec change/new actual compact scans complete above.
 [Source-head2048 moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
 COMPLETE/full independent audit PASS:all8808 source rows,18,038,784 moments,
 three complete feature/RMS decoder gradient controls;max relative5.43e-12.

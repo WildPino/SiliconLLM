@@ -1,6 +1,10 @@
 # FIT recurrent-output bases, full source skip retained
 
-12 October2026. **SELECTED / PROPOSED / UNIMPLEMENTED / UNBOUND.**
+12 October2026. **HISTORICAL SELECTION; implementation/full independent audit COMPLETE/PASS**.
+See [result](RECURRENT_OUTPUT_BASES_RESULT_20261012.md). Local site23 adaptive
+passes;sites0/12/global local quality gates FAIL. Next
+[coupled recurrence/output sensitivity](COUPLED_RECURRENCE_SENSITIVITY_NEXT_20261012.md).
+Original selected design follows.
 Selected after the complete recurrent/full-skip comparison and its full
 independent numerical audit PASS. This changes the basis target, not merely the
 evaluation of an unchanged basis. Local model gates remain failed.

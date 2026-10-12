@@ -50,8 +50,15 @@ BF16 output words/energies/cross terms;relative output difference0. Removing
 projected skip loss improves0/23 markedly,12 modestly;all local qualityFAIL.
 Original F32 precision bridge252/576FAIL retained,not precision admission.
 Full generators/gates/conv buffers retained;no compact causal/native model.
-Next [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_NEXT_20261012.md)
-PROPOSED/UNIMPLEMENTED;change GY to y-D*x,not another unchanged basis replay.
+[FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md)
+now IMPLEMENTED/INDEPENDENTLY VERIFIED:FIT y-D*x covariance with unchanged GM,
+all288 new packed scans/51,948,288 values checked by full CPU state256 recurrence,
+all1,108,230,144 output values and bases/gates/hashes verified. Site23 adaptive
+ownnorm mean.06357/worst.08701,all local gates PASS/both norm modes. Sites0/12
+and global local gatesFAIL;source nonlinear work retained,no native model.
+Next [coupled sensitivity](COUPLED_RECURRENCE_SENSITIVITY_NEXT_20261012.md)
+PROPOSED/UNIMPLEMENTED:full RMS Jacobian,same-time/cross-head dependence,finite
+remainder;choose an objective repair before more averaged fitting.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

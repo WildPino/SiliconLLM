@@ -13,8 +13,13 @@ COMPLETE/full audit PASS:all8808 source rows/three full decoder controls.
 Newest [recurrent-only384/full skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md)
 COMPLETE/full audit PASS:all1,108,230,144 output words,energies/cross terms/gates;
 DEV ownnorm mean~.57->.29 at0/~.56->.30 at23,but~.84->.80 at12/localFAIL.
-Original F32 precision bridge252/576FAIL retained. Next FIT recurrent-output
-bases y-D*x; no causal model/native speed admitted.
+Original F32 precision bridge252/576FAIL retained. Newest
+[FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md)
+COMPLETE/full covariance/basis/temporal/output audit PASS:site23 adaptive
+DEV ownnorm30.38%->6.357%,all four local gates PASS/both norm modes;site12~79%
+and global local gatesFAIL. All51,948,288 scan values and1,108,230,144 output
+values independently checked. Next coupled RMS/head/time sensitivity diagnostic;
+no complete causal model/native speed admitted.
 
 ## Goal and constraints
 
@@ -43,6 +48,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [FIT recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md): source GY_rec y-D*x with unchanged GM/two new384 layouts/all288 packed scans;full independent CPU recurrence/basis/output audit PASS. Site23 adaptive local budgets PASS,ownnorm mean.06357/worst.08701;fixed8.21257. Ranks58/63 at heads20/31 explain allocation change. Site0.27308/site12.79273 FAIL;no global quality admission. Next diagnose coupled sensitivity before more averaged fits.
 - [Recurrent channels/full source skip](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md): all144 records/two layouts/two skip arms/two norm modes fully audited;relative output difference0,energy4.42e-15. All24DEV cases improve per site/layout/mode,local gates stillFAIL. At12 recurrent/skip errors cancel (negative cross23/24 and24/24). V2 first precision fault retained;V3 false1e-3 bridge flags retained252/576. Full source generators/gates/conv state injected;no compact chatbot. Next FIT-only recurrent-output basis change.
 - [Source-head feature moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md): all18,038,784 moments and full gradients for three different decoders independently audited PASS (max relative5.43e-12). Changing source-derived decoder supervision available;native F32 rounding remains separate. Capture32508/audit86463 CLOSED0. Next recurrent-only channel projection with full stateless skip.
 - [Entropy-mixture dual family](DUAL_ENTROPY_MIXTURE_RESULT_20261012.md): all8808 source rows/140928 direct moment-entropy-support rows fully audited PASS. Five FIT/five DEV positive lowers,worst.001183/.000626,case means6.93e-7/1.66e-7;no budget obstruction. Zero probability words0. No more primal iterations or causal model. Next compile2048 source-head moments instead of freezing decoder during causal transfer.
@@ -75,12 +81,16 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Implement/freeze/bind FIT recurrent-only output bases with full skip retained**,
-[selected next](RECURRENT_OUTPUT_BASES_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
-Change GY from full y to y-D*x;initially retain GM/rank policies/local budgets.
-New encoder requires new actual compact scans, not old latents. All48 histories/
-sites0/12/23;full source generators/gates/conv4 remain injected. Complete audit
-and explicit combined RMS;state96/native/causal composition remains separate.
+**Implement/freeze/bind coupled recurrence/output sensitivity diagnostic**,
+[selected next](COUPLED_RECURRENCE_SENSITIVITY_NEXT_20261012.md), PROPOSED/UNIMPLEMENTED/UNBOUND.
+Reuse actual new bases and source histories;separate full RMS radial Jacobian,
+same-time gate/recurrent dependence,cross-head residual interaction and finite
+first-order remainder. No new fit/scan/source forward until objective correction
+selected from this evidence. Site23 local accepted representation is a candidate
+for source-derived native layout/cost qualification;count all retained source
+generators/gates/conv/skip work. State96 composition remains separate.
+[Recurrent-output bases](RECURRENT_OUTPUT_BASES_RESULT_20261012.md) complete/
+INDEPENDENT_STORED_PASS/site23localPASS/globalFAIL;no compact chatbot.
 [Full-skip comparison](RECURRENT_ONLY_CHANNEL_SKIP_RESULT_20261012.md) complete/
 INDEPENDENT_STORED_PASS/localFAIL;precision bridge failed,not admitted.
 The [source-head moment compiler](SOURCE_HEAD_FEATURE_MOMENTS_RESULT_20261012.md)
@@ -93,9 +103,11 @@ the stated stationarity/residual identity. Do not extend winner-only rays.
 Moment/cost compilation,affine ray probe,GPU backend AND bounded distribution
 search/entropy dual audit complete;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
 separates emission-code supervision from full recurrent state/closure/future information.
-[Full-skip closure](recurrent_only_channel_skip_session_closure_20261012.json)
-records13123 V2 CLOSED1/18.876s,97264 V3 CLOSED0/184.582s,12382 audit CLOSED0;
-no owned live process. [Source-head closure](source_head_feature_moments_session_closure_20261012.json)
+[Recurrent-bases closure](recurrent_output_bases_session_closure_20261012.json)
+records30075 capture CLOSED0/298.010s,54288 audit CLOSED0/379.766s;
+no owned live process. [Full-skip closure](recurrent_only_channel_skip_session_closure_20261012.json)
+retains the original precision bridge fault/complete comparison.
+[Source-head closure](source_head_feature_moments_session_closure_20261012.json)
 retains the completed changing-decoder compiler. [Dual closure](dual_entropy_mixture_session_closure_20261012.json)
 retains the preceding complete dual witness family.
 Historical native precision failures remain in
