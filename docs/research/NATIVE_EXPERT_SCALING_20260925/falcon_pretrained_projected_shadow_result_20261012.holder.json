@@ -1,0 +1,39 @@
+{
+  "schema": "FALCON_PROJECTED_SHADOW_HOLDER_V1",
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_binding_20261012.json",
+    "bytes": 1202559,
+    "sha256": "beccab00ee55c474fd67b8adcb2100f1fd0887508679f788da799d1b6cc2d402"
+  },
+  "freeze": "65abb2e6b4a7f850d941f97972f509f25025cf55",
+  "command": [
+    "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\falcon_pretrained_projected_shadow.py",
+    "--worker",
+    "--binding",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_binding_20261012.json",
+    "--binding-sha",
+    "beccab00ee55c474fd67b8adcb2100f1fd0887508679f788da799d1b6cc2d402",
+    "--freeze",
+    "65abb2e6b4a7f850d941f97972f509f25025cf55",
+    "--directory",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\falcon_pretrained_projected_shadow_20261012",
+    "--out",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\falcon_pretrained_projected_shadow_result_20261012.json"
+  ],
+  "holder_pid": 23536,
+  "holder_creation_time": 1791790993.7018092,
+  "timing_control_admitted": false,
+  "worker_pid": 27784,
+  "worker_creation_time": 1791790993.8985312,
+  "exit_code": 1,
+  "error": "AssertionError('Traceback (most recent call last):\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\falcon_pretrained_projected_shadow.py\", line 348, in <module>\\n    (launch if a.launch else worker)(a)\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\falcon_pretrained_projected_shadow.py\", line 216, in worker\\n    check();a.directory.mkdir();stage=\\'trained_export\\'\\n    ^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\falcon_pretrained_projected_shadow.py\", line 213, in check\\n    for item in b[\\'inputs\\']:guard();assert extent(item[\\'path\\'])==item,item[\\'path\\']\\n                            ^^^^^^^\\n  File \"D:\\\\_THINGS\\\\Progetti\\\\SiliconLLM\\\\benchmarks\\\\native_expert_scaling\\\\falcon_pretrained_projected_shadow.py\", line 210, in guard\\n    assert not proc.children(recursive=True),\\'unexpected child\\'\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: unexpected child\\n')",
+  "seconds": 4.719000000011874,
+  "worker_OS_peak_through_exit": 424660992,
+  "holder_OS_peak": 33316864
+}

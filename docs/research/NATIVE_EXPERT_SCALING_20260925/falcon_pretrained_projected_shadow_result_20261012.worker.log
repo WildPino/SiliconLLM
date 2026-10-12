@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\falcon_pretrained_projected_shadow.py", line 348, in <module>
+    (launch if a.launch else worker)(a)
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\falcon_pretrained_projected_shadow.py", line 216, in worker
+    check();a.directory.mkdir();stage='trained_export'
+    ^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\falcon_pretrained_projected_shadow.py", line 213, in check
+    for item in b['inputs']:guard();assert extent(item['path'])==item,item['path']
+                            ^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\falcon_pretrained_projected_shadow.py", line 210, in guard
+    assert not proc.children(recursive=True),'unexpected child'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpected child
