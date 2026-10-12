@@ -1,0 +1,36 @@
+{
+  "schema": "WHITENED_CANDIDATE_AUDIT_LAUNCH_V1",
+  "created_at": "2026-10-13T00:12:03.7857786+02:00",
+  "freeze": "987a3ecba1fbff8f10ad5505c0e5bc2f04d23b6f",
+  "argv": [
+    "C:/Users/giosa/AppData/Local/Programs/Python/Python312/python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "benchmarks/native_expert_scaling/whitened_candidate_audit.py",
+    "--report",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/whitened_candidate_result_20261012.json",
+    "--terminal",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/whitened_candidate_result_20261012.terminal.json",
+    "--report-sha",
+    "9a7204dad01671d831eaaaa4604fd1b11540233100d22686ce61582fe4cf901c",
+    "--terminal-sha",
+    "1bfb4dbecba4f3d2c4753992a7da1bb496dc5b023e0583009a23360fe47df2db",
+    "--freeze",
+    "987a3ecba1fbff8f10ad5505c0e5bc2f04d23b6f",
+    "--out",
+    "docs/research/NATIVE_EXPERT_SCALING_20260925/whitened_candidate_adjudication_20261012.json"
+  ],
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "6",
+    "OMP_NUM_THREADS": "6",
+    "MKL_NUM_THREADS": "6"
+  },
+  "limits": {
+    "seconds": 1200,
+    "OS_bytes": 6442450944
+  },
+  "timing_admitted": false
+}
