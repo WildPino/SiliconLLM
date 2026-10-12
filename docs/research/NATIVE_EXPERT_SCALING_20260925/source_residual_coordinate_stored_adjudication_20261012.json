@@ -1,0 +1,70 @@
+{
+  "schema": "SOURCE_RESIDUAL_COORDINATE_STORED_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\source_residual_coordinate_stored_audit.py",
+    "bytes": 7931,
+    "sha256": "a472b2021f89b4f1a86a3f1e8b7732b623f21987c626260ec9f1d17a49fd45e6"
+  },
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_residual_coordinate_feasibility_result_20261012.json",
+    "bytes": 299022,
+    "sha256": "ed44487ffd24c4f876c947fb84ecd1a98adb61e66ee8d1c740a226c14c941df3"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\source_residual_coordinate_feasibility_result_20261012.terminal.json",
+    "bytes": 1630,
+    "sha256": "c3c54395ae6becd89bde967c01400305afc4ca5062383f22cdcc24bac9590373"
+  },
+  "all7_covariances_full_eigensystems_and336_case_metrics_checked": true,
+  "all6_residual_transports_checked": true,
+  "all_inputs_outputs_before_after_exact": true,
+  "max_quadratic_metric_delta": 1.7763568394002505e-15,
+  "checks": [
+    {
+      "boundary": 0,
+      "covariance_relative": 2.1177051665370262e-16,
+      "orthogonality_max": 4.715628929008453e-15,
+      "full_spectral_reconstruction_relative": 2.5939880583531512e-15
+    },
+    {
+      "boundary": 4,
+      "covariance_relative": 2.017969525191152e-16,
+      "orthogonality_max": 5.329070518200751e-15,
+      "full_spectral_reconstruction_relative": 2.363614911793838e-15
+    },
+    {
+      "boundary": 8,
+      "covariance_relative": 1.3840521638706563e-16,
+      "orthogonality_max": 5.388051116383963e-15,
+      "full_spectral_reconstruction_relative": 2.793332785085214e-15
+    },
+    {
+      "boundary": 12,
+      "covariance_relative": 1.8429783185436675e-16,
+      "orthogonality_max": 6.185156553595306e-15,
+      "full_spectral_reconstruction_relative": 2.495261979989915e-15
+    },
+    {
+      "boundary": 16,
+      "covariance_relative": 1.6434436517793036e-16,
+      "orthogonality_max": 5.329070518200751e-15,
+      "full_spectral_reconstruction_relative": 2.1191880114692645e-15
+    },
+    {
+      "boundary": 20,
+      "covariance_relative": 1.6701510051064482e-16,
+      "orthogonality_max": 5.464378949326942e-15,
+      "full_spectral_reconstruction_relative": 1.9746638283431063e-15
+    },
+    {
+      "boundary": 24,
+      "covariance_relative": 2.0773834393839115e-16,
+      "orthogonality_max": 4.636482170417011e-15,
+      "full_spectral_reconstruction_relative": 2.175185182459478e-15
+    }
+  ],
+  "decision": "COMPLETED_PROXY_FAILURE",
+  "seconds": 60.014999999984866,
+  "OS_peak": 273588224,
+  "scope": "Independent moment accumulation/full spectral reconstruction and quadratic projection metrics; no eigensolver/refit/source/shadow/GPU/native replay, no capacity/behavior/throughput admission."
+}
