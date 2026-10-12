@@ -33,7 +33,12 @@ clock15.625ms/desktop sharing,timing admission false. No model/code optimization
 now IMPLEMENTED/FROZEN;capture10400 CLOSED0 after1391.396s,budget36 completed/
 partial37 updates. All8808 final native codes/source q computed;provisional
 DEVcaseKL.0483465/dis2.3003%,all original budgetsFAIL,lower0. Full four stored-
-point/native independent audit13729 LIVE. No image-optimum/convergence admission.
+point/native independent audit13729 COMPLETE/PASS:all35232 point rows/all577249896
+native logits bit exact/direct source q;no image-optimum/convergence admission.
+[Actual result](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md).
+Next [entropy-mixture dual witnesses](DUAL_ENTROPY_MIXTURE_WITNESS_NEXT_20261012.md)
+UNIMPLEMENTED:new certificate family outside current exponential-family point,
+not more unchanged iterations. No causal or model-quality admission from oracles.
 [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md) states
 history-to-code categorical supervision and full-state closure/future-information
 requirements;oracle code regression is not a pretrained-to-engine converter.

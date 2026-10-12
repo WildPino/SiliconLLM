@@ -1,10 +1,12 @@
 # Native expert-count scaling: prior evidence
 
-**AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; full audit13729 LIVE.**
-Capture10400 CLOSED0/source99d0d37/launch331609d,1391.396s;budget36 completed/
-partial37. Native DEVcaseKL.0483465/dis2.3003%,all quality gatesFAIL/lower0.
-Provisional oracle only,not model quality/capacity/convergence. Full stored-point/
-native audit source59c9c87/launch910eb10/session13729 LIVE,1200s/OS6GiB.
+**AUTHORITATIVE 12 October2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+[All-label native probability oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md)
+COMPLETE/full independent audit PASS:4 full checkpoints/35232 point rows/all
+577249896 native logits bit exact/source q and quality. Native DEVcaseKL.0483465/
+dis2.3003% versus2.93425/41.09%;all budgetsFAIL/lower0. Budget36 completed/partial37,
+not optimum or causal model. New entropy-mixture dual family proposed before
+long unchanged primal repeat;UNIMPLEMENTED. Capt10400/audit13729 CLOSED0.
 [GPUF64 all-label initial loss/gradient/cost](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md)
 COMPLETE/full independent CPU probability audit PASS:8808 complete losses/
 257-gradients/IDs,CPU/GPU errors~2.5e-14/zeroID changes. Component nominal pass

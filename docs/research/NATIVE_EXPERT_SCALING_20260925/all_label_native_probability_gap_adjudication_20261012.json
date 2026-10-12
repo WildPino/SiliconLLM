@@ -1,0 +1,67 @@
+{
+  "schema": "ALL_LABEL_NATIVE_PROBABILITY_GAP_AUDIT_V1",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\all_label_native_probability_gap_audit.py",
+    "bytes": 15386,
+    "sha256": "dee77af3599a74979c9beff8393aea4bd651ead9dbb5bf151f292a81c9a327fa"
+  },
+  "freeze": "59c9c87c0ad264da91266fb0cedcdbc4ab4db0aa",
+  "report": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\all_label_native_probability_gap_result_20261012.json",
+    "bytes": 63528,
+    "sha256": "5f0de1e4fe6246f2f9c2c231d30db8b48fd1f76c1d1dd8d9fa1537df40b7379c"
+  },
+  "terminal": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\all_label_native_probability_gap_result_20261012.terminal.json",
+    "bytes": 1375,
+    "sha256": "352ba338558ba32d35196b34ce885ab94d75d5b00fc1765e4b91bb10305f0172"
+  },
+  "binding": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\all_label_native_probability_gap_binding_20261012.json",
+    "bytes": 594997,
+    "sha256": "6d8ae9731668cc69f6de1eb13fefb68d8695fd566203c7c26552cbb5fa1e7f70"
+  },
+  "checkpoints": 4,
+  "all_stored_checkpoint_rows": 35232,
+  "identical_current_lower_rows_reused_exactly": 21268,
+  "all_checkpoint_functions_bounds_upper_losses_checked": true,
+  "all577249896_native_scores2254848_normalized_words8808_inverse_words_bit_exact": true,
+  "all_source_native_probability_quality_rows_checked": true,
+  "split_checks": [
+    {
+      "split": "FIT",
+      "rows": 4422,
+      "native_bits_exact": true,
+      "quality_gates": {
+        "case_mean_KL": false,
+        "case_mean_disagreement": false,
+        "worst_label_KL": false,
+        "every_case_KL": false,
+        "every_case_disagreement": false,
+        "domains": false
+      },
+      "real_lower_violation": false
+    },
+    {
+      "split": "DEV",
+      "rows": 4386,
+      "native_bits_exact": true,
+      "quality_gates": {
+        "case_mean_KL": false,
+        "case_mean_disagreement": false,
+        "worst_label_KL": false,
+        "every_case_KL": false,
+        "every_case_disagreement": false,
+        "domains": false
+      },
+      "real_lower_violation": false
+    }
+  ],
+  "max_relative": 1.14131706725479e-11,
+  "max_scalar_delta": 1.8721135752741702e-12,
+  "before_after_hashes_exact": true,
+  "decision": "INDEPENDENT_STORED_PASS",
+  "seconds": 545.9772058999806,
+  "OS_peak": 3143716864,
+  "scope": "Every stored point/full native/source probability audit. Numerical real-domain bounds,not interval/globalF32 floor;no unstored trajectory replay/convergence/causal model/useful-n/50 admission."
+}

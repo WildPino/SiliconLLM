@@ -1,11 +1,11 @@
 # Native expert scaling: research control index
 
-**12 October 2026: goal ACTIVE/INCOMPLETE; full oracle AUDIT13729 LIVE.**
-Capture10400 CLOSED0,PID11508/create1791823992.0605588,1391.396s;solver budget
-stop36 completed outer/partial37. Native DEVcaseKL2.93425->.0483465/dis41.09%->
-2.3003%,all quality gates FAIL/lower0. PROVISIONAL until full independent audit.
-Audit source59c9c87,[launch](all_label_native_probability_gap_audit_launch_20261012.json)
-910eb10,1200s/OS6GiB. Preserve same live handle on timeout;do not restart.
+**12 October 2026: goal ACTIVE/INCOMPLETE; no owned run live.**
+Newest [all-label probability-image oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md)
+COMPLETE/full audit PASS:4 checkpoints/35232 point rows/all577249896 native F32
+logits bit exact/source probabilities and quality verified. Native DEVcaseKL
+2.93425->.0483465/dis41.09%->2.3003%;all quality gates FAIL/lower0. Budget stop
+36 completed outer/partial37,not convergence. New mathematical dual witness next.
 
 ## Goal and constraints
 
@@ -34,6 +34,7 @@ work requires announcement, exact bounded launch, user-requested PAUSE and stop.
 
 ## Latest decisive evidence
 
+- [All-label native probability oracle](ALL_LABEL_NATIVE_PROBABILITY_GAP_RESULT_20261012.md): fully audited native code room;FITcaseKL.01725/DEV.04835,case disagreement1.53%/2.30%,worst label1.005/2.011. Quality fails,lower0/no reader obstruction proved. Source-operator/per-label oracle evidence,not causal model/own-history/family/n/same50 admission.
 - [Full GPUF64 loss/gradient qualification](NATIVE_HEAD_GPU_PREFLIGHT_RESULT_20261012.md): all8808 initial losses/gradients/IDs independently audited on CPU PASS;GPU/CPU max differences~2.5e-14,zeroIDs. Local component nominal pass~4.3s versus CPU28.2s;Windows clock15.625ms/desktop sharing,no clean timing admission. No optimizer/new native code yet. Backend now available for full probability-image study.
 - [Affine native decision rays](NATIVE_HEAD_AFFINE_RAYS_RESULT_20261012.md): all2361 distinct donor-winner full constraints/8808 label associations audited;2342 actual native codes choose their target. All153487654 F32 logits bit exact with independent scalar reference. DEV mean case coverage98.6616%,but available KL contribution9.6007 versus existing2.93425. Winner availability is oracle evidence,not probability preservation/causal encoding. No general head infeasibility or throughput claim.
 - [Actual native head moments/cost/guard diagnosis](NATIVE_HEAD_DOMAIN_PREFLIGHT_RESULT_20261012.md): all8808 source moments/IDs/codes/losses/gradients/support bounds independently audited PASS; no positive initial floor. First run CLOSED1, diagnostic V2 CLOSED0 retains both false1e-5 KL flags. All577249896 original logits compared; KL deltas<=1.325e-5 fit the score-range rounding bound,zero ID changes. CPU pass estimate28.2s; no clean timing admission. No optimization implemented.
@@ -62,24 +63,20 @@ are historical in [archive](INDEX_THROUGH_RECOVERED_V4_LIVE_20261011.md).
 
 ## Next and exact resumption
 
-**Finish the LIVE all8808-label probability-image independent audit**,
-[selected bounded design](ALL_LABEL_NATIVE_PROBABILITY_GAP_DESIGN_20261012.md),
-Source/protocol/binding now IMPLEMENTED/FROZEN;GPUF64 qualification COMPLETE.
-Selected design:128 max round-robin updates,1200s solver budget/1800s capture,
-projected half-ball descent plus separately evaluated executable sphere codes,
-actual native full source-probability capture,all stored-point/native full audit.
-Capture CLOSED0,1800s/solver1200s/OS6GiB/GPU2GiB/output4GiB. The prospective4GiB
-OS cap was raised before execution for simultaneous runtime/source head/mapping.
-Audit source/protocol [59c9c87](ALL_LABEL_NATIVE_PROBABILITY_GAP_AUDIT_PROTOCOL_20261012.md)
-frozen,1200s/OS6GiB;bound completed report/terminal hashes,session13729 LIVE.
+**Implement/freeze/bind all-label entropy-mixture dual witnesses**,
+[new mathematical next](DUAL_ENTROPY_MIXTURE_WITNESS_NEXT_20261012.md),
+PROPOSED/UNIMPLEMENTED/UNBOUND. Current point support is only one dual distribution;
+mixtures r=(1-lambda)p+lambda q can strengthen entropy lowers without extending
+unchanged primal descent. Fixed all-label ladder and independent full probability/
+moment/entropy/support audit before any numerical reader-floor admission.
 Relaxed half-ball lowers and actual positive-sphere native uppers are different;
 moment matching separates information projection and encoder loss only under
 the stated stationarity/residual identity. Do not extend winner-only rays.
-Moment/cost compilation,affine ray probe AND GPU backend complete;full distribution
-search stopped on budget/audit running;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
+Moment/cost compilation,affine ray probe,GPU backend AND bounded distribution
+search/audit complete;causal acquisition remains open. [Causal transfer boundary](CAUSAL_TRANSFER_AFTER_READOUT_GATE_20261012.md)
 separates emission-code supervision from full recurrent state/closure/future information.
-[GPU closure](native_head_gpu_preflight_session_closure_20261012.json) records
-15890 prepare CLOSED0,24009 capture CLOSED0,42536 audit CLOSED0;new13729 audit live.
+[Oracle closure](all_label_native_probability_gap_session_closure_20261012.json)
+records10400 capture CLOSED0/1391.396s,13729 audit CLOSED0/545.977s;no owned live process.
 Historical native precision failures remain in
 [preflight closure](native_head_domain_preflight_session_closure_20261012.json).
 
