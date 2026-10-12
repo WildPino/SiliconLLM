@@ -77,7 +77,7 @@ def main(a):
                 scorewords+=n*65537;rows+=n;totalcalls+=1
                 original=partial(Y[lo:hi]/old['radius'][lo:hi,None],A);teacher=partial(H[lo:hi]/np.sqrt(np.mean(H[lo:hi]**2,axis=1,keepdims=True)+b['epsilon_source']),A)
                 gauged=(t[lo:hi]@C.T+beta)/radius[lo:hi,None];native=refout.astype('f8');nv_values[lo:hi]=measures(native,teacher);gv_values[lo:hi]=measures(gauged,teacher);pres_values[lo:hi]=measures(native,original)
-                compare(pack['native_metrics'][lo:hi],nv_values[lo:hi],1e-9);compare(pack['gauge_metrics'][lo:hi],gv_values[lo:hi],1e-9);compare(pack['preservation_metrics'][lo:hi],pres_values[lo:hi],1e-5)
+                compare(pack['native_metrics'][lo:hi],nv_values[lo:hi],1e-9);compare(pack['gauge_metrics'][lo:hi],gv_values[lo:hi],1e-9);compare(pack['preservation_metrics'][lo:hi],pres_values[lo:hi],1e-9)
                 # Preservation KL is tiny;compare absolute KL separately to avoid dividing by roundoff.
                 assert np.max(np.abs(pack['preservation_metrics'][lo:hi,0]-pres_values[lo:hi,0]))<=1e-10
                 normref=t[lo:hi]/radius[lo:hi,None]
